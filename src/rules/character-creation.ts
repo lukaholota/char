@@ -2,13 +2,12 @@ import {
   addAbilityBonuses,
   applyRacialChoices,
   calculateAbilityModifier,
-  extractFlexibleGroups,
   getPlainBonuses,
   getSimpleBonuses,
   isAbilityKey,
   normalizeASI,
-  plainAsiChoiceGroups,
 } from "./abilities";
+import { findEffectiveRacialASI, listRacialChoiceGroups } from "./racial-ability-choices";
 import { calculateInitialHitPoints } from "./health";
 import { calculateCasterLevel } from "./spellcasting";
 import type { AbilityKey, AbilityScores, BackgroundASIChoice, SpellcastingKind } from "./types";
@@ -152,7 +151,7 @@ function buildBaseAbilityScores(input: CreationAbilityInput): AbilityScores {
 }
 
 function applyRacialAbilityScores(scores: AbilityScores, input: CreationAbilityInput): AbilityScores {
-  const effectiveASI = input.variantASI ?? (input.subraceReplacesASI ? input.subraceASI : input.raceASI);
+  const effectiveASI = findEffectiveRacialASI(input);
   let updated = scores;
   if (input.isDefaultASI) {
     updated = addAbilityBonuses(updated, getSimpleBonuses(normalizeASI(effectiveASI))) as AbilityScores;
@@ -162,10 +161,7 @@ function applyRacialAbilityScores(scores: AbilityScores, input: CreationAbilityI
 
   if (!input.racialChoices) return updated;
   const choices = input.isDefaultASI ? input.racialChoices.basicChoices : input.racialChoices.tashaChoices;
-  const raceGroups = extractFlexibleGroups(effectiveASI, input.isDefaultASI ? "basic" : "tasha");
-  const fallbackGroups = raceGroups.length === 0 ? plainAsiChoiceGroups(effectiveASI) : [];
-  const extraGroups = !input.isDefaultASI && !input.subraceReplacesASI ? plainAsiChoiceGroups(input.subraceASI) : [];
-  return applyRacialChoices(updated, choices, [...raceGroups, ...fallbackGroups, ...extraGroups]) as AbilityScores;
+  return applyRacialChoices(updated, choices, listRacialChoiceGroups(input)) as AbilityScores;
 }
 
 function applyFeatAbilityScores(scores: AbilityScores, feat: CreationFeatAbilityInput): { scores: AbilityScores; resilientSavingThrows: string[] } {

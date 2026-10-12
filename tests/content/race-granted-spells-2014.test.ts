@@ -34,6 +34,17 @@ describe("O48 — заклинання, які раса 2014 дає сама", (
     expect(earned("DWARF_2014", "DWARF_DUERGAR_GRAY_SCAG", 5)).toEqual(["Enlarge/Reduce", "Invisibility"]);
   });
 
+  it("напівельф зі спадком дроу (SCAG): Dancing Lights з 1-го, Faerie Fire з 3-го, Darkness з 5-го, лише з вибором «Магія дроу»", () => {
+    const withDrowMagic = (characterLevel: number) =>
+      findEarnedRaceSpells2014({ race: "HALF_ELF_2014", subrace: null, characterLevel, chosenRaceOptionNames: ["Магія дроу"] }).map((spell) => spell.engName);
+    expect(withDrowMagic(2)).toEqual(["Dancing Lights"]);
+    expect(withDrowMagic(3)).toEqual(["Dancing Lights", "Faerie Fire"]);
+    expect(withDrowMagic(5)).toEqual(["Dancing Lights", "Faerie Fire", "Darkness"]);
+    expect(earned("HALF_ELF_2014", null, 20)).toEqual([]);
+    expect(findEarnedRaceSpells2014({ race: "HALF_ELF_2014", subrace: null, characterLevel: 20, chosenRaceOptionNames: ["Прудконогість"] })).toEqual([]);
+    expect(findEarnedRaceSpells2014({ race: "ELF_2014", subrace: "ELF_DARK_DROW_2014", characterLevel: 1, chosenRaceOptionNames: ["Магія дроу"] }).map((spell) => spell.engName)).toEqual(["Dancing Lights"]);
+  });
+
   it("вибір гравця не видається: Високий ельф, Кобольд, Астральний ельф — непокриті", () => {
     expect(uncovered.map((entry) => entry.subrace ?? entry.race).sort()).toEqual(["ASTRAL_ELF_SPELLJAMMER", "ELF_HIGH_2014", "KOBOLD_MPMM"]);
     expect(earned("ELF_2014", "ELF_HIGH_2014", 20)).toEqual([]);

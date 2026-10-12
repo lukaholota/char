@@ -1,0 +1,3677 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "4ff03937ae37103e68b92b50ddcb107a652d130f6843a6050c594848173e153f",
+  "sourceRevision": {
+    "revisionId": "rpgbot-4deb3dc96eb7972a-4ff03937ae37103e",
+    "sourceId": "rpgbot-4deb3dc96eb7972a",
+    "fetchedAt": "2026-09-29T19:12:57.915507+00:00",
+    "sourceUpdatedAt": "2026-08-02T12:25:43-04:00",
+    "contentHash": "cb7dbb66600b22262b9706e8ea1bbe9c82781d6b95eb7c2523cd46d739020c82",
+    "title": "DnD 5e Warlock Subclasses Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-4deb3dc96eb7972a-4ff03937ae37103e.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your choice of Otherworldly Patron has a significant impact on both the theme and the mechanics of your Warlock. While several subclasses like the Archfey and the Genie will mostly add options which complement the Warlock’s core class features, other subclasses like the Celestial and the Hexblade will expand on the Warlock’s capabilities, allowing them to expand into new roles within the party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For tips on roleplaying based on your subclass, see "
+            },
+            {
+              "type": "link",
+              "text": "Otherworldly Patrons and You",
+              "href": "https://rpgbot.net/dnd5/players/otherworldly-patrons-and-you/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article is for the 2014 DnD 5e rules. For help with the 2024 rules, see our "
+            },
+            {
+              "type": "link",
+              "text": "2024 DnD 5.5 Warlock Subclasses Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/2024-warlock/warlock-subclasses/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Warlock Subclasses – Otherworldly Patrons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/#subclasses"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Archfey (PHB)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/#archfey"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Celestial (XGtE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/#celestial"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Fathomless (TCoE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/#fathomless"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Fiend (PHB)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/#fiend"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Genie (TCoE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/#genie"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Great Old One (PHB)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/#great-old-one"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Hexblade (XGtE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/#hexblade"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Undead (VRtR)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/#undead"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Undying (SCAG)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/#undying"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-subclasses",
+      "heading": "Warlock Subclasses – Otherworldly Patrons",
+      "sourceAnchor": "subclasses",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-archfey",
+      "parentSectionId": "section-subclasses",
+      "heading": "The Archfey (PHB)",
+      "sourceAnchor": "archfey",
+      "blocks": [
+        {
+          "blockId": "block-section-archfey-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Focused on illusion, deception, and enchantment. The Fey’s subclass features provide a variety of useful options. However, illusions, enchantments, and fear effects face challenges because resistance and immunity to those effects are common. You’ll need to diversify your capabilities to make sure that running into something without a brain doesn’t reduce you to spamming Eldritch Blast with no other useful options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-archfey-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Archfey Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-archfey-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Expanded Spell List"
+            },
+            {
+              "type": "text",
+              "text": ": A broad mix of\n\t\tutility, offensive, and defensive options. They’re all enchantments or\n\t\tillusions, so be cautious about creatures immune to those effects.\n\t\t"
+            },
+            {
+              "type": "text",
+              "text": "\n\t"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-archfey-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Faerie Fire makes\n\t\t\t\tthings very easy for any Rogues in the party, and it’s a great way to\n\t\t\t\thandle invisible foes. Sleep is usually an option which Wizards dump\n\t\t\t\tafter low levels because it’s not good enough to spend high-level spell\n\t\t\t\tslots on, but Warlocks cast every spell with their best spell slot, so\n\t\t\t\tthere’s no reason why Sleep can’t remain a go-to option for a\n\t\t\t\tWarlock."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Two decent\n\t\t\t\tsave-or-suck options. Calm Emotions can handle crowds, and Phantasmal\n\t\t\t\tForce can handle single targets. Unfortunately neither benefit from\n\t\t\t\tspell level scaling."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Blink is an\n\t\t\t\teffective defensive buff which doesn’t require Concentration, but Shadow\n\t\t\t\tof Moil comes online at 4th-level spells, and if you’re going to spend a\n\t\t\t\tspell slot and an Action for a 1-minute buff, you want it to be Shadow\n\t\t\t\tof Moil. Plant Growth isn’t always useful, but when it works it’s excellent."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Dominate Beast is\n\t\t\t\tvery situational, especially since you won’t be running into many beasts\n\t\t\t\tby the time you can cast 4th-level spells. Greater Invisibility is an\n\t\t\t\tabsolutely fantastic spell for many reasons, but in combat Shadow of\n\t\t\t\tMoil may be more appealing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Dominate Person is\n\t\t\t\tamong the best single-target control/debuff spells in the game, but it\n\t\t\t\tis single-target and only works against a single creature type. Humanoid\n\t\t\t\tenemies in combat at this level are uncommon, and when they do appear\n\t\t\t\tthey’re typically major antagonists, but you can still use Dominate\n\t\t\t\tPerson in non-combat situations to accomplish numerous goals by\n\t\t\t\tdominating NPCs. Seeming is basically a mass version of Disguise Self\n\t\t\t\twith a huge duration, and while that’s very situational, the 8-hour\n\t\t\t\tduration means that you can cast it early in the day and immediately\n\t\t\t\ttake a Short Rest to recover your spell slot. The ability to target\n\t\t\t\tunwilling creatures opens up some hilarious tactical options like\n\t\t\t\tdisguising everyone in the room (including enemies) as the same\n\t\t\t\tcreature, and if that doesn’t scream “archfey” I don’t know what\n\t\t\t\tdoes."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-archfey-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fey Presence"
+            },
+            {
+              "type": "text",
+              "text": ": A 10-foot cube originating\n\t\tfrom you means that you need to be nearly adjacent to whatever you want to\n\t\taffect, and you’re unlikely to effect more than one or two targets at the\n\t\tsame time. The effect is helpful if you get caught in melee and don’t want\n\t\tto be because you can make targets Frightened before running away\n\t\t(Frightened imposes Disadvantage on their Opportunity Attack), but try your\n\t\tbest to never need this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-archfey-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Misty Escape"
+            },
+            {
+              "type": "text",
+              "text": ": This is a great way to get\n\t\taway from a big enemy with multi-attack or from damage-dealing area effects\n\t\twhich leave lingering effects. Or, if you don’t have a good teleportation\n\t\toption, have your party members slap you around a little and “escape” from\n\t\tthem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-archfey-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Beguiling Defenses"
+            },
+            {
+              "type": "text",
+              "text": ": Situational by\n\t\tdesign, but charm effects are common, and turning them back upon the\n\t\tcreature can be both powerful and hilarious. Imagine turning a vampire’s\n\t\tCharm back upon the vampire."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-archfey-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dark Delirium"
+            },
+            {
+              "type": "text",
+              "text": ": This is almost a\n\t\tsingle-target save-or-suck, but the target can still act freely for the most\n\t\tpart (within the confines of the Charmed or Frightened condition). The\n\t\teffect ends if the target takes damage, so if your allies are going to pile\n\t\tin on the target they should try to make all of their attacks occur before\n\t\tthe target gets another chance to act. You could use this to briefly charm a\n\t\ttarget and have a nice conversation with them, but one minute is a short\n\t\tduration so you need to work fast."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-celestial",
+      "parentSectionId": "section-subclasses",
+      "heading": "The Celestial (XGtE)",
+      "sourceAnchor": "celestial",
+      "blocks": [
+        {
+          "blockId": "block-section-celestial-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re desperate for healing but also need to be a warlock for some reason, the Celestial is fine. Otherwise, it’s a mix of decent healing and disappointing blasting on top of the Warlock’s excellent core features. If you want to actually cast spells like a cleric, consider the "
+            },
+            {
+              "type": "link",
+              "text": "Divine Soul Sorcerer",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/divine-soul/"
+            },
+            {
+              "type": "text",
+              "text": " instead."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-celestial-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Celestial Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-celestial-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ": Most of the options\n\t\tare poor attempts to introduce fire damage to the Warlock’s spell list, but\n\t\tthere are a handful of useful options mixed in with the garbage, including\n\t\tstaple healing options like Lesser Restoration and Restoration.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": You don’t really\n\t\t\t\tneed either. Cure Wounds is tempting, but you get Healing Light which\n\t\t\t\twill provide comparable healing without eating your extremely limited\n\t\t\t\tspell slots. You can still use Cure Wounds right before a short rest to\n\t\t\t\tget some healing out of any leftover spell slots, but I’ve never seen a\n\t\t\t\twarlock make it to a short rest with remaining spell slots."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Both good options,\n\t\t\t\tbut Lesser Restoration should be left to your party’s divine spellcaster\n\t\t\t\tif possible. Flaming Sphere looks tempting with Radiant Soul, but\n\t\t\t\tRadiant Soul only applies to one damage roll for a given spell, so you\n\t\t\t\tdon’t get to apply it every time your sphere hits something. Still, it’s\n\t\t\t\ta decent area control option, and you get a lot of use out of a single\n\t\t\t\tspell slot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Get Revivify. Let\n\t\t\t\tme clarify: "
+              },
+              {
+                "type": "emphasis",
+                "text": "you should really get Revivify. It’s really good"
+              },
+              {
+                "type": "text",
+                "text": ".\n\t\t\t\tThe one concern is that you only have two spell slots until 11th level\n\t\t\t\tand it’s hard to reserve one of them so that you always have revivify\n\t\t\t\tready. Get a Pearl of Power if you can."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Wall of Fire is one\n\t\t\t\tof the most iconic area control spells, and it works very well in the\n\t\t\t\tWarlock philosophy of spending one spell slot to massively reshape an\n\t\t\t\tencounter before reverting to cantrips. You can use invocations to\n\t\t\t\tpush/pull enemies through the wall, too. Unfortunately you still only\n\t\t\t\tget to apply Radiant Soul once each time you cast it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Flame Strike is\n\t\t\t\tfine, but it does less damage in a smaller AOE than Fireball and Radiant\n\t\t\t\tSoul’s bonus damage only affects one target. In general, spending a\n\t\t\t\tspell slot to deal instantaneous AOE damage is rarely a good use of a Warlock’s  resources compared to other damaging options like Hunger of Hadar.\n\t\t\t\tRestoration is a situational but important healing option. If you can,\n\t\t\t\tleave high-powered healing to your party’s divine spellcaster."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bonus Cantrips"
+              },
+              {
+                "type": "text",
+                "text": ": Warlocks don’t have a way\n\t\tto create light with a cantrip, so Light is nice. Sacred Flame won’t matter\n\t\toften since Eldritch Blast will outpace Sacred Flame’s damage (especially\n\t\twith Agonizing Blast), but more cantrips never hurt and sometimes you need\n\t\tto keep zombies down or deal with creatures that have high AC but low Dexterity\n\t\tsaves."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Healing Light"
+              },
+              {
+                "type": "text",
+                "text": ": Roughly equivalent to\n\t\tHealing Word, but without eating into your spell slots. This provides enough\n\t\thealing that the Celestial Warlock made a solid showing in the\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Healbot Olympics",
+                "href": "https://rpgbot.net/dnd5/characters/healbot-olympics"
+              },
+              {
+                "type": "text",
+                "text": ".\n\t\tHowever, it’s the Celestial’s only healing option and doesn’t solve problems\n\t\tbeyond hit point restoration, so you still need to look elsewhere for options\n\t\tto handle status conditions."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Radiant Soul"
+              },
+              {
+                "type": "text",
+                "text": ": Warlocks deal the vast\n\t\tmajority of their damage with Eldritch Blast and Agonizing Blast. Celestial\n\t\twarlocks get Sacred Flame, which is probably the best way to make use of\n\t\tthis feature, but If you pick up Agonizing Blast (you should, it’s amazing), this\n\t\twill almost never matter while using cantrips because Eldritch Blast will\n\t\tmassively outpace any other cantrip’s damage output, even with the damage\n\t\tboost from Radiant Soul. If you don’t take Agonizing Blast, Sacred Flame\n\t\twill do slightly more damage than Eldritch Blast.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The Celestial’s expanded spell list offers a handful of extra spells that\n\t\t\tdeal radiant/fire damage, but most of them aren’t a great use of your\n\t\t\twarlock spell slots and the damage still only affects one target on one\n\t\t\tdamage roll (e.g. one target of Flame Strike)."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Celestial Resilience"
+              },
+              {
+                "type": "text",
+                "text": ": This will save a ton\n\t\tof your party’s healing resources. It’s not quite as good as the Inspiring\n\t\tLeader feat since it only works after a rest and your allies don’t get as many temporary hit points, but it’s very close, and you\n\t\tdon’t need to give your party a 10-minute pep talk to make it work."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Searing Vengeance"
+              },
+              {
+                "type": "text",
+                "text": ": There is no save to\n\t\tresist the blinding effect, so you can stand up and safely walk yourself to\n\t\tsomewhere safe before going back to lasering stuff to death. Since creatures\n\t\tthat you damage are blinded, you get Advantage on attacks against them, so\n\t\tit’s a great time for Eldritch Blast.\n"
+              },
+              {
+                "type": "text",
+                "text": "But, like anything that only triggers while you’re dying, it’s entirely possible that you will never need this because you’re doing such a good job at staying conscious."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fathomless",
+      "parentSectionId": "section-subclasses",
+      "heading": "The Fathomless (TCoE)",
+      "sourceAnchor": "fathomless",
+      "blocks": [
+        {
+          "blockId": "block-section-fathomless-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Fathomless is a servant of some sort of an aquatic creature, and the subclass’s features reflect that theme very effectively. However, much of the subclass is dedicated to functioning in and around water. If your patron sends you onto dry land to do its bidding, big chunks of the subclass dry up (see what I did there) and cease to be useful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-fathomless-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In an aquatic or naval campaign, this is a good subclass. I could see a Fathomless Warlock fighting on the deck of a ship, or facing down tritons and merfolk while raiding a submerged dungeon, but in a typical land-based campaign you’re going to spend a lot of time wishing that you were elsewhere. From the list of current published campaigns, that means Ghosts of Saltmarsh is basically the only one where The Fathomless is a good fit, and considering that there are 8 published campaigns as I’m writing this paragraph (December of 2020), fitting into one of 8 campaigns isn’t a good success rate."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-fathomless-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Fathomless Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-fathomless-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ": A lot of\n\t\tsituational options, and the combat options aren’t great. The spell list\n\t\tgets a little better if you’re underwater frequently, but even then there’s\n\t\tnot a lot to be excited about.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Two situational\n\t\t\t\toptions. Thunderwave is fine if you get stuck in melee or need to break\n\t\t\t\ta grapple, but I wouldn’t consider it a go-to damage option because\n\t\t\t\tgetting close enough to hit multiple targets often means getting into\n\t\t\t\tmelee by choice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Gust of Wind is\n\t\t\t\tvery situational, but Silence is a huge problem for enemy spellcasters,\n\t\t\t\tespecially if your party can keep them inside the area by grappling\n\t\t\t\tthem, hitting them with a tentacle which applies a speed reduction, or\n\t\t\t\totherwise inhibiting their movement."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Lightning Bolt is\n\t\t\t\tfine damage, but hitting more than two targets with line effects is hard\n\t\t\t\tregardless of the line’s length. Sleet Storm is decent area control but\n\t\t\t\tvery hard to use effectively, doesn’t scale with spell slot level, and\n\t\t\t\trequires Concentration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Control Water is very\n\t\t\t\tsituational in non-aquatic campaigns, and limiting Summon Elemental to\n\t\t\t\twater elementals similarly handicaps the spell unless you’re in an\n\t\t\t\taquatic campaign."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Bigby’s Hand is a\n\t\t\t\tgreat, versatile spell. Cone of Cold is decent if unremarkable AOE\n\t\t\t\tdamage, but if you need area damage you’ll have better results with\n\t\t\t\tHunger of Hadar."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tentacle of the Deeps"
+              },
+              {
+                "type": "text",
+                "text": ": At 1st level, this\n\t\tmatches the effects of Ray of Frost (at least in terms of damage and the\n\t\tsecondary effect. With a 1-minute duration it will get you through a single\n\t\tencounter each time you use it, provided that the encounter doesn’t move too\n\t\tfar away from the tentacle to reasonably bring the tentacle back into range.\n\t\tThis reduces your reliance on Hex at low levels, allowing you to use your\n\t\tone or two spell slots elsewhere without sacrificing damage output. However,\n\t\tsince the daily usage limit is tied to your Proficiency Bonus, you won’t be\n\t\table to use this as often as you could use Hex. Consider the two options\n\t\tcomplements to each other: use Hex if you just need to Eldritch Blast stuff,\n\t\tand use Tentacle of the Deeps when you need to use Concentration on\n\t\tsomething other than Hex."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gift of the Sea"
+              },
+              {
+                "type": "text",
+                "text": ": Great in an aquatic\n\t\tcampaign, but otherwise very situational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Oceanic Soul"
+              },
+              {
+                "type": "text",
+                "text": ": Damage resistance is great,\n\t\tand, in an aquatic campaign, the ability to speak to all submerged creatures\n\t\twill make it much easier for you to play a face. However, outside of aquatic\n\t\tcampaigns you may find it difficult to convince creatures to talk to you\n\t\twhile underwater unless you already share a language."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Guardian Coil"
+              },
+              {
+                "type": "text",
+                "text": ": You likely don’t have any\n\t\tinteresting ways to use your Reaction, so using it to reduce damage to\n\t\tyourself or an ally is an excellent addition to your capabilities. With a\n\t\t1-minute duration on your tentacle, you could reduce up to 10d8 (20d8 at\n\t\tlevel 10) damage every time you use it, dramatically improving your party’s\n\t\tability to handle damage without resorting to in-combat healing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grasping Tentacles"
+              },
+              {
+                "type": "text",
+                "text": ": Evard’s Black\n\t\tTentacles is a good spell. I don’t know if it’s better than Hunger of Hadar,\n\t\tbut the added benefits from this feature certainly help. You get to cast\n\t\tthis once per day for free, which helps with the Warlock’s tiny pool of\n\t\tspell slots, and any time you cast it (free or otherwise), you get temporary\n\t\thit points. Being unable to lose Concentration on black tentacles due to\n\t\ttaking damage also helps quite a bit in combat, making this an easy go-to\n\t\toption in dangerous situations."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fathomless Plunge"
+              },
+              {
+                "type": "text",
+                "text": ": With a 1-mile range,\n\t\tthis isn’t exactly a long-distance teleportation option. Rather, this is a\n\t\tpanic button. When things are going poorly, grab your friends and retreat to\n\t\ta nearby body of water. However, keep in mind this feature has very strict\n\t\tlimitations. You can bring 5 other willing creatures, so if your party is\n\t\tbigger than that you’re in trouble. There’s also some debate over whether\n\t\tunconscious allies can be “willing”, so if allies are down you might not be\n\t\table to save them. The 1-mile range is small, so you need to be very careful\n\t\tto stay near a suitable body of water, which is hard when you’re delving\n\t\tdungeons or wandering the planes. Of course, it’s great if you’re in an\n\t\tocean because you can just pop out in a different part of the ocean."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fiend",
+      "parentSectionId": "section-subclasses",
+      "heading": "The Fiend (PHB)",
+      "sourceAnchor": "fiend",
+      "blocks": [
+        {
+          "blockId": "block-section-fiend-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Straightforward and effective, The Fiend offers mostly offensive options which improve the Warlock’s ability to kill stuff, but also offers some extremely potent defensive abilities. The Fiend is a blaster first and foremost, and is heavily dependent on fire damage, so consider taking the Elemental Adept feat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-fiend-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Fiend Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-fiend-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ": Warlocks don’t get\n\t\tany AOE blast spells, which means that they often have trouble against\n\t\tcrowds of enemies. The Fiend’s spell list offers several excellent options\n\t\tto address this.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Burning Hands is a\n\t\t\t\tdecent AOE, especially at low levels, and since Warlocks get armor and\n\t\t\t\tmore hp than Sorcerers and Wizards, you can survive\n\t\t\t\tbeing close enough to melee to use it, however, I wouldn’t use it beyond\n\t\t\t\tvery low levels. You’ll get more total damage out of Hex or other spell\n\t\t\t\toptions despite Burning Hands’ scaling. Command is a great\n\t\t\t\tcontrol/debuff effect and scales really well with your spell slots."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Blindness/Deafness\n\t\t\t\tis a powerful debuff, but allowing repeated saves can make it\n\t\t\t\tunreliable. Scorching Ray is a bit redundant with Eldritch Blast, but it\n\t\t\t\tscales very well and benefits from the same tactics."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A good AOE blast\n\t\t\t\tand a good area control effect. Fireball remains the best instantaneous\n\t\t\t\tAOE damage spell at every spell level until around spell level 8, and,\n\t\t\t\twhile the Warlock can’t cast Fireball past 5th level, it still remains a\n\t\t\t\tperfect go-to AOE blast option. However, remember that you will often\n\t\t\t\tget better results out of spells with ongoing effects like Hunger of\n\t\t\t\tHadar, and with so few spell slots you need to squeeze as much out of\n\t\t\t\tthem as you can. Stinking Cloud is an ongoing AOE save-or-suck effect,\n\t\t\t\tbut creatures within the area are Heavily Obscured so it’s hard to\n\t\t\t\tattack them. Hunger of Hadar is likely a better choice in most\n\t\t\t\tcases."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Fire Shield is fine\n\t\t\t\tfor “gish” builds, but, if you’re going for a Warlock gish you’re probably going\n\t\t\t\tto play a "
+              },
+              {
+                "type": "link",
+                "text": "Hexblade",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/"
+              },
+              {
+                "type": "text",
+                "text": ". Fire Shield also seems redundant with Armor of\n\t\t\t\tAgathys, which notably lasts longer, provides temporary hit points,\n\t\t\t\tdeals more damage to attackers, and scales with spell level. Wall of\n\t\t\t\tFire is one of the best area control spells in the game and with the\n\t\t\t\tright invocations you can push and pull enemies through it to repeatedly\n\t\t\t\tcapitalize on the guaranteed damage dealt when a creature passes through\n\t\t\t\tthe wall."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Flame Strike is\n\t\t\t\tFireball, but a smaller AOE and worse damage. Sure, some of the damage\n\t\t\t\tis radiant, but if damage resistance is a problem, you should be using\n\t\t\t\tEldritch Blast since nearly nothing resists Force damage. Hallow is\n\t\t\t\tvery situational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dark One’s Blessing"
+              },
+              {
+                "type": "text",
+                "text": ": This makes Fiendish\n\t\tVigor considerably less important. It also makes it important that you\n\t\toccasionally pick off weak foes to ensure that your temporary hit points are\n\t\tup before you focus on more important foes. RAW the creature just needs to\n\t\tbe hostile, so a permissive DM might allow you carry around a bag of angry\n\t\trats and kill one whenever you need temporary hit points."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dark One’s Own Luck"
+              },
+              {
+                "type": "text",
+                "text": ": Adds an average of\n\t\t5.5 to your roll, which is mathematically much better than what you get from\n\t\tAdvantage (Advantage is worth slightly more than +3). Save this for crucial\n\t\tsaving throws or if you’re desperate need to escape a grapple but can’t\n\t\tteleport or something."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fiendish Resilience"
+              },
+              {
+                "type": "text",
+                "text": ": This doesn’t specify\n\t\trestrictions on the damage type, so if you want to do Slashing for a while\n\t\tthen switch to Radiant, you can do it. This is one of very few ways to get\n\t\tresistance to Force damage, but you still want to use this for common damage\n\t\ttypes like fire, poison, and slashing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hurl Through Hell"
+              },
+              {
+                "type": "text",
+                "text": ": Only works once per\n\t\tday, but 10d10 damage is pretty great on top of whatever your attack was\n\t\t(let’s be honest: it was Eldritch Blast). The creature is also removed from\n\t\tthe game until the end of your "
+              },
+              {
+                "type": "emphasis",
+                "text": "next"
+              },
+              {
+                "type": "text",
+                "text": " turn, allowing you to temporarily\n\t\tbanish the creature, and potentially place hazards in and around its space\n\t\tsuch as Hunger of Hadar, Wall of Fire, or the rest of your party."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-genie",
+      "parentSectionId": "section-subclasses",
+      "heading": "The Genie (TCoE)",
+      "sourceAnchor": "genie",
+      "blocks": [
+        {
+          "blockId": "block-section-genie-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Absolutely fantastic, the Genie is a spectacular spellcasting-focused option for the Warlock. However, many of the spell options and class features require that you do the work to think of ways to use them creatively. For an experienced player this is a spectacular option, but if you don’t have a good grasp of the system you may have better luck with other subclasses."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-genie-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Genie Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-genie-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ": Unlike most warlock\n\t\tsubclasses, the Genie gives you a base set of additional spell options, plus\n\t\tthe choice of four spell lists depending on your genie patron’s specific\n\t\ttype.\n\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You also get a type of damage resistance depending on their type at 6th\n\t\t\tlevel, but the spell list is the big part. Every variety of genie also\n\t\t\tadds Wish as a 9th-level spell option (Mystic Arcanum), so the 1st through\n\t\t\t5th-level spells are where each variety of genie distinguishes itself from\n\t\t\tthe others."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Genie Spells"
+              },
+              {
+                "type": "text",
+                "text": ": You get these spells\n\t\t\t\tregardless of what type of genie your patron is in addition to spells\n\t\t\t\tfrom one of the four lists below.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Situational.\n\t\t\t\t\t\tHelpful in any party, but spending a warlock spell slot on it is\n\t\t\t\t\t\thard."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A good option\n\t\t\t\t\t\tagainst creatures with poor Intelligence scores (which is most\n\t\t\t\t\t\tcreatures). The effects don’t scale with spell level, but if you\n\t\t\t\t\t\tdon’t care about the spell’s damage this remains an effective way to\n\t\t\t\t\t\tlock down single foes for your whole career."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Rations are\n\t\t\t\t\t\tcheap."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": An excellent\n\t\t\t\t\t\tsingle-target damage option, and all of the damage scales with spell\n\t\t\t\t\t\tlevel rather than just the initial damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic if\n\t\t\t\t\t\tyou’re creative enough to find a use for it, but generally not a\n\t\t\t\t\t\tgo-to option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dao"
+              },
+              {
+                "type": "text",
+                "text": ": With one exception, everything on\n\t\t\t\tthe Dao’s spell list is excellent, and every spell is new to the\n\t\t\t\tWarlock’s spell list.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Potentially\n\t\t\t\t\t\tforcing enemies to give up an attack is great. Sanctuary has a Bonus\n\t\t\t\t\t\tAction casting time, so you can attack or cast a cantrip in the same\n\t\t\t\t\t\tturn, then follow it with Sanctuary. However, since Sanctuary allows\n\t\t\t\t\t\tthe attacker to retarget their attack, Sanctuary isn’t as effective\n\t\t\t\t\t\tagainst ranged attacks, and if you try to hurt your enemies while\n\t\t\t\t\t\tit’s running the spell ends early. So you may want to use this to\n\t\t\t\t\t\tprotect yourself while you cast buffs or utility spells, if you have\n\t\t\t\t\t\tan ally who’s unable to attack for some reason, or if you already\n\t\t\t\t\t\thave an ongoing non-damaging spell running like Hold Person."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": 2d4 damage\n\t\t\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "every 5 feet"
+              },
+              {
+                "type": "text",
+                "text": ", and it’s every time the creature “travels”,\n\t\t\t\t\t\tnot every time the creature moves. So if you push or pull the\n\t\t\t\t\t\tcreature, they take damage. Sounds like a job for Eldritch\n\t\t\t\t\t\tBlast!"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Very\n\t\t\t\t\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": One of my\n\t\t\t\t\t\tabsolute favorite utility spells."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Not as precise\n\t\t\t\t\t\tas Stone Shape, but much easier to use in combat. Give yourself\n\t\t\t\t\t\tcover, separate enemies, or make yourself a nice home out of\n\t\t\t\t\t\tstone."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Djinni"
+              },
+              {
+                "type": "text",
+                "text": ": Several good options, but the\n\t\t\t\tDjinni’s spell options range wildly in effectiveness.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Decent\n\t\t\t\t\t\tshort-range AOE damage, especially if you’re being swarmed or\n\t\t\t\t\t\tgrappled and can’t teleport. This isn’t a go-to offensive option\n\t\t\t\t\t\tsince the AOE is small and the damage isn’t great, but it can\n\t\t\t\t\t\toccasionally solve problems for you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Useful for\n\t\t\t\t\t\tpushing enemies into ongoing AOE damage effects, but since it\n\t\t\t\t\t\trequires Concentration it’s hard to combine with things like Hunger\n\t\t\t\t\t\tof Hadar so any ongoing AOE damage effects would likely need to come\n\t\t\t\t\t\tfrom an ally."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Very\n\t\t\t\t\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Invisibility in\n\t\t\t\t\t\t5e is "
+              },
+              {
+                "type": "emphasis",
+                "text": "really"
+              },
+              {
+                "type": "text",
+                "text": " good, and running around for a full minute\n\t\t\t\t\t\tbeing almost impossible to target is a huge advantage. Sure, you\n\t\t\t\t\t\talready get Shadow of Moil at this level, but Greater Invisibility\n\t\t\t\t\t\tprevents you from being targeted rather than just making you\n\t\t\t\t\t\tdifficult to attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Very situational,\n\t\t\t\t\t\tbut with an 8-hour duration you can cast it early in the day and\n\t\t\t\t\t\timmediately take a Short Rest and recover your spell slot. Still, it\n\t\t\t\t\t\tmight not be worth learning permanently."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Efreeti"
+              },
+              {
+                "type": "text",
+                "text": ": The Efreeti is a blaster,\n\t\t\t\tsharing many spells with the Fiend. The biggest things that blasters\n\t\t\t\tneed are good AOE damage spells and lots of spell slots to fuel them.\n\t\t\t\tWarlocks don’t have the spell slots to back this up. This is definitely\n\t\t\t\tthe simplest option for the Genie, but that doesn’t make it good.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Burning Hands\n\t\t\t\t\t\tis a decent AOE, especially at low levels, and since warlocks get\n\t\t\t\t\t\tarmor and more hp than other arcane spellcasters like the wizard you\n\t\t\t\t\t\tcan survive being close enough to melee to use it. However, I\n\t\t\t\t\t\twouldn’t use it beyond very low levels. You’ll get more total damage\n\t\t\t\t\t\tout of Hex or other spell options despite Burning Hands’\n\t\t\t\t\t\tscaling."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Like Eldritch\n\t\t\t\t\t\tBlast but with a worse damage type. It works great with Hex since\n\t\t\t\t\t\tyou get an additional ray per spell level (up to 6 when you get\n\t\t\t\t\t\t5th-level spells), but that’s the only thing that makes it better\n\t\t\t\t\t\tthan Eldritch Blast once you add Agonizing Blast."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Fireball\n\t\t\t\t\t\tremains the best instantaneous AOE damage spell at every spell level\n\t\t\t\t\t\tuntil around spell level 8, and while the Warlock can’t cast\n\t\t\t\t\t\tFireball past 5th level, it still remains a perfect go-to AOE blast\n\t\t\t\t\t\toption. However, remember that you will often get better results out\n\t\t\t\t\t\tof spells with ongoing effects like Hunger of Hadar, and with so few\n\t\t\t\t\t\tspell slots you need to squeeze as much out of them as you can."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": You’re almost\n\t\t\t\t\t\tcertainly not built to be in melee enough that using this makes\n\t\t\t\t\t\tsense. Cast Armor of Agathys."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Flame Strike is\n\t\t\t\t\t\tFireball, but a smaller AOE and worse damage. Sure, some of the\n\t\t\t\t\t\tdamage is radiant, but if damage resistance if a problem you should\n\t\t\t\t\t\tbe using Eldritch Blast since nearly nothing resist Eldritch\n\t\t\t\t\t\tBlast."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Marid"
+              },
+              {
+                "type": "text",
+                "text": ": Almost nothing worth having.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": An excellent\n\t\t\t\t\t\tway to cover your escape, but you can’t see through the fog any\n\t\t\t\t\t\tbetter than anyone else, so don’t expect to fight in this without\n\t\t\t\t\t\tsome other advantage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A great\n\t\t\t\t\t\tdefensive option, but with a short duration and it requires\n\t\t\t\t\t\tConcentration. Still, it’ll help until you can get Shadow of\n\t\t\t\t\t\tMoil."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": This is not good\n\t\t\t\t\t\tenough for a 3rd-level spell slot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Too\n\t\t\t\t\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Cone of Cold\n\t\t\t\t\t\tis decent but unremarkable AOE damage, but if you need area damage\n\t\t\t\t\t\tyou’ll have better results with Hunger of Hadar."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "All"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": The best spell\n\t\t\t\t\t\tin the game. You get one Mystic Arcanum which can cast a 9th-level\n\t\t\t\t\t\tspell, and honestly Wish is so good that there is very little\n\t\t\t\t\t\tmechanical reason to select anything except Wish.\n\t\t\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "For more help with Wish, see our\n\t\t\t\t\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Wish",
+                "href": "https://rpgbot.net/dnd5/characters/wish"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Genie’s Vessel"
+              },
+              {
+                "type": "text",
+                "text": ": Bottled Respite is mostly\n\t\tfor flavor, but Genie’s Wrath is a compelling reason to keep your vessel in\n\t\thand when you’re in a fight, and to work to prevent its destruction even\n\t\tthough you can get a replacement for free.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bottled Respite"
+              },
+              {
+                "type": "text",
+                "text": ": Use this to\n\t\t\t\teavesdrop on people, to evade harmful effects, and to hide or store\n\t\t\t\titems, but the fact that you can only enter the vessel once per long\n\t\t\t\trest means that you can’t just pop in and out at random. Eventually\n\t\t\t\tyou’ll be able to stay inside long enough that you and your whole party\n\t\t\t\tcan rest inside the vessel, conveniently removing the need for things\n\t\t\t\tlike tents, keeping watch while resting, or spells like Rope Trick or\n\t\t\t\tLeomund’s Tiny Hut, but even at low levels you can still stay in the\n\t\t\t\tvessel long enough to take a Short Rest without risk of enemies\n\t\t\t\twandering by and surprising you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Genie’s Wrath"
+              },
+              {
+                "type": "text",
+                "text": ": A small, but meaningful\n\t\t\t\tand scaling bonus to your damage. It only applies once per turn, but\n\t\t\t\tthat’s really all that you need. This applies to attack rolls of any\n\t\t\t\tkind, and once again the warlock is the only class to add their\n\t\t\t\tProficiency Bonus to damage (the Hexblade does it too).\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dao"
+              },
+              {
+                "type": "text",
+                "text": ": Things with resistance to\n\t\t\t\t\t\tbludgeoning damage typically resist bludgeoning, piercing, and\n\t\t\t\t\t\tslashing damage from non-magical attacks. You will likely\n\t\t\t\t\t\tdeliver this with either a cantrip or a magic weapon (Pact of the\n\t\t\t\t\t\tBlade), so nearly nothing in the game will resist it. You\ncan combine this with the Crusher feat for extra benefits."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Djinni"
+              },
+              {
+                "type": "text",
+                "text": ": Resistance to thunder\n\t\t\t\t\t\tdamage is very rare."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Efreeti"
+              },
+              {
+                "type": "text",
+                "text": ": Fire damage is among\n\t\t\t\t\t\tthe most common resistances/immunities, so you’ll often find that\n\t\t\t\t\t\tyour bonus damage is ineffective."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Marid"
+              },
+              {
+                "type": "text",
+                "text": ": Cold damage isn’t quite as\n\t\t\t\t\t\tcommonly-resisted as fire damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elemental Gift"
+              },
+              {
+                "type": "text",
+                "text": ": Flight for 10 minutes at a\n\t\ttime which you can activate as a Bonus Action without Concentration. This\n\t\twould be good once per Short Rest, but you can use this 3 to 6 times per day\n\t\tdepending on your Proficiency Bonus. Oh, you get some damage resistance too.\n\t\tBut honestly, the flight is so good that I forgot about the damage\n\t\tresistance.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dao"
+              },
+              {
+                "type": "text",
+                "text": ": Bludgeoning damage is one of the\n\t\t\t\tthree types of weapon damage, but most monsters which deal damage\n\t\t\t\tthrough weapons rely primarily on teeth and claws so bludgeoning is the\n\t\t\t\tleast common of the three weapon damage types. Of course, it’s also\n\t\t\t\tdifficult to get permanent resistance to weapon damage types, so the\n\t\t\t\trarity of this resistance adds to the value."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Djinni"
+              },
+              {
+                "type": "text",
+                "text": ": Thunder damage is\n\t\t\t\tuncommon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Efreeti"
+              },
+              {
+                "type": "text",
+                "text": ": Fire damage is one of the\n\t\t\t\tmost common types of non-weapon damage, so permanent resistance is\n\t\t\t\tgreat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mardi"
+              },
+              {
+                "type": "text",
+                "text": ": Cold damage isn’t quite as\n\t\t\t\tcommon as fire damage, but it’s still very common."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sanctuary Vessel"
+              },
+              {
+                "type": "text",
+                "text": ": The ability to hide\n\t\tyour party in something as small as a ring while taking a short rest means\n\t\tthat you can rest even in extremely dangerous places so long as you can hide\n\t\tyour vessel somewhere. The added healing benefits are minor, but they still\n\t\tfeel nice even when taking a 10-minute short rest in an extradimensional\n\t\tspace isn’t an impactful benefit at the moment.\n"
+              },
+              {
+                "type": "text",
+                "text": "Consider having one person who doesn’t need a Short Rest carry the vessel while the\nrest of your party has a ten-minute power nap. This removes the need to hide the vessel and\nprevents you (and potentially a subset of your party) from making the party wait around while\nyou take a nap."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Limited Wish"
+              },
+              {
+                "type": "text",
+                "text": ": You know how the Bard gets\n\t\tMagical Secrets? Yeah, forget that. This is so much better that it’s in its\n\t\town league. You don’t even have to pay for expensive components! Sure,\n\t\tthere’s a 1d4 Long Rests cooldown, but when the effect is this good a few\n\t\tdays is nothing. Look for anything that has expensive material components or\n\t\ta permanent duration. Abuse those spells."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-great-old-one",
+      "parentSectionId": "section-subclasses",
+      "heading": "The Great Old One (PHB)",
+      "sourceAnchor": "great-old-one",
+      "blocks": [
+        {
+          "blockId": "block-section-great-old-one-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An eclectic mix of options, the Great Old One focuses on drawing power from something unknowable and being appropriately crazy. Some of the abilities are very potent, but just as many are situational and won’t see much use. The end result is that the Great Old One Warlock (Often shortened to “GooLock”) feels a lot like an Enchanter Wizard, but more spooky than the Fey Warlock."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-great-old-one-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Great Old One Warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-great-old-one-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ": A really diverse mix\n\t\tof debuffs, area control spells, and utilities. Weirdly, the only spells that benefit from\nupcasting are Dominate Beast at 4th level and both 5th-level spells, so the spell list gains\nalmost no benefit from Pact Magic’s unique scaling.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Two great\n\t\t\t\tsingle-target control effects, but they will become obsolete beyond\nlow levels since they don’t scale with upcasting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\t\t\tsituational, but can be extremely potent if you’re clever."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Clairvoyance is a\n\t\t\t\tfantastic scouting option if you have a normal number of spell slots\n\t\t\t\tlike literally any other spellcaster, but Warlocks really need to save\n\t\t\t\ttheir spell slots for something more significant and impactful. Sending\n\t\t\t\tis very situational, and you likely can’t justify using it on a day when\n\t\t\t\tyou’re adventuring unless your party is willing to give you a short rest."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Dominate Beast is\n\t\t\t\tvery situational, especially since you won’t be running into many beasts\n\t\t\t\tby the time you can cast 4th-level spells. Black Tentacles is one of the\n\t\t\t\tbest area control spells, but may not be as encounter-ending as Hunger\nof Hadar."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Dominate Person is\n\t\t\t\tamong the best single-target control/debuff spells in the game,\nbut it’s only situationally useful because humanoids are a small minority of the enemies that\nyou’ll face in most campaigns.\n\t\t\t\tTelekinesis is a great utility, and you can use it to hoist melee-only\nenemies into mid-air."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Awakened Mind"
+              },
+              {
+                "type": "text",
+                "text": ": This is basically free\n\t\tpermanent Tongues combined with Telepathic Link. With high Charisma and\n\t\taccess to Face skills, you can use this a lot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Entropic Ward"
+              },
+              {
+                "type": "text",
+                "text": ": Not as reliable as other\n\t\tmechanics which respond to being attacked such as the Shield spell, but\n\t\timposing Disadvantage makes you mathematically immune to critical hits, and,\n\t\tsince your AC will likely exceed that of similar spellcasters like the\n\t\tSorcerer and the Wizard, you’re more likely to cause attacks against you to\n\t\tmiss.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Advantage on your next attack is nice, but, since it’s only on one attack,\n\t\t\tit’s minimally useful with Eldritch Blast, and there are very few spell\n\t\t\tattacks beyond cantrips  in the Warlock’s repertoire. You might consider learning another attack\n\t\t\tcantrip like Fire Bolt specifically for use with Entropic Ward, but, unless\n\t\t\tyou go Pact of the Tome it’s hard to justify spending one of your few\n\t\t\tcantrips known on a combo that you can use once per Short or Long Rest."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thought Shield"
+              },
+              {
+                "type": "text",
+                "text": ": Both effects are\n\t\tsituational. Psychic damage is extremely uncommon, but if you run into mind\n\t\tflayers you’re going to have a lot of fun."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Create Thrall"
+              },
+              {
+                "type": "text",
+                "text": ": This can be hard to use.\n\t\tYour best bet is to affect the target while they’re sleeping. Once you make\n\t\tthe target Charmed, the Charmed condition gives you Advantage on ability\n\t\tchecks to “interact socially” with the creature, and, with a permanent\n\t\ttelepathic connection to the creature, you can easily talk it into\n\t\tdoing nearly whatever you want.\n"
+              },
+              {
+                "type": "text",
+                "text": "This isn’t a “dominate” effect, so you can’t\n\t\tprecisely control the creature’s actions, but you can talk it into taking\n\t\tspecific courses of action (bring me that thing, tell me what you see, spy\n\t\ton your allies, release the prisoners, feed my dog, water my plants, kill\n\t\tthe king, check the mail, etc.)."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Remember to ask permission to use this on your allies. Imposing a Charmed effect could\nlead to problematic interactions within the party, but you will all benefit from having\neasy telepathic connections to each other."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-hexblade",
+      "parentSectionId": "section-subclasses",
+      "heading": "The Hexblade (XGtE)",
+      "sourceAnchor": "hexblade",
+      "blocks": [
+        {
+          "blockId": "block-section-hexblade-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warlocks who want to go into melee will be hard-pressed to find a better option than the Hexblade. Access to better armor, shields, and better weapons solves many issues which warlocks (expecially Pact of the Blade users) have faced since 5e first released. But beyond mere proficiency improvements, the Hexblade has a lot to offer."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-hexblade-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hexblade’s Curse is amazing, and the ability to use Charisma for attack and damage with your favorite weapon makes the class very SAD without detracting from the Warlock’s excellent spellcasting capabilities. Combining all of the Hexblade’s features, including its expanded spell list, the Hexblade is a truly fearsome threat with a weapon, often meeting or exceeding damage from Eldritch Blast+Agonizing Blast, though the dependence on spell slots for buffs means that the Hexblade’s best damage output may be more “bursty” than other warlocks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-hexblade-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Hexblade Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/hexblade"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-hexblade-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ": While several\n\t\toptions on this list are very good, many of them require Concentration. In\n\t\tparticular, even though all the smites are Bonus Actions (good for your\n\t\taction economy), they require Concentration to ensure that you’re able to\n\t\tactually get the effect off as long as you hit sometime during the next\n\t\tminute, but this prevents you from running other excellent Concentration\n\t\tbuffs like Blur and Elemental Weapon from the very same expanded list.\n\t\tFurthermore, since the smite spells don’t scale well (if they scale at all),\n\t\tthey’re often a poor use of your limited Warlock spell slots. Consider using\n\t\tthem for a level or two when you first get them, but replace them after that\n\t\twhen better spells become available (even if it’s just the next smite\n\t\tspell).\n\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Shield is\n\t\t\t\tfantastic… on any other spellcasting class. It costs a precious spell\n\t\t\t\tslot, and offers no benefits for upcasting, so it’s only helpful until\n\t\t\t\tyou get access to 2nd-level slots for Armor of Agathys. If you aren’t\n\t\t\t\trunning another Concentration spell, Wrathful Smite into Booming Blade\n\t\t\t\tis staggeringly good damage at low levels, assuming the target moves and\n\t\t\t\ttriggers the secondary damage. The Wisdom save for fear is a nice touch,\n\t\t\t\tthough your defenses aren’t really turned on yet so maintaining\n\t\t\t\tConcentration can be a challenge in melee. To summarize: tempting\n\t\t\t\toptions at low levels, but you’ll abandon them in favor of other options\n\t\t\t\talmost immediately."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Blur is just a\n\t\t\t\tsuperb spell. Turn it on if you have more than one thing attacking you\n\t\t\t\tand/or your Armor of Agathys doesn’t look up to the job. Branding smite\n\t\t\t\tfills some excellent niches, but is not otherwise overly helpful. It’s\n\t\t\t\tprobably the only way you’re going to be able to deal radiant damage\n\t\t\t\t(you’ll be very grateful if you ever come across zombies) and it also\n\t\t\t\tprevents invisibility if your party can’t cast Faerie Fire, Invisibility\n\t\t\t\tPurge, or something else along those lines."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Blink would be\n\t\t\t\tinteresting if it wasn’t random in the fashion it is. Elemental weapon’s\n\t\t\t\tprimary benefit is making a weapon magical if for some reason you aren’t\n\t\t\t\trunning Pact of the Blade, and I’m not sure why you would skip Pact of\n\t\t\t\tthe Blade (and the Invocations which require it like Thirsting Blade)\n\t\t\t\tand still use a weapon. It still runs into the Concentration problem,\n\t\t\t\tinterfering with smites and defensive buffs, but it adds a small amount\n\t\t\t\tof extra damage (which will increase when your spell slot levels\n\t\t\t\tincrease). Keep in mind that the Pact Weapon granted by Pact of the\n\t\t\t\tBlade counts as a magic weapon\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "for the purpose of overcoming damage resistance and immunity"
+              },
+              {
+                "type": "text",
+                "text": ".\n\t\t\t\tIt’s technically not a magic weapon unless you bind a specific magic\n\t\t\t\tweapon, so you "
+              },
+              {
+                "type": "emphasis",
+                "text": "can"
+              },
+              {
+                "type": "text",
+                "text": " use your Pact Weapon with Elemental\n\t\t\t\tWeapon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Phantasmal Killer\n\t\t\t\tis still an excellent spell, although the fact that it never scales past\n\t\t\t\t5th level for warlocks is disappointing at higher levels. Staggering\n\t\t\t\tSmite would be much better if the effect lasted more than one round.\n\t\t\t\tBoth spells cause the creature to suffer Disadvantage on attack rolls,\n\t\t\t\tbut Phantasmal Killer works at range and lasts longer."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Banishing Smite is a\n\t\t\t\tbig pile of damage on a Bonus Action and the rider effect doesn’t allow\n\t\t\t\ta saving throw. 50 hit points is a reasonably large window, and\n\t\t\t\tbanishing the target could dramatically affect the outcome of an\n\t\t\t\tencounter. Cone of Cold is a helpful way for you to do area of effect\n\t\t\t\tdamage, but apart from being a big pile of damage does little else for\n\t\t\t\tyou."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hexblade’s Curse"
+              },
+              {
+                "type": "text",
+                "text": ": Are you ready to confuse\n\t\tliterally every new player by being the only thing that gets proficiency to\n\t\tdamage? Then Hexblade is for you. Note that you can both Curse and Hex\n\t\tsomeone if you like to track several effects at the same time. In all\n\t\tseriousness though, this is a fantastic ability.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You only get this once per Short or Long Rest, so be sure to use it where\n\t\t\tit will matter. You want to make as many attack rolls as possible while\n\t\t\tthis is running, so at high levels this will frequently work best when\n\t\t\tcombined with Eldritch Blast since Warlocks can’t get more than three\n\t\t\tattacks (assuming Thirsting Blade and either two-weapon fighting or\n\t\t\tCrossbow Expert). However, since this only works once per Short or Long\n\t\t\tRest, remember that you may still have better results focusing on other\n\t\t\tparts of your build, and focusing on being effective with weapons is often\n\t\t\ta better choice for the Hexblade than Eldritch Blast even though you may\n\t\t\tget fewer attacks."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Since this comes in at 1st level and scales based on your proficiency\n\t\t\tbonus, it’s very tempting for class dips into Warlock, totally\n\t\t\tdisregarding how good Hex Warrior is."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hex Warrior"
+              },
+              {
+                "type": "text",
+                "text": ": This is probably why you\n\t\tpicked the subclass. You get medium armor and shields so that you’re able to\n\t\texist in the front line without dying immediately, but far more importantly\n\t\tyou get to be a melee character and still have Str and Dex be dump stats.\n\t\tYou do still need enough Dexterity to fill out Half Plate’s Dexterity cap,\n\t\tbut that’s not hard.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Using your Charisma for attack and damage rolls in place of Strength is\n\t\t\tcrazy powerful. Not only does it make Pact of the Blade considerably\n\t\t\teasier for the Warlock, it makes Paladin/Warlock multiclass builds\n\t\t\tmassively more effective. Keep in mind that by default Hex Warrior’s\n\t\t\tweapon effect works on a weapon which you touch at the end of a long rest,\n\t\t\tbut if you later take Pact of the Blade the effect extends to that weapon\n\t\t\ttoo, so you can affect have two weapons with which to attack using\n\t\t\tCharisma. This is important if you plan to explore two-weapon fighting or\n\t\t\tif you want a backup weapon or something."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Accursed Specter"
+              },
+              {
+                "type": "text",
+                "text": ": Not only does it have\n\t\tto be a humanoid, but you personally have to get the killing blow. That\n\t\tsaid, if you can get one, Specters are a phenomenal companion to have with\n\t\tyou. They are effective in combat (although they never scalebeyond the tiny\n\t\tamount of temporary hit points and the attack bonus which you give them)\n\t\tand, while they can’t speak, they will follow your verbal commands allowing\n\t\ta creative person to use one for scouting and have it report back. However,\n\t\tthey have no ability to speak, to their ability to report their findings is\n\t\tlimited to gestures like nodding, pointing, and pantomime."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Armor of Hexes"
+              },
+              {
+                "type": "text",
+                "text": ": Take the already excellent\n\t\tHexblade’s Curse and put an astonishing and unique defensive buff on it.\n\t\tSomewhere, a 40k player is wondering how 4-up saves got into their D&D.\n\t\tThis is a 50% miss chance on top of whatever other defenses you might have\n\t\trunning (Blur or Shadow of Moil, for example),"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Master of Hexes"
+              },
+              {
+                "type": "text",
+                "text": ": The only problem with\n\t\tHexblade’s Curse was that it could feel wasted if you used it on something\n\t\tand then ran into something more threatening before your next rest. That is\n\t\tnow slightly mitigated by allowing you to chain it through a whole fight.\n\t\tYou do need to be able to see a new target creature when you move Hexblade’s\n\t\tCurse, so if you’re facing hidden or invisible enemies you may need to keep\n\t\tthat in mind before you finish off your current target.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Clever players might try to move the effect to an angry rat which you\n\t\t\tkeep in a sack (the old “bag of rats” trick) to allow you to carry one use\n\t\t\tof Hexblade’s Curse all day, but wise DM’s should explicitly disallow such\n\t\t\tshenanigans."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-undead",
+      "parentSectionId": "section-subclasses",
+      "heading": "The Undead (VRtR)",
+      "sourceAnchor": "undead",
+      "blocks": [
+        {
+          "blockId": "block-section-undead-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Undead does a lot of things that I really like. From a design perpsective, it’s an excellent subclass. The theme and the mechanics align perfectly, and the whole thing has nice spooky feel (which makes sense considering the sourcebook that it came from). The subclass also handles complexity well, introducing few additional resources to track while also making those resources useful and exciting, and gradually adding complexity to the subclass as the player gains levels. This gradual ramp in complexity makes the Undead approachable for new players and players who don’t handle resource management well, but still includes enough buttons to press that veteran players will find the subclass exciting and impactful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-undead-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Undead Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undead/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-undead-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Bane isn’t a great\n\t\t\t\tspell and False Life both won’t stack with the temporary hp from Form of Dead\nand is a worse source of temporary hit points than Armor of Agathys. Both spells scale with spell level, which is a great\n\t\t\t\toption for the Warlock, but they’re still not good enough options that I\n\t\t\t\twould rush to cast them. False Life cast using a spell does notably\n\t\t\t\tallow you to produce temporary hit points right before taking a Short\n\t\t\t\tRest, so you could finish a Long Rest, cast False Life, then immediately\n\t\t\t\tshort rest and have a big pile of temporary hp. You can also get\n\t\t\t\ttemporary hit points from Form of Dread, so even with this abuse case it\n\t\t\t\tmay be hard to justify spending a spell known to get False Life."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\t\t\tgood and cover different use cases. Blindness/Deafness targets\n\t\t\t\tConstitution saves and adds additional targets with spell level, so it’s\n\t\t\t\tgood for low-Constitution targets like spellcasters and for crowds.\n\t\t\t\tPhantasmal Force targets Intelligence and is single-target, so it’s good\n\t\t\t\tfor single enemies with poor Intelligence (most martial foes)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\t\t\tonly situationally useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\t\t\texcellent. Death Ward is a powerul defensive buff, and with an 8-hour\n\t\t\t\tduration you can use all of your spell slots to cast it one multiple\n\t\t\t\tmembers of your party, then immediately take a Short Rest to regain your\n\t\t\t\tspell slots and get right back to adventuring. Greater Invisibility is\n\t\t\t\tan absolutely fantastic spell for many reasons, but Shadow of\n\t\t\t\tMoil may be more appealing in combat.\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Both decent\n\t\t\t\toptions. Antilife Shell can make it easy to corner and eliminate foes\n\t\t\t\twith limited reach and no ranged options. Cloudkill is decent, but\n\t\t\t\tHunger of Hadar will frequently be both easier to use and more\n\t\t\t\teffective."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Form of Dread"
+              },
+              {
+                "type": "text",
+                "text": ": A great combat buff, and, as\n\t\tyou add subclass features, you’ll gain additional benefits. At this level it\n\t\tadds temporary hp (the temporary hit points expire when Form of Dread ends\n\t\tsince you get them “while transformed”) and the ability to make the target\n\t\tFrightened of you, allowing you to repeatedly debuff one creature per turn.\n\t\tThe target does get a save, and, weirdly, the text doesn’t specify a save DC,\n\t\tso I assume that it uses your spell save DC like everything else.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "With a Bonus Action activation time, it’s easy to turn this on when you\n\t\t\tneed it without cutting into your Eldritch Blast time. Since it grants\n\t\t\ttemporary hit points and immunity to fear, it’s a great option after\n\t\t\tyou’ve taken damage or if you’re currently Frightened (becoming immune to\n\t\t\ta condition removes the condition). If you’re not worried about those\n\t\t\tconditions, it’s great to activate it early in a fight to keep\n\t\t\tan enemy perpectually Frightened."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Since your number of uses per day for Form of Dread is tied to your\n\t\t\tProficiency Bonus, you can technically use it back-to-back, reactivating\n\t\t\tit immediately after it expires, or using it in back-to-back encounters. I\n\t\t\tdon’t recommend this until your Proficiency Bonus improves a bit,\n\t\t\totherwise you’ll get through the first few encounters in a day and find\n\t\t\tyourself short on resources."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grave Touch"
+              },
+              {
+                "type": "text",
+                "text": ": While not using Form of\n\t\tDread, Grave Touch is minimally impactful. Changing the damage type of one\n\t\tattack per turn usually won’t make a big difference, especially if you’re\n\t\tusing Eldritch Blast (while necrotic damage isn’t as good as Force damage,\n\t\tit’s still one of the best damage types in the game). If you’re using a\n\t\tweapon, changing your damage type from slashing etc. to necrotic can help\n\t\tovercome common damage resistances to weapon damage types, but resistance to\n\t\tmagic weapon damage is almost non-existent, and with Improved Pact Weapon\n\t\tyou’re guaranteed to have a magic weapon if you’re building around Pact of\n\t\tthe Blade.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The improvement to Form of Dread is more significant. An additional\n\t\t\tdamage die once on one each of your turns is only a minor boost. An\n\t\t\textra d10 once per turn with Eldritch Blast is a reliable damage\n\t\t\timprovement to your DPR, especially as you add additional attacks because\n\t\t\tyou have more opportunities to apply the once-per-turn damage boost, but\n\t\t\tit’s still only 1d10 per turn. The damage boost is worded as “extra\n\t\t\tdamage”, so it’s multiplied on critical hits like Divine Smite, Sneak\n\t\t\tAttack, and other similar damage boosts. Since you only benefit from this\n\t\t\tboost while using Form of Dread (which you can only use a few times per\n\t\t\tday), you’re working with core Warlock class features the rest of the\n\t\t\tday."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The ability to change an attack’s damage type once per turn appears to\n\t\t\taffect all of the attack’s damage types, so if you have multiple damage\n\t\t\ttypes, such as Force from Eldritch Blast and Fire from Spirit Shroud, you\n\t\t\twould change both damage types to Necrotic. Since this options is once per\n\t\t\tturn, you can also use it for Opportunity Attacks."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Necrotic Husk"
+              },
+              {
+                "type": "text",
+                "text": ": The damage resistance is\n\t\tnice, but necrotic damage isn’t especially common unless you’re facing a lot\n\t\tof undead enemies. The second half of the feature is more interesting: The\n\t\tdamage is decent, though not enough to win a fight, but the AOE is respectable, and\n\t\tit’s enough that you may be able to eliminate weakened foes. The 1d4-long-rests\ncooldown is odd, but probably not a problem unless you’re frequently\n\t\tbeing reduced to 0 hit points. If that’s the case, you should reconsider\n\t\tyour tactics. You’re not a Defender. The Exhaustion is annoying, but one\n\t\tlevel of Exhaustion is minimally impactful for most spellcasters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spirit Projection"
+              },
+              {
+                "type": "text",
+                "text": ": Where Form of Dread is\n\t\ta dedicated combat buff with a small usage pool, Spirit Projection is a\n\t\tonce-per-day combination of defense, utility, and combat buff. It provides a\n\t\tcombination of exciting effects with a variety of uses, and combining Spirit\n\t\tProjection with Form of Dread can be exceptionally powerful.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While using Spirit Projection, you need to keep track of both your body\n\t\t\tand your spirit. Your spirit doesn’t duplicate your equipment, which I\n\t\t\tthink RAW means that your spirit is a spiritual projection of yourself in\n\t\t\tthe nude. Fortunately, I think you can loot your own body to get your\n\t\t\titems, though it’s not totally clear to me if that’s intentional. Just\n\t\t\tkeep in mind that you have a time limit, so it may save you time to strip\n\t\t\tyourself naked before activating Spirit Projection. Remember when facing\n\t\t\tinclement conditions like extreme cold, your spirit doesn’t get any sort\n\t\t\tof protection, so your body and your spirit may both need separate outfits\n\t\t\tto keep yourself from suffering the effects of the climate."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You don’t need to breath thanks to Grave Touch, so you can shove your\n\t\t\tbody into a bag of holding if you need a safe place to store it. If you’re\n\t\t\tlow on hit points or otherwise need to get out of a bad spot, you can\n\t\t\tteleport back to your body to escape to safety."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While projected, you have resistance to weapon damage types, making you\n\t\t\texceptionally resilient. Combined with resistance to necrotic damage and\n\t\t\tpotentially damage resistances from other sources (your race, items, etc.)\n\t\t\tyou can be alarmingly durable for a warlock. However, you need to maintain\n\t\t\tConcentration to maintain Spirit Projection, and without proficiency in\n\t\t\tConstituton saves that’s a hard prospect even with damage resistances."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You effectively have a built-in spellcasting focus for Conjuration and\n\t\t\tNecromancy spells, though if you looted your body that’s probably not\n\t\t\timpactful. You can fly and move through objects similar to the Etheralness\n\t\t\tspell, allowing you to scout, inflitrate, and escape in ways that normally\n\t\t\trequire extremely high-level spells. With proficiency in Stealth, you can\n\t\t\tbe an extremely effective scout."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The final bullet provides a way to heal yourself by dealing damage, but\n\t\t\tit only works while combining both Spirit Projection and Form of Dread.\n\t\t\tYou heal for half of the necrotic damage dealt, so use Grave Touch to\n\t\t\tchange the damage type and add extra damage like Eldritch Smite if you\n\t\t\tneed more healing in a hurry. If you’re close to the end of Spirit Projection\n\t\t\tand you’re short on hit points, consider activating Form of Dread and digging\n\t\t\tout your bag of rats to give you easy targets to farm hit points."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-undying",
+      "parentSectionId": "section-subclasses",
+      "heading": "The Undying (SCAG)",
+      "sourceAnchor": "undying",
+      "blocks": [
+        {
+          "blockId": "block-section-undying-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Undying seeks to make the Warlock survivable, but hardly manages to do so any better than other patrons. Most of the options are situational and reactionary, and grant the Warlock very few options to actively address problems. You do get a few options to heal yourself and your allies, but they’re underwhelming on their own and they feel laughably weak when you compare them to the "
+            },
+            {
+              "type": "link",
+              "text": "Celestial Warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/"
+            },
+            {
+              "type": "text",
+              "text": "‘s Healing Light feature, which already isn’t great."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-undying-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Undying Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-undying-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ": A few options are\n\t\tgood, but most of the options on the Undying patron’s spell list don’t add\n\t\tanything important to the Warlock’s existing abilities.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": False life is a\n\t\t\t\tbit silly considering you can get Armor of Agathys or Fiendish Vigor. Ray of Sickness is\n\t\t\t\tpassable, and scales with level, but it isn’t very exciting, and poison\n\t\t\t\tresistance/immunity is very common, so you’ll probably replace it very\n\t\t\t\tquickly."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Two options for\n\t\t\t\tdebilitating foes: one more martial foes, and one for spellcasters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Two situational\n\t\t\t\toptions, but Speak with Dead is extremely useful in a game where you\n\t\t\t\tfrequently kill things with useful information."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Death Ward is a\n\t\t\t\tpowerful defensive buff, and with an 8-hour duration you can use all of\n\t\t\t\tyour spell slots to cast it on multiple members of your party, then\n\t\t\t\timmediately take a Short Rest to regain your spell slots and get right\n\t\t\t\tback to adventuring."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Contagion is\n\t\t\t\tversatile and very powerful. Legend Lore is situational, but it’s\n\t\t\t\tessentially “Ask the DM About the Plot” as a spell, which makes it very\n\t\t\t\tpotent."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Among the Dead"
+              },
+              {
+                "type": "text",
+                "text": ": A free cantrip (albeit a\n\t\tbad one), and perpetual Sanctuary against a common creature type."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Defy Death"
+              },
+              {
+                "type": "text",
+                "text": ": This is really cool, but only\n\t\tworks once per Long Rest. You generally want to save this for when you are\n\t\tdying because the healing will bring you back to consciousness, but it’s not\n\t\tenough healing to use it if you just want to get back to full hp. Using it\n\t\twhen you stabilize an ally just gives you normal, boring healing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Undying Nature"
+              },
+              {
+                "type": "text",
+                "text": ": Very little in-game effect.\n\t\tHolding your breath indefinitely may mean that you can safely fight\n\t\tunderwater, but as a DM I would rule that performing Verbal spell components\n\t\twould require inhaling and exhaling for races which need to breathe."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Indestructible Life"
+              },
+              {
+                "type": "text",
+                "text": ": Not a lot of healing.\n\t\tCompare this to the Fighter’s Second Wind feature, which provides\n\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "more"
+              },
+              {
+                "type": "text",
+                "text": " healing and is available at level 1 rather than level 14 where\n\t\tmost warlocks are getting their subclass’s “capstone” feature."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green The Archfey"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fey Presence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Misty Escape"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Beguiling Defenses"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Dark Delirium"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange The Celestial"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bonus Cantrips"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Healing Light"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Radiant Soul"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Celestial Resilience"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Searing Vengeance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange The Fathomless"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Tentacle of the Deeps"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Gift of the Sea"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Oceanic Soul"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Guardian Coil"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Grasping Tentacles"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fathomless Plunge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue The Fiend"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dark One’s Blessing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dark One’s Own Luck"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Fiendish Resilience"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hurl Through Hell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue The Genie"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Genie Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dao"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Djinni"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Efreeti"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Marid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none All"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Genie’s Vessel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bottled Respite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Genie’s Wrath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dao"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Djinni"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Efreeti"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Marid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Elemental Gift"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Dao"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Djinni"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Efreeti"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mardi"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sanctuary Vessel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Limited Wish"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green The Great Old One"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Awakened Mind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Entropic Ward"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Thought Shield"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Create Thrall"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue The Hexblade"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hexblade’s Curse"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hex Warrior"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Accursed Specter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Armor of Hexes"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Master of Hexes"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green The Undead"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Form of Dread"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Grave Touch"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Necrotic Husk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Spirit Projection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red The Undying"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Among the Dead"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Defy Death"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Undying Nature"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Indestructible Life"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-archfey-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-archfey-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/li[1]",
+      "detail": "block-section-archfey-3"
+    },
+    {
+      "code": "orphan-list-item-review",
+      "location": "div/li[1]",
+      "detail": "<li value=\"1\"><span class=\"rating-green\">Expanded Spell List</span>: A broad mix of utility, offensive, and defensive options. They’re all enchantments or illusions, so be cautious"
+    },
+    {
+      "code": "provisional-id",
+      "location": "li/ul[1]",
+      "detail": "block-section-archfey-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/li[2]",
+      "detail": "block-section-archfey-5"
+    },
+    {
+      "code": "orphan-list-item-review",
+      "location": "div/li[2]",
+      "detail": "<li value=\"1\"><span class=\"rating-orange\">Fey Presence</span>: A 10-foot cube originating from you means that you need to be nearly adjacent to whatever you want to affect, and you"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/li[3]",
+      "detail": "block-section-archfey-6"
+    },
+    {
+      "code": "orphan-list-item-review",
+      "location": "div/li[3]",
+      "detail": "<li value=\"6\"><span class=\"rating-green\">Misty Escape</span>: This is a great way to get away from a big enemy with multi-attack or from damage-dealing area effects which leave lin"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/li[4]",
+      "detail": "block-section-archfey-7"
+    },
+    {
+      "code": "orphan-list-item-review",
+      "location": "div/li[4]",
+      "detail": "<li value=\"10\"><span class=\"rating-orange\">Beguiling Defenses</span>: Situational by design, but charm effects are common, and turning them back upon the creature can be both power"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/li[5]",
+      "detail": "block-section-archfey-8"
+    },
+    {
+      "code": "orphan-list-item-review",
+      "location": "div/li[5]",
+      "detail": "<li value=\"14\"><span class=\"rating-green\">Dark Delirium</span>: This is almost a single-target save-or-suck, but the target can still act freely for the most part (within the confi"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-celestial-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-celestial-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-celestial-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-fathomless-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-fathomless-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-fathomless-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[2]",
+      "detail": "block-section-fathomless-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-fiend-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-fiend-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[3]",
+      "detail": "block-section-fiend-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-genie-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-genie-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[4]",
+      "detail": "block-section-genie-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-great-old-one-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-great-old-one-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[5]",
+      "detail": "block-section-great-old-one-3"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[5]",
+      "detail": "<li value=\"14\"><span class=\"rating-green\">Create Thrall</span>: This can be hard to use. Your best bet is to affect the target while they’re sleeping. Once you make the target Char"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-hexblade-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-hexblade-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-hexblade-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-hexblade-4"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[2]",
+      "detail": "<li><span class=\"rating-blue\">Hexblade’s Curse</span>: Are you ready to confuse literally every new player by being the only thing that gets proficiency to damage? Then Hexblade is"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-undead-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-undead-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[6]",
+      "detail": "block-section-undead-3"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"1\"><span class=\"rating-blue\">Form of Dread</span>: A great combat buff, and, as you add subclass features, you’ll gain additional benefits. At this level it adds tempora"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"6\"><span class=\"rating-green\">Grave Touch</span>: While not using Form of Dread, Grave Touch is minimally impactful. Changing the damage type of one attack per turn usua"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[5]",
+      "detail": "<li value=\"14\"><span class=\"rating-blue\">Spirit Projection</span>: Where Form of Dread is a dedicated combat buff with a small usage pool, Spirit Projection is a once-per-day combi"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-undying-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-undying-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[7]",
+      "detail": "block-section-undying-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-undying-4"
+    }
+  ],
+  "metrics": {
+    "words": 9197,
+    "sections": 13,
+    "blocks": 42,
+    "tables": 0,
+    "ratingSignals": 144
+  },
+  "status": "needs-editorial-review"
+}

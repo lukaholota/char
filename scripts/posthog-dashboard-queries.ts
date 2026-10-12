@@ -1,14 +1,14 @@
 import { CURRENT_RELEASE_FLAG, CURRENT_RELEASE_SLIDES } from "../src/lib/whats-new/release-notes";
 
 type Query = Record<string, unknown>;
-type Series = { kind: "EventsNode"; event: string; name: string; math: string; properties?: Query[] };
+export type Series = { kind: "EventsNode"; event: string; name: string; math: string; properties?: Query[] };
 export type AnalyticsInsight = { name: string; description: string; query: Query };
-export type AnalyticsDashboard = { name: string; description: string; insights: AnalyticsInsight[] };
-type TrendOptions = { breakdown?: string; description?: string };
+export type AnalyticsDashboard = { name: string; description: string; insights: AnalyticsInsight[]; dateFrom?: string };
+export type TrendOptions = { breakdown?: string; description?: string; dateFrom?: string; interval?: "hour" | "day" };
 
 const PATH = "coalesce(properties.$pathname, '/')";
 const NORMALIZED_PATH = `replaceRegexpOne(replaceRegexpOne(${PATH}, '^/no-ai(/|$)', '/'), '^/2024(/|$)', '/')`;
-const PAGE_GROUP = `if(${NORMALIZED_PATH} = '/', 'Головна', if(splitByChar('/', ${NORMALIZED_PATH})[2] = 'pers', 'char', splitByChar('/', ${NORMALIZED_PATH})[2]))`;
+const PAGE_GROUP = `if(${NORMALIZED_PATH} = '/', 'Головна', if(match(${NORMALIZED_PATH}, '^/(rules/)?optimization(/|$)'), 'rpgbot', if(splitByChar('/', ${NORMALIZED_PATH})[2] = 'pers', 'char', splitByChar('/', ${NORMALIZED_PATH})[2])))`;
 const EDITION = `coalesce(properties.edition, if(match(${PATH}, '^/(no-ai/)?2024(/|$)'), '2024', if(match(${NORMALIZED_PATH}, '^/(char/[0-9]+|pers/)'), 'Невідомо (старі листи)', '2014')))`;
 const NO_AI = `if(coalesce(toString(properties.no_ai), '') IN ('true','1') OR match(${PATH}, '^/no-ai(/|$)'), 'Без ШІ', 'З ілюстраціями')`;
 const NEW_DATA = "Події цієї функції почнуть збиратися після викатки analytics v2; порожній графік до викатки не означає відсутність використання.";
@@ -33,23 +33,23 @@ export function buildAnalyticsExclusion(personIds: string[]): string {
   return `distinct_id NOT IN ('5','967') ${personFilter} AND coalesce(toString(person.properties.is_internal), '') NOT IN ('true','1') AND coalesce(toString(properties.is_internal), '') NOT IN ('true','1') AND coalesce(properties.environment, 'production') = 'production' AND coalesce(properties.$host, 'char.holota.family') IN ('char.holota.family','spells.holota.family')`;
 }
 
-function buildEvent(event: string, properties?: Query[]): Series {
+export function buildEvent(event: string, properties?: Query[]): Series {
   return { kind: "EventsNode", event, name: SERIES_LABELS[event] ?? event, math: "total", ...(properties ? { properties } : {}) };
 }
 
-function buildTrend(name: string, events: string[], display: string, options: TrendOptions & { exclusion: string }): AnalyticsInsight {
-  const { exclusion, breakdown, description = NEW_DATA } = options;
+export function buildTrend(name: string, events: string[], display: string, options: TrendOptions & { exclusion: string }): AnalyticsInsight {
+  const { exclusion, breakdown, description = NEW_DATA, dateFrom = "-24h", interval = "hour" } = options;
   return { name, description, query: { kind: "InsightVizNode", source: {
-    kind: "TrendsQuery", series: events.map((event) => buildEvent(event)), dateRange: { date_from: "-24h" }, interval: "hour",
+    kind: "TrendsQuery", series: events.map((event) => buildEvent(event)), dateRange: { date_from: dateFrom }, interval,
     properties: [{ type: "hogql", key: exclusion }], filterTestAccounts: true,
     trendsFilter: { display, showLegend: true, showValuesOnSeries: true, aggregationAxisFormat: "numeric" },
     ...(breakdown ? { breakdownFilter: { breakdown, breakdown_type: "hogql", breakdown_limit: 20 } } : {}),
   } } };
 }
 
-function buildFunnel(name: string, series: Series[], exclusion: string, description = NEW_DATA): AnalyticsInsight {
+export function buildFunnel(name: string, series: Series[], exclusion: string, description = NEW_DATA, dateFrom = "-24h"): AnalyticsInsight {
   return { name, description, query: { kind: "InsightVizNode", source: {
-    kind: "FunnelsQuery", series, dateRange: { date_from: "-24h" }, properties: [{ type: "hogql", key: exclusion }], filterTestAccounts: true,
+    kind: "FunnelsQuery", series, dateRange: { date_from: dateFrom }, properties: [{ type: "hogql", key: exclusion }], filterTestAccounts: true,
     funnelsFilter: { funnelVizType: "steps", funnelOrderType: "ordered", funnelWindowInterval: 1, funnelWindowIntervalUnit: "day" },
   } } };
 }
@@ -61,8 +61,13 @@ function buildAudienceDashboard(build: BuildTrend): AnalyticsDashboard {
   const page = (name: string, display: string, breakdown?: string, description = historic) => build(name, ["$pageview"], display, { breakdown, description });
   const visitors = page("Відвідувачі", "BoldNumber");
   setSeriesMath(visitors, "dau");
+  const installSessions = page("Сесії: браузер / встановлений застосунок", "ActionsPie", "coalesce(properties.display_mode, 'Невідомо (до PWA)')", "Унікальні сесії з переглядами сторінок за display_mode; історичні події без властивості показано окремо. Це не кількість встановлень.");
+  setSeriesMath(installSessions, "unique_session");
   return { name: "Char · Аудиторія та каталоги", description: "Популярність розділів, редакції, режим без ШІ та пристрої. За замовчуванням останні 24 години; змінюйте період зверху. Анонімні відвідувачі з memory persistence рахуються заново після перезавантаження; це не точна кількість людей.", insights: [
-    page("Перегляди сторінок", "BoldNumber"), visitors,
+    page("Перегляди сторінок", "BoldNumber"), visitors, installSessions,
+    build("Пропозиції встановлення", ["app_install_offered"], "ActionsBarValue", { breakdown: "properties.path" }),
+    build("Результат системного встановлення", ["app_install_prompt_result"], "ActionsPie", { breakdown: "properties.outcome" }),
+    build("Встановлення Chromium та інструкції iOS", ["app_installed", "app_ios_instructions_opened"], "ActionsLineGraph"),
     page("Найпопулярніші розділи", "ActionsBarValue", PAGE_GROUP, `${historic} /no-ai та /2024 прибрані; усі /char і /pers обʼєднані в char.`),
     page("Редакція: 2014 / 2024", "ActionsPie", EDITION, `${historic} Старі листи /char/<id> без edition показані окремо як невідомі.`),
     page("Режим без ШІ", "ActionsPie", NO_AI),
@@ -145,12 +150,12 @@ function setTrendFilter(insight: AnalyticsInsight, filter: Query): void {
   source.trendsFilter = { ...(source.trendsFilter as Query), ...filter };
 }
 
-function addSourceFilter(insight: AnalyticsInsight, property: Query): void {
+export function addSourceFilter(insight: AnalyticsInsight, property: Query): void {
   const source = insight.query.source as Query;
   (source.properties as Query[]).push(property);
 }
 
-function setSeriesMath(insight: AnalyticsInsight, math: string): void {
+export function setSeriesMath(insight: AnalyticsInsight, math: string): void {
   const source = insight.query.source as Query;
   (source.series as Series[]).forEach((series) => { series.math = math; });
 }

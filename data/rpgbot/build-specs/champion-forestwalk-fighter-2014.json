@@ -1,0 +1,210 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "champion-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+    "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384"
+  },
+  "exampleSection": "section-example-build-lord-forestwalk",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "subclassKey": "CHAMPION",
+  "raceKey": "ELF_2014",
+  "backgroundKey": "KNIGHT",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 8,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Раса",
+      "reason": "Автор пише «підійде будь-який різновид ельфа» і радить шадар-кая за опір шкоді й Темнозір. Узято Ельфа з підрасою шадар-кай (MPMM) за правилами Таші: Спритність +2 і Сила +1, як у таблиці автора.",
+      "section": "section-race"
+    },
+    {
+      "field": "Інструменти",
+      "reason": "Автор міняє ігровий набір Лицаря на інструменти злодія. Платформа не може прибрати фіксований інструмент передісторії, тому лишається ігровий набір Лицаря, а інструментів злодія немає.",
+      "section": "section-background"
+    },
+    {
+      "field": "Спорядження",
+      "reason": "Автор бере дворучний меч, продає арбалет, меч і шкіряний обладунок та купує проклепаний шкіряний обладунок і щит. Платформа не веде купівлю й продаж: узято Рапіру зі щитом від початку, шкіряний обладунок і арбалет лишаються, дворучного меча немає, проклепаного шкіряного обладунка немає.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "title": "Воїн — Чемпіон, Ельф (шадар-кай), Лицар",
+    "description": "Воїн-Чемпіон від Спритності: Ельф шадар-кай за правилами Таші, Лицар із Непомітністю й Уважністю, Бойовий стиль «Дуель», довгий лук і Рапіра.",
+    "subraceKey": "ELF_SHADAR_KAI_MPMM",
+    "racialAbilities": [
+      "DEX",
+      "STR",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ACROBATICS",
+        "ATHLETICS"
+      ],
+      "race": [],
+      "background": [
+        "STEALTH",
+        "INSIGHT"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [],
+    "classOptions": [
+      "Dueling"
+    ],
+    "languages": [
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": [
+          "RAPIER"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Ельф шадар-кай за правилами Таші: +2 до Спритності та +1 до Сили, тож Сила 16, Спритність 17, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Акробатика й Атлетика — від Воїна, Непомітність — від Лицаря за налаштованою автором передісторією (правило PHB «Налаштування передісторії»). Автор бере ще Уважність, але Ельф уже має її від Гострих чуттів, тож другу навичку замість повтору ми обрали за вас — Проникливість (вибір платформи). Мову ми теж обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Довгий лук зі шкіряним обладунком, Рапіру зі щитом і легкий арбалет узято зі списку автора (щит він купує після продажу дворучного меча, тут беремо одразу). Набір дослідника підземель ми обрали за вас; його можна змінити."
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "CHAMPION"
+    },
+    {
+      "level": 4,
+      "featKey": "ELVEN_ACCURACY",
+      "featOptions": [
+        {
+          "optionNameEng": "ELVEN_ACCURACY Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "featKey": "PIERCER",
+      "featOptions": [
+        {
+          "optionNameEng": "PIERCER Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (DEX)"
+        },
+        {
+          "optionNameEng": "Skill Expert Proficiency (SURVIVAL)"
+        },
+        {
+          "optionNameEng": "Skill Expert Expertise (ATHLETICS)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Blind Fighting"
+        }
+      ]
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "GRAPPLER",
+      "section": "section-feats"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "featKey": "GIFT_OF_THE_CHROMATIC_DRAGON",
+      "section": "section-feats"
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "featKey": "GIFT_OF_THE_METALLIC_DRAGON",
+      "section": "section-feats"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "MAGE_SLAYER",
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "monk-ascendant-dragon-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+    "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "MONK_2014",
+  "subclassKey": "WAY_OF_THE_ASCENDANT_DRAGON",
+  "raceKey": "DRAGONBORN_CHROMATIC",
+  "backgroundKey": "FAR_TRAVELER",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 10
+  },
+  "revision": 2,
+  "levels": [
+    {"level": 2},
+    {"level": 3, "subclassKey": "WAY_OF_THE_ASCENDANT_DRAGON"},
+    {"level": 4, "abilityScoreIncrease": [{"ability": "DEX", "amount": 2}]},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "abilityScoreIncrease": [{"ability": "DEX", "amount": 1}, {"ability": "WIS", "amount": 1}]},
+    {"level": 9},
+    {"level": 10},
+    {"level": 11},
+    {"level": 12, "featKey": "GIFT_OF_THE_GEM_DRAGON", "featOptions": [{"optionNameEng": "GIFT_OF_THE_GEM_DRAGON Ability (Wisdom)"}], "section": "section-feats-2"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "featKey": "GIFT_OF_THE_METALLIC_DRAGON", "section": "section-feats-2"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}]},
+    {"level": 20}
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Різновид дракононародженого",
+      "reason": "Автор каже, що різновид Фізбана не має значення, і радить стихію, якої Шлях висхідного дракона не дає опору; конкретного родоводу не називає, тож хроматичний і його родовід обрано за платформою.",
+      "section": "section-race"
+    },
+    {
+      "field": "Додаткові класові уміння",
+      "reason": "Автор бере додаткове класове уміння «Зосереджене прицілювання» з 5-го рівня; пресет 1-го рівня його не записує.",
+      "section": "section-example"
+    },
+    {
+      "field": "Характеристики",
+      "reason": "Текст автора дає +2 до Спритності й +1 до Мудрості, а таблиця показує Спритність 16; таблиця рівнів (Спритність 17 → 19 на 4-му рівні) підтверджує текст, тож пресет бере Спритність 17 і Мудрість 16.",
+      "section": "section-ability-scores-2"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/monk-ascendant-dragon-2014.webp",
+    "title": "Монах — Дракононароджений Шляху висхідного дракона",
+    "description": "Подвійний дракон: дракононароджений Фізбана — Монах Шляху висхідного дракона зі Спритністю 16 і Мудрістю 16 на старті.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "WIS",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "HISTORY",
+        "STEALTH"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": [
+      "Синій дракон"
+    ],
+    "platformChoices": [
+      "raceOptions"
+    ],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": [
+          "SPEAR"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Дракононароджений за правилами Таші: +2 до Спритності й +1 до Мудрості, як каже текст автора (Спритність 17, Мудрість 16). Таблиця автора показує Спритність 16, але таблиця рівнів (17 → 19 на 4-му рівні) підтверджує 17; це вже враховано.",
+    "skillExplanation": "Історія й Непомітність — навички Монаха за авторським вибором, Аналіз поведінки й Уважність — від Далекого мандрівника. Родовід дракона (Синій) і мову передісторії ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Спис — з авторського рядка 1-го рівня, дротики — стартова група Монаха. Набір мандрівника ми обрали за вас — його можна змінити."
+  }
+}

@@ -1,0 +1,350 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "warlock-genie-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+    "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac"
+  },
+  "exampleSection": "section-example-genie-warlock-build-halfgenie-accuracy",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "raceKey": "HALF_ELF_2014",
+  "backgroundKey": "URCHIN",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": [
+      1
+    ],
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 5,
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "WARLOCK_2014",
+      "subclassKey": "THE_GENIE",
+      "subclassOptions": [
+        {
+          "optionNameEng": "Genie Kind: Djinni"
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "mage-hand",
+          "prestidigitation"
+        ],
+        "knownSpellKeys": [
+          "arms-of-hadar",
+          "expeditious-retreat"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Devil's Sight"
+        },
+        {
+          "optionNameEng": "Eyes of the Rune Keeper"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "hellish-rebuke"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Pact of the Blade"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "misty-step"
+        ]
+      },
+      "replaceOptions": [
+        {
+          "drop": {
+            "optionNameEng": "Eyes of the Rune Keeper"
+          },
+          "add": {
+            "optionNameEng": "Improved Pact Weapon"
+          }
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "classKey": "WARLOCK_2014",
+      "featKey": "ELVEN_ACCURACY",
+      "featOptions": [
+        {
+          "optionNameEng": "ELVEN_ACCURACY Ability (Dexterity)"
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "mind-sliver"
+        ],
+        "knownSpellKeys": [
+          "darkness"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "expeditious-retreat",
+        "add": "hold-person"
+      }
+    },
+    {
+      "level": 6,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Thirsting Blade"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "hunger-of-hadar"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "classKey": "WARLOCK_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "fly"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Eldritch Smite"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "greater-invisibility"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "classKey": "WARLOCK_2014",
+      "featKey": "SHARPSHOOTER",
+      "spells": {
+        "knownSpellKeys": [
+          "sickening-radiance"
+        ]
+      }
+    },
+    {
+      "level": 10
+    },
+    {
+      "level": 11,
+      "subclassKey": "CHAMPION"
+    },
+    {
+      "level": 12,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Eldritch Mind"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "classKey": "WARLOCK_2014",
+      "spells": {
+        "cantripKeys": [
+          "minor-illusion"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "classKey": "WARLOCK_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "creation"
+        ]
+      }
+    },
+    {
+      "level": 15,
+      "classKey": "WARLOCK_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "classOptions": [
+        {
+          "optionNameEng": "Lifedrinker"
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "classKey": "WARLOCK_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "synaptic-static"
+        ]
+      }
+    },
+    {
+      "level": 17,
+      "classKey": "WARLOCK_2014"
+    },
+    {
+      "level": 18,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Shrouded in Shadow"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "banishment"
+        ]
+      }
+    },
+    {
+      "level": 19,
+      "classKey": "WARLOCK_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "classKey": "WARLOCK_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Магія дроу",
+      "reason": "Автор бере Напівельфа-дроу заради Вогників фей й Темряви (Магія дроу); каталог дає лише вибір «Магія дроу» без видачі заклинань (BUG-O49-HALF-ELF-DROW-MAGIC).",
+      "section": "section-race"
+    },
+    {
+      "field": "Містичний арканум",
+      "reason": "Автор називає Ментальну вʼязницю (14-й рівень персонажа), Силову клітку (16-й), Нестерпну темряву (18-й) і Бажання (20-й); платформа не записує вибір арканума, тож їх слід додати вручну.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Коло телепортації на 20-му рівні",
+      "reason": "На 20-му рівні автор бере Коло телепортації (Teleportation Circle), якого немає у списку Чорнокнижника й розширеному списку Джина (сервер його відхиляє), тож на 20-му рівні записано відкритий вибір одного заклинання гравця, а не вигадане замість автора. Містичний арканум 9 (Бажання) платформа не записує.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Стіна каменю на 12-му рівні",
+      "reason": "Автор бере Стіну каменю (Wall of Stone) на 12-му рівні, але її немає в списку Джина обраного роду (Джин-Джинн); сервер її відхиляє, тож на 12-му рівні записано відкритий вибір заклинання гравця, а не вигадане замість автора.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/warlock-genie-2014.webp",
+    "title": "Воїн 1 / Чорнокнижник — Джин, Напівельф-дроу",
+    "description": "Мультиклас Воїн 1 / Чорнокнижник Джина з Пактом клинка й довгим луком: Стрільба з лука, Напівельф, Безпритульний.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CON",
+      "CHA",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ACROBATICS",
+        "INTIMIDATION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [
+      "Archery"
+    ],
+    "raceOptions": [
+      "Магія дроу"
+    ],
+    "platformChoices": [],
+    "languages": [
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "RAPIER",
+          "SHORTSWORD"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Напівельф за правилами Таші: +2 до Спритності та +1 до Статури й Харизми: Спритність 17, Статура 16, Харизма 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Акробатика й Залякування — від Воїна, Спритність рук і Непомітність — від Безпритульного, як у розділі автора. Мову ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Шкіряна броня з довгим луком — за порадою автора. Рапіру, короткий меч, легкий арбалет і набір дослідника підземель ми обрали за вас — вибір платформи."
+  }
+}

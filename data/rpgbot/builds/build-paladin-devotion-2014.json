@@ -1,0 +1,796 @@
+{
+  "buildId": "build-paladin-devotion-2014",
+  "revisionId": "build-paladin-devotion-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад збірки Паладина — Дракононароджений, Паладин Клятви відданості",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-paladin-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+      "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "PALADIN_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "PALADIN_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "PALADIN_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Dueling"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "PALADIN_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "OATH_OF_DEVOTION",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "PALADIN_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 1
+          },
+          {
+            "ability": "CON",
+            "amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "PALADIN_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "PALADIN_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "PALADIN_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "PALADIN_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "PALADIN_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "PALADIN_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "PALADIN_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "PALADIN_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "PALADIN_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "PALADIN_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "PALADIN_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "PALADIN_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "PALADIN_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "PALADIN_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "PALADIN_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "PALADIN_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+          "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "OATH_OF_DEVOTION",
+    "raceKey": "DRAGONBORN_2014",
+    "backgroundKey": "ACOLYTE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Візьмімо купівлю характеристик очками для Паладина на Силі, запропоновану вище. Персонаж добре справляється з типовими завданнями Паладина, але в іншому має обмежені можливості. Якщо готові трохи пожертвувати Статурою, зменште початкову Силу й Статуру до 14 та розподіліть вивільнені очки між іншими характеристиками, а на 4-му рівні повністю підвищте Силу. «Цілющі руки»{{Lay on Hands}} дають щедрий запас ХП, тож Статури 14 цілком вистачить.\n\n  Базове значення Після підвищення Сила 15 17 Спритність 8 8 Статура 15 15 Інтелект 8 8 Мудрість 8 8 Харизма 15 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Класичний дракононароджений{{Dragonborn}}. Поєднання Сили й Харизми чудове, а зброя дихання{{Breath Weapon}} дає спосіб упоратися з групами ворогів — це типова проблема Паладина, якому бракує засобів проти натовпу.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Тут багато свободи. Безперечно раджу Переконання, а інші навички можна обрати відповідно до складу групи. Релігія — добрий вибір, але якщо у вас є Клірик, вона може бути не потрібна. Атлетика теж чудово пасує, бо допомагає захоплювати й штовхати ворогів. Якщо ви єдине «обличчя» групи, візьміть Залякування.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-1",
+        "title": "Передісторія",
+        "text": "Послушник{{Acolyte}}, Аристократ{{Noble}} і Солдат{{Soldier}} чудово пасують цій збірці.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-background-1",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Божественне відчуття\nЦілющі руки",
+        "notes": "Для стартового спорядження візьміть бойовий молот, довгий меч або бойову сокиру, щит, пʼять метальних списів і будь-який набір. Ви мусите почати з кольчуги, але за Спритності 8 вона вам підходить. На 1-му рівні ви схожі на Воїна. Божественне відчуття{{Divine Sense}} дає уявлення про справжню божественну силу. Воно знадобиться нечасто, але це один із небагатьох способів Паладина знайти невидиму істоту. «Цілющі руки»{{Lay on Hands}} — чудовий запас лікування. Вони дають точно розподілити ХП, без випадковості кубиків здоровʼя чи заклинань, тож можна додати останні два чи три ХП й довести союзника до повних ХП, не ризикуючи переборщити й змарнувати обмежені ресурси. Намагайтеся завжди залишати 1 пункт на випадок, якщо доведеться врятувати вмираючого союзника. Попри високий КБ від кольчуги, на 1-му рівні щиро раджу меч і щит, а не дворучну зброю. Навіть із «Цілющими руками» персонажі 1-го рівня крихкі, і одна атака може зняти всі ХП. Щит значно підвищить шанси дожити до 2-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Бойовий стиль (будь-який, крім «Бою великою зброєю»)\nЧаротворство\nБожественна кара",
+        "notes": "На 2-му рівні Паладин справді розкривається. Бойовий стиль допомагає визначити вашу роль у групі. Раджу будь-який, крім «Бою великою зброєю»{{Great Weapon Fighting}}: навіть із дворучною зброєю цей стиль себе не виправдовує. Якщо берете дворучну зброю, оберіть «Оборону»{{Defense}}, щоб компенсувати відсутність щита. На цьому рівні ви маєте підготовлених заклинань удвічі більше, ніж слотів. Раджу захисні підсилення на кшталт Виклик на дуель [Compelled Duel] і Щит віри [Shield of Faith], але й кілька заклинань кар не завадять. Заклинання часто вплине на бій сильніше, ніж витратити той самий слот на «Божественну кару»{{Divine Smite}}, але іноді потрібно негайно добити ворога додатковою шкодою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Божественне здоровʼя\nСвященна клятва (Клятва відданості)\nКанал божественності:\n– Священна зброя\n– Вигнання нечестивих",
+        "notes": "Божественне здоровʼя{{Divine Health}} — корисний пасивний захист. Хвороби можуть бути дуже небезпечними, а часто передаються через атаки ближнього бою демонів, велетенських щурів та інших істот. «Священна зброя»{{Sacred Weapon}} з «Каналу божественності»{{Channel Divinity}} — чудове підсилення. Харизма вже 16, а бонус +3 до атак у 5e — величезна перевага. Тривалість 1 хвилина означає, що ефект не протримається довше за один бій, але якщо активувати «Священну зброю» просто перед ним, почнете зі значною перевагою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик: Сила 17 → 18, Статура 15 → 16",
+        "notes": "Дві важливі характеристики мають непарні значення, тож розподіліть підвищення так, щоб обидві стали парними й зросли модифікатори. Це поліпшить атаки й шкоду, дасть більше ХП і покращить ряткидки. Не забудьте: підвищення модифікатора Статури заднім числом збільшує ХП за кожен попередній рівень, тож додається ще по одному ХП за кожен попередній рівень!",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака{{Extra Attack}}",
+        "notes": "5-й рівень дуже цікавий: ви не лише отримуєте Додаткову атаку, а й перші слоти заклинань 2-го рівня. На цьому рівні можна підготувати лише пʼять заклинань, тож обирайте прискіпливо.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Аура захисту{{Aura of Protection}}",
+        "notes": "«Аура захисту»{{Aura of Protection}} — одне з найкращих захисних класових умінь у грі. Ви й усі союзники в межах 10 футів отримуєте +3 до всіх ряткидків. Це добра причина триматися поблизу союзників, але памʼятайте: ваша роль — відвертати атаки від них, і часом безпечніше триматися далі, щоб не потрапити під шкоду по області.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Аура відданості{{Aura of Devotion}}",
+        "notes": "Імунітет до зачарування корисніший, ніж здається на перший погляд. Багато ефектів заклинань не працюватимуть, якщо ви маєте імунітет до зачарування.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Сила 18 → 20",
+        "notes": "Не надто захопливо, але додаткова Сила дуже важлива.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "–",
+        "notes": "На 9-му рівні відкриваються заклинання 3-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Аура мужності{{Aura of Courage}}",
+        "notes": "З набуттям рівнів переляк траплятиметься частіше, адже ви зустрічатимете неймовірно могутніх істот на кшталт прадавніх драконів і сильну нежить.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Покращена божественна кара{{Improved Divine Smite}}",
+        "notes": "Пряме підвищення шкоди від ваших атак зброєю.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Харизма 16 → 18",
+        "notes": "Ще один пункт модифікатора Харизми означає більше підготовлених заклинань, вищу СК ряткидків і кращий бонус від «Аури захисту»{{Aura of Protection}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "–",
+        "notes": "На 13-му рівні зʼявляються заклинання 4-го рівня. Якнайшвидше скористайтеся Пошуком вищого скакуна [Find Greater Steed], щоб отримати нового крутого скакуна.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Очищувальний дотик{{Cleansing Touch}}",
+        "notes": "«Очищувальний дотик»{{Cleansing Touch}} чудово знімає неприємні послаблення й інші тривалі ефекти заклинань, що на цьому рівні ставатимуть поширенішими.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Чистота духу{{Purity of Spirit}}",
+        "notes": "«Чистота духу»{{Purity of Spirit}} значно допомагає боротися з істотами відповідних типів і не потребує ні Концентрації, ні слота заклинання чи іншого ресурсу — ефект діє постійно.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: Харизма 18 → 20",
+        "notes": "Ще один пункт модифікатора Харизми означає більше підготовлених заклинань, вищу СК ряткидків і кращий бонус від «Аури захисту»{{Aura of Protection}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "–",
+        "notes": "Нарешті, на 17-му рівні відкриваються заклинання 5-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Покращення аур{{Aura Improvements}}",
+        "notes": "Тепер усі ваші аури з радіусом 10 футів розширюються до 30 футів, тож союзники можуть триматися значно далі й однаково користуватися вашим чудовим захистом.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Статура 16 → 18",
+        "notes": "Фактично це додаткове підвищення характеристик. Витратьте його як забажаєте, але Статура — добрий вибір.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Святий німб{{Holy Nymbus}}",
+        "notes": "У бою з кількома ворогами це дуже швидко завдасть їм купу шкоди. Але навіть проти однієї цілі варто активувати уміння й зосередитися на виживанні, поступово виснажуючи небезпечного ворога.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Бойовий стиль на 2-му рівні",
+        "reason": "Автор пише «будь-який, крім Бою великою зброєю»; пресет бере типовий Dueling (одноручна зброя зі щитом), гравець може змінити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+            "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

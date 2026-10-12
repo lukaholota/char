@@ -1,0 +1,327 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "sorcerer-shadow-magic-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+    "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a"
+  },
+  "exampleSection": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "raceKey": "DWARF_2014",
+  "backgroundKey": "COURTIER",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 10,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 1
+  },
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "SORCERER_2014",
+      "subclassKey": "SHADOW_MAGIC",
+      "spells": {
+        "cantripKeys": [
+          "acid-splash",
+          "mage-hand",
+          "mind-sliver",
+          "minor-illusion"
+        ],
+        "knownSpellKeys": [
+          "absorb-elements",
+          "sleep"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "silvery-barbs"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "classKey": "SORCERER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Quickened Spell"
+        },
+        {
+          "optionNameEng": "Subtle Spell"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "hold-person"
+        ]
+      }
+    },
+    {
+      "level": 5,
+      "classKey": "SORCERER_2014",
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (CHA)"
+        },
+        {
+          "optionNameEng": "Skill Expert Proficiency (ACROBATICS)"
+        },
+        {
+          "optionNameEng": "Skill Expert Expertise (DECEPTION)"
+        }
+      ],
+      "section": "section-feats",
+      "spells": {
+        "cantripKeys": [
+          "mending"
+        ],
+        "knownSpellKeys": [
+          "phantasmal-force"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "lightning-bolt"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "sleep",
+        "add": "major-image"
+      }
+    },
+    {
+      "level": 7,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "dispel-magic"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "absorb-elements",
+        "add": "counterspell"
+      }
+    },
+    {
+      "level": 8,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "greater-invisibility"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "classKey": "SORCERER_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats",
+      "spells": {
+        "knownSpellKeys": [
+          "raulothims-psychic-lance"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "hold-monster"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "classKey": "SORCERER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Twinned Spell"
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "blade-ward"
+        ],
+        "knownSpellKeys": [
+          "polymorph"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "disintegrate"
+        ]
+      }
+    },
+    {
+      "level": 13,
+      "classKey": "SORCERER_2014",
+      "featKey": "TOUGH",
+      "section": "section-feats"
+    },
+    {
+      "level": 14,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "draconic-transformation"
+        ]
+      }
+    },
+    {
+      "level": 15,
+      "classKey": "SORCERER_2014"
+    },
+    {
+      "level": 16,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "classKey": "SORCERER_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 18,
+      "classKey": "SORCERER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Heightened Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "spells": {
+        "knownSpellKeys": [
+          "wish"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "polymorph",
+        "add": "psychic-scream"
+      }
+    },
+    {
+      "level": 19,
+      "classKey": "SORCERER_2014"
+    },
+    {
+      "level": 20,
+      "classKey": "FIGHTER_2014"
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Інструменти",
+      "reason": "Автор міняє всі вбудовані володіння Пагорбового дворфа на пʼять наборів інструментів (кухарське начиння, набір для гриму, набір фальшивомонетника, набір отруйника, ріг); сервер і лист завжди видають расові володіння каталогу, тому цих інструментів у пресеті немає, а расові володіння зброєю лишаються.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Напівплан на 16-му рівні",
+      "reason": "Автор бере на 16-му рівні (Чародій 15) Напівплан, але в каталозі цього заклинання немає в списку Чародія (воно в Чорнокнижника й Чарівника); заклинання 8-го рівня на цьому рівні обирає гравець.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія 18-го рівня",
+      "reason": "Автор не називає четверту метамагію, яку Чародій 17-го рівня отримує на 18-му рівні персонажа. Пресет бере Heightened Spell (вибір платформи); гравець може змінити перед створенням.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "title": "Воїн / Чародій — Магія тіні, Пагорбовий дворф (Гусак Гусак Революція)",
+    "description": "Воїн 1 / Чародій Магії тіні: Пагорбовий дворф за правилами Таші з Харизмою 17, Придворний з Обманом, бойовий стиль «Оборона» заради важких обладунків.",
+    "subraceKey": "DWARF_HILL_2014",
+    "racialAbilities": [
+      "CHA",
+      "CON"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INTIMIDATION",
+        "INSIGHT"
+      ],
+      "race": [],
+      "background": [
+        "DECEPTION"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [
+      "Defense"
+    ],
+    "languages": [
+      "ELVISH",
+      "GOBLIN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": [
+          "LONGSWORD"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля очок 8/14/15/8/10/15 з таблиці автора й підвищення Пагорбового дворфа за правилами Таші: +2 до Харизми, +1 до Статури, тож Харизма 17 і Статура 16, як на рівнях автора (Статура 16 → 18 на 17-му). Це вже враховано.",
+    "skillExplanation": "Залякування й Аналіз поведінки автор бере від Воїна, Переконання — від Придворного; Аналіз поведінки Придворного він міняє на Обман (правило PHB для повтору навички). Інструменти автора замість расових володінь платформа не відтворює. Дві мови ми обрали за вас — автор каже, що вони не мають значення, це вибір платформи.",
+    "equipmentExplanation": "Автор не називає спорядження. Кольчугу, бойову зброю (довгий меч) зі щитом, легкий арбалет і набір дослідника підземель ми обрали за вас — вибір платформи."
+  }
+}

@@ -1,0 +1,931 @@
+{
+  "buildId": "build-ranger-hunter-2014",
+  "revisionId": "build-ranger-hunter-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад збірки Слідопита — Людина, Слідопит (Мисливець)",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-ranger-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+      "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "RANGER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "RANGER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "RANGER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Archery"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "RANGER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "HUNTER_CONCLAVE",
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Primeval Awareness"
+          }
+        ],
+        "subclassOptions": [
+          {
+            "optionNameEng": "Horde Breaker (Hunter)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "RANGER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "RANGER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "RANGER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "RANGER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Multiattack Defense (Hunter)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "RANGER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "RANGER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "RANGER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Hide in Plain Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "RANGER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Volley (Hunter)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "RANGER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "RANGER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "RANGER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "RANGER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Evasion (Hunter)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "RANGER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "RANGER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "RANGER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "RANGER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "RANGER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "HUNTER_CONCLAVE",
+    "raceKey": "HUMAN_2014",
+    "backgroundKey": "CRIMINAL",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 9
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 13
+      },
+      {
+        "ability": "INT",
+        "value": 11
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми трохи скоригуємо характеристики за купівлею, рекомендовані вище, щоб скористатися расовими підвищеннями характеристик Людини. Залежно від обраних навичок і передісторії ви можете поміняти місцями Інтелект і Харизму.\n\n  Базове значення Підвищене значення Сила 9 10 Спритність 15 16 Статура 13 14 Інтелект 11 12 Мудрість 15 16 Харизма 8 9",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Людина{{Human}}. У SRD людина — єдиний спосіб отримати бонуси і до Спритності, і до Мудрості. Можна перетасувати характеристики й обрати Напіврослика{{Halfling}} чи навіть Високого ельфа{{High Elf}}, якщо хочете, але ми візьмемо людину, щоб усе було просто.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Ігноруємо Поводження з тваринами й Атлетику — лишається 6 навичок, які нас цікавлять. Три ми отримуємо від володінь Слідопита і дві від передісторії, тож одну доведеться пропустити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-1",
+        "title": "Передісторія",
+        "text": "Злочинець{{Criminal}} — найкращий варіант, доступний в Основних правилах чи SRD. Обман не чудовий, але нам потрібна Непомітність, а інструменти злодія дозволять вам підмінити Пройдисвіта. «Народний герой»{{Folk Hero}} теж підійшов би, але я вважаю, що інструменти злодія достатньо важливі, щоб володіння ними робило Злочинця кращим вибором.\n\nТрохи тривожить, скільки з моїх «базових збірок»{{Staple Builds}} використовують передісторію Злочинця. Це суто з міркувань оптимізації персонажа, але все одно виглядає дивно.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-background-1",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Слідопити отримують набагато більше підвищень характеристик, ніж можуть розумно використати, тож риси — чудовий варіант. Коли ви освоїтеся в грі й доведете Спритність до 20, розгляньте риси. «Умілець»{{Skilled}} розширить ваші володіння, а ще є низка чудових варіантів, щоб підсилити бойові здібності, як-от «Боєць з двома зброями»{{Dual Wielder}} і «Влучний стрілець»{{Sharpshooter}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Улюблений ворог\nПриродний дослідник",
+        "notes": "Як стартове спорядження виберіть шкіряний обладунок (хоч як нам хочеться КБ від лускатого обладунку, Перешкода на кубику на Непомітність — це проблема), два короткі мечі (або два кинджали), будь-який із наборів, а також довгий лук і стріли. «Улюблений ворог»{{Favored Enemy}} — це одразу складний вибір. На 1-му рівні ви можете не мати жодного уявлення, з чим зіткнетеся на 2-му, не кажучи вже про 20-й. Пізніше ви зможете обрати додаткових улюблених ворогів, але за всю карʼєру їх буде лише 3. Запитайте свого Майстра, чи готовий він підказати. «Природний дослідник»{{Natural Explorer}} вимагає обрати улюблену місцевість, а це створює ті самі труднощі, що й улюблений ворог. На 1-му рівні ви можете досліджувати ліси, а до 10-го рівня заблукати в Підморок{{Underdark}} до кінця життя вашого персонажа. Ви не можете цього знати й не можете потім змінити своє рішення. Запитайте свого Майстра, чи готовий він підказати. На цьому рівні трохи поекспериментуйте. Спробуйте ближній бій. Спробуйте стрільбу з лука. Спробуйте крастися. Познайомтеся зі своїм персонажем і відчуйте, де ви вписуєтеся в групу, доки не привʼязалися до певного бойового стилю.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Бойовий Стиль\nЧаротворство",
+        "notes": "До цього часу ви, сподіваюся, мали достатньо часу, щоб вирішити, битися на відстані чи в ближньому бою. Якщо ви бʼєтеся в ближньому бою, візьміть Бойовий Стиль{{Fighting Style}} «Бій двома зброями»{{Two-Weapon Fighting}}, а якщо на відстані — «Стрільбу з лука»{{Archery}}. «Чаротворство»{{Spellcasting}} відкриває багато цікавих варіантів. У вас лише 2 слоти заклинань, але, на щастя, зі своїх заклинань ви можете вичавити багато користі. Мисливська мітка [Hunter's Mark] — особливо важлива частина репертуару Слідопита. Накладайте її, щойно вступаєте в бій (або заздалегідь, якщо така можливість є), щоб отримати максимум додаткової шкоди. З тривалістю 1 година ви легко розтягнете один слот заклинань на всі зіткнення між короткими відпочинками. На жаль, це може означати, що третину дня ви обійдетеся без Мисливської мітки [Hunter's Mark] (припускаючи правила «Дня пригод»{{Adventuring Day}} із «Посібника Майстра»{{DMG}}, які пропонують два короткі відпочинки за повний день пригод). У дні, коли ви зупиняєтеся на довгий відпочинок, накладайте Доброягоду [Goodberry] усіма слотами заклинань, що залишилися. Немає обмеження на те, скільки ХП можна вилікувати за допомогою Доброягоди [Goodberry], тож кожне накладання дає вам і вашій групі лікування на 10 ХП, яке можна спожити між боями, щоб розтягти інші ресурси на кшталт кубиків здоровʼя й іншої лікувальної магії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Архетип Слідопита{{Ranger Archetype}}: Мисливець\nЗдобич мисливця\nПервісне усвідомлення",
+        "notes": "Якщо ви взяли Бойовий Стиль{{Fighting Style}} «Бій двома зброями»{{Two-Weapon Fighting}}, беріть «Здобич мисливця: Вбивця колосів»{{Hunter’s Prey: Colossus Slayer}}. Якщо взяли Бойовий Стиль «Стрільба з лука»{{Archery}}, беріть «Знищувач орд»{{Horde Breaker}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик (Спритність 16 → 18)",
+        "notes": "Більше КБ, кращі атаки й краща шкода.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака{{Extra Attack}}",
+        "notes": "Будь-який бойовий клас обожнює «Додаткову атаку»{{Extra Attack}}. 5-й рівень також приносить заклинання 2-го рівня, зокрема кілька особливо корисних. Мале відновлення [Lesser Restoration] дозволяє вам застосувати свої обмежені лікувальні можливості, а Проростання шипів [Spike Growth] — чудовий варіант контролю території. Переміщення без сліду [Pass without Trace] дає значний бонус до перевірок Спритності (Непомітність), завдяки чому навіть незграбні члени групи в важких обладунках можуть супроводжувати вас із пристойними шансами лишитися непоміченими.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Улюблений ворог: покращення\nПриродний дослідник: покращення",
+        "notes": "Оберіть ще одного улюбленого ворога й ще одну улюблену місцевість. Усі ті самі проблеми лишаються, але, сподіваюся, до цього часу ви вже знаєте, де відбуватиметься більша частина кампанії й хто основні антагоністи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Оборонна тактика{{Defensive Tactics}}: Захист від мультиатаки",
+        "notes": "«Захист від мультиатаки»{{Multiattack Defense}} — найкращий варіант для «Оборонної тактики»{{Defensive Tactics}}. «Втеча від орди»{{Escape the Horde}} спокушає збірки ближнього бою, але в такій ситуації просто зробіть Відступ і краще використайте наступний хід.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Спритність 18 → 20)",
+        "notes": "Ваш КБ тепер досягає максимуму 17 у проклепаному шкіряному обладунку, а атаки й шкода покращуються.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "–",
+        "notes": "На цьому рівні нічого, крім заклинань 3-го рівня. Є кілька цікавих варіантів на кшталт Зʼяви тварин [Conjure Animals], але памʼятайте, що все, що вимагає Концентрації, конфліктуватиме з Мисливською міткою [Hunter's Mark]. Також можна накласти Мисливську мітку [Hunter's Mark] як заклинання 3-го рівня, щоб воно тривало 8 годин, що дозволяє розтягти одне накладання на весь день, якщо ви здатні підтримувати Концентрацію.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Природний дослідник: покращення\nСховатися на видноті",
+        "notes": "Ваша остання улюблена місцевість. Сподіваюся, ви охопили достатньо варіантів, щоб ніколи не опинитися поза улюбленою місцевістю. «Сховатися на видноті»{{Hide in Plain Sight}} уже не те, що було в попередніх редакціях. Раніше можна було просто сховатися там, де стоїш. Гадаю, у WotC усвідомили, наскільки це проблематично без заклинання, тож тепер треба витратити час на маскування. Оскільки це займає цілу хвилину й вимагає лишатися нерухомим, використовувати це доведеться для шпигування за ворогами чи засідок. Поєднайте з Проростанням шипів [Spike Growth], і за кілька хвилин підготовки ви перетворите ділянку на поле смерті.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Мультиатака{{Multiattack (Hunter)}}",
+        "notes": "«Мультиатака»{{Multiattack}} поділена на чітко орієнтований на ближній бій варіант і чітко дальній. «Залп»{{Volley}} — для лучників, а «Вихор удару»{{Whirlwind Attack}} — для тих, хто бʼється двома зброями. Проте зауважте, що жодна з цих дій не є дією «Атака», тож ви не можете застосувати бій двома зброями, а якщо ви взяли «Експерта з арбалетів»{{Crossbow Expert}}, не можете скористатися додатковою атакою бонусною дією. Так чи так, «Мультиатака» не буде вашим основним варіантом. Шукайте нагоди її використати, але здебільшого вороги не будуть так акуратно згруповані, щоб ви отримали більше атак від «Мультиатаки», ніж від звичайної «Атаки».",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "{{Покращення Характеристик|Ability Score Improvement}} (Статура 14 → 16)",
+        "notes": "З максимальною Спритністю час братися за підвищення інших характеристик. Ми почали з Мудрості 16, чого цілком достатньо для слідопита, тож краще зосередьтеся на підвищенні Статури, щоб отримати додаткові ХП. Ваш КБ застрягне на 17 до кінця карʼєри персонажа (не рахуючи заклинань і магічних предметів), тож вам потрібна вся живучість, яку можна отримати. Єдиний контраргумент, який може переконати вас підвищувати Мудрість замість Статури, — «Убивця ворогів»{{Foe Slayer}}. Він залежить від вашого бонусу Мудрості й досить хороший. На жаль, до нього ще 8 рівнів, і якщо ви не доживете до 20-го рівня, не матиме значення, наскільки висока ваша Мудрість.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "–",
+        "notes": "На цьому рівні нічого, крім заклинань 4-го рівня. Це дуже захопливо, але оскільки в SRD є лише 4 заклинання цього рівня, варіантів у вас дуже мало.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Улюблений ворог: покращення\nЗникнення",
+        "notes": "«Зникнення»{{Vanish}} значно корисніше для лучників, ніж для слідопитів ближнього бою, але навіть слідопит ближнього бою непогано обходиться з луком. Якщо потрібно уникнути уваги, застрибніть у кущі й стріляйте звідти по ворогах.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Захист вищого мисливця{{Superior Hunter's Defense}}",
+        "notes": "Пройдисвіти отримують «Ухилення»{{Evasion}} і «Надприродне ухилення»{{Uncanny Dodge}}, а вас змушують обирати щось одне. Я раджу «Ухилення» для збірок лучників і «Надприродне ухилення» для збірок ближнього бою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик (Статура 16 → 18)",
+        "notes": "Більше Статури дає нам чималу купу додаткових ХП на цьому рівні.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "–",
+        "notes": "На цьому рівні нічого, крім заклинань 5-го рівня, а в SRD лише два заклинання Слідопита 5-го рівня. Погляньте на свої заклинання нижчих рівнів: чи є серед них варіанти, що добре працюють, коли накладаються слотом вищого рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Дикі почуття{{Feral Senses}}",
+        "notes": "Невидимі істоти були проблемою задовго до цього. Сподіваюся, до цього рівня ви вже знайшли рішення цієї проблеми, але «Дикі почуття»{{Feral Senses}}, імовірно, краще рішення.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик (Статура 18 → 20)",
+        "notes": "Тепер ви настільки живучі, наскільки це можливо, що приємно, зважаючи на те, що ваш КБ досі застряг на 17, тоді як бонуси атаки й шкода ворогів поступово зросли. Якщо вам цілком вистачає Статури 18, можна натомість підвищити Мудрість, щоб вичавити ще один пункт із «Убивці ворогів»{{Foe Slayer}}, адже до нього лишився лише один рівень.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Убивця ворогів{{Foe Slayer}}",
+        "notes": "Це перший раз, коли наша Мудрість 16 стала перешкодою, але різниця між +3 і +4 зазвичай не буде проблемою. «Убивця ворогів»{{Foe Slayer}} може перетворити промах на влучання, адже його можна застосувати після кидка, тож основний випадок використання — як бонус до атаки. Перетворення промаху на влучання завдасть більше шкоди, ніж застосування +3 до шкоди. Якщо ви дійшли до своєї останньої атаки за хід і всі ваші атаки або влучили, або випали надто низько, щоб їх можна було врятувати, застосуйте «Убивцю ворогів» заради бонусу до шкоди. Його можна використовувати раз на хід, і слід докласти всіх зусиль, щоб так і робити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Бойовий стиль, Здобич мисливця, Мультиатака, Захист вищого мисливця",
+        "reason": "Автор не обирає стиль остаточно: для ближнього бою радить Бій двома зброями й Вбивцю колосів, для дальнього — Стрільбу з лука й Знищувача орд, для лучників також Залп (11-й) та Ухилення (15-й). Пресет бере лучника (довгий лук у спорядженні): Archery (за замовчуванням, гравець може змінити), Horde Breaker, Volley, Evasion.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Улюблений ворог і Природний дослідник: покращення",
+        "reason": "На 6-му, 10-му й 14-му рівнях автор радить обрати ще ворога й місцевість; платформа не має цих додаткових виборів.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання Слідопита",
+        "reason": "Автор радить Мисливську мітку, Мале відновлення, Проростання шипів та Переміщення без сліду, але не складає списку; заклинання на кожному рівні обирає гравець (вибір платформи).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

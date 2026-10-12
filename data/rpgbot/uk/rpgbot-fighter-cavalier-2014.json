@@ -1,0 +1,2198 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-75c7b78acdf186be",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+      "sourceId": "rpgbot-75c7b78acdf186be",
+      "fetchedAt": "2026-09-29T19:15:31.606135+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:35:25-04:00",
+      "contentHash": "889cd70f381d4387e02a8679ad79fbbd77ec8652bf36ec31a3964cba90a93ac1",
+      "title": "Cavalier Fighter 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-75c7b78acdf186be-255db8715cefaf4a.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-fighter-cavalier-2014",
+    "sourceId": "rpgbot-75c7b78acdf186be",
+    "slug": "fighter-cavalier-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Кавалерист — гайд підкласу Воїна (2014)",
+    "titleEn": "Cavalier Fighter 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Воїн",
+      "Кавалерист",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кавалерист — чудовий танк і має вміння, яких я сподівався знайти відтоді, як почав писати гайди для 5e. Танки в 5e стикаються з двома великими проблемами: по-перше, вороги можуть вільно пересуватися навколо істоти в межах її досяжності, часто обходячи танка, щоб дістатися до його слабких союзників; по-друге, обмеження в одну Реакцію за раунд означає лише одну Принагідну атаку за раунд. Кавалерист розвʼязує обидві."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кавалерист також добре підходить для бою верхи: він дозволяє захищати скакуна від шкоди й дає веселі вміння на кшталт «Лютого натиску»{{Ferocious Charger}}, але вміння сформульовані так, що бій верхи не є обовʼязковим, тож можна зайти в підземелля й без коня."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте Кавалерист не позбавлений труднощів. Використання довгого списа верхи — очевидний і захопливий варіант, але деякі вміння Кавалериста працюють лише тоді, коли ви в межах 5 футів від істоти, яку атакуєте (довгі списи мають Перешкоду на кубику, коли ви атакуєте істоту в межах 5 футів від себе), тож вам може знадобитися робити беззбройні удари чи перемикатися на іншу зброю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо плануєте грати Кавалеристом верхи, настійно раджу прочитати наш "
+                },
+                {
+                  "type": "link",
+                  "text": "практичний гайд про бій верхи",
+                  "href": "https://rpgbot.net/dnd5/characters/mounted_combat"
+                },
+                {
+                  "type": "text",
+                  "text": ". Правила бою верхи короткі, але виключно заплутані."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Кавалериста",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Кавалериста",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#cavalier-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Кавалериста",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#cavalier-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Кавалериста",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#cavalier-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Кавалериста",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#cavalier-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Кавалериста",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#cavalier-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Кінська броня (бардинг)",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#barding-horse-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Бій із вітряками буквально й у переносному значенні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#example-build-tilting-at-windmills-both-literally-and-metaphorically"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Кавалериста",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткова майстерність{{Bonus Proficiency}}: безкоштовне володіння навичкою чи мовою. Беріть навичку. Мови можна розвʼязати магією."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Народжений у сідлі|Born to the Saddle}}: важко знати, як часто вам доведеться робити ряткидок, щоб лишитися в сідлі. Мабуть, сюди можна віднести все, що має ряткидок проти примусового пересування («Громова хвиля [Thunderwave]», «Наказ [Command]» («Тікай»), «Телекінез [Telekinesis]» тощо), але це не зрозуміло. Можливість сісти чи зіскочити лише за 5 футів пересування означає, що ви можете повернутися на скакуна, коли починаєте хід далі від нього.\n\nОднак це не скасовує обмеження раз на хід на сідання чи зіскакування зі скакуна, тож не очікуйте, що ви стрибатимете на скакуна й зі скакуна кілька разів за раунд."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Невідступна відмітка{{Unwavering Mark}}: чудова механіка провокації. Вона ускладнює ворогам атаки по ваших союзниках, а якщо вони все ж атакують, ви отримуєте додаткову атаку бонусною дією на наступному ході з гарним підсиленням шкоди. Частина з Перешкодою на кубику в «Невідступній відмітці» працює лише поки ціль у межах 5 футів від вас, тож довгі списи, батоги й інша зброя з досяжністю ускладнюють її використання.\n\nВи все одно можете виконати атаку бонусною дією, якщо ці вороги атакують когось іншого, але щоб накласти Перешкоду на кубику на їхні атаки, ворогів усе одно треба тримати в межах 5 футів. Кількість використань атаки бонусною дією між відпочинками обмежена, тож намагайтеся використовувати її лише за потреби, а не кидати на всіх, кого вдарили.\n\nАле позначати ворогів (і накладати Перешкоду на кубику) можна скільки завгодно, тож розподіляйте відмітки й намагайтеся тримати якомога більше ворогів у межах 5 футів. Для кавалеристів, що бʼються верхи, накладання Перешкоди на кубику на атаки по істотах, окрім вас, — хороший спосіб не давати ворогам атакувати вашого скакуна.\n\nЗ огляду на те, наскільки більшість скакунів крихкі порівняно з вами, це величезна перевага. Якщо справді хочете спертися на це вміння, розгляньте рису «Вартовий»{{Sentinel}}. Вона особливо ускладнить ворогам відхід від вас, полегшуючи утримання позначених істот у межах 5 футів. А ще краще: якщо вони все одно атакують когось, окрім вас, ви можете атакувати їх Реакцією."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Оборонний маневр{{Warding Maneuver}}: схожий на Бойовий Стиль «Захист»{{Protection}}. Використовувати його можна лише кілька разів за Довгий відпочинок, тож користуйтеся ним ощадливо й робіть усе, щоб він не знадобився."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Утримувати лінію|Hold the Line}}: у більшості випадків значно краще за рису «Вартовий», бо не дає ворогам бігати в межах вашої досяжності. Це означає, що ви можете надійно тримати ворогів на місці, лишаючись поруч із союзниками, щоб захищати їх «Оборонним маневром» і/або Бойовим Стилем «Захист». Ще краще з подовженою досяжністю, бо воно не вимагає бути в межах 5 футів від цілі, як ефект Перешкоди на кубику від «Невідступної відмітки». Проте, на відміну від «Вартового», дія Відступ усе ж дозволяє ворогам проминути вас."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лютій натиск{{Ferocious Charger}}: дві важливі примітки: по-перше, враховується пересування вашого скакуна, тож не обовʼязково витрачати власне; по-друге, ваш скакун усе ще може зробити Ривок або Відступ, щоб створити відстань між вами й ворогом для підготовки натиску. Ви маєте робити все, що можете, щоб використовувати це щораунду. Переваги надто великі, щоб ними нехтувати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пильний захисник{{Vigilant Defender}}: це розвʼязує другу велику проблему збірок-танків у 5e. У поєднанні з «Утримувати лінію» ви можете кинути себе в натовп ворогів і змусити їх усіх лишатися точно там, де вони є, особливо якщо в руках зброя з досяжністю."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cavalier-ability-scores",
+          "heading": "Характеристики Кавалериста",
+          "sourceAnchor": "cavalier-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-cavalier-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кавалеристи привʼязані до Сили й Статури через вміння підкласу, але вам більше майже нічого не потрібно. Трохи Мудрості для Поводження з тваринами й Уважності корисні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cavalier-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: атаки, шкода, «Невідступна відмітка»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cavalier-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: ряткидки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cavalier-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: ХП, один з головних ряткидків, «Оборонний маневр»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cavalier-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: скидаємо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cavalier-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: ряткидки й кілька важливих навичок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cavalier-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: скидаємо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cavalier-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cavalier-races",
+          "heading": "Раси Кавалериста",
+          "sourceAnchor": "cavalier-races",
+          "blocks": [
+            {
+              "blockId": "block-section-cavalier-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кавалеристи хочуть бути поруч принаймні з одним союзником, тож політ здебільшого марний. Риси від «Своєї раси» чи «Варіанта людини» допомагають, але воїни отримують більше покращень характеристик, ніж будь-який інший клас, тож користь від риси може бути не надто вагомою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cavalier-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо плануєте битися верхи, головний вибір — між малою чи середньою істотою, бо ваш скакун має бути принаймні на розмір більшим за вас. Малі істоти можуть їздити на істотах середнього розміру чи більших, зокрема на поні, мастифах і вовках, які пролізуть у тісні місця. Середні ж мають їздити на великих чи більших скакунах, як-от коні й грифони, яких важче вести в тісні місця.\n\nНіщо не забороняє малим істотам їздити на великих скакунах, але малий розмір не дозволяє користуватися багатьма видами зброї з досяжністю (батоги й довгі списи все ще працюють). Якщо хочете бути малим і все ж отримати рису, памʼятайте, що «Своя раса» це дозволяє."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cavalier-races-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є й кілька цікавих расових комбінацій:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cavalier-races-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Астральний ельф / Високий ельф: на дуже високих рівнях здатність поєднати «Пильного захисника», «Бойового заклинателя»{{War Caster}} та замовляння означає, що ви потенційно можете накласти замовляння як Принагідну атаку один раз під час ходу кожної істоти. Навряд чи це буде настільки ефективно, але про це весело думати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ведмебай: «Довгі руки»{{Long Arms}} полегшують влучання по ворогу з «Невідступною відміткою», лишаючись поза його досяжністю."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cavalier-feats",
+          "heading": "Риси Кавалериста",
+          "sourceAnchor": "cavalier-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-cavalier-feats-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Дробильник / Проколювач / Рубака",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": усі ефекти «раз на хід» можуть спрацьовувати на Принагідних атаках, що захопливо в парі з «Пильним захисником». Памʼятайте, що «Пильний захисник» найкраще працює зі зброєю з досяжністю, а «Утримувати лінію» зменшує швидкість цілі до 0, тож «Дробильник» (немає дробильної зброї з досяжністю) і «Рубака» для Кавалериста менш ефективні, ніж «Проколювач»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Боєць з двома зброями|Dual Wielder}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "CRB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": так, з рисою «Боєць з двома зброями» можна битися двома довгими списами. Але вам справді цього не треба. Бойовий Стиль «Дуель»{{Dueling}} дасть більше шкоди в довгостроковій перспективі, а інколи ви вже й так матимете атаку бонусною дією завдяки «Невідступній відмітці»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Верховий боєць{{Mounted Combatant}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "CRB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Кавалерист — найкращий і найочевидніший вибір для збірки верхового воїна, а «Верховий боєць» закриває деякі важливі прогалини у вашій здатності захищати скакуна, навіть з урахуванням «Невідступної відмітки» та «Оборонного маневру»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Майстер древкової зброї|Polearm Master}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "CRB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": атака бонусною дією дає ще один шанс позначити істоту, але вона конкурує за місце з атакою бонусною дією від «Невідступної відмітки», тож це менш привабливо, ніж було б зазвичай. Так само «Утримувати лінію» виконує схожу функцію, що й спрацювання Принагідної атаки від «Майстра древкової зброї», коли вороги входять у вашу досяжність.\n\nТакож з довгим списом «Майстра древкової зброї» використати не можна, тож верхи він практично марний, а коли ви йдете пішки, він набагато менш корисний, ніж ви хочете від риси."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ритуальний заклинатель{{Ritual Caster}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "CRB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": те, що вона взагалі в цьому списку, украй дивно, і вона тут рівно заради одного заклинання — «Фантомного скакуна [Phantom Steed]». Це ритуал 3-го рівня, доступний лише чарівникам: вам знадобиться Інтелект 13, щоб взяти потрібну нам версію риси, і ви маєте бути 5-го рівня, щоб додати ритуал до книги заклинань, але це акуратно розвʼязує проблему того, що скакуни дорогі й крихкі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вартовий{{Sentinel}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "CRB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Утримувати лінію» дає вам важливі частини. Єдине, чого вам бракує, — додаткової атаки Реакцією, якщо ворог атакує ваших союзників, але «Невідступна відмітка» близька до цього."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер щита{{Shield Master}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "CRB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": оскільки вам треба добре захищати скакуна від атак, вороги неминуче намагатимуться вбити його шкодою по області, наприклад зброєю дихання чи «Вогнекулею [Fireball]». Це означає, що й по вас, імовірно, цілитимуть, і «Майстер щита» може стати цікавим захисним варіантом.\n\nНа жаль, захист від ряткидків Спритності працює, лише якщо ви єдина ціль, а ще матимете конкуренцію за бонусну дію й за спосіб повалити ворогів, тож від решти риси користі мало. Розгляньте натомість «Дарунок хроматичного дракона»{{Gift of the Chromatic Dragon}}."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cavalier-weapons",
+          "heading": "Зброя Кавалериста",
+          "sourceAnchor": "cavalier-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-cavalier-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви верхи, вам потрібен довгий спис. Якщо ні, серйозно розгляньте зброю з досяжністю, щоб максимізувати переваги «Невідступної відмітки» та «Утримувати лінію»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cavalier-weapons-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Довгий спис [Lance]: досяжність, кубик шкоди к12, верхи його можна тримати однією рукою, і йому байдуже, що ви малі."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cavalier-armor",
+          "heading": "Обладунки Кавалериста",
+          "sourceAnchor": "cavalier-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-cavalier-armor-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Лати [Plate]: ви побудовані навколо Сили. Вам потрібні лати."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barding-horse-armor",
+          "parentSectionId": "section-cavalier-armor",
+          "heading": "Кінська броня (бардинг)",
+          "sourceAnchor": "barding-horse-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-barding-horse-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви користуєтеся живим скакуном (а не викликаним через «Фігурку дивовижної сили [Figurine of Wondrous Power]» чи заклинання чи щось таке), слід одягнути на нього броню. Докладніше, як це працює, дивіться в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді про бій верхи",
+                  "href": "https://rpgbot.net/dnd5/characters/mounted_combat/#horse-armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Паладин: «Пошук скакуна [Find Steed]» відкривається лише на 5 рівнів паладина. 5–6-рівневе пірнання заради «Пошуку скакуна» й «Аури захисту»{{Aura of Protection}} може бути виправданим, але це надзвичайно дорого й означає, що ви ніколи не отримаєте «Пильного захисника» і, можливо, ніколи не отримаєте «Лютого натиску»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Слідопит: 3 рівні Звіролова дають вам супутника. Якщо ви користуєтеся правилами PHB, можна отримати поні, птеранодона чи вовка. Якщо ви малі, можете їздити на них. А ще краще: ви додаєте свій Бонус Майстерності до їхнього КБ, тож вони міцніші за типову тварину. На жаль, це 3-рівневе пірнання заради підвищення КБ, а якщо скакун усе одно загине, вам потрібно 8 годин, щоб звʼязатися з іншим."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+          "heading": "Приклад збірки — Бій із вітряками буквально й у переносному значенні",
+          "sourceAnchor": "example-build-tilting-at-windmills-both-literally-and-metaphorically",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-tilting-at-windmills-both-literally-and-metaphorically-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Десь у Ламанчі, у селі, назви якого я не хочу згадувати, ще недавно жив один шляхтич, із тих, що тримають на полиці спис і старий щит, мають худу шкапу та хорта для перегонів."
+                },
+                {
+                  "type": "link",
+                  "text": "Дон Кіхот",
+                  "href": "https://en.wikipedia.org/wiki/Don_Quixote"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-tilting-at-windmills-both-literally-and-metaphorically-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я "
+                },
+                {
+                  "type": "link",
+                  "text": "гучно",
+                  "href": "https://rpgbot.net/dnd5/characters/mounted_combat/#horse-armor"
+                },
+                {
+                  "type": "text",
+                  "text": " й "
+                },
+                {
+                  "type": "link",
+                  "text": "часто",
+                  "href": "https://rpgbot.net/rpgbot-podcast-episode-2/"
+                },
+                {
+                  "type": "text",
+                  "text": " казав, як сильно мене дратують правила бою верхи в 5e. Це не змінилося."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-tilting-at-windmills-both-literally-and-metaphorically-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка сильно залежить від дорогого спорядження, а саме скакунів і броні як для нас, так і для скакуна. Погляд на нашу "
+                },
+                {
+                  "type": "link",
+                  "text": "Таблицю багатства за рівнем",
+                  "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#wealth-by-level-table"
+                },
+                {
+                  "type": "text",
+                  "text": " буде дуже показовим, бо прогресія золота для цієї збірки вкрай обмежувальна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого використаємо запропоновані вище показники, але оскільки «Своя раса» дає лише одне підвищення +2, ми знизимо Статуру до 14 і розподілимо ці очки. Єдина гібридна риса, яку ми беремо, — «Проколювач», тож непарна Статура нам не допоможе."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Своя раса{{Custom Lineage}}. Оберемо малий розмір і Темний зір. Малий розмір означає, що ми можемо їздити на скакунах скрізь, куди пролізе людина, а Темний зір завжди корисний. Не отримувати другий +1 до характеристик прикро, але зрештою обійдеться. Воїни отримують купу покращень характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Лицар{{Knight}}. Якщо й існує воїн, що має сенс як лицар, то це кавалерист. Ваші васали можуть допомагати доглядати вашу зростаючу череду скакунів. Історія й Переконання тематично доречні, але для нас зовсім марні, тож замінюйте їх буквально чим завгодно. Уважність була б добра."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо Поводження з тваринами й Атлетику від Воїна, а Історію й Переконання — від передісторії. Наші навички мають дуже мале значення, і навіть Поводження з тваринами корисне лише настільки, наскільки вирішить ваш Майстер."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо «Верхового бійця»{{Mounted Combatant}} на 1-му рівні, бо він майже обовʼязковий, щоб скакун лишався живим. На низьких рівнях, коли бракує золота на кінську броню (або заміну скакуна), корисно мати можливість їздити на муллі за 8 зм."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також беремо «Проколювача»{{Piercer}}, бо це гібридна риса й вона підсилить нашу шкоду довгими списами. Бонус шкоди «Проколювача» за атаку невеликий, але ми зрештою отримуємо здатність робити теоретично нескінченну кількість Принагідних атак, тож цей мінорний бонус швидко накопичується."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми могли б також взяти «Ритуального заклинателя»{{Ritual Caster}}, але нам довелося б перерозподілити показники, щоб отримати Інтелект 13, а до 5-го рівня, коли ви справді можете додати його до ритуальної книги, у вас достатньо золота, щоб дозволити собі кілька верхових коней. Якщо у вашій групі є чарівник, сподіваймося, він достатньо любʼязний, щоб поділитися."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Верховий боєць, Бойовий Стиль (Дуель), Друге дихання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для початкового спорядження оберіть кольчугу, довгий спис і щит, легкий арбалет із болтами та будь-який набір. З передісторії маємо 25 зм. Витратьте 24 з них на 3 мулів. Продайте арбалет і ручні сокири, щоб купити метальні списи, які стануть нашою основною зброєю в пішому бою й дальньою атакою. Якщо лишаться зайві гроші, купіть більше мулів.\n\nНа цьому рівні ми одразу можемо спертися на бій верхи. Наш довгий спис працює з Бойовим Стилем «Дуель», тож ми одразу стартуємо зі швидкістю 40 фт. від мула, завдаючи 1к12+5 за влучання з КБ 18. Вітряки скрізь мають тремтіти від жаху. Якщо ви зустрінете малих чи крихітних істот, ви отримаєте Перевагу на кубику на атаки проти них.\n\nНа цьому рівні багато ворогів — малі звірі й гуманоїди на кшталт кобольдів і гоблінів, тож це може траплятися напрочуд часто. Ваші метальні списи завдають поважних 1к6+5, чи ви колете ними, чи кидаєте, тож намагайтеся лишатися верхи. «Верховий боєць» одразу стає центральним для нашої тактики. З КБ 10 і 11 ХП наші мули — з паперу, тож усі влучання доведеться спрямовувати на себе й сподіватися на краще.\n\nІстота з рівнем небезпеки 1 завдає, за очікуваннями, 9–14 шкоди за хід згідно з "
+                    },
+                    {
+                      "type": "link",
+                      "text": "таблицею швидкої статистики монстрів",
+                      "href": "https://www.dndbeyond.com/sources/dmg/dungeon-masters-workshop#MonsterStatisticsbyChallengeRating"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", тож одне влучання, ймовірно, опустить вашого мула до 0. З шкодою по області ми, по суті, нічого не можемо вдіяти. Ефекти шкоди по області, як-от «Вогнекулі» та більшість зброї дихання, дозволяють ряткидок Спритності. «Верховий боєць» дає змогу скакунам помʼякшувати таку шкоду, але будь-яка значна шкода по області збиватиме наших мулів за одне-два влучання.\n\nНайкращий варіант — щоб скакун робив Ухиляння, давши йому Перевагу на кубику на ряткидки Спритності. Але навіть тоді +0 з Перевагою на кубику — не ідеальний захист, тож вам, можливо, доведеться поспішати вбити те, що завдає шкоди по області. Якщо ви зіткнетеся з чимось на іншому ряткидку (приклад: білі дракони використовують ряткидки Статури для зброї дихання), вам не пощастить."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій (1/відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розгляньте купівлю кінської броні зі шкур за 40 зм. 12 КБ — небагато, але краще за 10, які мали ваші мули досі. Можна натомість витратити золото на "
+                    },
+                    {
+                      "type": "link",
+                      "text": "тяглового коня",
+                      "href": "https://www.dndbeyond.com/monsters/16844-draft-horse"
+                    },
+                    {
+                      "type": "text",
+                      "text": " (19 ХП, великий, швидкість 40 фт.) чи "
+                    },
+                    {
+                      "type": "link",
+                      "text": "верхового коня",
+                      "href": "https://www.dndbeyond.com/monsters/16997-riding-horse"
+                    },
+                    {
+                      "type": "text",
+                      "text": " (13 ХП, великий, швидкість 60 фт.). Будь-який із них трохи міцніший за мула, а швидкість верхового коня сильно полегшує тактику «вдарив і втік».\n\nВ обох випадках справжній кінь великий, що значно полегшує отримання Переваги на кубику від «Верхового бійця». Нехай ваші васали їздять на мулах."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Військовий Архетип{{Martial Archetype}}: Кавалерист, Додаткова майстерність, Народжений у сідлі, Невідступна відмітка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беріть Аналіз Поведінки як додаткове володіння. Це єдиний варіант, якого в нас ще немає і який не привʼязаний до скинутої характеристики. «Народжений у сідлі» практично не має значення, але ваш Майстер може почати шукати способи зняти вас із коня, якщо персонаж виявиться ефективним у бою. «Невідступна відмітка» — тут ми починаємо справді почуватися танком, а не просто загостреною перешкодою.\n\nЗагалом ви хочете рухатися до ворога й вдарити його довгим списом "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "до того"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", як опинитеся в межах 5 футів, щоб накласти Перешкоду на кубику на його атаки по інших істотах. Наступними ходами нехай скакун робить Відступ, відвезе вас на 5 футів і повторіть процес.\n\nПамʼятайте, що обмеження використань стосується лише додаткової атаки, а не відмітки істоти, і ви можете позначати істот атакою від «Невідступної відмітки» та Принагідними атаками на додачу до звичайної. Якщо ціль усе одно завдає шкоди комусь іншому, на наступному ході ви можете зробити проти неї додаткову атаку бонусною дією.\n\nПамʼятайте, що формулювання — «завдає шкоди будь-кому, окрім вас», а не «влучає атакою», тож заклинання й інші вміння теж рахуються. Не зовсім зрозуміло, як «Невідступна відмітка» працює з перенаправленою атакою від «Верхового бійця», тож я схилявся б до найменш зловживальної інтерпретації: якщо ви перенаправляєте атаку, вона розглядається так, ніби весь час цілила у вас.\n\nЯкщо ваш Майстер щедрий, він може натомість дозволити застосовувати «Невідступну відмітку» до атак по вашому коню, коли ви їх перенаправляєте. Така атака була б із Перешкодою на кубику й спричиняла б додаткову атаку, якби влучила по вас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Проколювач (Сила 17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бонус Сили від «Проколювача» доводить нас до 18, тримаючи нас на рівні з "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Фундаментальною математикою",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Інші переваги «Проколювача» не вражають, але з часом накопичаться, особливо якщо ми часто робитимемо Принагідні атаки. На цьому рівні вже можна купити кінську броню з лусок. Можливо, варто витратитися, щоб мати 14 КБ на скакуні, але це може означати купівлю лат собі на рівень пізніше, а 14 КБ не зроблять скакуна достатньо міцним, щоб ризикувати пропускати атаки.\n\nПримітно, що це рівень, на якому можна дозволити собі "
+                    },
+                    {
+                      "type": "link",
+                      "text": "слона",
+                      "href": "https://www.dndbeyond.com/monsters/16855-elephant"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Так, це є в Книзі гравця. 200 зм. Я цього теж не розумію, але якщо ви можете вмістити слона туди, де бʼєтеся, і переконати Майстра справді дозволити вам купити слона, це не має значення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зауважте, що «Невідступну відмітку» можна накласти на будь-кого, кого ви вразили. Поки ніхто більше не відмічає істот (буквально можливо лише для кавалеристів і з необовʼязковим правилом, яким ніхто не користується), ви можете розподіляти її. Це перший рівень, на якому можна розумно дозволити собі 400 зм на бойового коня, що неймовірно жорстоко, бо на цьому рівні паладини накладають «Пошук скакуна [Find Steed]» і отримують його безкоштовно.\n\nЗ 19 ХП мінімальна очікувана шкода істоти з рівнем небезпеки 3 згідно з "
+                    },
+                    {
+                      "type": "link",
+                      "text": "таблицею швидкої статистики монстрів",
+                      "href": "https://www.dndbeyond.com/sources/dmg/dungeon-masters-workshop#MonsterStatisticsbyChallengeRating"
+                    },
+                    {
+                      "type": "text",
+                      "text": " знижує вашого бойового коня до 0. Цю істоту треба захищати дуже уважно, якщо ви витратили на неї гроші."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Сила 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 славні рівні, на яких ми випереджаємо Фундаментальну математику. Це перший рівень, на якому можна розумно дозволити собі лати для себе. Якщо ви не збідніли на купівлі коней, робіть це негайно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оборонний маневр{{Warding Maneuver}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це набагато краще за Бойовий Стиль «Захист». Якщо атаки цілять у вашого коня, ви можете перенаправити їх на себе. Якщо вони влучають по вас, ви можете використати «Оборонний маневр», щоб зменшити шкоду вдвічі чи навіть потенційно звести до нуля. Також можна застосовувати його проти союзників у межах 5 футів, що корисно. Просто памʼятайте, що ви отримуєте його лише кілька разів на день."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура 14 → 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП, кращі ряткидки, більше використань «Оборонного маневру»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непохитність (1/день)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це рівень, на якому можна розумно дозволити собі лати для себе "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "і"
+                    },
+                    {
+                      "type": "text",
+                      "text": " латну кінську броню. Якщо ви на бойовому коні чи слоні, розгляньте це. Якщо КБ вашого скакуна 18 і ви використовуєте «Оборонний маневр», він доволі добре захищений, що може сильно розвантажити вас.\n\nАле треба бути дуже обережним, бо одне добре влучання все одно вбʼє вашого коня. Чесно кажучи, воно може й не вартувати витрат. 6000 зм за латну кінську броню — це 15 бойових коней."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Утримувати лінію{{Hold the Line}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще одна величезна зміна вашої тактики: «Утримувати лінію» схоже на найкращі 2/3 риси «Вартовий», і це головна причина, чому досяжність така важлива Кавалеристу. Вороги, що пересуваються на 5 футів у межах вашої досяжності, провокують Принагідні атаки, тож ви хочете, щоб ваша досяжність була якомога ширшою. Зручно, що ваш довгий спис має досяжність.\n\nТож коли вороги переходять із зовнішнього краю вашої досяжності на внутрішній, ви робите Принагідну атаку, перш ніж вони підійдуть достатньо близько, щоб ви могли атакувати з Перешкодою на кубику. Якщо влучите, вони зупиняються. Можна потенційно утримувати ворога на краю вашої досяжності необмежено. Навіть якщо вороги опиняться в межах 5 футів, ви можете робити Принагідні атаки беззбройним ударом.\n\nПросто треба влучити. Шкода — не головна принада. Найбільша складність — вирішити, чи тримати ворогів на краю вашої досяжності, чи в межах 5 футів, щоб спрацювала «Невідступна відмітка» і накладала на них Перешкоду на кубику на атаки по інших істотах. Вирішувати доведеться в кожному випадку окремо. Вороги лише ближнього бою можуть лишатися на краю вашої досяжності, де вони здебільшого нешкідливі, але ворогам із дальніми атаками, можливо, треба сидіти поруч, щоб їх від цього відмовити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака (2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Позначайте трьох!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура 16 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП, кращі ряткидки, більше використань «Оборонного маневру»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непохитність 3/день"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут без змін."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП, кращі ряткидки, більше використань «Оборонного маневру»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Лютій натиск{{Ferocious Charger}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це робить пересування надзвичайно важливим. Якщо ви починаєте в ближньому бою, очікуйте, що скакун робитиме Відступ, щоб отримати достатньо простору для натиску. Якщо ви все ще на коні чи на чомусь іншому, що носить підкови, «Підкови швидкості [Horseshoes of Speed]» подвоять швидкість скакуна, тож навіть з Відступом простору буде легко знайти.\n\nСкладність ряткидка, щоб опиратися поваленню, також збігатиметься зі Складностями ряткидків повних заклиначів, тож вона має бути пристойно надійною, хіба що ви стикаєтеся з масивними, сильними ворогами. Щойно повалите ворога, бийте його від душі. Розгляньте «Сплеск дій», щоб накопичити шкоду."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ми максимізували Силу та Статуру й маємо потрібні риси, тож тут можна робити майже що завгодно. «Посвячений у бій» заради Бойового Стилю «Оборона», «Майстер важких обладунків», «Здоровань» і «Стійкий» можуть підвищити вашу живучість. «Дарунок хроматичного дракона» — пристойний вибір. Можна активувати підсилення шкоди, а потім вийти вперед і дозволити людям нанизатися на ваш спис.\n\nЩойно ви отримаєте «Пильного захисника», бонус шкоди дуже приємний на вашій функціонально бездонній кількості Принагідних атак, коли ви стикаєтеся з кількома ворогами.\n\nТакож можна використати його, щоб захиститися від шкоди, на яку «Оборонний маневр» зазвичай не діє. «Жорстокий нападник» — погана риса.\n\nАле вислухайте: щойно ви отримаєте «Пильного захисника», ви робитимете багато атак на багатьох ходах. «Жорстокий нападник» працює раз "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "за хід"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", тож його можна використати на кожній Принагідній атаці на додачу до одного разу на вашому ході. У поєднанні з перекиданням від «Проколювача» ви стабільно викидатимете добре на кубику шкоди к12."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій 2/відпочинок, Непохитність 3/день"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут без змін."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пильний захисник{{Vigilant Defender}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це функціонально ваша вершина. Ви можете робити Принагідну атаку на кожному ході будь-якої іншої істоти, а отже, по одній на ворога. У поєднанні з «Утримувати лінію» ви можете тримати ворогів на місці у величезних кількостях. Якщо ви збиралися мультикласувати, то саме час. Не знаю, чого ще ви хочете від життя (жартую, знаю: "
+                    },
+                    {
+                      "type": "link",
+                      "text": "«Зміцнювальний звʼязок»",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/peace-domain/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " охоче застосує свої захисні переваги й до вашого скакуна, а Мудрість для мультикласування в клірика в нас уже є), але формально це варіант."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дивіться 16-й рівень."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака (3)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Скільки ж атак! Між «Пильним захисником», «Додатковою атакою» і «Сплеском дій» ви можете робити шалену кількість атак за раунд."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-fighter-cavalier-2014-001",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Додаткова майстерність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-002",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Народжений у сідлі",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-003",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Невідступна відмітка",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-004",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Оборонний маневр",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-005",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Утримувати лінію",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-006",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Лютій натиск",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-007",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Пильний захисник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-008",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-ability-scores",
+      "targetBlockId": "block-section-cavalier-ability-scores-2",
+      "optionId": "section-cavalier-ability-scores-block-section-cavalier-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-cavalier-ability-scores-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-009",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-ability-scores",
+      "targetBlockId": "block-section-cavalier-ability-scores-3",
+      "optionId": "section-cavalier-ability-scores-block-section-cavalier-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-cavalier-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-010",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-ability-scores",
+      "targetBlockId": "block-section-cavalier-ability-scores-4",
+      "optionId": "section-cavalier-ability-scores-block-section-cavalier-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-cavalier-ability-scores-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-011",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-ability-scores",
+      "targetBlockId": "block-section-cavalier-ability-scores-5",
+      "optionId": "section-cavalier-ability-scores-block-section-cavalier-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-cavalier-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-012",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-ability-scores",
+      "targetBlockId": "block-section-cavalier-ability-scores-6",
+      "optionId": "section-cavalier-ability-scores-block-section-cavalier-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-cavalier-ability-scores-6",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-013",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-ability-scores",
+      "targetBlockId": "block-section-cavalier-ability-scores-7",
+      "optionId": "section-cavalier-ability-scores-block-section-cavalier-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-cavalier-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-014",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-races",
+      "targetBlockId": "block-section-cavalier-races-4",
+      "optionId": "section-cavalier-races-block-section-cavalier-races-4-item-0",
+      "context": "Астральний ельф / Високий ельф",
+      "explanationBlockId": "block-section-cavalier-races-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-015",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-races",
+      "targetBlockId": "block-section-cavalier-races-4",
+      "optionId": "section-cavalier-races-block-section-cavalier-races-4-item-1",
+      "context": "Ведмебай",
+      "explanationBlockId": "block-section-cavalier-races-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-016",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-feats",
+      "targetBlockId": "block-section-cavalier-feats-1",
+      "optionId": "section-cavalier-feats-block-section-cavalier-feats-1-item-0",
+      "context": "Дробильник / Проколювач / РубакаTCoE",
+      "explanationBlockId": "block-section-cavalier-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-017",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-feats",
+      "targetBlockId": "block-section-cavalier-feats-1",
+      "optionId": "section-cavalier-feats-block-section-cavalier-feats-1-item-1",
+      "context": "Боєць з двома зброямиCRB",
+      "explanationBlockId": "block-section-cavalier-feats-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-018",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-feats",
+      "targetBlockId": "block-section-cavalier-feats-1",
+      "optionId": "section-cavalier-feats-block-section-cavalier-feats-1-item-2",
+      "context": "Верховий боєць",
+      "explanationBlockId": "block-section-cavalier-feats-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-019",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-feats",
+      "targetBlockId": "block-section-cavalier-feats-1",
+      "optionId": "section-cavalier-feats-block-section-cavalier-feats-1-item-3",
+      "context": "Майстер древкової зброїCRB",
+      "explanationBlockId": "block-section-cavalier-feats-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-020",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-feats",
+      "targetBlockId": "block-section-cavalier-feats-1",
+      "optionId": "section-cavalier-feats-block-section-cavalier-feats-1-item-4",
+      "context": "Ритуальний заклинатель",
+      "explanationBlockId": "block-section-cavalier-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-021",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-feats",
+      "targetBlockId": "block-section-cavalier-feats-1",
+      "optionId": "section-cavalier-feats-block-section-cavalier-feats-1-item-5",
+      "context": "Вартовий",
+      "explanationBlockId": "block-section-cavalier-feats-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-022",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-feats",
+      "targetBlockId": "block-section-cavalier-feats-1",
+      "optionId": "section-cavalier-feats-block-section-cavalier-feats-1-item-6",
+      "context": "Майстер щита",
+      "explanationBlockId": "block-section-cavalier-feats-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-023",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-weapons",
+      "targetBlockId": "block-section-cavalier-weapons-2",
+      "optionId": "section-cavalier-weapons-block-section-cavalier-weapons-2-item-0",
+      "context": "Довгий спис [Lance]",
+      "explanationBlockId": "block-section-cavalier-weapons-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-024",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-cavalier-armor",
+      "targetBlockId": "block-section-cavalier-armor-1",
+      "optionId": "section-cavalier-armor-block-section-cavalier-armor-1-item-0",
+      "context": "Лати [Plate]",
+      "explanationBlockId": "block-section-cavalier-armor-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-025",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-0",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-cavalier-2014-026",
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-1",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

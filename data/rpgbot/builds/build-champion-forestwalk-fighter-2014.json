@@ -1,0 +1,811 @@
+{
+  "buildId": "build-champion-forestwalk-fighter-2014",
+  "revisionId": "build-champion-forestwalk-fighter-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад білда — лорд Форестуок",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-champion-2014",
+      "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+      "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+      "sectionId": "section-example-build-lord-forestwalk",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "FIGHTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CHAMPION",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ELVEN_ACCURACY",
+        "featOptions": [
+          {
+            "optionNameEng": "ELVEN_ACCURACY Ability (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "PIERCER",
+        "featOptions": [
+          {
+            "optionNameEng": "PIERCER Ability (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (DEX)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (SURVIVAL)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (ATHLETICS)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Blind Fighting"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GRAPPLER"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GIFT_OF_THE_CHROMATIC_DRAGON"
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GIFT_OF_THE_METALLIC_DRAGON"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "MAGE_SLAYER"
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-champion-2014",
+          "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+          "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "CHAMPION",
+    "raceKey": "ELF_2014",
+    "backgroundKey": "KNIGHT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Для захоплень потрібна достатня Сила, але можна залишити її на 16, а решту компенсувати Експертом у навичках: подвійний бонус володіння до Атлетики.\n\n Базове Після підвищення Сила 15 16 Спритність 15 17 Статура 14 14 Інтелект 8 8 Мудрість 10 10 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Підійде будь-який різновид ельфа. Замовляння Чарівника — це добре, як і телепортація бонусною дією, але нам потрібне насамперед походження. Я б, мабуть, обрав шадар-кая за опір шкоді й Темнозір.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Ми лорд, який любить битися, тому беремо походження Лицар, а дві навички від нього одразу міняємо на Непомітність і Уважність. Спритність підтримуватиме Непомітність, проклепаний шкіряний обладунок носитимемо завжди, а володіння Уважністю згодом буде кращим за обмежену Мудрість. Володіння ігровим набором міняємо на злодійські інструменти: готуємося стати розвідником.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Воїна беремо Акробатику й Атлетику, а від походження — Уважність, Непомітність і злодійські інструменти.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо Ельфійську точність.\n\nНа 6-му рівні беремо Проколювача.\n\nНа 8-му рівні беремо Експерта у навичках.\n\nНа 12-му рівні беремо Борця.\n\nНа 14-му рівні беремо Дарунок хроматичного дракона.\n\nНа 16-му рівні беремо Дарунок металевого дракона.\n\nНа 19-му рівні беремо Вбивцю магів.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Стиль бою: Дуель; Друге дихання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Сплеск дій{{Action Surge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Покращений критичний удар{{Improved Critical}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Ельфійська точність; Спритність 17 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака{{Extra Attack}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Проколювач; Спритність 18 → 19",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Вражаючий атлет{{Remarkable Athlete}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Експерт у навичках; Спритність 19 → 20; експертиза в Атлетиці; Виживання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Непохитність{{Indomitable}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Стиль бою: Бій наосліп",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Ще одна додаткова атака",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Борець",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Непохитність (2 використання)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Дарунок хроматичного дракона",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Вища критика{{Superior Critical}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Дарунок металевого дракона",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Сплеск дій (2 використання); Непохитність (3 використання)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Виживальник{{Survivor}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Вбивця магів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Третя додаткова атака",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Раса",
+        "reason": "Автор пише «підійде будь-який різновид ельфа» і радить шадар-кая за опір шкоді й Темнозір. Узято Ельфа з підрасою шадар-кай (MPMM) за правилами Таші: Спритність +2 і Сила +1, як у таблиці автора.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Інструменти",
+        "reason": "Автор міняє ігровий набір Лицаря на інструменти злодія. Платформа не може прибрати фіксований інструмент передісторії, тому лишається ігровий набір Лицаря, а інструментів злодія немає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Спорядження",
+        "reason": "Автор бере дворучний меч, продає арбалет, меч і шкіряний обладунок та купує проклепаний шкіряний обладунок і щит. Платформа не веде купівлю й продаж: узято Рапіру зі щитом від початку, шкіряний обладунок і арбалет лишаються, дворучного меча немає, проклепаного шкіряного обладунка немає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-champion-2014",
+            "translationRevisionId": "translation-rpgbot-champion-2014-draft1",
+            "sourceRevisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

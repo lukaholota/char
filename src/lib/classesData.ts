@@ -8,7 +8,7 @@
 import type { Ruleset, Skills } from "@prisma/client";
 
 import classesJson from "@/lib/generated/classes.json";
-import { getClassImagePath } from "@/lib/assets/image-manifest";
+import { getClassImagePath, getSubclassImagePath } from "@/lib/assets/image-manifest";
 import { toEntitySlug } from "@/lib/slug-utils";
 
 export type ClassFeature = {
@@ -27,6 +27,7 @@ export type SubclassData = {
   description: string | null;
   source?: string | null;
   legacy?: boolean;
+  imageSrc?: string | null;
   features: ClassFeature[];
 };
 
@@ -53,7 +54,7 @@ export type ClassData = {
   ruleset: Ruleset;
 };
 
-type RawSubclass = Omit<SubclassData, "slug">;
+type RawSubclass = Omit<SubclassData, "slug" | "imageSrc">;
 type RawClass = Omit<ClassData, "slug" | "imageSrc" | "subclasses" | "source"> & { subclasses: RawSubclass[] };
 
 /// Таблиця `class` не має стовпця з джерелом: усі класи — з Книги Гравця своєї редакції, крім
@@ -73,6 +74,7 @@ const ALL_CLASSES: ClassData[] = (classesJson as RawClass[]).map((characterClass
   subclasses: characterClass.subclasses.map((subclass) => ({
     ...subclass,
     slug: toEntitySlug(subclass.engName),
+    imageSrc: getSubclassImagePath(subclass.key),
   })),
 }));
 

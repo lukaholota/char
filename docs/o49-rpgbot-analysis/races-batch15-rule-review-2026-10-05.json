@@ -1,0 +1,834 @@
+{
+  "edition": "RULES_2014",
+  "sourceFile": "data/5etools/raw/races.json",
+  "originalRules": [
+    {
+      "name": "Eladrin",
+      "source": "MPMM",
+      "page": 13,
+      "lineage": "VRGR",
+      "creatureTypes": [
+        "humanoid"
+      ],
+      "creatureTypeTags": [
+        "elf"
+      ],
+      "size": [
+        "M"
+      ],
+      "speed": 30,
+      "age": {
+        "max": 750
+      },
+      "darkvision": 60,
+      "traitTags": [
+        "Improved Resting",
+        "Tool Proficiency",
+        "Weapon Proficiency"
+      ],
+      "skillProficiencies": [
+        {
+          "perception": true
+        }
+      ],
+      "entries": [
+        "{@i Choose your eladrin's season: autumn, winter, spring, or summer. When finishing a long rest, you can change your season. See the \"Info\" tab for more information.}",
+        {
+          "type": "entries",
+          "name": "Creature Type",
+          "entries": [
+            "You are a Humanoid. You are also considered an elf for any prerequisite or effect that requires you to be an elf."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Fey Ancestry",
+          "entries": [
+            "You have advantage on saving throws you make to avoid or end the {@condition charmed} condition on yourself."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Fey Step",
+          "entries": [
+            "As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+            "When you reach 3rd level, your Fey Step gain an additional effect based on your season; if the effect requires a saving throw, the DC equals 8 + your proficiency bonus + your Intelligence, Wisdom, or Charisma modifier (choose when you select this race):",
+            {
+              "type": "list",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Autumn",
+                  "entry": "Immediately after you use your Fey Step, up to two creatures of your choice that you can see within 10 feet of you must succeed on a Wisdom saving throw or be {@condition charmed} by you for 1 minute, or until you or your companions deal any damage to the creatures."
+                },
+                {
+                  "type": "item",
+                  "name": "Winter",
+                  "entry": "When you use your Fey Step, one creature of your choice that you can see within 5 feet of you before you teleport must succeed on a Wisdom saving throw or be {@condition frightened} of you until the end of your next turn."
+                },
+                {
+                  "type": "item",
+                  "name": "Spring",
+                  "entry": "When you use your Fey Step, you can touch one willing creature within 5 feet of you. That creature then teleports instead of you, appearing in an unoccupied space of your choice that you can see within 30 feet of you."
+                },
+                {
+                  "type": "item",
+                  "name": "Summer",
+                  "entry": "Immediately after you use your Fey Step, each creature of your choice that you can see within 5 feet of you takes fire damage equal to your proficiency bonus."
+                }
+              ],
+              "style": "list-hang-notitle"
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Keen Senses",
+          "entries": [
+            "You have proficiency in the {@skill Perception} skill."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Trance",
+          "entries": [
+            "You don't need to sleep, and magic can't put you to sleep. You can finish a long rest in 4 hours if you spend those hours in a trancelike meditation, during which you retain consciousness.",
+            "Whenever you finish this trance, you can change your season, and you can gain two proficiencies that you don't have, each one with a {@book weapon|phb|5|weapons} or a {@book tool|phb|5|tools} of your choice selected from the Player's Handbook. You mystically acquire these proficiencies by drawing them from shared elven memory, and you retain them until you finish your next long rest."
+          ]
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Githyanki",
+      "source": "MPMM",
+      "page": 18,
+      "lineage": "VRGR",
+      "size": [
+        "M"
+      ],
+      "speed": 30,
+      "traitTags": [
+        "Weapon Proficiency"
+      ],
+      "skillProficiencies": [
+        {
+          "any": 1
+        }
+      ],
+      "toolProficiencies": [
+        {
+          "any": 1
+        }
+      ],
+      "resist": [
+        "psychic"
+      ],
+      "additionalSpells": [
+        {
+          "innate": {
+            "3": {
+              "daily": {
+                "1": [
+                  "jump"
+                ]
+              }
+            },
+            "5": {
+              "daily": {
+                "1": [
+                  "misty step"
+                ]
+              }
+            }
+          },
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "known": {
+            "1": [
+              "mage hand#c"
+            ]
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Astral Knowledge",
+          "entries": [
+            "You can mystically access a reservoir of experiences of entities connected to the Astral Plane. Whenever you finish a long rest, you gain proficiency in one skill of your choice and with one weapon or tool of your choice, selected from the Player's Handbook, as you momentarily project your consciousness into the Astral Plane. These proficiencies last until the end of your next long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Githyanki Psionics",
+          "entries": [
+            "You know the {@spell mage hand} cantrip, and the hand is {@condition invisible} when you cast the cantrip with this trait.",
+            "Starting at 3rd level, you can cast the {@spell jump} spell with this trait. Starting at 5th level, you can also cast {@spell misty step} with it. Once you cast {@spell jump} or {@spell misty step} with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast either of those spells using any spell slots you have of the appropriate level.",
+            "Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race). None of these spells require spell components when you cast them with this trait."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Psychic Resilience",
+          "entries": [
+            "You have resistance to psychic damage."
+          ]
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Githzerai",
+      "source": "MPMM",
+      "page": 19,
+      "lineage": "VRGR",
+      "size": [
+        "M"
+      ],
+      "speed": 30,
+      "resist": [
+        "psychic"
+      ],
+      "additionalSpells": [
+        {
+          "innate": {
+            "3": {
+              "daily": {
+                "1": [
+                  "shield"
+                ]
+              }
+            },
+            "5": {
+              "daily": {
+                "1": [
+                  "detect thoughts"
+                ]
+              }
+            }
+          },
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "known": {
+            "1": [
+              "mage hand#c"
+            ]
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Githzerai Psionics",
+          "entries": [
+            "You know the {@spell mage hand} cantrip, and the hand is {@condition invisible} when you cast the cantrip with this trait.",
+            "Starting at 3rd level, you can cast the {@spell shield} spell with this trait. Starting at 5th level, you can also cast the {@spell detect thoughts} spell with it. Once you cast {@spell shield} or {@spell detect thoughts} spell with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast either of those spells using any spell slots you have of the appropriate level.",
+            "Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race). None of these spells require spell components when you cast them with this trait."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Mental Discipline",
+          "entries": [
+            "Your innate psychic defenses grant you advantage on saving throws you make to avoid or end the {@condition charmed} and {@condition frightened} conditions on yourself."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Psychic Resilience",
+          "entries": [
+            "You have resistance to psychic damage."
+          ]
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Shadar-Kai",
+      "source": "MPMM",
+      "page": 31,
+      "lineage": "VRGR",
+      "creatureTypes": [
+        "humanoid"
+      ],
+      "creatureTypeTags": [
+        "elf"
+      ],
+      "size": [
+        "M"
+      ],
+      "speed": 30,
+      "age": {
+        "max": 750
+      },
+      "darkvision": 60,
+      "traitTags": [
+        "Improved Resting",
+        "Tool Proficiency",
+        "Weapon Proficiency"
+      ],
+      "skillProficiencies": [
+        {
+          "perception": true
+        }
+      ],
+      "resist": [
+        "necrotic"
+      ],
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Creature Type",
+          "entries": [
+            "You are a Humanoid. You are also considered an elf for any prerequisite or effect that requires you to be an elf."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Blessing of the Raven Queen",
+          "entries": [
+            "As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+            "Starting at 3rd level, you also gain resistance to all damage when you teleport using this trait. The resistance lasts until the start of your next turn. During that time, you appear ghostly and translucent."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Fey Ancestry",
+          "entries": [
+            "You have advantage on saving throws you make to avoid or end the {@condition charmed} condition on yourself."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Keen Senses",
+          "entries": [
+            "You have proficiency in the {@skill Perception} skill."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Necrotic Resistance",
+          "entries": [
+            "You have resistance to necrotic damage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Trance",
+          "entries": [
+            "You don't need to sleep, and magic can't put you to sleep. You can finish a long rest in 4 hours if you spend those hours in a trancelike meditation, during which you retain consciousness.",
+            "Whenever you finish this trance, you can gain two proficiencies that you don't have, each one with a {@book weapon|phb|5|weapons} or a {@book tool|phb|5|tools} of your choice selected from the Player's Handbook. You mystically acquire these proficiencies by drawing them from shared elven memory, and you retain them until you finish your next long rest."
+          ]
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Simic Hybrid",
+      "source": "GGR",
+      "page": 20,
+      "size": [
+        "M"
+      ],
+      "speed": {
+        "walk": 30
+      },
+      "ability": [
+        {
+          "con": 2,
+          "choose": {
+            "from": [
+              "str",
+              "dex",
+              "int",
+              "wis",
+              "cha"
+            ],
+            "count": 1
+          }
+        }
+      ],
+      "darkvision": 60,
+      "traitTags": [
+        "Amphibious",
+        "Natural Armor",
+        "Natural Weapon"
+      ],
+      "languageProficiencies": [
+        {
+          "common": true,
+          "choose": {
+            "from": [
+              "elvish",
+              "other"
+            ],
+            "count": 1
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Age",
+          "entries": [
+            "Hybrids begin their lives as adult humans, elves, or vedalken. They age at a slightly accelerated rate, so their maximum life spans are probably reduced somewhat. The Guardian Project has not been operating long enough to observe the full effect of this phenomenon."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Alignment",
+          "entries": [
+            "Most hybrids share the generally neutral outlook of the Simic Combine. They are more interested in scientific research and the standing of their guild than in moral or ethical questions. Those who leave the Combine, however, often do so because their philosophical outlook and alignment are more in line with a different guild's."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Your size is Medium, within the normal range of your humanoid base race."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and your choice of Elvish or Vedalken."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Animal Enhancement",
+          "entries": [
+            "Your body has been altered to incorporate certain animal characteristics. You choose one animal enhancement now and a second enhancement at 5th level.",
+            "At 1st level, choose one of the following options:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Manta Glide",
+                  "entry": "You have ray-like fins that you can use as wings to slow your fall or allow you to glide. When you fall and aren't {@condition incapacitated}, you can subtract up to 100 feet from the fall when calculating falling damage, and you can move up to 2 feet horizontally for every 1 foot you descend."
+                },
+                {
+                  "type": "item",
+                  "name": "Nimble Climber",
+                  "entry": "You have a climbing speed equal to your walking speed."
+                },
+                {
+                  "type": "item",
+                  "name": "Underwater Adaptation",
+                  "entry": "You can breathe air and water, and you have a swimming speed equal to your walking speed."
+                }
+              ]
+            },
+            "At 5th level, your body evolves further, developing new characteristics. Choose one of the options you didn't take at 1st level, or one of the following options:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Grappling Appendage",
+                  "entry": "You have two special appendages growing alongside your arms. Choose whether they're both claws or tentacles. As an action, you can use one of them to try to grapple a creature. Each one is also a natural weapon, which you can use to make an unarmed strike. If you hit with it, the target takes bludgeoning damage equal to {@damage 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. Immediately after hitting, you can try to grapple the target as a bonus action. These appendages can't precisely manipulate anything and can't wield weapons, magic items, or other specialized equipment."
+                },
+                {
+                  "type": "item",
+                  "name": "Carapace",
+                  "entry": "Your skin in places is covered by a thick shell. You gain a +1 bonus to AC when you're not wearing heavy armor."
+                },
+                {
+                  "type": "item",
+                  "name": "Acid Spit",
+                  "entry": "As an action, you can spray acid from glands in your mouth, targeting one creature or object you can see within 30 feet of you. The target takes {@damage 2d10} acid damage unless it succeeds on a Dexterity saving throw against a DC equal to 8 + your Constitution modifier + your proficiency bonus. This damage increases by {@damage 1d10} when you reach 11th level ({@damage 3d10}) and 17th level ({@damage 4d10}). You can use this trait a number of times equal to your Constitution modifier (minimum of once), and you regain all expended uses of it when you finish a long rest."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Eladrin",
+      "source": "DMG",
+      "raceName": "Elf",
+      "raceSource": "PHB",
+      "page": 286,
+      "ability": [
+        {
+          "int": 1
+        }
+      ],
+      "weaponProficiencies": [
+        {
+          "longsword|phb": true,
+          "shortsword|phb": true,
+          "shortbow|phb": true,
+          "longbow|phb": true
+        }
+      ],
+      "additionalSpells": [
+        {
+          "ability": "cha",
+          "known": {
+            "1": {
+              "rest": {
+                "1": [
+                  "misty step"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "entries": [
+        {
+          "name": "Elf Weapon Training",
+          "entries": [
+            "You have proficiency with the {@item longsword|phb}, {@item shortsword|phb}, {@item shortbow|phb}, and {@item longbow|phb}."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Fey Step",
+          "entries": [
+            "You can cast the {@spell misty step} spell once using this trait. You regain the ability to do so when you finish a short or long rest."
+          ],
+          "type": "entries"
+        }
+      ]
+    },
+    {
+      "name": "Eladrin",
+      "source": "MTF",
+      "raceName": "Elf",
+      "raceSource": "PHB",
+      "page": 61,
+      "reprintedAs": [
+        "Eladrin|MPMM"
+      ],
+      "ability": [
+        {
+          "cha": 1
+        }
+      ],
+      "heightAndWeight": {
+        "baseHeight": 54,
+        "heightMod": "2d12",
+        "baseWeight": 90,
+        "weightMod": "1d4"
+      },
+      "entries": [
+        "{@i Choose your eladrin's season: autumn, winter, spring, or summer. When finishing a long rest, you can change your season. See the \"Info\" tab for more information.}",
+        {
+          "name": "Fey Step",
+          "entries": [
+            "As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can't do so again until you finish a short or long rest.",
+            "When you reach 3rd level, your Fey Step gains an additional effect based on your season; if the effect requires a saving throw, the DC equals 8 + your proficiency bonus + your Charisma modifier:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Autumn",
+                  "entry": "Immediately after you use your Fey Step, up to two creatures of your choice that you can see within 10 feet of you must succeed on a Wisdom saving throw or be {@condition charmed} by you for 1 minute, or until you or your companions deal any damage to it."
+                },
+                {
+                  "type": "item",
+                  "name": "Winter",
+                  "entry": "When you use your Fey Step, one creature of your choice that you can see within 5 feet of you before you teleport must succeed on a Wisdom saving throw or be {@condition frightened} of you until the end of your next turn."
+                },
+                {
+                  "type": "item",
+                  "name": "Spring",
+                  "entry": "When you use your Fey Step, you can touch one willing creature within 5 feet of you. That creature then teleports instead of you, appearing in an unoccupied space of your choice that you can see within 30 feet of you."
+                },
+                {
+                  "type": "item",
+                  "name": "Summer",
+                  "entry": "Immediately after you use your Fey Step, each creature of your choice that you can see within 5 feet of you takes fire damage equal to your Charisma modifier (minimum of 1 damage)."
+                }
+              ]
+            }
+          ],
+          "type": "entries"
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Shadar-kai",
+      "source": "MTF",
+      "raceName": "Elf",
+      "raceSource": "PHB",
+      "page": 62,
+      "reprintedAs": [
+        "Shadar-Kai|MPMM"
+      ],
+      "ability": [
+        {
+          "con": 1
+        }
+      ],
+      "heightAndWeight": {
+        "baseHeight": 56,
+        "heightMod": "2d8",
+        "baseWeight": 90,
+        "weightMod": "1d4"
+      },
+      "resist": [
+        "necrotic"
+      ],
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Necrotic Resistance",
+          "entries": [
+            "You have resistance to necrotic damage."
+          ]
+        },
+        {
+          "name": "Blessing of the Raven Queen",
+          "entries": [
+            "As a bonus action, you can magically teleport up to 30 feet to an unoccupied space you can see. Once you use this trait, you can't do so again until you finish a long rest.",
+            "Starting at 3rd level, you also gain resistance to all damage when you teleport using this trait. The resistance lasts until the start of your next turn. During that time, you appear ghostly and translucent."
+          ],
+          "type": "entries"
+        }
+      ],
+      "hasFluff": true
+    },
+    {
+      "name": "Githyanki",
+      "source": "MTF",
+      "raceName": "Gith",
+      "raceSource": "MTF",
+      "page": 96,
+      "reprintedAs": [
+        "Githyanki|MPMM"
+      ],
+      "ability": [
+        {
+          "str": 2
+        }
+      ],
+      "heightAndWeight": {
+        "baseHeight": 60,
+        "heightMod": "2d12",
+        "baseWeight": 100,
+        "weightMod": "2d4"
+      },
+      "traitTags": [
+        "Skill Proficiency",
+        "Tool Proficiency"
+      ],
+      "weaponProficiencies": [
+        {
+          "shortsword|phb": true,
+          "longsword|phb": true,
+          "greatsword|phb": true
+        }
+      ],
+      "armorProficiencies": [
+        {
+          "light": true,
+          "medium": true
+        }
+      ],
+      "skillToolLanguageProficiencies": [
+        {
+          "choose": [
+            {
+              "from": [
+                "anySkill",
+                "anyTool"
+              ]
+            }
+          ]
+        }
+      ],
+      "additionalSpells": [
+        {
+          "innate": {
+            "3": {
+              "daily": {
+                "1": [
+                  "jump"
+                ]
+              }
+            },
+            "5": {
+              "daily": {
+                "1": [
+                  "misty step"
+                ]
+              }
+            }
+          },
+          "ability": "int",
+          "known": {
+            "1": [
+              "mage hand#c"
+            ]
+          }
+        }
+      ],
+      "entries": [
+        {
+          "name": "Alignment",
+          "type": "entries",
+          "entries": [
+            "Githyanki tend toward lawful evil. They are aggressive and arrogant, and they remain the faithful servants of their lich-queen, Vlaakith. Renegade githyanki tend toward chaos."
+          ]
+        },
+        {
+          "name": "Decadent Mastery",
+          "entries": [
+            "You learn one language of your choice, and you are proficient with one skill or {@book tool|phb|5|tools} of your choice. In the timeless city of Tu'narath, githyanki have bountiful time to master odd bits of knowledge."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Martial Prodigy",
+          "entries": [
+            "You are proficient with light and medium armor and with {@item shortsword|phb|shortswords}, {@item longsword|phb|longswords}, and {@item greatsword|phb|greatswords}."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Githyanki Psionics",
+          "entries": [
+            "You know the {@spell mage hand} cantrip, and the hand is {@condition invisible} when you cast the cantrip with this trait.",
+            "When you reach 3rd level, you can cast {@spell jump} once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the {@spell misty step} spell once with this trait, and you regain the ability to do so when you finish a long rest.",
+            "Intelligence is your spellcasting ability for these spells. When you cast them with this trait, they don't require components."
+          ],
+          "type": "entries"
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Githzerai",
+      "source": "MTF",
+      "raceName": "Gith",
+      "raceSource": "MTF",
+      "page": 96,
+      "reprintedAs": [
+        "Githzerai|MPMM"
+      ],
+      "ability": [
+        {
+          "wis": 2
+        }
+      ],
+      "heightAndWeight": {
+        "baseHeight": 59,
+        "heightMod": "2d12",
+        "baseWeight": 90,
+        "weightMod": "1d4"
+      },
+      "additionalSpells": [
+        {
+          "innate": {
+            "3": {
+              "daily": {
+                "1": [
+                  "shield"
+                ]
+              }
+            },
+            "5": {
+              "daily": {
+                "1": [
+                  "detect thoughts"
+                ]
+              }
+            }
+          },
+          "ability": "wis",
+          "known": {
+            "1": [
+              "mage hand#c"
+            ]
+          }
+        }
+      ],
+      "entries": [
+        {
+          "name": "Alignment",
+          "type": "entries",
+          "entries": [
+            "Githzerai tend toward lawful neutral. Their rigorous training in psychic abilities requires an implacable mental discipline."
+          ]
+        },
+        {
+          "name": "Mental Discipline",
+          "entries": [
+            "You have advantage on saving throws against the {@condition charmed} and {@condition frightened} conditions. Under the tutelage of monastic masters, githzerai learn to govern their own minds."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Githzerai Psionics",
+          "entries": [
+            "You know the {@spell mage hand} cantrip, and the hand is {@condition invisible} when you cast the cantrip with this trait.",
+            "When you reach 3rd level, you can cast {@spell shield} once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the {@spell detect thoughts} spell once with this trait, and you regain the ability to do so when you finish a long rest.",
+            "Wisdom is your spellcasting ability for these spells. When you cast them with this trait, they don't require components."
+          ],
+          "type": "entries"
+        }
+      ],
+      "hasFluff": true
+    }
+  ],
+  "corrections": [
+    "Astral Knowledge: skill and weapon OR tool; removed invented fate/divinity text",
+    "Mental Discipline: advantage against charmed/frightened; removed invented immunity to mind reading",
+    "Trance: scoped MPMM Eladrin and Shadar-Kai records with two temporary proficiencies; Eladrin season change",
+    "Animal Enhancements: choice of unselected level-1 option at level 5, minimum one Acid Spit use, no precise manipulation with appendages",
+    "Martial Prodigy: MTF p96 description; English title awaiting approval",
+    "Fey Ancestry (MPMM) scoped to Eladrin/Shadar-Kai: charmed saves; magical sleep immunity belongs to Trance, not this trait"
+  ],
+  "delivery": "Local seed sources and generated files only; no database writes or seeding"
+}

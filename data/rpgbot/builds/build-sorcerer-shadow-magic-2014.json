@@ -1,0 +1,948 @@
+{
+  "buildId": "build-sorcerer-shadow-magic-2014",
+  "revisionId": "build-sorcerer-shadow-magic-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "— Гусак Гусак Революція",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+      "sectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "FIGHTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "SHADOW_MAGIC",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "acid-splash",
+            "mage-hand",
+            "mind-sliver",
+            "minor-illusion"
+          ],
+          "knownSpellKeys": [
+            "absorb-elements",
+            "sleep"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "SORCERER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "silvery-barbs"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "SORCERER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Quickened Spell"
+          },
+          {
+            "optionNameEng": "Subtle Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hold-person"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "SORCERER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (CHA)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (ACROBATICS)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (DECEPTION)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "mending"
+          ],
+          "knownSpellKeys": [
+            "phantasmal-force"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "SORCERER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "lightning-bolt"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "sleep",
+          "add": "major-image"
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "SORCERER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dispel-magic"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "absorb-elements",
+          "add": "counterspell"
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "SORCERER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "greater-invisibility"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "SORCERER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "raulothims-psychic-lance"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "SORCERER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hold-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "SORCERER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Twinned Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "blade-ward"
+          ],
+          "knownSpellKeys": [
+            "polymorph"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "SORCERER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "disintegrate"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "SORCERER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TOUGH"
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "SORCERER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "draconic-transformation"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "SORCERER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "SORCERER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "SORCERER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "SORCERER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Heightened Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wish"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "polymorph",
+          "add": "psychic-scream"
+        }
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "SORCERER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "raceKey": "DWARF_2014",
+    "backgroundKey": "COURTIER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми зробимо нетиповий розподіл за купівлею характеристик. Беремо Спритність 14, бо нас не надто турбує її підвищення. По 15 ставимо в Статуру й Харизму, щоб мати добрі ХП і добрі СК. Тоді ставимо 10 в Мудрість, бо в нас залишилися очки через те, що Спритність ми лишили на круглих 14.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 14 14 Статура 15 15 Інтелект 8 8 Мудрість 10 10 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Пагорбовий дворф{{Hill Dwarf}}. Ми скористаємося хитрощами з дворфами. Більшості рас доводиться турбуватися про Силу, якщо вони хочуть носити важкі обладунки. Дворфи цю частину ігнорують і ніколи не втрачають швидкість через обладунки. Пагорбові дворфи отримують +1 ХП на рівень. Через це наш кубик здоровʼя к6 відчуватиметься так, ніби ми клас із к8.\n\nМи отримуємо чимало вбудованих володінь зброєю й інструментами, але обміняємо їх усі на власний набір інструментів: Кухарське начиння, Набір для гриму, Набір фальшивомонетника, Набір отруйника та Ріг.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беремо Придворного{{Courtier}}, щоб отримати навички «обличчя» через наш нетиповий перший рівень. Мови не мають значення, обирайте те, що пасує вашій кампанії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Наш перший рівень буде Воїном — заради володіння важкими обладунками й щитами, а це означає, що на першому рівні навички доведеться обирати зі списку Воїна. На щастя, Воїн може обрати Залякування й Аналіз Поведінки. Оскільки Аналіз Поведінки ми отримуємо від класу, то з Придворним{{Courtier}} можемо замінити Аналіз Поведінки на будь-яку навичку. Це дозволяє нам обрати Обман, тоді як передісторія ще й дає Переконання.\n\nЯк згадувалося вище, ми замінюємо всі вбудовані володіння дворфа інструментами: Кухарським начинням, Набором для гриму, Набором фальшивомонетника, Набором отруйника та Рогом. Це дає нам кумедний спосіб проникнути під виглядом кухаря й отруїти ціль. До того, щоб бути добрим Чародієм чи до жахливих гусей, це не має жодного стосунку. Хіба що, гадаю, можна звинуватити гусака.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Ми втрачаємо Покращення Характеристик на 19-му рівні, бо беремо два рівні Воїна заради «Сплеск дій»{{Action Surge}}.\n\n5-й рівень, Чародій 4: «Експерт у навичках»{{Skill Expert}} (+1 до Харизми). Тут у нас насправді є варіанти залежно від решти групи. Якщо ніхто більше в групі не добрий в Аналізі Поведінки, беремо в ньому Експертизу, бо як «обличчю» нам потрібно бути на рівні в цій навичці. Якщо хтось інший прикриє це під час перемовин, можемо взяти Експертизу в одній з інших наших навичок «обличчя» залежно від того, куди саме хочемо зміщувати акцент. Заради образу жахливого гусака цей приклад узяв Експертизу в Обмані. Навичка, яку ми вивчаємо, здебільшого залежить від уподобань, але ми беремо Акробатику, бо живемо за гаслом «гусак на волі».\n\n9-й рівень, Чародій 8: Покращення Характеристик, Харизма +2. Хочемо не відставати, нічого вигадливого.\n\n13-й рівень, Чародій 12: «Здоровань»{{Tough}}. Так-так, ми беремо «Здоровань» на додачу до того, що ми Пагорбовий дворф{{Hill Dwarf}}. Якщо ви не рахуєте, це як мати кубик здоровʼя к12 замість нашого к6. Якщо ж ви надаєте перевагу додатковій страховці на перевірках Концентрації, раджу тут «Бойового заклинателя»{{War Caster}}.\n\n17-й рівень, Чародій 16: Покращення Характеристик, Статура +2. Краща Концентрація й більше ХП.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бойовий Стиль (Оборона)\nДруге дихання\nУсі обладунки й бойова зброя\nІнструменти:\n– Кухарське начиння\n– Набір для гриму\n– Набір фальшивомонетника\n– Набір отруйника\n– Ріг\nНавички:\n– Обман\n– Аналіз Поведінки\n– Залякування\n– Переконання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Походження чародія (Магія тіні)\nОчі темряви\nСила могили\nЗаклинання\nЗамовляння:\n– Кислотні бризки\n– Магічна рука\n– Розщеплення Розуму\n– Мала ілюзія\n1-й рівень:\n– Поглинання стихій\n– Сон",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Джерело магії\n1-й рівень:\n– Сріблясті шпильки\n– Або –\n– Щит",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Метамагія{{Metamagic}}:\n– Пришвидшене заклинання\n– Приховане заклинання\nОчі темряви\n2-й рівень:\n– Темрява\n– Стримування особи",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Риса: Експерт у навичках (+1 до Харизми) (17 → 18)\nНавичка:\n– Акробатика\nЕкспертиза:\n– Обман\nЗамовляння:\n– Лагодження\n2-й рівень:\n– Уявна сила\n– Або –\n– Психічний Батіг Таші",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "3-й рівень:\n– Заряд блискавки\nПеренавчання заклинання:\n– Сон → Оживлений образ",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "{{Пес|Hound (закреслено в оригіналі)}} Гусак поганої прикмети\n3-й рівень:\n– Розвіювання магії\nПеренавчання заклинання:\n– Поглинання стихій → Контрчари",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "4-й рівень:\n– Більша невидимість",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Покращення Характеристик: Харизма +2 (18 → 20)\n4-й рівень:\n– Психічний спис Раулотіма",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "5-й рівень:\n– Стримування монстра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Метамагія{{Metamagic}}:\n– Спарене заклинання\nЗамовляння:\n– Захист від зброї\n4-й рівень:\n– Перевтілення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "6-й рівень:\n– Розщеплення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Риса: Здоровань",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "7-й рівень:\n– {{Драконяче|Draconic (закреслено в оригіналі)}} гусяче перетворення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Прогулянка тінню{{Shadow Walk}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "8-й рівень:\n– Напівплан",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Покращення Характеристик: Статура +2 (16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "9-й рівень:\n– Бажання\nПеренавчання заклинання:\n– Перевтілення → Психічний крик",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Тіньова форма{{Umbral Form}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Сплеск дій{{Action Surge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Інструменти",
+        "reason": "Автор міняє всі вбудовані володіння Пагорбового дворфа на пʼять наборів інструментів (кухарське начиння, набір для гриму, набір фальшивомонетника, набір отруйника, ріг); сервер і лист завжди видають расові володіння каталогу, тому цих інструментів у пресеті немає, а расові володіння зброєю лишаються.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Напівплан на 16-му рівні",
+        "reason": "Автор бере на 16-му рівні (Чародій 15) Напівплан, але в каталозі цього заклинання немає в списку Чародія (воно в Чорнокнижника й Чарівника); заклинання 8-го рівня на цьому рівні обирає гравець.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія 18-го рівня",
+        "reason": "Автор не називає четверту метамагію, яку Чародій 17-го рівня отримує на 18-му рівні персонажа. Пресет бере Heightened Spell (вибір платформи); гравець може змінити перед створенням.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

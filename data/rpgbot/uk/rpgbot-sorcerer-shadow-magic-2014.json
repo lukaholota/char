@@ -1,0 +1,2077 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-a2905de25a6f99cb",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+      "sourceId": "rpgbot-a2905de25a6f99cb",
+      "fetchedAt": "2026-09-29T19:19:03.088916+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:56:15-04:00",
+      "contentHash": "f0c9cdbc3e6aed627b53943ba5a5042a606a72092e61d85e99369213ff857748",
+      "title": "Shadow Magic Sorcerer 5e: DnD Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+    "sourceId": "rpgbot-a2905de25a6f99cb",
+    "slug": "sorcerer-shadow-magic-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Магія тіні — гайд підкласу Чародія (2014)",
+    "titleEn": "Shadow Magic Sorcerer 5e: DnD Subclass Guide",
+    "topics": [
+      "Чародій",
+      "Магія тіні",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "sourceRevisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чародія Магії тіні{{Shadow Magic}} насправді не надто цікавлять тіні чи темрява. У нього є кілька інструментів, що взаємодіють із темрявою й тьмяним світлом, але загалом, навіть якщо ви проведете всю кампанію в добре освітлених місцях, цей підклас працюватиме цілком добре."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Головна фішка підкласу — тіньова викликана істота на 6-му рівні, що накладає Перешкоду на ряткидки проти ваших заклинань за ту саму ціну, що й метамагія «Підвищене заклинання»{{Heightened Spell}}. Це чудова вигода проти одного ворога, якого ви й далі довбаєте заклинаннями, але менш вигідно в боях проти багатьох ворогів. Проте справжня цінність у тому, що Перешкода діє й далі на заклинаннях із повторними ряткидками, чого «Підвищене заклинання» не робить."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зрештою, Чародій Магії тіні, як і інші підкласи Походження чародія{{Sorcerous Origin}}, визначається радше вибором заклинань конкретного персонажа, ніж самим підкласом, а це дає змогу гнучко будувати персонажа й вигадувати його колорит. Сподіваємося, вам сподобається гумористичний поворот, який ми додали до умінь у прикладі збірки внизу сторінки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Магії тіні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Магії тіні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#shadow-magic-origin-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Магії тіні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#shadow-magic-origin-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Магії тіні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#shadow-magic-origin-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя й обладунки Магії тіні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#shadow-magic-origin-weapons-and-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Магії тіні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#shadow-magic-origin-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання Магії тіні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#shadow-magic-origin-spells"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 1-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#1st-level"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 2-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#2nd-level"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 3-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#3rd-level"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 5-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#5th-level"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 9-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#9th-level"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Гусак Гусак Революція",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#example-shadow-magic-origin-build-goose-goose-revolution"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Магії тіні",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Очі темряви|Eyes of the Dark}}: Темнозір важливий у грі, що часто включає багато підземель, печер та інших слабко освітлених місць. Темнозір 120 фт. означає, що ви можете безпечно атакувати інших ворогів із Темнозором, залишаючись поза межами їхнього зору. У добре освітлених місцях (наприклад, просто неба, якщо ви з якоїсь причини там буваєте) накладання Темряви [Darkness] за очки чародійства{{Sorcery Points}} створює забавну бульбашку, де ви (а часто "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "лише"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ви) бачите нормально. Темрява [Darkness] — заклинання 2-го рівня, а перетворення слота заклинання 2-го рівня на очки чародійства дає 2 очки чародійства, тож коштує вам лише бонусну дію на перетворення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Сила могили|Strength of the Grave}}: Це може втримати вас на ногах, якщо вас вирубила атака, що не завдає багато шкоди, але проти здібностей, що завдають багато шкоди одразу, як-от дихальна зброя чи заклинання, пройти ряткидок буде дуже важко."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Пес поганої прикмети|Hound of Ill Omen}}: Навіть на високих рівнях, коли статблок лютого вовка вже не лякатиме, накладання Перешкоди на ряткидки означає, що ви легко можете вразити ціль свого пса заклинанням «пройди-ряткидок-або-страждай»{{save-or-suck}} одразу після виклику пса. Пес також безпомилково рухається до цілі, тож якщо вона стане невидимою, у вас є чудовий спосіб її знайти. Пес може проходити крізь предмети (хоч і не літає), тож навіть суцільні стіни не зупинять цю істоту після виклику, а ХП у неї достатньо, щоб витримати кілька атак, перш ніж вона загине. По суті, це «Підвищене заклинання»{{Heightened Spell}}, приєднане до дуже рішучого набору зубів, і на відміну від «Підвищеного заклинання» ціль страждає від Перешкоди на "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "всіх"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ряткидках проти ваших заклинань, а не лише на першому ряткидку проти заклинання, що на неї подіяло. Наприклад: ви можете обрати ціллю істоту своїм псом, а тоді вразити її Стримуванням монстра [Hold Monster], і вона робитиме кожен ряткидок проти Стримування монстра [Hold Monster] з Перешкодою. Ще краще: ваш вовк атакуватиме її з Перевагою й автоматично завдаватиме критичних влучань (за умови, що влучить, а це все ще проблема проти ворогів із високим КБ), бо ціль паралізована. Дивно, але кількість псів, яких ви можете мати, не обмежена нічим, крім вартості в очках чародійства. Якщо хочете викликати пса щоходу, доки не закінчаться очки чародійства, вільні так робити. Якщо хочете вивести на поле кількох псів, а тоді накласти Стримування монстра [Hold Monster] на вищому рівні, щоб паралізувати купу істот, — так можна. Я це робив, і воно саме таке дивовижне, як звучить. Звісно, вороги можуть вирішити спробувати вбити пса, але будь-яка атака по псу — це шкода, якої не зазнали ваші члени групи, яких не так миттєво можна викликати знову. Ще одна кумедна дрібничка: хоч він і зветься «Псом», ви можете вирішити, що це що завгодно. Чорний кіт, що приносить нещастя, надзвичайно крутий динозавр, жахливий гусак. Колорит безкоштовний."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Прогулянка тінню{{Shadow Walk}}: Безкоштовна телепортація бонусною дією! Дальність досить добра, а в крайньому разі можна накласти Темряву [Darkness], щоб створити зону, в яку телепортуватися. Це можна використовувати навіть під час мандрівок, пересуваючись приблизно в 5 разів швидше за звичайне, поєднуючи комфортний темп ходьби й часту телепортацію."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тіньова форма{{Umbral Form}}: Що, як би «Лють»{{Rage}} дозволяла накладати заклинання й ходити крізь стіни замість того, щоб сильно бити? Приблизно так це й працює. Очки чародійства{{Sorcery Points}} дешевші, ніж накладання багатьох заклинань, що дозволяють ходити крізь стіни та істот, як-от Етерність [Etherealness]. Сподіваюся, опір шкоді вам не знадобиться, бо у вас є чудові захисні варіанти на кшталт Більшої невидимості [Greater Invisibility], але ви, можливо, зможете використати «Тіньову форму» перед перевтіленням і зберегти опір шкоді."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-shadow-magic-origin-ability-scores",
+          "heading": "Характеристики Магії тіні",
+          "sourceAnchor": "shadow-magic-origin-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-shadow-magic-origin-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як Чародій Магії тіні{{Shadow Magic}}, ми не змінюємо пріоритет характеристик порівняно з "
+                },
+                {
+                  "type": "link",
+                  "text": "гайдом Чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-magic-origin-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: занедбайте її, якщо тільки ви не робите якогось нішевого гіша{{gish}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-magic-origin-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: нам потрібен КБ."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-magic-origin-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: нам потрібні ХП."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-magic-origin-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: можливо, навички знань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-magic-origin-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: Уважність і Аналіз Поведінки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-magic-origin-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: це наша базова характеристика заклинань: атаки заклинаннями й СК ряткидків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-magic-origin-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-shadow-magic-origin-races",
+          "heading": "Раси Магії тіні",
+          "sourceAnchor": "shadow-magic-origin-races",
+          "blocks": [
+            {
+              "blockId": "block-section-shadow-magic-origin-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поради з "
+                },
+                {
+                  "type": "link",
+                  "text": "огляду рас Чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/races/"
+                },
+                {
+                  "type": "text",
+                  "text": " нам цілком підходять, але оскільки Темний зір ми отримуємо від Магії тіні{{Shadow Magic}}, під час порівняння рас цей пункт можна ігнорувати. Не варто розуміти це так, що не слід обирати расу з Темним зором, якщо решта її набору добре пасує вашій збірці."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-magic-origin-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": ":"
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-shadow-magic-origin-feats",
+          "heading": "Риси Магії тіні",
+          "sourceAnchor": "shadow-magic-origin-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-shadow-magic-origin-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гайд Чародія вже розглядає "
+                },
+                {
+                  "type": "link",
+                  "text": "більшість кращих варіантів",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": ". Утім, теоретично ми — моторошний тіньовий тип, якому подобається бути в тіні, тож є кілька рис, що можуть із цим допомогти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-magic-origin-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Експерт у навичках|Skill Expert}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Ми можемо захотіти бути ще кращими в тому, щоб триматися тіні, чи в тому, щоб бачити Темним зором, а то й у тій справі з «обличчям», яку наша група, мабуть, вважає нашою роботою, навіть не порадившись із нами. Яке нахабство. Додаткова навичка й Експертиза можуть дати нам ту фору, якої нам бракує в цих сферах."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-shadow-magic-origin-weapons-and-armor",
+          "heading": "Зброя й обладунки Магії тіні",
+          "sourceAnchor": "shadow-magic-origin-weapons-and-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-shadow-magic-origin-weapons-and-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ні. Просто ні. Для цього є магія. Хіба що ви берете рівні в іншому класі — тоді подробиці шукайте в розділі про обладунки вашого іншого класу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-shadow-magic-origin-multiclassing",
+          "heading": "Мультикласування Магії тіні",
+          "sourceAnchor": "shadow-magic-origin-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-shadow-magic-origin-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є кілька варіантів, що працюють, але жоден не вражає абсурдною силою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-magic-origin-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Паладин{{Paladin}}: Непогано. Якщо ви почали з Паладина, перш ніж перейти на Чародія, ви отримаєте важкі обладунки, але втратите володіння ряткидками Статури. Якщо вам потрібні лише обладунки, більше користі вийде, якщо зробити те саме з Воїном."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Чорнокнижник Відьмацького клинка|Hexblade Warlock}}: середні обладунки, «Прокляття Відьмацького Клинка»{{Hexblade’s Curse}} і зброя на основі Харизми. Тут це не жахливо, але Магія тіні{{Shadow Magic}} — не той підклас, на якому варто будувати гіша{{gish}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бард{{Bard}}: легкі обладунки й навичку можна отримати одним рівнем занурення."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-shadow-magic-origin-spells",
+          "heading": "Заклинання Магії тіні",
+          "sourceAnchor": "shadow-magic-origin-spells",
+          "blocks": [
+            {
+              "blockId": "block-section-shadow-magic-origin-spells-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Головне, що дає нам Магія тіні{{Shadow Magic}} і що прямо взаємодіє із заклинаннями, — це уміння «Пес поганої прикмети»{{Hound of Ill Omen}}. Воно змушує тіньову потвору йти за ціллю й нападати на неї. Коли потвора поруч із ціллю, вона накладає Перешкоду на ряткидки проти наших заклинань. Це як «Підвищене заклинання»{{Heightened Spell}}, навіть за ту саму кількість очок чародійства{{Sorcery Points}}, тільки в потвори є ХП, вона діє, доки не загине вона або ціль, і впливає на кожне заклинання, яке ми накладаємо на ціль вашого пса."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-magic-origin-spells-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "І їй навіть не обовʼязково мати вигляд собаки. Тож у цьому розділі вдаватимемо, що це "
+                },
+                {
+                  "type": "link",
+                  "text": "жахливий гусак",
+                  "href": "https://www.youtube.com/watch?v=5OrLdnOUEkY"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-magic-origin-spells-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заглядаючи в "
+                },
+                {
+                  "type": "link",
+                  "text": "огляд списку заклинань Чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/spells/"
+                },
+                {
+                  "type": "text",
+                  "text": ", ми шукаємо заклинання, що чинять жахливі речі з тими, кого мучить жахливий гусак. Якщо я тут не згадую якесь заклинання, то лише тому, що від додавання гусей воно суттєво не змінюється."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-1st-level",
+          "parentSectionId": "section-shadow-magic-origin-spells",
+          "heading": "Заклинання 1-го рівня",
+          "sourceAnchor": "1st-level",
+          "blocks": [
+            {
+              "blockId": "block-section-1st-level-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Причарування особи [Charm Person]: Жахливий гусак, на жаль, і далі нападатиме на ціль, порушуючи причарування. Мир ніколи не був варіантом."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2nd-level",
+          "parentSectionId": "section-shadow-magic-origin-spells",
+          "heading": "Заклинання 2-го рівня",
+          "sourceAnchor": "2nd-level",
+          "blocks": [
+            {
+              "blockId": "block-section-2nd-level-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Сліпота/глухота [Blindness/Deafness]: Змусити ціль провалити ряткидок Статури може бути важко, але з Перешкодою заклинання може подіяти на більше істот. Осліплення цілі також означає, що ваш гусак/пес має Перевагу на атаки проти неї. Ні те, ні інше не потребує Концентрації, тож ви можете підготувати цю комбінацію за один хід, а тоді піти займатися чимось іншим."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стримування особи [Hold Person]: Проблема цього заклинання для звичайних нудних Чародіїв у тому, що «Підвищене заклинання»{{Heightened Spell}} діє лише на перший ряткидок. Жахливий гусак лишається до кінця й накладає Перешкоду на всі ряткидки істоти, якими вона намагається вирватися з-під дії заклинання."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3rd-level",
+          "parentSectionId": "section-shadow-magic-origin-spells",
+          "heading": "Заклинання 3-го рівня",
+          "sourceAnchor": "3rd-level",
+          "blocks": [
+            {
+              "blockId": "block-section-3rd-level-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Завірюха [Sleet Storm]: Важливе тут формулювання останнього ефекту. Це не звичайний ряткидок, щоб утримати Концентрацію після шкоди, а ряткидок від самого заклинання, де наслідок провалу — завершення Концентрації. Спробуйте утримати Концентрацію, слухаючи «Га-га-га-га-га-га~»"
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-5th-level",
+          "parentSectionId": "section-shadow-magic-origin-spells",
+          "heading": "Заклинання 5-го рівня",
+          "sourceAnchor": "5th-level",
+          "blocks": [
+            {
+              "blockId": "block-section-5th-level-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Стримування монстра [Hold Monster]: З усіх тих самих причин, що й Стримування особи [Hold Person], це просто те саме заклинання, тільки краще."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-9th-level",
+          "parentSectionId": "section-shadow-magic-origin-spells",
+          "heading": "Заклинання 9-го рівня",
+          "sourceAnchor": "9th-level",
+          "blocks": [
+            {
+              "blockId": "block-section-9th-level-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Психічний крик [Psychic Scream]: Це так тематично: ціль має Перешкоду на ряткидки Інтелекту від усього цього гелготу. Якщо Інтелект у середньому найгірший ряткидок, то істоти лишатимуться приголомшеними назавжди з Перешкодою (або принаймні 5 хвилин, поки ваш гусак не зникне)."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+          "heading": "Приклад збірки — Гусак Гусак Революція",
+          "sourceAnchor": "example-shadow-magic-origin-build-goose-goose-revolution",
+          "blocks": [
+            {
+              "blockId": "block-section-example-shadow-magic-origin-build-goose-goose-revolution-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Чудовий день, а вас переслідує жахливий гусак.",
+                  "href": "https://www.youtube.com/watch?v=n3DfLpdhXkg"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-shadow-magic-origin-build-goose-goose-revolution-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не буду ходити околясом. Щоб бути добрим Чародієм Магії тіні{{Shadow Magic}}, тіней і темряви потрібно дуже мало. Звісно, від умінь 14-го рівня ви отримуєте приємну користь у темряві, а Темний зір — просто за те, що зʼявилися. Тож натомість зосередимося на тому, щоб жахливий гусак накладав Перешкоду на заклинання «пройди-ряткидок-або-страждай»{{save-or-suck}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми зробимо нетиповий розподіл за купівлею характеристик. Беремо Спритність 14, бо нас не надто турбує її підвищення. По 15 ставимо в Статуру й Харизму, щоб мати добрі ХП і добрі СК. Тоді ставимо 10 в Мудрість, бо в нас залишилися очки через те, що Спритність ми лишили на круглих 14."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пагорбовий дворф{{Hill Dwarf}}. Ми скористаємося хитрощами з дворфами. Більшості рас доводиться турбуватися про Силу, якщо вони хочуть носити важкі обладунки. Дворфи цю частину ігнорують і ніколи не втрачають швидкість через обладунки. Пагорбові дворфи отримують +1 ХП на рівень. Через це наш кубик здоровʼя к6 відчуватиметься так, ніби ми клас із к8."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми отримуємо чимало вбудованих володінь зброєю й інструментами, але обміняємо їх усі на власний набір інструментів: Кухарське начиння, Набір для гриму, Набір фальшивомонетника, Набір отруйника та Ріг."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо Придворного{{Courtier}}, щоб отримати навички «обличчя» через наш нетиповий перший рівень. Мови не мають значення, обирайте те, що пасує вашій кампанії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наш перший рівень буде Воїном — заради володіння важкими обладунками й щитами, а це означає, що на першому рівні навички доведеться обирати зі списку Воїна. На щастя, Воїн може обрати Залякування й Аналіз Поведінки. Оскільки Аналіз Поведінки ми отримуємо від класу, то з Придворним{{Courtier}} можемо замінити Аналіз Поведінки на будь-яку навичку. Це дозволяє нам обрати Обман, тоді як передісторія ще й дає Переконання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як згадувалося вище, ми замінюємо всі вбудовані володіння дворфа інструментами: Кухарським начинням, Набором для гриму, Набором фальшивомонетника, Набором отруйника та Рогом. Це дає нам кумедний спосіб проникнути під виглядом кухаря й отруїти ціль. До того, щоб бути добрим Чародієм чи до жахливих гусей, це не має жодного стосунку. Хіба що, гадаю, можна звинуватити гусака."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми втрачаємо Покращення Характеристик на 19-му рівні, бо беремо два рівні Воїна заради «Сплеск дій»{{Action Surge}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "5-й рівень, Чародій 4: «Експерт у навичках»{{Skill Expert}} (+1 до Харизми). Тут у нас насправді є варіанти залежно від решти групи. Якщо ніхто більше в групі не добрий в Аналізі Поведінки, беремо в ньому Експертизу, бо як «обличчю» нам потрібно бути на рівні в цій навичці. Якщо хтось інший прикриє це під час перемовин, можемо взяти Експертизу в одній з інших наших навичок «обличчя» залежно від того, куди саме хочемо зміщувати акцент. Заради образу жахливого гусака цей приклад узяв Експертизу в Обмані. Навичка, яку ми вивчаємо, здебільшого залежить від уподобань, але ми беремо Акробатику, бо живемо за гаслом «гусак на волі»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "9-й рівень, Чародій 8: Покращення Характеристик, Харизма +2. Хочемо не відставати, нічого вигадливого."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "13-й рівень, Чародій 12: «Здоровань»{{Tough}}. Так-так, ми беремо «Здоровань» на додачу до того, що ми Пагорбовий дворф{{Hill Dwarf}}. Якщо ви не рахуєте, це як мати кубик здоровʼя к12 замість нашого к6. Якщо ж ви надаєте перевагу додатковій страховці на перевірках Концентрації, раджу тут «Бойового заклинателя»{{War Caster}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "17-й рівень, Чародій 16: Покращення Характеристик, Статура +2. Краща Концентрація й більше ХП."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1-Воїн 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль (Оборона)\nДруге дихання\nУсі обладунки й бойова зброя\nІнструменти:\n– Кухарське начиння\n– Набір для гриму\n– Набір фальшивомонетника\n– Набір отруйника\n– Ріг\nНавички:\n– Обман\n– Аналіз Поведінки\n– Залякування\n– Переконання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми занурюємося сюди, щоб отримати володіння обладунками, не відмовляючись від володіння ряткидками Статури. Будучи дворфом, ми не втрачаємо 10 футів швидкості через брак Сили для важкого обладунку, тож скористаємося цим, щоб носити важкий обладунок. Чим стійкіші ми, тим менше нашим союзникам доведеться хвилюватися, що тендітного заклинача проштрикнуть. З цією метою ми також беремо Бойовий Стиль «Оборона»{{Defense}}, оскільки зброєю не користуємося."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2-Чародій 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Походження чародія (Магія тіні)\nОчі темряви\nСила могили\nЗаклинання\nЗамовляння:\n– Кислотні бризки\n– Магічна рука\n– Розщеплення Розуму\n– Мала ілюзія\n1-й рівень:\n– Поглинання стихій\n– Сон"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беремо перший рівень Чародія й отримуємо доступ до Магії тіні{{Shadow Magic}}. Вона покращує наш Темний зір із 60 футів, як у дворфів, до 120. «Сила могили»{{Strength of the Grave}} дозволяє зробити ряткидок Харизми, коли ми опускаємося до 0 ХП, щоб натомість лишитися з 1 ХП. Іноді це може допомогти, але намагайтеся на це не покладатися. Із замовлянь беремо Кислотні бризки [Acid splash] та Розщеплення Розуму [Mind Sliver]. Кислотні бризки [Acid splash] вражають пару цілей, що стоять надто близько одна до одної, а Розщеплення Розуму [Mind Sliver] {{дає всім слайверам «Тап: цільова істота отримує 2 шкоди й стає тапнутою»|gives all Slivers “Tap: Target creature takes 2 damage and becomes tapped (закреслено в оригіналі)}} будь-кого, хто стоїть сам, щоб зіпсувати їм ряткидки. Далі у нас лишається місце для утиліти, тож беремо Магічну руку [Mage Hand] й Малу ілюзію [Minor Illusion], але є й інші добрі варіанти, як-от Лагодження [Mending] чи Штукарство [Prestidigitation]. Щодо заклинань 1-го рівня, слотів на цьому рівні в нас небагато, та й жахливого гусака ще немає. Тож беремо Сон [Sleep], бо на цьому рівні він — вирок для багатьох істот. Оскільки в нас є важкі обладунки, Поглинання стихій [Absorb Elements] може бути для нас кращим захисним варіантом, ніж Щит [Shield]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3-Чародій 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії\n1-й рівень:\n– Сріблясті шпильки\n– Або –\n– Щит"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми отримуємо очки чародійства{{Sorcery Points}}, і це дає трохи гнучкості. Оскільки метамагії в нас ще немає, єдине, що це дозволяє, — мати щодня один додатковий слот заклинань 1-го рівня. Я не перелічуватиму очки чародійства по рівнях у цій таблиці: їх у вас стільки, скільки рівнів Чародія. Заклинань у нас небагато, тож треба бути обережними. Сріблясті шпильки [Silvery Barbs] чудові, Щит [Shield] чудовий. Вони виконують різні функції, тож зважте варіанти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4-Чародій 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія{{Metamagic}}:\n– Пришвидшене заклинання\n– Приховане заклинання\nОчі темряви\n2-й рівень:\n– Темрява\n– Стримування особи"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті ми отримуємо метамагію, беручи «Пришвидшене заклинання»{{Quickened Spell}} і «Приховане заклинання»{{Subtle Spell}}. «Пришвидшене заклинання» чудове з найрізноманітніших причин. А ось «Приховане заклинання» чудово підходить, щоб спричиняти масову істерію й паніку через жахливого гусака, який, можливо, існує, а можливо, й ні. Також «Очі темряви»{{Eyes of the Dark}} дають нам Темряву [Darkness], а ми беремо Стримування особи [Hold Person]. Звісно, пізніше його затьмарить Стримування монстра [Hold Monster], але ми й тоді захочемо його лишити. Якщо ми натрапимо на велику групу гуманоїдних ворогів, накласти Стримування особи [Hold Person] на базовому рівні Стримування монстра [Hold Monster] значно краще."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5-Чародій 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках (+1 до Харизми) (17 → 18)\nНавичка:\n– Акробатика\nЕкспертиза:\n– Обман\nЗамовляння:\n– Лагодження\n2-й рівень:\n– Уявна сила\n– Або –\n– Психічний Батіг Таші"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми отримуємо рису, тож беремо «Експерта у навичках»{{Skill Expert}}, щоб вивчити Акробатику й отримати Експертизу в Обмані. Акробатику беремо тому, що бути схопленим загалом погано, а подвоєння в Обмані допомагає нам викручуватися з проблем брехнею. Звісно, є й магічні способи впоратися з такими ситуаціями, але в Чародіїв обмежена кількість відомих заклинань. Уявна сила [Phantasmal Force] цікава. Якщо ви кмітливі, фантом може змусити ціль щось робити. Фантом жахливого гусака, наприклад, може змусити ціль випустити предмет, коли вона вважає, що гусак вирвав його з її руки. Але, як і багато заклинань ілюзії, те, чого саме ви можете досягти цим заклинанням, великою мірою залежить від тлумачення Майстра. З іншого боку, Психічний Батіг Таші [Tasha's Mind Whip] бʼє по зазвичай слабкому ряткидку й спершу псує цілі реакції, а потім руйнує економіку дій цілі на наступний хід. Звісно, він триває лише 1 раунд, але не їсть нашу Концентрацію, як багато інших заклинань нашого списку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6-Чародій 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3-й рівень:\n– Заряд блискавки\nПеренавчання заклинання:\n– Сон → Оживлений образ"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ви, можливо, дивуєтеся: чому Заряд блискавки [Lightning Bolt], а не Вогнекуля [Fireball]? На наступному рівні ми отримаємо нашого справжнього жахливого гусака, і не хочемо, щоб наш гусак засмажився — це було б жахливо. Але, може, важко вишикувати ворогів у лінію? Для цього нам потрібно щось, що заганятиме їх у вузький прохід. Хоча Сон [Sleep] ще може бути корисним, він починає застарівати й потребує заміни, і саме так ми вивчаємо Оживлений образ [Major Image]. Трохи розумної маніпуляції — і ми можемо зробити вигляд, що обвалили шматок підлоги чи стелі, й загнати ворогів у ту приємну лінію завширшки 5 футів, яка нам потрібна."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7-Чародій 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Пес|Hound (закреслено в оригіналі)}} Гусак поганої прикмети\n3-й рівень:\n– Розвіювання магії\nПеренавчання заклинання:\n– Поглинання стихій → Контрчари"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "За три очки ми можемо бонусною дією викликати гусака й зіпсувати комусь день. Як описано вище, це «Підвищене заклинання»{{Heightened Spell}} із дзьобом і смужкою здоровʼя. Га-га. Із заклинань беремо Розвіювання магії [Dispel Magic] і замінюємо Поглинання стихій [Absorb Elements] на Контрчари [Counterspell]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8-Чародій 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4-й рівень:\n– Більша невидимість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Іноді просто треба бути невидимим, а це дуже відрізняється від того, щоб бути дуже помітною зловісною кулею темряви. Так уже воно є."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9-Чародій 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Харизма +2 (18 → 20)\n4-й рівень:\n– Психічний спис Раулотіма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут ми максимізуємо Харизму, щоб не відставати від базової математики. Психічний спис Раулотіма [Raulothim's Psychic Lance] завдає трохи шкоди, але важливіше те, що робить ціль недієздатною на раунд. Знаєте, чого не можна робити, будучи недієздатним? Більшості речей, зокрема "
+                    },
+                    {
+                      "type": "link",
+                      "text": "утримувати Концентрацію",
+                      "href": "https://www.dndbeyond.com/sources/basic-rules/spellcasting#Concentration"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10-Чародій 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5-й рівень:\n– Стримування монстра"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Я пояснював це заклинання вище, але з жахливим гусаком, що щипає нашого ворога за пʼяти, воно справді може міцно триматися на слабших волею ворогах."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11-Чародій 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія{{Metamagic}}:\n– Спарене заклинання\nЗамовляння:\n– Захист від зброї\n4-й рівень:\n– Перевтілення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ми отримуємо ще один варіант метамагії й беремо «Спарене заклинання»{{Twinned Spell}}, бо тепер у нас є кілька заклинань, які можна подвоїти. Раз ми можемо його спарити, беремо Перевтілення [Polymorph], щоб перетворити двох союзників на гігантських мавп чи щось таке. Захист від зброї [Blade Ward] ви використовуєте, коли Перешкоди від Ухилення{{Dodge}} недостатньо, щоб захистити вас від шалено зростаючих бонусів до атаки ворогів із високим ПН. А ще в нас є «Пришвидшене заклинання»{{Quickened Spell}}, тож ми завжди можемо накласти заклинання з рівнем бонусною дією й усе одно застосувати Захист від зброї [Blade Ward]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12-Чародій 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6-й рівень:\n– Розщеплення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це і наше головне заклинання великої шкоди, і наше заклинання «вибратися з Силової кліті [Forcecage]»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13-Чародій 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Здоровань"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми — ця величезна купа ХП від Пагорбового дворфа{{Hill Dwarf}} і тепер «Здоровань»{{Tough}}. Додайте до цього наші важкі обладунки — і нас дуже важко вбити. Бо гуси наполегливі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14-Чародій 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7-й рівень:\n– {{Драконяче|Draconic (закреслено в оригіналі)}} гусяче перетворення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Цілу хвилину ми можемо розправити крила й літати, як величний і жахливий гусак. У нас навіть є зброя {{подиху|breath (закреслено в оригіналі)}} «га-га», що завдає шкоди силовим полем, а ще сліпозір."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15-Чародій 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Прогулянка тінню{{Shadow Walk}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безкоштовна телепортація бонусною дією назавжди — доки ви входите й виходите з тьмяного світла чи темряви. Знаєте, що створює зручну темряву? Заклинання Темрява [Darkness], яке можна накласти за очки чародійства{{Sorcery Points}}, а тоді бачити крізь неї."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16-Чародій 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8-й рівень:\n– Напівплан"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті є де сховати все, що вкрав гусак."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17-Чародій 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура +2 (16 → 18)"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18-Чародій 17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9-й рівень:\n– Бажання\nПеренавчання заклинання:\n– Перевтілення → Психічний крик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беремо Бажання [Wish]. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бо це Бажання.",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " А тоді замінюємо Перевтілення [Polymorph] на Психічний крик [Psychic Scream], бо форми застарівають, а коли гусак накладає Перешкоду на ряткидки Інтелекту, цілі не вирвуться."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19-Чародій 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тіньова форма{{Umbral Form}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "За шість очок і бонусну дію ми проходимо крізь стіни й маємо опір до більшості шкоди на хвилину. Тепер жахливий гусак — це "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "ми"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20-Воїн 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій{{Action Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наше вершинне уміння — здатність накласти два заклинання з рівнем за один хід, бо ж Воїн. Раджу щось дратівливе на кшталт Стримування монстра [Hold Monster] або Психічного крику [Psychic Scream], а слідом — Розщеплення [Disintegrate]. І Паралізований, і Приголомшений змушують ціль автоматично провалювати ряткидки Спритності. Бо мир ніколи не був варіантом."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-001",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Очі темряви",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-002",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Сила могили",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-003",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Пес поганої прикмети",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-004",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Прогулянка тінню",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-005",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Тіньова форма",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-006",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-shadow-magic-origin-ability-scores",
+      "targetBlockId": "block-section-shadow-magic-origin-ability-scores-2",
+      "optionId": "section-shadow-magic-origin-ability-scores-block-section-shadow-magic-origin-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-shadow-magic-origin-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-007",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-shadow-magic-origin-ability-scores",
+      "targetBlockId": "block-section-shadow-magic-origin-ability-scores-3",
+      "optionId": "section-shadow-magic-origin-ability-scores-block-section-shadow-magic-origin-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-shadow-magic-origin-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-008",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-shadow-magic-origin-ability-scores",
+      "targetBlockId": "block-section-shadow-magic-origin-ability-scores-4",
+      "optionId": "section-shadow-magic-origin-ability-scores-block-section-shadow-magic-origin-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-shadow-magic-origin-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-009",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-shadow-magic-origin-ability-scores",
+      "targetBlockId": "block-section-shadow-magic-origin-ability-scores-5",
+      "optionId": "section-shadow-magic-origin-ability-scores-block-section-shadow-magic-origin-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-shadow-magic-origin-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-010",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-shadow-magic-origin-ability-scores",
+      "targetBlockId": "block-section-shadow-magic-origin-ability-scores-6",
+      "optionId": "section-shadow-magic-origin-ability-scores-block-section-shadow-magic-origin-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-shadow-magic-origin-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-011",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-shadow-magic-origin-ability-scores",
+      "targetBlockId": "block-section-shadow-magic-origin-ability-scores-7",
+      "optionId": "section-shadow-magic-origin-ability-scores-block-section-shadow-magic-origin-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-shadow-magic-origin-ability-scores-7",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-012",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-shadow-magic-origin-feats",
+      "targetBlockId": "block-section-shadow-magic-origin-feats-2",
+      "optionId": "section-shadow-magic-origin-feats-block-section-shadow-magic-origin-feats-2-item-0",
+      "context": "Експерт у навичках TCoE",
+      "explanationBlockId": "block-section-shadow-magic-origin-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-013",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-shadow-magic-origin-multiclassing",
+      "targetBlockId": "block-section-shadow-magic-origin-multiclassing-2",
+      "optionId": "section-shadow-magic-origin-multiclassing-block-section-shadow-magic-origin-multiclassing-2-item-0",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-shadow-magic-origin-multiclassing-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-014",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-shadow-magic-origin-multiclassing",
+      "targetBlockId": "block-section-shadow-magic-origin-multiclassing-2",
+      "optionId": "section-shadow-magic-origin-multiclassing-block-section-shadow-magic-origin-multiclassing-2-item-1",
+      "context": "Чорнокнижник Відьмацького клинка",
+      "explanationBlockId": "block-section-shadow-magic-origin-multiclassing-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-015",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-shadow-magic-origin-multiclassing",
+      "targetBlockId": "block-section-shadow-magic-origin-multiclassing-2",
+      "optionId": "section-shadow-magic-origin-multiclassing-block-section-shadow-magic-origin-multiclassing-2-item-2",
+      "context": "Бард",
+      "explanationBlockId": "block-section-shadow-magic-origin-multiclassing-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-016",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-1st-level",
+      "targetBlockId": "block-section-1st-level-1",
+      "optionId": "section-1st-level-block-section-1st-level-1-item-0",
+      "context": "Причарування особи [Charm Person]",
+      "explanationBlockId": "block-section-1st-level-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-017",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-2nd-level",
+      "targetBlockId": "block-section-2nd-level-1",
+      "optionId": "section-2nd-level-block-section-2nd-level-1-item-0",
+      "context": "Сліпота/глухота [Blindness/Deafness]",
+      "explanationBlockId": "block-section-2nd-level-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-018",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-2nd-level",
+      "targetBlockId": "block-section-2nd-level-1",
+      "optionId": "section-2nd-level-block-section-2nd-level-1-item-1",
+      "context": "Стримування особи [Hold Person]",
+      "explanationBlockId": "block-section-2nd-level-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-019",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-3rd-level",
+      "targetBlockId": "block-section-3rd-level-1",
+      "optionId": "section-3rd-level-block-section-3rd-level-1-item-0",
+      "context": "Завірюха [Sleet Storm]",
+      "explanationBlockId": "block-section-3rd-level-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-020",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-5th-level",
+      "targetBlockId": "block-section-5th-level-1",
+      "optionId": "section-5th-level-block-section-5th-level-1-item-0",
+      "context": "Стримування монстра [Hold Monster]",
+      "explanationBlockId": "block-section-5th-level-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-shadow-magic-2014-021",
+      "articleId": "rpgbot-sorcerer-shadow-magic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-shadow-magic-2014-draft1",
+      "sectionId": "section-9th-level",
+      "targetBlockId": "block-section-9th-level-1",
+      "optionId": "section-9th-level-block-section-9th-level-1-item-0",
+      "context": "Психічний крик [Psychic Scream]",
+      "explanationBlockId": "block-section-9th-level-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

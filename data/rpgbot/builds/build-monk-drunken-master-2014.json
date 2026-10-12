@@ -1,0 +1,779 @@
+{
+  "buildId": "build-monk-drunken-master-2014",
+  "revisionId": "build-monk-drunken-master-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Монаха Шляху пʼяного майстра — Гуляка",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-monk-drunken-master-2014",
+      "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+      "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "MONK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "MONK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "MONK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "MONK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WAY_OF_THE_DRUNKEN_MASTER",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "MONK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "MONK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "MONK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "MONK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "MONK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "MONK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "MONK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "MONK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "MONK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "CRUSHER",
+        "featOptions": [
+          {
+            "optionNameEng": "CRUSHER Ability (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "MONK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "MONK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "MONK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "MONK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "CHEF",
+        "featOptions": [
+          {
+            "optionNameEng": "CHEF Ability (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "MONK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "MONK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "MONK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "MONK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-drunken-master-2014",
+          "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "WAY_OF_THE_DRUNKEN_MASTER",
+    "raceKey": "SATYR_MPMM",
+    "backgroundKey": "FAR_TRAVELER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Візьмемо три підвищення на +1 й вкладемо їх у кожну з важливих характеристик. На жаль, Сила 8 обмежить дальність стрибка, але для цього в нас є «Веселі стрибки».\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 15 16 Інтелект 8 8 Мудрість 15 16 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Сатир{{Satyr}}. Рухливий, живучий, стійкий до магії й трохи швидший. Крім того, не можу уявити расу, що краще підходить Пʼяному майстру, ніж фейська істота, повʼязана з міфологічними гуляннями.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Далекий мандрівник{{Far Traveler}}. Аналіз Поведінки й Уважність — чудові навички для Монаха, і ми також отримуємо Володіння музичним інструментом. Це не надто корисно, але Виступ ми отримуємо з двох джерел, а якщо використовувати Виступ і інструмент, на перевірці буде Перевага на кубику. Наша Харизма лише 8, але, може, колись це допоможе.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Як Сатир, ми безплатно отримуємо Виступ і Переконання. Серед класових навичок оберемо Історію та Непомітність. Аналіз Поведінки й Уважність отримуємо від передісторії.\n\nНа 3-му рівні додаємо Володіння Приладдям пивовара та Виступом. На жаль, другий Виступ зайвий.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні підвищуємо Спритність до 18.\n\nНа 8-му рівні підвищуємо Спритність до 20.\n\nНа 12-му рівні беремо «Дробильника»{{Crusher}}.\n\nНа 16-му рівні беремо «Кухаря»{{Chef}}.\n\nНа 19-му рівні підвищуємо Мудрість до 18.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Захист без броні, Бойові мистецтва",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Кі, Рух без броні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підклас: Шлях пʼяного майстра, Додаткові володіння, Пʼяна техніка, Відхилення снарядів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик: Спритність 16 → 18, Повільне падіння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака, Приголомшливий удар",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Удари, посилені Кі, Хитка хода",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ухилення, Спокій розуму",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Спритність 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Покращення Руху без броні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Чистота тіла{{Purity of Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Удача пʼяниці{{Drunkard's Luck}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Дробильник (Статура 16 → 17)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Язик Сонця і Місяця{{Tongue of the Sun and Moon}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Алмазна душа{{Diamond Soul}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Невмируще тіло{{Timeless Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Кухар (Статура 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Спʼяніла лють{{Intoxicated Frenzy}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Порожнє тіло{{Empty Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Мудрість 16 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Досконале Я{{Perfect Self}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Музичний інструмент передісторії",
+        "reason": "Далекий мандрівник дає володіння музичним інструментом на вибір; автор його не називає, а пресет не записує вибір інструментів.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-drunken-master-2014",
+            "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

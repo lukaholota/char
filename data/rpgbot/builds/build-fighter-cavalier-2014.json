@@ -1,0 +1,799 @@
+{
+  "buildId": "build-fighter-cavalier-2014",
+  "revisionId": "build-fighter-cavalier-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "— Бій із вітряками буквально й у переносному значенні",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-fighter-cavalier-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+      "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+      "sectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "FIGHTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CAVALIER",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "PIERCER",
+        "featOptions": [
+          {
+            "optionNameEng": "PIERCER Ability (Strength)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY",
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ALERT",
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-cavalier-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+          "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "CAVALIER",
+    "raceKey": "CUSTOM_LINEAGE_TCE",
+    "backgroundKey": "KNIGHT",
+    "featKey": "MOUNTED_COMBATANT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 12
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 14
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Здебільшого використаємо запропоновані вище показники, але оскільки «Своя раса» дає лише одне підвищення +2, ми знизимо Статуру до 14 і розподілимо ці очки. Єдина гібридна риса, яку ми беремо, — «Проколювач», тож непарна Статура нам не допоможе.\n\n Базове значення Підвищене значення 20-й рівень Сила 15 17 20 Спритність 12 12 12 Статура 14 14 20 Інтелект 8 8 8 Мудрість 14 14 14 Харизма 8 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Своя раса{{Custom Lineage}}. Оберемо малий розмір і Темний зір. Малий розмір означає, що ми можемо їздити на скакунах скрізь, куди пролізе людина, а Темний зір завжди корисний. Не отримувати другий +1 до характеристик прикро, але зрештою обійдеться. Воїни отримують купу покращень характеристик.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Лицар{{Knight}}. Якщо й існує воїн, що має сенс як лицар, то це кавалерист. Ваші васали можуть допомагати доглядати вашу зростаючу череду скакунів. Історія й Переконання тематично доречні, але для нас зовсім марні, тож замінюйте їх буквально чим завгодно. Уважність була б добра.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Беремо Поводження з тваринами й Атлетику від Воїна, а Історію й Переконання — від передісторії. Наші навички мають дуже мале значення, і навіть Поводження з тваринами корисне лише настільки, наскільки вирішить ваш Майстер.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Беремо «Верхового бійця»{{Mounted Combatant}} на 1-му рівні, бо він майже обовʼязковий, щоб скакун лишався живим. На низьких рівнях, коли бракує золота на кінську броню (або заміну скакуна), корисно мати можливість їздити на муллі за 8 зм.\n\nТакож беремо «Проколювача»{{Piercer}}, бо це гібридна риса й вона підсилить нашу шкоду довгими списами. Бонус шкоди «Проколювача» за атаку невеликий, але ми зрештою отримуємо здатність робити теоретично нескінченну кількість Принагідних атак, тож цей мінорний бонус швидко накопичується.\n\nМи могли б також взяти «Ритуального заклинателя»{{Ritual Caster}}, але нам довелося б перерозподілити показники, щоб отримати Інтелект 13, а до 5-го рівня, коли ви справді можете додати його до ритуальної книги, у вас достатньо золота, щоб дозволити собі кілька верхових коней. Якщо у вашій групі є чарівник, сподіваймося, він достатньо любʼязний, щоб поділитися.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Риса: Верховий боєць, Бойовий Стиль (Дуель), Друге дихання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Сплеск дій (1/відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Військовий Архетип{{Martial Archetype}}: Кавалерист, Додаткова майстерність, Народжений у сідлі, Невідступна відмітка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Проколювач (Сила 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака{{Extra Attack}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Покращення Характеристик: Сила 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Оборонний маневр{{Warding Maneuver}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Статура 14 → 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Непохитність (1/день)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Утримувати лінію{{Hold the Line}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Додаткова атака (2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Статура 16 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Непохитність 3/день",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Покращення Характеристик: Статура 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Лютій натиск{{Ferocious Charger}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Сплеск дій 2/відпочинок, Непохитність 3/день",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Пильний захисник{{Vigilant Defender}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Додаткова атака (3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Купівля мулів і метальних списів",
+        "reason": "Автор витрачає 24 зм передісторії на трьох мулів і радить продати легкий арбалет заради метальних списів; пресет не записує купівлю й продаж, тож арбалет лишається в спорядженні, а мулів і метальних списів у ньому немає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Риса на 16, 19-му рівнях",
+        "reason": "Автор пише «будь-яка» і не називає вибір. Пресет бере типовий (16-й: LUCKY, 19-й: ALERT); це вибір платформи, гравець може змінити його перед створенням.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-cavalier-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+            "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

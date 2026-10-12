@@ -1,0 +1,355 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "cleric-grave-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-cleric-grave-2014-draft1",
+    "sourceRevisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738"
+  },
+  "exampleSection": "section-example-grave-cleric-build-one-punch",
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "GRAVE_DOMAIN",
+  "raceKey": "CUSTOM_LINEAGE_TCE",
+  "backgroundKey": "HERMIT",
+  "featKey": "METAMAGIC_ADEPT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 13,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 13
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Метамагія Адепта метамагії",
+      "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Мультиклас у Чародія",
+      "reason": "Автор мультикласить у Чародія після 1-го рівня Клірика (риси на рівнях Клірика 8, 12, 16, загальний рівень 10, 14, 18); пресет описує лише старт 1-го рівня.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія Адепта метамагії",
+      "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання риси «Доторк феї» на 4-му рівні",
+      "reason": "Автор бере з Доторку феї заклинання Проклін (Hex); платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису та Туманний крок не додано.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння Клірика на 4-му рівні",
+      "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія Адепта метамагії",
+      "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання риси «Доторк феї» на 4-му рівні",
+      "reason": "Автор бере з Доторку феї заклинання Проклін (Hex); платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису та Туманний крок не додано.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння Клірика на 4-му рівні",
+      "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія Адепта метамагії",
+      "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання риси «Доторк феї» на 4-му рівні",
+      "reason": "Автор бере з Доторку феї заклинання Проклін (Hex); платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису та Туманний крок не додано.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння Клірика на 4-му рівні",
+      "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Благословення від Чародія (Божественна магія)",
+      "reason": "На 7-му рівні автор вивчає Благословення (Bless) зі списку Клірика, який відкриває Божественна душа; платформа не додає заклинань Клірика до вибору Чародія (BUG-O49-DIVINE-SOUL-SPELL-LIST), тому на цьому місці відкритий вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія Адепта метамагії",
+      "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання риси «Доторк феї» на 4-му рівні",
+      "reason": "Автор бере з Доторку феї заклинання Проклін (Hex); платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису та Туманний крок не додано.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння Клірика на 4-му рівні",
+      "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Благословення від Чародія (Божественна магія)",
+      "reason": "На 7-му рівні автор вивчає Благословення (Bless) зі списку Клірика, який відкриває Божественна душа; платформа не додає заклинань Клірика до вибору Чародія (BUG-O49-DIVINE-SOUL-SPELL-LIST), тому на цьому місці відкритий вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія Адепта метамагії",
+      "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання риси «Доторк феї» на 4-му рівні",
+      "reason": "Автор бере з Доторку феї заклинання Проклін (Hex); платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису та Туманний крок не додано.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння Клірика на 4-му рівні",
+      "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Благословення від Чародія (Божественна магія)",
+      "reason": "На 7-му рівні автор вивчає Благословення (Bless) зі списку Клірика, який відкриває Божественна душа; платформа не додає заклинань Клірика до вибору Чародія (BUG-O49-DIVINE-SOUL-SPELL-LIST), тому на цьому місці відкритий вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія Адепта метамагії",
+      "reason": "Автор називає Пришвидшене й Подовжене заклинання, але риса в каталозі не має опцій метамагії (BUG-O49-METAMAGIC-ADEPT), тож вибір не записується.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання риси «Доторк феї» на 4-му рівні",
+      "reason": "Автор бере з Доторку феї заклинання Проклін (Hex); платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису та Туманний крок не додано.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння Клірика на 4-му рівні",
+      "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Благословення й Поглинання стихій (Чародій 1–2)",
+      "reason": "Автор вивчає на 7-му рівні Благословення (Bless) зі списку Клірика, який відкриває Божественна душа, а на 8-му Поглинання стихій (Absorb Elements). Платформа не додає заклинань Клірика до вибору Чародія (BUG-O49-DIVINE-SOUL-SPELL-LIST), а відкритий вибір 7-го рівня збігається з названим пізніше заклинанням; тому Поглинання стихій записано вже на 7-му рівні, а на 8-му лишено один відкритий вибір гравця замість Благословення.",
+      "section": "section-levels"
+    }
+  ],
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3
+    },
+    {
+      "level": 4,
+      "featKey": "FEY_TOUCHED",
+      "featOptions": [
+        {
+          "optionNameEng": "FEY_TOUCHED Ability (Wisdom)"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7,
+      "classKey": "SORCERER_2014",
+      "subclassKey": "DIVINE_SOUL",
+      "spells": {
+        "cantripKeys": [
+          "prestidigitation",
+          "mage-hand",
+          "true-strike",
+          "shape-water"
+        ],
+        "knownSpellKeys": [
+          "silvery-barbs",
+          "absorb-elements"
+        ]
+      },
+      "classOptionSpellKeys": [
+        "cure-wounds"
+      ]
+    },
+    {
+      "level": 8,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "spells": {
+        "cantripKeys": [
+          "thaumaturgy"
+        ]
+      }
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18,
+      "featKey": "INSPIRING_LEADER",
+      "section": "section-feats"
+    },
+    {
+      "level": 19
+    },
+    {
+      "level": 20
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/cleric-grave-2014.webp",
+    "title": "Клірик — Домен могили, Своя раса",
+    "description": "Клірик могили зі Своєю расою й Адептом метамагії: Мудрість 17, Відлюдник з Уважністю та Переконанням, Лікування ран замість Цілющого слова.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "MEDICINE"
+      ],
+      "race": [],
+      "background": [
+        "PERCEPTION",
+        "PERSUASION"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": [
+      "Середній",
+      "Темнозір"
+    ],
+    "platformChoices": [
+      "raceOptions"
+    ],
+    "languages": [
+      "DWARVISH",
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 5,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "sacred-flame",
+        "guidance",
+        "toll-the-dead"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Священне полумʼя, Настанову й Дзвін небіжчика названо автором.",
+      "platformChoices": []
+    },
+    "abilityExplanation": "Своя раса за правилами Таші додає +2 до Мудрості: Мудрість 17, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Аналіз поведінки й Медицина — від Клірика. Автор бере Відлюдника, але замінює Медицину й Релігію на Уважність і Переконання (правило PHB «Налаштування передісторії»); набір травника лишається. Темнозір — вибір автора; розмір (Середній) і дві мови ми обрали за вас.",
+    "equipmentExplanation": "Лускова броня й щит — за прикладом автора. Булаву, легкий арбалет і набір священика ми обрали за вас — вибір платформи."
+  },
+  "revision": 2
+}

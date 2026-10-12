@@ -4,6 +4,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 import { ArrowLeft, X } from "lucide-react";
 
 import { CatalogProse } from "@/components/catalogs/CatalogProse";
+import { BranchCover } from "@/components/catalogs/reading/BranchCover";
 import { cn } from "@/lib/utils";
 import { findAccentVariant } from "@/styles/edition-accent";
 
@@ -24,6 +25,8 @@ export function BranchReader({
   onBack,
   onClose,
   children,
+  beforeDescription,
+  coverSrc,
 }: {
   name: string;
   engName: string;
@@ -35,6 +38,8 @@ export function BranchReader({
   onBack: () => void;
   onClose: () => void;
   children: ReactNode;
+  beforeDescription?: ReactNode;
+  coverSrc?: string | null;
 }) {
   const headingRef = useRef<HTMLHeadingElement | null>(null);
 
@@ -75,6 +80,8 @@ export function BranchReader({
       <p className="mt-1 text-xs text-slate-400">
         {[labels.kindLabel, sourceLabel].filter(Boolean).join(" · ")}
       </p>
+      <BranchCover src={coverSrc} alt={name} sizes="(min-width: 640px) 640px, 100vw" className="mt-3" />
+      {beforeDescription}
       <CatalogProse content={description} className="mt-4" />
       <div className="mt-4">{children}</div>
     </div>

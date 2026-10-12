@@ -1,0 +1,133 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "ranger-horizon-walker-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+    "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87"
+  },
+  "exampleSection": "section-example-build-extraplanar-gunner",
+  "levelTableSection": "section-levels",
+  "classKey": "RANGER_2014",
+  "subclassKey": "HORIZON_WALKER_CONCLAVE",
+  "raceKey": "BUGBEAR_MPMM",
+  "backgroundKey": "FAR_TRAVELER",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 10,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    { "level": 2, "classOptions": [{ "optionNameEng": "Archery" }], "spells": { "knownSpellKeys": ["ensnaring-strike", "zephyr-strike"] } },
+    { "level": 3, "subclassKey": "HORIZON_WALKER_CONCLAVE", "classOptions": [{ "optionNameEng": "Primal Awareness" }], "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 4, "featKey": "GUNNER", "section": "section-feats" },
+    { "level": 5, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 6 },
+    { "level": 7, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 8, "abilityScoreIncrease": [{ "ability": "DEX", "amount": 2 }], "section": "section-levels" },
+    { "level": 9, "spells": { "knownSpellKeys": ["elemental-weapon"] } },
+    { "level": 10, "classOptions": [{ "optionNameEng": "Hide in Plain Sight" }] },
+    { "level": 11, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 12, "featKey": "SHARPSHOOTER", "section": "section-feats" },
+    { "level": 13, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 14 },
+    { "level": 15, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 16 },
+    { "level": 17, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 18 },
+    { "level": 19, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 20 }
+  ],
+  "incomplete": [
+    {
+      "field": "Заклинання Слідопита: Обплутування, Туманний крок, Покращення здібності, Коло телепортації",
+      "reason": "На 3-му, 5-му, 7-му й 17-му рівнях автор називає нові відомі заклинання Обплутування, Туманний крок, Покращення здібності та Коло телепортації, але цих заклинань немає в списку Слідопита платформи (Туманний крок і Коло телепортації додає сам підклас); замість них у плані відкриті місця для вибору гравця. На 11-му, 13-му, 15-му й 19-му рівнях автор заклинання не називає («—» чи «будь-яке»), тож там теж відкриті місця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риси 16-го та 19-го рівнів",
+      "reason": "На 16-му й 19-му рівнях автор лишає риси відкритими (радить Дарунок хроматичного дракона, Експерта у навичках чи Стійкого, або Мудрість через Покращення характеристик); у плані ці підвищення не використані.",
+      "section": "section-feats"
+    },
+    {
+      "field": "Інструменти й мова передісторії",
+      "reason": "Автор радить замінити інструмент і мову Далекого мандрівника на злодійські інструменти й ще один інструмент; пресет не записує заміну володінь передісторії.",
+      "section": "section-skills-and-tools"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/ranger-horizon-walker-bugbear-2014.webp",
+    "title": "Слідопит Мандрівник горизонту — Ведмебай",
+    "description": "Ведмебай-стрілець з високою шкодою та навичками розвідника. Починає з Міченим ворогом і Кмітливим дослідником; Мандрівник горизонту відкриється на 3-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "WIS",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INVESTIGATION",
+        "NATURE",
+        "PERCEPTION"
+      ],
+      "race": [],
+      "background": [
+        "ANIMAL_HANDLING"
+      ]
+    },
+    "expertise": [
+      "STEALTH"
+    ],
+    "classOptions": [
+      "Favored Foe",
+      "Deft Explorer - Canny"
+    ],
+    "languages": [
+      "ELVISH",
+      "DWARVISH",
+      "GIANT",
+      "GNOMISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Ведмебай зі змінюваним походженням за правилами Таші: +2 до Спритності й +1 до Мудрості, як в авторській таблиці (Спритність 17, Мудрість 16); це вже враховано.",
+    "skillExplanation": "Розслідування, Природа й Уважність — від Слідопита, Непомітність — від ведмебая, Аналіз поведінки — від Далекого мандрівника, як у прикладі автора. Повторну Уважність передісторії автор радить замінити, не називаючи чим: Поводження з тваринами та дві мови (расову й від передісторії) ми обрали за вас. Кмітливий дослідник дає експертизу в Непомітності, як радить автор; його дві додаткові мови автор не називає, тож їх ми теж обрали за вас.",
+    "equipmentExplanation": "Автор радить шкіряний обладунок, два короткі мечі, будь-який набір і довгий лук. Набір дослідника підземель ми обрали за вас — його можна змінити."
+  }
+}

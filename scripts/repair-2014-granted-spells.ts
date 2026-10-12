@@ -21,7 +21,6 @@ import {
   type SubclassSpellGrants,
 } from "../src/server/db/always-prepared-spell-grants";
 import { findRaceSpellGrants2014, writeRaceSpellGrants2014 } from "../src/server/db/race-spell-grants-2014";
-import { findEarnedRaceSpells2014 } from "../src/rules/race-granted-spells-2014";
 import { findMainClassLevel } from "../src/rules/hit-dice";
 import type { AbilityKey } from "../src/rules/types";
 import { readDatabaseName, readSeedTargetName, resolveSeedConnectionString } from "./lib/seed-target";
@@ -116,8 +115,6 @@ function collectSubclassesAtLevel(pers: RepairPers): SubclassAtClassLevel[] {
 /// Заклинання, яке в цьому ж прогоні забрав підклас, раса вже не перемічає: рядок один, і він підкласу.
 async function findRaceGrants(pers: RepairPers, subclassGrants: SubclassSpellGrants): Promise<SubclassSpellGrants> {
   const input = { persId: pers.persId, race: String(pers.race.name), subrace: pers.subrace ? String(pers.subrace.name) : null, characterLevel: pers.level };
-  if (!findEarnedRaceSpells2014(input).length) return { created: [], adopted: [] };
-
   const taken = new Set([...subclassGrants.created, ...subclassGrants.adopted].map((spell) => spell.spellId));
   const grants = await findRaceSpellGrants2014(prisma, input);
   return { created: grants.created.filter((spell) => !taken.has(spell.spellId)), adopted: grants.adopted.filter((spell) => !taken.has(spell.spellId)) };

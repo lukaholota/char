@@ -1,0 +1,1240 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-d4b1dffc1f17a435",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-d4b1dffc1f17a435-1d7ca49f3ccad0d4",
+      "sourceId": "rpgbot-d4b1dffc1f17a435",
+      "fetchedAt": "2026-09-29T19:22:50.255804+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:32:49-04:00",
+      "contentHash": "784ff2818e13994430e297646a21ef2ed19d8454c22a34ce0f5bc3a46bddd442",
+      "title": "Triton: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-d4b1dffc1f17a435-1d7ca49f3ccad0d4.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-triton-2014",
+    "sourceId": "rpgbot-d4b1dffc1f17a435",
+    "slug": "triton-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Тритон — гайд раси (2014)",
+    "titleEn": "Triton: DnD 5e Race/Species Guide",
+    "topics": [
+      "races"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "articleId": "rpgbot-triton-2014",
+      "sourceRevisionId": "rpgbot-d4b1dffc1f17a435-1d7ca49f3ccad0d4",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хочете зіграти русалку, але без ніг незручно? Граєте підводну кампанію, але хочете лишатися здебільшого людиною? Ось Тритон: земноводний гуманоїд, здатний процвітати в різних класах і середовищах. Тритони шляхетні й керуються обовʼязком, але надто владні. Якщо взяти стереотип догматичного Паладина й зробити його риболюдиною, вийде Тритон."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Механічно початковий Тритон багато пропонує. Три підвищення рідкісні: до походжень книги Ван Ріхтена їх мали лише Напівельф, Тритон і звичайна Людина. Поєднання чудове. Темнозір{{Darkvision}}, Стійкість до шкоди, {{Амфібія|Amphibious}} й розмова з усім, що дихає водою, — лише в один бік: у відповідь вони не говорять, якщо вже не вміли. Не знаю, як із цим взаємодіє Дихання водою [Water Breathing]; запитайте Майстра. Додатково є вроджені заклинання. Ефекти ситуативні й не визначають расу, але приємні; Тритон помітний як єдина раса з вродженим заклинанням 3-го рівня. Примітка редакції: назва книги в джерелі помилково Guide to Everything; мається на увазі Путівник Ван Ріхтена по Равенлофту. Твердження про єдину расу залежить від часу й охоплення оригіналу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Налаштування походження розширює можливості, роблячи Тритона привабливим для залежних від кількох характеристик Друїда й Монаха. Порив вітру [Gust of Wind] — єдине вроджене заклинання з ряткидком, і воно недостатньо хороше, щоб перейматися СК: низька Харизма цілком прийнятна. Стійкість до холоду й Темнозір{{Darkvision}} привабливі будь-кому."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оновлена версія змінює мало. Стандартні +2/+1 або три +1 роблять три підвищення менш унікальними, але жодна зміна суттєво не впливає на класові варіанти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/triton/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/triton/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Версії: Тритон",
+                    "href": "https://rpgbot.net/dnd5/characters/races/triton/#triton-versions"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Окрема порада: Тритон у правилах 2024",
+                    "href": "https://rpgbot.net/dnd5/characters/races/triton/#triton-in-the-2024-dnd-rules"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Тритон: налаштування походження й MPMM",
+                    "href": "https://rpgbot.net/dnd5/characters/races/triton/#classes-custom-origin"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Тритон: стандартні правила",
+                    "href": "https://rpgbot.net/dnd5/characters/races/triton/#classes-classic"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-triton-versions",
+          "heading": "Версії: Тритон",
+          "sourceAnchor": "triton-versions",
+          "blocks": [
+            {
+              "blockId": "block-section-triton-versions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тритон фактично має три версії. Початкова вийшла у книзі Довідник Воло з монстрів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-triton-versions-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Налаштування походження з книги Казан Таші з усім дало другу версію: перерозподіл характеристик розширив можливості за межі Паладина."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-triton-versions-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найновіша версія перевидана у книзі Монстри Мультивсесвіту. Водяна стіна [Wall of Water] замінили на Ходіння по воді [Water Walk]; тепер можна обрати характеристику чаротворення й повторно накладати расові заклинання слотами за новим стандартом. Підвищення характеристик також стандартні. Думаю, цікавої причини заміни немає, крім небажання Wizards of the Coast перевидавати Wall of Water. Воно не було чудовим, але достатньо корисним як вроджене заклинання; Water Walk вкрай ситуативне."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-triton-versions-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Посланець моря|Emissary of the Sea}} тепер обмежена звірами, елементалями й потворами. Разом зі зміною заклинань це не величезні зміни, але я вважаю їх невеликим послабленням."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-triton-in-the-2024-dnd-rules",
+          "heading": "Окрема порада: Тритон у правилах 2024",
+          "sourceAnchor": "triton-in-the-2024-dnd-rules",
+          "blocks": [
+            {
+              "blockId": "block-section-triton-in-the-2024-dnd-rules-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найновіше оновлення Тритона — Монстри Мультивсесвіту; для правил 2024 окремого оновлення ще немає. Для гри у 2024 ігноруйте підвищення характеристик MPMM й використовуйте підвищення передісторії 2024. Примітка редакції: це окрема джерельна порада про сумісність; цей гайд і його модалки використовують 2014."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-custom-origin",
+          "heading": "Тритон: налаштування походження й MPMM",
+          "sourceAnchor": "classes-custom-origin",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-custom-origin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розділ передбачає оновлені варіанти: "
+                },
+                {
+                  "type": "link",
+                  "text": "налаштування походження",
+                  "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+                },
+                {
+                  "type": "text",
+                  "text": " з книги Казан Таші з усім та/або версію "
+                },
+                {
+                  "type": "link",
+                  "text": "Монстрів Мультивсесвіту",
+                  "href": "https://www.dndbeyond.com/sources/motm/fantastical-races"
+                },
+                {
+                  "type": "text",
+                  "text": ". Через невеликі зміни я обʼєднав рекомендації. Якщо не використовуєте ці правила, переходьте до стандартних правил."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стійкість до холоду, Темнозір{{Darkvision}} і заклинання добре доповнюють Винахідника. Чаротворення не чудове, але допомагає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варвару важко використовувати заклинання, але вони переважно допоміжні. Темнозір{{Darkvision}} і Стійкість до холоду все одно пристойні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Три підвищення легко розподілити між Спритністю, Статурою й Харизмою; в оновленій версії добре працюють лише Статура й Харизма. Заклинання доповнюють малу кількість відомих заклинань Барда, але більшість персонажів не накладатиме їх кілька разів на день."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірики зазвичай не використовують зброю й не потребують високої Сили чи Спритності, тому оновлена версія має перевагу. Стійкість до холоду й Темнозір{{Darkvision}} чудові, заклинання прийнятні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стійкість до холоду, Темнозір{{Darkvision}} і заклинання чудові, але Туманна хмара [Fog Cloud], Порив вітру [Gust of Wind] і Ходіння по воді [Water Walk] вже доступні Друїду. Навіть {{Посланець моря|Emissary of the Sea}} не надто нова: часто ті самі проблеми вирішуються магією. Тритон мало додає до наявних можливостей."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Туманна хмара [Fog Cloud] цікава з {{Бій наосліп|Blind Fighting}}. Вона нагадує магічну темряву, але навіть дияволи й Чорнокнижники не бачать крізь неї, даючи величезну тактичну перевагу. Із MPMM Містичний лицар{{Eldritch Knight}} може повторювати її слотами недорого. Проте працює лише зблизька, і союзники також нічого не бачать: обережно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fighter-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Іншим Воїнам важко використати щось понад Стійкість до холоду й Темнозір{{Darkvision}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "До походжень Путівник Ван Ріхтена по Равенлофту й оновлених рас MPMM Тритон із налаштуванням походження був однією з небагатьох рас із трьома +1. Це привабливо для старту з 16 Спритності, Статури й Мудрості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-monk-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оновлена версія менш унікальна: усі нові раси можуть обрати три +1. Тоді головна відмінність — заклинання, не надто корисні Монаху."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-monk-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "В обох випадках Стійкість до холоду приємна, а Темнозір{{Darkvision}} чудовий для скритності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гнучкість налаштування походження або MPMM більше не обмежує Тритона роллю земноводного Паладина. Паладин усе ще пристойний, але унікальних чи захопливих взаємодій немає. Стійкість до холоду й Темнозір{{Darkvision}} завжди чудові; {{Посланець моря|Emissary of the Sea}} додає спосіб вирішувати проблеми соціальними навичками, заклинання — допоміжні можливості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-paladin-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оновлений Тритон може повторно накладати вроджені заклинання слотами, але їхня користь недостатньо універсальна для суттєвого поліпшення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стійкість до холоду й Темнозір{{Darkvision}} завжди чудові. {{Посланець моря|Emissary of the Sea}} дозволяє мирно впоратися з істотами, для яких інакше потрібна Дружба з тваринами [Animal Friendship]; заклинання додають допоміжні можливості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ranger-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оновлений Тритон може повторно накладати вроджені заклинання слотами, але їхня користь недостатньо універсальна для суттєвого поліпшення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Розбійник",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стійкість до холоду й Темнозір{{Darkvision}} чудові. Заклинання лише ситуативні, але Туманна хмара [Fog Cloud] добре допомагає втекти, якщо під час розвідки виникла небезпека."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чаклун",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання доповнюють малу кількість відомих заклинань Чаклуна, але недостатньо універсальні для великої різниці. Переважно ви покладаєтеся на Стійкість до холоду й Темнозір{{Darkvision}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sorcerer-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оновлений Тритон може повторно накладати вроджені заклинання слотами, але їхня користь недостатньо універсальна для суттєвого поліпшення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стійкість до холоду й Темнозір{{Darkvision}} усе ще чудові, але ні Темнозір, ні {{Диявольський зір|Devil's Sight}} не дозволяють бачити крізь власну Туманна хмара [Fog Cloud]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-warlock-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оновлений Тритон може повторно накладати вроджені заклинання слотами, але їхня користь недостатньо універсальна для суттєвого поліпшення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стійкість до холоду й Темнозір{{Darkvision}} приємні, але після низьких рівнів легко замінюються заклинаннями. Вроджені заклинання вже у списку Чарівника, за словами автора — крім Водяна стіна [Wall of Water], але це невелика втрата. Нових можливостей раса не дає. Примітка редакції: Wall of Water також є у списку Чарівника; натомість нове Ходіння по воді [Water Walk] до нього не входить."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-wizard-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оновлений Тритон може повторно накладати вроджені заклинання слотами, але їхня користь недостатньо універсальна для суттєвого поліпшення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-classic",
+          "heading": "Тритон: стандартні правила",
+          "sourceAnchor": "classes-classic",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-classic-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ передбачає, що ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "не"
+                },
+                {
+                  "type": "text",
+                  "text": " використовуєте налаштування походження з книги Казан Таші з усім або оновленого Тритона з Монстри Мультивсесвіту. Якщо використовуєте, поверніться вище."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-artificer",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Винахідник",
+          "sourceAnchor": "classic-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Інтелекту."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-barbarian",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Варвар",
+          "sourceAnchor": "classic-barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила й Статура чудові, але Харизма Варвару мало потрібна, а вроджені заклинання недоступні під час Люті."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-bard",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Бард",
+          "sourceAnchor": "classic-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Збірки Барда від Сили дуже складні, але Статура й Харизма чудові. На 3-му рівні Колегія доблесті{{College of Valor}} дає середні обладунки, тож вистачить 14 Спритності; можливо, краще просто ігнорувати підвищення Сили."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-cleric",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Клірик",
+          "sourceAnchor": "classic-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Невдале поєднання характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-druid",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Друїд",
+          "sourceAnchor": "classic-druid",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Невдале поєднання характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-fighter",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Воїн",
+          "sourceAnchor": "classic-fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тритон — пристойний Воїн. Сила й Статура чудові, заклинання корисні, але Паладин краще використовує всі характеристики. Баннерет{{Banneret}} може використати Харизму, але інші підкласи рідко мають соціальні навички чи здібності від неї, тому реалізувати її важко."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-monk",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Монах",
+          "sourceAnchor": "classic-monk",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Три підвищення, але жодного до Спритності чи Мудрості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-paladin",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Паладин",
+          "sourceAnchor": "classic-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Характеристики ідеально відповідають Паладину. За купівлею очок можна почати з 16 Сили, Статури й Харизми. Чудово, але решта будуть по 8, що болісно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-ranger",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Слідопит",
+          "sourceAnchor": "classic-ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Характеристики не надто підходять Слідопиту. Збірки від Сили можливі, але складні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-rogue",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Розбійник",
+          "sourceAnchor": "classic-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Спритності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-sorcerer",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Чаклун",
+          "sourceAnchor": "classic-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура й Харизма — чудовий початок. {{Амфібія|Amphibious}} і вроджені заклинання додають можливості без витрати відомих заклинань."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-warlock",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "classic-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура й Харизма — чудовий початок. {{Відьмацький клинок|Hexblade}} може будуватися від Сили замість Спритності, якщо наважитеся на це в середніх обладунках. Вроджені заклинання завжди приємні з обмеженими слотами Чорнокнижника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-wizard",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Чарівник",
+          "sourceAnchor": "classic-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Інтелекту."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-triton-2014-001",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-triton-2014-002",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-triton-2014-003",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-triton-2014-004",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-triton-2014-005",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-triton-2014-006",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-triton-2014-007",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-triton-2014-008",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-triton-2014-009",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-triton-2014-010",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-triton-2014-011",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-triton-2014-012",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-triton-2014-013",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-triton-2014-014",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-artificer",
+      "targetBlockId": "block-section-classic-artificer-1",
+      "optionId": "section-classic-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-classic-artificer-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-triton-2014-015",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-barbarian",
+      "targetBlockId": "block-section-classic-barbarian-1",
+      "optionId": "section-classic-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-classic-barbarian-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-triton-2014-016",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-bard",
+      "targetBlockId": "block-section-classic-bard-1",
+      "optionId": "section-classic-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-classic-bard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-triton-2014-017",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-cleric",
+      "targetBlockId": "block-section-classic-cleric-1",
+      "optionId": "section-classic-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-classic-cleric-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-triton-2014-018",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-druid",
+      "targetBlockId": "block-section-classic-druid-1",
+      "optionId": "section-classic-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-classic-druid-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-triton-2014-019",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-fighter",
+      "targetBlockId": "block-section-classic-fighter-1",
+      "optionId": "section-classic-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-classic-fighter-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-triton-2014-020",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-monk",
+      "targetBlockId": "block-section-classic-monk-1",
+      "optionId": "section-classic-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-classic-monk-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-triton-2014-021",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-paladin",
+      "targetBlockId": "block-section-classic-paladin-1",
+      "optionId": "section-classic-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-classic-paladin-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-triton-2014-022",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-ranger",
+      "targetBlockId": "block-section-classic-ranger-1",
+      "optionId": "section-classic-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-classic-ranger-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-triton-2014-023",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-rogue",
+      "targetBlockId": "block-section-classic-rogue-1",
+      "optionId": "section-classic-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-classic-rogue-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-triton-2014-024",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-sorcerer",
+      "targetBlockId": "block-section-classic-sorcerer-1",
+      "optionId": "section-classic-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-classic-sorcerer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-triton-2014-025",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-warlock",
+      "targetBlockId": "block-section-classic-warlock-1",
+      "optionId": "section-classic-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-classic-warlock-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-triton-2014-026",
+      "articleId": "rpgbot-triton-2014",
+      "translationRevisionId": "translation-rpgbot-triton-2014-draft1",
+      "sectionId": "section-classic-wizard",
+      "targetBlockId": "block-section-classic-wizard-1",
+      "optionId": "section-classic-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-classic-wizard-1",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

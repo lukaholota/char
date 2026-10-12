@@ -23,8 +23,8 @@ export default async function HomebrewEntryPage({ params, searchParams }: PagePr
   if (!entry) notFound();
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden pb-28">
-      <div className="sticky top-0 z-20 border-b border-white/10 bg-slate-950/60 backdrop-blur-xl">
+    <div className="min-h-screen w-full overflow-x-clip pb-28">
+      <div className="sticky top-safe z-20 border-b border-white/10 bg-slate-950/60 backdrop-blur-xl">
         <div className="mx-auto flex max-w-3xl items-center justify-between gap-2 px-4 py-3">
           <Link href={buildHomebrewCatalogHref({ kind: entry.kind, is2024, entryId: entry.entryId })} className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-300 hover:bg-white/10">
             <ChevronLeft className="h-4 w-4" />

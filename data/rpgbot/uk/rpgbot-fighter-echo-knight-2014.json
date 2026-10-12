@@ -1,0 +1,1710 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-0b24ff3585da2685",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-0b24ff3585da2685-862da66125554d47",
+      "sourceId": "rpgbot-0b24ff3585da2685",
+      "fetchedAt": "2026-09-29T19:08:32.898329+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:35:43-04:00",
+      "contentHash": "0a1e3e2624c3027e4ef25f6476e9a096fac651dd8936a2c4597b80d906100894",
+      "title": "Echo Knight Fighter 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-0b24ff3585da2685-862da66125554d47.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-fighter-echo-knight-2014",
+    "sourceId": "rpgbot-0b24ff3585da2685",
+    "slug": "fighter-echo-knight-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Лицар луни — гайд підкласу Воїна (2014)",
+    "titleEn": "Echo Knight Fighter 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Воїн",
+      "Лицар луни",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "sourceRevisionId": "rpgbot-0b24ff3585da2685-862da66125554d47",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Лицар луни майже виглядає недоречним як підклас Воїна, але, з іншого боку, я не можу придумати кращого місця для нього, окрім як створити новий клас і запхати туди всі різновиди гішів{{gish}}. Більшість інших підкласів — це своєрідний взірець бойової й фізичної досконалості (крім Потойбічного й Рунічного лицарів, але в них дуже відчутні, інтуїтивні джерела сили).\n\nЛицар луни — дикий відхід. Проте це дуже "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "веселий"
+                },
+                {
+                  "type": "text",
+                  "text": " відхід, і саме цей виразний смак допомагає йому полонити уяву гравців від виходу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Механічно Лицар луни — це потужна сила. Він допомагає зі шкодою, з контролем поля бою й з живучістю. Трохи оптимізувавши, можна взяти ці уміння й бути дуже сильним у кількох сферах, але, на мою думку, по-справжньому він сяє як спосіб наносити ближні атаки по тому, до кого ви не дістаєте, а ця можливість у D&D здебільшого не збалансована."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Лицаря луни",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Лицаря луни",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#echo-knight-fighter-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Лицаря луни",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#echo-knight-fighter-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Лицаря луни",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#echo-knight-fighter-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Лицаря луни",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#echo-knight-fighter-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Лицаря луни",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#echo-knight-fighter-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Діоскури",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#example-build-dioscuri"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/echo-knight/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Лицаря луни",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Прояв луни{{Manifest Echo}}: це фірмове вміння Лицаря луни, і хоч з часом воно здобуває додаткові речі, основна здатність ніколи не змінюється. Призвичаїться до нього, бо воно забиратиме вашу бонусну дію на відтворення луни до кінця вашої карʼєри. Ви можете безкоштовно перемістити свою луну раз на хід на додачу до її відтворення на новому місці чи обміну місцями з нею, і на відміну від пересування вашого персонажа, луна не має певних типів пересування, тож її можна пересувати на 30 футів у будь-якому напрямку, "
+                  },
+                  {
+                    "type": "link",
+                    "text": "зокрема вертикально вгору",
+                    "href": "https://twitter.com/JeremyECrawford/status/1242507818986422272"
+                  },
+                  {
+                    "type": "text",
+                    "text": "!\n\nПамʼятайте, що луна зникає, якщо ви надто віддаляєтеся, але відтворити її коштує лише бонусну дію, тож у багатьох випадках ефективніше навмисно відійти від луни й відтворити її, ніж намагатися пересувати разом із собою.\n\nТакож можна телепортуватися, помінявшись із луною місцями, що дозволяє вирватися із захоплення, складної місцевості й пут без особливих зусиль (хоч це й коштує частину вашого пересування за хід). Обмежень на те, як часто можна створювати луну, немає, тож відтворювати її щораунду — це, по суті, очікувана річ, якщо вашу зруйновано атакою чи вона відійшла надто далеко.\n\nЄ певна плутанина щодо того, як це працює, бо стан Схоплений зменшує вашу швидкість до 0, а отже, у вас немає 15 футів пересування для витрати. Я думаю, що за RAI передбачається, що ви можете телепортуватися із захоплення, але за RAW ви точно не можете, бо ефект не визначає винятку з правил захоплення, як це робить заклинання «Свобода рухів [Freedom of Movement]».\n\nПроте Джереми Кроуфорд "
+                  },
+                  {
+                    "type": "link",
+                    "text": "обговорював у Twitter",
+                    "href": "https://twitter.com/JeremyECrawford/status/932413630305275904"
+                  },
+                  {
+                    "type": "text",
+                    "text": " взаємодію «Свободи рухів» із правилами Захоплення. Він зазначає, що коли ви більше не схоплені, ваша швидкість більше не 0, тож має сенс, що ви можете заплатити 5 футів, щоб вирватися із захоплення за допомогою «Свободи рухів», навіть якщо ваша швидкість дорівнює 0 у цей момент.\n\nТу саму логіку можна застосувати до телепортації луни, і якщо після телепортації у вас буде 15 футів пересування для витрати, ви можете заплатити цю вартість.\n\nОднак текст Лицаря луни не визначає винятку з правил захоплення, тож це не зовсім ясно. Обговоріть це зі своїм Майстром, щоб дізнатися, як він хоче це вирішувати. «Прояв луни» не уточнює, але "
+                  },
+                  {
+                    "type": "link",
+                    "text": "луна є обʼєктом",
+                    "href": "https://twitter.com/JeremyECrawford/status/1240669629661380609"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Її можна обрати метою таких речей, як атаки й заклинання, але, дивно, за RAW це означає, що її не можна обрати метою й пошкодити багатьма заклинаннями.\n\nНавіть такі варіанти, як «Рій метеорів [Meteor Swarm]», за RAW шкодять лише істотам, але я думаю, що розумний Майстер вирішить, що луна кваліфікується як припустима ціль для таких речей і отримує шкоду належним чином. Ця штука вже шалено потужна, і їй не потрібен широкий імунітет до шкоди, щоб лишатися потужною.\n\nАле якщо так, це також робить її припустимою ціллю для корисних заклинань на кшталт «Щита віри [Shield of Faith]», «Розмиття [Blur]» тощо. Це означає, що вона припустима ціль для «Святилища [Sanctuary]», що зламано, бо луна ніколи насправді не атакує, вона лише дозволяє використовувати своє розташування."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виплеск втілення{{Unleash Incarnation}}: до 5 додаткових атак на день. Не величезне підвищення шкоди, але чудове, коли воно вам справді потрібне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Аватар луни{{Echo Avatar}}: ви можете вести/носити свою луну на відстань до 1000 фт. від себе та бачити/чути через неї. На жаль, за словами Джереми Кроуфорда, "
+                  },
+                  {
+                    "type": "link",
+                    "text": "атакувати через неї не можна",
+                    "href": "https://twitter.com/JeremyECrawford/status/1242199682534608896"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", але текст, що це пояснює, нібито пропустили в першому друку книги, а Wizards of the Coast не видала ерату. Це означає, що за Кроуфордом ви не можете посилати «Аватар луни» атакувати людей, але, очевидно, це не така проблема, щоб WotC справді хотіла її виправити, тож за RAW ви можете послати луну на кілька сотень футів у повітря й засипати стрілами все в межах дальності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тіньовий мученик{{Shadow Martyr}}: багато в чому схожий на Бойовий Стиль «Захист»{{Protection}}, але діє на будь-яку істоту, яку ви бачите. Обмеження використання раз на відпочинок означає, що треба обережно вирішувати, коли його застосувати, і берегти для моменту, коли він справді матиме вагомий вплив."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Повернена потенція{{Reclaim Potential}}: з лише 1 ХП ваша луна постійно гинутиме, якщо в неї цілитимуть, тож це простий спосіб отримувати тимчасові ХП щоразу, коли їх у вас немає. 2к6+Статура — теж пристойна кількість, і ви маєте достатньо використань на день, щоб це було значним покращенням вашої загальної здатності витримувати шкоду."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Легіон один|Legion of One}}: дві луни означають, що ви можете заповнити два додаткові місця на полі бою, що дає додаткові шанси на Принагідні атаки й створює більше цілей, які відтягують атаки, що інакше були б спрямовані на вас і ваших союзників."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-echo-knight-fighter-ability-scores",
+          "heading": "Характеристики Лицаря луни",
+          "sourceAnchor": "echo-knight-fighter-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-echo-knight-fighter-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: імовірно, ваша основна характеристика атаки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-echo-knight-fighter-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: нам слід носити важкі обладунки, якщо ви не вирішите користуватися фінесною зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-echo-knight-fighter-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: як любить казати Рокко, смерть — неоптимальна. Також від неї залежить уміння класу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-echo-knight-fighter-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: скидаємо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-echo-knight-fighter-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: найчастіше застосовуваний ментальний ряткидок. Давайте їй те, що лишилося."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-echo-knight-fighter-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: скидаємо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-echo-knight-fighter-ability-scores-7",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-echo-knight-fighter-races",
+          "heading": "Раси Лицаря луни",
+          "sourceAnchor": "echo-knight-fighter-races",
+          "blocks": [
+            {
+              "blockId": "block-section-echo-knight-fighter-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Може виникнути спокуса взяти Високого ельфа й «Гримучим Клинком [Booming Blade]» бити зі своєї луни, але, на жаль, луна може бути початком ваших атак лише тоді, коли ви справді використовуєте дію Атака."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-echo-knight-fighter-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дракононароджений Фізбана{{Fizban’s Dragonborn}} може мати цікаву взаємодію: ви могли б видихати зі своєї луни, бо замінюєте нею одну з атак у дії Атака, але це більше залежить від тлумачення, ніж мультикласні витівки, які я розглядаю нижче. Особисто я б не дозволив цього за своїм столом, бо луну можна використовувати як точку, звідки атакувати, а дихання дракононародженого можна використовувати замість атаки, коли ви виконуєте дію Атака, але саме по собі воно не є атакою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-echo-knight-fighter-races-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З огляду на це, нічим не відрізняється від будь-якого іншого Воїна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-echo-knight-fighter-feats",
+          "heading": "Риси Лицаря луни",
+          "sourceAnchor": "echo-knight-fighter-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-echo-knight-fighter-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки луна дозволяє робити Принагідні атаки, коли щось залишає її безпечний бублик (зауважте, що ця здатність вимагає, щоб ціль була поруч із вашою луною, а потім залишила цю область, незалежно від справжньої досяжності вашої зброї. Якось це обмеження стосується лише Принагідних атак, а не звичайних), риси, що зосереджуються на Принагідних атаках, як-от «Вартовий»{{Sentinel}} чи «Бойовий заклинатель»{{War Caster}}, якщо ви займаєтеся мультикласними витівками чи маєте замовляння від раси, дуже хороші."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-echo-knight-fighter-weapons",
+          "heading": "Зброя Лицаря луни",
+          "sourceAnchor": "echo-knight-fighter-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-echo-knight-fighter-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від будь-якого іншого Воїна, хоча зверніть увагу на дивність формулювання про Принагідні атаки, про яку я згадував вище. Досяжність працюватиме на вашому ході, але не для реакцій, якщо ви атакуєте через свою луну."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-echo-knight-fighter-armor",
+          "heading": "Обладунки Лицаря луни",
+          "sourceAnchor": "echo-knight-fighter-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-echo-knight-fighter-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від будь-якого іншого Воїна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варвари — опорний вибір, і недарма. У "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді про Охоронця-предка",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/"
+                },
+                {
+                  "type": "text",
+                  "text": " я зазначав, що ці класи дуже добре грають разом, і нижче ви побачите, як це оптимізується."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пройдисвіт також може бути цікавим вибором, якщо ви будуєте Лицаря луни на Спритності. Формулювання Лицаря луни таке: "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "ви"
+                },
+                {
+                  "type": "text",
+                  "text": " можете робити атаки, що виходять з її розташування. Це означає, що якщо "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "ви"
+                },
+                {
+                  "type": "text",
+                  "text": " сховані від цілі, але все ще бачите її, атака матиме Перевагу на кубику, хоч інтуїтивно це нісенітниця, бо луна поруч із ціллю й насправді завдає атаку. Але за RAW це робить завдання підступних атак дуже надійним, не турбуючись про позицію групи чи інші чинники."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також, як Лицар луни на Спритності, можна пірнути на 5 рівнів у Співця клинка, щоб "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "могти"
+                },
+                {
+                  "type": "text",
+                  "text": " кидати замовляння з розташування луни. Це майже має більше сенсу як 3-рівневе пірнання у Воїна заради Співця клинка, щоб ви все ж могли накласти «Бажання [Wish]», але тоді ви лише відтягуєте доступ до «Бажання», що навряд чи колись правильна ідея."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-dioscuri",
+          "heading": "Приклад збірки — Діоскури",
+          "sourceAnchor": "example-build-dioscuri",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-dioscuri-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У трагічній історії наш близнюк потрапив із душею в пастку на іншому плані, і ми так намагалися все ж лишатися з ним, що закінчили тим, що закликаємо його дух допомагати нам битися.\n\nНа жаль, це безумство призвело до того, що наша любов до верхової їзди більше не відображена в нашій збірці, окрім навичок, які ми вже мали. Ми думаємо, що якщо зможемо стати месниками для достатньої кількості інших людей, нам, можливо, стане легше від того, що ми втратили брата чи сестру й ні в кого, крім нас, немає, хто б проспівав для нього гімн."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-dioscuri-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка — одна з наших "
+                },
+                {
+                  "type": "link",
+                  "text": "10 улюблених збірок D&D 5e",
+                  "href": "https://rpgbot.net/rpgbots-10-favorite-dnd-character-builds-that-arent-wizards/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-dioscuri",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила й Статура високі, як і очікувалося, але трохи Спритності й Мудрості корисні і для навичок, і як несподівані інструменти, що знадобляться на 7-му й 20-му рівнях відповідно. Ми б залюбки підвищили Спритність до 14, щоб заповнити напівлати, але, на жаль, з огляду на інші потрібні тут характеристики це не вкладається в бюджет."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-dioscuri",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Своя раса{{Custom Lineage}}. Жоден із різновидів Аазимарів не достатньо близький до того, що нам потрібно, — бути "
+                },
+                {
+                  "type": "link",
+                  "text": "буквальною дитиною божества",
+                  "href": "https://en.wikipedia.org/wiki/Castor_and_Pollux"
+                },
+                {
+                  "type": "text",
+                  "text": ", тож доводиться імітувати. Беріть «Вартового»{{Sentinel}}, щоб захищати всіх тих заблуканих моряків, і Темний зір, щоб робити це навіть уночі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-dioscuri",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо Гладіатора (ми не хочемо бути просто дітьми, а справді зірками головного бога), але міняємо Акробатику й Виступ на Уважність і Аналіз Поведінки. Треба вміти бачити й розуміти, що роблять супротивники. Потім міняємо володіння Набором для маскування на Інструменти картографа, щоб бути охоронцями навігації й не давати морякам на щось налітати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-dioscuri",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо Поводження з тваринами й Атлетику, бо ми маємо бути добрими в гладіаторстві. До того ж у нас є запасна Мудрість, щоб бути пристойними з тваринами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-dioscuri",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ого. Як зазначено, ми виходимо з «Вартовим», потім беремо «Дробильника»{{Crusher}} на 4-му рівні, перш ніж на 6-му повністю вкласти покращення характеристик у Силу, щоб не відстати при мультикласуванні. 3-рівневе пірнання у Варвара на цьому етапі дає великий приріст і шкоди, і користі танка, але також означає, що наступну рису ми отримаємо на 11-му рівні персонажа, і це «Майстер важкої зброї»{{Great Weapon Master}}. 15-й дає «Дарунок хроматичного дракона»{{Gift of the Chromatic Dragon}}, 17-й — «Кухаря»{{Chef}}, а завершуємо «Стійким»{{Resilient}} (Мудрість) на 19-му."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-dioscuri",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 — Воїн 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль{{Fighting Style}}: Бій великою зброєю, Друге дихання, Вартовий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Вартовий» — неймовірна риса й опорний вибір у збірках-танках. Поки що він дозволяє нам ламати ворогам колінні чашечки, коли вони намагаються піти від нас до наших союзників, або якщо вони мають зухвалість атакувати когось поруч із нами. Ви — рідкісний танк, для якого Бойовий Стиль «Оборона» не такий вдалий, бо за кілька рівнів ми проводитимемо чималу частину часу, не пускаючи найстрашніших монстрів ані до нас, ані до нашої групи.\n\nДо того ж ми користуємося дробильним дворучним мечем (молотом), щоб математика була найкращою. До слова, виходьте з кольчугою, дворучним молотом, дворучним мечем і легким арбалетом. Продайте зброю, що не є молотами, і перетворіть її на купу метальних списів для швидкої відповіді ворогу на відстані. Здається, нам справді слід користуватися якоюсь шаблею, але гадаю, доведеться вдовольнитися цим."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 — Воїн 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій{{Action Surge}}"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 — Воїн 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Прояв луни, Виплеск втілення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті ми можемо закликати нашого благородного фантомного брата чи сестру. Текст вище багато пояснив, але варто памʼятати кілька речей: – Луна — обʼєкт, а отже, за визначенням не ви. – Коли ви виконуєте дію Атака, ви можете скористатися її позиціонуванням, але атакуєте саме ви. – Коли щось відходить від неї, Принагідну атаку теж робите ви.\n\nПоки що це означає, що ви можете застосовувати ефекти «Вартового» через свою луну. Якщо щось намагається відійти від неї, використайте свій молот як ламач колінних чашечок. «Виплеск втілення» вже хороший, але за кілька рівнів стане ще кращим."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 — Воїн 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дробильник (+1 до Сили)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гаразд, перший крок готовий. Наша луна поруч із чимось. Ми бʼємо це на своєму ході, відсуваючи на 5 футів далі від наших союзників, але все ще в межах 5 футів від луни. Тепер на своєму ході істота намагається відійти від луни, щоб дістатися до цих союзників, отримує удар від «Вартового» й знову відсувається на 5 футів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 — Воїн 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бац, бац."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 — Воїн 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Сила 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Як зазначено вище, випереджаємо "
+                    },
+                    {
+                      "type": "link",
+                      "text": "фундаментальну математику",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", бо інакше відстали б на три рівні, а точність незабаром стане набагато важливішою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 — Варвар 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Лють, Захист без броні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цей момент ви вже мали б змогу дозволити собі заміну кольчуги на напівлати, щоб ми могли користуватися «Люттю», не втрачаючи КБ. «Лють» — чудове вміння, навіть якщо ми не використовуємо її на повну. Опір приємний, хоч ми й сподіваємося, що найстрашніших істот усе ще блокуємо описаною вище тактикою. Ми дуже цінуємо бонус шкоди, бо атакуємо ми, навіть якщо атаки йдуть з розташування луни. Ми не робимо багато перевірок Сили, але це нормально. А «Захист без броні», навпаки, нам не дає нічого."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 — Варвар 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безрозсудна атака, Відчуття небезпеки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гаразд, тут починає діяти педантичне формулювання. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Ви"
+                    },
+                    {
+                      "type": "text",
+                      "text": " маєте Перевагу на кубику на атаки на Силі. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Ви"
+                    },
+                    {
+                      "type": "text",
+                      "text": " робите атаки, але з розташування луни. Атаки проти "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "вас"
+                    },
+                    {
+                      "type": "text",
+                      "text": " (ваша луна — не ви) мають Перевагу на кубику. Бʼючи безрозсудно, ви певні, що те, біля чого стоїть ваша луна, або отримає «Вартового», коли спробує підійти до вас, або навіть не матиме шансу.\n\nОскільки ціна розриву 30-футової відстані до вашої луни така низька, якщо ваша ціль має багато атак і може дозволити собі вдарити малою по луні, перш ніж підійти й завдати решту по вас, ви можете просто поставити луну в місце для атаки, атакувати, а потім просто відійти з її зони. Ще одна чудова річ у «Безрозсудній атаці»: якщо ми завдаємо критичного удару, що тепер має близько 19 % шансу за будь-який хід, ми даємо Перевагу на кубику на атаки проти цілі всій нашій команді. Перевага на кубику на (більшість) ряткидків Спритності майже така ж хороша, як володіння."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 — Варвар 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Духи-предки{{Ancestral Protectors}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вершина всіх наших мистецтв. Тепер, коли ви атакуєте через луну в люті, ціль має Перешкоду на кубику на атаки по будь-чому, окрім вас, зокрема по самій луні. Якщо вона намагається піти до справжнього близнюка, її бʼють і утримує на місці «Вартовий». Якщо вона намагається атакувати щось на відстані, вона або матиме Перешкоду на кубику й завдасть половину шкоди, або просто половину шкоди, якщо цілить у вас фізичним типом шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 — Воїн 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Аватар луни{{Echo Avatar}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Без бойових ефектів, але ми описали його користь для розвідки тощо вище в уміннях підкласу. Втім, формулювання здатності помінятися місцями з луною має працювати, коли ви в неї вселилися, тож це може бути способом провести луну на сотні футів угору горою, а потім помінятися з нею місцями, подолавши більшість потреби в польоті поза тактичними ситуаціями.\n\nАле памʼятайте: коли ви це робите, ви все ще користуєтеся відчуттями луни. Це означає, що вам або треба припинити вселення одразу після телепортації, щоб бачити, що навколо (що також залишить вас там), або миритися з тим, що ви глухі й сліпі в новому місці."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 — Воїн 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер важкої зброї"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ймовірно, уникайте штрафу, доки не влучите на будь-якому ході, щоб точно застосувати «Духів-предків». Після цього, однак, вперед. Оскільки ви постійно маєте Перевагу на кубику, штраф -5 на влучання для вас значно менша проблема.\n\nТакож у будь-який хід, коли не треба знову закликати луну, ви маєте 1/5 шансу на критичне влучання й змогу атакувати ще раз бонусною дією (або якщо щось убʼєте). Трохи математики: звичайна атака проти фундаментальної математики має 65 % шансу влучити. Атака зі штрафом і Перевагою від «Безрозсудної атаки» майже ідентична, десь 64 %.\n\nАле якщо не брати штраф і просто бити з Перевагою на кубику, це 88 % шансу влучити. Тепер, "
+                    },
+                    {
+                      "type": "link",
+                      "text": "як зазначив Рокко",
+                      "href": "https://rpgbot.net/dnd5/characters/feats/great-weapon-master-sharpshooter/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", DPR у цьому разі все одно зростає, хоч і не на величезну кількість, а нас справді цікавить, щоб принаймні одна атака влучила й ми запустили послаблення «Духів-предків»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 — Воїн 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непохитність{{Indomitable}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Намагайтеся берегти її для чогось, що закінчило б вашу Лють, як-от ефект, що перешкоджає руху, зачаровує чи вигнанням."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 — Воїн 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тіньовий мученик{{Shadow Martyr}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вам справді треба давати другові спосіб ухилитися від атаки? Підставте свою луну. Нічого, ваш брат чи сестра вже в лімбі, відскочити звідти й назад на секунду для нього не проблема. Це також хороший спосіб перемістити луну через поле бою поза вашим ходом, якщо, наприклад, те, біля чого вона стояла, померло, і ви хочете застосувати її ауру «Вартового» деінде."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 — Воїн 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова додаткова атака"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бац, бац, бац. Тепер наш шанс отримати критичне влучання за хід зріс до 26,5 %. Це накладе на ціль послаблення «Дробильника» й дозволить замахнутися знову. Якщо ми розрубаємо щось на смерть і спрацює Принагідна атака, це підніметься до приголомшливих 40 % шансу крита за раунд."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 — Воїн 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дарунок хроматичного дракона"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потрібна допомога, щоб убити тролля? Маєте раунд, у якому нічого робити бонусною дією? Знайшли монстра, вразливого до типу енергії? Накиньте посилення й вперед. Також корисна реакція, якщо ми не думаємо, що щось намагатиметься піти від нашої луни, або якщо щось бʼє нас настільки великою шкодою, що вона нам потрібна в будь-якому разі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 — Воїн 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непохитність (2 використання)"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 — Воїн 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кухар (+1 до Статури)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищуємо Статуру до круглого числа й водночас здобуваємо здатність трохи захищати й лікувати групу поза боєм. Якщо ви зробите свої ласощі божественно натхненними шипучими цукерками, вони цілком можуть бути маленькими викидами манни. Тільки не залишайте їх надто надовго, щоб вони не стали стародавніми."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 — Воїн 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Повернена потенція{{Reclaim Potential}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Раз уже згадали тимчасові ХП: світло вашого близнюка, що на мить згасає з матеріального світу, тепер може вам допомогти, даючи трохи захисту, перш ніж ви знову виставите луну, щоб вона й далі була забороною входу в область."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 — Воїн 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стійкий (Мудрість)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тримайте +7 на ряткидки Мудрості. Це ще не повне володіння на великій трійці, бо Спритність усе ще лише має Перевагу на кубику, але дуже близько."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 — Клірик 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замовляння: Настанова, Світло, Дивотворство. Підготовлені заклинання: Благословення, Виявлення отрут і хвороб, Цілюще слово. Зміцнювальний звʼязок. Знаряддя миру: Виступ"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Виявляється, якщо ваша вершина не була б чудовою, але ви вже воїн і не можете просто взяти два рівні заради «Сплеску дій», є інший хороший варіант. Для свого останнього сходження ви беретеся за святий Грааль мультикласних умінь — те, що зважає лише на Бонус Майстерності. «Зміцнювальний звʼязок» на цьому рівні дозволить вам взяти всю групу й накачати мʼязи на 10 хвилин за раз, і ви можете використовувати його більше разів, ніж, імовірно, матимете боїв за день. Накиньте його ще й на соціальні взаємодії для годиться. На жаль, ні «Святилище», ні «Щит віри» не можна застосувати до вашої луни, бо, знову ж таки, це обʼєкт, а не істота. Ви насолоджувалися цим усю гру, бо багато заклинань на неї не діють, але тепер це трохи незручно. Тож замість цього беремо заклинання виявлення, яке ніхто інший не принесе, і просто виконуємо його як ритуал за потреби. Але ще й «Благословення». Якщо ви запускаєте обидва одночасно (що доволі легко з огляду на багато використань «Звʼязку» на день і тривалу дію) і з «Безрозсудною атакою», ви маєте приголомшливі буквально 99 % шансу влучити проти очікуваного середнього КБ істоти з рівнем небезпеки 20. Цього легко досягти, ходячи з піднятим «Звʼязком», використавши «Благословення» на першому ході бою, «Сплеск дій», підвівши луну на позицію і взявшись до роботи. Завдяки володінню ряткидками Статури й вашому бонусу +4, ви надзвичайно ймовірно зможете зберегти цей бонус аж до кінця бою. Також підвищте свій бонус до виступу. Можливо, це швидкий виступ. Можливо, мистецький. Як би там не було, тепер у вас на ньому +6."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-fighter-echo-knight-2014-001",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Прояв луни",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-echo-knight-2014-002",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Виплеск втілення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-echo-knight-2014-003",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Аватар луни",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-echo-knight-2014-004",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Тіньовий мученик",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-echo-knight-2014-005",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Повернена потенція",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-echo-knight-2014-006",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Легіон один",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-echo-knight-2014-007",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "sectionId": "section-echo-knight-fighter-ability-scores",
+      "targetBlockId": "block-section-echo-knight-fighter-ability-scores-1",
+      "optionId": "section-echo-knight-fighter-ability-scores-block-section-echo-knight-fighter-ability-scores-1",
+      "context": "Сила",
+      "explanationBlockId": "block-section-echo-knight-fighter-ability-scores-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-echo-knight-2014-008",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "sectionId": "section-echo-knight-fighter-ability-scores",
+      "targetBlockId": "block-section-echo-knight-fighter-ability-scores-2",
+      "optionId": "section-echo-knight-fighter-ability-scores-block-section-echo-knight-fighter-ability-scores-2",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-echo-knight-fighter-ability-scores-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-echo-knight-2014-009",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "sectionId": "section-echo-knight-fighter-ability-scores",
+      "targetBlockId": "block-section-echo-knight-fighter-ability-scores-3",
+      "optionId": "section-echo-knight-fighter-ability-scores-block-section-echo-knight-fighter-ability-scores-3",
+      "context": "Статура",
+      "explanationBlockId": "block-section-echo-knight-fighter-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-echo-knight-2014-010",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "sectionId": "section-echo-knight-fighter-ability-scores",
+      "targetBlockId": "block-section-echo-knight-fighter-ability-scores-4",
+      "optionId": "section-echo-knight-fighter-ability-scores-block-section-echo-knight-fighter-ability-scores-4",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-echo-knight-fighter-ability-scores-4",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fighter-echo-knight-2014-011",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "sectionId": "section-echo-knight-fighter-ability-scores",
+      "targetBlockId": "block-section-echo-knight-fighter-ability-scores-5",
+      "optionId": "section-echo-knight-fighter-ability-scores-block-section-echo-knight-fighter-ability-scores-5",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-echo-knight-fighter-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-echo-knight-2014-012",
+      "articleId": "rpgbot-fighter-echo-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+      "sectionId": "section-echo-knight-fighter-ability-scores",
+      "targetBlockId": "block-section-echo-knight-fighter-ability-scores-6",
+      "optionId": "section-echo-knight-fighter-ability-scores-block-section-echo-knight-fighter-ability-scores-6",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-echo-knight-fighter-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

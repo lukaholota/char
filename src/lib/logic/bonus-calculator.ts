@@ -25,6 +25,7 @@ import {
   sumFeatureSpeedBonus,
 } from "@/rules/feature-stat-grants";
 import { findAlertInitiativeBonus, findObservantPassiveBonus } from "@/rules/feat-flat-bonuses-2014";
+import { findFastMovementBonus } from "@/rules/fast-movement";
 import { calculateWalkingSpeed, explainWalkingSpeed, type WalkingSpeedPartKey } from "@/rules/walking-speed";
 import { collectDamageResistances, findDarkvisionRange } from "@/rules/senses-and-resistances";
 import type { StateEffects, UnarmedStrikeEffect } from "@/rules/state-effects";
@@ -567,6 +568,7 @@ function findStateSpeedParts(effects: StateEffects | null, speed: number): Numbe
 }
 
 function buildWalkingSpeedInput(pers: PersWithRelations) {
+  const activeFeatures = collectActiveFeatures(pers);
   const speedState = pers as PersWithRelations & { walkingSpeedReplacement?: number | null };
   return {
     replacementSpeed: speedState.walkingSpeedReplacement,
@@ -574,10 +576,21 @@ function buildWalkingSpeedInput(pers: PersWithRelations) {
     variantSpeedOverride: firstFiniteNumber(pers.raceVariants?.map((variant) => variant.overridesRaceSpeed)),
     subraceSpeedModifier: pers.subrace?.speedModifier,
     choiceSpeedModifiers: pers.raceChoiceOptions?.map((option) => option.modifiesSpeed),
-    featureSpeedBonus: sumFeatureSpeedBonus(collectActiveFeatures(pers)),
+    featureSpeedBonus: sumFeatureSpeedBonus(activeFeatures) + findPersFastMovementBonus(pers, activeFeatures),
     unarmoredMovementBonus: findPersUnarmoredMovementBonus(pers),
     manualSpeedBonus: getSimpleBonus(pers, "speed"),
   };
+}
+
+function findPersFastMovementBonus(pers: PersWithRelations, activeFeatures: readonly Feature[]): number {
+  return findFastMovementBonus({
+    ownedFeatureEngNames: activeFeatures.map((feature) => feature.engName),
+    wearsHeavyArmor: hasEquippedHeavyArmor(pers),
+  });
+}
+
+export function hasEquippedHeavyArmor(pers: PersWithRelations): boolean {
+  return (pers.armors ?? []).some((entry) => entry.equipped && entry.armor?.armorType === "HEAVY");
 }
 
 function findPersUnarmoredMovementBonus(pers: PersWithRelations): number {

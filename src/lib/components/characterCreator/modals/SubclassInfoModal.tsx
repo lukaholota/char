@@ -18,9 +18,17 @@ import {
 import { Badge } from "@/components/ui/badge";
 
 import { ReactNode } from "react";
+import type { EntityRef } from "@/lib/optimization/types";
+import { FeatureAnalysis } from "@/components/optimization/FeatureAnalysis";
+import { SubclassAnalysisProvider } from "@/components/optimization/SubclassAnalysisContext";
+import { SubclassAnalysis } from "@/components/optimization/SubclassAnalysis";
+import { BranchCover } from "@/components/catalogs/reading/BranchCover";
+import { getSubclassImagePath } from "@/lib/assets/image-manifest";
 import { translateSubclassName } from "@/lib/refs/subclass-name";
+import { findFeatureKey } from "@/lib/catalogs/reading-target";
 
 interface Props {
+  analysisEntity?: EntityRef;
   subclass: any;
   triggerClassName?: string;
   trigger?: ReactNode;
@@ -30,6 +38,7 @@ export const SubclassInfoModal = ({
   subclass,
   triggerClassName,
   trigger,
+  analysisEntity,
 }: Props) => {
   const name = translateSubclassName(subclass.name);
   const source = subclass.legacySource ?? subclass.source;
@@ -51,6 +60,9 @@ export const SubclassInfoModal = ({
       triggerClassName={triggerClassName}
       trigger={trigger}
     >
+      <SubclassAnalysisProvider entity={analysisEntity} placement="creator">
+      <BranchCover src={getSubclassImagePath(subclass.name)} alt={name} sizes="(min-width: 640px) 560px, 100vw" />
+      {analysisEntity ? <SubclassAnalysis entity={analysisEntity} placement="creator" /> : null}
       <InfoGrid>
         <InfoPill
           label="Джерело"
@@ -111,12 +123,15 @@ export const SubclassInfoModal = ({
                 <p className="text-sm font-semibold text-white">
                   {f.feature.name}
                 </p>
-                <Badge
-                  variant="outline"
-                  className="border-white/15 bg-white/5 text-[10px] text-slate-300"
-                >
-                  Рів. {f.levelGranted ?? "—"}
-                </Badge>
+                <div className="flex shrink-0 items-center gap-2">
+                  <FeatureAnalysis featureKey={findFeatureKey({ engName: f.feature.engName, level: f.levelGranted ?? 0 })} name={f.feature.name} level={f.levelGranted ?? 0} />
+                  <Badge
+                    variant="outline"
+                    className="border-white/15 bg-white/5 text-[10px] text-slate-300"
+                  >
+                    Рів. {f.levelGranted ?? "—"}
+                  </Badge>
+                </div>
               </div>
               <FormattedDescription
                 content={f.feature.description}
@@ -130,6 +145,7 @@ export const SubclassInfoModal = ({
           </p>
         )}
       </div>
+      </SubclassAnalysisProvider>
     </InfoDialog>
   );
 };

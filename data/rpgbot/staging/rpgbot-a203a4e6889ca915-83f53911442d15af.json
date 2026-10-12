@@ -1,0 +1,2275 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/multiclassing/super-mario-jump-attack-build-guide/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "83f53911442d15afffc2d37301c0d8a0ac1a9142093553a97c3f3f6c4fa6a731",
+  "sourceRevision": {
+    "revisionId": "rpgbot-a203a4e6889ca915-83f53911442d15af",
+    "sourceId": "rpgbot-a203a4e6889ca915",
+    "fetchedAt": "2026-09-29T19:18:54.556994+00:00",
+    "sourceUpdatedAt": "2024-08-16T10:51:37-04:00",
+    "contentHash": "d0ab22506b26bf1d9624f55a6423f1bda92b2247e8b64ca2b1b79f6b255c32af",
+    "title": "2024 DnD Super Mario Jump Attack Build Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-a203a4e6889ca915-83f53911442d15af.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You’re almost certainly familiar with Nintendo’s Super Mario and his penchant for jumping on his enemies to defeat them. DnD has jumping. DnD has enemies. Let’s see if we can build ourselves something that emulates Mario’s jumping tactics."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article uses the 2014 rules. We haven’t seen the 2024 magic item rules yet, so we can’t do this with the 2024 rules."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-rules-of-jumping-and-falling-on-things",
+      "heading": "The Rules of Jumping and Falling on Things",
+      "sourceAnchor": "the-rules-of-jumping-and-falling-on-things",
+      "blocks": [
+        {
+          "blockId": "block-section-the-rules-of-jumping-and-falling-on-things-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Grab your "
+            },
+            {
+              "type": "link",
+              "text": "Player’s Handbook",
+              "href": "https://www.dndbeyond.com/sources/dnd/phb-2014/adventuring#Jumping"
+            },
+            {
+              "type": "text",
+              "text": ", "
+            },
+            {
+              "type": "link",
+              "text": "Xanathar’s Guide to Everything",
+              "href": "https://www.dndbeyond.com/sources/dnd/xgte/dungeon-masters-tools#Falling"
+            },
+            {
+              "type": "text",
+              "text": ", and "
+            },
+            {
+              "type": "link",
+              "text": "Tasha’s Cauldron of Everything",
+              "href": "https://www.dndbeyond.com/sources/dnd/tcoe/dungeon-masters-tools#FallingontoaCreature"
+            },
+            {
+              "type": "text",
+              "text": ". We need to look at the rules for high jumping, for falling, and for falling on other creatures. Ideally, we want to maximize our damage to our enemies while minimizing damage to ourselves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-rules-of-jumping-and-falling-on-things-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The rate of falling rules in Xanathar’s state that we fall a maximum of 500 feet in one round, which gives us an absolute ceiling on our jump height. I don’t think that’s going to be an issue. Instead, we want to get to 200 feet to get the maximum 20d6 falling damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-rules-of-jumping-and-falling-on-things-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As described in the PHB, we jump 3 + Strength modifier feet into the air with a running high jump. With 20 Strength, this doesn’t quite get us two squares off the ground. The 10-foot running start and each foot of movement also eat our limited pool of movement, so we need to do some work to extend our jump height and to improve our movement speed. Jumping will also provoke Opportunity Attacks if we jump while within reach."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-lateral-movement",
+      "parentSectionId": "section-the-rules-of-jumping-and-falling-on-things",
+      "heading": "Lateral Movement",
+      "sourceAnchor": "lateral-movement",
+      "blocks": [
+        {
+          "blockId": "block-section-lateral-movement-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We also need to consider lateral movement. The rules for a High Jump don’t account for moving laterally. There’s absolutely no hint as to how this is handled, but let’s generously assume that we can high jump at a 45 degree angle, allowing us to move as far horizontally as we do vertically."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-lateral-movement-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I can’t assume that you DM will make the same ruling, unfortunately, which does make this entire build difficult to bring to the table. Consider this article more of a thought exercise than an actual example build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-falling-on-creatures",
+      "parentSectionId": "section-the-rules-of-jumping-and-falling-on-things",
+      "heading": "Falling on Creatures",
+      "sourceAnchor": "falling-on-creatures",
+      "blocks": [
+        {
+          "blockId": "block-section-falling-on-creatures-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Now let’s talk about falling onto another creature and how that handles damage: when a creature falls on another creature, “any damage resulting from the fall is divided evenly between them”, assuming that they fail the DC 15 Dexterity save. This means that we’re doing roughly 10d6 damage at most."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-falling-on-creatures-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Doing 10d6 damage to yourself isn’t great. I don’t recommend it. Ideally, we want ways to mitigate that damage. But that raises an interesting question: If we mitigate the damage that we take, what happens to the other creature?"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-falling-on-creatures-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The key here is determining when the damage is divided, which isn’t a question that the rules answer. “Any damage resulting from the fall” doesn’t give us an answer. The simplest ruling is that we divide the dice, then leave the individual creatures to sort it out and apply whatever resistances. But you could also argue that damage resistance applies before dividing the damage because the “damage resulting from the fall” is whatever final number you would subtract for your current hit points. There’s no clear answer."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-falling-on-creatures-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But, for the sake of argument, let’s say that we divide the damage before applying any sort of damage reductions or resistances. That’s the fun answer."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-falling-on-creatures-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Again: Consider this article more of a thought exercise than an actual example build. We’re having fun here. DnD clearly doesn’t support this tactic, but we’re doing it anyway."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-mitigating-falling-damage",
+      "parentSectionId": "section-the-rules-of-jumping-and-falling-on-things",
+      "heading": "Mitigating Falling Damage",
+      "sourceAnchor": "mitigating-falling-damage",
+      "blocks": [
+        {
+          "blockId": "block-section-mitigating-falling-damage-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mitigating damage can come from multiple sources. Remember that any damage subtracted from a value is applied before resistance, which makes combining the two less amazing than you’d hope. Still, let’s look at our options:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-mitigating-falling-damage-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Barbarian’s Rage",
+                "href": "https://www.dndbeyond.com/classes/9-barbarian#Rage-51"
+              },
+              {
+                "type": "text",
+                "text": ": Resistance to bludgeoning damage will protect us from falling damage."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feather Fall",
+                "href": "https://dndbeyond.com/spells/feather-fall"
+              },
+              {
+                "type": "text",
+                "text": ": Intended to totally negate falling damage. “If the creature lands before the spell ends, it takes no falling damage” is pretty clear. Reducing our fallspeed to 60 feet per round means that we need to lazily float downward for 4 rounds before hitting our target to deal max damage to them."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "This also applies to the"
+              },
+              {
+                "type": "link",
+                "text": "Ring of Feather Falling",
+                "href": "https://www.dndbeyond.com/magic-items/4721-ring-of-feather-falling"
+              },
+              {
+                "type": "text",
+                "text": " and similar items."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Simic Hybrid’s Manta Glide: This allows us to glide when falling prevent100 feet worth of falling damage. Gliding 200 feet horizontally in 6 seconds and then smashing into someone at 22 miles per hour would still hurt everyone involved."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Monk’s Slow Fall: “Reduce any falling damage you take by an amount equal to five times your monk level.”"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Despite the name, this doesn’t actually slow your rate of descent. You’restill plummeting up to 500 feet per round. This applies before accounting for resistance, but it’s still pretty great. 10d6 damage deals 35 damage on average, so 7 levels of Monk negates our average damage taken. 10 levels will consistently negate all of our falling damage."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-defying-gravity",
+      "heading": "Defying Gravity",
+      "sourceAnchor": "defying-gravity",
+      "blocks": [
+        {
+          "blockId": "block-section-defying-gravity-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As explained above, our running High Jump height is 3 + Strength mod feet. This is not enough. Even with 20 Strength, that’s not enough to deal damage. We need to hit a minimum of 10 feet, and ideally we want to hit 200 feet. Let’s look at our options:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defying-gravity-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Boots of Striding and Springing",
+                "href": "https://www.dndbeyond.com/magic-items/4590-boots-of-striding-and-springing"
+              },
+              {
+                "type": "text",
+                "text": ": Triple jump distance."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Monk – Step of the Wind",
+                "href": "https://www.dndbeyond.com/classes/11-monk"
+              },
+              {
+                "type": "text",
+                "text": ": Dash/Disengage as a Bonus Action and double your jump distance for the turn. Essential for this build."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Beast Barbarian – Bestial Soul",
+                "href": "https://www.dndbeyond.com/classes/9-barbarian#PathoftheBeast"
+              },
+              {
+                "type": "text",
+                "text": ": 6 levels get us Bestial Soul (Jumping), which lets us roll Strength (Athletics) and add it to jump distance once per turn."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Jump",
+                "href": "https://www.dndbeyond.com/spells/2161-jump"
+              },
+              {
+                "type": "text",
+                "text": " (the spell): Triple jump distance for one minute."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "We can get this from a Ring of Jumping (and other items) or the Otherworldly Leap invocation, but we’re not taking 9 levels of Warlock for this when there’s an Uncommon item that does it better. We can also get it as an innate spell as a Githyanki."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-defying-gravity-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This all depends on 2 Major Uncommon Magic Items, which we can expect to have around level 8 according to the "
+            },
+            {
+              "type": "link",
+              "text": "Wealth By Level Table",
+              "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#character-wealth-by-level"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defying-gravity-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stacking all of these gets complicated because 5e doesn’t have a general rule for stacking multipliers, and it’s totally unclear how these things work together. I want to say “how they’re intended to work together”, but I sincerely don’t think that the designers intended anything here. DnD isn’t a game about jumping on turtles."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defying-gravity-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If we assume the most generous interpretation, the multipliers stack multiplicatively after we add flat numerical modifiers. So with 20 Strength, we get (3 + 5 + Athletics check) * 3 * 3 * 2. With a total x18 multiplier, we barely need to invest in Athletics. We get a minimum roll of 1 and +5 from Strength, so we’re looking at 14 * 18 before we consider proficiency, and that already gets us to 252 feet."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defying-gravity-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The worst possible interpretation gets progressively worse as we make increasingly pedantic arguments about semantics. Boots of Striding and Springing say “you can jump three times the normal distance“. Jump says your “jump distance is tripled”. Step of the Wind says “your jump distance is doubled”. The only remotely comparable rule I can think of is difficult terrain, and you use the worst terrain in the space. We could apply that logic and say that we only get one x3 multiplier. Even worse, we could apply Bestial Soul (Jumping) after the multiplier. We would need to roll 176 on our Strength (Athletics) check, and this isn’t Pathfinder, so that’s not happening."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defying-gravity-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If this were third edition, the multipliers would stack additively, so we would have a x6 multiplier instead of x18. That’s much more reasonable, but 5e likes to pretend that multiplication doesn’t go past x2 and, even with 10 years and a new PHB, we still don’t have a rule for stacking multipliers."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defying-gravity-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But let’s say for the sake of arguement that we’ve talked our DM into that x6 multiplier, but we get to add Bestial Soul (Jumping) before the multipliers. We need a total jump distance of 34 before the multipliers, which gets us to 204 feet. We can subtract the base 8 jump height to account for the normal jump rules, and then we need to roll 28 on our Strength (Athletics) check. Every 1 point below that subtracts 6 feet of jump height, or roughly 1 square, so we want to do this as reliably as possible."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-olympianlevel-athletics",
+      "heading": "Olympian-Level Athletics",
+      "sourceAnchor": "olympianlevel-athletics",
+      "blocks": [
+        {
+          "blockId": "block-section-olympianlevel-athletics-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optimizing skills isn’t new. We want a big modifier and Advantage. We can get Proficiency, Expertise, and 20 in Strength are table stakes. We can get Advantage from Rage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-olympianlevel-athletics-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With Advantage, our average roll on the d20 is somewhere around 13. Our Strength and bonus from Proficiency and Expertise ranges from +5 at level 1 to +17 at level 20. That means that at very high levels our average roll is 30, easily beating our target of 28. Our minimum roll will be 18, allowing us to jump just 108 feet. We need to raise that floor."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-olympianlevel-athletics-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Other numerical modifiers are rare, but adding other bonuses will make our Strength (Athletics) check more reliable. We’re rolling on a bell curve thanks to Advantage, but we’re still rolling dice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-olympianlevel-athletics-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Guidance",
+                "href": "https://www.dndbeyond.com/spells/2132-guidance"
+              },
+              {
+                "type": "text",
+                "text": ": +1d4."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Stone of Good Luck",
+                "href": "https://www.dndbeyond.com/magic-items/4773-stone-of-good-luck-luckstone"
+              },
+              {
+                "type": "text",
+                "text": ": +1 to ability checks."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ioun Stone (Mastery)",
+                "href": "https://www.dndbeyond.com/magic-items/4938-ioun-stone-of-mastery"
+              },
+              {
+                "type": "text",
+                "text": ": +1 PB. With Expertise, that’s a +2 to our check. But it’s also Legendary."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-olympianlevel-athletics-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If we collect all of those, we can increase our checks by a minimum of +4. Our minimum roll now becomes 22, raising our minimum jump height to 132 feet. But with Guidance and Advantage, that’s going to skew even more towards an average roll of roughly 35."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-achieving-terminal-velocity",
+      "heading": "Achieving Terminal Velocity",
+      "sourceAnchor": "achieving-terminal-velocity",
+      "blocks": [
+        {
+          "blockId": "block-section-achieving-terminal-velocity-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To hit our 200-foot jump height, we need 200 feet of movement plus 5 or 10 for the running start. If we Dash as our Action, we need 105 feet of speed. If we Dash as our Bonus Action, too, we only need 70 feet of speed. Ideally, we want to leave our Action free to do other things if we want to take this character into a real game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-achieving-terminal-velocity-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Who knew that jumping really high also required holding a land speed record? I’d say “me”, but that seems unfair since I’m writing the article. I bet you did, too."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-achieving-terminal-velocity-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, most of the magic items that increase speed are boots, so our options are limited."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-achieving-terminal-velocity-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Alchemist Artificer 3 – Experimental Elixir (Speed)",
+                "href": "https://www.dndbeyond.com/classes/252717-artificer#Alchemist"
+              },
+              {
+                "type": "text",
+                "text": ": +10 feet of speed for one hour. Basically a second Longstrider."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ashardalon’s Stride",
+                "href": "https://www.dndbeyond.com/spells/ashardalons-stride"
+              },
+              {
+                "type": "text",
+                "text": ": +20 feet of speed and you damage creatures when you move adjacent to them. But it’s a level 3 spell, so we might as well cast Haste. Kinetic Jaunt is a lot like a cheaper version of this with a smaller speed bonus. Available to the Artificer, Ranger, Sorcerer, and Wizard. We could also use a spell scroll."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Athlete Feat",
+                "href": "https://dndbeyond.com/feats/athlete"
+              },
+              {
+                "type": "text",
+                "text": ": Reducing the movement needed for a running jump from 5 to 10 means that you have another 5 feet of movement to work with. It’s not enough to justify the feat on its own, but you can also get +1 Strength, and we can stand for only 5 feet of movement, which is great since we might take falling damage."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Barbarian – Fast Movement",
+                "href": "https://www.dndbeyond.com/classes/9-barbarian#FastMovement-62"
+              },
+              {
+                "type": "text",
+                "text": ": +10 feet of speed."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Bladesinging Wizard 2 – Bladesong",
+                "href": "https://www.dndbeyond.com/classes/8-wizard#Bladesinging"
+              },
+              {
+                "type": "text",
+                "text": ": +10 feet of speed while performing the Bladesong."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Centaur",
+                "href": "https://www.dndbeyond.com/races/centaur"
+              },
+              {
+                "type": "text",
+                "text": ": 40-foot base speed."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Haste",
+                "href": "https://www.dndbeyond.com/spells/haste"
+              },
+              {
+                "type": "text",
+                "text": ": Basically easy mode for this whole thing. This makes everything that we’re doing much easier, but it’s also a 3rd-level spell, which makes it difficult to fit into the build. A Potion of Speed will help, but that’s expensive."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Kinetic Jaunt",
+                "href": "https://www.dndbeyond.com/spells/kinetic-jaunt"
+              },
+              {
+                "type": "text",
+                "text": ": +10 feet of move speed for 1 minute with Concentration as a level 2 spell. Available to the Artificer, Ranger, Sorcerer, and Wizard."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Longstrider",
+                "href": "https://www.dndbeyond.com/spells/longstrider"
+              },
+              {
+                "type": "text",
+                "text": ": +10 feet of movement. Available to the Artificer, Bard, Druid, Ranger, and Wizard."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mark of Travel Human: 35 ft. base speed."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Monk 2 – Step of the Wind",
+                "href": "https://www.dndbeyond.com/classes/11-monk#Ki-228"
+              },
+              {
+                "type": "text",
+                "text": ": Dash/Disengage as a Bonus Action and double your jump distance for the turn. Essential for this build."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Monk 2 – Unarmored Movement",
+                "href": "https://www.dndbeyond.com/classes/11-monk#UnarmoredMovement-229"
+              },
+              {
+                "type": "text",
+                "text": ": A scaling bonus to our speed. It also explains why Mario never wears anything more protective than overalls and a hat."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Mobile Feat",
+                "href": "https://www.dndbeyond.com/feats/34-mobile"
+              },
+              {
+                "type": "text",
+                "text": ": +10 feet of move speed."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Potion of Speed: Haste for a minute without Concentration."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ranger 6 – Rover",
+                "href": "https://www.dndbeyond.com/classes/5-ranger#OptionalClassFeatures"
+              },
+              {
+                "type": "text",
+                "text": ": +5 feet of speed depending. Rangers can also cast Longstrider, too,which makes this an interesting possibility."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Rogue 2 – Cunning Action (Dash)",
+                "href": "https://www.dndbeyond.com/classes/12-rogue#CunningAction-345"
+              },
+              {
+                "type": "text",
+                "text": ": Dash as a Bonus Action. Of course, this is redundant with Step of the Wind, which also doubles our jump distance."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Squat Nimbleness",
+                "href": "https://www.dndbeyond.com/feats/83-squat-nimbleness"
+              },
+              {
+                "type": "text",
+                "text": ": Published in a time when small races had 25 ft. base speed, this provides a +5 ft. speed increase."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Tabaxi (Feline Agility)",
+                "href": "https://www.dndbeyond.com/races/30-tabaxi"
+              },
+              {
+                "type": "text",
+                "text": ": Double your speed for one round, but you can’t use it again until you don’t move for one round."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Zephyr Strike",
+                "href": "https://www.dndbeyond.com/spells/zephy-strike"
+              },
+              {
+                "type": "text",
+                "text": ": You can get +30 feet of speed for one round, but you need to make a weapon attack to trigger it."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-achieving-terminal-velocity-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With Longstrider and the Barbarian’s Fast Movement, we’re at +20 feet. That leaves us with room for up to 14 levels of Monk, which gets us another +25 feet. On a human with 30 feet of base speed, that gets us to 75 feet. I honestly thought that would be harder. If we dropped 4 levels of Monk, we would still hit 70 feet, which is all we need if we’re Dashing twice in a turn. That leaves us room for a few levels of Ranger to get more spell slots for Longstrider and Expertise in Athletics."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-achieving-terminal-velocity-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But we want to get to 100 feet of speed, ideally, so that we only need to Dash once per turn. Charger can cover our running start distance, but we still need 100 feet of speed, so we’ll round up to 100. A base speed of 30 feet with Barbarian 6 / Monk 14 gets us to 65. Longstrider gets us to 75, Mobile gets us to 85, and Squat Nimbleness gets us to 90. We could drop up to 8 levels of Monk, losing 10 feet of speed, in order to take some levels in another class."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-achieving-terminal-velocity-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Artificer or Ranger will get us level 1 and 2 spells and access to Kinetic Jaunt. Alchemist Artificer could get us Experimental Elixir, but it’s up to a dice roll when we create the elixir, so let’s not count on that. Ranger will get us Expertise and a permanent +5 feet of movement speed from Rover, and we can cast Kinetic Jaunt for another +10 feet of speed, getting us to 95."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-achieving-terminal-velocity-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A full caster would also work here. Upgrading to Ashardalon’s Stride and then taking Skill Expert to get Expertise gets us Expertise in Athletics and also gets us +20 feet of speed, taking us to 20. Wizard is our best bet.."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-achieving-terminal-velocity-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This makes our final class makeup Barbarian 6 / Monk 6 / Wizard 6, and we have 2 levels to play with. 2 more in Monk gives us another 10 points of reduced falling falling damage and 2 more Ki Points per Short Rest, so let’s call it Barbarian 6 / Monk 8 / Wizard 6."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+      "heading": "Example Build – It’s a-Me, Legally Distinct Person Named Mario",
+      "sourceAnchor": "example-build-its-ame-legally-distinct-person-named-mario",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-its-ame-legally-distinct-person-named-mario-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "Oh, a-No."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-its-ame-legally-distinct-person-named-mario-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Let’s recap our rules assumptions one last time:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-its-ame-legally-distinct-person-named-mario-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "We can high jump anywhere from directly upward to a 45 degree angle upward, thereby allowing us to fall into another creature’s space."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reductions to falling damage apply after splitting the falling damage between creatures."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Multipliers to jump distance stack additively and apply after flat modifiers to jump distance"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-its-ame-legally-distinct-person-named-mario-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "These are not safe assumptions. I would not run a game this way. Again: thought exercise, not really a useful build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-its-ame-legally-distinct-person-named-mario-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For the record: I am aware that this would be easier with a different Species. Centaur would make this much easier. Tabaxi could jump significantly more on alternating rounds. But Mario isn’t a centaur, and he’s not a caster most of the time, so here we go!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "parentSectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is MAD. We need 13 in Strength, Dexterity, and Wisdom, and then we need to max Strength. We’re mostly building ourselves like a Barbarian."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Increasing our ability scores with feats actually proves to be a problem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-3",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom Origin. Mario is just some guy. We’re going to choose to be small, and we’ll put the +2 into Strength. We’ll take Magic Initiate (Druid) as our feat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Does not matter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get proficiency in Athletics, we’ll get Expertise when we take Skill Expert, and nothing else matters to this article."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our feats arrive at weird levels since we’re multiclassing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 1 we’ll take Magic Initiate (Druid), then select Guidance, Produce Flame, and Longstrider as our spells. Guidance will help our jumps, Produce Flame lets us make fire flower jokes, and Longstrider gets us that +10 feet of speed long before we take Wizard levels."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we’ll take Athlete."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 10, we’ll take Mobile."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 14 we take Skill Expert."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 18 we take Squat Nimbleness."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-its-ame-legally-distinct-person-named-mario",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1 – Barbarian 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rage Unarmored Defense Weapon Mastery"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Grab a maul or a warhammer and use it two-handed. That feels accurate, right?"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I’m going to skip regular tactical stuff to focus on jumping."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can start using Longstrider right at level 1, but remember that it only lasts for 1 hour."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2 – Barbarian 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Danger Sense Reckless Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 – Barbarian 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Subclass: Path of the Beast Form of the Beast Primal Knowledge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 – Barbarian 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: AthleteStr 17 -> 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reducing our running jump requirement and allowing us to stand from prone for little cost makes all of this more convenient."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 – Barbarian 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra AttackFast Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Right around this level we can expect to find our first "
+                },
+                {
+                  "type": "link",
+                  "text": "Major Uncommon Magic Item",
+                  "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#character-wealth-by-level"
+                },
+                {
+                  "type": "text",
+                  "text": ". It’s either Boots of Striding and Springing or a Ring of Jumping."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With Athlete, a 3x multiplier, and +4 Strength, we can take a running start of 5 feet, jump up to 21 feet into the air, and land on our enemy, splitting 2d6 damage between us. We have resistance to Bludgeoning damage from Rage, but we’re going to take roughly 1 damage on average, so we will still fall prone. Fortunately, we can stand up for 5 feet of movement. We’re moving a total of 30 feet to do this, and still have 20 from Longstrider and Fast Movement to maneuver."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 – Barbarian 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bestial Soul (Jumping)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is where our jumping really starts to take off."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our Athletics modifier is currently +7. With Advantage from Rage, we’re adding an average of +20 to our base jump height before multiplying. On a minimum roll of 1 on the d20, we add 8 feet."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This makes our jump height 45 feet on a minimum roll. With a 5-foot running start, we can jump 40 feet, leaving just 5 feet of speed to stand up after splitting 4d6 damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can add Guidance to this, but we’re already at our ceiling."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 – Monk 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Martial ArtsUnarmored Defense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Not much use yet."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 – Monk 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "KiUnarmored Movement +10 ft."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Around this time you should be able to have 2 Major Uncommon Magic Items, which means that you can have both Boots of Striding and Springing and also a Ring of Jumping."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unarmored Movement, Fast Movement, and Longstrider raise our speed to 60 feet. Step of the Wind lets us Dash as a Bonus Action and doubles our jump distance, raising our multiplier to x6 when we combine it with both of our items (remember that we’re stacking additively)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our minimum roll jump height now increases from 45 feet to 90 feet. On an average roll, we could jump 162 feet, provided that we have enough movement."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If we Dash once, we have 120 feet of movement. If we dash twice, we have 180. We can reliably hit 120, but we won’t hit 180 on average even if we add Guidance."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I was going to use our Action to attack, but then I got high."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 – Monk 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Deflect MissilesSubclass: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our Athletics modifier improves to +8."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10 – Monk 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Mobile"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Slow Fall"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mobile increases our speed to 70 feet."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Slow Fall becomes our favored damage mitigation, reducing up to 20 damage at this level, and improving as we add more levels."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11 – Monk 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra AttackStunning Strike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Around this level you can expect to find your first Major Rare Magic Item. We can trade this down to an Uncommon to get a Stone of Good Luck."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our Athletics modifier increases to +9 with our shiny new rock, increasing our minimum jump height by 12 feet to 102 feet."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12 – Monk 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmored Movement +15 ft.Ki-Empowered StrikesSubclass Feature"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our speed is now 75 feet, raising our single-Dash movement to 150 feet and mario carting our double-Dash movement to 225 feet."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13 – Monk 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "EvasionStillness of Mind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our Athletics modifier increases to +10, increasing our minimum jump height by 12 feet to 114 feet."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14 – Monk 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Skill ExpertStrength 18 -> 19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Expertise raises our Athletics modifier by 5 at this level, adding 30 feet to our jumps. Our minimum jump height is now 138 feet, easily exceeding our single-Dash movement pool. Our average Athletics roll of 28 plus our base jump height of 7 and our x6 multiplier gets us an average jump height of 210 feet, finally bringing us to the 20d6 maximum falling damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Slow Fall now negates 40 points of damage, easily negating the average 35 damage that we would take. Our enemies, however, can enjoy their 35 damage on a DC 15 reflex save."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15 – Wizard 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "SpellcastingArcane Recovery"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Recovery will eventually get us an extra 3rd-level spell slot for Ashardalon’s Stride."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16 – Wizard 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Subclass: BladesingingTraining in War and SongBladesong"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bladesong’s +10 feet speed bonus brings our speed to 85 feet, raising our single-Dash movement to 170 feet and our double-Dash movement to 255 feet, leaving us plenty of room for a 200-foot jump."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We get Bladesong PB times per day, and that goes from 5 at this level to 6 at our next level, so we should do just fine."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17 – Wizard 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Level 2 Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our Athletics modifier increases to +17 as our PB increases at level 17. Our minimum jump height increases another 12 feet, bringing us to a minimum jump of 150, which coincidentally matches our single-Dash movement pool, but remember that we need 5 feet for a running start."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If we grab an Ioun Stone (Mastery), that minimum becomes 174. We won’t quite guarantee 200 feet, but we’re so close that it barely matters. We break 200 feet on a d20 roll of 4."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can also cast Kinetic Jaunt at this level, raising our speed to 100 feet. However, since it requires Concentration, we’ll need to stop relying on Rage and on Guidance. This makes our jumps less reliable, but we break 200 feet on a roll of 4, so I think we’re okay."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18 – Wizard 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Squat NimblenessStrength 19 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Squat Nimbleness is really scraping the bottom of the barrel for that last +5 feet of speed, but it gets us up to 90 feet. We can only take it because we’re small."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We could technically go without this thanks to Haste, but this also lets us use Kinetic Jaunt as a low-budget option when our 3rd-level spell slots run short. Consider splitting an ASI to fix your 11 Constitution."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19 – Wizard 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Level 3 Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can now cast Haste, doubling our speed to 180 feet. This gives us a single-Dash movement of 360 feet (and an extra Action that can be used for that Dash, leaving us a whole turn’s worth of things to do), easily enough to jump 200 feet for maximum damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can jump half the normal distance without a running start. Our effective multiplier drops from x6 to x3, so we need a base jump distance of 67 feet to jump 200 feet upward. We get 8 from the basic jump height rule, so we need 59 between our Athletics check and Guidance. With our Ioun Stone and our Stone of Good Luck, our Athletics modifier is +20. We just need to roll… 39 on 1d20+1d4."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Despite our best efforts, we’ll need a running start to maximize our jump height. Fortunately, we have plenty of speed for that."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can also consider jumping multiple times. Bestial Soul (Jumping) only works once per turn, but we can do normal high jumps all we want. With a base jump height of 8 and a 6x multiplier, we can jump 48 feet. Drop that to 40 for 4d6 damage, and add 5 feet for a running start and 5 feet to stand again after falling prone, and we can do a small jump for 50 feet of movement."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If we Dash a total of 3 times, we have a total movement pool of 720 feet. We spend 210 for our big jump, leaving 510 feet, allowing us to conduct 10 more mini jumps. In total we deal 35 damage to an enemy with our first jump, negating the damage with Slow Fall. Then we split 40d6 additional damage (140 average) between ourselves and our target(s), dealing roughly 70 damage and suffering the same amount in return. Because we got high, because we got high, because we got high."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Look, I never said this was a good idea."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20 – Wizard 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can now use Arcane Recovery to get one more 3rd-level spell slot."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-the-rules-of-jumping-and-falling-on-things-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-the-rules-of-jumping-and-falling-on-things-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-the-rules-of-jumping-and-falling-on-things-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-lateral-movement-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-lateral-movement-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-falling-on-creatures-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-falling-on-creatures-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-falling-on-creatures-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-falling-on-creatures-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-falling-on-creatures-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-mitigating-falling-damage-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-mitigating-falling-damage-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-defying-gravity-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-defying-gravity-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-defying-gravity-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-defying-gravity-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-defying-gravity-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-defying-gravity-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-defying-gravity-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-defying-gravity-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-olympianlevel-athletics-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-olympianlevel-athletics-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-olympianlevel-athletics-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-olympianlevel-athletics-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-olympianlevel-athletics-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-achieving-terminal-velocity-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-achieving-terminal-velocity-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-achieving-terminal-velocity-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-achieving-terminal-velocity-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-achieving-terminal-velocity-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-achieving-terminal-velocity-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-achieving-terminal-velocity-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-achieving-terminal-velocity-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-achieving-terminal-velocity-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-example-build-its-ame-legally-distinct-person-named-mario-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-example-build-its-ame-legally-distinct-person-named-mario-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-example-build-its-ame-legally-distinct-person-named-mario-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-example-build-its-ame-legally-distinct-person-named-mario-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-example-build-its-ame-legally-distinct-person-named-mario-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4297,
+    "sections": 15,
+    "blocks": 54,
+    "tables": 2,
+    "ratingSignals": 0
+  },
+  "status": "needs-editorial-review"
+}

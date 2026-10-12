@@ -5,6 +5,7 @@ import type { CreatureLoreGroup } from "@/lib/bestiaryLore";
 import type { DiscussionView } from "@/lib/logic/content-discussion";
 import type { HomebrewKind } from "@/lib/logic/homebrew-input";
 import type { HomebrewCatalogEntry } from "@/lib/logic/homebrew-view";
+import type { ReferenceCard } from "@/lib/optimization/reference-cards.server";
 
 export type CreatureStatblockView = {
   creature: CreatureData | null;
@@ -27,6 +28,10 @@ export function fetchHomebrewEntries(input: { kind: HomebrewKind; ruleset: Rules
 
 export function fetchBastionFacility(slug: string): Promise<BastionFacilityData | null> {
   return fetchJson("/api/bastions/facility", { slug });
+}
+
+export function fetchReferenceCard(href: string): Promise<ReferenceCard> {
+  return fetchJson("/api/reference-card", { href });
 }
 
 export function fetchDiscussion(target: string): Promise<DiscussionView | null> {

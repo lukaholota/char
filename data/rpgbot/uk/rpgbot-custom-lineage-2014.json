@@ -1,0 +1,691 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-40bfd2984fbf8a4c",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-40bfd2984fbf8a4c-67a67165178aee7d",
+      "sourceId": "rpgbot-40bfd2984fbf8a4c",
+      "fetchedAt": "2026-09-29T19:12:26.920322+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:42:38-04:00",
+      "contentHash": "b2ca1807ad792890f81da409b9375553472d7d5957c1e4bf09aec55613106236",
+      "title": "Custom Lineage: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-40bfd2984fbf8a4c-67a67165178aee7d.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-custom-lineage-2014",
+    "sourceId": "rpgbot-40bfd2984fbf8a4c",
+    "slug": "custom-lineage-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Своя раса — гайд раси (2014)",
+    "titleEn": "Custom Lineage: DnD 5e Race/Species Guide",
+    "topics": [
+      "races"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "sourceRevisionId": "rpgbot-40bfd2984fbf8a4c-67a67165178aee7d",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Запроваджена у книзі Казан Таші з усім, Своя раса — своєрідний варіант без конкретного вибору раси. Якщо задумане походження персонажа не вкладається в опубліковані раси, це чудовий спосіб його відобразити. Наприклад, для персонажа, який частково орк, частково ельф і частково людина, жоден готовий набір расових рис не підходить. Тут і допомагає Своя раса. Ви також можете використати ці правила й називати себе ельфом, дворфом чи кимось іншим: навіть для звичайного представника однієї раси вони допомагають узгодити механіку із задуманим образом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Механічно Своя раса дуже нагадує варіативну людину. Замість +1 до двох характеристик вона дає +2 до однієї та можливість обрати Темнозір{{Darkvision}} замість володіння навичкою. Варіанти приблизно рівноцінні, але розподілені підвищення роблять варіативну людину кращою для класів, яким потрібно кілька високих характеристик. На 4-му рівні перше підвищення характеристик може зрівняти відмінності, крім Темнозору, проте тоді вже можна накласти Темний зір [Darkvision] як заклинання 2-го рівня. Примітка редакції: доступ до цього заклинання залежить від класу й збірки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Своя раса має одну унікальну перевагу: з правильною рисою ви можете почати з 18 в одній характеристиці. Раніше це дозволяв Змінник, але виправлення правил усунуло таку можливість, тож тепер Своя раса єдина."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зверніть увагу: Своя раса вважається опційним правилом. Перш ніж її обирати, поговоріть із Майстром."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/custom-lineage/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/custom-lineage/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Що таке походження?",
+                    "href": "https://rpgbot.net/dnd5/characters/races/custom-lineage/#what-is-a-lineage"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Своя раса: вибір класу",
+                    "href": "https://rpgbot.net/dnd5/characters/races/custom-lineage/#classes"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-what-is-a-lineage",
+          "heading": "Що таке походження?",
+          "sourceAnchor": "what-is-a-lineage",
+          "blocks": [
+            {
+              "blockId": "block-section-what-is-a-lineage-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Походження замінює риси вашої раси й іноді додає персонажу нові тематичні особливості. Можна обрати будь-яку расу, поєднання рас або щось незвичніше й застосувати до неї походження, поєднавши її образ із тематикою та механікою походження. Механічно персонажі одного походження мають однакові расові риси незалежно від опису. Якщо ви обираєте расу на додачу до походження, зазвичай воно замінює всі її риси, хоча деякі походження мають {{Спадщина предків|Ancestral Legacy}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-what-is-a-lineage-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усі походження дозволяють обрати одне підвищення характеристики на +2 й одне на +1 або три окремі підвищення на +1. Своя раса — виняток: наскільки я розумію, три +1 обрати не можна. Гравці розподіляють підвищення на власний розсуд, тому походження підходять багатьом класам, а їхні інші риси стають важливішими, ніж зазвичай, коли саме підвищення характеристик значною мірою визначають життєздатні класи. Опційне налаштування походження дає таку гнучкість усім расам, але для походжень це стандарт. Примітка редакції: Своя раса отримує лише одне +2, без додаткового +1; загальна схема вище стосується походжень із книги про Равенлофт."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-what-is-a-lineage-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наскільки я розумію, походження не дозволяють брати риси з вимогою конкретної раси, навіть якщо ви описуєте персонажа як колишнього представника цієї раси. Jeremy Crawford пояснив, що "
+                },
+                {
+                  "type": "link",
+                  "text": "Своя раса",
+                  "href": "https://twitter.com/JeremyECrawford/status/1367309850707849216"
+                },
+                {
+                  "type": "text",
+                  "text": " обирається замість раси, тому персонаж не належить до конкретної раси для відповідних передумов. Питання ще не цілком ясне, але, на мою думку, інші походження задумано за тим самим принципом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes",
+          "heading": "Своя раса: вибір класу",
+          "sourceAnchor": "classes",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Своя раса вже дуже гнучка, тому опційне налаштування походження на неї не впливає. Поради нижче однаково діють із цими правилами й без них."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект — єдина характеристика, без якої Винахідник справді не обходиться. +2 до Інтелекту чудові, а цей клас добре підходить для старту з 18 Інтелекту завдяки рисі, що його підвищує."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із цих двох варіантів варіативна людина краща для Варвара: можна почати з 16 Сили й Статури. Утім, +2 до Сили й риси достатньо для чудового Варвара, а Темнозір{{Darkvision}} привабливий для класу, який сам його не забезпечує."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма — єдина справді необхідна Барду характеристика, тому +2 чудові. Риса з підвищенням Харизми дозволяє почати з 18. Якщо обираєте цей шлях, тримайтеся небойових підкласів, як Колегія красномовства{{College of Eloquence}} чи Колегія знань{{College of Lore}}. Для використання зброї доцільніше взяти рису, яка це підтримує, і розглянути варіативну людину, щоб розподілити підвищення між Харизмою та Спритністю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірику, зосередженому на заклинаннях, потрібні насамперед +2 до Мудрості. Риса відкриває багато цікавих варіантів, зокрема володіння важкими обладунками, якого більшість доменів для чаротворення зазвичай не дають."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За кількома винятками, Друїду справді потрібна лише Мудрість, тож +2 чудові, а почати з 18 завдяки правильній рисі часто доцільно. Для Кола спор{{Circle of Spores}} натомість рекомендую варіативну людину."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і Варвар, Воїн на 1-му рівні більше виграє від розподілу підвищень між Силою або Спритністю та Статурою. Проте +2 до однієї характеристики все одно достатньо для життєздатного персонажа, а Темнозір{{Darkvision}} привабливий для класу, який зазвичай не накладає заклинань."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монах відомий залежністю від кількох характеристик, тому +2 лише до однієї — складний вибір. Можна взяти рису з +1 до Спритності або Мудрості, але це сильно звужує можливості; варіативна людина значно простіша."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і Монах, Паладин залежить від кількох характеристик, тому одне +2 важко порівнювати з підвищеннями варіативної людини. Можна створити Паладина, який цілком покладається на Харизму, використовуючи {{Благословенний воїн|Blessed Warrior}}, але одного привабливого варіанта збірки недостатньо, щоб зробити клас очевидним вибором."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Третій поспіль клас із залежністю від кількох характеристик. Слідопиту вони потрібні менше, ніж Монаху чи Паладину, проте три характеристики все одно мають значення. Висока Спритність із 14 Статури й Мудрості працює дуже добре, тому Своя раса чудово підходить."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes",
+          "heading": "Розбійник",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність і Темнозір{{Darkvision}} — мабуть, найкраще поєднання расових переваг для Розбійника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes",
+          "heading": "Чаклун",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма — єдина справді необхідна Чаклуну характеристика, тому +2 чудові. Риса з підвищенням Харизми дозволяє почати з 18, тож Чаклун добре підходить для цього задуму."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чорнокнижник, як і Чаклун, може чудово обходитися самою Харизмою. Проте для {{Відьмацький клинок|Hexblade}} ближнього бою рекомендую варіативну людину: Статуру також захочеться підвищити, щоб компенсувати Кубик Здоровʼя к8."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект — єдина справді необхідна Чарівнику характеристика, тому +2 чудові. Риса з підвищенням Інтелекту дозволяє почати з 18, тож Чарівник добре підходить для цього задуму."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-custom-lineage-2014-001",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-custom-lineage-2014-002",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-custom-lineage-2014-003",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-custom-lineage-2014-004",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-custom-lineage-2014-005",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-custom-lineage-2014-006",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-custom-lineage-2014-007",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-custom-lineage-2014-008",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-custom-lineage-2014-009",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-custom-lineage-2014-010",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-custom-lineage-2014-011",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-custom-lineage-2014-012",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-custom-lineage-2014-013",
+      "articleId": "rpgbot-custom-lineage-2014",
+      "translationRevisionId": "translation-rpgbot-custom-lineage-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

@@ -1,0 +1,307 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "sorcerer-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+    "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "SORCERER_2014",
+  "subclassKey": "DRACONIC_BLOODLINE",
+  "raceKey": "DRAGONBORN_2014",
+  "backgroundKey": "NOBLE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 14,
+    "INT": 12,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "recipeTitle": "Приклад збірки Чародія — Дракононароджений, Чародій (Драконячий родовід)",
+  "levelPlans": {
+    "levels": "all",
+    "notes": true,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "spells": {
+        "knownSpellKeys": [
+          "burning-hands"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classOptions": [
+        {
+          "optionNameEng": "Empowered Spell"
+        },
+        {
+          "optionNameEng": "Quickened Spell"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "scorching-ray"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "fire-bolt"
+        ],
+        "knownSpellKeys": [
+          "blindness-deafness"
+        ]
+      }
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "fireball"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "spells": {
+        "knownSpellKeys": [
+          "haste"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "spells": {
+        "knownSpellKeys": [
+          "wall-of-fire"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "polymorph"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "spells": {
+        "knownSpellKeys": [
+          "cone-of-cold"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classOptions": [
+        {
+          "optionNameEng": "Twinned Spell"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "hold-monster"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "sunbeam"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "fire-storm"
+        ]
+      }
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15,
+      "spells": {
+        "knownSpellKeys": [
+          "incendiary-cloud"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "classOptions": [
+        {
+          "optionNameEng": "Careful Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "spells": {
+        "knownSpellKeys": [
+          "meteor-swarm"
+        ]
+      }
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Метамагія на 17-му рівні",
+      "reason": "Автор пише «Метамагія: будь-яка»; пресет бере типову Careful Spell, гравець може змінити.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння на 10-му рівні",
+      "reason": "Автор пише «Нове відоме замовляння: будь-яке» і не називає його; його обирає гравець.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Характеристики",
+      "reason": "Автор подає базові 8/14/14/12/10/15 (29 очок), а купівля дає 27; пресет зменшує Мудрість з 10 до 8.",
+      "section": "section-abilities"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/sorcerer-draconic-2014.webp",
+    "title": "Чародій Драконячого родоводу — Дракононароджений",
+    "description": "Вогняний чародій із чотирма замовляннями та драконячим родоводом. Походження обрано вже на 1-му рівні.",
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "INTIMIDATION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "subraceKey": null,
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "abilityExplanation": "Автор подає базові 8/14/14/12/10/15, але це 29 очок, а купівля дає 27. Платформа зменшила Мудрість з 10 до 8; бонуси дракононародженого дають Силу 10 та Харизму 16.",
+    "skillExplanation": "Автор хоче три навички «обличчя»: Обман, Залякування й Переконання. Обман і Залякування — від класу, Переконання дає Аристократ.",
+    "equipmentExplanation": "Легкий арбалет, мішечок компонентів і два кинджали взяті з авторського прикладу. Набір дослідника підземель і додаткову мову ми обрали за вас — це вибір платформи.",
+    "featSection": "section-feats-2",
+    "featOptionName": null,
+    "racialAbilities": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "skillSection": "section-skills-and-tools",
+    "equipmentSection": "section-levels",
+    "raceOptions": [
+      "Білий дракон"
+    ],
+    "subclassOptions": [
+      "Red Dragon (Fire)"
+    ],
+    "platformChoices": [
+      "subclassOptions",
+      "raceOptions"
+    ],
+    "spells": {
+      "classCantripKeys": [
+        "chill-touch",
+        "mage-hand",
+        "prestidigitation",
+        "ray-of-frost"
+      ],
+      "knownSpellKeys": [
+        "shield",
+        "sleep"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Чотири замовляння та два заклинання названі автором.",
+      "sectionId": "section-levels"
+    }
+  }
+}

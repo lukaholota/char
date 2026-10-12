@@ -1,0 +1,1024 @@
+{
+  "buildId": "build-warlock-kenku-great-old-one-2014",
+  "revisionId": "build-warlock-kenku-great-old-one-2014-v5",
+  "ruleset": "RULES_2014",
+  "title": "— Ігри розуму",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-warlock-great-old-one-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+      "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "WARLOCK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "GREAT_OLD_ONE"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Agonizing Blast"
+          },
+          {
+            "optionNameEng": "Mask of Many Faces"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Tome"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "invisibility"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (CHA)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (DECEPTION)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "suggestion"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Book of Ancient Secrets"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "enemies-abound"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "dissonant-whispers",
+          "add": "hunger-of-hadar"
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hypnotic-pattern"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Ghostly Gaze"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "summon-aberration"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TELEKINETIC",
+        "featOptions": [
+          {
+            "optionNameEng": "TELEKINETIC Ability (Charisma)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "evards-black-tentacles"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Gift of the Protectors"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "telekinesis"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "synaptic-static"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GUILE_OF_GIANTS",
+        "featOptions": [
+          {
+            "optionNameEng": "GUILE_OF_GIANTS Ability (Charisma)"
+          }
+        ],
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Eldritch Mind"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "tashas-hideous-laughter"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Shrouded in Shadow"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY",
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Visions of Distant Realms"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER",
+        "openAdvancement": true,
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-great-old-one-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+          "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "GREAT_OLD_ONE",
+    "raceKey": "KENKU_MPMM",
+    "backgroundKey": "CHARLATAN",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Расове +2 вкладемо в Харизму, а +1 — у Спритність. По суті, стандарт для Чорнокнижників. Мудрість занедбувати не хочемо, бо Аналіз Поведінки стане в пригоді.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 14 14 Інтелект 8 8 Мудрість 10 10 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Кенку{{Kenku}}. Ми зробимо ставку на хитрі витівки, а здатність ідеально імітувати звуки тематично чудова й дає масу задоволення за столом. Ми також отримуємо дві навички, що чудово. Візьмемо Обман і Непомітність.\n\nНа жаль, імітація не працюватиме з нашою телепатією. За словами Джеремі Кроуфорда, під час телепатичної розмови ваш голос звучить як ваш власний, але це не має значення, якщо ціль ніколи не чула вашого справжнього голосу, бо решту часу ви говорите виключно через імітацію.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Шарлатан{{Charlatan}}. Ідеально за темою. Обман дублюватиме володіння навичкою від раси, тож замініть його на Аналіз Поведінки, бо від класу ми її не отримаємо. Спритність рук не надто корисна, тож її можна замінити на щось на кшталт Уважності.\n\nВи можете побачити в переліку володінь Набір фальшивомонетника{{Forgery Kit}} і подумати «зайве», але ще раз перевірте формулювання расової риси Кенку «Майстерне підроблення»{{Expert Forgery}}. «Експертне підроблення» дає Перевагу на перевірки, але не згадує володіння. Мати і те, і те — значить, підроблення стане дуже ефективним.\n\nУ будь-якому разі одне з володінь інструментами можна обміняти на Інструменти злодія{{Thieves’ Tools}}, якщо у вашій групі немає Пройдисвіта{{Rogue}}. Ми й так матимемо чимало підступних можливостей, тож заміна Пройдисвіта цілком можлива.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Зі своїх навичок Чорнокнижника беремо Магію й Залякування. Разом це дає нам Магію, Обман, Аналіз Поведінки, Залякування, Спритність рук і Непомітність. Ми також отримуємо володіння {{Наборами для гриму|Disguise Kits}} і Наборами фальшивомонетника{{Forgery Kits}}.\n\nНа 4-му рівні візьмемо «Експерта у навичках»{{Skill Expert}}, що дасть нам володіння Переконанням і Експертизу в Обмані.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Експерта у навичках»{{Skill Expert}}. Володіння Переконанням, Експертиза в Обмані, +1 до Харизми, щоб не відставати від «Фундаментальної математики»{{Fundamental Math}}.\n\nНа 8-му рівні беремо «Телекінетика»{{Telekinetic}}. Це чудова утиліта без видимого звʼязку між вами й ефектом, що ще більше збагачує хитромудрі витівки, які ми можемо втілити. Вона також дає нам +1 до Харизми.\n\nНа 12-му рівні візьмемо «Хитрість велетнів»{{Guile of the Cloud Giant}}, що дає захисну реакцію й ще +1 до Харизми, щоб дійти до 20.\n\nНа 16-му й 19-му рівнях у нас вільні слоти під риси. Основні варіанти на кшталт «Надихаючого лідера»{{Inspiring Leader}} і «Удачі»{{Lucky}} тут працюють чудово.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Потойбічний покровитель{{Otherworldly Patron}}: Прадавній\nПробуджений розум\nМагія пакту\nВідомі заклинання:\n– Дисонуючий шепіт\n– Проклін\nВідомі замовляння:\n– Позамежний заряд\n– Мала ілюзія",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Потойбічні виклики\n– Мучливий вибух\n– Маска багатьох облич\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Дар пакту{{Pact Boon}}: Пакт гримуара\nНові відомі замовляння:\n– Дружба\n– Настанова\n– Розщеплення Розуму\nНове відоме заклинання:\n– Невидимість",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Експерт у навичках\n– Харизма 17 → 18\n– Володіння: Уважність\n– Експертиза: Обман\nНове відоме замовляння:\n– будь-яке\nНове відоме заклинання:\n– Навіювання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Новий потойбічний виклик:\n– Книга давніх секретів\nНове відоме заклинання:\n– Достаток ворогів\nПеренавчання заклинання:\n– Дисонуючий шепіт → Голод Хадара",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Ентропійний захист\nНове відоме заклинання:\n– Гіпнотичний візерунок",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Новий потойбічний виклик:\n– Примарний погляд\nНове відоме заклинання:\n– Виклик аберації",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Телекінетик (Харизма 18 → 19)\nНове відоме заклинання:\n– Чорні щупальця Еварда",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Новий потойбічний виклик:\n– Дар захисників\nНове відоме заклинання:\n– Телекінез",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Щит думок\nНове відоме заклинання:\n– Синаптичний розряд",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Містичний арканум: Ментальна вʼязниця\nНове відоме заклинання:\n– будь-яке\nНове відоме замовляння:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Хитрість велетнів (Харизма 19 → 20)\nНовий потойбічний виклик:\n– будь-який",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Містичний арканум: Планарний перехід\nНове відоме заклинання:\n– Огидний сміх Таші",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Створення раба{{Create Thrall}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Містичний арканум: Впевненість\nНове відоме заклинання:\n– будь-яке\nНовий потойбічний виклик:\n– Вкритий тінню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Містичний арканум: Психічний крик\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Новий потойбічний виклик:\n– Видіння далеких царств",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: будь-яка\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Містичний майстер{{Eldritch Master}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Версія Кенку",
+        "reason": "Автор описує Кенку з «Путівника Воло по монстрах» і расову рису «Майстерне підроблення»; у каталозі є лише версія з «Монстрів Мультивсесвіту» з підвищеннями за правилами Таші.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заміна інструментів Шарлатана",
+        "reason": "Автор радить обміняти одне з володінь інструментами на Інструменти злодія; пресет не записує заміну інструментів.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Пакту гримуара",
+        "reason": "На 3-му рівні автор називає замовляння Дружба, Настанова й Розщеплення Розуму з Книги Тіней; платформа не записує замовлення Пакту гримуара, тож їх слід додати вручну.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Володіння Експерта у навичках (4-й рівень)",
+        "reason": "Автор називає володіння суперечливо: таблиця дає Уважність, а текст про риси й розділ про збірку — Переконання; записано лише узгоджене (Харизма +1, Експертиза в Обмані), володіння слід обрати вручну.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання й замовлення «будь-які»",
+        "reason": "На 2-му рівні автор не називає нового заклинання, на 4-му — нового замовляння; це вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Рядок 10-го рівня",
+        "reason": "Автор дає на 10-му рівні Синаптичний розряд (заклинання), а на 11-му «будь-яке» заклинання й замовляння. Чорнокнижник вивчає замовляння на 10-му, а заклинання на 11-му: записано замовляння на 10-му (вибір гравця), Синаптичний розряд на 11-му; зайве заклинання «будь-яке» 11-го рівня не вміщається.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Містичний арканум (11–17-й рівні)",
+        "reason": "Автор називає Ментальну вʼязницю (11-й), Планарний перехід (13-й), Впевненість (15-й) і Психічний крик (17-й); платформа не записує вибір арканума.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Вибори «будь-який / будь-яка» на 12–19-му рівнях",
+        "reason": "Автор пише «будь-який» для потойбічного виклику на 12-му рівні (пресет бере Eldritch Mind), «будь-яка» риса на 16-му й 19-му (автор радить Удачу та Надихаючого лідера; записано в такому порядку, гравець може змінити), а відомі заклинання «будь-які» на 15, 17 і 19-му лишено на вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-great-old-one-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+            "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

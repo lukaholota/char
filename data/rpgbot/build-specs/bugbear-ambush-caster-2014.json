@@ -1,0 +1,385 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "bugbear-y-me-in-damage-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+    "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8"
+  },
+  "exampleSection": "section-example-build-1-ambush-caster",
+  "levelTableSection": "section-levels",
+  "classKey": "WIZARD_2014",
+  "subclassKey": "SCHOOL_OF_WAR_MAGIC",
+  "raceKey": "BUGBEAR_MPMM",
+  "backgroundKey": "SAGE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 12,
+    "INT": 15,
+    "WIS": 8,
+    "CHA": 13
+  },
+  "levelPlans": {
+    "levels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      16,
+      18,
+      19,
+      20
+    ],
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "nodeSections": [
+    "section-ability-scores",
+    "section-feats-2"
+  ],
+  "incomplete": [
+    {
+      "field": "Рівні 6–20 (мультиклас Пройдисвіт/Чародій/Воїн)",
+      "reason": "Автор не називає кількості рівнів кожного класу; порядок відновлено з таблиці статті й тексту «Чарівник 5, Чародій 3, Воїн 2, Пройдисвіт 3, далі Чародій»: Чарівник 1–5 на рівнях персонажа 1–5, Пройдисвіт 1 на 6-му, Чародій 1–3 на 7–9, Воїн 1–2 на 10–11, Пройдисвіт 2–3 на 12–13, Чародій 4–10 на 14–20. Виконуються всі 20 рівнів. Автор пише «Експертиза – Уважність, Непомітність», але Уважності в персонажа немає (мультиклас Пройдисвіта навичку не дає), тож експертиза в Непомітності й Розслідуванні — вибір платформи. Бойовий стиль Воїна автор не називає (На вибір): взято Defense — вибір платформи. Автор додає вказівку «Метамагія – На вибір 2» на 20-му рівні, але Чародій 10 дає лише одну нову метамагію (компілятор: «рівень 20 (Чародій 10): classOptions: у групі «Метамагія» потрібно обрати 1, а в плані 2»): взято Twinned Spell, гравець може змінити. Нові замовляння й заклинання Чародія та книги Чарівника автор не називає, їх залишено вибору гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Походження",
+      "reason": "Автор не називає передісторію, навички, мови та спорядження; названо лише расу Ведмебай (+2 до Інтелекту, +1 до Спритності), тож решту обрано як вибір платформи.",
+      "section": "section-ability-scores"
+    },
+    {
+      "field": "Навичка при вході в клас Пройдисвіт (6-й рівень)",
+      "reason": "Пройдисвіт, взятий другим класом, дає одну навичку зі свого списку. Автор її не називає, тому Акробатику обрано за вас (вибір платформи); після створення її можна змінити на листі.",
+      "section": "section-ability-scores"
+    }
+  ],
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "subclassKey": "SCHOOL_OF_WAR_MAGIC",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "spells": {
+        "spellbookKeys": [
+          "scorching-ray",
+          "invisibility"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 1
+        },
+        {
+          "ability": "INT",
+          "amount": 1
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "spells": {
+        "spellbookKeys": [
+          "spirit-shroud"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "classKey": "ROGUE_2014",
+      "multiclassSkills": [
+        "ACROBATICS"
+      ],
+      "expertise": [
+        "STEALTH",
+        "INVESTIGATION"
+      ]
+    },
+    {
+      "level": 7,
+      "classKey": "SORCERER_2014",
+      "subclassKey": "DRACONIC_BLOODLINE",
+      "subclassOptions": [
+        {
+          "optionNameEng": "Red Dragon (Fire)"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 4
+        },
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "classKey": "SORCERER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Seeking Spell"
+        },
+        {
+          "optionNameEng": "Subtle Spell"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "classKey": "FIGHTER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Defense"
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "classKey": "FIGHTER_2014"
+    },
+    {
+      "level": 12,
+      "classKey": "ROGUE_2014"
+    },
+    {
+      "level": 13,
+      "classKey": "ROGUE_2014",
+      "subclassKey": "ASSASSIN"
+    },
+    {
+      "level": 14,
+      "classKey": "SORCERER_2014",
+      "featKey": "ALERT",
+      "section": "section-feats-2",
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "classKey": "SORCERER_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "classKey": "SORCERER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Twinned Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/bugbear-ambush-caster-2014.webp",
+    "title": "Ведмебай — Чарівник Бойової магії, заклинатель із засідки",
+    "description": "Ведмебай з Інтелектом 17 і Спритністю 16, що починає Чарівником із Кольоровою кулькою в книзі й згодом додає Чародія, Воїна та Пройдисвіта-Убивцю заради Несподіваної атаки.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "INT",
+      "DEX",
+      "INT"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INVESTIGATION",
+        "INSIGHT"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DRACONIC",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-ability-scores",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля очок 8/15/12/15/8/13 з таблиці автора; расові +2 до Інтелекту й +1 до Спритності за правилами Таші дають Інтелект 17 і Спритність 16. Це вже враховано.",
+    "skillExplanation": "Автор не називає навичок і походження. Розслідування й Проникливість від Чарівника, Магію та Історію від походження Мудреця, а також Непомітність від Ведмебая ми обрали за вас — це вибір платформи. Три мови теж вибір платформи.",
+    "equipmentExplanation": "Автор спорядження не називає. Кинджал, мішечок компонентів і набір ученого ми обрали за вас — це вибір платформи, їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "fire-bolt",
+        "mage-hand",
+        "prestidigitation"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [
+        "chromatic-orb",
+        "mage-armor",
+        "magic-missile",
+        "shield",
+        "find-familiar",
+        "detect-magic"
+      ],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "chromatic-orb",
+        "mage-armor",
+        "magic-missile",
+        "shield"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Автор називає лише Кольорову кульку як найкращу шкоду першого ходу; її внесено в книгу й підготовлено. Решту трьох замовлянь, пʼять інших заклинань книги й підготовку ми обрали за вас — це вибір платформи.",
+      "platformChoices": [
+        "preparedSpells"
+      ]
+    }
+  }
+}

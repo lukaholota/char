@@ -153,6 +153,7 @@ async function loadClassSpellChoice(
   const offer: ClassSpellOffer = {
     className: characterClass.name,
     classLabel,
+    subclassName: subclass?.name ?? null,
     ruleset,
     quota,
     catchUp,
@@ -415,7 +416,7 @@ async function loadOwnedSpells(client: DatabaseClient, persId: number | null) {
   }));
 }
 
-async function loadRuleGrantedSpellIds(client: DatabaseClient, input: ClassSpellOfferInput): Promise<Set<number>> {
+export async function loadRuleGrantedSpellIds(client: DatabaseClient, input: Pick<ClassSpellOfferInput, "classId" | "classLevel" | "subclassId">): Promise<Set<number>> {
   const [classRows, subclassRows] = await Promise.all([
     client.classFeature.findMany({
       where: { classId: input.classId, levelGranted: { lte: input.classLevel } },

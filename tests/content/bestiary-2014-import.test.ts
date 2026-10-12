@@ -5,6 +5,7 @@ import { stripSpellAnchors } from "@/lib/spell-link";
 import manifest from "../../data/aidedd/import-manifest.json";
 import { findSourceKey2014 } from "../../scripts/aidedd/build-creature-record";
 import dictionary from "@/lib/refs/dictionary.json";
+import optimizationSupplements from "@/lib/generated/optimization-entity-supplements-2014.json";
 import { subclassTranslations, LanguageTranslations } from "@/lib/refs/translation";
 import { readFileSync } from "node:fs";
 import { parseMonster2014 } from "../../scripts/aidedd/parse-monster-2014";
@@ -1542,7 +1543,9 @@ describe("KR12.3 — добірка партій 33–34 у зібраному �
     // 974 → 962 (2026-09-18): з партії 10 `scripts/data/` знято 12 статблоків, написаних із
     // памʼяті під позначкою MM, яких немає в жодному джерелі (Aquatic Chimera, Solar Exarch,
     // Dire Bear, Ghoul Stalker…). Заступлених жодного: ці id ніхто з імпортів не займав.
-    expect(list.length).toBe(962);
+    const supplementalNames = new Set(optimizationSupplements.creatures.map((creature) => creature.nameEng));
+    expect(list.filter((creature) => !supplementalNames.has(creature.nameEng))).toHaveLength(962);
+    expect(list.filter((creature) => supplementalNames.has(creature.nameEng))).toHaveLength(13);
     for (const [creatureId, nameEng] of [
       [159, "Winter Wolf"],
       [292, "Gynosphinx"],

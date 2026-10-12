@@ -1,0 +1,8 @@
+cheese grater (combos) → «тертка для сиру»{{cheese grater}} | block-section-levels-1/row/3/2 | ігровий жаргон про комбінацію, що знову й знову протягує ворога крізь зону шкоди; усталеного відповідника немає, передано буквально в лапках
+grue → грю{{grue}} | block-section-levels-1/row/1/2 | жартівлива відсилка до гри Zork («eaten by a grue»); назва створіння, відповідника в каталогах немає, транслітеровано
+Staple Druid Build → [[1|базова збірка Друїда]]{{Staple Druid Build}} | block-section-example-circle-of-the-land-druid-build-wise-old-owl-1 | за зразком «базова збірка»{{Staple Build}} на інших сторінках і назви посилання на збірку з гайда Друїда
+Wise Old Owl → «Мудра стара сова» | заголовок section-example-circle-of-the-land-druid-build-wise-old-owl | назва збірки-жарту, передано за змістом
+Herbalist’s Kit → набір травника{{Herbalist’s Kit}} | block-section-skills-and-tools-2 | у каталозі лише Herbalism Kit → «набір травника» (так у сусідніх гайдах); у маркері лишено написання джерела
+Leather Armor / Explorer’s Pack / Druidic Focus → шкіряний обладунок / набір мандрівника / друїдичний фокус | block-section-levels-1/row/0/2 | «Leather» і «Explorer's Pack (10 GP)» із armor.json і rules-2024.json; «друїдичний фокус» — як у гайді Друїда (каталог 2024 має «друїдське фокусування»)
+Druidic Circle (рядок таблиці) → Коло друїдів | block-section-levels-1/row/1/1 | джерело пише «Druidic Circle», уміння називається «Коло друїдів» (так у гайді Друїда й підкласів)
+(free) біля колових заклинань → (безкоштовно) | block-section-levels-1/row/2/1 та ін. | означає, що заклинання не займає місця серед підготовлених

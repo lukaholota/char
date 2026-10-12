@@ -1,0 +1,1430 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-0fa4a2c8dd9556db",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-0fa4a2c8dd9556db-41eb02d9e458d773",
+      "sourceId": "rpgbot-0fa4a2c8dd9556db",
+      "fetchedAt": "2026-09-29T19:08:55.290340+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:46:47-04:00",
+      "contentHash": "5eb9a9958cc5781383d3102ddd6281d55998a0683ac4cfdbeeec7643ec9a948b",
+      "title": "School of Illusion Wizard 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-0fa4a2c8dd9556db-41eb02d9e458d773.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-wizard-illusion-2014",
+    "sourceId": "rpgbot-0fa4a2c8dd9556db",
+    "slug": "wizard-illusion-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Школа ілюзії — гайд підкласу Чарівника (2014)",
+    "titleEn": "School of Illusion Wizard 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Чарівник",
+      "Школа ілюзії",
+      "ілюзіоніст",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-wizard-illusion-2014-draft1",
+      "articleId": "rpgbot-wizard-illusion-2014",
+      "sourceRevisionId": "rpgbot-0fa4a2c8dd9556db-41eb02d9e458d773",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ілюзія — одна з найскладніших, найвідкритіших і найгнучкіших шкіл магії. Її обмежують лише ваша й вашого Майстра уява. Якщо ви творча, артистична людина, яка вміє думати на ходу, Ілюзії можуть бути надзвичайно потужними. Хоча серед заклинань є варіанти на кшталт Фантомного вбивці [Phantasmal Killer] і Симулякра [Simulacrum], що виходять далеко за межі поняття чуттєвих ілюзій (створення речей, які здаються справжніми), Школа ілюзії суворо наголошує на чуттєвих ілюзіях і дає вам нові способи зробити ці заклинання гнучкішими, різнобічнішими й потужнішими."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте вільна природа ілюзій означає й те, що ваші заклинання перекладають на Майстра велике навантаження: він має тлумачити їхні ефекти й те, як на них реагуватимуть інші істоти. Якщо ваш Майстер з тих, хто підіграє вашим витівкам, Школа ілюзії може бути страшенно веселою. Але якщо ваш Майстер прискіпливий до механік, хоч трохи ворожий до гравців чи просто любить суперечити, ви можете виявити, що ілюзіями важко користуватися з великим ефектом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Раджу приберегти Школу ілюзії для ігор, де Майстер досить досвідчений і спокійно почувається за кермом гри. Негарно кидати щось настільки руйнівне в гру, де ваш Майстер ще призвичаюється до механік."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ілюзіоніст у вашій грі працює, він може бути ефективним контролером і атакером. Заклинання на кшталт Невидимості [Invisibility] і широкі можливості для відволікання та приховування можуть також зробити вас ефективним розвідником. Щоб вичавити максимум зі своїх заклинань ілюзії, обовʼязково прочитайте наш "
+                },
+                {
+                  "type": "link",
+                  "text": "Практичний гайд з ілюзій",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця стаття — для правил 2014 року. Для правил 2024 дивіться наш "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд підкласу Чарівника-ілюзіоніста D&D 2024",
+                  "href": "https://rpgbot.net/2024-dnd/classes/wizard/wizard-subclasses/illusionist/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Школи ілюзії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Школи ілюзії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#school-of-illusion-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Школи ілюзії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#school-of-illusion-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Школи ілюзії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#school-of-illusion-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки й зброя Школи ілюзії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#school-of-illusion-armor-and-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — «Усе — торт ілюзія»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#example-build-everything-is-cake-an-illusion"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/illusion/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Школи ілюзії",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Знавець ілюзії{{Illusion Savant}}: стандартне для підкласів Чарівника з PHB. Дивно, але це уміння спонукає використовувати два безкоштовні заклинання, вивчені на кожному рівні, на буквально будь-що, крім заклинань вашої улюбленої школи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Удосконалена Мала ілюзія{{Improved Minor Illusion}}: Мала ілюзія [Minor Illusion] може бути неймовірно потужною в руках розумного заклинателя, а додавання обох ефектів в одному накладанні робить її значно кориснішою. Створення ілюзії горщика на підлозі разом зі звуком падіння горщика чи ілюзії маленької тварини з відповідними звуками (я для цього полюбляю курей) можуть бути чудовим відволіканням, а істоти не отримують ряткидка чи перевірки навички, щоб не вірити в ілюзію, доки не витратять на це дію."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гнучкі ілюзії{{Malleable Illusions}}: більшість заклинань ілюзій, що створюють триваючий ілюзорний ефект (Мовчазний образ [Silent Image], Уявна земля [Hallucinatory Terrain] тощо), не дозволяють змінювати ілюзію, щойно вона створена. Мовчазний образ [Silent Image] і Оживлений образ [Major Image] дозволяють переміщати й анімувати ілюзію, але це може перетворити червону кулю на червону кулю, що котиться чи підстрибує, і не більше. «Гнучкі ілюзії» можуть перетворити вашу червону кулю на статую дракона чи щось подібне, фактично замінивши вашу наявну ілюзію без повторного накладання заклинання. Це додає таким заклинанням купу гнучкості.\n\nРедакторська примітка: автор двічі пише Minor Image, але заклинання з такою назвою в правилах 2014 немає. Відповідність Мовчазному образу [Silent Image] визначена за описом рухомого й анімованого образу; це редакторський висновок за описом. Назву Minor Image в оригіналі збережено."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ілюзорний двійник{{Illusory Self}}: безпомилково ігноруйте одну атаку проти вас безкоштовно раз на короткий чи довгий відпочинок. Дуже добре для тендітного Чарівника. У поєднанні з іншими захисними заходами на кшталт ховання й користування укриттям ви можете навіть обійтися без Щит [Shield]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ілюзія реальності{{Illusory Reality}}: це перетворює ваші ілюзії на заклинання творення, а отже, будь-який інструмент, який ви можете уявити, доступний за низьку ціну накладання Мовчазний образ [Silent Image]. На жаль, «Гнучкі ілюзії», імовірно, не дозволяють змінити предмет, який ви обрали зробити реальним, бо «Ілюзія реальності» діє лише коли ви накладаєте заклинання. Ви не можете безпосередньо шкодити істотам за допомогою «Ілюзії реальності», але правила нічого не кажуть про перешкоджання, обмеження руху, блокування чи навіть скидання їх. Створіть Мовчазний образ [Silent Image], щоб звести камʼяну стіну між вами та вашими ворогами або посадити їх у клітку. Створіть ілюзорний міст зі зручним люком (або просто підгадайте так, щоб вони були на мосту, коли завершиться 1-хвилинна тривалість) і скиньте ворогів у яму."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-illusion-ability-scores",
+          "heading": "Характеристики Школи ілюзії",
+          "sourceAnchor": "school-of-illusion-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-illusion-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мало чим відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "будь-якого іншого чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-illusion-races",
+          "heading": "Раси Школи ілюзії",
+          "sourceAnchor": "school-of-illusion-races",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-illusion-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "будь-якого іншого чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#races"
+                },
+                {
+                  "type": "text",
+                  "text": ". Лісові гноми{{Forest Gnome}} отримують Малу ілюзію [Minor Illusion] як расову рису, але це не краще за додаткове замовляння з будь-якого іншого джерела."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-illusion-feats",
+          "heading": "Риси Школи ілюзії",
+          "sourceAnchor": "school-of-illusion-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-illusion-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мало чим відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "будь-якого іншого чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": ", але є кілька винятків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-illusion-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Містичний адепт{{Eldritch Adept}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Маска багатьох облич»{{Mask of Many Faces}} і «Туманні видіння»{{Misty Visions}} дають вам ілюзії, які можна накладати без слота заклинання. «Туманні видіння» корисніші з двох. На жаль, цю рису не можна взяти двічі."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-illusion-armor-and-weapons",
+          "heading": "Обладунки й зброя Школи ілюзії",
+          "sourceAnchor": "school-of-illusion-armor-and-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-illusion-armor-and-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Просто не треба."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-everything-is-cake-an-illusion",
+          "heading": "Приклад збірки — «Усе — торт ілюзія»",
+          "sourceAnchor": "example-build-everything-is-cake-an-illusion",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-everything-is-cake-an-illusion-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цій збірці ми схилимося до ілюзій як до способів контролю й інструмента розвідки, що дозволить нам поза боєм діяти схоже на пройдисвіта, а коли настане час битви, перемикатися на контроль натовпу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-build-everything-is-cake-an-illusion",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого ми використаємо характеристики, рекомендовані в гайді Чарівника. Заклинання чуттєвих ілюзій на кшталт Малої ілюзії [Minor Illusion] майже не залежать від вашої СК заклинань, але багато заклинань ілюзії залежать, тож нам усе одно потрібно вкладатися в Інтелект."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Єдина зміна, яку ми зробимо, — поміняємо місцями Мудрість і Харизму, бо «Імітація»{{Mimicry}} кенку залежить від Харизми. Покладемо +2 в Інтелект, а решту +1 — куди захочемо, а тоді постараємося не дозволити непарному значенню характеристики докучати нам до кінця карʼєри."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-3",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-everything-is-cake-an-illusion",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кенку{{Kenku}}. Дві додаткові навички, «Памʼять кенку»{{Kenku Recall}} та «Імітація»{{Mimicry}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-everything-is-cake-an-illusion",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підійде що завгодно. Мені подобаються передісторії, близькі до пройдисвіта, як-от Шарлатан{{Charlatan}} чи Злочинець{{Criminal}}, бо це весела тема, але механічно щось на кшталт Мудреця{{Sage}} часто корисніше, бо ви спираєтеся на Інтелект. Оскільки ми намагаємося бути схожими на пройдисвіта, плануватимемо Злочинця."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-everything-is-cake-an-illusion",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від передісторії ми отримуємо Обман і Непомітність, а з класових навичок візьмемо Магію й Розслідування. Дві вільні навички від кенку ми витратимо на Уважність (вирішальну, коли ми крадемося) та Історію. Це дає гарне поєднання навичок для розвідки й для знання всіляких дрібниць."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наша передісторія також дає володіння ігровим набором і Інструментами злодія."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-everything-is-cake-an-illusion",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У нас багато місця для рис. Нам не треба так хвилюватися про Концентрацію, як багатьом іншим чарівникам, бо ми можемо проводити чимало часу, ховаючись за ілюзіями, щоб нас було важко поранити. Нам потрібна принаймні одна гібридна риса, але якби нам закортіло безумств, можна було б брати гібридні риси аж до кінця збірки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні візьмемо «Телекінетика»{{Telekinetic}}. У підкласі немає нічого, що займало б нашу бонусну дію, а якщо зробити нашу Магічну руку [Mage Hand] невидимою, можна створити ілюзорну схованку, сховатися всередині й за допомогою Магічної руки [Mage Hand] робити різні речі з безпечної відстані, не розкриваючи себе. Бонусна дія «Телекінетика» також може допомогти переставляти ворогів, щоб отримати більший ефект від наших ілюзій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні візьмемо «Адепта метамагії»{{Metamagic Adept}}, щоб отримати «Подовжене заклинання»{{Extended Spell}} і «Приховане заклинання»{{Subtle Spell}}. «Приховане заклинання» з ілюзією — чудовий спосіб вибратися з халепи, а багато наших улюблених заклинань ілюзії дуже виграють від подвоєння тривалості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні візьмемо «Містичного адепта»{{Eldritch Adept}}, щоб отримати «Маску багатьох облич»{{Mask of Many Faces}}. Ще більше безкоштовних ілюзій!"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-everything-is-cake-an-illusion",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nМагічне відновлення\nЗамовляння:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Розщеплення Розуму\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Мала ілюзія",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/#minor-illusion"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– будь-яке 1\nВідомі заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Мовчазний образ",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/#silent-image"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– будь-які 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для стартового спорядження візьміть кинджал, {{мішечок із компонентами|component pouch}} або чаротворчий фокус, будь-який набір і книгу заклинань. Малу ілюзію [Minor Illusion] ми отримаємо безкоштовно від раси й ще раз на 2-му рівні, але зможемо замінити зайве замовляння, тож три замовляння чарівника можемо використати як завгодно. Мала ілюзія [Minor Illusion] чудова для відволікання уваги, але куба зі стороною 5 футів цілком досить, щоб створити собі щось, у чому чи за чим можна сховатися. У бою ви можете закрити собі лінію огляду й виринати, щоб накладати заклинання на власному ході. У нападі ми покладатимемося на Розщеплення Розуму [Mind Sliver]. Воно має лише вербальний компонент і не має чітко описаного візуального ефекту, тож його легко використовувати зсередини ілюзії, не видаючи, що це не справжня бочка чи будь-що інше, у чому ви вдаєте, що ховаєтеся. Візьмемо Магічну руку [Mage Hand], щоб, коли на 4-му рівні ми отримаємо «Телекінетика»{{Telekinetic}}, вона мала подвоєну дальність. Також візьмемо Мовчазний образ [Silent Image]. Буває важко з першого погляду зрозуміти, яке заклинання ілюзії використати, тож обовʼязково прочитайте наш "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Практичний гайд з ілюзій",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", щоб розібратися з основними заклинаннями ілюзії (Мала ілюзія [Minor Illusion], Мовчазний образ [Silent Image], Оживлений образ [Major Image]). Куб Мовчазного образу [Silent Image] зі стороною 15 футів досить великий, щоб додати до місцевості будь-які фальшиві речі: стіни, гобелени, небезпеки на кшталт шипів, сплячих істот і все, що ще спаде на думку. Використовуйте його, щоб збивати ворогів з пантелику, перехоплювати й ізолювати їх. Окрім основних ілюзій, ми можемо обирати що завгодно. Основні заклинання чарівника на кшталт Магічного дротика [Magic missile] і Обладунку мага [Mage Armor] усе ще чудовий вибір."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знавець ілюзії\nУдосконалена Мала ілюзія\nНове відоме замовляння:\n– будь-яке\nВідомі заклинання:\n– будь-які 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Удосконалена Мала ілюзія»{{Improved Minor Illusion}} перетворює Малу ілюзію [Minor Illusion] на крихітну версію Оживленого образу [Major Image]. Вона фантастично корисна для всіляких витівок, але точний результат вашого накладання заклинання значною мірою залежить від вас і вашого Майстра. Проявіть творчість."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Невидимість\n– Уявна сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невидимість [Invisibility] — чудове заклинання для розвідки. З пристойною Непомітністю й Невидимістю [Invisibility] ви практично невиявні. Якщо істоти вас чують, використайте якесь поєднання Малої ілюзії [Minor Illusion] та «Імітації»{{Mimicry}}, щоб відвести їх від себе. Уявна сила [Phantasmal Force] — заклинання, несправедливо хороше для свого рівня. Найпростіше використовувати його як «пройди-ряткидок-або-страждай»{{save-or-suck}}: оточіть ціль кубічною коробкою зі стороною 10 футів, повною шипів, і тримайте її «в кутку» на весь час дії заклинання, мов бюджетна Силова кліть [Forcecage]. Ціль повільно отримуватиме психічну шкоду, а більшості істот буде важко пройти перевірку Інтелекту (Розслідування), щоб зрозуміти, що це ілюзія. Поки вона замкнена в "
+                    },
+                    {
+                      "type": "link",
+                      "text": "скляній клітці емоцій",
+                      "href": "https://www.youtube.com/watch?v=mNZzt5Vcsbs"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", ви можете потроху шпиняти її Розщепленням Розуму [Mind Sliver]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Телекінетик (Інтелект 17 → 18)\nНове відоме замовляння:\n– будь-яке\nВідомі заклинання:\n– Віддзеркалення\n– будь-яке 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Віддзеркалення [Mirror Image] — чудовий захисний варіант і тому, що математика добра, і тому, що він не потребує Концентрації. Єдина складність — тривалість 1 хвилина, тож його важко накласти до початку бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Гіпнотичний візерунок\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Оживлений образ",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/#major-image"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гіпнотичний візерунок [Hypnotic Pattern] — вимикач для цілого зіткнення. Якщо хтось із ворогів пройде ряткидок, спершу розберіться з ними, а тоді розправляйтеся з рештою по одному. Оживлений образ [Major Image] — пряме покращення Мовчазного образу [Silent Image], але якщо вам просто потрібен нерухомий предмет на кшталт стіни чи фальшивих дверей, тримайтеся Мовчазного образу [Silent Image]. Використовуйте Оживлений образ [Major Image], коли додаткові чуттєві ефекти матимуть значення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гнучкі ілюзії\nВідомі заклинання:\n– будь-які 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Гнучкі ілюзії»{{Malleable Illusions}} стають по-справжньому крутими, коли ми можемо накладати ілюзії з постійною (або принаймні надзвичайно довгою) тривалістю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Більша невидимість\n– Фантомний вбивця"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більша невидимість [Greater Invisibility] на пройдисвіта вашої групи чи будь-кого схожого на нього може значно підвищити його ефективність у бою. Фантомний вбивця [Phantasmal Killer] — ваш основний наступальний варіант проти одиночних цілей, які, імовірно, провалять ряткидки Мудрості. Накладіть його на першому ході, а решту зіткнення спамте Розщеплення Розуму [Mind Sliver], щоб штрафувати їхні ряткидки, доки вони не впадуть."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Інтелект 18 → 20)\nВідомі заклинання:\n– будь-які 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Творення\n– Позірність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Творення [Creation] дозволяє створювати інструменти, загородження тощо. Позірність [Seeming] дозволяє замаскувати вас і всю вашу групу на 8 годин. Зазвичай це важко використати з великим ефектом, але з «Гнучкими ілюзіями»{{Malleable Illusions}} ви можете без кінця змінювати маскування, щойно воно стане бодай трохи корисним. Замаскуйте себе й союзників так, щоб ви виглядали як ваші вороги. Нехай союзники витратять чимало часу на перевірки Розслідування одне на одному, щоб усі знали, що вони в маскуванні. Так, це безглуздо, але {{за правилами як написано|RAW}} працює саме так."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ілюзорний двійник\nВідомі заклинання:\n– Ошуканство\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Ілюзорний двійник»{{Illusory Self}} — це карта «вийти з вʼязниці безкоштовно» на одну атаку за короткий відпочинок. Він чудовий, але не покладайтеся на нього як на постійний захист. Ошуканство [Mislead] — дивне заклинання. Ним можна відвертати увагу, безпечно розвідувати й збивати ворогів з пантелику. Більшість із цього можна зробити й Оживленим образом [Major Image], але крізь інші власні ілюзії ви не бачите, і вони не роблять вас невидимими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Ментальна вʼязниця\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Програмована ілюзія",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/#programmed-illusion"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ментальна вʼязниця [Mental Prison] у чомусь є покращеною версією Уявної сили [Phantasmal Force], але можливість із неї вирватися означає, що це менш надійний спосіб ізолювати істоту, хоч додаткова шкода може того вартувати. Програмована ілюзія [Programmed Illusion] — це дуже весело для відволікань, засідок, відволікань і втеч. Слоти заклинань 6-го рівня також означають, що ми можемо накладати Оживлений образ [Major Image] вищим слотом, щоб створювати постійні ілюзії."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Містичний адепт (Туманні видіння)\nВідомі заклинання:\n– будь-які 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мовчазний образ [Silent Image] безкоштовно, щоразу, коли захочемо. Це фактично «Майстерність заклинань»{{Spell Mastery}}. Коли за два рівні ми отримаємо «Ілюзію реальності»{{Illusory Reality}}, вона працюватиме із Мовчазним образом [Silent Image] навіть тоді, коли ми накладаємо його через «Містичного адепта»{{Eldritch Adept}}. Вітаємо: ви можете створити майже будь-що, що вміщується в куб зі стороною 15 футів, на цілу хвилину, коли тільки захочете."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Таємничий міраж\n– Проєкція образу"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Таємничий міраж [Mirage Arcane] — справді дивне заклинання, і користуватися ним ви будете нечасто, але можливість перетворити звичайну, корисну місцевість на справжній кошмар на 10 днів (20, якщо подовжите його) може бути дуже ефективною, якщо ваші вороги мусять пересуватися цією територією. Проєкцію образу [Project Image] можна використовувати для розвідки й для витівок. Арканне око [Arcane eye] краще (і дешевше) для розвідки, але Арканним оком [Arcane eye] не вдасться помістити ілюзію самого себе туди, де ви б не могли розумно бути, щоб збити ворогів з пантелику."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ілюзія реальності\nВідомі заклинання:\n– будь-які 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "link",
+                      "text": "Тепер реальність може бути такою, якою ви захочете",
+                      "href": "https://www.youtube.com/watch?v=zvD1Kg7UfnY"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", принаймні протягом однієї хвилини після накладання заклинання ілюзії з рівнем. Утім, перетворення ілюзорної стіни з адамантину на справжній предмет на цілу хвилину достатньо, щоб переконати ворогів, що вона лишиться справжньою, тож вони або чекатимуть, або обходитимуть, або здадуться й підуть додому. На жаль, воно не працює з Малою ілюзією [Minor Illusion], але на цьому рівні Мовчазний образ [Silent Image] коштує дешево. Це має й кілька цікавих наслідків із Маскуванням [Disguise Self]. Можна дати собі вбрання, яке тимчасово справжнє! Це більше дивинка, ніж справді корисний інструмент, але це, безперечно, весело."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Ілюзорний дракон\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ілюзорний дракон [Illusory Dragon] — це по суті бойовий виклик, і користуватися ним слід як викликом. Викличте його, киньте в зіткнення й нехай він працює за вас. Навіть якщо вороги виявлять, що це ілюзія, зброя подиху все одно завдає їм шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Адепт метамагії\nВідомі заклинання:\n– будь-які 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Подовжене заклинання»{{Extended Spell}} і «Приховане заклинання»{{Subtle Spell}} — цінні доповнення до нашого арсеналу, як описано вище."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– будь-які 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Трагічно, але Жахіття [Weird] — єдине заклинання ілюзії 9-го рівня, і воно справді слабке. Тримайтеся основних на кшталт Психічного крику [Psychic Scream] і "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстерність заклинань{{Spell Mastery}}:\n– будь-яке\n– Уявна сила\nВідомі заклинання:\n– будь-які 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оскільки Мовчазний образ [Silent Image] у нас уже є безкоштовно, заклинання 1-го рівня можна обрати вільно. Беріть основні на кшталт "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка\nВідомі заклинання:\n– будь-які 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому етапі в нас є все, що ми хотіли. Розгляньте "
+                    },
+                    {
+                      "type": "link",
+                      "text": "мультикласування",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#multiclassing"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". У Школи ілюзії, на жаль, немає особливо крутих занурень на 2 рівні, але перевірені варіанти на кшталт клірика й воїна працюють завжди. Я б також порекомендував «Містичного адепта»{{Eldritch Adept}} («Маска багатьох облич»{{Mask of Many Faces}}), але цю рису можна взяти лише один раз."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підписні заклинання{{Signature Spells}}:\n– Гіпнотичний візерунок\n– Оживлений образ\nВідомі заклинання:\n– будь-які 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "По суті, два безкоштовні слоти заклинань 3-го рівня на день для заклинань, які нам уже дуже подобаються."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-wizard-illusion-2014-001",
+      "articleId": "rpgbot-wizard-illusion-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-illusion-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Знавець ілюзії",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-wizard-illusion-2014-002",
+      "articleId": "rpgbot-wizard-illusion-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-illusion-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Удосконалена Мала ілюзія",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-illusion-2014-003",
+      "articleId": "rpgbot-wizard-illusion-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-illusion-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Гнучкі ілюзії",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-illusion-2014-004",
+      "articleId": "rpgbot-wizard-illusion-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-illusion-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Ілюзорний двійник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-illusion-2014-005",
+      "articleId": "rpgbot-wizard-illusion-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-illusion-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Ілюзія реальності",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-illusion-2014-006",
+      "articleId": "rpgbot-wizard-illusion-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-illusion-2014-draft1",
+      "sectionId": "section-school-of-illusion-feats",
+      "targetBlockId": "block-section-school-of-illusion-feats-2",
+      "optionId": "section-school-of-illusion-feats-block-section-school-of-illusion-feats-2-item-0",
+      "context": "Містичний адепт",
+      "explanationBlockId": "block-section-school-of-illusion-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

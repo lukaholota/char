@@ -1,0 +1,1465 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-8d9e2f4bc24f09cc",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-8d9e2f4bc24f09cc-a021003e63b8d660",
+      "sourceId": "rpgbot-8d9e2f4bc24f09cc",
+      "fetchedAt": "2026-09-29T19:17:09.885107+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:49:32-04:00",
+      "contentHash": "3a7f410d89e06c3d2592194c6d681146cd4eab9fd3dda4e747af3a5bfcc936d4",
+      "title": "DnD 5e Tal’Dorei Blood Magic Wizard Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-8d9e2f4bc24f09cc-a021003e63b8d660.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-wizard-blood-magic-2014",
+    "sourceId": "rpgbot-8d9e2f4bc24f09cc",
+    "slug": "wizard-blood-magic-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Кривава магія (ТалʼДорей) — гайд підкласу Чарівника (2014)",
+    "titleEn": "DnD 5e Tal’Dorei Blood Magic Wizard Subclass Guide",
+    "topics": [
+      "Чарівник",
+      "Кривава магія",
+      "ТалʼДорей",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-wizard-blood-magic-2014-draft1",
+      "articleId": "rpgbot-wizard-blood-magic-2014",
+      "sourceRevisionId": "rpgbot-8d9e2f4bc24f09cc-a021003e63b8d660",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чарівник кривавої магії{{Blood Magic Wizard}} — це все про шкоду. Уже з першого уміння підкласу ви перекидаєте кубики, щоб підсилити свою шкоду, а згодом «Символ кровотечі»{{Glyph of Hemorrhaging}} стає визначальною бойовою тактикою для всієї вашої групи. І хоч це робить вашого чарівника чудовим нюкером/атакером, універсальності воно не додає ані трохи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із таким наголосом на шкоді природно порівнювати Криваву магію{{Blood Magic}} з іншими чарівниками-нюкерами: Школою втілення та Бойовою магією. Тут є нюанси. Бойова магія живучіша, особливо тому, що не зʼїдає власні ХП. Втілення краще скидає шкоду по області в тісних просторах. Кривава магія порівняно егоцентрична до 10-го рівня, а тоді ви починаєте обирати цілі, на які група накинеться всім гуртом (іноді це «усе в кімнаті», але суть ви зрозуміли)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На низьких рівнях вам, імовірно, буде важко користуватися уміннями підкласу стабільно й безпечно. Найцікавіше починається на 10-му рівні, але щоб побачити віддачу, треба дожити до нього."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Чарівника кривавої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Чарівника кривавої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#blood-magic-wizard-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Чарівника кривавої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#blood-magic-wizard-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Чарівника кривавої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#blood-magic-wizard-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Чарівника кривавої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#blood-magic-wizard-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Чарівника кривавої магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#blood-magic-wizard-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — «Хочу вирости кулеметом»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#example-build-i-want-to-grow-up-to-be-a-machine-gun"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Чарівника кривавої магії",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Спрямування крові{{Blood Channeling}}: дорогі компоненти заклинань ще довго не будуть проблемою, але коли будуть, добре мати змогу накладати такі речі, як Камʼяна шкіра [Stoneskin], не розоряючись. Проте в грі, де вартість золота така… невизначена, здатність зменшувати вартість заклинань мало на що впливає."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кривавий сплеск{{Sanguine Burst}}: використовувати це страшно на низьких рівнях, коли у вас ледве двозначна кількість ХП, але воно доволі добре. Здається, активувати його можна вже після кидка шкоди, тож якщо випало купу одиниць, можна витратити трохи ХП, щоб це виправити. І навіть із ХП Чарівника вартість дуже помірна. Перекидання кубиків шкоди для Вогнекулі [Fireball] коштує лише 3 ХП, а якщо вдається додати більше шкоди, ніж коштувало, я вважаю, що ви в плюсі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Узи взаємних страждань|Bond of Mutual Suffering}}: це нормально, але навмисно запускати це ви ніколи не захочете."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Символ кровотечі|Glyph of Hemorrhaging}}: шкода застосовується щоразу, коли по істоті влучає атака, і не має значення, звідки ця атака. Призвіть купу улюбленців і нехай ваша група придивиться до бою двома зброями. Накласти його надзвичайно легко, а отже, легко тримати прокляття. Ціль має лише отримати шкоду від одного з ваших заклинань. Це не обмежується заклинаннями з рівнем, не обмежується миттєвими заклинаннями й не вимагає проваленого ряткидка чи влучної атаки. Накладіть Стіну вогню [Wall of Fire] і прокляніть усе в кімнаті до кінця бою. Звісно, вони можуть пройти ряткидок Статури, але й що? Ви можете накласти його знову, коли вони наступного разу отримають шкоду."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кров не водиця{{Thicker Than Water}}: ефект лікування приємний, але опір до шкоди кращий. Накладіть Перевтілення [Polymorph] на себе, і ось ви вже тиранозавр з опором до Д/К/Р."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-blood-magic-wizard-ability-scores",
+          "heading": "Характеристики Чарівника кривавої магії",
+          "sourceAnchor": "blood-magic-wizard-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-blood-magic-wizard-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від типового чарівника, але звертайте особливу увагу на Статуру, щоб мати ХП, які живитимуть уміння вашого класу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-blood-magic-wizard-races",
+          "heading": "Раси Чарівника кривавої магії",
+          "sourceAnchor": "blood-magic-wizard-races",
+          "blocks": [
+            {
+              "blockId": "block-section-blood-magic-wizard-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "розбір рас Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-blood-magic-wizard-feats",
+          "heading": "Риси Чарівника кривавої магії",
+          "sourceAnchor": "blood-magic-wizard-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-blood-magic-wizard-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кривава магія{{Blood Magic}} не має особливих взаємодій з опублікованими рисами, але «ТалʼДорей: Відроджений сеттинг кампанії»{{Tal’Dorei: Campaign Setting Reborn}} таки містить кілька нових варіантів рис. Найпомітніші наведено нижче, а решту дивіться в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі рис ТалʼДорей",
+                  "href": "https://rpgbot.net/dnd5/characters/taldorei-feats/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Інші варіанти рис для чарівників дивіться в "
+                },
+                {
+                  "type": "link",
+                  "text": "довіднику Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#races"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blood-magic-wizard-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Рушій заклинань|Spelldriver}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "T:CSR",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у чарівників є кілька чудових заклинань, що накладаються бонусною дією, зокрема Туманний крок [Misty Step] і Громовий крок [Thunder Step]. Однак у них також чимало способів стабільно використовувати свою бонусну дію, тож ця риса корисніша нюкерам-чарівникам, які в першу чергу не покладаються на великі заклинання з Концентрацією. На щастя, Чарівник кривавої магії — саме такий чарівник."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Життєва жертва{{Vital Sacrifice}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "T:CSR",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ми можемо ефективно використовувати всі три варіанти, але остерігайтеся вартості в ХП для чарівника."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-blood-magic-wizard-weapons",
+          "heading": "Зброя Чарівника кривавої магії",
+          "sourceAnchor": "blood-magic-wizard-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-blood-magic-wizard-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "довідник Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-blood-magic-wizard-armor",
+          "heading": "Обладунки Чарівника кривавої магії",
+          "sourceAnchor": "blood-magic-wizard-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-blood-magic-wizard-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "довідник Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "довідник Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": ". Здебільшого варіанти мультикласування Чарівника кривавої магії нічим не відрізняються від інших чарівників, але нижче я додам інші підкласи з ТалʼДорей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик{{Cleric}}: один рівень {{клірика Домену крові|blood cleric}} дає неймовірно ефективного нюкера/атакера."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+          "heading": "Приклад збірки — «Хочу вирости кулеметом»",
+          "sourceAnchor": "example-build-i-want-to-grow-up-to-be-a-machine-gun",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-i-want-to-grow-up-to-be-a-machine-gun-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Розпечений промінь [Scorching Ray]: бррррр"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-i-want-to-grow-up-to-be-a-machine-gun-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У багатьох випадках я не наводитиму конкретних заклинань на вибір. Є кілька, що мають особливу взаємодію зі збіркою, але в решті випадків підійде будь-яке заклинання, добре для Чарівника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цілком типово для чарівника. Вкладемо +2 у Статуру й +1 в Інтелект. Нам треба тримати ХП високими, щоб витримувати уміння нашого класу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Відьмокров{{Hexblood}}. Якось так склалося, що ми ще не використовували Відьмокрова в довіднику, а Кривава магія{{Blood Magic}} дає цікавий випадок, коли чарівника заохочують покладатися на атаки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нам дають вибір між +2/+1 та трьома +1, тож візьмемо +2/+1, щоб почати зі Статурою 17 та Інтелектом 16. З риси «Спадщина предків»{{Ancestral Legacy}} оберемо політ (може, ми {{відьмокров-ааракокра|hexblood aarakocra}}?). Ми тут переважно заради можливості накладати Проклін [hex], особливо тому, що можемо використовувати слоти заклинань, щоб накласти його знову."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Будь-яка. На збірку це не впливає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підійде все, що працює для будь-якого чарівника. З навичками ми тут нічого унікального не робимо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Життєву жертву»{{Vital Sacrifice}}. Ми сильно робитимемо ставку на шкоду, особливо коли на 10-му рівні отримаємо «Символ кровотечі»{{Glyph of Hemorrhaging}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо «Містичного адепта (Вогняна енергійність)»{{Eldritch Adept (Fiendish Vigor)}}, щоб вартість «Життєвої жертви» фактично стала безкоштовною. «Життєва жертва»{{Vital Sacrifice}} справді потребує обмеження кількості дарів{{boons}}, які можна мати. Витративши 10 хвилин на накопичення аж 600 дарів і потім без жодного опору пройшовшись крізь кілька боїв, ви зводите нанівець 1-годинний таймер закінчення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми починаємо зі Статурою 17, ми легко можемо додати до збірки «Стійкого (Статура)»{{Resilient (Constitution)}}, тож зробимо це на 19-му рівні. Якщо почати з Інтелектом 17 замість Статури 17, «Доторк феї»{{Fey Touched}}, «Доторк тіні»{{Shadow Touched}} і «Телекінетик»{{Telekinetic}} — усе добрі варіанти, але вони не вписуються в решту збірки, не порушуючи нашу тактику."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магічне відновлення\nЧаротворство\nЗамовляння:\n– Вогняний заряд\n– Штукарство\n– Промінь холоду\nВідомі заклинання:\n– Удаване життя\n– Пошук фамільяра\n– будь-які 5 інших"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми зробимо велику ставку на Проклін [hex] як наступальний варіант. Так само як у чорнокнижника, наш основний тактичний хід у бою — Проклін [hex] і замовляння. Нам потрібен Пошук фамільяра [Find Familiar], щоб отримати сову, яка зможе виконувати дію Допомога й давати нам Перевагу на кубику на атаку. Удаване життя [False life] зараз не знадобиться, але стане важливим, щойно ми отримаємо «Спрямування крові»{{Blood Channeling}} та «Життєву жертву»{{Vital Sacrifice}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканна традиція: Кривава магія\nСпрямування крові\nКривавий сплеск"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Спрямування крові»{{Blood Channeling}} одразу не стане в пригоді. «Кривавий приріст»{{Sanguine Boost}} — корисний спосіб підсилити нашу шкоду, тож якщо ви користуєтеся заклинаннями на кшталт Палючих долонь [Burning Hands] чи Їдкого Вариво Таші [Tasha's Caustic Brew], можна підсилити шкоду, перекидаючи низькі кубики ціною одного ХП."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Розпечений промінь\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розпечений промінь [Scorching Ray] — центральний елемент нашої бойової тактики. З діючим Прокліном [hex] ми підсилюємо його шкоду на 50%. 9к6 шкоди заклинанням 2-го рівня — відмінний результат. Із часом воно ставатиме дедалі важливішим як через те, що добрих заклинань одноцільової шкоди так мало, так і через те, що воно добре поєднується з «Символом кровотечі»{{Glyph of Hemorrhaging}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Життєва жертва\nВідомі заклинання:\n– Сковуючий лід Райма\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сковуючий лід Райма [Rime's Binding Ice] — дивний вибір. Це не чудове заклинання, але якщо вдасться, щоб ряткидок Статури спрацював, воно зменшує швидкість цілей до 0, що ставить вас і вашу групу у величезну перевагу без витрат Концентрації. Якби ж ми мали спосіб накладати штраф на ряткидки Статури цілей! Якби ж був спосіб! О, дивіться: «Життєва жертва»{{Vital Sacrifice}}. -1к4 до цього ряткидка Статури, бовдуре. Звісно, «Життєва жертва» зʼїдає ХП, а це страшно для чарівника. На щастя, у нас є Удаване життя [False life], а ще ми можемо використати «Магічне відновлення»{{Arcane Recovery}}, щоб відновити слоти заклинань 1-го рівня. Накладіть Удаване життя [False life], зʼїжте ХП «Життєвою жертвою», щоб накопичити трохи дарів{{boons}}, потім візьміть короткий відпочинок і скористайтеся «Магічним відновленням», щоб повернути ці слоти 1-го рівня й витратити їх на Проклін [hex]. Нездійсненна мрія — зайти в бій із глибоким колодязем дарів «Життєвої жертви», накласти Проклін [hex], а тоді поливати щось із кулемета розпеченими променями [Scorching Ray] і витрачати дари, щоб підсилити і атаку, і шкоду. 5к6 шкоди за постріл при 3 пострілах — це купа шкоди. Ми трохи відстаємо від "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Фундаментальної математики",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", але оскільки «Життєва жертва» може компенсувати цю математику, це не проблема. Якщо підсилити всі три наші атаки й шкоду на всіх трьох, ми виходимо приблизно на 44,63 DPR, що якраз потрапляє в діапазон «Чувак, стоп». На жаль, на цьому рівні ми можемо робити так лише кілька разів на день, але досягти піка в шкоду на 4 людей — це чудово."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Вогнекуля\n– Вампіричний дотик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вогнекуля [Fireball], бо Вогнекуля. Вампіричний дотик [Vampiric Touch], бо можна накласти його, скористатися «Кривавим сплеском»{{Sanguine Burst}}, щоб перекинути кубики, а тоді одразу зцілити себе. Шкоду також підсилює Проклін [hex]. Я не знаю, як Вампіричний дотик [Vampiric Touch] працює з Пошуком фамільяра [Find Familiar]. Гадаю, {{за правилами як написано|RAW}} атакувати через фамільяра можна лише раз, коли ви вперше накладаєте заклинання, але, можливо, ваш Майстер готовий це обговорити. В ідеалі ви хочете використати «Життєву жертву»{{Vital Sacrifice}}, щоб отримати кілька дарів{{boons}}, а тоді вдарити когось Вампіричним дотиком [Vampiric Touch], щоб зцілити себе. Дари можна використати, щоб підсилити і атаку, і шкоду, а підсилення некротичної шкоди від Вампіричний дотик [Vampiric Touch] також збільшує, наскільки ви зцілюєтеся. Тільки памʼятайте не активувати «Життєву жертву», щоб створити нові дари, бо тоді ви змусите себе робити ряткидок Концентрації."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Узи взаємних страждань"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Узи взаємних страждань»{{Bond of Mutual Suffering}} концептуально схожі на «Диявольську відсіч»{{Fiendish Rebuke}}: гарна страховка на випадок, якщо хтось збирається по вас влучити, але зазвичай вам не хочеться шукати привід їх використати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Накладіть Перевтілення [Polymorph] і станьте чимось із купою ХП, а тоді згодуйте їх «Життєвій жертві»{{Vital Sacrifice}} заради гори дарів{{boons}}. Заходьте в наступний бій із більшою кількістю дарів, ніж ви взагалі можете витратити, і починайте жбурляти розпечені промені [Scorching Ray]. Це дорогий, але захопливий смак того, що ми зможемо наступного рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Містичний адепт (Вогняна енергійність)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Життєва жертва»{{Vital Sacrifice}} завдає вам шкоди, яку ви ніяк не можете зменшити. Шкода віднімається від тимчасових ХП раніше, ніж від звичайних. Тому «Життєва жертва» охоче зʼїдатиме ваш тепер нескінченний запас тимчасових ХП, поки ви не збожеволієте від нудьги. Тимчасові ХП 1к4+4 від «Вогняної енергійності»{{Fiendish Vigor}} формально досить низькі, щоб шкода 1к6 від «Життєвої жертви» могла завдати вам реальної шкоди, але шанс — один до 24. Домовтеся з Майстром брати середній результат: ви отримаєте 1 шкоди в обмін на 24 дари{{boons}} «Життєвої жертви». Це вигідна угода. Ваш кубик здоровʼя 1к6+3 оплатить щонайменше 96 дарів, а на цьому рівні у вас є 8 кубиків здоровʼя. Якщо коротко: тепер ви починаєте кожен бій із 8 тимчасовими ХП і функціонально нескінченним запасом дарів. Памʼятайте, що тепер ми на 2 пункти позаду Фундаментальної математики. Якщо ми не можемо застосувати дар «Життєвої жертви», у нас проблеми. На щастя, +1к6 до атак і -1к4 компенсують, наскільки відносно низький наш Інтелект."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Длань Бігбі [Bigby's Hand] чудово підходить для багаторазового запуску «Символу кровотечі»{{Glyph of Hemorrhaging}} і тримає нашу бонусну дію зайнятою, тож загалом це добра ідея для кривавих чарівників. Але накладання Розпеченого променя [Scorching Ray] вищим слотом із нашою нісенітницею з дарами{{boons}} завдає настільки більше шкоди настільки швидше, що для цієї конкретної збірки виправдати Длань Бігбі [Bigby's Hand] неможливо. Розпечений промінь [Scorching Ray] 5-го рівня випускає 6 променів. З підсиленням шкоди від «Життєвої жертви»{{Vital Sacrifice}} і від Прокліну [hex] кожен промінь завдає 5к6 шкоди. Якщо припустити 3 на +1к6 до кидків атаки від дару, ми можемо робити 76,75 DPR із нашим найкращим слотом заклинання, легко минаючи діапазон DPR «Чувак, стоп». І, звісно, далі буде ще краще."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Символ кровотечі\nВідомі заклинання:\n– будь-які 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Символ кровотечі»{{Glyph of Hemorrhaging}} додає ще один к6 до кожного нашого влучання за умови, що ми завчасно завдали цілі шкоди заклинанням. Заходьте в кімнату, пустіть Магічний дротик [Magic missile] по трьох найбільших істотах, щоб накласти символ, а тоді ліквідуйте їх по одній розпеченими променями [Scorching Ray] з вищим слотом. Якщо взяти Розпечений промінь [Scorching Ray] 5-го рівня за найкращого сценарію, ми тепер виходимо на 94,5 DPR, що тримає нас у діапазоні «Чувак, стоп» до 14-го рівня. Але, звісно, ми й надалі ставатимемо кращими. Ми додамо слоти заклинань вищих рівнів, а наш Інтелект нарешті зросте, збільшуючи наш DPR з тим самим слотом 5-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Інтелект +2 (16 → 18)\nВідомі заклинання:\n– будь-які 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наш DPR у найкращому випадку з Розпеченим променем [Scorching Ray] 5-го рівня тепер сягає 100,8, що тримає нас у діапазоні «Чувак, стоп» до 16-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кров не водиця"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ігноруйте це. Розносьте все заклинаннями."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Інтелект +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик підоспіло якраз вчасно, щоб наш слот 5-го рівня лишався в діапазоні DPR «Чувак, стоп»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дивно мати збірку, де заклинання 9-го рівня насправді не важливе. Передбачення [Foresight] значно підсилило б ваш DPR, тож розгляньте його як основний варіант."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстерність заклинань:\n– Щит\n– Розпечений промінь"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Щит [Shield], бо наш Майстер, імовірно, втомився від наших витівок, а Проклін [hex], на жаль, не заклинання чарівника. Розпечений промінь [Scorching Ray], бо з Прокліном [hex] і «Символом кровотечі»{{Glyph of Hemorrhaging}} він значно переважить за шкодою все інше, що ми могли б обрати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це підвищує наш модифікатор Статури, дає нам велику купу додаткових ХП і покращує наші ряткидки Концентрації."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підписне заклинання:\n– будь-яке"
+                    }
+                  ],
+                  []
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-wizard-blood-magic-2014-001",
+      "articleId": "rpgbot-wizard-blood-magic-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-blood-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features",
+      "context": "Уміння Чарівника кривавої магії",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-blood-magic-2014-002",
+      "articleId": "rpgbot-wizard-blood-magic-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-blood-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Спрямування крові",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-wizard-blood-magic-2014-003",
+      "articleId": "rpgbot-wizard-blood-magic-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-blood-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Кривавий сплеск",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-blood-magic-2014-004",
+      "articleId": "rpgbot-wizard-blood-magic-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-blood-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Узи взаємних страждань",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-wizard-blood-magic-2014-005",
+      "articleId": "rpgbot-wizard-blood-magic-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-blood-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Символ кровотечі",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-blood-magic-2014-006",
+      "articleId": "rpgbot-wizard-blood-magic-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-blood-magic-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Кров не водиця",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-blood-magic-2014-007",
+      "articleId": "rpgbot-wizard-blood-magic-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-blood-magic-2014-draft1",
+      "sectionId": "section-blood-magic-wizard-feats",
+      "targetBlockId": "block-section-blood-magic-wizard-feats-2",
+      "optionId": "section-blood-magic-wizard-feats-block-section-blood-magic-wizard-feats-2-item-0",
+      "context": "Рушій заклинань T",
+      "explanationBlockId": "block-section-blood-magic-wizard-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-blood-magic-2014-008",
+      "articleId": "rpgbot-wizard-blood-magic-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-blood-magic-2014-draft1",
+      "sectionId": "section-blood-magic-wizard-feats",
+      "targetBlockId": "block-section-blood-magic-wizard-feats-2",
+      "optionId": "section-blood-magic-wizard-feats-block-section-blood-magic-wizard-feats-2-item-1",
+      "context": "Життєва жертва",
+      "explanationBlockId": "block-section-blood-magic-wizard-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-blood-magic-2014-009",
+      "articleId": "rpgbot-wizard-blood-magic-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-blood-magic-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-3",
+      "optionId": "section-multiclassing-block-section-multiclassing-3-item-0",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-multiclassing-3",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

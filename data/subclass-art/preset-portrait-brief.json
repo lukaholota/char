@@ -1,0 +1,2218 @@
+{
+ "note": "112 готових персонажів без портрета; факти взято з data/rpgbot/ready-builds та builds. Раса/клас/підклас/передісторія — ключі каталогу 2014 (англійською).",
+ "presets": [
+  {
+   "file": "preset-artificer-alchemist-2014",
+   "title": "Винахідник-алхімік — Скельний гном",
+   "authorConcept": "Майстровитий винахідник у лусковій броні з двома замовленнями. Підклас відкриється на 3-му рівні, а вливання — на 2-му.",
+   "startingClass": "ARTIFICER_2014",
+   "subclass": "ALCHEMIST",
+   "otherClassesInPlan": [],
+   "race": "GNOME_2014",
+   "subraceOrVariant": "GNOME_ROCK_2014",
+   "background": "GUILD_ARTISAN",
+   "topAbilities": [
+    "CON",
+    "DEX"
+   ],
+   "chosenWeapons": [
+    "DAGGER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-artificer-alchemist-fairy-2014",
+   "title": "Винахідник — Фея-Алхімік",
+   "authorConcept": "Ось, випий це: Фея-Алхімік з Інтелектом 17, польотом і спорядженням для підтримки групи в задній лінії.",
+   "startingClass": "ARTIFICER_2014",
+   "subclass": "ALCHEMIST",
+   "otherClassesInPlan": [],
+   "race": "FAIRY_MPMM",
+   "subraceOrVariant": null,
+   "background": "INVESTIGATOR",
+   "topAbilities": [
+    "DEX",
+    "INT"
+   ],
+   "chosenWeapons": [
+    "DAGGER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-artificer-armorer-vedalken-2014",
+   "title": "Винахідник — Ведалкен-Зброяр",
+   "authorConcept": "Ведалкен-Винахідник Зброяр: Інтелект 17, Спритність 16 і замовляння Вогняний заряд та Лагодження.",
+   "startingClass": "ARTIFICER_2014",
+   "subclass": "ARMORER",
+   "otherClassesInPlan": [],
+   "race": "VEDALKEN_GGTR",
+   "subraceOrVariant": null,
+   "background": "CLOISTERED_SCHOLAR",
+   "topAbilities": [
+    "DEX",
+    "INT"
+   ],
+   "chosenWeapons": [
+    "DAGGER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 2
+  },
+  {
+   "file": "preset-artificer-artillerist-centaur-2014",
+   "title": "Винахідник — Кентавр-Артилерист",
+   "authorConcept": "Практичний розвʼязувач проблем: Кентавр-Артилерист з Інтелектом 17, Статурою 16 та замовляннями Кислотні бризки й Лагодження.",
+   "startingClass": "ARTIFICER_2014",
+   "subclass": "ARTILLERIST",
+   "otherClassesInPlan": [],
+   "race": "CENTAUR_MPMM",
+   "subraceOrVariant": null,
+   "background": "INVESTIGATOR",
+   "topAbilities": [
+    "CON",
+    "INT"
+   ],
+   "chosenWeapons": [
+    "DAGGER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 13
+  },
+  {
+   "file": "preset-artificer-battle-smith-autognome-2014",
+   "title": "Винахідник — Автогном-Бойовий коваль",
+   "authorConcept": "Надбойовий робот: Малий Автогном-Бойовий коваль з Інтелектом 17, Статурою 16, середніми обладунками й щитом та замовляннями Лагодження і Вогняний заряд.",
+   "startingClass": "ARTIFICER_2014",
+   "subclass": "BATTLE_SMITH",
+   "otherClassesInPlan": [],
+   "race": "AUTOGNOME_SPELLJAMMER",
+   "subraceOrVariant": null,
+   "background": "INVESTIGATOR",
+   "topAbilities": [
+    "CON",
+    "INT"
+   ],
+   "chosenWeapons": [
+    "DAGGER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-barbarian-battlerager-2014",
+   "title": "Варвар — Гірський дворф Шляху бойового шаленця",
+   "authorConcept": "Гірський дворф-Варвар: Сила 17 і Статура 17 на старті, щоб кинутися в ближній бій, схопити ворога й обмінюватися ударами.",
+   "startingClass": "BARBARIAN_2014",
+   "subclass": "PATH_OF_THE_BATTLERAGER",
+   "otherClassesInPlan": [],
+   "race": "DWARF_2014",
+   "subraceOrVariant": "DWARF_MOUNTAIN_2014",
+   "background": "OUTLANDER",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-barbarian-path-of-the-beast-2014",
+   "title": "Варвар — Сатир Шляху звіра",
+   "authorConcept": "Сатир-Варвар Шляху звіра: Сила 17, Статура 16, опір магії й веселі стрибки для найкращого стрибуна гри.",
+   "startingClass": "BARBARIAN_2014",
+   "subclass": "PATH_OF_THE_BEAST",
+   "otherClassesInPlan": [],
+   "race": "SATYR_MPMM",
+   "subraceOrVariant": null,
+   "background": "OUTLANDER",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "WARHAMMER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-barbarian-path-of-the-giant-2014",
+   "title": "Варвар — велетень Шляху велетня",
+   "authorConcept": "Станьте великим і лютим. Варвар зі здоровезною зброєю та рисою «Удар велетнів» з першого рівня.",
+   "startingClass": "BARBARIAN_2014",
+   "subclass": "PATH_OF_THE_GIANT",
+   "otherClassesInPlan": [],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "CRIMINAL",
+   "topAbilities": [
+    "STR",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-barbarian-path-of-wild-magic-2014",
+   "title": "Варвар — Шлях дикої магії, Крилатий тифлінг",
+   "authorConcept": "Варвар Шляху дикої магії з крилами: Крилатий тифлінг за правилами Таші, Переслідуваний з Непомітністю й Виживанням та злодійськими інструментами замість мови, Дробильник на 4-му рівні.",
+   "startingClass": "BARBARIAN_2014",
+   "subclass": "PATH_OF_WILD_MAGIC",
+   "otherClassesInPlan": [],
+   "race": "TIEFLING_2014",
+   "subraceOrVariant": null,
+   "background": "HAUNTED_ONE",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 4
+  },
+  {
+   "file": "preset-barbarian-storm-herald-2014",
+   "title": "Варвар — Хроматичний дракононароджений Шляху вісника шторму",
+   "authorConcept": "Дракононароджений Фізбана зі Шляху вісника шторму: Сила 17, Спритність 15 і опір до холоду від білого родоводу.",
+   "startingClass": "BARBARIAN_2014",
+   "subclass": "PATH_OF_THE_STORM_HERALD",
+   "otherClassesInPlan": [],
+   "race": "DRAGONBORN_CHROMATIC",
+   "subraceOrVariant": null,
+   "background": "ACOLYTE",
+   "topAbilities": [
+    "STR",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-barbarian-totem-warrior-2014",
+   "title": "Варвар — Тотемний воїн, Еладрін",
+   "authorConcept": "Еладрін-Варвар із тотемом Вовка: три шістнадцятки в Силі, Спритності й Статурі та телепортація Фейським кроком.",
+   "startingClass": "BARBARIAN_2014",
+   "subclass": "PATH_OF_THE_TOTEM_WARRIOR",
+   "otherClassesInPlan": [],
+   "race": "ELADRIN_MPMM",
+   "subraceOrVariant": null,
+   "background": "OUTLANDER",
+   "topAbilities": [
+    "STR",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 5
+  },
+  {
+   "file": "preset-barbarian-zealot-2014",
+   "title": "Варвар — Шлях фанатика, Астральний ельф",
+   "authorConcept": "Зірковарвар: Астральний ельф із замовлянням «Світло» і Шляхом фанатика, що додає бонусну шкоду раз за хід.",
+   "startingClass": "BARBARIAN_2014",
+   "subclass": "PATH_OF_THE_ZEALOT",
+   "otherClassesInPlan": [],
+   "race": "ASTRAL_ELF_SPELLJAMMER",
+   "subraceOrVariant": null,
+   "background": "MARINE",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-bard-creation-2014",
+   "title": "Бард — Колегія творення, Автогном",
+   "authorConcept": "Автогном-Слідчий із Харизмою 17 і Спритністю 16: «обличчя» групи з Обманом, Залякуванням і Переконанням. Колегія творення відкриється на 3-му рівні.",
+   "startingClass": "BARD_2014",
+   "subclass": "COLLEGE_OF_CREATION",
+   "otherClassesInPlan": [],
+   "race": "AUTOGNOME_SPELLJAMMER",
+   "subraceOrVariant": null,
+   "background": "INVESTIGATOR",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 2
+  },
+  {
+   "file": "preset-bard-eloquence-2014",
+   "title": "Бард — Колегія красномовства, Сатир",
+   "authorConcept": "Сатир-Шарлатан з Харизмою 17 і Статурою 15: «обличчя» групи з сімома навичками. Колегія красномовства відкриється на 3-му рівні.",
+   "startingClass": "BARD_2014",
+   "subclass": "COLLEGE_OF_ELOQUENCE",
+   "otherClassesInPlan": [],
+   "race": "SATYR_MPMM",
+   "subraceOrVariant": null,
+   "background": "CHARLATAN",
+   "topAbilities": [
+    "CHA",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-bard-lore-2014",
+   "title": "Бард Колегії знань — Напівельф",
+   "authorConcept": "Універсальний бард-«обличчя» із сімома навичками. Колегія знань відкриється на 3-му рівні.",
+   "startingClass": "BARD_2014",
+   "subclass": "COLLEGE_OF_LORE",
+   "otherClassesInPlan": [],
+   "race": "HALF_ELF_2014",
+   "subraceOrVariant": null,
+   "background": "NOBLE",
+   "topAbilities": [
+    "DEX",
+    "CHA"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-bard-lore-sorcerers-apprentice-2014",
+   "title": "Бард — Колегія знань, Учень чародія",
+   "authorConcept": "Напівельф-Мудрець з Харизмою 17: усі навички знань плюс «обличчя» групи й арканіст-підтримка. Колегія знань відкриється на 3-му рівні.",
+   "startingClass": "BARD_2014",
+   "subclass": "COLLEGE_OF_LORE",
+   "otherClassesInPlan": [],
+   "race": "HALF_ELF_2014",
+   "subraceOrVariant": null,
+   "background": "SAGE",
+   "topAbilities": [
+    "DEX",
+    "CHA"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-bard-spirits-2014",
+   "title": "Бард — Колегія духів, Самоцвітний дракононароджений",
+   "authorConcept": "Бард Колегії духів із заклинаннями-страхіттями: Самоцвітний дракононароджений, Переслідуваний з Магією та Релігією, Огидний сміх Таші й Зурочення.",
+   "startingClass": "BARD_2014",
+   "subclass": "COLLEGE_OF_SPIRITS",
+   "otherClassesInPlan": [],
+   "race": "DRAGONBORN_GEM",
+   "subraceOrVariant": null,
+   "background": "HAUNTED_ONE",
+   "topAbilities": [
+    "DEX",
+    "CHA"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 4
+  },
+  {
+   "file": "preset-bard-swords-2014",
+   "title": "Бард — Колегія мечів, Ящеролюд",
+   "authorConcept": "Ящеролюд-Лицар із КБ 16 на старті: Спритність, Статура й Харизма по 16, рапіра й шкіряна броня. Колегія мечів відкриється на 3-му рівні.",
+   "startingClass": "BARD_2014",
+   "subclass": "COLLEGE_OF_SWORDS",
+   "otherClassesInPlan": [],
+   "race": "LIZARDFOLK_MPMM",
+   "subraceOrVariant": null,
+   "background": "KNIGHT",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 9
+  },
+  {
+   "file": "preset-bard-valor-2014",
+   "title": "Бард — Колегія доблесті, Напівельф",
+   "authorConcept": "Напівельф-Злочинець із Харизмою 17, Спритністю й Статурою 16: бойовий заклинатель із легким арбалетом. Колегія доблесті відкриється на 3-му рівні.",
+   "startingClass": "BARD_2014",
+   "subclass": "COLLEGE_OF_VALOR",
+   "otherClassesInPlan": [],
+   "race": "HALF_ELF_2014",
+   "subraceOrVariant": null,
+   "background": "CRIMINAL",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "LIGHT_CROSSBOW"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-bard-whispers-2014",
+   "title": "Бард — Колегія шепотів, Змінник",
+   "authorConcept": "Змінник-Шарлатан з Харизмою 17 і Спритністю 16: майстер-шпигун з навичками «обличчя» й розвідника. Колегія шепотів відкриється на 3-му рівні.",
+   "startingClass": "BARD_2014",
+   "subclass": "COLLEGE_OF_WHISPERS",
+   "otherClassesInPlan": [],
+   "race": "CHANGELING_MPMM",
+   "subraceOrVariant": null,
+   "background": "CHARLATAN",
+   "topAbilities": [
+    "DEX",
+    "CHA"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 18
+  },
+  {
+   "file": "preset-bugbear-ambush-caster-2014",
+   "title": "Ведмебай — Чарівник Бойової магії, заклинатель із засідки",
+   "authorConcept": "Ведмебай з Інтелектом 17 і Спритністю 16, що починає Чарівником із Кольоровою кулькою в книзі й згодом додає Чародія, Воїна та Пройдисвіта-Убивцю заради Несподіваної атаки.",
+   "startingClass": "WIZARD_2014",
+   "subclass": "SCHOOL_OF_WAR_MAGIC",
+   "otherClassesInPlan": [],
+   "race": "BUGBEAR_MPMM",
+   "subraceOrVariant": null,
+   "background": "SAGE",
+   "topAbilities": [
+    "DEX",
+    "INT"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 5
+  },
+  {
+   "file": "preset-bugbear-fiend-warlock-2014",
+   "title": "Ведмебай — Чорнокнижник Почвари",
+   "authorConcept": "Ведмебай з Харизмою 16, Спритністю 16 і Позамежним зарядом: Чорнокнижник Почвари, що стріляє з легкого арбалета й згодом додає Пройдисвіта-Убивцю, Воїна та Чародія.",
+   "startingClass": "WARLOCK_2014",
+   "subclass": "FIEND",
+   "otherClassesInPlan": [],
+   "race": "BUGBEAR_MPMM",
+   "subraceOrVariant": null,
+   "background": "ACOLYTE",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "QUARTERSTAFF"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-cleric-death-2014",
+   "title": "Клірик — Домен смерті, Напівельф",
+   "authorConcept": "Клірик ближнього бою зі Спритністю 16: Напівельф зі спадком високого ельфа (Гримучий Клинок), Домен смерті та Агент фракції з Аналізом поведінки й Уважністю.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "DEATH_DOMAIN",
+   "otherClassesInPlan": [],
+   "race": "HALF_ELF_2014",
+   "subraceOrVariant": null,
+   "background": "FACTION_AGENT",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-cleric-forge-2014",
+   "title": "Клірик — Домен кузні, Напівельф",
+   "authorConcept": "Клірик ближнього бою зі зброєю: Напівельф зі спадком високого ельфа (Гримучий Клинок), Домен кузні з Благословенням кузні, Гільдійський ремісник з Аналізом поведінки й Уважністю.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "FORGE_DOMAIN",
+   "otherClassesInPlan": [],
+   "race": "HALF_ELF_2014",
+   "subraceOrVariant": null,
+   "background": "GUILD_ARTISAN",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-cleric-grave-2014",
+   "title": "Клірик — Домен могили, Своя раса",
+   "authorConcept": "Клірик могили зі Своєю расою й Адептом метамагії: Мудрість 17, Відлюдник з Уважністю та Переконанням, Лікування ран замість Цілющого слова.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "GRAVE_DOMAIN",
+   "otherClassesInPlan": [],
+   "race": "CUSTOM_LINEAGE_TCE",
+   "subraceOrVariant": null,
+   "background": "HERMIT",
+   "topAbilities": [
+    "WIS",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-cleric-knowledge-2014",
+   "title": "Клірик — Домен знань, Табаксі",
+   "authorConcept": "Клірик знань зі Спритністю 14 і Мудрістю 17: Табаксі з Уважністю та Непомітністю, налаштований Мудрець з Природою й Поводженням з тваринами, експертиза в Магії та Історії.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "KNOWLEDGE_DOMAIN",
+   "otherClassesInPlan": [],
+   "race": "TABAXI_MPMM",
+   "subraceOrVariant": null,
+   "background": "SAGE",
+   "topAbilities": [
+    "WIS",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-cleric-life-2014",
+   "title": "Клірик домену життя — Пагорбовий дворф",
+   "authorConcept": "Міцний цілитель у важкому обладунку: лікує союзників і витримує удари. Домен життя обрано вже на 1-му рівні.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "LIFE_DOMAIN",
+   "otherClassesInPlan": [],
+   "race": "DWARF_2014",
+   "subraceOrVariant": "DWARF_HILL_2014",
+   "background": "ACOLYTE",
+   "topAbilities": [
+    "WIS",
+    "STR"
+   ],
+   "chosenWeapons": [
+    "DAGGER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-cleric-light-2014",
+   "title": "Клірик — Домен світла, Варіант людини",
+   "authorConcept": "Вогняний і променевий заклинач у середньому обладунку зі щитом: Священне полумʼя, Слово сяйва й Спалах захисника. Риса «Удача» — запасний вибір автора.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "LIGHT_DOMAIN",
+   "otherClassesInPlan": [],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "ACOLYTE",
+   "topAbilities": [
+    "WIS",
+    "DEX"
+   ],
+   "chosenWeapons": [
+    "DAGGER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-cleric-order-2014",
+   "title": "Клірик — Домен порядку, Перевертень",
+   "authorConcept": "Клірик порядку з Голосом влади: Перевертень з рисою Дикого мисливця, Шпигун з Уважністю замість Непомітності, Переконання від домену.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "ORDER_DOMAIN",
+   "otherClassesInPlan": [],
+   "race": "SHIFTER_MPMM",
+   "subraceOrVariant": null,
+   "background": "SPY",
+   "topAbilities": [
+    "CON",
+    "WIS"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-cleric-peace-2014",
+   "title": "Клірик — Домен миру, Своя раса",
+   "authorConcept": "Клірик миру зі Своєю расою й Стійким (Статура): Мудрість 17, Статура 16, Темнозір, Послушник з Уважністю та Виживанням.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "PEACE_DOMAIN",
+   "otherClassesInPlan": [],
+   "race": "CUSTOM_LINEAGE_TCE",
+   "subraceOrVariant": null,
+   "background": "ACOLYTE",
+   "topAbilities": [
+    "CON",
+    "WIS"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-cleric-tempest-2014",
+   "title": "Клірик — Домен бурі, Геназі повітря",
+   "authorConcept": "Клірик бурі в кольчузі: Сила 15, Статура 16, Мудрість 17. Геназі повітря дає Шокувальний дотик на основі Мудрості.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "TEMPEST_DOMAIN",
+   "otherClassesInPlan": [],
+   "race": "GENASI_AIR_MPMM",
+   "subraceOrVariant": null,
+   "background": "SAGE",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-cleric-twilight-2014",
+   "title": "Клірик — Домен сутінків, Кентавр",
+   "authorConcept": "Клірик сутінків верхи на кентаврі з бойовим молотом: Мудрість 17, Штурм, Мудрець з Уважністю, Поводженням з тваринами й набором травника.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "TWILIGHT_DOMAIN",
+   "otherClassesInPlan": [],
+   "race": "CENTAUR_MPMM",
+   "subraceOrVariant": null,
+   "background": "SAGE",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "DAGGER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-cleric-war-2014",
+   "title": "Клірик — Домен війни, Хроматичний дракононароджений",
+   "authorConcept": "Клірик ближнього бою в кольчузі зі щитом і бойовим молотом: зелений дракононароджений із Статурою 17 та Мудрістю 16. Мудрець додає Магію й Історію.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "WAR_DOMAIN",
+   "otherClassesInPlan": [],
+   "race": "DRAGONBORN_CHROMATIC",
+   "subraceOrVariant": null,
+   "background": "SAGE",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-d4-dispenser-cleric-peace-2014",
+   "title": "Автоматичний роздавач к4 — Клірик Домену миру, Автогном",
+   "authorConcept": "Підсилювач групи: Автогном-Клірик Домену миру зі Зміцнювальним звʼязком і Спритністю 14, що згодом збирає мультиклас заради запасу кісток к4.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "PEACE_DOMAIN",
+   "otherClassesInPlan": [
+    "WARLOCK_2014"
+   ],
+   "race": "AUTOGNOME_SPELLJAMMER",
+   "subraceOrVariant": null,
+   "background": "FOLK_HERO",
+   "topAbilities": [
+    "CHA",
+    "INT"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 2
+  },
+  {
+   "file": "preset-druid-dreams-githzerai-2014",
+   "title": "Друїд Кола сновидінь — Ґітцерай",
+   "authorConcept": "Друїд з Мудрістю 17 і Статурою 16. Починає із замовляннями Створення вогню та Терновий батіг; Коло сновидінь відкриється на 2-му рівні.",
+   "startingClass": "DRUID_2014",
+   "subclass": "CIRCLE_OF_DREAMS",
+   "otherClassesInPlan": [],
+   "race": "GITHZERAI_MPMM",
+   "subraceOrVariant": null,
+   "background": "FAR_TRAVELER",
+   "topAbilities": [
+    "CON",
+    "WIS"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-druid-land-2014",
+   "title": "Друїд Кола землі — Пагорбовий дворф",
+   "authorConcept": "Стійкий друїд зі стихійними замовляннями: починає простою і міцною збіркою. Коло землі відкриється на 2-му рівні.",
+   "startingClass": "DRUID_2014",
+   "subclass": "CIRCLE_OF_THE_LAND",
+   "otherClassesInPlan": [],
+   "race": "DWARF_2014",
+   "subraceOrVariant": "DWARF_HILL_2014",
+   "background": "HERMIT",
+   "topAbilities": [
+    "WIS",
+    "DEX"
+   ],
+   "chosenWeapons": [
+    "QUARTERSTAFF"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-druid-land-owlin-2014",
+   "title": "Друїд Кола землі — Совин",
+   "authorConcept": "Друїд-совин зі стартом Спритність 16 і Мудрість 17: контроль поля бою, розвідка й політ. Починає із замовляннями Настанова й Терновий батіг; Коло землі відкриється на 2-му рівні.",
+   "startingClass": "DRUID_2014",
+   "subclass": "CIRCLE_OF_THE_LAND",
+   "otherClassesInPlan": [],
+   "race": "OWLIN_SACOC",
+   "subraceOrVariant": null,
+   "background": "HERMIT",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "DAGGER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-druid-moon-stout-halfling-2014",
+   "title": "Друїд Кола місяця — Кремезний напіврослик",
+   "authorConcept": "Друїд-напіврослик, що перетворюється на звірів із расовими рисами: Мудрість 17, Статура 15. Починає із замовляннями Настанова й Створення вогню; Коло місяця відкриється на 2-му рівні.",
+   "startingClass": "DRUID_2014",
+   "subclass": "CIRCLE_OF_THE_MOON",
+   "otherClassesInPlan": [],
+   "race": "HALFLING_2014",
+   "subraceOrVariant": "HALFLING_STOUT_2014",
+   "background": "SAILOR",
+   "topAbilities": [
+    "WIS",
+    "DEX"
+   ],
+   "chosenWeapons": [
+    "QUARTERSTAFF"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-druid-shepherd-satyr-2014",
+   "title": "Друїд Кола пастуха — Сатир",
+   "authorConcept": "Друїд-сатир, який готується до викликів істот: Мудрість 17, Спритність 16. Починає із замовляннями Настанова й Терновий батіг; Коло пастуха відкриється на 2-му рівні.",
+   "startingClass": "DRUID_2014",
+   "subclass": "CIRCLE_OF_THE_SHEPHERD",
+   "otherClassesInPlan": [],
+   "race": "SATYR_MPMM",
+   "subraceOrVariant": null,
+   "background": "FACTION_AGENT",
+   "topAbilities": [
+    "DEX",
+    "WIS"
+   ],
+   "chosenWeapons": [
+    "QUARTERSTAFF"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-druid-spores-tortle-2014",
+   "title": "Друїд Кола спор — Черепаха",
+   "authorConcept": "Друїд-черепаха з природним КБ 17: з деревʼяним щитом його КБ дорівнює 19. Бʼється палицею з Кийком; Коло спор відкриється на 2-му рівні.",
+   "startingClass": "DRUID_2014",
+   "subclass": "CIRCLE_OF_SPORES",
+   "otherClassesInPlan": [],
+   "race": "TORTLE_MPMM",
+   "subraceOrVariant": null,
+   "background": "HERMIT",
+   "topAbilities": [
+    "CON",
+    "WIS"
+   ],
+   "chosenWeapons": [
+    "QUARTERSTAFF"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-druid-stars-loxodon-2014",
+   "title": "Друїд Кола зірок — Локсодон",
+   "authorConcept": "Друїд-локсодон з КБ 12 + Статура: Спритність знехтувано заради Інтелекту. Починає із замовляннями Первісна дикість і Створення вогню; Коло зірок відкриється на 2-му рівні.",
+   "startingClass": "DRUID_2014",
+   "subclass": "CIRCLE_OF_STARS",
+   "otherClassesInPlan": [],
+   "race": "LOXODON_GGTR",
+   "subraceOrVariant": null,
+   "background": "SAGE",
+   "topAbilities": [
+    "CON",
+    "WIS"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-druid-wildfire-tortle-2014",
+   "title": "Друїд Кола дикого вогню — Черепаха",
+   "authorConcept": "Друїд-черепаха зі списом і щитом: КБ 19 без обладунків, Сила, Статура й Мудрість по 16. Починає із замовляннями Створення багаття й Терновий батіг; Коло дикого вогню відкриється на 2-му рівні.",
+   "startingClass": "DRUID_2014",
+   "subclass": "CIRCLE_OF_WILDFIRE",
+   "otherClassesInPlan": [
+    "CLERIC_2014"
+   ],
+   "race": "TORTLE_MPMM",
+   "subraceOrVariant": null,
+   "background": "SOLDIER",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "SPEAR"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-fighter-arcane-archer-2014",
+   "title": "Воїн — Містичний лучник, Лісовий ельф",
+   "authorConcept": "Лісовий ельф за правилами Таші зі Спритністю 17 та Інтелектом 16: довгий лук і Бойовий стиль «Стрільба з лука» з першого рівня.",
+   "startingClass": "FIGHTER_2014",
+   "subclass": "ARCANE_ARCHER",
+   "otherClassesInPlan": [],
+   "race": "ELF_2014",
+   "subraceOrVariant": "ELF_WOOD_2014",
+   "background": "URCHIN",
+   "topAbilities": [
+    "DEX",
+    "INT"
+   ],
+   "chosenWeapons": [
+    "RAPIER",
+    "SHORTSWORD"
+   ],
+   "classOptions": [
+    "Archery"
+   ],
+   "maxPlannedLevel": 13
+  },
+  {
+   "file": "preset-fighter-battle-master-2014",
+   "title": "Воїн — Майстер бойових мистецтв, Три-крін",
+   "authorConcept": "Три-крін-стрілець зі щитом і ручним арбалетом: Спритність 17, Стрільба з лука і природна броня Три-кріна.",
+   "startingClass": "FIGHTER_2014",
+   "subclass": "BATTLE_MASTER",
+   "otherClassesInPlan": [],
+   "race": "THRI_KREEN_SPELLJAMMER",
+   "subraceOrVariant": null,
+   "background": "COURTIER",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "HAND_CROSSBOW"
+   ],
+   "classOptions": [
+    "Archery"
+   ],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-fighter-cavalier-2014",
+   "title": "Воїн — Кавалерист, Своя раса",
+   "authorConcept": "Малий кавалерист зі Своєю расою: +2 до Сили, темнозір, «Верховий боєць» з першого рівня, довгий спис і Бойовий стиль «Дуель».",
+   "startingClass": "FIGHTER_2014",
+   "subclass": "CAVALIER",
+   "otherClassesInPlan": [],
+   "race": "CUSTOM_LINEAGE_TCE",
+   "subraceOrVariant": null,
+   "background": "KNIGHT",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "LANCE"
+   ],
+   "classOptions": [
+    "Dueling"
+   ],
+   "maxPlannedLevel": 15
+  },
+  {
+   "file": "preset-fighter-eldritch-knight-2014",
+   "title": "Воїн — Бойовий маг, Своя раса",
+   "authorConcept": "Воїн із Рубакою на 1-му рівні: Своя раса з +2 до Сили, великий меч у кольчузі, Магія й Розслідування від налаштованого Народного героя.",
+   "startingClass": "FIGHTER_2014",
+   "subclass": "ELDRITCH_KNIGHT",
+   "otherClassesInPlan": [],
+   "race": "CUSTOM_LINEAGE_TCE",
+   "subraceOrVariant": null,
+   "background": "FOLK_HERO",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "GREATSWORD"
+   ],
+   "classOptions": [
+    "Great Weapon Fighting"
+   ],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-fighter-psi-warrior-2014",
+   "title": "Воїн — Псі-воїн, Гіфф",
+   "authorConcept": "Гіфф-стрілець за правилами Таші зі Спритністю 17 та Інтелектом 16: довгий лук і Бойовий стиль «Стрільба з лука» з першого рівня.",
+   "startingClass": "FIGHTER_2014",
+   "subclass": "PSI_WARRIOR",
+   "otherClassesInPlan": [],
+   "race": "GIFF_SPELLJAMMER",
+   "subraceOrVariant": null,
+   "background": "SOLDIER",
+   "topAbilities": [
+    "DEX",
+    "INT"
+   ],
+   "chosenWeapons": [
+    "RAPIER",
+    "SHORTSWORD"
+   ],
+   "classOptions": [
+    "Archery"
+   ],
+   "maxPlannedLevel": 18
+  },
+  {
+   "file": "preset-fighter-purple-dragon-knight-2014",
+   "title": "Воїн — Лицар Пурпурового Дракона, Самоцвітний дракононароджений",
+   "authorConcept": "Аметистовий (пурпуровий) дракононароджений за правилами Таші зі Спритністю 16 і Статурою 16: довгий лук і Бойовий стиль «Стрільба з лука» з першого рівня.",
+   "startingClass": "FIGHTER_2014",
+   "subclass": "BANNERET",
+   "otherClassesInPlan": [
+    "WARLOCK_2014"
+   ],
+   "race": "DRAGONBORN_GEM",
+   "subraceOrVariant": null,
+   "background": "FACELESS",
+   "topAbilities": [
+    "CON",
+    "CHA"
+   ],
+   "chosenWeapons": [
+    "RAPIER",
+    "SHORTSWORD"
+   ],
+   "classOptions": [
+    "Archery"
+   ],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-fighter-rune-knight-goliath-2014",
+   "title": "Воїн Рунічний лицар — Голіаф із завеликою зброєю",
+   "authorConcept": "Голіаф-стрілець зі Спритністю 16, Стрільбою та ручним арбалетом; згодом додає Чорнокнижника Джина й Велику зброю від Рунічного лицаря.",
+   "startingClass": "FIGHTER_2014",
+   "subclass": "RUNE_KNIGHT",
+   "otherClassesInPlan": [
+    "WARLOCK_2014"
+   ],
+   "race": "GOLIATH_MPMM",
+   "subraceOrVariant": null,
+   "background": "URCHIN",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "HAND_CROSSBOW"
+   ],
+   "classOptions": [
+    "Archery"
+   ],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-fighter-samurai-2014",
+   "title": "Воїн — Самурай, Кобольд",
+   "authorConcept": "Кобольд-стрілець за правилами Таші зі Спритністю 17 та Статурою 16: Бойовий стиль «Стрільба з лука» і легкий арбалет з першого рівня.",
+   "startingClass": "FIGHTER_2014",
+   "subclass": "SAMURAI",
+   "otherClassesInPlan": [],
+   "race": "KOBOLD_MPMM",
+   "subraceOrVariant": null,
+   "background": "FAR_TRAVELER",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "RAPIER",
+    "SHORTSWORD"
+   ],
+   "classOptions": [
+    "Archery"
+   ],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-hexadin-ancients-2014",
+   "title": "Hexadin — Паладин клятви прадавніх, Людина (варіант)",
+   "authorConcept": "Лицар ночей: Паладин з Майстром древкової зброї та Харизмою 16, що згодом бере рівень Чорнокнижника Відьмацького клинка й стає Hexadin.",
+   "startingClass": "PALADIN_2014",
+   "subclass": "OATH_OF_THE_ANCIENTS",
+   "otherClassesInPlan": [
+    "WARLOCK_2014"
+   ],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "MARINE",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "LONGSWORD",
+    "SPEAR"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 9
+  },
+  {
+   "file": "preset-hexbuckler-swashbuckler-2014",
+   "title": "Hexbuckler — Пройдисвіт-шибайголова, Своя раса",
+   "authorConcept": "Хлопчик, який не хотів дорослішати: Пройдисвіт зі Своєю расою, Харизмою 18 та Дотиком феї з першого рівня, що згодом бере Відьмацький клинок.",
+   "startingClass": "ROGUE_2014",
+   "subclass": "SWASHBUCKLER",
+   "otherClassesInPlan": [
+    "WARLOCK_2014"
+   ],
+   "race": "CUSTOM_LINEAGE_TCE",
+   "subraceOrVariant": null,
+   "background": "FEYLOST",
+   "topAbilities": [
+    "CON",
+    "CHA"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 6
+  },
+  {
+   "file": "preset-monk-ascendant-dragon-2014",
+   "title": "Монах — Дракононароджений Шляху висхідного дракона",
+   "authorConcept": "Подвійний дракон: дракононароджений Фізбана — Монах Шляху висхідного дракона зі Спритністю 16 і Мудрістю 16 на старті.",
+   "startingClass": "MONK_2014",
+   "subclass": "WAY_OF_THE_ASCENDANT_DRAGON",
+   "otherClassesInPlan": [],
+   "race": "DRAGONBORN_CHROMATIC",
+   "subraceOrVariant": null,
+   "background": "FAR_TRAVELER",
+   "topAbilities": [
+    "DEX",
+    "WIS"
+   ],
+   "chosenWeapons": [
+    "SPEAR"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-monk-astral-self-2014",
+   "title": "Монах — Дампір Шляху астрального «я»",
+   "authorConcept": "Дампір-Монах Шляху астрального «я»: три шістнадцятки в Спритності, Статурі й Мудрості та астральні руки, що бʼють з відстані.",
+   "startingClass": "MONK_2014",
+   "subclass": "WAY_OF_THE_ASTRAL_SELF",
+   "otherClassesInPlan": [],
+   "race": "DHAMPIR_VRGTR",
+   "subraceOrVariant": null,
+   "background": "URCHIN",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "QUARTERSTAFF"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-monk-drunken-master-2014",
+   "title": "Монах — Сатир Шляху пʼяного майстра",
+   "authorConcept": "Гуляка: Сатир-Монах Шляху пʼяного майстра зі Спритністю, Статурою й Мудрістю 16, опором магії та веселими стрибками.",
+   "startingClass": "MONK_2014",
+   "subclass": "WAY_OF_THE_DRUNKEN_MASTER",
+   "otherClassesInPlan": [],
+   "race": "SATYR_MPMM",
+   "subraceOrVariant": null,
+   "background": "FAR_TRAVELER",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "SPEAR"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-monk-four-elements-2014",
+   "title": "Монах — Гоблін Шляху чотирьох стихій",
+   "authorConcept": "Знищувач капусти: Гоблін-Монах Шляху чотирьох стихій зі Спритністю, Статурою й Мудрістю 16, спритною втечею та люттю малого.",
+   "startingClass": "MONK_2014",
+   "subclass": "WAY_OF_THE_FOUR_ELEMENTS",
+   "otherClassesInPlan": [],
+   "race": "GOBLIN_MPMM",
+   "subraceOrVariant": null,
+   "background": "HERMIT",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 10
+  },
+  {
+   "file": "preset-monk-human-open-hand-2014",
+   "title": "Монах — людина Шляху відкритої долоні",
+   "authorConcept": "Бийтеся без обладунків і зі списом у руках. Проста збірка Монаха для тих, хто хоче впевнений старт без складних рішень.",
+   "startingClass": "MONK_2014",
+   "subclass": "WAY_OF_THE_OPEN_HAND",
+   "otherClassesInPlan": [],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "CRIMINAL",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "SPEAR"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-monk-kensei-2014",
+   "title": "Воїн 1 / Монах — Шлях кенсея, Варіант людини",
+   "authorConcept": "Мультиклас Воїн 1 / Монах Шляху кенсея: Експерт з арбалетів на 1-му рівні, ручний арбалет, Стрільба з лука; Влучний стрілець на 4-му рівні Монаха.",
+   "startingClass": "FIGHTER_2014",
+   "subclass": "WAY_OF_THE_KENSEI",
+   "otherClassesInPlan": [
+    "MONK_2014"
+   ],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "URCHIN",
+   "topAbilities": [
+    "DEX",
+    "WIS"
+   ],
+   "chosenWeapons": [
+    "HAND_CROSSBOW"
+   ],
+   "classOptions": [
+    "Archery"
+   ],
+   "maxPlannedLevel": 5
+  },
+  {
+   "file": "preset-monk-sun-soul-2014",
+   "title": "Монах — Хадозі Шляху сонячної душі",
+   "authorConcept": "Принц усіх хадозі: Хадозі-Монах Шляху сонячної душі зі Спритністю, Статурою й Мудрістю 16, планеруванням і променями сонячного світла.",
+   "startingClass": "MONK_2014",
+   "subclass": "WAY_OF_THE_SUN_SOUL",
+   "otherClassesInPlan": [],
+   "race": "HADOZEE_SPELLJAMMER",
+   "subraceOrVariant": null,
+   "background": "SOLDIER",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-paladin-devotion-2014",
+   "title": "Паладин Клятви відданості — Дракононароджений",
+   "authorConcept": "Щитоносець у кольчузі з цілющим запасом. Клятва відкриється на 3-му рівні, а заклинання паладин отримує з 2-го.",
+   "startingClass": "PALADIN_2014",
+   "subclass": "OATH_OF_DEVOTION",
+   "otherClassesInPlan": [],
+   "race": "DRAGONBORN_2014",
+   "subraceOrVariant": null,
+   "background": "ACOLYTE",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "WARHAMMER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-paladin-oath-of-conquest-2014",
+   "title": "Паладин — Клятва завоювання",
+   "authorConcept": "Паладин зі щитом і рисою «Майстер щита» з першого рівня. Збивайте ворогів з ніг і тримайте лінію.",
+   "startingClass": "PALADIN_2014",
+   "subclass": "OATH_OF_CONQUEST",
+   "otherClassesInPlan": [
+    "WARLOCK_2014"
+   ],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "SMUGGLER",
+   "topAbilities": [
+    "STR",
+    "CHA"
+   ],
+   "chosenWeapons": [
+    "LONGSWORD"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-paladin-oath-of-devotion-2014",
+   "title": "Паладин — Клятва відданості, Астральний ельф",
+   "authorConcept": "Паладин у кольчузі з двома дворучними мечами: Астральний ельф із Священним полумʼям, Переслідуваний з Обманом і Залякуванням.",
+   "startingClass": "PALADIN_2014",
+   "subclass": "OATH_OF_DEVOTION",
+   "otherClassesInPlan": [
+    "SORCERER_2014"
+   ],
+   "race": "ASTRAL_ELF_SPELLJAMMER",
+   "subraceOrVariant": null,
+   "background": "HAUNTED_ONE",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "GREATSWORD"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-paladin-oath-of-glory-2014",
+   "title": "Паладин — Клятва слави, Своя раса",
+   "authorConcept": "Гладіатор у кольчузі: Своя раса з +2 до Сили та Стійким (Статура) уже на 1-му рівні, потім Клятва слави з 3-го.",
+   "startingClass": "PALADIN_2014",
+   "subclass": "OATH_OF_GLORY",
+   "otherClassesInPlan": [],
+   "race": "CUSTOM_LINEAGE_TCE",
+   "subraceOrVariant": null,
+   "background": "ATHLETE",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "SPEAR",
+    "WARHAMMER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-paladin-oath-of-the-crown-2014",
+   "title": "Паладин — Клятва корони, Орк",
+   "authorConcept": "Орк за правилами Таші, охоронець союзників: Харизма 17 і Статура 16 з першого рівня, кольчуга та щит.",
+   "startingClass": "PALADIN_2014",
+   "subclass": "OATH_OF_THE_CROWN",
+   "otherClassesInPlan": [],
+   "race": "ORC_MPMM",
+   "subraceOrVariant": null,
+   "background": "SOLDIER",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "LONGSWORD"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-paladin-oath-of-vengeance-2-2014",
+   "title": "Паладин — Клятва помсти, Ведмебай",
+   "authorConcept": "Паладин Клятви помсти з глефою в кольчузі: Ведмебай із Несподіваною атакою, Обман і Переконання від Міського мисливця за головами, Майстер древкової зброї на 4-му рівні.",
+   "startingClass": "PALADIN_2014",
+   "subclass": "OATH_OF_VENGEANCE",
+   "otherClassesInPlan": [],
+   "race": "BUGBEAR_MPMM",
+   "subraceOrVariant": null,
+   "background": "URBAN_BOUNTY_HUNTER",
+   "topAbilities": [
+    "STR",
+    "CHA"
+   ],
+   "chosenWeapons": [
+    "GLAIVE",
+    "GREATSWORD"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 4
+  },
+  {
+   "file": "preset-paladin-oath-of-vengeance-2014",
+   "title": "Паладин — Глибинний атакер",
+   "authorConcept": "Паладин з алебардою та щитом. Варіант людини з першого рівня бере «Майстра древкової зброї».",
+   "startingClass": "PALADIN_2014",
+   "subclass": "OATH_OF_VENGEANCE",
+   "otherClassesInPlan": [],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "COURTIER",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "HALBERD",
+    "SPEAR"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-ranger-beast-master-2014",
+   "title": "Слідопит — Володар звірів, Напівельф-дроу",
+   "authorConcept": "Слідопит Володар звірів із двома мечами: Напівельф-дроу за правилами Таші, Відлюдник з Виживанням замість Релігії, Кмітливий дослідник.",
+   "startingClass": "RANGER_2014",
+   "subclass": "BEAST_MASTER_CONCLAVE",
+   "otherClassesInPlan": [],
+   "race": "HALF_ELF_2014",
+   "subraceOrVariant": null,
+   "background": "HERMIT",
+   "topAbilities": [
+    "DEX",
+    "WIS"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [
+    "Favored Foe",
+    "Deft Explorer - Canny"
+   ],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-ranger-fey-wanderer-2014",
+   "title": "Слідопит — Мандрівник Фей, Сатир",
+   "authorConcept": "Слідопит Мандрівник Фей із Мудрістю 16: Сатир за правилами Таші, власна передісторія з Аналізом поведінки й Залякуванням, Кмітливий дослідник з експертизою в Переконанні.",
+   "startingClass": "RANGER_2014",
+   "subclass": "FEY_WANDERER",
+   "otherClassesInPlan": [],
+   "race": "SATYR_MPMM",
+   "subraceOrVariant": null,
+   "background": "CUSTOM",
+   "topAbilities": [
+    "WIS",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [
+    "Favored Foe",
+    "Deft Explorer - Canny"
+   ],
+   "maxPlannedLevel": 3
+  },
+  {
+   "file": "preset-ranger-gloom-stalker-2014",
+   "title": "Слідопит — Страж із темряви, Ведмебай",
+   "authorConcept": "Слідопит Сутінкового мисливця (Страж із темряви) у лускатому обладунку: Ведмебай за правилами Таші, Переслідуваний з Виживанням і Спритністю рук та злодійськими інструментами замість мови, Кмітливий дослідник.",
+   "startingClass": "RANGER_2014",
+   "subclass": "GLOOM_STALKER_CONCLAVE",
+   "otherClassesInPlan": [],
+   "race": "BUGBEAR_MPMM",
+   "subraceOrVariant": null,
+   "background": "HAUNTED_ONE",
+   "topAbilities": [
+    "DEX",
+    "WIS"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [
+    "Favored Foe",
+    "Deft Explorer - Canny"
+   ],
+   "maxPlannedLevel": 4
+  },
+  {
+   "file": "preset-ranger-horizon-walker-bugbear-2014",
+   "title": "Слідопит Мандрівник горизонту — Ведмебай",
+   "authorConcept": "Ведмебай-стрілець з високою шкодою та навичками розвідника. Починає з Міченим ворогом і Кмітливим дослідником; Мандрівник горизонту відкриється на 3-му рівні.",
+   "startingClass": "RANGER_2014",
+   "subclass": "HORIZON_WALKER_CONCLAVE",
+   "otherClassesInPlan": [],
+   "race": "BUGBEAR_MPMM",
+   "subraceOrVariant": null,
+   "background": "FAR_TRAVELER",
+   "topAbilities": [
+    "DEX",
+    "WIS"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [
+    "Favored Foe",
+    "Deft Explorer - Canny"
+   ],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-ranger-hunter-2014",
+   "title": "Слідопит-Мисливець — Людина",
+   "authorConcept": "Влучний і скритний слідопит із довгим луком. Підклас відкриється на 3-му рівні, а заклинання слідопит отримує з 2-го.",
+   "startingClass": "RANGER_2014",
+   "subclass": "HUNTER_CONCLAVE",
+   "otherClassesInPlan": [],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "CRIMINAL",
+   "topAbilities": [
+    "DEX",
+    "WIS"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [
+    "Favored Enemy",
+    "Natural Explorer"
+   ],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-ranger-hunter-leonin-2014",
+   "title": "Слідопит Мисливець — Леонін",
+   "authorConcept": "Леонін-стрілець зі швидкістю 35 футів і темнозором, що бʼє з довгого лука. Починає з Міченим ворогом і Кмітливим дослідником; Мисливець відкриється на 3-му рівні.",
+   "startingClass": "RANGER_2014",
+   "subclass": "HUNTER_CONCLAVE",
+   "otherClassesInPlan": [
+    "CLERIC_2014"
+   ],
+   "race": "LEONIN_MOOT",
+   "subraceOrVariant": null,
+   "background": "GLADIATOR",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [
+    "Favored Foe",
+    "Deft Explorer - Canny"
+   ],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-ranger-monster-slayer-variant-human-2014",
+   "title": "Слідопит Убивця монстрів — Варіант людини",
+   "authorConcept": "Слідопит-стрілець із рисою Проколювач на 1-му рівні: Спритність 17, Мудрість 16. Починає з Міченим ворогом і Кмітливим дослідником; Конклав убивці монстрів відкриється на 3-му рівні.",
+   "startingClass": "RANGER_2014",
+   "subclass": "MONSTER_SLAYER_CONCLAVE",
+   "otherClassesInPlan": [],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "HERMIT",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [
+    "Favored Foe",
+    "Deft Explorer - Canny"
+   ],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-ranger-swarmkeeper-custom-lineage-2014",
+   "title": "Слідопит Хранитель рою — Своя раса",
+   "authorConcept": "Слідопит на Мудрості 17 з рисою Дробильник на 1-му рівні: Статура 16. Починає з Міченим ворогом і Кмітливим дослідником; Хранитель рою відкриється на 3-му рівні.",
+   "startingClass": "RANGER_2014",
+   "subclass": "SWARMKEEPER",
+   "otherClassesInPlan": [],
+   "race": "CUSTOM_LINEAGE_TCE",
+   "subraceOrVariant": null,
+   "background": "INVESTIGATOR",
+   "topAbilities": [
+    "CON",
+    "WIS"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [
+    "Favored Foe",
+    "Deft Explorer - Canny"
+   ],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-rogue-assassin-2014",
+   "title": "Пройдисвіт — Убивця, Гаренгон",
+   "authorConcept": "Гаренгон-Безликий із Спритністю, Статурою й Харизмою по 16: Експертиза в Обмані й Непомітності та «Зайчачий рефлекс» для першого ходу. Убивця відкриється на 3-му рівні.",
+   "startingClass": "ROGUE_2014",
+   "subclass": "ASSASSIN",
+   "otherClassesInPlan": [],
+   "race": "HARENGON_MPMM",
+   "subraceOrVariant": null,
+   "background": "FACELESS",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-rogue-inquisitive-2014",
+   "title": "Пройдисвіт — Дізнавач, Ведалкен",
+   "authorConcept": "Ведалкен-Аристократ із Спритністю 17 і Мудрістю 15: Експертиза в Аналізі Поведінки й Уважності, дальня зброя для «Стійкого прицілювання». Дізнавач відкриється на 3-му рівні.",
+   "startingClass": "ROGUE_2014",
+   "subclass": "INQUISITIVE",
+   "otherClassesInPlan": [],
+   "race": "VEDALKEN_GGTR",
+   "subraceOrVariant": null,
+   "background": "NOBLE",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 5
+  },
+  {
+   "file": "preset-rogue-mastermind-2014",
+   "title": "Пройдисвіт — Майстер інтриг",
+   "authorConcept": "Хобгоблін-Злочинець зі змінюваним походженням: Спритність 17 і Харизма 15, Експертиза в Обмані й Залякуванні. Обличчя групи, яке допомагає союзникам.",
+   "startingClass": "ROGUE_2014",
+   "subclass": "MASTERMIND",
+   "otherClassesInPlan": [],
+   "race": "HOBGOBLIN_MPMM",
+   "subraceOrVariant": null,
+   "background": "CRIMINAL",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 15
+  },
+  {
+   "file": "preset-rogue-phantom-2014",
+   "title": "Пройдисвіт — Фантом",
+   "authorConcept": "Лісовий ельф-Пройдисвіт із експертизою в Атлетиці та Виживанні. Мобільний розвідник і майстер навичок.",
+   "startingClass": "ROGUE_2014",
+   "subclass": "PHANTOM",
+   "otherClassesInPlan": [],
+   "race": "ELF_2014",
+   "subraceOrVariant": "ELF_WOOD_2014",
+   "background": "MARINE",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-rogue-scout-2014",
+   "title": "Пройдисвіт — Розвідник, Гаренгон",
+   "authorConcept": "Гаренгон-Мудрець зі Спритністю 17 і Статурою 16: Експертиза в Розслідуванні й Уважності, навички на знання та «Зайчачий рефлекс». Розвідник відкриється на 3-му рівні.",
+   "startingClass": "ROGUE_2014",
+   "subclass": "SCOUT",
+   "otherClassesInPlan": [],
+   "race": "HARENGON_MPMM",
+   "subraceOrVariant": null,
+   "background": "SAGE",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-rogue-soulknife-2014",
+   "title": "Пройдисвіт — Ніж душі, Напівельф (майстер навичок)",
+   "authorConcept": "Пройдисвіт Ножа душі з навичками знань: Напівельф за правилами Таші, власна передісторія з Природою й Релігією та інструментами картографа й навігатора, експертиза в Розслідуванні та Непомітності.",
+   "startingClass": "ROGUE_2014",
+   "subclass": "SOULKNIFE",
+   "otherClassesInPlan": [],
+   "race": "HALF_ELF_2014",
+   "subraceOrVariant": null,
+   "background": "CUSTOM",
+   "topAbilities": [
+    "DEX",
+    "INT"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 4
+  },
+  {
+   "file": "preset-rogue-swashbuckler-2014",
+   "title": "Пройдисвіт — Шибайголова, Напівельф",
+   "authorConcept": "Громовий шукач гострих відчуттів: Напівельф зі спадком Місячного або Сонячного ельфа, Спритність 17 і Гримучий Клинок з першого рівня.",
+   "startingClass": "ROGUE_2014",
+   "subclass": "SWASHBUCKLER",
+   "otherClassesInPlan": [],
+   "race": "HALF_ELF_2014",
+   "subraceOrVariant": null,
+   "background": "GAMBLER",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-sorcadin-clockwork-2014",
+   "title": "Соркадін — Людина (варіант), Паладин і Чародій",
+   "authorConcept": "Паладин у латах, що з 4-го рівня додає чародійство Механічної душі. Старт — Паладин 1 із Майстром древкової зброї; повний шлях до 7-го рівня збирається одним збереженням.",
+   "startingClass": "PALADIN_2014",
+   "subclass": "OATH_OF_REDEMPTION",
+   "otherClassesInPlan": [
+    "SORCERER_2014"
+   ],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "SOLDIER",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "LONGSWORD",
+    "QUARTERSTAFF"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 7
+  },
+  {
+   "file": "preset-sorcerer-aarakocra-storm-sorcery-2014",
+   "title": "Чародій Магії шторму — Ааракокра",
+   "authorConcept": "Ааракокра зі Спритністю 16 і Харизмою 17: расовий політ тримає вас поза ближнім боєм, а «Бурхлива магія» дає змогу вийти з-під загрози.",
+   "startingClass": "SORCERER_2014",
+   "subclass": "STORM_SORCERY",
+   "otherClassesInPlan": [],
+   "race": "AARAKOCRA_MPMM",
+   "subraceOrVariant": null,
+   "background": "ENTERTAINER",
+   "topAbilities": [
+    "DEX",
+    "CHA"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 7
+  },
+  {
+   "file": "preset-sorcerer-divine-soul-2014",
+   "title": "Клірик 1 / Чародій — Божественна душа, Перевертень (Містичний теург)",
+   "authorConcept": "Мультиклас Клірик 1 (Домен порядку) / Чародій Божественної душі: Голос влади зі Сріблястими шпильками, Перевертень з Диким мисливцем, Шпигун з Уважністю.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "ORDER_DOMAIN",
+   "otherClassesInPlan": [
+    "SORCERER_2014"
+   ],
+   "race": "SHIFTER_MPMM",
+   "subraceOrVariant": null,
+   "background": "SPY",
+   "topAbilities": [
+    "CON",
+    "CHA"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 17
+  },
+  {
+   "file": "preset-sorcerer-draconic-2014",
+   "title": "Чародій Драконячого родоводу — Дракононароджений",
+   "authorConcept": "Вогняний чародій із чотирма замовляннями та драконячим родоводом. Походження обрано вже на 1-му рівні.",
+   "startingClass": "SORCERER_2014",
+   "subclass": "DRACONIC_BLOODLINE",
+   "otherClassesInPlan": [],
+   "race": "DRAGONBORN_2014",
+   "subraceOrVariant": null,
+   "background": "NOBLE",
+   "topAbilities": [
+    "CHA",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-sorcerer-lunar-sorcery-2014",
+   "title": "Чародій — Місячна магія, Перевертень",
+   "authorConcept": "Чародій Місячної магії з Перевертнем (Звіроша шкіра): Харизма 17, Відлюдник з Уважністю й Аналізом поведінки, Сон і Кольорові бризки.",
+   "startingClass": "SORCERER_2014",
+   "subclass": "LUNAR_SORCERY",
+   "otherClassesInPlan": [],
+   "race": "SHIFTER_MPMM",
+   "subraceOrVariant": null,
+   "background": "HERMIT",
+   "topAbilities": [
+    "CON",
+    "CHA"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-sorcerer-silver-dragonborn-draconic-bloodline-2014",
+   "title": "Чародій Драконячого родоводу — Срібний дракононароджений",
+   "authorConcept": "Срібний дракононароджений Фізбана з Харизмою 17 і Статурою 16, Аристократ. Вогняний предок і замовляння «Кислотні бризки» та «Вогняний заряд».",
+   "startingClass": "SORCERER_2014",
+   "subclass": "DRACONIC_BLOODLINE",
+   "otherClassesInPlan": [],
+   "race": "DRAGONBORN_METALLIC",
+   "subraceOrVariant": null,
+   "background": "NOBLE",
+   "topAbilities": [
+    "CON",
+    "CHA"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 9
+  },
+  {
+   "file": "preset-sorcerer-variant-human-storm-sorcery-tempest-2014",
+   "title": "Чародій Магії шторму — Варіант людини (з рівнями Клірика)",
+   "authorConcept": "Варіант людини зі Силою 15 і Харизмою 16, «Адепт метамагії» з 1-го рівня. Чародій стартує, а Клірик домену бурі додається з 2-го рівня.",
+   "startingClass": "SORCERER_2014",
+   "subclass": "STORM_SORCERY",
+   "otherClassesInPlan": [
+    "CLERIC_2014"
+   ],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "ACOLYTE",
+   "topAbilities": [
+    "CHA",
+    "STR"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 4
+  },
+  {
+   "file": "preset-sorcerer-warforged-aberrant-mind-2014",
+   "title": "Чародій Аберантного розуму — Воєнокований",
+   "authorConcept": "Акоріан, вісник Аболітида: Воєнокований-Агент фракції з Харизмою 17 і Статурою 16. Псіонічні закляття з 1-го рівня.",
+   "startingClass": "SORCERER_2014",
+   "subclass": "ABERRANT_MIND",
+   "otherClassesInPlan": [],
+   "race": "WARFORGED_EBERRON",
+   "subraceOrVariant": null,
+   "background": "FACTION_AGENT",
+   "topAbilities": [
+    "CON",
+    "CHA"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 16
+  },
+  {
+   "file": "preset-warlock-fallen-aasimar-undead-2014",
+   "title": "Чорнокнижник Невмерлого — Занепалий аазимар",
+   "authorConcept": "«Привиди зі стволами»: Спритність 17, Харизма 16, Некротичне покривало. Збірка під мушкет і «Стрільця» пізніше.",
+   "startingClass": "WARLOCK_2014",
+   "subclass": "UNDEAD",
+   "otherClassesInPlan": [],
+   "race": "AASIMAR_MPMM",
+   "subraceOrVariant": null,
+   "background": "NOBLE",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "CLUB"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 11
+  },
+  {
+   "file": "preset-warlock-fiend-2014",
+   "title": "Чорнокнижник Почвари — Тифлінг",
+   "authorConcept": "Харизматичний чорнокнижник із вогняною магією патрона-Почвари. Покровителя обрано вже на 1-му рівні.",
+   "startingClass": "WARLOCK_2014",
+   "subclass": "FIEND",
+   "otherClassesInPlan": [],
+   "race": "TIEFLING_2014",
+   "subraceOrVariant": null,
+   "background": "NOBLE",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "QUARTERSTAFF"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-warlock-genie-2014",
+   "title": "Воїн 1 / Чорнокнижник — Джин, Напівельф-дроу",
+   "authorConcept": "Мультиклас Воїн 1 / Чорнокнижник Джина з Пактом клинка й довгим луком: Стрільба з лука, Напівельф, Безпритульний.",
+   "startingClass": "FIGHTER_2014",
+   "subclass": "THE_GENIE",
+   "otherClassesInPlan": [
+    "WARLOCK_2014"
+   ],
+   "race": "HALF_ELF_2014",
+   "subraceOrVariant": null,
+   "background": "URCHIN",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "RAPIER",
+    "SHORTSWORD"
+   ],
+   "classOptions": [
+    "Archery"
+   ],
+   "maxPlannedLevel": 19
+  },
+  {
+   "file": "preset-warlock-hexblade-2014",
+   "title": "Чорнокнижник — Відьмацький клинок, Напівельф",
+   "authorConcept": "Напівельф зі спадком Місячного або Сонячного ельфа: Гримучий Клинок, Спалах мечів і Позамежний заряд з першого рівня, Харизма 17.",
+   "startingClass": "WARLOCK_2014",
+   "subclass": "HEXBLADE",
+   "otherClassesInPlan": [],
+   "race": "HALF_ELF_2014",
+   "subraceOrVariant": null,
+   "background": "FACTION_AGENT",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "QUARTERSTAFF"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-warlock-kenku-great-old-one-2014",
+   "title": "Чорнокнижник-Прадавній — Кенку",
+   "authorConcept": "«Ігри розуму»: хитре «обличчя» групи з Пробудженим розумом. Харизма 17, Спритність 16, Обман, Спритність рук і Непомітність.",
+   "startingClass": "WARLOCK_2014",
+   "subclass": "GREAT_OLD_ONE",
+   "otherClassesInPlan": [],
+   "race": "KENKU_MPMM",
+   "subraceOrVariant": null,
+   "background": "CHARLATAN",
+   "topAbilities": [
+    "DEX",
+    "CHA"
+   ],
+   "chosenWeapons": [
+    "DAGGER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 9
+  },
+  {
+   "file": "preset-warlock-stout-halfling-celestial-2014",
+   "title": "Чорнокнижник-Небожитель — Кремезний напіврослик",
+   "authorConcept": "Сапорт із Харизмою 17 і Спритністю 16: «Світило зцілення», Пакт талісмана та расова «Удача».",
+   "startingClass": "WARLOCK_2014",
+   "subclass": "CELESTIAL",
+   "otherClassesInPlan": [],
+   "race": "HALFLING_2014",
+   "subraceOrVariant": "HALFLING_STOUT_2014",
+   "background": "FACTION_AGENT",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "CLUB"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 18
+  },
+  {
+   "file": "preset-warlock-tiefling-archfey-2014",
+   "title": "Чорнокнижник Архіфея — Тифлінг (диявольський язик)",
+   "authorConcept": "«Найледачіший чорнокнижник у світі»: підтримка з Вогниками фей, Пакт ланцюга пізніше. Харизма 17, Спритність 15.",
+   "startingClass": "WARLOCK_2014",
+   "subclass": "ARCHFEY",
+   "otherClassesInPlan": [],
+   "race": "TIEFLING_2014",
+   "subraceOrVariant": null,
+   "background": "COURTIER",
+   "topAbilities": [
+    "CHA",
+    "DEX"
+   ],
+   "chosenWeapons": [
+    "CLUB"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 11
+  },
+  {
+   "file": "preset-warlock-tiefling-fiend-iconic-2014",
+   "title": "Чорнокнижник Почвари — Тифлінг («Знаковий»)",
+   "authorConcept": "Знаковий чорнокнижник Почвари: Харизма 17, Спритність 16, вогняний опір тифлінга. Основа — Позамежний заряд і Проклін.",
+   "startingClass": "WARLOCK_2014",
+   "subclass": "FIEND",
+   "otherClassesInPlan": [],
+   "race": "TIEFLING_2014",
+   "subraceOrVariant": null,
+   "background": "NOBLE",
+   "topAbilities": [
+    "DEX",
+    "CHA"
+   ],
+   "chosenWeapons": [
+    "CLUB"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 11
+  },
+  {
+   "file": "preset-warlock-undying-2014",
+   "title": "Воїн 1 / Чорнокнижник — Невмирущий, Варіант людини",
+   "authorConcept": "Мультиклас Воїн 1 / Чорнокнижник Невмирущого у важкій броні: Майстер важких обладунків з 1-го рівня, Перехоплення, Пакт клинка.",
+   "startingClass": "FIGHTER_2014",
+   "subclass": "UNDYING",
+   "otherClassesInPlan": [
+    "WARLOCK_2014"
+   ],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "SOLDIER",
+   "topAbilities": [
+    "STR",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "GREATSWORD",
+    "MAUL"
+   ],
+   "classOptions": [
+    "Interception"
+   ],
+   "maxPlannedLevel": 9
+  },
+  {
+   "file": "preset-warlock-variant-human-fathomless-2014",
+   "title": "Чорнокнижник Безодні — Варіант людини",
+   "authorConcept": "«Від води не сховатися»: Щупальце глибин для контролю поля бою, «Середньоозброєний» з 1-го рівня. Статура 16, Харизма 16, Спритність 14.",
+   "startingClass": "WARLOCK_2014",
+   "subclass": "FATHOMLESS",
+   "otherClassesInPlan": [],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "ENTERTAINER",
+   "topAbilities": [
+    "CON",
+    "CHA"
+   ],
+   "chosenWeapons": [
+    "CLUB"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-wizard-abjuration-2014",
+   "title": "Винахідник 1 / Чарівник — Школа огородження, Орк",
+   "authorConcept": "Мультиклас Винахідник 1 / Чарівник Школи огородження: середні обладунки й щит від Винахідника, Орк за правилами Таші, власна передісторія з Акробатикою й Непомітністю.",
+   "startingClass": "ARTIFICER_2014",
+   "subclass": "ARMORER",
+   "otherClassesInPlan": [
+    "WIZARD_2014"
+   ],
+   "race": "ORC_MPMM",
+   "subraceOrVariant": null,
+   "background": "CUSTOM",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "DAGGER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 2
+  },
+  {
+   "file": "preset-wizard-bladesinging-2014",
+   "title": "Чарівник Школи співу клинків — Гоблін",
+   "authorConcept": "Гоблін-Чарівник зі змінюваним походженням: Спритність 16, Інтелект 17, Відступ бонусною дією. Шість заклинань у книзі й три замовляння з авторського старту.",
+   "startingClass": "WIZARD_2014",
+   "subclass": "SCHOOL_OF_BLADESINGING",
+   "otherClassesInPlan": [
+    "FIGHTER_2014"
+   ],
+   "race": "GOBLIN_MPMM",
+   "subraceOrVariant": null,
+   "background": "CLOISTERED_SCHOLAR",
+   "topAbilities": [
+    "DEX",
+    "INT"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-wizard-chronurgy-magic-2014",
+   "title": "Клірик 1 / Чарівник — Школа хронургії, Гаренгон",
+   "authorConcept": "Мультиклас Клірик 1 (Домен сутінків) / Чарівник Школи хронургії: Гаренгон із Зайчачим рефлексом, броня й щит від Клірика, налаштований Мудрець з каліграфічним набором і набором фальшивомонетника.",
+   "startingClass": "CLERIC_2014",
+   "subclass": "TWILIGHT_DOMAIN",
+   "otherClassesInPlan": [
+    "WIZARD_2014"
+   ],
+   "race": "HARENGON_MPMM",
+   "subraceOrVariant": null,
+   "background": "SAGE",
+   "topAbilities": [
+    "INT",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 2
+  },
+  {
+   "file": "preset-wizard-conjuration-2014",
+   "title": "Чарівник Школи заклику — Черепаха",
+   "authorConcept": "Черепаха-Чарівник зі змінюваним походженням: КБ 17 від панцира, Спритність 16, Статура 14, Інтелект 16, Мудрість 12. Універсальний викликач із фамільяром у книзі.",
+   "startingClass": "WIZARD_2014",
+   "subclass": "SCHOOL_OF_CONJURATION",
+   "otherClassesInPlan": [],
+   "race": "TORTLE_MPMM",
+   "subraceOrVariant": null,
+   "background": "SAGE",
+   "topAbilities": [
+    "DEX",
+    "INT"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 7
+  },
+  {
+   "file": "preset-wizard-divination-2014",
+   "title": "Чарівник — Школа віщування, Напіврослик",
+   "authorConcept": "Чарівник-провидець зі Створенням багаття та Розщепленням Розуму: Напіврослик (Примарний) за правилами Таші, налаштований Замкнений учений з Аналізом поведінки й Уважністю.",
+   "startingClass": "WIZARD_2014",
+   "subclass": "SCHOOL_OF_DIVINATION",
+   "otherClassesInPlan": [],
+   "race": "HALFLING_2014",
+   "subraceOrVariant": "HALFLING_GHOSTWISE_SCAG",
+   "background": "CLOISTERED_SCHOLAR",
+   "topAbilities": [
+    "INT",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-wizard-enchantment-2014",
+   "title": "Чарівник Школи чарування — Кенку",
+   "authorConcept": "Кенку-Чарівник із «обличчям» групи: Харизма 14, Інтелект 16 і повний набір соціальних навичок. Причарування особи, Сон і Огидний сміх Таші з першого рівня.",
+   "startingClass": "WIZARD_2014",
+   "subclass": "SCHOOL_OF_ENCHANTMENT",
+   "otherClassesInPlan": [],
+   "race": "KENKU_MPMM",
+   "subraceOrVariant": null,
+   "background": "COURTIER",
+   "topAbilities": [
+    "INT",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 2
+  },
+  {
+   "file": "preset-wizard-evocation-2014",
+   "title": "Чарівник Школи втілення — Високий ельф",
+   "authorConcept": "Досліджуйте таємниці магії й долайте ворогів різними типами шкоди. У книзі вже є шість стартових заклинань із прикладу RPGbot.",
+   "startingClass": "WIZARD_2014",
+   "subclass": "SCHOOL_OF_EVOCATION",
+   "otherClassesInPlan": [],
+   "race": "ELF_2014",
+   "subraceOrVariant": "ELF_HIGH_2014",
+   "background": "SAGE",
+   "topAbilities": [
+    "INT",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 5
+  },
+  {
+   "file": "preset-wizard-evoker-2014",
+   "title": "Чарівник Школи втілення — Варіант людини",
+   "authorConcept": "Варіант людини з рисою «Стійкий (Статура)» на 1-му рівні: Спритність 16, Інтелект 16, Статура 16 і володіння ряткидком Статури. Три наступальні замовляння й шість заклинань у книзі.",
+   "startingClass": "WIZARD_2014",
+   "subclass": "SCHOOL_OF_EVOCATION",
+   "otherClassesInPlan": [],
+   "race": "HUMAN_2014",
+   "subraceOrVariant": null,
+   "background": "SAGE",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 3
+  },
+  {
+   "file": "preset-wizard-illusion-2014",
+   "title": "Чарівник Школи ілюзії — Кенку",
+   "authorConcept": "Кенку-Злочинець зі змінюваним походженням: Інтелект 17, Спритність 15, навички розвідника й Мовчазний образ з першого рівня.",
+   "startingClass": "WIZARD_2014",
+   "subclass": "SCHOOL_OF_ILLUSION",
+   "otherClassesInPlan": [],
+   "race": "KENKU_MPMM",
+   "subraceOrVariant": null,
+   "background": "CRIMINAL",
+   "topAbilities": [
+    "INT",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-wizard-necromancy-2014",
+   "title": "Чарівник — Школа некромантії, Фея",
+   "authorConcept": "Чарівник-некромант із Феєю в небі: Інтелект 17, Вогняний заряд і Розщеплення Розуму, Загублений у Світі Фей з навичками Природа й Релігія.",
+   "startingClass": "WIZARD_2014",
+   "subclass": "SCHOOL_OF_NECROMANCY",
+   "otherClassesInPlan": [],
+   "race": "FAIRY_MPMM",
+   "subraceOrVariant": null,
+   "background": "FEYLOST",
+   "topAbilities": [
+    "DEX",
+    "INT"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 1
+  },
+  {
+   "file": "preset-wizard-scribes-2014",
+   "title": "Чарівник Ордену писарів — Воєнокований",
+   "authorConcept": "Воєнокований зі змінюваним походженням: Інтелект 17, Статура 15 і всі пʼять навичок Інтелекту. Фамільяр-сова, ритуали й Колірна кулька з першого рівня.",
+   "startingClass": "WIZARD_2014",
+   "subclass": "ORDER_OF_SCRIBES",
+   "otherClassesInPlan": [],
+   "race": "WARFORGED_EBERRON",
+   "subraceOrVariant": null,
+   "background": "CLOISTERED_SCHOLAR",
+   "topAbilities": [
+    "INT",
+    "DEX"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-wizard-transmutation-2014",
+   "title": "Чарівник Школи трансмутації — Пагорбовий дворф",
+   "authorConcept": "Пагорбовий дворф зі змінюваним походженням: Інтелект 17, Статура 16, додаткові ХП і стійкість до отрути. Удаване життя й Пошук фамільяра в книзі.",
+   "startingClass": "WIZARD_2014",
+   "subclass": "SCHOOL_OF_TRANSMUTATION",
+   "otherClassesInPlan": [],
+   "race": "DWARF_2014",
+   "subraceOrVariant": "DWARF_HILL_2014",
+   "background": "SAGE",
+   "topAbilities": [
+    "CON",
+    "INT"
+   ],
+   "chosenWeapons": [],
+   "classOptions": [],
+   "maxPlannedLevel": 20
+  },
+  {
+   "file": "preset-wizard-war-magic-2014",
+   "title": "Винахідник 1 / Чарівник — Бойова магія, Гаренгон",
+   "authorConcept": "Мультиклас Винахідник 1 / Чарівник Традиції бойової магії: Гаренгон із Зайчачим рефлексом, середні обладунки й щит, Корабельний майстер з Акробатикою й Непомітністю.",
+   "startingClass": "ARTIFICER_2014",
+   "subclass": "ARMORER",
+   "otherClassesInPlan": [
+    "WIZARD_2014"
+   ],
+   "race": "HARENGON_MPMM",
+   "subraceOrVariant": null,
+   "background": "SHIPWRIGHT",
+   "topAbilities": [
+    "DEX",
+    "CON"
+   ],
+   "chosenWeapons": [
+    "DAGGER"
+   ],
+   "classOptions": [],
+   "maxPlannedLevel": 2
+  }
+ ]
+}

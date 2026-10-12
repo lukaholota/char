@@ -1,0 +1,2522 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "598f97a8bfbcd4329b71d48dd3877b3684b033a0a0305c4c732c1975de097195",
+  "sourceRevision": {
+    "revisionId": "rpgbot-6ee4fe1000bc575a-598f97a8bfbcd432",
+    "sourceId": "rpgbot-6ee4fe1000bc575a",
+    "fetchedAt": "2026-09-29T19:14:56.025409+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:30:28-04:00",
+    "contentHash": "8b501bf359e64bf461e359f48ff8d92e3e1266787bac47c18cc4d58136e8640f",
+    "title": "Kobold Press Gunslinger Ranger & Tetragrammaton Cleric Build Guide: DnD 5e Multiclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-6ee4fe1000bc575a-598f97a8bfbcd432.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Whereas Tyler was enchanted by the picture of a "
+            },
+            {
+              "type": "link",
+              "text": "magic-user telekinetically holding up a brace of pistols",
+              "href": "https://rpgbot.net/dnd5/characters/classes/kobold-presss-black-powder-sorcery/"
+            },
+            {
+              "type": "text",
+              "text": " when we first got to preview the Tome of Heroes, for me, it was visions of recreating Gun Kata from the wonderfully mediocre but incredibly entertaining movie "
+            },
+            {
+              "type": "link",
+              "text": "Equilibrium",
+              "href": "https://www.amazon.com/Equilibrium-Emily-Watson/dp/B009ZM74F8?sa-no-redirect=1&linkCode=ll2&tag=rpgbot-20&linkId=ed22fbab3db165a938a2b6ee377ed2c9&language=en_US&ref_=as_li_ss_tl"
+            },
+            {
+              "type": "text",
+              "text": " that my imagination ran with. I wanted to play as a monk dual-wielding pistols, shooting and punching my way through hordes of "
+            },
+            {
+              "type": "text",
+              "text": "fascistic government goons"
+            },
+            {
+              "type": "text",
+              "text": " goblins."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Upon getting a chance to actually read the book, though, it lacks a monk subclass focused on firearms. Perhaps this is because, as Rocco pointed out, monks can already be "
+            },
+            {
+              "type": "link",
+              "text": "really good",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/"
+            },
+            {
+              "type": "text",
+              "text": " with ranged weapons. Regardless, I wanted to make a build to demonstrate what a martial character using the Kobold Press gunpowder rules would look like when optimized. This isn’t a handbook because, at our "
+            },
+            {
+              "type": "link",
+              "text": "Discord server",
+              "href": "https://www.patreon.com/rpgbot"
+            },
+            {
+              "type": "text",
+              "text": "’s request, heavily multiclass builds won’t be presented as handbooks anymore, so here’s one for the new section of build guides."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With that said, since this build started off based on the Kobold Press Gunslinger Ranger, and, since there is no other discussion of Gunslinger Ranger on the website, I’m still going to include the typical sections a handbook would. The subclass has some great pieces to it, but, much like the Sorcerer subclass, there are some very clear problems. The art depicting the Gunslinger shows a character dual-wielding pistols, which the entire sourcebook provides no capacity for, the 11th-level ability is actively counterproductive, and the subclass, as a whole, is generally less effective than many other Ranger options."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gunslinger Features",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gunslinger Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#gunslinger-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gunslinger Races",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#gunslinger-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gunslinger Feats",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#gunslinger-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gunslinger Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#gunslinger-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gunslinger Armor",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#gunslinger-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Tetragrammaton Cleric",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#example-build-tetragrammaton-cleric"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/kobold-press-gunslinger/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Gunslinger Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Gunslinger Magic"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": ": While I supremely do not understand the choices made at levels 9, 13, and\n\t17 for spells added, the spells at levels 3 and 5 are so good that this gets\n\tto be green anyway. Not having to spend a spell known on Hunter’s Mark leaves\n\tyou free to do other things, and, while your save DC probably won’t be as high\n\tas a full caster, if Hold Person succeeds, you get automatic crits which is\n\tgoofy on a gunpowder class as it doubles your chances for exploding dice.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Trick Shot"
+              },
+              {
+                "type": "text",
+                "text": ": Every turn, one attack you\n\t\tmake gets a free rider.\n\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Deafening Shot"
+              },
+              {
+                "type": "text",
+                "text": ": A hard sell because\n\t\t\t\tit’s a Con save, and it’s far more complicated than anything in\n\t\t\t\t1st-party content because it involves actually tracking the path of your\n\t\t\t\tranged attack projectile, but it could theoretically be used to, for\n\t\t\t\texample, make a spellcaster drop their focus which could then be picked\n\t\t\t\tup by one of your front-line friends."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shifting Shot"
+              },
+              {
+                "type": "text",
+                "text": ": Probably where you’ll\n\t\t\t\tget the most use out of this ability as it’s functionally the\n\t\t\t\tTelekinetic feat but better. You can’t force them into dangerous\n\t\t\t\tterrain, but the area of a spell isn’t terrain. Push them back into that\n\t\t\t\tHunger of Hadar the Warlock cast and wish them a merry tentaclemas."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improved Ricochet"
+              },
+              {
+                "type": "text",
+                "text": ": Conditionally\n\t\t\t\texcellent as, in most circumstances, it will allow you to ignore\n\t\t\t\tcreatures taking cover, but many enemies don’t think to do that."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Defensive Tactics"
+              },
+              {
+                "type": "text",
+                "text": ": I have no idea why they\n\t\task you to choose from among 4 options when one option is basically\n\t\tcheating. Die Hard will make you functionally immortal unless you’re getting\n\t\tattacked while down and bleeding out. If that option wasn’t there, you’d\n\t\thave an actual choice point between Return Fire’s DPS boost and Sudden\n\t\tWithdrawal’s ability to make Multiattacks probably not kill you, but yeah,\n\t\tDie Hard removes that choice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improved Trick Shot"
+              },
+              {
+                "type": "text",
+                "text": ": This feature is a\n\t\ttrap. In addition to the fact that only one of the shots is any good\n\t\t(Stunning Shot is a direct upgrade to Deafening Shot, but it still targets a\n\t\tCon save), because it specifies that the shots are the action, it means you\n\t\tdon’t get to use two-weapon fighting or any other ability triggered by\n\t\ttaking the Attack action. Now, if you’re just taking this as a\n\t\tstraight-class Ranger, that doesn’t actually matter since the Swift Quiver\n\t\tspell doesn’t actually care if you take the attack action on turns; it will\n\t\tstill happily let you attack twice as a bonus action. That said, nothing\n\t\telse lets you attack as a bonus action natively, but the build below\n\t\thighlights why this is a bigger problem."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Deadeye"
+              },
+              {
+                "type": "text",
+                "text": ": Everything likes critting more,\n\t\tand gunpowder weapons really like critting more.\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gunslinger-ability-scores",
+      "heading": "Gunslinger Ability Scores",
+      "sourceAnchor": "gunslinger-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-gunslinger-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gunslinger-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": This will be the primary stat for the build as it governs all attacks and class abilities."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gunslinger-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Con: As written, this subclass is intended to be a ranged attacker, making Con less needed. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gunslinger-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gunslinger-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": This powers your Ranger spells. Gunslinger adds a really good one, so up that DC."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gunslinger-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gunslinger-ability-scores-7",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gunslinger-races",
+      "heading": "Gunslinger Races",
+      "sourceAnchor": "gunslinger-races",
+      "blocks": [
+        {
+          "blockId": "block-section-gunslinger-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing much different than standard Ranger races. MMoM Bugbear is an especially good choice as the extra dice from Surprise Attack can burst, but the real GOAT is, in fact, a hippo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gunslinger-feats",
+      "heading": "Gunslinger Feats",
+      "sourceAnchor": "gunslinger-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-gunslinger-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Once again, despite the art depicting the character using two pistols, no character can actually do that. The Gunner feat will at least let you ignore the loading property on your weapons, which seems like a must since you get extra attacks, but there’s another way around that as the build below will demonstrate. Sharpshooter is also very helpful to remove the penalties from attacking outside normal range as almost all firearms still have a shorter maximum range than a longbow’s normal range."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gunslinger-weapons",
+      "heading": "Gunslinger Weapons",
+      "sourceAnchor": "gunslinger-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-gunslinger-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Blunderbuss"
+            },
+            {
+              "type": "text",
+              "text": ": This weapon is a fascinating concept if you wanted to deal damage without making attack rolls as a martial character. Thing’s Dex saves basically don’t scale, but the DC from attacking with this weapon also never scales, so that’s functionally a wash. It’s like attacking with an average of +3 your entire career just so that you can do it in a 15 foot cone with half damage on a success. Cool in theory, much worse in practice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gunslinger-weapons-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dwarven Arqebus"
+            },
+            {
+              "type": "text",
+              "text": ": If you were going to be playing this class straight, this would be the gold standard. It’s a ranged greatsword."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gunslinger-weapons-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pistol"
+            },
+            {
+              "type": "text",
+              "text": ": When you want a gun in one hand, this is the go-to option. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gunslinger-armor",
+      "heading": "Gunslinger Armor",
+      "sourceAnchor": "gunslinger-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-gunslinger-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different than any other Ranger."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Multiclassing has the capacity to take the Gunslinger and turn it into something actually optimized. 4 levels of Buccaneer Fighter will get you both the new Gunpowder Fighting Style and the ability to actually dual-wield. Now how do we solve the problem of our melee weapon not being gunpowder…"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One Level of Black Powder Domain Cleric lets you take the melee weapon in your primary hand and make it a Gunpowder weapon, allowing you to apply the effects of Gunpowder Mastery, the Gunpowder Fighting Style, and, enjoying all the benefits of Burst."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-tetragrammaton-cleric",
+      "heading": "Example Build – Tetragrammaton Cleric",
+      "sourceAnchor": "example-build-tetragrammaton-cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-tetragrammaton-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“By the rote mastery of this art, your firing efficiency will rise by no less than 120%”"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-tetragrammaton-cleric-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Equilibrium",
+              "href": "https://www.youtube.com/watch?v=O4mS_3hWwtk"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-tetragrammaton-cleric-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Remember how I said this was a Ranger build? I changed my mind for optimization’s sake, so we’re going to end up Fighter 11/Ranger 7/Cleric 2. This will let us attack 4 times a turn with Gunpowder weapons, give us the insane defensive capacity of Die Hard, and the brilliant combination of the Gunpowder fighting style and Seasoned Seadog. This build uses the Favored Foe and Deft Explorer optional class features provided in Tasha’s to replace two glaringly weak parts of the Ranger class."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-tetragrammaton-cleric-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "The combination of all of these features results in an "
+            },
+            {
+              "type": "emphasis",
+              "text": "exceptionally"
+            },
+            {
+              "type": "text",
+              "text": " durable front-line Striker who deals consistently good damage that can result in very satisfying turns where they deal enormous damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-tetragrammaton-cleric",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to pump Con higher than most Gunslingers would care to because we have to be up in melee to make our gun-blade tactics work."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-tetragrammaton-cleric",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Giff. The Fighter subclass Buccaneer will give us the ability to attack at melee range with a pistol without disadvantage and Giff lets us ignore the loading property on firearms and ignore disadvantage on long-range attacks if we’re stuck fighting from a distance which is basically the parts of two different feats we care about for this build. Also, I didn’t want to make yet another build using Variant Human/Custom Lineage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-tetragrammaton-cleric",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With a Dex this high, you’re probably going to function as the party’s Scout. Pick something with Thieves’ Tools proficiency like Urchin."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-tetragrammaton-cleric",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Urchin we get Sleight of Hand, Stealth, Disguise Kit, and Thieves’ Tools. Starting as a Ranger will also get us Perception, Survival, and Insight to capitalize on our high Wisdom. Once we take the Buccaneer subclass in Fighter we’ll also pick up Gunsmith’s Tools and Water Vehicles, while the first level in Cleric will then get us Alchemist’s Tools."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-tetragrammaton-cleric",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Feats are going to be very strange in this build due to all the multiclassing. Starting with 5 levels in Ranger and taking the Archery fighting style will let us ignore some of the "
+            },
+            {
+              "type": "link",
+              "text": "fundamental math",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": " by getting a free +2 to attack rolls on all but one attack in a turn (more on that in the example build). The final collection looks like this:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Character 4, Ranger 4: Piercer"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Character 10, Fighter 4: +2 Dex"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Character 12, Fighter 6: See text"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Character 17, Fighter 8: Resilient (Wis)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-tetragrammaton-cleric",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1 – Ranger 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Favored Foe"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Deft Explorer – Canny: Perception"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If you’re playing with 3rd-party content, you’re almost certainly allowed the optional class features and these are much better than what they replace. If you aren’t using them, nothing much changes for this build in combat except that your Concentration is now freed up to do other things. Take Expertise in Perception to be a good Scout while you level your Dex but not so much your Wisdom for most of the build."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you want a very thorough discussion of the finer points between Favored Foe and Hunter’s Mark, go read our "
+                },
+                {
+                  "type": "link",
+                  "text": "Gloom Stalker Handbook.",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We take the gold for our starting equipment and walk out with a pistol, studded leather, a dagger, and a short sword. That leaves you 43gp to buy Thieves’ Tools and a Dungeoneer’s or Explorer’s Pack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Combat looks like shooting things with your pistol from 100 feet away because Giff."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2 – Ranger 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style (Archery)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hunter’s Mark"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Goodberry"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style (Archery) gives us an immediate large boost to damage per round because hitting things on a 6 or higher instead of an 8 or higher is 15% more damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Learn Hunter’s Mark for a single level until you get it always prepared at next level, then turn this into something else (like Fog Cloud)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Goodberry is present in case your actual healer drops because someone needs to be able to stand them back up. Feel free to replace this with Fog Cloud if you already have two characters capable of healing."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 – Ranger 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prim(ev)al Awareness"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Ranger Archetype: Gunslinger"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Trick Shot"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Absorb Elements"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Neither Awareness option is great, but Primal is bonus spells which is always more helpful than spending a spell slot on something which will rarely matter."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Trick Shot is very good for all the reasons I mentioned above. Again, most of the time you’ll be using Shifting Shot to move someone into a more advantageous position, but a couple of the other options are good too. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Absorb Elements is one of the best defensive spells in the game. We’re also going to be making one melee attack per round starting at level 8 so we can take advantage of the bonus damage rider."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 – Ranger 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Piercer (Dex)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dexterity goes up to 18 which keeps us two points ahead of the fundamental math on our attack rolls. Rerolling low damage numbers on our pistol gives us an increased chance to burst for more damage. That is a "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "lot"
+                },
+                {
+                  "type": "text",
+                  "text": " of math to try and work out, but I’m pretty sure it’s at least as much of a DPR increase as Archery Fighting Style. Also worth noting is that the extra die you get to roll from critting is part of the attack, which means that "
+                },
+                {
+                  "type": "link",
+                  "text": "it can burst",
+                  "href": "https://rpgbot.net/dnd5/characters/practical-guide-to-kobold-presss-gunpowder-property-dnd-5e/"
+                },
+                {
+                  "type": "text",
+                  "text": " even if nothing else does."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 – Ranger 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Lesser Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hold Person"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Right now we’re going to be shooting twice with a pistol instead of doing anything else because we can still do that from 100 feet away with no penalty. But all that will change in 3 levels. If you have the money and can find one, you’re going to want to pick up the Dwarven Arquebus mentioned above and use that as your primary attack until level 8 and then as your long-range option past that."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lesser Restoration is there in case your healer gets paralyzed. If you already have two sources of this, take Pass Without Trace instead."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hold Person, if you can get it to stick, will let you guarantee crits, giving you twice as many dice to try to burst with. It’s worth throwing at a boss if you perhaps have a Lore Bard friend or someone Mind Slivering the opponent for instance."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 – Fighter 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Gunfighting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unlike other games, nothing in DnD 5e prevents you from rerolling the same die more than once if you have multiple reasons to. This is likely because there aren’t very many reasons you’d have two different sources of being able to reroll the same die (although Piercer and Great Weapon fighting style on a Pike would do it in the corerules), but I wasn’t able to find anything that says I can’t, including any Crawford rulings. This now lets you fish for bursts rather than fishing for crits."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 – Fighter 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For now, the main purpose of this is just going to be shooting even more times on a turn where you need the damage. Eventually, though, it gets a way cooler use."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 – Fighter 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Black Powder and Sailcloth"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bullet and Blade"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Alright, let’s stop being a pansy and get up into melee where the action is. Like Tyler noted in the "
+                },
+                {
+                  "type": "link",
+                  "text": "Thri-Kreen Handbook",
+                  "href": "https://rpgbot.net/dnd5/characters/races/thri-kreen/"
+                },
+                {
+                  "type": "text",
+                  "text": ", “The TWF rules require you to take the Attack action and attack with a light weapon to get the Bonus Action attack. Once you’ve met that requirement, you’re free to do what you like with your other attacks, including attacking with a two-handed weapon or even with a ranged weapon.”"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "So, now that we have Bullet and Blade, we can stab with a shortsword to activate TWF, use our second attack from Extra Attack to shoot our pistol, then bonus action attack with the same pistol, getting Dex to damage on all 3 attacks and giving us two chances to burst."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 – Cleric 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Gunpowder Blessing"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Light"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thaumaturgy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Healing Word"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Bless"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shield of Faith"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fog Cloud"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thunderwave"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Giff love to be loud. So why not be even "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "louder?"
+                },
+                {
+                  "type": "text",
+                  "text": "We don’t really need damage cantrips, nor do we want any leveled spells that care that our Wisdom is way behind where it should be."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fog Cloud being always prepared here means you can go replace it from your Ranger list when you next take a Ranger level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Gunpowder Blessing is pretty great. It lets you make your short sword a gunpowder weapon, allowing it to benefit both from the chance to burst and also from your Gunfighting fighting style. Since it costs nothing but an action and has no visible effect, there’s very little reason that you should be doing it as your action 100% of the time until you have to roll initiative and start acting in a turn-based manner."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10 – Fighter 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Dex 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Get the attack bonus with the short sword and get our attack/damage modifier back on track."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11 – Fighter 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sadly, this instance of it doesn’t stack with the Ranger one we already got so this is a dead level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12 – Fighter 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: See Text"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "There are a handful of options here. If you want your AC to increase, taking Medium Armor Master will give you a +1 AC if you can find half plate. If you’ve found some magic half plate, this is a good idea. If you still want your AC up but you’ve found magic studded leather instead, taking Fighting Initiate for the Defense style accomplishes the same thing. You could probably convince your DM that Dual Wielder would give you the +1 AC and would certainly let you draw both weapons at once but, since Bullet and Blade is the source of the off-hand pistol attack, RAW this won’t let you stop using a light weapon to attack. If you can convince your DM of that too, though, you can switch to a rapier for +2ish DPR."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you don’t think you need the help with AC, Eldritch Adept can get you Devil’s Sight which neatly solves your lack of Darkvision and can be a great combo tactic if you have an arcane caster around to put Darkness on a scarf and then pass it off to you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If none of those feel right, Fey Touched will give you Misty Step and round your Wisdom up early, but Resilient is still recommended later for the proficiency bonus. If you go this route, take Silvery Barbs for your 1st-level spell."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13 – Fighter 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Deck Fighter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "What’s a great way to take out a high-AC front line character? Dex saves. Now you can just choose to succeed. Enjoy a much longer life."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14 – Ranger 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Favored Foe d4 -> d6"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Roving"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Roving is a neat ability but, since it’s not spider climb, we would be removing our ability to load our pistol if we tried to use it in combat. Still, it means you’re rarely going to be stopped by terrain and can clamber up to places and drop a rope down."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored Foe’s damage goes up to matching Hunter’s Mark, so now we use that and free up our spell slots. It doesn’t transfer between targets though, so, if you’re in a fight with many small enemies, consider using a Mark instead and saving Favored Foe for things you expect to be attacking for a while."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "While you’re here, remember to trade out that Fog Cloud you’ve had since level 2 or 3."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15 – Ranger 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Defensive Tactics:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Die Hard"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I talked about how crazy this ability is in the description above and I stand by it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16 – Cleric 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity: Toggle Explosivity"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Detect Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember that Action Surge we’ve been waffling with? Now you can start a combat by giving your whole party Gunpowder weapons (try and convince other party members to take things that let them reroll like Piercer or the Great Weapon fighting style to take best advantage of this) before going right into your turn of stab-shoot-shoot."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Free your real casters up to prepare something else since you can ritual cast Detect Magic just as well as they can."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17 – Fighter 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Resilient (Wis)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Well, you can pass Dex saves by sheer force of will, and you’re at the level range where a lot of things are going to try to break your mind, so how about you just decide to get a +7 on Wisdom saves compared to last level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18 – Fighter 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "While you’re really good at Dex and Wis saves, the stray Con, Int, or Charisma fail may well still kill you. Have another shot at it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19 – Fighter 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Seasoned Seadog"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember how you’re rerolling 1’s on damage, plus one additional die a round of your choice? Well, now each of those dice has a 1/3 chance to burst instead of a 1/6th chance. Also, with our proficiency bonus this high, we’re far more consistent about exploding things than we should be."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20 – Fighter 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For our capstone, we casually increase our DPR by 33%."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Gunslinger Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Gunslinger Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Trick Shot"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Deafening Shot"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Shifting Shot"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Improved Ricochet"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Defensive Tactics"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Improved Trick Shot"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Deadeye"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Blunderbuss"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dwarven Arqebus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Pistol"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "p/s[1]",
+      "detail": "s"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "orphan-list-content-review",
+      "location": "div/ul[2]",
+      "detail": ": While I supremely do not understand the choices made at levels 9, 13, and 17 for spells added, the spells at levels 3 and 5 are so good that this gets to be green anyway. Not hav"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-gunslinger-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-gunslinger-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-gunslinger-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-gunslinger-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-gunslinger-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-gunslinger-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-gunslinger-ability-scores-7"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-gunslinger-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-gunslinger-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-gunslinger-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-gunslinger-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-gunslinger-weapons-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-gunslinger-weapons-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-gunslinger-weapons-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-gunslinger-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-multiclassing-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-example-build-tetragrammaton-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-example-build-tetragrammaton-cleric-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-example-build-tetragrammaton-cleric-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-example-build-tetragrammaton-cleric-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3602,
+    "sections": 17,
+    "blocks": 40,
+    "tables": 3,
+    "ratingSignals": 22
+  },
+  "status": "needs-editorial-review",
+  "correctionOf": "staging/rpgbot-6ee4fe1000bc575a-598f97a8bfbcd432.json"
+}

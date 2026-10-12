@@ -1,0 +1,3617 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-d7336ca702a65591",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-d7336ca702a65591-01a040619fac8e04",
+      "sourceId": "rpgbot-d7336ca702a65591",
+      "fetchedAt": "2026-09-29T19:22:57.575678+00:00",
+      "sourceUpdatedAt": "2026-08-15T22:39:01-04:00",
+      "contentHash": "ae6f7de00cc95568d11e797a523c8b4b1b7cd40e2b092c4ec0aee8680c230928",
+      "title": "DnD Races: Best Races, Rankings, & Optimization Guides for 2014 DnD 5e",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-d7336ca702a65591-01a040619fac8e04.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-races-2014",
+    "sourceId": "rpgbot-d7336ca702a65591",
+    "slug": "races-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Раси D&D — загальний гайд (2014)",
+    "titleEn": "DnD Races: Best Races, Rankings, & Optimization Guides for 2014 DnD 5e",
+    "topics": [
+      "races"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-races-2014-draft1",
+      "articleId": "rpgbot-races-2014",
+      "sourceRevisionId": "rpgbot-d7336ca702a65591-01a040619fac8e04",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Раса разом із класом — одна з найважливіших і найпомітніших частин персонажа. У D&D багато різноманітних рас для різних історій і механічних концепцій. Наші гайди допоможуть ефективно грати обраною расою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оцінка класу в расовому гайді може відрізнятися від оцінки раси в "
+                },
+                {
+                  "type": "link",
+                  "text": "класовому гайді",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Класові гайди починають із класу й шукають найкращі опції для нього. Расові починають із вже обраної раси й допомагають знайти клас, який працює з нею."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця сторінка присвячена правилам 2014. Для редакції 2024 дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "гайди видів D&D 5.5",
+                  "href": "https://rpgbot.net/2024-dnd/species/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Це окреме посилання на іншу редакцію, її правила тут не застосовуються."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-2014-dn-d-5-e-and-the-custom-lineage-rules",
+          "heading": "Раси 2014 і власне походження",
+          "sourceAnchor": "2014-dn-d-5-e-and-the-custom-lineage-rules",
+          "blocks": [
+            {
+              "blockId": "block-section-2014-dn-d-5-e-and-the-custom-lineage-rules-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ранні раси 5e зазвичай мали фіксовані підвищення характеристик. Казан Таші з усім запропонував опційне власне походження{{Custom Origin}}, яке дозволяє перерозподілити їх; пізні раси 2014 зазвичай мають +2/+1 або три +1. Гайди ранніх рас розглядають і класичний варіант, і ці опційні правила. Примітка редакції: Своя раса{{Custom Lineage}} — окрема опція, її не слід плутати з переналаштуванням походження наявної раси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-2014-dn-d-5-e-and-the-custom-lineage-rules-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коли кожна раса може отримати доречні підвищення, звичні поєднання на кшталт Ельфа Чарівника чи Дворфа Воїна вже не обовʼязкові; цікаві расові здібності важать більше за прості +2 Спритності. Гайди розглядають класичні й переналаштовані варіанти. Примітка редакції: правила Таші дозволяють визначені заміни наявних Володінь, а не необмежене отримання довільної кількості навичок, як може здатися з джерела."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-what-is-the-difference-between-races-and-species",
+          "heading": "Яку расу обрати?",
+          "sourceAnchor": "what-is-the-difference-between-races-and-species",
+          "blocks": [
+            {
+              "blockId": "block-section-what-is-the-difference-between-races-and-species-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо починаєте з раси, цілком нормально обрати ту, яка цікава вам. Потужність відрізняється, але опційне власне походження Таші дозволяє майже будь-якій расі ефективно працювати з будь-яким класом. Водночас конкретні здібності можуть суттєво впливати на результат."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-what-is-the-difference-between-races-and-species-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Після вибору прочитайте відповідний гайд нижче й шукайте сумісний клас. Здібності, які доповнюють клас, часто значно підвищують ефективність. Потім прочитайте також "
+                },
+                {
+                  "type": "link",
+                  "text": "класовий гайд",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-d-d-5-e-races-at-a-glance",
+          "heading": "Раси — порівняльна таблиця",
+          "sourceAnchor": "d-d-5-e-races-at-a-glance",
+          "blocks": [
+            {
+              "blockId": "block-section-d-d-5-e-races-at-a-glance-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Раса (2014)"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розмір"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Швидкість, фути"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Темний зір"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Особливості й уточнення версії"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Ааракокра",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#aarakocra"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30, політ 30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Політ; наведена швидкість відповідає MPMM, EEPC: ходьба 25, політ 50 футів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Аазимар",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#aasimar"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Опір некротичній та променевій шкоді, потужне перетворення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Автогном",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#autognome"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Малий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захисний корпус, додатковий кубик для окремих кидків."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Ведмебай",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#bugbear"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бонус шкоди цілям, які ще не мали ходу; саме MPMM."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Кентавр",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#centaur"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Висока швидкість, бонусна атака копитами після відповідного наскоку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Змінник",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#changeling"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зміна зовнішності за бажанням. MPMM дозволяє Малий або Середній розмір."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Своя раса",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#custom-lineage"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Малий або Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На вибір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Налаштуйте власну расову опцію."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Дампір",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#dhampir"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Малий або Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Залежить від успадкованих здібностей"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вампірський образ. Ходьба 35 футів; успадковуються лише зазначені інші швидкості."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Дракононароджений",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#dragonborn"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вогняний чи інший драконячий подих."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Дворф",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#dwarf"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Живучість і додаткові Володіння зброєю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Ельф",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#elf"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Багато підрас і перевидань, зокрема Дроу та Шадар-Кай."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Фея",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#fairy"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Малий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30, політ 30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Політ і вроджене чаротворення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Фірболг",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#firbolg"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звʼязок із природою, невидимість бонусною дією."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Genasi",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#genasi"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стихійний образ. Темний зір усіх сучасних варіантів — MPMM; старі EEPC відрізняються."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Гіфф",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#giff"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Космічний гіпопотам із вогнепальною зброєю й сильними перевірками Захоплення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Gith",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#gith"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні в MTF; так у MPMM"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вроджена магія й бойові Володіння. Темний зір у MPMM є, у старих MTF немає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Гном",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#gnome"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Малий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захист розумових ряткидків і образ малого дивакуватого персонажа."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Гоблін",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#goblin"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Малий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рухливість Пройдисвіта, бонус шкоди більшим ворогам."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Голіаф",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#goliath"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Міцний персонаж; зменшення шкоди й Опір холоду."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Хадозі",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#hadozee"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритні ноги, зменшення шкоди атак і планування. Може бути Малим або Середнім."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Напівельф",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#half-elf"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сильні підвищення характеристик і додаткові навички."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Напіворк",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#half-orc"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова шкода критичних влучань ближньою зброєю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Напіврослик",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#halfling"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Малий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Везіння й хоробрість."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Гаренгон",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#harengon"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чуття, рефлекси й стрибок бонусною дією. Може бути Малим або Середнім."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Відьмокров",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#hexblood"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Малий або Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Залежить від успадкованих здібностей"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Моторошний образ під впливом Hag; ходьба 30 футів, тип Фея."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Хобгоблін",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#hobgoblin"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Старий варіант військовий, новий підтримує союзників; джерельне Hobogblin — друкарська помилка."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Людина",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#human"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова риса лише в Human Variant; стандартна Людина її не має."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Калаштар",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#kalashtar"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розумовий захист і телепатія."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Кендер",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#kender"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Малий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безстрашність і провокація ворогів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Кенку",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#kenku"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткові навички й наслідування звуків. MPMM: Малий або Середній."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Кобольд",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#kobold"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Малий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Старий варіант має Тактику зграї, новий пропонує вибір здібностей."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Леонін",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#leonin"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потужний рик."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Ящеролюд",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#lizardfolk"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Укус дає тимчасові ХП, а не лікування; луска захищає як природний обладунок."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Локсодон",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#loxodon"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Природна КБ від Статури й Захоплення хоботом."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Мінотавр",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#minotaur"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наскок і атаки рогами."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Орк",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#orc"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Adrenaline Rush дає Ривок бонусною дією та тимчасові ХП; MPMM."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Совин",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#owlin"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30, політ 30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Політ і непомітність. Малий або Середній розмір."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Плазмоїд",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#plasmoid"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Космічний Слиз. Малий або Середній розмір."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Переродженець",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#reborn"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Малий або Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Залежить від успадкованих здібностей"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні (виправлення джерела)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Важко вбити знову; ходьба 30 футів, стандартного Темного зору немає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Сатир",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#satyr"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захист від магії й стрибки; охоплення Magic Resistance залежить від MOOT/MPMM."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Перевертень",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#shifter"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тимчасове звіряче посилення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Симічний гібрид",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#simic-hybrid"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вибір біологічних доповнень на визначених рівнях."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Табаксі",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#tabaxi"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткові навички й короткі швидкісні ривки. MPMM може бути Малим або Середнім."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Три-крін",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#thri-kreen"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так (виправлення джерела)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 руки. Тип Чудовисько, Темний зір є; Малий або Середній розмір."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Тифлінг",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#tiefling"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Опір вогню й вроджене чаротворення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Черепаха",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#tortle"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "КБ 17 від панцира. MPMM може бути Малим або Середнім."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Тритон",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#triton"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Земноводність, вроджена магія й спілкування з водними істотами."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Ведалкен",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#vedalken"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хороші розумові ряткидки й посилення обраної навички."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Воєнокований",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#warforged"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надзвичайно міцний магічний робот."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Юань-ті",
+                      "href": "https://rpgbot.net/dnd5/characters/races/#yuan-ti"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захист від отрути й магії, спілкування зі зміями; VGTM/MPMM мають різні ефекти."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Які раси є в D&D?",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Офіційних рас і походжень у 5e понад 50: Люди, Дворфи, Ельфи та багато інших фантастичних варіантів."
+                },
+                {
+                  "type": "text",
+                  "text": " Точний підрахунок складний через поділ, перевидання й повторне обʼєднання рас. Примітка редакції: це оцінка автора; не означає змішування механіки 2014 та 2024."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-aarakocra-eepc-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Ааракокра",
+          "sourceAnchor": "aarakocra-eepc-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-aarakocra-eepc-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Птахоподібні гуманоїди з польотом і кігтями. MPMM додає Порив вітру [Gust of Wind] ціною значно меншої швидкості польоту. Політ особливо сильний для дальнього бою: Воїни, Слідопити, Пройдисвіти й заклинателі добре його використовують. Примітка редакції: EEPC має ходьбу 25 і політ 50 футів; MPMM — ходьбу 30 й політ, рівний їй."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-aarakocra-eepc-mot-m-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: Воїн, Слідопит, Пройдисвіт або заклинатель для бою на відстані."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-aasimar-vgtm-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Аазимар",
+          "sourceAnchor": "aasimar-vgtm-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-aasimar-vgtm-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Людиноподібні істоти під впливом Небожителів. Опір некротичній і променевій шкоді, вроджена магія та потужне перетворення раз між тривалими відпочинками з додатковою шкодою. Перевіряйте версію VGTM чи MPMM."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-aasimar-vgtm-mot-m-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: будь-який; здібності корисні всім."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-autognome-s-ai-s",
+          "parentSectionId": "section-races",
+          "heading": "Автогном",
+          "sourceAnchor": "autognome-s-ai-s",
+          "blocks": [
+            {
+              "blockId": "block-section-autognome-s-ai-s-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Космічні автомати Спелджаммера з міцним корпусом. Built for Success{{Built for Success}} дозволяє кілька разів між тривалими відпочинками додати кубик до атаки, перевірки чи ряткидка, іноді рятуючи невдалий результат. Простий і надійний вибір для багатьох класів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-autognome-s-ai-s-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: будь-який."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bugbear-vgtm-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Ведмебай",
+          "sourceAnchor": "bugbear-vgtm-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-bugbear-vgtm-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Страшні засадні гобліноїди. Довгі кінцівки{{Long-Limbed}} подовжують досяжність атак у ваш хід, а Несподівана атака{{Surprise Attack}} MPMM додає +2к6 до влучань по істотах, які ще не мали ходу в бою. Особливо сильні класи з багатьма атаками: Воїн, Монах, Слідопит Конклаву сутінкового мисливця. Не для кожної збірки, але можливі "
+                },
+                {
+                  "type": "link",
+                  "text": "надзвичайні значення шкоди",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Примітка редакції: стара VGTM має інший, значно обмеженіший тригер расової атаки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-bugbear-vgtm-mot-m-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: Воїн, Монах, Чародій, Чорнокнижник — ті, хто робить багато атак."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-centaur-eepc-vgtm-m-oo-t-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Кентавр",
+          "sourceAnchor": "centaur-eepc-vgtm-m-oo-t-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-centaur-eepc-vgtm-m-oo-t-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Впізнавані Феї з високою наземною швидкістю й наскоком для ближнього бою. Автор радить Силові збірки; інші насамперед використовують швидкість. Примітка редакції: підзаголовок джерела помилково згадує EEPC/VGTM; ігрові варіанти тут — GGTR, MOOT і MPMM. Силова збірка рекомендована, але не обовʼязкова передумова раси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-centaur-eepc-vgtm-m-oo-t-mot-m-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: Варвар і Воїн, особливо без значної конкуренції за бонусну дію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-changeling-erlw-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Змінник",
+          "sourceAnchor": "changeling-erlw-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-changeling-erlw-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можуть за бажанням змінювати зовнішність, мають корисні навички й добре діють у соціальних ситуаціях. Особливо підходять Барду й Пройдисвіту. Примітка редакції: ERLW і MPMM відрізняються, зокрема доступними розмірами й типом істоти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-changeling-erlw-mot-m-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: Бард і Пройдисвіт, які ефективні в обмані й хитрощах."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-lineage-t-co-e",
+          "parentSectionId": "section-races",
+          "heading": "Своя раса",
+          "sourceAnchor": "custom-lineage-t-co-e",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-lineage-t-co-e-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Окрема опція, яка заповнює прогалину між готовими расами: змішане походження, неописаний у правилах образ або інше трактування офіційної раси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-custom-lineage-t-co-e-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Може дати Темний зір і рису на рівні 1. Лише одне расове підвищення, зате значна гнучкість; для Монаха чи Слідопита з кількома важливими характеристиками вибір складніший, ніж для однієї головної характеристики."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-custom-lineage-t-co-e-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: будь-який; налаштуйте опцію під обраний клас."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dhampir-lineage-vr-gt-r",
+          "parentSectionId": "section-races",
+          "heading": "Дампір",
+          "sourceAnchor": "dhampir-lineage-vr-gt-r",
+          "blocks": [
+            {
+              "blockId": "block-section-dhampir-lineage-vr-gt-r-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вампірський образ без перетворення на справжнього вампіра: Темний зір, лазіння стінами й укус. Укус може кілька разів між тривалими відпочинками посилити перевірку характеристики чи атаку, а висока Статура й ХП нижче половини підтримують бойове застосування. Примітка редакції: це не довільний бонус до всіх к20, зокрема не до ряткидків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dhampir-lineage-vr-gt-r-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Походження замінює більшість здібностей попередньої раси. {{Спадщина предків|Ancestral Legacy}} може зберегти швидкості лазіння, плавання й польоту або дати дві навички; швидкість ходьби Дампіра 35 футів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dhampir-lineage-vr-gt-r-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: Варвар, Воїн, Монах, Паладин — ближні бійці з високою Статурою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dragonborn-phb",
+          "parentSectionId": "section-races",
+          "heading": "Дракононароджений",
+          "sourceAnchor": "dragonborn-phb",
+          "blocks": [
+            {
+              "blockId": "block-section-dragonborn-phb-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Драконоподібні гуманоїди з подихом і відповідним Опором шкоді. Класичні добре підходять Паладину, а також можуть працювати Чародіями й Чорнокнижниками."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dragonborn-phb-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перевидання Фізбана урізноманітнило расу й наблизило силу до інших варіантів. Подих особливо допомагає бойовим персонажам проти скупчень слабких ворогів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dragonborn-phb-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: Варвар, Воїн, Паладин, можливо Чорнокнижник. Версії Фізбана особливо виграють від Додаткової атаки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dwarf-phb",
+          "parentSectionId": "section-races",
+          "heading": "Дворф",
+          "sourceAnchor": "dwarf-phb",
+          "blocks": [
+            {
+              "blockId": "block-section-dwarf-phb-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нижчі за Людей, часто бородаті й міцні — класичне фентезі. Опір отруті й додаткові Володіння зброєю допомагають передній лінії, а правила Таші роблять захисні здібності привабливими й для Чарівників."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dwarf-phb-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пізні перевидання деяких підрас є окремими расами й мають окремі гайди:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dwarf-phb-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Дуергар",
+                    "href": "https://rpgbot.net/dnd5/characters/races/duergar/"
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-dwarf-phb-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: фактично будь-який. Захист доповнює міцний клас або підсилює слабко захищений."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-elf-phb",
+          "parentSectionId": "section-races",
+          "heading": "Ельф",
+          "sourceAnchor": "elf-phb",
+          "blocks": [
+            {
+              "blockId": "block-section-elf-phb-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загострені вуха й багато різних підрас. Транс{{Trance}} замінює сон медитацією; часто є вроджена магія, Володіння Уважністю й зброєю. Різноманіття дозволяє працювати в багатьох класах і ролях."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-elf-phb-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пізні перевидання деяких підрас стали окремими расами й отримали власні гайди:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-elf-phb-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Астральний ельф",
+                    "href": "https://rpgbot.net/dnd5/characters/races/astral-elf/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Спелджаммер: Пригоди в космосі",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Еладрін",
+                    "href": "https://rpgbot.net/dnd5/characters/races/eladrin/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Монстри Мультивсесвіту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Морський ельф",
+                    "href": "https://rpgbot.net/dnd5/characters/races/sea-elf/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Монстри Мультивсесвіту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Шадар-Кай",
+                    "href": "https://rpgbot.net/dnd5/characters/races/shadar-kai/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Монстри Мультивсесвіту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-elf-phb-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: будь-який; різних варіантів достатньо для кожного."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fairy-w-bt-w-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Фея",
+          "sourceAnchor": "fairy-w-bt-w-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-fairy-w-bt-w-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Політ і вроджена магія, зокрема Збільшення/Зменшення [Enlarge/Reduce] та Вогники фей [Faerie Fire], роблять расу дуже сильною в дальньому бою зі зброєю чи заклинаннями. Вроджені заклинання можна повторювати власними слотами, що особливо корисно заклинателям."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fairy-w-bt-w-mot-m-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: майже всі, крім Варвара й Монаха в авторській оцінці. Найсильніші — дальні атаки з повітря й використання вродженої магії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-firbolg-vgtm-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Фірболг",
+          "sourceAnchor": "firbolg-vgtm-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-firbolg-vgtm-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Таємничі родичі велетнів із спілкуванням із рослинами та короткою невидимістю. Добре працюють Друїдами й Слідопитами, але інші класи теж використовують непомітність і магію. Примітка редакції: слово «політ» у джерелі помилкове — расова риса польоту відсутня."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firbolg-vgtm-mot-m-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи в оцінці автора: Бард, Паладин, Пройдисвіт; трохи непомітності й магії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-genasi-eepc",
+          "parentSectionId": "section-races",
+          "heading": "Genasi",
+          "sourceAnchor": "genasi-eepc",
+          "blocks": [
+            {
+              "blockId": "block-section-genasi-eepc-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гуманоїди під впливом Стихійних планів: Опір шкоді й вроджена магія, наприклад Опір кислоті Геназі води або Створення вогню [Produce Flame] Геназі вогню."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-genasi-eepc-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Геназі повітря",
+                    "href": "https://rpgbot.net/dnd5/characters/races/air-genasi/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Монстри Мультивсесвіту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Геназі землі",
+                    "href": "https://rpgbot.net/dnd5/characters/races/earth-genasi/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Монстри Мультивсесвіту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Геназі вогню",
+                    "href": "https://rpgbot.net/dnd5/characters/races/fire-genasi/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Монстри Мультивсесвіту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Геназі води",
+                    "href": "https://rpgbot.net/dnd5/characters/races/water-genasi/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Монстри Мультивсесвіту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-genasi-eepc-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: будь-який; чотири варіанти охоплюють різні потреби."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-giff-s-ai-s",
+          "parentSectionId": "section-races",
+          "heading": "Гіфф",
+          "sourceAnchor": "giff-s-ai-s",
+          "blocks": [
+            {
+              "blockId": "block-section-giff-s-ai-s-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Космічні гіпопотами з рушницями. Перевага на перевірки Сили й расове Володіння вогнепальною зброєю корисні: остання рідкісна в багатьох кампаніях. Допомагають і Захопленню/Штовханню, і дальнім бойовим збіркам."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-giff-s-ai-s-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: Воїн для вогнепальної зброї, Монах для Захоплення — за відповідної збірки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-gith-m-to-f",
+          "parentSectionId": "section-races",
+          "heading": "Gith",
+          "sourceAnchor": "gith-m-to-f",
+          "blocks": [
+            {
+              "blockId": "block-section-gith-m-to-f-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Колись поневолені Illithids{{Mind Flayers}} гуманоїди з додатковими Володіннями й псіонічною вродженою магією. Ґітьянкі більше підтримують наступальний бій, зокрема Стрибок [Jump]; Ґітцерай — захист і допоміжну магію, зокрема Щит [Shield]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gith-m-to-f-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пізні варіанти опубліковані як окремі раси:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gith-m-to-f-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Ґітьянкі",
+                    "href": "https://rpgbot.net/dnd5/characters/races/githyanki/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Монстри Мультивсесвіту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Ґітцерай",
+                    "href": "https://rpgbot.net/dnd5/characters/races/githzerai/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Монстри Мультивсесвіту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-gith-m-to-f-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: будь-який, особливо для Ґітцерай."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-gnome-phb",
+          "parentSectionId": "section-races",
+          "heading": "Гном",
+          "sourceAnchor": "gnome-phb",
+          "blocks": [
+            {
+              "blockId": "block-section-gnome-phb-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Малі й дивакуваті з багатьма можливостями для історії. Захист від магії розумових ряткидків і допоміжні риси підрас, як Мала ілюзія [Minor Illusion] Лісового гнома, роблять їх надійним вибором."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gnome-phb-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пізні перевидання деяких підрас — окремі раси з власними гайдами:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gnome-phb-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Глибинний гном",
+                    "href": "https://rpgbot.net/dnd5/characters/races/deep-gnome/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Монстри Мультивсесвіту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-gnome-phb-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі класи: будь-який. Гномська хитрість{{Gnome Cunning}} корисна всім."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-goblin-vgtm-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Гоблін",
+          "sourceAnchor": "goblin-vgtm-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-goblin-vgtm-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Класичні істоти фентезі, хоча гобліни 5e не обовʼязково зелені. Дуже рухливі: Спритна втеча{{Nimble Escape}} дає значну частину Хитрої дії Пройдисвіта й допомагає персонажу не стояти на одному місці."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-goliath-eepc-vgtm-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Голіаф",
+          "sourceAnchor": "goliath-eepc-vgtm-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-goliath-eepc-vgtm-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Міцні родичі велетнів з Опором холоду й зменшенням отриманої шкоди. Добре працюють на передній лінії, подовжуючи запас ХП. Примітка редакції: частота Камʼяної витривалості{{Stone's Endurance}} відрізняється між старими версіями й MPMM; у MPMM — Бонус Майстерності між тривалими відпочинками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hadozee-s-ai-s",
+          "parentSectionId": "section-races",
+          "heading": "Хадозі",
+          "sourceAnchor": "hadozee-s-ai-s",
+          "blocks": [
+            {
+              "blockId": "block-section-hadozee-s-ai-s-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Описані як мавпоподібні космічні істоти, хоча більше нагадують летяг. Перетинки дозволяють планувати, а ноги придатні для маніпулювання. Автор повʼязує високі стрибки з дуже швидким переміщенням. Примітка редакції: це спирається на раннє формулювання Glide; виправлення Спелджаммера прибрало множник горизонтальної відстані, тому не застосовуйте стару комбінацію прискорення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-half-elf-phb",
+          "parentSectionId": "section-races",
+          "heading": "Напівельф",
+          "sourceAnchor": "half-elf-phb",
+          "blocks": [
+            {
+              "blockId": "block-section-half-elf-phb-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дуже сильні підвищення +2/+1/+1, дві навички, частина ельфійських здібностей і варіанти обміну навичок на риси підрас. Одна з найгнучкіших рас для будь-якого класу, особливо з переналаштуванням походження Таші."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-half-orc-phb",
+          "parentSectionId": "section-races",
+          "heading": "Напіворк",
+          "sourceAnchor": "half-orc-phb",
+          "blocks": [
+            {
+              "blockId": "block-section-half-orc-phb-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Міцний персонаж, особливо небезпечний при критичних влучаннях ближньою зброєю. Риси насамперед спрямовані на ближній бій, а Темний зір і додаткова навичка розширюють можливості поза боєм."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-halfling-phb",
+          "parentSectionId": "section-races",
+          "heading": "Напіврослик",
+          "sourceAnchor": "halfling-phb",
+          "blocks": [
+            {
+              "blockId": "block-section-halfling-phb-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Везіння{{Lucky}} дозволяє повторити натуральну 1 у кидку атаки, перевірці характеристики чи ряткидку. Міцні Напіврослики підходять багатьом класам, легконогі — впізнаваним Пройдисвітам. Примітка редакції: це не будь-який довільний кидок к20 поза зазначеними категоріями."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-harengon-w-bt-w-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Гаренгон",
+          "sourceAnchor": "harengon-w-bt-w-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-harengon-w-bt-w-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кроликоподібні гуманоїди зі швидкими рефлексами й далекими стрибками. Перший хід корисний будь-кому, а перестрибування перешкод допомагає ближнім бійцям."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hexblood-lineage-vr-gt-r",
+          "parentSectionId": "section-races",
+          "heading": "Відьмокров",
+          "sourceAnchor": "hexblood-lineage-vr-gt-r",
+          "blocks": [
+            {
+              "blockId": "block-section-hexblood-lineage-vr-gt-r-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Істоти під сильним впливом Hag{{Hag}}: моторошний жетон дає спостереження на відстані, а вроджена магія — маскування й прокляття. Примітка редакції: їхній тип — Фея, не Гуманоїд, як у джерелі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hexblood-lineage-vr-gt-r-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Походження замінює більшість попередніх здібностей і дозволяє зберегти лазіння, плавання чи політ або отримати дві навички. Це не успадкування довільної швидкості ходьби."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hobgoblin-vgtm-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Хобгоблін",
+          "sourceAnchor": "hobgoblin-vgtm-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-hobgoblin-vgtm-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Схожі на вищих Гоблінів. Старий варіант військовий; MPMM сильніше повʼязаний із фейським походженням, допомагає й посилює союзників та додає бонус до невдалих кидків залежно від кількості союзників поруч. Частоти й ефекти перевіряйте за обраним перевиданням."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-human-phb",
+          "parentSectionId": "section-races",
+          "heading": "Людина",
+          "sourceAnchor": "human-phb",
+          "blocks": [
+            {
+              "blockId": "block-section-human-phb-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви, ймовірно, саме така істота. Автор вважає стандартну Людину нудною, зате варіант дає рису, додаткову навичку й два +1 характеристики. Від PHB2014 це типовий вибір багатьох оптимізованих збірок. Примітка редакції: твердження «ніхто не використовує» — авторська гіпербола, не статистика."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-kalashtar-erlw",
+          "parentSectionId": "section-races",
+          "heading": "Калаштар",
+          "sourceAnchor": "kalashtar-erlw",
+          "blocks": [
+            {
+              "blockId": "block-section-kalashtar-erlw-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гуманоїди Еберрона з сильним звʼязком із планом снів, телепатією й рідкісним Опором психічній шкоді."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-kender-sot-dq",
+          "parentSectionId": "section-races",
+          "heading": "Кендер",
+          "sourceAnchor": "kender-sot-dq",
+          "blocks": [
+            {
+              "blockId": "block-section-kender-sot-dq-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Малі істоти Krynn{{Krynn}}, світу Списа Дракона, схожі на гномів. Автор приписує їм витягування випадкових предметів і провокацію ворогів. Примітка редакції: випадкові предмети — риса тестового UA, її немає у фінальній Dragonlance2014. Фінальні здібності — Безстрашність{{Fearless}}, Kender Curiosity{{Kender Curiosity}} й Провокація{{Taunt}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-kenku-vgtm-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Кенку",
+          "sourceAnchor": "kenku-vgtm-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-kenku-vgtm-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вороноподібні істоти, які точно наслідують звуки. Додаткові навички й здібності до підробок добре підтримують Пройдисвіта та подібних персонажів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-kobold-vgtm-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Кобольд",
+          "sourceAnchor": "kobold-vgtm-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-kobold-vgtm-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Малі рептилії, споріднені з драконами. Старий варіант має Тактику зграї{{Pack Tactics}}, сильну, але іноді незручну для столу. Новий дозволяє обрати замовляння чи навичку серед різних варіантів і значно гнучкіший."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-leonin-m-oo-t",
+          "parentSectionId": "section-races",
+          "heading": "Леонін",
+          "sourceAnchor": "leonin-m-oo-t",
+          "blocks": [
+            {
+              "blockId": "block-section-leonin-m-oo-t-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Левоподібні гуманоїди з потужним риком. Подібно до подиху Дракононародженого, діє на кількох ворогів, але спричиняє Наляканий стан замість шкоди."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-lizardfolk-vgtm-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Ящеролюд",
+          "sourceAnchor": "lizardfolk-vgtm-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-lizardfolk-vgtm-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ящероподібні гуманоїди з міцною лускою й укусом. Додаткова живучість і використання бонусної дії привабливі ближнім бійцям. Примітка редакції: Hungry Jaws{{Hungry Jaws}} дає тимчасові ХП, а не відновлює втрачені, як стверджує джерело."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-loxodon-g-gt-r",
+          "parentSectionId": "section-races",
+          "heading": "Локсодон",
+          "sourceAnchor": "loxodon-g-gt-r",
+          "blocks": [
+            {
+              "blockId": "block-section-loxodon-g-gt-r-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слоноподібні гуманоїди з природною КБ від Статури й хоботом для маніпулювання. Корисні ближнім бійцям і слабко захищеним класам, як Чарівник. Примітка редакції: хобот прямо дозволяє Захоплення; джерело натомість згадує Штовхання. Конкретні дії й обмеження хобота читають у повному описі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-minotaur-g-gt-r-m-oo-t-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Мінотавр",
+          "sourceAnchor": "minotaur-g-gt-r-m-oo-t-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-minotaur-g-gt-r-m-oo-t-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бикоподібні гуманоїди з можливостями наскоку в ближньому бою. Автор наполегливо радить Силу, насамперед Варвара чи Воїна. Примітка редакції: це рекомендація збірки, а не обовʼязкова вимога раси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-orc-egtw-erlw-vgtm-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Орк",
+          "sourceAnchor": "orc-egtw-erlw-vgtm-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-orc-egtw-erlw-vgtm-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Впізнавані фентезійні гуманоїди з кількома версіями 5e. MPMM має Невблаганну витривалість{{Relentless Endurance}} й Adrenaline Rush{{Adrenaline Rush}}, які підтримують живучість майже будь-якого класу. Примітка редакції: джерельне Adrenaline Surge — неправильна назва."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-orc-egtw-erlw-vgtm-mot-m-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Образ із The Lord of the Rings або старих редакцій не обовʼязково відповідає цьому світові. Хоча Орків часто показували ворогами, офіційний лор різних сетингів дуже різний; варварський нападник — лише один із можливих образів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-owlin-s-co-c",
+          "parentSectionId": "section-races",
+          "heading": "Совин",
+          "sourceAnchor": "owlin-s-co-c",
+          "blocks": [
+            {
+              "blockId": "block-section-owlin-s-co-c-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Совоподібні гуманоїди з польотом, Темним зором і додатковою навичкою. Політ сильний у дальньому бою, а разом із Темним зором підтримує непомітного розвідника, зокрема Слідопита чи Пройдисвіта."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-plasmoid-s-ai-s",
+          "parentSectionId": "section-races",
+          "heading": "Плазмоїд",
+          "sourceAnchor": "plasmoid-s-ai-s",
+          "blocks": [
+            {
+              "blockId": "block-section-plasmoid-s-ai-s-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Космічні Слизи: протискуються крізь вузькі щілини, краще вириваються із Захоплення й маніпулюють предметами псевдоподією поза звичайною досяжністю. Примітка редакції: тип — Слиз, не Гуманоїд."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-reborn-lineage-vr-gt-r",
+          "parentSectionId": "section-races",
+          "heading": "Переродженець",
+          "sourceAnchor": "reborn-lineage-vr-gt-r",
+          "blocks": [
+            {
+              "blockId": "block-section-reborn-lineage-vr-gt-r-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гуманоїди, які повернулися з мертвих зі спогадами про минуле. Їх складно вбити, а Знання минулого життя{{Knowledge from a Past Life}} кілька разів між тривалими відпочинками допомагає перевіркам, що корисно майже кожному класу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-reborn-lineage-vr-gt-r-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Походження замінює більшість рис попередньої раси; можна зберегти лазіння, плавання чи політ або отримати дві навички. Примітка редакції: стандартна швидкість ходьби 30 футів і немає загального расового Темного зору."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-satyr-m-oo-t-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Сатир",
+          "sourceAnchor": "satyr-m-oo-t-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-satyr-m-oo-t-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Козлоногі Феї з грецького міфологічного образу. Додаткові навички, інструмент, стрибки й Опір магії корисні багатьом; автор особливо радить Барда й Паладина. Примітка редакції: MOOT захищає від заклинань та інших магічних ефектів, MPMM — лише від заклинань; обидва варіанти не Гуманоїди."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-shifter-erlw-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Перевертень",
+          "sourceAnchor": "shifter-erlw-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-shifter-erlw-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гуманоїди, споріднені з лікантропами. Тимчасовий зсув звірячих рис дає бойове посилення. Варіанти підтримують різні класи, зазвичай бойові більше, ніж заклинальні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-simic-hybrid-g-gt-r",
+          "parentSectionId": "section-races",
+          "heading": "Симічний гібрид",
+          "sourceAnchor": "simic-hybrid-g-gt-r",
+          "blocks": [
+            {
+              "blockId": "block-section-simic-hybrid-g-gt-r-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Люди, Ельфи чи Ведалкени, магічно доповнені тваринними частинами: наприклад, клешні або плювок кислотою. Гнучкіші за більшість рас і можуть працювати в різних класах залежно від вибору. Примітка редакції: вихідна раса не лише Людина, як у джерелі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-tabaxi-e-gt-w-vgtm-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Табаксі",
+          "sourceAnchor": "tabaxi-e-gt-w-vgtm-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-tabaxi-e-gt-w-vgtm-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Котоподібні гуманоїди зі швидкісними ривками, кігтями й додатковими навичками. Монахи, Слідопити й Пройдисвіти добре використовують ці можливості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-thri-kreen-s-ai-s",
+          "parentSectionId": "section-races",
+          "heading": "Три-крін",
+          "sourceAnchor": "thri-kreen-s-ai-s",
+          "blocks": [
+            {
+              "blockId": "block-section-thri-kreen-s-ai-s-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чотирирукі комахоподібні істоти Спелджаммера й старого Dark Sun{{Dark Sun}}, який не отримав окремої книги 5e в історичному контексті джерела. Природна КБ й телепатія корисні, але додаткові руки часто важливіші: дозволяють, наприклад, битися двома придатними зброями, тримаючи щит. Примітка редакції: тип — Чудовисько, а не Гуманоїд; менші руки мають обмеження предметів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-tiefling-phb",
+          "parentSectionId": "section-races",
+          "heading": "Тифлінг",
+          "sourceAnchor": "tiefling-phb",
+          "blocks": [
+            {
+              "blockId": "block-section-tiefling-phb-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гуманоїди під впливом Почвар: зазвичай Опір вогню та вроджена магія. Варіанти повʼязують спадщину з різними архідияволами, а SCAG додає крила й альтернативну магію. Примітка редакції: джерельні «кігті» й довільні інші Опори не є загальними варіантами Тифлінга 2014; не переносимо їх із інших редакцій чи домашніх правил."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-tortle-tp-e-gt-w-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Черепаха",
+          "sourceAnchor": "tortle-tp-e-gt-w-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-tortle-tp-e-gt-w-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Черепахоподібні гуманоїди з міцним панциром замість обладунку й додатковими навичками. КБ 17 добре допомагає слабко захищеним класам, зокрема Чарівнику."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-tortle-tp-e-gt-w-mot-m-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Жарти про підлітків-мутантів-ніндзя-черепах завжди вітаються."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-triton-m-oo-t-vgtm",
+          "parentSectionId": "section-races",
+          "heading": "Тритон",
+          "sourceAnchor": "triton-m-oo-t-vgtm",
+          "blocks": [
+            {
+              "blockId": "block-section-triton-m-oo-t-vgtm-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Морські земноводні гуманоїди з вродженою магією й можливістю передавати прості думки істотам зі швидкістю плавання. Особливо сильні у водних кампаніях; це не гарантія розуміння відповідей."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-vedalken-g-gt-r",
+          "parentSectionId": "section-races",
+          "heading": "Ведалкен",
+          "sourceAnchor": "vedalken-g-gt-r",
+          "blocks": [
+            {
+              "blockId": "block-section-vedalken-g-gt-r-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Синьошкірі гуманоїди з інтелектуальним образом, Перевагою на розумові ряткидки й бонусом до обраної навички та інструмента. Добре використовують улюблену спеціалізацію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-verdan-ac-inc",
+          "parentSectionId": "section-races",
+          "heading": "Вердан",
+          "sourceAnchor": "verdan-ac-inc",
+          "blocks": [
+            {
+              "blockId": "block-section-verdan-ac-inc-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зелені гуманоїди з магічною кровʼю, яка поліпшує відновлення під час короткого відпочинку, та обмеженою телепатією. На рівні 5 ростуть із Малого до Середнього розміру — незвична особливість раси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warforged-erlw",
+          "parentSectionId": "section-races",
+          "heading": "Воєнокований",
+          "sourceAnchor": "warforged-erlw",
+          "blocks": [
+            {
+              "blockId": "block-section-warforged-erlw-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Магічні роботи: міцні й атмосферні. Підвищення характеристик і широко корисний захист роблять їх добрим вибором для багатьох класів без великої кількості активних здібностей. Примітка редакції: стандартно +2 Статури й +1 іншої характеристики; повне переналаштування потребує опційних правил Таші."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-yuan-ti-vgtm-mot-m",
+          "parentSectionId": "section-races",
+          "heading": "Юань-ті",
+          "sourceAnchor": "yuan-ti-vgtm-mot-m",
+          "blocks": [
+            {
+              "blockId": "block-section-yuan-ti-vgtm-mot-m-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Істоти зі зміїними рисами й вродженою магією для взаємодії зі зміями. Захист від отрути й магії корисний майже будь-якому класу. Примітка редакції: VGTM дає імунітет до отрути, MPMM — Опір і Перевагу проти Отруєного стану; Magic Resistance теж відрізняється за охопленням."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-beyond-the-pale",
+          "parentSectionId": "section-races",
+          "heading": "Окремі спеціальні видання",
+          "sourceAnchor": "beyond-the-pale",
+          "blocks": [
+            {
+              "blockId": "block-section-beyond-the-pale-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор зазвичай розглядає офіційні книги, але іноді робить винятки за численними проханнями: Unearthed Arcana, видання на офіційних подіях, як "
+                },
+                {
+                  "type": "link",
+                  "text": "Один Ґрунґ Вище",
+                  "href": "https://www.dmsguild.com/product/223738/One-Grung-Above-5e?affiliate_id=389627"
+                },
+                {
+                  "type": "text",
+                  "text": " (партнерське посилання), і дуже рідко сторонні матеріали. Примітка редакції: у наш MVP2014 виключені сторонні хоумбрю-гайди. Grung і Locathah нижче — окремі офіційні видання Wizards of the Coast; це не дозвіл додавати відхилені сторонні книги."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beyond-the-pale-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Ґрунґ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/grung/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Один Ґрунґ Вище",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Локата",
+                    "href": "https://rpgbot.net/dnd5/characters/races/locathah/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Схід Локати",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-frequently-asked-questions",
+          "heading": "Поширені питання",
+          "sourceAnchor": "frequently-asked-questions",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-60",
+          "parentSectionId": "section-frequently-asked-questions",
+          "heading": "Яка раса найсильніша?",
+          "blocks": [
+            {
+              "blockId": "block-section-60-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ведмебай дає дуже сильні збірки для початкової шкоди, але Своя раса й варіант Людини часто вважаються найсильнішими через рису на 1-му рівні. Найкращий вибір залежить від конкретної збірки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-61",
+          "parentSectionId": "section-frequently-asked-questions",
+          "heading": "Чим відрізняються Race і Species?",
+          "blocks": [
+            {
+              "blockId": "block-section-61-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У "
+                },
+                {
+                  "type": "link",
+                  "text": "редакції 2024",
+                  "href": "https://rpgbot.net/2024-dnd/"
+                },
+                {
+                  "type": "text",
+                  "text": " Wizards of the Coast замінила термін Race на Species. У цьому контексті це нова назва тієї ж категорії походження персонажа; механічні тексти різних редакцій усе одно відрізняються. Тут правила 2014, тому використовуємо «раса», у гайдах 2024 — «вид»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-62",
+          "parentSectionId": "section-frequently-asked-questions",
+          "heading": "Якою расою найпростіше грати?",
+          "blocks": [
+            {
+              "blockId": "block-section-62-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Звичайна Людина найпростіша: не додає окремих здібностей для запамʼятовування. Інші прості варіанти, на думку автора, — пагорбовий Дворф, міцний Напіврослик і Воєнокований."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-63",
+          "parentSectionId": "section-frequently-asked-questions",
+          "heading": "Яка раса найслабша?",
+          "blocks": [
+            {
+              "blockId": "block-section-63-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Звичайну Людину часто оцінюють найнижче: її підвищення характеристик важко повністю використати, а інших здібностей немає."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": []
+}

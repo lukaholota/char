@@ -1,0 +1,2463 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-401a22b0418598dd",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-401a22b0418598dd-635c3db7fabf2eeb",
+      "sourceId": "rpgbot-401a22b0418598dd",
+      "fetchedAt": "2026-09-29T19:12:24.426115+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:39:06-04:00",
+      "contentHash": "10aca60c2247c54da0a88f40f12cb6a2937fbe367413c380f88355a19707df6a",
+      "title": "Oath of Conquest Paladin 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-401a22b0418598dd-635c3db7fabf2eeb.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+    "sourceId": "rpgbot-401a22b0418598dd",
+    "slug": "paladin-oath-of-conquest-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Паладин Клятви завоювання — гайд підкласу (2014)",
+    "titleEn": "Oath of Conquest Paladin 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Паладин",
+      "підклас",
+      "Клятва завоювання",
+      "збірка"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "sourceRevisionId": "rpgbot-401a22b0418598dd-635c3db7fabf2eeb",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хочете бути танком? Хочете битися? Хочете грати за клас, що вселяє "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "страх"
+                },
+                {
+                  "type": "text",
+                  "text": "? Тоді вдягайте лати й не спускайте лиходіїв з ока, бо вони скуштують ПАЛАДИНСЬКОЇ КАРИ. (Величезна подяка й шана "
+                },
+                {
+                  "type": "link",
+                  "text": "Jocat",
+                  "href": "https://www.youtube.com/watch?v=Ch5vWBPCrl0"
+                },
+                {
+                  "type": "text",
+                  "text": ".)"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви слухали "
+                },
+                {
+                  "type": "link",
+                  "text": "подкаст RPGBOT",
+                  "href": "https://rpgbot.net/podcast"
+                },
+                {
+                  "type": "text",
+                  "text": " (його можна знайти усюди, де поширюють хороші подкасти), гайд вас зовсім не здивує. {{Клятва завоювання|Oath of Conquest}} — захопливий підклас Паладина{{Paladin}}, який за невеликої підтримки може стати справжнім жахом у ближньому бою (так, каламбур про страх тут навмисний). Для RPGBOT це теж нова цікава територія: це буде перший гайд підкласу, у прикладі збірки якого є мультикласування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей гайд присвячено Паладину{{Paladin}} {{Клятви завоювання|Oath of Conquest}}; у ньому пропущено типові для гайдів класу розділи, якщо вони суттєво не відрізняються від відповідних розділів про інших представників класу. Докладніше про Паладина читайте в "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin"
+                },
+                {
+                  "type": "text",
+                  "text": ". Також дуже раджу прочитати "
+                },
+                {
+                  "type": "link",
+                  "text": "розбір списку заклинань Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/spells"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння підкласу «Клятва завоювання»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#backgrounds"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання Клятви завоювання",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#spells"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Паладин Клятви завоювання, людина-варіант",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння підкласу «Клятва завоювання»",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання клятви|Expanded Spell List}}: Який чудовий список! На кожному рівні є щось корисне; єдина проблема в тому, що як напівзаклинач{{half caster}} ви отримуєте доступ до цих заклинань пізніше, ніж представники класів, для яких їх спершу призначили."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання 1-го рівня|1st-Level Spells}}: це "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Обладунок Агатіса [Armor of Agathys]"
+                  },
+                  {
+                    "type": "text",
+                    "text": " — одне з найкращих захисних заклинань у грі для персонажів передньої лінії. Воно захищає вас приблизно так само, як "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Цілюще слово [healing word]"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", накладене слотом того самого рівня, завдає нападникам у відповідь не менше шкоди, а оскільки воно дає тимчасові ХП, його можна накласти ще до того, як ви зазнаєте шкоди. Також приємно завжди мати підготовлений "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Наказ [Command]"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання 2-го рівня|2nd-Level Spells}}: "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Духовна зброя [Spiritual Weapon]"
+                  },
+                  {
+                    "type": "text",
+                    "text": " — беззаперечний король заклинань, які мали б потребувати Концентрації, але не потребують її. У вас і так знайдеться чим зайняти бонусну дію, але коли вже нікого зіштовхувати, сміливо накладайте це заклинання й беріться гамселити ворогів. Тут є і "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Стримування особи [Hold Person]"
+                  },
+                  {
+                    "type": "text",
+                    "text": "; ним можна непогано скористатися, поки на 9-му рівні не запрацює ваша основна тактика."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання 3-го рівня|3rd-Level Spells}}: хтось вигадав дати цьому підкласу "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Страх [Fear]"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", щоб познущатися з вашого Майстра. Якщо правильно розташуватися, можна самотужки фактично завершити сутичку проти кількох цілей — за умови, що вони провалять ряткидки Мудрості. На цьому рівні ви також отримуєте "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Наділити прокляттям [Bestow Curse]"
+                  },
+                  {
+                    "type": "text",
+                    "text": " на випадок, якщо бʼєтеся з чимось імунним до переляку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання 4-го рівня|4th-Level Spells}}: "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Камʼяна шкіра [Stoneskin]"
+                  },
+                  {
+                    "type": "text",
+                    "text": " — вражаюче захисне підсилення, а опір шкоді робить "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Обладунок Агатіса [Armor of Agathys]"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ще кращим, хоча матеріальний компонент дратує. "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Підкорення звіра [Dominate Beast]"
+                  },
+                  {
+                    "type": "text",
+                    "text": " неймовірно ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання 5-го рівня|5th-Level Spells}}: "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Підкорення особистості [Dominate Person]"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", натомість, майже завжди корисне. Нарешті ви отримуєте і "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Вбивчу хмару [Cloudkill]"
+                  },
+                  {
+                    "type": "text",
+                    "text": " для шкоди по області, хоча до цього рівня така шкода вже не надто актуальна."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Канал божественності|Channel Divinity}}: Підкорювальна присутність{{Conquering Presence}} не принесе особливої користі до 7-го рівня; навіть потім вона буде доброю лише два рівні, ще два — ситуативно корисною, а далі стане майже зайвою завдяки "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "Страху [Fear]"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". На щастя, у Каналу божественності є й інше застосування — дуже корисне для нашого Паладина, зосередженого на атаках."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Аура завоювання|Aura of Conquest}}: Саме навколо цього вміння ми й будуємо персонажа. Згідно з "
+                  },
+                  {
+                    "type": "link",
+                    "text": "основними правилами",
+                    "href": "https://www.dndbeyond.com/sources/basic-rules/combat#BeingProne"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", якщо ваша швидкість дорівнює 0, ви не можете підвестися після повалення. Тож наше завдання — повалити всіх і налякати їх."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Зневажливий докір|Scornful Rebuke}}: це просто безкоштовна шкода щоразу, коли хтось вас атакує. Її небагато, особливо на цьому рівні, але вона діє постійно, тож це краще, ніж нічого."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Непереможний завойовник{{Invincible Conqueror}}: Раз на тривалий відпочинок можете рознести ворогів у будь-якій сутичці, що здається складною."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого тут усе так само, як і для інших Паладинів{{Paladin}}, хоча, можливо, варто зосередитися на Харизмі більше, ніж на Статурі, щоб ворогам було важче пройти ряткидки проти вашого "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Страху [Fear]"
+                },
+                {
+                  "type": "text",
+                  "text": ". Крім того, оскільки ми зосереджуємося на Атлетиці, збірка на Спритності замість Сили тут не дуже працює."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила не лише визначає ваші атаки в ближньому бою, а й посилює Атлетику — ключову складову прикладу збірки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви носитимете важкі обладунки, а «Майстер щита»{{Shield Master}} дає бонус до ряткидків Спритності, тож можна не вкладатися у Спритність. Та все ж ряткидки Спритності — чудовий спосіб для ворогів обійти ваш інший захист, тому високі значення допоможуть зменшити шкоду з поширеного джерела."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Третя за важливістю. У вас чимало захисних можливостей, але ви битиметеся на передовій і потребуватимете відповідного запасу ХП. Крім того, у вас є заклинання, що потребують Концентрації, а до появи «Аури захисту»{{Aura of Protection}} вам знадобиться допомога з ряткидками."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання та багато класових умінь Паладина залежать від Харизми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-8",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля за очки"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний масив"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Між тим, що робить Паладина загалом хорошим, і тим, що робить хорошим {{Паладина Клятви завоювання|Oath of Conquest Paladin}}, різниця невелика. Обирайте расу, що дає бонуси до Сили й Харизми, особливо якщо плануєте скористатися прикладом збірки наприкінці цієї статті."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-backgrounds",
+          "heading": "Передісторія",
+          "sourceAnchor": "backgrounds",
+          "blocks": [
+            {
+              "blockId": "block-section-backgrounds-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для збірки справді критична лише одна навичка — Атлетика. Паладини й так можуть обрати її, тому щодо передісторії ви маєте чимало свободи. Водночас нам також потрібні Переконання й Залякування (а можливо, і Обман), щоб використати нашу вражаючу Харизму. Шукайте комбінацію цих навичок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-backgrounds-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо Майстер дозволить вам узяти Легіонера Боросу{{Boros Legionnaire}} (або якщо ви граєте в кампанії Равніки{{Ravnica}}), це ще краще. Розширений список заклинань насправді не дає вам замовлянь: він лише додає їх до списку класу, але жодне вміння Паладина не дозволяє вивчати замовляння зі свого списку. Зате ви знатимете більше заклинань, а це завжди приємно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загалом цій збірці потрібно забагато підвищень характеристик, щоб витрачатися на багато рис. Та все ж «Майстер щита»{{Shield Master}} критично важливий для прикладу збірки, тож візьміть його якомога раніше, бажано вже на 1-му рівні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви категорично проти мультикласування, частину тих самих переваг можна отримати, узявши «Військового адепта»{{Martial Adept}} і вибравши маневр «Лякаючий удар»{{Menacing Attack}}. Так ви зможете зосередитися лише на Силі, але, чесно кажучи, це буде пострілом собі в ногу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Починаєте з {{довгого меча|longsword}} і закінчуєте з ним же. Щоб «Майстер щита»{{Shield Master}} міг скористатися {{Аурою завоювання|Aura of Conquest}}, вам потрібен щит, тож довгий меч буде основною зброєю — якщо тільки ви не знайдете кращої магічної одноручної зброї."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-weapons-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви готові трохи пожертвувати шкодою, батіг — цікавий варіант. Досяг дає змогу тримати істоту під замком атак і страху навіть із відстані 10 футів. Це може стати в пригоді, якщо ви повалили на землю когось без досягу й мусите відступити, бо та істота страшніша за вас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-weapons-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для дальнього бою найкращий варіант на основі Сили — {{метальні списи|javelins}}, але їхня дальність мала порівняно зі зброєю на кшталт {{довгого лука|longbow}}. Тому, коли назбираєте золота, можете купити лук на випадок, якщо метальний спис не дістане цілі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-weapons-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Крім того, для цієї збірки практично немає причин обирати одну зброю ближнього бою замість іншої, окрім як через кращу шкоду чи цікаві магічні властивості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Почніть із {{кольчуги|Chain Mail}}, а коли назбираєте золота — замініть її на {{лати|Full Plate}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Щит: просто примотайте його до руки. Знімати його вам не доведеться."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells",
+          "heading": "Заклинання Клятви завоювання",
+          "sourceAnchor": "spells",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Окрім заклинань, згаданих вище в описі класових умінь, у {{Паладина Клятви завоювання|Oath of Conquest Paladin}} майже немає відмінностей від інших Паладинів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чорнокнижник{{Warlock}} уже давно надзвичайно популярний серед Паладинів{{Paladin}}, але ця збірка нарешті дає справді цікаву причину мультикласуватися — не лише заради «Кари». Паладинів, що беруть рівні {{Чорнокнижників Відьмацького клинка|Hexblade Warlocks}}, хоч греблю гати: вони можуть використовувати Харизму для всього й водночас отримують слоти заклинань, що відновлюються після короткого відпочинку та живлять знамениту комбінацію з «Карою». Але це нудно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чорнокнижники з Невмерлим Покровителем{{Undead patron}}, додані в «Путівнику Ван Ріхтена по Равенлофту»{{Van Richten’s Guide to Ravenloft}}, чудово поєднуються з {{Паладинами Клятви завоювання|Oath of Conquest Paladins}} — справжня гармонія жаху. Клятві завоювання від моменту її появи в «Довіднику Занатара про все»{{Xanathar’s Guide to Everything}} бракувало способу стабільно лякати ворогів. Уміння Невмерлого Покровителя {{Обличчя жаху|Form of Dread}} саме це й забезпечує. Кількість використань на день зростає разом із Бонусом Майстерності, який підвищуватиметься в міру розвитку персонажа, навіть якщо ви візьмете лише один чи два рівні Чорнокнижника{{Warlock}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо Чорнокнижник{{Warlock}} вас не приваблює або ви дуже хочете грати Паладином{{Paladin}}, який не зосереджується на Харизмі, можна взяти натомість 3 рівні Воїна{{Fighter}}, обрати архетип {{Майстра бойових мистецтв|Battlemaster}} і взяти маневр «Лякаючий удар»{{Menacing Attack}}. Я б цього не радив, але такий варіант є."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки — Паладин Клятви завоювання, людина-варіант",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Цьому світу бракує мети. Я обʼєднаю його, бо лише мені вистачить сили зробити це як слід. Та з віком навіть моя сила згасне. Можливо, таємниці нежиття допоможуть мені залишатися сильним вічно…"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Благаю вас, Бейне{{Bane}}, вкажіть мені шлях."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьмімо запропоновані вище характеристики за купівлею очок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2-2",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Після підвищення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варіант людини{{Variant Human}}. Поки що ми ще не маємо Аури завоювання, а «Майстер щита»{{Shield Master}} усе одно надзвичайно корисний: він дає змогу витрачати бонусні дії й захищатися. Беремо Варіант людини, щоб отримати його вже на 1-му рівні й підвищити обидві непарні характеристики до 16. Своя раса{{Custom Lineage}} теж майже так само добра, але до 4-го рівня Сила або Харизма буде на 1 нижчою, ніж у нашій збірці; тоді можна буде розподілити підвищення характеристик порівну, а не вкладати обидва пункти в Силу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьміть Залякування й Переконання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьміть Контрабандиста{{Smuggler}}, щоб отримати Атлетику й Обман і доповнити набір навичок «обличчя» на Харизмі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як згадувалося вище, почніть із «Майстра щита»{{Shield Master}} на 1-му рівні. На 4-му підвищте Силу до 18, а на 8-му — Харизму до 18. На жаль, через мультикласування далі ми відставатимемо з підвищеннями характеристик: Харизма сягне 20 лише на 14-му рівні, а Сила — на 18-му."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "1 – Паладин 1"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественне відчуття\nЦілющі руки\nЦілющі руки"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Для стартового спорядження візьміть стандартний набір. Раджу пʼять метальних списів, якщо вам потрібна дальня зброя на Силі, але арбалет — проста зброя з більшою дальністю, тож це теж варіант. Прикріпіть священний символ до щита, щоб використовувати його як фокус. Застосовуйте бонусну дію «Майстра щита»{{Shield Master}} майже за кожної нагоди. Якщо ви збиваєте ворога з ніг, йому доведеться витратити половину швидкості, щоб підвестися, і йому буде значно складніше пройти повз вас до заднього ряду. До того ж атаки ближнього бою по ньому матимуть перевагу — ваш уявний Пройдисвіт буде в захваті. Зверніть увагу: атаки дальнього бою по цілі матимуть перешкоду, тож якщо у групі багато стрільців, зважайте, коли й на кого застосовуєте цю дію. Ваш КБ — затишні 18, а «Цілющі руки»{{Lay on Hands}} і «Майстер щита» допоможуть вам вистояти. Що більшим ставатиме запас Цілющих рук, то спокусливіше буде витратити все на лікування. Раджу завжди залишати собі 2 пункти незалежно від рівня, щоб двічі за потреби повертати до тями божественного заклинателя вашої групи. Поки не отримаєте замовляння, для дальніх атак вам знадобиться довгий лук, арбалет або кілька метальних списів."
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 – Паладин 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий стиль{{Fighting Style}}: Дуель\nНові підготовлені заклинання: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Виклик на дуель [Compelled Duel]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Щит віри [Shield of Faith]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Лікування ран [Cure Wounds]"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nНові підготовлені заклинання: Виклик на дуель [Compelled Duel] Щит віри [Shield of Faith] Лікування ран [Cure Wounds]\nНові підготовлені заклинання: Виклик на дуель [Compelled Duel] Щит віри [Shield of Faith] Лікування ран [Cure Wounds]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми часто атакуватимемо одноручною зброєю, тож додаткові 2 шкоди — чудова ідея. «Благословенний воїн»{{Blessed Warrior}} спокусливий за нашої високої Харизми, але жодне з базових замовлянь Клірика не потребує кидка атаки, тож вони не працюють із {{Обличчям жаху|Form of Dread}}. Ми не накладаємо заклинань ритуалом, тож залишимо дуже корисні заклинання виявлення іншим. Наша Харизма від самого початку така висока, як у повного заклинателя, тому ми зможемо добре скористатися "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Викликом на дуель [Compelled Duel]"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Щит віри [Shield of Faith]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " ще більше підвищить наш КБ, а "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Лікування ран [Cure Wounds]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " доповнить наші можливості. Та слотів у нас лише два на день, тож витрачайте їх мудро."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 – Паладин 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне здоровʼя\nСвященна клятва: Клятва завоювання\nКанал божественності: Підкорювальна присутність, Керований удар\nНові підготовлені заклинання: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Обладунок Агатіса [Armor of Agathys]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Наказ [Command]"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nСвященна клятва: Клятва завоювання\nКанал божественності: Підкорювальна присутність, Керований удар\nНові підготовлені заклинання: Обладунок Агатіса [Armor of Agathys] Наказ [Command]\nСвященна клятва: Клятва завоювання\nКанал божественності: Підкорювальна присутність, Керований удар\nНові підготовлені заклинання: Обладунок Агатіса [Armor of Agathys] Наказ [Command]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зараз Підкорювальна присутність{{Conquering Presence}} не надто корисна: витратити дію на те, щоб налякати ворогів, рідко краще, ніж просто вдарити їх мечем. Приємно, що вона діє по області, але ваш довгий меч уже завдає 1к8 + 5 шкоди. Просто бережіть Канал божественності{{Channel Divinity}} на випадок, коли невдало кинете атаку й захочете влучити. Ви отримуєте ще один слот заклинань, але важливіше те, що "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Обладунок Агатіса [Armor of Agathys]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " майже завжди буде найкращим захисним варіантом у ближньому бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 – Паладин 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Сила 16 → 18)\nНові підготовлені заклинання: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Громова кара [Thunderous Smite]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " та "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "будь-яке інше"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nНові підготовлені заклинання: Громова кара [Thunderous Smite] та будь-яке інше\nНові підготовлені заклинання: Громова кара [Thunderous Smite] та будь-яке інше"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "emphasis",
+                      "text": "Громова кара [Thunderous Smite]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " завдає на цьому рівні найбільше шкоди; разом із Божественною карою{{Divine Smite}} воно може завдати величезної шкоди однією атакою. Ціль часто пройде ряткидок Сили, але це не біда. Проблема заклинань кар, як і більшості заклинань Паладина 1-го рівня, у тому, що вони часто потребують Концентрації. Сам задум такої Концентрації слушний: ефект зберігається, навіть якщо перша посилена атака не влучила. Але водночас не можна накласти їх, якщо вже підтримуєте інше заклинання із зосередженням, як-от "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Героїзм [Heroism], Божа милість [Divine Favor] чи Щит віри [Shield of Faith]"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 – Паладин 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака\nНові підготовлені заклинання: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Пошук скакуна [Find Steed]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Магічна зброя [Magic Weapon]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Мале відновлення [Lesser Restoration]"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nНові підготовлені заклинання: Пошук скакуна [Find Steed] Магічна зброя [Magic Weapon] Мале відновлення [Lesser Restoration]\nНові підготовлені заклинання: Пошук скакуна [Find Steed] Магічна зброя [Magic Weapon] Мале відновлення [Lesser Restoration]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замініть "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Лікування ран [Cure Wounds], Щит віри [Shield of Faith]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " і друге заклинання, підготовлене на 4-му рівні, на наведені тут. Тепер запасу «Цілющих рук»{{Lay on Hands}} вистачає, тож Лікування ран [Cure Wounds] нам уже не потрібне. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Мале відновлення [Lesser Restoration]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " дещо дублює «Цілющі руки», але зараз у нас замало і того, і того, тож запасний варіант стане в пригоді. Тепер ваша дія Атака завдаватиме вдвічі більше шкоди. Вперед! На жаль, після першої атаки бонусною дією не можна збити ворога з ніг, щоб отримати перевагу на другу — принаймні так каже "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Джереми Кроуфорд",
+                      "href": "https://twitter.com/jeremyecrawford/status/995024061267767298?lang=en"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Як на мене, це безглуздо: ви ж можете пробігти цілих 30 футів між атаками, тож, можливо, вам удасться переконати Майстра у протилежному. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Пошук скакуна [Find Steed]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " — складне заклинання. Можливо, варто прочитати "
+                    },
+                    {
+                      "type": "link",
+                      "text": "практичний посібник із кінного бою",
+                      "href": "https://rpgbot.net/dnd5/characters/mounted_combat.html"
+                    },
+                    {
+                      "type": "text",
+                      "text": " й послухати наш "
+                    },
+                    {
+                      "type": "link",
+                      "text": "подкаст про кінний бій",
+                      "href": "https://rpgbot.net/podcast/rpgbot-podcast-episode-2"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Я раджу його не тому, що ви мусите їздити верхи, а тому, що пекельний бойовий кінь — це круто й може бути корисним у багатьох ситуаціях. Накладати заклинання доведеться нечасто, але після загибелі коня це потрібно буде зробити знову. За КБ 11 і без володіння жодними ряткидками це траплятиметься частіше, ніж вам хотілося б."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 – Паладин 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Аура захисту\nНове підготовлене заклинання: будь-яке\nНове підготовлене заклинання: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хотіли безкоштовні +3 до всіх ряткидків? Ваша група теж. Варто зазначити, що в описі не вказано, на які саме ряткидки діє бонус, отже він додається до всіх, зокрема до ряткидків від смерті. Тримайтеся поруч із друзями, що помирають, навіть якщо не можете витратити дію, щоб застосувати до них «Цілющі руки»{{Lay on Hands}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 – Паладин 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Аура завоювання{{Aura of Conquest}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "О. От. Так. Ось заради чого ми прийшли. Поки що у вас немає надійного способу надовго залякувати ворогів, але скоро він зʼявиться. А тим часом тепер можете витрачати дію на Канал божественності: Підкорювальну присутність{{Conquering Presence}}, якщо збираєтеся вразити кількох ворогів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 – Паладин 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Харизма 16 → 18)\nНове підготовлене заклинання: будь-яке\nНове підготовлене заклинання: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищте складність ваших заклинань і бонус до ряткидків від аури. Наступного рівня це допоможе застосовувати ефект переляку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 – Чорнокнижник 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові замовляння: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Позамежний заряд [Eldritch Blast]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Штукарство [Prestidigitation]"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nМагія пакту\nНові відомі заклинання: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Виклик страху [Cause Fear]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Пекельна відсіч [Hellish Rebuke]"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nПотойбічний покровитель: Невмерлий Покровитель{{Undead patron}}\nОбличчя жаху{{Form of Dread}}\nМагія пакту\nНові відомі заклинання: Виклик страху [Cause Fear] Пекельна відсіч [Hellish Rebuke]\nПотойбічний покровитель: Невмерлий Покровитель{{Undead patron}}\nОбличчя жаху{{Form of Dread}}\nМагія пакту\nНові відомі заклинання: Виклик страху [Cause Fear] Пекельна відсіч [Hellish Rebuke]\nПотойбічний покровитель: Невмерлий Покровитель{{Undead patron}}\nОбличчя жаху{{Form of Dread}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер збірка запрацює на повну. Бонус Майстерності залежить від загального рівня персонажа, а не рівня класу, тож тепер він дорівнює +4. Це означає, що «Обличчя жаху»{{Form of Dread}} можна застосувати 4 рази на день — саме стільки боїв група зазвичай проводить за день пригод. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Отже,"
+                    },
+                    {
+                      "type": "text",
+                      "text": " у першому раунді кожного бою витрачайте бонусну дію на її активацію. Якщо збираєтеся накладати "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Обладунок Агатіса [Armor of Agathys]"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", зачекайте, доки закінчаться тимчасові ХП від цього вміння. В описі «Обличчя жаху» не зазначено складність ряткидка Мудрості, тож можна припустити, що вона дорівнює складності ряткидка ваших заклинань. За двох атак за хід ви, найімовірніше, влучите принаймні раз і змусите ціль пройти ряткидок від переляку, утримуючи важливого ворога поруч із собою. Наступного ходу знову атакуйте його, але цього разу витратьте бонусну дію, щоб Зіштовхнути й збити з ніг. Оскільки ворог вас боїться, він матиме перешкоду на перевірку навички, якою протистоятиме вашій Атлетиці. Продовжуйте атакувати його (тепер із перевагою), лякати й тримати на землі вічно. Якщо боїтеся, що ворог атакуватиме вас і лежачи, відійдіть від нього на 5 футів і почніть обстрілювати його "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Позамежним зарядом [Eldritch Blast]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " або бийте батогом. Щоб накласти ефект переляку від «Обличчя жаху», достатньо влучити кидком атаки, а дві променеві атаки дещо компенсують перешкоду від атаки по поваленій цілі. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Виклик страху [Cause Fear]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " знадобиться, якщо треба налякати ще одного ворога, щоб він не втік, поки ви безжально тримаєте важливу ціль під контролем. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Пекельна відсіч [Hellish Rebuke]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " помножить біль у відповідь на того, хто наважиться атакувати вас під дією "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Обладунку Агатіса [Armor of Agathys]"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Штукарство [Prestidigitation]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " — найвеселіше замовляння. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магія пакту дає змогу витрачати слоти Чорнокнижника на Божественну кару",
+                      "href": "https://www.sageadvice.eu/paladin-use-warlock-spell/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Вони так і залишаться слотами 1-го рівня, зате це ще дві кари між короткими відпочинками."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 – Чорнокнижник 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додатковий слот заклинань\nНове відоме заклинання: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Проклін [hex]"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nПотойбічні виклики: Мучливий вибух [Agonizing Blast] Зір диявола [Devil's Sight]\nНове відоме заклинання: Проклін [hex]\nПотойбічні виклики: Мучливий вибух [Agonizing Blast] Зір диявола [Devil's Sight]\nНове відоме заклинання: Проклін [hex]\nПотойбічні виклики: Мучливий вибух [Agonizing Blast] Зір диявола [Devil's Sight]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "emphasis",
+                      "text": "Проклін [hex]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " — чудове застосування вашої Концентрації проти великих цілей, по яких ви хочете завдавати додаткової шкоди. До того ж воно не дає ряткидка, тож його додаткове вміння надзвичайно потужне за правильного застосування. Наприклад, якщо зрозумієте, з яким заклинателем бʼєтеся, можна накласти "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Проклін [hex]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " на його характеристику заклинань: це дасть йому перешкоду на перевірки для Контрчарів [Counterspell], навіть коли він вас не боїться. Якщо обережно скористатися дальністю у 90 футів, можна накласти його навіть у соціальній ситуації: щоб співрозмовнику було важче здогадатися, що група йому бреше, або щоб його аргументи були менш переконливими. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "«Мучливий вибух» додає шкоду щоразу, коли влучає «Позамежний заряд»",
+                      "href": "https://twitter.com/jeremyecrawford/status/703376603900825601?lang=en"
+                    },
+                    {
+                      "type": "text",
+                      "text": " — а це вже двічі за хід, і наступного рівня буде тричі. «Зір диявола»{{Devil’s Sight}} надзвичайно сильний із кількох причин. Його дальність удвічі більша за звичайний темний зір, він так само добре працює в магічній темряві, а формулювання «бачите нормально» означає, що звичайна перешкода від темного зору на вас не діє. Щоправда, ваш модифікатор Уважності назавжди дорівнюватиме −1, тож якщо ви не часто потребуватимете зору в темряві, розгляньте «Хватку Хадара»{{Grasp of Hadar}} або «Потойбічний розум»{{Eldritch Mind}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 – Паладин 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Страх [Fear]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Наділити прокляттям [Bestow Curse]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Відродження [Revivify]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Розвіювання магії [Dispel Magic]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замініть заклинання, підготовлене на 8-му рівні, щоб мати "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Відродження [Revivify]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " і "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Розвіювання магії [Dispel Magic]"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Відродження [Revivify]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " та алмазний пил вартістю 300 зм можуть вирішити, чи ваш справжній цілитель залишиться мертвим, чи повернеться до життя. Завжди майте при собі обидва. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Розвіювання магії [Dispel Magic]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " — неймовірне заклинання, і воно прямо залежить від Харизми, тож перевірки характеристики відставатимуть від повного заклинателя лише на 1 пункт. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Страх [Fear]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " — головний козир цієї збірки. Вороги бояться вас і мусять витрачати дію на Ривок. Але через швидкість 0 від Аури завоювання вони ніколи не втечуть від вас, тож умова для нового ряткидка проти заклинання не спрацює. Це надійний контроль над будь-якою ціллю, що провалить ряткидок і не має імунітету до переляку. Зазвичай варто почати саме з нього: спершу вразити конусом багато цілей, а тоді ввірватися в їхню середину, щоб накрити їх аурою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 – Паладин 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Аура мужності\nНове підготовлене заклинання: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Денне світло [Daylight]"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nНове підготовлене заклинання: Денне світло [Daylight]\nНове підготовлене заклинання: Денне світло [Daylight]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер наші друзі не піддаються нашим витівкам — на випадок, якщо ми раптом провалимо ряткидок проти контролю свідомості (що малоймовірно з нашими бонусами, але все-таки)."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 – Паладин 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращена божественна кара{{Improved Divine Smite}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безкоштовна шкода. До того ж зомбі завжди помирають, коли ви їх убиваєте."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 – Паладин 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Харизма 18 → 20)\nНове підготовлене заклинання: будь-яке\nНове підготовлене заклинання: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищте Харизму до 20, щоб ряткидок проти вашого переляку було якомога важче пройти. Додаткові переваги: кращі ваші ряткидки й ряткидки групи, успішніші соціальні взаємодії під час перевірок Обману, Переконання чи Залякування та більше шансів, що містяни почнуть до вас залицятися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 – Паладин 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Пошук вищого скакуна [Find Greater Steed]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Захист від смерті [Death Ward]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Підкорення звіра [Dominate Beast]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Камʼяна шкіра [Stoneskin]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замініть "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Пошук скакуна [Find Steed]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " у щоденній підготовці на "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Пошук вищого скакуна [Find Greater Steed]"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", а заклинання, підготовлене на 14-му рівні, — на Захист від смерті [Death Ward]. Воно не потребує Концентрації й діє 8 годин — фактично весь день. Сподіваюся, воно допоможе вам дожити до свого ходу, щоб витратити на себе майже весь запас «Цілющих рук»{{Lay on Hands}} і залишити лише 2 пункти. Коли ви накладете його на себе, заклинання безкоштовно діятиме й на скакуна, викликаного за допомогою "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Пошуку вищого скакуна [Find Greater Steed]"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Тепер "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Пошук вищого скакуна [Find Greater Steed]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " дає змогу викликати пекельного пегаса — мабуть, найкумедніше поєднання, яке я бачив у 5e. На землі він швидкий, у повітрі "
+                    },
+                    {
+                      "type": "strong",
+                      "text": "дуже"
+                    },
+                    {
+                      "type": "text",
+                      "text": " швидкий, а ще розумніший і мудріший за вас. Він також знає три мови, яких ви не знаєте, і може спілкуватися з вами телепатично, тож у вас раптом зʼявиться чудовий перекладач."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 – Паладин 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Очищувальний дотик\nНове підготовлене заклинання: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Вигнання [Banishment]"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nНове підготовлене заклинання: Вигнання [Banishment]\nНове підготовлене заклинання: Вигнання [Banishment]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це неймовірно потужне, але дуже ситуативне вміння. Воно діє лише на заклинання, а не на інші стани, і вимагає торкнутися цілі — чого в бою вам часто не захочеться. Та якщо знайдете йому застосування, буде неймовірно приємно просто зірвати ворожий задум. Вигнання [Banishment] вимагає ряткидка Харизми, який багато істот навряд чи пройдуть. Це значно надійніше, ніж цілитися в Мудрість багатьох істот."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 – Паладин 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зневажливий докір{{Scornful Rebuke}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Разом із цим умінням, "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Обладунком Агатіса [Armor of Agathys]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " і "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Пекельною відсіччю [Hellish Rebuke]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " ви можете у відповідь завдавати шкоди трьох типів. А ще є кари та "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Проклін [hex]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " — бракує лише кислоти й блискавки. Не знаю, чим це корисно, але вирішив згадати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 – Паладин 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Сила 18 → 20)\nНове підготовлене заклинання: будь-яке\nНове підготовлене заклинання: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищте Силу до 20 — це зробить ваші атаки ближнього бою й Атлетику максимально ефективними без магічних предметів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 – Паладин 17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Священна зброя [Holy Weapon]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Руйнівна хвиля [Destructive Wave]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Підкорення особистості [Dominate Person]"
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Вбивча хмара [Cloudkill]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замініть заклинання, яке почали готувати минулого рівня, на "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Священну зброю [Holy Weapon]"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", бо ж це "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Священна зброя [Holy Weapon]"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Якщо я правильно все порахував, у вас іще буде вільне місце для підготовки заклинання з 6-го рівня — заповніть його "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Руйнівною хвилею [Destructive Wave]"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", адже перекинути "
+                    },
+                    {
+                      "type": "strong",
+                      "text": "все"
+                    },
+                    {
+                      "type": "text",
+                      "text": " з ніг після того, як ви налякали ворогів, неймовірно кумедно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 – Паладин 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення аур{{Aura Improvements}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Завершальне вміння» цієї збірки — збільшення дальності всіх ваших аур до 30 футів; відверто кажучи, це дуже приємне завершення. Тепер значно легше накрити ворогів конусом "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Страху [Fear]"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", а тоді ввірватися до них і стати поруч. Це робить вас надзвичайно ефективним танком."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-001",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання клятви",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-002",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Заклинання 1-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-003",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Заклинання 2-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-004",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Заклинання 3-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-005",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Заклинання 4-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-006",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Заклинання 5-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-007",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Канал божественності",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-008",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Аура завоювання",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-009",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Зневажливий докір",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-010",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Непереможний завойовник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-011",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-abilities",
+      "targetBlockId": "block-section-abilities-2",
+      "optionId": "section-abilities-block-section-abilities-2",
+      "context": "Сила не лише визначає ваші атаки в ближньому бою, а й посилює Атлетику — ключову складову прикладу збірки.",
+      "explanationBlockId": "block-section-abilities-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-012",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-abilities",
+      "targetBlockId": "block-section-abilities-3",
+      "optionId": "section-abilities-block-section-abilities-3",
+      "context": "Ви носитимете важкі обладунки, а «Майстер щита»",
+      "explanationBlockId": "block-section-abilities-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-013",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-abilities",
+      "targetBlockId": "block-section-abilities-4",
+      "optionId": "section-abilities-block-section-abilities-4",
+      "context": "Третя за важливістю. У вас чимало захисних можливостей, але ви битиметеся на передовій і потребуватимете відповідного запасу ХП. Крім того, у вас є заклинання, що потребують Концентрації, а до появи «Аури захисту»",
+      "explanationBlockId": "block-section-abilities-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-014",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-abilities",
+      "targetBlockId": "block-section-abilities-5",
+      "optionId": "section-abilities-block-section-abilities-5",
+      "context": "Можна занедбати.",
+      "explanationBlockId": "block-section-abilities-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-015",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-abilities",
+      "targetBlockId": "block-section-abilities-6",
+      "optionId": "section-abilities-block-section-abilities-6",
+      "context": "Можна занедбати.",
+      "explanationBlockId": "block-section-abilities-6",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-conquest-2014-016",
+      "articleId": "rpgbot-paladin-oath-of-conquest-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-conquest-2014-draft1",
+      "sectionId": "section-abilities",
+      "targetBlockId": "block-section-abilities-7",
+      "optionId": "section-abilities-block-section-abilities-7",
+      "context": "Заклинання та багато класових умінь Паладина залежать від Харизми.",
+      "explanationBlockId": "block-section-abilities-7",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

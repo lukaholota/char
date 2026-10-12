@@ -1,0 +1,991 @@
+{
+  "buildId": "build-wizard-evoker-2014",
+  "revisionId": "build-wizard-evoker-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Школи втілення — «Марш гренадерів»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+      "sectionId": "section-example-school-of-evocation-build-the-grenadiers-march",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "WIZARD_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "WIZARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WIZARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "SCHOOL_OF_EVOCATION",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "absorb-elements",
+            "tashas-caustic-brew"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WIZARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "shatter",
+            "tashas-mind-whip"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WIZARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "WAR_CASTER",
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "misty-step",
+            "web"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WIZARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "fireball",
+            "lightning-bolt"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WIZARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "melfs-minute-meteors",
+            "fly"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WIZARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "hypnotic-pattern",
+            "sickening-radiance"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WIZARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "wall-of-fire",
+            "greater-invisibility"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WIZARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "polymorph",
+            "cone-of-cold"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WIZARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "dawn",
+            "synaptic-static"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WIZARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "wall-of-force",
+            "wall-of-stone"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WIZARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "chain-lightning",
+            "sunbeam"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WIZARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "otilukes-freezing-sphere",
+            "disintegrate"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WIZARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "true-seeing",
+            "crown-of-stars"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WIZARD_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "delayed-blast-fireball",
+            "whirlwind"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WIZARD_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "forcecage",
+            "plane-shift"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WIZARD_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "maddening-darkness",
+            "sunburst"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WIZARD_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "clone",
+            "maze"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WIZARD_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "wish",
+            "meteor-swarm"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WIZARD_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-evoker-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+          "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "SCHOOL_OF_EVOCATION",
+    "raceKey": "HUMAN_2014",
+    "variantKey": "HUMAN_VARIANT",
+    "backgroundKey": "SAGE",
+    "featKey": "RESILIENT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 15
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Те, що я сказав, що можна відкласти зростання Інтелекту заради риси, не означає, що ми не вкладаємо очки в Інтелект під час створення. Навпаки, наведений вище висновок стосується різниці між тим, щоб лишатися на 16 заради чогось на кшталт «Бойового заклинателя»{{War Caster}}, і тим, щоб підніматися до 18 і 20 якнайшвидше. Ми беремо Варіант людини{{Variant Human}} з +1 до Спритності й Інтелекту та «Стійкого (Статура)»{{Resilient (Constitution)}} як нашу рису першого рівня.\n\n Базове значення Підвищене значення Рівень 20 Сила 8 8 8 Спритність 15 16 20 Статура 15 16 16 Інтелект 15 16 20 Мудрість 8 8 8 Харизма 8 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Беремо {{Варіант людини|Variant Human}}, щоб узяти «Стійкого (Статура)»{{Resilient (Constitution)}} на першому рівні. Як варіант, за бажання можна поміняти це місцями з вибором «Бойового заклинателя»{{War Caster}} на четвертому рівні.\n\nЗа бажання можна почати перший рівень у {{Винахіднику|Artificer}} замість Чарівника, щоб отримати володіння ряткидками Статури й середні обладунки, що відкриває інші варіанти для вибору раси. Ще одна прихована перевага такої збірки — слоти підготовки для обох класів, що звільняє трохи місця в нашому списку підготовлених заклинань Чарівника.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Як заклинач на Інтелекті, ми й так маємо мотивацію підвищувати Інтелект, тому беремо передісторію Мудрець{{Sage}} заради навичок Магія й Історія, але трохи її змінимо, створивши власну передісторію, і обміняємо одну з мов на інструмент. Беремо володіння флейтою{{Flute}}, щоб справді зіграти Марш гренадерів як фентезійний гренадер, бо це весело, а Розуміння мов [Comprehend Languages] завжди можна накласти пізніше.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Варіант людини{{Variant Human}} дає одне володіння навичкою, тож ми оберемо Природу, бо це єдина навичка Інтелекту, якої немає в списку Чарівника. Чарівник дозволить обрати Розслідування й Релігію. Мудрець{{Sage}} завершує наш список Магією та Історією.\n\nРазом цей список дає нам добрі шанси пройти будь-які перевірки знань, а також гострий зір на дрібніші деталі під час ґрунтовного Розслідування.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Варіант людини{{Variant Human}} дозволяє взяти рису вже на першому рівні, і ми обрали «Стійкого (Статура)»{{Resilient (Constitution)}} заради +1 до Статури та володіння ряткидками Статури. Як варіант, можна поміняти цей вибір місцями з вибором четвертого рівня — «Бойовим заклинателем»{{War Caster}}.\n\nНа 4-му рівні наша риса на вибір — «Бойовий заклинатель»{{War Caster}}. Ми заклиначі стихій: випускаємо заклинання по області з високою шкодою, що все одно завдають половини шкоди при успішному ряткидку, тож відставання за СК ряткидка шкодить нам значно менше, ніж, скажімо, Зачарувальнику{{Enchanter}}, який зазвичай використовує заклинання, що нічого не роблять при проваленому ряткидку. Це означає, що ми можемо дозволити собі витратити момент на кращі перевірки Концентрації.\n\nНа 8-му й 12-му рівнях ми беремо Покращення Характеристик на +2 Інтелекту кожне, доводячи його до 20, щоб підсилити заклинальні атаки й СК заклинань.\n\nНа 16-му й 19-му рівнях ми беремо ще Покращення Характеристик на +2 Спритності щоразу, доводячи її до 20, щоб підвищити наш КБ.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Риса Варіанта людини: Стійкий (Статура)\nМагічне відновлення\nЧаротворство\nЗамовляння:\n– Розщеплення Розуму\n– Гуркіт грому\n– Дзвін небіжчика\nЗаклинання 1-го рівня:\n– Магічний дротик\n– Обладунок мага\n– Щит\n– Сріблясті шпильки\n– Сон\n– Громова хвиля",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Школа втілення\n– Знавець втілення\n– Ліплення заклять\nЧаротворство\nЗаклинання 1-го рівня:\n– Поглинання стихій\n– Їдке Вариво Таші",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Чаротворство\nЗаклинання 2-го рівня:\n– Друзки\n– Психічний Батіг Таші",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Бойовий заклинатель\nЧаротворство\nЗаклинання 2-го рівня:\n– Покращення здібності\n– Туманний крок\n– Павутиння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Чаротворство\nЗаклинання 3-го рівня:\n– Вогнекуля\n– Заряд блискавки\n– Мельфові маленькі метеори",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Потужне замовляння\nЧаротворство\nЗаклинання 3-го рівня:\n– Політ\n– Гіпнотичний візерунок",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Чаротворство\nЗаклинання 4-го рівня:\n– Нудотне сяйво\n– Стіна вогню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Інтелект +2 (16 → 18)\nЧаротворство\nЗаклинання 4-го рівня:\n– Більша невидимість\n– Перевтілення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Чаротворство\nЗаклинання 5-го рівня:\n– Конус холоду\n– Світанок\n– Синаптичний розряд",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Підсилене втілення\nЧаротворство\nЗаклинання 5-го рівня:\n– Стіна енергії\n– Стіна з каменю",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Чаротворство\nЗаклинання 6-го рівня:\n– Ланцюгова блискавка\n– Сонячний промінь\n– Крижана куля Отілюка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Інтелект +2 (18 → 20)\nЧаротворство\nЗаклинання 6-го рівня:\n– Розщеплення\n– Істинний зір",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Чаротворство\nЗаклинання 7-го рівня:\n– Корона зірок\n– Вогнекуля відкладеної дії\n– Вихор",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Надзаряд\nЧаротворство\nЗаклинання 7-го рівня:\n– Силова кліть\n– Планарний перехід",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Чаротворство\nЗаклинання 8-го рівня:\n– Нестерпна темрява\n– Сонячний спалах",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: Спритність +2 (16 → 18)\nЧаротворство\nЗаклинання 8-го рівня:\n– Клон\n– Лабіринт",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Чаротворство\nЗаклинання 9-го рівня:\n– Бажання\n– Рій метеорів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Майстерність заклинань{{Spell Mastery}}:\n– Щит\n– Туманний крок",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Спритність +2 (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Підписні заклинання{{Signature Spells}}:\n– Вогнекуля\n– Заряд блискавки",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Володіння флейтою замість мови",
+        "reason": "Автор створює власну передісторію на основі Мудреця й обмінює одну мову на флейту; пресет не записує обмін мов на інструменти, тому лишається стандартний Мудрець з двома мовами.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Покращення здібності (4-й рівень)",
+        "reason": "На 4-му рівні автор називає три заклинання (Покращення здібності, Туманний крок, Павутиння), хоч Чарівник додає до книги два, а Покращення здібності немає у списку Чарівника. Пресет бере Туманний крок і Павутиння.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання книги на рівнях 5–20",
+        "reason": "Автор місцями називає по три заклинання на рівень (5-й, 9-й, 11-й, 13-й), хоч Чарівник додає до книги лише два. Пресет записує названі заклинання по два на рівень у порядку автора, не раніше доступного кола; зайві переходять на наступні рівні, а вільні місця (замовляння 4-го та 10-го рівнів і місця наприкінці) — вибір платформи, автор не називає; можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Майстерність заклинань і Фірмові заклинання",
+        "reason": "Автор називає Щит і Туманний крок для Майстерності заклинань (18-й рівень) та Вогнекулю й Заряд блискавки для Фірмових заклинань (20-й), але каталог не має вибору цих заклинань, тож гравець обирає їх на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-evoker-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+            "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

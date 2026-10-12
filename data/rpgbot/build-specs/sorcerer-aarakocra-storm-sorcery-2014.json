@@ -1,0 +1,320 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "sorcerer-storm-sorcery-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+    "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31"
+  },
+  "exampleSection": "section-example-build-aarakocra-storm-sorcerer",
+  "levelTableSection": "section-levels",
+  "classKey": "SORCERER_2014",
+  "subclassKey": "STORM_SORCERY",
+  "raceKey": "AARAKOCRA_MPMM",
+  "backgroundKey": "ENTERTAINER",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 8,
+    "WIS": 10,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "spells": {
+        "knownSpellKeys": [
+          "chromatic-orb"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classOptions": [
+        {
+          "optionNameEng": "Transmuted Spell"
+        },
+        {
+          "optionNameEng": "Twinned Spell"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "shatter"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "fire-bolt"
+        ],
+        "knownSpellKeys": [
+          "enhance-ability"
+        ]
+      },
+      "section": "section-levels"
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "fireball"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "spells": {
+        "knownSpellKeys": [
+          "wall-of-fire"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 1
+        },
+        {
+          "ability": "DEX",
+          "amount": 1
+        }
+      ],
+      "openAdvancement": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "classOptions": [
+        {
+          "optionNameEng": "Empowered Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "chain-lightning"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "featKey": "METAMAGIC_ADEPT",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "draconic-transformation"
+        ]
+      }
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 17,
+      "classOptions": [
+        {
+          "optionNameEng": "Careful Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Підвищення Харизми на 8-му рівні",
+      "reason": "Автор пише Харизму 16→18 на 4-му і 18→20 на 8-му, але його таблиця стартує з Харизми 17 (15 + 2 раси): після +2 на 4-му це 19, а друге +2 на 8-му дало б 21, понад межу 20. Автор мав на увазі Харизму 20 до 8-го рівня, тому на 4-му лишено +2 до Харизми (19), а на 8-му пресет бере +1 до Харизми й +1 до Спритності (вибір платформи, прапор відкритого підвищення); гравець може змінити.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Нове заклинання на 6-му рівні",
+      "reason": "Автор пише «будь-яке» заклинання на 6-му рівні, тому це відкритий вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Версія Ааракокри",
+      "reason": "Автор бере Ааракокру з правилами налаштованого походження; у каталозі є лише версія з «Монстрів Мультивсесвіту» з підвищеннями за правилами Таші.",
+      "section": "section-race"
+    },
+    {
+      "field": "«Будь-які» вибори на 8–20 рівнях",
+      "reason": "Автор пише «будь-яке» для заклинань (8, 9, 10, 15, 17-й), замовляння (10-й), метамагії (10-й, 17-й) і «Підвищення Харизми або риса» (16-й, 19-й). Заклинання й замовлення — відкриті вибори гравця; метамагія: пресет бере Empowered Spell (10-й) і Careful Spell (17-й); підвищення: Спритність +2 (16-й) і Статура +2 (19-й). Усе це вибір платформи, гравець може змінити.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Адепт метамагії на 12-му рівні",
+      "reason": "Риса «Адепт метамагії» записана без вибору метамагії: каталог не має її опцій (BUG-O49-METAMAGIC-ADEPT).",
+      "section": "section-feats-2"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/sorcerer-aarakocra-storm-sorcery-2014.webp",
+    "title": "Чародій Магії шторму — Ааракокра",
+    "description": "Ааракокра зі Спритністю 16 і Харизмою 17: расовий політ тримає вас поза ближнім боєм, а «Бурхлива магія» дає змогу вийти з-під загрози.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA",
+      "DEX",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "INTIMIDATION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Ааракокра за правилами Таші: +2 до Харизми й +1 до Спритності, як у авторській таблиці (Харизма 17, Спритність 16); це вже враховано.",
+    "skillExplanation": "Автор радить «усе, що годиться Чародієві», не називаючи навичок і передісторії. Обман і Залякування від Чародія, передісторію Артиста та мову ми обрали за вас — їх можна змінити.",
+    "equipmentExplanation": "Автор радить легкий арбалет, мішечок із компонентами (або фокус), будь-який набір і два кинджали. Набір дослідника підземель ми обрали за вас.",
+    "spells": {
+      "classCantripKeys": [
+        "create-bonfire",
+        "mind-sliver",
+        "minor-illusion",
+        "prestidigitation"
+      ],
+      "knownSpellKeys": [
+        "magic-missile",
+        "tashas-caustic-brew"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Чотири замовляння й два заклинання названі автором.",
+      "sectionId": "section-levels"
+    }
+  }
+}

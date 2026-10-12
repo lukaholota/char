@@ -52,13 +52,13 @@ export function CatalogHeader({
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder={searchPlaceholder}
-          className="pl-9 pr-8 bg-slate-900/60 border-white/10 text-slate-100 placeholder:text-slate-500 rounded-xl h-10 text-xs md:h-9"
+          className="pl-9 pr-10 bg-slate-900/60 border-white/10 text-slate-100 placeholder:text-slate-500 rounded-xl h-10 text-xs md:h-9"
         />
         {searchQuery && (
           <button
             type="button"
             onClick={() => onSearchChange("")}
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200"
+            className="absolute right-0 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center text-slate-400 hover:text-slate-200 md:h-9 md:w-9"
             aria-label="Очистити пошук"
           >
             <X className="h-3.5 w-3.5" />

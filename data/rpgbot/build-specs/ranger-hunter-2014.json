@@ -1,0 +1,291 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "ranger-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-ranger-2014-draft1",
+    "sourceRevisionId": "rpgbot-8b69b12cfc1e38a1-ed5b556134307f38"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "RANGER_2014",
+  "subclassKey": "HUNTER_CONCLAVE",
+  "raceKey": "HUMAN_2014",
+  "backgroundKey": "CRIMINAL",
+  "abilityScores": {
+    "STR": 9,
+    "DEX": 15,
+    "CON": 13,
+    "INT": 11,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "recipeTitle": "Приклад збірки Слідопита — Людина, Слідопит (Мисливець)",
+  "levelPlans": {
+    "levels": "all",
+    "notes": true,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "classOptions": [
+        {
+          "optionNameEng": "Archery"
+        }
+      ],
+      "openClassOptions": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "subclassKey": "HUNTER_CONCLAVE",
+      "subclassOptions": [
+        {
+          "optionNameEng": "Horde Breaker (Hunter)"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ],
+      "classOptions": [
+        {
+          "optionNameEng": "Primeval Awareness"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Multiattack Defense (Hunter)"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "classOptions": [
+        {
+          "optionNameEng": "Hide in Plain Sight"
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Volley (Hunter)"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Evasion (Hunter)"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Бойовий стиль, Здобич мисливця, Мультиатака, Захист вищого мисливця",
+      "reason": "Автор не обирає стиль остаточно: для ближнього бою радить Бій двома зброями й Вбивцю колосів, для дальнього — Стрільбу з лука й Знищувача орд, для лучників також Залп (11-й) та Ухилення (15-й). Пресет бере лучника (довгий лук у спорядженні): Archery (за замовчуванням, гравець може змінити), Horde Breaker, Volley, Evasion.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Улюблений ворог і Природний дослідник: покращення",
+      "reason": "На 6-му, 10-му й 14-му рівнях автор радить обрати ще ворога й місцевість; платформа не має цих додаткових виборів.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання Слідопита",
+      "reason": "Автор радить Мисливську мітку, Мале відновлення, Проростання шипів та Переміщення без сліду, але не складає списку; заклинання на кожному рівні обирає гравець (вибір платформи).",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/ranger-hunter-2014.webp",
+    "title": "Слідопит-Мисливець — Людина",
+    "description": "Влучний і скритний слідопит із довгим луком. Підклас відкриється на 3-му рівні, а заклинання слідопит отримує з 2-го.",
+    "skills": {
+      "selectedClass": [
+        "NATURE",
+        "PERCEPTION",
+        "SURVIVAL"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [
+      "Favored Enemy",
+      "Natural Explorer"
+    ],
+    "subraceKey": null,
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "abilityExplanation": "Розподіл характеристик узято з прикладу RPGbot. Людина додає по +1 до кожної характеристики.",
+    "skillExplanation": "Автор радить із шести навичок Проникливість, Розслідування, Природу, Уважність, Непомітність і Виживання; Непомітність і Обман дає Злочинець. Три навички від класу ми обрали за вас — це вибір платформи. Улюбленого ворога платформа обрала за вас, тож мову, яку це уміння дає, ми теж обрали за вас.",
+    "equipmentExplanation": "Шкіряна броня, два короткі мечі й довгий лук взяті з авторського прикладу. Набір дослідника підземель та додаткову мову ми обрали за вас — це вибір платформи.",
+    "featSection": "section-feats-2",
+    "featOptionName": null,
+    "racialAbilities": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "skillSection": "section-skills-and-tools",
+    "equipmentSection": "section-levels",
+    "platformChoices": [
+      "classOptions"
+    ]
+  }
+}

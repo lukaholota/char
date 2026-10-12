@@ -1,0 +1,2287 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "8a870bab3ecf6534d63072ed1a32bcc0cea3dbfd1781141dcd64f4b1b6c960dd",
+  "sourceRevision": {
+    "revisionId": "rpgbot-863a85633fe2219c-8a870bab3ecf6534",
+    "sourceId": "rpgbot-863a85633fe2219c",
+    "fetchedAt": "2026-09-29T19:16:37.338346+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:31:24-04:00",
+    "contentHash": "15e4c591d00c7195af5976e9a7b0bf8cb35b893599bb9c02c30d7a16276b5b27",
+    "title": "Home Run Bat: Launching Enemies to Maximum Distance: DnD 5e Multiclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-863a85633fe2219c-8a870bab3ecf6534.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "DnD 5e includes numerous character options which allows us to forcibly reposition other creatures. These are typically intended to force enemies away from you, potentially breaking grapples or otherwise just forcing enemies out of melee. Nothing stops these effects from stacking, and that probably already tells you what this article is about."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I’ve written previously in a few example builds about 5e’s refusal to use the phrase “directly away” when giving players the ability to push enemies away. “Away” simply requires that enemies end the movement further from you than when they started, but otherwise doesn’t indicate direction. This allows you to move enemies away from you at an angle, including upward, allowing you to drop them for free damage and to automatically knock them prone."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, some features specify “horizontally away” instead of just “away”. While this is closer to the original intent of the rules text, it does create hilarious situations like hitting an enemy which is in the air above you and forcibly moving it several squares sideways. But that still lets us move enemies, so those options are going into the metaphorical soup."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In this article we’re going to see exactly how far away we can move a creature in one hit. Similar to our "
+            },
+            {
+              "type": "link",
+              "text": "Bugbear-y Me in Damage",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/"
+            },
+            {
+              "type": "text",
+              "text": " and "
+            },
+            {
+              "type": "link",
+              "text": "Fistful of d4’s",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/"
+            },
+            {
+              "type": "text",
+              "text": " articles, we’re going to capitalize on a single mechanic and take a point of absolute absurdity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Classes and Subclasses",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#classes-and-subclasses"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artificer (Artillerist)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#artificer-artillerist"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cleric (Tempest)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#cleric-tempest"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Fighter (Arcane Archer)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#fighter-arcane-archer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Fighter (Battle Master)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#fighter-battle-master"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Monk (Way of Four Elements)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#monk-way-of-four-elements"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Monk (Way of the Open Hand)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#monk-way-of-the-open-hand"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ranger (Swarmkeeper)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#ranger-swarmkeeper"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Sorcerer (Storm Sorcery)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#sorcerer-storm-sorcery"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Warlock (Genie)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#warlock-genie"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Wizard (Graviturgy Magic)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#wizard-graviturgy-magic"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Wizard (Order of Scribes)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#wizard-order-of-scribes"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Magic Items",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Home Run Contest World Champion",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats and Ability Score Increases",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#feats-and-ability-score-increases"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Charger"
+              },
+              {
+                "type": "superscript",
+                "text": "TCoE"
+              },
+              {
+                "type": "text",
+                "text": ": Spend your Action to Dash, attack once as a Bonus Action, then if you hit with a melee attack you can push your target 10 feet away. Very restrictive, but 10 feet of pushing is pretty good."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crusher"
+              },
+              {
+                "type": "superscript",
+                "text": "TCoE"
+              },
+              {
+                "type": "text",
+                "text": ": 5 ft. of movement when we deal bludgeoning damage. This obviously works with weapons like war hammers, but it also works with unarmed strikes and with magical sources of bludgeoning damage like Magic Stone, or the Dao Genie Warlock’s bonus bludgeoning damage, or spells like Erupting Earth."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gift of the Chromatic Dragon"
+              },
+              {
+                "type": "superscript",
+                "text": "FToD"
+              },
+              {
+                "type": "text",
+                "text": ": The ability to add elemental damage to a weapon once per day works with the Tempest Cleric’s Thunderbolt Strike, but it’s still only once per day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Martial Adept"
+              },
+              {
+                "type": "superscript",
+                "text": "PHB"
+              },
+              {
+                "type": "text",
+                "text": ": Push an enemy 15 feet with Pushing Attack. We’ll only get to use it once per Short or Long Rest, but for the purposes of this article we only need it to work once."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes-and-subclasses",
+      "heading": "Classes and Subclasses",
+      "sourceAnchor": "classes-and-subclasses",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-and-subclasses-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All that we want is a way to move enemies away from us. That’s all. Low-level options are preferred because it makes multiclassing easier, but we have 20 levels to work with, so I’m not super picky."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artificer-artillerist",
+      "parentSectionId": "section-classes-and-subclasses",
+      "heading": "Artificer (Artillerist)",
+      "sourceAnchor": "artificer-artillerist",
+      "blocks": [
+        {
+          "blockId": "block-section-artificer-artillerist-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get two potential options from the Artificer:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artificer-artillerist-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Level 2: Infusion (Repulsion Shield): When we’re hit we can push an enemy 15 feet away as a Reaction."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3: Artillerist’s Force Ballista: On hit, the target is pushed 5 feet away from the ballista."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cleric-tempest",
+      "parentSectionId": "section-classes-and-subclasses",
+      "heading": "Cleric (Tempest)",
+      "sourceAnchor": "cleric-tempest",
+      "blocks": [
+        {
+          "blockId": "block-section-cleric-tempest-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 6 the Tempest Cleric gains the Thunderbolt Strike feature. This allows you to push a creature 10 feet away from you when you deal lightning damage to it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cleric-tempest-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any build capitalizing on this feature will need to include lightning damage. Fortunately, clerics can cast Spirit Shroud to deal lightning damage on any attack against an enemy within 10 feet."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fighter-arcane-archer",
+      "parentSectionId": "section-classes-and-subclasses",
+      "heading": "Fighter (Arcane Archer)",
+      "sourceAnchor": "fighter-arcane-archer",
+      "blocks": [
+        {
+          "blockId": "block-section-fighter-arcane-archer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Forceful Shot lets us push an enemy 15 feet away from us if they fail a Strength save. It also doesn’t have a size cap, which is interesting. However, it only works when fired from a bow, which limits our combo options."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fighter-battle-master",
+      "parentSectionId": "section-classes-and-subclasses",
+      "heading": "Fighter (Battle Master)",
+      "sourceAnchor": "fighter-battle-master",
+      "blocks": [
+        {
+          "blockId": "block-section-fighter-battle-master-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pushing Attack lets us push an enemy 15 feet away from us if they fail a Strength save. We can also get this from the Martial Adept feat, but if we can afford the levels we’ll have considerably more dice to spend."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-monk-way-of-four-elements",
+      "parentSectionId": "section-classes-and-subclasses",
+      "heading": "Monk (Way of Four Elements)",
+      "sourceAnchor": "monk-way-of-four-elements",
+      "blocks": [
+        {
+          "blockId": "block-section-monk-way-of-four-elements-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fist of Unbroken Air lets us push a creature up to 20 feet away from us on a failed Strength save. However, it’s an Action to use, so we’ll have very few combo options."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-monk-way-of-the-open-hand",
+      "parentSectionId": "section-classes-and-subclasses",
+      "heading": "Monk (Way of the Open Hand)",
+      "sourceAnchor": "monk-way-of-the-open-hand",
+      "blocks": [
+        {
+          "blockId": "block-section-monk-way-of-the-open-hand-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Open Hand Technique allows us to push an enemy 15 feet away if we hit them with an attack from Flurry of Blows and then the target failed a Strength save. This is great, but gating it behind Flurry of Blows and limiting it to unarmed strikes gives us few combo options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-monk-way-of-the-open-hand-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We combine Open Hand Technique with the Crusher feat in our "
+            },
+            {
+              "type": "link",
+              "text": "Way of the Open Hand Monk Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/"
+            },
+            {
+              "type": "text",
+              "text": " in order to launch enemies 20 feet. It feels good, and it’s a fun predecessor to this article."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ranger-swarmkeeper",
+      "parentSectionId": "section-classes-and-subclasses",
+      "heading": "Ranger (Swarmkeeper)",
+      "sourceAnchor": "ranger-swarmkeeper",
+      "blocks": [
+        {
+          "blockId": "block-section-ranger-swarmkeeper-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gathered Swarm allows us to move a creature 15 feet horizontally if they fail a Strength save on hit. Note that this limits us to horizontal movement. Not a problem for the purposes of this article, but important to remember if you have ambitions about falling damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sorcerer-storm-sorcery",
+      "parentSectionId": "section-classes-and-subclasses",
+      "heading": "Sorcerer (Storm Sorcery)",
+      "sourceAnchor": "sorcerer-storm-sorcery",
+      "blocks": [
+        {
+          "blockId": "block-section-sorcerer-storm-sorcery-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The 14th-level feature Storm’s Fury lets you push an enemy 20 feet away as a Reaction, provided that they fail a Strength save. Unfortunately, it’s a very high-level feature and eats your Reaction."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-warlock-genie",
+      "parentSectionId": "section-classes-and-subclasses",
+      "heading": "Warlock (Genie)",
+      "sourceAnchor": "warlock-genie",
+      "blocks": [
+        {
+          "blockId": "block-section-warlock-genie-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The genielock offers three options for moving enemies. Unfortunately, they’re difficult to combine with other options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-warlock-genie-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Genie’s Wrath (Dao): Add +PB bludgeoning damage to one attack per turn, allowing you to trigger Crusher."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rebuke of the Talisman: When the wearer of your Talisman is hit by an attack, you can use your Reaction to push the attacker 10 feet away. Since it eats your Reaction, you can’t use it in conjunction with Repulsion Shield."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Repelling Blast: A popular option for warlocks, Repelling Blast pushes your target 10 feet away and applies to all of your Eldritch Blast attacks. With as many as 4 attacks per casting, that’s a lot of pushing."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-wizard-graviturgy-magic",
+      "parentSectionId": "section-classes-and-subclasses",
+      "heading": "Wizard (Graviturgy Magic)",
+      "sourceAnchor": "wizard-graviturgy-magic",
+      "blocks": [
+        {
+          "blockId": "block-section-wizard-graviturgy-magic-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The 6th-level feature Gravity Well allows you to move a creature 5 feet if the target is willing to move, the spell hits it with an attack, or it fails a saving throw against the spell."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-wizard-order-of-scribes",
+      "parentSectionId": "section-classes-and-subclasses",
+      "heading": "Wizard (Order of Scribes)",
+      "sourceAnchor": "wizard-order-of-scribes",
+      "blocks": [
+        {
+          "blockId": "block-section-wizard-order-of-scribes-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The ability to change damage types with spells potentially means switching spells to a damage type which triggers Crusher or Thunderbolt Strike."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Magic Items",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Battering Shield"
+              },
+              {
+                "type": "superscript",
+                "text": "EGtW"
+              },
+              {
+                "type": "text",
+                "text": " (Rare): When you push a creature within your reach at least 5 feet away, you can spend 1 of the shield’s 3 charges to push it an additional 10 feet, knock it prone, or both. Note that, RAW, it specifically requires that you “push” the target, not “Shove” or “move”. Crusher would not apply, but effects like Pushing Attack would."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of the Ram"
+              },
+              {
+                "type": "superscript",
+                "text": "DMG"
+              },
+              {
+                "type": "text",
+                "text": " (Rare): Spend 1 or more of the ring’s charges to make a spell attack, dealing force damage and pushing your target 5 feet per charge on a hit. Unfortunately, we can’t make it deal bludgeoning or lightning damage, which limits our combo options severely."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-2",
+      "heading": "Example Build – Home Run Contest World Champion",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Look at our options above, we have several melee options that we can combine if we can deal both bludgeoning damage and lightning damage at the same time."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cleric (Tempest) 6 – Thunderbolt Strike: 10 feet away when dealing lightning damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fighter (Battle Master) 3 – Pushing Strike: 10 feet away on a failed Strength save with a Strength-based DC."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ranger (Swarmkeeper) 3 – Gathered Swarm: 15 feet away horizontally on a failed Strength save with a Wisdom-based DC."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Charger: Move target 10 feet away if we hit with an attack after we Dash and move 10 feet straight toward them."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crusher: Move target 5 feet once per turn when you deal bludgeoning damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spirit Shroud: 3rd-level cleric spell. Add +1d8 damage of one type (we can pick lightning) to attacks against enemies within 10 feet."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Battering Shield: Spend 1 charge to add +10 feet to the push distance."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-example-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "That’s 60 feet away in total, but we need to jump through some hoops to make it happen. We need Spirit Shroud running, which requires a Bonus Action and only lasts 1 minute. Then we need to Dash and hit our target with a melee attack which deals bludgeoning damage. That would normally take 2 turns, but we have Action Surge! The build takes a minimum of 12 levels and a rare magic item to accumulate all of the effects, and requires our target to fail two Strength saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Of that 60 feet, just 15 needs to be horizontally away, allowing us to launch our target as much as 45 feet high, dropping them for 4d6 damage and automatically knocking them prone and putting them far enough away that they’ll need to Dash to get back into melee. That’s pretty great, especially if we can drop them on another enemy to knock both of them prone."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "parentSectionId": "section-example-2",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We need Strength and Wisdom for attacks and save DCs and we need multiple feats while multiclassing, so there’s little room for error here. Go 15/15/15/8/8/8. Since we’re going for Custom Origin, we’ll put our racial +2 into Strength, then the +1 from Crusher into Strength to start with 18 Strength. At low levels we’re still just a Fighter, so this works fine."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-2",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom Origin. Variant Human could also work, but you’ll need to adjust the ability score increases taken below slightly."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-2",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Professional Athlete isn’t an option for some reason, but our background doesn’t actually matter to the build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-2",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Doesn’t matter to the build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-and-ability-score-increases",
+      "parentSectionId": "section-example-2",
+      "heading": "Feats and Ability Score Increases",
+      "sourceAnchor": "feats-and-ability-score-increases",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because we’re multiclassing"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 1 we take Crusher. It’s central to the build, both raising our Strength to 18 and letting us move our target 5 feet."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we take Charger."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we increase Strength to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we split an ASI to raise both Constitution and Wisdom to 16."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 17 we raise Wisdom to 18."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-2",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1 – Fighter 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Crusher"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Dueling"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Grab a shield and a war hammer. Get comfortable."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You could take Superior Technique here for the extra maneuver die."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2 – Fighter 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Always great, and it will offer more chances to hit after using Dash to trigger Charger."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 – Fighter 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Martial Archetype: Battle master"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Superiority Dice: 4d8"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Maneuvers:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Precision Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Pushing Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Riposte"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Precision Attack is to make sure that our one attack hits. Pushing Attack pushes. Riposte is so that we can launch enemies in response to being attacked."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With Crusher and Pushing Attack, we can now launch an enemy 20 feet. The target must fail a Str save against our Str-based DC."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 – Fighter 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Charger"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The combo is online! From here, everything is additive."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With Charger, Crusher, and Pushing Attack, we can now launch an enemy 30 feet. This requires that we Dash, move 10 feet in a straight line toward our target, then hit them with an attack either as a Bonus Action or by using Action Surge."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re not increasing Strength at this level, but our Strength is already 18, so we’re in good shape."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 – Ranger 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Favored Enemy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Natural Explorer"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Looking at Extra Attack makes it really hard to multiclass at this level, but remember that we’re primarily relying on Charger’s Bonus Action attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Not much going on at this level, sadly."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 – Ranger 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Dueling"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A bit of extra damage and some very mediocre spellcasting relative to our level. We can use Zephy Strike to avoid Opportunity Attacks, allowing us to move backward, then immediately use Charger."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 – Ranger 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ranger Archetype: Swarmkeeper"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Gathered Swarm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Swarmkeeper Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Primeval Awareness"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Gathered Swarm adds another 15 feet to our launch distance. Our save DC will be somewhat poor since our Wisdom is currently 15, but it’s also the least impactful part of our forced movement since it’s only horizontal."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 – Ranger 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Strength 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Right on the Fundamental Math. This also keeps our Pushing Attack save DC high."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 – Ranger 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally Extra Attack for when we can’t use Charger. We also get 2nd-level spells, but that doesn’t change our tactics in any significant way. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10 – Ranger 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Favored Enemy and Natural Explorer improvements"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11 – Ranger 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Writhing Tide"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12 – Ranger 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Con 15 ->16, Wis 15 -> 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Split an ASI to raise both modifiers to +3."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This is the earliest point at which we’re likely to find a Rare magic item, which means that this is where we start hunting for a Battering Shield. +10 ft. launch distance 3 times per day is pretty great."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13 – Ranger 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3rd-level ranger spells brings Elemental Weapon, which is central to our build. Remember that this was added to the Ranger’s spell list in Tasha’s Cauldron of Everything."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You could technically take this level after taking 6 levels of Cleric. Either option gets you Thunderbolt Strike+Elemental Weapon starting at level 19."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14 – Cleric 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Domain: Tempest"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wrath of the Storm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cleric levels will advance our spellcasting, allowing us more slots to cast Elemental Weapon and eventually allowing us to upcast it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15 – Cleric 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (1/rest)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Turn Undead"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destructive Wrath"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destructive Wrath does work with Elemental Weapon’s bonus damage, but since the d4 damage is small you’ll want to save it for crits."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16 – Cleric 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2nd-level cleric spells."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17 – Cleric 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Wis 16 -> 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is the best that our Spell Save DC and the DC for Gathered Swarm will get. Unfortunately, we don’t have enough ASIs to get to 20 Wisdom since we need that 9th level of Ranger."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18 – Cleric 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (Cr 1/2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19 – Cleric 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (2/rest)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Thunderbolt Strike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With Charger, Crusher, Pushing Attack, a Battering Shield, and Thunderbolt Strike triggered by Elemental Weapon we can now launch an enemy 60 feet horizontally and 45 feet into the air. This requires that we Dash, move 10 feet in a straight line toward our target, then hit them with an attack either as a Bonus Action or by using Action Surge."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have everything that we want, so this level is free. Ranger 10 will get you Hide in Plain Sight, but Cleric 7 will get you 4th-level Cleric spells."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Charger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Crusher"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Gift of the Chromatic Dragon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Martial Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Battering Shield"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating- Ring of the Ram"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-classes-and-subclasses-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-artificer-artillerist-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-artificer-artillerist-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-cleric-tempest-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-cleric-tempest-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-fighter-arcane-archer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-fighter-battle-master-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-monk-way-of-four-elements-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-monk-way-of-the-open-hand-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-monk-way-of-the-open-hand-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-ranger-swarmkeeper-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-sorcerer-storm-sorcery-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-warlock-genie-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-warlock-genie-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-wizard-graviturgy-magic-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-wizard-order-of-scribes-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#example",
+      "detail": "section-example -> section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-example-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-example-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-example-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-example-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-and-ability-score-increases-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-and-ability-score-increases-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-and-ability-score-increases-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-and-ability-score-increases-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-and-ability-score-increases-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-feats-and-ability-score-increases-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2645,
+    "sections": 24,
+    "blocks": 43,
+    "tables": 2,
+    "ratingSignals": 10
+  },
+  "status": "needs-editorial-review"
+}

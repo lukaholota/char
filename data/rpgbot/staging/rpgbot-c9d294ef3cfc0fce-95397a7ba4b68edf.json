@@ -1,0 +1,2952 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "95397a7ba4b68edf813ff9777de0c882582568faa6a3671025d587987eeae536",
+  "sourceRevision": {
+    "revisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+    "sourceId": "rpgbot-c9d294ef3cfc0fce",
+    "fetchedAt": "2026-09-29T19:21:54.533486+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:33:22-04:00",
+    "contentHash": "93b57a762fe3892bfe6f89ed95e41f38020453c5aacd61cda70b2f590b2eaf61",
+    "title": "Circle of Wildfire Druid 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Did you know that you can stop someone from bleeding out by burning the wound shut? The Druid Circle of Wildfire turns this simple fact into a very cohesive theme for a subclass. The Wildfire Druid is set up as a healing support, with tools for positioning and bonuses to healing magic, that also has an array of fire spells not normally on the Druid list. Together with the already impressive Druid spell list, this package allows for a flexible role on the battlefield where round by round the Wildfire druid can switch from damage to support depending on which spells it casts."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One could argue that the abundance of fire resistance and immunity cause us\n\tproblems in the long run. Sure, if all we ever did was fire spells that would\n\tbe an issue, but we have options. And the fire damage from the Wildfire Spirit\n\tis really just an extra bonus. If all it had was a 15-foot combat teleport for\n\tallies it would still be just as useful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re looking for a little hybrid role action, halfway between blaster\n\tand healer, this subclass may be exactly what you’re looking for. Read on to\n\tfind out more."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Wildfire Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Wildfire Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#circle-of-wildfire-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Wildfire Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#circle-of-wildfire-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Wildfire Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#circle-of-wildfire-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Wildfire Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#circle-of-wildfire-multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Wildfire Spells",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#circle-of-wildfire-spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Circle of Wildfire Druid Build – Gamera",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#example-circle-of-wildfire-druid-build-gamera"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-wildfire/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Circle of Wildfire Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Circle of Wildfire Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A nice balance\n\t\tbetween healing and damage options, the spell list adds numerous fire damage\n\t\tspells from the sorcerer and wizard spell lists.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd Level"
+              },
+              {
+                "type": "text",
+                "text": ": Staple options for both\n\t\t\t\tdamage and healing.\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd Level"
+              },
+              {
+                "type": "text",
+                "text": ": More staple damage\n\t\t\t\toptions."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\t\t\ttechnically situational, but Revivify is such a crucial option that it’s\n\t\t\t\tessentially a tax on any class which has access to it, and since it’s\n\t\t\t\tonly available to most druids as an Optional Class Feature, this is one\n\t\t\t\tof very few ways for a druid to get guaranteed access to Revivify."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Two situational defensive\n\t\t\t\tbuffs."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th Level"
+              },
+              {
+                "type": "text",
+                "text": ": You don’t get fireball,\n\t\t\t\tbut Flame Strike is almost as good."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Summon Wildfire Spirit"
+              },
+              {
+                "type": "text",
+                "text": ": A powerful combat\n\t\tsummon to College of Creation’s Dancing Item, the Wildfire Spirit is a\n\t\tflying Striker. At just 10 Strength and small size it’s not strong enough to\n\t\tcarry anything of significant weight, so its function is almost purely\n\t\tcombative. The 30 ft. fly speed allows it to remain safely out of melee\n\t\tcombat, which is good since it has a small pool of hit points and just 13\n\t\tAC. The 1-hour duration and 2 Wild Shape uses per Short Rest will keep your\n\t\tspirit around for a big chunk of the day, but if you’re on your second use\n\t\tbe cautious about your spirit’s hit points, and if your spirit goes down try\n\t\tto get a Short Rest as quickly as possible.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The Wildfire Spirit also has a short-range teleportation option which\n\t\t\tleaves a small fire damage AOE in its wake. Even though the 15-foot\n\t\t\tteleportation range is very small, it’s enough to get an ally out of a\n\t\t\tgrapple and out of melee reach, as well as to get the party through many\n\t\t\tbarriers like portcullises, doors, and windows which would normally block\n\t\t\tpassage but you can still see past."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The Wildfire Spirit has two crucial limitations. First, and most obvious,\n\t\t\tis fire damage. Fire resistance and immunity are common, and Elemental\n\t\t\tAdept doesn’t help your Wildfire Spirit’s fire damage. Second, it can only\n\t\t\tattack targets which you can see and teleport to places that you can see.\n\t\t\tIf you’re blind or just can’t make line of sight, your spirit is mostly\n\t\t\tuseless."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Even with those limitations, for an hour the Druid more or less has the damage of an extra cantrip as a bonus action on every round, and that adds up."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Enhanced Bond"
+              },
+              {
+                "type": "text",
+                "text": ": The bonus to damage and\n\t\thealing is fantastic on its own, applying not just to cantrips but also to\n\t\tyour leveled spells. 1d8 damage/healing doesn’t sound like a lot, but that’s\n\t\tequivalent to adding a spell level for many spells like Burning Hands, Cure\n\t\tWounds. Just remember that your spirit needs to be summoned, so if you’re\n\t\tout of Wild Shape uses and your spirit is down, consider a Short Rest as\n\t\tsoon as possible.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The second portion of this feature allows you to originate spells from\n\t\t\tyour spirit instead of from yourself. Druids are notoriously frail (medium\n\t\t\tarmor, no metal, d8 hit dice), so allowing you to cast short-range spells\n\t\t\tlike Burning Hands while remaining at a safe distance is a huge benefit.\n\t\t\tThe spirit’s ability to fly makes this especially useful because you can\n\t\t\ttarget cones straight down and effectively get a circular AOE against\n\t\t\ttargets on the ground."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "However, remember that the spirit takes its turn immediately after yours, so positioning for this tactic can be difficult. Be aware that using the Ready action on a spell takes your Concentration so whatever else you were already Concentrating on will end if you try to Ready a spell for when the Wildfire Spirit is in position to deliver a spell."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Also do note that this is not limited to your Druid spells. A good little combo if you for example dipped a level into Cleric is to fly the spirit up to a surrounded ally, use a readied Word of Radiance excluding the ally from the AoE, then using Fiery Teleport to evacuate the ally while adding even more damage."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cauterizing Flames"
+              },
+              {
+                "type": "text",
+                "text": ": 2d10+Wisdom is a\n\t\tdecent amount of healing or damage, especially as a Reaction. Provided that\n\t\tthere are multiple foes in an encounter, picking off the weak ones and\n\t\tstrategically applying this healing or dragging enemies through a spectral\n\t\tflame to damage them can have a significant impact. However, to make that\n\t\twork your party will need mechanisms to push, pull, drag, or otherwise\n\t\treposition your enemies.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Limiting this to your Reaction and proficiency bonus times per long rest prevents you and your allies from running\n\t\t\tthrough a series of these spectral flames in one turn to rapidly heal, and\n\t\t\tlimiting the whole effect to small or larger creatures prevents\n\t\t\tshenanigans like murdering a bag of rats and rolling your party through\n\t\t\tthe spectral flames to produce bottomless healing. WotC really nailed the\n\t\t\tlimitations on this one, so go-to abuse cases don’t apply. However, if you\n\t\t\twalk into a room full of goblins or kobolds, it starts to look like a room\n\t\t\tfull of health potions."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blazing Revival"
+              },
+              {
+                "type": "text",
+                "text": ": Half hit points is enough\n\t\tto get you back up and fighting without going back down immediately, and\n\t\tsacrificing your wildfire spirit to make this happen is absolutely worth the\n\t\tcost since you can just resummon it, provided that you still have a Wild\n\t\tShape use to do so. You only get to use this once per day, but hopefully\n\t\tthat’s enough, and if you’re ever unsure you can always retreat and live to\n\t\tfight another day."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-wildfire-ability-scores",
+      "heading": "Circle of Wildfire Ability Scores",
+      "sourceAnchor": "circle-of-wildfire-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-wildfire-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We are a Druid and we need to spend our Wildshape uses on our Flame Spirit so\n\twe’ll need some physical stats to keep ourselves safe. Conveniently, we’ll be\n\table to stay back and fight more like a caster, but since we only need Wisdom,\n\twe can also work on our Dexterity and Constitution to keep safe."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-wildfire-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Even though technically there’s nothing\n\tpreventing us from getting proficiency and wearing full plate, most people\n\twill argue that’s not Druidic. That whole argument is beyond the scope of this\n\tarticle, but in prior editions we got around this by making Full Plate from\n\tdragon hide so ask your DM and maybe they’ll be nice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-wildfire-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": This gives us one of the big saves and\n\tour AC. We’ll likely wear Medium so we only need 14 here."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-wildfire-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Hit points and the big Concentration\n\tsave."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-wildfire-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": We’re the nature skill guy. This is\n\tour 12 if we’re Standard Array."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-wildfire-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Our casting stat and our multiclassing\n\tstat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-wildfire-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": We talk to animals, which is a Wisdom\n\tskill, not people."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-wildfire-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-wildfire-races",
+      "heading": "Circle of Wildfire Races",
+      "sourceAnchor": "circle-of-wildfire-races",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-wildfire-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The"
+            },
+            {
+              "type": "link",
+              "text": "\n\t\tDruid Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/races/"
+            },
+            {
+              "type": "text",
+              "text": "\n\tcovers everything about this in great detail. At the end of the day, we’re\n\tstill mostly a Druid just with a little pet that can deliver spells and spit\n\tfire. That’s not a significant enough difference for the rankings to\n\tchange."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-wildfire-feats",
+      "heading": "Circle of Wildfire Feats",
+      "sourceAnchor": "circle-of-wildfire-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-wildfire-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Chef"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": I know I suggest this feat a lot, but Wild Shape and Wildfire Spirit put\n\t\tus firmly on team Short Rest and Chef puts the whole party on team Short\n\t\tRest. Also it’s a Hybrid for either Constitution or Wisdom and we like both\n\t\tof those."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crusher"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": We don’t anticipate wanting to wade into melee but, if Shillelagh is\n\t\trunning we can bop some goons around if they get too close. Also this could\n\t\teven up an odd Constitution because it’s hybrid."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-wildfire-multiclassing",
+      "heading": "Circle of Wildfire Multiclassing",
+      "sourceAnchor": "circle-of-wildfire-multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-wildfire-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As always, don’t forget to reference the "
+            },
+            {
+              "type": "link",
+              "text": "Druid Handbook Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": " section as well."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-wildfire-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cleric"
+              },
+              {
+                "type": "text",
+                "text": ": There isn’t a single druid that isn’t better with one level in Cleric. Domains are that strong. But not every domain is equal, so we’ll rank how well they benefit Wildfire druids."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-wildfire-spells",
+      "heading": "Circle of Wildfire Spells",
+      "sourceAnchor": "circle-of-wildfire-spells",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-wildfire-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Wildfire Druid has some interesting tricks that help us determine what\n\tkinds of spells we want to cast. Particularly, at sixth level, we roll an\n\textra d8 whenever we either do Fire damage or recover hit points with a spell.\n\tAt the same level we gain the ability to use our Wildfire Spirit as the origin\n\tpoint of our spells as long as the range of the spell is not self."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-wildfire-spells-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With all of that it would be easy to misunderstand what we are. We’re not the\n\tFire Evocation Druid. We’re the Life Druid with some extra Fire magic and a\n\tBonus Action for extra Fire damage. What this means is that preparing spells\n\tis pretty easy for us. All the Fire spells we want are always prepared thanks\n\tto our Circle, as well as most of the Healing magic we would need. We’re thus\n\tfree to prepare whatever other damage types or utility control magic we\n\twant."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-wildfire-spells-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "So check out the"
+            },
+            {
+              "type": "link",
+              "text": "\n\t\tDruid Spells Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/spells"
+            },
+            {
+              "type": "text",
+              "text": ", and just remember that you’ll be using your Bonus Action on the Wildfire\n\tSpirit often so don’t load up too heavily on Bonus Action spells, but don’t\n\tignore them entirely."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-circle-of-wildfire-druid-build-gamera",
+      "heading": "Example Circle of Wildfire Druid Build – Gamera",
+      "sourceAnchor": "example-circle-of-wildfire-druid-build-gamera",
+      "blocks": [
+        {
+          "blockId": "block-section-example-circle-of-wildfire-druid-build-gamera-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because I can’t assume your DM will let you have real amour on your Druid,\n\tthis example build will use a Tortle to just have 17 AC. This is great because\n\tGamera is a kaiju turtle with flame powers and fun is optimal."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-circle-of-wildfire-druid-build-gamera-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "That said, with Tortle we get to dump our Dexterity. We only need Wisdom and\n\tConstitution though, so where should we put the rest? Charisma? Not an awful\n\tchoice, we could assist in Face duties. Intelligence? Would let us know more\n\tabout Nature. Anyways we put it in Strength so we can swing weapons if we get\n\tclose to melee."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-circle-of-wildfire-druid-build-gamera",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Adjusted"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since we’re using the Tortle from Monsters of the Multiverse, we can take\n\t\tthe +1/+1/+1 option for ability scores, increasing Strength, Constitution,\n\t\tand Wisdom to a trio of 16s."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We start by maxing out Wisdom since it’s our casting stat, and then also fill out Constitution to survive better. Because Tortles’ AC is a flat 17, we can ignore Dexterity. We throw all those leftover points into Strength so we can hit things in the early levels and so we can use Athletics to not get grappled or tripped. As we level we’ll do less meleeing and we won’t be increasing our Strength anymore."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-circle-of-wildfire-druid-build-gamera",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mentioned above, we’re a Tortle. We get to have 17 AC, some claws, a skill\n\tproficiency, and the ability to hide in our shell for extra AC."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pick whichever of the skills you like, it’s not that important."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-circle-of-wildfire-druid-build-gamera",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pick what feels right for your character, but if you’re afraid of getting grappled look to pick up Athletics since that 8 in Dexterity makes Acrobatics a poor defense choice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-circle-of-wildfire-druid-build-gamera",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We choose Perception and Survival from the Druid list. We’ll get some more from our background, but it again doesn’t matter too much as long as you get some Athletics proficiency."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-circle-of-wildfire-druid-build-gamera",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hey you know that\n\t"
+            },
+            {
+              "type": "link",
+              "text": "math thing",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": "\n\twe’re always pushing? Well we’re going to be behind it for a bit but that’s\n\tokay."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fourth Level, Druid 4: The reason we’re going to be behind is that we’re\n\tpicking up Warcaster as soon as we can."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ninth Level, Druid 8: ASI Wisdom +2 (16->18)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Thirteenth Level, Druid 12: ASI Wisdom +2 (18->20)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Seventeenth Level, Druid 16: Polearm Master"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Twentieth Level, Druid 19: Tough"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It might look a little strange and that’s because we’re dipping into Cleric\n\tat Fifth Level for the Arcana Domain. This allows us to take both Green-Flame\n\tBlade and Booming Blade. Green-Flame will pair nicely with the rest of our\n\tFire abilities and Booming Blade is a useful alternative when Fire wont work\n\tand for when Warcaster allows us to Opportunity Attack with a Spell. We’ll be\n\tholding a Spear and a Shield as well, so we need Warcaster to let us cast\n\tthings."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-circle-of-wildfire-druid-build-gamera",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1 – Druid 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Druidic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Create Bonfire"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thorn Whip"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re going to walk out holding a spear and a shield and no armor\n\t\t\t\t\tbecause Tortle."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This puts us at 19 AC to start. Pretty\n\t\t\t\t\tsolid for first level so we can afford to wade into melee."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For\n\t\t\t\t\tcantrips we pickup Create Bonfire and Thorn Whip. Since our Strength\n\t\t\t\t\tis as high as our Wisdom, we don’t need Shillelagh for meleeing."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ll\n\t\t\t\t\twant to drop a Bonfire and start pulling people into it with Thorn\n\t\t\t\t\tWhip, or hitting them with a spear if they choose to stand in it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Because\n\t\t\t\t\twe can prepare from our entire spell list each day we’ll only go over\n\t\t\t\t\tthe spells from Circle of Wildfire. For the rest of your spells refer\n\t\t\t\t\tto the\n\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "Druid Spell Breakdown.",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/spells/"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2 – Druid 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wild Shape"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Druidic Circle of Wildfire"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Circle Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tBurning Hands"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Cure Wounds"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Summon Wildfire Spirit"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level we gain Wild Shape, but we’re going to be spending that\n\t\t\t\t\tto use our Summon Wildfire Spirit."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The Wildfire Spirit is\n\t\t\t\t\tgoing to cost most of our Bonus Actions going forward."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "When\n\t\t\t\t\tthe Spirit is active, we’ll want to prioritize using it to move\n\t\t\t\t\tourselves and allies around the battlefield, but also we can use the\n\t\t\t\t\tteleportation ability as an attack even if nobody needs to\n\t\t\t\t\treposition."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If things get a little dangerous and enemies\n\t\t\t\t\ttry attacking the spirit, we can have it hang back at range and use\n\t\t\t\t\tthe single-target attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Additionally we now always have\n\t\t\t\t\tBurning Hands and Cure Wounds prepared, but we should keep Healing\n\t\t\t\t\tWord prepared for emergencies. Giving up one spirit attack for a\n\t\t\t\t\ttimely stabilization with Healing Word is worth the trade."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 – Druid 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2nd-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Circle Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Flaming Sphere"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tScorching Ray"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We now always have Flaming Sphere and Scorching Ray prepared."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Flaming\n\t\t\t\t\tSphere is okay but we’ll have other things we want to Concentrate on\n\t\t\t\t\tand it was already a Druid spell. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Scorching Ray is a\n\t\t\t\t\tdecent spell for doing fire damage that wasn’t already on the Druid\n\t\t\t\t\tlist, so that’s good for us."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 – Druid 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: "
+                },
+                {
+                  "type": "link",
+                  "text": "War Caster",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/war-caster/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wild Shape Improvement"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Druidcraft",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/prestidigitation/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We pick up the War Caster feat, giving us the ability to cast a spell as an opportunity attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We grab Druidcraft here for all the lovely shenanigans those spells cause. In particular you can get an accurate 24 hour weather forecast and that’s great."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "And even though we’re typically going to spend Wild Shape on the Wildfire Spirit, we still have basic Wildshape. At this level we can be a CR1/2 beast as long as it lacks a Fly speed."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 – Cleric 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st-level Cleric spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Arcana Domain"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wizard\n\t\t\t\t\tCantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Green-Flame Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Booming Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Domain\n\t\t\t\t\tSpells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Detect Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Magic Missile"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cleric\n\t\t\t\t\tCantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Light"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mending"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thaumaturgy"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Oh boy, big level here:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We take a level in Cleric here at\n\t\t\t\t\tfifth level for a very important reason: This is the point where\n\t\t\t\t\tcantrips get their first scaling bump."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "To that end, we’re\n\t\t\t\t\ttaking the Arcana Domain in order to turn Green-Flame Blade and\n\t\t\t\t\tBooming Blade into Cleric cantrips so we don’t have to dip an arcane\n\t\t\t\t\tcaster to get them. We can use them both as regular attacks and as\n\t\t\t\t\tpart of opportunity attacks thanks to Warcaster from our previous\n\t\t\t\t\tlevel."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In addition, we now have access to 1st-level Cleric\n\t\t\t\t\tspells, and our Domain spells are Detect Magic and Magic Missile."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For\n\t\t\t\t\tCleric cantrips, we pick up Light, Mending, and Thaumaturgy because\n\t\t\t\t\tthey all provide good utility and we have 8 cantrips at this point so\n\t\t\t\t\twe don’t need anymore."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Alternatively, we could drop one of\n\t\t\t\t\tthose and grab Word of Radiance if we want a safe AoE to use around\n\t\t\t\t\tfellow melee allies."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 – Druid 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3rd-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Circle Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Plant Growth"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tRevivify"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "And we’re back to Druid for the rest of our career.At this level, we\n\t\t\t\t\tgain Plant Growth and Revivify as always prepared."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Plant\n\t\t\t\t\tGrowth is actually really strong. It turns a 100-foot area into\n\t\t\t\t\tspecial terrain full of overgrown plants. Importantly, this spell is\n\t\t\t\t\tinstantaneous so the terrain is permanent, but even more importantly\n\t\t\t\t\tyou may have noticed I have not described this terrain as ‘difficult’\n\t\t\t\t\tbecause it’s not ‘difficult terrain’. Instead it costs 4 feet of\n\t\t\t\t\tmovement per 1 foot of travel."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Because it’s very\n\t\t\t\t\tspecifically not difficult terrain, casting something like Spike\n\t\t\t\t\tGrowth onto the same area will stack on top of the effect. This would\n\t\t\t\t\tmake it cost 8 feet of movement for 1 foot of travel."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Revivify\n\t\t\t\t\tis one of those spells that has to be ready in case you need it, so\n\t\t\t\t\twe’re glad that it’s automatically prepared for us so we don’t have to\n\t\t\t\t\tthink about it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 – Druid 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Enhanced Bond"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More bonuses for having the Wildfire Spirit up. Now we can add 1d8 to\n\t\t\t\t\tany fire damage or health restoration spells we cast when the spirit\n\t\t\t\t\tis up."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In addition, the spirit can now be the origin point\n\t\t\t\t\tof our spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "There’s some subtle nuance to using this\n\t\t\t\t\tsecond part. The spirit takes its turn right after ours. This means\n\t\t\t\t\tthat if we want to cast a spell when the spirit reaches a certain\n\t\t\t\t\tposition we have to Ready the spell."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "That can be\n\t\t\t\t\tcomplicated. Readying a spell requires us to hold Concentration until\n\t\t\t\t\tthe spell goes off. This means that if we’re already Concentrating on\n\t\t\t\t\ta spell, we lose that spell as soon as we take the Ready action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "So\n\t\t\t\t\tif we’re already Concentrating on something important we want to avoid\n\t\t\t\t\tdoing it this way, but if combat just started and we want to get in a\n\t\t\t\t\tcheeky surprise such as the sky-hook maneuver, having your spirit\n\t\t\t\t\tThorn Whip a target up 10 feet into the air to cause failing damage\n\t\t\t\t\tand subsequently causing the target to\n\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "fall prone",
+                  "href": "https://www.dndbeyond.com/sources/basic-rules/adventuring#Falling"
+                },
+                {
+                  "type": "text",
+                  "text": ", then go for it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 – Druid 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Circle Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Aura of Life"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fire\n\t\t\t\t\tShield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Aura of Life is an interesting little spell. It grants Necrotic\n\t\t\t\t\tresistance, protects maximum hit points from being reduced, and\n\t\t\t\t\tautomatically stabilises allies assuming they can make it back to\n\t\t\t\t\ttheir turn. Not bad."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fire Shield is a non-concentration\n\t\t\t\t\tself buff. During the spell you have either fire or cold resistance,\n\t\t\t\t\tand melee attacks take 2d8 of the opposite type (if the shield is fire\n\t\t\t\t\tresistant the enemy takes cold and vise-versa) when you get hit."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 – Druid 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Wisdom 16->18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wild Shape Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our basic Wildshape improves again, at this level we can be any CR1\n\t\t\t\t\tbeast."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We improve our Wisdom to 18 as we fight to catch up\n\t\t\t\t\tto the curve."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10 – Druid 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5th-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Circle Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Flame Strike"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mass\n\t\t\t\t\tCure Wounds"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get more Wildfire spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Flame Strike is interesting.\n\t\t\t\t\tHalf fire, half radiant. The funny thing is that while this spell is\n\t\t\t\t\tnot on the Druid list in 5e, it was on the Druid list in 3.5. Nice to\n\t\t\t\t\thave it back."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mass Cure Wounds. Cast from its base\n\t\t\t\t\t5th-level slot this spell is like Cure Wounds cast at 3rd level but in\n\t\t\t\t\tan AoE. Superior if you need to cure three or more people. Remember\n\t\t\t\t\tthat if your Wildfire Spirit is active you add +1d8 to the healing,\n\t\t\t\t\twhich is basically like it was cast as a 6th level spell for no\n\t\t\t\t\tadditional cost."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11 – Druid 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cauterizing Flames"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Turn dead creatures into healing or fire damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The\n\t\t\t\t\tability is written very tightly to prevent abuse cases and that’s\n\t\t\t\t\tgood."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "When something small or larger dies within 30 feet of\n\t\t\t\t\tus it leaves behind some fire energy.We can spend a reaction up to PB\n\t\t\t\t\ttimes per long rest to either restore or burn a creature for\n\t\t\t\t\t2d10+Wisdom mod when it enters the square."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12 – Druid 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6th-level spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6th level spells. Heal is available now and it’s very time-efficient\n\t\t\t\t\tfor combat casting. Generally if you’re going to heal someone in\n\t\t\t\t\tcombat, it needs to be either because they’re at 0 hit points or\n\t\t\t\t\tbecause you’re hitting them with Heal to get them to full hit\n\t\t\t\t\tpoints."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13 – Druid 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Wisdom +2 (18->20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re pushing our Wisdom to 20 in order to cap our DCs and spell\n\t\t\t\t\tattacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14 – Druid 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7th-level spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7th-level spells. Fire Storm allows us to snake ten 10-foot cubes in\n\t\t\t\t\twhatever configuration will catch our foes and miss our allies."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15 – Druid 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Blazing Revival"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Once per day if we hit 0 hit points, we can sacrifice the Wildfire\n\t\t\t\t\tSpirit to recover half of our total hit points. This trade is worth\n\t\t\t\t\tit."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16 – Druid 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8th-level spells"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17 – Druid 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: "
+                },
+                {
+                  "type": "link",
+                  "text": "Polearm Master",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’ve been holding a quarterstaff this whole time and potentially\n\t\t\t\t\tswinging it around with Shillelagh so we pick this up for Warcaster\n\t\t\t\t\tshenanigans."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If something walks up to us, this allows an\n\t\t\t\t\topportunity attack and warcaster allows a spell as an opportunity. So\n\t\t\t\t\tnaturally we’ll use this to save-or-suck something as a reaction.\n\t\t\t\t\tPlane shift. Feeblemind. Hold Person. All those great single-target\n\t\t\t\t\tinstant win spells."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18 – Druid 17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9th-level spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Druids have just four 9th-level spells on their spell list. Unless we\n\t\t\t\t\tneed to bring someone back from the dead today with True Resurrection,\n\t\t\t\t\twe’re casting Foresight each morning on whichever party member becomes\n\t\t\t\t\tthe most ridiculous with permanent Advantage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19 – Druid 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Timeless Body"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Beast Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We stop ageing and if we turn into animals we can still cast spells.\n\t\t\t\t\tNeat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20 – Druid 19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Tough"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "+40 Hit Points means +20 hit points to Blazing Revival."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-levels-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 20, if someone tries to run up to us, we can use our Polearm Master\n\t+ Warcaster to smack the target in the face with a Hold Person if it’s\n\thumanoid. If this happens, and it sticks, we’re now in melee with a Paralyzed\n\ttarget. We’ll Shilelagh + Green-Flame (or Booming Blade depending on\n\tresistance and immunity) for an automatic critical hit."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-levels-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As long as the opponent can’t shake the Hold Person, we’ll be doing about 35\n\tDPR on paper. Not bad for just a Druid with a stick, but our actual DPR would\n\tbe the difference between our party’s DPR without automatic crits and their\n\tDPR with automatic crits."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Circle of Wildfire Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Circle of Wildfire Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 7th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 9th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Summon Wildfire Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Enhanced Bond"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cauterizing Flames"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blazing Revival"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Chef"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Crusher"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Arcana"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Death"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Forge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Grave"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Knowledge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Life"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Light"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Nature"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Order"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Peace"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Tempest"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Trickery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Twilight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange War"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"2\"><span class=\"rating-green\">Summon Wildfire Spirit</span>: A powerful combat summon to College of Creation’s Dancing Item, the Wildfire Spirit is a flying Striker. At "
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"6\"><span class=\"rating-blue\">Enhanced Bond</span>: The bonus to damage and healing is fantastic on its own, applying not just to cantrips but also to your leveled spells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-circle-of-wildfire-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-circle-of-wildfire-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-circle-of-wildfire-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-circle-of-wildfire-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-circle-of-wildfire-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-circle-of-wildfire-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-circle-of-wildfire-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-circle-of-wildfire-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-circle-of-wildfire-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-circle-of-wildfire-feats-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-circle-of-wildfire-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-circle-of-wildfire-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-circle-of-wildfire-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-circle-of-wildfire-spells-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-circle-of-wildfire-spells-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-circle-of-wildfire-druid-build-gamera-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-circle-of-wildfire-druid-build-gamera-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/figcaption[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-abilities-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-levels-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-levels-3"
+    },
+    {
+      "code": "text-coverage-review",
+      "location": "root",
+      "detail": "Extracted text differs from source content"
+    }
+  ],
+  "metrics": {
+    "words": 4170,
+    "sections": 16,
+    "blocks": 43,
+    "tables": 3,
+    "ratingSignals": 38
+  },
+  "status": "needs-editorial-review"
+}

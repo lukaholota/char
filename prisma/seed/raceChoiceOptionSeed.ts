@@ -723,9 +723,13 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             subraceId: null,
             choiceGroupName: "Спадщина кобольдів",
             optionName: "Драконяча винахідливість",
-            description: "Ви отримуєте володіння однією з навичок: Магія, Історія, Розслідування, Медицина або Виживання.",
+            description: "Ви отримуєте володіння однією з навичок: Магія, Розслідування, Медицина, Спритність рук або Виживання.",
             selectMultiple: false,
             maxSelection: 1,
+            skillProficiencies: {
+                choiceCount: 1,
+                options: ["ARCANA", "INVESTIGATION", "MEDICINE", "SLEIGHT_OF_HAND", "SURVIVAL"]
+            },
             traits: {
                 create: [
                     connectFeature('Kobold Legacy')
@@ -751,7 +755,7 @@ export const seedRaceChoiceOptions = async (prisma: PrismaClient) => {
             subraceId: null,
             choiceGroupName: "Спадщина кобольдів",
             optionName: "Драконяче чаклунство",
-            description: "Ви знаєте одне замовляння на ваш вибір зі списку заклинань чарівника.",
+            description: "Ви знаєте одне замовляння на ваш вибір зі списку заклинань чаклуна.",
             selectMultiple: false,
             maxSelection: 1,
             traits: {

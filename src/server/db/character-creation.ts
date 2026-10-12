@@ -3,7 +3,8 @@
 import { prisma } from "@/lib/prisma";
 import { fullCharacterSchema, PersFormData } from "@/lib/zod/schemas/persCreateSchema";
 import { auth } from "@/lib/auth";
-import { Ability, ArmorCategory, ArmorType, Feats, Language, SkillProficiencyType, Skills, ToolCategory } from "@prisma/client";
+import { Ability, ArmorCategory, ArmorType, Feats, Language, SkillProficiencyType, Skills, SpellOrigin, ToolCategory } from "@prisma/client";
+import { classTranslations } from "@/lib/refs/translation";
 import { revalidatePath } from "next/cache";
 import {
   formatArmorProficiencies,
@@ -16,6 +17,7 @@ import { SPELL_SLOT_PROGRESSION } from "@/lib/refs/static";
 import { isRecord } from "@/rules/abilities";
 import { isRules2024Allowed } from "@/rules/access";
 import { findBackgroundAsiProblem } from "@/rules/background-asi";
+import { findCreationSkillChoiceProblem } from "@/server/db/creation-skill-choices";
 import { countFeatToolChoices } from "@/rules/feat-tool-choices";
 import { findBackgroundStartingItems, type StartingItem } from "@/rules/background-equipment";
 import { addToPurse, emptyPurse, splitStartingItems } from "@/rules/starting-money";
@@ -37,6 +39,7 @@ import { buildClassOptionPersSpellRows, findClassOptionSpellProblem } from "@/se
 import type { ClassSpellSelection } from "@/rules/class-spell-choices-2024";
 import { hasFeatSpellChoice } from "@/rules/feat-spell-choices";
 import { buildChosenFeatSpells, findFeatSpellChoiceProblem } from "@/server/db/feat-spell-choices";
+import { findFeatSpellChoiceProblem2014 } from "@/server/db/feat-spell-choices-2014";
 import { buildFeatPersSpellRows } from "@/server/db/feat-spell-grants";
 import type { ChosenRaceChoiceOption, FeatureWithSpells, GrantedSpell } from "@/rules/spell-sources";
 import { sumFeatureHitPointsPerLevel } from "@/rules/hit-points";
@@ -52,8 +55,12 @@ import { grantStartingUnarmedStrike } from "@/server/db/unarmed-strike";
 import { findUserByEmail } from "@/server/db/users";
 import { parseEnumArray, parseJsonRecord, parseOptionalNumber, parseStringArray, parseWeaponProficiencies, parseWeaponProficienciesSpecial } from "@/server/db/json";
 import { findCreationChoicePoolProblem } from "@/rules/creation-choice-pools";
-import { findExpertiseSelectionProblem, readExpertiseGrant } from "@/rules/expertise-selections";
+import { findExpertiseSelectionProblem, isExpertiseChosenThroughSubclassOptions, readExpertiseGrant } from "@/rules/expertise-selections";
 import { captureServerPostHogEvent } from "@/lib/monitoring/posthog-server";
+import { findInitialPreparedSelectionProblem, isListPreparedCaster2014 } from "@/rules/initial-prepared-spells-2014";
+import { loadInitialPreparedListSpellIds } from "@/server/db/initial-prepared-spells-2014";
+import { findReadyPresetCreationResult, lockReadyPresetCreation, saveReadyPresetCreationOperation } from "@/server/db/ready-preset-creation-operation";
+import { createCharacterFromBuildPlan, type BuildStartPreparation } from "@/server/db/build-assembly-creation";
 
 export type CreateCharacterResult =
   | { error: string; details?: unknown; success?: undefined; persId?: undefined }
@@ -82,6 +89,8 @@ type ChosenClassSpells = { offer: ClassSpellOffer; selection: ClassSpellSelectio
 type ChosenClassOptionSpells = { sourceName: string; spellIds: number[] } | null;
 
 type ChosenCreationSpells = { classSpells: ChosenClassSpells; featSpells: GrantedSpell[]; classOptionSpells: ChosenClassOptionSpells; raceSpells: GrantedSpell[] };
+type PreparedCharacterCreation = { character: CharacterBuild; chosenSpells: ChosenCreationSpells };
+type AuthenticatedUser = { id: number; email: string | null };
 
 export async function createCharacter(input: PersFormData): Promise<CreateCharacterResult> {
   const user = await requireUser();
@@ -94,13 +103,76 @@ export async function createCharacter(input: PersFormData): Promise<CreateCharac
     return { error: "Правила 2024 наразі доступні лише для адміністратора/власника." };
   }
 
-  const content = await loadCreationContent(data.value);
-  const character = buildCharacter(data.value, content);
+  if (data.value.readyPresetRequestId) {
+    const previous = await findReadyPresetCreationResult(prisma, { userId: user.value.id, requestId: data.value.readyPresetRequestId });
+    if (previous) return previous;
+  }
+
+  const prepared = await prepareCharacterCreation(data.value);
+  if ("error" in prepared) return prepared;
+  return persistCharacter(user.value, prepared.character, prepared.chosenSpells);
+}
+
+export async function createCharacterFromBuild(request: unknown): Promise<CreateCharacterResult> {
+  const user = await requireUser();
+  if ("error" in user) return { error: user.error };
+
+  return createCharacterFromBuildPlan(user.value, request, (start) => prepareBuildStart(user.value, start));
+}
+
+async function prepareBuildStart(user: AuthenticatedUser, input: PersFormData): Promise<BuildStartPreparation> {
+  const data = parseCreateInput(input);
+  if ("error" in data) return { error: data.error, details: data.details };
+
+  if (data.value.ruleset === "RULES_2024" && !isRules2024Allowed()) {
+    return { error: "Правила 2024 наразі доступні лише для адміністратора/власника." };
+  }
+
+  const prepared = await prepareCharacterCreation(data.value);
+  if ("error" in prepared) return prepared;
+
+  const write = prepareCharacterWrite(user, prepared.character, prepared.chosenSpells);
+  if ("error" in write) return write;
+  return { write: async (tx) => (await write.write(tx)).pers.persId };
+}
+
+async function prepareCharacterCreation(input: PersFormData): Promise<PreparedCharacterCreation | { error: string }> {
+  const content = await loadCreationContent(input);
+  const character = buildCharacter(input, content);
   if ("error" in character) return character;
 
-  const chosenSpells = await findChosenCreationSpells(data.value, content);
+  const chosenSpells = await findChosenCreationSpells(input, content);
   if ("error" in chosenSpells) return chosenSpells;
-  return persistCharacter(user.value, character, chosenSpells.value);
+
+  const preparedSpellProblem = await findInitialPreparedProblem(input, content, character, chosenSpells.value);
+  if (preparedSpellProblem) return { error: preparedSpellProblem };
+  return { character, chosenSpells: chosenSpells.value };
+}
+
+async function findInitialPreparedProblem(
+  input: PersFormData,
+  content: LoadedCreationContent,
+  character: CharacterBuild,
+  chosenSpells: ChosenCreationSpells,
+): Promise<string | null> {
+  const ruleset = input.ruleset ?? character.content.characterClass.ruleset;
+  const className = character.content.characterClass.name;
+  const hasListChoice = ruleset === "RULES_2014" && isListPreparedCaster2014(className) && (input.initialPreparedSpellIds?.length ?? 0) > 0;
+  const listSpellIds = hasListChoice
+    ? await loadInitialPreparedListSpellIds(prisma, { classId: input.classId, subclassId: input.subclassId ?? null, unavailableSpellIds: collectCreationSpellIds(content, ruleset as Ruleset, chosenSpells) })
+    : [];
+  return findInitialPreparedSelectionProblem({ ruleset, className, spellbookIds: input.classSpells?.spellbookIds ?? [], preparedIds: input.initialPreparedSpellIds,
+    listSpellIds, scores: character.scores });
+}
+
+function collectCreationSpellIds(content: LoadedCreationContent, ruleset: Ruleset, chosen: ChosenCreationSpells): number[] {
+  return [
+    ...findSpeciesSpellsAtCreation(content, ruleset).map((spell) => spell.spellId),
+    ...collectClassSelectionIds(chosen.classSpells),
+    ...chosen.featSpells.map((spell) => spell.spellId),
+    ...(chosen.classOptionSpells?.spellIds ?? []),
+    ...chosen.raceSpells.map((spell) => spell.spellId),
+  ];
 }
 
 async function requireUser(): Promise<RequiredUser> {
@@ -218,6 +290,9 @@ function buildCharacter(
     backgroundAsiChoice,
   );
   if (backgroundAsiProblem) return { error: backgroundAsiProblem };
+
+  const skillChoiceProblem = findCreationSkillChoiceProblem(validData, { ...content, background });
+  if (skillChoiceProblem) return { error: skillChoiceProblem };
 
   const initialState = buildInitialCharacterState({
     ruleset,
@@ -418,12 +493,28 @@ async function findChosenCreationSpells2014(
   speciesSpellIds: readonly number[],
 ): Promise<{ value: ChosenCreationSpells } | { error: string }> {
   const classSelectionIds = collectClassSelectionIds(classSpells);
-  const subclassSpells = await findChosenClassOptionSpells(validData, content, [...speciesSpellIds, ...classSelectionIds]);
+  const featSpells = await findChosenFeatSpells2014(validData, content, [...speciesSpellIds, ...classSelectionIds]);
+  if ("error" in featSpells) return featSpells;
+  const featSpellIds = featSpells.value.map((spell) => spell.spellId);
+
+  const subclassSpells = await findChosenClassOptionSpells(validData, content, [...speciesSpellIds, ...classSelectionIds, ...featSpellIds]);
   if ("error" in subclassSpells) return subclassSpells;
 
-  const raceSpells = await findChosenRaceSpells2014(validData, content, [...speciesSpellIds, ...classSelectionIds, ...(subclassSpells.value?.spellIds ?? [])]);
+  const raceSpells = await findChosenRaceSpells2014(validData, content, [...speciesSpellIds, ...classSelectionIds, ...featSpellIds, ...(subclassSpells.value?.spellIds ?? [])]);
   if ("error" in raceSpells) return raceSpells;
-  return { value: { classSpells, featSpells: [], classOptionSpells: subclassSpells.value, raceSpells: raceSpells.value } };
+  return { value: { classSpells, featSpells: featSpells.value, classOptionSpells: subclassSpells.value, raceSpells: raceSpells.value } };
+}
+
+/** 2014: заклинання риси даються лише тоді, коли чернетка їх називає — ручний конструктор такого кроку ще не має. */
+async function findChosenFeatSpells2014(
+  validData: PersFormData,
+  content: LoadedCreationContent,
+  takenSpellIds: readonly number[],
+): Promise<{ value: GrantedSpell[] } | { error: string }> {
+  const selectedSpellIds = validData.featSpellSelections?.CLASS_ASI;
+  if (!selectedSpellIds) return { value: [] };
+  const { problem, spells } = await findFeatSpellChoiceProblem2014(prisma, { featName: content.feat?.name ?? "", selectedSpellIds, unavailableSpellIds: takenSpellIds });
+  return problem ? { error: problem } : { value: spells };
 }
 
 async function findChosenRaceSpells2014(
@@ -544,6 +635,19 @@ async function saveRuleGrantedClassSpells(
   }
 }
 
+/** Книга Чарівника вже записана, а Клірик, Друїд і Винахідник на старті не мають рядків — їх створює підготовка. */
+async function saveInitialPreparedSpells(tx: CreationTransaction, input: { persId: number; className: string; spellIds: readonly number[] }): Promise<void> {
+  if (!isListPreparedCaster2014(input.className)) {
+    await tx.persSpell.updateMany({ where: { persId: input.persId, origin: "CLASS", sourceName: input.className, spellId: { in: [...input.spellIds] } }, data: { isPrepared: true } });
+    return;
+  }
+  await tx.persSpell.createMany({
+    data: input.spellIds.map((spellId) => ({ persId: input.persId, spellId, learnedAtLevel: 1, origin: SpellOrigin.CLASS, sourceName: input.className,
+      isPrepared: true, badgeText: (classTranslations as Record<string, string>)[input.className] ?? input.className })),
+    skipDuplicates: true,
+  });
+}
+
 type LoadedRaceChoiceOption = LoadedCreationContent["raceChoiceOptions"][number];
 type LoadedFeatureWithSpells = { engName: string; name: string; givesSpells: Array<{ spellId: number }> };
 
@@ -572,11 +676,13 @@ function findStartingFeatures(content: LoadedCreationContent) {
   );
 }
 
-async function persistCharacter(
-  user: { id: number; email: string | null },
+type CharacterWrite = { write: (tx: CreationTransaction) => Promise<{ pers: { persId: number; ruleset: Ruleset } }> };
+
+function prepareCharacterWrite(
+  user: AuthenticatedUser,
   character: CharacterBuild,
   chosenSpells: ChosenCreationSpells,
-): Promise<CreateCharacterResult> {
+): { error: string } | CharacterWrite {
   const { validData, content, scores, savingThrows, currentSpellSlots, currentPactSlots, maxHp, featOptionFeatureIds } = character;
 
   const {
@@ -611,28 +717,33 @@ async function persistCharacter(
   // Prepare Skills
   const allSkills = new Set<string>(validData.skills);
 
+  const isOriginSkillsChosenFreely = validData.skillsSchema?.isTasha === true && ruleset !== "RULES_2024";
+
   // From Schema
   if (validData.skillsSchema) {
-      if (validData.skillsSchema.isTasha && ruleset !== "RULES_2024") {
+      if (isOriginSkillsChosenFreely) {
           validData.skillsSchema.tashaChoices.forEach(s => allSkills.add(s));
       } else {
           validData.skillsSchema.basicChoices.race.forEach(s => allSkills.add(s));
           validData.skillsSchema.basicChoices.selectedClass.forEach(s => allSkills.add(s));
       }
+      (validData.skillsSchema.basicChoices.subclass ?? []).forEach((skill) => allSkills.add(skill));
   }
 
   // From Race (Fixed)
-  if (race && race.skillProficiencies && Array.isArray(race.skillProficiencies)) {
+  if (!isOriginSkillsChosenFreely && race && race.skillProficiencies && Array.isArray(race.skillProficiencies)) {
       (race.skillProficiencies as string[]).forEach(s => allSkills.add(s));
   }
 
   // From Subrace (Fixed)
-  if (subrace) {
+  if (!isOriginSkillsChosenFreely && subrace) {
     parseStringArray(subrace.skillProficiencies).forEach((skill) => allSkills.add(skill));
   }
   
   // From Background (Fixed)
-  if (background.skillProficiencies && Array.isArray(background.skillProficiencies)) {
+  if (validData.backgroundCustomization) {
+    validData.backgroundCustomization.skills.forEach((skill) => allSkills.add(skill));
+  } else if (!isOriginSkillsChosenFreely && background.skillProficiencies && Array.isArray(background.skillProficiencies)) {
     (background.skillProficiencies as string[]).forEach((s) => allSkills.add(s));
   }
 
@@ -833,6 +944,7 @@ async function persistCharacter(
           .filter(Boolean)
           .join(", ")
       : "—",
+    formatToolProficiencies(validData.backgroundCustomization?.tools),
     formatToolProficiencies(feat ? parseEnumArray(feat.grantedToolProficiencies, ToolCategory) : [], countFeatToolChoices(feat?.name)),
     formatToolProficiencies(backgroundFeat ? parseEnumArray(backgroundFeat.grantedToolProficiencies, ToolCategory) : [], countFeatToolChoices(backgroundFeat?.name)),
   ].filter((x) => x && x !== "—");
@@ -902,20 +1014,20 @@ async function persistCharacter(
     }
   }
 
-  if (ruleset === "RULES_2024") {
-    const expertiseProblem = findExpertiseSelectionProblem({
-      grants: features
-        .map((feature) => readExpertiseGrant(feature.skillExpertises))
-        .filter((grant) => grant !== null),
-      selected: selectedExpertisesForProficiencyCheck,
-      proficientSkills: Array.from(allSkills),
-      existingExpertises: [
-        ...expertiseFromFeat,
-        ...expertiseFromClassSubclassChoices,
-      ],
-    });
-    if (expertiseProblem) return { error: expertiseProblem };
-  }
+  const subclassOptionsAtFirstLevel = (subclass?.subclassChoiceOptions ?? []).map((entry) => entry.choiceOption);
+  const expertiseProblem = findExpertiseSelectionProblem({
+    grants: features
+      .filter((feature) => !isExpertiseChosenThroughSubclassOptions(feature, subclassOptionsAtFirstLevel))
+      .map((feature) => readExpertiseGrant(feature.skillExpertises))
+      .filter((grant) => grant !== null),
+    selected: selectedExpertisesForProficiencyCheck,
+    proficientSkills: Array.from(allSkills),
+    existingExpertises: [
+      ...expertiseFromFeat,
+      ...expertiseFromClassSubclassChoices,
+    ],
+  });
+  if (expertiseProblem) return { error: expertiseProblem };
 
   if (allFeatureIdsToCreate.length > 0) {
     for (const f of features) {
@@ -947,363 +1059,394 @@ async function persistCharacter(
     .join("\n");
 
 
-  try {
-    const newPers = await prisma.$transaction(async (tx) => {
-      const createdPers = await tx.pers.create({
-        data: {
-          userId: user.id,
-          name: validData.name,
-          ruleset,
-          raceId: validData.raceId,
-          subraceId: validData.subraceId,
-          classId: validData.classId,
-          subclassId: validData.subclassId,
-          backgroundId: validData.backgroundId,
+  const write = async (tx: CreationTransaction) => {
+    const createdPers = await tx.pers.create({
+      data: {
+        userId: user.id,
+        name: validData.name,
+        ruleset,
+        raceId: validData.raceId,
+        subraceId: validData.subraceId,
+        classId: validData.classId,
+        subclassId: validData.subclassId,
+        backgroundId: validData.backgroundId,
 
-          currentSpellSlots,
-          currentPactSlots,
+        currentSpellSlots,
+        currentPactSlots,
 
-          raceStaticAcBonus: initialRaceStaticAcBonus,
+        raceStaticAcBonus: initialRaceStaticAcBonus,
 
-          customLanguagesKnown,
-          customProficiencies,
+        customLanguagesKnown,
+        customProficiencies,
 
-          // Starting money from background and class starting equipment
-          cp: String(startingMoney.cp),
-          sp: String(startingMoney.sp),
-          ep: String(startingMoney.ep),
-          gp: String(startingMoney.gp),
-          pp: String(startingMoney.pp),
+        // Starting money from background and class starting equipment
+        cp: String(startingMoney.cp),
+        sp: String(startingMoney.sp),
+        ep: String(startingMoney.ep),
+        gp: String(startingMoney.gp),
+        pp: String(startingMoney.pp),
 
-          // Save proficiency source-of-truth (prefill from class at creation)
-          additionalSaveProficiencies: savingThrows,
+        // Save proficiency source-of-truth (prefill from class at creation)
+        additionalSaveProficiencies: savingThrows,
 
-          str: scores.STR,
-          dex: scores.DEX,
-          con: scores.CON,
-          int: scores.INT,
-          wis: scores.WIS,
-          cha: scores.CHA,
+        str: scores.STR,
+        dex: scores.DEX,
+        con: scores.CON,
+        int: scores.INT,
+        wis: scores.WIS,
+        cha: scores.CHA,
 
-          // Placeholder, updated below once we know class hit die
-          currentHp: 10,
-          maxHp: 10,
+        // Placeholder, updated below once we know class hit die
+        currentHp: 10,
+        maxHp: 10,
 
-          customEquipment: customEquipmentLines.join("\n"),
+        customEquipment: customEquipmentLines.join("\n"),
 
-          raceVariants: validData.raceVariantId
+        raceVariants: validData.raceVariantId
+          ? {
+              connect: { raceVariantId: validData.raceVariantId },
+            }
+          : undefined,
+
+        raceChoiceOptions:
+          raceChoiceOptionIds.length > 0
             ? {
-                connect: { raceVariantId: validData.raceVariantId },
+                connect: raceChoiceOptionIds.map((optionId) => ({ optionId })),
               }
             : undefined,
 
-          raceChoiceOptions:
-            raceChoiceOptionIds.length > 0
-              ? {
-                  connect: raceChoiceOptionIds.map((optionId) => ({ optionId })),
-                }
-              : undefined,
+        features:
+          allFeatureIdsToCreate.length > 0
+            ? {
+                createMany: {
+                  data: allFeatureIdsToCreate.map((featureId) => ({ featureId })),
+                  skipDuplicates: true,
+                },
+              }
+            : undefined,
+        choiceOptions:
+          uniqueChoiceOptionsToConnect.length > 0
+            ? {
+                connect: uniqueChoiceOptionsToConnect,
+              }
+            : undefined,
+        classOptionalFeatures:
+          acceptedOptionalFeatureIds.length > 0
+            ? {
+                connect: acceptedOptionalFeatureIds.map((optionalFeatureId) => ({ optionalFeatureId })),
+              }
+            : undefined,
+      },
+    });
 
-          features:
-            allFeatureIdsToCreate.length > 0
-              ? {
-                  createMany: {
-                    data: allFeatureIdsToCreate.map((featureId) => ({ featureId })),
-                    skipDuplicates: true,
-                  },
-                }
-              : undefined,
-          choiceOptions:
-            uniqueChoiceOptionsToConnect.length > 0
-              ? {
-                  connect: uniqueChoiceOptionsToConnect,
-                }
-              : undefined,
-          classOptionalFeatures:
-            acceptedOptionalFeatureIds.length > 0
-              ? {
-                  connect: acceptedOptionalFeatureIds.map((optionalFeatureId) => ({ optionalFeatureId })),
-                }
-              : undefined,
+    if (optionalReplacedFeatureIds.length > 0) {
+      await tx.persFeature.deleteMany({
+        where: {
+          persId: createdPers.persId,
+          featureId: { in: optionalReplacedFeatureIds },
         },
       });
+    }
 
-      if (optionalReplacedFeatureIds.length > 0) {
-        await tx.persFeature.deleteMany({
-          where: {
-            persId: createdPers.persId,
-            featureId: { in: optionalReplacedFeatureIds },
-          },
-        });
-      }
+    // Save Feat + Feat choices AFTER Pers exists
+    if (validData.featId) {
+      await saveFeatWithChoices(tx, createdPers.persId, validData.featId, validData.featChoiceSelections);
+    }
 
-      // Save Feat + Feat choices AFTER Pers exists
-      if (validData.featId) {
-        await saveFeatWithChoices(tx, createdPers.persId, validData.featId, validData.featChoiceSelections);
-      }
+    // Save Background Feat + choices
+    const effectiveBgFeatId = validData.backgroundFeatId ?? background.originFeatId;
+    if (effectiveBgFeatId) {
+      await saveFeatWithChoices(
+        tx,
+        createdPers.persId,
+        effectiveBgFeatId,
+        validData.backgroundFeatChoiceSelections,
+      );
+    }
 
-      // Save Background Feat + choices
-      const effectiveBgFeatId = validData.backgroundFeatId ?? background.originFeatId;
-      if (effectiveBgFeatId) {
-        await saveFeatWithChoices(
-          tx,
-          createdPers.persId,
-          effectiveBgFeatId,
-          validData.backgroundFeatChoiceSelections,
-        );
-      }
+    // Риса, яку дав вибір: бойовий стиль приходить від класу, друга риса Людини 2024 — від виду,
+    // і лише друга несе власні вибори (три навички Skilled, список Magic Initiate).
+    for (const granted of content.featsGrantedByChoiceOptions) {
+      if (!character.featIdsFromChoiceOptions.includes(granted.featId)) continue;
+      await saveFeatWithChoices(tx, createdPers.persId, granted.featId, pickOwnSelections(granted, findSpeciesFeatSelections(validData, content, granted)));
+    }
 
-      // Риса, яку дав вибір: бойовий стиль приходить від класу, друга риса Людини 2024 — від виду,
-      // і лише друга несе власні вибори (три навички Skilled, список Magic Initiate).
-      for (const granted of content.featsGrantedByChoiceOptions) {
-        if (!character.featIdsFromChoiceOptions.includes(granted.featId)) continue;
-        await saveFeatWithChoices(tx, createdPers.persId, granted.featId, pickOwnSelections(granted, findSpeciesFeatSelections(validData, content, granted)));
+    await saveGrantedSpells(tx, createdPers.persId, content, ruleset);
+    await saveRuleGrantedClassSpells(tx, { persId: createdPers.persId, classId: validData.classId, subclassId: validData.subclassId });
+    if (chosenSpells.featSpells.length > 0) {
+      await tx.persSpell.createMany({ data: buildFeatPersSpellRows(createdPers.persId, chosenSpells.featSpells, 1), skipDuplicates: true });
+    }
+    if (chosenSpells.classSpells) {
+      await saveClassSpellSelection(tx, { persId: createdPers.persId, ...chosenSpells.classSpells, learnedAtLevel: 1 });
+    }
+    if (validData.initialPreparedSpellIds?.length) {
+      await saveInitialPreparedSpells(tx, { persId: createdPers.persId, className: cls.name, spellIds: validData.initialPreparedSpellIds });
+    }
+    if (chosenSpells.classOptionSpells) {
+      await tx.persSpell.createMany({
+        data: buildClassOptionPersSpellRows({ persId: createdPers.persId, ...chosenSpells.classOptionSpells, learnedAtLevel: 1 }),
+        skipDuplicates: true,
+      });
+    }
+    if (ruleset === "RULES_2014") {
+      await saveRaceSpellGrants2014(tx, { persId: createdPers.persId, race: race.name, subrace: subrace?.name ?? null, characterLevel: 1, learnedAtLevel: 1 });
+      if (chosenSpells.raceSpells.length > 0) {
+        await tx.persSpell.createMany({ data: buildSpeciesPersSpellRows(createdPers.persId, chosenSpells.raceSpells, 1), skipDuplicates: true });
       }
+    }
 
-      await saveGrantedSpells(tx, createdPers.persId, content, ruleset);
-      await saveRuleGrantedClassSpells(tx, { persId: createdPers.persId, classId: validData.classId, subclassId: validData.subclassId });
-      if (chosenSpells.featSpells.length > 0) {
-        await tx.persSpell.createMany({ data: buildFeatPersSpellRows(createdPers.persId, chosenSpells.featSpells, 1), skipDuplicates: true });
-      }
-      if (chosenSpells.classSpells) {
-        await saveClassSpellSelection(tx, { persId: createdPers.persId, ...chosenSpells.classSpells, learnedAtLevel: 1 });
-      }
-      if (chosenSpells.classOptionSpells) {
-        await tx.persSpell.createMany({
-          data: buildClassOptionPersSpellRows({ persId: createdPers.persId, ...chosenSpells.classOptionSpells, learnedAtLevel: 1 }),
-          skipDuplicates: true,
-        });
-      }
-      if (ruleset === "RULES_2014") {
-        await saveRaceSpellGrants2014(tx, { persId: createdPers.persId, race: race.name, subrace: subrace?.name ?? null, characterLevel: 1, learnedAtLevel: 1 });
-        if (chosenSpells.raceSpells.length > 0) {
-          await tx.persSpell.createMany({ data: buildSpeciesPersSpellRows(createdPers.persId, chosenSpells.raceSpells, 1), skipDuplicates: true });
-        }
-      }
-
-      // Save skills AFTER Pers exists (createMany + skipDuplicates)
-      const skillRows = Array.from(allSkills)
-        .filter((skillName) => Object.values(Skills).includes(skillName as Skills))
-        .map((skillName) => {
-          const skillEnum = skillName as Skills;
-          const skillIndex = Object.values(Skills).indexOf(skillEnum);
-          return {
-            persId: createdPers.persId,
-            name: skillEnum,
-            skillId: skillIndex + 1,
-            proficiencyType: SkillProficiencyType.PROFICIENT,
-          };
-        })
-        .filter((row) => row.skillId > 0);
-
-      if (skillRows.length > 0) {
-        await tx.persSkill.createMany({
-          data: skillRows,
-          skipDuplicates: true,
-        });
-      }
-
-      // Update expertise skills (upsert so it's safe even if missing)
-      const expertiseSkills = new Set<string>([
-        ...(validData.expertiseSchema?.expertises ?? []),
-        ...expertiseFromFeat,
-        ...expertiseFromClassSubclassChoices,
-      ]);
-
-      for (const skillName of expertiseSkills) {
-        if (!Object.values(Skills).includes(skillName as Skills)) continue;
+    // Save skills AFTER Pers exists (createMany + skipDuplicates)
+    const skillRows = Array.from(allSkills)
+      .filter((skillName) => Object.values(Skills).includes(skillName as Skills))
+      .map((skillName) => {
         const skillEnum = skillName as Skills;
         const skillIndex = Object.values(Skills).indexOf(skillEnum);
-        await tx.persSkill.upsert({
-          where: {
-            persId_name: {
-              persId: createdPers.persId,
-              name: skillEnum,
-            },
-          },
-          update: {
-            proficiencyType: SkillProficiencyType.EXPERTISE,
-          },
-          create: {
+        return {
+          persId: createdPers.persId,
+          name: skillEnum,
+          skillId: skillIndex + 1,
+          proficiencyType: SkillProficiencyType.PROFICIENT,
+        };
+      })
+      .filter((row) => row.skillId > 0);
+
+    if (skillRows.length > 0) {
+      await tx.persSkill.createMany({
+        data: skillRows,
+        skipDuplicates: true,
+      });
+    }
+
+    // Update expertise skills (upsert so it's safe even if missing)
+    const expertiseSkills = new Set<string>([
+      ...(validData.expertiseSchema?.expertises ?? []),
+      ...expertiseFromFeat,
+      ...expertiseFromClassSubclassChoices,
+    ]);
+
+    for (const skillName of expertiseSkills) {
+      if (!Object.values(Skills).includes(skillName as Skills)) continue;
+      const skillEnum = skillName as Skills;
+      const skillIndex = Object.values(Skills).indexOf(skillEnum);
+      await tx.persSkill.upsert({
+        where: {
+          persId_name: {
             persId: createdPers.persId,
             name: skillEnum,
-            skillId: skillIndex + 1,
-            proficiencyType: SkillProficiencyType.EXPERTISE,
           },
-        });
-      }
-
-      // Save weapons AFTER Pers exists
-      if (weaponsToCreate.length > 0) {
-        await tx.persWeapon.createMany({
-          data: weaponsToCreate.map((w) => ({
-            persId: createdPers.persId,
-            weaponId: w.weaponId,
-          })),
-          skipDuplicates: true,
-        });
-      }
-      await grantStartingUnarmedStrike(tx, createdPers.persId, { className: cls.name, ruleset });
-
-      // Майстерність зброї 2024 — вибір гравця перевіряється проти класу, а не приймається на віру.
-      const masteryOffer = await findCreationWeaponMasteryOffer(tx, { classId: validData.classId, ruleset });
-      await replacePersWeaponMastery(tx, createdPers.persId, validData.weaponMasteryWeaponIds ?? [], masteryOffer);
-
-      // Save armors AFTER Pers exists
-      if (armorsToCreate.length > 0) {
-        const armorMetas = await tx.armor.findMany({
-          where: { armorId: { in: armorsToCreate.map((a) => a.armorId) } },
-          select: { armorId: true, abilityBonuses: true, abilityBonusType: true },
-        });
-        const metaById = new Map<number, { abilityBonuses: any; abilityBonusType: any }>(
-          armorMetas.map((m) => [m.armorId, { abilityBonuses: m.abilityBonuses ?? [], abilityBonusType: m.abilityBonusType }])
-        );
-
-        await tx.persArmor.createMany({
-          data: armorsToCreate.map((a, index) => ({
-            persId: createdPers.persId,
-            armorId: a.armorId,
-            abilityBonuses: metaById.get(a.armorId)?.abilityBonuses ?? [],
-            abilityBonusType: metaById.get(a.armorId)?.abilityBonusType,
-            equipped: race.name === "TORTLE_MPMM" ? false : index === 0,
-          })),
-          skipDuplicates: true,
-        });
-      }
-
-      // Explicit AC sources as equipable armor entries (seeded, translated)
-      // Tortle: 17.
-      // Monk UD: 10 + DEX + WIS.
-      // Barbarian UD: 10 + DEX + CON.
-      // Some races: natural armor base formula (e.g., 13+DEX, 12+DEX, 12+CON).
-      try {
-        const isTortle = race.name === "TORTLE_MPMM";
-
-        const raceAc = parseJsonRecord(race.ac);
-        const getSeededNaturalArmorName = (): string | null => {
-          if (!raceAc || typeof raceAc !== "object") return null;
-          if (typeof raceAc.base === "number") {
-            const base = Math.trunc(raceAc.base);
-            const bonus = raceAc.bonus;
-            if (base === 17 && (bonus === null || bonus === undefined)) return "NATURAL_ARMOR_TORTLE";
-            if (base === 13 && bonus === "DEX") return "NATURAL_ARMOR_13_DEX";
-            if (base === 12 && bonus === "DEX") return "NATURAL_ARMOR_12_DEX";
-            if (base === 12 && bonus === "CON") return "NATURAL_ARMOR_12_CON";
-          }
-          return null;
-        };
-
-        const seededArmorNames = new Set<string>();
-
-        const naturalArmorName = getSeededNaturalArmorName();
-        if (naturalArmorName) seededArmorNames.add(naturalArmorName);
-        if (cls.name === "MONK_2014") seededArmorNames.add("UNARMORED_DEFENSE_MONK");
-        if (cls.name === "BARBARIAN_2014") seededArmorNames.add("UNARMORED_DEFENSE_BARBARIAN");
-
-        if (seededArmorNames.size > 0) {
-          const rows = await tx.armor.findMany({
-            where: {
-              ruleset,
-              name: { in: Array.from(seededArmorNames).filter((name): name is ArmorCategory => Object.values(ArmorCategory).includes(name as ArmorCategory)) },
-            },
-            select: { armorId: true, name: true, abilityBonuses: true, abilityBonusType: true },
-          });
-
-          const byName = new Map<string, { armorId: number; abilityBonuses: any; abilityBonusType: any }>(
-            rows.map((r) => [String(r.name), { armorId: r.armorId, abilityBonuses: r.abilityBonuses ?? [], abilityBonusType: r.abilityBonusType }])
-          );
-
-          const specialArmorsToCreate: Array<{
-            persId: number;
-            armorId: number;
-            abilityBonuses: any;
-            abilityBonusType: any;
-            miscACBonus: number;
-            isProficient: boolean;
-            equipped: boolean;
-          }> = [];
-
-          // Race natural armor
-          if (naturalArmorName && byName.has(naturalArmorName)) {
-            const meta = byName.get(naturalArmorName)!;
-            specialArmorsToCreate.push({
-              persId: createdPers.persId,
-              armorId: meta.armorId,
-              abilityBonuses: meta.abilityBonuses,
-              abilityBonusType: meta.abilityBonusType,
-              miscACBonus: 0,
-              isProficient: true,
-              equipped: isTortle,
-            });
-          }
-
-          // Class unarmored defenses
-          if (cls.name === "MONK_2014" && byName.has("UNARMORED_DEFENSE_MONK")) {
-            const meta = byName.get("UNARMORED_DEFENSE_MONK")!;
-            specialArmorsToCreate.push({
-              persId: createdPers.persId,
-              armorId: meta.armorId,
-              abilityBonuses: meta.abilityBonuses,
-              abilityBonusType: meta.abilityBonusType,
-              miscACBonus: 0,
-              isProficient: true,
-              equipped: !isTortle && armorsToCreate.length === 0,
-            });
-          }
-          if (cls.name === "BARBARIAN_2014" && byName.has("UNARMORED_DEFENSE_BARBARIAN")) {
-            const meta = byName.get("UNARMORED_DEFENSE_BARBARIAN")!;
-            specialArmorsToCreate.push({
-              persId: createdPers.persId,
-              armorId: meta.armorId,
-              abilityBonuses: meta.abilityBonuses,
-              abilityBonusType: meta.abilityBonusType,
-              miscACBonus: 0,
-              isProficient: true,
-              equipped: !isTortle && armorsToCreate.length === 0,
-            });
-          }
-
-          // If we have a non-tortle natural armor and the character otherwise has no armor,
-          // equip the natural armor by default.
-          if (!isTortle && armorsToCreate.length === 0 && naturalArmorName && naturalArmorName !== "NATURAL_ARMOR_TORTLE") {
-            const idx = specialArmorsToCreate.findIndex((a) => {
-              const name = Array.from(byName.entries()).find(([, meta]) => meta.armorId === a.armorId)?.[0];
-              return name === naturalArmorName;
-            });
-            if (idx >= 0) {
-              specialArmorsToCreate[idx] = { ...specialArmorsToCreate[idx], equipped: true };
-            }
-          }
-
-          if (specialArmorsToCreate.length > 0) {
-            await tx.persArmor.createMany({
-              data: specialArmorsToCreate,
-            });
-          }
-        }
-      } catch {
-        // Best-effort; character creation should not fail if we can't create special AC sources.
-      }
-
-      // Формули базового КЗ 2024 — окремим правилом за виданими фічами, а не за назвою класу:
-      // у 2024 їх відкриває ще й підклас (Драконяча живучість чародія). KR27.8.
-      await grantAlternativeArmorClassFormulas(tx, createdPers.persId, ruleset);
-
-      await tx.pers.update({
-        where: { persId: createdPers.persId },
-        data: {
-          maxHp,
-          currentHp: maxHp,
+        },
+        update: {
+          proficiencyType: SkillProficiencyType.EXPERTISE,
+        },
+        create: {
+          persId: createdPers.persId,
+          name: skillEnum,
+          skillId: skillIndex + 1,
+          proficiencyType: SkillProficiencyType.EXPERTISE,
         },
       });
+    }
 
-      return createdPers;
+    // Save weapons AFTER Pers exists
+    if (weaponsToCreate.length > 0) {
+      await tx.persWeapon.createMany({
+        data: weaponsToCreate.map((w) => ({
+          persId: createdPers.persId,
+          weaponId: w.weaponId,
+        })),
+        skipDuplicates: true,
+      });
+    }
+    await grantStartingUnarmedStrike(tx, createdPers.persId, { className: cls.name, ruleset });
+
+    // Майстерність зброї 2024 — вибір гравця перевіряється проти класу, а не приймається на віру.
+    const masteryOffer = await findCreationWeaponMasteryOffer(tx, { classId: validData.classId, ruleset });
+    await replacePersWeaponMastery(tx, createdPers.persId, validData.weaponMasteryWeaponIds ?? [], masteryOffer);
+
+    // Save armors AFTER Pers exists
+    if (armorsToCreate.length > 0) {
+      const armorMetas = await tx.armor.findMany({
+        where: { armorId: { in: armorsToCreate.map((a) => a.armorId) } },
+        select: { armorId: true, abilityBonuses: true, abilityBonusType: true },
+      });
+      const metaById = new Map<number, { abilityBonuses: any; abilityBonusType: any }>(
+        armorMetas.map((m) => [m.armorId, { abilityBonuses: m.abilityBonuses ?? [], abilityBonusType: m.abilityBonusType }])
+      );
+
+      await tx.persArmor.createMany({
+        data: armorsToCreate.map((a, index) => ({
+          persId: createdPers.persId,
+          armorId: a.armorId,
+          abilityBonuses: metaById.get(a.armorId)?.abilityBonuses ?? [],
+          abilityBonusType: metaById.get(a.armorId)?.abilityBonusType,
+          equipped: race.name === "TORTLE_MPMM" ? false : index === 0,
+        })),
+        skipDuplicates: true,
+      });
+    }
+
+    // Explicit AC sources as equipable armor entries (seeded, translated)
+    // Tortle: 17.
+    // Monk UD: 10 + DEX + WIS.
+    // Barbarian UD: 10 + DEX + CON.
+    // Some races: natural armor base formula (e.g., 13+DEX, 12+DEX, 12+CON).
+    try {
+      const isTortle = race.name === "TORTLE_MPMM";
+
+      const raceAc = parseJsonRecord(race.ac);
+      const getSeededNaturalArmorName = (): string | null => {
+        if (!raceAc || typeof raceAc !== "object") return null;
+        if (typeof raceAc.base === "number") {
+          const base = Math.trunc(raceAc.base);
+          const bonus = raceAc.bonus;
+          if (base === 17 && (bonus === null || bonus === undefined)) return "NATURAL_ARMOR_TORTLE";
+          if (base === 13 && bonus === "DEX") return "NATURAL_ARMOR_13_DEX";
+          if (base === 12 && bonus === "DEX") return "NATURAL_ARMOR_12_DEX";
+          if (base === 12 && bonus === "CON") return "NATURAL_ARMOR_12_CON";
+        }
+        return null;
+      };
+
+      const seededArmorNames = new Set<string>();
+
+      const naturalArmorName = getSeededNaturalArmorName();
+      if (naturalArmorName) seededArmorNames.add(naturalArmorName);
+      if (cls.name === "MONK_2014") seededArmorNames.add("UNARMORED_DEFENSE_MONK");
+      if (cls.name === "BARBARIAN_2014") seededArmorNames.add("UNARMORED_DEFENSE_BARBARIAN");
+
+      if (seededArmorNames.size > 0) {
+        const rows = await tx.armor.findMany({
+          where: {
+            ruleset,
+            name: { in: Array.from(seededArmorNames).filter((name): name is ArmorCategory => Object.values(ArmorCategory).includes(name as ArmorCategory)) },
+          },
+          select: { armorId: true, name: true, abilityBonuses: true, abilityBonusType: true },
+        });
+
+        const byName = new Map<string, { armorId: number; abilityBonuses: any; abilityBonusType: any }>(
+          rows.map((r) => [String(r.name), { armorId: r.armorId, abilityBonuses: r.abilityBonuses ?? [], abilityBonusType: r.abilityBonusType }])
+        );
+
+        const specialArmorsToCreate: Array<{
+          persId: number;
+          armorId: number;
+          abilityBonuses: any;
+          abilityBonusType: any;
+          miscACBonus: number;
+          isProficient: boolean;
+          equipped: boolean;
+        }> = [];
+
+        // Race natural armor
+        if (naturalArmorName && byName.has(naturalArmorName)) {
+          const meta = byName.get(naturalArmorName)!;
+          specialArmorsToCreate.push({
+            persId: createdPers.persId,
+            armorId: meta.armorId,
+            abilityBonuses: meta.abilityBonuses,
+            abilityBonusType: meta.abilityBonusType,
+            miscACBonus: 0,
+            isProficient: true,
+            equipped: isTortle,
+          });
+        }
+
+        // Class unarmored defenses
+        if (cls.name === "MONK_2014" && byName.has("UNARMORED_DEFENSE_MONK")) {
+          const meta = byName.get("UNARMORED_DEFENSE_MONK")!;
+          specialArmorsToCreate.push({
+            persId: createdPers.persId,
+            armorId: meta.armorId,
+            abilityBonuses: meta.abilityBonuses,
+            abilityBonusType: meta.abilityBonusType,
+            miscACBonus: 0,
+            isProficient: true,
+            equipped: !isTortle && armorsToCreate.length === 0,
+          });
+        }
+        if (cls.name === "BARBARIAN_2014" && byName.has("UNARMORED_DEFENSE_BARBARIAN")) {
+          const meta = byName.get("UNARMORED_DEFENSE_BARBARIAN")!;
+          specialArmorsToCreate.push({
+            persId: createdPers.persId,
+            armorId: meta.armorId,
+            abilityBonuses: meta.abilityBonuses,
+            abilityBonusType: meta.abilityBonusType,
+            miscACBonus: 0,
+            isProficient: true,
+            equipped: !isTortle && armorsToCreate.length === 0,
+          });
+        }
+
+        // If we have a non-tortle natural armor and the character otherwise has no armor,
+        // equip the natural armor by default.
+        if (!isTortle && armorsToCreate.length === 0 && naturalArmorName && naturalArmorName !== "NATURAL_ARMOR_TORTLE") {
+          const idx = specialArmorsToCreate.findIndex((a) => {
+            const name = Array.from(byName.entries()).find(([, meta]) => meta.armorId === a.armorId)?.[0];
+            return name === naturalArmorName;
+          });
+          if (idx >= 0) {
+            specialArmorsToCreate[idx] = { ...specialArmorsToCreate[idx], equipped: true };
+          }
+        }
+
+        if (specialArmorsToCreate.length > 0) {
+          await tx.persArmor.createMany({
+            data: specialArmorsToCreate,
+          });
+        }
+      }
+    } catch {
+      // Best-effort; character creation should not fail if we can't create special AC sources.
+    }
+
+    // Формули базового КЗ 2024 — окремим правилом за виданими фічами, а не за назвою класу:
+    // у 2024 їх відкриває ще й підклас (Драконяча живучість чародія). KR27.8.
+    await grantAlternativeArmorClassFormulas(tx, createdPers.persId, ruleset);
+
+    await tx.pers.update({
+      where: { persId: createdPers.persId },
+      data: {
+        maxHp,
+        currentHp: maxHp,
+      },
     });
+
+    return { pers: createdPers };
+  };
+
+  return { write };
+}
+
+async function persistCharacter(
+  user: AuthenticatedUser,
+  character: CharacterBuild,
+  chosenSpells: ChosenCreationSpells,
+): Promise<CreateCharacterResult> {
+  const prepared = prepareCharacterWrite(user, character, chosenSpells);
+  if ("error" in prepared) return prepared;
+
+  const { validData } = character;
+  try {
+    const creation = await prisma.$transaction(async (tx) => {
+      if (validData.readyPresetRequestId) {
+        await lockReadyPresetCreation(tx, validData.readyPresetRequestId);
+        const previous = await findReadyPresetCreationResult(tx, { userId: user.id, requestId: validData.readyPresetRequestId });
+        if (previous) return previous;
+      }
+      const created = await prepared.write(tx);
+      if (validData.readyPresetRequestId) {
+        await saveReadyPresetCreationOperation(tx, { userId: user.id, requestId: validData.readyPresetRequestId, persId: created.pers.persId });
+      }
+      return created;
+    });
+
+    if (!("pers" in creation)) return creation;
+    const newPers = creation.pers;
 
     revalidatePath("/char/create");
     captureServerPostHogEvent("character_created", {
       pers_id: newPers.persId, edition: newPers.ruleset === "RULES_2024" ? "2024" : "2014",
-      creation_type: "new", classId: validData.classId, subclassId: validData.subclassId,
+      creation_type: validData.readyPresetRequestId ? "ready_preset" : "new", classId: validData.classId, subclassId: validData.subclassId,
       raceId: validData.raceId, subraceId: validData.subraceId, raceVariantId: validData.raceVariantId, backgroundId: validData.backgroundId,
     }, user);
     return { success: true, persId: newPers.persId };

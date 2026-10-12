@@ -1,0 +1,8 @@
+block-section-spells-5-1/item/10 (Maelstrom): джерело пише «circle» і одразу «center of the square»; переклад вірний джерелу («у центрі квадрата»).
+block-section-spells-6-1/item/8 (Investiture of Ice): джерело пише «Investiture of Fire’s line»; такого заклинання немає, мається на увазі Investiture of Flame (українська назва «Вбрання вогню» збігається), тож стоїть токен Flame.
+block-section-spells-6-1/item/15 (Wall of Thorns): джерело пише «Casting Wall of Fire at a 6th-level spell» (описка); переклад «як заклинання 6-го рівня».
+block-section-spells-5-1/item/13 (Reincarnate): «much weirded» (описка); переклад «значно химерніший».
+block-section-spells-8-1/item/7 (Tsunami): дальність «Sight» передано як «Видимість» за каталогом заклинання; для Mirage Arcane (7 рівень) каталог має «Поле зору», тож два фрагменти розходяться самим каталогом.
+block-section-spells-5-1/item/16 (Transmute Rock): на цій сторінці джерело пише «transmute rock to mud, then back into rock» (на сторінці Чарівника було «mud to rock»); переклад вірний цьому джерелу.
+block-section-spells-6-1/item/16 (Wind Walk): «10 times as fast as most players can walk» — «гравців» залишено дослівно.
+Фрагменти, ідентичні вже готовим сторінкам Чарівника/Клірика, узято з їхніх чернеток дослівно (Blight, Charm Monster, Confusion, Control Water, Divination, Geas, Heroes’ Feast, Ice Storm, Locate Creature, Draconic Transformation, Fire Storm, Mirage Arcane, Symbol, Antipathy/Sympathy, Control Weather, Feeblemind, Sunburst, Foresight, Shapechange, Wall of Fire, Watery Sphere, Summon Draconic Spirit, Contagion); «контроль області» замінено на «контроль території», «our» → «наш».

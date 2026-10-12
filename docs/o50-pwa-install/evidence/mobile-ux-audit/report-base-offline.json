@@ -1,0 +1,56 @@
+{
+  "label": "base-offline",
+  "at": "2026-10-11T09:09:03.886Z",
+  "cpuThrottle": 4,
+  "device": "Pixel 7 emulation (Chromium)",
+  "offlineFirstVisit3s": {
+    "waitMs": 3000,
+    "readiness": {
+      "state": null,
+      "waitedMs": 502,
+      "ready": false
+    },
+    "slides": {
+      "Спорядження": "ok",
+      "Магія": "ok",
+      "Фічі": "ok",
+      "Навички": "ok"
+    },
+    "reload": "fail: locator.waitFor: Timeout 10000ms exceeded.",
+    "afterReload": {},
+    "charListOffline": "fail: locator.waitFor: Timeout 10000ms exceeded."
+  },
+  "offlineFirstVisit15s": {
+    "waitMs": 15000,
+    "readiness": {
+      "state": null,
+      "waitedMs": 502,
+      "ready": false
+    },
+    "slides": {
+      "Спорядження": "ok",
+      "Магія": "ok",
+      "Фічі": "ok",
+      "Навички": "ok"
+    },
+    "reload": "fail: locator.waitFor: Timeout 10000ms exceeded.",
+    "afterReload": {},
+    "charListOffline": "fail: locator.waitFor: Timeout 10000ms exceeded."
+  },
+  "offlineViaClientNavigation": {
+    "readiness": {
+      "state": null,
+      "waitedMs": 60485,
+      "ready": false
+    },
+    "slides": {
+      "Спорядження": "ok",
+      "Магія": "ok",
+      "Фічі": "ok",
+      "Навички": "ok"
+    },
+    "reload": "fail: locator.waitFor: Timeout 10000ms exceeded.",
+    "afterReload": {},
+    "charListOffline": "ok"
+  }
+}

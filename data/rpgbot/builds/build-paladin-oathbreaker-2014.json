@@ -1,0 +1,820 @@
+{
+  "buildId": "build-paladin-oathbreaker-2014",
+  "revisionId": "build-paladin-oathbreaker-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "Паладина Клятвопорушника — {{Бонс Малоун і моторошні хлопці|Bones Malone and the Spooky Boys}}",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+      "sectionId": "section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "PALADIN_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "PALADIN_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "PALADIN_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Blind Fighting"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "PALADIN_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "OATHBREAKER",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "PALADIN_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "WAR_CASTER"
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "PALADIN_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "PALADIN_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "PALADIN_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "PALADIN_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "PALADIN_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "PALADIN_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "PALADIN_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "PALADIN_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "PALADIN_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "PALADIN_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "PALADIN_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "PALADIN_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "PALADIN_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "PALADIN_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "PALADIN_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "PALADIN_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oathbreaker-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+          "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "OATHBREAKER",
+    "raceKey": "KOBOLD_MPMM",
+    "backgroundKey": "CUSTOM",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Розподілимо очки між Силою, Статурою та Харизмою. Як кобольд{{Kobold}} з {{«Морденкайнен представляє: Монстри Мультивсесвіту»|Mordenkainen Presents: Monsters of the Multiverse}}, ми можемо вибрати варіант +1/+1/+1 для характеристик.\n\n Базове значення Підвищене значення 20-й рівень Сила 15 16 20 Спритність 8 8 8 Статура 15 16 16 Інтелект 8 8 8 Мудрість 8 8 8 Харизма 15 16 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ми беремо кобольда{{Kobold}} з {{«Морденкайнен представляє: Монстри Мультивсесвіту»|Mordenkainen Presents: Monsters of the Multiverse}}, бо підтримуємо загін скелетів. Якщо треба гуртом накинутися на істоту з високим КБ, перевага для всіх скелетів дуже корисна. Також можна вибрати замовляння Чародія або володіння навичкою. Ми беремо Магію, щоб створювати сувої. Так, Паладини теж можуть це робити. Будь-який заклинач може, якщо володіє навичкою Магія.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Створюємо власну передісторію, щоб узяти Обман і Виступ. Технічно потрібні нам навички є в передісторії Усміхнений{{Grinner}} з Вайлдмаунта, але в статтях ми не використовуємо передісторії, привʼязані до конкретної кампанії. Також беремо володіння ріжком (ду-ду-ду) й водним транспортом, щоб зібрати моторошну піратську команду зі скелетів. Якщо плануємо вийти в море.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Наші навички: Магія, Атлетика, Обман, Залякування й Виступ. Інструменти: ріжок і водний транспорт. Завдяки Обману й Виступу можна загубитися серед команди скелетів. Водний транспорт беремо заради розваги, але замість нього легко вибрати набір для маскування, щоб краще злитися з моторошними хлопцями.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Бойового заклинателя»{{War Caster}}. Це дасть змогу накладати заклинання з повними руками, а це важливо. Також риса дає перевагу на наші ряткидки Концентрації, що добре вже зараз і буде ще краще, коли ми почнемо додавати Харизму до кожного ряткидка.\n\nНа 8-му рівні підвищуємо характеристики. Що саме обрати, залежить від групи. Якщо інші гравці приводять скелетів і застосовують Виклик немертвого [Summon Undead], тут підвищуємо Харизму, а на 12-му — Силу. Якщо сумісних прислужників ніхто не приводить, підвищуємо Силу зараз, а Харизму — наступного разу.\n\nНа 12-му рівні підвищуємо Силу або Харизму — ту характеристику, яку не підвищували на 8-му.\n\nНа 16-му рівні підвищуємо Харизму на 2.\n\nНа 19-му рівні підвищуємо Силу на 2.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-my-party-isnt-made-of-necromancers",
+        "title": "Моя група не складається з некромантів",
+        "text": "Нічого страшного, але тоді доведеться змінити збірку. Ми обрали кобольда, щоб давати перевагу скелетам, але натомість можна взяти істоту середнього розміру — наприклад, шадара-кая{{Shadar-Kai}}, Варіант людини{{Variant Human}} чи расу «Своя раса»{{Custom Lineage}} — і скористатися важкою зброєю та рисою «Майстер древкової зброї»{{Polearm Master}}. Так, тоді замість «Бойового заклинателя»{{War Caster}} беремо «Майстра древкової зброї»{{Polearm Master}} у парі з алебардою чи глефою. Спершу підвищуємо Силу, а Харизму — пізніше, щоб зосередитися на власних атаках.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-my-party-isnt-made-of-necromancers",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Божественне відчуття{{Divine Sense}}\n{{Цілющі руки|Lay on Hands}}\nНавички: Магія, Атлетика, Обман, Залякування, Виступ\nІнструменти: ріжок, водний транспорт",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Божественна кара{{Divine Smite}}\nЧаротворство{{Spellcasting}} — заклинання 1-го рівня\nБойовий стиль{{Fighting Style}}: Бій наосліп{{Blind Fighting}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Божественне здоровʼя{{Divine Health}}\nСвященна клятва{{Sacred Oath}}: Клятвопорушник{{Oathbreaker}}\nКанал божественності{{Channel Divinity}}\n– Контроль нежиті{{Control Undead}}\n– Жахливий вигляд{{Dreadful Aspect}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Бойовий заклинатель{{War Caster}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака{{Extra Attack}}\nЧаротворство — заклинання 2-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "{{Аура захисту|Aura of Protection}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "{{Аура ненависті|Aura of Hate}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "{{Покращення Характеристик|Ability Score Improvement}}: Харизма +2 (16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Чаротворство — заклинання 3-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "{{Аура мужності|Aura of Courage}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Покращена божественна кара{{Improved Divine Smite}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "{{Покращення Характеристик|Ability Score Improvement}}: Сила +2 (16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Чаротворство — заклинання 4-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Очищувальний дотик{{Cleansing Touch}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Надприродна стійкість{{Supernatural Resistance}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "{{Покращення Характеристик|Ability Score Improvement}}: Харизма +2 (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Чаротворство — заклинання 5-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Покращення Аур{{Aura Improvements}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "{{Покращення Характеристик|Ability Score Improvement}}: Сила +2 (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Жахливий лорд{{Dread Lord}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Водний транспорт",
+        "reason": "Автор бере ріжок і водний транспорт, але радить замість водного транспорту набір для маскування; записано ріжок і водний транспорт.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Підвищення 8-го і 12-го рівнів",
+        "reason": "Текст статті каже, що вибір Харизми чи Сили на 8-му і 12-му рівнях залежить від групи; ми дотримуємося таблиці рівнів (Харизма на 8-му, Сила на 12-му).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Спорядження без назви",
+        "reason": "Автор називає лише бойову сокиру і щит; решту стартового спорядження обрала платформа.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oathbreaker-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+            "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

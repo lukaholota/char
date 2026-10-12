@@ -1,0 +1,925 @@
+{
+  "buildId": "build-fighter-rune-knight-goliath-2014",
+  "revisionId": "build-fighter-rune-knight-goliath-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "Збірка — Голіаф із завеликою зброєю",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-oversized-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+      "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+      "sectionId": "section-the-build-heavy-weapons-goliath",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "FIGHTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "RUNE_KNIGHT",
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Fire Rune (Rune)"
+          },
+          {
+            "optionNameEng": "Stone Rune (Rune)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "CROSSBOW_EXPERT"
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "THE_GENIE",
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Genie Kind: Marid"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "mage-hand",
+            "minor-illusion"
+          ],
+          "knownSpellKeys": [
+            "armor-of-agathys",
+            "fog-cloud"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Armor of Shadows"
+          },
+          {
+            "optionNameEng": "Eldritch Mind"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "expeditious-retreat"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SHARPSHOOTER"
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Chain"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "misty-step"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "expeditious-retreat",
+          "add": "blur"
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "blade-ward"
+          ],
+          "knownSpellKeys": [
+            "invisibility"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Hill Rune (Rune)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Storm Rune (Rune)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Gift of the Ever-Living Ones"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "counterspell"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hunger-of-hadar"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Devil's Sight"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "sickening-radiance"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-oversized-weapons-2014",
+          "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+          "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dimension-door"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "RUNE_KNIGHT",
+    "raceKey": "GOLIATH_MPMM",
+    "backgroundKey": "URCHIN",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 12
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 13
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores",
+        "title": "Характеристики",
+        "text": "Це дальня збірка з ручним арбалетом і Експертом з арбалетів, лише зброя більша, тому головна Спритність. Мультиклас Чорнокнижника потребує Харизми 13. Статура теж потрібна для Концентрації. Сила 12 страхує від суперечок про вантажопідйомність і вагу Великої зброї.\n\n Базові характеристики Расові зміни Рівень 20 Сила 12 12 12 Спритність 15 16 20 Статура 15 16 20 Інтелект 8 8 8 Мудрість 8 8 8 Харизма 13 14 14",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-ability-scores",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race-goliath",
+        "title": "Раса — Голіаф",
+        "text": "Беремо Голіафа за Little Giant{{Little Giant}} й тему справжнього велетня та хмар. Підійде будь-яка раса з Powerful Build{{Powerful Build}}. Little Giant подвоює вагові ліміти, тож із Силою 12 можна переносити 360 фунтів. Це важливо для Великого ручного арбалета.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-race-goliath",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-and-skills",
+        "title": "Походження й навички",
+        "text": "Походження й навички не визначають центральну механіку збірки.\n\nЯк приклад підходить походження з навичками Спритності, зокрема Безпритульний із Непомітністю, Спритністю рук і злодійськими інструментами. Fire Rune{{Fire Rune (Rune Knight)}} дає подвоєний Бонус Майстерності для перевірок із Володінням будь-якими інструментами, включно зі злодійськими. Примітка редакції: Володіння інструментом усе одно потрібне; це не автоматичне Володіння всіма інструментами.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-background-and-skills",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні Воїна, загальному 4-му, беремо Експерт з арбалетів. Разом зі Стрільбою ручний арбалет дає одну з найвищих шкод зброєю за раунд.\n\nНа 6-му рівні Воїна, загальному 8-му, беремо Влучний стрілець{{Sharpshooter}}: +10 шкоди в обмін на −5 до кидка атаки. Стрільба помʼякшує цей штраф.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-but-is-it-any-good",
+        "title": "Чи це працює?",
+        "text": "Великий ручний арбалет може бути хорошим за відповідних умов. Але чи кращий за звичайний Середній без мемів? Порівняймо математично. Для кожної зброї буде три ситуації: Перевага, звичайний кидок, Перешкода; колонки — атаки з Влучним стрільцем і без нього.\n\nЯкщо не зазначено іншого, беремо Стрільбу та базову математику. До додаткових модифікаторів для середнього КБ ворога відповідного CR потрібні 6 або більше на к20; це основа розрахунку шкоди.\n\nРучні арбалети Одна атака, Спритність 20 Одна атака, Влучний стрілець, Спритність 20 Важкі арбалети Одна атака, Спритність 20 Одна атака, Влучний стрілець, Спритність 20 Середній, Перевага 8.31 14.22 Середній, Перевага 10.38 15.91 Середній 6.55 9.43 Середній 8.15 10.53 Середній, Перешкода 4.79 4.63 Середній, Перешкода 5.92 5.14 Великий, Перевага 11.93 17.18 Великий, Перевага 16.07 20.57 Великий 9.35 11.35 Великий 12.55 13.55 Великий, Перешкода 6.77 5.52 Великий, Перешкода 9.03 6.53\n\nБез Влучного стрільця, тобто перші сім рівнів, Великий арбалет трохи збільшує шкоду порівняно із Середнім за очікуваного КБ. Навіть невелике збільшення КБ може зробити перехід із Переваги до звичайного кидка або зі звичайного до Перешкоди збитковим для ручного арбалета. Друга таблиця показує кілька додаткових пунктів КБ; ці атаки без Влучного стрільця.\n\nРучні арбалети Одна атака, Спритність 20, КБ +2, потрібно 8 Одна атака, Спритність 20, КБ +4, потрібно 10 Важкі арбалети Одна атака, Спритність 20, КБ +2, потрібно 8 Одна атака, Спритність 20, КБ +4, потрібно 10 Середній, Перевага 7.80 7.12 Середній, Перевага 9.75 8.91 Середній 5.70 4.85 Середній 7.10 6.05 Середній, Перешкода 3.60 2.58 Середній, Перешкода 4.45 3.19 Великий, Перевага 11.21 10.25 Великий, Перевага 15.11 13.83 Великий 8.15 6.95 Великий 10.95 9.35 Великий, Перешкода 5.09 3.65 Великий, Перешкода 6.79 4.87\n\nВеликий важкий арбалет довше зберігає невелику перевагу над Середнім навіть при +4 КБ, бо додаткова 1к10 дає в середньому +5,5 шкоди, значно більше за додаткову 1к6 ручного арбалета.\n\nОтже, якщо ціль не надзвичайно легка для влучання або Перешкода вже не була присутня, Велика зброя для Середньої істоти — ризик із більшими втратами, ніж вигодами. Але Giantʼs Might доступна кількість разів за Бонусом Майстерності, тому Велика істота з Великою зброєю, за умовою автора, збільшує шкоду.\n\nСпершу це корисно лише в кількох боях на день. Згодом автор очікує більше боїв у Великому чи Величезному розмірі з обстрілом ворогів «стовбурами дерев», можливо, навіть кожного бою. Примітка редакції: Величезний розмір Рунічний лицар отримує на 18-му рівні Воїна, якого показана збірка Воїн 12 не досягає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-but-is-it-any-good",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-but-is-this-worth-it",
+        "title": "Чи це варте вкладень?",
+        "text": "Складне питання. Ми використовуємо одну з найсильніших можливостей шкоди зброєю. Ручний арбалет із Влучним стрільцем перевершував конкурентів завдяки Стрільбі, яка множить ефективність через частіші влучання. Отже, вибір зброї виправданий.\n\nАле Великий розмір і носіння Великої зброї — якою ціною? Рунічний лицар — один із сильніших підкласів Воїна; беремо достатньо рівнів для найкращих рун і Giantʼs Might. Іншу зброю було б складніше носити: автор припускає вагу у вісім разів більшу за Середню. Примітка редакції: множник ваги зброї — припущення масштабування автора; DMG с. 278 не задає універсального множника ×8 для кожної зброї.\n\nЗа цим припущенням Великий важкий арбалет важить 144 фунти, а ручний — лише 24, бо Середній важить 3. Це на 6 фунтів більше за Середній важкий арбалет. Трохи громіздкіший арбалет не виглядає високою ціною.\n\nНавіщо тоді вісім рівнів Чорнокнижника, якщо можна було зробити Воїна 20? Для інших цікавих можливостей. Fog Cloud ефективна проти тих, хто не має сліпозору чи чуття вібрацій. Якщо не можемо стати Великими, хмара скасовує Перевагу/Перешкоду й може захищати групу. Примітка редакції: чуття вібрацій не тотожне зору; умови конкретного чуття визначають, що воно дозволяє виявити.\n\nУ сильно затіненій зоні не бачимо цілі й маємо Перешкоду, але як невидимий для цілі нападник маємо Перевагу. Вони скасовуються; додаткова Перешкода за розмір зброї не повертає Перешкоду до кидка.\n\nАвтор обґрунтовує тактику тим, що ворог не рухається у ваш хід: можна вийти з хмари, визначити клітину цілі, повернутися й атакувати з перевагами хмари. В інші ходи затінення захищає вас. Примітка редакції: готові дії й реакції можуть порушити цей план, а взаємна невидимість часто дає ворогам теж звичайні кидки атак, а не автоматичну Перешкоду; приховування не є невразливістю.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-but-is-this-worth-it",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Стрільба{{Archery}}; Second Wind{{Second Wind}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Action Surge{{Action Surge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Рунічний лицар{{Rune Knight}}; Giantʼs Might{{Giantʼs Might}}; Rune Carver{{Rune Carver}}; Fire Rune{{Fire Rune (Rune Knight)}}; Stone Rune{{Stone Rune (Rune Knight)}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Експерт з арбалетів{{Crossbow Expert}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Джин — Marid{{Marid}}; Genieʼs Vessel{{Genieʼs Vessel}}; Bottled Respite{{Bottled Respite}}; Genieʼs Wrath{{Genie's Wrath}}; Магія угоди{{Pact Magic}}; Магічна рука [Mage Hand], Мала ілюзія [Minor Illusion]; Обладунок Агатіса [Armor of Agathys], Туманна хмара [Fog Cloud]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Eldritch Invocations{{Eldritch Invocations}}; Armor of Shadows{{Armor of Shadows}}, Eldritch Mind{{Eldritch Mind}}; Магія угоди; Негайний відступ [Expeditious Retreat]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Додаткова атака{{Extra Attack}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Влучний стрілець{{Sharpshooter}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Pact Boon{{Pact Boon}}; Pact of the Chain{{Pact of the Chain}}; Магія угоди; Розмиття [Blur], Туманний крок [Misty Step]; заміна Негайний відступ [Expeditious Retreat]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Спритність +2 (16 → 18); Магія угоди; Захист від зброї [Blade Ward]; Невидимість [Invisibility]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Runic Shield{{Runic Shield}}; Rune Carver{{Rune Carver}}; Hill Rune{{Hill Rune (Rune Knight)}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Спритність +2 (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Indomitable{{Indomitable}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Rune Carver{{Rune Carver}}; Storm Rune{{Storm Rune (Rune Knight)}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Додаткова атака (2){{Додаткова атака|Extra Attack}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Статура +2 (16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Eldritch Invocations{{Eldritch Invocations}}; Gift of the Ever-Living Ones{{Gift of the Ever-Living Ones}}; Магія угоди; Контрчари [Counterspell]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Elemental Gift{{Elemental Gift}}; Магія угоди; Голод Хадара [Hunger of Hadar]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Eldritch Invocations{{Eldritch Invocations}}; Devilʼs Sight{{Devilʼs Sight}}; Магія угоди; Нудотне сяйво [Sickening Radiance]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Статура +2 (18 → 20); Магія угоди; Двері між вимірами [Dimension Door]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Велика зброя (варіантне правило)",
+        "reason": "Збірка спирається на Великий розмір від Силу велетня Рунічного лицаря та Велику зброю; пресет лише 1-го рівня їх не відтворює, там Голіаф Середнього розміру з ручним арбалетом.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-but-is-it-any-good",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Походження та навички",
+        "reason": "Автор каже, що походження й навички не визначають збірку, і лише як приклад радить Безпритульного з Непомітністю, Спритністю рук і злодійськими інструментами; навички Воїна не названо.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-oversized-weapons-2014",
+            "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+            "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+            "sectionId": "section-background-and-skills",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

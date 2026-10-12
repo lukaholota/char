@@ -1,0 +1,2444 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "044a5edf7422e00e0223b20733f6d285c571675d68e21a4f281efa0fd2585a8a",
+  "sourceRevision": {
+    "revisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+    "sourceId": "rpgbot-2493c74f5f3fb41f",
+    "fetchedAt": "2026-09-29T19:10:20.785617+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:43:05-04:00",
+    "contentHash": "c8825be4722b952155d4878185fd94eadb95a9d284a6d6fa3b07aae0ee3aab23",
+    "title": "Archfey Warlock 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-2493c74f5f3fb41f-044a5edf7422e00e.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Archfey Warlock Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Focused on illusion, deception, and enchantment. The Fey’s subclass features\n\tprovide a variety of useful options. However, illusions, enchantments, and\n\tfear effects face challenges because resistance and immunity to those effects\n\tare common. You’ll need to diversify your capabilities to make sure that\n\trunning into something without a brain doesn’t reduce you to spamming Eldritch\n\tBlast with no other useful options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While few of the Archfey’s options are actually bad, the only truly fantastic\n\tfeature is Faerie Fire. After that, most of the options are good but\n\tunremarkable. There’s very little here that’s exceptional, but there’s also\n\tvery little here that’s really disappointing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Overall, the Archfey is a solid, but not amazing option. The spellcasting expands your capabilities without adding significant complexity, so the Archfey is a good choice for relatively inexperienced players looking to improve their understanding of spellcasting classes. More experienced players may find the Archfey reasonably effective, but you may find that the more situational portions of the subclass’s features go a long time without being useful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the Archfey Warlock falls to close to the core concepts of the Warlock, sections of this handbook have been omitted. See the "
+            },
+            {
+              "type": "link",
+              "text": "Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/"
+            },
+            {
+              "type": "text",
+              "text": " for help with those aspects of your character."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Archfey Warlock Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Archey Warlock Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Archey Warlock Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#archey-warlock-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Archey Warlock Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#archey-warlock-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Archey Warlock Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#archey-warlock-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – The Dude, A.K.A. the world's laziest warlock",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#example-build-the-dude-aka-the-worlds-laziest-warlock"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Archey Warlock Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Expanded Spell List"
+            },
+            {
+              "type": "text",
+              "text": ": A broad mix of\n\t\tutility, offensive, and defensive options. They’re all enchantments or\n\t\tillusions, so be cautious about creatures immune to those effects.\n\t\t"
+            },
+            {
+              "type": "text",
+              "text": "\n\t"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-features-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Faerie Fire makes\n\t\t\t\tthings very easy for any Rogues in the party, and it’s a great way to\n\t\t\t\thandle invisible foes. Sleep is usually an option which Wizards dump\n\t\t\t\tafter low levels because it’s not good enough to spend high-level spell\n\t\t\t\tslots on, but Warlocks cast every spell with their best spell slot, so\n\t\t\t\tthere’s no reason why Sleep can’t remain a go-to option for a\n\t\t\t\tWarlock."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Two decent\n\t\t\t\tsave-or-suck options. Calm Emotions can handle crowds, and Phantasmal\n\t\t\t\tForce can handle single targets. Unfortunately neither benefit from\n\t\t\t\tspell level scaling."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Blink is an\n\t\t\t\teffective defensive buff which doesn’t require Concentration, but Shadow\n\t\t\t\tof Moil comes online at 4th-level spells, and if you’re going to spend a\n\t\t\t\tspell slot and an Action for a 1-minute buff, you want it to be Shadow\n\t\t\t\tof Moil. Plant Growth isn’t always useful, but when it works it’s excellent."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Dominate Beast is\n\t\t\t\tvery situational, especially since you won’t be running into many beasts\n\t\t\t\tby the time you can cast 4th-level spells. Greater Invisibility is an\n\t\t\t\tabsolutely fantastic spell for many reasons, but in combat Shadow of\n\t\t\t\tMoil may be more appealing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Dominate Person is\n\t\t\t\tamong the best single-target control/debuff spells in the game, but it\n\t\t\t\tis single-target and only works against a single creature type. Humanoid\n\t\t\t\tenemies in combat at this level are uncommon, and when they do appear\n\t\t\t\tthey’re typically major antagonists, but you can still use Dominate\n\t\t\t\tPerson in non-combat situations to accomplish numerous goals by\n\t\t\t\tdominating NPCs. Seeming is basically a mass version of Disguise Self\n\t\t\t\twith a huge duration, and while that’s very situational, the 8-hour\n\t\t\t\tduration means that you can cast it early in the day and immediately\n\t\t\t\ttake a Short Rest to recover your spell slot. The ability to target\n\t\t\t\tunwilling creatures opens up some hilarious tactical options like\n\t\t\t\tdisguising everyone in the room (including enemies) as the same\n\t\t\t\tcreature, and if that doesn’t scream “archfey” I don’t know what\n\t\t\t\tdoes."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-features-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fey Presence"
+            },
+            {
+              "type": "text",
+              "text": ": A 10-foot cube originating\n\t\tfrom you means that you need to be nearly adjacent to whatever you want to\n\t\taffect, and you’re unlikely to effect more than one or two targets at the\n\t\tsame time. The effect is helpful if you get caught in melee and don’t want\n\t\tto be because you can make targets Frightened before running away\n\t\t(Frightened imposes Disadvantage on their Opportunity Attack), but try your\n\t\tbest to never need this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-features-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Misty Escape"
+            },
+            {
+              "type": "text",
+              "text": ": This is a great way to get\n\t\taway from a big enemy with multi-attack or from damage-dealing area effects\n\t\twhich leave lingering effects. Or, if you don’t have a good teleportation\n\t\toption, have your party members slap you around a little and “escape” from\n\t\tthem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-features-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Beguiling Defenses"
+            },
+            {
+              "type": "text",
+              "text": ": Situational by\n\t\tdesign, but charm effects are common, and turning them back upon the\n\t\tcreature can be both powerful and hilarious. Imagine turning a vampire’s\n\t\tCharm back upon the vampire."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-features-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dark Delirium"
+            },
+            {
+              "type": "text",
+              "text": ": This is almost a\n\t\tsingle-target save-or-suck, but the target can still act freely for the most\n\t\tpart (within the confines of the Charmed or Frightened condition). The\n\t\teffect ends if the target takes damage, so if your allies are going to pile\n\t\tin on the target they should try to make all of their attacks occur before\n\t\tthe target gets another chance to act. You could use this to briefly charm a\n\t\ttarget and have a nice conversation with them, but one minute is a short\n\t\tduration so you need to work fast."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-archey-warlock-ability-scores",
+      "heading": "Archey Warlock Ability Scores",
+      "sourceAnchor": "archey-warlock-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-archey-warlock-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Archfey is very much the typical warlock, so the advice in the\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "\n\tapplies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-archey-warlock-races",
+      "heading": "Archey Warlock Races",
+      "sourceAnchor": "archey-warlock-races",
+      "blocks": [
+        {
+          "blockId": "block-section-archey-warlock-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Archfey Warlock’s race options don’t differ significantly from those of a\n\ttypical warlock. See the\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Warlock Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-archey-warlock-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the Archfey relies heavily on mind-affecting effects, looking for innate spellcasting which expands beyond enchantments may be helpful. Also avoid adding spells which require Concentration since Faerie Fire will typically be better than other options."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-archey-warlock-feats",
+      "heading": "Archey Warlock Feats",
+      "sourceAnchor": "archey-warlock-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-archey-warlock-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Fey Touched"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tFey Touched is no better for the Archfey Warlock than for other warlocks, but the theme feels right."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+      "heading": "Example Build – The Dude, A.K.A. the world’s laziest warlock",
+      "sourceAnchor": "example-build-the-dude-aka-the-worlds-laziest-warlock",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-the-dude-aka-the-worlds-laziest-warlock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Access to Faerie Fire makes it easy to get an "
+            },
+            {
+              "type": "link",
+              "text": "Elven Accuracy",
+              "href": "https://rpgbot.net/oops-all-elves/"
+            },
+            {
+              "type": "text",
+              "text": " build off the ground immediately. Start as any variety of elf or half-elf, take Elven Accuracy at 4, pour invocations into Eldritch Blast, and watch your DPR climb rapidly. But that’s an extremely simple build, so spelling it out in more detail does little to help you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-the-dude-aka-the-worlds-laziest-warlock-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Instead, we’re going to create the world’s laziest warlock. Our intent with this build is to make doing things someone else’s problem. It is simultaneously a “pet” build and a support build, built around Pact of the Chain and a collection of support spells for your party. In parties which rely heavily on attack rolls, you’ll be very popular. Even better: you basically won’t need to move unless something gets into melee with you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-the-dude-aka-the-worlds-laziest-warlock-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Among other options, we’ll be taking "
+            },
+            {
+              "type": "link",
+              "text": "Pact of the Chain",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/"
+            },
+            {
+              "type": "text",
+              "text": ". Again: Work is someone else’s problem. It will also let us engage in all sorts of fey trickery. We’ll pick a sprite as our familiar because it’s the logical fey option, and we’ll spend a lot of time poisoning our enemies. This will require some mastery of tactics involved in Pact of the Chain which we explore in the "
+            },
+            {
+              "type": "link",
+              "text": "Pact Boons Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/"
+            },
+            {
+              "type": "text",
+              "text": " and which we’ll revisit in the example build below."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll start from the ability scores recommended in the Warlock Handbook. We’ll put our +2 increase into Charisma and the +1 increase into Dexterity so that we can increase both with one ASI to improve both modifiers at the same time."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We don’t especially need a feat, so custom lineage and human are both out. Flight would be neat, but that feels like work. Skills are good. Innate spellcasting is good, too. The Changeling and the Satyr both make great candidates (they are fey, after all), and there are several great tiefling options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For this build we’ll use the variant "
+            },
+            {
+              "type": "link",
+              "text": "Devil’s Tongue Tiefling",
+              "href": "https://www.dndbeyond.com/sources/scag/races-of-the-realms#LoneFaithful"
+            },
+            {
+              "type": "text",
+              "text": " with the custom origin rules. Vicious Mockery provides us a good offensive/support option, Charm Person helps us serve as a face without Expertise or Enhance Ability, and Enthrall is at least amusing if not especially helpful. Dispater Tiefling and Glasya Tiefling both make excellent choices, too, depending on what set of innate spellcasting you want."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Courtier. That gets us proficiency in Insight, Persuasion, and two languages.\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll learn Deception and Intimidation from our class skills plus Insight and Persuasion from the Courtier background. Courtier also gets us two languages, which we can use for things like Elvish and Sylvan (commonly spoken by fey)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take Inspiring Leader at 4th level. While the pool of temporary hit points it provides is somewhat small, it’s crucial for our familiar, which has just 2 hit points. At 4th level Inspiring Leader will give our familiar 7 temporary hit points (our Charisma modifier will be +3 at that point), which isn’t a ton but it’s enough that our familiar actually has a chance to survive an attack."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Once we get our Charisma to 20 (which we’ll do at level 12), we have room for additional feats with our ASIs at 16 and 19. We don’t want anything that’s going to take our bonus action in combat because that’s reserved for commanding our familiar. Eldritch Adept, Metamagic Adept, and Resilient are all good choices. You could take Fey Touched at level 12 and another hybrid feat at level 16, but that puts you behind the "
+            },
+            {
+              "type": "link",
+              "text": "Fundamental Math",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": " for a very long time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Otherworldly Patron: The Archfey"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fey Presence"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Faerie Fire"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sleep"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mage Hand"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mind Sliver "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting equipment take a light crossbow and 20 bolts, either a component pouch or spellcasting focus (I like the focus because it feels cooler even though they’re functionally identical), either pack, leather armor, any simple weapon you like (you won’t use it), and a dagger."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our first subclass feature, Fey Presence, is mostly a combat option, but it also has some use outside of combat. While it does have a 1-round duration, it doesn’t have an explicit visual effect and the target doesn’t know that it was affected by magic, so you can use it to very briefly charm creatures to get Advantage on a Charisma check. If you need something simple like passage through a guarded entrance, that might be enough. If not, you’ll be able to cast Charm Person as an innate spell once you hit level 3."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You get just two spells known and just one spell slot at this level, so we need out spells to be good. Hex is the typical go-to spell for low-level warlocks, but Faerie Fire fills a similar niche and may be considerably more effective. It gives you less of a DPR boost than Hex does, but your entire party benefits so it can tip encounters hugely in your favor. Of course, it’ll only last through one fight per casting, so if your DM is stingy about short rests, go for Hex instead. Sleep is a great way to clear crowds of low-HP enemies, but it’s not always effective, so Faerie Fire is your go-to option."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For cantrips, take Mage Hand for utility. We have Vicious Mockery from our race and Mind Sliver as combat options. Neither do a lot of damage, but Vicious Mockery can protect your allies and Mind Sliver makes enemies vulnerable to other effects which call for a saving throw, which can make tough enemies vulnerable to other effects from your party."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If all you need is damage, go for your crossbow. Even with a +2 Dex mod, it’s still more effective than unmodified Eldritch Blast. But that feels like work, so cantrips are preferred. Neither of our offensive cantrips require somatic components, so we don’t even need to lift out arms."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fiendish Vigor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Misty Visions"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Unseen Servant"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level you get your second spell slot and you first invocation. We’ll take Misty Visions and lean hard into the fey mischief. Save your spells slots for combat, but even in combat you have some options. A 15-foot cube could easily provide cover of some sort, and if you prove to yourself that it’s an illusion (try walking through it on a side where enemies can’t see you) you can see through the image. Better still, your entire party can do this, allowing your party to hide inside a 15-foot cubic boulder that has appeared out of nowhere. We’ll also take Fiendish Vigor to help keep us alive until level 3."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "However, this does require Concentration, which will compete for space with Faerie Fire. When it makes sense to do so, cast Faerie Fire, find real cover, and resort to cantrips or your crossbow if needed."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For our leveled spell, we learn Unseen Servant. Wherever Mage Hand isn’t strong enough to do the job, or whenever you need something that requires ongoing effort, Unseen Servant is there to help. Cast it before you take a Short Rest and tell it to loot the bodies or trigger traps or something."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It can “perform simple tasks that a human servant could do”, which is intentionally vague, so see what your DM will tolerate. Maybe it can keep watch and ring a bell if it sees a creature. The servant doesn’t disappear if it goes out of range, so you could hand it a candle and have it wander around to draw attention. You could hand it a metal pan and have it drop the pan somewhere to make a loud noise. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Get creative, but don’t get out of your chair. That’s the servant’s job. If anyone complains, use Misty Visions and make a very convincing illusion of you doing something useful and important."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Boon (Pact of the Chain)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Eldritch Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fiendish Vigor -> Investment of the Chain Master"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Misty Step"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell: Sleep -> Calm Emotions"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact of the Chain is where our build really starts to take off. We’ll grab a sprite because it’s the fey option and also because it’s going to get really amazing when we pick up Investment of the Chain Master. We’ll name our sprite Walter because we can and because I’m trying to make a movie reference ."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Oh look, that’s now. Neat. We can retrain an invocation any time we gain a level of warlock, so let’s do that now."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Investment of the Chain Master gives our sprite either a flying speed or a swim speed, so we’ll give it a swim speed because it already has a better fly speed. We can give it resistance to one source of damage using our Reaction, but with 2 hit points that’s less helpful than you’d hope since 4 damage will still kill your familiar. Buy a big pile of the material component for Find Familiar and expect to re-cast it after every combat."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Crucially, our sprite’s attacks now count as magic and the poison on their bow attacks uses our spell save DC. This immediately becomes one of our best tactical options against anything that’s not immune to poison. You can issue verbal commands to your familiar without an action, but you can also spend your Bonus Action to have it attack. Since our sprite is using a bow, positioning for this attack is easier than it is for most familiars. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact of the Chain also allows you to take the Attack action and give up one of your attacks (which is all of your attacks) to let your familiar attack, so our sprite can attack twice in a single turn. Throw up Faerie Fire and both of those attacks can be made at Advantage. Each hit forces a Constitution save, and while they do tend to be high, you can force two per turn and if the target fails they’re poisoned for a full minute, which will almost certainly outlast your combat encounter."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If targets rolls 5 or lower on the save, they fall unconscious. It’s unclear if this is meant to be 5 lower than the base DC of 10, but I’m going to assume the worst and assume that it’s just 5 or below no matter what, so you don’t want to count on that chance. Poisoned massively debilitates anything that relies on attacks, and Disadvantage on ability checks is great if anyone in your party likes to grapple. On your sprite’s turn, it spends its own Action to turn invisible and reposition."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our sprite also has the ability to turn invisible and fly. With a +8 Stealth, it’s very hard to detect. And conveniently, Find Familiar allows you to see through its eyes. That means that your sprite is also a fantastic remote scout (though with limited range). And hey, if it gets caught and dies you can recreate it for 10 gp."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This level raises your spell slots to 2nd level, so you can start learning 2nd-level spells. Our 1st-level spells remain good go-to options, and we’ll add Misty Step in case we somehow get into trouble. Also: running away from stuff is hard, so we’ll teleport away from our problems."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can also cast Charm Person as an innate spell starting at 3rd level. It’s not always useful and it doesn’t always work, but in social situations where you expect to interact with one creature for a long time, definitely try to use it. Just try not to give yourself away by performing Verbal and Somatic Components right in front of your target."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Inspiring Leader"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip: Minor Illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Invisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Inspiring Leader is a great feat. At this level and with these stats it gives 6 creatures 7 temporary hit points. Make sure that your familiar is one of them, and suddenly your familiar has 9 hp and you can give it resistance to one source of damage as a Reaction so it might actually survive taking damage at least once."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level you learn a new cantrip. We already gave Misty Visions for larger illusions, but Silent Image can’t produce sound and requires Concentration. Minor Illusion can produce sound, lasts a minute and doesn’t require Concentration. Combining this with Silent Image means that you have a bottomless well of illusions (and therefore a bottomless well of creative solutions) which can only be stopped by physical interaction or an Investigation check at the cost of a creature’s Action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As an example: You could create the illusion of a mammoth (a huge creature, so 15 ft. cube) with long shaggy hair that drags on the floor (so you can hide inside the illusion) and use Minor Illusion to make the sound of the mammoth walking while you move the illusion."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ll add another 2nd-level spell, too. Invisibility is a solid choice as a support option even if you’re relying on your familiar to do your party’s scouting."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation: Voice of the Chain Master"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Hunger of Hadar"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At 5th level you get another invocation, so we’ll take Voice of the Chain Master. This allows you to use your familiar as a remote scout anywhere on the same plane of existence, rather than just within the 100-foot range in which Find Familiar lets you do so. You can also communicate with your familiar telepathically, so you’re free to issue it specific commands as it moves around. Unfortunately, sprites don’t have Darkvision, which can become a problem. If it’s an option, have an ally cast Darkvision on your sprite. If you’re desperate you can hand it a light source and creatures can marvel at light which seems to emanate from mid-air with no visible source."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "5th level brings 3rd-level spells. We’ll take Hunger of Hadar. It’s not particularly tricky or novel by warlock standards, but sometimes when you’re facing a world full of nails you just need a really good hammer. Plus, you can cast Hunger of Hadar then go take a nap while it does its work, so there’s very little effort involved on your part."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level you gain the ability to cast Enthrall as an innate spell from our race. It’s basically only useful as a distraction in situations which haven’t devolved into violence, but it’s great if you need your familiar to accomplish some nonsense without being noticed. The targets also don’t need to see you for this to work, so you can hide inside an illusion (Minor Image a 15-foot tall giant or something) and cast Enthrall."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Misty Escape"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Counterspell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Invisibility -> Dispel Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Misty Escape is a safety measure. It serves a similar purpose to Misty Step, but doesn’t require waiting for your turn and it doesn’t eat a spell slot. If you’re just trying to get around an obstacle, have someone slap you to trigger the teleportation."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We have poison from our sprite to handle martial enemies, illusions to handle unintelligent enemies, and Hunger of Hadar for crowds. But we don’t have any good countermeasures for enemy spellcasters, so let’s address that. We can drop one of our existing spells known and get both Counterspell and Dispel Magic. I recommend dropping either Invisibility or Unseen Servant. Either way, your sprite can fill in for whatever capability you give up (scouting or doing chores)."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation: Sculptor of Flesh"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Banishment"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7th level brings 4th-level spells and another invocation. We’ll grab Sculptor of Flesh because there aren’t any more obvious Pact of the Chain invocations, and "
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/true-polymorph-and-shapechange/"
+                },
+                {
+                  "type": "text",
+                  "text": " is really good."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ll add Banishment as our new 4th-level spell. It’s a great counter to anything extraplanar, and even against things that aren’t it’s a great way to remove an enemy from a fight temporarily while your friends and your familiar deal with everything else."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You might also retrain Hunger of Hadar into Sickening Radiance at this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Dexterity 15 -> 16, Charisma 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Improved Invisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our first ASI, all the way at level 8. We’re still 1 behind the Fundamental Math, but that’s survivable and we’re still plenty useful. Most of our options don’t rely on saving throws and the ones that do (Cantrips, Hunger of Hadar, Banishment, Fey Presence) can be targeted against enemies that are likely to fail or you can leave them in a magical blender long enough that it doesn’t matter."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Improved Invisibility is a gift to our familiar. Hit them with it then send them into combat unassisted. See through their senses and communicate telepathically using Voice of the Chain Master and have them fly around poisoning your enemies, then once everything is annoyed, confused, and poisoned, have the rest of your party kick in the door and clean up the mess. Improved Invisibility only lasts one minute, so this may be difficult in encounters with numerous enemies, but in those cases you should go for Hunger of Hadar or Sickening Radiance rather than sending in your sprite."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation: Whispers of the Grave"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Hold Monster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Whispers of the Grave is a nice, universally-appealing option. Shoot first, ask questions later."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level we’ll learn Hold Monster. It works in nearly any fight, and sometimes it can even prevent a fight from happening. This is also where our spell slots stop improving, but we do continue to learn new spells every few levels so we’ll work our way back down the Warlock’s spell list to add additional options. You can also retrain a spell every level, so you have lots of room to experiment."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Beguiling Defenses"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip: Prestidigitation"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Beguiling Defenses won’t come up all the time, but when it does it will be really cool."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our choice of new cantrip doesn’t matter much. We have plenty of offensive options, so we’ll add some utility and some mischief with Prestidigitation. Among other things, you can use it to clean stuff, so you can remove bathing and laundry from your to-do list."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Mass Suggestion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Seeming"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mass Suggestion fits the theme of the Archfey very well. A 24-hour duration, generous constraints, and limited largely by your creativity and what your DM will let you get away with."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Seeming is a weird spell, and it won’t always be useful, but you can disguise your whole party in order to trick enemies into attacking your party’s Defender who looks like a dude warlock in a bathrobe and slippers. The 8-hour duration means that you can cast it at the beginning of the day then immediately take a Short Rest to get your spell slots back."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Charisma 18 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re finally caught up to the Fundamental Math. If you’ve been chugging along with your save DC’s a bit behind, you might instead take Fey Touched, Skill Expert, or Shadow Touched. Any of the three can get you a +1 Charisma increase, and you can take another of the three at level 16 to get to 20 Charisma"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Plane Shift"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Plane Shift is a great long-distance travel option but since you can never cast it more than once per day you’ll need to stop somewhere pleasant to take a long rest before you go back to the material plane. I hear Elysium is wonderful, so that’s great choice"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You can also use it to rid yourself of troublesome enemies by turning your familiar invisible and sending it off to get within touch range of your target to deliver the spell. Fighting things is hard, so instead you can send them on a nice long vacation to anywhere but here. I hear the plane of fire is awful, so that’s a great choice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dark Delirium"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If you use Dark Delirium in combat, make the creature Frightened, then have your allies grapple the creature, Shove it prone, and potentially Restrain it either with rope or with a net. The illusion doesn’t break unless the creature takes damage, but one minute should be plenty of time for your party to restrain a Frightened and functionally blind enemy."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Outside of combat, you could use this to distract creatures while your party sneaks past or you could use it to force someone to have a brief conversation with you one-on-one."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The illusion doesn’t need to be fantastical or weird or scary. You could absolutely put the target in an illusion of their existing surroundings just so that they can’t see your party as they walk past or surround the creature or something. If you’re clever the creature might never notice that any of this happened."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation: Shroud of Shadow"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Glibness"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Chains of Carceri is fine, but you have plenty of options for handling other creatures, and the creatures which you can target with Chains of Carceri can often be handled better by Banishment. Instead, we’ll take Shroud of Shadow so we can be invisible almost as easily as our sprite familiar. You’re free to cast Invisibility on other creatures, too, but you can’t upcast it with Shroud of Shadow and it requires Concentration so you’re limited to one creature at a time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For this level’s Mystic Arcanum, we’ll take Glibness. This trivializes any situation that can be handled with a Charisma check, which makes social situations very easy."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "To cover the three pillars of the game: During exploration, use your sprite. It’s invisible, sneaky, can fly, and you can see through anywhere on the plane. During combat, your inexpensive go-to tactic is to support the party with a leveled spell, then poison things with your sprite and let your party clean up the remains. During social interactions, Glibness makes you unstoppably charming and you can occasionally throw in charm effect with spells like Charm Monster and with your subclass features. You are never not amazing, and the vast majority of the time you can be amazing while sitting down and working remotely through your familiar."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement or Feat"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If you took a hybrid feat at level 12, take another here. Otherwise, consider Eldritch Adept for another invocation or Metamagic Adept. If you take Subtle Spell, you can cast Charm Person and Charm Monster without creatures knowing that you’re doing it, further trivializing social situations."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Foresight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Throw Foresight on one of your party’s martial characters. It’s literally the best buff in the game, and whenever anyone tells your character “Hey, maybe you should get up and help during combat” you can say “look, I cast Foresight this morning, my familiar is flying around doing stuff, and I’ll cast Unseen Servant to clean up when you’re done. What else do you want from me?”"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation: Witch Sight"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Your final Eldritch Invocation slot. Pact of the Chain doesn’t have many invocations so we’ve been out of obvious options for a while. Witch Sight will help us avoid trickery caused by other creatures."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement or Feat: Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level your Charisma is 20 and you almost certainly have several feats. We’re spoiled for choices here. Maybe take Chef? Inspiring Leader already provides a big pile of temporary hit points, but passing our snacks lets your party get more mid-combat if they somehow aren’t already using their Bonus Actions consistently."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Master"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20th level is a bit dry, unfortunately. Eldritch Master lets you ask\n\t\t\t\t\tfor your spell slots back once per day without completing a short\n\t\t\t\t\trest, which saves you 59 minutes once a day."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Archey Warlock Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fey Presence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Misty Escape"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Beguiling Defenses"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Dark Delirium"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fey Touched"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/li[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "orphan-list-item-review",
+      "location": "div/li[1]",
+      "detail": "<li value=\"1\"><span class=\"rating-green\">Expanded Spell List</span>: A broad mix of utility, offensive, and defensive options. They’re all enchantments or illusions, so be cautious"
+    },
+    {
+      "code": "provisional-id",
+      "location": "li/ul[1]",
+      "detail": "block-section-features-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/li[2]",
+      "detail": "block-section-features-3"
+    },
+    {
+      "code": "orphan-list-item-review",
+      "location": "div/li[2]",
+      "detail": "<li value=\"1\"><span class=\"rating-orange\">Fey Presence</span>: A 10-foot cube originating from you means that you need to be nearly adjacent to whatever you want to affect, and you"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/li[3]",
+      "detail": "block-section-features-4"
+    },
+    {
+      "code": "orphan-list-item-review",
+      "location": "div/li[3]",
+      "detail": "<li value=\"6\"><span class=\"rating-green\">Misty Escape</span>: This is a great way to get away from a big enemy with multi-attack or from damage-dealing area effects which leave lin"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/li[4]",
+      "detail": "block-section-features-5"
+    },
+    {
+      "code": "orphan-list-item-review",
+      "location": "div/li[4]",
+      "detail": "<li value=\"10\"><span class=\"rating-orange\">Beguiling Defenses</span>: Situational by design, but charm effects are common, and turning them back upon the creature can be both power"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/li[5]",
+      "detail": "block-section-features-6"
+    },
+    {
+      "code": "orphan-list-item-review",
+      "location": "div/li[5]",
+      "detail": "<li value=\"14\"><span class=\"rating-green\">Dark Delirium</span>: This is almost a single-target save-or-suck, but the target can still act freely for the most part (within the confi"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-archey-warlock-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-archey-warlock-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-archey-warlock-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-archey-warlock-feats-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-example-build-the-dude-aka-the-worlds-laziest-warlock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-example-build-the-dude-aka-the-worlds-laziest-warlock-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-example-build-the-dude-aka-the-worlds-laziest-warlock-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 5110,
+    "sections": 14,
+    "blocks": 31,
+    "tables": 2,
+    "ratingSignals": 16
+  },
+  "status": "needs-editorial-review"
+}

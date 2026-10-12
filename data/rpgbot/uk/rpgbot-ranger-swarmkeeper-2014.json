@@ -1,0 +1,2368 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-3569401f4479b839",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+      "sourceId": "rpgbot-3569401f4479b839",
+      "fetchedAt": "2026-09-29T19:11:29.382611+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:41:43-04:00",
+      "contentHash": "634a96a5c90bcdcfaa60da5914b9e796392c40203a15bb78947f447ec28ace11",
+      "title": "Swarmkeeper Ranger 5e: DnD Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-3569401f4479b839-7eb431aa5f00d096.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-ranger-swarmkeeper-2014",
+    "sourceId": "rpgbot-3569401f4479b839",
+    "slug": "ranger-swarmkeeper-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Хранитель рою — гайд підкласу Слідопита (2014)",
+    "titleEn": "Swarmkeeper Ranger 5e: DnD Subclass Guide",
+    "topics": [
+      "Слідопит",
+      "Хранитель рою",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хранитель рою додає Слідопиту трохи контролю: поєднує примусове переміщення із заклинаннями контролю області. Він не завдаватиме найбільше шкоди серед підкласів Слідопита, зате пропонує вибір для кожного ходу з атаками. Це дозволяє ухвалювати цікаві тактичні рішення в бою; якщо вам таке подобається, читайте далі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо порівняти зі старішою редакцією, уміння й додаткові заклинання Хранителя рою нагадують мені клас Seeker із D&D 4E. Примусове переміщення, важкопрохідна місцевість і стан Знерухомлений — чудові ефекти. Хранитель рою не матиме стільки контролю, як Чарівник, але ще один напівконтролер на полі бою стане хорошим доповненням до будь-якої групи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У прикладі персонажа «Маю камінець» розширюємо поняття рою до космічних камінців — наче метеоритний рій. Замовляння Чарівний камінь [Magic Stone] дозволяє жбурляти каміння в людей і бути Слідопитом на Мудрості. Завдяки цьому СК наших заклинань вища, ніж у більшості Слідопитів, і ми краще використовуємо додаткові заклинання Хранителя рою, зокрема Павутиння [Web] — найкраще заклинання 2-го рівня в грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Хранителя рою",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Хранителя рою",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#swarmkeeper-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#swarmkeeper-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#swarmkeeper-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#swarmkeeper-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#swarmkeeper-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#swarmkeeper-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад персонажа — Маю камінець",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#example-swarmkeeper-ranger-build-i-got-a-rock"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Можливості мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#multiclassing-potential"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах офіційного контенту ми не враховуємо сторонні матеріали, Unearthed Arcana й хоумбрю, оскільки не можемо припустити, що ваша гра їх дозволяє."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Хранителя рою",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Зібраний рій|Gathered Swarm}}: додає тактичної складності кожному вашому ходу. Працює лише раз за хід, тому за чистою шкодою не замінює Мисливська мітка [Hunter's Mark] чи {{Мічений ворог|Favored Foe}}; плануйте хід до початку атак. Із кількома атаками надійніше, тож до отримання Додаткової атаки розгляньте бій двома зброями. Ще одна деталь: активується будь-якою атакою, зокрема атакою заклинання, а не лише зброї. Кожен варіант нижче помаранчевий через ситуативність, проте разом вони чудові. Це наче ящик із трьома інструментами: кожен робить небагато, але сукупно вони дозволяють дуже багато."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шкода{{Gathered Swarm}}: звичний вибір у більшості випадків, але й останній запасний. Якщо інші варіанти суттєво вплинуть на ситуацію, використайте їх. Інакше 1к6 шкоди — невеликий, але приємний бонус. На жаль, це окреме джерело шкоди, а не додаткова шкода самої атаки, тож критичне влучання її не множить. Істоти з опором до колючої шкоди зазвичай мають опір до такої шкоди "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "від немагічних атак"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Це не атака, тож такий опір не застосовується."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Переміщення цілі{{Gathered Swarm}}: може змусити ворога відпустити захопленого союзника й поставити його в невигідне місце: область тривалої шкоди, відкриту яму тощо."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Власне переміщення{{Gathered Swarm}}: найменш імовірний вибір, але корисний. Переміщення на 5 футів може вивести з досяжності ближнього бою, захоплення, області ефекту й загалом із неприємностей."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Магія охоронця рою|Swarmkeeper Magic}}: кілька дуже хороших допоміжних варіантів, але на наступальні важко покладатися."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Магічна рука [Mage Hand] — хороше замовляння, а Слідопити зазвичай їх не отримують. Навіть {{Друїдичний воїн|Druidic Warrior}} не дозволяє його обрати. Вогники фей [Faerie fire] чудове в бою, але ваша СК, імовірно, низька: бережіть для натовпу, де хтось статистично провалить ряткидок, або ворогів із низькою Спритністю, наприклад огрів чи Тараска."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Павутиння [Web] — одне з найкращих заклинань блокування області в грі. Складний вибір. Наче тривала версія Обплутування [Entangle]: істоти можуть знову й знову потрапляти під ефект, просто перебуваючи в області. Серед групи ворогів хтось статистично провалить ряткидок; навіть якщо всі потім успішно виконають перевірку Сили — саме перевірку, не ряткидок — для звільнення, кожен втратить дію. А наш чудовий примусовий рух дозволяє заштовхнути їх назад. Вороги можуть випалити павутину, якщо мають вогонь, але просто не використовуйте її проти Червоного дракона, і цієї проблеми не буде."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Газоподібна форма [Gaseous Form] чудове для проникнення, втечі, розвідки й загалом переміщення без перешкод від інших істот. Швидкість дуже обмежена: поєднуйте з підсиленнями на кшталт Скорохід [Longstrider], щоб встигнути більше за годину дії."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "13-й рівень: хоч отримуєте значно пізніше за повних чаротворців, Арканне око [Arcane eye] залишається одним із моїх улюблених заклинань віщування для безпечної розвідки здалеку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "17-й рівень: ряткидки Статури зазвичай високі, а СК Слідопита — низька, тож поєднання складне. Але Нашестя комах [Insect Plague] триває 10 хвилин, завдає половину шкоди при успіху й має особливо хороший тип шкоди. Якщо замкнути ворогів у тісному просторі чи знову заштовхувати Зібраним роєм, можна завдати багато шкоди навіть із постійно успішними ряткидками. Принаймні перекриєте вузький прохід, поки повні чаротворці концентруються на інших вражаючих ефектах."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Корчуватий прилив|Writhing Tide}}: будь-який політ чудовий, але 10 футів — зовсім небагато. Можна відірватися від землі й перелетіти невеликі перешкоди, але не подорожувати так. Памʼятайте про Ривок: якщо більше нічого робити, за одне використання пролетите до 200 футів. Підсилення на кшталт Скорохода й Прискорення [Haste] суттєво допомагають у бою та поза ним."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Могутній рій|Mighty Swarm}}: величезне покращення варіантів переміщення. Шкода зростає так мало, що не розумію, навіщо взагалі її підвищували."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шкода{{Mighty Swarm}}: перехід із 1к6 на 1к8 не має суттєвого значення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Переміщення цілі{{Mighty Swarm}}: збити ціль із ніг чудово, якщо союзники ближнього бою скористаються станом Збитий з ніг або потрібно обмежити її рух. Але далекобійним атакам по цій цілі ви самі ускладните життя."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Власне переміщення{{Mighty Swarm}}: +2 КБ на один раунд. У ближньому бою це величезна перевага; розгляньте використання кожного ходу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Розсіювання в рій|Swarming Dispersal}}: на цьому рівні щоденних використань багато. Отримуйте опір проти потужної шкоди від критичних влучань чи високорівневих заклинань і водночас виходьте з небажаного ближнього бою. Технічно можна добровільно отримати шкоду, щоб активувати телепортацію. Але це навряд чи суттєва лазівка: використань мало, дальність невелика. Якщо треба вибратися із захоплення, калюжі кислоти, тривалого ефекту тощо, можна ляснути себе на 1 + Сил шкоди й активувати телепортацію."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                1,
+                1,
+                1,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-swarmkeeper-ability-scores",
+          "heading": "Характеристики Хранителя рою",
+          "sourceAnchor": "swarmkeeper-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-swarmkeeper-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хранитель рою має кілька варіантів. Можна традиційно підвищувати Спритність для далекобійних атак або Силу для ближнього бою. Але частина вмінь використовує СК заклинань, тож є підстава будувати персонажа на Мудрості з Друїдичним воїном."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swarmkeeper-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сил: можна спробувати хитрощі з {{Майстер древкової зброї|Polearm Master}} чи {{Майстер важкої зброї|Great Weapon Master}}, але не рекомендую."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swarmkeeper-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спр: КБ і далекобійні атаки. Хороший вибір."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swarmkeeper-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ста: ХП та ряткидки концентрації. Корисно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swarmkeeper-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інт: нехай перевірками знавця займається хтось інший."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swarmkeeper-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Муд: кілька чудових умінь залежать від СК заклинань, тож її підвищення — хороший план."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swarmkeeper-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хар: нехай соціальними перевірками займається хтось інший."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swarmkeeper-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-swarmkeeper-races",
+          "heading": "Раси",
+          "sourceAnchor": "swarmkeeper-races",
+          "blocks": [
+            {
+              "blockId": "block-section-swarmkeeper-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не забудьте "
+                },
+                {
+                  "type": "link",
+                  "text": "аналіз рас Слідопита",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/races/"
+                },
+                {
+                  "type": "text",
+                  "text": ": тут згадані лише варіанти з іншою кольоровою оцінкою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swarmkeeper-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Дракононароджений{{Dragonborn}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Скарбниця драконів Фізбана",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудово поєднується з Павутинням. Вона дає стан Знерухомлений і перешкоду на ряткидки Спритності для спійманих цілей. Лише уникайте варіантів із вогнем."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кобольд{{Kobold}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Монстри Мультивсесвіту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ще один незвичний спосіб отримати атакувальне замовляння для максимізації Мудрості. {{Драконяче чаклунство|Kobold Legacy}} нового Кобольда дає замовляння атаки зі списку Чародія, яке використовує Мудрість. Зібраному рою потрібні лише атаки, тож хороші варіанти — Вогняний заряд [Fire Bolt] і Моторошний дотик [Chill Touch]."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-swarmkeeper-feats",
+          "heading": "Риси",
+          "sourceAnchor": "swarmkeeper-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-swarmkeeper-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Обираючи риси, не ігноруйте "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд Слідопита",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swarmkeeper-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дробильник|Crusher}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Казан Таші з усім",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо використовуєте друїдичні замовляння Чарівний камінь або Кийок [Shillelagh], які дозволяють битися на Мудрості, ваша шкода буде дробильною. Чому б не додати ще 5 футів примусового руху до ефектів Зібраного рою?"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Посвячений у магію|Magic Initiate}} (Друїд) "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга гравця",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": одна хитрість заслуговує уваги. Можна взяти Друїдичного воїна, але Чарівний камінь у пращі дозволяє застосувати {{Стрільба з лука|Archery}}. Це працює для кожного Слідопита, проте Хранителю рою особливо потрібна висока СК. При мультикласуванні оцінка падає до помаранчевої: один рівень Воїна для Стрільби з лука чи Друїда для замовлянь — значно кращі шляхи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Стійкий|Resilient}} (Статура) "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга гравця",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": усі пʼять додаткових заклинань Хранителя рою потребують концентрації, тому посилення ряткидків Статури дуже корисне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Бойовий заклинатель|War Caster}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга гравця",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": допомагає підтримувати наші численні заклинання з концентрацією. Але без наступального замовляння для заміни провокованої атаки Стійкий кращий на більшості рівнів."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-swarmkeeper-weapons",
+          "heading": "Зброя",
+          "sourceAnchor": "swarmkeeper-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-swarmkeeper-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За одним невеликим винятком, список із "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Слідопита",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": " працює добре."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swarmkeeper-weapons-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Праща{{Sling}}: якщо отримуєте Чарівний камінь від Друїдичного воїна, мультикласування чи Посвяченого у магію й хочете застосувати {{Влучний стрілець|Sharpshooter}}, кладіть камінці в пращу. Виходить цікаве поєднання правил: далекобійна атака заклинання з далекобійною зброєю. Найважливіший пункт Влучного стрільця, −5 до атаки за +10 шкоди, працює завдяки формулюванню «атака далекобійною зброєю». Але перші два пункти не працюють без дозволу Майстра: технічно це не «далекобійна атака зброї»."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-swarmkeeper-armor",
+          "heading": "Обладунки",
+          "sourceAnchor": "swarmkeeper-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-swarmkeeper-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайді Слідопита є "
+                },
+                {
+                  "type": "link",
+                  "text": "хороші поради",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": " щодо цього."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swarmkeeper-armor-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Напівлати{{Half Plate}}: якщо граєте Хранителем рою на Мудрості з Друїдичним воїном, намагайтеся мати хоча б Спритність 14 і вдягнути напівлати для КБ."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-swarmkeeper-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "swarmkeeper-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-swarmkeeper-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не забудьте поради з "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Слідопита",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": ". Нижче три шляхи отримати і Чарівний камінь, і бойовий стиль Стрільба з лука."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swarmkeeper-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик: один рівень Домену природи дає Чарівний камінь і важкі обладунки, а також заклинання Клірика 1-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Друїд: один рівень дає замовляння, другий — коло. Коло зірок особливо хороше для захисту концентрації. Оскільки атаки заклинань активують Зібраний рій, безкоштовні Спрямований заряд [Guiding Bolt] стають трохи потужнішими."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Воїн: перший рівень Воїна дає володіння ряткидками Статури, економить рису Стійкий (Статура) й дозволяє взяти Стрільбу з лука. Потім отримуємо Чарівний камінь від Друїдичного воїна. А якщо рівень Воїна вже є, другий для {{Сплеск дій|Action Surge}} — простий вибір на майбутнє."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+          "heading": "Приклад персонажа — Маю камінець",
+          "sourceAnchor": "example-swarmkeeper-ranger-build-i-got-a-rock",
+          "blocks": [
+            {
+              "blockId": "block-section-example-swarmkeeper-ranger-build-i-got-a-rock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наші чудові вміння найкраще працюють із високою СК заклинань від Мудрості. Як цього досягти Слідопиту? Якщо одразу перейшли до прикладу: використовуємо Чарівний камінь від бойового стилю Друїдичний воїн."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-swarmkeeper-ranger-build-i-got-a-rock-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Маємо кілька переваг. Передусім атакуємо Мудрістю. Саме по собі це нормально, але замовляння має ще одну дивину: камінці у пращі стають «атакою заклинання з далекобійною зброєю», що створює різні незвичні взаємодії правил. Насамперед нас цікавить додаткова шкода Влучного стрільця."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-swarmkeeper-ranger-build-i-got-a-rock-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це поєднання дає хорошу СК, як в інших чаротворців, і пристойну шкоду Слідопита. Також використовуємо тему каміння для переосмислення рою. Його вигляд не змінює механіку, тож це можуть бути камінці, які обертаються навколо нас, наче астероїди. Стільки атмосфери від одного дивного замовляння! У Спелджаммері є розумні живі метеори — чому нам не можна?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-swarmkeeper-ranger-build-i-got-a-rock-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей персонаж — один із наших "
+                },
+                {
+                  "type": "link",
+                  "text": "10 улюблених персонажів D&D 5e",
+                  "href": "https://rpgbot.net/rpgbots-10-favorite-dnd-character-builds-that-arent-wizards/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Змінюємо звичайні пріоритети Слідопита: насамперед Мудрість і Статура, Спритність залишаємо 14 для середніх обладунків. Обираємо Свою расу{{Custom Lineage}}; таблиця вже враховує +1 Статури від Дробильника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Бонуси раси й риси"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 20"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Своя раса дає чудову бонусну рису: одразу беремо Дробильника й округлюємо Статуру. Чарівні камені завдають дробильної шкоди, тож Дробильник додає трохи контролю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також беремо темнозір і вкладаємо +2 в Мудрість."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Передісторія Слідчий{{Investigator}} дає Уважність та Аналіз поведінки, а також володіння Набором для гриму й Інструментами злодія."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Слідопита беремо Непомітність, Природу й Розслідування. Вправний дослідник дає експертність у Розслідуванні, компенсуючи середній Інтелект. Разом з Уважністю, Аналізом поведінки й особливо Інструментами злодія від Слідчого це дозволяє виконувати роль розвідника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing-potential",
+          "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+          "heading": "Можливості мультикласування",
+          "sourceAnchor": "multiclassing-potential",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-potential-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо мультикласування прийнятне, персонажу допоможе будь-який варіант із розділу вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-potential-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із трьох шляхів я, імовірно, почав би Воїном зі Стрільбою з лука, щоб одразу мати володіння ряткидками Статури. Після 4-го рівня персонажа маємо Стрільбу з лука від Воїна 1, Друїдичного воїна від Слідопита 2 й Хранителя рою від Слідопита 3. Далі можна залишитися Слідопитом або повернутися до Воїна. Якщо в групі вже достатньо небезпечного контролю області, Воїн зрештою дає другу Додаткову атаку на своєму 11-му рівні, що чудово працює з трьома Чарівними каменями."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-potential-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інший сильний варіант — почати Друїдом і згодом узяти другий рівень для Кола зірок. Тоді все ще потрібен Стійкий (Статура), зате керуватимемо камінцями вже на 1-му рівні замість чекати Слідопита 2."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Завдяки Своїй расі маємо бонусну рису на 1-му рівні та пʼять Покращень характеристик від Слідопита."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 1-му рівні беремо Дробильника, вкладаючи +1 у Статуру. Магічні камінці штовхатимуть людей у невигідні місця — корисно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо Влучного стрільця. Камінець із замовляння, запущений із пращі, є атакою далекобійною зброєю й відповідає останньому — лише останньому — пункту риси. Отримуємо додаткову шкоду."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні Покращення характеристик дає +1 Мудрості й +1 Статури: Мудрість 18, Статура 17, готуємося до Стійкого (Статура)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні +2 Мудрості доводить її до 20. За бажанням зараз можна взяти Стійкого (Статура), а це підвищення — на 16-му."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо Стійкого (Статура): Статура 18 і володіння її ряткидками."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні +2 Статури доводить її до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо додаткова користь Дробильника не потрібна, бонусною рисою на 1-му рівні може бути Стійкий (Статура). Тоді на 8-му беремо рису з +1 Мудрості: {{Кухар|Chef}}, {{Доторк феї|Fey Touched}}, {{Доторк тіні|Shadow Touched}} чи {{Експерт у навичках|Skill Expert}}. А на місце пізнішого Стійкого ставимо +2 Статури."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Вправний дослідник - Кмітливий|Deft Explorer - Canny}} (опціонально); Мічений ворог — 1к4 (опціонально); навички: Аналіз поведінки, Розслідування (експертність), Природа, Уважність, Непомітність; інструменти: Набір для гриму, Інструменти злодія; бонусна риса: Дробильник"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рівень буде складним. Найкраща характеристика — Мудрість, але використовуватимемо її лише після отримання Друїдичного воїна наступного рівня. Поки покладаємося на довгий лук від стартового спорядження Слідопита. Також оберіть бойовий посох: іншим замовлянням Друїдичного воїна буде Кийок. Ми не "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "хочемо"
+                    },
+                    {
+                      "type": "text",
+                      "text": " ближнього бою, але іноді потраплятимемо туди; із Дробильником легко відштовхнути ворога. Купіть пращу за 1 срібну й найкращі доступні середні обладунки. Намагайтеся вижити. Мічений ворог зазвичай кращий за {{Улюблений ворог|Favored Enemy}}, навіть конкуруючи за концентрацію: це додаткова шкода для економії слотів. Улюблений ворог може бути кращим лише на 20-му рівні з Убивцею ворогів і вдало обраними типами."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий стиль: Друїдичний воїн — Чарівний камінь, Кийок; {{Чаротворство (Слідопит)|Spellcasting (Ranger)}}: заклинання 1-го рівня — Поглинання стихій [Absorb Elements], Обплутування [Entangle] (к)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отримуємо Друїдичного воїна, Чарівний камінь і Кийок, тож тепер бʼємося Мудрістю. Також маємо заклинання 1-го рівня. Поглинання стихій іноді врятує життя. Обплутування знерухомлює цілі й змушує витрачати дію для звільнення — хороший контроль."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хранитель рою: Зібраний рій, Магія охоронця рою — Магічна рука, Вогники фей (к); чаротворство: заклинання 1-го рівня — Туманна хмара [Fog Cloud] (к)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хранитель рою дає Зібраний рій і додаткові заклинання. Рій може виглядати як завгодно: наприклад, камінці на кшталт "
+                    },
+                    {
+                      "type": "link",
+                      "text": "поясу астероїдів",
+                      "href": "https://en.wikipedia.org/wiki/Asteroid_belt"
+                    },
+                    {
+                      "type": "text",
+                      "text": " чи "
+                    },
+                    {
+                      "type": "link",
+                      "text": "планетарного кільця",
+                      "href": "https://en.wikipedia.org/wiki/Ring_system"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Ми ж персонаж із камінням! Оформлення безкоштовне. Зібраний рій додає примусове переміщення кожного раунду. Є ряткидок, але наша побудова це враховує. Магічна рука корисна, Вогники фей дає групі перевагу на атаки по кількох цілях. Туманна хмара корисна в багатьох випадках: якщо оточили вовки з Тактикою зграї, вона прибере їхню перевагу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Влучний стрілець"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Влучний стрілець застосовується до Чарівного каменя лише при запуску з пращі. Дивно, але такі правила."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Додаткова атака|Extra Attack (Ranger)}}; Магія охоронця рою — Павутиння (к); чаротворство: заклинання 2-го рівня — Переміщення без сліду [Pass without Trace] (к)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Жбурляємо два камінці — удвічі більше болю. Павутиння фактично найкраще заклинання 2-го рівня, тож добре мати до неї доступ. Переміщення без сліду корисне для непомітних місій. Так, уже маємо кілька заклинань із концентрацією, але це використовуватимемо поза боєм."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Вправний дослідник - Мандрівний|Deft Explorer - Roving}}; Мічений ворог — 1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ходимо на 5 футів швидше, отримуємо швидкості лазіння та плавання. Кістка Міченого ворога зростає. Більшість наших заклинань із концентрацією хороші проти груп, а він допоможе проти одного ворога."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Корчуватий прилив; чаротворство: заклинання 2-го рівня — Покращення здібності [Enhance Ability]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тимчасовий повільний політ допоможе кудись дістатися поза боєм, у бою менш корисний. Покращення здібності дає перевагу на перевірки поза боєм — хороша допомога."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: +1 Мудрість (18), +1 Статура (17); {{Стежка землі|Land’s Stride}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хода землею — дивне вміння: рідко працюватиме, але приємно, коли допомагає. Ділимо підвищення між характеристиками, готуючи Статуру до Стійкого."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магія охоронця рою — Газоподібна форма (к); чаротворство: заклинання 3-го рівня — Відродження [Revivify]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплачуємо обовʼязковий податок Відродження. Також можемо стати хмарою. Точніше, задум ніби в перетворенні на рій ваших духів із механікою хмари. Отже, ми наче "
+                    },
+                    {
+                      "type": "link",
+                      "text": "туманність",
+                      "href": "https://en.wikipedia.org/wiki/Nebula"
+                    },
+                    {
+                      "type": "text",
+                      "text": " чи "
+                    },
+                    {
+                      "type": "link",
+                      "text": "хмара Оорта",
+                      "href": "https://en.wikipedia.org/wiki/Oort_cloud"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Сховатися на видноті|Hide in Plain Sight}}; {{Вправний дослідник - Невтомний|Deft Explorer - Tireless}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сховатися на видноті дозволяє зробити маскування й сховатися там, де вас інакше видно: назва каже сама за себе. Невтомний дає тимчасові ХП стільки разів на день, скільки БМ — зараз 4. Також знімає один рівень Виснаження після короткого відпочинку. Це добре: Виснаження жахливе, а зняття може потребувати кількох днів чи дорогої магії."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Могутній рій; чаротворство: заклинання 3-го рівня — Виклик обстрілу [Conjure Barrage] або Стихійна зброя [Elemental Weapon] (к)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращуємо Зібраний рій. Зростання шкоди невелике, але більше за нуль. Формулювання примусового руху приємне: збиття з ніг додається до переміщення. Можна збити ворога й доставити прямо до ніг союзника ближнього бою. Власний варіант дає +2 КБ і ряткидків Спритності від половинного укриття на хід — теж чудово. Так, Виклик обстрілу червоний в аналізі заклинань Слідопита. Але той список припускає низьку СК і ворогів без Знерухомлення від Павутиння чи Обплутування, а для нас це не так. 60-футовий конус чудовий у видовищній великій битві за долю Krynn чи для обстрілу ворожого спелджаммера камінням. Якщо такого конуса не потребуєте, Стихійна зброя зробить пращу магічною й додасть стихійної шкоди атакам.\n\nРедакційна примітка: Чарівний камінь із пращі залишається атакою заклинання. Стихійна зброя надає бонуси самій зброї, але її текст прямо не розбирає цю взаємодію; застосування бонусів до каменів потребує рішення Майстра."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: +2 Мудрість (20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимізуємо Мудрість для атак камінцями й СК заклинань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магія охоронця рою — Арканне око (к); чаротворство: заклинання 4-го рівня — Вартовий природи [Guardian of Nature] (к)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканне око — чудове заклинання. Шпигуйте за ворогами космічним камінцем, який точно не має підозрілої камери: цілком невинний супутник-шпигун. Вартовий природи — хороше підсилення: стаємо великим деревом із космічного каміння, отримуємо перевагу на жбурляння камінців і важкопрохідну місцевість у межах 15 футів. Мабуть, дивна космічна гравітація. Оформлення безкоштовне."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Зникнення|Vanish}}; Мічений ворог — 1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ховаємося бонусною дією й не лишаємо сліду. Добре. Мічений ворог сильнішає; уже маємо багато хороших заклинань із концентрацією, але це все ще спосіб зекономити слоти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розсіювання в рій; чаротворство: заклинання 4-го рівня — Свобода рухів [Freedom of Movement]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Реакцією отримуємо половину шкоди й телепортуємося, БМ разів на день. Свобода рухів — пристойне підсилення. У Слідопита мало хороших заклинань 4-го рівня, але це принаймні корисне."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура); +1 Статура (18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Посилюємо ряткидки концентрації. Хороша покупка. Трохи пізно, але інші речі були пріоритетнішими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магія охоронця рою — Нашестя комах (к); чаротворство: заклинання 5-го рівня — Виклик залпу [Conjure Volley]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нашестя комах — нормальна шкода по області. Це заклинання й колюча шкода, тож майже ніхто не чинитиме опору магічній колючій шкоді. Виклик залпу схожий на Виклик обстрілу: наша хороша Мудрість дозволяє завдати пристойної шкоди по області."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Дикі почуття|Feral Senses}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бачимо невидимих ворогів і більше не маємо перешкоди на атаки по невидимих для нас цілях. Можна поєднати з Туманною хмарою: ми будемо невидимим для ворога атакувальником і отримаємо перевагу.\n\nРедакційна примітка: Дикі почуття 2014 дозволяють визначати місце невидимої істоти за певних умов, а не бачити її. Сама невидимість має окреме правило переваги й перешкоди; це авторське трактування взаємодії, а не дослівні правила."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: +2 Статура (20); чаротворство: заклинання 5-го рівня — Удар сталевого вітру [Steel Wind Strike]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимізуємо Статуру для ХП і ряткидків. Удар сталевого вітру цікавий: інших Слідопитів часто розчаровує атака заклинання, а в нас вона використовує основну Мудрість. Дістаємо бойовий посох і розбиваємо кілька черепів. Найкраще — активуємо Зібраний рій під час заклинання. При провалі ряткидка можна пересунути ціль і краще обрати місце приземлення, навіть забезпечити союзнику обхід із флангу, якщо це опціональне правило використовується."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Убивця ворогів|Foe Slayer}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сильно посилює Міченого ворога для Слідопита на Мудрості. Застосовуємо до або після кидка: +5 до атаки, якщо майже влучили, або +5 шкоди, якщо влучили."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-001",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Зібраний рій",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-002",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Шкода",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-003",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Переміщення цілі",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-004",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Власне переміщення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-005",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Магія охоронця рою",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-006",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-007",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-008",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-009",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "13-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-010",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "17-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-011",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Корчуватий прилив",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-012",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Могутній рій",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-013",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-12",
+      "context": "Шкода",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-014",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-13",
+      "context": "Переміщення цілі",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-015",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-14",
+      "context": "Власне переміщення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-016",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-15",
+      "context": "Розсіювання в рій",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-017",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-ability-scores",
+      "targetBlockId": "block-section-swarmkeeper-ability-scores-2",
+      "optionId": "section-swarmkeeper-ability-scores-block-section-swarmkeeper-ability-scores-2",
+      "context": "Сил",
+      "explanationBlockId": "block-section-swarmkeeper-ability-scores-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-018",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-ability-scores",
+      "targetBlockId": "block-section-swarmkeeper-ability-scores-3",
+      "optionId": "section-swarmkeeper-ability-scores-block-section-swarmkeeper-ability-scores-3",
+      "context": "Спр",
+      "explanationBlockId": "block-section-swarmkeeper-ability-scores-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-019",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-ability-scores",
+      "targetBlockId": "block-section-swarmkeeper-ability-scores-4",
+      "optionId": "section-swarmkeeper-ability-scores-block-section-swarmkeeper-ability-scores-4",
+      "context": "Ста",
+      "explanationBlockId": "block-section-swarmkeeper-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-020",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-ability-scores",
+      "targetBlockId": "block-section-swarmkeeper-ability-scores-5",
+      "optionId": "section-swarmkeeper-ability-scores-block-section-swarmkeeper-ability-scores-5",
+      "context": "Інт",
+      "explanationBlockId": "block-section-swarmkeeper-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-021",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-ability-scores",
+      "targetBlockId": "block-section-swarmkeeper-ability-scores-6",
+      "optionId": "section-swarmkeeper-ability-scores-block-section-swarmkeeper-ability-scores-6",
+      "context": "Муд",
+      "explanationBlockId": "block-section-swarmkeeper-ability-scores-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-022",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-ability-scores",
+      "targetBlockId": "block-section-swarmkeeper-ability-scores-7",
+      "optionId": "section-swarmkeeper-ability-scores-block-section-swarmkeeper-ability-scores-7",
+      "context": "Хар",
+      "explanationBlockId": "block-section-swarmkeeper-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-023",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-races",
+      "targetBlockId": "block-section-swarmkeeper-races-2",
+      "optionId": "section-swarmkeeper-races-block-section-swarmkeeper-races-2-item-0",
+      "context": "Дракононароджений",
+      "explanationBlockId": "block-section-swarmkeeper-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-024",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-races",
+      "targetBlockId": "block-section-swarmkeeper-races-2",
+      "optionId": "section-swarmkeeper-races-block-section-swarmkeeper-races-2-item-1",
+      "context": "Кобольд",
+      "explanationBlockId": "block-section-swarmkeeper-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-025",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-feats",
+      "targetBlockId": "block-section-swarmkeeper-feats-2",
+      "optionId": "section-swarmkeeper-feats-block-section-swarmkeeper-feats-2-item-0",
+      "context": "Дробильник Казан Таші з усім",
+      "explanationBlockId": "block-section-swarmkeeper-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-026",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-feats",
+      "targetBlockId": "block-section-swarmkeeper-feats-2",
+      "optionId": "section-swarmkeeper-feats-block-section-swarmkeeper-feats-2-item-1",
+      "context": "Посвячений у магію",
+      "explanationBlockId": "block-section-swarmkeeper-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-027",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-feats",
+      "targetBlockId": "block-section-swarmkeeper-feats-2",
+      "optionId": "section-swarmkeeper-feats-block-section-swarmkeeper-feats-2-item-2",
+      "context": "Стійкий",
+      "explanationBlockId": "block-section-swarmkeeper-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-028",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-feats",
+      "targetBlockId": "block-section-swarmkeeper-feats-2",
+      "optionId": "section-swarmkeeper-feats-block-section-swarmkeeper-feats-2-item-3",
+      "context": "Бойовий заклинатель Книга гравця",
+      "explanationBlockId": "block-section-swarmkeeper-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-029",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-weapons",
+      "targetBlockId": "block-section-swarmkeeper-weapons-2",
+      "optionId": "section-swarmkeeper-weapons-block-section-swarmkeeper-weapons-2-item-0",
+      "context": "Праща",
+      "explanationBlockId": "block-section-swarmkeeper-weapons-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-030",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-armor",
+      "targetBlockId": "block-section-swarmkeeper-armor-2",
+      "optionId": "section-swarmkeeper-armor-block-section-swarmkeeper-armor-2-item-0",
+      "context": "Напівлати",
+      "explanationBlockId": "block-section-swarmkeeper-armor-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-031",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-multiclassing",
+      "targetBlockId": "block-section-swarmkeeper-multiclassing-2",
+      "optionId": "section-swarmkeeper-multiclassing-block-section-swarmkeeper-multiclassing-2-item-0",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-swarmkeeper-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-032",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-multiclassing",
+      "targetBlockId": "block-section-swarmkeeper-multiclassing-2",
+      "optionId": "section-swarmkeeper-multiclassing-block-section-swarmkeeper-multiclassing-2-item-1",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-swarmkeeper-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-swarmkeeper-2014-033",
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sectionId": "section-swarmkeeper-multiclassing",
+      "targetBlockId": "block-section-swarmkeeper-multiclassing-2",
+      "optionId": "section-swarmkeeper-multiclassing-block-section-swarmkeeper-multiclassing-2-item-2",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-swarmkeeper-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+Розбіжності джерела з правилами чи самим собою (перекладено як написано):
+- block-section-cantrips-1/item/21 (Mold Earth): «ви отримуєте максимум 4 замовляння». Чарівник 2014 року на 10-му рівні має 5 замовлянь.
+- block-section-spells-1-1/item/29 (Shield): «Mage Armor + Shield = AC 17+Dex». 13 + 5 = 18+Спритність.
+- block-section-spells-2-1/item/43 (Scorching Ray): «605% of that is 13.65». Очевидна описка: має бути 65%.
+- block-section-spells-2-1/item/32 (Melf's Acid Arrow): у розрахунку 65% шанс влучання, але у формулі 0.66 і 0.4; порівняння «avg. 18 compared to avg. 15» у джерелі стоїть так.
+- block-section-spells-2-1/item/22 (Hold Person): «additional save at the end of each round». За правилами ряткидок наприкінці кожного ходу цілі.
+- block-section-spells-2-1/item/19 (Gentle Repose): «You can multilane the body» — ймовірно, описка (mutilate); перекладено «понівечити тіло».
+- block-section-spells-2-1/item/7 (Cloud of Daggers): на сторінці 2014 року згадані «правила 2024» і майстерність зброї Push; перекладено як у джерелі.
+- block-section-cantrips-1/item/20: у джерелі після назви стоїть зайва двокрапка («Minor Illusion:[[1|PHB]]:»); у перекладі її прибрано, як у моделях (посилання одразу після назви).
+- Складна місцевість: у моделях сусідніх сторінок «складна місцевість», у каталозі правил 2014 — «важкопрохідна місцевість». Тут «складна», як у моделях.
+- Друкарські помилки джерела («so mall», «lasts on round», «dangeorus», «Spirit Guadians», «abunsance», «halway», «lasts and hour») виправлені мовчки.

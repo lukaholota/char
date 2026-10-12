@@ -1,0 +1,2709 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "635c3db7fabf2eebf1910bba2b34dba0707ee7224721130e29988f6a97f0b452",
+  "sourceRevision": {
+    "revisionId": "rpgbot-401a22b0418598dd-635c3db7fabf2eeb",
+    "sourceId": "rpgbot-401a22b0418598dd",
+    "fetchedAt": "2026-09-29T19:12:24.426115+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:39:06-04:00",
+    "contentHash": "10aca60c2247c54da0a88f40f12cb6a2937fbe367413c380f88355a19707df6a",
+    "title": "Oath of Conquest Paladin 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-401a22b0418598dd-635c3db7fabf2eeb.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Do you want to tank? Do you want to fight? Do you want a class that can\n\tinstill "
+            },
+            {
+              "type": "emphasis",
+              "text": "fright?"
+            },
+            {
+              "type": "text",
+              "text": " Well strap on some plate and keep\n\tthe bad guys in sight ‘cause they’re going to eat some Paladin SMITE.\n\t(Enormous praise and credit to\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Jocat",
+              "href": "https://www.youtube.com/watch?v=Ch5vWBPCrl0"
+            },
+            {
+              "type": "text",
+              "text": ")"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide will surprise you not at all if you’ve been listening to the\n\t"
+            },
+            {
+              "type": "link",
+              "text": "RPGBOT.podcast",
+              "href": "https://rpgbot.net/podcast"
+            },
+            {
+              "type": "text",
+              "text": " (available wherever fine podcasts are\n\tdistributed). Oath of Conquest is an exciting Paladin subclass that can, with\n\ta bit of help, be an absolute terror in melee combat, pun mildly intended.\n\tThis will also be exciting new ground for RPGBOT as this will be the first\n\tsubclass handbook which features multiclassing in the example build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is specifically for the Oath of Conquest Paladin, and omits\n\tsections of typical class handbooks when those sections aren’t meaningfully\n\tdifferent from other members of the class. For more information on the\n\tPaladin, see\n\t"
+            },
+            {
+              "type": "link",
+              "text": "the Paladin Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin"
+            },
+            {
+              "type": "text",
+              "text": ". I also\n\tstrongly recommend reading\n\t"
+            },
+            {
+              "type": "link",
+              "text": "the Paladin Spell List Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/spells"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-3",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Conquest Subclass Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Backgrounds",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#backgrounds"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Conquest Paladin Spells",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Variant Human Paladin",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-conquest/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Oath of Conquest Subclass Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": " What a great list.\n\t\tEvery level has something worthwhile to offer you, and the only issue is\n\t\tthat, as a half caster, you’re getting access to these things later than\n\t\tmembers of the classes they were originally intended for."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-Level Spells"
+              },
+              {
+                "type": "text",
+                "text": " It’s\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "Armor of Agathys"
+              },
+              {
+                "type": "text",
+                "text": ", one of the single best defensive spells in\n\t\t\t\tthe game for frontline characters. It protects you about the same amount\n\t\t\t\tas a "
+              },
+              {
+                "type": "emphasis",
+                "text": "Healing Word"
+              },
+              {
+                "type": "text",
+                "text": " of the equivalent spell slot, does at least\n\t\t\t\tthe same amount of damage back to attackers, and it’s temp hp so you can\n\t\t\t\tapply it before you take damage. Having "
+              },
+              {
+                "type": "emphasis",
+                "text": "Command"
+              },
+              {
+                "type": "text",
+                "text": " always prepared\n\t\t\t\tis also a nice benefit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-Level Spells"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "Spiritual Weapon"
+              },
+              {
+                "type": "text",
+                "text": ", the absolute king of spells that should be\n\t\t\t\tconcentration but aren’t. You’ll have some things to do with your bonus\n\t\t\t\taction already, but once you’re out of things to shove, feel free to get\n\t\t\t\tone of these out and go to town. "
+              },
+              {
+                "type": "emphasis",
+                "text": "Hold Person"
+              },
+              {
+                "type": "text",
+                "text": " is also there and\n\t\t\t\tcan be put to some ok use before you turn on at level 9."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Giving\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "Fear"
+              },
+              {
+                "type": "text",
+                "text": " to this subclass was someone’s idea of being sadistic to\n\t\t\t\tyour DM. If positioned correctly, you can literally end a fight with\n\t\t\t\tseveral targets by yourself, assuming they fail wisdom saves. This level\n\t\t\t\talso gives you "
+              },
+              {
+                "type": "emphasis",
+                "text": "Bestow Curse"
+              },
+              {
+                "type": "text",
+                "text": " if you’re fighting something immune\n\t\t\t\tto fear."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-Level Spells"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "Stoneskin"
+              },
+              {
+                "type": "text",
+                "text": " is an impressive defensive buff, and having\n\t\t\t\tresistance makes "
+              },
+              {
+                "type": "emphasis",
+                "text": "Armor of Agathys"
+              },
+              {
+                "type": "text",
+                "text": " even better, but the material\n\t\t\t\tcomponent is annoying. "
+              },
+              {
+                "type": "emphasis",
+                "text": "Dominate Beast"
+              },
+              {
+                "type": "text",
+                "text": " is incredibly\n\t\t\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level Spells"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "Dominate Person,"
+              },
+              {
+                "type": "text",
+                "text": " on the other hand, is useful nearly always.\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "Cloudkill"
+              },
+              {
+                "type": "text",
+                "text": " will finally get you some area-of-effect damage,\n\t\t\t\tthough by this level it’s a bit of a moot point."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": " Conquering presence won’t\n\t\tdo you much good until level 7, and even then it will only be good for two\n\t\tlevels, then situationally useful for another two levels, before becoming\n\t\tlargely irrelevant thanks to "
+              },
+              {
+                "type": "emphasis",
+                "text": "Fear"
+              },
+              {
+                "type": "text",
+                "text": ". Thankfully, it does have another\n\t\tuse which is very good for our attack-focused Paladin."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aura of Conquest"
+              },
+              {
+                "type": "text",
+                "text": " This is the ability\n\t\taround which we define the build. From\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "the basic rules",
+                "href": "https://www.dndbeyond.com/sources/basic-rules/combat#BeingProne"
+              },
+              {
+                "type": "text",
+                "text": ", if you have a movement speed of 0, you cannot stand from prone. It is\n\t\ttherefore our job to make everything prone and afraid of us."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scornful Rebuke"
+              },
+              {
+                "type": "text",
+                "text": " It’s literally just free\n\t\tdamage when things attack you. It’s not a lot, especially at this level, but\n\t\tit’s always on and it’s better than nothing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Invincible Conqueror"
+              },
+              {
+                "type": "text",
+                "text": " Once per long rest,\n\t\tgo to town on whatever fight seems difficult."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not substantially different from other Paladins, though you may want to focus\n\ton Charisma more than Constitution so that your saves for things like a\n\tcritical "
+            },
+            {
+              "type": "emphasis",
+              "text": "Fear"
+            },
+            {
+              "type": "text",
+              "text": " can be harder to pass. Also, given that we’re focused\n\ton Athletics, building around Dexterity instead of Strength doesn’t really\n\twork here."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": " Not only the driver for your melee\n\tattacks but powers Athletics as well, a core function of the example build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": " You’ll be wearing heavy armor and\n\t\tShield Master adds a bonus to Dexterity saves, so you can afford dump\n\t\tDexterity. However, Dexterity saves are still a great way for enemies to get\n\t\taround your other defenses, so high Dexterity saves can mitigate a common\n\t\tsource of damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": " Third in importance. While you have\n\tmany defensive capabilities, you are a front line combatant and need the\n\thitpoints to match. You also have some concentration spells and will need the\n\thelp with saves until Aura of Protection comes online."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": " Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": " Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": " The Paladin’s spells and many class\n\tfeatures are powered by Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-8",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": " "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There is very little difference between what makes a generally good Paladin\n\tand what makes a good Oath of Conquest Paladin. Look for Strength and Charisma\n\tboth, particularly if you plan to follow the example build at the end of this\n\tarticle."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-backgrounds",
+      "heading": "Backgrounds",
+      "sourceAnchor": "backgrounds",
+      "blocks": [
+        {
+          "blockId": "block-section-backgrounds-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Only one skill is really critical to the build and that’s Athletics. Paladins\n\talready get Athletics as a skill choice so your background can be pretty\n\tflexible. With that said, we would also like Persuasion and Intimidation (and\n\tperhaps even Deception) to capitalize on our impressive Charisma. Look for\n\tsome combination of these.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-backgrounds-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If your DM will let you take Boros Legionnaire (or if you happen to be in a\n\tRavnica campaign) even better. The expanded Spell list doesn’t actually get\n\tyou the Cantrips (since it just adds them to your class list but no Paladin\n\tfeature ever lets you learn Cantrips from your list) but it does get you more\n\tthings known which is always nice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In general, this build wants too many ASIs to bother with many feats. With\n\tthat said, Shield Master is critical to the example build, and therefore\n\tshould be taken ASAP, preferably at level 1."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you are strictly against multiclassing, you can achieve some of the same\n\tbenefit by taking Martial Adept and picking up Menacing Attack. This choice\n\tdoes let you focus solely on Strength but, honestly, it’s just shooting you in\n\tthe foot."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You start with a longsword, you end with a longsword. Given that you need a\n\tshield for Shield Master to capitalize on Aura of Conquest, a longsword is\n\tgoing to be the go-to unless you find a magic one-handed weapon that’s better.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One interesting option if you’re willing to give up a bit of damage is a whip. The reach means that you would actually be able to maintain someone in an attack/fear lock even from 10 feet away which could be beneficial if you get something without reach on the ground and need to back away because it’s scarier than you are."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For ranged options, javelins are the go-to Strength-based option, but the range is poor compared to weapons like the longbow, so once you have the gold you might buy a bow for situations where a javelin can’t reach."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Apart from that, there’s functionally no reason to choose any melee weapon\n\tover any other melee weapon for this build except for whatever does best\n\tdamage or has neat magical abilities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "You’ll start with Chain Mail until you get the gold to upgrade it to Full Plate"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shield: Just tape it to your arm. It shouldn’t ever be off."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells",
+      "heading": "Oath of Conquest Paladin Spells",
+      "sourceAnchor": "spells",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With the exception of the spells noted above in the Class Features\n\tdescription, nothing is particularly different for an Oath of Conquest Paladin\n\tas compared to other Paladins."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While Warlock has been an enormously popular choice for Paladins for a long\n\ttime, this build finally has an actually interesting reason beyond smiting to\n\tdo it. Paladins multiclassing into Hexblade Warlocks are a dime a dozen\n\tbecause it lets you run everything off Charisma while still getting the\n\tshort-rest-recovery spell slots to power smite the combo is known for. But\n\tthat’s boring."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Added in Van Richten’s Guide to Ravenloft, Undead patron Warlocks combine with\n\tOath of Conquest Paladins in a delicious harmony of scary. What Oath of\n\tConquest has been lacking since its introduction in Xanathar’s was a way to\n\tconsistently make something afraid of it. The Undead patron’s Form of Dread\n\tability is exactly that, and its uses per day scales based on proficiency\n\twhich will continue increasing as the character progresses, even with just a\n\tone or two level dip into Warlock."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If Warlock doesn’t excite you or you are very interested in playing a Paladin\n\tthat doesn’t focus on Charisma, you can take 3 levels of Fighter instead to\n\tget the Battlemaster archetype and take Menacing attack. I really wouldn’t\n\trecommend this, but it’s an option."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Build – Variant Human Paladin",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "This world lacks purpose. I will be the one to unify it because I am the\n\t\tonly one with the strength to do it right. But even my strength will fail as\n\t\tI age. Perhaps the secrets of undeath will be able to keep me strong\n\t\tforever…"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "I beg you Bane, show me the way."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities-2",
+      "parentSectionId": "section-example",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will assume the point buy abilities suggested above."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2-2",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": " "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Variant human. While we don’t have Aura of Conquest yet, Shield Master is\n\tstill immensely powerful both to give us something to do with our bonus\n\tactions and for defensive purposes. We take Variant human so we can walk out\n\twith it at level 1 and round our two odd scores up to 16s. Custom Lineage\n\twould work almost as well, but you’d have Strength or Charisma one point short\n\tof where we start now until level 4 when you would split the ASI to balance\n\tthem both out instead of putting both points into Strength."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Intimidation and Persuasion"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Smuggler to get Athletics and Deception, completing the complement of\n\tCharisma-based Face skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As mentioned above, walk out with Shield Master at level 1. Level 4 will get\n\tyour Strength to 18, and level 8 will get your Charisma there as well.\n\tUnfortunately we then fall behind on ASIs due to multiclassing. You won’t get\n\tCharisma to 20 until 14 and finally cap Strength to 20 at level 18."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "1 – Paladin 1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "For your starting equipment, take the default starting gear. I recommend the 5 javelins if you want a Strength-based ranged option, but a crossbow is a simple weapon and has better range so that’s also an option. Attach your holy symbol to said shield so it can be your focus. Use the bonus action from Shield Master basically as often as possible. If you knock something prone it has to spend half it’s speed to stand up, making it far less likely it’ll be able to get past you to your backline. It will also grant Advantage on melee attacks, which your hypothetical Rogue will love. Do note that it grants Disadvantage on ranged attacks against the target so if you have a ranged-heavy party, be aware of when you use it on what targets."
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "Your AC is a comforting 18, and you have Lay on Hands and Shield Master to help keep you up. With that said, as your LoH pool grows, it can be tempting to dump all of it into healing when the need arises. I would recommend always leaving yourself a pool of 2 no matter what level you are you you can bring the divine caster in your party back to consciousness twice if need be. You’ll want a Longbow or Crossbow or some javelins for a ranged weapon until you pick up some cantrips."
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2 – Paladin 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re going to be making a lot of one-handed melee attacks, so adding 2 damage to them is a great idea. While Blessed Warrior is tempting with our high Charisma, none of the base Cleric cantrips require an attack roll which means they don’t work with Form of Dread. Since we’re not a ritual caster, we leave the very good detect spells to other people. Our Charisma starts out as high as a full caster so we can make good use of "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Compelled Duel."
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Shield of Faith"
+                },
+                {
+                  "type": "text",
+                  "text": " helps push our AC to even higher levels, and "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Cure Wounds"
+                },
+                {
+                  "type": "text",
+                  "text": " helps round out our capabilities. With that said, you only get two slots per day so you need to use them wisely."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 – Paladin 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Conquering Presence doesn’t have a lot of value right now because\n\t\t\t\t\tthere’s rarely a time when spending your Action to make things afraid\n\t\t\t\t\tis better than just hitting them with a sword. It’s nice that it’s an\n\t\t\t\t\tAOE, but your longsword is already doing 1d8+5. Just keep the channel\n\t\t\t\t\tfor when you roll badly on an attack and want it to connect. You gain\n\t\t\t\t\tone extra spell slot but more importantly\n\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Armor of Agathys"
+                },
+                {
+                  "type": "text",
+                  "text": " which is nearly always the best defensive\n\t\t\t\t\toption if you’re in melee combat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 – Paladin 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "emphasis",
+                  "text": "Thunderous Smite"
+                },
+                {
+                  "type": "text",
+                  "text": " is the highest-damage spell at this level\n\t\t\t\t\tand, when combined with a Divine Smite, can result in a single Attack\n\t\t\t\t\tdoing enormous damage. The Str save will often be resisted but that’s\n\t\t\t\t\tfine. The problem with any of the Smite spells, as well as most of the\n\t\t\t\t\t1st-level paladin list, is that they’re often Concentration spells.\n\t\t\t\t\tWhile the idea behind the Smite spells being Concentration is good by\n\t\t\t\t\titself (make sure you get the effect even if you miss the first attack\n\t\t\t\t\twith it charged), it does mean you can’t use them while also running\n\t\t\t\t\tany Concentration buff like\n\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Heroism, Divine Favor, Shield of Faith,"
+                },
+                {
+                  "type": "text",
+                  "text": " etc."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 – Paladin 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Drop "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Cure Wounds, Shield of Faith,"
+                },
+                {
+                  "type": "text",
+                  "text": " and the 2nd spell you\n\t\t\t\t\t\tprepared at level 4 for the ones listed. We have enough Lay on Hands\n\t\t\t\t\t\tat this point that we don’t need Cure anymore."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Lesser Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\tis a little bit redundant with Lay on Hands but our pool of both is\n\t\t\t\t\t\tso limited right now that the backup is welcome. You have now\n\t\t\t\t\t\tdoubled the damage output of your attack action. Go nuts.\n\t\t\t\t\t\tUnfortunately, you can’t use your bonus action after the first\n\t\t\t\t\t\tattack to gain advantage on the second attack by making them prone\n\t\t\t\t\t\tper\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "Jeremy Crawford",
+                  "href": "https://twitter.com/jeremyecrawford/status/995024061267767298?lang=en"
+                },
+                {
+                  "type": "text",
+                  "text": ". I find that really dumb though given that you can sprint a whole\n\t\t\t\t\t\t30 feet between attacks so maybe you can convince your DM\n\t\t\t\t\t\totherwise."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\n\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Find Steed"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\tis a complicated spell to handle. You may want to read the\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "practical guide to mounted combat",
+                  "href": "https://rpgbot.net/dnd5/characters/mounted_combat.html"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t\tand listen to our\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "podcast episode about mounted combat.",
+                  "href": "https://rpgbot.net/podcast/rpgbot-podcast-episode-2"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "I don’t recommend this spell because I think you should be mounted;\n\t\t\t\t\t\tI recommend it because having a fiendish warhorse is neat and could\n\t\t\t\t\t\tvery well be useful in a lot of ways. While you don’t need to cast\n\t\t\t\t\t\tthe spell all that often, you do need to cast it when the horse\n\t\t\t\t\t\tdies. Given its AC of 11 and no save proficiencies, that will be\n\t\t\t\t\t\tsomewhat more than you might like."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 – Paladin 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Did you want a free +3 to all your saves? Hey, so did your party. It\n\t\t\t\t\tis worth noting that it doesn’t specify what saves it applies to,\n\t\t\t\t\tmeaning it applies to all of them, including Death Saves. Stay near\n\t\t\t\t\tdying friends, even if you can’t spare the action to Lay on Hands\n\t\t\t\t\tthem."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 – Paladin 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Oh. Freakin. Boy. This is what we came for. You currently have no\n\t\t\t\t\trepeatable or long-term ways of making people afraid of you, but that\n\t\t\t\t\twill come soon. In the meantime, feel free to now use your Action to\n\t\t\t\t\tChannel Conquering Presence if you’re going to hit several\n\t\t\t\t\ttargets."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 – Paladin 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improve your spell DCs and your Save bonus from your aura. This will\n\t\t\t\t\tbe used to power our fear effect at next level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 – Warlock 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": "Now the build turns on. Proficiency bonus is total-level-dependent, not class-level-dependent, meaning it is now +4. This means that you can use Form of Dread 4 times per day, which is the expected number of fights a party will have on a normal day of adventuring. "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "That"
+                },
+                {
+                  "type": "text",
+                  "text": " means your bonus action for the first round of combat is turning it on in every fight. Try to let the temp hp from the ability run out before casting "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Armor of Agathys"
+                },
+                {
+                  "type": "text",
+                  "text": " if you’re going to cast it at all. While Form of Dread doesn’t specify what the DC of the Wisdom save is, we can assume it to be your spell save DC. With two attacks per turn you’re likely to hit at least once which will let you trigger the fear save and hold your priority target close to you."
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": "On the next turn, you attack them again but this time use your bonus action to Shove them prone. Note that, because they are afraid of you, they will have disadvantage on the skill check to contest your athletics to Shove. Keep attacking them (now with advantage), keep fearing them, keep them on the ground for eternity. If you’re worried about them attacking you back even while on the ground, you can step back 5 feet from them and start "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Eldritch Blast"
+                },
+                {
+                  "type": "text",
+                  "text": "ing them (or attacking them with a whip). The wording on Form of Dread just requires you to hit with an attack roll to apply the fear effect and having two beams makes up somewhat for the disadvantage of attacking a prone figure."
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Cause Fear"
+                },
+                {
+                  "type": "text",
+                  "text": " can be used if you need another target afraid of you and therefore unable to run beyond the one you’re going to Attack-lock into oblivion. "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Hellish Rebuke"
+                },
+                {
+                  "type": "text",
+                  "text": " is there to add injury to injury when someone attacks into your "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Armor of Agathys"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Prestidigitation"
+                },
+                {
+                  "type": "text",
+                  "text": " is the most fun you can have with a Cantrip."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "link",
+                  "text": "Pact Magic lets you use your Warlock slots to power Divine Smite.",
+                  "href": "https://www.sageadvice.eu/paladin-use-warlock-spell/"
+                },
+                {
+                  "type": "text",
+                  "text": " They never advance past 1st level but that’s still 2 extra smites per short rest."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10 – Warlock 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Hex"
+                },
+                {
+                  "type": "text",
+                  "text": " is a great thing to use your Concentration on for big\n\t\t\t\t\t\ttargets you want extra damage on. It also doesn’t allow a save,\n\t\t\t\t\t\twhich makes its other ability crazy powerful if used correctly. If\n\t\t\t\t\t\tyou can determine what type of spellcaster you’re fighting, for\n\t\t\t\t\t\tinstance, you can "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Hex"
+                },
+                {
+                  "type": "text",
+                  "text": " their casting stat which will give\n\t\t\t\t\t\tthem disadvantage on Counterspell rolls even if they’re not\n\t\t\t\t\t\tcurrently afraid of you. If you can use its 90ft range to be a\n\t\t\t\t\t\tlittle surreptitious about it, you can maybe even use it in a social\n\t\t\t\t\t\tencounter to make someone less able to intuit that your party is\n\t\t\t\t\t\tlying to them, or to have them be less convincing in an argument."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\n\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "Agonizing blast applies each time Eldritch Blast hits",
+                  "href": "https://twitter.com/jeremyecrawford/status/703376603900825601?lang=en"
+                },
+                {
+                  "type": "text",
+                  "text": ", which can already be twice and will be thrice per turn next\n\t\t\t\t\t\tlevel. Devil’s Sight is incredibly strong for a number of reasons.\n\t\t\t\t\t\tIt’s double the range of normal Darkvision, it works in magical\n\t\t\t\t\t\tdarkness equally well, and it says “you can see normally” which\n\t\t\t\t\t\tmeans you don’t take the regular disadvantage associated with\n\t\t\t\t\t\tDarkvision. With that said, your perception modifier is going to be\n\t\t\t\t\t\t-1 forever, so, if you don’t think you’ll need to see in the dark\n\t\t\t\t\t\tall that often, consider Grasp of Hadar or Eldritch Mind."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11 – Paladin 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Drop the spell you prepared at level 8 so you can have\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Revivify"
+                },
+                {
+                  "type": "text",
+                  "text": " and "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Dispel Magic"
+                },
+                {
+                  "type": "text",
+                  "text": " available."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\n\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Revivify"
+                },
+                {
+                  "type": "text",
+                  "text": " and 300gp worth of diamond dust can be the\n\t\t\t\t\t\tdifference between your actual healer staying dead and coming back\n\t\t\t\t\t\tto life. You should never be without either."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\n\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Dispel Magic"
+                },
+                {
+                  "type": "text",
+                  "text": " is amazing and is tied straight to Charisma\n\t\t\t\t\t\tso the skill checks you’re making are only behind a full caster by 1\n\t\t\t\t\t\tpoint."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\n\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Fear"
+                },
+                {
+                  "type": "text",
+                  "text": ". It is the masterstroke of this build. They are\n\t\t\t\t\t\tafraid of you and have to use their action to Dash. But with a speed\n\t\t\t\t\t\tof 0 thanks to Aura of Conquest, they will never get away from you,\n\t\t\t\t\t\tmeaning the condition for them getting another saving throw to end\n\t\t\t\t\t\tthe spell never triggers. This is just a hard lock on anything that\n\t\t\t\t\t\tfails the save and isn’t immune to the condition. You’re generally\n\t\t\t\t\t\tgoing to want to open with this, hitting many things with the cone\n\t\t\t\t\t\tbefore running into the middle of them to apply the aura."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12 – Paladin 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our friends are now immune to our shenanigans, just in case we happen\n\t\t\t\t\tto fail a save vs mind control (highly unlikely given our bonuses\n\t\t\t\t\tagainst them, but still)."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13 – Paladin 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s free damage. Plus it means zombies always die when you kill\n\t\t\t\t\tthem."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14 – Paladin 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cap your Charisma to make sure the save vs. your fear is as hard to\n\t\t\t\t\tsucced at as possible. Side benefits include better saves for you and\n\t\t\t\t\tyour party, better social interactions when rolling\n\t\t\t\t\tDeception/Persuasion/Intimidation, and a higher likelihood of being\n\t\t\t\t\thit on by townsfolk."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15 – Paladin 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Replace "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Find Steed"
+                },
+                {
+                  "type": "text",
+                  "text": " in your daily preparation with\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Find Greater Steed"
+                },
+                {
+                  "type": "text",
+                  "text": " and replace whatever you prepared at 14\n\t\t\t\t\t\twith Death Ward. Non-concentration and it lasts 8 hours which is\n\t\t\t\t\t\tfunctionally all day. Hopefully it’ll keep you alive back to your\n\t\t\t\t\t\tturn so you can dump all but 2 of your Lay on Hands back into\n\t\t\t\t\t\tyourself. You also get it for free on your\n\t\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Find Greater Steed"
+                },
+                {
+                  "type": "text",
+                  "text": " mount when you cast it on yourself."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\n\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Find Greater Steed"
+                },
+                {
+                  "type": "text",
+                  "text": " now lets you summon a Fiendish Pegasus\n\t\t\t\t\t\twhich may be the most fun juxtaposition I’ve come across in 5e.\n\t\t\t\t\t\tThey’re fast on the ground, they’re "
+                },
+                {
+                  "type": "strong",
+                  "text": "very "
+                },
+                {
+                  "type": "text",
+                  "text": "fast in\n\t\t\t\t\t\tthe air, and they’re smarter and wiser than you are. They also speak\n\t\t\t\t\t\tthree languages you don’t and can communicate with you\n\t\t\t\t\t\ttelepathically so expect to suddenly have a great translator."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16 – Paladin 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is an incredibly powerful ability that is also very situational.\n\t\t\t\t\tIt only affects spells, not other conditions, and it requires you to\n\t\t\t\t\ttouch them which you won’t often be wanting to do in combat. With that\n\t\t\t\t\tsaid, if you do find something to use it on, it is incredibly\n\t\t\t\t\tsatisfying to just veto the enemy’s plan. Banishment targets a\n\t\t\t\t\tCharisma save which is highly unlikely to be resisted. This is much\n\t\t\t\t\tmore reliable than targeting Wisdom for many creatures."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17 – Paladin 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Between this, "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Armor of Agathys"
+                },
+                {
+                  "type": "text",
+                  "text": ", and\n\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Hellish Rebuke"
+                },
+                {
+                  "type": "text",
+                  "text": " you can deal 3 types of damage reactively.\n\t\t\t\t\tCombined with your Smites and "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Hex"
+                },
+                {
+                  "type": "text",
+                  "text": ", you’re only missing Acid\n\t\t\t\t\tand Lightning. I’m not sure how this is useful, but it seemed like\n\t\t\t\t\tsomething to call out."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18 – Paladin 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cap Strength, making our melee Attacks and Athletics as good as it\n\t\t\t\t\tcan get without magic items."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19 – Paladin 17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Replace the spell you started preparing last level with "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Holy Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": " because, well, "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Holy Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": ". If I did my math right you should have the preparation slot from 6th level still left free which we fill with "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Destructive Wave"
+                },
+                {
+                  "type": "text",
+                  "text": " because knocking "
+                },
+                {
+                  "type": "strong",
+                  "text": "everything"
+                },
+                {
+                  "type": "text",
+                  "text": " prone after making it afraid of you is hilarious."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20 – Paladin 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The “Capstone” for this build is expanding the range on all your\n\t\t\t\t\tauras to 30 feet which, honestly, feels pretty dang satisfying as a\n\t\t\t\t\tcapstone. It makes the “"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Fear"
+                },
+                {
+                  "type": "text",
+                  "text": " cone into running in and\n\t\t\t\t\tstanding in people” turn much easier to hit and makes you an\n\t\t\t\t\tincredibly effective Defender."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 1st-Level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 2nd-Level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 3rd-Level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 4th-Level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th-Level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Aura of Conquest"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Scornful Rebuke"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Invincible Conqueror"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Cha"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-abilities-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-abilities-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-abilities-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-abilities-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-abilities-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-backgrounds-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-backgrounds-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-weapons-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-weapons-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-multiclassing-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#abilities",
+      "detail": "section-abilities -> section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-abilities-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "text-coverage-review",
+      "location": "root",
+      "detail": "Extracted text differs from source content"
+    }
+  ],
+  "metrics": {
+    "words": 4084,
+    "sections": 19,
+    "blocks": 40,
+    "tables": 3,
+    "ratingSignals": 20
+  },
+  "status": "needs-editorial-review"
+}

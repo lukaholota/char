@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/feats/cloying-mists/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "a51ae4aa78519aff265f65cc52acbc8f9a073032ac51cd0f2e07776aac794fac",
+  "sourceRevision": {
+    "revisionId": "rpgbot-f229e5aaf0a32512-a51ae4aa78519aff",
+    "sourceId": "rpgbot-f229e5aaf0a32512",
+    "fetchedAt": "2026-09-29T19:25:24.529020+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:54:55-04:00",
+    "contentHash": "43018d822d9e432de06517fc5bc399e46aabf143b3fd747f0eef98d84f01ae22",
+    "title": "DnD 5.5 Cloying Mists Feat Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-f229e5aaf0a32512-a51ae4aa78519aff.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cloying Mists is the president of the Fog Cloud fan club. The feat gives you the ability to cast Fog Cloud, and imposes a speed penalty on enemies in your Fog Cloud. It’s a neat trick, but not worth the feat unless you plan to rely heavily on Fog Cloud."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I would love to take this on a martial character with Fighting Style (Blind Fighting), so I guess that option is limited to Shillelagh builds and True Strike builds. If you can stack speed debuffs like the Slasher feat and a weapon with the Slow mastery, the -5 ft. speed penalty from Grasping Mist is enough that most enemies are effectively immobile."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-score-increase",
+      "parentSectionId": "section-introduction",
+      "heading": "Ability Score Increase",
+      "sourceAnchor": "ability-score-increase",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-score-increase-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Only mental stats. Great for casters, but it prevents most martials from using this."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-arise-fog",
+      "heading": "Arise Fog",
+      "sourceAnchor": "arise-fog",
+      "blocks": [
+        {
+          "blockId": "block-section-arise-fog-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fog Cloud is a decent area control option, and it’s very helpful when you need to make a quick escape. It’s especially useful against enemies who can see in magical darkness since they still can’t see through the fog. Unfortunately, Fog Cloud is still only situationally useful unless you build around it as a central combat tactic."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-grasping-mist",
+      "heading": "Grasping Mist",
+      "sourceAnchor": "grasping-mist",
+      "blocks": [
+        {
+          "blockId": "block-section-grasping-mist-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "-5 ft. is not a significant speed penalty."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grasping-mist-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "That said, in the 2024 rules, speed penalties are abundant and easily accessible. Stack this with other speed penalties, and you can easily prevent enemies from moving."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "#arise-fog",
+      "detail": "wp-block-heading rating-orange Arise Fog"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#grasping-mist",
+      "detail": "wp-block-heading rating-orange Grasping Mist"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-ability-score-increase-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-arise-fog-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-grasping-mist-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-grasping-mist-2"
+    }
+  ],
+  "metrics": {
+    "words": 226,
+    "sections": 4,
+    "blocks": 6,
+    "tables": 0,
+    "ratingSignals": 2
+  },
+  "status": "needs-editorial-review"
+}

@@ -1,0 +1,202 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "hexadin-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+    "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0"
+  },
+  "exampleSection": "section-hexadin-build-knight-of-knights",
+  "levelTableSection": "section-levels",
+  "classKey": "PALADIN_2014",
+  "subclassKey": "OATH_OF_THE_ANCIENTS",
+  "raceKey": "HUMAN_2014",
+  "variantKey": "HUMAN_VARIANT",
+  "backgroundKey": "MARINE",
+  "featKey": "POLEARM_MASTER",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "WARLOCK_2014",
+      "subclassKey": "HEXBLADE",
+      "spells": {
+        "cantripKeys": [
+          "booming-blade",
+          "eldritch-blast"
+        ],
+        "knownSpellKeys": [
+          "hex",
+          "shield"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classOptions": [
+        {
+          "optionNameEng": "Dueling"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "subclassKey": "OATH_OF_THE_ANCIENTS"
+    },
+    {
+      "level": 5,
+      "featKey": "WAR_CASTER"
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8
+    },
+    {
+      "level": 9,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 10
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12
+    },
+    {
+      "level": 13,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16
+    },
+    {
+      "level": 17,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19
+    },
+    {
+      "level": 20,
+      "abilityScoreIncrease": [
+        {
+          "ability": "STR",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Рівні 10–20",
+      "reason": "Стаття описує збірку лише до 9-го рівня персонажа (Паладин 8). Далі пресет просто бере рівні Паладина 9–19 (вибір платформи, автор не називає): на 13-му Харизма +2 (до 20), на 17-му Статура +2, на 20-му Сила +2; гравець може змінити ці підвищення на листі.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/hexadin-ancients-2014.webp",
+    "title": "Hexadin — Паладин клятви прадавніх, Людина (варіант)",
+    "description": "Лицар ночей: Паладин з Майстром древкової зброї та Харизмою 16, що згодом бере рівень Чорнокнижника Відьмацького клинка й стає Hexadin.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CON",
+      "CHA"
+    ],
+    "skills": {
+      "selectedClass": [
+        "INTIMIDATION",
+        "PERSUASION"
+      ],
+      "race": [
+        "ARCANA"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": [
+          "LONGSWORD"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "SPEAR"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-background",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля очок 15/8/15/8/8/15 з таблиці автора; Людина (варіант) додає по одиниці до Статури та Харизми, тож Статура й Харизма по 16. Це вже враховано.",
+    "skillExplanation": "Залякування й Переконання — від Паладина, Магія — варіантне расове Володіння, Атлетика й Виживання — від походження Морського піхотинця: усе названо автором. Мову ми обрали за вас — це вибір платформи.",
+    "equipmentExplanation": "Автор радить спис і щит. Спис узято як просту рукопашну зброю (група 2); щит іде з бойовою зброєю групи 1, довгий меч ми обрали за вас. Набір священика та кольчугу ми теж обрали за вас — це вибір платформи, їх можна змінити."
+  }
+}

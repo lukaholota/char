@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { buildOmniSearchIndex, isCatalogShortcut, searchOmniIndex } from "@/lib/omniSearchData";
-import { collectSearchCatalogs } from "@/lib/catalogs/catalog-registry";
+import { collectSearchCatalogs, isCatalogSearchIndexedInEdition } from "@/lib/catalogs/catalog-registry";
 import { findAliasEntry } from "@/lib/search/searchAliases";
 import { buildQueryMatcher, buildSearchableText, matchesQuery } from "@/lib/search/searchQuery";
 import { findOmniSearchVisual } from "@/lib/search/searchVisuals";
@@ -15,7 +15,7 @@ describe("Omni-Search Index and Querying (KR10.2)", () => {
 
     const categories = new Set(index.filter((item) => !isCatalogShortcut(item)).map((item) => item.category));
     for (const entry of collectSearchCatalogs(edition)) {
-      if (entry.search !== "index") continue;
+      if (!isCatalogSearchIndexedInEdition(entry, edition)) continue;
       expect(categories.has(entry.slug), `каталог «${entry.slug}» без рядків в індексі ${edition}`).toBe(true);
     }
   });

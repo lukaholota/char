@@ -7,8 +7,7 @@ import { classChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
 import { Card } from "@/components/ui/card";
 import { classTranslations, classTranslationsEng } from "@/lib/refs/translation";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
-import { ControlledInfoDialog, InfoSectionTitle } from "@/lib/components/characterCreator/EntityInfoDialog";
-import { FormattedDescription } from "@/components/ui/FormattedDescription";
+import { ChoiceOptionFeaturesDialog, type ChoiceOptionInfo } from "@/lib/components/characterCreator/ChoiceOptionFeaturesDialog";
 import { ClassChoiceOptionGroups } from "@/lib/components/characterCreator/ClassChoiceOptionGroups";
 
 interface Props {
@@ -33,9 +32,7 @@ const displayName = (cls?: ClassI | null) =>
 const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNextDisabledChange, pickCount = 1, groupPickCounts, initialPact, initialLevel }: Props) => {
   const { updateFormData, nextStep, formData } = usePersFormStore();
 
-  const [infoOpen, setInfoOpen] = useState(false);
-  const [infoTitle, setInfoTitle] = useState<string>("");
-  const [infoFeatures, setInfoFeatures] = useState<Array<{ name: string; description: string; shortDescription?: string | null }>>([]);
+  const [info, setInfo] = useState<ChoiceOptionInfo | null>(null);
   
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [pendingSelection, setPendingSelection] = useState<{ groupName: string; optionId: number } | null>(null);
@@ -200,25 +197,6 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
     }
   };
 
-  const openFeaturesInfo = (
-    title: string,
-    features?: ClassI["classChoiceOptions"][number]["choiceOption"]["features"]
-  ) => {
-    const normalized = (features || [])
-      .map((item) => item.feature)
-      .filter(Boolean)
-      .map((feat) => ({
-        name: String((feat as any).name ?? ""),
-        description: String((feat as any).description ?? ""),
-        shortDescription: (feat as any).shortDescription ?? null,
-      }))
-      .filter((feat) => feat.name);
-
-    setInfoTitle(title);
-    setInfoFeatures(normalized);
-    setInfoOpen(true);
-  };
-
   if (!selectedClass && !availableOptions) {
     return (
       <Card className="p-4 text-center text-slate-200">
@@ -249,36 +227,10 @@ const ClassChoiceOptionsForm = ({ selectedClass, availableOptions, formId, onNex
         groupedOptions={groupedOptions}
         selectionState={{ charLevel, charPact, groupPickCounts, pickCount, selections }}
         onSelectOption={selectOption}
-        onShowFeatures={openFeaturesInfo}
+        onShowFeatures={(title, features) => setInfo({ title, features })}
       />
 
-      <ControlledInfoDialog
-        open={infoOpen}
-        onOpenChange={setInfoOpen}
-        title={infoTitle || "Фічі"}
-        contentClassName="max-w-2xl"
-      >
-        {infoFeatures.length ? (
-          <div className="space-y-3">
-            <InfoSectionTitle>Фічі</InfoSectionTitle>
-            <div className="space-y-3">
-              {infoFeatures.map((feat) => (
-                <div key={feat.name} className="glass-panel rounded-xl border border-slate-800/70 p-4">
-                  <div className="text-sm font-semibold text-white">{feat.name}</div>
-                  {feat.description ? (
-                    <FormattedDescription
-                      content={feat.description}
-                      className="mt-2 text-slate-200/90"
-                    />
-                  ) : null}
-                </div>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <div className="text-sm text-slate-400">Немає фіч</div>
-        )}
-      </ControlledInfoDialog>
+      <ChoiceOptionFeaturesDialog info={info} onClose={() => setInfo(null)} />
 
       <PrerequisiteConfirmationDialog
         open={confirmOpen}

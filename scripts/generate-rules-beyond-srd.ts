@@ -131,6 +131,7 @@ const SMALL_REGISTRY_PAGE_BY_TITLE = new Map<string, string>([
   ["Blindsight", "senses"],
   ["Darkvision", "senses"],
   ["Truesight", "senses"],
+  ["Tremorsense", "senses"],
 ]);
 
 function readTranslations(): Map<string, RuleArticleTranslation> {

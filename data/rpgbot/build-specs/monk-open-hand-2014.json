@@ -1,0 +1,353 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "monk-open-hand-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+    "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684"
+  },
+  "exampleSection": "section-example-build-the-launch-pad",
+  "levelTableSection": "section-levels",
+  "classKey": "MONK_2014",
+  "subclassKey": "WAY_OF_THE_OPEN_HAND",
+  "raceKey": "HUMAN_2014",
+  "backgroundKey": "URCHIN",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "variantKey": "HUMAN_VARIANT",
+  "featKey": "CRUSHER",
+  "recipeTitle": "Пусковий майданчик",
+  "levelPlans": {
+    "levels": "all",
+    "notes": true,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "nodeSections": [
+    "section-example-build-the-launch-pad",
+    "section-lets-discuss-semantics",
+    "section-lets-discuss-geometry-and-physics",
+    "section-is-this-really-allowed",
+    "section-is-this-going-to-cause-problems",
+    "section-abilities",
+    "section-race",
+    "section-background",
+    "section-skills-and-tools",
+    "section-feats"
+  ],
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "WAY_OF_THE_OPEN_HAND"
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Покращення характеристик на 19-му рівні",
+      "reason": "Автор пише «Покращення Характеристик: будь-яке»; пресет бере типове +2 до Статури, гравець може змінити.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Додаткові (необовʼязкові) уміння класу",
+      "reason": "Автор позначає «Присвячену зброю» (2-й), «Швидке зцілення» (4-й) і «Зосереджене прицілювання» (5-й) як додаткові; платформа не має вибору таких необовʼязкових умінь, тож вони не записані.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Альтернатива «Своя раса»",
+      "reason": "Автор радить як альтернативу Свою расу (Темнозір, підвищення Спритності й Мудрості по +1 на 4-му рівні); пресет бере Варіант людини.",
+      "section": "section-race"
+    }
+  ],
+  "preset": {
+    "title": "Монах відкритої долоні — контролер",
+    "description": "Відсувайте ворогів і звільняйте шлях союзникам. Бийтеся без обладунків та керуйте позиціями на полі бою.",
+    "portraitSrc": "/images/presets/monk-open-hand-2014.webp",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "STEALTH"
+      ],
+      "race": [
+        "ACROBATICS"
+      ],
+      "background": [
+        "PERCEPTION"
+      ]
+    },
+    "featOptionName": "CRUSHER Ability (Constitution)",
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "WIS"
+    ],
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": [
+          "QUARTERSTAFF"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "abilityExplanation": "Спритність допомагає атакувати, Мудрість — захищатися. Уже враховано расові бонуси та +1 до Статури від риси.",
+    "skillExplanation": "Навички допомагають підкрадатися, помічати небезпеку, досліджувати й працювати руками. Повторну Непомітність замінено на Уважність.",
+    "equipmentExplanation": "Ми обрали палицю безпосередньо зі стартового набору Монаха. Продаж короткого меча й купівлю зброї з авторського прикладу виконувати не потрібно."
+  },
+  "initialChoices": [
+    "race",
+    "background",
+    "feat"
+  ],
+  "choices": [
+    {
+      "choiceId": "race",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-race",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "race-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "race",
+            "entityKey": "HUMAN_2014"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-open-hand-2014",
+              "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+              "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+              "sectionId": "section-race",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Варіант людини{{Variant Human}}. Доступ до риси на першому рівні надзвичайно корисний для Монаха, бо це, по суті, єдиний спосіб отримати її, не завдавши собі математичної шкоди. Ми також отримуємо додаткову навичку, що приємно.",
+          "dependsOn": []
+        },
+        {
+          "alternativeId": "race-custom-lineage",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "race",
+            "entityKey": "CUSTOM_LINEAGE_TCE"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-open-hand-2014",
+              "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+              "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+              "sectionId": "section-race",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Натомість можна взяти «Свою расу»{{Custom Lineage}}, щоб отримати Темнозір, а підвищення характеристик 4-го рівня розділити між Спритністю та Мудрістю. Після цього єдина різниця між збірками — одна навичка проти Темнозору.",
+          "dependsOn": [],
+          "levelOverrides": [
+            {
+              "characterLevel": 4,
+              "text": "Покращення характеристик: +1 до Спритності, +1 до Мудрості",
+              "abilityChanges": [
+                {
+                  "ability": "DEX",
+                  "increase": 1
+                },
+                {
+                  "ability": "WIS",
+                  "increase": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "choiceId": "background",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-background",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "background-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "background",
+            "entityKey": "URCHIN"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-open-hand-2014",
+              "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+              "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+              "sectionId": "section-background",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Тут добре працюватиме будь-яка з передісторій, запропонованих у нашому гайді Монаха. Мені особливо до вподоби передісторія «Безпритульний»{{Urchin}}, бо вона так спрощує Монаху роль еквівалента Пройдисвіта в групі.",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2014",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+          "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "feat",
+            "entityKey": "CRUSHER"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-open-hand-2014",
+              "translationRevisionId": "translation-rpgbot-monk-open-hand-2014-draft1",
+              "sourceRevisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+              "sectionId": "section-feats",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Беремо «Дробильника» на першому рівні. Це дає змогу одразу починати переміщувати ворогів і виконувати для групи функцію сапорта, але також добре поєднується з «Технікою відкритої долоні», як ми розглянемо нижче.",
+          "dependsOn": []
+        }
+      ]
+    }
+  ]
+}

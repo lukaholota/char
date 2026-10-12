@@ -34,7 +34,7 @@ const DEFT_EXPLORER = {
 /// Левелап пускав далі з невитраченими виборами, і риса лишалася без навички — на листі це
 /// вже не лагодиться. Те саме рішення, що й у конструкторі (2026-09-06), з однією поправкою:
 /// коли всі запропоновані навички персонаж уже знає, вимагати нема чого.
-function renderStep(extraExistingSkills: string[] = []) {
+function renderStep(extraExistingSkills: string[] = [], features: Array<{ featureId: number | string; name: string; skillProficiencies: unknown }> = [DEFT_EXPLORER]) {
   const onNextDisabledChange = vi.fn();
 
   usePersFormStore.setState({
@@ -44,7 +44,7 @@ function renderStep(extraExistingSkills: string[] = []) {
 
   render(
     <LevelUpSkillProficienciesForm
-      activeFeatures={[DEFT_EXPLORER]}
+      activeFeatures={features}
       formId="levelup-skills"
       extraExistingSkills={extraExistingSkills}
       onNextDisabledChange={onNextDisabledChange}
@@ -58,7 +58,23 @@ function clickSkill(label: string) {
   fireEvent.click(screen.getByRole("button", { name: new RegExp(label) }));
 }
 
+const NEW_CLASS_SKILL = {
+  featureId: "multiclass-entry",
+  name: "Навичка нового класу",
+  skillProficiencies: { choiceCount: 1, options: ["ACROBATICS", "STEALTH", "PERCEPTION"] },
+};
+
 describe("крок навичок у майстрі підвищення", () => {
+  it("просить навичку, яку дає перший рівень нового класу, і не пускає далі без неї", () => {
+    const gate = renderStep(["PERCEPTION"], [NEW_CLASS_SKILL]);
+
+    expect(screen.getByText("Навичка нового класу")).toBeTruthy();
+    expect(gate()).toBe(true);
+
+    clickSkill("Непомітність");
+    expect(gate()).toBe(false);
+  });
+
   it("не пускає далі, поки вибори риси не витрачені", () => {
     const gate = renderStep();
 

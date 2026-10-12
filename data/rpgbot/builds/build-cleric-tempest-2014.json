@@ -1,0 +1,812 @@
+{
+  "buildId": "build-cleric-tempest-2014",
+  "revisionId": "build-cleric-tempest-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Клірика бурі — Розбиваємо очікування на друзки",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "TEMPEST_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "CLERIC_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "CLERIC_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "CLERIC_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 1
+          },
+          {
+            "ability": "WIS",
+            "amount": 1
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "CLERIC_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "CLERIC_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "CLERIC_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "WAR_CASTER"
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "CLERIC_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "CLERIC_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "CLERIC_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "CLERIC_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "CLERIC_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "CLERIC_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "CLERIC_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "CLERIC_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "METAMAGIC_ADEPT"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "CLERIC_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "CLERIC_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "CLERIC_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "CLERIC_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-tempest-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "TEMPEST_DOMAIN",
+    "raceKey": "GENASI_AIR_MPMM",
+    "backgroundKey": "SAGE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Ми хочемо уникнути штрафу до швидкості від важкого обладунку, щоб кидатися в ближній бій, а це, на жаль, означає, що нам потрібно більше Сили, ніж зазвичай. Почнемо з 15 у Силі, Статурі та Харизмі, потім +2 до Мудрості й +1 до Статури.\n\n Базове значення Підвищене значення Сила 15 15 Спритність 8 8 Статура 15 16 Інтелект 8 8 Мудрість 15 17 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Геназі повітря{{Air Genasi}}. Нам дуже потрібен Шокувальний дотик [Shocking Grasp] як заклинання на основі Мудрості.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Для збірки це не особливо впливає. Підійде будь-що, що працює для Клірика.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Тримаємося основних навичок клірика.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні розділимо Покращення Характеристик між Статурою й Мудрістю.\n\nНа 8-му рівні візьмемо «Бойового заклинателя»{{War Caster}}. З Шокувальним дотиком [Shocking Grasp] і «Ударом блискавки»{{Thunderbolt Strike}} наші Принагідні атаки можуть підкидати ворогів у повітря й валити їх на землю. Витративши половину руху, щоб підвестися, наші вороги далеко не зайдуть.\n\nНа 12-му рівні доведемо Мудрість до максимуму.\n\nНа 16-му рівні візьмемо «Адепта метамагії»{{Metamagic Adept}}, щоб отримати «Перетворене заклинання»{{Transmuted Spell}}. Користуватимемося ним виключно з Вогняним штормом [Fire Storm], щоб перетворити його шкоду на громову й максимізувати «Руйнівним гнівом»{{Destructive Wrath}}.\n\nНа 19-му рівні візьмемо «Стійкого (Статура)»{{Resilient (Constitution)}}. Разом із «Бойовим заклинателем»{{War Caster}} наша Концентрація практично непорушна. Це також підніме нашу Статуру до 18, зробивши нас дуже витривалими.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Божественний домен{{Divine Domain}}: Буря\nДодаткові майстерності\nГнів бурі\nЧаротворство\nЗамовляння:\n– Шокувальний дотик (Геназі повітря)\n– Настанова\n– Священне полумʼя\n– Слово сяйва\nЗаклинання домену:\n– Туманна хмара\n– Громова хвиля",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Канал божественності (1/відпочинок)\n– Руйнівний гнів\n– Вигнання нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Заклинання домену:\n– Порив вітру\n– Друзки",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик: Статура 16 → 17, Мудрість 17 → 18\nНове відоме замовляння:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Знищення нежиті (ПН 1/2)\nЗаклинання домену:\n– Накликання блискавки\n– Завірюха",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Канал божественності (2/відпочинок)\nУдар блискавки",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Заклинання домену:\n– Контроль води\n– Крижаний шторм",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Бойовий заклинатель\nЗнищення нежиті (ПН 1)\nБожественний удар +1к8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Заклинання домену:\n– Руйнівна хвиля\n– Нашестя комах",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Божественне втручання{{Divine Intervention}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Знищення нежиті (ПН 2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Мудрість 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Знищення нежиті (ПН 3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Адепт метамагії\n– Перетворене заклинання\n– будь-який",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Народжений бурею\nЗнищення нежиті (ПН 4)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Канал божественності (3/відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Стійкий (Статура 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Покращене божественне втручання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Підготовлені заклинання",
+        "reason": "Автор радить «основні кліриківські варіанти», але конкретних підготовлених заклинань 1-го рівня не називає, тож пресет їх не записує: їх можна обрати на листі персонажа.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія Адепта метамагії",
+        "reason": "На 16-му рівні автор бере Адепта метамагії з Перетвореним заклинанням і ще однією метамагією; у каталозі риса без опцій (BUG-O49-METAMAGIC-ADEPT), тож записано лише саму рису.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння 4-го та 10-го рівнів",
+        "reason": "Автор пише «будь-яке» нове замовляння на 4-му рівні, а на 10-му не називає його взагалі, тож вибір лишено гравцеві.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-tempest-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

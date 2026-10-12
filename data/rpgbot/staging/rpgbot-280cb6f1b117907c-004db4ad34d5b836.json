@@ -1,0 +1,5218 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "004db4ad34d5b836a2cf76546948ec76612a6c99265042bb52599eca19d55e7a",
+  "sourceRevision": {
+    "revisionId": "rpgbot-280cb6f1b117907c-004db4ad34d5b836",
+    "sourceId": "rpgbot-280cb6f1b117907c",
+    "fetchedAt": "2026-09-29T19:10:33.007169+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:34:31-04:00",
+    "contentHash": "b3688d48f6d05901850fdcd1f20800e44cf4a41b2f130d402dd1032a92b1d68c",
+    "title": "Wild Shape Guide | DnD 5e",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-280cb6f1b117907c-004db4ad34d5b836.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wild Shape is an exciting and versatile Druid class feature which a lot of people want to use, but which is easy to use badly. Understanding Wild Shape mostly boils down to understanding what form to take; which forms work, which forms work in specific situations, and which forms just never work."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Remember that you can only Wild Shape twice per short rest, and the DMG’s expectation of a normal adventuring day is 6-8 encounters per day with 2 short rests (See DMG Page 84: “The Adventuring Day”), so a single use of Wild Shape often needs to be able to last at least an entire fight on average. You can heal yourself as a bonus action by burning spell slots, which helps, but it’s very expensive compared to what you can get from casting a spell with that slot."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There is a lot of confusion around the rules of Wild Shape and its interaction with your racial traits and class features. I strongly recommend listening to "
+            },
+            {
+              "type": "link",
+              "text": "this episode of the Dragon Talk podcast",
+              "href": "https://podcasts.apple.com/gb/podcast/chris-avellone-and-philip-daigle-on-planescape/id189053885?i=1000384082916"
+            },
+            {
+              "type": "text",
+              "text": ", in which Jeremy Crawford spends 45 minutes discussing the minutiae of Wild Shape and its interaction with other stuff."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You might also enjoy our podcast episode on "
+            },
+            {
+              "type": "link",
+              "text": "DnD 5e’s Wild Shape",
+              "href": "https://rpgbot.net/wild-shape-mastery-choosing-the-right-form-as-a-druid-rpgbot-podcast-s4e3/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-5",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Circle of the Moon"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Other Circle"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/4"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/4"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/2"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/2"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/2"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/2"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Wild Shape Forms by CR",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#animal-forms"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "CR 0",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_0"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "CR 1/8",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_.125"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "CR 1/4",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_.25"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "CR 1/2",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_.5"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "CR 1",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_1"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "CR 2",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "CR 3",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_3"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "CR 4",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_4"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "CR 5",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_5"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "CR 6",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_6"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Elemental Forms",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#elemental-forms"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Unarmored Defense and Wild Shape",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#unarmored-defense"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-animal-forms",
+      "heading": "Wild Shape Forms by CR",
+      "sourceAnchor": "animal-forms",
+      "blocks": [
+        {
+          "blockId": "block-section-animal-forms-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Note"
+            },
+            {
+              "type": "text",
+              "text": ": Remember that Druids (including Moon Druids) can’t take forms with a swim speed until level 4, and can’t take forms with a fly speed until level 8, so many forms which are fantastic for their CR will be rated poorly because by the time you get them they need to compete with considerably more powerful forms."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cr_0",
+      "parentSectionId": "section-animal-forms",
+      "heading": "CR 0",
+      "sourceAnchor": "cr_0",
+      "blocks": [
+        {
+          "blockId": "block-section-cr_0-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At CR 0 you’re not looking for a combat form. CR 0 includes creatures which aren’t dangerous, or are only dangerous in great numbers (I.E. anything with Pack Tactics). Instead, look here for forms you want to use for scouting and infiltration."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cr_0-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flight is typically your best bet for scouting, which makes the Owl the best option. Underwater, the Octopus is your best bet. If you need to climb instead of fly for some reason, Spider is a good choice. If you need to get around unnoticed in a city, Cat or Rat are both good options in case you’re spotted."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cr_0-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Baboon"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Climb speed and pack tactics."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Badger"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Keen Smell and a burrow speed can be ocasionally useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bat"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Tiny size, flight, blindsight, and Keen Hearing make this an absolutely\n\t\tfantastic form for scouting. However, echolocation typically requires a lot\n\t\tof screeching, so you’re likely to give away your presence. Unusable until\n\t\tlevel 8."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cat"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Tiny size, a decent Stealth bonus, Keen Smell, and a climb speed.\n\t\tAltogether a decent scout form."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crab"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Amphibious, a swim speed, and blindsight. Not good enough for combat, but\n\t\ta great underwater scout form. Unusable until level 4."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cranium Rat"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Darkvision, Illumination, Telepathy, and Telepathic shroud.\n\t\tUnfortunately, with no Stealth bonus it may not work as a scout form."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Deer"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Great speed, but if you just want to be fast you’re probably better\n\t\tserved by something that can fly."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Eagle"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic fly speed, the best attack at this CR, but any Druid who can\n\t\tWildshape into an Eagle can also Wildshape into a Giant Owl, which is\n\t\tconsiderably better. Unusable until level 8."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Frog"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Swim speed and 30 ft. Darkvision. Crab is strictly better, so Frog is\n\t\tonly a good choice where you need to look inconspicuous in the environment.\n\t\tSomeone seeing a crab in a swamp would likely take notice. Unusable until\n\t\tlevel 4."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Fire Beatle"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Blindsight, and you glow. Magical light is easily available, and torches\n\t\tare cheap, so your party shouldn’t have issues with illumination. If you\n\t\tneed to see in the dark, turn into something with better Blindsight or with\n\t\tDarkvision."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Goat"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Passable damage and knockdown if you hit with Charge, but it’s hard to\n\t\tuse charge more than once in the same combat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hawk"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Eagle is strictly better. Unusable until level 8."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hyena"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Good speed and pack tactics."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Jackal"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Good speed, Keen Hearing and Smell, and pack tactics."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lizard"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Darkvision and a climb speed, but no stealth."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Octopus"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Darkvision, and fantastically stealthy underwater. If you get caught, use\n\t\tyour ink cloud and run away! Unusable until level 4, but even at that level\n\t\tit remains a great underwater Scout."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Owl"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Good stealth, huge Darkvision range, Keen Hearing and Sight, and a\n\t\tfantastic fly speed. Unusable until level 8, but even at that level it\n\t\tremains an absolutely fantastic flying scout form."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Quipper"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Swim speed and Darkvision, but the Octopus is strictly better. Unusable\n\t\tuntil level 4."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rat"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Darkvision and Keen Smell. Rats have a major in-world advantage because\n\t\tthey’re a common sight in populated areas, so it’s easy to escape notice\n\t\teven if you’re spotted by humanoids. However, this advantage doesn’t apply\n\t\tto monsters, cats, or people who just don’t like rats."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Raven"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Decent fly speed and decent Perception, and you might be able to speak\n\t\tusing Mimicry, but other flying options are better for stealth and scouting.\n\t\tUnusable until level 8."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scorpion"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Slow, a tiny bit of blindsight, and a little bit of poison. Unfortunately\n\t\twith no stealth or Dexterity you’re very easy to spot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sea Horse"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Worthless."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spider"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Good stealth, Darkvision, and better climbing than anything else thanks\n\t\tto Spider Climb. Flight is generally a better option, but sometimes you need\n\t\tto hang on a ceiling."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vulture"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Keen Sight and Smell, and Pack Tactics on a flying creature, but Eagle is\n\t\tbetter for combat and Owl is better for scouting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Weasel"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Good Perception and Stealth, plus Keen Hearing and Smell. Unfortunately,\n\t\twith no special movement types it’s not an effective scout form."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-6",
+      "parentSectionId": "section-animal-forms",
+      "heading": "CR 1/8",
+      "sourceAnchor": "cr_.125",
+      "blocks": [
+        {
+          "blockId": "block-section-6-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This CR is a difficult middle-ground, mostly populated by larger version of CR 0 options. CR 0 has better scouting options because smaller creatures can more easily access small areas, and all Druids have access to higher CRs to get better combat forms."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-6-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flying Snake is really the only useful option here because it can do so much with a single form."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-6-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Blood Hawk"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Flight, Keen Sight, and Pack Tactics, but still can’t compete with better\n\t\tcombat forms available to Druids of the same level. Unusable until level\n\t\t8."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Camel"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Decent speed, and the first form which is definitely ridable by your\n\t\tallies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Flying Snake"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Without the restriction on flying forms this would be fantastic.\n\t\tUnfortunately, by the time you can get this at level 8 you have access to\n\t\tconsiderably better options."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Crab"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Blindsight, and better swim speed and better Stealth than the basic Crab,\n\t\tplus (obviously) better attacks. At medium size it doesn’t really make sense\n\t\tas a Scout form because it can’t fit into small spaces, so it doesn’t really\n\t\thave an obvious role. Unusable until level 4."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Rat"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": No special movement, mediocre Stealth. Keen Smell, but plenty of better\n\t\toptions have that. Oh, and Pack Tactics to back up its mediocre attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Weasel"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Darkvision and Keen Hearing and Smell, and good Stealth, but no special\n\t\tmovement types."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mastiff"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Keen Hearing and Smell, and a bit with a knockdown effect. Plus, since\n\t\tit’s a dog, you can probably go unnoticed in civilized areas."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mule"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Camel is faster, but I guess sometimes you need to carry a ton of\n\t\tloot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Poisonous Snake"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Unusable until level 4, and by then you have better options"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pony"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Camel is faster."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stirge"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Flying Snake is strictly better. Attach seems tempting, but it makes you\n\t\textremely vulnerable to being knocked out of Wild Shape."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-7",
+      "parentSectionId": "section-animal-forms",
+      "heading": "CR 1/4",
+      "sourceAnchor": "cr_.25",
+      "blocks": [
+        {
+          "blockId": "block-section-7-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Everyone but Moon Druids will start with this CR as their best option from levels 2 and 3. Circle of the Moon Druids will skip this CR entirely because they have access to considerably better options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-7-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Against single enemies, go for Giant Frog if they’re small or smaller, or Velociraptor if they’re not. Against groups, consider Giant Owl, Wolf, or Velociraptor."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-7-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Axe Beak"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Good speed and a decent attack, but no special abilities and absolutely\n\t\tawful AC."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boar"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Charge is tempting due to the knockdown effect, but the DC is very low.\n\t\tPoor AC, poor hit points, poor damage, and Relentless only works once per\n\t\trest."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Constrictor Snake"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Swim speed, blindsight, and Constrict. Constrict is an absolutely\n\t\tfantastic way to take down single targets, especially if they have trouble\n\t\tpassing the escape DC. Unfortunately it’s unusable until level 4, at which\n\t\tpoint Land Druids will be using Crocodile, and Moon Druids will be using the\n\t\tGiant Constrictor Snake."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cow"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A decent charger, but with poor AC and low hit points it won’t survive\n\t\tmoving away to make another charge."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dimetrodon"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A bite attack and a swim speed. You won’t be able to use this form until\n\t\tyou’re fourth level, at which point the Crocodile is strictly better."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Draft Horse"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Decent speed and a very solid attack, but garbage AC."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elk"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Charge adds some nice damage behind Ram, plus a knockdown effect, and you\n\t\tcan switch to using Hooves once you’re stuck in melee for the improved\n\t\tdamage. Unfortunately, the Elk has both low AC and low hit points."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Badger"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A burrow speed, Keen Smell, and Multiattack. Unfortunately, poor AC and\n\t\thit points."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Bat"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A bizzarrely large number of hit points, but terrible damage output and\n\t\tat large size a very poor scout. Unusable until level 8, by which point\n\t\teveryone has better options."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Frog"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The frog’s Bite and Swallow abilities are considerably more lethal than\n\t\tthe Constrictor Snake’s Constrict ability, but they only work on Small or\n\t\tsmaller creatures. Unusable until level 4, at which point you have better\n\t\toptions."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Lizard"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Startlingly similar to the Axe Beak, but with a climb speed and a slower\n\t\tland speed."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Owl"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Decent damage and Flyby, which are great on a flying form. Unusable until\n\t\tlevel 8, at which point you have better options."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Poisonous Snake"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Swim speed, reach, a bit of blindsight, and poison damage. Unfortunately\n\t\tthe poison DC is very low, and it’s unusable until level 4, at which point\n\t\tyou have better options."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Wolf Spider"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic stealth, and all of the climbing ability you expect from a\n\t\tspider. Decent poison damage, but the DC is low."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hadrosaurus"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Poor AC, poor speed, poor damage, no special abilities."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Panther"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Keen Smell and great Stealth. Pounce adds a nice knockdown effect to the\n\t\tPanther’s claws, but it doesn’t have the damage output to compete with other\n\t\tcombat forms at the same CR."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pteranodon"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Giant Owl is strictly better."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Riding Horse"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Decent damage attack, and obviously ridable, but everything else is\n\t\tbad."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Velociraptor"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Better damage than the Wolf and Pack Tactics, but no trip effect."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wolf"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Keen Hearing and Smell, and Pack Tactics to back up the Wolf’s attack.\n\t\tThe damage isn’t great, but it applies a knockdown effect on every hit.\n\t\tDecent AC for an animal at this CR, but not a ton of hit points."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-8",
+      "parentSectionId": "section-animal-forms",
+      "heading": "CR 1/2",
+      "sourceAnchor": "cr_.5",
+      "blocks": [
+        {
+          "blockId": "block-section-8-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Everyone but Moon Druids will use this CR from levels 4 through 7, while Circle of the Moon Druids will skip this CR and go straight to CR 1. By level 4 you also have access to forms with swim speeds, so Land Druids can use great options like the Crocodile."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For single enemies, use the Crocodile. For multiple enemies, use the Ape. Several excellent flying options exist at this CR, but Moon Druids have better options at CR 1, and other druids can’t select forms with a fly speed."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ape"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Two melee attacks with decent damage and a decent attack bonus, and an\n\t\textremely rare ranged attack from an animal. Because the Ape has human-like\n\t\thands, you can likely use weapons. You probably can’t use your armor while\n\t\twildshaped because apes have such wildly different proportions to\n\t\thumanoids."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Black Bear"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Ape is strictly better in every way except that the Black Bear has\n\t\tslightly better speed."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crocodile"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A great single-target crowd controller. The bite does decent damage, and\n\t\tuntil the target escapes you get advantage on your attacks against it.\n\t\tHowever, you’ll have problems engaging multiple targets. Unusable until\n\t\tlevel 4."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Goat"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Decent damage, especially if you move beforehand, but it’s very difficult\n\t\tto get the Charge bonus damage more than once in an encounter. The Warhorse\n\t\tworks similarly, but does better damage, has better speed, and knocks tagets\n\t\tprone on a charge."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Sea Horse"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Less damage and worse AC than the Reef Shark. Unusable until level 4."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Wasp"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Great fly speed, and the only flying option at this CR. The damage on the\n\t\twasp’s sting isn’t great, but the poison is very potent if your target fails\n\t\tthe low save DC to resist it. Unfortunately it’s unusable until level 8, so\n\t\tyou’ll have better options."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reef"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "Shark"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The best aquatic form at this CR. Land Druids will use this, but Moon\n\t\tDruids can use Hunter Shark at level 4 when swimming forms become\n\t\tavailable."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warhorse"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent speed and damage, and the charge effect is a great way to help\n\t\tyour allies, though you have no way to capitalize on your enemies being\n\t\tprone."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cr_1",
+      "parentSectionId": "section-animal-forms",
+      "heading": "CR 1",
+      "sourceAnchor": "cr_1",
+      "blocks": [
+        {
+          "blockId": "block-section-cr_1-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "CR 1 is the max for non-Moon Druids, but by the time you reach this point, it may be hard to use these as combat forms. Enemies will have higher ACs than you can hit reliably without advantage, and will hit you too easily and do too much damage to make Wild Shape an option that you can rely on constantly. Fortunately, Land Druids get this CR at level 8 when flying forms open up, so the Giant Vulture is the perfect answer to these problems."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cr_1-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Moon Druids start at this CR, so remember that swimming and flying forms won’t be immediately available, but you will hit level 4 before you get access to CR 2."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cr_1-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Against single enemies, the Giant Toad can quickly remove anything of medium size or smaller. For other fights, the Giant Vulture does great damage, and the Dire Wolf has a nice knockdown effect. The Giant Spider’s web is a fun utility, especially against big enemies with low AC. Underwater, the Giant Octopus is your only option, but it’s also pretty good."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cr_1-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Brown"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "text",
+                "text": "Bear"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A decent amount of hit points, Keen Smell, a climb speed, and Multiattack\n\t\twith two decent attacks. Unfortunately, the Brown Bear’s AC is relatively\n\t\tlow for the CR, and it doesn’t have enough hit points to compensate, so it’s\n\t\tvery difficult to maintain the form if you’re drawing attacks. A lot of\n\t\tpeople like bears because the multiple attacks allow you to apply Rage\n\t\tdamage twice, but you absolutely won’t have enough rages to keep this form\n\t\tviable throughout a full day. If you insist on using Brown Bear (and many\n\t\tpeople do) be absolutely sure to put of Barkskin before you go into\n\t\tcombat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Deinonychus"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": An excellent charger, the Deinonychus can outdo the Dire Wolf’s damage on\n\t\ta multiattack, but can only trip if it moves around, and you really want to\n\t\tcharge in and out to try to knock your targets prone with Pounce and get the\n\t\tbonus action bite. Personally I think the Dire Wolf is a better option since\n\t\tyou don’t need to risk opportunity attacks to trip things, but the\n\t\tDeinonychus is still a potentially good option and if you can make it work\n\t\ttheir Deinonychus’s damage output will be better."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dire Wolf"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Good hit points and good AC for an animal. Keen Hearing and Smell, and\n\t\tgood Perception and Stealth for whatever reason. The Dire Wolf’s bite does\n\t\tdecent damage, and has a knockdown effect with a decent DC to resist, and\n\t\twith Pack Tactics you should be able to hit reliably. Altogether, a very\n\t\tsolid combat form."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Eagle"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Spectacular fly speed, Keen Sight, and multiattack with two decent\n\t\tattacks. The Giant Vulture does considerably more damage and\n\t\thas Pack Tactics to back up its attacks, but the Giant Eagle is more durable and mroe able to land attacks without relying on Pack Tactics."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Hyena"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Low AC, but a decent pile of hit points. The Giant Hyena’s bite does\n\t\tdecent damage, and with Rampage you can chew through groups of weak enemies\n\t\tvery quickly, especially at low levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Octopus"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Underwater this is the only form available at this CR, but it’s a great\n\t\toption for combat, and it’s even decent at stealth. Not usable until level\n\t\t4."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Spider"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Giant Spider’s best trick is its Web attack. The attack bonus is\n\t\tdecent, and the target doesn’t get a save to resist its effect. The target\n\t\tcan then either waste an action trying to escape, make attacks at\n\t\tdisadvantage to cut its way out, or attempt to fight while restrained. In\n\t\tany of those cases, you win. This is especially true against single enemies\n\t\twhere the action economy tips heavily in the party’s favor."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Toad"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A bigger version of the Giant Frog, the toad adds poison damage to its\n\t\tbite, and increases the size of creature which you can swallow to medium.\n\t\tSwallowing an enemy is still a great way to eliminate important single\n\t\ttargets. Not usable until level 4."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Vulture"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Better than the Giant Eagle in every aspect except speed. Thanks to Pack\n\t\tTactics, the Giant Vulture can reliably hit with its Multiattack and deal\n\t\timpressive damage. For non-moon druids, this is the best flying form. For\n\t\tCircle of the Moon druids, the Quetzalcoatlus is a better option as soon as\n\t\tflying forms are allowed."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lion"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Pounce is easily outdone by the Dire Wolf’s bite, and the Dire Wolf does\n\t\tmore damage. The Lion has two attacks, but without Multiattack that doesn’t\n\t\tdo anything. Dire Wolf is strictly better."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tiger"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Nearly identical to the Lion, but with Darkvision and a tiny bit more\n\t\tdamage. Dire Wolf is still better."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cr_2",
+      "parentSectionId": "section-animal-forms",
+      "heading": "CR 2",
+      "sourceAnchor": "cr_2",
+      "blocks": [
+        {
+          "blockId": "block-section-cr_2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "CR 2 is where Wild Shape forms start to really improve in damage output, which lines up with martial characters like Fighters getting Extra Attack."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cr_2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flying forms don’t open up until level 8, but you’ll still be on CR 2 at that point, at which point the Quetzalcoatlus will easily outdo lower-CR options both for travel and in combat. Sabre-Toothed Tiger is your go-to damage form, and Giant Constrictor Snake is your single-target striker form. Underwater the Giant Octopus is still solid."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cr_2-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Allosaurus"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Giant Elk works in much the same way, and does considerably more\n\t\tdamage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aurochs"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Slightly better damage output than the Giant Elk, but much less\n\t\tdurable."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Boar"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Dire Wolf is arguably better since it can trip every time it attacks,\n\t\tand it has comparable defenses and damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Constrictor Snake"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A linear improvement on the Constrictor Snake, the Giant Constrictor\n\t\tSnake is fantastic at restraining and eliminating single targets."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Elk"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Giant Elk’s Charge ability is nice, but its Hooves attack is totally\n\t\tunusable. It only works on prone creatures, and you can’t use it in the same\n\t\tturn that you use Charge. Without Hooves, the Giant Elk is just a larger,\n\t\tmore durable, Aurochs. If you have an ally who’s good at Shoving and doesn’t\n\t\tmind spending one of their attacks to help you out, Hooves is a ridiculous\n\t\tpile of damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hunter Shark"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Most of a fight is spent attacking something with less than full hit\n\t\tpoints, so you get to spend most of the fight with guranteed advantage. The\n\t\tHunter Shark is the only aquatic form at this level, but it’s still not\n\t\tsignificantly better than the Giant Octopus since the octopus can so easily\n\t\tRestrain enemies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Plesiosaurus"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Hunter Shark’s Blood Frenzy ability gives it a huge advantage over\n\t\tthe Plesiosaurus."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Polar Bear"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Multiattack with decent damage, but other forms at this CR do better\n\t\tdamage and have special abilities."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rhinoceros"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": More damage and a better Charge DC than the Giant Elk, but the elk’s\n\t\thooves make the Giant Elk much better in a drawn-out fight."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Quetzalcoatlus"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent speed, decent AC, flyby, and Dive Attack make the\n\t\tQuetzalcoatlus a perfect flying Striker form. It’s also Huge sized, decently strong, and has 80 ft. fly speed so it can easily carry your whole party for long distances (a few hours at a time, of course)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Saber-Toothed Tiger"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Comparable damage to the Giant Elk, but there are trade-offs. While its\n\t\tclaws do 1 point more damage than the Giant Elk’s gore, the Giant Elk’s AC\n\t\tis 2 points higher and it has considerably better move speed. If you use\n\t\thit-and-run tactics to keep Charge/Pounce in play, the Elk’s superior\n\t\tmovement speed is crucial for positioning, and its higher AC is better for\n\t\topportunity attacks when you move away. The Sabre-toothed Tiger’s Pounce\n\t\tcombo will do a few points more damage than Charge on the initial attack\n\t\tcombo, but if the foe remains prone the Giant Elk is clearly the better\n\t\toption."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cr_3",
+      "parentSectionId": "section-animal-forms",
+      "heading": "CR 3",
+      "sourceAnchor": "cr_3",
+      "blocks": [
+        {
+          "blockId": "block-section-cr_3-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ankylosaurus serves as a Defender, Giant Scorpion is great for holding stuff in place and murdering it (provided that you can hit with only a +4 bonus), and the Spotted Lion is great for charging single foes."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cr_3-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ankylosaurus"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Solid damage, reach, and a knockdown effect make the Ankylosaurus a great\n\t\tDefender."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Scorpion"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This thing is a monster. With multiattack you get two attempts to grapple\n\t\ttargets, plus your sting. The sting does fantastic poison damage even if\n\t\tthe target passes their save. Even the scorpion’s AC is decent, and with\n\t\tblindsight you can easily handle invisible or obscured enemies. However,\nthe Giant Scorpion’s attack bonuses are only +4, and by the time you can Wild Shape into\none, your allies are rolling +9 to hit. You may find that the Giant Scorpion’s attacks\nare ineffective unless you’re facing enemies with relatively poor AC."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Killer Whale"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic blindsight and decent damage, but not as useful in combat as\n\t\tthe Giant Octopus."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spotted Lion"
+              },
+              {
+                "type": "link",
+                "text": "GotG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": With the highest attack bonus of forms available at this level "
+              },
+              {
+                "type": "emphasis",
+                "text": "and"
+              },
+              {
+                "type": "text",
+                "text": " Pack Tactics, the Spotted Lion is great at hitting consistently. It’s also nearly as durable as the Ankylosaurus and has a knockdown effect with a surprisingly high DC of 16. However, unlike the Ankylosaurus, it needs to charge to tricker the knockdown. The Spotted Lion is better for charging single foes alongside allies, but the Ankylosaurus is better for taking up space and holding your ground."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cr_4",
+      "parentSectionId": "section-animal-forms",
+      "heading": "CR 4",
+      "sourceAnchor": "cr_4",
+      "blocks": [
+        {
+          "blockId": "block-section-cr_4-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "CR 4 is very disappointing. Stegosaurus is the best new option, but its raw damage output probably can’t compete with the Giant Scorpion’s ability to hold foes in place and wear them down."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cr_4-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Elephant"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Worse AC than the Giant Scorpion, comparable damage, and only a few more\n\t\thit points. Trampling Charge is decent, especially since you can get a free\n\t\tattack, but the DC is lower than the knockdown effect on the Dire Wolf’s\n\t\tbite, so even that doesn’t make the Elephant good."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stegosaurus"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Better damage and AC than the Elephant, but no special abilities."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cr_5",
+      "parentSectionId": "section-animal-forms",
+      "heading": "CR 5",
+      "sourceAnchor": "cr_5",
+      "blocks": [
+        {
+          "blockId": "block-section-cr_5-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Giant Crocodile is your best bet most of the time, but Giant Shark is pretty great underwater. Against multiple foes, consider the Brontosaurus for its amazing damage output and reach. If you just want a big ball of hp to absorb damage, the Titanothere is titano-there for you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cr_5-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Brontosaurus"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Brontosaurus deals an astounding 5d8+5 damage with a trip effect, or\n\t\tcan forgo the trip effect for another d8 of damage. It doesn’t do anything\n\t\tspecial beyond the trip effect, but with 20 foot reach it can be a serious\n\t\tthreat even in fights spread over a large area."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Crocodile"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Giant Crocodile replaces the Giant Constrictor Snake as your\n\t\tsingle-target elimination option. The crocodile’s tail also provides a nice\n\t\toption for knocking enemies prone."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Shark"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Great damage, blindsight, and a huge pile of hit points. No fun tricks,\n\t\tbut a solid aquatic option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Titanothere"
+              },
+              {
+                "type": "link",
+                "text": "GotG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": At AC 15 and with 10 more hit points than the Mammoth, the Titanothere is the most durable Wild Shape form available. However, it still competes for space with the Brontosaurus. The Titanothere is faster, has more hp, and has a better attack bonus by +2, but it does less damage and requires you to move to knock targets prone. With the Mobile feat, the Titanothere is almost certainly the better option, but otherwise it depends on your needs as any given momennt."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Triceratops"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": An Elephant with better numbers. it’s still not fantastic, but it’s\n\t\tbetter."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cr_6",
+      "parentSectionId": "section-animal-forms",
+      "heading": "CR 6",
+      "sourceAnchor": "cr_6",
+      "blocks": [
+        {
+          "blockId": "block-section-cr_6-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Look at all of these options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cr_6-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mammoth"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Very similar to a Giant Elk with more hit points. The DC on Trampling\n\t\tCharge is excellent, so you should be able to use it reliably, even if you\n\t\tonly manage to do it once per fight."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-elemental-forms",
+      "heading": "Elemental Forms",
+      "sourceAnchor": "elemental-forms",
+      "blocks": [
+        {
+          "blockId": "block-section-elemental-forms-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Moon Druids get the ability to Wild Shape into elementals. All of the Elementals in the Monster Manual are CR 5, making them the highest-CR options available to Druid until level 18. However, this option consumes both of your Wild Shapes uses, which can make it a risky choice if you’re not planning to rest soon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-elemental-forms-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Air"
+              },
+              {
+                "type": "text",
+                "text": ": The Air Elemental’s biggest draw\n\t\t\tis its ability to fly. The damage is on par with other elementals, and\n\t\t\tWhirlwind is fun but not terribly powerful, so the primary appeal is the\n\t\t\tadditional mobility, and while flight is excellent, it’s not exactly new\n\t\t\tfor Circle of the Moon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Earth"
+              },
+              {
+                "type": "text",
+                "text": ": Offensively underwhelming, but\n\t\t\tthe highest AC and hit points of the four elemental forms. The Earth\n\t\t\tElemental’s biggest draws are durability, tremorsense and a burrow speed.\n\t\t\tIt won’t outshine other elementals in most situations, but it’s the best\n\t\t\toption if you just need to withstand a bunch of attacks."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fire"
+              },
+              {
+                "type": "text",
+                "text": ": Want to murder everything? Fire\n\t\t\telemental. You can spend your movement walking through enemies to ignite\n\t\t\teverything in the room, then Dash to ignite whatever you didn’t have\n\t\t\tenough movement to walk over or Slam something that’s already on fire. If\n\t\t\tyou’e worried about Opportunity Attacks, Disengage instead and you can run\n\t\t\taround as much as you like.\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If your enemies don’t douse the fire, they take damage and you win. If\n\t\t\t\tthey spend an Action to douse the fire, you used your movement to cost\n\t\t\t\tthem an action, and you win. There’s not save to avoid the ability or\n\t\t\t\tanything. This is a mountain of flaming bullshit. Drop it on your foes.\n\t\t\t\tOh, and if they attack you in melee (including by making Opportunity\n\t\t\t\tAttacks when you’re running around) they take fire damage (unless they\n\t\t\t\thave reach)."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Water"
+              },
+              {
+                "type": "text",
+                "text": ": Not quite as murdery as the Fire\n\t\t\tElemental, but the ability to grapple, restrain, and drown two creatures\n\t\t\tat the same time while still attacking makes the Water elemental a serious\n\t\t\tthreat. The DC 15 save isn’t especially high, but it’s high enough that\n\t\t\tenemies not built around Strength will frequently struggle to pass the\n\t\t\tsave."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-unarmored-defense",
+      "heading": "Unarmored Defense and Wild Shape",
+      "sourceAnchor": "unarmored-defense",
+      "blocks": [
+        {
+          "blockId": "block-section-unarmored-defense-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A level of Barbarian or Monk to pick up Unarmored Defense goes a long way for Moon Druids because it applies while Wild Shaped, according to "
+            },
+            {
+              "type": "link",
+              "text": "Mike Mearls",
+              "href": "https://twitter.com/Acr0ssTh3P0nd/status/446889985497903104"
+            },
+            {
+              "type": "text",
+              "text": ". However, remember that you use the Unarmored Defense calculation in place of your animal form’s default calculation, so your form’s “natural armor” won’t stack (again according to "
+            },
+            {
+              "type": "link",
+              "text": "Sage Advice",
+              "href": "https://www.sageadvice.eu/2015/06/01/unarmored-druid-monk/"
+            },
+            {
+              "type": "text",
+              "text": ")."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-unarmored-defense-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Personally I like the Monk’s Unarmored Defense better for a single-level dip because it works on your 20 Wisdom (a consistent +5 to AC) instead of whatever Constitution score your Wild Shape form has, which will range anywhere from 10 to 20, but typically hangs around 15-16. If you plan a single level dip, go for Monk. If you’re willing to go for 2-3 levels, there’s a lot to be said for Barbarian."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-unarmored-defense-3",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": " "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": " "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": " "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "AC by Source"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": " "
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Form"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "CR"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Base"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brb"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mnk"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Owl"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Flying Snake"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Constrictor Snake"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Giant Frog"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Ape"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Giant Wasp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Reef Shark"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dire Wolf"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Giant Octopus"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Giant Vulture"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Giant Constrictor Snake"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Giant Elk"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Ankylosaurus"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Giant Scorpion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Spotted Lion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Elephant"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Giant Crocodile"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Giant Shark"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Titanothere"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10+wis"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Mammoth"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9+wis"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-unarmored-defense-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As you can see, the Monk’s version of Unarmored Defense will exceed the Barbarian’s in almost every case with as little as 16 Wisdom. With 20, it matches or exceeds every AC on the table. However, Barkskin sets your AC to a minimum of 16, which will exceed the AC of almost every form on the table, even with 20 Wisdom."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "How feats affect you while using Wild Shape can be a bit difficult to interpret. When you use Wild Shape, “you retain the benefit of any features from your class, race, or other source and can use them if the new form is physically capable of doing so.” So long as you comply with the other mechanics of Wild Shape (no casting spells, etc.) that’s really broad. A feat fits into “other source” so it works in Wild Shape, again assuming it complies with the other rules of Wild Shape."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Some feats have clear effects: Tough increases your own hit points, but Wild Shape specifically says “When you transform, you assume the beast’s hit points and Hit Dice.” Polearm master still works, but unless you Wild Shape into something with hands you’re not getting much use out of it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Other feats are less clear. The Dragonborn racial feat Dragon Hide gives you an ability score increase (overriden by Wild Shape; that part is clear), but it’s not totally clear how the rest of the feat works. The text of the second bullet specifically mentions toughening your scales, so maybe it works for scaled creatures like fish, lizards, and dinosaurs, but not for animals without scales like birds and mammals. The third bullet allows you to grow claws from your fingers, but most animals don’t have fingers. Do apes and other primates get claws? It’s not clear."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In my opinion, anything which is part of your character’s body like claws, natural armor, or damage resistances doesn’t work while in Wild Shape. Anything your character knows, like proficiency in something, specific training granted by a feat like Mobile or Actor, or something inherent to your character’s personality, culture, or anything else non-physical like the Lucky feat or the halfling Lucky trait should still apply in Wild Shape. But, as in any case where there is a question, your Dungeon Master makes the final decision. Be sure to talk to your DM before making any decisions about your build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In a few cases we’ve gotten answers on whether or not feats operate in Wild Shape:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "strong",
+                "text": "Grappler"
+              },
+              {
+                "type": "text",
+                "text": ": It works, but it’s still terrible.\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Source.",
+                "href": "https://www.sageadvice.eu/2016/11/22/does-grappler-feat-work-with-wild-shape/"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Tough"
+              },
+              {
+                "type": "text",
+                "text": ": Doesn’t affect your beast form’s hit points.\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Source.",
+                "href": "https://www.sageadvice.eu/2015/10/31/does-the-tough-feat-have-an-affect-on-shifting-druid/"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Mobile"
+              },
+              {
+                "type": "text",
+                "text": ": Probably works. Mike Mearls isn’t the official\n\t\trules guy, but his opinions more official than a well-versed player. I\n\t\tthink I agree with Mearls in this case.\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Source.",
+                "href": "https://www.sageadvice.eu/2016/04/09/does-mobility-feat-provides-benefits-for-a-wildshaped-druid/"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Baboon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Badger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Crab"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Cranium Rat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Deer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Eagle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Frog"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Fire Beatle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Goat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Hawk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Hyena"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Jackal"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Lizard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Octopus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Owl"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Quipper"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Rat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Raven"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Scorpion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Sea Horse"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Spider"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Vulture"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Weasel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Blood Hawk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Camel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Flying Snake"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Crab"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Rat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Weasel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mastiff"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Mule"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Poisonous Snake"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Pony"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Stirge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Axe Beak"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Boar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Constrictor Snake"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Cow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Dimetrodon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Draft Horse"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Elk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Badger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Bat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Frog"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Giant Lizard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Owl"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Poisonous Snake"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Wolf Spider"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Hadrosaurus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Panther"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Pteranodon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Riding Horse"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Velociraptor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Wolf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ape"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Black Bear"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Crocodile"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Goat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Sea Horse"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Wasp"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Reef"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[2]",
+      "detail": "rating-red Shark"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Warhorse"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Brown"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[2]",
+      "detail": "rating-red Bear"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Deinonychus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dire Wolf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Eagle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Hyena"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[2]",
+      "detail": "rating-blue Octopus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Spider"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Toad"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Giant Vulture"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Lion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Tiger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Allosaurus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Aurochs"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Boar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Giant Constrictor Snake"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Elk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hunter Shark"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Plesiosaurus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Polar Bear"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Rhinoceros"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Quetzalcoatlus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Saber-Toothed Tiger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ankylosaurus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Scorpion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Killer Whale"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Spotted Lion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Elephant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Stegosaurus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Brontosaurus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Giant Crocodile"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Giant Shark"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Titanothere"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Triceratops"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mammoth"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Air"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Earth"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Fire"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Water"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-animal-forms-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-cr_0-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-cr_0-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-cr_0-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "invalid-anchor-review",
+      "location": "#cr_.125",
+      "detail": "cr_.125"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-6-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-6-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-6-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "invalid-anchor-review",
+      "location": "#cr_.25",
+      "detail": "cr_.25"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-7-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-7-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-7-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "invalid-anchor-review",
+      "location": "#cr_.5",
+      "detail": "cr_.5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-8-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-8-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-8-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-cr_1-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-cr_1-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-cr_1-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-cr_1-4"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-cr_2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-cr_2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-cr_2-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-cr_3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-cr_3-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-cr_4-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-cr_4-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-cr_5-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[10]",
+      "detail": "block-section-cr_5-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-cr_6-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[11]",
+      "detail": "block-section-cr_6-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-elemental-forms-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[12]",
+      "detail": "block-section-elemental-forms-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-unarmored-defense-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-unarmored-defense-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-unarmored-defense-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-unarmored-defense-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[13]",
+      "detail": "block-section-feats-6"
+    }
+  ],
+  "metrics": {
+    "words": 5419,
+    "sections": 17,
+    "blocks": 50,
+    "tables": 2,
+    "ratingSignals": 109
+  },
+  "status": "needs-editorial-review"
+}

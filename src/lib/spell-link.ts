@@ -89,9 +89,16 @@ function writeSpellLinkToSearch(params: URLSearchParams, link: SpellLink | null)
   else params.delete(SPELL_EDITION_PARAM);
 }
 
-/** Каталог заклинань і хоумбрю-каталог (той самий `SpellsClient`) відкривають `?spell=` своєю модалкою. */
-export function isCatalogOwningSpellParam(pathname: string): boolean {
-  return pathname.endsWith("/spells") || pathname.endsWith("/homebrew");
+const HOMEBREW_SPELL_KEY_PATTERN = /^-\d+$/;
+
+/**
+ * Каталог заклинань відкриває `?spell=` сам. Хоумбрю-каталог (той самий `SpellsClient`) має лише
+ * хоумбрю-рядки, тож сам відкриває тільки їхні ключі; посилання на звичайне заклинання з опису
+ * відкриває глобальна модалка — інакше каталог підставив би перший хоумбрю-рядок.
+ */
+export function isCatalogOwningSpellLink(pathname: string, link: SpellLink): boolean {
+  if (pathname.endsWith("/spells")) return true;
+  return pathname.endsWith("/homebrew") && HOMEBREW_SPELL_KEY_PATTERN.test(link.spellKey);
 }
 
 export function removeSpellLinkFromSearch(params: URLSearchParams): void {

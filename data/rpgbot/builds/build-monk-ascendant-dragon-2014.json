@@ -1,0 +1,804 @@
+{
+  "buildId": "build-monk-ascendant-dragon-2014",
+  "revisionId": "build-monk-ascendant-dragon-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Монаха Шляху висхідного дракона — Подвійний дракон",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-monk-ascendant-dragon-2014",
+      "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+      "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "MONK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "MONK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "MONK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "MONK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WAY_OF_THE_ASCENDANT_DRAGON",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "MONK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "MONK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "MONK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "MONK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "MONK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 1
+          },
+          {
+            "ability": "WIS",
+            "amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "MONK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "MONK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "MONK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "MONK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GIFT_OF_THE_GEM_DRAGON",
+        "featOptions": [
+          {
+            "optionNameEng": "GIFT_OF_THE_GEM_DRAGON Ability (Wisdom)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "MONK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "MONK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "MONK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "MONK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GIFT_OF_THE_METALLIC_DRAGON"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "MONK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "MONK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "MONK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "MONK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-ascendant-dragon-2014",
+          "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+          "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "WAY_OF_THE_ASCENDANT_DRAGON",
+    "raceKey": "DRAGONBORN_CHROMATIC",
+    "backgroundKey": "FAR_TRAVELER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 10
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Додаємо +2 до Спритності й +1 до Мудрості. Ми плануємо взяти риси, тож Спритність на 1-му рівні має бути якомога вищою.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 14 14 Інтелект 8 8 Мудрість 15 16 Харизма 10 10",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Дракононароджений Фізбана{{Fizban’s Dragonborn}}. Різновид особливого значення не має. Ми отримаємо зброю дихання, драконячий політ і опір шкоді. Раджу обрати одну зі стихій, до якої Шлях висхідного дракона не може дати вам опору.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Далекий мандрівник{{Far Traveler}}. Аналіз Поведінки й Уважність — чудові для нас навички, а мандри світом (можливо, щоб зустріти різних драконів) — класна передісторія.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "З класових навичок Монаха беремо Історію й Непомітність, а Аналіз Поведінки й Уважність отримуємо від Передісторії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні підвищуємо Спритність до 19.\n\nНа 8-му рівні підвищуємо Спритність до 20 і Мудрість до 17.\n\nНа 12-му рівні беремо «Дарунок самоцвітного дракона»{{Gift of the Gem Dragon}} і підвищуємо Мудрість до 18.\n\nНа 16-му рівні беремо «Дарунок металевого дракона»{{Gift of the Metallic Dragon}}.\n\nНа 19-му рівні підвищуємо Мудрість до 20.\n\nЯ не знайшов, як зробити «Дарунок хроматичного дракона»{{Gift of the Chromatic Dragon}} корисним у цій збірці.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Захист без броні, Бойові мистецтва",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Кі, Рух без броні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підклас: Шлях висхідного дракона, Драконів учень, Подих дракона, Відхилення снарядів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик: Спритність 17 → 19, Повільне падіння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака, Зосереджене прицілювання, Приголомшливий удар",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Удари, посилені Кі, Розгорнуті крила",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ухилення, Спокій розуму",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Спритність 19 → 20, Мудрість 16 → 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Покращення руху без броні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Чистота тіла{{Purity of Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Аспект дракона{{Aspect of the Wyrm}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Дарунок самоцвітного дракона (Мудрість 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Язик Сонця і Місяця{{Tongue of the Sun and Moon}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Алмазна душа{{Diamond Soul}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Невмируще тіло{{Timeless Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Дарунок металевого дракона",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Висхідний аспект{{Ascendant Aspect}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Порожнє тіло{{Empty Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Мудрість 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Досконале Я{{Perfect Self}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Різновид дракононародженого",
+        "reason": "Автор каже, що різновид Фізбана не має значення, і радить стихію, якої Шлях висхідного дракона не дає опору; конкретного родоводу не називає, тож хроматичний і його родовід обрано за платформою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Додаткові класові уміння",
+        "reason": "Автор бере додаткове класове уміння «Зосереджене прицілювання» з 5-го рівня; пресет 1-го рівня його не записує.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-example",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Характеристики",
+        "reason": "Текст автора дає +2 до Спритності й +1 до Мудрості, а таблиця показує Спритність 16; таблиця рівнів (Спритність 17 → 19 на 4-му рівні) підтверджує текст, тож пресет бере Спритність 17 і Мудрість 16.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-ascendant-dragon-2014",
+            "translationRevisionId": "translation-rpgbot-monk-ascendant-dragon-2014-draft1",
+            "sourceRevisionId": "rpgbot-b281729be7c76e6d-c6df256d483fa0e8",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

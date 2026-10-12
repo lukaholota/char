@@ -1,0 +1,350 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "sorcerer-storm-sorcery-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+    "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31"
+  },
+  "exampleSection": "section-example-build-storm-sorcerertempest-cleric",
+  "levelTableSection": "section-levels-2",
+  "classKey": "SORCERER_2014",
+  "subclassKey": "STORM_SORCERY",
+  "raceKey": "HUMAN_2014",
+  "variantKey": "HUMAN_VARIANT",
+  "featKey": "METAMAGIC_ADEPT",
+  "backgroundKey": "ACOLYTE",
+  "abilityScores": {
+    "STR": 14,
+    "DEX": 8,
+    "CON": 12,
+    "INT": 10,
+    "WIS": 13,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "CLERIC_2014",
+      "subclassKey": "TEMPEST_DOMAIN",
+      "spells": {
+        "cantripKeys": [
+          "guidance"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "classKey": "CLERIC_2014"
+    },
+    {
+      "level": 4,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "chromatic-orb"
+        ]
+      }
+    },
+    {
+      "level": 5,
+      "classKey": "SORCERER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Heightened Spell"
+        },
+        {
+          "optionNameEng": "Subtle Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "spells": {
+        "knownSpellKeys": [
+          "shatter"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "classKey": "SORCERER_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true,
+      "spells": {
+        "cantripKeys": [
+          "fire-bolt"
+        ],
+        "knownSpellKeys": [
+          "enhance-ability"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "fireball"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "wall-of-fire"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classKey": "SORCERER_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "classKey": "SORCERER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Empowered Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "chain-lightning"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "classKey": "SORCERER_2014",
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 15,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "draconic-transformation"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "classKey": "SORCERER_2014"
+    },
+    {
+      "level": 17,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "classKey": "SORCERER_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 19,
+      "classKey": "SORCERER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Careful Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "classKey": "SORCERER_2014"
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Метамагія 5-го рівня",
+      "reason": "На 5-му рівні автор бере метамагію «будь-які 2» без назв. Пресет бере Heightened Spell і Subtle Spell (вибір платформи), щоб не збігатися з Перетвореним і Спареним заклинаннями від риси «Адепт метамагії»; гравець може змінити перед створенням.",
+      "section": "section-levels-2"
+    },
+    {
+      "field": "Замовляння Клірика на 2-му рівні",
+      "reason": "Автор називає лише Настанову, а ще два замовляння — «будь-які», тому вони відкриті для вибору гравця.",
+      "section": "section-levels-2"
+    },
+    {
+      "field": "Метамагія з риси «Адепт метамагії»",
+      "reason": "Автор бере Перетворене заклинання й Спарене заклинання; у каталозі риса «Адепт метамагії» не має опцій (дефект даних, BUG-O49-METAMAGIC-ADEPT), тож пресет метамагію не записує.",
+      "section": "section-levels-2"
+    },
+    {
+      "field": "Рівні 6–20",
+      "reason": "Для 6-го рівня автор пише лише «дотримуйтеся збірки й тактики вище» і не дає таблиці. Пресет бере вибори з одноклясової збірки Чародія Магії шторму в тій самій статті за рівнем Чародія (рівень персонажа мінус 2): Харизма +2 на 4-му й 8-му рівні Чародія, Вогняний заряд, Покращення здібності, Вогнекуля, Стіна вогню, Ланцюгова блискавка, Драконяче перетворення; «будь-які» заклинання й замовляння лишено відкритими для гравця. Рівні Чародія 19–20 недосяжні для 20-го рівня персонажа.",
+      "section": "section-levels-2"
+    },
+    {
+      "field": "«Будь-які» вибори на 12–20 рівнях",
+      "reason": "У тій самій одноклясовій збірці «Адепта метамагії» автор бере на 12-му рівні Чародія, але тут цю рису вже взято на 1-му рівні й повторити її не можна. Замість неї на 12-му рівні Чародія (14-й рівень персонажа) пресет бере Стійкого (Статура), на 16-му рівні Чародія (18-й) — Статура +2, а метамагію на 10-му й 17-му рівні Чародія — Empowered Spell і Careful Spell (вибір платформи, автор не називає); гравець може змінити перед створенням.",
+      "section": "section-levels-2"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/sorcerer-variant-human-storm-sorcery-tempest-2014.webp",
+    "title": "Чародій Магії шторму — Варіант людини (з рівнями Клірика)",
+    "description": "Варіант людини зі Силою 15 і Харизмою 16, «Адепт метамагії» з 1-го рівня. Чародій стартує, а Клірик домену бурі додається з 2-го рівня.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "STR",
+      "CHA"
+    ],
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "INTIMIDATION"
+      ],
+      "race": [
+        "PERSUASION"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH",
+      "GOBLIN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools-2",
+    "featSection": "section-feats-3",
+    "equipmentSection": "section-levels-2",
+    "abilityExplanation": "Варіант людини: +1 до Сили й +1 до Харизми, як у авторській таблиці (Сила 15, Харизма 16); це вже враховано.",
+    "skillExplanation": "Автор радить «усе, що годиться Чародієві», не називаючи навичок і передісторії. Обман і Залякування від Чародія, Переконання від Варіанта людини, передісторію Служителя та три мови ми обрали за вас — їх можна змінити.",
+    "equipmentExplanation": "Автор радить легкий арбалет, мішечок із компонентами (або фокус), будь-який набір і два кинджали. Набір дослідника підземель ми обрали за вас.",
+    "spells": {
+      "classCantripKeys": [
+        "create-bonfire",
+        "mind-sliver",
+        "minor-illusion",
+        "prestidigitation"
+      ],
+      "knownSpellKeys": [
+        "magic-missile",
+        "tashas-caustic-brew"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Чотири замовляння й два заклинання названі автором.",
+      "sectionId": "section-levels-2"
+    }
+  }
+}

@@ -1,0 +1,3892 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "88bfdb0caf043d78cfe81d68d246bb0f2abf45646b3846ef6587353d54f59d47",
+  "sourceRevision": {
+    "revisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+    "sourceId": "rpgbot-e86d241bdc3f1395",
+    "fetchedAt": "2026-09-29T19:24:21.272369+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:35:15-04:00",
+    "contentHash": "db43bb880c43032468894d90fbbadbaddbb9bef6180476a4df11c39e2cae9f99",
+    "title": "Battle Master Fighter 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-e86d241bdc3f1395-88bfdb0caf043d78.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "intro",
+      "heading": "Battle Master Fighter 5e: DnD 5e Subclass Guide",
+      "blocks": [
+        {
+          "blockId": "block-intro-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "Nails and kneecaps built this city"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "Fists and hammers run this town"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "Rolling with each punch ain’t pretty"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "But glitz and glamour’s gonna let you down"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "link",
+              "text": "Nails & Kneecaps ",
+              "href": "https://www.youtube.com/watch?v=8_lwWvSv7rE"
+            },
+            {
+              "type": "text",
+              "text": "– Jonathan Young and Annapantsu"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Battle Master is a callback to the most important book in Dungeons and Dragons 3.5, The Tome of Battle: Book of the Nine Swords (I can hear Tyler screaming from here). This subclass allows a fighter to learn and use Maneuvers, a kind of special attack. Not quite as big and flashy as spells, each Maneuver is very focused on accomplishing a specific purpose, from making an attack more accurate to throwing an opponent across the room, while usually also adding extra damage to the attack. If you want to use cool martial abilities with better names than “Swing my Sword”, then maybe the Battle Master is for you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The customizability of the Battle Master’s Maneuver choices gives almost as much choice as some spellcasters, so we’ll be going over and rating the available Maneuvers further down on this page. With our help, you’ll be able to avoid the few poor options and assemble the Fighter you want to be. While we always feature an example build in these handbooks, we also see the opportunity to give example packages of full choices, as a single-classed Battle Master will choose just nine of the twenty-three available Maneuvers (not counting feats, fighting style, etc.)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The example build below, Bug Game Hunter, is our take on using Battle Master to bring a little support and control to the table without sacrificing the kind of damage Fighters are known for. Taking advantage of the Quick toss Maneuver, we can bypass the special limitation on nets that normally interfere with the extra attack feature. This relatively easy and cheap source of the Restrained condition benefits the whole party in a manner similar to a shoving grappler, granting Advantage to all attacks (instead of just Melee) as well as imposing Disadvantage on the target’s Dexterity saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While the net tossing shenanigans are the star attraction of the Bug Game Hunter, don’t think this is some one-trick pony. With a wide selection of Maneuvers, we’re able to contribute more than just damage in many scenarios. For example, with Pushing Attack we can corral foes back into a dangerous AoE, or use Maneuvering Attack to reposition an ally. To keep this build useful out of combat as well, Commanding Presence and Tactical Assessment provide some benefits to specific skill checks. If you want to try Fighter with a side of support control, check out the Bug Game Hunter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-3",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Master Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Master Maneuvers",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#battle-master-maneuvers"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Maneuver Packages",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#maneuver-packages"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Master Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#battle-master-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Master Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#battle-master-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Master Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#battle-master-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Master Weapons and Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#battle-master-weapons-and-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Battle Master Build – Bug Game Hunter",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#example-battle-master-build-bug-game-hunter"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/battle-master/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Battle Master Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Combat Superiority"
+              },
+              {
+                "type": "text",
+                "text": ": You get four\n\t\tsuperiority dice, which means you get to use 4 maneuvers between each\n\t\tshort/long rest. You gradually get more dice, allowing for more maneuvers at\n\t\thigher levels, and you gradually add more known maneuvers. You can replace\n\t\tknown maneuvers as you level, but since there aren’t any maneuvers with\n\t\tprerequisites or anything, you really only need to replace maneuvers that\n\t\tyou tried and didn’t like.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Many maneuvers add your superiority die to the damage roll if you hit.\n\t\t\tSince the damage die is added to the damage roll, the additional damage is\n\t\t\tmultiplied on a critical hit. This makes it especially appealing to apply\n\t\t\ta maneuver when you score a critical hit so that you get both a big pile\n\t\t\tof damage and a cool rider effect."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Student of War"
+              },
+              {
+                "type": "text",
+                "text": ": Artisan’s tools probably\n\t\twon’t matter to the game, but the expanded options in Xanathar’s Guide to\n\t\tEverything make this much more fun than it was when the core rules were\n\t\tpublished. Check out out\n"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Know Your Enemy"
+              },
+              {
+                "type": "text",
+                "text": ": This won’t come into\n\t\tplay in most encounters unless you work to make it happen, but it’s great if\n\t\tyou can get the BBEG monologuing while you study him or if you can manage to\n\t\tbe stealthy long enough to observe the target. There’s no limitation on the\n\t\tusage, so you could spend additional minutes studying the target to learn\n\t\teverything on the list and get a really good sense of the target’s\n\t\tstats."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improved Combat Superiority (d10)"
+              },
+              {
+                "type": "text",
+                "text": ": These\n\t\tbumps only amount to an increase of 1 each, but they feel very nice and\n\t\tsince you’re using Superiority Dice so frequently the small bonus adds\n\t\tup. As an interesting quirk, RAW if you have any dice from the Superior Technique style or the Martial Adept feat those dice also increase to d10s at this level, though that won’t be reflected in DnDBeyond."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Relentless"
+              },
+              {
+                "type": "text",
+                "text": ": This ensures that you always\n\t\thave at least one superiority die, so you don’t have to stress about using\n\t\tyour last die before the adventuring day is over."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improved Combat Superiority (d12)"
+              },
+              {
+                "type": "text",
+                "text": ": These\n\t\tbumps only amount to an increase of 1 each, but they feel very nice and\n\t\tsince you’re using Superiority Dice so frequently the small bonus adds\n\t\tup."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-battle-master-maneuvers",
+      "heading": "Battle Master Maneuvers",
+      "sourceAnchor": "battle-master-maneuvers",
+      "blocks": [
+        {
+          "blockId": "block-section-battle-master-maneuvers-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "These are the Maneuvers available to the Battle Master."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-master-maneuvers-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll note if a Maneuver is limited in some way like Melee Only (M) or Non-Attack Utility (U)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-master-maneuvers-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ambush (U)"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A bonus to Stealth can have a huge impact even though you’re likely not sneaking during combat. How effective this will be depends somewhat on your DM and how they apply the Stealth rules. If your DM asks for repeated Stealth checks in quick succession, this won’t work out. But if you can make one check and sneak through a room or disappear into a crowd or explore a small area, this could be very helpful. This can also be used when rolling initiative which is useful if you have something like the Bugbear’s Surprise Attack or the Assassin’s Assassinate."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bait and Switch (U)"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Situational, but very interesting if you have frail allies who tend to get stuck in melee from time to time. Switching places with them can pull them out of melee reach, and if they can act before your enemies, your ally could withdraw to safety, removing the need for you to boost their AC and thereby allowing you to keep that benefit for yourself without feeling selfish."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Brace (M)"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": An additional attack is probably worth a Superiority Die as long as your damage per hit is decent, or if you have a once per turn damage boost like Sneak Attack from levels in Rogue. Unfortunately this doesn’t work with Sentinel; you’ll need Polearm Master for the Polearm Master+Sentinel combo."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Commander’s Strike (U)"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you don’t have a Rogue in your party, this is generally a poor option since you should do enough damage on your own that you should reserve your limited pool of Superiority Dice for other options. If you have a Rogue in the party, this becomes a fantastic option which you should capitalize on any time your Rogue can reliably hit the target. Sneak Attack works once per turn (not once per round), so allowing the Rogue to make an extra attack on your turn means a big pile of extra Sneak Attack damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Commanding Presence (U)"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Adding a superiority die is enough to offset a poor Charisma score, allowing the Battle Master Fighter to serve as a Face without further splitting their attention on ability scores. This notably omits Charisma (Deception), so there’s mechanical incentive to be honest."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Disarming Attack"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Bonus damage and you get to force the target to drop one item if they fail a Strength save. Unfortunately, relatively few enemies use weapons and the ones that do predominantly rely on Strength and will therefore have high Strength saves. That means that this is unreliable against most melee combatants, but can see some use against foes armed with ranged weapons or enemy casters holding some kind of focus or wand."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Distracting Strike"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Very helpful with a Rogue or some other Striker in the party, especially against enemies with high AC. However, its usefulness diminishes if you don’t have an ally who can follow your attack with a single high-damage attack to capitalize on Advantage. Sneak Attack is an obvious example, but also look for high-damage attack spells like Inflict Wounds and Chromatic Orb."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Evasive Footwork (U)"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This is a huge boost to AC, but its only purpose is to boost your AC when you know that you’re going to provoke an Opportunity Attack. While you could just Disengage, this doesn’t take an action to use but it’s still not really worth spending the die."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feinting Attack (M*)"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Advantage on your own attack and bonus damage. You don’t want to use this frequently because it will eat your Superiority Dice too quickly, but this is a good staple option and increasing your likelihood to hit right when you need it can help to eliminate weakened enemies or break their Concentration when doing so is tactically impactful and you just need one good hit. If you need Advantage against the target on an ongoing basis, Shove them prone. While it isn’t technically restricted to melee attacks, the target must be within 5 feet of you when you use the bonus action."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Note that errata updated this to indicate that the Advantage is wasted if you don’t attack the target during the same turn."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Goading Attack"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A rare taunt mechanic in DnD 5e. However, Menacing Attack is probably a better option. Goading Attack imposes Disadvantage on attacks against anyone except you, but Menacing Attack imposes Disadvantage on all attacks, and on ability checks, and restricts the target’s movement. If you need to encourage the target to attack you (which is a good idea for most fighters), this may still be better than Menacing Attack, but in most cases you may be able to use Menacing Attack to achieve the same result (preventing them from hitting your party). However, creatures which are immune to fear won’t suffer the effects of Menacing Attack, so this is an excellent backup option. Funny enough this isn’t limited to melee and you’re free to taunt from across the room."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grappling Strike (M)"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Grappled creatures have a move speed of 0 ft., which both prevents them from running away and from standing up from prone. If you knock the target prone with either Trip Attack or the Shove special attack, they’re prone and can’t stand (you can’t stand if your speed is 0), giving you and any other melee attackers Advantage against them until they manage to escape the grapple. Grappling Strike works after you hit with an Attack, so it’s easy to employ without gambling a Superiority Die on an attack roll and without cutting into your damage output (assuming that you’re not using two-weapon fighting). An additional quirk to this maneuver is that unlike a lot of others, the trigger is a melee attack not a weapon attack, which is intended to allow compatibility with unarmed strikes, but also allows it to trigger from melee spell attacks."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\nAs good as this is, it can be expensive to employ repeatedly. If you find that this is a go-to tactic for you, consider the Tavern Brawler feat for the Bonus Action grapple, and consider the Skill Expert feat for Expertise to replace the bonus to your Strength (Athletics) check."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lunging Attack (M)"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Just move closer to your target. If you need to remain in your current position you can move back after attacking or you can make a ranged attack with Quick Toss or something."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Maneuvering Attack"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": It’s rare that this will provide a significant advantage unless you’re using the flanking variant rule or something. Movement in 5e is easy, and using something like Menacing Attack to impose Disadvantage on a potential Opportunity Attack is likely sufficient in most cases, or you can use Pushing Attack to push enemies away and get allies out of grapples."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Menacing Attack"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Frightening a target makes them considerably less effective, and with clever positioning you can use this to keep the target away from your allies. However, beware of creatures that are immune or resistant to fear effects."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Parry (M)"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Reducing damage is often much more effective than waiting to heal it later, but it is probably more effective to spend the same Superiority Die to defeat your attacker than it is to spend it reducing a little bit of damage. The damage reduced also doesn’t scale much since your Superiority Dice scale in size so slowly, so this may be a good option at low levels when you have relatively few hit points, but consider retraining at once you’re more confident in your durability."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Precision Attack"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Great against enemies with high AC, or if you absolutely need to make one attack hit, but don’t rely on it too heavily or it will eat through your Superiority Dice. The best part of Precision Attack may be hard to spot: you can use it after the attack is rolled, and that’s the only sensible time to use this. If you’re paying enough attention to know the target’s AC (or if you used Know Your Enemy or if you’ve figured it out from dice rolls), you can estimate when using this makes sense. The closer you are to hitting, the more likely this is to work, and at an average bonus of 4.5 (more once your dice advanced to d10/d12) I recommend only using this if you’re within 4 points of hitting."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\nIt’s easy to compare Precision Attack to Feinting Attack since both make it easier to hit. Feinting Attack provides Advantage and a damage boost, but you need to use it before the attack. Precision Attack is nice because you can use it after your attack roll if you know that your Superiority Die could turn a near-miss into a hit, so you’re not forced to gamble a Superiority Die that you might not need to spend. Feinting Attack provides a damage bonus, which means that even if you didn’t need Advantage you still get something out of spending your die. Precision Attack doesn’t require you to spend your Bonus Action and also works beyond 5-foot range. Taking all of these considerations into account, they’re roughly equivalent and which is better depends greatly on your build and your situation. If you use Bonus Actions heavily, definitely go for Precision Attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pushing Attack"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Shove is typically sufficient for Strength-based melee builds, but for Dexterity-based builds and for ranged builds, this can be a helpful way to break grapples or knock enemies out of position. Small creatures also aren’t penalized for their size, making this an easy and reliable way to push enemies without relying on Athletics. It’s still only situationally useful, but it’s difficult to replicate by any other means short of magic."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Quick Toss"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re built to throw weapons, you’re using the Fighting Style (Thrown Weapon), so this is for other builds that need a way to quickly deal some ranged damage without cutting into their melee stuff. You still need a free hand to draw the weapon and make the attack, so sword+board fighters will have trouble since you can’t sheathe your weapon, use Quick Toss, and draw your weapon again without spending your Action to do so (though you may be able to drop it on the ground then immediately pick it back up). That means that the only viable users for this maneuver are two-handed melee weapon users."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\nEven for that limited pool of users, this has limited usefulness. If you have a two-handed weapon in hand, you can draw a dagger or javelin as your free item interaction for the turn, then spend one of your attacks to throw it before returning your hand to your two-handed weapon. The only advantage Quick Toss provides over that solution is that you get an attack as a Bonus Action and can use your Action to attack with your two-handed weapon."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\nMelee users can use Quick Toss effectively with a two-handed melee weapon, especially one with reach like a glaive. You’re going to make the attack with your net at Disadvantage nearly all of the time due to the net’s frustrating 5/15 range, but if you can hit the target it is Restrained. This also conveniently sidesteps the net’s limitation on one attack per action spent to attack, so you still get to enjoy Extra Attack to repeatedly attack your (hopefully restrained) opponent."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\nYou can also put Quick Toss and nets to good effect with certain feats tailored to ranged combat. Both Crossbow Expert and Gunner negate Disadvantage imposed by making ranged attacks while within 5 feet of an enemy, and Sharpshooter negates Disadvantage for attacking at long range. Tossing a net from 10 to 15 feet away to Restrain a target then hitting them wish Sharpshooter attacks made with Advantage is very effective."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rally (U)"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Charisma is a dump stat for Fighters, so this won’t be a lot of hit points, but the temporary hit points don’t have a specified expiration, so they last until they run out or the target takes a Long Rest. You can start each day by rallying your allies, then immediately take a Short Rest to get your Superiority Dice back."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\nI’m not certain if you can use this on yourself (I assume you can’t), which is a shame because you are the one who needs this the most. If you really like this, consider the Inspiring Leader feat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Riposte (M)"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Spend a superiority die for an attack as a Reaction. Seems like a fantastic trade to me, especially if you’re using a big two-handed weapon and do a lot of damage per attack. Also great if you’ve got a once per turn damage boost like Sneak Attack from levels in Rogue."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sweeping Attack (M)"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This is very little damage, and you can get much better utility from your superiority dice. If you want a similar effect, consider the Great Weapon Master feat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tactical Assessment (U)"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The affected skills are difficult choices for the Fighter, with the possible exception of Insight, so you may see little benefit from taking this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Trip Attack"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Knocking a target prone gives you Advantage on melee attacks against them. Since Fighters get the most attacks, this means you get Advantage on a whole bunch of attacks. For best results, combine this with a grapple to keep the target prone."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-maneuver-packages",
+      "parentSectionId": "section-battle-master-maneuvers",
+      "heading": "Maneuver Packages",
+      "sourceAnchor": "maneuver-packages",
+      "blocks": [
+        {
+          "blockId": "block-section-maneuver-packages-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The following packages are some sample packages of Maneuvers to pick up. Most Attack-based Maneuvers can be used at range, but some require a melee attack. Therefore, unless a package is labeled for melee, assume it can be used for either or is mostly utility."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-bard-lite",
+      "parentSectionId": "section-maneuver-packages",
+      "heading": "Bard Lite",
+      "sourceAnchor": "bard-lite",
+      "blocks": [
+        {
+          "blockId": "block-section-bard-lite-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Commanding Presence, Rally, Maneuvering Attack"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-bard-lite-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re looking to add some Face and Bard-like support options, crack open a Bard Lite. Just have some Charisma and skill proficiencies to back these up because your Superiority Dice can’t do the job entirely on their own."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fistful-of-dollar-store-samurai",
+      "parentSectionId": "section-maneuver-packages",
+      "heading": "Fistful of Dollar Store Samurai",
+      "sourceAnchor": "fistful-of-dollar-store-samurai",
+      "blocks": [
+        {
+          "blockId": "block-section-fistful-of-dollar-store-samurai-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Quick Toss, Menacing Attack, Pushing Attack"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-fistful-of-dollar-store-samurai-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This combination uses Quick Toss with Nets to mimic the Samurai’s ability to gain Advantage on attacks as a bonus action. Menacing Attack’s fear makes it harder to make the Strength check to escape. Pushing Attack can move the Restrained target into a dangerous AoE, possibly taking advantage of Restrained imposing Disadvantage on Dexterity saves. Works great with ranged attacks, especially with the Sharpshooter feat to negate Disadvantage when throwing nets at long range."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-laser-pointer",
+      "parentSectionId": "section-maneuver-packages",
+      "heading": "Laser Pointer",
+      "sourceAnchor": "laser-pointer",
+      "blocks": [
+        {
+          "blockId": "block-section-laser-pointer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Distracting Strike, Commander’s Strike"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-laser-pointer-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This pair can be used once we have Extra Attack to help set up a Rogue for an off-turn Sneak Attack alley-oop from outside melee range. It’s like backseat gaming, but everyone likes it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-waterdeep-wrestling-federation-melee",
+      "parentSectionId": "section-maneuver-packages",
+      "heading": "Waterdeep Wrestling Federation – Melee",
+      "sourceAnchor": "waterdeep-wrestling-federation-melee",
+      "blocks": [
+        {
+          "blockId": "block-section-waterdeep-wrestling-federation-melee-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Grappling Strike, Trip Attack, Riposte"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-waterdeep-wrestling-federation-melee-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Grappling Strike and Trip Attack are a somewhat over-the-top method to accomplish the "
+            },
+            {
+              "type": "link",
+              "text": "Grapple+Shove combo",
+              "href": "https://rpgbot.net/dnd5/characters/grapple/"
+            },
+            {
+              "type": "text",
+              "text": ", but no less fun. Adding Riposte to the mix means that if the target tries to flail at us with the Disadvantage of being prone we can make a Reaction attack when they miss."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-battle-master-ability-scores",
+      "heading": "Battle Master Ability Scores",
+      "sourceAnchor": "battle-master-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-battle-master-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As a Fighter the Battle Master can either prioritize Strength or Dexterity depending on what kind of fighting style we’re going for."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-master-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": We can use this for melee attacks and wearing heavy armor."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-master-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Or we can use this for ranged attacks and wearing light or medium armor."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-master-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": But either way we like this for more HP."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-master-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Someone else can make Scholar checks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-master-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Perception is one of the most common checks in the game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-master-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": A few Maneuver options give bonuses to Face checks so it’s possible to be the party’s negotiator."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-master-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8 (15)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12 (15)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15 (8)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15 (12)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-battle-master-races",
+      "heading": "Battle Master Races",
+      "sourceAnchor": "battle-master-races",
+      "blocks": [
+        {
+          "blockId": "block-section-battle-master-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As always, the "
+            },
+            {
+              "type": "link",
+              "text": "Fighter Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/races/"
+            },
+            {
+              "type": "text",
+              "text": " will cover options not covered here."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-master-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Custom Lineage"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Bonus feats are great and hey you might be thinking: Why not get Martial Adept and start with some extra Maneuvers from level one? Combined with the Superior Technique style, you’d walk out with three maneuvers known and 2d6 in your dice pool. It’s not a bad idea, getting to use some Maneuvers early, and having 6 dice once you get Battle Master is also very nice. You’ll just have to decide if it’s better for you than something like Crossbow Master or Polearm Master for those first two levels before getting the rest of your dice pool."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dwarf"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If we want both heavy armor and ranged weapons, Dwarves can just ignore the Strength requirements and focus on Dexterity."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thri-Kreen"
+              },
+              {
+                "type": "link",
+                "text": "SJ:AiS",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Thanks to secondary arms, we can wear a shield and wield a hand crossbow for some extra protection on top of the natural armor being better than Studded Leather."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Variant Human"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Refer to Custom Lineage above. The same guidelines apply to this bonus feat."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-battle-master-feats",
+      "heading": "Battle Master Feats",
+      "sourceAnchor": "battle-master-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-battle-master-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For anything not listed here, check the "
+            },
+            {
+              "type": "link",
+              "text": "Fighter Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-master-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Fighting Initiate"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Using this feat to get Superior Technique is not that great because Martial Adept exists. Because of the wording of Superior Technique, unlike Martial Adept below, the additional Superiority Die you receive will remain a d6 until you reach a level that improves your dice (Improved Combat Superiority doesn’t care about the source of the dice). Don’t think this makes Superior Technique a bad choice for your actual Fighting Style from first level. It’s a fantastic choice unless you’re using Archery to be super accurate."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Martial Adept"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": More dice to use in between short rests and more Maneuvers known are great things to have. Even if taken at first level as a Variant Human or Custom Lineage, these dice will increase in size at tenth level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Piercer"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Because Superiority Dice are usually added to the damage roll, Piercer can be used to reroll them."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-battle-master-weapons-and-armor",
+      "heading": "Battle Master Weapons and Armor",
+      "sourceAnchor": "battle-master-weapons-and-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-battle-master-weapons-and-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Like most fighters, we can use "
+            },
+            {
+              "type": "link",
+              "text": "whatever weapons",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#weapons"
+            },
+            {
+              "type": "text",
+              "text": " we want. Battle Master is so versatile there are Maneuvers that work with every weapon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-master-weapons-and-armor-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As far as armor, Strength builds in Heavy Armor will want to afford Plate. Dexterity builds will be looking to get Studded Leather eventually if they don’t already have natural armor from their race."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-battle-master-build-bug-game-hunter",
+      "heading": "Example Battle Master Build – Bug Game Hunter",
+      "sourceAnchor": "example-battle-master-build-bug-game-hunter",
+      "blocks": [
+        {
+          "blockId": "block-section-example-battle-master-build-bug-game-hunter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Taking advantage of Thri-kreen extra arms and other shenanigans, this build finds ways to grant Advantage to itself and the rest of the party while keeping a higher AC. While we have some lite support functions, thanks to Crossbow Expert and Sharpshooter being so good, we don’t slouch on our personal damage output. The Bug Game Hunter shines when teamed up with other martials, especially ranged attackers, or other attack roll-based fighting styles, such as Eldritch Blasting Warlocks. Consider this to be the ranged attack friendly comparison to "
+            },
+            {
+              "type": "link",
+              "text": "Grapple+Shove",
+              "href": "https://rpgbot.net/dnd5/characters/grapple/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-battle-master-build-bug-game-hunter",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re doing a Dexterity build with ranged weapon attacks, so Dexterity is our priority. Constitution is our second so we don’t die, followed by Charisma to add some Face skills to this build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optionally, if your party has enough Charisma that you don’t need to assist, then Wisdom for Perception checks will serve you better."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-3",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-battle-master-build-bug-game-hunter",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re using Thri-Kreen in order to hold a shield and still use a hand crossbow, as well as have improved AC over Studded Leather for free. Darkvision is helpful to have and Telepathy is nice as well."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-battle-master-build-bug-game-hunter",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to take Courtier for access to Persuasion. Normally, the background also grants Insight, but we’ll be taking Insight from Fighter which allows us to replace the Insight granted by Courtier with any skill. In this case, Deception. Choose whatever languages work in your campaign."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-background-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optionally, taking the Criminal/Spy background gives Deception, Stealth, and Thieves’s tools. With our high Dexterity and Thri-Kreen’s Advantage on Stealth feature we could take advantage of those proficiencies instead. If going with that more sneaky route, working the Ambush Maneuver into the build somewhere can be helpful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-background-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re not taking on Face duties, then the Marine and Pirate/Sailor backgrounds are great options for Athletics and Survival or Perception."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-battle-master-build-bug-game-hunter",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Fighter we’re taking Intimidation and Insight. From Courtier we’re getting Persuasion and Deception."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-battle-master-build-bug-game-hunter",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We like feats and Fighters get plenty of feats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourth level, we take Sharpshooter. Now, in conventional builds we would be taking Crossbow Expert as soon as possible because the bonus action attack is so good, but Sharpshooter allows throwing nets without Disadvantage. This does present a problem at fifth level which is discussed below in the level chart."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixth level, we take Crossbow Expert. Now we have our bonus action attack and can ignore the loading property for crossbows. Hooray."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At eighth level, we take Piercer, adding +1 to Dexterity and we’re now able to reroll a damage die when we attack. This includes the Superiority die when we use a Maneuver."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At twelfth level, we take an ASI for +2 Dexterity, capping us at 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourteenth level, we take Martial Adept for an extra Superiority Die. Our choices for Maneuvers taken with this feat will be discussed below in the table."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixteenth level, we’ll take Inspiring Leader. It’s a decent buffer of temporary HP after each short rest for the whole party, and the difference between 14 and 20 Charisma is small vs the fact that it adds our level to the total as well."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At nineteenth level, we’ll take Tough. More HP is always nice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-battle-master-build-bug-game-hunter",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Archery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Deception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Intimidation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Persuasion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We don’t need any of the armor options thanks to our natural armor, so take the option for leather armor to get the free Longbow. We’ll need one later."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Then take the option to get a shield and also pick up a hand crossbow. Then if you need extra ammo, take the light crossbow option and sell the crossbow, but handaxes are good for utility when making camp or preparing food."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dungeoneer pack or Explorer pack is up to you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Archery style is great. +2 to attacks with ranged weapons. This does wonders when we take Sharpshooter later."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind is ok. Free healing each short rest."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For skills, we’ll take some Face skills so we’re not a combat-only guy."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Double the Action. This is probably the best class feature in the game. Later when we have extra attacks we get all the attacks twice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Martial Archetype: Battle Master"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Combat Superiority – d8"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Student of War"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Cooking Utensils"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Maneuvers"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Menacing Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Pushing Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Quick Toss"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take our subclass here, Battle Master."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We get some superiority dice, d8s at this level, and a free choice of an artisan’s tool proficiency. "
+                },
+                {
+                  "type": "link",
+                  "text": "We’ll choose Cooking Utensils for the small bonus to short rest hit die healing",
+                  "href": "https://rpgbot.net/dnd5/characters/tools/#cooks-tools"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Maneuvers, we’re taking the "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Fistful of Dollar Store Samurai"
+                },
+                {
+                  "type": "text",
+                  "text": " package I outlined above."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Quick Toss lets us use a net as a bonus action to get an advantage on anything Large or smaller. Try not to waste it though. We’re limited in our Superiority die count."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pushing Attack and Menacing Attack are other control options that help us put restrained targets into area effects to support our control casters."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Sharpshooter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Normally, Crossbow Expert is taken as soon as possible in crossbow builds to weaponize that bonus action and also allow us to ignore loading when we get an extra attack on the next level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But Sharpshooter removes the penalty for attacking at long range, which solves the big problem for throwing nets outside of melee range, which we do as a bonus action sometimes."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "On the other hand, Crossbow Expert would allow us to throw the nets in melee without disadvantage and if you wanted to play it that way because you’d rather have the shield for level 5, go ahead. Swapping the order of these feats comes down to personal preference in the end."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember at level one I told you that the Longbow will be important later?"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For just this level, we’ll want to take off the shield to use the longbow so we can attack twice per action."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat Crossbow Expert"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "And now we can go back to the hand crossbow and also have something to do with our bonus action when we don’t want to spend a Superiority Die on a net."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Know Your Enemy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Maneuvers"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Commanding Presence"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Rally"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Superiority Die"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Know Your Enemy is mostly a ribbon feature. The information is neat, it’s just hard to use in any practical sense."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Commanding Presence and Rally are part of the "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Bard Lite"
+                },
+                {
+                  "type": "text",
+                  "text": " package I’ve outlined above."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Commanding Presence gives us a use for Superiority Dice in social situations, which we’re already decent at due to your skill proficiencies and decent Charisma. Now we can be even better at it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rally is not a lot of temporary HP, but it is useful if used proactively. If we have Superiority Dice left before a short rest, toss a few Rallys out before we get our Dice back."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "And we get an extra die, putting us at five."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat Piercer"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Dexterity (17=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "link",
+                  "text": "Piercer ",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+                },
+                {
+                  "type": "text",
+                  "text": "is generally an ok feat, but the bonus for us is that we can reroll our Superiority Die when it gets added to the attack."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable (1)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reroll a failed save once a day. Good insurance. Good to have."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Combat Superiority – d10"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Maneuvers-Commander’s Strike-Distracting Strike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Superiority Dice increase in size. It’s not a big difference, but it’s nice."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Maneuvers at this level, we’re learning the "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Laser Pointer"
+                },
+                {
+                  "type": "text",
+                  "text": " package. The combination of using Distracting Strike into Commander’s Strike to give an ally Advantage and then let them immediately take the swing can bring some big burst damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In particular, this combo can be used when a target is too large to just net for everyone’s Advantage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now, you might wonder why I would suggest giving up one of our attacks "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "and"
+                },
+                {
+                  "type": "text",
+                  "text": " our Bonus Action to give an ally a swing, but consider that what a Fighter does to do more damage is swing more often, while other martials have damage bonuses to boost their attacks. So then it follows, what if the Rogue tossed out an extra Sneak Attack, the Paladin dropped an extra Smite, or the Ranger did something Rangery? Well that might do more than one or two of our attacks depending on whether or not we were planning to use Crossbow Expert on the same turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Damage now is better than damage later."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hey, three attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Or with Action Surge, six attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Turn someone into a pincushion."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Dexterity +2 (18=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Maximum Dexterity for the best ranged attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we can do it twice a day and that’s twice as nice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Martial Adept"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Bait and Switch"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Maneuvering Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Martial Adept is a good feat for most martials, but it’s a great feat for Battle Masters in the same way that Metamagic Adept is great for Sorcerers: Getting more fuel for our primary resource. In particular, an extra die."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get to choose two Maneuvers. We’ve already taken most of the primary tools for how we want to fight, so now we’re dipping into some extra utility."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bait and Switch and Maneuvering Attack are two different ways to help adjust an ally’s position during our turn, and each has a use."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bait will swap an adjacent Ally with our position and then add some AC to one of us. The AC boost is the real star here. Sure it’s unpredictable, but when we’ve got an ally holding an important Concentration spell, we can be the shield."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Maneuvering Attack is good for moving an ally into position or out of a sticky situation."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Relentless"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Maneuvers"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Disarming Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Tactical Assessment"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Superiority Die"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Relentless is like always having a little extra in the tank. At this point we have seven dice and shouldn’t be running out in between rests, but insurance is always nice."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Disarming Attack and Tactical Assessment are some more utility."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Disarming Attack sounds like you would want to use it to take away some big monster’s weapon, but the real trick is shooting the MacGuffin out of the BBEG’s hands."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tactical Assessment is just for more skill check utility."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I’ll be honest, we’ve had all the Maneuvers we needed for a while now and just picked up extra stuff that’s nice to have."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Inspiring Leader"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A little temporary HP for the whole party after each short rest will save on our healing resources."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Even with 14 Charisma, we’d be handing out 18 THP (at this level) to everyone maybe two to four times per day depending on how many short rests we take."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "On four people that’s between 144 and 288 damage that won’t need to be healed each day."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge (2)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Indomitable (3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Action Surges. More Save rerolls. Good all around."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Combat Superiority – d12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Yeah, the biggest die. It’s fun to have seven of these between each short rest."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat Tough"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Hit Points. Lots more."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (4)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Shooting four times."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Per Attack Action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "So like eight if we surge."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "So walk up and Quick Toss a net onto someone, then unload eight Sharpshooter attacks with Advantage into something we need dead right now."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Battle Master Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Combat Superiority"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Student of War"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Know Your Enemy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Improved Combat Superiority (d10)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Relentless"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Improved Combat Superiority (d12)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ambush (U)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bait and Switch (U)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Brace (M)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Commander’s Strike (U)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Commanding Presence (U)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Disarming Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Distracting Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Evasive Footwork (U)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Feinting Attack (M*)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Goading Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Grappling Strike (M)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Lunging Attack (M)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Maneuvering Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Menacing Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Parry (M)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Precision Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Pushing Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Quick Toss"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Rally (U)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Riposte (M)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Sweeping Attack (M)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tactical Assessment (U)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Trip Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Custom Lineage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Dwarf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Thri-Kreen"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Variant Human"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fighting Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Martial Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Piercer"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-intro-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center is-style-plain has-small-font-size is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\"><em>Nails an"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-battle-master-maneuvers-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-battle-master-maneuvers-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-battle-master-maneuvers-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-maneuver-packages-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-bard-lite-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-bard-lite-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-fistful-of-dollar-store-samurai-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-fistful-of-dollar-store-samurai-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-laser-pointer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-laser-pointer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-waterdeep-wrestling-federation-melee-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-waterdeep-wrestling-federation-melee-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-battle-master-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-battle-master-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-battle-master-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-battle-master-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-battle-master-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-battle-master-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-battle-master-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-battle-master-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-battle-master-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-battle-master-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-battle-master-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-battle-master-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-battle-master-weapons-and-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-battle-master-weapons-and-armor-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-example-battle-master-build-bug-game-hunter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-3"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-background-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-background-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-feats-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-feats-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 5943,
+    "sections": 22,
+    "blocks": 55,
+    "tables": 3,
+    "ratingSignals": 47
+  },
+  "status": "needs-editorial-review"
+}

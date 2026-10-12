@@ -1,0 +1,654 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-aee9e1f73bbd2628",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-aee9e1f73bbd2628-451c71d90b246bcd",
+      "sourceId": "rpgbot-aee9e1f73bbd2628",
+      "fetchedAt": "2026-09-29T19:19:44.393723+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:43:44-04:00",
+      "contentHash": "b9627657bef1611419a3646ba315991bb3860ac972cac266b05cb08910eb1338",
+      "title": "Earth Genasi: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-aee9e1f73bbd2628-451c71d90b246bcd.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-earth-genasi-2014",
+    "sourceId": "rpgbot-aee9e1f73bbd2628",
+    "slug": "earth-genasi-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Геназі землі — гайд раси (2014)",
+    "titleEn": "Earth Genasi: DnD 5e Race/Species Guide",
+    "topics": [
+      "races"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "sourceRevisionId": "rpgbot-aee9e1f73bbd2628-451c71d90b246bcd",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей гайд присвячений {{геназі землі|Earth Genasi}} з книги Монстри Мультивсесвіту. Щодо класичної версії геназі дивіться наш "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд геназі",
+                  "href": "https://rpgbot.net/dnd5/characters/races/genasi/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Геназі землі — нащадки дао, джинів зі Стихійного плану Землі. Їхні риси певною мірою повʼязані із землею."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "До Монстри Мультивсесвіту {{Земна хода|Earth Walk}} працювала лише на камʼянистій місцевості. Тематично це логічно, але дуже обмежувало її. Без цього обмеження можна вільно пересуватися складною місцевістю, створеною рослинами, піском тощо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найпомітніша риса геназі землі — вроджене чаротворення. Переміщення без сліду [Pass without Trace] вирішує проблему скритності для всієї групи. Оскільки його можна повторно накладати слотами, ви можете додати його будь-якому класу з чаротворенням. Унікальна можливість геназі землі кілька разів на день накладати Захист від зброї [Blade Ward] бонусною дією, мабуть, єдина ситуація, коли це заклинання може бути кращим за дію Захист. За задумом та ефектом вона нагадує {{Витривалість каменю|Stone's Endurance}} голіафа, але застосовувати її потрібно заздалегідь."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/earth-genasi/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/earth-genasi/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Класи для геназі землі",
+                    "href": "https://rpgbot.net/dnd5/characters/races/earth-genasi/#classes"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes",
+          "heading": "Класи для геназі землі",
+          "sourceAnchor": "classes",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ припускає, що ви використовуєте опціональні правила «"
+                },
+                {
+                  "type": "link",
+                  "text": "Налаштування походження",
+                  "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+                },
+                {
+                  "type": "text",
+                  "text": "» з книги Казан Таші з усім. Якщо ні, прокрутіть до наступного розділу. Примітка редакції: це типовий текст автора; іншого розділу з фіксованими підвищеннями характеристик у цьому гайді немає. Версія геназі з MPMM уже дозволяє самостійно обрати характеристики для расових підвищень."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зброяр уже добре пристосований до потайних дій, а Переміщення без сліду [Pass without Trace] робить його практично незупинним. Іншим Винахідникам сподобається можливість накладати Захист від зброї бонусною дією — особливо тим, хто починає зі Спритністю 8 і мусить ховатися на 1–2 рівнях до отримання володіння важкими обладунками від підкласу. Примітка редакції: важкі обладунки на 3-му рівні дає саме Зброяр; це не загальна перевага всіх підкласів Винахідника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Під час {{Люті|Rage}} не можна накладати заклинання. Навіть якби можна було, Захист від зброї дає ту саму стійкість до шкоди. Пересування складною місцевістю приємне, але зі Силою Варвара зазвичай можна просто перестрибнути її. Темнозору й Переміщення без сліду [Pass without Trace] недостатньо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зазвичай Барди не мають привертати стільки вогню, щоб потребувати Захисту від зброї. Але дехто грає Бардом ближнього бою — знаю, я теж був приголомшений цим відкриттям, — і Захист від зброї бонусною дією корисний для класу з к8 ХП і слабкими обладунками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірики не мають доступу до Захисту від зброї та Переміщення без сліду [Pass without Trace]. Навіть за наявності важких обладунків к8 ХП здається крихким порівняно з Воїном. Клірик зазвичай також не може дозволити собі стільки Сили, скільки бойові класи, тому перестрибувати складну місцевість важче, і Земна хода допомагає. Практично всі риси геназі землі додають Клірику нові можливості. Примітка редакції: загальна теза про Pass without Trace має виняток — Домен підступності 2014 отримує його як доменне заклинання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Порівняно з Кліриком Друїд відомий своєю крихкістю, тож Захист від зброї спокушає. Але він доступний лише кілька разів на день, і цього недостатньо, щоб вас урятувати. Клірики вже можуть накладати Переміщення без сліду [Pass without Trace]. Якщо складна місцевість заважає, бийтеся здалеку або перетворіться на птаха чи щось подібне. Примітка редакції: у цьому абзаці про Друїда автор помилково написав «Clerics»; Pass without Trace є у списку Друїда 2014."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки лише Потойбічний лицар має слоти для повторного накладання ваших вроджених заклинань, це найкращий варіант серед Воїнів. Він має Захист від зброї, але не Переміщення без сліду [Pass without Trace]. Якщо плануєте діяти потай, будуйтеся навколо Спритності. Кілька разів на день ви й так можете накладати Захист від зброї бонусною дією, але {{Бойова магія|War Magic}} дозволяє використовувати його щохід ціною більшості атак. Поєднання тематично добре пасує геназі землі. Примітка редакції: Бойова магія не змінює дію накладання — замовляння забирає вашу дію, після чого бонусною дією можна зробити одну атаку зброєю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Темнозір, Земна хода та Переміщення без сліду [Pass without Trace] приємні для Монаха, але без можливості повторно накладати Переміщення без сліду [Pass without Trace] риси геназі землі дають мало користі. Навіть Захист від зброї здається зайвим завдяки {{Терплячому захисту|Patient Defense}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і Воїн, Паладин — геназі землі має будуватися навколо Спритності, щоб скористатися Переміщення без сліду [Pass without Trace]. Ви не отримаєте цікаве поєднання з Бойовою магією, але це невелика втрата: Паладин уже неймовірно витривалий."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Захист від зброї бонусною дією додає корисної витривалості. Проте Слідопит сильно залежить від бонусних дій, тож застосування часто суттєво зменшить вашу шкоду цього раунду. Переміщення без сліду [Pass without Trace] вже є у списку Слідопита й стає доступним на тому самому рівні. Додаткове накладання та відоме заклинання приємні, але впливають не надто сильно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes",
+          "heading": "Розбійник",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розбійник уже активно використовує бонусну дію для {{Хитрої дії|Cunning Action}}, {{Стійкого прицілювання|Steady Aim}} та бою двома зброями. Тому Захист від зброї бонусною дією важко вписати. Переміщення без сліду [Pass without Trace] чудове, але його недостатньо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes",
+          "heading": "Чаклун",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чаклун не повинен опинятися в ситуації, коли потрібен Захист від зброї. Якщо хвилюєтеся, вивчіть Щит [Shield]. Переміщення без сліду [Pass without Trace] — чудове доповнення, але його недостатньо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типовий Чорнокнижник мало виграє від рис геназі землі, але {{Відьмацький клинок|Hexblade}} почуватиметься добре. Захист від зброї бонусною дією кілька разів на день суттєво підвищує витривалість, коли на вас тиснуть вороги."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типовий Чарівник мало виграє від рис геназі землі, але Школа співу клинків почуватиметься добре. Захист від зброї бонусною дією кілька разів на день додає витривалості на короткі проміжки, коли ви бігаєте в ближньому бою. На високих рівнях можна натомість використовувати Камʼяна шкіра [Stoneskin], але спершу потрібно до них дожити."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-earth-genasi-2014-001",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-earth-genasi-2014-002",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-earth-genasi-2014-003",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-earth-genasi-2014-004",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-earth-genasi-2014-005",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-earth-genasi-2014-006",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-earth-genasi-2014-007",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-earth-genasi-2014-008",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-earth-genasi-2014-009",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-earth-genasi-2014-010",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-earth-genasi-2014-011",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-earth-genasi-2014-012",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-earth-genasi-2014-013",
+      "articleId": "rpgbot-earth-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-earth-genasi-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

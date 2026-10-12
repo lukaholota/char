@@ -1,0 +1,71 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "paladin-oath-of-the-ancients-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+    "sourceRevisionId": "rpgbot-c21aeda0e3f1afab-aa2347ec79936c67"
+  },
+  "exampleSection": "section-example-build-celebrant-hunter",
+  "levelTableSection": "section-levels",
+  "classKey": "PALADIN_2014",
+  "subclassKey": "OATH_OF_THE_ANCIENTS",
+  "raceKey": "GIFF_SPELLJAMMER",
+  "backgroundKey": "OUTLANDER",
+  "abilityScores": { "STR": 12, "DEX": 15, "CON": 14, "INT": 8, "WIS": 8, "CHA": 14 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 1 },
+  "levels": [
+    { "level": 2, "classOptions": [{ "optionNameEng": "Protection" }] },
+    { "level": 3, "subclassKey": "OATH_OF_THE_ANCIENTS" },
+    { "level": 4, "featKey": "FIGHTING_INITIATE", "featOptions": [{ "optionNameEng": "Archery" }], "section": "section-feats" },
+    { "level": 5 },
+    { "level": 6 },
+    { "level": 7 },
+    { "level": 8, "featKey": "SHARPSHOOTER", "section": "section-feats" },
+    { "level": 9 },
+    { "level": 10 },
+    { "level": 11 },
+    { "level": 12, "abilityScoreIncrease": [{ "ability": "DEX", "amount": 2 }] },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15 },
+    { "level": 16, "abilityScoreIncrease": [{ "ability": "DEX", "amount": 2 }] },
+    { "level": 17 },
+    { "level": 18 },
+    { "level": 19, "abilityScoreIncrease": [{ "ability": "CHA", "amount": 2 }] },
+    { "level": 20 }
+  ],
+  "incomplete": [
+    { "field": "Спорядження", "reason": "Автор радить продати кольчугу й легкий арбалет і купити проклепаний шкіряний обладунок зі щитом; пресет бере стандартний набір класу, купівлю за золото платформа не відтворює. Легкий арбалет замість списів платформа теж не дає (група 2 — лише проста рукопашна зброя), тож взято 5 метальних списів.", "section": "section-levels" },
+    { "field": "Необовʼязкове уміння «Спрямування божественної сили»", "reason": "Автор бере його на 3, 7 і 15-му рівнях; у каталозі цього необовʼязкового уміння немає, тож у плані рівнів воно лишається текстом.", "section": "section-levels" }
+  ],
+  "preset": {
+    "title": "Паладин — Клятва прадавніх, Гіфф (Мисливець-служитель)",
+    "description": "Паладин Клятви прадавніх із вогнепальною зброєю й Спритністю як основою: Гіфф за правилами Таші, Чужинець із Аналізом поведінки замість Виживання.",
+    "subraceKey": null,
+    "racialAbilities": ["DEX", "CHA", "CHA"],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": ["PERSUASION", "RELIGION"],
+      "race": [],
+      "background": ["ATHLETICS", "INSIGHT"]
+    },
+    "backgroundCustomization": { "tools": [] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": ["DWARVISH", "ELVISH"],
+    "equipment": [
+      { "group": 1, "option": "b", "weapons": ["HEAVY_CROSSBOW", "RAPIER"] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Гіфф за правилами Таші: +1 до Спритності й +2 до Харизми, тож Спритність 16 і Харизма 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Переконання й Релігія — від Паладина, Атлетика й Аналіз поведінки — від Чужинця (автор міняє Виживання на Аналіз поведінки за правилом PHB «Налаштування передісторії»). Дві мови ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор радить важкий арбалет і рапіру як дві бойові зброї — це взято; 5 метальних списів замість легкого арбалета (платформа його не пропонує) і набір священика ми обрали за вас — вибір платформи. Продаж кольчуги й покупку проклепаного шкіряного обладунку зі щитом платформа не відтворює."
+  }
+}

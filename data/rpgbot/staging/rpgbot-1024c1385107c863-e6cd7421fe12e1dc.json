@@ -1,0 +1,1164 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/races/gith/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "e6cd7421fe12e1dc4414d9851360b76f5448325b7e2430b720cc18d4a9cd6c73",
+  "sourceRevision": {
+    "revisionId": "rpgbot-1024c1385107c863-e6cd7421fe12e1dc",
+    "sourceId": "rpgbot-1024c1385107c863",
+    "fetchedAt": "2026-09-29T19:09:03.813597+00:00",
+    "sourceUpdatedAt": "2025-10-29T13:43:01-04:00",
+    "contentHash": "037def067f9038d1115cd22381bf596cd6798ec1eec1dd2c1b6df2441b751fd8",
+    "title": "Gith: DnD 5e Race/Species Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-1024c1385107c863-e6cd7421fe12e1dc.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This handbook is for version of the Gith published prior to Monsters of the Multiverse. For the new versions, see our handbooks for the "
+            },
+            {
+              "type": "link",
+              "text": "Githyanki",
+              "href": "https://rpgbot.net/dnd5/characters/races/githyanki/"
+            },
+            {
+              "type": "text",
+              "text": " and the "
+            },
+            {
+              "type": "link",
+              "text": "Githzerai",
+              "href": "https://rpgbot.net/dnd5/characters/races/githzerai/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gith are a strange race. They share almost nothing between mechanical their two subraces despite them descending from common ancestry. The one defining trait which they do share is an Intelligence increase. This naturally predisposes both subraces to spellcasting class options, but a single Intelligence increase doesn’t necessary lock you into being a wizard or something."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Gith’s biggest issue is that there is no class where their traits fit\n\tperfectly. They don’t have any truly fantastic class options. They work fine\n\tfor several classes, and they offer some exciting options like a wizard in\n\tmedium armor, but you’ll nearly always find that some major component of your\n\tracial traits are either redundant or ignored."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The custom origin rules allow you to reassign the Gith’s ability score increases, addressing the race’s largest mechanical problem. The Githyanki becomes an appealing choice for poorly-armored spellcasters, and the Githzerai becomes a more niche option with a mix of utility and defensive options. Both subraces’ innate spellcasting offer some additional utility."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/races/gith/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/races/gith/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gith Classes (Customizable Origins)",
+                "href": "https://rpgbot.net/dnd5/characters/races/gith/#classes-custom-origin"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gith Classes (Classic Rules)",
+                "href": "https://rpgbot.net/dnd5/characters/races/gith/#classes-classic"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes-custom-origin",
+      "heading": "Gith Classes (Customizable Origins)",
+      "sourceAnchor": "classes-custom-origin",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-custom-origin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section assumes that you’re using the option “"
+            },
+            {
+              "type": "link",
+              "text": "Customizing Your Origin",
+              "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+            },
+            {
+              "type": "text",
+              "text": "” rules presented in Tasha’s Cauldron of Everything. If you’re not using those rules, scroll down to the next section."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-artificer",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Artificer",
+      "sourceAnchor": "custom-origin-artificer",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-artificer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githzerai’s additional proficiencies can get you an extra skill and two tools (trade the weapon proficiencies), and Misty Step once per day can get you into or out of melee in a hurry. Of course, the Eladrin’s teleportation works much more frequently, so if you’re just here for teleportation you should look elsewhere."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-custom-origin-artificer-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githyanki’s Mental Discipline provides a helpful defense which artificers can’t replicate, and the innate spellcasting pads the Artificer’s relatively limited spellcasting. However, you likely still need to prepare Shield."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-barbarian",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Barbarian",
+      "sourceAnchor": "custom-origin-barbarian",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-barbarian-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githzerai’s appeal for the Barbarian is extremely limited since they typically can’t use the innate spellcasting in combat. The Githzerai, despite their depiction is monks, makes a decent barbarian. Mental Discipline protects you from two common status condition which can easily take most barbarians out of a fight. Unfortunately, the innate spellcasting is still difficult."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-bard",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Bard",
+      "sourceAnchor": "custom-origin-bard",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-bard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githzerai’s weapon and armor proficiencies make the bard even more SAD by reducing your Dexterity needs to just 14, so long as you don’t care about being stealthy, and an extra skill proficiency is always nice. Bards also don’t get Jump or Misty Step, so adding those options even once per day offers some helpful options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-custom-origin-bard-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githyanki’s benefits are more defensive, but they’re still decently useful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-cleric",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Cleric",
+      "sourceAnchor": "custom-origin-cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githyanki’s benefits to the Cleric are essentially one skill and some innate spellcasting, so I think that the Githzerai is a better fit. The Cleric’s high Wisdom saves will often protect you from charm/fear effects, but Mental Discipline still provides some helpful insurance, and most clerics can’t cast Mage Hand or Shield so the innate spellcasting is helpful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-druid",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Druid",
+      "sourceAnchor": "custom-origin-druid",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-druid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githyanki’s benefits to the Druid are essentially one skill and some innate spellcasting, so I think that the Githzerai is a better fit. Like the Cleric, the Druid has good Wisdom saves but Mental Discipline still provides some helpful insurance. Druids are also notoriously frail, so Shield even once per day is a welcome addition."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-fighter",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Fighter",
+      "sourceAnchor": "custom-origin-fighter",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-fighter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While the armor and weapon proficiencies are redundant, you do get an extra skill and the Githyanki’s innate spellcasting works reasonably well for front-line martial characters. Jump gives you a way to circumvent difficult terrain and other hazards, and Misty Step goes a step further. The Githzerai’s Mental Discipline provides a helpful mental defense against common charm and fear effects, and their innate spellcasting is decent, too."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-monk",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Monk",
+      "sourceAnchor": "custom-origin-monk",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-monk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githyanki’s only contribution to the Monk is innate spellcasting, and while Jump and Misty Step are both interesting, they’re not enough. The Githzerai is almost certainly a better fit both thematically and mechanically. Mental Discipline combined with the Monk’s decent Wisdom should make you reasonably resistant to charm/fear effects which commonly take martial characters out of a fight."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-paladin",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Paladin",
+      "sourceAnchor": "custom-origin-paladin",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-paladin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There is too much redundancy here. The Githyanki’s innate spellcasting is fine, but not amazing. The Githzerai’s innate spellcasting isn’t any better, and since paladins are immune to feat, Mental Discipline is less useful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-ranger",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Ranger",
+      "sourceAnchor": "custom-origin-ranger",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-ranger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There’s too much redundancy to make the Githyanki appealing as a ranger. If you want teleportation on a ranger, play an eladrin or a horizon walker. The Githzerai is somewhat better, offering both Mental Discipline and Shield to pad the Ranger’s relatively poor durability compared to the Fighter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-rogue",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Rogue",
+      "sourceAnchor": "custom-origin-rogue",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-rogue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Martial weapons can be a very modest improvement for the Rogue if you grab things like longbows and whips, and the Githyanki’s extra skill and innate spellcasting are both reasonably useful. The Githyanki’s Mental Discipline can protect you from charm/fear effects which are often hard for rogues, and the ability to cast Mage Hand invisibly feels nice on a rogue."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-sorcerer",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Sorcerer",
+      "sourceAnchor": "custom-origin-sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githzerai’s armor proficiencies make the Sorcerer even more SAD by reducing your Dexterity needs to just 14 and provide a significant boost to your durability without eating a spell known. Both variety of gith’s innate spellcasting is nice, but doesn’t get you anything that you couldn’t get already, so you’re mostly here for medium armor proficiency."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-warlock",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Warlock",
+      "sourceAnchor": "custom-origin-warlock",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-warlock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githzerai’s armor gives non-hexblades medium armor, reducing your Dexterity needs to just 14. Warlocks already got better armor than sorcerers and wizards, but it’s still an upgrade. Either variety of gith’s innate spellcasting is a welcome addition to the Warlock due to their limited spell slots."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-wizard",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Wizard",
+      "sourceAnchor": "custom-origin-wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githzerai’s armor proficiencies make the Wizard even more SAD by reducing your Dexterity needs to just 14 and provide a significant boost to your durability without eating a spell known. Both variety of gith’s innate spellcasting is nice, but doesn’t get you anything that you couldn’t get already, so you’re mostly here for medium armor proficiency."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes-classic",
+      "heading": "Gith Classes (Classic Rules)",
+      "sourceAnchor": "classes-classic",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-classic-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section assumes that you’re "
+            },
+            {
+              "type": "emphasis",
+              "text": "not"
+            },
+            {
+              "type": "text",
+              "text": " using the option “Customizing Your Origin” rules presented in Tasha’s Cauldron of Everything or the updated version of the race published in Mordenkainen’s Monsters of the Multiverse. If you are using those rules, scroll up to the previous section."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-artificer",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Artificer",
+      "sourceAnchor": "classic-artificer",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-artificer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An Intelligence increase is the only thing that the Artificer really needs,\n\tand both subraces offer some interesting innate spellcasting. Githyanki offers\n\taccess to some martial weapons and a Strength increase which may be helpful if\n\tyou’re going for Battlesmith and don’t want to wait for level 3. Levels 1 and\n\t2 generally go very quickly, so don’t pick Githzerai on that merit alone, but\n\tit’s an option."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-barbarian",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Barbarian",
+      "sourceAnchor": "classic-barbarian",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-barbarian-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Githyanki make good barbarians despite how many of their racial traits are\n\tredundant or unused. The extra proficiency and innate spellcasting offer\n\tmagical solutions to problems which most barbarians are totally unable to\n\thandle, though Misty Step and Rage won’t work together both because you can’t\n\tcast Misty Step while raging and because both use a Bonus Action. Expect to\n\tuse Misty Step, then activate Rage on the following turn."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-bard",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Bard",
+      "sourceAnchor": "classic-bard",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-bard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Gith offers very little which supports the Bard. Githyanki get medium\n\tarmor and access to some martial weapons which might non-martial subclasses\n\tfeel more like martial subclass like College of Swords and College of Valor,\n\tbut that’s a really hard build to work with."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-cleric",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Cleric",
+      "sourceAnchor": "classic-cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Githyanki make fine front-line melee clerics, adding a few martial weapons\n\tand a Strength bonus. Githzerai get a Wisdom increase, resistance to some\n\tconditions, and some innate spellcasting which most clerics can’t replicate\n\tincluding Mage Hand and Shield."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-druid",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Druid",
+      "sourceAnchor": "classic-druid",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-druid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githyanki is a bad option, even for subclasses like Circle of Spores, but\n\tthe Githzerai works fine. A Wisdom increase is the only thing that the Druid\n\tstrictly needs, the innate spellcasting offers some options that druids can’t\n\treplicate, and Mental Discipline should work even while using Wild Shape."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-fighter",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Fighter",
+      "sourceAnchor": "classic-fighter",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-fighter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Githyanki make great fighters, especially Eldritch Knights. Their extra armor\n\tand weapon proficiencies are wasted, but don’t let that deter you. The ability\n\tscore increases are good, and the psionics will offer access to magical\n\toptions several levels before an eldritch knight would normally get them, not\n\tto mention saving you some of your precious spell slots."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-monk",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Monk",
+      "sourceAnchor": "classic-monk",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-monk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Githzerai monks makes a lot of sense conceptually, but without a Dexterity\n\tincrease you’ll lag offensively."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-paladin",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Paladin",
+      "sourceAnchor": "classic-paladin",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-paladin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githyanki’s Strength increase is the only thing that you absolutely need,\n\tand the innate spellcasting is neat, but it’s still not a great fit since so\n\tmany of your racial traits will be largely ignored."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-ranger",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Ranger",
+      "sourceAnchor": "classic-ranger",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-ranger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The innate spellcasting and the Githzerai’s wisdom increase are the only\n\tthings that the Ranger really cares about. You can make the Githyanki’s\n\tStrength bonus work for a Strength-based build, but Strength-based builds are\n\thard for the Ranger."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-rogue",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Rogue",
+      "sourceAnchor": "classic-rogue",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-rogue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Neither subrace offers a Dexterity increase. You might be able to make an\n\tArcane Trickster work, but there are numerous better racial options for\n\tthat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-sorcerer",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Sorcerer",
+      "sourceAnchor": "classic-sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No Charisma increase."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-warlock",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Warlock",
+      "sourceAnchor": "classic-warlock",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-warlock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No Charisma increase."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-wizard",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Wizard",
+      "sourceAnchor": "classic-wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A base Intelligence increase from both subraces is great, and both subraces\n\twork great for the Wizard. Githyanki get medium armor proficiency and some\n\tuseful innate spellcasting which includes Misty Step. Githzerai get get some\n\tuseful innate spellcasting too, including Shield. Unfortunately, both subraces\n\tcast spells from the Wizard’s spell list, so they don’t add any new\n\tcapabilities beyond the Githyanki’s proficiencies."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Wizard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Wizard"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-classes-custom-origin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-custom-origin-artificer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-custom-origin-artificer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-custom-origin-barbarian-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-custom-origin-bard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-custom-origin-bard-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-custom-origin-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-custom-origin-druid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-custom-origin-fighter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-custom-origin-monk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-custom-origin-paladin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-custom-origin-ranger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-custom-origin-rogue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-custom-origin-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-custom-origin-warlock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-custom-origin-wizard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-classes-classic-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-classic-artificer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-classic-barbarian-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-classic-bard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-classic-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-classic-druid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-classic-fighter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-classic-monk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-classic-paladin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-classic-ranger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-classic-rogue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-classic-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-classic-warlock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-classic-wizard-1"
+    }
+  ],
+  "metrics": {
+    "words": 1746,
+    "sections": 31,
+    "blocks": 39,
+    "tables": 0,
+    "ratingSignals": 30
+  },
+  "status": "needs-editorial-review"
+}

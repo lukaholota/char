@@ -1,0 +1,820 @@
+{
+  "buildId": "build-barbarian-battlerager-2014",
+  "revisionId": "build-barbarian-battlerager-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Шляху бойового шаленця — Яструб-скидальник",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-barbarian-battlerager-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+      "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "BARBARIAN_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "PATH_OF_THE_BATTLERAGER",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (STR)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (ATHLETICS)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "MOBILE"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 1
+          },
+          {
+            "ability": "CON",
+            "amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "PIERCER",
+        "featOptions": [
+          {
+            "optionNameEng": "PIERCER Ability (Strength)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-battlerager-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+          "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "PATH_OF_THE_BATTLERAGER",
+    "raceKey": "DWARF_2014",
+    "backgroundKey": "OUTLANDER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Досить типово для Варвара.\n\n Базове значення Підвищене значення Сила 15 17 Спритність 14 14 Статура 15 17 Інтелект 8 8 Мудрість 10 10 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Розглянемо три варіанти: Пагорбовий дворф, Совин і Ааракокра.\n\nГірський дворф заради двох підвищень +2. Нам потрібні високі модифікатори і Сили, і Статури.\n\nСовин{{Owlin}}. Оригінальна версія Ааракокри краща завдяки вищій швидкості, але з оновленою версією Ааракокри з сильно зменшеною швидкістю Совин краще підходить завдяки Темному зору й додатковій навичці. Технічно тут підійде будь-яка літаюча раса середнього розміру.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Не важливо для збірки.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Ми отримаємо загалом 4 навички від класу й Передісторії. Якщо ви Совин, ви отримаєте володіння Непомітністю. Доки ви володієте Атлетикою, решта не має значення.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Експерта в навичках»{{Skill Expert}}, щоб підвищити Силу до 18 і отримати Експертизу в Атлетиці. Ми також отримуємо володіння ще однією навичкою.\n\nНа 8-му рівні підвищуємо Статуру до 19.\n\nНа 12-му рівні беремо «Рухливого»{{Mobile}}.\n\nНа 16-му рівні ділимо підвищення характеристики між Силою й Статурою, щоб Сила стала 19, а Статура — 20.\n\nНа 19-му рівні беремо «Проколювача»{{Piercer}} і піднімаємо Силу до 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Лють, Захист без обладунків",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Безрозсудна атака, Відчуття небезпеки",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Первісний Шлях{{Primal Path}}: Бойовий шаленець, Обладунок лютого, Первісне знання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Експерт у навичках – Сила 17 → 18 – Експертиза: Атлетика – Володіння: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака, Швидкий рух",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Безрозсудне завзяття{{Reckless Abandon}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Дикий інстинкт, Інстинктивний стрибок",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик – Статура 17 → 19",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Брутальний крит (1 кубик)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Натиск батлрейджера, Первісне знання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Невпинна лють{{Relentless Rage}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Рухливий",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Брутальний крит (2 кубики)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Шипована відплата{{Spiked Retribution}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Постійна лють{{Persistent Rage}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: – Сила 18 → 19 – Статура 19 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Брутальний крит (3 кубики)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Незламна міць{{Indomitable Might}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Проколювач – Сила 19 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Первісний чемпіон{{Primal Champion}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Крилата збірка",
+        "reason": "Автор показує дві збірки: Гірського дворфа та літаючу (Совин чи Ааракокра). Таблиця характеристик (Сила 17, Статура 17) збігається лише з Гірським дворфом, тож пресет виконує його; літаючу збірку пресет не відтворює.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Передісторія",
+        "reason": "Автор каже, що передісторія не важлива для збірки, і не називає її; Чужинця обрано за платформою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Додаткові класові уміння",
+        "reason": "Автор припускає всі додаткові класові уміння (наприклад, «Первісне знання»); пресет 1-го рівня їх не записує.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-example",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Володіння від «Експерта в навичках»",
+        "reason": "На 4-му рівні автор бере володіння «будь-яким» навиком і не називає його; `levels` записує лише Силу й Експертизу в Атлетиці, а навичку гравець обирає сам.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-battlerager-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+            "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

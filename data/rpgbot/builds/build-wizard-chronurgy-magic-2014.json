@@ -1,0 +1,744 @@
+{
+  "buildId": "build-wizard-chronurgy-magic-2014",
+  "revisionId": "build-wizard-chronurgy-magic-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "Школи хронургії — «Заєць тут сьогодні, зникне завтра»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+      "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+      "sectionId": "section-example-chronurgy-magic-build-hare-today-gone-tomorrow",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "TWILIGHT_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WIZARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "chill-touch",
+            "fire-bolt",
+            "mage-hand"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "absorb-elements",
+            "find-familiar",
+            "grease",
+            "magic-missile",
+            "shield",
+            "silvery-barbs"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WIZARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "SCHOOL_OF_CHRONURGY",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "gift-of-alacrity"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WIZARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "invisibility",
+            "knock"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WIZARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "prestidigitation"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "shadow-blade",
+            "vortex-warp"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WIZARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "web",
+            "counterspell"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WIZARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "dispel-magic",
+            "fly"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WIZARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "hypnotic-pattern",
+            "banishment"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WIZARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "evards-black-tentacles",
+            "greater-invisibility"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WIZARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "sickening-radiance",
+            "hold-monster"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WIZARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "wall-of-force",
+            "wall-of-stone"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WIZARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "contingency",
+            "eyebite"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WIZARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "true-seeing"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WIZARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "forcecage",
+            "plane-shift"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WIZARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WIZARD_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "illusory-dragon",
+            "maze"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WIZARD_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (CON)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (INVESTIGATION)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (PERCEPTION)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WIZARD_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "wish",
+            "foresight"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WIZARD_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WIZARD_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TOUGH",
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "TWILIGHT_DOMAIN",
+    "raceKey": "HARENGON_MPMM",
+    "backgroundKey": "SAGE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 15
+      },
+      {
+        "ability": "WIS",
+        "value": 12
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "У нас буде незвичний розподіл через мінімуми для мультикласування. За купівлею характеристик ми вкладаємо по 14 у Спритність і Статуру, 15 в Інтелект і 12 в Мудрість, а в Силу й Харизму — по 8. Потім від Гаренгона обираємо +2/+1, вкладаючи +1 в Інтелект і +2 в Мудрість. Бачите, надзвичайно незвично для Чарівника.\n\n Базове значення Підвищене значення Рівень 20 Сила 8 8 8 Спритність 14 14 14 Статура 14 14 16 Інтелект 15 16 20 Мудрість 12 14 14 Харизма 8 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Беремо Гаренгона{{Harengon}}, щоб на повну ходити першими щоразу. Так, це безглузда ідея, але ми заклинач переваги, і ходіння першим означає, що ми виграємо частіше, ніж програємо. Уважність — добра навичка, тож ми лишимо це безкоштовне володіння, а не обмінюватимемо його.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беремо Мудреця{{Sage}} заради Магії й Історії, щоб узяти на себе наукові обовʼязки, але замінимо дві мови на каліграфічний набір{{Calligrapher’s Tools}} і набір фальшивомонетника{{Forgery Kit}}, щоб ще більше підсилити нашу здатність досліджувати й копіювати знання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від першого рівня Клірика ми беремо Аналіз Поведінки (бо наша Мудрість пристойна, тож чому б ні) і Релігію (бо в нас є Інтелект, щоб у ній розбиратися). Від Гаренгона маємо Уважність, знову ж підсилену нашою вищою за середню Мудрістю. Від зміненого Мудреця отримуємо Магію й Історію, а також каліграфічний набір і набір фальшивомонетника.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 5-му рівні, 4-му рівні Чарівника, ми беремо Покращення Характеристик на +2 Інтелекту, досягаючи 18 Інтелекту.\n\nНа 9-му рівні, 8-му рівні Чарівника, ми беремо ще одне Покращення Характеристик на +2 Інтелекту, досягаючи 20 Інтелекту.\n\nНа 13-му рівні, 12-му рівні Чарівника, ми беремо «Стійкого (Статура)»{{Resilient (Constitution)}}, підвищуючи Статуру до 15.\n\nНа 17-му рівні, 16-му рівні Чарівника, ми беремо «Експерта у навичках»{{Skill Expert}}, підвищуючи Статуру до 16, а також здобуваючи володіння Розслідуванням і «Експертизу» в Уважності, щоб компенсувати те, що Мудрість у нас лише 14.\n\nНа 20-му рівні, 19-му рівні Чарівника, ми беремо «Здоровань»{{Tough}}, щоб збільшити загальний запас ХП.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Усі обладунки й щити\nНавички:\n– Магія\n– Історія\n– Аналіз Поведінки\n– Уважність\n– Релігія\nІнструменти:\n– Каліграфічний набір\n– Набір фальшивомонетника\nДомен Клірика: Сутінки\n– Темний зір (300 футів)\n– Благословення пильності\nЧаротворство\nЗамовляння Клірика:\n– Настанова\n– Лагодження\n– Дивотворство\nЗаклинання Клірика 1-го рівня:\n– Благословення\n– Вогники фей\n– Сон\n– Цілюще слово",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Сьоме заклинання книги (Дар готовності)",
+        "reason": "Автор у рядку 2-го рівня називає сім заклинань Чарівника 1-го рівня, а нова книга 1-го рівня містить шість; Дар готовності перенесено на 3-й рівень (перше підвищення Чарівника), решту названих заклинань розставлено по два на рівень, не раніше, ніж Чарівник може їх вивчити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання книги на рівнях 3–20",
+        "reason": "Автор групує заклинання за колом (на 4-му рівні пʼять 2-го кола тощо), а Чарівник додає до книги лише два на рівень. Пресет записує названі заклинання по два на рівень у порядку автора, не раніше доступного кола; вільні місця (3-й, 11-й та останні рівні) — вибір платформи, автор не називає; можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Майстерність заклинань",
+        "reason": "Автор називає Дар готовності та Павутиння для Майстерності заклинань (19-й рівень), але каталог не має вибору цих заклинань, тож у пресеті їх не записано; обирає гравець на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-chronurgy-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

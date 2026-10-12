@@ -1,0 +1,346 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-necromancy-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+    "sourceRevisionId": "rpgbot-9502872b0d287341-954de81461e34256"
+  },
+  "exampleSection": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+  "levelTableSection": "section-levels",
+  "classKey": "WIZARD_2014",
+  "subclassKey": "SCHOOL_OF_NECROMANCY",
+  "raceKey": "FAIRY_MPMM",
+  "backgroundKey": "FEYLOST",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 12,
+    "INT": 15,
+    "WIS": 8,
+    "CHA": 13
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Стартове золото замість набору",
+      "reason": "Автор радить узяти стартове золото й вийти з легким арбалетом, сумкою з компонентами та книгою заклинань; пресет бере стандартний набір класу (кинджал, сумка з компонентами, набір ученого, книга заклинань).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Стартове золото замість набору",
+      "reason": "Автор радить узяти стартове золото й вийти з легким арбалетом, сумкою з компонентами та книгою заклинань; пресет бере стандартний набір класу (кинджал, сумка з компонентами, набір ученого, книга заклинань).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання 6-го рівня: Підіймання мерців",
+      "reason": "Автор позначає Підіймання мерців (Animate Dead) як безкоштовне від Немертвих прислужників; його дає сам підклас, тому в плані воно не названо.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання до книги на 18–20-му рівнях",
+      "reason": "На 18-му автор обирає Майстерність заклинань (Сріблясті шпильки й Невидимість), а на 20-му Підписні заклинання без назв; платформа не записує вибір цих умінь, тож записано лише два відкриті заклинання до книги на кожному з рівнів 18–20 за таблицею класу.",
+      "section": "section-levels"
+    }
+  ],
+  "levels": [
+    {
+      "level": 2,
+      "subclassKey": "SCHOOL_OF_NECROMANCY",
+      "spells": {
+        "spellbookKeys": [
+          "absorb-elements",
+          "shield"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "spells": {
+        "spellbookKeys": [
+          "maximilians-earthen-grasp",
+          "phantasmal-force"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "spells": {
+        "spellbookKeys": [
+          "invisibility",
+          "wither-and-bloom"
+        ],
+        "cantripKeys": [
+          "mage-hand"
+        ]
+      },
+      "featKey": "TELEKINETIC",
+      "featOptions": [
+        {
+          "optionNameEng": "TELEKINETIC Ability (Intelligence)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5,
+      "spells": {
+        "spellbookKeys": [
+          "fireball",
+          "haste"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "spells": {
+        "spellbookKeys": [
+          "vampiric-touch",
+          "summon-undead"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "spells": {
+        "spellbookKeys": [
+          "arcane-eye",
+          "polymorph"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "spells": {
+        "spellbookKeys": [
+          "evards-black-tentacles",
+          "stone-shape"
+        ]
+      },
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 9,
+      "spells": {
+        "spellbookKeys": [
+          "danse-macabre",
+          "synaptic-static"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "spells": {
+        "spellbookKeys": [
+          "telekinesis",
+          "wall-of-stone"
+        ],
+        "cantripKeys": [
+          "shape-water"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "spells": {
+        "spellbookKeys": [
+          "create-homunculus",
+          "contingency"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "spells": {
+        "spellbookKeys": [
+          "guards-and-wards",
+          "disintegrate"
+        ]
+      },
+      "featKey": "INSPIRING_LEADER",
+      "section": "section-feats"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "spellbookKeys": [
+          "finger-of-death",
+          "create-magen"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "spells": {
+        "spellbookKeys": [
+          "reverse-gravity",
+          "teleport"
+        ]
+      }
+    },
+    {
+      "level": 15,
+      "spells": {
+        "spellbookKeys": [
+          "abi-dalzims-horrid-wilting",
+          "clone"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "spells": {
+        "spellbookKeys": [
+          "maze",
+          "simulacrum"
+        ]
+      },
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17,
+      "spells": {
+        "spellbookKeys": [
+          "true-polymorph",
+          "wish"
+        ]
+      }
+    },
+    {
+      "level": 18,
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ],
+      "featKey": "LUCKY",
+      "section": "section-feats"
+    },
+    {
+      "level": 20,
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/wizard-necromancy-2014.webp",
+    "title": "Чарівник — Школа некромантії, Фея",
+    "description": "Чарівник-некромант із Феєю в небі: Інтелект 17, Вогняний заряд і Розщеплення Розуму, Загублений у Світі Фей з навичками Природа й Релігія.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "INT",
+      "DEX",
+      "INT"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "HISTORY"
+      ],
+      "race": [],
+      "background": [
+        "NATURE",
+        "RELIGION"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "fire-bolt",
+        "mind-sliver",
+        "prestidigitation"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [
+        "comprehend-languages",
+        "find-familiar",
+        "mage-armor",
+        "magic-missile",
+        "silvery-barbs",
+        "sleep"
+      ],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "find-familiar",
+        "mage-armor",
+        "magic-missile",
+        "sleep"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Вогняний заряд, Розщеплення Розуму та Штукарство й шість заклинань книги називає автор; Ремесло друїдів дає Фея. Початкову підготовку чотирьох заклинань з книги ми обрали за вас: автор її не називає.",
+      "platformChoices": [
+        "preparedSpells"
+      ]
+    },
+    "abilityExplanation": "Фея за правилами Таші: +2 до Інтелекту й +1 до Спритності, тож Інтелект 17, Спритність 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Автор налаштовує Загубленого у Світі Фей: замість Обману й Виживання бере дві навички Інтелекту (правило PHB «Налаштування передісторії»), щоб разом з класом мати Магію, Історію, Природу й Релігію. Яка саме пара від класу, а яка від передісторії — вибір платформи: Магію та Історію ми взяли від Чарівника, Природу й Релігію — від передісторії. Дві мови ми обрали за вас.",
+    "equipmentExplanation": "Автор радить золото, але пресет бере стандартний набір класу: кинджал, сумку з компонентами, набір ученого й книгу заклинань ми обрали за вас — вибір платформи."
+  },
+  "revision": 2
+}

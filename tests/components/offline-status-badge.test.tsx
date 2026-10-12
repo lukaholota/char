@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 
 import type { OfflineOperation } from "@/lib/offline/operations";
+import type { OfflineReadiness } from "@/lib/offline/offline-readiness";
 
 afterEach(cleanup);
 
@@ -40,7 +41,7 @@ function unsyncedDamage(operationId: string): OfflineOperation {
   };
 }
 
-async function renderBadgeWith(queued: OfflineOperation[]) {
+async function renderBadgeWith(queued: OfflineOperation[], readiness: OfflineReadiness = "unavailable") {
   vi.resetModules();
   const queue = await import("@/lib/offline/queue");
   for (const operation of queued) queue.queueOfflineOperation(operation);
@@ -48,7 +49,7 @@ async function renderBadgeWith(queued: OfflineOperation[]) {
   const { default: OfflineStatusBadge } = await import(
     "@/lib/components/characterSheet/OfflineStatusBadge"
   );
-  render(<OfflineStatusBadge />);
+  render(<OfflineStatusBadge readiness={readiness} />);
 }
 
 beforeEach(() => {
@@ -66,6 +67,28 @@ describe("KR22.6 — видимий стан незбережених право
     await renderBadgeWith([]);
 
     expect(screen.queryByRole("status")).toBeNull();
+  });
+
+  it("з мережею показує, чи лист уже збережено для офлайну", async () => {
+    setConnection(true);
+    await renderBadgeWith([], "preparing");
+    expect(screen.getByRole("status").textContent).toBe("Зберігаю для офлайну…");
+
+    cleanup();
+    await renderBadgeWith([], "ready");
+    expect(screen.getByRole("status").textContent).toBe("Доступний офлайн");
+
+    cleanup();
+    await renderBadgeWith([], "failed");
+    expect(screen.getByRole("status").textContent).toBe("Офлайн не збережено");
+  });
+
+  it("без мережі стан черги важливіший за готовність", async () => {
+    setConnection(false);
+    await renderBadgeWith([], "ready");
+
+    expect(screen.getByRole("status").textContent).toContain("Офлайн");
+    expect(screen.getByRole("status").textContent).not.toContain("Доступний");
   });
 
   it("офлайн показує, скільки правок ще не поїхало", async () => {

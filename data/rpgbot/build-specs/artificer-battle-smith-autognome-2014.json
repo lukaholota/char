@@ -1,0 +1,287 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "artificer-battle-smith-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+    "sourceRevisionId": "rpgbot-4654a4690574486e-e0b992fd0d438f26"
+  },
+  "exampleSection": "section-example-battle-smith-build-super-fighting-robot",
+  "levelTableSection": "section-levels",
+  "classKey": "ARTIFICER_2014",
+  "subclassKey": "BATTLE_SMITH",
+  "raceKey": "AUTOGNOME_SPELLJAMMER",
+  "backgroundKey": "INVESTIGATOR",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 15,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "incomplete": [
+    {
+      "field": "Четверте підготовлене заклинання",
+      "reason": "Автор називає чотири підготовлені заклинання 1-го рівня (Поглинання стихій, Лікування ран, Вогники фей, Смалець), але Винахідник 1-го рівня за правилами готує модифікатор Інтелекту (3) плюс половину рівня, округлену вниз (0), тож пресет записує перші три, а Смалець можна підготувати на листі після зміни підготовки.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Інструменти",
+      "reason": "Автор бере два володіння інструментами Автогнома (одне будь-яке, друге — духовий інструмент), а замість інструментів злодія Слідчого — будь-який інструмент; пресет не записує вибір інструментів.",
+      "section": "section-race"
+    },
+    {
+      "field": "Навичка Розслідування",
+      "reason": "Автор бере Розслідування від Винахідника; у каталозі Слідчий уже дає Розслідування, тож класову навичку замінено Уважністю — підсумок навичок збігається з авторським.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Передісторія Слідчий",
+      "reason": "Автор бере Слідчого з Путівника Ван Ріхтена (набір для гриму); каталог має Слідчого зі Sword Coast: Аналіз поведінки, Розслідування й дві мови на вибір, без інструментів.",
+      "section": "section-background"
+    },
+    {
+      "field": "Інфузії зброї на 2-му рівні",
+      "reason": "Автор лишає дві інфузії зброї «на вибір» (Покращена зброя, Повторний постріл чи Повертальна зброя); пресет бере Покращену зброю та Повторний постріл (вибір платформи, можна змінити на листі).",
+      "section": "section-infusions"
+    },
+    {
+      "field": "Навичка Експерта у навичках (4-й рівень)",
+      "reason": "Автор називає і Непомітність, і Акробатику (альтернативи); пресет бере Непомітність та експертизу в Аркані.",
+      "section": "section-feats"
+    },
+    {
+      "field": "Заміна Вогняного заряду на Спалах мечів (3-й рівень)",
+      "reason": "Заміна замовлень 2014 платформою не підтримана; Вогняний заряд лишається.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Підготовлені заклинання 5–17-го рівнів",
+      "reason": "Автор називає підготовлені заклинання (Вихрове переміщення, Павутиння, Політ, Прискорення, Свобода рухів тощо); підготовлені заклинання після 1-го рівня пресет не записує, їх обирають на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Вливання на 18-му рівні та нове замовляння на 14-му",
+      "reason": "Автор не називає вливань на 18-му рівні (лише «інфузії») і замовляння на 14-му; пресет бере Репліку: Амулет здоровʼя та Репліку: Перстень вільної дії, а замовляння обирає гравець (вибір платформи).",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/artificer-battle-smith-autognome-2014-d91debc4ce.webp",
+    "title": "Винахідник — Автогном-Бойовий коваль",
+    "description": "Надбойовий робот: Малий Автогном-Бойовий коваль з Інтелектом 17, Статурою 16, середніми обладунками й щитом та замовляннями Лагодження і Вогняний заряд.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "INT",
+      "CON",
+      "INT"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "PERCEPTION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "GNOMISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": [
+          "DAGGER",
+          "DAGGER"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Автогном за правилами Таші: +2 до Інтелекту й +1 до Статури, як у авторській таблиці (Інтелект 17, Статура 16); це вже враховано.",
+    "skillExplanation": "Магія й Уважність — від Винахідника, Аналіз поведінки й Розслідування — від Слідчого, разом ті самі чотири навички, що в таблиці автора. Три мови (від раси й передісторії) автор не називає: їх ми обрали за вас.",
+    "equipmentExplanation": "Автор радить середні обладунки й щит. Ми взяли лускату броню, два кинджали, легкий арбалет, набір дослідника підземель та інструменти злодія — зброю та набір обрано за вас, їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "mending",
+        "fire-bolt"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "absorb-elements",
+        "cure-wounds",
+        "faerie-fire"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Лагодження й Вогняний заряд — авторський рядок 1-го рівня. Підготовлені заклинання Поглинання стихій, Лікування ран і Вогники фей названо автором; четверте, Смалець, не вміщається в ліміт.",
+      "platformChoices": []
+    }
+  },
+  "levels": [
+    {
+      "level": 2,
+      "infusions": [
+        "Enhanced Defense",
+        "Mind Sharpener",
+        "Enhanced Weapon",
+        "Repeating Shot"
+      ],
+      "section": "section-infusions"
+    },
+    {
+      "level": 3,
+      "subclassKey": "BATTLE_SMITH"
+    },
+    {
+      "level": 4,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (INT)"
+        },
+        {
+          "optionNameEng": "Skill Expert Proficiency (STEALTH)"
+        },
+        {
+          "optionNameEng": "Skill Expert Expertise (ARCANA)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "infusions": [
+        "Repulsion Shield",
+        "Replicate: Pipes of Haunting"
+      ],
+      "section": "section-infusions"
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "featKey": "MOUNTED_COMBATANT",
+      "section": "section-feats"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "infusions": [
+        "Replicate: Winged Boots",
+        "Replicate: Cloak of Protection"
+      ],
+      "spells": {
+        "cantripKeys": [
+          "mage-hand"
+        ]
+      },
+      "section": "section-infusions"
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "infusions": [
+        "Replicate: Ring of Protection",
+        "Arcane Propulsion Armor"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ],
+      "section": "section-infusions"
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18,
+      "infusions": [
+        "Replicate: Amulet of Health",
+        "Replicate: Ring of Free Action"
+      ],
+      "section": "section-infusions"
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ]
+}

@@ -1,0 +1,320 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "sorcerer-aberrant-mind-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+    "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1"
+  },
+  "exampleSection": "section-example-build-akorian-herald-of-the-abolithid",
+  "levelTableSection": "section-levels",
+  "classKey": "SORCERER_2014",
+  "subclassKey": "ABERRANT_MIND",
+  "raceKey": "WARFORGED_EBERRON",
+  "backgroundKey": "FACTION_AGENT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 10,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 3,
+  "levels": [
+    {
+      "level": 2,
+      "spells": {
+        "knownSpellKeys": [
+          "shield"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classOptions": [
+        {
+          "optionNameEng": "Quickened Spell"
+        },
+        {
+          "optionNameEng": "Extended Spell"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "invisibility"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "sleep",
+        "add": "scorching-ray"
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "TELEKINETIC",
+      "featOptions": [
+        {
+          "optionNameEng": "TELEKINETIC Ability (Charisma)"
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "mage-hand"
+        ],
+        "knownSpellKeys": [
+          "web"
+        ]
+      },
+      "section": "section-feats"
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "fireball"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "spells": {
+        "knownSpellKeys": [
+          "fly"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "spells": {
+        "knownSpellKeys": [
+          "greater-invisibility"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "invisibility",
+        "add": "misty-step"
+      }
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "polymorph"
+        ]
+      },
+      "section": "section-feats"
+    },
+    {
+      "level": 9,
+      "spells": {
+        "knownSpellKeys": [
+          "cloudkill"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classOptions": [
+        {
+          "optionNameEng": "Transmuted Spell"
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "minor-illusion"
+        ],
+        "knownSpellKeys": [
+          "hold-monster"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "disintegrate"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "web",
+        "add": "mental-prison"
+      }
+    },
+    {
+      "level": 12,
+      "featKey": "METAMAGIC_ADEPT",
+      "section": "section-feats"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "delayed-blast-fireball"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "replaceSpell": {
+        "drop": "fly",
+        "add": "teleport"
+      }
+    },
+    {
+      "level": 15,
+      "spells": {
+        "knownSpellKeys": [
+          "dominate-monster"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "featKey": "INSPIRING_LEADER",
+      "section": "section-feats"
+    },
+    {
+      "level": 17,
+      "classOptions": [
+        {
+          "optionNameEng": "Subtle Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "spells": {
+        "knownSpellKeys": [
+          "wish"
+        ]
+      }
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "ELEMENTAL_ADEPT",
+      "featOptions": [
+        {
+          "optionNameEng": "Elemental Adept (Fire)"
+        }
+      ],
+      "openAdvancement": true,
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Перенавчання заклинань",
+      "reason": "Записано заміни Невидимості на Туманний крок (7-й), Сну на Розпечений промінь (3-й), Павутиння на Ментальну вʼязницю (11-й) і Польоту на Телепорт (14-й). Не записано: заміни заклинань підкласу (Руки Хадара на Сріблясті шпильки на 2-му, Дисонуючий шепіт на Проклін на 3-му, Виявлення думок на Стримування особи на 4-му, Вгамування емоцій на Позичене знання на 5-му, Послання на Достаток ворогів на 6-му) — платформа замінює лише заклинання, обране гравцем; на 3-му рівні платформа дозволяє одну заміну, тож записано Сон; на 10-му рівні автор міняє Телепатичний звʼязок Рері на неназване заклинання.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Адепт метамагії на 12-му рівні",
+      "reason": "Риса «Адепт метамагії» записана без вибору метамагії: каталог не має її опцій (BUG-O49-METAMAGIC-ADEPT).",
+      "section": "section-feats"
+    },
+    {
+      "field": "Інструменти злодія від Воєнокованого",
+      "reason": "Автор радить обрати для расового володіння інструментами Інструменти злодія; пресет не записує вибір інструментів раси.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Метамагія 17-го рівня та тип Адепта стихій",
+      "reason": "На 17-му рівні автор пише метамагію «будь-яку» без назви: пресет бере Subtle Spell (вибір платформи). На 19-му автор бере «Адепта стихій», але не називає стихію: пресет бере вогонь (вибір платформи). Гравець може змінити обидва вибори перед створенням.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/sorcerer-warforged-aberrant-mind-2014.webp",
+    "title": "Чародій Аберантного розуму — Воєнокований",
+    "description": "Акоріан, вісник Аболітида: Воєнокований-Агент фракції з Харизмою 17 і Статурою 16. Псіонічні закляття з 1-го рівня.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA",
+      "CON"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INTIMIDATION",
+        "PERSUASION"
+      ],
+      "race": [
+        "ARCANA"
+      ],
+      "background": [
+        "DECEPTION"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH",
+      "GOBLIN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Воєнокований за правилами Таші: +2 до Харизми й +1 до Статури, як у авторській таблиці (Харизма 17, Статура 16); це вже враховано.",
+    "skillExplanation": "Залякування й Переконання — від Чародія, Магія — від Воєнокованого, Аналіз Поведінки — від Агента фракції. Переконання від передісторії повторюється, тож заміну — Обман — автор називає. Три мови ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Автор радить брати будь-що, аби був чаротворчий фокус. Арканний фокус, легкий арбалет, набір дослідника підземель і кинджали ми обрали за вас — їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "fire-bolt",
+        "light",
+        "prestidigitation",
+        "shape-water"
+      ],
+      "knownSpellKeys": [
+        "chaos-bolt",
+        "sleep"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Замовляння й заклинання названі автором. Розщеплення Розуму, Руки Хадара та Дисонуючий шепіт дає підклас автоматично.",
+      "sectionId": "section-levels"
+    }
+  }
+}

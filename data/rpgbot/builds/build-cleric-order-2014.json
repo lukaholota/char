@@ -1,0 +1,877 @@
+{
+  "buildId": "build-cleric-order-2014",
+  "revisionId": "build-cleric-order-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Клірика порядку — до мене дійшла чутка, що спочатку це був контент «Відкритої Аркани»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+      "sectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ORDER_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "DIVINE_SOUL",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "prestidigitation",
+            "mage-hand",
+            "light",
+            "shape-water"
+          ],
+          "knownSpellKeys": [
+            "silvery-barbs"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ],
+        "classOptionSpellKeys": [
+          "bane"
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "CLERIC_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "CLERIC_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FEY_TOUCHED",
+        "featOptions": [
+          {
+            "optionNameEng": "FEY_TOUCHED Ability (Wisdom)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "mending"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "CLERIC_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "CLERIC_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "CLERIC_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "CLERIC_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "CLERIC_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "CLERIC_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "thaumaturgy"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "CLERIC_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "CLERIC_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER"
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "CLERIC_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "CLERIC_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "CLERIC_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "CLERIC_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ELDRITCH_ADEPT",
+        "featOptions": [
+          {
+            "optionNameEng": "Devil's Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "CLERIC_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "CLERIC_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "CLERIC_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-order-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ORDER_DOMAIN",
+    "raceKey": "SHIFTER_MPMM",
+    "backgroundKey": "SPY",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 10
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 14
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Для мультикласування Харизма має бути щонайменше 13, а оскільки Спритність чи Сила нам ні до чого, ми робимо Статуру якомога вищою, а запасними очками підіймаємо Харизму до 14.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 8 8 Статура 15 16 Інтелект 10 10 Мудрість 15 17 Харизма 14 14",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Перевертень{{Shifter}}. Ми отримуємо володіння Залякуванням і одним із двох варіантів. Якщо вас справді непокоїть повільна швидкість через обладунок, «Швидкий крок»{{Swiftstride}} це виправить. Проте я б, імовірно, взяв «Дикого мисливця»{{Wildhunt}} заради можливості «перевірити вайб» когось Аналізом Поведінки або під час кидків Уважності/Виживання, щоб щось знайти чи вистежити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беремо передісторію Шпигун{{Spy}}, а володіння Непомітністю переносимо на Уважність. Виявляється, шпигуни загалом корисні лише тоді, коли справді можуть щось бачити й чути.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Ми будемо «обличчям» (хоч і трохи гіршим за версію Клірик 1/Чародій X), тож поводимося відповідно. Початок із Клірика дає нам Медицину й Аналіз Поведінки, а додаткове володіння Переконанням — від домену. Разом із расою й передісторією це дає нам володіння всіма стандартними навичками «обличчя» (Обман, Аналіз Поведінки, Залякування, Переконання) і загалом 6 володінь навичками.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Ми відставатимемо на один рівень за Покращеннями Характеристик протягом усього життя персонажа, тож неодмінно хочемо взяти гібридну рису на 5-му рівні й підняти основну характеристику до 20 на 9-му. Беремо «Доторк феї»{{Fey Touched}}, як обговорювали вище. На 13-му беремо «Надихаючого лідера»{{Inspiring Leader}} і покажемо трохи математики, чому він неймовірний на цьому рівні. На 17-му беремо «Містичного адепта»{{Eldritch Adept}} заради «Зору диявола»{{Devil's Sight}}, перш ніж нарешті взяти «Стійкого (Статура)»{{Resilient (Con)}} на 20-му як умовне завершальне уміння.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Замовляння:\n– Настанова\n– Дзвін небіжчика\n– Священне полумʼя\nПідготовлені заклинання:\n– Цілюще слово\n– Спрямований заряд\n– Захист від зла й добра\n– Щит віри\nЗаклинання домену:\n– Наказ\n– Героїзм\nГолос влади",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Замовляння:\n– Штукарство\n– Магічна рука\n– Світло\n– Формування води\nЗаклинання:\n– Благословення\n– Сріблясті шпильки\n– Зурочення (Спорідненість)\nУлюбленець богів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підготовлене заклинання:\n– Виявлення магії\nБожественність: Наказ порядку",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Підготовлене заклинання:\n– Духовна зброя\nЗаміна підготовленого: Спрямований заряд → Мале відновлення\nЗаклинання домену:\n– Стримування особи\n– Зона правди",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Нове замовляння:\n– Лагодження\nПідготовлені заклинання:\n– Вгамування емоцій\n– Підтримка\nРиса:\n– Доторк феї (+1 Мудрість)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Підготовлене заклинання:\n– Маяк надії\nЗаклинання домену:\n– Масове цілюще слово\n– Уповільнення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Підготовлене заклинання:\n– Розвіювання магії/Захист від енергії/Зняття проклять\nВтілення закону\nЗнищення нежиті (ПН 1/2)\nКанал божественності (2/відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Підготовлене заклинання:\n– Вигнання\nЗаклинання домену:\n– Примушування\n– Пошук істоти",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Мудрість 18 → 20\nПідготовлені заклинання:\n– Захист від смерті\n– Віщування\nЗнищення нежиті (ПН 1)\nБлагословенні удари",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Підготовлене заклинання:\n– Масове лікування ран\nЗаклинання домену:\n– Звернення\n– Підкорення особистості",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Нове замовляння:\n– Дивотворство\nПідготовлене заклинання:\n– Більше відновлення\nБожественне втручання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Підготовлене заклинання:\n– Зцілення\nЗаміна підготовленого: Мале відновлення → Бенкет героїв\nЗнищення нежиті (ПН 2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Риса:\n– Надихаючий лідер\nПідготовлене заклинання:\n– Планарний союзник",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Підготовлене заклинання:\n– Божественне слово",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Підготовлене заклинання:\n– Планарний перехід\nЗнищення нежиті (ПН 3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Підготовлене заклинання:\n– Свята аура",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Підготовлене заклинання:\n– будь-яке\nРиса:\n– Містичний адепт (Зір диявола)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Підготовлене заклинання:\n– Масове зцілення\nЗнищення нежиті (ПН 4)\nКара порядку",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Канал божественності (3/відпочинок)\nПідготовлене заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Риса:\n– Стійкий (Статура)\nПідготовлене заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Мультиклас у Чародія",
+        "reason": "Автор бере з 2-го рівня Чародія Божественної душі (Сріблясті шпильки); цей запис описує лише старт Клірика 1-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Продаж спорядження",
+        "reason": "Автор радить продати булаву й легкий арбалет і купити лати; пресет не записує продаж, тож лишено кольчугу, булаву й легкий арбалет.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Продаж спорядження",
+        "reason": "Автор радить продати булаву й легкий арбалет і купити лати; пресет не записує продаж, тож лишено кольчугу, булаву й легкий арбалет.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Благословення від Чародія (Божественна магія)",
+        "reason": "На 2-му рівні автор вивчає Благословення (Bless) зі списку Клірика, який відкриває Божественна душа; платформа не додає заклинань Клірика до вибору Чародія (BUG-O49-DIVINE-SOUL-SPELL-LIST), тому на цьому місці відкритий вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання риси «Доторк феї» на 5-му рівні",
+        "reason": "Автор бере Доторк феї, але не називає заклинання 1-го рівня; платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Підготовлені заклинання Клірика на рівнях 2–20",
+        "reason": "Автор називає підготовлені заклинання по рівнях (Виявлення магії, Духовна зброя, Маяк надії тощо, а на 17, 19 і 20-му «будь-яке») і заміни підготовлених; їх гравець готує на листі, тому в пресет вони не записані.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-order-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

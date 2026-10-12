@@ -113,6 +113,7 @@ const DialogContent = React.forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       data-rpg-dialog-content
+      data-safe-dialog
       className={cn(
         "fixed left-[50%] top-[50%] z-[9999] grid w-full max-w-lg max-h-[90vh] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-2xl border border-white/10 bg-gradient-to-b from-slate-950/28 to-slate-950/18 p-6 text-slate-50 backdrop-blur-lg [@media(pointer:coarse)]:backdrop-blur-none [@media(pointer:coarse)]:from-slate-950 [@media(pointer:coarse)]:to-slate-950 duration-200 outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]",
         className
@@ -138,8 +139,8 @@ const DialogContent = React.forwardRef<
       {children}
       {showClose ? (
         <DialogPrimitive.Close className="absolute right-2 top-2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 md:h-8 md:w-8 bg-slate-900/90 text-slate-300 shadow-md shadow-black/40 transition-colors hover:bg-slate-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/60 disabled:pointer-events-none">
-          <X className="h-4 w-4" />
-          <span className="sr-only">{closeLabel}</span>
+        <X className="h-4 w-4" />
+        <span className="sr-only">{closeLabel}</span>
         </DialogPrimitive.Close>
       ) : null}
     </DialogPrimitive.Content>

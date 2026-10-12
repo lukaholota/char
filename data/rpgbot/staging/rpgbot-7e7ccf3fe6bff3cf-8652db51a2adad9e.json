@@ -1,0 +1,1813 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/races/aasimar/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "8652db51a2adad9ea9848b11f3acf4b74b54501d972d7248fa40278fe345dc5e",
+  "sourceRevision": {
+    "revisionId": "rpgbot-7e7ccf3fe6bff3cf-8652db51a2adad9e",
+    "sourceId": "rpgbot-7e7ccf3fe6bff3cf",
+    "fetchedAt": "2026-09-29T19:16:12.436993+00:00",
+    "sourceUpdatedAt": "2025-10-29T13:42:47-04:00",
+    "contentHash": "eeb134d4a071a0b6aea206bda58046682753a465e473aa30b40fc17a39a4e739",
+    "title": "Aasimar: DnD 5e Race/Species Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-7e7ccf3fe6bff3cf-8652db51a2adad9e.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Aasimars are the go-to option for players who want to play a character with\n\tclear celestial influence. They have been through several major design changes\n\tover the years (see Aasimar Versions, below), but the celestial theme and some\n\tof their traits have remained a constant."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The version of the Aasimar published in Volo’s Guide to Monsters gets three\n\tsubraces to choose from. While it’s never explicitly stated, it’s implied that\n\tthe Protector and Scourge are intended to be good-aligned, while the fallen is\n\tintended to be evil-aligned. From a more mechanical perspective, the three\n\tsubraces provide a different ability score increase and transformation, making\n\teach viable in different sets of builds and classes. Of course, with the\n\tcustom origin rules in place, the difference between the three comes down to\n\ttheir transformation."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The transformations all apply a damage boost which applies to damage you deal\n\ton your turn with an attack or a spell. Since the transformation only works\n\tfor one minute per long rest, you want to get as much mileage as possible. If\n\tpossible, use multi-target effects like AOE damage spells, or make numerous\n\tattacks in the same turn. Keep in mind that the damage is reduced by\n\tresistances, targets passing saving throws, etc. so if you rely on AOE damage\n\tspells you’ll likely want to apply the bonus damage to a target that fails its\n\tsave."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The updated version of the Aasimar published in Monsters of the Multiverse shares similar transformation effects to the version in Volo’s Guide to Monsters, but with a Bonus Action activation and severely reduced damage. The core concepts of the transformations are the same, but Radiant Consumption no longer hurts you, so all three options are at least worth considering for any class."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The DMG version of the Aasimar, often overlooked by most groups, is still a\n\tperfectly functional race. It shares the original Protector Aasimar’s ability\n\tscore increases, and their Darkvision and damage resistances, but instead of\n\tHealing Hands, Light, and Transformation, the variant Aasimar just gets some\n\tinnate spellcasting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/races/aasimar/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/races/aasimar/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Aasimar Versions",
+                "href": "https://rpgbot.net/dnd5/characters/races/aasimar/#aasimar-versions"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Aasimar Classes",
+                "href": "https://rpgbot.net/dnd5/characters/races/aasimar/#classes"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Aasimar Classes (Customizable Origins, DMG Variant and VGtM)",
+                "href": "https://rpgbot.net/dnd5/characters/races/aasimar/#classes-custom-origin"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Classes (Classic Rules, DMG Variant and VGtM)",
+                "href": "https://rpgbot.net/dnd5/characters/races/aasimar/#classes-classic"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-aasimar-versions",
+      "heading": "Aasimar Versions",
+      "sourceAnchor": "aasimar-versions",
+      "blocks": [
+        {
+          "blockId": "block-section-aasimar-versions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Aasimar has the most complicated version history of any race except the\n\tEladrin. There are effectively 5 versions of the Aasimar, and no one can fault\n\tyou for getting them mixed up."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-aasimar-versions-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The first version of the Aasimar was published in the "
+            },
+            {
+              "type": "link",
+              "text": "Dungeon Master’s Guide",
+              "href": "https://www.dndbeyond.com/sources/dmg/dungeon-masters-workshop#ExampleRaceAasimar"
+            },
+            {
+              "type": "text",
+              "text": " as an example how to create your own homebrew race. This version is typically referred to as the “Variant Aasimar”, which is confusing because it’s not a variant of anything. This version of Aasimar was somewhat flashier than many of the core races, so in 5e’s early years most people didn’t consider it usable. But wasn’t any more powerful than the races in the Player’s Handbook, and as 5e’s race options have proliferated, the Variant Aasimar has become more accepted as newer races options prove that similar races aren’t going to break your game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-aasimar-versions-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The second verison of the Aasimar was a complete rewrite, and while there are\n\tclear thematic similarities and some overlapping traits, the official Aasimar\n\tis technically a different race (at least mechanically). This version\n\tintroduced three Aasimar subraces with their now-signature transformation\n\ttrait."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-aasimar-versions-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tasha’s Cauldron of Everything gave us two more versions when the custom\n\torigin rules were introduced, affecting both pre-existing versions of the\n\tAasimar."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-aasimar-versions-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Most recently, Monsters of the Multiverse gave us the 5th version of the\n\tAasimar, reprinting it to match updates to race design concepts. Like other\n\traces, the updated Aasimar uses the new ability score increase mechanics\n\t(+2/+1 or three +1s) and has a few other big changes. Healing Hands now uses a\n\tpool of d4’s, so the amount healed starts higher at low levels but has a lower\n\taverage than the original progression."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-aasimar-versions-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "More notably, the Aasimar’s transformation trait was totally rewritten.\n\tSubraces were removed, the transformation was delayed to 3rd level, and now\n\trather than a subrace you select one of the three transformation options\n\tavailable to the original subraces. The activation action was reduced to a\n\tBonus Action and the damage was reduced to your Proficiency Bonus, so while\n\tit’s much easier to fit into a turn, it’s also much less impactful. Radiant\n\tConsumption also no longer hurts you."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes",
+      "heading": "Aasimar Classes",
+      "sourceAnchor": "classes",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section assumes that you’re using the option “"
+            },
+            {
+              "type": "link",
+              "text": "Customizing Your Origin",
+              "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+            },
+            {
+              "type": "text",
+              "text": "” rules presented in Tasha’s Cauldron of Everything. If you’re not using those rules, scroll down to the next section."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artificer",
+      "parentSectionId": "section-classes",
+      "heading": "Artificer",
+      "sourceAnchor": "artificer",
+      "blocks": [
+        {
+          "blockId": "block-section-artificer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Healing Hands can take some pressure off of you to select healing spells, and\n\tCelestial Resistance provides damage resistances that the Artificer can’t\n\tprovide on their own. Radiant Consumption is good for melee builds, and\n\tRadiant Soul provides temporary flight if you’re not high enough level to\n\tinfuse Winged Boots."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-barbarian",
+      "parentSectionId": "section-classes",
+      "heading": "Barbarian",
+      "sourceAnchor": "barbarian",
+      "blocks": [
+        {
+          "blockId": "block-section-barbarian-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Two damage resistances, a minor healing option, and Darkvision provide a lot\n\tof things that barbarians can’t provide on their own. The Aasimar’s\n\ttransformation is easy to fit into a turn since many barbarians don’t use\n\ttheir Bonus Action on every turn. Radiant Consumption is likely your best\n\tCelestial Revelation option since barbarians struggle to handle crowds. The\n\tdamage isn’t massive and the AOE isn’t very big, but it’ll add up quickly in a\n\tcrowded melee fight."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-bard",
+      "parentSectionId": "section-classes",
+      "heading": "Bard",
+      "sourceAnchor": "bard",
+      "blocks": [
+        {
+          "blockId": "block-section-bard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Healing Hands reduces the need for you to learn healing spells, but I would\n\tstill learn Healing Word because it’s such a good spell. Celestial Revelation\n\toffers some helpful utility options, but the damage boost is often difficult\n\tbecause so many of the Bard’s best options don’t deal damage. Necrotic Shroud\n\tcan be helpful for melee bards, especially if combat is getting too intense\n\tfor you, but any bard can make good use of Radiant Spirit’s temporary\n\tflight."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cleric",
+      "parentSectionId": "section-classes",
+      "heading": "Cleric",
+      "sourceAnchor": "cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Healing Hands will save you a spell slot, and Celestial Resistance will\n\tprotect you from damage types which many clerics need to worry about from\n\tother clerics and from undead. Necrotic Shroud is good for clerics built for\n\tmelee, and works very well alongside things like Word of Radiance and Spirit\n\tGuardians. For less durable clerics, Radiant Soul’s flight provides a great\n\tflight option which clerics often can’t match."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-druid",
+      "parentSectionId": "section-classes",
+      "heading": "Druid",
+      "sourceAnchor": "druid",
+      "blocks": [
+        {
+          "blockId": "block-section-druid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Aasimar works for the Druid for the same reasons that it works for the Cleric. Radiant Consumption is really only useful for Circle of Spores, but Radiant Soul is still the best for the majority of druids."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-druid-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I’m not certain which of the Aasimar’s traits work while using Wild Shape, and the answer to that determines whether or not this is useful for Circle of the Moon. Whatever the answer is, I think Celestial Resistance and Celestial Revelation would follow the same rule. I love the idea of a bear suddenly glowing and growing angelic wings, but I have no idea if it’s allowed. As a DM I would allow it, but talk to your own DM before you settle on the character concept."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fighter",
+      "parentSectionId": "section-classes",
+      "heading": "Fighter",
+      "sourceAnchor": "fighter",
+      "blocks": [
+        {
+          "blockId": "block-section-fighter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Radiant Soul provides easy flight that works in heavy armor, and even if you don’t need the flight, the damage boost is nice. If you don’t care about flight, Radiant Consumption is great for handling crowds. Healing Hands is nice for sharing (you have Second Wind for yourself), and Celestial Resistance provides resistances that you can’t get from most magic items or from spells that your allies can cast. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-monk",
+      "parentSectionId": "section-classes",
+      "heading": "Monk",
+      "sourceAnchor": "monk",
+      "blocks": [
+        {
+          "blockId": "block-section-monk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Radiant Consumption is good if you worry about crowds and Radiant Soul\n\tprovides flight that most monks simply can’t match. Two damage resistances are\n\tgreat on the monk since monks are relatively frail compared to other\n\tfront-line martial classes, and most monks don’t have built-in healing\n\toptions, so Healings Hands is useful if your allies go down."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-paladin",
+      "parentSectionId": "section-classes",
+      "heading": "Paladin",
+      "sourceAnchor": "paladin",
+      "blocks": [
+        {
+          "blockId": "block-section-paladin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Radiant Consumption is great for crowds and Radiant Soul gets you flight in\n\theavy armor. Necrotic Shroud is an option since paladins have decent Charisma,\n\tbut the fear effect isn’t great unless you’re going for Oath of Conquest."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ranger",
+      "parentSectionId": "section-classes",
+      "heading": "Ranger",
+      "sourceAnchor": "ranger",
+      "blocks": [
+        {
+          "blockId": "block-section-ranger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Melee rangers should consider Radiant Consumption and ranged rangers should\n\tgo for Radiant Soul. Healing Hands removes the temptation to learn Cure Wounds\n\tas an emergency healing option, leaving room in you limited spells known for\n\tmore interesting things."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-rogue",
+      "parentSectionId": "section-classes",
+      "heading": "Rogue",
+      "sourceAnchor": "rogue",
+      "blocks": [
+        {
+          "blockId": "block-section-rogue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Melee builds might take Radiant Consumption to handle crowds, but crowds are\n\tnot a great situation for rogues unless you’re hiding in them. More likely\n\tyou’ll go for Radiant Spirit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sorcerer",
+      "parentSectionId": "section-classes",
+      "heading": "Sorcerer",
+      "sourceAnchor": "sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Radiant Spirit is your best option. Necrotic Shroud looks tempting because\n\tthe DC is Charisma-based, but the range is tiny and if you’re stuck in melee\n\tit’s probably not going to save you. You either need to Disengage or\n\tteleport."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-warlock",
+      "parentSectionId": "section-classes",
+      "heading": "Warlock",
+      "sourceAnchor": "warlock",
+      "blocks": [
+        {
+          "blockId": "block-section-warlock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For hexblades, Necrotic Shroud and Radiant Consumption are both options. I’m\n\thesitant to recommend Radiant Consumption as a way to handle crowds because\n\teven hexblades are fairly frail, so wading into a crowd is dangerous. It’s\n\ttypically best to pull back and cast Hunger of Hadar. Necrotic Shroud’s fear\n\toption isn’t great, but the DC is Charisma-based so if anyone’s going to use\n\tit successfully it’s a hexblade."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-warlock-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For other warlocks, Radiant Spirit is your best option by far."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-wizard",
+      "parentSectionId": "section-classes",
+      "heading": "Wizard",
+      "sourceAnchor": "wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Radiant Soul gets you flight and a damage boost without Concentration. But if\n\tthat’s all you’re here for, a flying race like the Fairy or the Owlin is\n\tprobably a better choice. The Aasimar’s damage resistances are difficult for\n\tthe Wizard to replicate, and with nearly no healing options Healing Hands is a\n\tgood way to save a dying ally."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes-custom-origin",
+      "heading": "Aasimar Classes (Customizable Origins, DMG Variant and VGtM)",
+      "sourceAnchor": "classes-custom-origin",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-custom-origin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section assumes that you’re using the option “"
+            },
+            {
+              "type": "link",
+              "text": "Customizing Your Origin",
+              "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+            },
+            {
+              "type": "text",
+              "text": "” rules presented in Tasha’s Cauldron of Everything. If you’re not using those rules, scroll down to the next section."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-classes-custom-origin-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With the addition of the Customizing Your Origin rules, the only thing which\n\tdistinguishes aasimar subraces is the subraces’ transformations, and matching\n\tthe transformation to your class is an important decision. Fallen is great for\n\tclasses that are sometimes in melee, but aren’t built to be a front-line\n\tdefender, like the Rogue. Scourge is good for durable front-line classes with\n\tbig piles of hit points like the Barbarian or the Fighter, as well as classes\n\twith the ability to heal themselves like the Cleric and the Paladin. Protector\n\tis great for spellcasters and ranged attackers because it offers flight\n\twithout Concentration, allowing you to stay in the air even if you take a few\n\thits."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-artificer",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Artificer",
+      "sourceAnchor": "custom-origin-artificer",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-artificer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Fallen Aasimar works for melee artificers and the Protector Aasimar works\n\tfor ranged artificers, though the Fallen Aasimar’s Charisma-based save DC will\n\tbe a problem. The Scourge is too risky with the Artificer’s d8 hit points and\n\tlimited healing capabilities. The Variant Aasimar works, but the innate\n\tspellcasting doesn’t add anything that the Artificer needs and can’t already\n\tprovide."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-barbarian",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Barbarian",
+      "sourceAnchor": "custom-origin-barbarian",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-barbarian-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Protector Aasimar gives the Barbarian easy access to flight, and the\n\tdamage bonus will be reliable thanks to Reckless Attack. Scourge is a very\n\ttempting option for the Barbarian because it both helps to handle crowds as\n\twell as focusing on large single targets. You can even use Healing Hands while\n\traging, though the healing isn’t big enough that it’s worth the action unless\n\tit’s an emergency."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-bard",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Bard",
+      "sourceAnchor": "custom-origin-bard",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-bard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Aasmiar’s innate spellcasting is a good complement to the Bard’s\n\tcapabilities, and the damage resistances are nice for a fairly frail class.\n\tFor melee bards, the Fallen Aasimar’s Necrotic Shroud is a great crowd control\n\toption with a Charisma-based DC. For bards focusing on spellcasting, Protector\n\tis an easy choice. The DMG Variant Aasimar’s additional spellcasting is\n\ttempting, but doesn’t add anthing that the Bard can’t already do."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-cleric",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Cleric",
+      "sourceAnchor": "custom-origin-cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Aasimar’s innate spellcasting is redundant with the Cleric’s features,\n\tespecially for the DMG Variant Aasimar. Even so, the Scourge Aasimar’s Radiant\n\tConsumption is a tempting option for a class with abundant magical healing,\n\tand the Protector Aasimar gives and easy option for flight in combat which can\n\toften be difficult for clerics to find."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-druid",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Druid",
+      "sourceAnchor": "custom-origin-druid",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-druid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Aasimar’s innate spellcasting is redundant with the Druids’s features,\n\tespecially for the DMG Variant Aasimar."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-custom-origin-druid-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s unclear which, if any, of the Aasimar’s racial traits work while\n\twildshaped. The Aasimar draws their unique racial traits from their celestial\n\tlineage, so it makes sense that they wouldn’t work in a different form, but\n\tyou could also argue that things are more spiritual than biological. Talk to\n\tyour DM about it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-fighter",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Fighter",
+      "sourceAnchor": "custom-origin-fighter",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-fighter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Aasimar’s innate spellcasting doesn’t help the Fighter much, but the\n\tdamage resistances are hard to replicate and can protect the Fighter from\n\tpowerful foes like celestials and undead. Fallen is a tempting option, but\n\tmost fighters won’t have the Charisma to make Necrotic Shroud’s DC reliable.\n\tScourge can work, but the self-inflicted damage from Radiant Consumption is\n\tdifficult to manage without a lot of built-in healing. Protector is probably\n\tthe easiest choice, allowing melee builds to get into melee with flying foes\n\tand allowing ranged builds to get out of reach."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-monk",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Monk",
+      "sourceAnchor": "custom-origin-monk",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-monk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Aasimar’s innate spellcasting does little to help the Monk, but the\n\tdamage resistances are just as useful as they are for other martial classes,\n\tand Transformation offers an enticing damage option for a class which can make\n\tso many attacks right from level 1."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-custom-origin-monk-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n\tWith no dependency on Charisma, the Fallen Aasimar’s Necrotic Shroud won’t\n\thave a reliable DC. The Protector Aasimar’s flight may be useful, and\n\tUnarmored Movement’s speed bonus will apply to the flight speed. Scourge looks\n\ttempting on a melee class, but with few healing options it’s a hard choice. It\n\tmay work for Way of Mercy, provided that you’re willing to spend Ki to heal\n\tyourself repeatedly in combat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-paladin",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Paladin",
+      "sourceAnchor": "custom-origin-paladin",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-paladin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Every variety of aasimar works for the Paladin. Fallen works great for a\n\thigh-Charisma build, so Blessed Warrior builds are an excellent choice.\n\tProtector is a natural choice, allowing you to handly flying enemies without\n\trelying on allied spellcasters or magic items. Scourge is great for handling\n\tcrowds, which is normally hard for the Paladin due to their almost complete\n\tlack of area damage options. The DMG Variant Aasimar provides early access to\n\tspellcasting options which paladins don’t normally get until well into their\n\tcareer due to their slow spellcasting progression."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-ranger",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Ranger",
+      "sourceAnchor": "custom-origin-ranger",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-ranger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Protector’s flight is great for the Ranger. Scourge may also work, but the\n\tRanger’s healing options are very limited, so be cautious about your hit\n\tpoints."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-rogue",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Rogue",
+      "sourceAnchor": "custom-origin-rogue",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-rogue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Aasimar provides some magical options not normally available to the\n\tRogue, but subclass options are difficult. Protector is almost certainly your\n\tbest choice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-sorcerer",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Sorcerer",
+      "sourceAnchor": "custom-origin-sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Aasimar offers access to some options which the Sorcerer can normally\n\tonly get from Divine Soul. Fallen looks tempting due to Necrotic Shroud’s\n\tCharisma-based DC, but most sorcerers don’t want to be in melee to use it, so\n\tstick to the Protector Aasimar for flight or the DMG Variant Aasimar for\n\taccess to Lesser Restoration."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-warlock",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Warlock",
+      "sourceAnchor": "custom-origin-warlock",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-warlock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Warlock offers a lot of great options for the Aasimar. Fallen Aasimar are\n\ta good choice for hexblades built for melee, and the Protector is a great\n\toption for caster warlocks looking to get off the ground occasionally. Scourge\n\tmay be hard due to the Warlock’s d8 hit dice and lack of healing options. The\n\tDMG Variant Aasimar may work for celestial warlocks looking to serve as their\n\tparty’s healer, offering access to Lesser Restoration so you can do more than\n\tjust restore hit points."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-wizard",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Wizard",
+      "sourceAnchor": "custom-origin-wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Protector’s access to flight is an easy option for the Wizard, but few of\n\tthe Aasimar’s other traits directly benefit the Wizard."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes-classic",
+      "heading": "Classes (Classic Rules, DMG Variant and VGtM)",
+      "sourceAnchor": "classes-classic",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-classic-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section assumes that you’re "
+            },
+            {
+              "type": "emphasis",
+              "text": "not"
+            },
+            {
+              "type": "text",
+              "text": " using the option “Customizing Your Origin” rules presented in Tasha’s Cauldron of Everything or the updated version of the race published in Mordenkainen’s Monsters of the Multiverse. If you are using those rules, scroll up to the previous section."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-artificer",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Artificer",
+      "sourceAnchor": "classic-artificer",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-artificer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bad ability spread. The damage boosts from Transformation would work great,\n\tbut without and Intelligence increase you’ll lag behind other artificers most\n\tof the time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-barbarian",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Barbarian",
+      "sourceAnchor": "classic-barbarian",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-barbarian-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Fallen Aasimar’s Strength bonus and their Necrotic Shroud ability work\n\tfine for the Barbarian, but the Aasimar’s other subraces and the core racial\n\ttraits do very little for the Barbarian."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-bard",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Bard",
+      "sourceAnchor": "classic-bard",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-bard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A +2 Charisma increase is a great start for a bard, and Healing Hands and\n\tLight Bearer provide magic options which will open up space in your cantrips\n\tand spells known."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-classic-bard-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your choice of subrace will likely depend on your subclass. Fallen Aasimar\n\tmight work as Sword or Valor bards, but Strength is generally a poor choice\n\tfor bards planning to use weapons. Scourge Aasimar works great offensively,\n\tbut you’ll fall behind expected attack bonus and damage with weapons until you\n\tpick up at least one Ability Score Increase, and the Bard doesn’t have enough\n\thit points for the Scourge Aasimar’s Transformation to be safe. Protector\n\tAasimar offers access to flight, making it a safe option for bards focused on\n\tspellcasting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-cleric",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Cleric",
+      "sourceAnchor": "classic-cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Despite their Charisma increase offering very little to clerics, the Aasimar\n\tstill makes a decent cleric. Resistance to necrotic and radiant damage is\n\tgreat for a class which frequently confronts celestials and/or undead, and\n\tHealing Hands is a useful complement to your healing spells.."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-classic-cleric-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Protector Aasimar is the go-to option for aasimar clerics because of their\n\tWisdom increase, and Radiant Soul allows you to fly and deal a bunch of extra\n\tdamage for one minute per day. Scourge and Fallen Aasimar can both work\n\tdepending on your choice of domain and your role in the party, but your\n\tspellcasting may lag behind at low levels until you pick up some Ability Score\n\tIncreases. If you don’t want to deal with Transformation, the DMG Variant\n\tAasimar’s innate spellcasting could be a good option."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-druid",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Druid",
+      "sourceAnchor": "classic-druid",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-druid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Protector Aasimar provides a Wisdom increase and access to flight when\n\tyou need it in combat, plus the innate spellcasting nicely complements the\n\tDruid’s spellcasting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-classic-druid-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s unclear which, if any, of the Aasimar’s racial traits work while\n\twildshaped. The Aasimar draws their unique racial traits from their celestial\n\tlineage, so it makes sense that they wouldn’t work in a different form, but\n\tyou could also argue that things are more spiritual than biological. Talk to\n\tyour DM about it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-fighter",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Fighter",
+      "sourceAnchor": "classic-fighter",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-fighter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Purple Dragon Knight is the only archetype where Aasimar is a truly good fit,\n\tespecially for a Fallen Aasimar. Scourge Aasimar are fine, but their lack of a\n\tStrength or Dexterity increase can be crippling for a low-level fighter until\n\tyou pick up a few ability score increases."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-monk",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Monk",
+      "sourceAnchor": "classic-monk",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-monk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Almost nothing useful for the Monk."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-paladin",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Paladin",
+      "sourceAnchor": "classic-paladin",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-paladin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Aasimar make natural paladins. Charisma supports many paladin features, and\n\tBlessed Warrior makes a Charisma-heavy build not just possible but also very\n\teffective. Scourge aasimar are a great option for durable paladins, and fallen\n\taasimar are great offensive options, and their flavor makes sense for\n\toathbreaker paladins. Protector aasimar typically work better as clerics, but\n\tthe flight is still very appealing. The DMG Variant Aasimar’s innate\n\tspellcasting offers access to Lesser Restoration long before the Paladin would\n\tnormally get it, making it a tempting option in a party without a cleric or a\n\tdruid."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-ranger",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Ranger",
+      "sourceAnchor": "classic-ranger",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-ranger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing useful for the Ranger."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-rogue",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Rogue",
+      "sourceAnchor": "classic-rogue",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-rogue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bad ability spread."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-sorcerer",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Sorcerer",
+      "sourceAnchor": "classic-sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Charisma increase is the most important part of your race selection for the\n\tSorcerer, but the Aasimar also gives you resistance to two damage types and an\n\toption for healing which arcane spellcasters usually can’t replicate."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-classic-sorcerer-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Protector is an easy choice for spellcasters because it provides access to\n\tflight without Concentration. Scourge may be an option for sorcerers worried\n\tabout being pulled into close quarters, but Radiant Consumption will burn\n\tthrough your hit points very quickly."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-warlock",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Warlock",
+      "sourceAnchor": "classic-warlock",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-warlock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Like the Sorcerer, the Warlock needs Charisma first and foremost."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-classic-warlock-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Protector is an easy choice for spellcasters because it provides access to\n\tflight without Concentration. Scourge may be an option for sorcerers worried\n\tabout being pulled into close quarters, but Radiant Consumption will burn\n\tthrough your hit points very quickly."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classic-wizard",
+      "parentSectionId": "section-classes-classic",
+      "heading": "Wizard",
+      "sourceAnchor": "classic-wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-classic-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bad ability spread."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Wizard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Wizard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Wizard"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-aasimar-versions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-aasimar-versions-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-aasimar-versions-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-aasimar-versions-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-aasimar-versions-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-aasimar-versions-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-classes-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-artificer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-barbarian-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-bard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-druid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-druid-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-fighter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-monk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-paladin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-ranger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-rogue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-warlock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-warlock-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-wizard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-classes-custom-origin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-classes-custom-origin-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-custom-origin-artificer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-custom-origin-barbarian-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-custom-origin-bard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-custom-origin-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-custom-origin-druid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-custom-origin-druid-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-custom-origin-fighter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-custom-origin-monk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-custom-origin-monk-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-custom-origin-paladin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-custom-origin-ranger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-custom-origin-rogue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-custom-origin-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-custom-origin-warlock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-custom-origin-wizard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-classes-classic-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-classic-artificer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-classic-barbarian-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-classic-bard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-classic-bard-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-classic-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-classic-cleric-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[55]",
+      "detail": "block-section-classic-druid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[56]",
+      "detail": "block-section-classic-druid-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[57]",
+      "detail": "block-section-classic-fighter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[58]",
+      "detail": "block-section-classic-monk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[59]",
+      "detail": "block-section-classic-paladin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[60]",
+      "detail": "block-section-classic-ranger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[61]",
+      "detail": "block-section-classic-rogue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[62]",
+      "detail": "block-section-classic-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[63]",
+      "detail": "block-section-classic-sorcerer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[64]",
+      "detail": "block-section-classic-warlock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[65]",
+      "detail": "block-section-classic-warlock-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[66]",
+      "detail": "block-section-classic-wizard-1"
+    }
+  ],
+  "metrics": {
+    "words": 3484,
+    "sections": 46,
+    "blocks": 68,
+    "tables": 0,
+    "ratingSignals": 43
+  },
+  "status": "needs-editorial-review"
+}

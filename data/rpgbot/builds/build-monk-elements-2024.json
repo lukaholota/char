@@ -1,0 +1,1018 @@
+{
+  "buildId": "build-monk-elements-2024",
+  "revisionId": "build-monk-elements-2024-v1",
+  "ruleset": "RULES_2024",
+  "title": "Обʼєднаймо наші сили",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-monk-elements-2024",
+      "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+      "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "MONK_2024",
+  "supportedLevels": [
+    1
+  ],
+  "initialChoices": [
+    "race",
+    "background"
+  ],
+  "choices": [
+    {
+      "choiceId": "race",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-species",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "race-default",
+          "entity": {
+            "ruleset": "RULES_2024",
+            "kind": "race",
+            "entityKey": "HUMAN_2024"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-elements-2024",
+              "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+              "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+              "sectionId": "section-species",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Обираємо Людину, бо Сила — ваша. До того ж це дає додаткову рису походження — «Пильний»{{Alert}} — і бонусне володіння навичкою: Уважність.",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "background",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-background",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "background-default",
+          "entity": {
+            "ruleset": "RULES_2024",
+            "kind": "background",
+            "entityKey": "WAYFARER_2024"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-elements-2024",
+              "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+              "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+              "sectionId": "section-background",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Обираємо Мандрівника{{Wayfarer}}, бо Капітан Планета ніби живе скрізь. До того ж герої мультфільмів 90-х зроблені з неприродної удачі.",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat-level-4",
+      "stage": "progression",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-level-4-default",
+          "entity": {
+            "ruleset": "RULES_2024",
+            "kind": "feat",
+            "entityKey": "GRAPPLER"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-elements-2024",
+              "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+              "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+              "sectionId": "section-levels",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Риса: Борець\nСпритність +1 (17 → 18)\nПовільне падіння",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat-level-12",
+      "stage": "progression",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-level-12-default",
+          "entity": {
+            "ruleset": "RULES_2024",
+            "kind": "feat",
+            "entityKey": "SKILL_EXPERT"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-elements-2024",
+              "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+              "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+              "sectionId": "section-levels",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Риса: Експерт у навичках\nВолодіння: Розслідування\nЕкспертиза: Аналіз Поведінки\nМудрість +1 (16 → 17)",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat-level-19",
+      "stage": "progression",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-level-19-default",
+          "entity": {
+            "ruleset": "RULES_2024",
+            "kind": "feat",
+            "entityKey": "BOON_OF_TRUESIGHT"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-elements-2024",
+              "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+              "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+              "sectionId": "section-levels",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Епічний Дар: Дар істинного зору\nМудрість +1 (19 → 20)",
+          "dependsOn": []
+        }
+      ]
+    }
+  ],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "MONK_2024",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "MONK_2024",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "MONK_2024",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "MONK_2024",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [
+        "feat-level-4"
+      ],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "MONK_2024",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "MONK_2024",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "MONK_2024",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "MONK_2024",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "MONK_2024",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "MONK_2024",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "MONK_2024",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "MONK_2024",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [
+        "feat-level-12"
+      ],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "MONK_2024",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "MONK_2024",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "MONK_2024",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "MONK_2024",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "MONK_2024",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "MONK_2024",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "MONK_2024",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [
+        "feat-level-19"
+      ],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "MONK_2024",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-elements-2024",
+          "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+          "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_ELEMENTS"
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "WARRIOR_OF_THE_ELEMENTS",
+    "raceKey": "HUMAN_2024",
+    "backgroundKey": "WAYFARER_2024",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 10
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-example",
+        "title": "Приклад збірки Воїна Стихій — Обʼєднаймо наші сили",
+        "text": "Земля! Вогонь! Вітер! Вода! Серце! Вперед, Плането! Планетяни\n\nХто ще вміє літати й керувати стихіями, щоб боротися зі Злом? Ви ж не чекали Аватара, правда?",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-example",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Найбільше нас цікавить Спритність, але й Мудрість важлива. Решту очок вкладаємо в Статуру, а потім обираємо походження, що дозволяє підвищити Спритність на +2 і Мудрість на +1. Для нас це Мандрівник{{Wayfarer}}.\n\nСила · 8 · 8 · 8\nСпритність · 15 · 17 · 24\nСтатура · 14 · 14 · 14\nІнтелект · 10 · 10 · 10\nМудрість · 15 · 16 · 24\nХаризма · 8 · 8 · 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Обираємо Мандрівника{{Wayfarer}}, бо Капітан Планета ніби живе скрізь. До того ж герої мультфільмів 90-х зроблені з неприродної удачі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-species",
+        "title": "Раса",
+        "text": "Обираємо Людину, бо Сила — ваша. До того ж це дає додаткову рису походження — «Пильний»{{Alert}} — і бонусне володіння навичкою: Уважність.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-species",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skill-and-tool-proficiencies",
+        "title": "Володіння навичками й інструментами",
+        "text": "Мандрівник дає нам Аналіз Поведінки й Непомітність, а також злодійські інструменти. Від Монаха додамо Акробатику, щоб виконувати польотні трюки, й Історію, щоб розповідати глядачам історію переробки відходів. Людина дозволяє взяти Уважність.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-skill-and-tool-proficiencies",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-and-ability-score-increases",
+        "title": "Риси та підвищення характеристик",
+        "text": "Походження: «Щасливчик»{{Lucky}} — запас безкоштовної Переваги на атаках чи швидкого ухиляння, що росте, дає нам куди більше відчуття супергероя з мультфільму 90-х.\n\nЛюдина: «Пильний»{{Alert}} — з високою Спритністю та Бонусом Майстерності до Ініціативи ми встигнемо врятувати світ у самий останній момент.\n\nНа 4-му рівні: «Борець»{{Grappler}} — наші беззбройні удари мають досяжність 15 футів, а оскільки Захоплення тепер є різновидом беззбройного удару, ми можемо схоплювати людей із відстані 15 футів. Тож можемо спробувати схопити ціль першим ударом за хід і, якщо вдасться, матимемо безкоштовну Перевагу на кожну подальшу атаку. «Швидкий борець»{{Fast Wrestler}} — це вишенька на торті: як Монах ми маємо швидкий рух і навіть можемо виконувати Ривок бонусною дією, щоб тягти людей на абсурдні відстані, зокрема в повітря, коли отримаємо швидкість польоту. +1 до Спритності, 17 → 18.\n\nНа 8-му рівні: Покращення Характеристик — +2 до Спритності, 18 → 20. Тепер хочемо довести Спритність до межі, щоб наступного разу взятися за Мудрість.\n\nНа 12-му рівні: «Експерт у навичках»{{Skill Expert}} — станемо вправними в Розслідуванні, щоб краще знаходити речі. Візьмемо Експертизу в Аналізі Поведінки, бо щоб по-справжньому бути Капітаном Планетою, треба втілити силу Серця. +1 до Мудрості, 16 → 17.\n\nНа 16-му рівні: Покращення Характеристик — +2 до Мудрості, 17 → 19. Памʼятайте: Мудрість — ключ до наших Складностей ряткидків і половина нашого КБ. Готуємо ґрунт для Епічного Дару, яким доведемо Мудрість до 20.\n\nНа 19-му рівні: «Дар істинного зору»{{Boon of Truesight}} — тепер ми маємо той класичний зір супергероя, що бачить усе. +1 до Мудрості, 19 → 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-feats-and-ability-score-increases",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-starting-equipment",
+        "title": "Стартове спорядження й тактика",
+        "text": "«Бойові мистецтва»{{Martial Arts}} означають, що Спритність замінює Силу для беззбройних ударів, Захоплення та Штовхання. Також вони дають змогу бити людей бонусною дією. Це трохи сильніше, ніж бій двома зброями, бо до шкоди ми все одно додаємо модифікатор Спритності. «Захист без броні»{{Unarmored Defense}} просто додає нашу Мудрість до Спритності для КБ. Зараз це дає нам КБ 16. «Щасливчик»{{Lucky}} дозволяє кілька разів на день отримати Перевагу й накласти Перешкоду, і кількість зростає з Бонусом Майстерності. Тож поки що двічі на день. «Пильний»{{Alert}} допомагає нам — або союзникові, якщо ми вирішимо помінятися Ініціативою, — частіше ходити першими.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бойові мистецтва\nЗахист без броні\nЩасливчик\nПильний\nНавички та інструменти:\n– Акробатика\n– Історія\n– Аналіз Поведінки\n– Уважність\n– Непомітність\n– Злодійські інструменти",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "«Бойові мистецтва»{{Martial Arts}} означають, що Спритність замінює Силу для беззбройних ударів, Захоплення та Штовхання. Також вони дають змогу бити людей бонусною дією. Це трохи сильніше, ніж бій двома зброями, бо до шкоди ми все одно додаємо модифікатор Спритності. «Захист без броні»{{Unarmored Defense}} просто додає нашу Мудрість до Спритності для КБ. Зараз це дає нам КБ 16. «Щасливчик»{{Lucky}} дозволяє кілька разів на день отримати Перевагу й накласти Перешкоду, і кількість зростає з Бонусом Майстерності. Тож поки що двічі на день. «Пильний»{{Alert}} допомагає нам — або союзникові, якщо ми вирішимо помінятися Ініціативою, — частіше ходити першими."
+      },
+      {
+        "level": 2,
+        "text": "Зосередження Монаха:\n– Шквал ударів\n– Терплячий захист\n– Крок вітру\nРух без броні\nНадприродний метаболізм",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Очки Зосередження — це паливо, яким ми вмикаємо багато сил Монаха, але є й кілька безкоштовних варіантів, які можна підсилити Очками Зосередження. «Терплячий захист»{{Patient Defense}} дає змогу виконати Відступ бонусною дією, а за одне очко ще й додати Ухиляння. «Крок вітру»{{Step of the Wind}} дає змогу виконати Ривок бонусною дією, а за одне очко ще й додати Відступ. «Шквал ударів»{{Flurry of Blows}} — це по суті покращення «Бойових мистецтв»{{Martial Arts}}: якщо витратити очко, можна вдарити двічі за бонусну дію. «Рух без броні»{{Unarmored Movement}} дає змогу рухатися швидше, якщо ми не носимо обладунків. «Надприродний метаболізм»{{Uncanny Metabolism}} дає змогу раз на день відновити всі Очки Зосередження під час кидка Ініціативи, якщо ми не встигли на короткий відпочинок до початку бою. Чудове уміння, щоб в екстреному випадку долити пального в бак, не дозволяючи Монаху спалити за один бій більше за свій добовий запас."
+      },
+      {
+        "level": 3,
+        "text": "Відхилення атак\nВоїн Стихій:\n– Стихійне єднання\n– Керування стихіями",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Ми можемо зменшувати вхідну дробильну, колючу чи рубальну шкоду реакцією, а якщо зменшимо її до 0, то можемо витратити Очко Зосередження, щоб спрямувати атаку в іншу ціль. Обравши підклас, ми одразу отримуємо досить добре уміння. За одне Очко Зосередження, яке ми витрачаємо вільною дією на початку свого ходу, ми отримуємо досяжність 15 футів, стихійну шкоду для беззбройних ударів і здатність відштовхувати чи притягувати цілі щоразу, коли завдаємо цієї стихійної шкоди. На десять хвилин. Цього досить, щоб, можливо, провести дві сутички. Оскільки це вільна дія, воно не заважає нічому з того, що нам треба робити своєю дією чи бонусною дією."
+      },
+      {
+        "level": 4,
+        "text": "Риса: Борець\nСпритність +1 (17 → 18)\nПовільне падіння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "З «Борцем»{{Grappler}} і вовки ситі, і вівці цілі — принаймні для одного беззбройного удару за хід. За звичайних обставин доводиться обирати між шкодою та тим, щоб схопити ціль, але з «Борцем» можна й те, й інше. Щойно нам вдається схопити ціль, ми маємо проти неї Перевагу. Для більшості Монахів це добре, але оскільки наші беззбройні удари мають досяжність, ми ще й можемо схоплювати з набагато безпечнішої відстані в 15 футів. «Повільне падіння»{{Slow Fall}} — добрий запобіжник на випадок падіння. Тепер у нас КБ 17.",
+        "abilityChanges": [
+          {
+            "ability": "DEX",
+            "increase": 1
+          }
+        ],
+        "featKeys": [
+          "GRAPPLER"
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака\nПриголомшливий удар",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Бʼємо двічі (дією). Не зважайте, що ми вже й так били двічі (витративши Очко Зосередження на бонусну дію). З «Приголомшливим ударом»{{Stunning Strike}} ціль має пройти ряткидок, інакше стане Приголомшеною. У разі успіху ціль натомість сповільнюється до половини швидкості, а наступна атака проти неї має Перевагу. Це дуже добре."
+      },
+      {
+        "level": 6,
+        "text": "Підсилені удари\nСтихійний вибух",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Для беззбройних ударів ми отримуємо силову шкоду як варіант. Це приємно, коли нам потрібна силова шкода, але памʼятайте: здатність відштовхувати й притягувати залежить від інших типів стихійної шкоди. За 2 Очки Зосередження можемо метнути вогнекулю [Fireball] змінного типу шкоди, зі шкодою, що дорівнює трьом кубикам бойових мистецтв. Час від часу це стане в пригоді, коли доведеться розбиратися з великими натовпами слабших ворогів. Якщо можете зачепити трьох чи більше ворогів, майже напевно варто використати «Стихійний вибух»{{Elemental Burst}}. Якщо влучите менше ніж у трьох, ефективніше може бути витратити ці очки на щось інше."
+      },
+      {
+        "level": 7,
+        "text": "Ухилення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Ми краще проходимо ряткидки Спритності. Вилазити з небезпечних халеп — звичайна справа для супергероїв 90-х, вони займаються цим щодня."
+      },
+      {
+        "level": 8,
+        "text": "Риса: Покращення Характеристик\nСпритність +2 (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Тут доводимо Спритність до межі, бо так наступною рисою зможемо почати покращувати Мудрість. Це також піднімає наш КБ до 18.",
+        "abilityChanges": [
+          {
+            "ability": "DEX",
+            "increase": 2
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Акробатичний рух",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Ми можемо бігти по стінах і воді, але не можемо на них стояти. Мультиплікаційна фізика для мультиплікаційного героя на кшталт Капітана Планети."
+      },
+      {
+        "level": 10,
+        "text": "Підвищене зосередження:\n– Шквал ударів\n– Терплячий захист\n– Крок вітру\nСамовідновлення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Наші основні сили на Очках Зосередження отримують покращення. Більше ударів із «Шквалом ударів»{{Flurry of Blows}}. Тимчасові ХП із «Терплячим захистом»{{Patient Defense}} — для тієї супергеройської живучості. Можливість по-супергеройськи віднести когось у безпечне місце за допомогою «Кроку вітру»{{Step of the Wind}}. Прибирати стани Причарований, Наляканий чи Отруєний наприкінці нашого ходу. Чудові стани, щоб їх знімати. А ще ми більше не отримуємо штрафів за відсутність їжі. Але спати все одно треба."
+      },
+      {
+        "level": 11,
+        "text": "Хода стихій",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Тепер ми можемо літати (і плавати). Завдяки «Борцю»{{Grappler}} чи «Підвищеному зосередженню»{{Heightened Focus}} ми можемо нести істот у безпечне місце небом, як справжній супергерой."
+      },
+      {
+        "level": 12,
+        "text": "Риса: Експерт у навичках\nВолодіння: Розслідування\nЕкспертиза: Аналіз Поведінки\nМудрість +1 (16 → 17)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Ми не можемо захищати довкілля, якщо не знайдемо еколиходіїв, тож беремо Розслідування, щоб збирати докази забруднення. Решту стихій ми вже маємо, тож тепер Експертиза в Аналізі Поведінки — наша сила Серця.",
+        "abilityChanges": [
+          {
+            "ability": "WIS",
+            "increase": 1
+          }
+        ],
+        "featKeys": [
+          "SKILL_EXPERT"
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Відхилення енергії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Тепер ми можемо застосовувати «Відхилення атак»{{Deflect Attacks}} проти всіх типів шкоди. Приємне покращення."
+      },
+      {
+        "level": 14,
+        "text": "Загартований дисципліною",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Володіння всіма ряткидками звучить по-супергеройськи. А ще можна перекинути провалений ряткидок за Очко Зосередження."
+      },
+      {
+        "level": 15,
+        "text": "Досконале зосередження",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Тепер ми не можемо розпочати жодного бою менш ніж із 4 Очками Зосередження. Зручно, що бути у «Стихійному єднанні»{{Elemental Attunement}} десять хвилин усе ще коштує лише 1 Очко Зосередження, тож літати в бою можемо завжди. Супергеройство 24/7."
+      },
+      {
+        "level": 16,
+        "text": "Риса: Покращення Характеристик\nМудрість +2 (17 → 19)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Просто готуємо Мудрість, щоб Епічний Дар підняв її до 20. Наш КБ тепер 19.",
+        "abilityChanges": [
+          {
+            "ability": "WIS",
+            "increase": 2
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Уособлення стихій",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Поки діє «Стихійне єднання»{{Elemental Attunement}}: ми отримуємо опір, який можна змінювати на початку кожного ходу. Ми можемо завдавати шкоди істоті, до якої підходимо впритул під час «Кроку вітру»{{Step of the Wind}}. Раз на хід ми завдаємо додаткової шкоди беззбройним ударом. А оскільки це все — частина того «Стихійного єднання» за 1 Очко Зосередження вільною дією, ми зможемо користуватися цим у кожному бою у війні із забрудненням."
+      },
+      {
+        "level": 18,
+        "text": "Вищий захист",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Якщо опору лише до однієї стихії замало, ми можемо отримати опір до всього, крім силової шкоди, на хвилину за 3 Очки Зосередження. Це справді супергеройська стійкість."
+      },
+      {
+        "level": 19,
+        "text": "Епічний Дар: Дар істинного зору\nМудрість +1 (19 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Піднімаємо Мудрість до 20, отримуємо КБ 20 і ще 60 футів Істинного зору, щоб завжди бачити все. Жодне забруднення не сховається від Капітана Планети!",
+        "abilityChanges": [
+          {
+            "ability": "WIS",
+            "increase": 1
+          }
+        ],
+        "featKeys": [
+          "BOON_OF_TRUESIGHT"
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Тіло і розум\nСпритність +4 (20 → 24)\nМудрість +4 (20 → 24)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Тож наш КБ був 20, а тепер 24, бо Спритність і Мудрість зросли на 4 пункти кожна. Наш бонус атаки тепер +17, а Складність ряткидка для умінь на Очках Зосередження й ефектів беззбройного удару — 21. Вперед, Плането!",
+        "abilityChanges": [
+          {
+            "ability": "DEX",
+            "increase": 4
+          },
+          {
+            "ability": "WIS",
+            "increase": 4
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Навички й мови",
+        "reason": "Підтвердьте джерела володінь і кількість виборів у чинному конструкторі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-example",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Спорядження",
+        "reason": "Підтвердьте стартове спорядження; майбутні покупки не видаються на 1-му рівні.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-elements-2024",
+            "translationRevisionId": "translation-rpgbot-monk-elements-2024-draft1",
+            "sourceRevisionId": "rpgbot-d787b8db6f66662b-e7c1093dd01cdf16",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,3273 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/grapple/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "76a53e42f8ea457af0d91ccfd1a4c9861eb577b316e0f7bdef0425520b246e2c",
+  "sourceRevision": {
+    "revisionId": "rpgbot-3032d8ff2cc73dcf-76a53e42f8ea457a",
+    "sourceId": "rpgbot-3032d8ff2cc73dcf",
+    "fetchedAt": "2026-09-29T19:11:21.668828+00:00",
+    "sourceUpdatedAt": "2026-03-14T14:43:50-04:00",
+    "contentHash": "46c0bfd6c5281d437e3295c24e27001d8407f62ad576dba4f425568c3c34f82d",
+    "title": "DnD 5e Grapple Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-3032d8ff2cc73dcf-76a53e42f8ea457a.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Grappling has been a staple tactic of clever players since 5th edition’s release, and has existed for decades in prior editions of Dungeons and Dragons. The ability to grapple in order to hold foes in place (especially while they’re prone) can be a powerful advantage, and having a capable grappler in the party can be a huge asset."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In this article we’ll explore the rules of grappling, do a little bit of\n\tmath, and look at ways that you can both make grappling work for you and\n\thandle the inevitable situation where an enemy grapples you."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Rules",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#rules"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Grappling",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#grappling"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Escaping a Grapple",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#escaping-a-grapple"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Grappled Condition",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#the-grappled-condition"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Moving a Grappled Creature",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#moving-a-grappled-creature"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Shove",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#shove"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Two-Weapon Fighting",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#twoweapon-fighting"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Climbing a Creature",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#climbing-a-creature"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Optimizing For Grapples",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#optimizing-for-grapples"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Fundamentals",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#the-fundamentals"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Character Options",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#character-options"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Classes",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#classes"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Spells",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Magic Items",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#magic-items"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Builds",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#example-builds"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Countering Grapples",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#countering-grapples"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Prevention",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#prevention"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Breaking a Grapple",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#breaking-a-grapple"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Conclusion",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/#conclusion"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            2,
+            1,
+            2,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            0,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-rules",
+      "heading": "The Rules",
+      "sourceAnchor": "rules",
+      "blocks": [
+        {
+          "blockId": "block-section-rules-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As with any set of rules, understanding the rules well is key to getting the\n\tmost out of using those rules. To that end, let’s take a look at the rules\n\ttext from the SRD and make sure that we understand exactly what it all\n\tmeans."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-rules-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll need to look beyond the Grapple rules, too, so settle in. Once you’ve\n\tgotten your head around this you’ll hopefully never need to read this section\n\tagain, but I promise that it’s worth your time. And if your DM ever looks at\n\tyou and says “it can’t possibly work like that”, point them here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-grappling",
+      "parentSectionId": "section-rules",
+      "heading": "Grappling",
+      "sourceAnchor": "grappling",
+      "blocks": [
+        {
+          "blockId": "block-section-grappling-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "When you want to grab a creature or wrestle with it, you can use the Attack\n\t\taction to make a special melee attack, a grapple."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This tells us some important things:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Grappling uses the “Attack” action, and is not its own action"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "It is a “special melee attack” which means that it’s done in melee (so you\n\t\tcan’t grapple from 30 feet away), and since it’s an attack it interacts with\n\t\tother rules that care about attacks, such as the Barbarian’s Rage and the\n\t\tInvisibility spell."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Because grappling is done with the Attack action, you can’t grapple as an\n\t\tOpportunity Attack."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "If you’re able to make multiple attacks with the Attack action, this attack\n\t\treplaces one of them."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Very important for martial characters likely to rely on grappling, this means\n\tthat if you have Extra Attack you can grapple and still make other attacks\n\tusing the same Attack action."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "The target of your grapple must be no more than one size larger than\n\t\tyou…"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This part is easy to overlook, but extremely important. A small creature can\n\tonly grapple creatures of up to medium size, so your gnome barbarian is going\n\tto struggle against big chunks of the Monster Manual. As a result, grapple\n\tbuilds should expect to include a medium race."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "…and must be within your reach. "
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Note that this is your character’s reach, not the reach of their weapon. You\n\tcan’t grapple using a whip or a glaive or whatever."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Using at least one free hand…"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Extremely important. If you typically fight with a “sword and board”\n\tarrangement (meaning a weapon and a shield), grappling is difficult. However,\n\tif you fight unarmed to even using a two-handed weapon, you have a free hand\n\tmost of the time with which you can attempt a grapple."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Strangely, after you start the grapple, there’s no requirement to keep that\n\thand free. You’re free to use that hand to go back to attacking with a\n\ttwo-handed weapon or to grapple a different creature."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This also means that creatures without hands can’t initiate a grapple unless\n\tthey have some other way to do so. For example: a giant toad has no hands, but\n\tif they hit a creature with their bite, the target is grappled. This notably\n\tdoesn’t require a check and doesn’t care about size; it simply happens."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "…you try to seize the target by making a grapple check instead of an\n\t\tattack roll: a Strength (Athletics) check…"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Instead of an attack roll, you make an ability check to initiate a grapple.\n\tThis tells us that, at the very least, if you want to grapple you need decent\n\tStrength and proficiency in Athletics. This means that you’re unlikely to see\n\tmany wizards grappling, but barbarians, fighters, and paladins should do\n\tfine."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "…contested by the target’s Strength (Athletics) or Dexterity (Acrobatics)\n\t\tcheck (the target chooses the ability to use)."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is an important point for creatures attempting to resist grapples. Not\n\tevery creature is immensely strong, but many are nimble, wiggly, or otherwise\n\tdifficult to restrain, and either set of capabilities can help you get out of\n\ta grapple."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Offensively, this means that grapplers will want to pick targets who are bad\n\tat both Acrobatics and Athletics. Grappling ogres or quicklings may be hard,\n\tbut grappling wizards is typically easy. Defensively, this means that melee\n\tbuilds may want a way to escape grapples, typically by being proficient in\n\teither Acrobatics or Athletics depending on which of their Strength or\n\tDexterity is higher."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "If you succeed, you subject the target to the grappled condition. The\n\t\tcondition specifies the things that end it…"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Grappled condition is why you want to start a grapple. It’s a little bit\n\tcomplicated, so we’ll examine the Grappled Condition below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "and you can release the target whenever you like (no action required)."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "“Whenever you like” seems to indicate that it doesn’t need to be on your\n\tturn, especially since it doesn’t require an action. If you’re unable to take\n\tactions for some reason, but that reason doesn’t also break the grapple, it\n\tlooks like you can still choose to release the target."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-escaping-a-grapple",
+      "parentSectionId": "section-grappling",
+      "heading": "Escaping a Grapple",
+      "sourceAnchor": "escaping-a-grapple",
+      "blocks": [
+        {
+          "blockId": "block-section-escaping-a-grapple-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Once a creature is grappled, they’ll frequently want to stop being grappled.\n\tYou can still fight in melee while grappled without too much trouble, but not\n\tevery creature likes to stand still and kick things in the shins until their\n\thit points drop to 0, so sometimes you need to escape a grapple."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-escaping-a-grapple-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "A grappled creature can use its action to escape."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-escaping-a-grapple-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Escaping a grapple takes an Action. Considering that it takes an attack\n\t(which might be one of several taken with the Attack action, or might just\n\tgrapple the target as a secondary effect) to start a grapple, the action\n\teconomy is heavily in the attacker’s favor."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-escaping-a-grapple-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "That imbalance in the action economy is one of the reasons why players like\n\tto grapple offensively, but also why players try really hard to get out of\n\tgrapples by any other means possible. See Countering Grapples, below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-escaping-a-grapple-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "To do so, it must succeed on a Strength (Athletics) or Dexterity\n\t\t(Acrobatics) check contested by your Strength (Athletics) check."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-escaping-a-grapple-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "These are the same ability checks used to initiate and to resist a grapple.\n\tThat consistency in the rules is nice because it’s to remember what you need\n\tto do."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-grappled-condition",
+      "parentSectionId": "section-rules",
+      "heading": "The Grappled Condition",
+      "sourceAnchor": "the-grappled-condition",
+      "blocks": [
+        {
+          "blockId": "block-section-the-grappled-condition-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You did it! You grappled something! Or something grappled you! I don’t know,\n\tI’m not your DM. Either way, you need to know what that means for whoever is\n\tgrappled."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-grappled-condition-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "A grappled creature’s speed becomes 0, and it can’t benefit from any bonus\n\t\tto its speed."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-grappled-condition-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reducing a creature’s speed to 0 is the entire point of grappling them. The\n\tprimary benefit is that they can’t run away, but importantly if your speed is\n\t0 you can’t do "
+            },
+            {
+              "type": "emphasis",
+              "text": "anything"
+            },
+            {
+              "type": "text",
+              "text": " which requires expending some portion of your\n\tmove speed. For example: you can’t stand up (see Shove, below) and you can’t\n\tmount or unmount a horse."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-grappled-condition-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The target also can’t benefit from bonuses to speed, so things like\n\tLongstrider or Haste don’t magically let you walk out of a grapple."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-grappled-condition-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Having a creature’s speed reduced to 0 is already a significant benefit if\n\tyou go no further. Having allies place ongoing damage effects like Create\n\tBonfire or Cloud of Daggers is easy damage output at minimal cost, making your\n\twhole party more efficient and effective."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-grappled-condition-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "The condition ends if the grappler is incapacitated (see the\n\t\tcondition)."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-grappled-condition-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Incapacitated is an important condition, and in addition to being a condition\n\ton its own it’s also applied by other conditions like paralyzed and\n\tunconscious. So you can end a grapple by paralyzing the grappler, putting them\n\tto sleep, and a whole bunch of other things."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-grappled-condition-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "The condition also ends if an effect removes the grappled creature from the\n\t\treach of the grappler or grappling effect, such as when a creature is hurled\n\t\taway by the "
+            },
+            {
+              "type": "link",
+              "text": "thunderwave",
+              "href": "https://www.dndbeyond.com/spells/thunderwave"
+            },
+            {
+              "type": "text",
+              "text": " spell."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-grappled-condition-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Getting the grappler and the grappled creature apart is typically the easiest\n\tand most efficient way to break a grapple. Thunderwave is an excellent and\n\teasily-understood example, but you can also use teleportation, or you can just\n\tShove the grappler away."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-grappled-condition-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Bugbear race has a weird edge case here: The long-limbed trait extends\n\tyour reach for melee attacks on your turn by 5 feet. This means that you could\n\tinitiate a grapple (grapple is a melee attack), but if the grappled creature\n\tis then outside of your reach after the attack, the grapple immediately\n\tends."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-moving-a-grappled-creature",
+      "parentSectionId": "section-the-grappled-condition",
+      "heading": "Moving a Grappled Creature",
+      "sourceAnchor": "moving-a-grappled-creature",
+      "blocks": [
+        {
+          "blockId": "block-section-moving-a-grappled-creature-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While a grappled creature has its speed reduced to 0, the creature who\n\tinitiated the grapple has no such problem. Sometimes, as a grappler, you may\n\twant to move the grappled creature somewhere else, such as by dragging them\n\tinto a wall of fire or tossing them into a pit. This is frequently a more\n\tefficient way to reposition a creature than by using Shove, so understanding\n\thow it works is very helpful for front-line martial characters even if you\n\tdon’t grapple frequently."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-moving-a-grappled-creature-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "When you move, you can drag or carry the grappled creature with you, but\n\t\tyour speed is halved…"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-moving-a-grappled-creature-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Useful, but vague."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-moving-a-grappled-creature-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There’s no clear explanation about what “drag” means here, so we’re left to\n\tfill in the meaning using plain English. “Drag” means to pull, so you can’t\n\tpush the target away by grappling them (though maybe you could by carrying\n\tthem?). There’s also no rules about where the creature is positioned, so\n\tyou’ll need to work it out with your DM on a case-by-case basis."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-moving-a-grappled-creature-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Carrying a grappled creature is even less clear. If you’re a human grappling\n\tan ogre, how are you supposed to carry them? Can you pick them up, carry them\n\tto a window, then drop them out of it? I honestly have no idea."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-moving-a-grappled-creature-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As a DM, I try to interpret these rules as simply as possible. When you move\n\twhile grappling a creature, any creatures remain in the same position relative\n\tto your space, so they basically “float” in space as you move."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-moving-a-grappled-creature-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "These rules also don’t seem to care how many creatures you have grappled, so\n\tif you grapple numerous foes (or any creature really, since you can\n\ttechnically grapple allies) you’re free to drag them all around at the same\n\ttime."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-moving-a-grappled-creature-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The rules also don’t care about what sort of movement you use, and Jeremy\n\tCrawford has tweeted that\n\t"
+            },
+            {
+              "type": "link",
+              "text": "it works with movement of any sort",
+              "href": "https://twitter.com/JeremyECrawford/status/756195224855072768"
+            },
+            {
+              "type": "text",
+              "text": ". This means that you could grapple creatures then fly into the air, drag\n\tthem up walls with a climb speed or spider climb, or if you’re a monk\n\tpotentially even run up a wall while grappling a creature. This both\n\tdiscourages creatures from breaking the grapple and gives you an easy source\n\tof additional damage output when you inevitably decide to drop them."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-moving-a-grappled-creature-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since I get this question frequently: These rules\n\t"
+            },
+            {
+              "type": "link",
+              "text": "don’t care about a creature’s actual weight",
+              "href": "https://twitter.com/JeremyECrawford/status/907788091267543040"
+            },
+            {
+              "type": "text",
+              "text": ", so the carrying capacity rules do not matter here. The Monster Manual\n\tdoesn’t specify creatures’ weights, and your options in a grapple shouldn’t\n\thinge on whether or not the target has had a heavy lunch."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-moving-a-grappled-creature-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "unless the creature is two or more sizes smaller than you."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-moving-a-grappled-creature-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A medium creature could grapple a tiny creature such as a pixie or a house\n\tcat and drag them around without any impact on your speed. If you become\n\tlarge, you can do the same for small creatures like halflings."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-shove",
+      "parentSectionId": "section-rules",
+      "heading": "Shove",
+      "sourceAnchor": "shove",
+      "blocks": [
+        {
+          "blockId": "block-section-shove-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While it’s not part of the Grapple rules, the rules for Shoving a Creature\n\tare frequently used in combination with grappling. Shoving a Creature allows\n\tyou to shove a creature prone. When combined with the Grappled condition, this\n\tprevents creatures from standing (you can’t expend movement when your speed is\n\t0, and standing requires expending half of your movement)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shove-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is frequently referred to as the grapple+shove combo, and it’s a\n\tpowerful tactic for martial characters. Forcing enemies to remain prone is an\n\teasy way to get Advantage on attacks, and a character optimized for grappling\n\talready has everything that they need to Shove, too. This is typically the\n\tmost useful way to consistently benefit from grappling in combat, so I’ll\n\trefer to the grapple+shove combo repeatedly throughout this article."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shove-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Note that your allies will also be affected by you shoving creatures prone.\n\tOther melee attackers will benefit, while allies relying on ranged attack\n\trolls (archers, warlocks, etc.) will suffer Disadvantage to hit the target. If\n\tyour ranged allies complain about you knocking foes prone, encourage them to\n\tlearn spells like Create Bonfire or to switch targets."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-twoweapon-fighting",
+      "parentSectionId": "section-rules",
+      "heading": "Two-Weapon Fighting",
+      "sourceAnchor": "twoweapon-fighting",
+      "blocks": [
+        {
+          "blockId": "block-section-twoweapon-fighting-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While this is an edge case, you "
+            },
+            {
+              "type": "emphasis",
+              "text": "can"
+            },
+            {
+              "type": "text",
+              "text": " grapple or shove in the same\n\tturn that you use Two-Weapon Fighting, provided that you have Extra Attack. To\n\tperform two-weapon fighting, you need to take the Attack action and attack\n\twith a qualifying weapon. However, you only need to make that attack once, so\n\tif you have Extra Attacks you could spend any additional attacks to grapple\n\tand/or shove (remember that they’re “special melee attacks”). However, since\n\tyou need a free hand to grapple you may need to either throw or drop one of\n\tyour weapons."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-climbing-a-creature",
+      "parentSectionId": "section-rules",
+      "heading": "Climbing a Creature",
+      "sourceAnchor": "climbing-a-creature",
+      "blocks": [
+        {
+          "blockId": "block-section-climbing-a-creature-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An optional rule presented in the Dungeon Master’s Guide, the Climbing a\n\tCreature rule allows creatures to use rules similar to Grapple and Shove to\n\tclimb the creature, granting your Advantage on attacks against the creature\n\tthat you’re climbing. While this optional rule is far from perfect, it’s a\n\tgreat way for grapple builds to remain relevant when facing creatures that are\n\ttoo large to grapple, potentially even allowing small races to produce\n\tsuccessful grapple builds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-optimizing-for-grapples",
+      "heading": "Optimizing For Grapples",
+      "sourceAnchor": "optimizing-for-grapples",
+      "blocks": [
+        {
+          "blockId": "block-section-optimizing-for-grapples-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optimizing for grappling, including the grapple+shove combo, isn’t especially\n\tdifficult, but there’s a lot to consider, and the further you go the more\n\teffective you’ll be."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-fundamentals",
+      "parentSectionId": "section-optimizing-for-grapples",
+      "heading": "The Fundamentals",
+      "sourceAnchor": "the-fundamentals",
+      "blocks": [
+        {
+          "blockId": "block-section-the-fundamentals-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I recommend addressing the following points in this order. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-fundamentals-2",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "strong",
+                "text": "Strength."
+              },
+              {
+                "type": "text",
+                "text": " A crucial part of the formula, especially at low\n\t\tlevels before your Proficiency Bonus scales. An optimized grappler will\n\t\ttypically start with a +3 Strength modifier."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Proficiency."
+              },
+              {
+                "type": "text",
+                "text": " Proficiency and Expertise in Athletics are\n\t\tthe most mathematically impactful thing that you can do to improve your\n\t\tgrappling. If you can get Expertise, such as from levels in rogue or from\n\t\tthe Skill Expert feat, that will have a huge impact, especially as your\n\t\tProficiency Bonus scales with level."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Extra Attack."
+              },
+              {
+                "type": "text",
+                "text": " The ability to make multiple attacks in the\n\t\tsame turn means that you can grapple and shove in the same turn, which gets\n\t\tthe grapple+shove combo working in one turn rather than two, doubling your\n\t\teffectiveness."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Size."
+              },
+              {
+                "type": "text",
+                "text": " You can only grapple creatures up to one size larger\n\t\tthan you, so if you want to grapple everything you meet, you’ll want to be\n\t\tas large as possible. The Climbing a Creature optional rule can make this\n\t\tpoint less crucial, but only if you’re okay with whatever you’re grappling\n\t\twalking around while you climb all over it."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Advantage."
+              },
+              {
+                "type": "text",
+                "text": " Advantage works out to slightly more than +3,\n\t\tbut your Strength modifier can almost match that right at level 1, and your\n\t\tProficiency Bonus will scale with level, especially if you have Expertise\n\t\tand are doubling your Proficiency Bonus, which is why those points are more\n\t\tcrucial."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Imposing Disadvantage."
+              },
+              {
+                "type": "text",
+                "text": " Typically harder than finding a way\n\t\tto get Advantage, imposing Disadvantage on your target is just as impactful.\n\t\tSpells like Hex can provide consistent, easy ways to accomplish this."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Other Stuff."
+              },
+              {
+                "type": "text",
+                "text": " Other sources of bonuses for yourself and\n\t\tpenalties for your targets are less common and often less permanent, but\n\t\tthey can still have a useful benefit to improve your grappling. Examples\n\t\tinclude things like Guidance, the Grappler feat, and Fighting Style\n\t\t(Unarmed)."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        },
+        {
+          "blockId": "block-section-the-fundamentals-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I consider 1 through 4 the essentials, but more is always better. Other\n\tpeople may disagree with me regarding what should be considered “essential”,\n\tand that’s fine. I consider 1-4 essential because they are typically permanent\n\tparts of your character, while Advantage/Disadvantage are frequently\n\tcircumstantial, temporary, or constrained by limited resources like daily uses\n\tof Rage or spell slots."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-character-options",
+      "parentSectionId": "section-optimizing-for-grapples",
+      "heading": "Character Options",
+      "sourceAnchor": "character-options",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-races",
+      "parentSectionId": "section-character-options",
+      "heading": "Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your choice of race is fairly simple. At the very least, you want a medium\n\trace with a Strength increase, and that’s\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Bugbear / Goliath / Orc"
+              },
+              {
+                "type": "text",
+                "text": ": Unfortunately,\n\t\tthe Powerful Build feature doesn’t help you with grapples, so races with\n\t\tPowerful Build don’t get any benefit. The grapple rules care about creature\n\t\tsize, not your actual carry weight."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Custom Lineage"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": +2 Strength and a\n\t\tfeat. Grab Skill Expert and you can get another +1 Strength and both\n\t\tproficiency and expertise and Athletics. That gives you a +8 Athletics\n\t\tmodifier at level 1 regardless of your class if you start from a base of 15\n\t\tStrength, beating every other race’s best possible modifier at level 1. That\n\t\tadvantage will go away once every build can hit 20 Strength, but at low\n\t\tlevels it’s really nice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dwarf (Duergar)"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ". Can cast Enlarge/Reduce\n\t\tto become large, but you can’t re-cast it using spell slots."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fairy"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "WBtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Flight and you can\n\t\tcast Enlarge/Reduce to make yourself large. Unfortunately, at small size\n\t\tyou’ll absolutely need Enlarge to function, which creates a persistent and\n\t\tproblematic tax on your resources and action economy."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hexblood Lineage"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "VGtR",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": A good option for any\n\t\tbuild that will have spellcasting since you get Hex and can re-cast it using\n\t\tspell slots.."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reborn Lineage"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "VGtR",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Knowledge From a Past\n\t\tLife can save you in a pinch if you fail an Athletics check by one or two,\n\t\tbut it’s not enough on its own to make your build good. File this one under\n\t\t“Other Stuff”."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Variant Human"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Custom Lineage is\n\t\tstrictly better if you’re going for Skill Expert, but if you’re going for\n\t\tExpertise from another source, Variant Human may be better depending on your\n\t\tbuild."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes",
+      "parentSectionId": "section-character-options",
+      "heading": "Classes",
+      "sourceAnchor": "classes",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your class is the only thing that can give you Extra Attack, which makes your\n\tclass extremely important. Different race/class combinations can get you to\n\troughly the same place, so if your race choice supports your build very well,\n\tyour class options can be more flexible without sacrificing effectiveness."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-classes-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Artificer"
+              },
+              {
+                "type": "text",
+                "text": ": The Armorer and the Battle\n\t\tSmith both get heavy armor and Extra Attack, and the Artificer can cast\n\t\tspells like Guidance and Enhance Ability. Building an artificer around\n\t\tStrength would be exceptionally weird, but you get a lot from one class, so\n\t\tif you can make room for Skill Expert (easy for Custom Lineage or Variant\n\t\tHuman), you’re in good shape. Proficiency in Constitution saves makes it\n\t\teasy to maintain Concentration on spells, too."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Barbarian"
+              },
+              {
+                "type": "text",
+                "text": ": Rage is among the easiest ways\n\t\tto get Advantage on Strength checks, which includes Athletics. A Custom\n\t\tLineage or Variant Human can get you Skill Expert in Athletics, but if you\n\t\tdon’t start with a feat a single level of rogue will do the trick, too. At\n\t\tlevel 20 you can get up to 24 Strength, which no one else can do without\n\t\tmagic items. A durable subclass like Path of the Ancestral Guardian or Path\n\t\tof the Totem Warrior makes it easy to focus on holding foes in place while\n\t\tyour allies kill them, and Path of the Storm Herald’s Desert aura can apply\n\t\trepeated damage to enemies held in the area by your grapple."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bard"
+              },
+              {
+                "type": "text",
+                "text": ": Bards can cast Guidance, Borrowed\n\t\tKnowledge, and Enhance Ability, and they get Expertise. College of Valor\n\t\tgets Extra Attack. If it wasn’t so difficult to build a Strength-based bard,\n\t\tthey would be a decent option. If you take a feat or a class dip to get\n\t\theavy armor proficiency, this could work."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Druid"
+              },
+              {
+                "type": "text",
+                "text": ": Only circle of the moon druids\n\t\tshould grapple, and when they do so, they should use a form with an attack\n\t\tthat grapples on a hit. Unfortunately, while using Wild Shape your own skill\n\t\tmodifiers don’t apply and you typically don’t have hands to initiate a\n\t\tgrapple using the normal way, so few of the typical optimization tricks\n\t\tapply. Applying Disadvantage can still keep enemies from escaping your\n\t\tgrapple, but that can be hard to accomplish without help while using Wild\n\t\tShape. You could cast Hex before you jump into Wild Shape, but maintaining\n\t\tConcentration is often difficult due to your forms’ typically low AC and\n\t\trelatively poor stats."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Monk"
+              },
+              {
+                "type": "text",
+                "text": ": Unfortunately, monks are built\n\t\taround Dexterity, so they’re typically terrible at grappling. Way of the\n\t\tAstral Self presents an exception by allowing you to grapple using Wisdom.\n\t\tYou also get Extra Attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fighter"
+              },
+              {
+                "type": "text",
+                "text": ": The best version of Extra Attack,\n\t\tgoing up to 4 attacks with a single Action before you consider Action Surge.\n\t\tThe Fighter is the only class that gets Unarmed on their list of Fighting\n\t\tStyle options, and while d4 damage isn’t great it’s still a nice addition to\n\t\ta grapple build. The Eldritch Knight can cast buffs like Enlarge/Reduce to\n\t\tget Advantage on Strength checks and raise your size to large, and the Rune\n\t\tKnight’s Giant’s Might grants Advantage on Athletics Checks and can get you\n\t\tup to Huge size at high levels, allowing you to grapple anything in the\n\t\tgame."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Paladin"
+              },
+              {
+                "type": "text",
+                "text": ": The Paladin gets Extra Attack,\n\t\tso if you can get Expertise in Athletics elsewhere you have the essentials.\n\t\tOath of Glory’s Channel Divinity (Peerless Athlete) can get you Advantage\n\t\twithout consuming Concentration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ranger"
+              },
+              {
+                "type": "text",
+                "text": ": The Optional Class Feature Canny\n\t\tgives the ranger Expertise in one skill at first level and the Ranger gets\n\t\tExtra Attack, making them the only class other than the Bard which can get\n\t\tboth of those essentials without multiclassing. You also get a Fighting\n\t\tStyle, but tragically Unarmed is only available to fighters or via the\n\t\tFighting Initiate feat. If you’re planning a class dip to get Expertise, the\n\t\tRogue is a better choice. But a Strength-based grappler ranger can\n\t\tabsolutely work."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rogue"
+              },
+              {
+                "type": "text",
+                "text": ": Expertise at first level. This is\n\t\tan easy multiclass dip if you don’t get Expertise from a feat, but rogues\n\t\tdon’t get Extra Attack so they don’t make effective grapplers as a\n\t\tsingle-class build."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warlock"
+              },
+              {
+                "type": "text",
+                "text": ": You can cast Hex, but that’s\n\t\tbasically all that you get. Two levels for an extra spell slot or three for\n\t\tPact of the Chain (a familiar can take the Help action to give you\n\t\tAdvantage), are tempting, especially once you’ve got the essentials. Keep in\n\t\tmind that Thirsting Blade is not Extra Attack, so an all-warlock build won’t\n\t\tdo the trick."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-character-options",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Fighting Initiate"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Take this to get\n\t\tFighting Style (Unarmed). It’s not essential, and the 1d4 damage never\n\t\tscales, but it can add up if you grapple multiple creatures."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grappler"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": The first bullet is\n\t\tvery tempting since you don’t need to Shove the target prone to get\n\t\tAdvantage on attacks. But remember that making your target prone also gives\n\t\tthem Disadvantage on attacks against you, so Shove is usually a good idea\n\t\tanyway. The second bullet is only useful if you’re facing a single enemy,\n\t\tbut even then you’re also negating Advantage/Disadvantage for both yourself\n\t\tand your target, so you’re doing this purely to help your allies in a way\n\t\tthat you could accomplish just as well with Shove. This feat is bad. Don’t\n\t\ttake it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skill Expert"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": +1 to an ability\n\t\tscore, one skill proficiency, and Expertise in one thing. Unless you’re\n\t\tplanning a rogue dip you almost certainly need Skill Expert to master\n\t\tgrappling."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tavern Brawler"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": The ability to grapple\n\t\tas a Bonus Action is tempting, but you need to hit the target with an attack\n\t\tfirst, so this adds an additional point of failure. It’s more efficient to\n\t\tgo straight to the grapple+shove combo then save attacking for when you have\n\t\tAdvantage."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells",
+      "parentSectionId": "section-character-options",
+      "heading": "Spells",
+      "sourceAnchor": "spells",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Borrowed Knowledge"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "SCoC",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re going to be\n\t\tgrappling, you almost certainly want to be proficient in Athletics without\n\t\tresorting to spells, but if you’re reading this article because your party\n\t\tsuddenly needs to grapple something that they’re not prepared to handle,\n\t\tthis might be your best bet. Tragically it has a range of “self” so your\n\t\tcasters are likely the ones about to get handsy."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Enhance Ability"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Advantage on Strength\n\t\tchecks (really any one ability, but we care about Strength right now), and\n\t\tyou can upcast it to target multiple creatures if you need some help."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Enlarge/Reduce"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": More effective for\n\t\tgrappling than Enhance Ability, but less versatile for other purposes.\n\t\tIncreasing your size to Large (especially if you started at Small) allows\n\t\tyou to grapple creatures up to Huge size, and Advantage on Strength checks\n\t\tis excellent. Unfortunately the 1-minute duration makes this more costly and\n\t\tmore difficult to precast than Enhance Ability."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Find Familiar"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": A familiar can use Help\n\t\tto give you Advantage, but most grapple builds can’t easily get Find\n\t\tFamiliar and won’t have the spell slots to re-cast it when someone blows up\n\t\tyour familiar."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Guidance"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Not a great option in\n\t\tcombat usually, but I’ll never complain about another +1d4. Guidance is\n\t\tamazing, just not as a tool for grappling."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hex"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": The easiest way to\n\t\timpose Disadvantage on ability checks. Minimum 1-hour Duration with\n\t\tConcentration, and you can move it once you kill your current target. If you\n\t\thave an ally who can cast this for you, that will work just as well as you\n\t\tcasting it yourself."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skill Empowerment"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Expertise as a spell.\n\t\tIt’s high-level and requires Concentration, so it’s costly. For the cost I\n\t\twould go for Enhance Ability first in most cases."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items",
+      "parentSectionId": "section-character-options",
+      "heading": "Magic Items",
+      "sourceAnchor": "magic-items",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Coiling Grasp Tattoo: This works similarly to how monsters grapple: You hit\n\t\ta creature with an attack or ability, and they become grappled. It won’t\n\t\tbenefit from anything you do to optimize grappling, but you can throw this\n\t\ton any character and you instantly have a passable way to grapple\n\t\tthings."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gauntlets of Ogre Power / Belt of Giant’s Strength: If you can get an item\n\t\tto raise your Strength, it will often exceed the normal maximum of 20. If\n\t\tyou know that a Belt of Giant’s Strength is on the table, you could forgo\n\t\tincreasing Strength and leave lots of room for feats."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ioun Stone (Mastery): +1 to Proficiency Bonus is great for many characters.\n\t\tIf you have Expertise, you get to add +2 to your Athletics check, and if\n\t\tyou’re Concentrating on spells the +1 to your Constitution saves is helpful\n\t\t(I hope you’re proficient in Constitution saves if you’re trying Concentrate\n\t\twhile grappling). But for a Legendary item, you could get a Belt of Storm\n\t\tGiant Strength."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Manual of Gainful Exercise: For the same rarity, a Belt of Giant Strength\n\t\tgets you up to 23 Strength. Unless you’re a barbarian planning to\n\t\tsingle-class all the way to 20, the belt is the better choice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Spell Storing: Depending on your allies, this is a great way to get\n\t\thelpful spells without actually learning to cast spells. Hex is an easy\n\t\tgo-to since it’s only first level, but if you have a helpful warlock in the\n\t\tparty, consider Enhance Ability or Enlarge/Reduce instead."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stone of Good Luck: +1 to ability checks and saves. A great item\n\t\tnumerically for basically any character"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-builds",
+      "parentSectionId": "section-character-options",
+      "heading": "Example Builds",
+      "sourceAnchor": "example-builds",
+      "blocks": [
+        {
+          "blockId": "block-section-example-builds-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "strong",
+                "text": "Custom Lineage Barbarian."
+              },
+              {
+                "type": "text",
+                "text": " Take Skill Expert (athletics) as\n\t\tyour feat at first level, and start with 18 Strength. That, coupled with\n\t\tAdvantage from Rage makes you extremely effective at grappling with little\n\t\tfurther effort."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Hexblood Lore Bard."
+              },
+              {
+                "type": "text",
+                "text": " Okay, fine, you want to play a grapple\n\t\tbard for some reason. Hexblood gets you Hex, which is a big help for\n\t\tgrappling, but you don’t get Expertise until level 3. Managing ability\n\t\tscores is difficult. Start 14 Str, 14 Dex, 14 Con, and 16 Cha (after ability\n\t\tscore increases, of course. Focus on Charisma and use spells to compensate\n\t\tfor relatively poor Strength and for the fact that you’re a valor bard. Beg\n\t\tyour DM for a Belt of Giant Strength."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Hexblood Rune Knight Fighter."
+              },
+              {
+                "type": "text",
+                "text": " Hex once per day will only\n\t\tget you an hour of hex, but the Fighter has good AC and proficiency in\n\t\tConstitution saves, so you’re reasonably good at keeping it running.\n\t\tEldritch Knight will let you re-cast it, but you could also go for Rune\n\t\tKnight and save Hex for especially difficult opponents. Use on the of the\n\t\tFighter’s numerous Ability Score Increases to get Skill Expert at some\n\t\tpoint. At 20th level, you have Expertise and you’re capable of making 4\n\t\tattacks with one Action, turning Huge, grappling literally anything, giving\n\t\tyourself Advantage, giving your target Disadvantage, and dealing ongoing\n\t\tdamage from Fighting Style (Unarmed). This is arguably the best you can\n\t\tpossibly get at grappling without getting magic items, but other builds\n\t\tmight be more sustainable and more playable below level 20."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Variant Human Artificer."
+              },
+              {
+                "type": "text",
+                "text": " Take Skill Expert (athletics),\n\t\tput your racial increases and the +1 from Skill Expert into Str/Con/Int to\n\t\tget all three to 16 at level 1. Rush Str to 20, then pivot to Int. Levels 1\n\t\tand 2 will be really dangerous, but once you hit level 3 and you can wear\n\t\theavy armor things get much easier. Armorer or Battle Smith will both work\n\t\tgreat here, so choose whichever you prefer. Once you can cast 2nd-level\n\t\tspells, Enlarge/Reduce becomes your go-to spell unless you prefer Enhance\n\t\tAbility. If you find yourself grappling multiple goes, strongly consider\n\t\tcasting Sword Burst instead of attacking with a weapon."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Variant Human Monk."
+              },
+              {
+                "type": "text",
+                "text": " Take Skill Expert (athletics), put\n\t\tyour racial increases into Dex and Wis. Rush Wisdom to 20, then pivot to\n\t\tDexterity. Take advantage of your 10-foot reach with Arms of the Astral Self\n\t\tto try and keep enemies out of their own melee reach."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-countering-grapples",
+      "heading": "Countering Grapples",
+      "sourceAnchor": "countering-grapples",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-prevention",
+      "parentSectionId": "section-countering-grapples",
+      "heading": "Prevention",
+      "sourceAnchor": "prevention",
+      "blocks": [
+        {
+          "blockId": "block-section-prevention-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The vast majority of creatures will grapple player characters by hitting them\n\twith an attack, so the most important thing you can do to avoid being grappled\n\tis to not be hit by attacks. Raise your AC and look for other defenses if\n\tnecessary."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-prevention-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Humanoid enemies may still grapple you using the same grapple rules used by\n\tplayer characters. To counter these creatures, proficiency in Athletics or\n\tAcrobatics is helpful, but you can also make yourself larger or make yourself\n\timmune to the Grappled condition somehow."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-breaking-a-grapple",
+      "parentSectionId": "section-countering-grapples",
+      "heading": "Breaking a Grapple",
+      "sourceAnchor": "breaking-a-grapple",
+      "blocks": [
+        {
+          "blockId": "block-section-breaking-a-grapple-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are three ways to break a grapple:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-breaking-a-grapple-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Escape the grapple"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Become immune to the Grappled condition"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Move the grappler and their target apart"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-breaking-a-grapple-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Escaping a grapple is straightforward. You make a Strength (Athletics) or\n\tDexterity (Acrobatics) check opposed by the grappler’s Strength (Athletics)\n\tcheck or a check against a fixed DC if you were grappled by an attack. Either\n\tway, the grappler typically won’t be as optimized as a player character built\n\tfor grappling, so success should be within reach even if all you have is an\n\tappropriate skill proficiency. The problem is that escaping this way takes an\n\tAction to "
+            },
+            {
+              "type": "emphasis",
+              "text": "try"
+            },
+            {
+              "type": "text",
+              "text": " to escape."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-breaking-a-grapple-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Becoming immune to the Grappled condition is hard, but if you can do it,\n\tyou’re no longer affected by the condition. The most likely option is a spell\n\tlike Polymorph."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-breaking-a-grapple-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The easiest and most likely way to break a grapple is by moving the grappler\n\tand their target apart. This is fairly simple since you usually only need to\n\tmove one creature or the other 5 or 10 feet depending on the grappler’s reach.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-breaking-a-grapple-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For martial characters, Shove works great, especially if you have Extra\n\tAttack. If you shove the creature away, an attempt will cost one of your\n\tattacks, so you can either retry or attack with any remaining attacks. The\n\tCrusher feat and Way of the Open Hand’s Open Hand Technique both allow you to\n\tmove enemies just by hitting them, making it easy to break a grapple for\n\tyourself or an ally without cutting into your action economy."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-breaking-a-grapple-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For non-martial characters, options like the Telekinetic feat, teleportation\n\tspells like Misty Step, or any other form of forced movement can break a\n\tgrapple, often without a check of any kind.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-breaking-a-grapple-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you have an ally stuck in a grapple, you can come to the rescue using\n\tsimilar tactics. If you shove either the grappler or the grappled creature\n\taway from the other, you can break a grapple. This is great for shoving your\n\tparty’s wizard out of a grapple with big strong foes who you might not be\n\tstrong enough to shove (unless you’re optimized for grappling, in which case\n\tyou might go shove the tarrasque just to show off). If you’re not a grappler,\n\tthe spells Dimension Door and Vortex Warp can both pull an ally out of a\n\tgrapple."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conclusion",
+      "heading": "Conclusion",
+      "sourceAnchor": "conclusion",
+      "blocks": [
+        {
+          "blockId": "block-section-conclusion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The grapple rules are, by default, tipped in the favor of monsters. But with\n\tsome very modest optimization, you can turn grappling into a powerful tool to\n\tget an upper hand in combat. And with a little more work you can become a\n\tborderline-unstoppable grapple monster who can pin down even the strongest of\n\tenemies, tipping combat dramatically in your party’s favor."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bugbear / Goliath / Orc"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Custom Lineage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Dwarf (Duergar)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fairy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hexblood Lineage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Reborn Lineage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Variant Human"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fighting Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Grappler"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Skill Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tavern Brawler"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Borrowed Knowledge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Enhance Ability"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Enlarge/Reduce"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Find Familiar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Guidance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Skill Empowerment"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-rules-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-rules-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-grappling-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">When you want to grab a creature or wrestle with it, you can use the "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-grappling-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-grappling-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[2]",
+      "detail": "block-section-grappling-4"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[2]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">If you’re able to make multiple attacks with the Attack action, this "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-grappling-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[3]",
+      "detail": "block-section-grappling-6"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[3]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">The target of your grapple must be no more than one size larger than "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-grappling-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[4]",
+      "detail": "block-section-grappling-8"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[4]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">…and must be within your reach. </p> </blockquote>"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-grappling-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[5]",
+      "detail": "block-section-grappling-10"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[5]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">Using at least one free hand…</p> </blockquote>"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-grappling-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-grappling-12"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-grappling-13"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[6]",
+      "detail": "block-section-grappling-14"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[6]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">…you try to seize the target by making a grapple check instead of an "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-grappling-15"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[7]",
+      "detail": "block-section-grappling-16"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[7]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">…contested by the target’s Strength (Athletics) or Dexterity (Acrobat"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-grappling-17"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-grappling-18"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[8]",
+      "detail": "block-section-grappling-19"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[8]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">If you succeed, you subject the target to the grappled condition. The"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-grappling-20"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[9]",
+      "detail": "block-section-grappling-21"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[9]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">and you can release the target whenever you like (no action required)"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-grappling-22"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-escaping-a-grapple-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[10]",
+      "detail": "block-section-escaping-a-grapple-2"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[10]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">A grappled creature can use its action to escape.</p> </blockquote>"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-escaping-a-grapple-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-escaping-a-grapple-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[11]",
+      "detail": "block-section-escaping-a-grapple-5"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[11]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">To do so, it must succeed on a Strength (Athletics) or Dexterity (Acr"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-escaping-a-grapple-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-the-grappled-condition-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[12]",
+      "detail": "block-section-the-grappled-condition-2"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[12]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">A grappled creature’s speed becomes 0, and it can’t benefit from any "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-the-grappled-condition-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-the-grappled-condition-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-the-grappled-condition-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[13]",
+      "detail": "block-section-the-grappled-condition-6"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[13]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">The condition ends if the grappler is&nbsp;incapacitated&nbsp;(see th"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-the-grappled-condition-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[14]",
+      "detail": "block-section-the-grappled-condition-8"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[14]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">The condition also ends if an effect removes the grappled creature fr"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-the-grappled-condition-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-the-grappled-condition-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-moving-a-grappled-creature-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[15]",
+      "detail": "block-section-moving-a-grappled-creature-2"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[15]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">When you move, you can drag or carry the grappled creature with you, "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-moving-a-grappled-creature-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-moving-a-grappled-creature-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-moving-a-grappled-creature-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-moving-a-grappled-creature-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-moving-a-grappled-creature-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-moving-a-grappled-creature-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-moving-a-grappled-creature-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[16]",
+      "detail": "block-section-moving-a-grappled-creature-10"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[16]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">unless the creature is two or more sizes smaller than you.</p> </bloc"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-moving-a-grappled-creature-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-shove-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-shove-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-shove-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-twoweapon-fighting-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-climbing-a-creature-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-optimizing-for-grapples-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-the-fundamentals-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-the-fundamentals-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-the-fundamentals-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-classes-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-classes-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-spells-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-magic-items-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-example-builds-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-prevention-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-prevention-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-breaking-a-grapple-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-breaking-a-grapple-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-breaking-a-grapple-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-breaking-a-grapple-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[55]",
+      "detail": "block-section-breaking-a-grapple-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[56]",
+      "detail": "block-section-breaking-a-grapple-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[57]",
+      "detail": "block-section-breaking-a-grapple-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[58]",
+      "detail": "block-section-breaking-a-grapple-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[59]",
+      "detail": "block-section-conclusion-1"
+    }
+  ],
+  "metrics": {
+    "words": 5681,
+    "sections": 24,
+    "blocks": 86,
+    "tables": 0,
+    "ratingSignals": 32
+  },
+  "status": "needs-editorial-review"
+}

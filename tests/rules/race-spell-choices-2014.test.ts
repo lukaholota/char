@@ -17,6 +17,14 @@ describe("O48 — раса 2014, що дає обрати замовляння",
     expect(findRaceSpellChoice2014({ race: "KOBOLD_MPMM", subrace: null, chosenRaceOptionNames: ["Непокора"] })).toBeNull();
   });
 
+  it("Напівельф обирає замовляння чарівника лише зі спадком «Замовляння»", () => {
+    const descent = findRaceSpellChoice2014({ race: "HALF_ELF_2014", subrace: null, chosenRaceOptionNames: ["Замовляння"] });
+    expect(descent?.label).toBe("Замовляння напівельфа");
+    expect(descent?.rule.picks).toEqual([{ count: 1, spellLevel: 0, schools: null, spellList: "Чарівник" }]);
+    expect(findRaceSpellChoice2014({ race: "HALF_ELF_2014", subrace: null, chosenRaceOptionNames: ["Універсальність навичок"] })).toBeNull();
+    expect(findRaceSpellChoice2014({ race: "HALF_ELF_2014", subrace: null, chosenRaceOptionNames: [] })).toBeNull();
+  });
+
   it("Астральний ельф — одне з трьох замовлянь Астрального вогню", () => {
     const [pick] = findRaceSpellChoice2014({ race: "ASTRAL_ELF_SPELLJAMMER", subrace: null, chosenRaceOptionNames: [] })!.rule.picks;
     expect(pick.extraList?.spellEngNames).toEqual(["Dancing Lights", "Light", "Sacred Flame"]);

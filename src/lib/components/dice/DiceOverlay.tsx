@@ -30,7 +30,7 @@ export function DiceOverlay() {
   return (
     <div
       id="dice-overlay-root"
-      className="pointer-events-none fixed inset-x-0 top-0"
+      className="pointer-events-none fixed inset-x-0 top-safe px-safe"
       style={{ zIndex: DICE_OVERLAY_Z_INDEX, bottom: isOpen ? `var(${DICE_TRAY_HEIGHT_VAR}, 0px)` : 0 }}
     >
       <div id="dice-box" className="pointer-events-none h-full w-full" />

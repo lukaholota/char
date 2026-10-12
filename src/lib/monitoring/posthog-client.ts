@@ -1,3 +1,4 @@
+import { findDisplayMode } from "@/lib/pwa/install-platform";
 import type { PostHog } from "posthog-js";
 
 import { sharedPostHogOptions } from "@/lib/monitoring/posthog-options";
@@ -40,7 +41,7 @@ export function capturePostHogEvent(event: string, properties?: Record<string, u
   const pathname = window.location.pathname;
   const pinnedRuleset = findPinnedRuleset();
   const edition = pinnedRuleset ? (pinnedRuleset === "RULES_2024" ? "2024" : "2014") : undefined;
-  pendingEvents.push({ event, properties: { ...buildPostHogPageProperties(pathname, edition), $pathname: pathname, $current_url: window.location.href, ...properties } });
+  pendingEvents.push({ event, properties: { ...buildPostHogPageProperties(pathname, edition), $pathname: pathname, $current_url: window.location.href, display_mode: findDisplayMode(), ...properties } });
   if (document.visibilityState === "hidden") return flushPostHogOnExit();
   if (currentIdentity) schedulePostHogFlush();
 }
@@ -76,7 +77,7 @@ function syncPostHogIdentity(posthog: PostHog): void {
   if (!currentIdentity) return;
   try {
     if (identifiedUserId !== currentIdentity.userId && identifiedUserId) posthog.reset();
-    posthog.register({ is_internal: currentIdentity.isInternal });
+    posthog.register({ is_internal: currentIdentity.isInternal, display_mode: findDisplayMode(), is_signed_in: currentIdentity.userId !== null });
     if (currentIdentity.userId && identifiedUserId !== currentIdentity.userId && !currentIdentity.isInternal) {
       posthog.identify(currentIdentity.userId, { is_internal: false });
     }

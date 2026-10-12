@@ -1,0 +1,951 @@
+{
+  "buildId": "build-sorcerer-warforged-aberrant-mind-2014",
+  "revisionId": "build-sorcerer-warforged-aberrant-mind-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "— Акоріан, вісник Аболітида",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+      "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+      "sectionId": "section-example-build-akorian-herald-of-the-abolithid",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "SORCERER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ABERRANT_MIND"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "SORCERER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "shield"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "SORCERER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Quickened Spell"
+          },
+          {
+            "optionNameEng": "Extended Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "invisibility"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "sleep",
+          "add": "scorching-ray"
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "SORCERER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TELEKINETIC",
+        "featOptions": [
+          {
+            "optionNameEng": "TELEKINETIC Ability (Charisma)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "mage-hand"
+          ],
+          "knownSpellKeys": [
+            "web"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "SORCERER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fireball"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "SORCERER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fly"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "SORCERER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "greater-invisibility"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "invisibility",
+          "add": "misty-step"
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "SORCERER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "polymorph"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "SORCERER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "cloudkill"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "SORCERER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Transmuted Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "minor-illusion"
+          ],
+          "knownSpellKeys": [
+            "hold-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "SORCERER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "disintegrate"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "web",
+          "add": "mental-prison"
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "SORCERER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "METAMAGIC_ADEPT"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "SORCERER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "delayed-blast-fireball"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "SORCERER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "replaceSpell": {
+          "drop": "fly",
+          "add": "teleport"
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "SORCERER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dominate-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "SORCERER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "SORCERER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Subtle Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wish"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "SORCERER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "SORCERER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ELEMENTAL_ADEPT",
+        "featOptions": [
+          {
+            "optionNameEng": "Elemental Adept (Fire)"
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "SORCERER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+          "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ABERRANT_MIND",
+    "raceKey": "WARFORGED_EBERRON",
+    "backgroundKey": "FACTION_AGENT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": " Базове значення Підвищене значення Сила 8 8 Спритність 14 14 Статура 15 16 Інтелект 8 8 Мудрість 10 10 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Воєнокований{{Warforged}}. Безкоштовний +1 до КБ — неабияка перевага для Чародія (особливо якщо на низьких рівнях ви плануєте користуватися Руками Хадара [Arms of Hadar]), а довести, що ми не ходячий обладунок, повний щупалець, ніхто не зможе.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беремо Агента фракції{{Faction Agent}} (Жентарим{{Zhentarim}}), щоб мати найбільші шанси знайти більше однодумців, які допоможуть нам збирати різні щупальця сумнівного походження й додавати їх до нашої колекції.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Оскільки ми доведемо Харизму до максимуму, а Спритність у нас пристойна, є сенс узяти Залякування й Переконання від класу, Аналіз Поведінки й Обман від Агента фракції{{Faction Agent}}, а володіннями Воєнокованого{{Warforged}} завершимо картину: Магія й інструменти злодія{{Thieves’ Tools}}, щоб ми могли підстрахувати групу, якщо Пройдисвіт стане Недієздатним.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Оскільки в цій збірці ми не беремо рівні в іншому класі, щоб розвʼязати проблему «що мені робити з бонусною дією?», я змирився з тим, що на 4-му рівні доведеться взяти «Телекінетика»{{Telekinetic}}.\n\n8-й рівень доводить Харизму до максимуму.\n\nНа 12-му рівні отримуємо «Адепта метамагії»{{Metamagic Adept}} — або беріть «Адепта стихій»{{Elemental Adept}} уже зараз, залежно від того, які вороги найчастіше трапляються у вашій кампанії. Див. примітки нижче.\n\nНа 16-му рівні отримуємо «Надихаючого лідера»{{Inspiring Leader}}.\n\nНа 19-му рівні отримуємо «Адепта стихій»{{Elemental Adept}}, бо опір до шкоди на високих рівнях прикро поширений, а завдяки метамагії{{Metamagic}}, яку ми набрали дорогою, можемо перетворити будь-що. Якщо ж ви берете лише «Адепта метамагії»{{Metamagic Adept}}, це майже те саме, що здатність Чарівника отримати Сріблясті шпильки [Silvery Barbs] як підписне заклинання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Псіонічні закляття\nТелепатична мова\nЗамовляння:\n– Вогняний заряд\n– Світло\n– Розщеплення Розуму\n– Штукарство\n– Формування води\nНові заклинання:\n– Руки Хадара\n– Снаряд хаосу\n– Дисонуючий шепіт\n– Сон",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Перенавчання заклинання:\n– Руки Хадара → Сріблясті шпильки\nНове заклинання:\n– Щит\nДжерело магії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Перенавчання заклинань:\n– Дисонуючий шепіт → Проклін\n– Сон → Розпечений промінь\nНові заклинання:\n– Вгамування емоцій\n– Виявлення думок\n– Невидимість\nМетамагія:\n– Пришвидшене заклинання\n– Подовжене заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Телекінетик (+1 Харизма)\nНове замовляння:\n– Магічна рука\nПеренавчання заклинання:\n– Виявлення думок → Стримування особи\nНове заклинання:\n– Павутиння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Перенавчання заклинання:\n– Вгамування емоцій → Позичене знання\nНові заклинання:\n– Вогнекуля\n– Голод Хадара\n– Послання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Перенавчання заклинання:\n– Послання → Достаток ворогів\nНове заклинання:\n– Див. текст\nПсіонічне чаклунство\nПсихічний захист",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Перенавчання заклинання:\n– Невидимість → Туманний крок\nНові заклинання:\n– Чорні щупальця Еварда\n– Виклик аберації\n– Більша невидимість",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Харизма 18 → 20)\nНове заклинання:\n– Перевтілення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нові заклинання:\n– Вбивча хмара\n– Телепатичний звʼязок Рері\n– Телекінез",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Перенавчання заклинання:\n– Телепатичний звʼязок Рері → див. текст\nМетамагія:\n– Перетворене заклинання\nНове замовляння:\n– Мала ілюзія\nНове заклинання:\n– Стримування монстра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Перенавчання заклинання:\n– Павутиння → Ментальна вʼязниця\nНове заклинання:\n– Розщеплення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Адепт метамагії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нове заклинання:\n– Вогнекуля відкладеної дії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Одкровення плоті\nПеренавчання заклинання:\n– Політ → Телепорт",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Нове заклинання:\n– Підкорення монстра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Надихаючий лідер",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Нове заклинання:\n– Бажання\nМетамагія: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Викривлювальний імплозія{{Warping Implosion}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Адепт стихій",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Відновлення чарівництва{{Sorcerous Restoration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Перенавчання заклинань",
+        "reason": "Записано заміни Невидимості на Туманний крок (7-й), Сну на Розпечений промінь (3-й), Павутиння на Ментальну вʼязницю (11-й) і Польоту на Телепорт (14-й). Не записано: заміни заклинань підкласу (Руки Хадара на Сріблясті шпильки на 2-му, Дисонуючий шепіт на Проклін на 3-му, Виявлення думок на Стримування особи на 4-му, Вгамування емоцій на Позичене знання на 5-му, Послання на Достаток ворогів на 6-му) — платформа замінює лише заклинання, обране гравцем; на 3-му рівні платформа дозволяє одну заміну, тож записано Сон; на 10-му рівні автор міняє Телепатичний звʼязок Рері на неназване заклинання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Адепт метамагії на 12-му рівні",
+        "reason": "Риса «Адепт метамагії» записана без вибору метамагії: каталог не має її опцій (BUG-O49-METAMAGIC-ADEPT).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Інструменти злодія від Воєнокованого",
+        "reason": "Автор радить обрати для расового володіння інструментами Інструменти злодія; пресет не записує вибір інструментів раси.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія 17-го рівня та тип Адепта стихій",
+        "reason": "На 17-му рівні автор пише метамагію «будь-яку» без назви: пресет бере Subtle Spell (вибір платформи). На 19-му автор бере «Адепта стихій», але не називає стихію: пресет бере вогонь (вибір платформи). Гравець може змінити обидва вибори перед створенням.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-aberrant-mind-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-aberrant-mind-2014-draft1",
+            "sourceRevisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

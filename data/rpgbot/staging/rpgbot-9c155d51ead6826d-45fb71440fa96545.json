@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/feats/bomber/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "45fb71440fa96545d578b4c3e2394fdfcd1cb930c0e834ed36a7edd1b5de8cfe",
+  "sourceRevision": {
+    "revisionId": "rpgbot-9c155d51ead6826d-45fb71440fa96545",
+    "sourceId": "rpgbot-9c155d51ead6826d",
+    "fetchedAt": "2026-09-29T19:18:33.678411+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:54:48-04:00",
+    "contentHash": "66eb289c653ad1d7f2b8c6678b9b5ace8b95854e85e8faf37526bfca5deca90c",
+    "title": "DnD 5.5 Bomber Feat Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-9c155d51ead6826d-45fb71440fa96545.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bomber tries to make throwing items like acid flasks and alchemist’s fire effective in combat. It fails. Bomber improves your ability to throw things at range, but doesn’t address the prohibitive cost and dismal damage provided by the affected throwable items."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-score-increase",
+      "heading": "Ability Score Increase",
+      "sourceAnchor": "ability-score-increase",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-score-increase-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Only Dexterity. The save DC for creatures to avoid things like Alchemist’s Fire is typically Dexterity-based, so this makes sense."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-far-lobber",
+      "heading": "Far Lobber",
+      "sourceAnchor": "far-lobber",
+      "blocks": [
+        {
+          "blockId": "block-section-far-lobber-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are very few items which work with this: acid flasks, alchemist’s fire, holy water, and oil. These items are expensive (with the exception of Oil), which means that you generally can’t afford to use them as a go-to weapon. Their damage also doesn’t scale in any way, so their damage stops being impactful long before you can reasonably afford to buy them in sufficient quantities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-long-shots",
+      "heading": "Long Shots",
+      "sourceAnchor": "long-shots",
+      "blocks": [
+        {
+          "blockId": "block-section-long-shots-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re going to throw vials and flasks, this is fine. Otherwise, just take Sharpshooter."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "#ability-score-increase",
+      "detail": "wp-block-heading rating-green Ability Score Increase"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#far-lobber",
+      "detail": "wp-block-heading rating-orange Far Lobber"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#long-shots",
+      "detail": "wp-block-heading rating-green Long Shots"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-ability-score-increase-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-far-lobber-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-long-shots-1"
+    }
+  ],
+  "metrics": {
+    "words": 150,
+    "sections": 4,
+    "blocks": 4,
+    "tables": 0,
+    "ratingSignals": 3
+  },
+  "status": "needs-editorial-review"
+}

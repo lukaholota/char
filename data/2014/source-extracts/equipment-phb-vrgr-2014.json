@@ -1,0 +1,626 @@
+{
+  "repository": "5etools-mirror-3/5etools-src",
+  "revision": "e5f3e77b303a92df10487207857200245e71957c",
+  "files": {
+    "items.json": "97dac67375ea8cc00a0a2044fc3f7e24d4095d4ab64f8542d43572d6f158ce8f",
+    "items-base.json": "a6ce90d2ad2cfe48cb1f64c8bd4a1e64da200b4fd24330a38fb8888209023eb6",
+    "book/book-phb.json": "0f0dbc39704ceca51b29012d9cc97dea14a98ee92ed4a5b3bf4b27fec102d2cc"
+  },
+  "entries": {
+    "componentPouch": {
+      "file": "items.json",
+      "value": {
+        "name": "Component Pouch",
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "referenceSources": [
+          "VNotEE",
+          "WDH"
+        ],
+        "reprintedAs": [
+          "Component Pouch|XPHB"
+        ],
+        "type": "G",
+        "rarity": "none",
+        "weight": 2,
+        "value": 2500,
+        "entries": [
+          "A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description)."
+        ]
+      }
+    },
+    "explorersPack": {
+      "file": "items.json",
+      "value": {
+        "name": "Explorer's Pack",
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "referenceSources": [
+          "BGDIA",
+          "GoS",
+          "IDRotF",
+          "QftIS",
+          "SCC-ARiR",
+          "ToA"
+        ],
+        "reprintedAs": [
+          "Explorer's Pack|XPHB"
+        ],
+        "type": "G",
+        "rarity": "none",
+        "weight": 59,
+        "value": 1000,
+        "entries": [
+          "Includes:",
+          {
+            "type": "list",
+            "items": [
+              "a {@item backpack|phb}",
+              "a {@item bedroll|phb}",
+              "a {@item mess kit|phb}",
+              "a {@item tinderbox|phb}",
+              "10 {@item torch|phb|torches}",
+              "10 days of {@item Rations (1 day)|phb|rations}",
+              "a {@item waterskin|phb}",
+              "{@item Hempen Rope (50 feet)|phb|50 feet of hempen rope}"
+            ]
+          }
+        ],
+        "packContents": [
+          "backpack|phb",
+          "bedroll|phb",
+          "mess kit|phb",
+          "tinderbox|phb",
+          {
+            "item": "torch|phb",
+            "quantity": 10
+          },
+          {
+            "item": "rations (1 day)|phb",
+            "quantity": 10
+          },
+          "waterskin|phb",
+          "hempen rope (50 feet)|phb"
+        ]
+      }
+    },
+    "explorersPackBook": {
+      "file": "book/book-phb.json",
+      "value": {
+        "type": "entries",
+        "name": "Explorer's Pack (10 gp)",
+        "page": 151,
+        "entries": [
+          "Includes a backpack, a bedroll, a mess kit, a tinderbox, 10 torches, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it."
+        ],
+        "id": "0cd"
+      }
+    },
+    "monsterHuntersPack": {
+      "file": "items.json",
+      "value": {
+        "name": "Monster Hunter's Pack",
+        "source": "VRGR",
+        "page": 34,
+        "otherSources": [
+          {
+            "source": "CoS",
+            "page": 209
+          }
+        ],
+        "type": "G",
+        "rarity": "none",
+        "weight": 48.5,
+        "value": 3300,
+        "entries": [
+          "Includes:",
+          {
+            "type": "list",
+            "items": [
+              "a {@item chest|phb}",
+              "a {@item crowbar|phb}",
+              "a {@item hammer|phb}",
+              "three wooden stakes",
+              "a {@item holy symbol|phb}",
+              "a {@item holy water (flask)|phb|flask of holy water}",
+              "a set of {@item manacles|phb}",
+              "a {@item steel mirror|phb}",
+              "a {@item oil (flask)|phb|flask of oil}",
+              "a {@item tinderbox|phb}",
+              "3 {@item torch|phb|torches}"
+            ]
+          }
+        ],
+        "packContents": [
+          "backpack|phb",
+          "chest|phb",
+          "crowbar|phb",
+          "hammer|phb",
+          {
+            "special": "wooden stake",
+            "quantity": 3
+          },
+          "holy symbol|phb",
+          "holy water (flask)|phb",
+          "manacles|phb",
+          "steel mirror|phb",
+          "oil (flask)|phb",
+          "tinderbox|phb",
+          {
+            "item": "torch|phb",
+            "quantity": 3
+          }
+        ]
+      }
+    },
+    "flute": {
+      "file": "items-base.json",
+      "value": {
+        "name": "Flute",
+        "source": "PHB",
+        "page": 154,
+        "srd": true,
+        "basicRules": true,
+        "referenceSources": [
+          "RtG",
+          "ToA"
+        ],
+        "reprintedAs": [
+          "Flute|XPHB"
+        ],
+        "edition": "classic",
+        "type": "INS",
+        "rarity": "none",
+        "weight": 1,
+        "value": 200
+      }
+    },
+    "instrumentRule": {
+      "file": "items-base.json",
+      "value": {
+        "name": "Instrument",
+        "abbreviation": "INS",
+        "source": "PHB",
+        "page": 154,
+        "reprintedAs": [
+          "INS|XPHB"
+        ],
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Instrument",
+            "entries": [
+              "If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency."
+            ]
+          }
+        ]
+      }
+    },
+    "musicalInstrumentBook": {
+      "file": "book/book-phb.json",
+      "value": {
+        "type": "entries",
+        "name": "Musical Instrument",
+        "page": 154,
+        "entries": [
+          "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus, as described in Part 3: The Rules of Magic, Casting a Spell. Each type of musical instrument requires a separate proficiency."
+        ],
+        "id": "0d8"
+      }
+    },
+    "druidicFocusGroup": {
+      "file": "items.json",
+      "value": {
+        "name": "Druidic Focus",
+        "source": "PHB",
+        "page": 151,
+        "referenceSources": [
+          "ToA"
+        ],
+        "reprintedAs": [
+          "Druidic Focus|XPHB"
+        ],
+        "type": "SCF",
+        "scfType": "druid",
+        "rarity": "none",
+        "focus": [
+          "Druid"
+        ],
+        "items": [
+          "Sprig of mistletoe|phb",
+          "Totem|phb",
+          "Wooden staff|phb",
+          "Yew wand|phb"
+        ]
+      }
+    },
+    "druidicFocusBook": {
+      "file": "book/book-phb.json",
+      "value": {
+        "type": "entries",
+        "name": "Druidic Focus",
+        "page": 151,
+        "entries": [
+          "A druidic focus might be a sprig of mistletoe or holly, a wand or scepter made of yew or another special wood, a staff drawn whole out of a living tree, or a totem object incorporating feathers, fur, bones, and teeth from sacred animals. A druid (see chapter 3 of the Player's Handbook) can use such an object as a spellcasting focus, as described in chapter 10."
+        ],
+        "id": "0ac"
+      }
+    },
+    "sprigOfMistletoe": {
+      "file": "items.json",
+      "value": {
+        "name": "Sprig of Mistletoe",
+        "group": [
+          "Druidic Focus"
+        ],
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "reprintedAs": [
+          "Sprig of Mistletoe|XPHB"
+        ],
+        "type": "SCF",
+        "scfType": "druid",
+        "rarity": "none",
+        "value": 100
+      }
+    },
+    "totem": {
+      "file": "items.json",
+      "value": {
+        "name": "Totem",
+        "group": [
+          "Druidic Focus"
+        ],
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "type": "SCF",
+        "scfType": "druid",
+        "rarity": "none",
+        "value": 100
+      }
+    },
+    "yewWand": {
+      "file": "items.json",
+      "value": {
+        "name": "Yew Wand",
+        "group": [
+          "Druidic Focus"
+        ],
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "reprintedAs": [
+          "Yew Wand|XPHB"
+        ],
+        "type": "SCF",
+        "scfType": "druid",
+        "rarity": "none",
+        "weight": 1,
+        "value": 1000
+      }
+    },
+    "woodenStaff": {
+      "file": "items-base.json",
+      "value": {
+        "name": "Wooden Staff",
+        "group": [
+          "Druidic Focus"
+        ],
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "reprintedAs": [
+          "Wooden Staff|XPHB"
+        ],
+        "edition": "classic",
+        "type": "SCF",
+        "scfType": "druid",
+        "rarity": "none",
+        "weight": 4,
+        "value": 500,
+        "weaponCategory": "simple",
+        "property": [
+          "V"
+        ],
+        "dmg1": "1d6",
+        "dmgType": "B",
+        "dmg2": "1d8"
+      }
+    },
+    "materialComponentRule": {
+      "file": "book/book-phb.json",
+      "value": {
+        "type": "entries",
+        "name": "Material (M)",
+        "page": 203,
+        "entries": [
+          "Casting some spells requires particular objects, specified in parentheses in the component entry. A character can use a component pouch or a spellcasting focus (found in chapter 5) in place of the components specified for a spell. But if a cost is indicated for a component, a character must have that specific component before he or she can cast the spell.",
+          "If a spell states that a material component is consumed by the spell, the caster must provide this component for each casting of the spell.",
+          "A spellcaster must have a hand free to access a spell's material components—or to hold a spellcasting focus—but it can be the same hand that he or she uses to perform somatic components."
+        ],
+        "id": "1de"
+      }
+    },
+    "arcaneFocusGroup": {
+      "file": "items.json",
+      "value": {
+        "name": "Arcane Focus",
+        "source": "PHB",
+        "page": 151,
+        "referenceSources": [
+          "ToA",
+          "TTP"
+        ],
+        "reprintedAs": [
+          "Arcane Focus|XPHB"
+        ],
+        "type": "SCF",
+        "scfType": "arcane",
+        "rarity": "none",
+        "focus": [
+          "Sorcerer",
+          "Warlock",
+          "Wizard"
+        ],
+        "items": [
+          "Crystal|phb",
+          "Orb|phb",
+          "Rod|phb",
+          "Staff|phb",
+          "Wand|phb"
+        ]
+      }
+    },
+    "arcaneFocusBook": {
+      "file": "book/book-phb.json",
+      "value": {
+        "type": "entries",
+        "name": "Arcane Focus",
+        "page": 151,
+        "entries": [
+          "An arcane focus is a special item—an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item—designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus, as described in chapter 10."
+        ],
+        "id": "0a0"
+      }
+    },
+    "crystal": {
+      "file": "items-base.json",
+      "value": {
+        "name": "Crystal",
+        "group": [
+          "Arcane Focus"
+        ],
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "reprintedAs": [
+          "Crystal|XPHB"
+        ],
+        "edition": "classic",
+        "type": "SCF",
+        "scfType": "arcane",
+        "rarity": "none",
+        "weight": 1,
+        "value": 1000
+      }
+    },
+    "orb": {
+      "file": "items-base.json",
+      "value": {
+        "name": "Orb",
+        "group": [
+          "Arcane Focus"
+        ],
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "referenceSources": [
+          "CoS"
+        ],
+        "reprintedAs": [
+          "Orb|XPHB"
+        ],
+        "edition": "classic",
+        "type": "SCF",
+        "scfType": "arcane",
+        "rarity": "none",
+        "weight": 3,
+        "value": 2000
+      }
+    },
+    "rod": {
+      "file": "items-base.json",
+      "value": {
+        "name": "Rod",
+        "group": [
+          "Arcane Focus"
+        ],
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "reprintedAs": [
+          "Rod|XPHB"
+        ],
+        "edition": "classic",
+        "type": "SCF",
+        "scfType": "arcane",
+        "rarity": "none",
+        "weight": 2,
+        "value": 1000
+      }
+    },
+    "arcaneStaff": {
+      "file": "items-base.json",
+      "value": {
+        "name": "Staff",
+        "group": [
+          "Arcane Focus"
+        ],
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "reprintedAs": [
+          "Staff|XPHB"
+        ],
+        "edition": "classic",
+        "type": "SCF",
+        "scfType": "arcane",
+        "rarity": "none",
+        "weight": 4,
+        "value": 500,
+        "weaponCategory": "simple",
+        "property": [
+          "V"
+        ],
+        "dmg1": "1d6",
+        "dmgType": "B",
+        "dmg2": "1d8",
+        "staff": true
+      }
+    },
+    "wand": {
+      "file": "items-base.json",
+      "value": {
+        "name": "Wand",
+        "group": [
+          "Arcane Focus"
+        ],
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "referenceSources": [
+          "CM"
+        ],
+        "reprintedAs": [
+          "Wand|XPHB"
+        ],
+        "edition": "classic",
+        "type": "SCF",
+        "scfType": "arcane",
+        "rarity": "none",
+        "weight": 1,
+        "value": 1000
+      }
+    },
+    "holySymbolGroup": {
+      "file": "items.json",
+      "value": {
+        "name": "Holy Symbol",
+        "source": "PHB",
+        "page": 151,
+        "referenceSources": [
+          "CM",
+          "CoS",
+          "DSotDQ",
+          "KftGV",
+          "PaBTSO",
+          "TTP"
+        ],
+        "reprintedAs": [
+          "Holy Symbol|XPHB"
+        ],
+        "type": "SCF",
+        "scfType": "holy",
+        "rarity": "none",
+        "focus": [
+          "Cleric",
+          "Paladin"
+        ],
+        "items": [
+          "Amulet|phb",
+          "Emblem|phb",
+          "Reliquary|phb"
+        ]
+      }
+    },
+    "holySymbolBook": {
+      "file": "book/book-phb.json",
+      "value": {
+        "type": "entries",
+        "name": "Holy Symbol",
+        "page": 151,
+        "entries": [
+          "A holy symbol is a representation of a god or pantheon. It might be an amulet depicting a symbol representing a deity, the same symbol carefully engraved or inlaid as an emblem on a shield, or a tiny box holding a fragment of a sacred rite. Appendix B lists the symbols commonly associated with many gods in the multiverse. A cleric or paladin can use a holy symbol as a spellcasting focus, as described in Part 3: The Rules of Magic. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield."
+        ],
+        "id": "0af"
+      }
+    },
+    "amulet": {
+      "file": "items.json",
+      "value": {
+        "name": "Amulet",
+        "group": [
+          "Holy Symbol"
+        ],
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "reprintedAs": [
+          "Amulet|XPHB"
+        ],
+        "type": "SCF",
+        "scfType": "holy",
+        "rarity": "none",
+        "weight": 1,
+        "value": 500
+      }
+    },
+    "emblem": {
+      "file": "items.json",
+      "value": {
+        "name": "Emblem",
+        "group": [
+          "Holy Symbol"
+        ],
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "reprintedAs": [
+          "Emblem|XPHB"
+        ],
+        "type": "SCF",
+        "scfType": "holy",
+        "rarity": "none",
+        "value": 500
+      }
+    },
+    "reliquary": {
+      "file": "items.json",
+      "value": {
+        "name": "Reliquary",
+        "group": [
+          "Holy Symbol"
+        ],
+        "source": "PHB",
+        "page": 151,
+        "srd": true,
+        "basicRules": true,
+        "reprintedAs": [
+          "Reliquary|XPHB"
+        ],
+        "type": "SCF",
+        "scfType": "holy",
+        "rarity": "none",
+        "weight": 2,
+        "value": 500
+      }
+    }
+  }
+}

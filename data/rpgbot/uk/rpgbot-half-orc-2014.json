@@ -1,0 +1,1211 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-215c0a4cd7f02db0",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-215c0a4cd7f02db0-3de1bb8c2b81ffb1",
+      "sourceId": "rpgbot-215c0a4cd7f02db0",
+      "fetchedAt": "2026-09-29T19:10:09.079525+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:41:04-04:00",
+      "contentHash": "9270b81fcfee50cf8c31fd684e6eb156dc8cd2d9c373af57b64cc1c2aa19c62a",
+      "title": "Half-Orc: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-215c0a4cd7f02db0-3de1bb8c2b81ffb1.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-half-orc-2014",
+    "sourceId": "rpgbot-215c0a4cd7f02db0",
+    "slug": "half-orc-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Напіворк — гайд раси (2014)",
+    "titleEn": "Half-Orc: DnD 5e Race/Species Guide",
+    "topics": [
+      "races"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "articleId": "rpgbot-half-orc-2014",
+      "sourceRevisionId": "rpgbot-215c0a4cd7f02db0-3de1bb8c2b81ffb1",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Напіворки|Half-Orc}} — раса, яку легко недооцінити. Їхні расові риси зазвичай заганяють їх у прості бойові збірки, а в більшості офіційних сетингів і художніх творів поза D&D орків історично зображали варварськими дикунами. Тому навіть передісторії персонажів часто обмежуються дуже вузьким набором варіантів. Напіворки не мають підрас; на відміну від напівельфів, ми не бачили й жодних їхніх варіантів, тож раса майже не дає гнучкості. Неможливо нескінченно створювати напіворка-Варвара, вихованого орками, або напіворка-Воїна, вихованого людьми, й щоразу отримувати незабутнього персонажа. Примітка редакції: нижче сам гайд розглядає офіційний варіант із Міткою Пошуку з Eberron; вступне твердження про відсутність варіантів неточне."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Однак обмежені опубліковані можливості раси не означають, що обмежені й ваші історії. Цілком нормально грати напіворком-Варваром, якого виховала оркська родина: очевидний варіант персонажа нічим не поганий. Виховання серед орків аж ніяк не зобовʼязує персонажа чи його родину відповідати чужим уявленням про те, хто такі орки й що вони роблять. Та не бійтеся незвичного. Можливо, ваш напіворк — бухгалтер, який вирушає на пригоди так само, як люди в реальному світі їздять на вихідні з наметами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З погляду механіки напіворк — простий вибір. Немає додаткових рішень, а {{Невгамовна витривалість|Relentless Endurance}} дає страховку, тож це чудовий варіант для нових гравців. Але якщо ви досвідчені, нехай ця привабливість для початківців вас не відлякує: напіворк лишається надійним вибором для деяких збірок, а якщо любите потужні критичні влучання, {{Дикі атаки|Savage Attacks}} додає приємний бонус шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви обожнюєте критичні влучання, напіворк із певним поєднанням Варвара й Воїна (Чемпіона) — чудова збірка. {{Безрозсудна атака|Reckless Attack}} та {{Покращений критичний удар|Improved Critical}} значно підвищують імовірність критичного влучання за хід, а з {{Дикі атаки|Savage Attacks}}, {{Брутальний крит|Brutal Critical}} і великою сокирою ви кидаєте цілу купу к12 одночасно. На жаль, навіть правила «Налаштування походження» майже не розширюють вибір класів напіворка. Найкраще й далі стискати в руках велику сокиру."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/half-orc/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/half-orc/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Напіворк: класи з налаштуванням походження",
+                    "href": "https://rpgbot.net/dnd5/characters/races/half-orc/#classes-custom-origin"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Напіворк: класи за стандартними правилами",
+                    "href": "https://rpgbot.net/dnd5/characters/races/half-orc/#classes-default"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси напіворка",
+                    "href": "https://rpgbot.net/dnd5/characters/races/half-orc/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Ороча лють (XGE)",
+                    "href": "https://rpgbot.net/dnd5/characters/races/half-orc/#orcish-furyxgte"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Вундеркінд (XGE)",
+                    "href": "https://rpgbot.net/dnd5/characters/races/half-orc/#prodigyxgte"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мітки дракона напіворка",
+                    "href": "https://rpgbot.net/dnd5/characters/races/half-orc/#dragonmarks"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мітка Пошуку",
+                    "href": "https://rpgbot.net/dnd5/characters/races/half-orc/#mark-of-finding"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-custom-origin",
+          "heading": "Напіворк: класи з налаштуванням походження",
+          "sourceAnchor": "classes-custom-origin",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-custom-origin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ припускає, що ви використовуєте опціональні правила «"
+                },
+                {
+                  "type": "link",
+                  "text": "Налаштування походження",
+                  "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+                },
+                {
+                  "type": "text",
+                  "text": "» з книги Казан Таші з усім. Якщо ні, прокрутіть до наступного розділу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-artificer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Винахідник",
+          "sourceAnchor": "custom-origin-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напіворк майже нічого не дає Винахіднику, окрім {{Невгамовна витривалість|Relentless Endurance}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-barbarian",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Варвар",
+          "sourceAnchor": "custom-origin-barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поєднувати {{Дикі атаки|Savage Attacks}} та {{Брутальний крит|Brutal Critical}} неймовірно приємно. Додаткова навичка напіворка також дає Варвару вкрай потрібну можливість діяти поза боєм."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-bard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Бард",
+          "sourceAnchor": "custom-origin-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Невгамовна витривалість|Relentless Endurance}} чудово підходить крихкому заклиначу. Додаткова навичка приємна класу, який часто представляє групу в розмовах, а Темнозір корисний, якщо хочете крастися в темряві."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-cleric",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Клірик",
+          "sourceAnchor": "custom-origin-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Невгамовна витривалість|Relentless Endurance}} чудова, бо падіння основного цілителя групи до 0 ХП часто означає, що решта невдовзі піде за ним у передчасну могилу. В іншому тут небагато користі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-druid",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Друїд",
+          "sourceAnchor": "custom-origin-druid",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Дикі атаки|Savage Attacks}} має працювати під час {{Дика форма|Wild Shape}}, але цього замало, щоб поєднання було вартим уваги. Ви, ймовірно, основний цілитель групи, тож {{Невгамовна витривалість|Relentless Endurance}} — добра страховка для всіх. Примітка редакції: расові здібності зберігаються в Дикій формі лише тоді, коли нова форма фізично здатна їх використовувати; конкретну взаємодію слід узгодити з Майстром."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-fighter",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Воїн",
+          "sourceAnchor": "custom-origin-fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напіворк-Воїн із підкласом Чемпіона — одна з найпростіших і найзрозуміліших збірок для початківців. Розширений діапазон критичних влучань робить {{Дикі атаки|Savage Attacks}} кориснішими, а додаткова навичка дає більше можливостей поза боєм. Водночас, попри простоту й ефективність, механіка цієї збірки не надто захоплива, тому багатьом досвідченим гравцям вона швидко набридає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-monk",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Монах",
+          "sourceAnchor": "custom-origin-monk",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Може здаватися, що {{Дикі атаки|Savage Attacks}} добре підійдуть Монаху, але багато ваших атак будуть ударами без зброї з малими кубиками шкоди аж до дуже високих рівнів. Примітка редакції: Savage Attacks вимагає кубик шкоди зброї; звичайний удар без зброї не має зброї та такого кубика. Самого малого розміру кубика Бойових мистецтв недостатньо для застосування цієї риси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-paladin",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Паладин",
+          "sourceAnchor": "custom-origin-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Без {{Безрозсудна атака|Reckless Attack}} чи величезної кількості атак Воїна Savage Critical приносить мінімальну користь. Ваші критичні влучання будуть потужними завдяки {{Божественна кара|Divine Smite}}, але все ще нечастими. Примітка редакції: «Savage Critical» тут — помилка автора; йдеться про {{Дикі атаки|Savage Attacks}}. Додатковий кубик цієї расової риси стосується зброї, а не кубиків Божественної кари."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-ranger",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Слідопит",
+          "sourceAnchor": "custom-origin-ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Темнозір і додаткова навичка корисні класу, який зазвичай покладається на непомітність, але це єдине особливо цікаве поєднання тут."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-rogue",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Розбійник",
+          "sourceAnchor": "custom-origin-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Темнозір і додаткова навичка не завадять, але їх легко отримати від інших рас. {{Дикі атаки|Savage Attacks}} можуть бути цікавими для Асасина, проте додаткова шкода однієї-двох атак буде незначною протягом більшої частини пригод."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-sorcerer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чаклун",
+          "sourceAnchor": "custom-origin-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Невгамовна витривалість|Relentless Endurance}} приємна, Темнозір заощаджує заклинання, а додаткова навичка дозволяє вийти за межі соціальних навичок. Але Темнозір і навичку пропонують багато рас, а Relentless Endurance не є необхідною."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-warlock",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "custom-origin-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Невгамовна витривалість|Relentless Endurance}} приємна, Темнозір заощаджує інвокацію, якщо ви не плануєте покладатися на магічну темряву, а додаткова навичка ніколи не завадить."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-custom-origin-warlock-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чорнокнижники підкласу Відьмацького клинка, які користуються зброєю, можуть виграти від {{Дикі атаки|Savage Attacks}} разом із {{Прокляття Відьмацького Клинка|Hexblade’s Curse}}. Вони мають багато способів отримати Перевагу на атаки (Темрява [Darkness], Тінь Мойла [Shadow of Moil]), тож критичні влучання на 19–20 із Перевагою траплятимуться досить часто. Ви не можете використовувати Важку зброю, тому найбільший кубик шкоди буде 1к10. Раз за короткий відпочинок це поєднання з Hexblade’s Curse добре працює, але самотужки не витягне збірку. Ви добре усуватимете пріоритетних ворогів, та поки прокляття недоступне, майже повністю залежатимете від класових здібностей. Примітка редакції: заборона Важкої зброї стосується зброї, обраної через {{Воїн Прокляття|Hex Warrior}}. З {{Пакт клинка|Pact of the Blade}} ця перевага поширюється на всю пактову зброю, тож двуручна Важка зброя може працювати й мати кубик к12."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-wizard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чарівник",
+          "sourceAnchor": "custom-origin-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Невгамовна витривалість|Relentless Endurance}} приємна, Темнозір заощаджує заклинання, а додаткова навичка дозволяє вийти за межі соціальних навичок. Але Темнозір і навичку пропонують багато рас, а Relentless Endurance не є необхідною."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-default",
+          "heading": "Напіворк: класи за стандартними правилами",
+          "sourceAnchor": "classes-default",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-default-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ припускає, що ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "не"
+                },
+                {
+                  "type": "text",
+                  "text": " використовуєте опціональні правила «Налаштування походження» з книги Казан Таші з усім або оновлену версію раси з книги Монстри Мультивсесвіту. Якщо використовуєте, прокрутіть до попереднього розділу. Примітка редакції: згадка MPMM — типовий текст шаблону; ця книга не містить оновленої раси напіворків."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-artificer",
+          "parentSectionId": "section-classes-default",
+          "heading": "Винахідник",
+          "sourceAnchor": "default-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-default-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Інтелекту."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-barbarian",
+          "parentSectionId": "section-classes-default",
+          "heading": "Варвар",
+          "sourceAnchor": "default-barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-default-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найочевидніший варіант: напіворк ніби створений для Варвара. Сила й Статура — ідеальні підвищення характеристик, але переваги цим не обмежуються. Володіння Залякуванням дає можливість діяти в соціальних ситуаціях, де Варвару зазвичай мало чим зайнятися. {{Невгамовна витривалість|Relentless Endurance}} допомагає вижити попри такі речі, як {{Безрозсудна атака|Reckless Attack}}, а {{Дикі атаки|Savage Attacks}} дають веселий попередній смак {{Брутальний крит|Brutal Critical}}. До того ж вони поєднуються, що ще краще."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-bard",
+          "parentSectionId": "section-classes-default",
+          "heading": "Бард",
+          "sourceAnchor": "default-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-default-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Володіння Залякуванням приємне, але його замало. Можна спробувати Барда Колегії доблесті, проте збірка від Сили в середніх обладунках надто залежить від кількох характеристик: потрібні 14 Спритності та високі Сила, Статура й Харизма, чого дуже складно досягти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-cleric",
+          "parentSectionId": "section-classes-default",
+          "heading": "Клірик",
+          "sourceAnchor": "default-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-default-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Звичайний напіворк не отримує підвищення Мудрості, тому Клірик — складний вибір. {{Мітка Пошуку|Half-Orc (Mark of Finding)}} помітно покращує придатність до цього класу, але памʼятайте, що вона замінює всі расові риси: усе механічне, що вам подобалося в напіворкові, зникає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-druid",
+          "parentSectionId": "section-classes-default",
+          "heading": "Друїд",
+          "sourceAnchor": "default-druid",
+          "blocks": [
+            {
+              "blockId": "block-section-default-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Дикі атаки|Savage Attacks}} і {{Невгамовна витривалість|Relentless Endurance}} працюють у {{Дика форма|Wild Shape}}, роблячи звичайного напіворка трохи смертоноснішим і витривалішим, тож Коло Місяця — можливий варіант. Для інших кіл розгляньте Мітку Пошуку. Примітка редакції: правило Дикої форми зберігає расові здібності лише за фізичної здатності нової форми користуватися ними; безумовність твердження автора надто широка."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-fighter",
+          "parentSectionId": "section-classes-default",
+          "heading": "Воїн",
+          "sourceAnchor": "default-fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-default-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напіворк підходить будь-якому архетипу Воїна. Збірки від Сили легко реалізувати у важких обладунках, а якщо відмовляєтеся від щита, {{Невгамовна витривалість|Relentless Endurance}} допоможе вижити разом із підвищенням Статури. {{Дикі атаки|Savage Attacks}} особливо приємні Чемпіонам. Ви не отримуєте {{Безрозсудна атака|Reckless Attack}} чи {{Брутальний крит|Brutal Critical}}, як Варвар, зате Воїн має загалом 4 атаки на високих рівнях. Якщо Відштовхуванням збивати ворогів із ніг, ви все одно отримуватимете Перевагу на атаки проти них і зможете завдавати численних потужних критичних влучань. Примітка редакції: Перевага проти збитої з ніг цілі діє, якщо нападник перебуває в межах 5 футів від неї."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-monk",
+          "parentSectionId": "section-classes-default",
+          "heading": "Монах",
+          "sourceAnchor": "default-monk",
+          "blocks": [
+            {
+              "blockId": "block-section-default-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення ані Спритності, ані Мудрості, а Монахи від Сили просто нежиттєздатні. {{Дикі атаки|Savage Attacks}} здаються привабливими з кількістю атак від {{Шквал ударів|Flurry of Blows}} чи {{Бойові мистецтва|Martial Arts}}, але Монахи покладаються на численні малі атаки, а не великі й потужні. Примітка редакції: звичайні удари без зброї не дають кубика шкоди зброї для Savage Attacks; це окреме обмеження, не лише питання розміру кубика."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-paladin",
+          "parentSectionId": "section-classes-default",
+          "heading": "Паладин",
+          "sourceAnchor": "default-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-default-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не такий простий вибір, як Варвар чи Воїн, але все ще чудовий. Харизма дуже корисна Паладину, та її підвищення на 1-му рівні не є строго необхідним. Сила й Статура добре працюють, а Залякування заощадить володіння навичкою, якщо ви представляєте групу в розмовах."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-ranger",
+          "parentSectionId": "section-classes-default",
+          "heading": "Слідопит",
+          "sourceAnchor": "default-ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-default-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Збірки від Сили складні, але можливі. Напіворк не був би моїм першим вибором для такої збірки, проте вона цілком можлива."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-rogue",
+          "parentSectionId": "section-classes-default",
+          "heading": "Розбійник",
+          "sourceAnchor": "default-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-default-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Спритності, а {{Дикі атаки|Savage Attacks}} значно менш цікаві, коли ви не користуєтеся великою сокирою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-sorcerer",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чаклун",
+          "sourceAnchor": "default-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-default-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Харизми."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-warlock",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "default-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-default-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Харизми."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-default-wizard",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чарівник",
+          "sourceAnchor": "default-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-default-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Інтелекту."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси напіворка",
+          "sourceAnchor": "feats",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-orcish-furyxgte",
+          "parentSectionId": "section-feats",
+          "heading": "Ороча лють (XGE)",
+          "sourceAnchor": "orcish-furyxgte",
+          "blocks": [
+            {
+              "blockId": "block-section-orcish-furyxgte-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Ороча лють|Orcish Fury}} — гарний варіант, якщо у вас непарне значення Сили або Статури, але не обох водночас. Утім, це не обовʼязкова риса. Другий пункт дає щонайбільше 1к12 додаткової шкоди раз за короткий відпочинок, а останній пункт може спрацьовувати лише раз за Короткий відпочинок, бо {{Невгамовна витривалість|Relentless Endurance}} працює лише раз за Короткий відпочинок. Примітка редакції: тут автор двічі помилився — Relentless Endurance відновлюється після тривалого відпочинку. Саме ця риса обмежує частоту реактивної атаки від Orcish Fury. При критичному влучанні доданий кубик шкоди Orcish Fury також кидається двічі, тому наведена максимальна шкода неповна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-prodigyxgte",
+          "parentSectionId": "section-feats",
+          "heading": "Вундеркінд (XGE)",
+          "sourceAnchor": "prodigyxgte",
+          "blocks": [
+            {
+              "blockId": "block-section-prodigyxgte-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Вундеркінд|Prodigy}} у багатьох аспектах кращий за рису {{Умілець|Skilled}}, але {{Експерт у навичках|Skill Expert}} майже завжди кращий вибір."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dragonmarks",
+          "heading": "Мітки дракона напіворка",
+          "sourceAnchor": "dragonmarks",
+          "blocks": [
+            {
+              "blockId": "block-section-dragonmarks-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мітки дракона описано в книзі Еберрон: Постання з Останньої Війни. Вони повністю замінюють расові риси напіворка, тому багато в чому їх слід сприймати як окремі раси. Вам усе ще доступні ті самі расові риси на вибір, але придатність до класів дуже відрізняється."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-mark-of-finding",
+          "parentSectionId": "section-dragonmarks",
+          "heading": "Мітка Пошуку",
+          "sourceAnchor": "mark-of-finding",
+          "blocks": [
+            {
+              "blockId": "block-section-mark-of-finding-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура й Мудрість — складне поєднання для будь-якого класу, окрім Клірика та Друїда. Без підвищення Сили або Спритності ви довго відставатимете в атаках. Можна створити непоганого Монаха чи Слідопита, якщо ви погоджуєтеся на дещо слабші атаки. Риси Мітки Пошуку включають Темнозір, бонус до Уважності й Виживання та кілька цікавих варіантів вродженого чаротворення. Якщо клас надає чаротворення, ви отримаєте доступ до цікавих заклинань. Більшість із них належить до школи Віщування. Деякі недоступні Клірикам, інші — Друїдам, а багато — Слідопитам, тож усі три класи отримують кілька захопливих нових можливостей. Хоч який клас оберете, візьміть володіння Уважністю, щоб бути надзвичайно спостережливими. Примітка редакції: Spells of the Mark додає заклинання до списку вашого класу, а не автоматично дає відомі чи підготовлені заклинання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-mark-of-finding-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із правилами «Налаштування походження» важко вирішити, як використати Мітку Пошуку. Доступ до Мисливська мітка [Hunter’s Mark] і Вогники фей [Faerie Fire] — хороші можливості для Чорнокнижника. Скорохід [Longstrider] — непогане посилення для будь-кого, але не обовʼязкове. Більшість інших заклинань — Віщування зі змішаних списків Клірика, Друїда й Чарівника, тому жоден із трьох не отримує багато нового."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-half-orc-2014-001",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-artificer",
+      "targetBlockId": "block-section-custom-origin-artificer-1",
+      "optionId": "section-custom-origin-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-custom-origin-artificer-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-orc-2014-002",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-barbarian",
+      "targetBlockId": "block-section-custom-origin-barbarian-1",
+      "optionId": "section-custom-origin-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-custom-origin-barbarian-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-orc-2014-003",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-bard",
+      "targetBlockId": "block-section-custom-origin-bard-1",
+      "optionId": "section-custom-origin-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-custom-origin-bard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-orc-2014-004",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-cleric",
+      "targetBlockId": "block-section-custom-origin-cleric-1",
+      "optionId": "section-custom-origin-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-custom-origin-cleric-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-orc-2014-005",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-druid",
+      "targetBlockId": "block-section-custom-origin-druid-1",
+      "optionId": "section-custom-origin-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-custom-origin-druid-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-orc-2014-006",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-fighter",
+      "targetBlockId": "block-section-custom-origin-fighter-1",
+      "optionId": "section-custom-origin-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-custom-origin-fighter-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-orc-2014-007",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-monk",
+      "targetBlockId": "block-section-custom-origin-monk-1",
+      "optionId": "section-custom-origin-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-custom-origin-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-orc-2014-008",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-paladin",
+      "targetBlockId": "block-section-custom-origin-paladin-1",
+      "optionId": "section-custom-origin-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-custom-origin-paladin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-orc-2014-009",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-ranger",
+      "targetBlockId": "block-section-custom-origin-ranger-1",
+      "optionId": "section-custom-origin-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-custom-origin-ranger-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-orc-2014-010",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-rogue",
+      "targetBlockId": "block-section-custom-origin-rogue-1",
+      "optionId": "section-custom-origin-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-custom-origin-rogue-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-orc-2014-011",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-sorcerer",
+      "targetBlockId": "block-section-custom-origin-sorcerer-1",
+      "optionId": "section-custom-origin-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-custom-origin-sorcerer-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-orc-2014-012",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-warlock",
+      "targetBlockId": "block-section-custom-origin-warlock-1",
+      "optionId": "section-custom-origin-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-custom-origin-warlock-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-orc-2014-013",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-custom-origin-wizard",
+      "targetBlockId": "block-section-custom-origin-wizard-1",
+      "optionId": "section-custom-origin-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-custom-origin-wizard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-orc-2014-014",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-artificer",
+      "targetBlockId": "block-section-default-artificer-1",
+      "optionId": "section-default-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-default-artificer-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-half-orc-2014-015",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-barbarian",
+      "targetBlockId": "block-section-default-barbarian-1",
+      "optionId": "section-default-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-default-barbarian-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-orc-2014-016",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-bard",
+      "targetBlockId": "block-section-default-bard-1",
+      "optionId": "section-default-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-default-bard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-orc-2014-017",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-cleric",
+      "targetBlockId": "block-section-default-cleric-1",
+      "optionId": "section-default-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-default-cleric-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-half-orc-2014-018",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-druid",
+      "targetBlockId": "block-section-default-druid-1",
+      "optionId": "section-default-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-default-druid-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-orc-2014-019",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-fighter",
+      "targetBlockId": "block-section-default-fighter-1",
+      "optionId": "section-default-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-default-fighter-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-half-orc-2014-020",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-monk",
+      "targetBlockId": "block-section-default-monk-1",
+      "optionId": "section-default-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-default-monk-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-half-orc-2014-021",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-paladin",
+      "targetBlockId": "block-section-default-paladin-1",
+      "optionId": "section-default-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-default-paladin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-half-orc-2014-022",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-ranger",
+      "targetBlockId": "block-section-default-ranger-1",
+      "optionId": "section-default-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-default-ranger-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-half-orc-2014-023",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-rogue",
+      "targetBlockId": "block-section-default-rogue-1",
+      "optionId": "section-default-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-default-rogue-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-half-orc-2014-024",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-sorcerer",
+      "targetBlockId": "block-section-default-sorcerer-1",
+      "optionId": "section-default-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-default-sorcerer-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-half-orc-2014-025",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-warlock",
+      "targetBlockId": "block-section-default-warlock-1",
+      "optionId": "section-default-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-default-warlock-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-half-orc-2014-026",
+      "articleId": "rpgbot-half-orc-2014",
+      "translationRevisionId": "translation-rpgbot-half-orc-2014-draft1",
+      "sectionId": "section-default-wizard",
+      "targetBlockId": "block-section-default-wizard-1",
+      "optionId": "section-default-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-default-wizard-1",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

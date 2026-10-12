@@ -1,0 +1,6229 @@
+{
+  "measuredAt": "2026-10-09T18:29:36.270302Z",
+  "complete": true,
+  "scope": "Official included 2014 only: 268 articles, body original markers and populated content references; headings and unmarked exact native labels are audited separately in unmarked-native-label-audit-2026-10-09.json and re-counted in hydration-proof-2014-2026-10-09-final.md",
+  "command": "DATABASE_URL=postgresql://none:none@127.0.0.1:1/none bun scripts/rpgbot/audit-content-hydration.ts",
+  "script": "scripts/rpgbot/audit-content-hydration.ts (its measuredAt constant 2026-10-04 is replaced here by the real run time)",
+  "baseline": {
+    "file": "hydration-after-equipment (scratch run after the five equipment bodies, before this slice)",
+    "distinctRemainingMarkers": 303,
+    "articleMarkerPairs": 895,
+    "totals": {
+      "spells": 11860,
+      "terms": 4870,
+      "features": 5598,
+      "equipment": 377
+    },
+    "referenceKinds": {
+      "feat": 2572,
+      "subclass": 1315,
+      "feature": 9416,
+      "race": 995,
+      "metamagic": 179,
+      "spell": 376,
+      "creature": 748,
+      "weapon": 243,
+      "armor": 134,
+      "magic-item": 1242,
+      "background": 327,
+      "infusion": 128,
+      "class": 305,
+      "rule": 426,
+      "invocation": 408,
+      "equipment": 5
+    }
+  },
+  "after": {
+    "distinctRemainingMarkers": 294,
+    "articleMarkerPairs": 884,
+    "articlesWithRemainingMarkers": 257,
+    "totals": {
+      "spells": 11860,
+      "terms": 4839,
+      "features": 6048,
+      "equipment": 377
+    },
+    "referenceKinds": {
+      "feat": 2572,
+      "subclass": 1320,
+      "feature": 9870,
+      "race": 997,
+      "metamagic": 179,
+      "spell": 376,
+      "creature": 748,
+      "weapon": 243,
+      "armor": 134,
+      "magic-item": 1242,
+      "background": 327,
+      "infusion": 128,
+      "class": 305,
+      "rule": 426,
+      "equipment": 39,
+      "invocation": 408
+    }
+  },
+  "closedMarkers": [
+    "Aura Improvement",
+    "Deep",
+    "Dragon Ancestor",
+    "Fey Warlock",
+    "Firearm Proficiency",
+    "GOOLock",
+    "GooLock",
+    "Kender Curiosity",
+    "Unarmed"
+  ],
+  "newMarkers": [],
+  "remainingByClassification": {
+    "source_book_license_or_setting": 41,
+    "joke_fiction_character_or_metaphor": 71,
+    "analysis_jargon_role_or_general_mechanics": 60,
+    "native_rules_gap_or_identity_review": 24,
+    "external_guide_author_or_editorial_reference": 20,
+    "ambiguous_family_or_combined_choices": 28,
+    "lore_language_organization_or_creature_category": 40,
+    "historical_or_hypothetical_rule": 10
+  },
+  "articleCount": 268,
+  "totals": {
+    "spells": 11860,
+    "terms": 4839,
+    "features": 6048,
+    "equipment": 377
+  },
+  "referenceKinds": {
+    "feat": 2572,
+    "subclass": 1320,
+    "feature": 9870,
+    "race": 997,
+    "metamagic": 179,
+    "spell": 376,
+    "creature": 748,
+    "weapon": 243,
+    "armor": 134,
+    "magic-item": 1242,
+    "background": 327,
+    "infusion": 128,
+    "class": 305,
+    "rule": 426,
+    "equipment": 39,
+    "invocation": 408
+  },
+  "articles": [
+    {
+      "slug": "aarakocra-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 7,
+      "features": 4,
+      "equipment": 0,
+      "references": 15,
+      "referenceKinds": {
+        "feat": 3,
+        "subclass": 7,
+        "feature": 8
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "aasimar-2014",
+      "ruleset": "RULES_2014",
+      "spells": 6,
+      "terms": 6,
+      "features": 4,
+      "equipment": 0,
+      "references": 30,
+      "referenceKinds": {
+        "subclass": 8,
+        "feature": 26,
+        "race": 2
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "aberrant-dragonmark-2014",
+      "ruleset": "RULES_2014",
+      "spells": 58,
+      "terms": 8,
+      "features": 2,
+      "equipment": 0,
+      "references": 14,
+      "referenceKinds": {
+        "feat": 6,
+        "metamagic": 1,
+        "race": 3,
+        "feature": 2,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "air-genasi-2014",
+      "ruleset": "RULES_2014",
+      "spells": 15,
+      "terms": 0,
+      "features": 3,
+      "equipment": 0,
+      "references": 8,
+      "referenceKinds": {
+        "metamagic": 1,
+        "race": 1,
+        "feature": 5,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "animating-the-dead-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 1,
+      "features": 1,
+      "equipment": 0,
+      "references": 6,
+      "referenceKinds": {
+        "subclass": 2,
+        "creature": 3,
+        "feature": 1
+      },
+      "remainingMarkers": [
+        "Bone Buddy",
+        "Skelemen"
+      ]
+    },
+    {
+      "slug": "area-of-effect-rules-2014",
+      "ruleset": "RULES_2014",
+      "spells": 10,
+      "terms": 0,
+      "features": 0,
+      "equipment": 0,
+      "references": 0,
+      "referenceKinds": {},
+      "remainingMarkers": [
+        "Emanation"
+      ]
+    },
+    {
+      "slug": "artificer-2014",
+      "ruleset": "RULES_2014",
+      "spells": 46,
+      "terms": 34,
+      "features": 32,
+      "equipment": 13,
+      "references": 150,
+      "referenceKinds": {
+        "weapon": 7,
+        "armor": 6,
+        "feat": 40,
+        "magic-item": 55,
+        "background": 7,
+        "infusion": 23,
+        "class": 8,
+        "subclass": 27,
+        "race": 9,
+        "feature": 44,
+        "rule": 8,
+        "creature": 2,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Acquisitions Incorporated",
+        "Artisan’s Tools",
+        "Dungeons and Dragons",
+        "Eberron",
+        "Eberron: Rising from the Last War",
+        "Monsters of the Multiverse",
+        "Staple Build",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "downtime",
+        "errata"
+      ]
+    },
+    {
+      "slug": "artificer-alchemist-2014",
+      "ruleset": "RULES_2014",
+      "spells": 33,
+      "terms": 22,
+      "features": 28,
+      "equipment": 0,
+      "references": 41,
+      "referenceKinds": {
+        "feat": 6,
+        "magic-item": 6,
+        "background": 1,
+        "infusion": 6,
+        "race": 1,
+        "rule": 2,
+        "feature": 30
+      },
+      "remainingMarkers": [
+        "1/2 caster",
+        "Basic Rules",
+        "SRD",
+        "Unearthed Arcana",
+        "Van Richten’s Guide to Ravenloft",
+        "action economy"
+      ]
+    },
+    {
+      "slug": "artificer-armorer-2014",
+      "ruleset": "RULES_2014",
+      "spells": 34,
+      "terms": 24,
+      "features": 20,
+      "equipment": 5,
+      "references": 81,
+      "referenceKinds": {
+        "armor": 5,
+        "feat": 11,
+        "magic-item": 3,
+        "background": 1,
+        "infusion": 13,
+        "race": 24,
+        "feature": 25,
+        "spell": 2
+      },
+      "remainingMarkers": []
+    },
+    {
+      "slug": "artificer-artillerist-2014",
+      "ruleset": "RULES_2014",
+      "spells": 28,
+      "terms": 40,
+      "features": 20,
+      "equipment": 0,
+      "references": 45,
+      "referenceKinds": {
+        "feat": 6,
+        "magic-item": 4,
+        "background": 1,
+        "infusion": 12,
+        "race": 3,
+        "feature": 22,
+        "spell": 1
+      },
+      "remainingMarkers": []
+    },
+    {
+      "slug": "artificer-battle-smith-2014",
+      "ruleset": "RULES_2014",
+      "spells": 26,
+      "terms": 27,
+      "features": 20,
+      "equipment": 5,
+      "references": 44,
+      "referenceKinds": {
+        "weapon": 5,
+        "feat": 5,
+        "background": 1,
+        "infusion": 15,
+        "race": 2,
+        "feature": 21,
+        "spell": 1,
+        "magic-item": 4
+      },
+      "remainingMarkers": []
+    },
+    {
+      "slug": "artificer-infusions-2014",
+      "ruleset": "RULES_2014",
+      "spells": 25,
+      "terms": 11,
+      "features": 5,
+      "equipment": 1,
+      "references": 120,
+      "referenceKinds": {
+        "armor": 1,
+        "feat": 1,
+        "magic-item": 87,
+        "infusion": 28,
+        "subclass": 10,
+        "class": 3,
+        "race": 1,
+        "rule": 1,
+        "feature": 20,
+        "creature": 1,
+        "spell": 3
+      },
+      "remainingMarkers": [
+        "Eberron",
+        "Mysterio",
+        "NPC",
+        "RAW",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "errata"
+      ]
+    },
+    {
+      "slug": "artificer-initiate-2014",
+      "ruleset": "RULES_2014",
+      "spells": 21,
+      "terms": 3,
+      "features": 0,
+      "equipment": 0,
+      "references": 6,
+      "referenceKinds": {
+        "feat": 4,
+        "rule": 1,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "artificer-races-2014",
+      "ruleset": "RULES_2014",
+      "spells": 56,
+      "terms": 66,
+      "features": 11,
+      "equipment": 5,
+      "references": 256,
+      "referenceKinds": {
+        "weapon": 4,
+        "armor": 1,
+        "feat": 5,
+        "infusion": 4,
+        "class": 9,
+        "subclass": 55,
+        "race": 169,
+        "feature": 191,
+        "rule": 56,
+        "magic-item": 11,
+        "spell": 5,
+        "creature": 3
+      },
+      "remainingMarkers": [
+        "Brass",
+        "Feral",
+        "Lineage",
+        "NPC",
+        "Sword Coast Adventurer’s Guide",
+        "Tank Fallacy",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "Van Richten’s Guide to Ravenloft",
+        "gish"
+      ]
+    },
+    {
+      "slug": "artificer-spells-2014",
+      "ruleset": "RULES_2014",
+      "spells": 187,
+      "terms": 15,
+      "features": 4,
+      "equipment": 0,
+      "references": 19,
+      "referenceKinds": {
+        "infusion": 5,
+        "subclass": 13,
+        "feature": 8,
+        "rule": 1,
+        "spell": 1,
+        "magic-item": 2
+      },
+      "remainingMarkers": [
+        "Spelljammer",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "artificer-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 58,
+      "terms": 12,
+      "features": 62,
+      "equipment": 11,
+      "references": 55,
+      "referenceKinds": {
+        "weapon": 5,
+        "armor": 6,
+        "magic-item": 3,
+        "infusion": 1,
+        "subclass": 20,
+        "rule": 2,
+        "feature": 78,
+        "creature": 1,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Adventurer’s League",
+        "Open Gaming License",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "astral-elf-2014",
+      "ruleset": "RULES_2014",
+      "spells": 5,
+      "terms": 6,
+      "features": 0,
+      "equipment": 0,
+      "references": 5,
+      "referenceKinds": {
+        "race": 1,
+        "feature": 4
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "autognome-2014",
+      "ruleset": "RULES_2014",
+      "spells": 12,
+      "terms": 2,
+      "features": 10,
+      "equipment": 0,
+      "references": 17,
+      "referenceKinds": {
+        "feat": 1,
+        "race": 1,
+        "feature": 44,
+        "creature": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "barbarian-2014",
+      "ruleset": "RULES_2014",
+      "spells": 10,
+      "terms": 44,
+      "features": 70,
+      "equipment": 7,
+      "references": 153,
+      "referenceKinds": {
+        "weapon": 5,
+        "armor": 2,
+        "feat": 43,
+        "magic-item": 59,
+        "background": 10,
+        "class": 5,
+        "race": 2,
+        "feature": 89,
+        "rule": 7,
+        "equipment": 1,
+        "subclass": 1,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Crown of the Wrathbringer",
+        "Environment",
+        "Staple Build",
+        "Tank Fallacy",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "barbarian-ancestral-guardian-2014",
+      "ruleset": "RULES_2014",
+      "spells": 13,
+      "terms": 17,
+      "features": 23,
+      "equipment": 2,
+      "references": 30,
+      "referenceKinds": {
+        "weapon": 2,
+        "feat": 2,
+        "background": 1,
+        "class": 1,
+        "subclass": 1,
+        "race": 3,
+        "rule": 5,
+        "feature": 27
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "barbarian-battlerager-2014",
+      "ruleset": "RULES_2014",
+      "spells": 1,
+      "terms": 16,
+      "features": 17,
+      "equipment": 0,
+      "references": 23,
+      "referenceKinds": {
+        "feat": 11,
+        "race": 1,
+        "feature": 19
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "barbarian-path-of-the-beast-2014",
+      "ruleset": "RULES_2014",
+      "spells": 5,
+      "terms": 27,
+      "features": 29,
+      "equipment": 0,
+      "references": 47,
+      "referenceKinds": {
+        "feat": 7,
+        "magic-item": 3,
+        "background": 1,
+        "class": 1,
+        "race": 6,
+        "feature": 44,
+        "rule": 5,
+        "equipment": 1,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Monsters of the Multiverse",
+        "Tank Fallacy",
+        "Unearthed Arcana",
+        "wave dashing"
+      ]
+    },
+    {
+      "slug": "barbarian-path-of-the-giant-2014",
+      "ruleset": "RULES_2014",
+      "spells": 3,
+      "terms": 32,
+      "features": 18,
+      "equipment": 0,
+      "references": 17,
+      "referenceKinds": {
+        "feat": 8,
+        "background": 2,
+        "rule": 5,
+        "feature": 18,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Bigby Presents: Glory of the Giants",
+        "Quantumania",
+        "Stature",
+        "Strike of the Cloud Giant",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "barbarian-path-of-wild-magic-2014",
+      "ruleset": "RULES_2014",
+      "spells": 8,
+      "terms": 16,
+      "features": 20,
+      "equipment": 0,
+      "references": 24,
+      "referenceKinds": {
+        "feat": 3,
+        "background": 1,
+        "subclass": 1,
+        "rule": 5,
+        "feature": 23,
+        "equipment": 1,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana",
+        "the Dredge"
+      ]
+    },
+    {
+      "slug": "barbarian-storm-herald-2014",
+      "ruleset": "RULES_2014",
+      "spells": 2,
+      "terms": 16,
+      "features": 20,
+      "equipment": 0,
+      "references": 20,
+      "referenceKinds": {
+        "feat": 4,
+        "feature": 34
+      },
+      "remainingMarkers": [
+        "Fizban’s Treasury of Dragons",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "barbarian-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 16,
+      "terms": 23,
+      "features": 81,
+      "equipment": 0,
+      "references": 64,
+      "referenceKinds": {
+        "feat": 4,
+        "magic-item": 1,
+        "feature": 103,
+        "creature": 13,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Adventurer’s League",
+        "Open Gaming License",
+        "Sword Coast Adventurer’s Guide",
+        "Tank Fallacy",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "barbarian-totem-warrior-2014",
+      "ruleset": "RULES_2014",
+      "spells": 6,
+      "terms": 25,
+      "features": 25,
+      "equipment": 1,
+      "references": 45,
+      "referenceKinds": {
+        "weapon": 1,
+        "feat": 4,
+        "background": 2,
+        "class": 2,
+        "subclass": 2,
+        "race": 4,
+        "rule": 5,
+        "feature": 33,
+        "creature": 14
+      },
+      "remainingMarkers": [
+        "Elk, Tiger, or Wolf Attunement",
+        "Gith",
+        "Sword Coast Adventurer’s Guide",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "barbarian-zealot-2014",
+      "ruleset": "RULES_2014",
+      "spells": 9,
+      "terms": 53,
+      "features": 23,
+      "equipment": 0,
+      "references": 26,
+      "referenceKinds": {
+        "feat": 4,
+        "magic-item": 1,
+        "background": 2,
+        "race": 7,
+        "feature": 24,
+        "rule": 5,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "bard-2014",
+      "ruleset": "RULES_2014",
+      "spells": 73,
+      "terms": 53,
+      "features": 87,
+      "equipment": 9,
+      "references": 183,
+      "referenceKinds": {
+        "weapon": 5,
+        "armor": 4,
+        "feat": 64,
+        "magic-item": 70,
+        "background": 20,
+        "invocation": 2,
+        "metamagic": 1,
+        "subclass": 20,
+        "race": 6,
+        "rule": 3,
+        "feature": 96,
+        "equipment": 1,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Amalae",
+        "Creative Commons Attribution 4.0 International License",
+        "System Reference Document 5.1",
+        "Tashaʼs Cauldron of Everything",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "bard-creation-2014",
+      "ruleset": "RULES_2014",
+      "spells": 85,
+      "terms": 34,
+      "features": 53,
+      "equipment": 2,
+      "references": 35,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 1,
+        "feat": 10,
+        "background": 1,
+        "subclass": 2,
+        "race": 11,
+        "feature": 61,
+        "creature": 8,
+        "spell": 4
+      },
+      "remainingMarkers": [
+        "Construct",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "bard-eloquence-2014",
+      "ruleset": "RULES_2014",
+      "spells": 68,
+      "terms": 14,
+      "features": 51,
+      "equipment": 2,
+      "references": 36,
+      "referenceKinds": {
+        "armor": 2,
+        "feat": 13,
+        "magic-item": 2,
+        "background": 3,
+        "invocation": 1,
+        "subclass": 4,
+        "race": 2,
+        "feature": 51,
+        "spell": 6
+      },
+      "remainingMarkers": [
+        "Feywild",
+        "Tieflings",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "bard-glamour-2014",
+      "ruleset": "RULES_2014",
+      "spells": 54,
+      "terms": 14,
+      "features": 64,
+      "equipment": 2,
+      "references": 41,
+      "referenceKinds": {
+        "weapon": 2,
+        "feat": 15,
+        "background": 1,
+        "subclass": 11,
+        "race": 4,
+        "feature": 79,
+        "rule": 1,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Miniatures Handbook",
+        "Unearthed Arcana",
+        "chassis",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "bard-lore-2014",
+      "ruleset": "RULES_2014",
+      "spells": 85,
+      "terms": 39,
+      "features": 56,
+      "equipment": 1,
+      "references": 30,
+      "referenceKinds": {
+        "armor": 1,
+        "feat": 7,
+        "subclass": 11,
+        "class": 2,
+        "race": 6,
+        "feature": 58,
+        "spell": 5,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "High (Half-)Elf",
+        "Strixhaven",
+        "Undercommon",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "bard-spells-2014",
+      "ruleset": "RULES_2014",
+      "spells": 289,
+      "terms": 29,
+      "features": 6,
+      "equipment": 0,
+      "references": 14,
+      "referenceKinds": {
+        "feat": 2,
+        "magic-item": 1,
+        "feature": 11,
+        "creature": 1,
+        "spell": 1,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Acquisitions Incorporated",
+        "BBEG",
+        "Hostile/Indifferent/Friendly",
+        "Monster Manual",
+        "RAW",
+        "Spelljammer",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "bard-spirits-2014",
+      "ruleset": "RULES_2014",
+      "spells": 153,
+      "terms": 16,
+      "features": 111,
+      "equipment": 0,
+      "references": 33,
+      "referenceKinds": {
+        "feat": 11,
+        "background": 1,
+        "subclass": 9,
+        "race": 1,
+        "feature": 117,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Abyssal",
+        "Deep Speech",
+        "Dunamancy",
+        "RAI",
+        "RAW",
+        "Unearthed Arcana",
+        "Wildemount",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "bard-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 59,
+      "terms": 8,
+      "features": 127,
+      "equipment": 4,
+      "references": 70,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 3,
+        "subclass": 25,
+        "creature": 1,
+        "feature": 135,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Adventurer’s League",
+        "NPC",
+        "Open Gaming License",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "bard-swords-2014",
+      "ruleset": "RULES_2014",
+      "spells": 77,
+      "terms": 18,
+      "features": 62,
+      "equipment": 3,
+      "references": 47,
+      "referenceKinds": {
+        "weapon": 3,
+        "feat": 11,
+        "metamagic": 4,
+        "subclass": 10,
+        "class": 4,
+        "feature": 71,
+        "spell": 1,
+        "race": 2,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "Fundamental Math",
+        "Unearthed Arcana",
+        "gish"
+      ]
+    },
+    {
+      "slug": "bard-valor-2014",
+      "ruleset": "RULES_2014",
+      "spells": 87,
+      "terms": 26,
+      "features": 57,
+      "equipment": 3,
+      "references": 44,
+      "referenceKinds": {
+        "armor": 3,
+        "feat": 12,
+        "background": 2,
+        "subclass": 11,
+        "race": 4,
+        "feature": 61,
+        "spell": 6
+      },
+      "remainingMarkers": [
+        "Another Gish for the Pile",
+        "Sorcadins",
+        "Super Advantage",
+        "Unearthed Arcana",
+        "chassis",
+        "gish"
+      ]
+    },
+    {
+      "slug": "bard-whispers-2014",
+      "ruleset": "RULES_2014",
+      "spells": 66,
+      "terms": 22,
+      "features": 53,
+      "equipment": 0,
+      "references": 29,
+      "referenceKinds": {
+        "feat": 9,
+        "background": 1,
+        "metamagic": 6,
+        "subclass": 1,
+        "race": 2,
+        "feature": 58,
+        "spell": 3
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "bugbear-2014",
+      "ruleset": "RULES_2014",
+      "spells": 30,
+      "terms": 11,
+      "features": 37,
+      "equipment": 5,
+      "references": 64,
+      "referenceKinds": {
+        "weapon": 4,
+        "armor": 1,
+        "feat": 5,
+        "magic-item": 1,
+        "invocation": 1,
+        "metamagic": 3,
+        "infusion": 1,
+        "subclass": 31,
+        "feature": 98,
+        "creature": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "bugbear-y-me-in-damage-2014",
+      "ruleset": "RULES_2014",
+      "spells": 88,
+      "terms": 45,
+      "features": 55,
+      "equipment": 0,
+      "references": 62,
+      "referenceKinds": {
+        "feat": 13,
+        "magic-item": 2,
+        "invocation": 13,
+        "metamagic": 3,
+        "infusion": 3,
+        "creature": 4,
+        "feature": 68
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "centaur-2014",
+      "ruleset": "RULES_2014",
+      "spells": 10,
+      "terms": 4,
+      "features": 9,
+      "equipment": 0,
+      "references": 30,
+      "referenceKinds": {
+        "feat": 11,
+        "magic-item": 6,
+        "infusion": 1,
+        "subclass": 4,
+        "feature": 41,
+        "race": 1,
+        "creature": 1
+      },
+      "remainingMarkers": [
+        "Ravnica",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "champion-2014",
+      "ruleset": "RULES_2014",
+      "spells": 9,
+      "terms": 24,
+      "features": 12,
+      "equipment": 0,
+      "references": 9,
+      "referenceKinds": {
+        "feature": 12,
+        "spell": 1
+      },
+      "remainingMarkers": []
+    },
+    {
+      "slug": "changeling-2014",
+      "ruleset": "RULES_2014",
+      "spells": 2,
+      "terms": 10,
+      "features": 0,
+      "equipment": 0,
+      "references": 8,
+      "referenceKinds": {
+        "feat": 1,
+        "invocation": 2,
+        "race": 1,
+        "feature": 15,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "classes-2014",
+      "ruleset": "RULES_2014",
+      "spells": 9,
+      "terms": 16,
+      "features": 31,
+      "equipment": 0,
+      "references": 158,
+      "referenceKinds": {
+        "class": 13,
+        "subclass": 119,
+        "feature": 39,
+        "rule": 1,
+        "creature": 1
+      },
+      "remainingMarkers": [
+        "Dunamancy",
+        "Patron"
+      ]
+    },
+    {
+      "slug": "cleric-2014",
+      "ruleset": "RULES_2014",
+      "spells": 62,
+      "terms": 52,
+      "features": 26,
+      "equipment": 8,
+      "references": 208,
+      "referenceKinds": {
+        "weapon": 3,
+        "armor": 5,
+        "feat": 67,
+        "magic-item": 79,
+        "background": 19,
+        "metamagic": 1,
+        "class": 16,
+        "subclass": 29,
+        "race": 9,
+        "rule": 8,
+        "creature": 1,
+        "feature": 60,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Adventurer’s League",
+        "Adventuring Day",
+        "DMG",
+        "Dungeon Master’s Guide",
+        "Moradin",
+        "Scholar",
+        "Staple Build",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "healbot",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "cleric-arcana-domain-2014",
+      "ruleset": "RULES_2014",
+      "spells": 99,
+      "terms": 8,
+      "features": 7,
+      "equipment": 1,
+      "references": 17,
+      "referenceKinds": {
+        "armor": 1,
+        "feat": 12,
+        "race": 1,
+        "rule": 2,
+        "feature": 9,
+        "spell": 1,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "Monster Manual",
+        "Scholar",
+        "Unearthed Arcana",
+        "Utility Caster",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "cleric-death-2014",
+      "ruleset": "RULES_2014",
+      "spells": 69,
+      "terms": 9,
+      "features": 24,
+      "equipment": 1,
+      "references": 32,
+      "referenceKinds": {
+        "armor": 1,
+        "feat": 9,
+        "background": 1,
+        "metamagic": 2,
+        "subclass": 4,
+        "race": 3,
+        "rule": 3,
+        "feature": 36
+      },
+      "remainingMarkers": [
+        "Dungeon Master’s Guide",
+        "Holy Hand Grenade of Antioch",
+        "NPC",
+        "RAW",
+        "Rebuke Undead",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "cleric-forge-2014",
+      "ruleset": "RULES_2014",
+      "spells": 62,
+      "terms": 10,
+      "features": 25,
+      "equipment": 0,
+      "references": 32,
+      "referenceKinds": {
+        "feat": 11,
+        "magic-item": 3,
+        "background": 1,
+        "infusion": 2,
+        "subclass": 4,
+        "class": 2,
+        "race": 5,
+        "rule": 3,
+        "feature": 30,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Optional Class Feature",
+        "Tank Fallacy",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "cleric-grave-2014",
+      "ruleset": "RULES_2014",
+      "spells": 66,
+      "terms": 15,
+      "features": 23,
+      "equipment": 3,
+      "references": 37,
+      "referenceKinds": {
+        "armor": 3,
+        "feat": 9,
+        "magic-item": 1,
+        "background": 1,
+        "subclass": 3,
+        "class": 3,
+        "race": 6,
+        "rule": 6,
+        "creature": 4,
+        "feature": 25
+      },
+      "remainingMarkers": [
+        "Average Best One Punch",
+        "Cleric Tax",
+        "Falcon Punch",
+        "NPC",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "cleric-knowledge-domain-2014",
+      "ruleset": "RULES_2014",
+      "spells": 34,
+      "terms": 18,
+      "features": 6,
+      "equipment": 0,
+      "references": 27,
+      "referenceKinds": {
+        "feat": 6,
+        "background": 3,
+        "subclass": 3,
+        "race": 2,
+        "rule": 5,
+        "feature": 12,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Aureon",
+        "Boccob",
+        "Gilean",
+        "Oghma",
+        "Thoth",
+        "Unearthed Arcana",
+        "hat (закреслено в оригіналі)"
+      ]
+    },
+    {
+      "slug": "cleric-life-domain-2014",
+      "ruleset": "RULES_2014",
+      "spells": 69,
+      "terms": 32,
+      "features": 34,
+      "equipment": 2,
+      "references": 36,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 1,
+        "feat": 13,
+        "background": 1,
+        "subclass": 3,
+        "class": 2,
+        "race": 7,
+        "rule": 2,
+        "feature": 39
+      },
+      "remainingMarkers": [
+        "Cleric Tax",
+        "Dragonmark",
+        "Dwarven Urgosh",
+        "Revivify tax",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "cleric-light-domain-2014",
+      "ruleset": "RULES_2014",
+      "spells": 65,
+      "terms": 7,
+      "features": 20,
+      "equipment": 0,
+      "references": 23,
+      "referenceKinds": {
+        "feat": 19,
+        "race": 2,
+        "feature": 25,
+        "spell": 1,
+        "background": 2
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "cleric-nature-2014",
+      "ruleset": "RULES_2014",
+      "spells": 51,
+      "terms": 17,
+      "features": 12,
+      "equipment": 3,
+      "references": 31,
+      "referenceKinds": {
+        "weapon": 3,
+        "feat": 6,
+        "background": 1,
+        "subclass": 4,
+        "feature": 28,
+        "race": 4,
+        "rule": 1,
+        "creature": 1,
+        "equipment": 1,
+        "class": 3
+      },
+      "remainingMarkers": [
+        "Monsters of the Multiverse",
+        "Unearthed Arcana",
+        "danger noodles",
+        "ribbon",
+        "stickiness"
+      ]
+    },
+    {
+      "slug": "cleric-order-2014",
+      "ruleset": "RULES_2014",
+      "spells": 57,
+      "terms": 14,
+      "features": 30,
+      "equipment": 5,
+      "references": 40,
+      "referenceKinds": {
+        "weapon": 2,
+        "armor": 3,
+        "feat": 9,
+        "magic-item": 1,
+        "invocation": 2,
+        "subclass": 3,
+        "class": 2,
+        "race": 3,
+        "rule": 1,
+        "creature": 1,
+        "feature": 36,
+        "spell": 4,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "Avernus",
+        "Azorius",
+        "Unearthed Arcana",
+        "oneshot",
+        "optional class feature",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "cleric-peace-domain-2014",
+      "ruleset": "RULES_2014",
+      "spells": 83,
+      "terms": 25,
+      "features": 42,
+      "equipment": 0,
+      "references": 33,
+      "referenceKinds": {
+        "feat": 16,
+        "race": 4,
+        "feature": 51,
+        "rule": 5,
+        "spell": 3,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "DMG",
+        "NPC",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "cleric-spells-2014",
+      "ruleset": "RULES_2014",
+      "spells": 255,
+      "terms": 17,
+      "features": 2,
+      "equipment": 0,
+      "references": 14,
+      "referenceKinds": {
+        "feat": 6,
+        "magic-item": 2,
+        "subclass": 1,
+        "feature": 7,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Celestia",
+        "Cleric Tax",
+        "Hostile/Indifferent/Friendly",
+        "Monster Manual",
+        "NPC",
+        "Sage Advice",
+        "Spelljammer",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "cleric-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 250,
+      "terms": 14,
+      "features": 119,
+      "equipment": 0,
+      "references": 124,
+      "referenceKinds": {
+        "feat": 6,
+        "rule": 1,
+        "feature": 183,
+        "spell": 4
+      },
+      "remainingMarkers": [
+        "Adventurer’s League",
+        "Cleric Tax",
+        "Dungeon Master’s Guide",
+        "Monster Manual",
+        "NPC",
+        "Open Gaming License",
+        "Unearthed Arcana",
+        "force multiplier",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "cleric-tempest-domain-2014",
+      "ruleset": "RULES_2014",
+      "spells": 98,
+      "terms": 2,
+      "features": 37,
+      "equipment": 0,
+      "references": 36,
+      "referenceKinds": {
+        "feat": 9,
+        "magic-item": 3,
+        "metamagic": 5,
+        "class": 5,
+        "subclass": 5,
+        "race": 4,
+        "feature": 44,
+        "creature": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana",
+        "X-Men"
+      ]
+    },
+    {
+      "slug": "cleric-trickery-domain-2014",
+      "ruleset": "RULES_2014",
+      "spells": 66,
+      "terms": 43,
+      "features": 20,
+      "equipment": 4,
+      "references": 36,
+      "referenceKinds": {
+        "weapon": 3,
+        "armor": 1,
+        "feat": 4,
+        "background": 2,
+        "subclass": 5,
+        "race": 12,
+        "rule": 12,
+        "feature": 28
+      },
+      "remainingMarkers": [
+        "Acquisitions Incorporated",
+        "Optional Class Feature",
+        "RAW",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "cleric-twilight-2014",
+      "ruleset": "RULES_2014",
+      "spells": 31,
+      "terms": 16,
+      "features": 20,
+      "equipment": 0,
+      "references": 48,
+      "referenceKinds": {
+        "feat": 12,
+        "background": 3,
+        "invocation": 1,
+        "subclass": 8,
+        "class": 2,
+        "race": 10,
+        "feature": 29,
+        "rule": 2,
+        "spell": 4
+      },
+      "remainingMarkers": [
+        "Monsters of the Multiverse",
+        "NPC",
+        "Optional Class Feature",
+        "Out of the Abyss",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "power creep",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "cleric-war-domain-2014",
+      "ruleset": "RULES_2014",
+      "spells": 47,
+      "terms": 15,
+      "features": 20,
+      "equipment": 2,
+      "references": 32,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 1,
+        "feat": 8,
+        "subclass": 4,
+        "class": 1,
+        "race": 3,
+        "rule": 1,
+        "creature": 1,
+        "feature": 29,
+        "background": 1,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Death Ward Stacking",
+        "Die Kriegerin der Zerstörung",
+        "Dwarves",
+        "Fizban’s Dragonborn",
+        "Skelebros",
+        "Skelecorp",
+        "Skelesoldiers",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "custom-lineage-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 0,
+      "features": 0,
+      "equipment": 0,
+      "references": 10,
+      "referenceKinds": {
+        "subclass": 4,
+        "feature": 2,
+        "spell": 5
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "d4-abuse-2014",
+      "ruleset": "RULES_2014",
+      "spells": 15,
+      "terms": 10,
+      "features": 52,
+      "equipment": 1,
+      "references": 55,
+      "referenceKinds": {
+        "armor": 1,
+        "feat": 2,
+        "magic-item": 2,
+        "invocation": 8,
+        "infusion": 2,
+        "subclass": 11,
+        "race": 3,
+        "feature": 70,
+        "rule": 8
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "deep-gnome-2014",
+      "ruleset": "RULES_2014",
+      "spells": 13,
+      "terms": 3,
+      "features": 6,
+      "equipment": 0,
+      "references": 22,
+      "referenceKinds": {
+        "race": 2,
+        "feature": 37,
+        "spell": 5
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "dhampir-2014",
+      "ruleset": "RULES_2014",
+      "spells": 13,
+      "terms": 3,
+      "features": 27,
+      "equipment": 5,
+      "references": 51,
+      "referenceKinds": {
+        "armor": 5,
+        "feat": 12,
+        "magic-item": 1,
+        "invocation": 1,
+        "subclass": 10,
+        "feature": 63,
+        "race": 4
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "dragonborn-2014",
+      "ruleset": "RULES_2014",
+      "spells": 7,
+      "terms": 13,
+      "features": 7,
+      "equipment": 0,
+      "references": 41,
+      "referenceKinds": {
+        "feat": 4,
+        "metamagic": 1,
+        "subclass": 8,
+        "feature": 31,
+        "race": 5
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "dragonlance-backgrounds-and-feats-2014",
+      "ruleset": "RULES_2014",
+      "spells": 21,
+      "terms": 1,
+      "features": 1,
+      "equipment": 0,
+      "references": 30,
+      "referenceKinds": {
+        "feat": 19,
+        "subclass": 6,
+        "feature": 3,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Lunitari",
+        "Nuitari",
+        "Solinari",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "druid-2014",
+      "ruleset": "RULES_2014",
+      "spells": 72,
+      "terms": 57,
+      "features": 61,
+      "equipment": 18,
+      "references": 205,
+      "referenceKinds": {
+        "weapon": 9,
+        "armor": 9,
+        "feat": 68,
+        "magic-item": 87,
+        "background": 17,
+        "metamagic": 1,
+        "class": 18,
+        "subclass": 51,
+        "race": 11,
+        "feature": 89,
+        "rule": 7,
+        "creature": 1,
+        "equipment": 2,
+        "spell": 3
+      },
+      "remainingMarkers": [
+        "Bronzewood",
+        "Eberron: Rising from the Last War",
+        "Leafweave",
+        "Staple Build",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "Utility Caster",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "druid-circle-of-dreams-2014",
+      "ruleset": "RULES_2014",
+      "spells": 28,
+      "terms": 14,
+      "features": 16,
+      "equipment": 0,
+      "references": 21,
+      "referenceKinds": {
+        "feat": 7,
+        "background": 1,
+        "subclass": 6,
+        "race": 2,
+        "rule": 5,
+        "creature": 2,
+        "feature": 17,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Dreamer",
+        "Limbo",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "druid-circle-of-spores-2014",
+      "ruleset": "RULES_2014",
+      "spells": 56,
+      "terms": 12,
+      "features": 40,
+      "equipment": 13,
+      "references": 97,
+      "referenceKinds": {
+        "weapon": 8,
+        "armor": 5,
+        "feat": 28,
+        "class": 6,
+        "subclass": 11,
+        "race": 44,
+        "feature": 67,
+        "rule": 6,
+        "equipment": 2,
+        "spell": 3
+      },
+      "remainingMarkers": [
+        "Caps Lock button",
+        "Dragonmarked Half-Orc",
+        "Dragonmarked Halfling",
+        "Dragonmarked Human",
+        "Dragonmarks",
+        "Gith",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "Wildemount",
+        "stun-lock"
+      ]
+    },
+    {
+      "slug": "druid-circle-of-stars-2014",
+      "ruleset": "RULES_2014",
+      "spells": 35,
+      "terms": 8,
+      "features": 70,
+      "equipment": 0,
+      "references": 36,
+      "referenceKinds": {
+        "feat": 6,
+        "subclass": 6,
+        "race": 8,
+        "feature": 74,
+        "rule": 5,
+        "creature": 8,
+        "background": 2,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Scholar",
+        "Unearthed Arcana",
+        "Xanathar’s Guide to Everything"
+      ]
+    },
+    {
+      "slug": "druid-circle-of-the-land-2014",
+      "ruleset": "RULES_2014",
+      "spells": 95,
+      "terms": 6,
+      "features": 16,
+      "equipment": 2,
+      "references": 39,
+      "referenceKinds": {
+        "armor": 2,
+        "feat": 9,
+        "invocation": 2,
+        "subclass": 7,
+        "class": 2,
+        "race": 1,
+        "rule": 2,
+        "feature": 28,
+        "equipment": 2,
+        "spell": 6
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana",
+        "cheese grater",
+        "grue"
+      ]
+    },
+    {
+      "slug": "druid-circle-of-the-shepherd-2014",
+      "ruleset": "RULES_2014",
+      "spells": 70,
+      "terms": 17,
+      "features": 45,
+      "equipment": 0,
+      "references": 45,
+      "referenceKinds": {
+        "feat": 12,
+        "background": 1,
+        "metamagic": 2,
+        "subclass": 8,
+        "class": 2,
+        "race": 3,
+        "feature": 59,
+        "rule": 5,
+        "equipment": 2,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Conjure X",
+        "DMG",
+        "Optional Class Feature",
+        "RAW",
+        "Summon X",
+        "Tasha’s Cauldron of Everything",
+        "Tri-Lamb",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "druid-circle-of-wildfire-2014",
+      "ruleset": "RULES_2014",
+      "spells": 62,
+      "terms": 14,
+      "features": 23,
+      "equipment": 2,
+      "references": 49,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 1,
+        "feat": 13,
+        "subclass": 20,
+        "class": 4,
+        "rule": 5,
+        "creature": 13,
+        "feature": 24,
+        "race": 7,
+        "spell": 3
+      },
+      "remainingMarkers": [
+        "Gamera",
+        "Monsters of the Multiverse",
+        "Optional Class Feature",
+        "PKE meter",
+        "Unearthed Arcana",
+        "kaiju",
+        "save-or-suck",
+        "sky-hook"
+      ]
+    },
+    {
+      "slug": "druid-moon-2014",
+      "ruleset": "RULES_2014",
+      "spells": 28,
+      "terms": 21,
+      "features": 33,
+      "equipment": 2,
+      "references": 55,
+      "referenceKinds": {
+        "armor": 2,
+        "feat": 11,
+        "background": 2,
+        "class": 4,
+        "subclass": 4,
+        "race": 5,
+        "feature": 45,
+        "rule": 6,
+        "creature": 9
+      },
+      "remainingMarkers": [
+        "Circle",
+        "Optional Class Feature",
+        "Practical Guide to Wild Shape",
+        "Totem",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "druid-spells-2014",
+      "ruleset": "RULES_2014",
+      "spells": 339,
+      "terms": 34,
+      "features": 11,
+      "equipment": 0,
+      "references": 13,
+      "referenceKinds": {
+        "feat": 3,
+        "subclass": 11,
+        "feature": 18
+      },
+      "remainingMarkers": [
+        "Celestia",
+        "Giant Vermin",
+        "Monster Manual",
+        "NPC",
+        "RAI",
+        "RAW",
+        "Sage Advice",
+        "Spelljammer",
+        "Unearthed Arcana",
+        "Vermin",
+        "Vermin Growth",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "druid-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 91,
+      "terms": 7,
+      "features": 91,
+      "equipment": 0,
+      "references": 72,
+      "referenceKinds": {
+        "feat": 5,
+        "subclass": 27,
+        "creature": 8,
+        "feature": 104,
+        "spell": 5
+      },
+      "remainingMarkers": [
+        "Adventurer’s League",
+        "Conjure X",
+        "Open Gaming License",
+        "Optional Class Feature",
+        "RAW",
+        "Summon X",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "Xanathar’s Guide to Everything",
+        "stun-lock"
+      ]
+    },
+    {
+      "slug": "druid-wild-shape-2014",
+      "ruleset": "RULES_2014",
+      "spells": 5,
+      "terms": 24,
+      "features": 29,
+      "equipment": 0,
+      "references": 158,
+      "referenceKinds": {
+        "feat": 10,
+        "subclass": 12,
+        "race": 2,
+        "feature": 105,
+        "creature": 135,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Monster Manual",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "duergar-2014",
+      "ruleset": "RULES_2014",
+      "spells": 24,
+      "terms": 2,
+      "features": 5,
+      "equipment": 0,
+      "references": 17,
+      "referenceKinds": {
+        "invocation": 1,
+        "feature": 27,
+        "race": 1,
+        "creature": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "dunamancy-2014",
+      "ruleset": "RULES_2014",
+      "spells": 30,
+      "terms": 4,
+      "features": 0,
+      "equipment": 0,
+      "references": 2,
+      "referenceKinds": {
+        "magic-item": 1,
+        "rule": 1
+      },
+      "remainingMarkers": [
+        "Dunamancy",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "dwarf-2014",
+      "ruleset": "RULES_2014",
+      "spells": 16,
+      "terms": 1,
+      "features": 4,
+      "equipment": 0,
+      "references": 17,
+      "referenceKinds": {
+        "feat": 2,
+        "subclass": 10,
+        "feature": 8,
+        "race": 6
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "earth-genasi-2014",
+      "ruleset": "RULES_2014",
+      "spells": 14,
+      "terms": 2,
+      "features": 3,
+      "equipment": 0,
+      "references": 10,
+      "referenceKinds": {
+        "subclass": 1,
+        "race": 1,
+        "feature": 7,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "eladrin-2014",
+      "ruleset": "RULES_2014",
+      "spells": 8,
+      "terms": 14,
+      "features": 9,
+      "equipment": 0,
+      "references": 13,
+      "referenceKinds": {
+        "race": 1,
+        "feature": 40
+      },
+      "remainingMarkers": [
+        "Feywild",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "elf-2014",
+      "ruleset": "RULES_2014",
+      "spells": 10,
+      "terms": 11,
+      "features": 6,
+      "equipment": 1,
+      "references": 30,
+      "referenceKinds": {
+        "weapon": 1,
+        "feat": 3,
+        "invocation": 1,
+        "subclass": 6,
+        "feature": 18,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "epic-boons-2014",
+      "ruleset": "RULES_2014",
+      "spells": 11,
+      "terms": 6,
+      "features": 4,
+      "equipment": 0,
+      "references": 40,
+      "referenceKinds": {
+        "feat": 4,
+        "magic-item": 2,
+        "race": 2,
+        "feature": 41,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "fairy-2014",
+      "ruleset": "RULES_2014",
+      "spells": 25,
+      "terms": 1,
+      "features": 5,
+      "equipment": 0,
+      "references": 10,
+      "referenceKinds": {
+        "feat": 2,
+        "invocation": 1,
+        "race": 2,
+        "feature": 5
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "feats-2014",
+      "ruleset": "RULES_2014",
+      "spells": 1,
+      "terms": 7,
+      "features": 1,
+      "equipment": 2,
+      "references": 50,
+      "referenceKinds": {
+        "weapon": 2,
+        "feat": 45,
+        "feature": 4
+      },
+      "remainingMarkers": []
+    },
+    {
+      "slug": "fey-touched-2014",
+      "ruleset": "RULES_2014",
+      "spells": 25,
+      "terms": 5,
+      "features": 0,
+      "equipment": 0,
+      "references": 7,
+      "referenceKinds": {
+        "feat": 6,
+        "race": 3
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "fighter-2014",
+      "ruleset": "RULES_2014",
+      "spells": 37,
+      "terms": 79,
+      "features": 25,
+      "equipment": 24,
+      "references": 237,
+      "referenceKinds": {
+        "weapon": 20,
+        "armor": 4,
+        "feat": 56,
+        "magic-item": 103,
+        "background": 17,
+        "invocation": 1,
+        "infusion": 1,
+        "class": 6,
+        "subclass": 7,
+        "race": 3,
+        "feature": 48,
+        "rule": 10,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Adventurer’s League",
+        "Best Fighter Armor",
+        "Best Fighter Feats",
+        "Best Fighter Races",
+        "Best Fighter Skills",
+        "Best Fighting Styles for Fighters",
+        "Damage Per Round, DPR",
+        "Librarian",
+        "Noble Steed",
+        "RAW",
+        "Silver Steed",
+        "Staple Build",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "fighter-arcane-archer-2014",
+      "ruleset": "RULES_2014",
+      "spells": 5,
+      "terms": 18,
+      "features": 23,
+      "equipment": 3,
+      "references": 30,
+      "referenceKinds": {
+        "weapon": 2,
+        "armor": 1,
+        "feat": 32,
+        "background": 1,
+        "feature": 41,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Custom Origin Wood Elf",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "fighter-battle-master-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 48,
+      "features": 14,
+      "equipment": 0,
+      "references": 55,
+      "referenceKinds": {
+        "feat": 30,
+        "race": 4,
+        "feature": 79,
+        "equipment": 1
+      },
+      "remainingMarkers": [
+        "BBEG",
+        "Bug Game Hunter",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "fighter-cavalier-2014",
+      "ruleset": "RULES_2014",
+      "spells": 7,
+      "terms": 19,
+      "features": 34,
+      "equipment": 2,
+      "references": 37,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 1,
+        "feat": 30,
+        "magic-item": 2,
+        "feature": 41,
+        "race": 3,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "fighter-echo-knight-2014",
+      "ruleset": "RULES_2014",
+      "spells": 12,
+      "terms": 29,
+      "features": 21,
+      "equipment": 0,
+      "references": 25,
+      "referenceKinds": {
+        "feat": 10,
+        "race": 1,
+        "feature": 24
+      },
+      "remainingMarkers": [
+        "Fizban’s Dragonborn",
+        "Unearthed Arcana",
+        "gish"
+      ]
+    },
+    {
+      "slug": "fighter-eldritch-knight-2014",
+      "ruleset": "RULES_2014",
+      "spells": 25,
+      "terms": 15,
+      "features": 24,
+      "equipment": 0,
+      "references": 22,
+      "referenceKinds": {
+        "feat": 10,
+        "race": 2,
+        "feature": 25,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "fighter-eldritch-knight-spells-2014",
+      "ruleset": "RULES_2014",
+      "spells": 90,
+      "terms": 8,
+      "features": 2,
+      "equipment": 0,
+      "references": 7,
+      "referenceKinds": {
+        "feat": 2,
+        "feature": 5
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "fighter-psi-warrior-2014",
+      "ruleset": "RULES_2014",
+      "spells": 6,
+      "terms": 19,
+      "features": 36,
+      "equipment": 0,
+      "references": 24,
+      "referenceKinds": {
+        "feat": 5,
+        "background": 1,
+        "feature": 40,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana",
+        "patriot (закреслено в оригіналі)"
+      ]
+    },
+    {
+      "slug": "fighter-purple-dragon-knight-2014",
+      "ruleset": "RULES_2014",
+      "spells": 12,
+      "terms": 21,
+      "features": 29,
+      "equipment": 0,
+      "references": 22,
+      "referenceKinds": {
+        "feat": 9,
+        "invocation": 3,
+        "race": 1,
+        "feature": 33
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "fighter-rune-knight-2014",
+      "ruleset": "RULES_2014",
+      "spells": 7,
+      "terms": 73,
+      "features": 27,
+      "equipment": 2,
+      "references": 44,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 1,
+        "feat": 20,
+        "magic-item": 4,
+        "feature": 48
+      },
+      "remainingMarkers": [
+        "Aereni Elves",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "fighter-samurai-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 26,
+      "features": 37,
+      "equipment": 0,
+      "references": 32,
+      "referenceKinds": {
+        "feat": 23,
+        "background": 1,
+        "subclass": 1,
+        "race": 3,
+        "feature": 51
+      },
+      "remainingMarkers": [
+        "Elves",
+        "Unearthed Arcana",
+        "bandits (закреслено в оригіналі)",
+        "ronin (закреслено в оригіналі)"
+      ]
+    },
+    {
+      "slug": "fighter-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 32,
+      "terms": 59,
+      "features": 96,
+      "equipment": 0,
+      "references": 93,
+      "referenceKinds": {
+        "feat": 15,
+        "feature": 126,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "BBEG",
+        "Unearthed Arcana",
+        "gish"
+      ]
+    },
+    {
+      "slug": "fighting-styles-2014",
+      "ruleset": "RULES_2014",
+      "spells": 12,
+      "terms": 14,
+      "features": 10,
+      "equipment": 2,
+      "references": 58,
+      "referenceKinds": {
+        "weapon": 2,
+        "feat": 18,
+        "magic-item": 3,
+        "infusion": 2,
+        "subclass": 8,
+        "race": 2,
+        "feature": 39
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "firbolg-2014",
+      "ruleset": "RULES_2014",
+      "spells": 14,
+      "terms": 4,
+      "features": 2,
+      "equipment": 0,
+      "references": 9,
+      "referenceKinds": {
+        "background": 1,
+        "subclass": 3,
+        "feature": 22
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "fire-genasi-2014",
+      "ruleset": "RULES_2014",
+      "spells": 24,
+      "terms": 0,
+      "features": 0,
+      "equipment": 0,
+      "references": 2,
+      "referenceKinds": {
+        "subclass": 1,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "giff-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 6,
+      "features": 4,
+      "equipment": 0,
+      "references": 11,
+      "referenceKinds": {
+        "feat": 2,
+        "race": 2,
+        "feature": 14
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "gith-2014",
+      "ruleset": "RULES_2014",
+      "spells": 12,
+      "terms": 0,
+      "features": 2,
+      "equipment": 0,
+      "references": 17,
+      "referenceKinds": {
+        "subclass": 8,
+        "feature": 12,
+        "spell": 6
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "githyanki-2014",
+      "ruleset": "RULES_2014",
+      "spells": 18,
+      "terms": 0,
+      "features": 3,
+      "equipment": 0,
+      "references": 6,
+      "referenceKinds": {
+        "race": 1,
+        "feature": 11
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "githzerai-2014",
+      "ruleset": "RULES_2014",
+      "spells": 8,
+      "terms": 0,
+      "features": 7,
+      "equipment": 0,
+      "references": 24,
+      "referenceKinds": {
+        "race": 2,
+        "feature": 18,
+        "spell": 15
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "glory-of-the-giants-backgrounds-and-feats-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 3,
+      "features": 1,
+      "equipment": 0,
+      "references": 20,
+      "referenceKinds": {
+        "feat": 35,
+        "feature": 7
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "gnome-2014",
+      "ruleset": "RULES_2014",
+      "spells": 24,
+      "terms": 2,
+      "features": 3,
+      "equipment": 0,
+      "references": 21,
+      "referenceKinds": {
+        "feat": 3,
+        "subclass": 8,
+        "feature": 22,
+        "race": 9
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "goblin-2014",
+      "ruleset": "RULES_2014",
+      "spells": 14,
+      "terms": 4,
+      "features": 7,
+      "equipment": 0,
+      "references": 19,
+      "referenceKinds": {
+        "feat": 7,
+        "infusion": 1,
+        "subclass": 6,
+        "feature": 53
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "goliath-2014",
+      "ruleset": "RULES_2014",
+      "spells": 1,
+      "terms": 9,
+      "features": 3,
+      "equipment": 0,
+      "references": 10,
+      "referenceKinds": {
+        "race": 2,
+        "feature": 25
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "grapple-2014",
+      "ruleset": "RULES_2014",
+      "spells": 27,
+      "terms": 85,
+      "features": 5,
+      "equipment": 0,
+      "references": 36,
+      "referenceKinds": {
+        "feat": 10,
+        "magic-item": 7,
+        "invocation": 1,
+        "race": 6,
+        "feature": 15,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "great-weapon-master-sharpshooter-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 10,
+      "features": 3,
+      "equipment": 8,
+      "references": 21,
+      "referenceKinds": {
+        "weapon": 8,
+        "feat": 5,
+        "invocation": 2,
+        "subclass": 2,
+        "feature": 4
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "grung-2014",
+      "ruleset": "RULES_2014",
+      "spells": 1,
+      "terms": 4,
+      "features": 2,
+      "equipment": 0,
+      "references": 12,
+      "referenceKinds": {
+        "feat": 2,
+        "subclass": 4,
+        "feature": 15
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "gunner-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 3,
+      "features": 0,
+      "equipment": 11,
+      "references": 15,
+      "referenceKinds": {
+        "weapon": 11,
+        "feat": 5,
+        "invocation": 1,
+        "race": 1,
+        "feature": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "hadozee-2014",
+      "ruleset": "RULES_2014",
+      "spells": 8,
+      "terms": 3,
+      "features": 6,
+      "equipment": 0,
+      "references": 22,
+      "referenceKinds": {
+        "feat": 1,
+        "invocation": 3,
+        "subclass": 3,
+        "race": 1,
+        "feature": 49,
+        "magic-item": 4
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "half-elf-2014",
+      "ruleset": "RULES_2014",
+      "spells": 8,
+      "terms": 10,
+      "features": 6,
+      "equipment": 0,
+      "references": 32,
+      "referenceKinds": {
+        "feat": 11,
+        "subclass": 8,
+        "race": 3,
+        "feature": 23
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "half-orc-2014",
+      "ruleset": "RULES_2014",
+      "spells": 5,
+      "terms": 3,
+      "features": 16,
+      "equipment": 0,
+      "references": 18,
+      "referenceKinds": {
+        "feat": 4,
+        "race": 2,
+        "feature": 43
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "halfling-2014",
+      "ruleset": "RULES_2014",
+      "spells": 7,
+      "terms": 4,
+      "features": 11,
+      "equipment": 0,
+      "references": 41,
+      "referenceKinds": {
+        "feat": 4,
+        "subclass": 7,
+        "feature": 52,
+        "race": 31,
+        "spell": 3
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "harengon-2014",
+      "ruleset": "RULES_2014",
+      "spells": 3,
+      "terms": 2,
+      "features": 7,
+      "equipment": 0,
+      "references": 17,
+      "referenceKinds": {
+        "feat": 2,
+        "infusion": 1,
+        "subclass": 3,
+        "race": 1,
+        "feature": 49
+      },
+      "remainingMarkers": [
+        "Feywild",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "hexadin-2014",
+      "ruleset": "RULES_2014",
+      "spells": 16,
+      "terms": 18,
+      "features": 17,
+      "equipment": 0,
+      "references": 57,
+      "referenceKinds": {
+        "feat": 6,
+        "background": 1,
+        "invocation": 7,
+        "metamagic": 1,
+        "subclass": 12,
+        "race": 1,
+        "feature": 36,
+        "spell": 3,
+        "rule": 1
+      },
+      "remainingMarkers": [
+        "Far Realm",
+        "Hexadin",
+        "Toril",
+        "Unearthed Arcana",
+        "Witch-Knight"
+      ]
+    },
+    {
+      "slug": "hexblood-2014",
+      "ruleset": "RULES_2014",
+      "spells": 29,
+      "terms": 3,
+      "features": 4,
+      "equipment": 0,
+      "references": 19,
+      "referenceKinds": {
+        "feat": 1,
+        "invocation": 1,
+        "subclass": 8,
+        "feature": 27,
+        "magic-item": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "hexbuckler-2014",
+      "ruleset": "RULES_2014",
+      "spells": 31,
+      "terms": 37,
+      "features": 7,
+      "equipment": 0,
+      "references": 11,
+      "referenceKinds": {
+        "race": 1,
+        "feature": 7,
+        "spell": 7
+      },
+      "remainingMarkers": []
+    },
+    {
+      "slug": "hobgoblin-2014",
+      "ruleset": "RULES_2014",
+      "spells": 6,
+      "terms": 10,
+      "features": 9,
+      "equipment": 0,
+      "references": 29,
+      "referenceKinds": {
+        "feat": 3,
+        "invocation": 1,
+        "subclass": 6,
+        "race": 4,
+        "feature": 59,
+        "infusion": 1,
+        "rule": 1
+      },
+      "remainingMarkers": [
+        "Feywild",
+        "Maglubiyet",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "home-run-bat-2014",
+      "ruleset": "RULES_2014",
+      "spells": 7,
+      "terms": 11,
+      "features": 20,
+      "equipment": 0,
+      "references": 43,
+      "referenceKinds": {
+        "feat": 12,
+        "invocation": 2,
+        "infusion": 1,
+        "subclass": 4,
+        "race": 2,
+        "feature": 37,
+        "magic-item": 3,
+        "rule": 2
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "human-2014",
+      "ruleset": "RULES_2014",
+      "spells": 24,
+      "terms": 4,
+      "features": 8,
+      "equipment": 0,
+      "references": 70,
+      "referenceKinds": {
+        "feat": 62,
+        "subclass": 20,
+        "race": 25,
+        "feature": 21,
+        "creature": 1,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "impractical-skill-checks-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 55,
+      "features": 0,
+      "equipment": 0,
+      "references": 1,
+      "referenceKinds": {
+        "rule": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "kalashtar-2014",
+      "ruleset": "RULES_2014",
+      "spells": 3,
+      "terms": 3,
+      "features": 5,
+      "equipment": 0,
+      "references": 9,
+      "referenceKinds": {
+        "metamagic": 1,
+        "race": 1,
+        "feature": 17
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "kender-2014",
+      "ruleset": "RULES_2014",
+      "spells": 5,
+      "terms": 5,
+      "features": 4,
+      "equipment": 0,
+      "references": 10,
+      "referenceKinds": {
+        "invocation": 2,
+        "feature": 21,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Krynn",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "kenku-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 1,
+      "features": 1,
+      "equipment": 0,
+      "references": 7,
+      "referenceKinds": {
+        "subclass": 2,
+        "feature": 19
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "kobold-2014",
+      "ruleset": "RULES_2014",
+      "spells": 17,
+      "terms": 8,
+      "features": 14,
+      "equipment": 0,
+      "references": 33,
+      "referenceKinds": {
+        "feat": 5,
+        "subclass": 15,
+        "feature": 94,
+        "creature": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "leonin-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 2,
+      "features": 5,
+      "equipment": 0,
+      "references": 7,
+      "referenceKinds": {
+        "race": 1,
+        "feature": 21
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "lizardfolk-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 2,
+      "features": 8,
+      "equipment": 0,
+      "references": 14,
+      "referenceKinds": {
+        "invocation": 1,
+        "subclass": 2,
+        "feature": 58
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "locathah-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 0,
+      "features": 5,
+      "equipment": 0,
+      "references": 10,
+      "referenceKinds": {
+        "race": 1,
+        "feature": 27,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "loxodon-2014",
+      "ruleset": "RULES_2014",
+      "spells": 3,
+      "terms": 0,
+      "features": 7,
+      "equipment": 0,
+      "references": 12,
+      "referenceKinds": {
+        "race": 1,
+        "feature": 41
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "magic-initiate-2014",
+      "ruleset": "RULES_2014",
+      "spells": 286,
+      "terms": 45,
+      "features": 4,
+      "equipment": 0,
+      "references": 25,
+      "referenceKinds": {
+        "feat": 40,
+        "invocation": 1,
+        "metamagic": 3,
+        "feature": 9,
+        "spell": 12
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "minotaur-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 11,
+      "features": 5,
+      "equipment": 0,
+      "references": 24,
+      "referenceKinds": {
+        "feat": 4,
+        "magic-item": 1,
+        "subclass": 8,
+        "race": 2,
+        "feature": 41
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "monk-2014",
+      "ruleset": "RULES_2014",
+      "spells": 18,
+      "terms": 56,
+      "features": 49,
+      "equipment": 6,
+      "references": 148,
+      "referenceKinds": {
+        "weapon": 6,
+        "feat": 35,
+        "magic-item": 56,
+        "background": 10,
+        "class": 3,
+        "race": 2,
+        "rule": 7,
+        "feature": 73,
+        "spell": 2,
+        "subclass": 1
+      },
+      "remainingMarkers": [
+        "Hit Points",
+        "Staple Build",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "monk-ascendant-dragon-2014",
+      "ruleset": "RULES_2014",
+      "spells": 3,
+      "terms": 11,
+      "features": 43,
+      "equipment": 0,
+      "references": 27,
+      "referenceKinds": {
+        "feat": 3,
+        "magic-item": 1,
+        "background": 1,
+        "rule": 1,
+        "feature": 47
+      },
+      "remainingMarkers": [
+        "Fizban’s Dragonborn",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "monk-astral-self-2014",
+      "ruleset": "RULES_2014",
+      "spells": 9,
+      "terms": 45,
+      "features": 26,
+      "equipment": 8,
+      "references": 51,
+      "referenceKinds": {
+        "weapon": 6,
+        "armor": 2,
+        "feat": 8,
+        "magic-item": 2,
+        "invocation": 1,
+        "subclass": 1,
+        "feature": 39,
+        "race": 7,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "DIO",
+        "Final Form",
+        "Fizban’s Dragonborn Variants",
+        "Natural Weapons",
+        "Unearthed Arcana",
+        "punch ghost"
+      ]
+    },
+    {
+      "slug": "monk-drunken-master-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 18,
+      "features": 27,
+      "equipment": 0,
+      "references": 24,
+      "referenceKinds": {
+        "feat": 2,
+        "background": 1,
+        "subclass": 1,
+        "feature": 33,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana",
+        "one-trick pony"
+      ]
+    },
+    {
+      "slug": "monk-four-elements-2014",
+      "ruleset": "RULES_2014",
+      "spells": 15,
+      "terms": 5,
+      "features": 11,
+      "equipment": 0,
+      "references": 32,
+      "referenceKinds": {
+        "background": 1,
+        "subclass": 1,
+        "feature": 49,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Elemental Disciplines",
+        "Unearthed Arcana",
+        "airbend (закреслено в оригіналі)"
+      ]
+    },
+    {
+      "slug": "monk-kensei-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 15,
+      "features": 34,
+      "equipment": 14,
+      "references": 43,
+      "referenceKinds": {
+        "weapon": 12,
+        "armor": 2,
+        "feat": 10,
+        "background": 1,
+        "invocation": 1,
+        "subclass": 1,
+        "race": 2,
+        "rule": 1,
+        "feature": 50
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "monk-open-hand-2014",
+      "ruleset": "RULES_2014",
+      "spells": 5,
+      "terms": 19,
+      "features": 27,
+      "equipment": 0,
+      "references": 24,
+      "referenceKinds": {
+        "feat": 3,
+        "background": 2,
+        "subclass": 1,
+        "race": 3,
+        "rule": 1,
+        "feature": 35,
+        "magic-item": 2
+      },
+      "remainingMarkers": [
+        "Fundamental Math",
+        "Unearthed Arcana",
+        "away",
+        "force multiplier",
+        "the Magical Gravity People’s Elbow"
+      ]
+    },
+    {
+      "slug": "monk-shadow-2014",
+      "ruleset": "RULES_2014",
+      "spells": 10,
+      "terms": 13,
+      "features": 12,
+      "equipment": 0,
+      "references": 22,
+      "referenceKinds": {
+        "feat": 6,
+        "background": 1,
+        "invocation": 2,
+        "subclass": 1,
+        "race": 1,
+        "feature": 14,
+        "spell": 3
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "monk-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 33,
+      "terms": 37,
+      "features": 106,
+      "equipment": 0,
+      "references": 90,
+      "referenceKinds": {
+        "feat": 2,
+        "magic-item": 4,
+        "invocation": 2,
+        "subclass": 7,
+        "rule": 2,
+        "feature": 142,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Adventurer’s League",
+        "Open Gaming License",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "one-trick pony",
+        "plague doctor",
+        "punch ghost"
+      ]
+    },
+    {
+      "slug": "monk-sun-soul-2014",
+      "ruleset": "RULES_2014",
+      "spells": 8,
+      "terms": 19,
+      "features": 23,
+      "equipment": 1,
+      "references": 25,
+      "referenceKinds": {
+        "weapon": 1,
+        "feat": 3,
+        "magic-item": 3,
+        "invocation": 1,
+        "race": 1,
+        "feature": 33
+      },
+      "remainingMarkers": [
+        "AoE",
+        "Goku",
+        "Tasha’s Cauldron of Everything",
+        "The Prince of All Hadozee",
+        "Unearthed Arcana",
+        "Vegeta",
+        "half feat"
+      ]
+    },
+    {
+      "slug": "monk-way-of-mercy-2014",
+      "ruleset": "RULES_2014",
+      "spells": 19,
+      "terms": 26,
+      "features": 36,
+      "equipment": 0,
+      "references": 30,
+      "referenceKinds": {
+        "feat": 3,
+        "magic-item": 1,
+        "background": 2,
+        "subclass": 1,
+        "race": 2,
+        "feature": 40
+      },
+      "remainingMarkers": [
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "kite"
+      ]
+    },
+    {
+      "slug": "monk-way-of-the-long-death-2014",
+      "ruleset": "RULES_2014",
+      "spells": 3,
+      "terms": 4,
+      "features": 23,
+      "equipment": 0,
+      "references": 22,
+      "referenceKinds": {
+        "feat": 6,
+        "subclass": 1,
+        "feature": 28,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Monsters of the Multiverse",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "orc-2014",
+      "ruleset": "RULES_2014",
+      "spells": 2,
+      "terms": 4,
+      "features": 10,
+      "equipment": 0,
+      "references": 17,
+      "referenceKinds": {
+        "subclass": 4,
+        "feature": 65
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "oversized-weapons-2014",
+      "ruleset": "RULES_2014",
+      "spells": 17,
+      "terms": 21,
+      "features": 19,
+      "equipment": 0,
+      "references": 25,
+      "referenceKinds": {
+        "feat": 3,
+        "invocation": 4,
+        "subclass": 2,
+        "feature": 27,
+        "creature": 1,
+        "background": 3
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "owlin-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 7,
+      "features": 4,
+      "equipment": 0,
+      "references": 7,
+      "referenceKinds": {
+        "invocation": 1,
+        "race": 1,
+        "feature": 5
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "paladin-2014",
+      "ruleset": "RULES_2014",
+      "spells": 44,
+      "terms": 48,
+      "features": 68,
+      "equipment": 16,
+      "references": 226,
+      "referenceKinds": {
+        "weapon": 13,
+        "armor": 3,
+        "feat": 77,
+        "magic-item": 96,
+        "background": 14,
+        "invocation": 2,
+        "infusion": 1,
+        "class": 4,
+        "subclass": 5,
+        "race": 9,
+        "rule": 6,
+        "feature": 107,
+        "spell": 3
+      },
+      "remainingMarkers": [
+        "Adventurer’s League",
+        "Hunter’s Quarry",
+        "MAD",
+        "NPC",
+        "Tank Fallacy",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "paladin-oath-of-conquest-2014",
+      "ruleset": "RULES_2014",
+      "spells": 112,
+      "terms": 19,
+      "features": 29,
+      "equipment": 4,
+      "references": 37,
+      "referenceKinds": {
+        "weapon": 3,
+        "armor": 1,
+        "feat": 8,
+        "background": 2,
+        "invocation": 9,
+        "class": 9,
+        "subclass": 11,
+        "race": 2,
+        "rule": 1,
+        "feature": 33
+      },
+      "remainingMarkers": [
+        "1st-Level Spells",
+        "2nd-Level Spells",
+        "3rd-Level Spells",
+        "4th-Level Spells",
+        "5th-Level Spells",
+        "Ravnica",
+        "Unearthed Arcana",
+        "Van Richten’s Guide to Ravenloft",
+        "Xanathar’s Guide to Everything",
+        "half caster"
+      ]
+    },
+    {
+      "slug": "paladin-oath-of-devotion-2014",
+      "ruleset": "RULES_2014",
+      "spells": 30,
+      "terms": 13,
+      "features": 24,
+      "equipment": 2,
+      "references": 29,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 1,
+        "feat": 8,
+        "background": 1,
+        "class": 3,
+        "subclass": 5,
+        "race": 3,
+        "feature": 26
+      },
+      "remainingMarkers": [
+        "Curseedge",
+        "Dark Urge",
+        "Unearthed Arcana",
+        "two greatswords"
+      ]
+    },
+    {
+      "slug": "paladin-oath-of-glory-2014",
+      "ruleset": "RULES_2014",
+      "spells": 24,
+      "terms": 28,
+      "features": 43,
+      "equipment": 2,
+      "references": 42,
+      "referenceKinds": {
+        "weapon": 2,
+        "feat": 18,
+        "metamagic": 2,
+        "subclass": 3,
+        "race": 12,
+        "rule": 1,
+        "feature": 53,
+        "spell": 3,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "13th-Level",
+        "17th-Level",
+        "Athasian",
+        "Monsters of the Multiverse",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "paladin-oath-of-redemption-2014",
+      "ruleset": "RULES_2014",
+      "spells": 32,
+      "terms": 7,
+      "features": 26,
+      "equipment": 0,
+      "references": 36,
+      "referenceKinds": {
+        "feat": 11,
+        "subclass": 2,
+        "class": 1,
+        "race": 3,
+        "feature": 34,
+        "spell": 1,
+        "magic-item": 1,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "13th-Level",
+        "17th-Level",
+        "Unearthed Arcana",
+        "full caster",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "paladin-oath-of-the-ancients-2014",
+      "ruleset": "RULES_2014",
+      "spells": 36,
+      "terms": 12,
+      "features": 41,
+      "equipment": 6,
+      "references": 55,
+      "referenceKinds": {
+        "weapon": 4,
+        "armor": 2,
+        "feat": 8,
+        "background": 1,
+        "class": 6,
+        "subclass": 4,
+        "race": 2,
+        "feature": 68,
+        "rule": 2,
+        "creature": 4
+      },
+      "remainingMarkers": [
+        "13th-Level",
+        "17th-Level",
+        "Balinor",
+        "Fundamental Math",
+        "Monsters of the Multiverse",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "paladin-oath-of-the-crown-2014",
+      "ruleset": "RULES_2014",
+      "spells": 40,
+      "terms": 6,
+      "features": 54,
+      "equipment": 0,
+      "references": 53,
+      "referenceKinds": {
+        "feat": 16,
+        "background": 1,
+        "invocation": 2,
+        "class": 4,
+        "subclass": 3,
+        "race": 5,
+        "feature": 69,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "13th-Level",
+        "17th-Level",
+        "Monsters of the Multiverse Orc",
+        "Unearthed Arcana",
+        "glass cannon",
+        "metagame shenanigans"
+      ]
+    },
+    {
+      "slug": "paladin-oath-of-the-watchers-2014",
+      "ruleset": "RULES_2014",
+      "spells": 35,
+      "terms": 18,
+      "features": 42,
+      "equipment": 4,
+      "references": 38,
+      "referenceKinds": {
+        "weapon": 3,
+        "armor": 1,
+        "feat": 16,
+        "background": 2,
+        "subclass": 3,
+        "race": 8,
+        "feature": 48
+      },
+      "remainingMarkers": [
+        "Astral Sea",
+        "Spelljammer",
+        "Unearthed Arcana",
+        "Wildspace",
+        "cerulean sign",
+        "extraplanar",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "paladin-oath-of-vengeance-2-2014",
+      "ruleset": "RULES_2014",
+      "spells": 57,
+      "terms": 11,
+      "features": 34,
+      "equipment": 0,
+      "references": 31,
+      "referenceKinds": {
+        "feat": 18,
+        "background": 1,
+        "subclass": 5,
+        "feature": 38,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana",
+        "shenanigans"
+      ]
+    },
+    {
+      "slug": "paladin-oath-of-vengeance-2014",
+      "ruleset": "RULES_2014",
+      "spells": 58,
+      "terms": 18,
+      "features": 51,
+      "equipment": 0,
+      "references": 37,
+      "referenceKinds": {
+        "feat": 26,
+        "background": 2,
+        "class": 7,
+        "subclass": 10,
+        "race": 10,
+        "feature": 57
+      },
+      "remainingMarkers": [
+        "13th-Level",
+        "17th-Level",
+        "Bonus bonk",
+        "Jonathan Young",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "paladin-oathbreaker-2014",
+      "ruleset": "RULES_2014",
+      "spells": 37,
+      "terms": 17,
+      "features": 48,
+      "equipment": 5,
+      "references": 61,
+      "referenceKinds": {
+        "weapon": 4,
+        "armor": 1,
+        "feat": 12,
+        "background": 1,
+        "invocation": 1,
+        "class": 3,
+        "subclass": 6,
+        "race": 7,
+        "rule": 1,
+        "feature": 63,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "13th-Level",
+        "17th-Level",
+        "Amon",
+        "Bone Buddies",
+        "Bone Zone",
+        "Bone-us damage",
+        "Bones Malone and the Spooky Boys",
+        "Dr. Terry MacMullin",
+        "Evil",
+        "FFXIV: Endwalker",
+        "Good",
+        "Hellish Knight",
+        "Mordenkainen Presents: Monsters of the Multiverse",
+        "Seth Skorkowsky",
+        "Skelemen",
+        "Skeletal Squires",
+        "Spooky Boys",
+        "Turn Whatever",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "paladin-spells-2014",
+      "ruleset": "RULES_2014",
+      "spells": 106,
+      "terms": 5,
+      "features": 11,
+      "equipment": 0,
+      "references": 13,
+      "referenceKinds": {
+        "feat": 2,
+        "class": 4,
+        "creature": 2,
+        "feature": 14,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Destructive Smite",
+        "Dungeons and Dragons",
+        "Holy Smite",
+        "Smite spells",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "paladin-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 126,
+      "terms": 12,
+      "features": 94,
+      "equipment": 0,
+      "references": 96,
+      "referenceKinds": {
+        "feat": 10,
+        "race": 3,
+        "rule": 1,
+        "feature": 131,
+        "spell": 2,
+        "magic-item": 2
+      },
+      "remainingMarkers": [
+        "13th-Level",
+        "17th-Level",
+        "Adventurer’s League",
+        "BBEG",
+        "Curse of Strahd",
+        "Descent into Avernus",
+        "Grapple+Shove combo",
+        "Monsters of the Multiverse",
+        "Open Gaming License",
+        "Out of the Abyss",
+        "Turn Whatever",
+        "Tyranny of Dragons",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "planescape-backgrounds-feats-2014",
+      "ruleset": "RULES_2014",
+      "spells": 3,
+      "terms": 1,
+      "features": 0,
+      "equipment": 0,
+      "references": 7,
+      "referenceKinds": {
+        "feat": 3,
+        "background": 2,
+        "subclass": 1,
+        "feature": 1
+      },
+      "remainingMarkers": []
+    },
+    {
+      "slug": "plasmoid-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 8,
+      "features": 2,
+      "equipment": 0,
+      "references": 5,
+      "referenceKinds": {
+        "subclass": 1,
+        "feature": 4
+      },
+      "remainingMarkers": []
+    },
+    {
+      "slug": "poisoner-poison-and-poisoning-2014",
+      "ruleset": "RULES_2014",
+      "spells": 6,
+      "terms": 62,
+      "features": 1,
+      "equipment": 0,
+      "references": 78,
+      "referenceKinds": {
+        "feat": 3,
+        "creature": 11,
+        "feature": 71
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "polymorph-2014",
+      "ruleset": "RULES_2014",
+      "spells": 8,
+      "terms": 5,
+      "features": 0,
+      "equipment": 0,
+      "references": 106,
+      "referenceKinds": {
+        "feature": 2,
+        "creature": 104
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "practical-guide-to-animal-shapes-2014",
+      "ruleset": "RULES_2014",
+      "spells": 8,
+      "terms": 11,
+      "features": 2,
+      "equipment": 0,
+      "references": 3,
+      "referenceKinds": {
+        "subclass": 1,
+        "feature": 2
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "prestidigitation-2014",
+      "ruleset": "RULES_2014",
+      "spells": 8,
+      "terms": 3,
+      "features": 0,
+      "equipment": 0,
+      "references": 0,
+      "referenceKinds": {},
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "races-2014",
+      "ruleset": "RULES_2014",
+      "spells": 6,
+      "terms": 20,
+      "features": 0,
+      "equipment": 0,
+      "references": 22,
+      "referenceKinds": {
+        "feature": 17,
+        "race": 1,
+        "rule": 1,
+        "spell": 2,
+        "feat": 1
+      },
+      "remainingMarkers": [
+        "Dark Sun",
+        "Hag",
+        "Krynn",
+        "Mind Flayers"
+      ]
+    },
+    {
+      "slug": "ranger-2014",
+      "ruleset": "RULES_2014",
+      "spells": 70,
+      "terms": 55,
+      "features": 54,
+      "equipment": 20,
+      "references": 254,
+      "referenceKinds": {
+        "weapon": 14,
+        "armor": 6,
+        "feat": 65,
+        "magic-item": 88,
+        "background": 14,
+        "invocation": 1,
+        "infusion": 1,
+        "class": 32,
+        "subclass": 32,
+        "race": 15,
+        "rule": 13,
+        "creature": 1,
+        "feature": 145,
+        "equipment": 1,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Adventuring Day",
+        "DMG",
+        "MAD",
+        "Monster Manual",
+        "Optional Class Feature",
+        "Player’s Handbook",
+        "Staple Build",
+        "Staple Builds",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "Utility Caster",
+        "hit point ping-pong"
+      ]
+    },
+    {
+      "slug": "ranger-beast-master-2014",
+      "ruleset": "RULES_2014",
+      "spells": 17,
+      "terms": 22,
+      "features": 17,
+      "equipment": 0,
+      "references": 32,
+      "referenceKinds": {
+        "feat": 4,
+        "background": 1,
+        "feature": 29,
+        "race": 1,
+        "spell": 1
+      },
+      "remainingMarkers": []
+    },
+    {
+      "slug": "ranger-drakewarden-2014",
+      "ruleset": "RULES_2014",
+      "spells": 16,
+      "terms": 16,
+      "features": 20,
+      "equipment": 0,
+      "references": 29,
+      "referenceKinds": {
+        "feat": 7,
+        "magic-item": 1,
+        "creature": 1,
+        "feature": 29
+      },
+      "remainingMarkers": [
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "ranger-fey-wanderer-2014",
+      "ruleset": "RULES_2014",
+      "spells": 28,
+      "terms": 24,
+      "features": 15,
+      "equipment": 0,
+      "references": 39,
+      "referenceKinds": {
+        "feat": 12,
+        "background": 1,
+        "feature": 28
+      },
+      "remainingMarkers": [
+        "The Wild Beyond the Witchlight",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "ranger-gloom-stalker-2014",
+      "ruleset": "RULES_2014",
+      "spells": 17,
+      "terms": 21,
+      "features": 12,
+      "equipment": 0,
+      "references": 37,
+      "referenceKinds": {
+        "feat": 4,
+        "background": 1,
+        "invocation": 1,
+        "subclass": 1,
+        "creature": 2,
+        "feature": 25,
+        "equipment": 1,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Monsters of the Multiverse",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "ranger-horizon-walker-2014",
+      "ruleset": "RULES_2014",
+      "spells": 15,
+      "terms": 22,
+      "features": 11,
+      "equipment": 0,
+      "references": 28,
+      "referenceKinds": {
+        "feat": 5,
+        "background": 1,
+        "feature": 22
+      },
+      "remainingMarkers": [
+        "Feywild",
+        "Mordenkainen Presents: Monsters of the Multiverse",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "ranger-hunter-2014",
+      "ruleset": "RULES_2014",
+      "spells": 23,
+      "terms": 29,
+      "features": 12,
+      "equipment": 0,
+      "references": 52,
+      "referenceKinds": {
+        "feat": 11,
+        "background": 4,
+        "race": 3,
+        "feature": 40,
+        "equipment": 1,
+        "spell": 2,
+        "class": 1
+      },
+      "remainingMarkers": [
+        "Player’s Handbook",
+        "Storm King’s Thunder",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "ranger-monster-slayer-2014",
+      "ruleset": "RULES_2014",
+      "spells": 14,
+      "terms": 9,
+      "features": 14,
+      "equipment": 0,
+      "references": 34,
+      "referenceKinds": {
+        "feat": 8,
+        "subclass": 1,
+        "race": 3,
+        "creature": 1,
+        "feature": 24
+      },
+      "remainingMarkers": [
+        "MAD",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "ranger-spells-2014",
+      "ruleset": "RULES_2014",
+      "spells": 179,
+      "terms": 16,
+      "features": 3,
+      "equipment": 0,
+      "references": 17,
+      "referenceKinds": {
+        "feat": 4,
+        "subclass": 2,
+        "creature": 3,
+        "feature": 12,
+        "equipment": 1
+      },
+      "remainingMarkers": [
+        "Optional Class Feature",
+        "RAW",
+        "Unearthed Arcana",
+        "Xanathar’s Guide to Everything",
+        "spellcasting focuses"
+      ]
+    },
+    {
+      "slug": "ranger-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 58,
+      "terms": 53,
+      "features": 100,
+      "equipment": 0,
+      "references": 153,
+      "referenceKinds": {
+        "feat": 9,
+        "magic-item": 1,
+        "subclass": 38,
+        "race": 2,
+        "feature": 168,
+        "rule": 4,
+        "creature": 63,
+        "spell": 6
+      },
+      "remainingMarkers": [
+        "Forgotten Realms",
+        "Fundamental Math",
+        "Monster Manual",
+        "Player’s Handbook",
+        "Storm King’s Thunder",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "Xanathar’s Guide to Everything"
+      ]
+    },
+    {
+      "slug": "ranger-swarmkeeper-2014",
+      "ruleset": "RULES_2014",
+      "spells": 28,
+      "terms": 29,
+      "features": 18,
+      "equipment": 2,
+      "references": 38,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 1,
+        "feat": 11,
+        "background": 1,
+        "race": 3,
+        "feature": 27
+      },
+      "remainingMarkers": []
+    },
+    {
+      "slug": "ravnica-backgrounds-2014",
+      "ruleset": "RULES_2014",
+      "spells": 45,
+      "terms": 12,
+      "features": 0,
+      "equipment": 0,
+      "references": 10,
+      "referenceKinds": {
+        "background": 2,
+        "subclass": 3,
+        "spell": 5
+      },
+      "remainingMarkers": [
+        "Azorius",
+        "Boros",
+        "Dimir",
+        "Izzet",
+        "Orzhov",
+        "Ravnica",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "reborn-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 2,
+      "features": 1,
+      "equipment": 0,
+      "references": 11,
+      "referenceKinds": {
+        "subclass": 4,
+        "feature": 45
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "ritual-caster-2014",
+      "ruleset": "RULES_2014",
+      "spells": 41,
+      "terms": 0,
+      "features": 0,
+      "equipment": 0,
+      "references": 5,
+      "referenceKinds": {
+        "feat": 1,
+        "invocation": 1,
+        "subclass": 2,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "rogue-2014",
+      "ruleset": "RULES_2014",
+      "spells": 44,
+      "terms": 117,
+      "features": 49,
+      "equipment": 10,
+      "references": 203,
+      "referenceKinds": {
+        "weapon": 8,
+        "armor": 2,
+        "feat": 45,
+        "magic-item": 82,
+        "background": 21,
+        "invocation": 2,
+        "infusion": 1,
+        "class": 9,
+        "subclass": 9,
+        "race": 2,
+        "rule": 7,
+        "feature": 72,
+        "spell": 3
+      },
+      "remainingMarkers": [
+        "Fencing",
+        "Staple Build",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "sonic"
+      ]
+    },
+    {
+      "slug": "rogue-arcane-trickster-2014",
+      "ruleset": "RULES_2014",
+      "spells": 60,
+      "terms": 28,
+      "features": 23,
+      "equipment": 0,
+      "references": 28,
+      "referenceKinds": {
+        "feat": 8,
+        "background": 1,
+        "metamagic": 1,
+        "race": 2,
+        "rule": 6,
+        "feature": 26,
+        "equipment": 1,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Minor Wish",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "rogue-arcane-trickster-spells-2014",
+      "ruleset": "RULES_2014",
+      "spells": 70,
+      "terms": 6,
+      "features": 10,
+      "equipment": 0,
+      "references": 8,
+      "referenceKinds": {
+        "feat": 1,
+        "feature": 12
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "rogue-assassin-2014",
+      "ruleset": "RULES_2014",
+      "spells": 15,
+      "terms": 56,
+      "features": 30,
+      "equipment": 0,
+      "references": 37,
+      "referenceKinds": {
+        "feat": 10,
+        "magic-item": 1,
+        "background": 1,
+        "subclass": 1,
+        "class": 1,
+        "race": 5,
+        "feature": 40,
+        "rule": 5,
+        "equipment": 2
+      },
+      "remainingMarkers": [
+        "Crit Fishing",
+        "Death Attack",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "rogue-inquisitive-2014",
+      "ruleset": "RULES_2014",
+      "spells": 2,
+      "terms": 33,
+      "features": 34,
+      "equipment": 0,
+      "references": 23,
+      "referenceKinds": {
+        "feat": 6,
+        "race": 1,
+        "feature": 39
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "rogue-mastermind-2014",
+      "ruleset": "RULES_2014",
+      "spells": 7,
+      "terms": 34,
+      "features": 15,
+      "equipment": 0,
+      "references": 22,
+      "referenceKinds": {
+        "feat": 8,
+        "background": 1,
+        "subclass": 1,
+        "feature": 20,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "rogue-phantom-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 46,
+      "features": 32,
+      "equipment": 2,
+      "references": 31,
+      "referenceKinds": {
+        "weapon": 2,
+        "feat": 10,
+        "background": 1,
+        "race": 3,
+        "feature": 38,
+        "rule": 5
+      },
+      "remainingMarkers": [
+        "Raven Queen",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "rogue-scout-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 34,
+      "features": 26,
+      "equipment": 0,
+      "references": 24,
+      "referenceKinds": {
+        "feat": 8,
+        "race": 2,
+        "feature": 27,
+        "spell": 1,
+        "magic-item": 1,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "rogue-soulknife-2014",
+      "ruleset": "RULES_2014",
+      "spells": 5,
+      "terms": 53,
+      "features": 34,
+      "equipment": 0,
+      "references": 43,
+      "referenceKinds": {
+        "feat": 22,
+        "subclass": 1,
+        "class": 2,
+        "race": 6,
+        "rule": 6,
+        "feature": 43
+      },
+      "remainingMarkers": [
+        "Dragonmarked Races",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "rogue-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 21,
+      "terms": 35,
+      "features": 101,
+      "equipment": 0,
+      "references": 64,
+      "referenceKinds": {
+        "feat": 5,
+        "magic-item": 2,
+        "metamagic": 1,
+        "feature": 108
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "rogue-swashbuckler-2014",
+      "ruleset": "RULES_2014",
+      "spells": 9,
+      "terms": 45,
+      "features": 35,
+      "equipment": 2,
+      "references": 38,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 1,
+        "feat": 11,
+        "background": 1,
+        "subclass": 2,
+        "race": 7,
+        "feature": 39,
+        "rule": 5
+      },
+      "remainingMarkers": [
+        "(Half-)High Elf",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "sea-elf-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 7,
+      "features": 0,
+      "equipment": 0,
+      "references": 8,
+      "referenceKinds": {
+        "invocation": 1,
+        "race": 1,
+        "feature": 16
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "shadar-kai-2014",
+      "ruleset": "RULES_2014",
+      "spells": 8,
+      "terms": 14,
+      "features": 9,
+      "equipment": 0,
+      "references": 14,
+      "referenceKinds": {
+        "race": 2,
+        "feature": 38
+      },
+      "remainingMarkers": [
+        "Shadowfell",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "shadow-touched-2014",
+      "ruleset": "RULES_2014",
+      "spells": 14,
+      "terms": 0,
+      "features": 0,
+      "equipment": 0,
+      "references": 7,
+      "referenceKinds": {
+        "feat": 4,
+        "race": 3
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "shifter-2014",
+      "ruleset": "RULES_2014",
+      "spells": 7,
+      "terms": 12,
+      "features": 8,
+      "equipment": 0,
+      "references": 61,
+      "referenceKinds": {
+        "infusion": 1,
+        "subclass": 7,
+        "feature": 80
+      },
+      "remainingMarkers": [
+        "Eberron",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "simic-hybrid-2014",
+      "ruleset": "RULES_2014",
+      "spells": 2,
+      "terms": 6,
+      "features": 5,
+      "equipment": 0,
+      "references": 9,
+      "referenceKinds": {
+        "race": 1,
+        "feature": 38
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "skill-expert-skilled-prodigy-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 10,
+      "features": 0,
+      "equipment": 0,
+      "references": 7,
+      "referenceKinds": {
+        "feat": 7
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "sorcadin-handbook-2014",
+      "ruleset": "RULES_2014",
+      "spells": 35,
+      "terms": 11,
+      "features": 13,
+      "equipment": 2,
+      "references": 33,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 1,
+        "feat": 5,
+        "metamagic": 3,
+        "subclass": 6,
+        "race": 1,
+        "feature": 20,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "sorcerer-2014",
+      "ruleset": "RULES_2014",
+      "spells": 103,
+      "terms": 37,
+      "features": 45,
+      "equipment": 6,
+      "references": 157,
+      "referenceKinds": {
+        "weapon": 4,
+        "armor": 2,
+        "feat": 39,
+        "magic-item": 72,
+        "background": 12,
+        "invocation": 1,
+        "metamagic": 14,
+        "subclass": 20,
+        "class": 18,
+        "race": 11,
+        "rule": 8,
+        "creature": 1,
+        "feature": 55,
+        "equipment": 1,
+        "spell": 7
+      },
+      "remainingMarkers": [
+        "Bardic College",
+        "Krynn",
+        "Staple Build",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "Utility Caster",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "sorcerer-aberrant-mind-2014",
+      "ruleset": "RULES_2014",
+      "spells": 61,
+      "terms": 9,
+      "features": 26,
+      "equipment": 0,
+      "references": 36,
+      "referenceKinds": {
+        "feat": 12,
+        "background": 2,
+        "invocation": 1,
+        "metamagic": 6,
+        "class": 2,
+        "subclass": 7,
+        "race": 2,
+        "feature": 28,
+        "spell": 3
+      },
+      "remainingMarkers": [
+        "Far Realm",
+        "RAW",
+        "Ray of Stupidity",
+        "Sage Advice",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "Zhentarim",
+        "power creep",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "sorcerer-clockwork-soul-2014",
+      "ruleset": "RULES_2014",
+      "spells": 82,
+      "terms": 43,
+      "features": 24,
+      "equipment": 3,
+      "references": 34,
+      "referenceKinds": {
+        "armor": 3,
+        "feat": 6,
+        "background": 1,
+        "invocation": 1,
+        "metamagic": 9,
+        "class": 2,
+        "subclass": 6,
+        "race": 4,
+        "rule": 7,
+        "feature": 25,
+        "spell": 6
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "sorcerer-divine-soul-2014",
+      "ruleset": "RULES_2014",
+      "spells": 38,
+      "terms": 10,
+      "features": 21,
+      "equipment": 4,
+      "references": 40,
+      "referenceKinds": {
+        "weapon": 2,
+        "armor": 2,
+        "feat": 7,
+        "magic-item": 2,
+        "invocation": 2,
+        "metamagic": 11,
+        "subclass": 5,
+        "class": 1,
+        "race": 3,
+        "creature": 1,
+        "feature": 25,
+        "background": 1,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana",
+        "one-shot"
+      ]
+    },
+    {
+      "slug": "sorcerer-draconic-bloodline-2014",
+      "ruleset": "RULES_2014",
+      "spells": 47,
+      "terms": 4,
+      "features": 33,
+      "equipment": 0,
+      "references": 33,
+      "referenceKinds": {
+        "feat": 17,
+        "background": 2,
+        "metamagic": 11,
+        "subclass": 8,
+        "class": 1,
+        "feature": 35,
+        "race": 1,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Fizban’s Dragonborn",
+        "Fizban’s Treasury of Dragons",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "sorcerer-lunar-sorcery-2014",
+      "ruleset": "RULES_2014",
+      "spells": 44,
+      "terms": 21,
+      "features": 41,
+      "equipment": 0,
+      "references": 39,
+      "referenceKinds": {
+        "feat": 11,
+        "background": 2,
+        "metamagic": 4,
+        "subclass": 6,
+        "race": 4,
+        "rule": 5,
+        "feature": 53,
+        "spell": 6
+      },
+      "remainingMarkers": [
+        "Caster Supremacy",
+        "Fundamental Math",
+        "Shadow of the Dragon Queen",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "sorcerer-metamagic-2014",
+      "ruleset": "RULES_2014",
+      "spells": 35,
+      "terms": 4,
+      "features": 15,
+      "equipment": 0,
+      "references": 16,
+      "referenceKinds": {
+        "feat": 5,
+        "metamagic": 8,
+        "class": 9,
+        "feature": 17,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "RAI",
+        "RAW",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "sorcerer-shadow-magic-2014",
+      "ruleset": "RULES_2014",
+      "spells": 50,
+      "terms": 35,
+      "features": 22,
+      "equipment": 0,
+      "references": 29,
+      "referenceKinds": {
+        "feat": 7,
+        "background": 2,
+        "metamagic": 12,
+        "class": 2,
+        "subclass": 8,
+        "race": 4,
+        "rule": 5,
+        "feature": 23,
+        "spell": 4
+      },
+      "remainingMarkers": [
+        "Draconic (закреслено в оригіналі)",
+        "Hound (закреслено в оригіналі)",
+        "Unearthed Arcana",
+        "breath (закреслено в оригіналі)",
+        "gish",
+        "gives all Slivers “Tap: Target creature takes 2 damage and becomes tapped (закреслено в оригіналі)",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "sorcerer-spells-2014",
+      "ruleset": "RULES_2014",
+      "spells": 524,
+      "terms": 32,
+      "features": 3,
+      "equipment": 0,
+      "references": 17,
+      "referenceKinds": {
+        "feat": 2,
+        "metamagic": 11,
+        "feature": 11,
+        "creature": 1,
+        "spell": 1,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Monster Manual",
+        "NPC",
+        "RAW",
+        "Spelljammer",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "sorcerer-storm-sorcery-2014",
+      "ruleset": "RULES_2014",
+      "spells": 98,
+      "terms": 13,
+      "features": 71,
+      "equipment": 1,
+      "references": 47,
+      "referenceKinds": {
+        "weapon": 1,
+        "feat": 12,
+        "magic-item": 3,
+        "metamagic": 11,
+        "class": 6,
+        "subclass": 9,
+        "race": 15,
+        "feature": 80,
+        "rule": 11,
+        "equipment": 2,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Dragonmarks",
+        "Tasha’s Cauldron of Everything",
+        "Thunderbird",
+        "Unearthed Arcana",
+        "Zapdos"
+      ]
+    },
+    {
+      "slug": "sorcerer-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 77,
+      "terms": 8,
+      "features": 90,
+      "equipment": 0,
+      "references": 74,
+      "referenceKinds": {
+        "feat": 3,
+        "magic-item": 2,
+        "invocation": 1,
+        "metamagic": 5,
+        "subclass": 27,
+        "feature": 98,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Adventurer’s League",
+        "Krynn",
+        "Monster Manual",
+        "Open Gaming License",
+        "RAW",
+        "Sage Advice",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "power creep",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "sorcerer-wild-magic-2014",
+      "ruleset": "RULES_2014",
+      "spells": 38,
+      "terms": 6,
+      "features": 32,
+      "equipment": 0,
+      "references": 25,
+      "referenceKinds": {
+        "feat": 12,
+        "magic-item": 1,
+        "background": 1,
+        "metamagic": 5,
+        "race": 1,
+        "rule": 1,
+        "feature": 33,
+        "subclass": 7
+      },
+      "remainingMarkers": [
+        "Fundamental Math",
+        "Natural 1",
+        "Unearthed Arcana",
+        "make it everyone else’s problem, too (закреслено в оригіналі)",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "spell-sniper-2014",
+      "ruleset": "RULES_2014",
+      "spells": 26,
+      "terms": 4,
+      "features": 0,
+      "equipment": 0,
+      "references": 4,
+      "referenceKinds": {
+        "feat": 2,
+        "feature": 2
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "spellcasting-feats-2014",
+      "ruleset": "RULES_2014",
+      "spells": 7,
+      "terms": 1,
+      "features": 0,
+      "equipment": 0,
+      "references": 13,
+      "referenceKinds": {
+        "feat": 13
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "state-of-the-meta-2014",
+      "ruleset": "RULES_2014",
+      "spells": 2,
+      "terms": 0,
+      "features": 0,
+      "equipment": 0,
+      "references": 16,
+      "referenceKinds": {
+        "feat": 5,
+        "subclass": 1,
+        "race": 8,
+        "feature": 1,
+        "spell": 1
+      },
+      "remainingMarkers": []
+    },
+    {
+      "slug": "strixhaven-backgrounds-2014",
+      "ruleset": "RULES_2014",
+      "spells": 43,
+      "terms": 0,
+      "features": 0,
+      "equipment": 0,
+      "references": 9,
+      "referenceKinds": {
+        "feat": 7,
+        "subclass": 1,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "strixhaven-initiate-2014",
+      "ruleset": "RULES_2014",
+      "spells": 36,
+      "terms": 0,
+      "features": 0,
+      "equipment": 0,
+      "references": 9,
+      "referenceKinds": {
+        "feat": 5,
+        "spell": 4
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "summoning-2014",
+      "ruleset": "RULES_2014",
+      "spells": 86,
+      "terms": 22,
+      "features": 5,
+      "equipment": 0,
+      "references": 206,
+      "referenceKinds": {
+        "feat": 2,
+        "magic-item": 2,
+        "metamagic": 1,
+        "creature": 279,
+        "feature": 51,
+        "spell": 1,
+        "race": 1,
+        "subclass": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "super-mario-jump-2014",
+      "ruleset": "RULES_2014",
+      "spells": 29,
+      "terms": 21,
+      "features": 1,
+      "equipment": 0,
+      "references": 11,
+      "referenceKinds": {
+        "feat": 1,
+        "magic-item": 10,
+        "feature": 2,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Mark of Travel Human"
+      ]
+    },
+    {
+      "slug": "tabaxi-2014",
+      "ruleset": "RULES_2014",
+      "spells": 3,
+      "terms": 12,
+      "features": 8,
+      "equipment": 2,
+      "references": 24,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 1,
+        "subclass": 6,
+        "feature": 45,
+        "race": 4,
+        "magic-item": 2
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "thri-kreen-2014",
+      "ruleset": "RULES_2014",
+      "spells": 4,
+      "terms": 12,
+      "features": 4,
+      "equipment": 0,
+      "references": 19,
+      "referenceKinds": {
+        "feat": 4,
+        "subclass": 5,
+        "feature": 32
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "tiefling-2014",
+      "ruleset": "RULES_2014",
+      "spells": 16,
+      "terms": 16,
+      "features": 2,
+      "equipment": 0,
+      "references": 31,
+      "referenceKinds": {
+        "feat": 2,
+        "subclass": 8,
+        "feature": 19,
+        "race": 53
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "tools-2014",
+      "ruleset": "RULES_2014",
+      "spells": 1,
+      "terms": 47,
+      "features": 0,
+      "equipment": 0,
+      "references": 2,
+      "referenceKinds": {
+        "equipment": 1,
+        "feature": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "tortle-2014",
+      "ruleset": "RULES_2014",
+      "spells": 2,
+      "terms": 0,
+      "features": 4,
+      "equipment": 0,
+      "references": 8,
+      "referenceKinds": {
+        "race": 1,
+        "feature": 9,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "triton-2014",
+      "ruleset": "RULES_2014",
+      "spells": 13,
+      "terms": 0,
+      "features": 0,
+      "equipment": 0,
+      "references": 9,
+      "referenceKinds": {
+        "invocation": 1,
+        "subclass": 4,
+        "feature": 21
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "true-polymorph-and-shapechange-2014",
+      "ruleset": "RULES_2014",
+      "spells": 11,
+      "terms": 10,
+      "features": 1,
+      "equipment": 0,
+      "references": 14,
+      "referenceKinds": {
+        "creature": 9,
+        "feature": 5
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "vedalken-2014",
+      "ruleset": "RULES_2014",
+      "spells": 2,
+      "terms": 3,
+      "features": 4,
+      "equipment": 0,
+      "references": 14,
+      "referenceKinds": {
+        "feature": 37,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "verdan-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 4,
+      "features": 4,
+      "equipment": 0,
+      "references": 12,
+      "referenceKinds": {
+        "feature": 40,
+        "race": 1,
+        "class": 1,
+        "subclass": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "wall-spells-2014",
+      "ruleset": "RULES_2014",
+      "spells": 26,
+      "terms": 3,
+      "features": 0,
+      "equipment": 0,
+      "references": 0,
+      "referenceKinds": {},
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "warforged-2014",
+      "ruleset": "RULES_2014",
+      "spells": 0,
+      "terms": 3,
+      "features": 2,
+      "equipment": 0,
+      "references": 9,
+      "referenceKinds": {
+        "feature": 9,
+        "race": 1,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "warlock-2014",
+      "ruleset": "RULES_2014",
+      "spells": 115,
+      "terms": 42,
+      "features": 47,
+      "equipment": 4,
+      "references": 208,
+      "referenceKinds": {
+        "weapon": 1,
+        "armor": 3,
+        "feat": 80,
+        "magic-item": 83,
+        "background": 17,
+        "invocation": 22,
+        "metamagic": 1,
+        "subclass": 32,
+        "class": 5,
+        "rule": 8,
+        "creature": 2,
+        "feature": 85,
+        "equipment": 1,
+        "race": 4,
+        "spell": 3
+      },
+      "remainingMarkers": [
+        "Staple Build",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "warlock-archfey-2014",
+      "ruleset": "RULES_2014",
+      "spells": 83,
+      "terms": 23,
+      "features": 15,
+      "equipment": 0,
+      "references": 45,
+      "referenceKinds": {
+        "feat": 16,
+        "background": 2,
+        "invocation": 13,
+        "metamagic": 1,
+        "subclass": 10,
+        "race": 8,
+        "rule": 1,
+        "feature": 24,
+        "equipment": 1,
+        "spell": 4
+      },
+      "remainingMarkers": [
+        "Fundamental Math",
+        "NPC",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "warlock-celestial-2014",
+      "ruleset": "RULES_2014",
+      "spells": 55,
+      "terms": 9,
+      "features": 24,
+      "equipment": 0,
+      "references": 37,
+      "referenceKinds": {
+        "feat": 10,
+        "magic-item": 1,
+        "background": 1,
+        "invocation": 19,
+        "class": 3,
+        "subclass": 8,
+        "race": 3,
+        "rule": 1,
+        "feature": 26,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Eberron",
+        "Natural 1",
+        "Unearthed Arcana",
+        "Warlock Handbook",
+        "Xanathar’s Guide to Everything",
+        "cheese grater",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "warlock-fathomless-2014",
+      "ruleset": "RULES_2014",
+      "spells": 59,
+      "terms": 44,
+      "features": 27,
+      "equipment": 3,
+      "references": 37,
+      "referenceKinds": {
+        "armor": 3,
+        "feat": 16,
+        "background": 1,
+        "invocation": 11,
+        "class": 3,
+        "subclass": 5,
+        "race": 4,
+        "rule": 5,
+        "feature": 29,
+        "equipment": 3
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana",
+        "Xanathar’s Guide to Everything",
+        "ribbon",
+        "save-or-suck",
+        "zoning"
+      ]
+    },
+    {
+      "slug": "warlock-fiend-2014",
+      "ruleset": "RULES_2014",
+      "spells": 74,
+      "terms": 13,
+      "features": 22,
+      "equipment": 0,
+      "references": 41,
+      "referenceKinds": {
+        "feat": 11,
+        "invocation": 13,
+        "metamagic": 2,
+        "class": 2,
+        "subclass": 4,
+        "feature": 24,
+        "rule": 1,
+        "creature": 2,
+        "race": 1,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "Fundamental Math",
+        "RAW",
+        "Unearthed Arcana",
+        "gish",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "warlock-genie-2014",
+      "ruleset": "RULES_2014",
+      "spells": 81,
+      "terms": 37,
+      "features": 24,
+      "equipment": 9,
+      "references": 67,
+      "referenceKinds": {
+        "weapon": 7,
+        "armor": 2,
+        "feat": 15,
+        "background": 1,
+        "invocation": 23,
+        "class": 6,
+        "subclass": 12,
+        "race": 3,
+        "feature": 62,
+        "rule": 5,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "Dragonmarked Races",
+        "Elves",
+        "Monsters of the Multiverse",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "warlock-great-old-one-2014",
+      "ruleset": "RULES_2014",
+      "spells": 41,
+      "terms": 23,
+      "features": 25,
+      "equipment": 0,
+      "references": 36,
+      "referenceKinds": {
+        "feat": 7,
+        "background": 1,
+        "invocation": 10,
+        "class": 2,
+        "subclass": 4,
+        "creature": 2,
+        "feature": 29,
+        "spell": 1,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "Fundamental Math",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "warlock-hexblade-2014",
+      "ruleset": "RULES_2014",
+      "spells": 76,
+      "terms": 22,
+      "features": 28,
+      "equipment": 1,
+      "references": 87,
+      "referenceKinds": {
+        "armor": 1,
+        "feat": 34,
+        "background": 1,
+        "invocation": 26,
+        "subclass": 16,
+        "race": 46,
+        "feature": 54,
+        "rule": 6,
+        "creature": 2,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Dragonmarked Dwarf",
+        "Dragonmarked Elf",
+        "Dragonmarked Gnome",
+        "Dragonmarked Half-Elf",
+        "Dragonmarked Half-Orc",
+        "Dragonmarked Halfling",
+        "Dragonmarked Human",
+        "Dude Stop",
+        "Feral",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "dragonmarks"
+      ]
+    },
+    {
+      "slug": "warlock-invocations-2014",
+      "ruleset": "RULES_2014",
+      "spells": 49,
+      "terms": 4,
+      "features": 4,
+      "equipment": 0,
+      "references": 81,
+      "referenceKinds": {
+        "feat": 17,
+        "invocation": 73,
+        "subclass": 7,
+        "race": 4,
+        "feature": 28
+      },
+      "remainingMarkers": [
+        "NPC",
+        "Unearthed Arcana",
+        "murder-hoboing",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "warlock-pact-boons-2014",
+      "ruleset": "RULES_2014",
+      "spells": 19,
+      "terms": 14,
+      "features": 5,
+      "equipment": 0,
+      "references": 23,
+      "referenceKinds": {
+        "feat": 2,
+        "invocation": 19,
+        "subclass": 1,
+        "rule": 2,
+        "feature": 15
+      },
+      "remainingMarkers": [
+        "Blade Warlock",
+        "Unearthed Arcana",
+        "bladelock",
+        "glass cannon"
+      ]
+    },
+    {
+      "slug": "warlock-spells-2014",
+      "ruleset": "RULES_2014",
+      "spells": 263,
+      "terms": 19,
+      "features": 6,
+      "equipment": 0,
+      "references": 30,
+      "referenceKinds": {
+        "feat": 5,
+        "magic-item": 1,
+        "invocation": 15,
+        "subclass": 9,
+        "feature": 18,
+        "rule": 1,
+        "creature": 3,
+        "race": 1
+      },
+      "remainingMarkers": [
+        "BBEG",
+        "Celestia",
+        "Monster Manual",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "warlock-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 175,
+      "terms": 11,
+      "features": 88,
+      "equipment": 1,
+      "references": 89,
+      "referenceKinds": {
+        "armor": 1,
+        "feat": 4,
+        "magic-item": 2,
+        "invocation": 12,
+        "subclass": 19,
+        "creature": 2,
+        "feature": 113,
+        "spell": 5
+      },
+      "remainingMarkers": [
+        "Ghosts of Saltmarsh",
+        "NPC",
+        "RAW",
+        "Unearthed Arcana",
+        "gish",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "warlock-undead-2014",
+      "ruleset": "RULES_2014",
+      "spells": 58,
+      "terms": 15,
+      "features": 56,
+      "equipment": 7,
+      "references": 50,
+      "referenceKinds": {
+        "weapon": 7,
+        "feat": 18,
+        "invocation": 28,
+        "class": 1,
+        "subclass": 3,
+        "rule": 1,
+        "creature": 2,
+        "feature": 80,
+        "magic-item": 1,
+        "race": 2
+      },
+      "remainingMarkers": [
+        "Fundamental Math",
+        "Monsters of the Multiverse",
+        "Unearthed Arcana",
+        "Volo’s Guide to Monsters"
+      ]
+    },
+    {
+      "slug": "warlock-undying-2014",
+      "ruleset": "RULES_2014",
+      "spells": 38,
+      "terms": 11,
+      "features": 16,
+      "equipment": 2,
+      "references": 30,
+      "referenceKinds": {
+        "armor": 2,
+        "feat": 11,
+        "background": 1,
+        "invocation": 11,
+        "class": 2,
+        "race": 2,
+        "rule": 1,
+        "feature": 18
+      },
+      "remainingMarkers": [
+        "Fundamental Math",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "water-genasi-2014",
+      "ruleset": "RULES_2014",
+      "spells": 12,
+      "terms": 0,
+      "features": 1,
+      "equipment": 0,
+      "references": 2,
+      "referenceKinds": {
+        "race": 1,
+        "feature": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "weaponized-bonus-actions-2014",
+      "ruleset": "RULES_2014",
+      "spells": 2,
+      "terms": 16,
+      "features": 5,
+      "equipment": 4,
+      "references": 26,
+      "referenceKinds": {
+        "weapon": 4,
+        "feat": 28,
+        "metamagic": 1,
+        "subclass": 1,
+        "feature": 19,
+        "creature": 1,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "weapons-2014",
+      "ruleset": "RULES_2014",
+      "spells": 1,
+      "terms": 11,
+      "features": 4,
+      "equipment": 1,
+      "references": 23,
+      "referenceKinds": {
+        "weapon": 1,
+        "feat": 11,
+        "magic-item": 3,
+        "infusion": 1,
+        "feature": 10
+      },
+      "remainingMarkers": [
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "wizard-2014",
+      "ruleset": "RULES_2014",
+      "spells": 153,
+      "terms": 39,
+      "features": 25,
+      "equipment": 7,
+      "references": 136,
+      "referenceKinds": {
+        "weapon": 5,
+        "armor": 2,
+        "feat": 37,
+        "magic-item": 73,
+        "background": 8,
+        "metamagic": 5,
+        "class": 3,
+        "subclass": 2,
+        "race": 2,
+        "feature": 29,
+        "rule": 7,
+        "equipment": 1,
+        "spell": 10
+      },
+      "remainingMarkers": [
+        "Dunamancy",
+        "Librarian",
+        "Savant",
+        "Staple Build",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "Utility Caster",
+        "five minute day",
+        "gish",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "wizard-abjuration-2014",
+      "ruleset": "RULES_2014",
+      "spells": 66,
+      "terms": 21,
+      "features": 19,
+      "equipment": 1,
+      "references": 34,
+      "referenceKinds": {
+        "armor": 1,
+        "feat": 15,
+        "invocation": 4,
+        "metamagic": 1,
+        "class": 2,
+        "subclass": 2,
+        "race": 6,
+        "feature": 21,
+        "rule": 5,
+        "creature": 1,
+        "spell": 11
+      },
+      "remainingMarkers": [
+        "Monsters of the Multiverse",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "wizard-bladesinging-2014",
+      "ruleset": "RULES_2014",
+      "spells": 110,
+      "terms": 24,
+      "features": 25,
+      "equipment": 0,
+      "references": 37,
+      "referenceKinds": {
+        "feat": 11,
+        "background": 4,
+        "subclass": 2,
+        "race": 3,
+        "feature": 31,
+        "rule": 5,
+        "spell": 9
+      },
+      "remainingMarkers": [
+        "Adventuring Day",
+        "Girallon’s Blessing",
+        "Monsters of the Multiverse",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "gish"
+      ]
+    },
+    {
+      "slug": "wizard-chronurgy-magic-2014",
+      "ruleset": "RULES_2014",
+      "spells": 55,
+      "terms": 28,
+      "features": 18,
+      "equipment": 0,
+      "references": 22,
+      "referenceKinds": {
+        "feat": 5,
+        "subclass": 1,
+        "race": 4,
+        "rule": 7,
+        "feature": 18,
+        "background": 1,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Dunamancy",
+        "Explorer’s Guide to Wildemount",
+        "Orzhov",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "wizard-conjuration-2014",
+      "ruleset": "RULES_2014",
+      "spells": 46,
+      "terms": 13,
+      "features": 23,
+      "equipment": 0,
+      "references": 25,
+      "referenceKinds": {
+        "feat": 9,
+        "metamagic": 4,
+        "subclass": 1,
+        "class": 1,
+        "feature": 23,
+        "equipment": 1,
+        "spell": 4,
+        "race": 1,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "wizard-divination-2014",
+      "ruleset": "RULES_2014",
+      "spells": 117,
+      "terms": 11,
+      "features": 28,
+      "equipment": 0,
+      "references": 27,
+      "referenceKinds": {
+        "feat": 8,
+        "background": 2,
+        "class": 1,
+        "race": 1,
+        "feature": 30,
+        "rule": 2,
+        "equipment": 1,
+        "spell": 7,
+        "magic-item": 1
+      },
+      "remainingMarkers": [
+        "Forewarned is Four-Armed",
+        "Monster Manual",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "wizard-enchantment-2014",
+      "ruleset": "RULES_2014",
+      "spells": 82,
+      "terms": 22,
+      "features": 34,
+      "equipment": 0,
+      "references": 32,
+      "referenceKinds": {
+        "feat": 10,
+        "background": 1,
+        "metamagic": 1,
+        "subclass": 1,
+        "feature": 35,
+        "race": 3,
+        "rule": 1,
+        "equipment": 1,
+        "spell": 3,
+        "class": 1,
+        "magic-item": 2
+      },
+      "remainingMarkers": [
+        "Caster Supremacy",
+        "Monsters of the Multiverse",
+        "Unearthed Arcana",
+        "Van Richten’s Guide to Ravenloft",
+        "lineages",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "wizard-evoker-2014",
+      "ruleset": "RULES_2014",
+      "spells": 95,
+      "terms": 10,
+      "features": 25,
+      "equipment": 0,
+      "references": 28,
+      "referenceKinds": {
+        "feat": 11,
+        "subclass": 3,
+        "class": 2,
+        "race": 10,
+        "feature": 26,
+        "rule": 5,
+        "equipment": 1,
+        "background": 2,
+        "spell": 4
+      },
+      "remainingMarkers": [
+        "RAW",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "wizard-graviturgy-magic-2014",
+      "ruleset": "RULES_2014",
+      "spells": 41,
+      "terms": 14,
+      "features": 16,
+      "equipment": 1,
+      "references": 29,
+      "referenceKinds": {
+        "weapon": 1,
+        "feat": 9,
+        "invocation": 1,
+        "metamagic": 3,
+        "class": 3,
+        "subclass": 1,
+        "race": 5,
+        "rule": 5,
+        "feature": 18,
+        "spell": 1,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "Muscle Wizard",
+        "Unearthed Arcana"
+      ]
+    },
+    {
+      "slug": "wizard-illusion-2014",
+      "ruleset": "RULES_2014",
+      "spells": 63,
+      "terms": 10,
+      "features": 16,
+      "equipment": 0,
+      "references": 26,
+      "referenceKinds": {
+        "feat": 7,
+        "background": 3,
+        "invocation": 5,
+        "metamagic": 5,
+        "race": 2,
+        "feature": 20,
+        "equipment": 1,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "RAW",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "wizard-necromancy-2014",
+      "ruleset": "RULES_2014",
+      "spells": 63,
+      "terms": 10,
+      "features": 15,
+      "equipment": 3,
+      "references": 30,
+      "referenceKinds": {
+        "weapon": 3,
+        "feat": 11,
+        "magic-item": 2,
+        "background": 2,
+        "subclass": 3,
+        "class": 2,
+        "race": 4,
+        "rule": 5,
+        "creature": 2,
+        "feature": 16,
+        "equipment": 1,
+        "spell": 2
+      },
+      "remainingMarkers": [
+        "From Dust",
+        "RAW",
+        "Unearthed Arcana",
+        "Vaal (закреслено в оригіналі)",
+        "dead reckoning",
+        "oneshot",
+        "save-or-suck",
+        "session zero"
+      ]
+    },
+    {
+      "slug": "wizard-scribes-2014",
+      "ruleset": "RULES_2014",
+      "spells": 90,
+      "terms": 9,
+      "features": 28,
+      "equipment": 0,
+      "references": 28,
+      "referenceKinds": {
+        "feat": 10,
+        "magic-item": 1,
+        "background": 2,
+        "race": 3,
+        "rule": 2,
+        "feature": 28,
+        "equipment": 1,
+        "spell": 4
+      },
+      "remainingMarkers": [
+        "Dunamancy",
+        "Sword Coast Adventurer’s Guide",
+        "Unearthed Arcana",
+        "Xanathar’s Guide to Everything",
+        "dragonmarks",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "wizard-spells-2014",
+      "ruleset": "RULES_2014",
+      "spells": 755,
+      "terms": 54,
+      "features": 5,
+      "equipment": 0,
+      "references": 25,
+      "referenceKinds": {
+        "feat": 2,
+        "magic-item": 3,
+        "subclass": 2,
+        "feature": 18,
+        "race": 2,
+        "creature": 2,
+        "spell": 1
+      },
+      "remainingMarkers": [
+        "Acquisitions Incorporated",
+        "BBEG",
+        "Monster Manual",
+        "NPC",
+        "RAW",
+        "Spelljammer",
+        "Stone to Flesh",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "wizard-subclasses-2014",
+      "ruleset": "RULES_2014",
+      "spells": 118,
+      "terms": 17,
+      "features": 110,
+      "equipment": 0,
+      "references": 85,
+      "referenceKinds": {
+        "feat": 5,
+        "invocation": 2,
+        "race": 2,
+        "feature": 114,
+        "spell": 15
+      },
+      "remainingMarkers": [
+        "Adventurer’s League",
+        "Dunamancy",
+        "Open Gaming License",
+        "Orzhov",
+        "RAW",
+        "Sword Coast Adventurer’s Guide",
+        "Tasha’s Cauldron of Everything",
+        "Unearthed Arcana",
+        "X Savant",
+        "Xanathar’s Guide to Everything",
+        "gish",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "wizard-transmutation-2014",
+      "ruleset": "RULES_2014",
+      "spells": 90,
+      "terms": 3,
+      "features": 19,
+      "equipment": 0,
+      "references": 25,
+      "referenceKinds": {
+        "feat": 9,
+        "metamagic": 4,
+        "class": 3,
+        "subclass": 1,
+        "race": 1,
+        "rule": 1,
+        "feature": 19,
+        "equipment": 1,
+        "spell": 9,
+        "background": 1
+      },
+      "remainingMarkers": [
+        "NPC",
+        "Unearthed Arcana",
+        "save-or-suck"
+      ]
+    },
+    {
+      "slug": "wizard-war-magic-2014",
+      "ruleset": "RULES_2014",
+      "spells": 34,
+      "terms": 37,
+      "features": 22,
+      "equipment": 3,
+      "references": 26,
+      "referenceKinds": {
+        "armor": 3,
+        "feat": 3,
+        "background": 2,
+        "subclass": 2,
+        "class": 6,
+        "race": 6,
+        "feature": 23,
+        "rule": 6,
+        "spell": 6
+      },
+      "remainingMarkers": [
+        "A Crap Guide to D&D",
+        "Monster Manual",
+        "Unearthed Arcana",
+        "crimes (закреслено в оригіналі)"
+      ]
+    }
+  ],
+  "round2": {
+    "measuredAt": "2026-10-10T05:47:21Z",
+    "command": "DATABASE_URL=postgresql://none:none@127.0.0.1:1/none bun scripts/rpgbot/audit-content-hydration.ts",
+    "articleCount": 268,
+    "baseline": {
+      "distinctRemainingMarkers": 294,
+      "articleMarkerPairs": 884,
+      "articlesWithRemainingMarkers": 257,
+      "totals": {
+        "spells": 11860,
+        "terms": 4839,
+        "features": 6048,
+        "equipment": 377
+      },
+      "referenceKinds": {
+        "feat": 2572,
+        "subclass": 1320,
+        "feature": 9870,
+        "race": 997,
+        "metamagic": 179,
+        "spell": 376,
+        "creature": 748,
+        "weapon": 243,
+        "armor": 134,
+        "magic-item": 1242,
+        "background": 327,
+        "infusion": 128,
+        "class": 305,
+        "rule": 426,
+        "equipment": 39,
+        "invocation": 408
+      }
+    },
+    "after": {
+      "distinctRemainingMarkers": 288,
+      "articleMarkerPairs": 877,
+      "articlesWithRemainingMarkers": 257,
+      "totals": {
+        "spells": 11860,
+        "terms": 4856,
+        "features": 6049,
+        "equipment": 377
+      },
+      "referenceKinds": {
+        "feat": 2572,
+        "subclass": 1319,
+        "feature": 9871,
+        "race": 997,
+        "metamagic": 179,
+        "spell": 376,
+        "creature": 748,
+        "weapon": 243,
+        "armor": 134,
+        "magic-item": 1232,
+        "background": 327,
+        "infusion": 128,
+        "class": 305,
+        "rule": 426,
+        "equipment": 42,
+        "invocation": 408
+      }
+    },
+    "closedMarkers": [
+      "Artisan’s Tools",
+      "Elemental Disciplines",
+      "Hit Points",
+      "Natural 1",
+      "downtime",
+      "spellcasting focuses"
+    ],
+    "newMarkers": [],
+    "remainingByClassification": {
+      "source_book_license_or_setting": 41,
+      "joke_fiction_character_or_metaphor": 71,
+      "analysis_jargon_role_or_general_mechanics": 60,
+      "external_guide_author_or_editorial_reference": 20,
+      "ambiguous_family_or_combined_choices": 28,
+      "native_rules_gap_or_identity_review": 18,
+      "lore_language_organization_or_creature_category": 40,
+      "historical_or_hypothetical_rule": 10
+    },
+    "newlyAddedFullDescriptions": [
+      "Arcane Focus (Містичне фокусування)",
+      "Holy Symbol (Священний символ)"
+    ],
+    "newRuleRegistryEntries": {
+      "Hit Points": "Хіти",
+      "Rolling 1 or 20": "Викинуті 1 і 20",
+      "Downtime Activities": "Діяльність у міжчасі",
+      "Artisan's Tools": "Інструменти ремісника",
+      "Material (M)": "Матеріальний (М)"
+    },
+    "unchanged": {
+      "Adventuring Day": "немає локального тексту DMG 2014",
+      "Environment": "вибір підкласу Storm Herald, не правило",
+      "Savant": "сімейство 8 шкільних рис",
+      "X Savant": "сімейство",
+      "Natural Weapons": "тег рис у 5etools, не правило",
+      "Feral": "немає варіанта в 5etools і в seed",
+      "Mark of Travel Human": "BUG-037"
+    },
+    "sideEffects": "У 10 класових статтях (з Винахідником) мітка Hit Points раніше вела до магічного предмета (Apparatus of Kwalish, /magic-items/1004) або до списку омонімів; тепер веде до правила Хіти. Це пояснює terms +1 / magic-item -1 по цих статтях; у fighter-2014 зник один посилальний вибір subclass.",
+    "equipmentLinks": {
+      "before": 39,
+      "after": 42,
+      "articles": [
+        "cleric-2014",
+        "cleric-arcana-domain-2014",
+        "cleric-light-domain-2014"
+      ]
+    }
+  }
+}

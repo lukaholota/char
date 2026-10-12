@@ -1,7 +1,14 @@
 "use client";
 
 import { useEffect, useMemo, type ReactNode } from "react";
-import { SpellChoiceGrid } from "@/components/spells/SpellChoiceGrid";
+import { useSpellRatingContextStore } from "@/lib/stores/spellRatingContextStore";
+import { RpgbotRecommendationToggle } from "@/components/spells/RpgbotRecommendationToggle";
+import { SpellChoiceGrid, type SpellPickTracking } from "@/components/spells/SpellChoiceGrid";
+import { readRpgbotRecommendationsPreference, useRpgbotRecommendationsPreference } from "@/hooks/useRpgbotRecommendationsPreference";
+import { captureRpgbotEvent, type SpellPickSection } from "@/lib/monitoring/rpgbot-analytics";
+import { useSpellRatingFinder } from "@/hooks/useSpellRatingFinder";
+import { hasRatingList } from "@/lib/optimization/spell-rating-casters";
+import type { SpellRatingMatch } from "@/lib/optimization/spell-rating-lookup";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import {
   EMPTY_CLASS_SPELL_SELECTION,
@@ -39,6 +46,7 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
   const usesBook = offer.quota.spellbook > 0 || offer.bookSpells.length > 0;
   const is2014 = offer.ruleset === "RULES_2014";
   const canTakeOutsideSchools = buildSchoolGate(offer, selection);
+  const ratings = useRpgbotRatings(offer);
 
   useEffect(() => {
     onNextDisabledChange?.(!isComplete);
@@ -53,6 +61,8 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
     <div className="space-y-6">
       <p className="text-center text-sm text-slate-400">{describeQuota(offer)}</p>
 
+      {ratings.isAvailable && <RpgbotRecommendationToggle isOn={ratings.isOn} onChange={ratings.toggle} />}
+
       {limits.cantrips.max > 0 && (
         <SpellChoiceSection title="Замовляння" chosen={selection.cantripIds.length} limit={limits.cantrips} catchUp={offer.catchUp.cantrips}>
           <SpellChoiceGrid
@@ -62,6 +72,8 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
             onChange={(cantripIds) => updateSelection({ cantripIds })}
             findGroupLabel={findLevelLabel}
             highestLevelFirst={highestLevelFirst}
+            findRatingMatches={ratings.findMatches}
+            pickTracking={ratings.trackPicks("cantrip")}
           />
         </SpellChoiceSection>
       )}
@@ -75,6 +87,8 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
             onChange={(spellbookIds) => updateSelection({ spellbookIds })}
             findGroupLabel={findLevelLabel}
             highestLevelFirst={highestLevelFirst}
+            findRatingMatches={ratings.findMatches}
+            pickTracking={ratings.trackPicks("spellbook")}
           />
         </SpellChoiceSection>
       )}
@@ -98,6 +112,8 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
               findGroupLabel={findLevelLabel}
               isSelectable={canTakeOutsideSchools}
               highestLevelFirst={highestLevelFirst}
+              findRatingMatches={ratings.findMatches}
+              pickTracking={ratings.trackPicks("prepared")}
             />
           )}
         </SpellChoiceSection>
@@ -111,6 +127,8 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
           swap={selection.cantripSwap}
           onChange={(cantripSwap) => updateSelection({ cantripSwap })}
           highestLevelFirst={highestLevelFirst}
+          findRatingMatches={ratings.findMatches}
+          pickTracking={ratings.trackPicks("cantrip_swap")}
         />
       )}
 
@@ -123,10 +141,49 @@ export function ClassSpellChoiceStep({ offer, onNextDisabledChange, highestLevel
           onChange={(preparedSwap) => updateSelection({ preparedSwap })}
           isSelectable={canTakeOutsideSchools}
           highestLevelFirst={highestLevelFirst}
+          findRatingMatches={ratings.findMatches}
+          pickTracking={ratings.trackPicks("prepared_swap")}
         />
       )}
     </div>
   );
+}
+
+function useRpgbotRatings(offer: ClassSpellOffer) {
+  const casters = useMemo(() => [{ className: offer.className, subclassName: offer.subclassName }], [offer.className, offer.subclassName]);
+  const isAvailable = offer.ruleset === "RULES_2014" && hasRatingList(casters);
+  const [isOn, setIsOn] = useRpgbotRecommendationsPreference();
+  useEffect(() => {
+    if (isAvailable) reportSpellPickerViewOnce(offer.className);
+  }, [isAvailable, offer.className]);
+  const toggle = (enabled: boolean) => {
+    setIsOn(enabled);
+    captureRpgbotEvent("rpgbot_spell_recommendations_toggled", { enabled, class_key: offer.className });
+  };
+  const trackPicks = (section: SpellPickSection): SpellPickTracking | undefined =>
+    isAvailable ? { section, class_key: offer.className, recommendations_on: isOn } : undefined;
+  const findForEnglishName = useSpellRatingFinder(casters, isAvailable && isOn);
+  const setModalCasters = useSpellRatingContextStore((state) => state.setCasters);
+  useEffect(() => {
+    if (!isAvailable || !isOn) return;
+    setModalCasters(casters);
+    return () => setModalCasters([]);
+  }, [isAvailable, isOn, casters, setModalCasters]);
+  const findMatches = useMemo(
+    () => (findForEnglishName ? (spell: SpellChoiceOption) => findForEnglishName(spell.engName) : undefined),
+    [findForEnglishName],
+  );
+  return { isAvailable, isOn, toggle, findMatches, trackPicks };
+}
+
+// Per page and class for the tab's lifetime: going back and forth between wizard steps remounts this step.
+const viewedSpellPickers = new Set<string>();
+
+function reportSpellPickerViewOnce(classKey: string) {
+  const key = `${window.location.pathname}|${classKey}`;
+  if (viewedSpellPickers.has(key)) return;
+  viewedSpellPickers.add(key);
+  captureRpgbotEvent("rpgbot_surface_viewed", { surface: "spell_picker", class_key: classKey, recommendations_on: readRpgbotRecommendationsPreference() });
 }
 
 function SpellSwapSection(props: {
@@ -137,6 +194,8 @@ function SpellSwapSection(props: {
   onChange: (swap: SpellSwap | null) => void;
   isSelectable?: (spell: SpellChoiceOption) => boolean;
   highestLevelFirst?: boolean;
+  findRatingMatches?: (spell: SpellChoiceOption) => SpellRatingMatch[];
+  pickTracking?: SpellPickTracking;
 }) {
   const dropId = props.swap?.dropId ?? null;
   const addId = props.swap?.addId ?? null;
@@ -156,6 +215,7 @@ function SpellSwapSection(props: {
         onChange={(ids) => update({ dropId: ids[0] ?? null, addId })}
         findGroupLabel={findLevelLabel}
         highestLevelFirst={props.highestLevelFirst}
+        findRatingMatches={props.findRatingMatches}
       />
       {dropId !== null && (
         <>
@@ -168,6 +228,8 @@ function SpellSwapSection(props: {
             findGroupLabel={findLevelLabel}
             isSelectable={props.isSelectable}
             highestLevelFirst={props.highestLevelFirst}
+            findRatingMatches={props.findRatingMatches}
+            pickTracking={props.pickTracking}
           />
         </>
       )}

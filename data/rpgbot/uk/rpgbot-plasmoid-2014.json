@@ -1,0 +1,651 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-7e001df6521b8e18",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-7e001df6521b8e18-80b8057ccda48b01",
+      "sourceId": "rpgbot-7e001df6521b8e18",
+      "fetchedAt": "2026-09-29T19:16:06.427803+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:43:16-04:00",
+      "contentHash": "6701480f8de004b688a7e594f27d62b3daf695e57925942ec6e2b1b9f146669e",
+      "title": "Plasmoid: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-7e001df6521b8e18-80b8057ccda48b01.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-plasmoid-2014",
+    "sourceId": "rpgbot-7e001df6521b8e18",
+    "slug": "plasmoid-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Плазмоїд — гайд раси (2014)",
+    "titleEn": "Plasmoid: DnD 5e Race/Species Guide",
+    "topics": [
+      "раса",
+      "Плазмоїд"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "articleId": "rpgbot-plasmoid-2014",
+      "sourceRevisionId": "rpgbot-7e001df6521b8e18-80b8057ccda48b01",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "sourceAnchor": "introduction",
+          "heading": "Вступ",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Плазмоїди — розумні істоти типу Слиз із космосу й перші ігрові слизи в D&D 5e. З ними ви можете втілити мрію бути безкістковою, безформною калюжею самого себе. Якщо безформність вам не до душі, можна набути людиноподібної подоби: приблизно дві руки, приблизно дві ноги й аж одна голова. У такій подобі ви переважно нагадуєте драглистого гуманоїда."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більшість рис Плазмоїда повʼязані з його слизовою природою. Ви вправно захоплюєте інших, просочуєтеся крізь вузькі отвори, маєте опір кислотній та отруйній шкоді й можете створити псевдоніжку{{Pseudopod}}, щоб торкатися речей за 10 футів від себе."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Завдяки Перевазі під час Захоплення та опору шкоді Плазмоїд явно задуманий як бойовий персонаж передньої лінії. Проте без побудови навколо Сили користі від нього небагато. Тому Плазмоїд привабить вузьке коло класів і побудов, які можуть робити додаткові атаки та зазвичай добре працюють із високою Силою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/plasmoid/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як розуміти систему оцінок RPGBOT",
+                    "href": "https://rpgbot.net/dnd5/characters/races/plasmoid/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Класи",
+                    "href": "https://rpgbot.net/dnd5/characters/races/plasmoid/#classes"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "sourceAnchor": "disclaimer",
+          "heading": "Як розуміти систему оцінок RPGBOT",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGBOT використовує кольорову систему оцінок, яку легко зрозуміти й швидко прочитати. Вона допомагає гравцям ухвалювати обґрунтовані рішення щодо побудови персонажа D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Червоний"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Помаранчевий"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Прийнятні варіанти або корисні лише за рідкісних обставин. Іноді корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Зелений"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Синій"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Чудові варіанти, які часто є основою роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан мети оптимізації персонажів D&D 5e 2014 року",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Майте на увазі, що мета час від часу змінюється з виходом нових матеріалів, а статтю оновлюють, коли зʼявляється можливість."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми не включаємо до гайдів за офіційними матеріалами сторонній контент, матеріали Unearthed Arcnaa чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes",
+          "sourceAnchor": "classes",
+          "heading": "Класи",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "artificer",
+          "heading": "Винахідник",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Опір кислотній та отруйній шкоді чудово пасує персонажам передньої лінії. За допомогою Вливання{{Infusion}} можна отримати опір іще одному типу шкоди та стати дуже живучим."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "barbarian",
+          "heading": "Варвар",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Опір кислотній та отруйній шкоді корисний бойовим персонажам передньої лінії. Перевага на початку Захоплення теж приємна, але її можна отримати й завдяки Люті{{Rage}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "bard",
+          "heading": "Бард",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бард не повинен так часто потрапляти під удари, щоб опір шкоді мав велике значення. А з музичним інструментом у руках крізь вузький отвір не протиснешся."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "cleric",
+          "heading": "Клірик",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірику потрібні обладунок, щит і священний символ, тому просочуватися крізь отвори не вийде. Якщо ви граєте персонажем передньої лінії, опір шкоді стане в пригоді."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "druid",
+          "heading": "Друїд",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо потрібно пролізти в отвір завширшки один дюйм, перетворіться на восьминога. Так вам навіть не доведеться скидати спорядження."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "fighter",
+          "heading": "Воїн",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Опір кислотній та отруйній шкоді корисний бойовим персонажам передньої лінії, а Перевага на початку Захоплення для Воїна просто чудова. Візьміть високу Силу й Володіння Атлетикою, і справи підуть добре. Утім, для поєднання "
+                },
+                {
+                  "type": "link",
+                  "text": "Захоплення і Штовхання",
+                  "href": "https://rpgbot.net/dnd5/characters/grapple/"
+                },
+                {
+                  "type": "text",
+                  "text": " вам, імовірно, все одно знадобиться Експертиза{{Expertise}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "monk",
+          "heading": "Монах",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мабуть, найкращий вибір для Плазмоїда: Монах добре діє без спорядження. Монах-плазмоїд може просочитися крізь щілину, присвятити хід атакам, а потім повернутися назад і перечекати раунд у безпеці."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-monk-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Шлях астрального «я»|Way of the Astral Self}} вирізняється тим, що дає Монаху змогу ефективно Захоплювати противників. У поєднанні з Перевагою Плазмоїда на початку Захоплення це доволі привабливо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "paladin",
+          "heading": "Паладин",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Опір кислотній та отруйній шкоді корисний бойовим персонажам передньої лінії, а Перевага на початку Захоплення просто чудова. Проте Паладин отримує менше атак і покращень характеристик, ніж Воїн, тому оптимізувати його під поєднання Захоплення та Штовхання значно важче."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "ranger",
+          "heading": "Слідопит",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Опір шкоді корисний, але Слідопиту потрібні обладунок і зброя, тому користуватися здатністю Плазмоїда просочуватися крізь отвори під час розвідки ризиковано. Слідопита, побудованого навколо Сили, складніше створити, ніж побудованого навколо Спритності; кращі навички Захоплення навряд чи розвʼяжуть цю проблему."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "rogue",
+          "heading": "Пройдисвіт",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Опір шкоді корисний, але Пройдисвіту потрібні обладунок і зброя, тому користуватися здатністю Плазмоїда просочуватися крізь отвори під час розвідки ризиковано."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "sorcerer",
+          "heading": "Чародій",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У Чародія чимало добрих заклинань без матеріальних компонентів, тож легко створити Чародія, який може діяти без спорядження. Але будьте обережні, коли крадетеся на самоті з кубиками здоровʼя к6."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "warlock",
+          "heading": "Чорнокнижник",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У Чорнокнижника чимало добрих заклинань без матеріальних компонентів, тож легко створити Чорнокнижника, який може діяти без спорядження."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes",
+          "sourceAnchor": "wizard",
+          "heading": "Чарівник",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чарівникові доводиться носити з собою книгу заклять, тому просочуватися крізь отвори складно. До того ж Чарівникові саме по собі небезпечно залишатися будь-де на самоті. Опір шкоді корисний, але його можна замінити заклинаннями."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-plasmoid-2014-artificer",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "artificer",
+      "context": "Винахідник",
+      "score": 3,
+      "sourceColor": "green",
+      "explanationBlockId": "block-section-artificer-1"
+    },
+    {
+      "ratingId": "rating-plasmoid-2014-barbarian",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "barbarian",
+      "context": "Варвар",
+      "score": 3,
+      "sourceColor": "green",
+      "explanationBlockId": "block-section-barbarian-1"
+    },
+    {
+      "ratingId": "rating-plasmoid-2014-bard",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "bard",
+      "context": "Бард",
+      "score": 2,
+      "sourceColor": "orange",
+      "explanationBlockId": "block-section-bard-1"
+    },
+    {
+      "ratingId": "rating-plasmoid-2014-cleric",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "cleric",
+      "context": "Клірик",
+      "score": 2,
+      "sourceColor": "orange",
+      "explanationBlockId": "block-section-cleric-1"
+    },
+    {
+      "ratingId": "rating-plasmoid-2014-druid",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "druid",
+      "context": "Друїд",
+      "score": 2,
+      "sourceColor": "orange",
+      "explanationBlockId": "block-section-druid-1"
+    },
+    {
+      "ratingId": "rating-plasmoid-2014-fighter",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "fighter",
+      "context": "Воїн",
+      "score": 4,
+      "sourceColor": "blue",
+      "explanationBlockId": "block-section-fighter-1"
+    },
+    {
+      "ratingId": "rating-plasmoid-2014-monk",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "monk",
+      "context": "Монах",
+      "score": 4,
+      "sourceColor": "blue",
+      "explanationBlockId": "block-section-monk-1"
+    },
+    {
+      "ratingId": "rating-plasmoid-2014-paladin",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "paladin",
+      "context": "Паладин",
+      "score": 3,
+      "sourceColor": "green",
+      "explanationBlockId": "block-section-paladin-1"
+    },
+    {
+      "ratingId": "rating-plasmoid-2014-ranger",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "ranger",
+      "context": "Слідопит",
+      "score": 3,
+      "sourceColor": "green",
+      "explanationBlockId": "block-section-ranger-1"
+    },
+    {
+      "ratingId": "rating-plasmoid-2014-rogue",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "rogue",
+      "context": "Пройдисвіт",
+      "score": 3,
+      "sourceColor": "green",
+      "explanationBlockId": "block-section-rogue-1"
+    },
+    {
+      "ratingId": "rating-plasmoid-2014-sorcerer",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "sorcerer",
+      "context": "Чародій",
+      "score": 3,
+      "sourceColor": "green",
+      "explanationBlockId": "block-section-sorcerer-1"
+    },
+    {
+      "ratingId": "rating-plasmoid-2014-warlock",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "warlock",
+      "context": "Чорнокнижник",
+      "score": 3,
+      "sourceColor": "green",
+      "explanationBlockId": "block-section-warlock-1"
+    },
+    {
+      "ratingId": "rating-plasmoid-2014-wizard",
+      "articleId": "rpgbot-plasmoid-2014",
+      "translationRevisionId": "translation-rpgbot-plasmoid-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "wizard",
+      "context": "Чарівник",
+      "score": 2,
+      "sourceColor": "orange",
+      "explanationBlockId": "block-section-wizard-1"
+    }
+  ]
+}

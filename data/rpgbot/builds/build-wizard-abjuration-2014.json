@@ -1,0 +1,786 @@
+{
+  "buildId": "build-wizard-abjuration-2014",
+  "revisionId": "build-wizard-abjuration-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "Школи огородження — «Крампни Піжамного Чоловіка в Шпилястому Капелюсі»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+      "sectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "ARTIFICER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WIZARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "mind-sliver",
+            "minor-illusion",
+            "toll-the-dead"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "absorb-elements",
+            "fog-cloud",
+            "grease",
+            "shield"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WIZARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "SCHOOL_OF_ABJURATION",
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WIZARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "invisibility",
+            "shatter"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WIZARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "prestidigitation"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "tashas-mind-whip",
+            "web"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WIZARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "counterspell",
+            "dispel-magic"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WIZARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "fireball",
+            "lightning-bolt"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WIZARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "phantom-steed",
+            "summon-fey"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WIZARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "summon-undead",
+            "greater-invisibility"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WIZARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "sickening-radiance",
+            "summon-aberration"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WIZARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "fire-bolt"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "hold-monster",
+            "rarys-telepathic-bond"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WIZARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "summon-draconic-spirit",
+            "wall-of-force"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WIZARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "MEDIUM_ARMOR_MASTER",
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "wall-of-stone",
+            "globe-of-invulnerability"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WIZARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "true-seeing",
+            "forcecage"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WIZARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "teleport"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WIZARD_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "antimagic-field",
+            "feeblemind"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WIZARD_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WIZARD_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "foresight",
+            "wish"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WIZARD_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WIZARD_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-abjuration-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+          "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ARMORER",
+    "raceKey": "ORC_MPMM",
+    "backgroundKey": "CUSTOM",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 15
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-multiclassin-in-my-subclass-guide",
+        "title": "Мультикласування? У моєму гайді з підкласу?",
+        "text": "Так, один рівень Винахідника. Нам потрібні обладунки й володіння ряткидками Статури, не вкладаючи надто багато рис, щоб воно того вартувало. Чи можна грати Заборонцем без цього занурення? Звісно. Але я намагаюся цією збіркою справді залишити бійців без роботи. Просто абсолютно знищити концепцію ролей у групі, що дають бійцям хоч щось робити.\n\nМи зазвичай уникаємо мультикласування в довідниках із підкласів, бо збірки з мультикласуванням можуть здаватися підміною обіцяного, коли люди очікують допомоги з конкретним підкласом. Але, як я пояснюю в таблиці рівнів нижче, Школа огородження не надто впливає на ваш стиль гри, окрім керування «Арканною вартою», тож щоб зробити цю збірку цікавішою за «ось стандартний чарівник», я вирішив приправити її зануренням у клас.\n\nЯкщо хочете зіграти цю збірку без занурення в інший клас, гірські дворфи отримують середні обладунки, а черепахи — фіксований КБ 17. Це не дасть володіння щитами й не дасть володіння ряткидками Статури, але це збірка SAD, тож у неї можна без особливих проблем вписати «Стійкого (Статура)»{{Resilient (Constitution)}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-multiclassin-in-my-subclass-guide",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-what-is-this-power-creep-malarky-wotc-has-gone-too-far",
+        "title": "Що це за дурниці з наростанням потужності? WotC зайшли надто далеко!",
+        "text": "Щоб зробити майже таку саму збірку, використовуючи лише варіанти PHB 2016 року, вкладіть 15 Спритності натомість у Силу, змініть расу на Варіант людини{{V Human}} і візьміть рису «Здоровань»{{Tough}}. Станьте Воїном 1 із Бойовим Стилем «Оборона»{{Defense}} замість Винахідника й носіть важкі обладунки замість середніх. Потім візьміть 19 рівнів Чарівника точно як нижче, замінивши «Майстра середніх обладунків»{{Medium Armor Master}} на «Бойового заклинателя»{{War Caster}} чи щось подібне. Це було можливо в грі з першого дня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-what-is-this-power-creep-malarky-wotc-has-gone-too-far",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми дотримуємося моїх пропозицій щодо купівлі характеристик із вищого розділу: отримуємо 15 у Спритності, Статурі й Інтелекті, а потім додаємо расові +1 до всіх трьох.\n\n Базове значення Підвищене значення Рівень 20 Сила 8 8 8 Спритність 15 16 16 Статура 15 16 20 Інтелект 15 16 20 Мудрість 8 8 8 Харизма 8 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Обрана нами раса — Орк{{Orc}} (версія з «Монстрів Мультивсесвіту»{{Monsters of the Multiverse}}). Не з жодної механічної причини, хоч можливість робити Ривок і отримувати трохи тимчасових ХП бонусною дією кілька разів на день досить зручна, а відмова опускатися до 0 раз на день може врятувати ситуацію раз чи двічі. Ні, ми Орк, бо назва збірки зʼявилася раніше за все інше в цьому гайді. Не те щоб якась інша раса значно змінила збірку.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Для нашої передісторії ми налаштовуємо власну передісторію, щоб отримати і Акробатику, і Непомітність. У нас пристойна Спритність, і її непогано використати. Частина нашої мети — не виглядати чарівником, коли в цьому немає потреби.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "З першого рівня, у Винахіднику, ми беремо навички Магія й Розслідування, а також отримуємо інструменти злодія, що дозволяє нам час від часу впоратися з пасткою чи замком скромніше. Маю на увазі те, що заклинання Стукіт [Knock] спричиняє «гучний стукіт, чутний на відстані до 300 футів». У поєднанні з навичками з нашої налаштованої передісторії ми маємо всі ті традиційні навички негідника. Чарівника-негідника. Для колориту ми також володіємо кухарським начинням, але можемо взяти будь-який інструмент ремісника від нашого рівня Винахідника, і все вийде так само.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Оскільки ми занурюємося на один рівень у Винахідника, наші Риси/Покращення Характеристик відкладаються на один рівень. Не кінець світу.\n\nНа 4-му рівні Чарівника, 5-му загалом, ми беремо Покращення Характеристик на +2 Інтелекту, досягаючи 18.\n\nНа 8-му рівні Чарівника, 9-му загалом, ми беремо ще одне Покращення Характеристик на +2 Інтелекту, досягаючи 20.\n\nНа 12-му рівні Чарівника, 13-му загалом, ми беремо «Майстра середніх обладунків»{{Medium Armor Master}}. Так, я знаю, це трохи дивно, але в нас є Спритність, щоб його підтримати, і володіння Непомітністю. Це справді дає додаткову міцність і потенціал для шпигунства й інтриг, що набагато веселіше, ніж Стеження [Scrying] чи щось подібне. Альтернативно «Здоровань»{{Tough}} може дати інший шар міцності, але він не такий синергійний з «Арканною вартою», як ще +1 до КБ.\n\nНа 16-му рівні Чарівника, 17-му загалом, ми беремо Покращення Характеристик на +2 Статури, досягаючи 18.\n\nНа 19-му рівні Чарівника, 20-му загалом, ми беремо Покращення Характеристик на +2 Статури, досягаючи 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Середні обладунки\nЩит\nМагічне майстрування\nНавички:\n– Акробатика\n– Магія\n– Розслідування\n– Непомітність\nІнструменти:\n– Кухарське начиння\n– Інструменти злодія\n– Інструменти лудильника\nЧаротворство\nЗамовляння:\n– Магічна рука\n– Настанова\nЗаклинання 1-го рівня:\n– Тривога\n– Виявлення магії\n– Скорохід",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Заклинання книги на рівнях 3–20",
+        "reason": "Автор групує заклинання за колом, а не за рівнем: на 4-му рівні чотири заклинання 2-го кола, на 6-му пʼять 3-го тощо, хоч Чарівник додає до книги лише два на рівень. Пресет записує названі заклинання по два на рівень у порядку автора, не раніше, ніж Чарівник може їх вивчити; решта місць у книзі (на 3, 15, 17, 19, 20-му рівні) — вибір платформи, автор не називає; можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Підклас Винахідника",
+        "reason": "Підклас Винахідника з 3-го рівня автор не обирає, бо бере лише один рівень Винахідника; ключ підкласу в специфікації формальний.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Тривога у книзі заклинань",
+        "reason": "Автор радить мати Тривогу в книзі заклинань Чарівника, але платформа не дозволяє двічі записати заклинання, яке вже підготовлене як заклинання Винахідника; два вільні місця книги лишено гравцеві.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Майстерність заклинань і Фірмові заклинання",
+        "reason": "Автор радить Обладунок мага або Щит та Психічний батіг Таші або Друзки для Майстерності заклинань (19-й рівень), але каталог не має вибору цих заклинань, тож у пресеті їх не записано; обирає гравець на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння 11-го рівня",
+        "reason": "На 11-му рівні автор пропонує Вогняний заряд або Моторошний дотик; пресет бере перший названий — Вогняний заряд.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-abjuration-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+            "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

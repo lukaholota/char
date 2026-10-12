@@ -1,0 +1,385 @@
+{
+  "date": "2026-10-05",
+  "ruleset": "RULES_2014",
+  "source": "data/5etools/raw/races.json",
+  "originalRules": [
+    {
+      "name": "Half-Orc",
+      "source": "PHB",
+      "page": 40,
+      "entries": [
+        {
+          "name": "Age",
+          "type": "entries",
+          "entries": [
+            "Half-orcs mature a little faster than humans, reaching adulthood around age 14. They age noticeably faster and rarely live longer than 75 years."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Half-orcs are somewhat larger and bulkier than humans, and they range from 5 to well over 6 feet tall. Your size is Medium."
+          ]
+        },
+        {
+          "name": "Darkvision",
+          "entries": [
+            "Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Menacing",
+          "entries": [
+            "You gain proficiency in the {@skill Intimidation} skill."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Relentless Endurance",
+          "entries": [
+            "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Savage Attacks",
+          "entries": [
+            "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script."
+          ],
+          "type": "entries"
+        }
+      ]
+    },
+    {
+      "name": "Leonin",
+      "source": "MOT",
+      "page": 20,
+      "entries": [
+        {
+          "name": "Age",
+          "type": "entries",
+          "entries": [
+            "Leonin mature and age at about the same rate as humans."
+          ]
+        },
+        {
+          "name": "Alignment",
+          "type": "entries",
+          "entries": [
+            "Leonin tend toward good alignments. Leonin who are focused on the pride lean toward lawful good."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Leonin are typically over 6 feet tall, with some standing over 7 feet. Your size is Medium."
+          ]
+        },
+        {
+          "name": "Darkvision",
+          "entries": [
+            "You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Claws",
+          "entries": [
+            "Your claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you can deal slashing damage equal to {@damage 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Hunter's Instincts",
+          "entries": [
+            "You have proficiency in one of the following skills of your choice: {@skill Athletics}, {@skill Intimidation}, {@skill Perception}, or {@skill Survival}."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Daunting Roar",
+          "entries": [
+            "As a bonus action, you can let out an especially menacing roar. Creatures of your choice within 10 feet of you that can hear you must succeed on a Wisdom saving throw or become {@condition frightened} of you until the end of your next turn. The DC of the save equals 8 + your proficiency bonus + your Constitution modifier. Once you use this trait, you can't use it again until you finish a short or long rest."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Leonin."
+          ],
+          "type": "entries"
+        }
+      ]
+    },
+    {
+      "name": "Goliath",
+      "source": "VGM",
+      "page": 108,
+      "otherSources": [
+        {
+          "source": "EEPC",
+          "page": 10
+        },
+        {
+          "source": "EGW",
+          "page": 175
+        },
+        {
+          "source": "IDRotF"
+        }
+      ],
+      "entries": [
+        {
+          "name": "Age",
+          "type": "entries",
+          "entries": [
+            "Goliaths have lifespans comparable to humans. They enter adulthood in their late teens and usually live less than a century."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Goliaths are between 7 and 8 feet tall and weigh between 280 and 340 pounds. Your size is Medium."
+          ]
+        },
+        {
+          "name": "Natural Athlete",
+          "entries": [
+            "You have proficiency in the {@skill Athletics} skill."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Stone's Endurance",
+          "entries": [
+            "You can focus yourself to occasionally shrug off injury. When you take damage, you can use your reaction to roll a {@dice d12}. Add your Constitution modifier to the number rolled, and reduce the damage by that total. After you use this trait, you can't use it again until you finish a short or long rest."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Powerful Build",
+          "entries": [
+            "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Mountain Born",
+          "entries": [
+            "You have resistance to cold damage. You're also acclimated to high altitude, including elevations above 20,000 feet."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Giant."
+          ],
+          "type": "entries"
+        }
+      ]
+    },
+    {
+      "name": "Goliath",
+      "source": "MPMM",
+      "page": 21,
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Little Giant",
+          "entries": [
+            "You have proficiency in the {@skill Athletics} skill, and you count as one size larger when determining your carrying weight and the weight you can push, drag, or lift."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Mountain Born",
+          "entries": [
+            "You have resistance to cold damage. You also naturally acclimate to high altitudes, even if you've never been to one. This includes elevations above 20,000 feet."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Stone's Endurance",
+          "entries": [
+            "You can supernaturally draw on unyielding stone to shrug off harm. When you take damage, you can use your reaction to roll a {@dice d12}. Add your Constitution modifier to the number rolled and reduce the damage by that total.",
+            "You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Variant; Mark of Finding",
+      "source": "ERLW",
+      "raceName": "Half-Orc",
+      "raceSource": "PHB",
+      "page": 41,
+      "reprintedAs": [
+        {
+          "uid": "Mark of Finding|EFA",
+          "tag": "feat"
+        }
+      ],
+      "traitTags": [
+        "Dragonmark",
+        "Skill Bonus Dice"
+      ],
+      "skillProficiencies": null,
+      "languageProficiencies": [
+        {
+          "common": true,
+          "goblin": true
+        }
+      ],
+      "soundClip": {
+        "type": "internal",
+        "path": "races/half-orc.opus"
+      },
+      "additionalSpells": [
+        {
+          "innate": {
+            "1": [
+              "hunter's mark"
+            ],
+            "3": {
+              "daily": {
+                "1": [
+                  "locate object"
+                ]
+              }
+            }
+          },
+          "expanded": {
+            "s1": [
+              "faerie fire",
+              "longstrider"
+            ],
+            "s2": [
+              "locate animals or plants",
+              "locate object"
+            ],
+            "s3": [
+              "clairvoyance",
+              "speak with plants"
+            ],
+            "s4": [
+              "divination",
+              "locate creature"
+            ],
+            "s5": [
+              "commune with nature"
+            ]
+          },
+          "ability": "wis"
+        }
+      ],
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+          ],
+          "data": {
+            "overwrite": "Darkvision"
+          }
+        },
+        {
+          "type": "entries",
+          "name": "Hunter's Intuition",
+          "entries": [
+            "When you make a Wisdom ({@skill Perception}) or Wisdom ({@skill Survival}) check, you can roll a {@dice d4} and add the number rolled to the ability check."
+          ],
+          "data": {
+            "overwrite": "Menacing"
+          }
+        },
+        {
+          "type": "entries",
+          "name": "Finder's Magic",
+          "entries": [
+            "You can cast the {@spell hunter's mark} spell with this trait. Starting at 3rd level, you can also cast the {@spell locate object} spell with it. Once you cast either spell with this trait, you can't cast that spell with it again until you finish a long rest. Wisdom is your spellcasting ability for these spells."
+          ],
+          "data": {
+            "overwrite": "Relentless Endurance"
+          }
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Goblin."
+          ],
+          "data": {
+            "overwrite": "Languages"
+          }
+        },
+        {
+          "type": "entries",
+          "name": "Spells of the Mark",
+          "entries": [
+            "If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Finding Spells table are added to the spell list of your spellcasting class.",
+            {
+              "type": "table",
+              "caption": "Mark of Finding Spells",
+              "colLabels": [
+                "Spell Level",
+                "Spells"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1st",
+                  "{@spell faerie fire}, {@spell longstrider}"
+                ],
+                [
+                  "2nd",
+                  "{@spell locate animals or plants}, {@spell locate object}"
+                ],
+                [
+                  "3rd",
+                  "{@spell clairvoyance}, {@spell speak with plants}"
+                ],
+                [
+                  "4th",
+                  "{@spell divination}, {@spell locate creature}"
+                ],
+                [
+                  "5th",
+                  "{@spell commune with nature}"
+                ]
+              ]
+            }
+          ],
+          "data": {
+            "overwrite": "Savage Attacks"
+          }
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Relentless Endurance recharges on long rest, not short rest as claimed in Orcish Fury analysis.",
+    "Savage Attacks requires weapon damage dice; ordinary unarmed strikes do not provide them.",
+    "Legacy Stone’s Endurance (VGM, also EEPC) and MPMM use different recharge rules.",
+    "Leonin chooses one of four skills; Intimidation is not automatic.",
+    "Leonin and Half-Orc do not have MPMM reprints; boilerplate claim annotated.",
+    "New-term question for five trait names is still pending; no proposed names have been silently approved.",
+    "Spells of the Mark (Finding) corrected to all nine expanded spells; innate Finder’s Magic spells are separate."
+  ]
+}

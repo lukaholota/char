@@ -1,0 +1,1984 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-bfb3221bacbfb1f3",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+      "sourceId": "rpgbot-bfb3221bacbfb1f3",
+      "fetchedAt": "2026-09-29T19:21:19.470542+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:41:07-04:00",
+      "contentHash": "49f5be6d06d11c273c7a87498775f7c00dec2a6fb65ac8cd078e36c535e71e1e",
+      "title": "Fey Wanderer Ranger 5e: DnD Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-bfb3221bacbfb1f3-803e9898e92eb100.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-ranger-fey-wanderer-2014",
+    "sourceId": "rpgbot-bfb3221bacbfb1f3",
+    "slug": "ranger-fey-wanderer-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Мандрівник Фей — гайд підкласу Слідопита (2014)",
+    "titleEn": "Fey Wanderer Ranger 5e: DnD Subclass Guide",
+    "topics": [
+      "Слідопит",
+      "Мандрівник Фей",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "sourceRevisionId": "rpgbot-bfb3221bacbfb1f3-803e9898e92eb100",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хитрий і складний, проте дуже ефективний Мандрівник Фей — чудовий підклас, який багато пропонує гравцям, що вміють використовувати його сповна. Можна грати ним як звичайнішим Слідопитом, наприклад Мисливцем або Убивцею монстрів, але тоді втратите багато можливостей, завдяки яким він справді сяє. Натомість він заохочує Слідопита на Мудрості з більшим наголосом на чаротворенні й соціальних навичках, ніж звичний лучник, який завдає величезної шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо обрали Мандрівника Фей, візьміть соціальні навички на кшталт Переконання. Зазвичай Слідопиту це складно, але {{Потойбічний гламур|Otherworldly Glamour}} дозволяє додавати до перевірок Харизми і Мудрість, і Харизму, роблячи вас надзвичайно ефективним представником групи. Також можна створити персонажа, однаково вправного в Аналізі поведінки й соціальних навичках на Харизмі, що зазвичай важко. Загалом Мандрівник Фей додає представника групи до можливих ролей Слідопита."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання та класові вміння Мандрівника Фей сильно залежать від чаротворчої характеристики, тож виникає спокуса взяти бойовий стиль {{Друїдичний воїн|Druidic Warrior}}, але будьте обережні. {{Жахливі удари|Dreadful Strikes}} працюють лише зі зброєю, тому не покладайтеся на Створення вогню [Produce Flame] як основну атаку. А от Кийок [Shillelagh] чудово працюватиме."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Мандрівника Фей",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#fey-wanderer-ranger-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#fey-wanderer-ranger-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#fey-wanderer-ranger-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#fey-wanderer-ranger-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#fey-wanderer-ranger-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад персонажа — Мандрівний Мандрівник Фей",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#example-build-wandering-fey-wanderer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Мандрівника Фей",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Жахливі удари{{Dreadful Strikes}}: приблизно відповідають Мисливська мітка [Hunter's Mark], але мають багато переваг. Найочевидніша — безкоштовність, проте це ще не все. Не вимагають дій. Складаються з бонусом шкоди Мисливської мітки. Психічну шкоду рідко зменшує опір. Працюють лише раз по кожній цілі за хід, але якщо влучите в кілька цілей, усі отримають бонус. Також працюють із провокованими атаками; Мисливська мітка теж, але це однаково приємно. Єдиний недолік: при зосередженні на одній цілі працюють трохи гірше за Мисливську мітку, тож вона все ще може бути варта слота.\n\nОскільки бонус застосовується раз по кожній цілі за хід, ви зацікавлені атакувати кілька цілей, якщо можете. Далекобійна зброя підходить найкраще, але її важко поєднати з високою Мудрістю, очікуваною від Мандрівника Фей. Найімовірніше, захочете використовувати заклинання на кшталт Удар Зефіра [Zephyr Strike], щоб швидко переміщуватися між кількома цілями й атакувати їх."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Магія мандрівника фей|Fey Wanderer Magic}}: більшість варіантів корисні лише ситуативно, але ви отримуєте Туманний крок [Misty Step], який добрий рівно для 100% персонажів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: дивний механічний вибір, але тематично зрозумілий. Ваша СК ряткидка не дорівнюватиме СК повноцінного чаротворця, якщо не будуєте персонажа на Мудрості з Друїдичним воїном. Причарування особи [Charm Person] не повідомляє, чи спрацювало, тож користуйтеся ним дуже обережно. Слотів недостатньо, щоб повторювати заклинання до повної впевненості в успіху."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: найкращий варіант телепортації в бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: необхідне в будь-якій групі. Звичайний Слідопит не має бути тим, хто створює це заклинання, але Мандрівник Фей — виняток. Ви не отримуєте високорівневих слотів для автоматичного розвіювання, а більшості Слідопитів бракує Мудрості для перевірки характеристики. Проте Мандрівник Фей зосереджений саме на Мудрості, тож має пристойний шанс успіху. Однаково шукайте підсилення на кшталт Покращення здібності [Enhance Ability], щоб якнайбільше підвищити цей шанс."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "13-й рівень: менш звичний варіант бойової телепортації, ніж Туманний крок, але має більшу дальність і не вимагає прямої видимості. Тому сильніший поза боєм або для повної втечі зі сутички. Туманний крок усе ще використовуватимете частіше завдяки бонусній дії та нижчому рівню слота, але Двері між вимірами [Dimension Door] проведе вас крізь стіни й замкнені двері."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "17-й рівень: ситуативно. Не надто хороший бойовий варіант, але поза боєм дає досить безпечний спосіб розвідати місцевість або обдурити інших істот, якщо звичайна непомітність із якоїсь причини не допомагає."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Потойбічний гламур{{Otherworldly Glamour}}: одна соціальна навичка, і ви додаєте модифікатор Мудрості до всіх перевірок Харизми на додачу до модифікатора самої Харизми. Цього вистачає для ефективного представника групи без високої Харизми, але невелике вкладення все ще доречне. Не варто дозволяти Харизмі 8 тягнути вас униз."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Блукаючий розум|Beguiling Twist}}: кумедно й дуже ефективно, проте, найімовірніше, складно використати на повну. Очевидне застосування — фактично перенаправляти ворожі ефекти причарування чи страху назад на ворогів. Це чудово працює й може призвести до того, що дракон лякається власної {{Жахлива присутність|Frightful Presence}}. Для максимальної ефективності потрібні союзники, які надійно проходять ряткидки проти причарування й страху. Майже завжди це ряткидки Мудрості чи Харизми, тож допомагають високі значення цих характеристик і володіння відповідними ряткидками. Також шукайте расові риси на кшталт {{Хоробрість|Brave}} та класові вміння на кшталт {{Аура захисту|Aura of Protection}}.\n\nМенш очевидне застосування — наступальне. Якщо союзники створюють ефекти причарування чи страху, часто заклинаннями, але існують і інші можливості, можна скористатися тим, що якась істота пройшла ряткидок проти союзної здібності, й змусити іншу істоту здійснити ряткидок проти Блукаючого розуму."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Фейське підкріплення|Fey Reinforcements}}: Виклик феї [Summon Fey] раз на день безкоштовно й без матеріального компонента вартістю 300 зм. Бонус атаки духа залежить від вашого чаротворчого модифікатора, а заклинання сильно залежить від рівня слота; з обома показниками багатьом Слідопитам важко. Але навіть якщо дух поступається в нападі істоті повноцінного чаротворця, він усе ще ефективний супутник на строк до години за застосування. Друга перевага дозволяє створювати скорочену версію без концентрації, але з обмеженою кількістю слотів Слідопита це дуже непросто."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Туманний мандрівник|Misty Wanderer}}: Туманний крок безкоштовно кілька разів на день, ще й можна взяти друга! Легко рятувати друзів із захватів або пут, а вас дуже важко втримати на одному місці в бою."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fey-wanderer-ranger-ability-scores",
+          "heading": "Характеристики",
+          "sourceAnchor": "fey-wanderer-ranger-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-fey-wanderer-ranger-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопит і так дещо залежить від кількох характеристик, а Мандрівник Фей не усуває цю проблему. Із середніми обладунками все ще потрібна Спритність 14+ для максимального КБ, якщо не витрачати рису на {{Важкоозброєний|Heavily Armored}} або не брати рівень іншого класу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fey-wanderer-ranger-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сил: можна знехтувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fey-wanderer-ranger-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спр: 14 для КБ; більше майже не потрібно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fey-wanderer-ranger-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ста: концентрація, ряткидки та хіт-поінти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fey-wanderer-ranger-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інт: можна знехтувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fey-wanderer-ranger-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Муд: Мандрівник Фей цілком зосереджений на Мудрості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fey-wanderer-ranger-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хар: усі залишкові очки сюди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fey-wanderer-ranger-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля очками"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fey-wanderer-ranger-races",
+          "heading": "Раси",
+          "sourceAnchor": "fey-wanderer-ranger-races",
+          "blocks": [
+            {
+              "blockId": "block-section-fey-wanderer-ranger-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Риси на кшталт Хоробрості та {{Фейське походження|Fey Ancestry}} дублюють переваги Блукаючого розуму. В іншому для Мандрівника Фей мало що змінюється порівняно з "
+                },
+                {
+                  "type": "link",
+                  "text": "іншими Слідопитами",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fey-wanderer-ranger-feats",
+          "heading": "Риси",
+          "sourceAnchor": "fey-wanderer-ranger-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-fey-wanderer-ranger-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Залежність від Мудрості та підтримка перевірок Харизми дещо змінюють наші варіанти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fey-wanderer-ranger-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Пильний|Alert}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +5 до пасивних навичок на додачу до володіння й високої Мудрості дуже приємні.\n\nРедакційна примітка: у правилах 2014 Пильний дає +5 до ініціативи. Бонус +5 до пасивної Уважності та Розслідування належить рисі {{Спостережливий|Observant}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дробильник|Crusher}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": природна залежність Мандрівника Фей від Кийка робить Дробильника трохи привабливішим, але нас цікавить лише переміщення на 5 футів, тож вибір усе ще не надто хороший."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Посвячений у бій|Fighting Initiate}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": нам потрібен Друїдичний воїн, а Посвячений у бій дозволяє додатково взяти {{Дуель|Dueling}}, щоб ще більше посилити Кийок."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Посвячений у магію|Magic Initiate}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Мудрості вистачає для замовлянь, тому урізноманітнення замовлянь на Мудрості може багато дати. Розгляньте Настанова [Guidance] і Дзвін небіжчика [Toll the Dead] Клірика або Настанову й Терновий батіг [Thorn whip] Друїда."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Майстер середніх обладунків|Medium Armor Master}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": без сильної залежності від Спритності більшості Мандрівників Фей немає сенсу підвищувати її понад 14. Але якщо групі ще й потрібен розвідник, це вирішить частину проблем."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fey-wanderer-ranger-weapons",
+          "heading": "Зброя",
+          "sourceAnchor": "fey-wanderer-ranger-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-fey-wanderer-ranger-weapons-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Дубинка: Кийок."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Палиця: посох-фокус також працює як палиця, а палиця працює з Кийком."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fey-wanderer-ranger-armor",
+          "heading": "Обладунки",
+          "sourceAnchor": "fey-wanderer-ranger-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-fey-wanderer-ranger-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Так само, як у "
+                },
+                {
+                  "type": "link",
+                  "text": "звичайного Слідопита",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Бард: "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Колегія красномовства",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " — природний вибір для спеціалізованого представника групи. Експертність у кількох навичках і мінімальний результат 10 на к20 для перевірок Обману та Переконання роблять нас неперевершеними в цих навичках."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик: із такою залежністю від Мудрості кілька рівнів Клірика чудово посилюють чаротворення. Уміння домену 1-го рівня можуть дати важкі обладунки та інші чудові можливості."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Друїд: із такою залежністю від Мудрості кілька рівнів Друїда чудово посилюють чаротворення."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-wandering-fey-wanderer",
+          "heading": "Приклад персонажа — Мандрівний Мандрівник Фей",
+          "sourceAnchor": "example-build-wandering-fey-wanderer",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-wandering-fey-wanderer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поза боєм створюємо представника групи. У бою — дуже рухливого персонажа ближнього бою на Мудрості для тактики «вдарив і втік»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-wandering-fey-wanderer-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми оцінили Мандрівника Фей синім, використаємо всі опціональні класові вміння, крім {{Вуаль природи|Nature’s Veil}}, як рекомендували в "
+                },
+                {
+                  "type": "strong",
+                  "text": "гайді Слідопита"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-build-wandering-fey-wanderer",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "+2 вкладемо в Мудрість, а +1 — у Статуру."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базові"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищені"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-wandering-fey-wanderer",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сатир. Важко знайти кращого Мандрівника Фей, ніж справжня фея. До того ж отримуємо підвищену швидкість, дві навички, інструмент і {{Опір магії|Magic Resistance}}. Загалом нас дуже складно втримати в бою, і для всього іншого ми теж добре споряджені."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-wandering-fey-wanderer",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не надто важливо. Хотілося б використати Загубленого у Світі Фей{{Feylost}} з «Диких меж Відьомського Світла»{{The Wild Beyond the Witchlight}}, але перевернути задум: ми фея, яка заблукала й застрягла на Матеріальному плані. У будь-якому разі змінимо передісторію, щоб отримати дві навички та два інструменти або мови."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-wandering-fey-wanderer",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від раси отримуємо Виступ, Переконання та один музичний інструмент. Від передісторії візьмемо дві навички й дві мови на ваш смак: навички вкладемо в Аналіз поведінки і Залякування, залишивши Обман для Потойбічного гламуру на 3-му рівні. Із класових навичок візьмемо Природу, Уважність й Виживання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Природа, Виступ і Виживання не надто допоможуть, але всі важливі для нас навички на Харизмі й Мудрості вже є."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-wandering-fey-wanderer",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Уникаємо рис із бонусною дією, бо вона потрібна для Кийка та кількох інших заклинань, зокрема Удару Зефіра. Потрібна одна риса, яка також підвищує Мудрість, тож візьмемо {{Дарунок самоцвітного дракона|Gift of the Gem Dragon}}, але майже будь-який відповідний варіант підійде. {{Експерт у навичках|Skill Expert}} легко замінить його."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Маємо два вільні місця для Покращення характеристик або рис. Пильний зробив би пасивні навички абсурдно високими. Експерт у навичках зробив би ще одну соціальну навичку абсурдно доброю. Посвячений у бій із Дуелю підійде, але +2 шкоди на 16-му й 19-му рівнях виглядають досить кумедно поруч із підсмажуванням ворогів за допомогою Хода Ашардалона [Ashardalon's Stride]. Дробильник може бути веселим, але не дивовижним. {{Рухливий|Mobile}} додає швидкості, проте більшість його переваг нам не потрібні, бо отримуємо їх від заклинань.\n\nРедакційна примітка: описане тут підвищення пасивних навичок належить Спостережливому, а не Пильному."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-wandering-fey-wanderer",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Мічений ворог|Favored Foe}}; {{Вправний дослідник - Кмітливий|Deft Explorer - Canny}}: Переконання та 2 мови"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні трохи відстаємо від звичайного Слідопита. Для стартового спорядження візьміть лускатий обладунок, два короткі мечі, які потім продасте, будь-який набір, довгий лук і стріли. Якщо можете, купіть щит. Поки використовуйте довгий лук; для ближнього бою вистачить короткого меча й щита."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Друїдичний воїн: Створення вогню, Кийок; {{Чаротворство|Spellcasting}}; відомі заклинання: Обплутуючий удар [Ensnaring Strike], Скорохід [Longstrider]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Обираємо Друїдичного воїна, бо покладаємося на Мудрість. Створення вогню — для далекобійних атак, у яких ми доволі слабкі без замовляння. Кийок працює з посохами, які можна тримати однією рукою. Якщо взяти посох-фокус, він одночасно працює і як зброя, і як чаротворчий фокус. Це не повністю замінює {{Бойовий заклинатель|War Caster}}, але близько до того. Багато наших заклинань мають матеріальний компонент або лише вербальний, тож часто кидати фокус не доведеться. Кийок триває лише хвилину, але не потребує концентрації. Якщо майстер дозволяє й повторення вербальних компонентів не створює проблем, регулярно створюйте його в ситуаціях можливої небезпеки, щоб зберегти бонусну дію на початку бою. Якщо почали бій без Кийка й того самого ходу потрібне інше заклинання, наприклад Удар Зефіра, спробуйте дістати кинджал. Із рівневих заклинань беремо Обплутуючий удар і Скорохід. Скорохід підвищує швидкість до 45 футів, а Обплутуючий удар дозволяє втримувати окремих проблемних ворогів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Архетип Слідопита: Мандрівник Фей; Жахливі удари (1к4); Магія мандрівника фей; Потойбічний гламур; {{Первородне усвідомлення|Primal Awareness}}; нові відомі заклинання: Причарування особи (безкоштовно), Розмова з тваринами [Speak with Animals] (безкоштовно), Удар Зефіра"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "З Міченим ворогом, Жахливими ударами та Кийком завдаємо 1к8+2к4+3 шкоди за влучання — досить добре. Потойбічний гламур дає володіння Обманом і дозволяє додавати Мудрість до всіх перевірок Харизми. З експертністю в Переконанні сумарний модифікатор на цьому рівні становить +8. Завдяки Розмові з тваринами можна застосовувати наше надзвичайне Переконання навіть до звірів! Удар Зефіра відкриває тактику «вдарив і втік». Поки він не завжди потрібний, бо часто можемо залишатися в ближньому бою й обмінюватися ударами. Але після Додаткової атаки захочемо більше рухатися, щоб застосовувати Жахливі удари до різних цілей."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Дарунок самоцвітного дракона (Муд 17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дарунок самоцвітного дракона дає захисне застосування реакції, коли не очікуємо провокованих атак. Його СК збігається з нашою чаротворчою СК, яка не відстає від повноцінних чаротворців."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Додаткова атака|Extra Attack}}; нові відомі заклинання: Тваринне чуття [Beast Sense] (безкоштовно), Туманний крок (безкоштовно), Покращення здібності"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака й заклинання 2-го рівня. Проти кількох ворогів тепер покладаємося на тактику «вдарив і втік». Ударом Зефіра уникайте провокованих атак і намагайтеся застосувати Жахливі удари до двох цілей. Якщо не потрібно тримати ворога в ближньому бою, щоб він не побіг до крихких союзників, завершуйте хід поза його досяжністю й змушуйте йти до вас. Бонусна дія Удару Зефіра конкурує з Кийком, тому починайте бій із Кийка, а потім за потреби додавайте Удар Зефіра. Слотів дуже мало. Покращення здібності ще більше посилює перевірки Харизми: +11 до Переконання з перевагою — дуже добре."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Вправний дослідник - Мандрівний|Deft Explorer - Roving}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Швидкість ходи тепер 40 без заклинань; маємо таку саму швидкість лазіння й плавання. Скорохід підвищує всі три до 50, тож можемо не відставати від верхового коня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Блукаючий розум; нове відоме заклинання: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перевага Блукаючого розуму на ряткидки проти причарування й переляку чудова. Вона покриває і багато ефектів, які не є заклинаннями, наприклад Жахливу присутність дракона або причарування вампіра. Для нас механіка реакції переважно захисна, якщо ніхто в групі не створює такі ефекти через Виклик страху [Cause Fear] або Гіпнотичний візерунок [Hypnotic Pattern]. Конкретного необхідного заклинання 2-го рівня зараз немає — оберіть корисне групі. Підтримка [Aid] і Переміщення без сліду [Pass without Trace] — чудові варіанти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: Муд 18 → 20; {{Стежка землі|Land's Stride}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимальна Мудрість!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові відомі заклинання: Розвіювання магії [Dispel Magic] (безкоштовно), Розмова з рослинами [Speak with Plants] (безкоштовно), Хода Ашардалона"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 3-го рівня дають Ходу Ашардалона — палку версію Удару Зефіра. У сутичках із багатьма ворогами використовуйте її та бігайте між ними із загальною швидкістю 70 футів: 40 базових, 10 від Скорохіду та 20 від Ходи Ашардалона. Так гарантовано завдаватимете 1к6 вогняної шкоди й ударятимете двох улюблених ворогів Кийком. Також безкоштовно отримуємо Розвіювання магії та Розмову з тваринами, що дає ще один спосіб використати бонус Мудрості Потойбічного гламуру до перевірок Харизми.\n\nРедакційна примітка: перелік цього рівня правильно називає Розмову з рослинами. Згадка Розмови з тваринами в авторському поясненні — помилка джерела."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Жахливі удари (1к6); {{Сховатися на видноті|Hide in Plain Sight}}; {{Вправний дослідник - Невтомний|Deft Explorer - Tireless}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Жахливі удари трохи посилюються. Невтомний особливо приємний, бо покладаємося на Мудрість."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Фейське підкріплення; нові відомі заклинання: Виклик феї (безкоштовно), будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Фейське підкріплення дає Виклик феї безкоштовно раз на день. Викличте ще одного сатира — задоволеного духа феї — дайте йому пʼять і відправте бігати та причаровувати ворогів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: {{Стійкий|Resilient}} (Ста 15 → 16)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння ряткидками Статури допомагає утримувати улюблені заклинання з концентрацією, а це більшість вартих уваги заклинань Слідопита. Підвищення Статури до 1 також дає багато додаткових хіт-поінтів.\n\nРедакційна примітка: «до 1» — друкарська помилка оригіналу. У сусідній комірці вказано підвищення Статури з 15 до 16."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові відомі заклинання: Двері між вимірами (безкоштовно), Пошук істоти [Locate Creature] (безкоштовно), Вартовий природи [Guardian of Nature]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня дають Вартового природи. Проти одного сильного ворога це кращий варіант, ніж наша тактика «вдарив і втік». Оберіть Велике дерево й беріться до справи. Перевага на атаки сильно підвищує шкоду, важкопрохідна місцевість ускладнює втечу від вас, а володіння й перевага на ряткидки Статури захищають концентрацію настільки, наскільки можливо. Також можна створити Ходу Ашардалона з вищого слота для ще +5 футів швидкості та 1к6 шкоди. Ідеально для підсмажування натовпу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Зникнення|Vanish}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бій іде погано? Ховайтеся! Якщо вже діють Кийок і Удар Зефіра або Хода Ашардалона, можна між ходами бігти за укриття й ховатися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Туманний мандрівник; нове відоме заклинання: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Крім звичайного створення заклинання, тепер можете безкоштовно створювати Туманний крок 5 разів на день."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик або риса: будь-які"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові відомі заклинання: Звернення до природи [Commune with Nature] (безкоштовно), Ошуканство [Mislead] (безкоштовно), Удар сталевого вітру [Steel Wind Strike]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 5-го рівня дають цікаві варіанти, але важко обрати. Удар сталевого вітру виглядає очевидним: Мудрості вистачає, а 6к10 шкоди важко перевершити. Проте за той самий слот Хода Ашардалона дає гарантовані 3к6 шкоди по кожній цілі за хід, не має обмеження в 5 цілей, а зі швидкістю 80 футів можна дістатися до численних цілей і зберегти дію для ударів. Другий хід легко виводить Ходу Ашардалона вперед, а що більше цілей, то більший розрив. Переваги Удару сталевого вітру — швидкість спрацювання й відсутність концентрації. Якщо вже утримуєте Вартового природи або Ходу Ашардалона, можна створити Удар сталевого вітру для великого сплеску шкоди. Вартовий природи у формі Великого дерева навіть дає перевагу на його атаки заклинанням!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Дикі почуття|Feral Senses}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не зовсім сліповид, але дуже близько."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик або риса: будь-які; нове відоме заклинання: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Убивця ворогів|Foe Slayer}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Раз за хід +5 від нашої Мудрості до атаки "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "або"
+                    },
+                    {
+                      "type": "text",
+                      "text": " шкоди атаки проти цілі Міченого ворога. Це не надто добре; до того ж ми, найімовірніше, давно не користувалися Міченим ворогом."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-001",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Жахливі удари",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-002",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Магія мандрівника фей",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-003",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-004",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-005",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-006",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "13-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-007",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "17-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-008",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Потойбічний гламур",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-009",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Блукаючий розум",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-010",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Фейське підкріплення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-011",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Туманний мандрівник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-012",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-ability-scores",
+      "targetBlockId": "block-section-fey-wanderer-ranger-ability-scores-2",
+      "optionId": "section-fey-wanderer-ranger-ability-scores-block-section-fey-wanderer-ranger-ability-scores-2",
+      "context": "Сил",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-013",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-ability-scores",
+      "targetBlockId": "block-section-fey-wanderer-ranger-ability-scores-3",
+      "optionId": "section-fey-wanderer-ranger-ability-scores-block-section-fey-wanderer-ranger-ability-scores-3",
+      "context": "Спр",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-014",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-ability-scores",
+      "targetBlockId": "block-section-fey-wanderer-ranger-ability-scores-4",
+      "optionId": "section-fey-wanderer-ranger-ability-scores-block-section-fey-wanderer-ranger-ability-scores-4",
+      "context": "Ста",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-015",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-ability-scores",
+      "targetBlockId": "block-section-fey-wanderer-ranger-ability-scores-5",
+      "optionId": "section-fey-wanderer-ranger-ability-scores-block-section-fey-wanderer-ranger-ability-scores-5",
+      "context": "Інт",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-016",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-ability-scores",
+      "targetBlockId": "block-section-fey-wanderer-ranger-ability-scores-6",
+      "optionId": "section-fey-wanderer-ranger-ability-scores-block-section-fey-wanderer-ranger-ability-scores-6",
+      "context": "Муд",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-ability-scores-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-017",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-ability-scores",
+      "targetBlockId": "block-section-fey-wanderer-ranger-ability-scores-7",
+      "optionId": "section-fey-wanderer-ranger-ability-scores-block-section-fey-wanderer-ranger-ability-scores-7",
+      "context": "Хар",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-ability-scores-7",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-018",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-feats",
+      "targetBlockId": "block-section-fey-wanderer-ranger-feats-2",
+      "optionId": "section-fey-wanderer-ranger-feats-block-section-fey-wanderer-ranger-feats-2-item-0",
+      "context": "ПильнийPHB",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-019",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-feats",
+      "targetBlockId": "block-section-fey-wanderer-ranger-feats-2",
+      "optionId": "section-fey-wanderer-ranger-feats-block-section-fey-wanderer-ranger-feats-2-item-1",
+      "context": "ДробильникTCoE",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-020",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-feats",
+      "targetBlockId": "block-section-fey-wanderer-ranger-feats-2",
+      "optionId": "section-fey-wanderer-ranger-feats-block-section-fey-wanderer-ranger-feats-2-item-2",
+      "context": "Посвячений у бійTCoE",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-021",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-feats",
+      "targetBlockId": "block-section-fey-wanderer-ranger-feats-2",
+      "optionId": "section-fey-wanderer-ranger-feats-block-section-fey-wanderer-ranger-feats-2-item-3",
+      "context": "Посвячений у магіюPHB",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-022",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-feats",
+      "targetBlockId": "block-section-fey-wanderer-ranger-feats-2",
+      "optionId": "section-fey-wanderer-ranger-feats-block-section-fey-wanderer-ranger-feats-2-item-4",
+      "context": "Майстер середніх обладунківPHB",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-023",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-weapons",
+      "targetBlockId": "block-section-fey-wanderer-ranger-weapons-1",
+      "optionId": "section-fey-wanderer-ranger-weapons-block-section-fey-wanderer-ranger-weapons-1-item-0",
+      "context": "Дубинка",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-weapons-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-024",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-fey-wanderer-ranger-weapons",
+      "targetBlockId": "block-section-fey-wanderer-ranger-weapons-1",
+      "optionId": "section-fey-wanderer-ranger-weapons-block-section-fey-wanderer-ranger-weapons-1-item-1",
+      "context": "Палиця",
+      "explanationBlockId": "block-section-fey-wanderer-ranger-weapons-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-025",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-0",
+      "context": "Бард",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-026",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-1",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-fey-wanderer-2014-027",
+      "articleId": "rpgbot-ranger-fey-wanderer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-fey-wanderer-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-2",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

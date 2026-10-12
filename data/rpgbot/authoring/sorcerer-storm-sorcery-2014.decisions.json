@@ -1,0 +1,18 @@
+{
+  "143": {
+    "disposition": "preserved",
+    "evidence": "The source table contains a nested list in a cell; the extractor preserves that markup as inline text, and the translated table cell retains its content."
+  },
+  "158": {
+    "disposition": "preserved",
+    "evidence": "The last row of the multiclass levels table has one cell spanning two columns (colspan=2) that holds the whole note for level 6 and beyond; the compiled table keeps that text once in source order, so the colspan itself is not carried"
+  },
+  "159": {
+    "disposition": "preserved",
+    "evidence": "The source table contains a nested list in a cell; the extractor preserves that markup as inline text, and the translated table cell retains its content."
+  },
+  "160": {
+    "disposition": "preserved",
+    "evidence": "Cell counts 3,3,3,3,3,3,2: the last row has two cells because its second cell spans two columns (colspan=2); no cell text is dropped"
+  }
+}

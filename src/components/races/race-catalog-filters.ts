@@ -1,4 +1,6 @@
 import type { RaceData } from "@/lib/racesData";
+import { findAliasVariants } from "@/lib/search/searchAliases";
+import { buildQueryMatcher, buildSearchableText, matchesQuery } from "@/lib/search/searchQuery";
 
 /// Ознаки, яких у каталозі немає окремим полем, але за якими расу шукають найчастіше.
 export const RACE_TRAIT_LABELS = {
@@ -33,8 +35,11 @@ export function hasRaceTrait(race: RaceData, trait: string): boolean {
   return false;
 }
 
-export function findSearchHaystack(race: RaceData): string {
+export function matchesRaceQuery(race: RaceData, query: string): boolean {
+  const matcher = buildQueryMatcher(query);
+  if (!matcher) return true;
   const traits = race.traits.map((trait) => `${trait.name} ${trait.description}`).join(" ");
   const branches = [...race.subraces, ...race.variants].map((branch) => branch.name).join(" ");
-  return `${race.name} ${race.engName} ${race.source} ${traits} ${branches}`.toLowerCase();
+  const aliases = findAliasVariants(race.ruleset, ["race", "species"], [race.slug, race.name]).join(" ");
+  return matchesQuery(matcher, buildSearchableText([race.name, race.engName, race.source, aliases, traits, branches]));
 }

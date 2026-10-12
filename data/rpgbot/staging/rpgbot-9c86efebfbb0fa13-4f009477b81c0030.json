@@ -1,0 +1,2786 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "4f009477b81c0030999461a863b8dd91f6aab011401642ff0be4732f77fb84bd",
+  "sourceRevision": {
+    "revisionId": "rpgbot-9c86efebfbb0fa13-4f009477b81c0030",
+    "sourceId": "rpgbot-9c86efebfbb0fa13",
+    "fetchedAt": "2026-09-29T19:18:43.249641+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:26:06-04:00",
+    "contentHash": "a5e999e4d5d826ef1e59d9fab92ffd5e50ae1caef7524eaac6284226bf5a311f",
+    "title": "Path of the Beast Barbarian 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-9c86efebfbb0fa13-4f009477b81c0030.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Path of the Beast is as close as 5e has gotten to lycanthropy as a class feature (I’m not counting the "
+            },
+            {
+              "type": "link",
+              "text": "Blood Hunter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/"
+            },
+            {
+              "type": "text",
+              "text": " since it’s unofficial). In addition to the Barbarian’s normal rage features, you also gain the ability to grow natural weapons and eventually to gain passive adaptations like the ability to breath water and jump terrifying distances."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Path of the Beast is a perfect balance of durability and damage output, allowing the Barbarian to serve as a front-line Defender without falling into the “Tank Fallacy” which plagues many other barbarian subclasses. Like the Path of the Totem Warrior, the Path of the Beast includes several decision points to customize your build, but unlike totem barbarians the Path of the Beast can change these choices either every time they rage or every time they rest, allowing the Barbarian to rapidly adapt to situations rather than just gritting their teeth and raging through whatever comes their way."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because Path of the Beast relies heavily on natural weapons which they produce while raging, there’s very little reason to use a two-handed weapon. Expect to spend a lot of time wearing a shield, and grab a melee weapon like a longsword to use when you’re not raging. However, since you’re going to spend most of your time attacking with natural weapons there’s typically little motivation to look for magic weapons."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Despite this adaptability, the Path of the Beast isn’t especially complicated and there is little fluctuation in complexity between options within the subclass. Thanks to the unusual viability of shields without cutting into damage output they’ll enjoy good damage output, high hit points, and high AC. Taken as a whole, the subclass is both easy and effective to play, making it an enticing option for both newcomers and for veterans."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Beast Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Beast Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#path-of-the-beast-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Beast Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#path-of-the-beast-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Beast Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#path-of-the-beast-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Beast Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#path-of-the-beast-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Beast Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#path-of-the-beast-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Wrathful Leaps",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#example-build-wrathful-leaps"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Jump Around",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#jump-around"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Jumping, now with damage output",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#jumping-now-with-damage-output"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Path of the Beast Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Form of the Beast"
+              },
+              {
+                "type": "text",
+                "text": ": Every time you rage,\n\t\tyou get to choose which of the three options to use. They are all good, but\n\t\tthey’re all good for different things at different times, so knowing which\n\t\tone to use in any given situation is important.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Bite is technically the least\n\t\t\t\timportant of the three available options, but if anyone is going to hang\n\t\t\t\tout at less than half hit points it’s the Barbarian. You can use this\n\t\t\t\twhile both of your hands are full, which makes it easy to use with a\n\t\t\t\tshield. Still, if you’re not guaranteed to benefit from the healing in\n\t\t\t\tyour current fight, go for a different option. Remember that the healing\n\t\t\t\tonly works once on each of your turns, so if you want to switch to a\n\t\t\t\tweapon for your second attack (once you get Extra Attack), that may be a\n\t\t\t\tgood idea if you have a cool magic weapon to use."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Claws"
+              },
+              {
+                "type": "text",
+                "text": ": Your go-to option for damage\n\t\t\t\toutput. The wording here is easy to miss, so let me spell it out: If you\n\t\t\t\ttake the Attack action and attack with the claws once, you get an\n\t\t\t\tadditional attack with the claws as part of the same action. You don’t\n\t\t\t\tneed to spend your Bonus Action to do it, so you can get the extra\n\t\t\t\tattack in the same turn that you rage. You can make all of your claw\n\t\t\t\tattacks with one hand, so there is no reason to forgo a shield."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tail"
+              },
+              {
+                "type": "text",
+                "text": ": Longsword damage, reach, and\n\t\t\t\tboost your AC as a Reaction. The AC bonus averages to 4.5, which is\n\t\t\t\tenough to negate a lot of attacks. Unfortunately attackers need to be\n\t\t\t\twithin 10 ft. so you won’t be able to block ranged attacks typically.\n\t\t\t\tLike the other options you can use this with a shield."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bestial Soul"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re going to rely on\n\t\tnatural weapons, you need them to count as magical or you’re going to have a\n\t\tlot of trouble dealing damage.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This level also lets you take on some animal traits that allow you to\n\t\t\tfunction in some unusual scenarios which typically require magic. These\n\t\t\tbenefits notably work outside of your rage, so you don’t need to get angry\n\t\t\tto breath water or climb on the ceiling."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swim Speed"
+              },
+              {
+                "type": "text",
+                "text": ": Situational, but the\n\t\t\t\tfact that you also get to breath water is really helpful. Take a nap and\n\t\t\t\tdream about weresharks, and you’ll wake up with gills and webbed toes\n\t\t\t\t(it doesn’t actually say that in the rules, but it feels like that\n\t\t\t\tshould happen)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Climb Speed"
+              },
+              {
+                "type": "text",
+                "text": ": Climb speeds are the next\n\t\t\t\tbest thing to fly speeds, and this is basically Spider Climb, which is\n\t\t\t\tthe gold standard of climb speeds. Climb on the ceiling and hit people\n\t\t\t\twith your tail or throw javelins at them."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Jump"
+              },
+              {
+                "type": "text",
+                "text": ": Jumping is very rarely useful,\n\t\t\t\tand situations which require jumping can typically be handled better by\n\t\t\t\tclimbing or flying. Still, of all the jumping-related abilities in 5e,\n\t\t\t\tthis one is among the best. It works both vertically and horizontally,\n\t\t\t\tso you can jump incredibly high. However, it notably doesn’t address\n\t\t\t\tfalling, so if you leap 30 feet into the air you’re going to regret that\n\t\t\t\tdecision unless you grab onto something before falling since 5e doesn’t\n\t\t\t\tnegate falling damage just because you jumped."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Infectious Fury"
+              },
+              {
+                "type": "text",
+                "text": ": Tying the DC to your\n\t\tConstitution is great. Even if you started at 16 Constitution and haven’t\n\t\tgotten a chance to increase it, your DC will be decent. Using this a number\n\t\tof times per day equal to your Proficiency Bonus is enough that it can be\n\t\ttactically impactful, but it’s not something that you can afford to use\n\t\tevery turn.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Forced Attack"
+              },
+              {
+                "type": "text",
+                "text": ": Forcing enemies to\n\t\t\t\tattack their allies is great, but the benefits don’t stop there. Since\n\t\t\t\tthis forces the target to use their Reaction, they can’t perform an\n\t\t\t\tOpportunity Attack and they can’t do annoying things like cast\n\t\t\t\tCounterspell so if your target’s melee attacks are pitiful you could\n\t\t\t\tforce them to attack you for whatever measly damage they might do in\n\t\t\t\torder to prevent spellcasters from doing cast shenanigans."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Psychic Damage"
+              },
+              {
+                "type": "text",
+                "text": ": 2d12 damage is enough\n\t\t\t\tto match a single attack from many creatures, but as you reach higher\n\t\t\t\tlevels you’ll face many enemies which can do considerably more so you’ll\n\t\t\t\tget more out of the forced attack. However, the forced attack doesn’t\n\t\t\t\thelp in single-enemy encounters, and even in multi-enemy encounters you\n\t\t\t\twon’t always have another enemy nearby which you can target with the\n\t\t\t\tforced the attack. The damage is psychic, and very few creatures are\n\t\t\t\tresistant or immune to psychic damage, so this is a safe, reliable\n\t\t\t\tdamage boost, but remember that this has a daily usage limit so don’t\n\t\t\t\tburn through it too quickly. The damage is also from a separate source\n\t\t\t\tfrom your attack, so it’s not multiplied on a critical hit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Call of the Hunt"
+              },
+              {
+                "type": "text",
+                "text": ": The benefits to you\n\t\tscale based on the number of creatures that accept the benefit. There is no\n\t\tdownside to the effect, so assume that your party is going to accept. The\n\t\tmaximum number of creatures is your Constitution Modifier, which can get up\n\t\tto +7 at level 20, so you need to somehow get 7 creatures to accept the\n\t\teffect. A typical party of 4 can’t do that unless you add familiars, pets,\n\t\tsummons, or a bag full of angry rats. The pile of temporary hit points on\n\t\ttop of the damage resistances provided by Rage will make you incredibly\n\t\tdurable, and the d6 bonus damage for your allies will be a nice boost to\n\t\tdamage output for anyone who relies on attack rolls (fighters, monks, and\n\t\twarlocks are ideal).\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The wording on the damage bonus is strange, but the effect is actually\n\t\t\treally simple. Affected creatures deal +1d6 damage when they hit with an\n\t\t\tattack. It doesn’t specify a type, so they add bonus damage of the same\n\t\t\ttype which their attack deals. If their attack deals multiple types, the\n\t\t\tattack can typically decide which type to add but the DM might choose to\n\t\t\thave it divide evenly between the multiple damage types. The weird wording\n\t\t\tof the damage bonus seems to mean that the d6 isn’t multiplied on a\n\t\t\tcritical hit since they gain a bonus equal to a roll of the d6 rather than\n\t\t\tadding 1d6 as “extra damage” like Hunter’s Mark or Divine Smite do."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You can only use this a number of times equal to your Proficiency Bonus\n\t\t\teach day, but by the time you get this your Proficiency Bonus and your\n\t\t\tnumber of rages per day match, so you don’t need to worry about tracking\n\t\t\tthis unless you somehow gain additional rages per day."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-path-of-the-beast-ability-scores",
+      "heading": "Path of the Beast Ability Scores",
+      "sourceAnchor": "path-of-the-beast-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-path-of-the-beast-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Path of the Beast’s ability score needs match those of other barbarians."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-the-beast-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Hit stuff."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-the-beast-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Don’t get hit by stuff."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-the-beast-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Survive getting hit by stuff."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-the-beast-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-the-beast-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Wisdom saves are common, so don’t\n\tdump it, but don’t put a ton of effort into improving it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-the-beast-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Charisma only matters for a couple of\n\tthe Barbarian’s skills, but it’s fine to dump this, too."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-the-beast-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-path-of-the-beast-races",
+      "heading": "Path of the Beast Races",
+      "sourceAnchor": "path-of-the-beast-races",
+      "blocks": [
+        {
+          "blockId": "block-section-path-of-the-beast-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Path of the beast’s race needs are fairly typical for the Barbarian, so the advice provided in the "
+            },
+            {
+              "type": "link",
+              "text": "Barbarian Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/races/"
+            },
+            {
+              "type": "text",
+              "text": " should suffice. Races listed here have some unique interactions with the subclass."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-the-beast-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Hadozee"
+              },
+              {
+                "type": "link",
+                "text": "SaiS",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tGlide synergizes very well with the Beast Barbarian’s ability to jump,\nallowing you to jump high up in the air then glide, effectively quintupling (that’s 5 times normal) your movement when traveling horizontally."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Harengon"
+              },
+              {
+                "type": "link",
+                "text": "WBtW / MMoM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tRabbit Hop is separate from jumping that you might do with your movement, so it adds little here."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Satyr"
+              },
+              {
+                "type": "link",
+                "text": "MOoT / MMoM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tMirthful Leaps stacks with Path of the Beast’s ability to jump absurd distances. They also get\nMagic Resistance, which is neat. Unfortunately the update version’s proficiencies aren’t super helpful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Simic Hybrid"
+              },
+              {
+                "type": "link",
+                "text": "MOoT / MMoM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tThe Manta Glide adaptation synergizes very well with the Beast Barbarian’s ability to jump,\nallowing you to jump high up in the air then glide, effectively doubling your movement when traveling horizontally. Doing this repeatedly on your turn is sometimes referred to as “wave dashing”. The Hadozee\ncan do this considerably better, but the Simic Hybrid’s other traits (especially grappling appendages)\nare likely worth the trade."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-path-of-the-beast-feats",
+      "heading": "Path of the Beast Feats",
+      "sourceAnchor": "path-of-the-beast-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-path-of-the-beast-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Great Weapon Master"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tNormally a great feat for barbarians, but not useful for Path of the Beast because we’re relying on natural weapons rather than a two-handed weapon like a greataxe."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skill Expert"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tExpertise in Athletics to grapple enemies is already a good option for barbarians who love to grapple,\nbut for Path of the Beast it also means more jump height."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shield Master"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tBeast barbarians are more likely than other barbarians to use a shield, and with no way to spend your Bonus Action once you start raging, Shield Master becomes an enticing option. If you have other melee allies who would benefit from you knocking enemies prone, consider this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Slasher"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tA Strength increase, a speed penalty, and on a crit you debuff the target. Path of the Beast’s claws work really well with this both because you have an additional attack (and therefore another opportunity to crit) and Reckless Attack gives you easy access to Advantage. Combine the two with Extra Attack and you have 6 d20 rolls per turn to roll one 20. It won’t happen every turn, but it’ll happen enough to make a difference."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tough"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Form of the Beast (Teeth) allows you to heal up to half health by biting things, so having a really high HP maximum makes that more usable. Of course, that means cutting into your other Ability Score Increases, which will hurt the DC on Infectious Fury and the cap on Call of the Hunt, so you need weigh that opportunity cost carefully. I recommend that you max Constitution instead."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-path-of-the-beast-weapons",
+      "heading": "Path of the Beast Weapons",
+      "sourceAnchor": "path-of-the-beast-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-path-of-the-beast-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Plan to rely primarily on your natural weapons, but carry a good one-handed weapon like a warhammer and some Strength-based ranged weapons like javelins."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-path-of-the-beast-armor",
+      "heading": "Path of the Beast Armor",
+      "sourceAnchor": "path-of-the-beast-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-path-of-the-beast-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "See the "
+            },
+            {
+              "type": "link",
+              "text": "Barbarian Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Monk"
+              },
+              {
+                "type": "text",
+                "text": "\n\tPath of the Beast doesn’t use its Bonus Action for anything except to trigger Rage, so Martial Arts is tempting. However, you can’t use a shield and you’re limited to monk weapons so your best option is to two-hand a spear (maybe a longsword if you’re using optional class features). You’re giving up the AC of a shield for the additional attack, which isn’t necessarily a bad trade.\n"
+              },
+              {
+                "type": "text",
+                "text": "A second level gets you another +10 ft. of movement if you’re unarmored, but now you’re giving up both half plate "
+              },
+              {
+                "type": "emphasis",
+                "text": "and"
+              },
+              {
+                "type": "text",
+                "text": " a shield, so your durability is plummeting while also delaying your ability score increases so it’s harder to rely on Unarmored Defense. Three levels gets you a subclass (long death or mercy are your best options), and 4 levels gets you an ASI and Slow Fall so you can jump crazy distances into the air and get hurt less. You do get something good at each of those levels, but level 1 is by far the most impactful."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-wrathful-leaps",
+      "heading": "Example Build – Wrathful Leaps",
+      "sourceAnchor": "example-build-wrathful-leaps",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-wrathful-leaps-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is going to be somewhat silly. The Path of the Beast Barbarian is the greatest jumper in 5e by a terrifyingly huge margin, and we’re going to lean into that and build the best jumper that the game can endure."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-wrathful-leaps-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But don’t worry: This is still a very functional build. The ability to jump insane distances is a fun perk, but we’re primarily here to freak out, get mad, grow claws, and point our aggression at something we don’t like."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-wrathful-leaps-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is one of our "
+            },
+            {
+              "type": "link",
+              "text": "10 favorite DnD 5e builds",
+              "href": "https://rpgbot.net/rpgbots-10-favorite-dnd-character-builds-that-arent-wizards/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-wrathful-leaps",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll mostly use the ability scores recommended above, but we’ll drop Charisma to 8 to raise Constitution to 15 at level 1 taking a +2 increase in Strength and a +1 increase in Constitution from our race. We’ll have some skill proficiencies to offset out dumped Charisma, so you won’t be totally useless in social situations."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-wrathful-leaps",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Satyr. Magic resistance is a great defense for the Barbarian, and since Path of the Beast makes it easy to use a shield we’re already less worried about physical attacks than most barbarians. Also we get Mirthful Leaps. If you don’t care about jumping, you can drop the Yuan-Ti into this build and it will work great."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll use the Monsters of the Multiverse version of the Satyr because it’s the official version. That locks us into some proficiencies that we don’t care much about, but that’s fine. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-wrathful-leaps",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Anything will work fine here, so let’s go for Outlander."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-wrathful-leaps",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get Performance and Persuasion from our race, Athletics and Survival from our background, and we’ll choose Intimidation and Perception with our two class skills, giving us a total of 6 skills, three of which are Charisma-based. Weird. We can also get two more from the Primal Knowledge Optional Class Feature and we’ll get on more when we take Skill Expert, giving us a total of 7 skills (9 with Optional Class Features)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We also get proficiency in two musical instruments and a language. This is a weird setup for a barbarian."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-wrathful-leaps",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take Skill Expert to get Expertise in Athletics and proficiency in Insight. If you’re not planning to grapple and aren’t enjoying all this jumping nonsense, the advice on feats in the "
+            },
+            {
+              "type": "link",
+              "text": "Barbarian Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#feats"
+            },
+            {
+              "type": "text",
+              "text": " should help. This also gets us a +1 to an ability score, allowing us to stay on the "
+            },
+            {
+              "type": "link",
+              "text": "Fundamental Math",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": " by raising our odd-numbered Strength score."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You might also take the Tough feat. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-jump-around",
+      "parentSectionId": "section-example-build-wrathful-leaps",
+      "heading": "Jump Around",
+      "sourceAnchor": "jump-around",
+      "blocks": [
+        {
+          "blockId": "block-section-jump-around-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Crash course on "
+            },
+            {
+              "type": "link",
+              "text": "Jumping",
+              "href": "https://www.dndbeyond.com/sources/phb/adventuring#Jumping"
+            },
+            {
+              "type": "text",
+              "text": ": How high or far you can jump is based purely on your Strength. No Athletics, no height, nothing. If you move 10 feet immediately before jumping, you can go further/higher, but that’s basically all. Technically your height can extend how high you can reach, but that’s rarely important."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jump-around-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For most characters the only things that will improve your ability to jump are magic items and spells. The spell Jump (potentially cast from a Ring of Jumping) and Boots of Striding and Springing are your most likely choices. Either will triple your jump distance. Both together will multiply your jump distance 9 times because they’re coming from different sources and 5e doesn’t have rules around multiplicative stacking like previous editions did. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jump-around-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Two magic items which require attunement (Ring of Jumping and boots of Striding and Springing) is a big commitment of resources for a gimmick, so you’re likely only going to use one. Given the choice, get the boots because you don’t have to constantly spend a Bonus Action to cast a spell (which you couldn’t do while raging anyway)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jump-around-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Then we add what makes Path of the Beast so good at jumping: Bestial Soul (Jumping) allows us to add the result of an Athletics check to our jump distance or height. Normally your jump height is 3+Strength mod (max of 8 for most characters) with a running jump. Add the result of an Athletics check in feet and you can go pretty high. Like, high enough that falling damage becomes a problem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jump-around-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "And then, just to make things crazier, add the Satyr’s Mirthful leaps. That gives us another d8. Then triple all of that from our magic item. Nice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jump-around-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But that gets us into a weird situation where we may actually run out of movement. You can only jump as far as you have movement, so if your speed is 30 feet you can only jump 30 feet in one turn before landing or falling. If you Dash, you can double your pool of movement and therefore how far you can jump. Increases to your speed (such as the Barbarian’s Fast Movement) will also improve how far you can jump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jump-around-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "So let’s set an objective: We want to be able to jump our full move distance vertically as a standing jump on the worst possible dice rolls. That allows our satyr barbarian to jump their full 40 ft. move speed vertically, potentially allowing us to do silly things like grabbing enemies out of the air, jumping atop castle walls, redecorating ceilings, etc."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jump-around-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Let’s start from a standing high jump. With 18 Strength, that gets us 3.5 feet off the ground as our base. Add the minimum of 1 from Mirthful Leaps. Add +1 for the d20 +7 for our Athletics modifier (at level 6 we’ll have +4 Str, +3 Proficiency), and that gets us to a minimum of 12.5 feet of vertical jumping. Adding Expertise adds another +3, getting us to 15.5 feet minimum standing high jump distance. With a magic item tripling that, we immediately hit our cap, but even without an item we’ll hit 30.5 feet on average rolls."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jump-around-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "And that’s at level 6. We probably don’t even need that item, so you might look for a Ring of Feather Falling instead."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jump-around-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If we take those same assumptions, you can standing long jump 9 feet with 18 Strength. Add the minimum of 1 for Mirthful Leaps and 1 for the d20 on your Athletics check, then add +10 for our Athletics modifier thanks to Expertise, and we’re at 21 feet. That’s easily enough to get over most pits and most difficult terrain. With average rolls on the dice, that’s 34 feet, already almost maxing out our jump distance."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jump-around-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If we’re lucky enough to reach level 20, we’ll have a Proficiency Bonus of +6 and a +7 Strength modifier. With Expertise in Athletics, our minimum jump height is 26 feet, more than doubling our minimum standing high jump height at level 6. Average rolls get us to 39 feet, almost exactly maxing out our jump distance without dashing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jump-around-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To summarize: If you take Skill Expert to get Expertise in Athletics, a satyr beast barbarian can almost max out their high and long jump distances on average dice rolls before applying a magic item. If you do find an item you don’t need to roll unless you’re going to Dash because tripling your minimum roll will max out your movement."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-jumping-now-with-damage-output",
+      "parentSectionId": "section-jump-around",
+      "heading": "Jumping, now with damage output",
+      "sourceAnchor": "jumping-now-with-damage-output",
+      "blocks": [
+        {
+          "blockId": "block-section-jumping-now-with-damage-output-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The rules for "
+            },
+            {
+              "type": "link",
+              "text": "moving a grapple",
+              "href": "https://www.dndbeyond.com/sources/phb/combat#Grappling"
+            },
+            {
+              "type": "text",
+              "text": " state that “when you move, you can drag or carry the grappled creature with you, but your speed is halved.” This certainly applies to walking, flying, swimming, and climbing, so I see no reason why you couldn’t do it with grappling. If you halve your speed, I’m reasonably certain that you can jump while grappling, drop your target mid-air, then both fall to the ground."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jumping-now-with-damage-output-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With halved speed, that gets you 20 feet into the air and allows you to drop your target for 2d6 damage. They’ll take damage and fall prone, but you’ll release the grapple to pull this off."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jumping-now-with-damage-output-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You also take damage from this, and creatures that take falling damage fall prone. You’ll halve this damage thanks to Rage, but if you roll 2d6 falling damage you’re still taking a minimum of 1 damage. If you find a Ring of Feather Falling, this suddenly stops being a problem. The spell Enhance Ability (Dexterity) prevents damage from falling up to 20 feet, which is enough for our purposes but might be a hard ask from your party’s spellcasters. You could take 4 levels in monk for Slow Fall, but if you’re multiclassing into monk for Slow Fall your life has gone "
+            },
+            {
+              "type": "emphasis",
+              "text": "far"
+            },
+            {
+              "type": "text",
+              "text": " off the rails."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-wrathful-leaps",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unarmored Defense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting gear, take a warhammer (use it two-handed for now), two handaxes, and the explorer’s pack and javelins. You don’t start with armor, but with 14 Dex and 16 Con Unarmored Defense gives you 15 AC. You might buy yourself a shield, but that will mean putting down your hammer, and you’ve got 15 hit points for a reason, and Rage will give you damage resistance."
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": "At this level you’re just like any other barbarian."
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reckless Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Danger Sense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this point you may have enough gold for a suit of Scale Mail and hopefully a shield, which will net you +3 AC, but after that start saving gold until you can get Half Plate."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Primal Path: path of the Beast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Form of the Beast"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level things take off for us. Claw attacks double our damage output, or if you’re in a pinch you can use Tail to parry things. Bite is a difficult choice because you need to expect to drop below half hit points for it to pay off. This is one of the most important choices you make each time you rage, so get accustomed to weighing this decision and deciding in a hurry."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Skill Expert (Proficiency in Insight, Expertise in Athletics, Strength 19 -> 20) "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Expertise in Athletics coupled with Advantage on Strength check makes us extremely effective at grappling. We can’t do anything about creatures bigger than Large, but your DM might let you use the variant rules for climbing larger creatures."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You might instead take Slasher at this level. It can get us the same +1 Strength increase, and, coupled with Form of the Beast (Claws), it’s very good. You won’t be as good at grappling or jumping, but you’ll be better at killing stuff, which might be better depending on your party."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fast Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Between Claws and Extra Attack you can now make three attacks if you choose claws, and you still don’t need to put down your shield to use any of it. By now you should have half plate, so you’re sitting at an AC of 19."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fast Movement also gets us +10 ft. of speed, which is great for our jumping shenanigans."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bestial Soul"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bestial Soul is a passive feature and it can be easy to overlook. In some terrain, Climbing will allow you to quickly navigate obstacles. In aquatic campaigns, Swimming will probably go on and then never change."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But we’re here for Jumping. See “Jump Around”, above, for a lengthy explanation of how high and far you can jump. To be brief: “really high and really far”."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The ability to jump massive distances means that you can handle many obstacles which typically require flight, climbing, etc. to overcome. It also means that you can grapple creatures, leap into the air, and drop them."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feral Instinct"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Going first feels great."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Strength 18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Strength means more attack and damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical (1 die)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rage Damage +3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical isn’t a huge damage increase for us. Path of the Beast relies on smaller damage dice than most barbarians, but the scaling Rage bonus applies across all three of our claw attacks so that’s still a minor but satisfying damage boost."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Infectious Fury"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The bonus damage option is very tempting here, but remember that it’s not multiplied on a critical hit (it’s behind a save so it’s considered a separate source of damage), it’s a pass/fail save, and it’s only an average of 13 damage. If you can force an enemy to attack one of its allies, that’s a much better choice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Relentless Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This makes you exceptionally hard to kill while raging."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Constitution 16 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "HP, con saves, the DC for Infectious Fury improves, and when we get Call of the Hunt you can apply it to four creatures."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical (2 Dice)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A bit more damage output."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Call of the Hunt"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A weird support ability, but it’s pretty good. You get a pool of temporary hit points (max of 20 currently due to our Constitution modifier) and a bunch of your allies get a small damage boost."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Persistent Rage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rage Damage +4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s harder to take you out of a fight and also you get a little bit more damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Constitution 18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Another slot in Call of the Hunt plus the other numerical bonuses. 5 creatures will typically require you to have pets in the party (parties of 6 are unusual), but nothing says that your bag of rats can’t participate."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical (3 Dice)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A tiny bit more damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable Might"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Once in a while you need to grapple, lift something, break\n\t\t\t\t\t\tsomething, etc. and by this level you already have 20 Strength, so\n\t\t\t\t\t\tyour minimum result is 20. That’s easily enough to pass normal\n\t\t\t\t\t\tability check DCs, but you may lose grapple checks on very rare\n\t\t\t\t\t\toccasion,"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Tough"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A big pile of additional hit points which raises the cap on Form of the Beast (Bite) so we can dive into melee with our teeth out and gradually replenish hit points to keep ourselves going."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You might opt for Slasher instead if you prefer to rely on your claws."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Primal Champion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "+2 to hit, +2 damage, minimum of 24 on all Strength checks, and +40 hit points on top of what you got just for gaining a level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get to add two more creatures to Call of the Hunt, but you’ll definitely need pets or something in most parties. Befriend some miniature giant space hamsters and carry them around in your pockets if you need extra heads."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The DC on Infectious Fury also increases to 21, which is higher than spellcasters can get without magic items. Take that, wizard!"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Path of the Beast Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Form of the Beast"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Claws"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Tail"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bestial Soul"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Swim Speed"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Climb Speed"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Jump"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Infectious Fury"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Forced Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Psychic Damage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Call of the Hunt"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hadozee"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Harengon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Satyr"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Simic Hybrid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Great Weapon Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Skill Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shield Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Slasher"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Tough"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Monk"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[4]",
+      "detail": "<li value=\"14\"><span class=\"rating-blue\">Call of the Hunt</span>: The benefits to you scale based on the number of creatures that accept the benefit. There is no downside to the ef"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-path-of-the-beast-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-path-of-the-beast-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-path-of-the-beast-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-path-of-the-beast-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-path-of-the-beast-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-path-of-the-beast-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-path-of-the-beast-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-path-of-the-beast-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-path-of-the-beast-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-path-of-the-beast-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-path-of-the-beast-feats-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-path-of-the-beast-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-path-of-the-beast-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-example-build-wrathful-leaps-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-build-wrathful-leaps-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-build-wrathful-leaps-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-jump-around-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-jump-around-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-jump-around-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-jump-around-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-jump-around-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-jump-around-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-jump-around-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-jump-around-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-jump-around-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-jump-around-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-jump-around-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-jump-around-12"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-jumping-now-with-damage-output-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-jumping-now-with-damage-output-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-jumping-now-with-damage-output-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4800,
+    "sections": 19,
+    "blocks": 52,
+    "tables": 3,
+    "ratingSignals": 33
+  },
+  "status": "needs-editorial-review"
+}

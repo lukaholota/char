@@ -1,0 +1,791 @@
+{
+  "buildId": "build-cleric-trickery-rogue-2014",
+  "revisionId": "build-cleric-trickery-rogue-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— Напівельф, Клірик домену підступності / Пройдисвіт",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+      "sectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "ROGUE_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "ROGUE_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "TRICKERY_DOMAIN",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "guidance",
+            "sacred-flame"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "CLERIC_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "CLERIC_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "CLERIC_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "CLERIC_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "CLERIC_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "CLERIC_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "ROGUE_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "ROGUE_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ARCANE_TRICKSTER",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "booming-blade",
+            "minor-illusion"
+          ],
+          "knownSpellKeys": [
+            "mage-armor"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "ROGUE_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true,
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "ROGUE_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "ROGUE_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "expertise": [
+          "INSIGHT",
+          "PERCEPTION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "ROGUE_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "ROGUE_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true,
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "ROGUE_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "ROGUE_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true,
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          },
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "ROGUE_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "ROGUE_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-trickery-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "raceKey": "HALF_ELF_2014",
+    "backgroundKey": "CHARLATAN",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 10
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми використаємо трохи змінений варіант характеристик зі збірки на хитрощах вище, щоб скористатися унікальними підвищеннями характеристик Напівельфа{{Half-Elf}} із PHB. Якщо ви користуєтеся правилами налаштованого походження{{Custom Origin}}, можна перерозподілити їх, щоб почати зі 17 у Спритності чи Мудрості, але це не набагато краще, якщо ви не розглядаєте риси, що дають +1 до характеристики.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 14 14 Інтелект 8 8 Мудрість 15 16 Харизма 10 12",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Напівельф{{Half-Elf}}. У цьому випадку можемо користуватися стандартними правилами для напівельфів. Дві додаткові навички полегшать нам покриття і непомітності, і хитрощів.\n\nНатомість можна обрати Напівельфа з варіантом Високого ельфа{{High Elf}} і отримати Гримучий Клинок [Booming Blade], що дає корисне підсилення атак зброєю на ходах, коли ви не накладаєте заклинання, але коштує двох володінь навичками напівельфа. Якщо підете цим шляхом, раджу відмовитися від Залякування й Спритності рук. Спритність рук походить від нашої передісторії, але в PHB зазначено, що володіння передісторії можна замінювати, тож {{за правилами як написано|RAW}} це цілком дозволено.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Завдяки нашій расі, класу й передісторії ми отримуємо 8 володінь навичками та три інструменти.\n\nНавички:\n\nОбман Аналіз Поведінки Залякування Розслідування Уважність Переконання Спритність рук Непомітність\n\nІнструменти:\n\nНабір для гриму{{Disguise Kit}} Набір фальшивомонетника{{Forgery Kit}} Інструменти злодія{{Thieves’ Tools}}\n\nМи також отримаємо «Експертизу»{{Expertise}} у двох речах. Складно обрати, у яких саме, але оскільки Харизма — наше слабке місце, може бути розумно обрати Обман і ще щось одне. Непомітність майже напевно можна пропустити, бо ви зможете накладати Переміщення без сліду [Pass without Trace], що значно краще за «Експертизу».",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Шарлатан{{Charlatan}}. Це чудова ідея для персонажа, що може поклонятися богу підступності, а поєднання навичок та інструментів добре споряджає вас для досягнення цілей різноманітними оманливими засобами. Уміння «Фальшива Особистість»{{False Identity}} теж чудове. Розгляньте можливість зробити свою фальшиву особистість клірика іншого божества.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "У цій збірці ми не плануємо брати риси. Ми й так будуємо персонажа із залежністю від багатьох характеристик (MAD), тож хочемо всі Покращення Характеристик, які можемо отримати.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Експертиза (Обман, Інструменти злодія)\nПідступна атака 1к6\nЗлодійська мова",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Володіння легкими й середніми обладунками та щитами\nЧаротворство\nЗамовляння:\n– Настанова\n– Священне полумʼя\n– одне інше\nБожественний домен (Хитрість)\nБлагословення хитруна\nЗаклинання домену (Хитрість)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Канал божественності (1/відпочинок)\nБожественність: Заклик двійника\nБожественність: Вигнання нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Заклинання 2-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Нове замовляння:\n– будь-яке\nПокращення Характеристик (Мудрість 16 → 18)\nЗбільшення шкоди замовлянь",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Заклинання 3-го рівня\nЗнищення нежиті (ПН 1/2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Канал божественності (2/відпочинок)\nБожественність: Плащ тіней",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Заклинання 4-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Покращення Характеристик (Спритність 16 → 18)\nЗнищення нежиті (ПН 1)\nБлагословенні удари",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Хитра дія{{Cunning Action}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Підступна атака 2к6\nПройдисвітський архетип (Містичний спритник)\nЗамовляння:\n– Гримучий Клинок\n– Магічна рука\n– Мала ілюзія\nВідомі заклинання 1-го рівня:\n– Обладунок мага\n– будь-які 2 Причарування/Ілюзії\nЗбільшення шкоди замовлянь",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Експертиза в інструментах",
+        "reason": "На 1-му рівні автор бере Експертизу в Обмані та в інструментах злодія; експертиза в інструментах платформою не підтримана, тому замість інструментів злодія взято Переконання (слабка Харизма) — вибір платформи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Навички: розподіл між класом і расою",
+        "reason": "Автор називає вісім навичок разом, але не каже, які шість від Пройдисвіта й Напівельфа дає клас, а які раса; розподіл — вибір платформи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика",
+        "reason": "Третє замовлення Клірика на 2-му рівні та нове на 5-му автор не називає; їх обирає гравець.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Рівні 12–20",
+        "reason": "Таблиця статті закінчується на 12-му рівні й нічого не називає далі. Пресет просто бере рівні Пройдисвіта 4–12 (вибір платформи, автор не називає): підвищення Мудрість +2 на 12-му, Спритність +2 на 16-му, Статура +2 на 18-му, Харизма +2 на 20-му, друга Експертиза в Аналізі поведінки й Уважності на 14-му, нові заклинання й замовляння Містичного спритника лишено вибору гравця; гравець може змінити це на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-trickery-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

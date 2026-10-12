@@ -1,0 +1,1821 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-c20794434f3ec477",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+      "sourceId": "rpgbot-c20794434f3ec477",
+      "fetchedAt": "2026-09-29T19:21:23.975034+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:40:59-04:00",
+      "contentHash": "3469c4712854e3a0f853a31bbc7b8609477f3b812f6fc73242a0ca25b89a6d77",
+      "title": "Beast Master Ranger 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-c20794434f3ec477-d3cfe5fd9996e551.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-ranger-beast-master-2014",
+    "sourceId": "rpgbot-c20794434f3ec477",
+    "slug": "ranger-beast-master-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Конклав звіролова — гайд підкласу Слідопита (2014)",
+    "titleEn": "Beast Master Ranger 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Слідопит",
+      "Конклав звіролова",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Персонаж і тварина-супутник бʼються майже надприродно злагоджено. Цей образ усюди: у розповідях, фільмах, відеоіграх і D&D 5e як Звіролов-Слідопит. Минуле підкласу складне: при виході він був практично непридатний. Вимагати вашу дію кожного ходу лише для базового прояву сутності персонажа — згубне дизайнерське рішення. WotC довго нічого з цим не робили, але, на щастя, нарешті виправили."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Опціональний» {{Первісний супутник|Primal Companion (Optional)}} фактично повністю замінює механіку підкласу й вирішує проблему. Із цими змінами можна задовільно втілити цей образ і відчувати помітний, ефективний внесок у бій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця стаття про правила 2014. Для правил 2024 дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд підкласу Звіролова-Слідопита 2024",
+                  "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/beast-master/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Звіролова",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  },
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Варіанти Первісного супутника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#beast-master-primal-companion"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Звіролова",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#beast-master-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#beast-master-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#beast-master-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#beast-master-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#beast-master-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад персонажа — Знайомий задум",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#example-build-a-novel-concept"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                2,
+                3,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах офіційного контенту ми не враховуємо сторонні матеріали, Unearthed Arcana й хоумбрю, оскільки не можемо припустити, що ваша гра їх дозволяє."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Звіролова",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Первісний супутник{{Primal Companion (Optional)}}: визначальне вміння. Супутник — водночас домашня тварина й зброя. На відміну від викликаних помічників інших класів, як оживлений предмет від {{Пожвавлюючий виступ|Animating Performance}} чи {{Дух дикого полумʼя|Summon Wildfire Spirit}}, він залишається постійно: його не потрібно щоразу викликати. Але, як іншому учаснику групи, йому потрібні їжа, лікування тощо."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Виняткове дресирування|Exceptional Training}}: тут ви фактично виграєте лише від магічних атак супутника, але це критично. Опір до немагічних атак зброї поширений і трапляється дедалі частіше з рівнями."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Звіряча лють|Bestial Fury}}: звір отримує дві атаки, а наказ коштує лише бонусну дію або половину дії Атака."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Розділення заклять|Share Spells}}: чудовий спосіб ділитися підсиленнями, особливо з концентрацією."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-beast-master-primal-companion",
+          "parentSectionId": "section-features",
+          "heading": "Варіанти Первісного супутника",
+          "sourceAnchor": "beast-master-primal-companion",
+          "blocks": [
+            {
+              "blockId": "block-section-beast-master-primal-companion-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Казан Таші з усім» пропонує заміну механіки супутника Звіролова. Замість тварини з опублікованим статблоком обираєте один із трьох універсальних варіантів і описуєте його як завгодно. Шаблезубий тигр, динозавр, комодський варан чи собака використовують один статблок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beast-master-primal-companion-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Важливіше за спрощення вибору те, що новий супутник виправляє економіку дій — головну причину слабкості підкласу. Тепер наказуєте бонусною дією й можете на своєму ході атакувати чи чаклувати, замість залишати тварину поруч із ворогами виконувати Ухилення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beast-master-primal-companion-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Воскресити супутника тепер коштує слот заклинання, якщо зробити це протягом години після смерті. Можна кидати його в бій майже без турботи про безпеку, знаючи, що повернете до життя як нового. Звісно, це жахливе ставлення до тварини, з якою у вас емоційний звʼязок. Але це гра, супутник — класове вміння; як Майстер я не змусив би Воїна 8 годин годувати дикий довгий меч недоїдками заради дружби, тож не слід вимагати такого й від Слідопитів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beast-master-primal-companion-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Змінювати супутника теж простіше. Якщо несподівано вирушили човном і хочете водного помічника, змініть його після тривалого відпочинку. Тим, хто хоче привʼязатися до однієї тварини, це непросто. Але можна бути повелителем "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "усіх"
+                },
+                {
+                  "type": "text",
+                  "text": " звірів, а не одного, якого всюди тягаєте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beast-master-primal-companion-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Єдиний недолік Первісного супутника — обмежений вибір. Жоден, схоже, не підходить як верхова тварина, хоча Майстер може дозволити. І хоч як оформлюйте статблок, два Звіролови відчуватимуться схожими."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beast-master-primal-companion-6",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Звір суші{{Primal Companion (Optional)}}: просто й знаково. Швидкості ходи й лазіння 40 футів дозволяють швидко рухатися. Шкода дорівнює зброї або перевищує її; Натиск дозволяє збивати ворогів із ніг після розбігу. На жаль, до Звірячої люті на 11-му рівні є лише одна атака, тож половину рівнів він сам не скористається збиттям із ніг."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Звір моря{{Primal Companion (Optional)}}: придатний лише у водних кампаніях. Швидкості ходи 5 футів замало для ефективної акули-восьминога на суші. Якщо якось збільшити її до пристойного значення, наприклад довготривалим Скорохід [Longstrider] без концентрації, може працювати й на суші. Його влучання схоплюють ціль — сильний варіант, зазвичай недоступний гравцям."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Звір неба{{Primal Companion (Optional)}}: політ 60 футів і Проліт. ХП менше, але можливість постійно триматися поза ближньою досяжністю зменшує проблему. Шкода трохи нижча: Звір суші в середньому завдає 6,5 + БМ, а Звір неба — 5,5 + БМ, різниця невелика. Літаючого супутника менш хочеться ставити між вами й ворогами як захисника. Проте КБ такий самий, як у інших варіантів, і при проблемах із ХП Проліт дозволяє безпечно відійти."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-beast-master-ability-scores",
+          "heading": "Характеристики Звіролова",
+          "sourceAnchor": "beast-master-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-beast-master-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Без відмінностей від інших Слідопитів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beast-master-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сил: можна знехтувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beast-master-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спр: наші атаки й навичка."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beast-master-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ста: усім корисна вища Статура."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beast-master-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інт: можна знехтувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beast-master-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Муд: заклинання, Первісний супутник і решта навичок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beast-master-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хар: можна знехтувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-beast-master-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-beast-master-races",
+          "heading": "Раси",
+          "sourceAnchor": "beast-master-races",
+          "blocks": [
+            {
+              "blockId": "block-section-beast-master-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Без відмінностей від інших Слідопитів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-beast-master-feats",
+          "heading": "Риси",
+          "sourceAnchor": "beast-master-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-beast-master-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Без відмінностей від інших Слідопитів. На відміну від "
+                },
+                {
+                  "type": "link",
+                  "text": "Pathfinder 2",
+                  "href": "https://rpgbot.net/p2/characters/classes/ranger/"
+                },
+                {
+                  "type": "text",
+                  "text": ", у 5e немає рис, зосереджених на тварині-супутнику."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-beast-master-weapons",
+          "heading": "Зброя",
+          "sourceAnchor": "beast-master-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-beast-master-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Без відмінностей від інших Слідопитів, але особливо зверніть увагу на бій двома зброями. Опціональний Первісний супутник, який припускає цей гайд через слабкість оригіналу, дозволяє пожертвувати однією атакою дії Атака, щоб наказати тварині виконати дію Атака. Від 5-го рівня можна раз ударити основною рукою, виконати умови бою двома зброями й додатковою атакою наказати супутнику шматувати ціль."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-beast-master-armor",
+          "heading": "Обладунки",
+          "sourceAnchor": "beast-master-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-beast-master-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Без відмінностей від інших Слідопитів на Спритності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко описані очевидні привабливі варіанти, а не всі комбінації. Докладніше — "
+                },
+                {
+                  "type": "link",
+                  "text": "практичний гайд мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ніщо інше не допоможе оптимізувати Первісного супутника, тож залишаємося одним класом і швидше отримуємо вміння. Якщо не подобається Убивця ворогів як завершальне вміння, можна вкласти 20-й рівень у Клірика Домену миру для {{Зміцнювальний звʼязок|Emboldening Bond}} і Благословення [Bless] на всю групу, включно з котом. Якщо бракує вибухової шкоди, рівні 19 і 20 можна вкласти у Воїна заради {{Сплеск дій|Action Surge}}. Але обидва шляхи розглянуті в інших гайдах і не зовсім належать цьому."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-a-novel-concept",
+          "heading": "Приклад персонажа — Знайомий задум",
+          "sourceAnchor": "example-build-a-novel-concept",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-a-novel-concept-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": " Я завдаю потужного удару й, якщо пощастить, не бачу нічого — лише розмиту мить. Коли інстинкти поглинають розум, я знаходжу спокій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-a-novel-concept-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "— Мабуть, якийсь відомий персонаж"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-a-novel-concept-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цьому прикладі використовуємо всі опціональні класові вміння Слідопита."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-a-novel-concept-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коротко: з очевидних причин цей образ має битися двома скімітарами. Якщо хочете "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "справді"
+                },
+                {
+                  "type": "text",
+                  "text": " оптимізувати Звіролова, наполегливо рекомендую {{Друїдичний воїн|Druidic Warrior}} замість бойового стилю Бій двома зброями. Максимізуйте Мудрість до 20, залиште Спритність 14, вдягніть середні обладунки й щит, використовуйте дубину з Кийок [Shillelagh]. З одного боку, замовляння завжди витрачає бонусну дію першого раунду: на рівнях 3 і 4 обираєте між власною атакою й атакою кота. З іншого, можете взяти більше рис, які не вмістилися сюди, наприклад {{Скритний|Skulker}}, {{Вища магія дроу|Drow High Magic}} тощо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-a-novel-concept",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Характеристики трохи відрізняються від наведених вище заради безкоштовних заклинань і бонусів +2/+1/+1 Напівельфа."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базові"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищені"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-a-novel-concept",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напівельф{{Half-Elf}} дроу. Увесь колорит дроу, половина темнозору. Також прибирає згубну Чутливість до сонячного світла, що дуже цінно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-a-novel-concept",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Передісторія відображає не дитинство, а десятиліття мандрів Підмороком далеко від цивілізації. Обираємо Відлюдника{{Hermit}} й замінюємо Релігію на Виживання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-a-novel-concept",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Відлюдник дає Медицину, Виживання й володіння Набором травника. Слідопит дає Уважність, Поводження з тваринами й Непомітність."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-a-novel-concept",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо {{Ельфійська точність|Elven Accuracy}}. Тварина-супутник забезпечує обхід із флангу, якщо граєте з цим опціональним правилом; інакше є Вогники фей [Faerie fire] від Магії дроу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні максимізуємо Спритність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо {{Посвячений у бій|Fighting Initiate}} із {{Бій наосліп|Blind Fighting}}, щоб використовувати Темрява [Darkness] та/або Туманна хмара [Fog Cloud]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Рівні 16 і 19 максимізують Мудрість, щоб супутник не втрачав ефективності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-a-novel-concept",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Вправний дослідник - Кмітливий|Deft Explorer - Canny}}; {{Мічений ворог|Favored Foe}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Природний дослідник|Natural Explorer}} жахливий, а {{Улюблений ворог|Favored Enemy}} потребував покращення. Таша дала заміни обом, і ми їх хочемо. Кмітливий дає експертність у будь-чому: Непомітність очевидна, Уважність теж хороша. Стартове спорядження: лускатий обладунок, два короткі мечі, Набір дослідника підземель і довгий лук. Продайте лускатий обладунок і купіть клепаний шкіряний. Перші 40 золотих витратьте на заміну коротких мечів скімітарами. Функціонально однакові? Так. Але рубальна шкода, що зовсім не важливо. Лук потрібен проти втікачів; загалом наближайтеся й максимально використовуйте обидва мечі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий стиль: {{Бій двома зброями|Two-Weapon Fighting}}; нові заклинання: Мисливська мітка [Hunter's Mark], Доброягода [Goodberry]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий стиль одразу підвищує шкоду за раунд на 30%, навіть більше за Стрільбу з лука. Детально порівнював Мисливську мітку й Міченого ворога в "
+                    },
+                    {
+                      "type": "link",
+                      "text": "гайді Сутінкового мисливця",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Але після 5-го рівня обидва менш корисні: майже завжди витрачатимемо атаку на наказ супутнику. Тоді можна замінити заклинання. Доброягода потрібна, якщо справжній цілитель упав: хтось має його підняти. Якщо вже двоє здатні лікувати, замініть на Туманну хмару."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Первісне усвідомлення|Primeval Awareness}} / {{Первородне усвідомлення|Primal Awareness}}; Первісний супутник; нові заклинання: Поглинання стихій [Absorb Elements], Вогники фей (расове)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Обидва варіанти усвідомлення не надто хороші, але Первородне дає заклинання — краще за витрату слота на рідко важливе. Отримуємо Звіра суші у формі пантери й використовуємо в бою. Зараз основна рука завдає 1к6 + 3, а бонусною дією або друга рука стільки ж, або супутник із тим самим бонусом атаки — 1к8 + 4. Тварина явно виграє. Нехай спершу розбіжиться для Натиску, потім ви підійдете з перевагою проти, можливо, збитої цілі. Поглинання стихій — одне з найкращих захисних заклинань, і ми можемо скористатися його додатковою шкодою. Щоправда, істоти з великою стихійною шкодою часто мають опір чи імунітет до неї. Технічно Вогники фей накладаємо раз на день, а не вивчаємо. Але нові раси від цього відходять; можливо, переконаєте Майстра дозволити.\n\nРедакційна примітка: дозвіл повторного накладання расового заклинання слотами тут є пропозицією для Майстра, а не правилом Напівельфа 2014."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ельфійська точність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знову математика. Ельфійська точність працює, а "
+                    },
+                    {
+                      "type": "link",
+                      "text": "базова математика",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " очікує зростання бонусу атаки: ваш зростає, супутника — ні. Шкода майже однакова: 10,1 двома зброями проти 10,4 атаки й кота без переваги; 15,35 проти 15,26 із перевагою. Натиск дає коту явну перевагу. Але Мисливська мітка "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "різко"
+                    },
+                    {
+                      "type": "text",
+                      "text": " вирівнює результат навіть із Натиском: сам Слідопит завдає 15 шкоди за раунд без переваги й 21 із нею, а з котом — приблизно 14 і 20. Перевагу дає опціональний обхід із флангу чи Вогники фей. Є й третій шлях: без наказів супутник виконує Ухилення; підтримання захоплення не витрачає дій. Інтелект 8 достатній для розуміння наказів, тож можна наказати йому "
+                    },
+                    {
+                      "type": "link",
+                      "text": "схопити й штовхнути",
+                      "href": "https://rpgbot.net/dnd5/characters/grapple/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " ціль. До всіх перевірок додає ваш БМ, компенсуючи низьку Силу. Не постійна тактика, але корисна хитрість.\n\nРедакційна примітка: Звір суші Середнього розміру може схопити істоту не більш як на один розмір більшу; потрібен придатний спосіб захоплення за рішенням Майстра. Наказ виконати захоплення чи штовхання витрачає бонусну дію, а заміна вашої атаки дозволяє лише наказ виконати дію Атака."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Додаткова атака|Extra Attack (Ranger)}}; нові заклинання: Темрява (расове), Мале відновлення [Lesser Restoration]; заміна: Мисливська мітка → Переміщення без сліду [Pass without Trace]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Уся стаття — вправа з таблиць. Завдяки Бою двома зброями замінити одну атаку наказом Атака чи витратити бонусну дію на наказ — однаково, хіба що мечі різні, наприклад один магічний. Повірте моїм 15 хвилинам розрахунків: навіть із Мисливською міткою все рівно або трохи на користь кота, крім ходу з його атакою без стрибка. З міткою, перевагою й без стрибка власні атаки випереджають на 10%. Але це не враховує ходів і слота на підготовку мітки; середній бій триває 3 ходи, тож перевага лише 6,67%, навряд чи варта відомого заклинання. Замінюємо на Переміщення без сліду — мабуть, найкраще заклинання Слідопита. Також беремо Мале відновлення на випадок паралічу цілителя.\n\nРедакційна примітка: у статблоці Звіра суші Таші розбіг посилює Натиск; окремого вміння Pounce немає. Авторські розрахунки тут збережено."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Вправний дослідник - Мандрівний|Deft Explorer - Roving}}; Мічений ворог: підвищення шкоди"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мандрівний приємний, але персонажу ближнього бою не надто потрібен у бою. Зате місцевість рідко зупинить: можна залізти вище й спустити мотузку. Шкода Міченого ворога дорівнює кістці Мисливської мітки — добре, коли кота не можна використати. Може, його перетворили на статуетку, як у "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Super Smash Brothers",
+                      "href": "https://www.youtube.com/watch?v=L7KI-i20v4g"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", або він недієздатний чи загубився.\n\nРедакційна примітка: Мічений ворог додає шкоду лише раз у свій хід, а Мисливська мітка — до кожного влучання зброєю. Однакова кістка не означає однакової загальної шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Виняткове дресирування; нове заклинання: Темний зір [Darkvision]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Після змін Первісного супутника рівень майже порожній, але шкода тварини тепер магічна. Це може змінити розрахунок на користь кота, якщо маєте лише одну магічну зброю — або, боронь боже, жодної. Навіть нове заклинання менш тішить: лише допомагає друзям бачити в темряві."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: Спритність 18 → 20; {{Стежка землі|Land’s Stride}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хода землею майже декоративний: мало що зупиняє шкідливою природною місцевістю. Знову таблиці? Так. Спритність зростає, Мудрість — ні, тож супутник ще більше відстає бонусом атаки від очікуваного. Стрибок знову вирівнює результат."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове заклинання: Дихання водою [Water Breathing]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чому б не використати швидкість плавання разом із можливістю дихати водою цілий день?"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Вправний дослідник - Невтомний|Deft Explorer - Tireless}}; {{Сховатися на видноті|Hide in Plain Sight}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тимчасові ХП Невтомного не мають зазначеної тривалості, тож зберігаються до тривалого відпочинку. Використовуйте раз уранці й після кожного бою, доки є використання. Інакше не дуже варто. Друга частина чудова, якщо не дозволяють нормально спати. Сховатися на видноті гірше за однойменне вміння 3.5, але це ще +10 Непомітності разом із Переміщенням без сліду."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звіряча лють; нове заклинання: Розмова з рослинами [Speak with Plants]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Можна назавжди припинити перевіряти шкоду: додаткова атака Звірячої люті робить кота кращим у всіх випадках, навіть із нижчим бонусом. Хода землею ще менш корисний: витратьте слот і попросіть рослини пропустити всю групу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Посвячений у бій: Бій наосліп"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хотіли ще один спосіб отримати перевагу? Накладіть Темряву на скімітар і ходіть, знаючи, що майже ніхто вас не бачить. Чи робить це Дикі почуття майже непотрібними? Так. Але настільки краще за них, що все ще варте риси."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове заклинання: Свобода рухів [Freedom of Movement]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті прибираємо штрафи атак під водою й майже так само ефективні в океані, як на суші. Приємно, що з наступного рівня можемо ділитися заклинанням із супутником для спільних занурень.\n\nРедакційна примітка: Розділення заклять зʼявляється на 15-му рівні Слідопита, а не на наступному 14-му, як стверджує автор."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мічений ворог: підвищення шкоди; {{Зникнення|Vanish}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Може здатися, що більша кістка нарешті виведе власні атаки вперед, але ні: БМ уже +5 і додається до шкоди кота, тож він усе ще виграє. Зникнення — приємна хитрість, але бонусна дія щохід потрібна для шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розділення заклять; нове заклинання: Вартовий природи [Guardian of Nature]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Або станьте деревом. Подвоїти користь Вартового природи неймовірно. Не знаю чому, але атаки супутника описані як атаки зброї ближнього бою. Це дозволяє накласти форму дерева на себе, а форму первісного звіра — на нашого первісного звіра: нам Ельфійська точність, йому додаткова шкода влучання. На жаль, атака використовує модифікатор атаки заклинання, а не Силу. Але, мабуть, і так обходите ворога з флангу, тож відсутність переваги від заклинання не надто хвилює.\n\nРедакційна примітка: Розділення заклять також поширює ваше заклинання на супутника, але прямо не дозволяє обрати для нього іншу форму Вартового природи. Авторська комбінація потребує окремого дозволу Майстра."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: Мудрість 16 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кілька навичок і шкода кота покращуються."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове заклинання: Виклик залпу [Conjure Volley]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "СК майже максимальна й досягне максимуму за кілька рівнів. До того ж багато істот мають слабкі ряткидки Спритності. Ось наша шкода по області."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Дикі почуття|Feral Senses}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер приблизно знаємо про невидимі істоти за 15–30 футів від нас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: Мудрість 18 → 20; нове заклинання: Деревний шлях [Tree Stride]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Навички й шкода кота знову зростають. Також можемо ходити крізь дерева: не як 8 рівнів тому, а буквально "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "всередину"
+                    },
+                    {
+                      "type": "text",
+                      "text": " одного дерева й назовні з іншого."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Убивця ворогів|Foe Slayer}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не буду знову робити ті самі 8 розрахунків для двох варіантів цього вміння й порівнювати з котом. Якщо 20 рівнів Звіролова не переконали, що добре використовувати кота важливіше за крихітний приріст шкоди за раунд, навряд чи переконає ще щось."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-ranger-beast-master-2014-001",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Первісний супутник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-beast-master-2014-002",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Виняткове дресирування",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-beast-master-2014-003",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Звіряча лють",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-beast-master-2014-004",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Розділення заклять",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-beast-master-2014-005",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-beast-master-primal-companion",
+      "targetBlockId": "block-section-beast-master-primal-companion-6",
+      "optionId": "section-beast-master-primal-companion-block-section-beast-master-primal-companion-6-item-0",
+      "context": "Звір суші",
+      "explanationBlockId": "block-section-beast-master-primal-companion-6",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-beast-master-2014-006",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-beast-master-primal-companion",
+      "targetBlockId": "block-section-beast-master-primal-companion-6",
+      "optionId": "section-beast-master-primal-companion-block-section-beast-master-primal-companion-6-item-1",
+      "context": "Звір моря",
+      "explanationBlockId": "block-section-beast-master-primal-companion-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-beast-master-2014-007",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-beast-master-primal-companion",
+      "targetBlockId": "block-section-beast-master-primal-companion-6",
+      "optionId": "section-beast-master-primal-companion-block-section-beast-master-primal-companion-6-item-2",
+      "context": "Звір неба",
+      "explanationBlockId": "block-section-beast-master-primal-companion-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-beast-master-2014-008",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-beast-master-ability-scores",
+      "targetBlockId": "block-section-beast-master-ability-scores-2",
+      "optionId": "section-beast-master-ability-scores-block-section-beast-master-ability-scores-2",
+      "context": "Сил",
+      "explanationBlockId": "block-section-beast-master-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-beast-master-2014-009",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-beast-master-ability-scores",
+      "targetBlockId": "block-section-beast-master-ability-scores-3",
+      "optionId": "section-beast-master-ability-scores-block-section-beast-master-ability-scores-3",
+      "context": "Спр",
+      "explanationBlockId": "block-section-beast-master-ability-scores-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-beast-master-2014-010",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-beast-master-ability-scores",
+      "targetBlockId": "block-section-beast-master-ability-scores-4",
+      "optionId": "section-beast-master-ability-scores-block-section-beast-master-ability-scores-4",
+      "context": "Ста",
+      "explanationBlockId": "block-section-beast-master-ability-scores-4",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-beast-master-2014-011",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-beast-master-ability-scores",
+      "targetBlockId": "block-section-beast-master-ability-scores-5",
+      "optionId": "section-beast-master-ability-scores-block-section-beast-master-ability-scores-5",
+      "context": "Інт",
+      "explanationBlockId": "block-section-beast-master-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-beast-master-2014-012",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-beast-master-ability-scores",
+      "targetBlockId": "block-section-beast-master-ability-scores-6",
+      "optionId": "section-beast-master-ability-scores-block-section-beast-master-ability-scores-6",
+      "context": "Муд",
+      "explanationBlockId": "block-section-beast-master-ability-scores-6",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-beast-master-2014-013",
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sectionId": "section-beast-master-ability-scores",
+      "targetBlockId": "block-section-beast-master-ability-scores-7",
+      "optionId": "section-beast-master-ability-scores-block-section-beast-master-ability-scores-7",
+      "context": "Хар",
+      "explanationBlockId": "block-section-beast-master-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

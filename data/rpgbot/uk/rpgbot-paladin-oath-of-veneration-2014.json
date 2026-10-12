@@ -1,0 +1,1929 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-95186151ed2a5622",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-95186151ed2a5622-69f844fde8ca2cae",
+      "sourceId": "rpgbot-95186151ed2a5622",
+      "fetchedAt": "2026-09-29T19:17:57.753447+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:38:27-04:00",
+      "contentHash": "2195f4df12628b6ffaace87a5a27dad40414ab353a82c94789e9c0d07c170625",
+      "title": "Keith Baker’s Oath of Veneration Paladin: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-95186151ed2a5622-69f844fde8ca2cae.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+    "sourceId": "rpgbot-95186151ed2a5622",
+    "slug": "paladin-oath-of-veneration-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Паладин Клятви шанування — гайд підкласу (2014)",
+    "titleEn": "Keith Baker’s Oath of Veneration Paladin: DnD 5e Subclass Guide",
+    "topics": [
+      "Паладин",
+      "підклас",
+      "Клятва шанування",
+      "збірка"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "sourceRevisionId": "rpgbot-95186151ed2a5622-69f844fde8ca2cae",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підклас паладина «Клятва шанування»{{Oath of Veneration}} походить із книжки Кіта Бейкера "
+                },
+                {
+                  "type": "link",
+                  "text": "«Хроніки Еберрону»",
+                  "href": "https://www.dmsguild.com/product/415474/Chronicles-of-Eberron?affiliate_id=389627"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Chronicles of Eberron}}. Він уособлює клятву предкам: паладин черпає силу й рішучість, наслідуючи їхній приклад. Хоча в нас уже є "
+                },
+                {
+                  "type": "link",
+                  "text": "шлях варвара, заснований на духах предків",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/"
+                },
+                {
+                  "type": "text",
+                  "text": ", ця клятва має власне місце в дослідженні цього архетипу персонажа. Щоб охопити найрізноманітніших предків, підклас по-особливому (майже унікально — схожим чином працює хіба що {{Винахідник-бунтар|Maverick Artificer}} із "
+                },
+                {
+                  "type": "link",
+                  "text": "«Досліджуючи Еберрон»",
+                  "href": "https://www.dmsguild.com/product/315887/Exploring-Eberron?affiliate_id=389627"
+                },
+                {
+                  "type": "text",
+                  "text": ") формує список заклинань підкласу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого підклас дає лише по одному заклинанню на рівень, але натомість гравець обирає конкретний клас і вільно добирає для списку по одному заклинанню кожного рівня з переліку цього класу. Кажу «здебільшого», бо підклас також дає Покращення здібності [Enhance Ability], Пошук скакуна [Find Steed] і Пошук вищого скакуна [Find Greater Steed], але ці заклинання й так є в списку паладина. Окрім гнучкості із заклинаннями, підклас додає трохи різнобічності в навичках: Канал божественності{{Channel Divinity}} тимчасово дає експертизу в ключовій навичці, коли вона вам потрібна. Сукупно ці вміння роблять підклас паладина дуже гнучким і таким, що його можна налаштувати під власні потреби."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друга частина Каналу божественності{{Channel Divinity}} розвиває тему духів предків: вона або підсилює союзника, або дає змогу накласти Пошук скакуна [Find Steed]. Саме по собі це доволі корисне вміння, але {{Аура взірця|Aura of the Paragon}} та Зразковий супутник{{Exemplar Companion}} значно підсилюють його. Аура взірця — це додаткова шкода, якою союзники можуть скористатися щоразу, коли паладин застосовує Божественну кару{{Divine Smite}}; вона уособлює відлуння сили предка."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Уміння Зразковий супутник{{Exemplar Companion}} ще більше посилює ауру: воно визначає певних істот і союзників як власне зразкових супутників. Аура поширюється навколо них, а зразковий супутник завдає більшої додаткової шкоди, коли паладин застосовує Божественну кару{{Divine Smite}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви вагаєтеся, чи дозволяти цей підклас стороннього видавця у своїй грі, врахуйте: хоча гнучкість додаткових заклинань і справді сильна, паладин усе одно залишається напівзаклиначем із відповідною прогресією слотів. Так, паладин може обрати Вогнекулю [Fireball] як додаткове заклинання 3-го рівня. Звучить круто, але таке заклинання стане доступним лише на 9-му рівні — це не надмірно, тим паче що Потойбічний лицар{{Eldritch Knight}} робить так само від виходу «Довідника гравця» 2014 року, і ніхто не скаржився. На мою думку, підклас не порушує баланс, зате виразно додає те, чого бракує наявним клятвам паладина."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клятви шанування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клятви шанування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#oath-of-veneration-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси для Клятви шанування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#oath-of-veneration-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси для Клятви шанування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#oath-of-veneration-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя й обладунки Клятви шанування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#oath-of-veneration-weapons-and-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Клятви шанування — Сірий лицар",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#example-oath-of-veneration-build-grey-knight"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клятви шанування",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання клятви{{Oath Spells}}: уміння «Заклинання клятви»{{Oath Spells}} у Клятві шанування{{Oath of Veneration}} працює не так, як у решти клятв паладина. Замість списку заклинань паладин обирає клас, який уособлює його предка, а потім добирає зі списку цього класу по одному заклинанню кожного рівня — від 1-го до 5-го — і отримує ще кілька фіксованих заклинань. У результаті додаткових заклинань менше, ніж у будь-якої іншої клятви, зате можна вибрати майже будь-які. Тож ми оцінимо класи-предки за тим, наскільки вдалий їхній список заклинань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Винахідник: зі списку винахідника можна запозичити чимало непоганих заклинань, як-от Поглинання стихій [Absorb Elements], Вогники фей [Faerie fire], Цілюще слово [healing word], Павутиння [Web] і навіть Політ [Fly]. Але цей вибір значно вужчий, ніж у чарівника, якщо тільки вам не потрібні саме ті кілька заклинань винахідника, яких немає у списку чарівника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бард: список барда неоднорідний і містить кілька прийнятних варіантів, але важко знайти аж пʼять заклинань, які були б потрібні паладину й водночас не входили до сильнішого списку чи вже наявного списку паладина."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик: тут клірик посідає дивне місце. Його список багато в чому збігається зі списком заклинань паладина, але в ньому є Духи захисники [Spirit Guardians] і Цілюще слово [healing word]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Друїд: друїд дає доступ до кількох унікальних варіантів, зокрема заклинань виклику, що добре взаємодіють зі Зразковим супутником{{Exemplar Companion}}. Втім, ті самі істоти для виклику доступні й серед варіантів інших класів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Слідопит: його список трохи кращий за список друїда, бо пропонує бойові варіанти — наприклад, Мисливська мітка [Hunter's Mark] і Удар Зефіра [Zephyr Strike] — а також більшість заклинань, які ми взяли б у друїда. До того ж Вартовий природи [Guardian of Nature] у паладина може бути справді грізним."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чародій: це список заклинань чарівника, тільки коротший."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чорнокнижник: у цьому списку є чимало унікальних заклинань, яких більше ніде немає, як-от Обладунок Агатіса [Armor of Agathys] і Тінь Мойла [Shadow of Moil]. Також розгляньте Клинок тіні [Shadow Blade]. Шкоду цього заклинання збалансовано для класів без Додаткової атаки{{Extra Attack}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чарівник: величезна "
+                  },
+                  {
+                    "type": "link",
+                    "text": "кількість заклинань",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/spells/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " на вибір робить цей варіант найгнучкішим. Памʼятайте: ви привʼязані до класу предка, але з підвищенням рівня можете замінити заклинання на інше з того самого списку. Тут діє та сама порада щодо Клинка тіні [Shadow Blade], що й для чорнокнижника."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-features-2",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Канал божественності{{Channel Divinity}}:"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спомин предків{{Ancestral Recall}}: можливість ненадовго отримати і Володіння, і Експертизу в одній навичці або з одним інструментом завдяки Каналу божественності{{Channel Divinity}} дуже корисна. Можливо, в одному бою вам потрібно якнайкраще хапати ворогів; а можливо, треба успішно пройти важливу перевірку Історії. Активуйте це вміння й беріться до справи. Ще кращого ефекту досягнете, якщо поєднаєте його з Покращенням здібності [Enhance Ability]. Тоді показник відповідної характеристики майже не важитиме."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Супутник предків{{Ancestral Companion}}: Покращення здібності [Enhance Ability] — сильне заклинання, яке до того ж активує деякі пізніші вміння; однак Пошук скакуна [Find Steed] — чудове заклинання для Каналу божественності, адже навіть ваш магічний скакун дуже крихкий і, найімовірніше, загине, якщо монстри лише косо на нього глянуть. Якщо зі скакуном станеться щось погане, дуже зручно повернути його після короткого відпочинку, не витрачаючи слот заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Аура взірця|Aura of the Paragon}}: щоразу, коли ми застосовуємо Божественну кару{{Divine Smite}}, союзники поблизу можуть завдати трохи додаткової шкоди своєю наступною атакою. Але для цього їм доводиться витрачати Реакцію, а самої шкоди небагато. Перевага приємна, та потреба влучно розташуватися й витрачати Реакцію союзника дещо обмежує її користь аж до 15-го рівня, коли ми отримуємо Зразкового супутника{{Exemplar Companion}}; до того часу шкода 1к4 уже мізерна."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зразковий супутник{{Exemplar Companion}}: це вміння виконує кілька складних функцій. {{Аура взірця|Aura of the Paragon}} випромінюється від усього, що ми викликали магією, а також від тих, на кого наклали Покращення здібності [Enhance Ability]. Це охоплює очевидні випадки: наприклад, якщо через уміння «Заклинання клятви»{{Oath Spells}} ми беремо заклинання на кшталт Виклику феї [Summon Fey]. Але сюди також належить усе, що викликано Пошуком скакуна [Find Steed] чи Пошуком вищого скакуна [Find Greater Steed], а також фамільяр, якщо ми отримали заклинання Пошук фамільяра [Find Familiar]. Це означає, наприклад, що коли фамільяр сидить у кишені Воїна, а Слідопит їде верхи на нашому летючому скакуні, ми можемо бути за 100 футів від них, застосувати Божественну кару{{Divine Smite}} — і Воїн, і Слідопит зможуть отримати додаткову шкоду. Крім того, наші викликані істоти й усі, на кого ми наклали Покращення здібності [Enhance Ability], отримують від Аури взірця більше шкоди, тож на таких високих рівнях її вплив стає відчутнішим. Утім, навряд чи ви зосереджуватиметеся на Покращенні здібності [Enhance Ability] в бою, тому це вміння, імовірно, стосуватиметься лише викликаних істот."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Досконале втілення{{Perfect Avatar}}: це типове найвище вміння паладина, що на хвилину посилює ваші бойові можливості. Але є одна особлива умова, яка робить його значно потужнішим: усі переваги поширюються на будь-яких істот, що вважаються Зразковими супутниками{{Exemplar Companion}}. Це настільки добре, що перед боєм можна накласти Покращення здібності [Enhance Ability] на союзника."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-veneration-ability-scores",
+          "heading": "Характеристики Клятви шанування",
+          "sourceAnchor": "oath-of-veneration-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-veneration-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можемо розподілити характеристики так само, як у посібнику Паладина."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-veneration-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: потрібна для атак зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-veneration-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: якщо не плануємо користуватися зброєю з властивістю «Спритність», цю характеристику можна не підвищувати. Звісно, можна отримати Обладунок мага [Mage Armor] серед заклинань клятви, але є значно цікавіші варіанти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-veneration-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: потрібна для Концентрації, запасу ХП і ряткидків, провал яких може вбити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-veneration-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: нам не потрібен."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-veneration-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: допомагає проти деяких небезпечних ряткидків, а також впливає на Аналіз поведінки та Уважність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-veneration-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: підвищує складність ряткидків проти наших заклинань і бонуси до всіх ряткидків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-veneration-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Розподіл за очками"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-veneration-races",
+          "heading": "Раси для Клятви шанування",
+          "sourceAnchor": "oath-of-veneration-races",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-veneration-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічого особливого не змінює наш вибір раси, тож дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "огляд рас для Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-veneration-feats",
+          "heading": "Риси для Клятви шанування",
+          "sourceAnchor": "oath-of-veneration-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-veneration-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як завжди, варіанти рис знайдете в "
+                },
+                {
+                  "type": "link",
+                  "text": "посібнику Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-veneration-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Стійкий (Статура)|Resilient (Constitution)}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": залежно від вибору заклинань предків варто взяти цю рису, щоб надійніше підтримувати чудові заклинання з Концентрацією, вибрані для заклинань клятви."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойовий заклинатель{{War Caster}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": як і «Стійкий», може допомогти зберігати Концентрацію — залежно від обраних заклинань. А оскільки Паладин розрахований на ближній бій, ви частіше зможете скористатися можливістю накладати заклинання замість принагідної атаки."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-veneration-weapons-and-armor",
+          "heading": "Зброя й обладунки Клятви шанування",
+          "sourceAnchor": "oath-of-veneration-weapons-and-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-veneration-weapons-and-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від рекомендацій у "
+                },
+                {
+                  "type": "link",
+                  "text": "посібнику Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-oath-of-veneration-build-grey-knight",
+          "heading": "Приклад збірки Клятви шанування — Сірий лицар",
+          "sourceAnchor": "example-oath-of-veneration-build-grey-knight",
+          "blocks": [
+            {
+              "blockId": "block-section-example-oath-of-veneration-build-grey-knight-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Скористаємося унікальним вибором заклинань, щоб підвищити шкоду й посилити захист групи. У прикладі за клас предка беремо Чарівника, щоб отримати доступ до кількох потужних поєднань заклинань."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-oath-of-veneration-build-grey-knight",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ставимо по 15 у Спритність, Статуру й Харизму. Оскільки не мультикласуємося, ніщо не заважає зробити Паладина на Спритності в середніх обладунках. Обираємо напівельфа{{Half-Elf}} з гнучким походженням: +2 до Спритності й по +1 до Статури та Харизми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-oath-of-veneration-build-grey-knight",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напівельф{{Half-Elf}} дає доступ до риси «Ельфійська точність»{{Elven Accuracy}}, заради якої ми робимо Паладина на Спритності й беремо зброю з властивістю «Спритність». Від уміння «Різнобічність навичок» обираємо Спритність рук і Акробатику."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-oath-of-veneration-build-grey-knight",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо передісторію Злочинець/шпигун{{Criminal/Spy}}, що дає навички Обман і Непомітність. Також отримуємо володіння інструментами злодія."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-oath-of-veneration-build-grey-knight",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Паладина беремо Переконання й Залякування. Разом із навичками від передісторії й раси це дає нам повний набір навичок Харизми та Спритності. Ми можемо виконувати роль фахівця{{Expert role}}, залишаючись Паладином."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-oath-of-veneration-build-grey-knight",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Ельфійську точність»{{Elven Accuracy}} і додаємо +1 до Спритності, підвищуючи її до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні додаємо +2 до Спритності, підвищуючи її до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо «Бойового заклинателя»{{War Caster}}, щоб надійніше проходити ряткидки Концентрації."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні додаємо +2 до Харизми, підвищуючи її до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні ще раз додаємо +2 до Харизми, підвищуючи її до 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-oath-of-veneration-build-grey-knight",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне відчуття{{Divine Sense}}\n{{Цілющі руки|Lay on Hands}}\nНавички:\n– Акробатика\n– Обман\n– Залякування\n– Переконання\n– Спритність рук\n– Непомітність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На 1-му рівні беремо рапіру{{Rapier}} і довгий лук{{Longbow}} як дві безкоштовні одиниці бойової зброї та міняємо кольчугу{{Chain Mail}} на лускатий обладунок{{Scale Mail}}. Потім витрачаємо частину стартових грошей на щит{{Shield}} за 10 золотих. На цьому рівні бʼємося, як будь-який інший Паладин. КБ середніх і важких обладунків однаковий, доки у вас не зʼявляться гроші на лати{{Plate}}. Оскільки Божественної кари{{Divine Smite}} в нас іще немає, за бажання можемо стріляти з довгого лука й битися на відстані."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественна кара{{Divine Smite}}\nБойовий Стиль{{Fighting Style}}: Дуель{{Dueling}}\nЧаротворство{{Spellcasting}} — заклинання 1-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отримуємо заклинання й Божественну кару. Залишаємо довгий лук для ситуацій, коли не можемо дістати ворогів, але переважно переходимо на рапіру. Бойовий Стиль «Дуель» дасть нам трохи додаткової шкоди. Імовірно, цими слотами можна накладати Благословення [Bless], Героїзм [Heroism] або Лікування ран [Cure Wounds]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Клятва шанування|Oath of Veneration}}\nКлас предка{{Ancestor's Class}}: Чарівник{{Wizard}}\nЧаротворство: заклинання Чарівника 1-го рівня — "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nКанал божественності{{Channel Divinity}}:\n– Спомин предків{{Ancestral Recall}}\n– Супутник предків{{Ancestral Companion}}\n– Спрямування божественної сили{{Harness Divine Power}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Обираємо Клятву шанування й Чарівника за клас предка. Тоді беремо заклинання Чарівника 1-го рівня Сріблясті шпильки [Silvery Barbs]. Воно допоможе союзним заклиначам закріпити важливі заклинання, а нам дасть другу частину ефекту — Перевагу. Завдяки Спомину предків можемо за потреби отримати Експертизу в різних навичках. У нас і так багато соціальних навичок, але немає Аналізу поведінки, тож перед перемовинами варто скористатися цим варіантом Каналу божественності, щоб компенсувати нижчу Мудрість. Супутник предків цікавий тим, що дає доступ до Пошуку скакуна [Find Steed] на два рівні раніше; це переважно просто зручно. Можна викликати коня. Спрямування божественної сили насправді досить корисне: якщо кілька разів за день влаштовувати короткий відпочинок, воно дасть додатковий слот заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Ельфійська точність{{Elven Accuracy}}; +1 до Спритності (17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ельфійська точність{{Elven Accuracy}} — головна причина, чому ми обрали Паладина зі Спритністю. Вона добре працює з рапірою та довгим луком, але ще краще поєднається із заклинанням Чарівника 2-го рівня, яке візьмемо на наступному рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}\nЧаротворство: заклинання Чарівника 2-го рівня — Клинок тіні [Shadow Blade]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми не лише атакуємо двічі, а й беремо зі списку Чарівника заклинання Клинок тіні [Shadow Blade]. Воно не знадобиться в "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "кожному"
+                    },
+                    {
+                      "type": "text",
+                      "text": " бою, але якщо накласти його в першому раунді, а тоді атакувати ним шість разів за три раунди, додаткова шкода дорівнюватиме шкоді від двох кар 2-го рівня або трьох кар 1-го рівня. До того ж, якщо бій відбувається в тьмяному світлі чи темряві, Ельфійська точність{{Elven Accuracy}} дасть нам Перевагу. Також можна підготувати інші заклинання 2-го рівня, наприклад Підтримку [Aid] або Мале відновлення [Lesser Restoration]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура захисту|Aura of Protection}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Саме вчасно отримуємо її, щоб легше втримувати Концентрацію на Клинку тіні [Shadow Blade]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура взірця|Aura of the Paragon}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Трохи додаткової шкоди, якою союзники можуть скористатися щоразу, коли ми застосовуємо кару. Оскільки Клинок тіні [Shadow Blade] дає змогу заощаджувати слоти, які інакше витратили б на кару, застосовуватимемо її активно, коли союзники стоять так, що можуть скористатися додатковою шкодою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}}: +2 до Спритності (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність у нас вища, ніж у більшості Паладинів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство: заклинання Чарівника 3-го рівня — Контрчари [Counterspell]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На 3-му рівні заклинань обираємо Контрчари [Counterspell], щоб переривати заклинання й захищати групу. Для нього потрібен соматичний компонент, а наші руки, імовірно, будуть зайняті. Та можна просто випустити Клинок тіні [Shadow Blade] — бонусною дією воно повернеться нам у руку. Крім того, Клинок тіні [Shadow Blade] можна накласти слотом 3-го рівня, щоб завдавати ще більше шкоди. Наша шкода за раунд із Клинком тіні [Shadow Blade] 3-го рівня становить 28,00 без Переваги й 43,09 із Перевагою від «Ельфійської точності»{{Elven Accuracy}}. Оскільки Клинок тіні [Shadow Blade] дає Перевагу в будь-якому тьмяному світлі, найімовірніше, вона в нас буде."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура мужності|Aura of Courage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Імунітет до переляку — це доволі добре."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращена божественна кара{{Improved Divine Smite}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кожна атака завдає ще 1к8 шкоди сяйвом. Це хороше підсилення, особливо з нашою надійною Перевагою від «Ельфійської точності»{{Elven Accuracy}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: «Бойовий заклинатель»{{War Caster}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бойовий заклинатель»{{War Caster}} допомагає підтримувати Концентрацію й позбавляє потреби жонглювати Клинком тіні [Shadow Blade], коли треба накласти Контрчари [Counterspell]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\n— заклинання Чарівника 4-го рівня: Двері між вимірами [Dimension Door]\n— або —\nТаємна скриня Леомунда [Leomund's Secret Chest]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут ми обираємо заклинання 4-го рівня. Якщо це ще не було очевидно, я уникав заклинань із Концентрацією, щоб не заважати Клинку тіні [Shadow Blade]. Двері між вимірами [Dimension Door] чудово підходять для швидкої втечі разом із супутником. Таємна скриня Леомунда [Leomund's Secret Chest], навпаки, годиться для схову речей, які ми не хочемо, щоб знайшли."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Очищувальний дотик{{Cleansing Touch}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зніміть заклинання з себе чи когось іншого. Це корисно, але тут більше нічого сказати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зразковий супутник{{Exemplar Companion}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер наш Пошук вищого скакуна [Find Greater Steed] стає Зразковим супутником{{Exemplar Companion}}. Це також посилило б інших істот, створених нашою магією, але в цій збірці ми більше нічого не створювали. Та це не означає, що не можемо. Наприклад, якби ми замінили Контрчари [Counterspell] на Підіймання мерців [Animate Dead], кожен оживлений нами скелет і зомбі випромінював би нашу ауру. У цього вміння немає жодного реального обмеження. Зробіть собі торбу зі щурячих скелетів і попросіть друзів носити скелетів-щурів у кишенях."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}}: Харизма +2 (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вища СК заклинань. Кращі ряткидки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\n— заклинання Чарівника 5-го рівня: "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Стіна енергії",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wall-spells/#wall-of-force"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми отримуємо заклинання 5-го рівня, і є цікавий варіант. Священна зброя [Holy Weapon] додає зброї 2к8 шкоди, що відповідало б показникам Клинка тіні [Shadow Blade] 3-го рівня, якби накласти її на рапіру. Головна перевага в тому, що вона діє годину, а не хвилину. Крім того, оберемо Стіну енергії [Wall of Force] як заклинання Чарівника 5-го рівня. Це потужне заклинання на випадок надзвичайної ситуації. Наче величезний щит зі священної тіні чи щось таке. Ми використовуємо Клинок тіні [Shadow Blade] вже близько 12 рівнів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Аур{{Aura Improvements}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Радіус наших аур збільшується до 30 футів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}}: Харизма +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вища СК заклинань. І знову кращі ряткидки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Досконале втілення{{Perfect Avatar}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це вміння насправді дуже потужне. Хоча б тому, що протягом її дії ми можемо безкоштовно намагатися штовхати ворогів разом зі звичайними атаками. І памʼятайте: це підсилення також отримують усі Зразкові супутники{{Exemplar Companion}}. Так, якщо ми обрали той обхідний шлях і зібрали взвод мерців за допомогою Підіймання мерців [Animate Dead], кожен зомбі й скелет отримає таке саме підсилення."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-001",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання клятви",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-002",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-003",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Бард",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-004",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-005",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-006",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-007",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-008",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-009",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-010",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-0",
+      "context": "Канал божественності",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-011",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-1",
+      "context": "Спомин предків",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-012",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-2",
+      "context": "Супутник предків",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-013",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-3",
+      "context": "Аура взірця",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-014",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-4",
+      "context": "Зразковий супутник",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-015",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-5",
+      "context": "Досконале втілення",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-016",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-oath-of-veneration-ability-scores",
+      "targetBlockId": "block-section-oath-of-veneration-ability-scores-2",
+      "optionId": "section-oath-of-veneration-ability-scores-block-section-oath-of-veneration-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-oath-of-veneration-ability-scores-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-017",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-oath-of-veneration-ability-scores",
+      "targetBlockId": "block-section-oath-of-veneration-ability-scores-3",
+      "optionId": "section-oath-of-veneration-ability-scores-block-section-oath-of-veneration-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-oath-of-veneration-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-018",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-oath-of-veneration-ability-scores",
+      "targetBlockId": "block-section-oath-of-veneration-ability-scores-4",
+      "optionId": "section-oath-of-veneration-ability-scores-block-section-oath-of-veneration-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-oath-of-veneration-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-019",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-oath-of-veneration-ability-scores",
+      "targetBlockId": "block-section-oath-of-veneration-ability-scores-5",
+      "optionId": "section-oath-of-veneration-ability-scores-block-section-oath-of-veneration-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-oath-of-veneration-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-020",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-oath-of-veneration-ability-scores",
+      "targetBlockId": "block-section-oath-of-veneration-ability-scores-6",
+      "optionId": "section-oath-of-veneration-ability-scores-block-section-oath-of-veneration-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-oath-of-veneration-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-021",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-oath-of-veneration-ability-scores",
+      "targetBlockId": "block-section-oath-of-veneration-ability-scores-7",
+      "optionId": "section-oath-of-veneration-ability-scores-block-section-oath-of-veneration-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-oath-of-veneration-ability-scores-7",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-022",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-oath-of-veneration-feats",
+      "targetBlockId": "block-section-oath-of-veneration-feats-2",
+      "optionId": "section-oath-of-veneration-feats-block-section-oath-of-veneration-feats-2-item-0",
+      "context": "Стійкий",
+      "explanationBlockId": "block-section-oath-of-veneration-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-veneration-2014-023",
+      "articleId": "rpgbot-paladin-oath-of-veneration-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-veneration-2014-draft1",
+      "sectionId": "section-oath-of-veneration-feats",
+      "targetBlockId": "block-section-oath-of-veneration-feats-2",
+      "optionId": "section-oath-of-veneration-feats-block-section-oath-of-veneration-feats-2-item-1",
+      "context": "Бойовий заклинатель",
+      "explanationBlockId": "block-section-oath-of-veneration-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

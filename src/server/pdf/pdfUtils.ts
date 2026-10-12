@@ -38,11 +38,8 @@ function getLocalPuppeteerExecutablePath() {
     "/usr/bin/chromium-browser",
   ];
 
-  for (const p of candidates) {
-    if (existsSync(p)) return p;
-  }
-
-  return undefined;
+  // Passed by reference: a call with a variable path makes Turbopack trace the whole project into the build.
+  return candidates.find(existsSync);
 }
 
 export async function getBrowser(): Promise<Browser> {

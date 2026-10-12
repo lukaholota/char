@@ -13,6 +13,9 @@ import { RouterPopStateFilter } from "@/components/ui/RouterPopStateFilter";
 import { RESERVE_FIRST_POPSTATE_LISTENER_SCRIPT } from "@/lib/router-popstate-filter";
 import { PlatformBackdrop } from "@/components/ui/PlatformBackdrop";
 import { OfflineServiceWorker } from "@/components/ui/OfflineServiceWorker";
+import { RESERVE_INSTALL_PROMPT_SCRIPT } from "@/lib/pwa/install-bootstrap";
+import { APP_HISTORY_SCRIPT } from "@/lib/pwa/history-bootstrap";
+import { APP_THEME_COLOR, APPLE_WEB_APP, APPLE_WEB_APP_TAGS } from "@/lib/pwa/app-metadata";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -47,16 +50,20 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   viewportFit: "cover",
+  themeColor: APP_THEME_COLOR,
 };
 
 export const metadata: Metadata = {
   manifest: '/manifest.json',
+  appleWebApp: APPLE_WEB_APP,
+  other: APPLE_WEB_APP_TAGS,
   // `follow: true` навмисне: щоб краулер побачив noindex на решті сторінок, він мусить дійти до
   // них посиланнями. `nofollow` тут сповільнив би саме те, заради чого це стоїть.
   robots: { index: false, follow: true },
   title: 'ДнД українською',
   description: 'char.holota.family - твій особистий помічник у світі днд! Створюй персонажа, знаходь заклинання, магічні предмети та кидай кубики прямо на сайті!',
   icons: {
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
     icon: [
       {
         media: '(prefers-color-scheme: light)',
@@ -84,6 +91,8 @@ export default function RootLayout(
   return (
     <html lang={ 'uk' } className="h-full w-full dark" suppressHydrationWarning>
     <head>
+      <script dangerouslySetInnerHTML={{ __html: RESERVE_INSTALL_PROMPT_SCRIPT }} />
+      <script dangerouslySetInnerHTML={{ __html: APP_HISTORY_SCRIPT }} />
       <script dangerouslySetInnerHTML={{ __html: RESERVE_FIRST_POPSTATE_LISTENER_SCRIPT }} />
     </head>
     <body

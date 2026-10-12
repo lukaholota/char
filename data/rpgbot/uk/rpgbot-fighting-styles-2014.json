@@ -1,0 +1,2917 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-7c86beb8506cec30",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-7c86beb8506cec30-f8236332d42f404a",
+      "sourceId": "rpgbot-7c86beb8506cec30",
+      "fetchedAt": "2026-09-29T19:15:59.061146+00:00",
+      "sourceUpdatedAt": "2026-07-09T10:35:56-04:00",
+      "contentHash": "ea3c87b6f8e490e62e640fefd7e2c9bd02c580a64d73646d1bbc6ccec4964655",
+      "title": "DnD 5e Fighting Styles Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-7c86beb8506cec30-f8236332d42f404a.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-fighting-styles-2014",
+    "sourceId": "rpgbot-7c86beb8506cec30",
+    "slug": "fighting-styles-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Бойові стилі — практичний гайд (2014)",
+    "titleEn": "DnD 5e Fighting Styles Guide",
+    "topics": [
+      "rules"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "sourceRevisionId": "rpgbot-7c86beb8506cec30-f8236332d42f404a",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бойовий стиль{{Fighting Style}} — важлива здібність деяких бойових класів, яка помітно підсилює улюблену зброю. Переваги часто прості, але їх порівняння має цікаві математичні нюанси; розуміння допоможе отримати більше від персонажа."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Казан Таші з усім додав кілька стилів як необовʼязкові класові здібності. Щоб вирішити, чи включати їх у кампанію, дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "Практичний гайд необовʼязкових класових здібностей",
+                  "href": "https://rpgbot.net/dnd5/dungeonmasters/optional-class-features/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо стаття вам сподобалася або вас лякає стіна тексту, послухайте епізод подкасту про "
+                },
+                {
+                  "type": "link",
+                  "text": "бойові стилі",
+                  "href": "https://rpgbot.net/unlock-your-characters-martial-potential-fighting-styles-rpgbot-podcast-s3e102/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як отримати бойовий стиль",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#getting-a-fighting-style-in-dnd-5e"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Посвячений у бій",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#fighting-initiate"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бойові стилі 2014",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#dnd-5e-fighting-styles"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Стрільба з лука",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#archery"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Blessed Warrior",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#blessed-warrior"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бій наосліп",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#blind-fighting"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Оборона",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#defense"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Druidic Warrior",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#druidic-warrior"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Дуель",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#dueling"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бій великою зброєю",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#great-weapon-fighting"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Перехоплення",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#interception"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Захист",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#protection"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Superior Technique",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#superior-technique"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бій метальною зброєю",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#thrown-weapon-fighting"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бій двома зброями",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#twoweapon-fighting"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рукопашний бій",
+                    "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#unarmed-fighting"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-getting-a-fighting-style-in-dnd-5e",
+          "heading": "Як отримати бойовий стиль",
+          "sourceAnchor": "getting-a-fighting-style-in-dnd-5e",
+          "blocks": [
+            {
+              "blockId": "block-section-getting-a-fighting-style-in-dnd-5e-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здібність Бойового стилю доступна різним класам і підкласам, але набір конкретних стилів залежить від класу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-getting-a-fighting-style-in-dnd-5e-2",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойовий стиль"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бард (Колегія мечів)"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Воїн"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Паладин"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Слідопит"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стрільба з лука{{Archery}}"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Blessed Warrior{{Blessed Warrior}}"
+                    }
+                  ],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бій наосліп{{Blind Fighting}}"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оборона{{Defense}}"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Druidic Warrior{{Druidic Warrior}}"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дуель{{Dueling}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бій великою зброєю{{Great Weapon Fighting}}"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перехоплення{{Interception}}"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захист{{Protection}}"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Superior Technique{{Superior Technique}}"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бій метальною зброєю{{Thrown Weapon Fighting}}"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бій двома зброями{{Two-Weapon Fighting}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рукопашний бій{{Unarmed Fighting}}"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  []
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-getting-a-fighting-style-in-dnd-5e-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Воїн-Чемпіон{{Champion}} отримує другий стиль на 10-му рівні; це єдиний наведений клас чи підклас, що отримує другий стиль без мультикласу або риси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighting-initiate",
+          "parentSectionId": "section-getting-a-fighting-style-in-dnd-5e",
+          "heading": "Посвячений у бій",
+          "sourceAnchor": "fighting-initiate",
+          "blocks": [
+            {
+              "blockId": "block-section-fighting-initiate-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Посвячений у бій",
+                  "href": "https://www.dndbeyond.com/feats/fighting-initiate"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Fighting Initiate}} відкриває стилі іншим персонажам, але лише варіанти Воїна. Тому Blessed Warrior і Druidic Warrior залишаються відповідно Паладину й Слідопиту. Примітка редакції: риса вимагає Володіння військовою зброєю; твердження «будь-якому персонажу» не скасовує передумови."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Бойові стилі 2014",
+          "sourceAnchor": "dnd-5e-fighting-styles",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-archery",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Стрільба з лука",
+          "sourceAnchor": "archery",
+          "blocks": [
+            {
+              "blockId": "block-section-archery-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стрільба з лука{{Archery}} — очевидний вибір стрільця. +2 до влучання багато означає у грі, де персонаж 20-го рівня за звичайних характеристик очікує до +11. Авторська модель дає близько 65% шансів влучити по істоті відповідної небезпеки із середньою КБ; підвищення до 75% відчутне. Для Влучний стрілець{{Sharpshooter}} автор вважає стиль обовʼязковим. Примітка редакції: +11 — типовий базовий бонус із характеристикою 20, а не абсолютна межа з предметами й іншими ефектами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-archery-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для метальної зброї дивіться нижче Бій метальною зброєю. Стрільба з лука працює для атак зброєю дальнього бою, а не для всіх дальніх атак зброєю. Примітка редакції: кинджал і ручна сокира залишаються зброєю ближнього бою навіть при кидку; дротик належить до дальньої."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-archery-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречні риси: "
+                },
+                {
+                  "type": "link",
+                  "text": "Експерт з арбалетів",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Crossbow Expert}}, "
+                },
+                {
+                  "type": "link",
+                  "text": "Стрілець",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/gunner/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Gunner}}, "
+                },
+                {
+                  "type": "link",
+                  "text": "Влучний стрілець",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/great-weapon-master-sharpshooter/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Sharpshooter}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-archery-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречна зброя: луки, арбалети, дротики."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-blessed-warrior",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Blessed Warrior",
+          "sourceAnchor": "blessed-warrior",
+          "blocks": [
+            {
+              "blockId": "block-section-blessed-warrior-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Blessed Warrior{{Blessed Warrior}} дозволяє Паладину зробити чаротворення основним бойовим засобом. На відміну від Слідопита з Druidic Warrior та Кийок [Shillelagh], тут ідеться про атакувальні замовляння, а не магічно підсилену зброю. Автор рекомендує Слово сяйва [Word of Radiance] проти натовпу та ще одне атакувальне замовляння з більшою дальністю, бажано іншого типу шкоди; Священне полумʼя [Sacred Flame] теж цілком добрий вибір."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blessed-warrior-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На відміну від Druidic Warrior, цей стиль не змінює вибору обладунків Паладина. Важкі працюють добре, але для певних комплектів варто мати Силу 15, щоб уникнути штрафу швидкості 10 футів. Із 20 футами важче наблизитися для Слова сяйва; Пошук скакуна [Find Steed] і його вища версія допоможуть, якщо мало тісних приміщень."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blessed-warrior-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для цього стилю потрібно грати Паладином або взяти його рівні. Для Паладина збірка "
+                },
+                {
+                  "type": "link",
+                  "text": "технічно можлива",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#example"
+                },
+                {
+                  "type": "text",
+                  "text": ", але інколи складна. Якщо іншому персонажу потрібен лише цей стиль, автор радить натомість рівень Клірика або Чародія Божественної душі{{Divine Soul}}, якщо інші можливості Паладина не потрібні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blessed-warrior-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречні риси: Посвячений у магію{{Magic Initiate}} — Чародій або Чорнокнижник — для додаткової магії на Харизмі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blessed-warrior-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречна зброя: немає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-blind-fighting",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Бій наосліп",
+          "sourceAnchor": "blind-fighting",
+          "blocks": [
+            {
+              "blockId": "block-section-blind-fighting-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бій наосліп{{Blind Fighting}} складно оцінити. Сліпозір навіть на 10 футів дуже корисний: невидимі вороги, брак Темного зору, туман, магічна темрява й інше блокування видимості. Проте такі обставини є не в кожній сутичці. Коли стиль працює, він чудовий; решту часу мало дає. Якщо союзники не планують часто створювати темряву чи закривати огляд, автор пропонує його пропустити. Примітка редакції: стиль має власні обмеження щодо повного укриття та успішно прихованих істот."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blind-fighting-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Раси із Чутливістю до сонячного світла{{Sunlight Sensitivity}} можуть розглянути повʼязку або заплющення очей разом зі стилем. Майстер може дозволити так уникнути сонячної проблеми. Але текст чутливості не завжди привʼязаний саме до зору, тому це може не працювати буквально за правилами. Це пропозиція автора, яку треба погодити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blind-fighting-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречні риси: немає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blind-fighting-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречна зброя: будь-яка з Досяжністю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-defense",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Оборона",
+          "sourceAnchor": "defense",
+          "blocks": [
+            {
+              "blockId": "block-section-defense-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оборона{{Defense}} не надто захоплива, але через повільне зростання КБ +1 помітний. Стиль не привʼязує вас до типу зброї й чудово підходить тим, хто змінює її за ситуацією. Примітка редакції: бонус діє, лише коли ви носите обладунки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druidic-warrior",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Druidic Warrior",
+          "sourceAnchor": "druidic-warrior",
+          "blocks": [
+            {
+              "blockId": "block-section-druidic-warrior-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Druidic Warrior{{Druidic Warrior}} дозволяє Слідопиту зробити чаротворення головним бойовим засобом. Shillelagh — типовий вибір ближнього бою, Створення вогню [Produce Flame] — дальнього, хоча автор особисто любить Терновий батіг [Thorn Whip]. Настанова [Guidance] корисне поза атакою, а Гуркіт грому [Thunderclap] допомагає з натовпом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-druidic-warrior-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Збірка може спиратися на Мудрість замість Сили чи Спритності, але має свої труднощі. Автор радить середні обладунки зі Спритністю 14 й згадує Перешкоду на Непомітність. Магії та прямих атакувальних заклинань у Слідопита небагато, тому Мудрість дає менше, ніж Друїду. Примітка редакції: не всі середні обладунки створюють Перешкоду; нагрудник її не має."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-druidic-warrior-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо після зважування переваг стиль усе ще подобається, подумайте, що цей персонаж зробить краще за Друїда. Якщо маєте переконливу відповідь — а такі є — вибір працює. Конклав звіролова{{Beast Master Conclave}} є добрим прикладом: звір бʼється, а ви легше зосереджуєтеся на Мудрості й магії. Багатьом іншим підкласам краще залишатися зі зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-druidic-warrior-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Іншим класам замість стилю автор радить рівень Друїда або Клірика Домену природи{{Nature Domain}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-druidic-warrior-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречні риси: Magic Initiate — Клірик або Друїд — для додаткової магії на Мудрості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-druidic-warrior-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречна зброя: немає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dueling",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Дуель",
+          "sourceAnchor": "dueling",
+          "blocks": [
+            {
+              "blockId": "block-section-dueling-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дуель{{Dueling}} дає +2 шкоди й майже закриває розрив між довгим мечем і дворучною зброєю на кшталт великої сокири чи дворучного меча: 4.5 → 6.5 проти 6.5/7. Маєте близьку до дворучної шкоду разом із КБ щита. Стиль не змінює тактику, але за своїх умов завжди дає надійний бонус."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dueling-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Працює зі щитом. У другій руці не повинно бути іншої зброї."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dueling-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречні риси: Оборонний дуелянт{{Defensive Duelist}}, Майстер щита{{Shield Master}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dueling-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречна зброя: довгий меч, рапіра та схожа одноручна зброя."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-great-weapon-fighting",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Бій великою зброєю",
+          "sourceAnchor": "great-weapon-fighting",
+          "blocks": [
+            {
+              "blockId": "block-section-great-weapon-fighting-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бій великою зброєю{{Great Weapon Fighting}} додає трохи більше 1 середньої шкоди за атаку дворучним мечем, а іншій зброї — менше. Автор зазвичай радить натомість Оборону, щоб компенсувати відсутність щита."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-great-weapon-fighting-2",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Кубик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Середнє"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Середнє зі стилем"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Приріст"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "d4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2.5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "0.5"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "d6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3.5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4.17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "0.67"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "d8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4.5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "0.75"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "d10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6.30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "0.8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "d12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6.5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7.33"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "0.83"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-great-weapon-fighting-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Зброя"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шкода"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Середня шкода"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Середня зі стилем"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Приріст"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Довгий меч (двома руками)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1d10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6.3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "0.8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Велика сокира"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1d12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6.5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7.33"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "0.83"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дворучний меч"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2d6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.33"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1.33"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Double-Bladed Scimitar{{Double-Bladed Scimitar}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2d4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-what-can-i-reroll",
+          "parentSectionId": "section-great-weapon-fighting",
+          "heading": "Що можна перекидати?",
+          "sourceAnchor": "what-can-i-reroll",
+          "blocks": [
+            {
+              "blockId": "block-section-what-can-i-reroll-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Паладин та інші персонажі з додатковими кубиками шкоди від Проклін [hex], Hunterʼs Mark, меча Flame Tongue{{Flame Tongue}} або Brutal Critical{{Brutal Critical}} могли б отримувати більше від перекидання. Зокрема, кубики Божественної кари{{Divine Smite}} значно розширили б користь. Але саме цього розробники не задумували. Примітка редакції: офіційний Sage Advice Compendium 2.7, с. 4, обмежує перекидання кубиками зброї, а не додатковими кубиками кари."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-what-can-i-reroll-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Задум Great Weapon Fighting — перекидати лише кубики зброї, а не кари чи подібних додатків. "
+                },
+                {
+                  "type": "link",
+                  "text": "#DnD",
+                  "href": "https://x.com/hashtag/DnD?src=hash&ref_src=twsrc%5Etfw"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "https://t.co/GCojfPXbPc",
+                  "href": "https://t.co/GCojfPXbPc"
+                },
+                {
+                  "type": "text",
+                  "text": " — Jeremy Crawford (@JeremyECrawford), "
+                },
+                {
+                  "type": "link",
+                  "text": "17 листопада 2015",
+                  "href": "https://x.com/JeremyECrawford/status/666462581184315394?ref_src=twsrc%5Etfw"
+                },
+                {
+                  "type": "text",
+                  "text": ". Примітка редакції: це переклад змісту вбудованого повідомлення; чинне для 2014 офіційне пояснення також наведене в Sage Advice Compendium."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-what-can-i-reroll-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор зазвичай грає за задумом або буквальним текстом, коли задум неясний. Тут він вважає задум відмінним від RAW, через що стиль математично непривабливий. На його думку, слова «коли випадає 1 або 2 на кубику шкоди атаки» без уточнення «шкода зброї» "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "мали б"
+                },
+                {
+                  "type": "text",
+                  "text": " дозволяти перекидати будь-які кубики атаки, зокрема Divine Smite, Hunterʼs Mark чи Стихійна зброя [Elemental Weapon]. Він пропонує обговорити ширше трактування з Майстром. Примітка редакції: це авторська пропозиція відхилитися від офіційного розʼяснення, а не безумовна можливість правил 2014."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-what-can-i-reroll-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречні риси: "
+                },
+                {
+                  "type": "link",
+                  "text": "Майстер великої зброї",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/great-weapon-master-sharpshooter/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Great Weapon Master}}, "
+                },
+                {
+                  "type": "link",
+                  "text": "Майстер древкової зброї",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Polearm Master}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-what-can-i-reroll-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречна зброя: дворучний меч, дворучний молот, Double-Bladed Scimitar{{Double-Bladed Scimitar}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-interception",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Перехоплення",
+          "sourceAnchor": "interception",
+          "blocks": [
+            {
+              "blockId": "block-section-interception-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перехоплення{{Interception}} концептуально схоже на Захист, але працює інакше. Захист створює Перешкоду: якщо атака й так часто промахується, це вигідніше. Перехоплення зменшує шкоду після влучання, проте не обовʼязково скасує весь великий удар. Примітка редакції: потрібні реакція, видимий атакувальник, інша ціль у межах 5 футів і щит або проста чи військова зброя в руці; «завжди працює» не скасовує умов."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-interception-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вибір залежить від того, кого захищаєте. Для союзника з доброю КБ, наприклад Клірика чи Пройдисвіта ближнього бою, автор радить Захист. Для Чарівника з низькою КБ Перешкода менше допомагає, тому він радить Перехоплення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-interception-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречні риси: немає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-interception-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречна зброя: будь-яка з Досяжністю або дальністю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-protection",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Захист",
+          "sourceAnchor": "protection",
+          "blocks": [
+            {
+              "blockId": "block-section-protection-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Захист{{Protection}} привабливе для танка, але союзники мають залишатися в межах 5 футів. Біля першої лінії зазвичай небезпечно, якщо без вашого захисту вони там не виживають. Потрібні також щит, реакція й видимий атакувальник."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-protection-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стиль цікавий верховому бійцю: можна прикрити крихкого скакуна. Проте для такої збірки дуже потрібен Верховий боєць{{Mounted Combatant}}, який дозволяє перенаправити атаку зі скакуна на себе."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-protection-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречні риси: Shield Master."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-protection-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречна зброя: батіг, щоб мати Досяг зі щитом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-superior-technique",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Superior Technique",
+          "sourceAnchor": "superior-technique",
+          "blocks": [
+            {
+              "blockId": "block-section-superior-technique-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Superior Technique{{Superior Technique}} приваблює Майстра бойових мистецтв{{Battle Master}}, який не хоче чекати 3-го рівня, але чисельно слабкий. Стиль для всіх атак, як Дуель, дасть більше. Якщо дуже потрібен кубик переваги, можна взяти Своя раса{{Custom Lineage}} або Варіант Людини{{Variant Human}} з Військовий адепт{{Martial Adept}}: два прийоми й один кубик на 1-му рівні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-superior-technique-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На високому рівні, коли характеристики влаштовують, Martial Adept і Fighting Initiate із Superior Technique разом додають три відомі прийоми й два кубики до звичайного розвитку Майстра бойових мистецтв."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-superior-technique-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречні риси: Martial Adept."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-superior-technique-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречна зброя: будь-яка."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-thrown-weapon-fighting",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Бій метальною зброєю",
+          "sourceAnchor": "thrown-weapon-fighting",
+          "blocks": [
+            {
+              "blockId": "block-section-thrown-weapon-fighting-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бій метальною зброєю{{Thrown Weapon Fighting}} — найскладніший стиль: для дієвої збірки потрібні риси або ще один стиль. Взаємодії можуть бути веселими, хоча автор не вважає їх настільки оптимізованими, як звичайні луки чи Експерт з арбалетів. Новачкам не радить, а досвідчений гравець може створити цікавого персонажа."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На відміну від лука чи арбалета, метальну зброю можна використовувати однією рукою. Деяка підтримує бій двома зброями, бо більшість є зброєю ближнього бою з Кидальною властивістю. Магічні речі складніші: ви постійно кидаєте їх, хоча після бою часто можете підібрати. Повернення залежить від доступності предмета."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кілька способів отримати зброю, що повертається:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Вливання Винахідника Returning Weapon{{Returning Weapon}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бумеранг",
+                    "href": "https://www.dndbeyond.com/equipment/boomerang"
+                  },
+                  {
+                    "type": "text",
+                    "text": " — звичайний, але "
+                  },
+                  {
+                    "type": "link",
+                    "text": "має й варіанти +X",
+                    "href": "https://www.dndbeyond.com/magic-items/535335-boomerang-1"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Повертається лише при промаху."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Boomerang Shield",
+                    "href": "https://www.dndbeyond.com/magic-items/7526627-boomerang-shield"
+                  },
+                  {
+                    "type": "text",
+                    "text": " — незвичайний."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Dwarven Thrower",
+                    "href": "https://www.dndbeyond.com/magic-items/4627-dwarven-thrower"
+                  },
+                  {
+                    "type": "text",
+                    "text": " — дуже рідкісний."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стиль має цікаві поєднання. Легка метальна зброя ближнього бою, як ручні сокири, підтримує Бій двома зброями. Dual Wielder{{Dual Wielder}} дозволяє перейти на метальні списи заради дальності й діставати дві зброї. Але це вже два стилі, риса й необхідні підвищення для Сили або Спритності 20. Примітка редакції: саме Thrown Weapon Fighting дозволяє діставати Кидальну зброю як частину кожної атаки; Dual Wielder потрібна насамперед для нелегкої пари."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дальня метальна зброя, як дротики, підтримує Стрільбу з лука з +2 до атак, але не бій двома зброями, який потребує зброї ближнього бою. Дротик із +2 шкоди стилю має середню шкоду довгого лука й дозволяє тримати щит. Можна уявляти цю заміну як +2 КБ замість переваг звичайного стрільця. Додавши Стрільбу з лука, ви отримуєте ще +2 до атак ціною другого стилю. Примітка редакції: згадана автором складність із єдиною безплатною взаємодією вже вирішена правилом діставання у Thrown Weapon Fighting."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор застерігає від додавання Dueling до одноручної метальної зброї зі щитом: він трактує вимогу тримати зброю в руці так, що після кидка бонус зникає. Примітка редакції: це спірне авторське трактування тексту 2014, а не підтверджена тут офіційна заборона. Узгодьте його з Майстром; авторська таблиця нижче цього поєднання не моделює."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sharpshooter можна використовувати для кидка зброї дальнього бою, тобто дротиків. Автор каже, що він не працює з кинджалами чи метальними списами. Примітка редакції: це правильно саме для третього пункту з −5/+10, який потребує дальньої зброї; перші два пункти стосуються дальніх атак зброєю, тож їх не треба виключати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе складно й потребує математики, тож порівняймо розвиток шкоди за раунд у наведених збірках Воїна-Чемпіона — Варіанта Людини. Примітка редакції: автор пише про чотири, але далі наводить пʼять варіантів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-10",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Довгий лук: Стрільба з лука, Sharpshooter на рівні 1, Спритність +2 на 4 і 6. Автор лишає вільний вибір рис на 8 і 10. Примітка редакції: Воїн не отримує Покращення характеристик на 10-му рівні; там Чемпіон отримує другий стиль."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ручний арбалет: Стрільба з лука, Crossbow Expert, Sharpshooter на 4, Спритність +2 на 6 і 8. Автор лишає рису на 10; такого вибору у Воїна 2014 немає. Crossbow Master у джерелі — помилкова назва Crossbow Expert."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ручні сокири / метальні списи: Бій метальною зброєю, Dual Wielder на 1, Fighting Initiate із Боєм двома зброями на 4, Сила +2 на 6 і 8. Автор лишає рису на 10; такого вибору немає."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дротики та щит A: Бій метальною зброєю, Fighting Initiate зі Стрільбою з лука на 1, Sharpshooter на 4, Спритність +2 на 6 і 8. Автор лишає рису на 10; такого вибору немає."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дротики та щит B: Бій метальною зброєю, Sharpshooter на 1, Fighting Initiate зі Стрільбою з лука на 4, Спритність +2 на 6 і 8. Автор лишає рису на 10; такого вибору немає."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-11",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Довгий лук"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Експерт з арбалетів"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ручні сокири / метальні списи"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дротики A"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дротики B"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.97"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9.45"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7.13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.97"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9.45"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7.13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9.20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.45"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7.25"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9.70"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15.55"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.90"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "23.32"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16.35"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16.25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16.25"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "22.35"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "27.30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.58"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.00"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.00"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "22.35"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "27.30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.58"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.00"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.00"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "21.53"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.00"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.00"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "21.53"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.00"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.00"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "21.53"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.00"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.00"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30.60 (31.95 із Piercer)*"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "38.40 (39.80 із Piercer)*"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.70 (31.5 із Piercer)*"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30.00 (30.75 із Piercer)*"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30.00 (30.75 із Piercer)*"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-12",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "* — не враховує перекидання кубика шкоди раз за хід. Примітка редакції: це застереження джерела для Piercer, а не перерахована нами симуляція."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-13",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із цього можна зробити кілька цікавих висновків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-14",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Довгий лук — проста основа без складних тактик, яку можна дати новачку. У таблиці він випереджає обидва варіанти дротиків на всіх рівнях і залишає ще одну вільну рису. Дротики міняють дальність лука й цю рису на +2 КБ, а до рівня 8 розрив шкоди майже зникає. Можна почати з лука, а на 8 взяти Fighting Initiate із Боєм метальною зброєю й перейти на дротики. Примітка редакції: висновок стосується авторських припущень таблиці, не всіх можливих стильових поєднань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-15",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор залишає кожній збірці рису на 10, а луку ще одну на 8, і доводить таблицю до 11, щоб показати Додаткову атаку (2). Piercer{{Piercer}} здається природним для колючої шкоди й +1 характеристики; автор пропонує поставити її замість першого підвищення й отримати кращі результати. Найбільше виграють метальні списи, які з останнього місця трохи випереджають дротики. Примітка редакції: риса на 10 неможлива; ручні сокири завдають рубаної шкоди й не отримують користі Piercer. Стверджувати автоматичне поліпшення кожної збірки без перерахунку не можна."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-16",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Порівняння показує труднощі бою двома зброями. За вільної бонусної дії, особливо до Додаткової атаки, він легко перевищує багато одиночних зброєвих варіантів. Але коли зростає кількість основних атак, розрив скорочується й обертається після Додаткової атаки (2). Примітка редакції: у джерелі тут повторено TWF там, де контекст порівнює розвиток Extra Attack."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-17",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Звичайно, найбільший переможець таблиці — Crossbow Expert: подібна економіка дій, але менше труднощів, ніж у бою двома чи метальною зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-18",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є й ускладнення. Не всі бойові класи отримують понад дві основні атаки, а інші бонуси змінюють розрахунок. Автор хвалить Favored Foe{{Favored Foe}} для двох зброєвих атак, але Crossbow Expert має схожу економіку дій. Примітка редакції: Favored Foe додає шкоду лише раз у власний хід, а не при кожному влучанні; додаткові атаки тільки підвищують шанс застосувати бонус."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-19",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Магічна зброя теж змінює математику. Boomerang Shield піднімає кубик варіанта дротиків із к4 до к6, але лук і арбалет можуть мати зброю +1 й збільшити перевагу. Автор вважає ручні сокири й списи найменш вдалими з магічними предметами. Примітка редакції: доступність конкретних предметів визначає кампанія; це не гарантований порядок знахідок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-20",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вливання допоможуть: Returning Weapon вирішує діставання, повернення й немагічний опір для однієї зброї, додаючи +1 до атак і шкоди. Це дозволяє конкурувати з луком +1, але не повертає дві ручні сокири. За ту саму витрату Repeating Shot{{Repeating Shot}} на ручному арбалеті дає можливість щита й зберігає найвищу шкоду таблиці. Примітка редакції: автономне створення боєприпасу саме цього Вливання прибирає потребу у вільній руці для заряджання; сама Crossbow Expert її не прибирає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-21",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Авторський висновок: Crossbow Expert кращий для чистої дальньої шкоди; дротики зі щитом близькі до довгого лука, але міняють дальність і трохи шкоди до 8-го рівня на +2 КБ. Магічні речі й Вливання схиляють його до інших варіантів. Примітка редакції: це висновок конкретного порівняння з наведеними помилками, а не заборона чи доведена непридатність усіх метальних збірок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-22",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречні риси: Dual Wielder, "
+                },
+                {
+                  "type": "link",
+                  "text": "Влучний стрілець",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/great-weapon-master-sharpshooter/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thrown-weapon-fighting-23",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречна зброя: кинджали, дротики, ручні сокири, легкі молоти, метальні списи."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-twoweapon-fighting",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Бій двома зброями",
+          "sourceAnchor": "twoweapon-fighting",
+          "blocks": [
+            {
+              "blockId": "block-section-twoweapon-fighting-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бій двома зброями{{Two-Weapon Fighting}} вирішує одну з головних проблем двох зброєвих атак: без нього позитивний модифікатор характеристики не додається до шкоди бонусної атаки. Проте вибір усе ще сильно залежить від збірки й економіки дій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-twoweapon-fighting-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розгляньмо кожен клас, що отримує стиль без риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-twoweapon-fighting-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречні риси: Dual Wielder."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-twoweapon-fighting-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречна зброя: будь-яка Легка зброя ближнього бою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-swords-bard",
+          "parentSectionId": "section-twoweapon-fighting",
+          "heading": "Бард Колегії мечів",
+          "sourceAnchor": "college-of-swords-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-swords-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Колегії мечів{{College of Swords}} стиль помітно збільшує шкоду зброї, але Бард уже витрачає бонусну дію на Натхнення барда{{Bardic Inspiration}} та деякі заклинання. У багатьох ходах доведеться віддати додаткову атаку заради важливішої дії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-twoweapon-fighting",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Воїн отримує більше основних атак за інших і не має класового бонусу кожного влучання на кшталт Hunterʼs Mark або великого разового бонусу на кшталт Підступної атаки{{Sneak Attack}}, заради якого потрібен хоча б один успіх."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fighter-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Одна бонусна атака дає приблизно максимум 1к8 + 5, якщо атакувальна характеристика 20, є Dual Wielder і довгі мечі чи рапіри. Дворучний меч натомість додає до кожної основної атаки ще к6 порівняно з одноручною зброєю: 1к6, 2к6, 3к6 чи 4к6 залежно від числа атак, до максимуму 4. Автор порівнює 9.5 із 3.5, 7, 10.5 або 14. Примітка редакції: це помилкове порівняння різних базових кубиків. Після Dual Wielder 2к6 проти 1к8 дає різницю 2,5 за основну атаку, а не 3,5; наведені цифри джерела збережено для прозорості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fighter-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За авторським розрахунком дві основні атаки майже зрівнюють варіанти, а три вже віддають перевагу дворучній зброї. Дві зброї також займають бонусну дію: коли потрібне Друге дихання{{Second Wind}} чи інше застосування, втрачається заявлених 20–50% шкоди раунду. Прискорення [Haste] й Провоковані атаки{{Opportunity Attack}} ще посилюють основну зброю. Автор не радить цей варіант Воїну, крім Чемпіона для критичних влучань або мультикласів. Примітка редакції: через помилку попереднього порівняння точка переваги й відсотки потребують окремого перерахунку; це оцінка автора."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-twoweapon-fighting",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бій двома зброями цілком придатний багатьом Слідопитам. Hunterʼs Mark додає шкоду кожному влучанню, скорочуючи розрив між дворучним і короткими мечами; стиль особливо корисний на низьких рівнях. Примітка редакції: згаданий у джерелі Favored Foe, на відміну від Мітки мисливця, працює лише раз у власний хід."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ranger-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте бонусна дія дуже зайнята. Hunterʼs Mark потребує її для накладання й перенесення, тому в бою доводиться обирати між міткою та бонусною атакою. Planar Warrior{{Planar Warrior}}, Slayerʼs Prey{{Slayer's Prey}} та багато інших заклинань Слідопита теж її займають; для багатьох підкласів часу на другу зброю часто немає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ranger-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мисливцю{{Hunter}} дві зброї можуть добре підходити, багатьом іншим підкласам — менше. Перед вибором перевірте, чи потрібна бонусна дія для активації здібностей вашого підкласу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-everyone-else",
+          "parentSectionId": "section-twoweapon-fighting",
+          "heading": "Інші класи",
+          "sourceAnchor": "everyone-else",
+          "blocks": [
+            {
+              "blockId": "block-section-everyone-else-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варвар зазвичай обирає велику зброю, але друга дає ще один шанс застосувати бонус шкоди Люті{{Rage}}. Стиль додає ще більше. Автор вважає Great Weapon Master із дворучною зброєю математично кращим без постійної витрати бонусної дії. Примітка редакції: результат залежить від КБ ворога та інших умов; сама риса теж може давати бонусну атаку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-everyone-else-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Паладин не отримує цей стиль від класу й зазвичай не обирає дві зброї. Проте навіть без стилю додаткова атака — ще один шанс застосувати кару й швидко прибрати ворога, якщо готові швидко витрачати ресурси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-everyone-else-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пройдисвіт у ближньому бою дуже залежить від Підступної атаки. Друга атака може збільшити шкоду за раунд майже на 50% завдяки другому шансу влучити. Для цього стиль не потрібен, а витрата риси на нього, ймовірно, зайва. Вважайте другу зброю запасним планом після промаху; якщо основна атака влучила, витрачайте бонусну дію на Хитру дію{{Cunning Action}}. Примітка редакції: 50% — авторська оцінка, залежна від шансу влучання й частки шкоди Підступної атаки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-unarmed-fighting",
+          "parentSectionId": "section-dnd-5e-fighting-styles",
+          "heading": "Рукопашний бій",
+          "sourceAnchor": "unarmed-fighting",
+          "blocks": [
+            {
+              "blockId": "block-section-unarmed-fighting-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Рукопашний бій{{Unarmed Fighting}} без додаткової шкоди захопленій істоті поступається звичайному бойовому молоту. Тому спирайтеся на Атлетику та поєднання "
+                },
+                {
+                  "type": "link",
+                  "text": "Захоплення й Штовхання",
+                  "href": "https://rpgbot.net/dnd5/characters/grapple/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Отримайте Експертизу Атлетики через Експерт у навичках{{Skill Expert}} або рівень Пройдисвіта, розвивайте Силу й шукайте Перевагу на перевірки: наприклад, Збільшення/Зменшення [Enlarge/Reduce] або Giantʼs Might{{Giant's Might}} Лицаря рун{{Rune Knight}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-unarmed-fighting-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розгляньте Забіяка з таверни{{Tavern Brawler}}: Захоплення бонусною дією після відповідного влучання поліпшує економіку дій. Можна спершу Штовхнути, потім атакувати з Перевагою й Захопити бонусною дією. Примітка редакції: для послідовності зі Штовханням і ударом потрібні дві доступні атаки, а бонусне Захоплення потребує влучання беззбройним ударом або імпровізованою зброєю. Борець{{Grappler}} автор і далі вважає дуже слабким і непотрібним."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-unarmed-fighting-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречні риси: "
+                },
+                {
+                  "type": "link",
+                  "text": "Експерт у навичках",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Skill Expert}}, Tavern Brawler."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-unarmed-fighting-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доречна зброя: немає."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-fighting-styles-2014-001",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-archery",
+      "targetBlockId": "block-section-archery-1",
+      "optionId": "section-archery",
+      "context": "Стрільба з лука",
+      "explanationBlockId": "block-section-archery-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-002",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-blessed-warrior",
+      "targetBlockId": "block-section-blessed-warrior-1",
+      "optionId": "section-blessed-warrior",
+      "context": "Blessed Warrior",
+      "explanationBlockId": "block-section-blessed-warrior-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-003",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-blind-fighting",
+      "targetBlockId": "block-section-blind-fighting-1",
+      "optionId": "section-blind-fighting",
+      "context": "Бій наосліп",
+      "explanationBlockId": "block-section-blind-fighting-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-004",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-defense",
+      "targetBlockId": "block-section-defense-1",
+      "optionId": "section-defense",
+      "context": "Оборона",
+      "explanationBlockId": "block-section-defense-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-005",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-druidic-warrior",
+      "targetBlockId": "block-section-druidic-warrior-1",
+      "optionId": "section-druidic-warrior",
+      "context": "Druidic Warrior",
+      "explanationBlockId": "block-section-druidic-warrior-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-006",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-dueling",
+      "targetBlockId": "block-section-dueling-1",
+      "optionId": "section-dueling",
+      "context": "Дуель",
+      "explanationBlockId": "block-section-dueling-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-007",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-great-weapon-fighting",
+      "targetBlockId": "block-section-great-weapon-fighting-1",
+      "optionId": "section-great-weapon-fighting",
+      "context": "Бій великою зброєю",
+      "explanationBlockId": "block-section-great-weapon-fighting-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-008",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-interception",
+      "targetBlockId": "block-section-interception-1",
+      "optionId": "section-interception",
+      "context": "Перехоплення",
+      "explanationBlockId": "block-section-interception-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-009",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-protection",
+      "targetBlockId": "block-section-protection-1",
+      "optionId": "section-protection",
+      "context": "Захист",
+      "explanationBlockId": "block-section-protection-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-010",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-superior-technique",
+      "targetBlockId": "block-section-superior-technique-1",
+      "optionId": "section-superior-technique",
+      "context": "Superior Technique",
+      "explanationBlockId": "block-section-superior-technique-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-011",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-thrown-weapon-fighting",
+      "targetBlockId": "block-section-thrown-weapon-fighting-1",
+      "optionId": "section-thrown-weapon-fighting",
+      "context": "Бій метальною зброєю",
+      "explanationBlockId": "block-section-thrown-weapon-fighting-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-012",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-twoweapon-fighting",
+      "targetBlockId": "block-section-twoweapon-fighting-1",
+      "optionId": "section-twoweapon-fighting",
+      "context": "Бій двома зброями",
+      "explanationBlockId": "block-section-twoweapon-fighting-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-013",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-college-of-swords-bard",
+      "targetBlockId": "block-section-college-of-swords-bard-1",
+      "optionId": "section-college-of-swords-bard",
+      "context": "Бард Колегії мечів",
+      "explanationBlockId": "block-section-college-of-swords-bard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-014",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-015",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighting-styles-2014-016",
+      "articleId": "rpgbot-fighting-styles-2014",
+      "translationRevisionId": "translation-rpgbot-fighting-styles-2014-draft1",
+      "sectionId": "section-unarmed-fighting",
+      "targetBlockId": "block-section-unarmed-fighting-1",
+      "optionId": "section-unarmed-fighting",
+      "context": "Рукопашний бій",
+      "explanationBlockId": "block-section-unarmed-fighting-1",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

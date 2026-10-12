@@ -1,0 +1,336 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "warlock-celestial-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+    "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "WARLOCK_2014",
+  "subclassKey": "CELESTIAL",
+  "raceKey": "HALFLING_2014",
+  "backgroundKey": "FACTION_AGENT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 4,
+  "levels": [
+    {
+      "level": 2,
+      "classOptions": [
+        {
+          "optionNameEng": "Repelling Blast"
+        },
+        {
+          "optionNameEng": "Fiendish Vigor"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "hellish-rebuke"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classOptions": [
+        {
+          "optionNameEng": "Pact of the Talisman"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "misty-step"
+        ]
+      },
+      "replaceOptions": [
+        {
+          "drop": {
+            "optionNameEng": "Fiendish Vigor"
+          },
+          "add": {
+            "optionNameEng": "Rebuke of the Talisman"
+          }
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "featKey": "BOUNTIFUL_LUCK",
+      "spells": {
+        "cantripKeys": [
+          "minor-illusion"
+        ],
+        "knownSpellKeys": [
+          "lesser-restoration"
+        ]
+      }
+    },
+    {
+      "level": 5,
+      "classOptions": [
+        {
+          "optionNameEng": "Maddening Hex"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "hunger-of-hadar"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "spells": {
+        "knownSpellKeys": [
+          "revivify"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "classOptions": [
+        {
+          "optionNameEng": "Protection of the Talisman"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "wall-of-fire"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 1
+        },
+        {
+          "ability": "CHA",
+          "amount": 1
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "summon-aberration"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "classOptions": [
+        {
+          "optionNameEng": "Grasp of Hadar"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "synaptic-static"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "spells": {
+        "cantripKeys": [
+          "mind-sliver"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "greater-restoration"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "classOptions": [
+        {
+          "optionNameEng": "Bond of the Talisman"
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15,
+      "classOptions": [
+        {
+          "optionNameEng": "Shrouded in Shadow"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "featKey": "ELDRITCH_ADEPT",
+      "featOptions": [
+        {
+          "optionNameEng": "Agonizing Blast"
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "classOptions": [
+        {
+          "optionNameEng": "Visions of Distant Realms"
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Містичний арканум",
+      "reason": "Автор називає Проклятуще око (11-й рівень), Планарний перехід (13-й), Нестерпну темряву (15-й) і Передбачення (17-й); платформа не записує вибір арканума, тож їх слід додати вручну.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання «будь-які»",
+      "reason": "На 13, 15, 17 і 19-му рівнях автор не називає нового відомого заклинання; це вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Рівень 19: риса Картомант",
+      "reason": "Автор бере на 19-му рівні рису «Картомант» (Cartomancer), якої немає в каталозі 2014, тож 19-й рівень додано без риси й підвищення, їх можна обрати на листі. Нове відоме заклинання на цьому рівні автор називає «будь-яке» (вибір гравця).",
+      "section": "section-feats-2"
+    },
+    {
+      "field": "Виклик 2-го рівня «Бісівська стійкість»",
+      "reason": "Автор називає виклик «Fiendish Resilience» (це уміння Почвари, а не виклик) і пояснює, що він лише тимчасово допомагає вижити до 3-го рівня; записано виклик Вогняна енергійність (Fiendish Vigor), який дає тимчасові ХП, а на 3-му рівні його замінено на Відплату талісмана, як радить автор.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/warlock-stout-halfling-celestial-2014.webp",
+    "title": "Чорнокнижник-Небожитель — Кремезний напіврослик",
+    "description": "Сапорт із Харизмою 17 і Спритністю 16: «Світило зцілення», Пакт талісмана та расова «Удача».",
+    "subraceKey": "HALFLING_STOUT_2014",
+    "racialAbilities": [
+      "CHA",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "HISTORY"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": [
+          "CLUB"
+        ]
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Кремезний напіврослик за правилами налаштованого походження: +2 до Харизми й +1 до Спритності, як у авторській таблиці (Харизма 17, Спритність 16); це вже враховано.",
+    "skillExplanation": "Магія й Історія — від Чорнокнижника, Аналіз Поведінки й Переконання — від Агента фракції, як радить автор. Дві мови автор не називає: ми обрали їх за вас.",
+    "equipmentExplanation": "Автор не називає спорядження. Легкий арбалет, мішечок із компонентами, набір вченого та кийок як просту зброю ми обрали за вас — їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "create-bonfire",
+        "eldritch-blast"
+      ],
+      "knownSpellKeys": [
+        "hex",
+        "protection-from-evil-and-good"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Замовляння й заклинання названі автором. Світло й Священне полумʼя дає покровитель автоматично.",
+      "sectionId": "section-levels"
+    }
+  }
+}

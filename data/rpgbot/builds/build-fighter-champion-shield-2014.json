@@ -1,0 +1,615 @@
+{
+  "buildId": "build-fighter-champion-shield-2014",
+  "revisionId": "build-fighter-champion-shield-2014-v4",
+  "ruleset": "RULES_2014",
+  "title": "Воїна — Чемпіон-Напіворк",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-fighter-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+      "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "FIGHTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CHAMPION",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 1
+          },
+          {
+            "ability": "CON",
+            "amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Defense"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 1
+          },
+          {
+            "ability": "WIS",
+            "amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+          "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "CHAMPION",
+    "raceKey": "HALF_ORC_2014",
+    "backgroundKey": "SOLDIER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 10
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 10
+      },
+      {
+        "ability": "WIS",
+        "value": 9
+      },
+      {
+        "ability": "CHA",
+        "value": 12
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики збірки",
+        "text": "Візьмемо запропоновані вище характеристики для ближнього бою від Сили за системою купівлі, але поміняємо місцями Мудрість і Харизму, щоб краще користуватися Залякуванням.\n\n  Базове значення Підвищене значення Сила 15 17 Спритність 10 10 Статура 15 16 Інтелект 10 10 Мудрість 9 9 Харизма 12 12",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+            "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Напіворк. Невблаганна витривалість{{Relentless Endurance}} й Жорстокі атаки{{Savage Attacks}} чудово працюють для Воїна. Жорстокі атаки також добре поєднуються з Покращеним критичним ударом{{Improved Critical}} і великою кількістю атак Воїна. Бонуси до Сили й Статури ідеальні для простого бійця ближнього бою — саме такого ми й будуємо.\n\nЯ також розглядав Дворфа, але Основні правила й SRD містять лише Пагорбового дворфа. Він непогано грає за Воїна, та без підвищення Сили, яке має Гірський дворф, завдає помітно менше шкоди. Базові збірки покликані бути дієвим орієнтиром і простим типовим варіантом для новачків; старт без модифікатора Сили +3 може відчуватися значним недоліком.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+            "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Напіворки безплатно отримують Залякування, тож виберемо Атлетику й Уважність. Атлетика потрібна для захоплення та штовхання: це дає Чемпіонові корисні додаткові прийоми, коли решта його можливостей здебільшого зводиться до числових бонусів.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+            "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-1",
+        "title": "Походження",
+        "text": "Солдат найкраще пасує за темою. Оскільки два володіння навичками дублюються, можна вибрати будь-які дві інші навички. Початкова Харизма 12 дозволяє розглянути Обман і Переконання, щоб стати прийнятним «обличчям» групи.\n\nТут є простір для налаштування. Помінявши місцями ментальні характеристики — Інтелект, Мудрість і Харизму, — можна краще підтримати різні набори навичок. Для акценту на Інтелекті підійде походження Мудрець, на Мудрості — Послушник.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+            "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+            "sectionId": "section-background-1",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Базові збірки навмисно не використовують рис: так я можу зосередитися на простоті й обмежити варіанти Основними правилами та SRD. Але Воїн отримує більше підвищень характеристик за будь-який інший клас і потребує лише двох високих характеристик. Тому сім підвищень залишають купу ресурсів, яким у такій збірці просто немає застосування. Якщо готові вийти за її межі, риси — чудова ідея. Щоб зберегти простоту, розгляньте нехитрі «Витривалий», «Стійкий» і «Здоровань».\n\nЩойно помітив, що ці назви майже синоніми. Не дивно, що я щоразу мушу їх перевіряти, аби не переплутати.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+            "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бойовий стиль (Дуель або Бій великою зброєю)\nДруге дихання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+            "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Сплеск дій (одне застосування)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+            "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Бойовий архетип (Чемпіон)\nПокращений критичний удар",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+            "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик (Сила 17 → 19)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+            "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Статура 17 → 19)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+            "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Покращення характеристик на 14, 16, 19-му рівнях",
+        "reason": "Автор пише «будь-яка» і не називає вибір. Пресет бере типовий (14-й: WIS +2, 16-й: WIS +2, 19-й: WIS +2); це вибір платформи, гравець може змінити його перед створенням.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+            "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

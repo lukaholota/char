@@ -1,0 +1,408 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "d4-abuse-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+    "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b"
+  },
+  "exampleSection": "section-example-build-fully-automated-d4-dispensing-robot",
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "PEACE_DOMAIN",
+  "raceKey": "AUTOGNOME_SPELLJAMMER",
+  "backgroundKey": "FOLK_HERO",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 12,
+    "CON": 12,
+    "INT": 13,
+    "WIS": 13,
+    "CHA": 15
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "WARLOCK_2014",
+      "subclassKey": "FIEND",
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 2
+        },
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Agonizing Blast"
+        },
+        {
+          "optionNameEng": "Eldritch Mind"
+        }
+      ],
+      "openClassOptions": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Pact of the Talisman"
+        }
+      ],
+      "replaceOptions": [
+        {
+          "drop": {
+            "optionNameEng": "Eldritch Mind"
+          },
+          "add": {
+            "optionNameEng": "Rebuke of the Talisman"
+          }
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "classKey": "ARTIFICER_2014",
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "classKey": "ARTIFICER_2014",
+      "infusions": [
+        "Enhanced Defense",
+        "Enhanced Arcane Focus",
+        "Replicate: Bag of Holding",
+        "Replicate: Goggles of Night"
+      ]
+    },
+    {
+      "level": 7,
+      "classKey": "ARTIFICER_2014",
+      "subclassKey": "ALCHEMIST"
+    },
+    {
+      "level": 8,
+      "classKey": "SORCERER_2014",
+      "subclassKey": "DIVINE_SOUL",
+      "classOptionSpellKeys": [
+        "cure-wounds"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 4
+        },
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "classKey": "SORCERER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Twinned Spell"
+        },
+        {
+          "optionNameEng": "Careful Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "classKey": "SORCERER_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "classKey": "WARLOCK_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Eldritch Spear"
+        }
+      ],
+      "openClassOptions": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 14,
+      "classKey": "WARLOCK_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Armor of Shadows"
+        }
+      ],
+      "openClassOptions": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "classKey": "BARD_2014",
+      "multiclassSkills": [
+        "PERSUASION"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 2
+        },
+        {
+          "category": "knownSpells",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "classKey": "BARD_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "classKey": "BARD_2014",
+      "subclassKey": "COLLEGE_OF_ELOQUENCE",
+      "expertise": [
+        "INSIGHT",
+        "MEDICINE"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "classKey": "BARD_2014",
+      "featKey": "LUCKY",
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 20,
+      "classKey": "BARD_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Мультиклас Клірик/Чорнокнижник/Винахідник/Чародій/Бард",
+      "reason": "Автор не називає кількості рівнів кожного класу; порядок відновлено з таблиці статті: Клірик 1 на рівні персонажа 1, Чорнокнижник Почвари 1–3 на 2–4, Винахідник Алхімік 1–3 на 5–7, Чародій Божественної душі 1–4 на 8–11, Чорнокнижник 4–7 на 12–15, Бард Колегії красномовства 1–5 на 16–20. Виконуються всі 20 рівнів. Вибір платформи, автор не називає (гравець може змінити на листі): друга інвокація на 3-му рівні — Eldritch Mind (перевчена на 4-му на Rebuke of the Talisman, як пише автор); чотири вливання Винахідника — Enhanced Defense, Enhanced Arcane Focus, Replicate: Bag of Holding, Replicate: Goggles of Night; Спорідненість Божественної душі — Cure Wounds; дві метамагії на 10-му — Twinned Spell і Careful Spell; нові інвокації Чорнокнижника на 13-му й 15-му — Eldritch Spear і Armor of Shadows; Експертиза Барда на 18-му — Аналіз поведінки й Медицина; усі замовляння й заклинання Чорнокнижника, Винахідника, Чародія та Барда автор не називає — вони лишені вибору гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Походження та навички",
+      "reason": "Автор каже «будь-яке походження» і не називає навичок; вибір платформи.",
+      "section": "section-background"
+    },
+    {
+      "field": "Навичка при вході в клас Бард (16-й рівень)",
+      "reason": "Бард, взятий другим класом, дає одну навичку на вибір. Автор її не називає, тому Переконання обрано за вас (вибір платформи); після створення її можна змінити на листі.",
+      "section": "section-background"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/d4-dispenser-cleric-peace-2014.webp",
+    "title": "Автоматичний роздавач к4 — Клірик Домену миру, Автогном",
+    "description": "Підсилювач групи: Автогном-Клірик Домену миру зі Зміцнювальним звʼязком і Спритністю 14, що згодом збирає мультиклас заради запасу кісток к4.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CHA",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "MEDICINE",
+        "RELIGION"
+      ],
+      "race": [],
+      "background": [],
+      "subclass": [
+        "INSIGHT"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 5,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля очок 8/12/12/13/13/15 з таблиці автора; Автогном додає +2 до Спритності й +1 до Харизми за правилами Таші, тож Спритність 14, Харизма 16. Це вже враховано.",
+    "skillExplanation": "Автор каже, що навички й походження не принципові. Медицину та Релігію від Клірика, Народного героя з Поводженням із тваринами та Виживанням, навичку Знарядь миру (Аналіз поведінки) та мову ми обрали за вас — це вибір платформи.",
+    "equipmentExplanation": "Автор радить арбалет; легкий арбалет узято. Булаву, лускову броню, набір священика, щит і святий символ ми обрали за вас — це вибір платформи, їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "sacred-flame",
+        "light"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "sectionId": "section-the-dice-pool",
+      "explanation": "Настанову названо автором. Священне полумʼя й Світло ми обрали за вас — це вибір платформи. Підготовлене заклинання Благословення автор радить як головне.",
+      "platformChoices": [],
+      "preparedSpellKeys": [
+        "bless"
+      ]
+    }
+  }
+}

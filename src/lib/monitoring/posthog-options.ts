@@ -1,7 +1,8 @@
+import { findDisplayMode } from "@/lib/pwa/install-platform";
 import type { CaptureResult, PostHogConfig } from "posthog-js";
 
 import { isNoiseErrorMessage, isNoiseSourceUrl } from "@/lib/monitoring/error-noise";
-import { buildPostHogPageProperties, buildScreenProperties } from "@/lib/monitoring/posthog-context";
+import { buildPostHogPageProperties, buildScreenProperties, stripPrivateUrlParams } from "@/lib/monitoring/posthog-context";
 
 // persistence: "memory" — жодного cookie чи localStorage. Анонімний distinct_id не переживає
 // перезавантаження сторінки чи нову вкладку, зате саме через це PostHog не чіпає сховище
@@ -35,8 +36,19 @@ function preparePostHogEvent(event: CaptureResult | null): CaptureResult | null 
   if (!event || event.properties.is_internal === true) return null;
   const page = buildPostHogPageProperties(event.properties.$pathname ?? "/", event.properties.edition);
   const screen = buildScreenProperties(event.properties.$screen_width ?? 0, event.properties.$screen_height ?? 0);
-  event.properties = { ...page, ...screen, ...event.properties };
+  event.properties = { ...page, ...screen, display_mode: findDisplayMode(), ...event.properties };
+  stripPrivateUrls(event.properties);
+  if (event.$set_once) stripPrivateUrls(event.$set_once);
   return dropNoiseExceptions(event);
+}
+
+const URL_PROPERTIES = ["$current_url", "$referrer", "$session_entry_url", "$initial_current_url", "$initial_referrer"];
+
+export function stripPrivateUrls(properties: Record<string, unknown>): void {
+  for (const key of URL_PROPERTIES) {
+    const value = properties[key];
+    if (typeof value === "string") properties[key] = stripPrivateUrlParams(value);
+  }
 }
 
 type CapturedException = {

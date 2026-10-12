@@ -1,0 +1,2678 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/multiclassing/oversized-weapons/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "fefae604eecbf752e2b598698ee456840ffc76573fdd90297146d83be846dad3",
+  "sourceRevision": {
+    "revisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752",
+    "sourceId": "rpgbot-098ccf679fd01120",
+    "fetchedAt": "2026-09-29T19:08:24.331844+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:24:18-04:00",
+    "contentHash": "abfff3f8ad7088b1470068f92e2d74fcca2e700ca83c0e739793e6b100e991e4",
+    "title": "DnD 5e Oversized Weapons Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-098ccf679fd01120-fefae604eecbf752.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-oversized-weapons-handbook-introduction",
+      "heading": "Oversized Weapons Handbook Introduction",
+      "sourceAnchor": "oversized-weapons-handbook-introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-oversized-weapons-handbook-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oversized weapons are an interesting and hotly debated topic in 5e Dungeons and Dragons. The basic concept is that as a weapon increases in size, the weapon dice are added again for every step above Medium, as per the rules on "
+            },
+            {
+              "type": "link",
+              "text": "page 278 of the DMG",
+              "href": "https://www.dndbeyond.com/sources/dmg/dungeon-masters-workshop#Step11Damage"
+            },
+            {
+              "type": "text",
+              "text": ". As an example, a large flail would do 2d8 bludgeoning damage, while a large maul would do 4d6 bludgeoning damage. The only thing keeping most PCs from using these weapons is that a creature has Disadvantage with any weapon sized too large for them. This penalty is enough to make the weapons a poor choice in most situations."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oversized-weapons-handbook-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The way the math works, if we can get the Advantage required to defeat the Disadvantage, your DPR is usually better just having Advantage with a medium-sized weapon than having a straight roll with the large weapon. There are, of course, exceptions where the math swings so far in the other direction that even swinging the bigger weapon with Disadvantage beats the smaller weapon with Advantage. It’s even possible to get that much of a swing with as little as the Archery fighting style and an oversized ranged weapon, or using the Bless spell."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oversized-weapons-handbook-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If we could be Large somehow, this would also work, but instead of canceling out the Disadvantage it wouldn’t occur to begin with. This would in turn allow the Large weapon user to gain Advantage if it were available. There are two reasonable ways to become Large. The spell Enlarge/Reduce can do the trick, but the wording of the spell can become problematic. Since all of the target’s equipment also enlarges, a Large weapon is suddenly Huge and thus remains too large for the user without doing a dumb manuver of dropping it and picking it up to get the effect off."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oversized-weapons-handbook-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The other method is to use the Rune Knight’s Giant’s Might feature. The advantage to this is that the Rune Knight doesn’t increase in size relative to their previous size, instead becoming Large. Thus an already Large weapon does not grow to Huge. But there’s another way to negate the Disadvantage that would not also give you Advantage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oversized-weapons-handbook-introduction-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you can’t see the target, and the target can’t see you, then both Advantage and Disadvantage have been applied and negated, preventing any further modifications to the roll. The 1st-level spell Fog Cloud is the most accessible method of doing this. So we need a good large weapon and a reliable way to cast Fog Cloud or reliable access to Large size. In this build guide, we will put both of these methods onto a single character, but the most efficient way to do this is to split these requirements across multiple PCs, having a caster and a martial working in tandem."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Oversized Weapons Handbook Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/oversized-weapons/#oversized-weapons-handbook-introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/oversized-weapons/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Build – Heavy Weapons Goliath",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/oversized-weapons/#the-build-heavy-weapons-goliath"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/oversized-weapons/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race – Goliath",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/oversized-weapons/#race-goliath"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background and Skills",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/oversized-weapons/#background-and-skills"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/oversized-weapons/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/oversized-weapons/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "But is it any good?",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/oversized-weapons/#but-is-it-any-good"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "But is this worth it?",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/oversized-weapons/#but-is-this-worth-it"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-build-heavy-weapons-goliath",
+      "heading": "The Build – Heavy Weapons Goliath",
+      "sourceAnchor": "the-build-heavy-weapons-goliath",
+      "blocks": [
+        {
+          "blockId": "block-section-the-build-heavy-weapons-goliath-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Waaah! Waaah! Cry some more!"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "link",
+              "text": "Heavy Weapons Guy",
+              "href": "https://www.youtube.com/watch?v=jHgZh4GV9G0&t=65s"
+            },
+            {
+              "type": "text",
+              "text": " – Team Fortress 2"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-build-heavy-weapons-goliath-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For this build, we’re making a bit of a gish: A fighter 12 and warlock 8 multiclass."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "parentSectionId": "section-the-build-heavy-weapons-goliath",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As this is a ranged build that uses the Hand Crossbow and Crossbow Expert, just bigger, we’ll be prioritising Dexterity. As we need to multiclass into Warlock, we need at least 13 Charisma. We also want a higher Constitution because we will be Concentrating on spells from time to time. The 12 Strength is there as insurance, to head off any arguments about carrying capacity and how heavy a Large weapon might be."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Racial Adjustments"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "STR"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "DEX"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "CON"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "INT"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "WIS"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "CHA"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race-goliath",
+      "parentSectionId": "section-the-build-heavy-weapons-goliath",
+      "heading": "Race – Goliath",
+      "sourceAnchor": "race-goliath",
+      "blocks": [
+        {
+          "blockId": "block-section-race-goliath-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re using Goliath for Little Giant and because of the theme of wanting to be a real Giant and also clouds. Any race with Powerful Build is fine for this build though. Little Giant doubles our weight limits. So with a Strength of 12, we can carry up to 360 lbs. This will matter when we have to lug around a Large Hand Crossbow."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background-and-skills",
+      "parentSectionId": "section-the-build-heavy-weapons-goliath",
+      "heading": "Background and Skills",
+      "sourceAnchor": "background-and-skills",
+      "blocks": [
+        {
+          "blockId": "block-section-background-and-skills-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our Background and Skills are not an important factor in the mechanically important parts of this build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-background-and-skills-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But if you want some suggestions, a background that gives some Dexterity skills such as Urchin granting Stealth and Sleight of Hand as well as Thieves’ Tools, would be a prime candidate. Because of the Fire Rune ability, this build gains Expertise with any tools, including Thieves’ tools."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-the-build-heavy-weapons-goliath",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Fighter fourth, fourth level overall, we take the "
+            },
+            {
+              "type": "link",
+              "text": "Crossbow Expert Feat",
+              "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#crossbow-expert"
+            },
+            {
+              "type": "text",
+              "text": ". This feat, combined with the Archery fighting style, can pump out some of the highest weapon DPR with a hand crossbow."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Fighter sixth, eighth level overall, we take Sharpshooter. This feat adds 10 damage per attack in exchange for a -5 penalty on the attack roll. Thanks again to the Archery fighting style, this penalty is less problematic."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-the-build-heavy-weapons-goliath",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1-Fighter 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Archery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The Archery fighting style is the entire crux of this build. The +2 to-hit on ranged weapon attacks does most of the work to make this build work."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind is a nice little benefit that will show off a silly interaction later in this build."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2-Fighter 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge will be important to get more damage out for now or to later get a spell cast to set up for a Large bombardment."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3-Fighter 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Archetype: Rune Knight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Giant’s Might"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Rune Carver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Fire Rune"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Stone Rune"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rune Knight gives us the power to turn Large for a minute, PB times per day."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We gain the Rune Carver ability as well. Take Fire and Stone to gain some excellent single target crowd control effects as well as Darkvision from the Stone Rune’s passive effects."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4-Fighter 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Crossbow Expert"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Crossbow Expert is "
+                },
+                {
+                  "type": "link",
+                  "text": "far stronger",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#crossbow-expert"
+                },
+                {
+                  "type": "text",
+                  "text": " than it has any right to be as a ranged option."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Getting this as fast as possible is why we’ve delayed Warlock, but that changes next level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5-Warlock 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Patron: Genie (Marid)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Genie’s Vessel"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Bottled Respite"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Genie’s Wrath"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Mage Hand"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Minor Illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-1st-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Armor of Agythys"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Fog Cloud"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Taking this detour into Marid Genie Warlock gets us access to Fog Cloud, so we can be a (not really) real Cloud GIant."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our Genie powers also grant us a little bonus damage every turn from Genie’s Wrath."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Cantrips, we don’t need any offensive options so we’re taking Mage Hand and Minor Illusion."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6-Warlock 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Invocations"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Armor of Shadows"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Eldritch Mind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-1st-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Expeditious Retreat"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For Invocations we’ll take Eldritch Mind to get Advantage on those Concentration saves and Armor of Shadows because we have the Dexterity and this is better than the best Light Armor."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Because we have a lower Charisma, we’re going to stick to buffs and effects that don’t use Saves or Attack Rolls, such as Expeditious Retreat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7-Fighter 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A little later than other Martials, but not too late."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8-Fighter 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Sharpshooter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sharpshooter is a big boost to damage, especially now that we have Extra Attack on top of Crossbow Expert and Fighting Style (Archery)."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9-Warlock 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Boon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Pact of the Chain"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-2nd-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Blur–Misty Step"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Spells Replaced"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Expeditious Retreat"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get 2nd-level Pact Slots now."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This makes our Fog Clouds bigger. We can replace Expeditious Retreat so that we can pick up both Blur and Misty Step."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Taking Pact of the Chain gives us access to Imps as a familiar option."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The important things to remember is that it can fly, it can turn invisible, and we can hide inside a tiny object thanks to Bottled Respite. We can go wherever we want because our Invisible Imp can carry us."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10-Warlock 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Dexterity +2 (16=>18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Blade Ward"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-2nd-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Invisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally, after having to get both of those feats, we get our Dexterity increased a little bit."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also gain a 3rd Cantrip. We’re getting to the point where enemy attack bonuses are scaling enough that Blade Ward beats Dodge, so having that option is better than most of the other choices available in our particular situation."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We take Invisibility as a leveled spell because it’s a great option. When we get more Warlock levels later, this will apply to more targets."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11-Fighter 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Runic Shield"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rune Carver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Hill Rune"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Runic Shield and Hill Rune are a pair of great defensive bonuses to bring online here."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12-Fighter 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Dexterity +2 (18=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Capped Dexterity. Improved AC and Ranged Attack Rolls."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13-Fighter 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reroll a failed save. Concentration is a save as well as Death Saves, so keep that in mind."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14-Fighter 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rune Carver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Storm Rune"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A pretty odd stance-based ability that allows Reaction speed rerolling for nearby targets for a minute."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fun to have, fun to use. Kind of like having a minute worth of Silvery Barbs."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15-Fighter 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Attack three times. Increase the DPR gap we’ve gained by abusing oversized weapons."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16-Fighter 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Constitution +2 (16=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our final level of Fighter we take an ASI for Constitution to increase HP and Concentration saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17-Warlock 5 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Invocations"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Gift of the Ever"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Living Ones"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-3rd-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Counterspell"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Gift of the Ever-Living Ones is a boost to our personal healing. This will apply to any incoming healing magic, any hit-dice we roll during Short Rests, and also to Second Wind."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Counterspell is the best choice we have for this level, being able to try and shoot down an enemy spell."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18-Warlock 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elemental Gift"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-3rd-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Hunger of Hadar"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we can fly several times per day. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hunger of Hadar is a mean way to swing a fight in our favor."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19-Warlock 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Invocations"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Devil’s Sight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-4th-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Sickening Radiance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Since we picked up Hunger of Hadar, we might as well be able to see into the bubble. So we pick up Devil’s Sight."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sickening Radiance just cooks things inside out and we don’t have too many other good choices.. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20-Warlock 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Constitution +2 (18=>20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-4th-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Dimension Door"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dimension Door is a good choice to get in and out of places."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also we cap off our Constitution score as a capstone."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-but-is-it-any-good",
+      "parentSectionId": "section-the-build-heavy-weapons-goliath",
+      "heading": "But is it any good?",
+      "sourceAnchor": "but-is-it-any-good",
+      "blocks": [
+        {
+          "blockId": "block-section-but-is-it-any-good-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Using an oversized hand crossbow can be good in the right situations. Is it better than a medium hand crossbow that isn’t trying to meme? We can do some math to compare the two hand crossbows."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Our chart will have three rows for each weapon: Advantage, Straight, Disadvantage. Our Columns will have various attack sequences with and without Sharpshooter."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-but-is-it-any-good-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unless otherwise noted, assume Fighting Style (Archery) and "
+            },
+            {
+              "type": "link",
+              "text": "Fundamental Math",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": ". This means before any additional modifiers we need a 6 or better to hit the average AC of a CR-appropriate enemy, which is used for calculating DPR."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-but-is-it-any-good-3",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Hand Crossbows"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Single Attack w/ 20 Dex"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Single Attack SS w/ 20 Dex"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Heavy Crossbow"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Single Attack w/ 20 Dex"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Single Attack SS w/ 20 Dex"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Medium Advantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.31"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14.22"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Medium Advantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.38"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15.91"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Medium"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.55"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9.43"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Medium"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.53"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Medium Disadvantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4.79"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4.63"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Medium Disadvantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5.92"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5.14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Large Advantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11.93"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17.18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Large Advantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16.07"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.57"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Large"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9.35"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11.35"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Large"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12.55"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13.55"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Large Disadvantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.77"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5.52"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Large Disadvantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9.03"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.53"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-but-is-it-any-good-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From this data we can see that without Sharpshooter, which is the first seven levels of this build, we gain a small increase in DPR just using a Large Crossbow over a Medium as long as the enemies have the expected AC vs CR. In any situation where the targets have even a small bump in AC, going from Advantage to a Straight Roll or from a Straight Roll down to Disadvantage is a small loss in DPR with the Hand Crossbow. This next chart illustrates the difference a few more AC makes to the calculation. These attacks do not use Sharpshooter."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-but-is-it-any-good-5",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Hand Crossbows"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Single Attack w/ 20 DEX +2AC 8 to-hit"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Single Attack w/ 20 DEX +4AC 10 to-hit"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Heavy Crossbow"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Single Attack w/ 20 DEX +2AC 8 to-hit"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Single Attack w/ 20 DEX +4AC 10 to-hit"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Medium Advantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.80"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Medium Advantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9.75"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.91"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Medium"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5.70"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4.85"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Medium"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.05"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Medium Disadvantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3.60"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2.58"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Medium Disadvantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4.45"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3.19"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Large Advantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11.21"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.25"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Large Advantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15.11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13.83"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Large"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.95"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Large"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.95"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9.35"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Large Disadvantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5.09"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3.65"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Large Disadvantage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.79"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4.87"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-but-is-it-any-good-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Large Heavy Crossbow keeps a slight edge over the Medium Heavy Crossbow for a while, even if the foes are as much as +4 AC over the expected value, due to the additional 1d10 averaging to +5.5 damage, which is a much larger damage gap than the additional 1d6 damage on the large hand crossbow."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-but-is-it-any-good-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any way you slice it, the conclusion of this data is that unless the target was already ridiculously easy to hit or you already had Disadvantage on your rolls, pulling out a Large weapon as a Medium creature is a gamble where you’ll lose more than you’ll gain. But we’ll have the use of Giant’s Might a number of times per day equal to PB, so we’ll be gaining DPR by using a Large weapon as a Large creature."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-but-is-it-any-good-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This will start out being only useful in a few fights per day, but over time more of our fights will include fighting at Large or Huge size and firing tree-trunks at the enemy team. Depending on the pace of your game, you might even be able to get Large in every fight."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-but-is-this-worth-it",
+      "parentSectionId": "section-the-build-heavy-weapons-goliath",
+      "heading": "But is this worth it?",
+      "sourceAnchor": "but-is-this-worth-it",
+      "blocks": [
+        {
+          "blockId": "block-section-but-is-this-worth-it-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Well that’s a bit of a tough call. First off, we’re using one of the "
+            },
+            {
+              "type": "link",
+              "text": "strongest DPR",
+              "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#dpr-comparisons"
+            },
+            {
+              "type": "text",
+              "text": " options for weapons. Put side-by-side with the other options, the Hand Crossbow with Sharpshooter did more DPR thanks to the fact that the Archery fighting style is a multiplicative boost to DPR. So choice of weapon checks out."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-but-is-this-worth-it-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But the whole being Large and having to lug around a Large weapon? What’s the cost there? Well, "
+            },
+            {
+              "type": "link",
+              "text": "Rune Knight",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/rune-knight/"
+            },
+            {
+              "type": "text",
+              "text": " is one of the stronger Fighter subclasses and we take enough levels in Fighter to get all the better Runes as well as Giant’s Might. If this were any other weapon, it might be an issue to lug around, since a Large weapon weighs 8 times as much as a Medium one."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-but-is-this-worth-it-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Large Heavy Crossbow would weigh 144 lbs. but as a Medium Hand Crossbow is only 3 lbs, a Large is 24 lbs. Looking at it that way, it’s only 6 lbs. more than the Medium Heavy Crossbow. So it seems being Large and lugging around a slightly more cumbersome crossbow isn’t much of a cost either."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-but-is-this-worth-it-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But then we took 8 levels in Warlock for what? Could we not have done all of this as a 20th-level Fighter? Yes, but now we have additional fun options. Fog Cloud is, in fact, very effective against anything that lacks either Blindsight or Tremorsense. If we can’t be Large for some reason, we can instead cast Fog Cloud to break (Dis)Advantage, while also providing one of the stronger defensive buffs to the party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-but-is-this-worth-it-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Why? Because when we’re in an area that is Heavily Obscured, we can’t see the target and have Disadvantage, but because we’re in an area that is Heavily Obscured, we are an unseen attacker, granting Advantage on the roll. These cancel each other out and no more Disadvantage in the form of an Oversized Weapon can be applied to the roll."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-but-is-this-worth-it-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This really works because enemies can’t move during our turn and on our turn we can use movement to exit the cloud, determine which square to shoot, and then go back into the cloud to get all our benefits. And then we’re also protected on every other creatures’ turn by being Heavily Obscured."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"aligncenter size-large\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-oversized-weapons-handbook-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-oversized-weapons-handbook-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-oversized-weapons-handbook-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-oversized-weapons-handbook-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-oversized-weapons-handbook-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-the-build-heavy-weapons-goliath-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center is-style-plain is-layout-flow wp-block-quote-is-layout-flow\" style=\"font-size:18px\"> <p class=\"wp-block-paragraph\">Waaah! Wa"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-the-build-heavy-weapons-goliath-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-race-goliath-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-background-and-skills-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-background-and-skills-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-but-is-it-any-good-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-but-is-it-any-good-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-but-is-it-any-good-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-but-is-it-any-good-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-but-is-it-any-good-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-but-is-it-any-good-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-but-is-it-any-good-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-but-is-it-any-good-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-but-is-this-worth-it-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-but-is-this-worth-it-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-but-is-this-worth-it-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-but-is-this-worth-it-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-but-is-this-worth-it-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-but-is-this-worth-it-6"
+    }
+  ],
+  "metrics": {
+    "words": 2828,
+    "sections": 11,
+    "blocks": 34,
+    "tables": 4,
+    "ratingSignals": 4
+  },
+  "status": "needs-editorial-review"
+}

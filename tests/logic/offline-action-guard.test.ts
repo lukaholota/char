@@ -60,6 +60,24 @@ describe("Офлайн-аудит 2026-09-18 — серверна дія без 
     expect(toast.error).not.toHaveBeenCalled();
   });
 
+  it("захищає перезапуск до завершення всіх паралельних дій", async () => {
+    let finishFirst!: (response: Response) => void;
+    let failSecond!: (error: Error) => void;
+    window.fetch = vi.fn()
+      .mockImplementationOnce(() => new Promise<Response>((resolve) => { finishFirst = resolve; }))
+      .mockImplementationOnce(() => new Promise<Response>((_, reject) => { failSecond = reject; }));
+    const guard = await loadGuard();
+    guard.installOfflineActionGuard(); setOnline(true);
+    const first = window.fetch("/char/42", actionInit());
+    const second = window.fetch("/char/42", actionInit());
+    const rejected = expect(second).rejects.toThrow("unexpected failure");
+    expect(guard.hasPendingServerActions()).toBe(true);
+    finishFirst(new Response("ok")); await first;
+    expect(guard.hasPendingServerActions()).toBe(true);
+    failSecond(new Error("unexpected failure")); await rejected;
+    expect(guard.hasPendingServerActions()).toBe(false);
+  });
+
   it("обірваний звʼязок посеред дії теж стає впізнаваною помилкою", async () => {
     window.fetch = vi.fn(async () => {
       throw new TypeError("Failed to fetch");

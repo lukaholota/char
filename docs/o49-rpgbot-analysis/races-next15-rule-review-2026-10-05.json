@@ -1,0 +1,892 @@
+{
+  "ruleset": "RULES_2014",
+  "reviewedAt": "2026-10-05",
+  "articles": [
+    {
+      "slug": "reborn",
+      "rid": "rpgbot-066226331c22fe6a-b16ab299b51c8b3e"
+    },
+    {
+      "slug": "grung",
+      "rid": "rpgbot-0f01f20f5fb5b4cb-247d237e9726e9a9"
+    },
+    {
+      "slug": "gith",
+      "rid": "rpgbot-1024c1385107c863-e6cd7421fe12e1dc"
+    },
+    {
+      "slug": "kenku",
+      "rid": "rpgbot-24bc69bfe298908d-35791809dc96f8f5"
+    },
+    {
+      "slug": "custom-lineage",
+      "rid": "rpgbot-40bfd2984fbf8a4c-67a67165178aee7d"
+    },
+    {
+      "slug": "harengon",
+      "rid": "rpgbot-484aa612e57ffb6f-01e1f150f5f90298"
+    },
+    {
+      "slug": "aarakocra",
+      "rid": "rpgbot-56339914d37c0a48-9bd63f6e84300127"
+    },
+    {
+      "slug": "firbolg",
+      "rid": "rpgbot-778cee9aae392635-9a81e08272a30a2a"
+    },
+    {
+      "slug": "hadozee",
+      "rid": "rpgbot-cb902752ddff5626-e24f99c2d06628ea"
+    },
+    {
+      "slug": "triton",
+      "rid": "rpgbot-d4b1dffc1f17a435-1d7ca49f3ccad0d4"
+    },
+    {
+      "slug": "hexblood",
+      "rid": "rpgbot-d4f364ee55100fac-72702caf22aaa4e4"
+    },
+    {
+      "slug": "dwarf",
+      "rid": "rpgbot-dc61be7557c33d89-092177d2d0abd58e"
+    },
+    {
+      "slug": "orc",
+      "rid": "rpgbot-e485fc31c79b869c-c243547fb78430cd"
+    },
+    {
+      "slug": "gnome",
+      "rid": "rpgbot-ec38139e207cf106-189fd9127578e4ba"
+    },
+    {
+      "slug": "goblin",
+      "rid": "rpgbot-f2aa7c6317b3bafe-a3c5a15d9b17e696"
+    }
+  ],
+  "sourceRaces": [
+    {
+      "name": "Aarakocra",
+      "source": "MPMM",
+      "page": 5,
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Flight",
+          "entries": [
+            "Because of your wings, you have a flying speed equal to your walking speed. You can't use this flying speed if you're wearing medium or heavy armor."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Talons",
+          "entries": [
+            "You have talons that you can use to make unarmed strikes. When you hit with them, the strike deals {@damage 1d6} + your Strength modifier slashing damage, instead of the bludgeoning damage normal for an unarmed strike."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Wind Caller",
+          "entries": [
+            "Starting at 3rd level, you can cast the {@spell gust of wind} spell with this trait, without requiring a material component. Once you cast the spell with this trait, you can't do so again until you finish a long rest. You can also cast the spell using any spell slots you have of 2nd level or higher.",
+            "Intelligence, Wisdom, or Charisma is your spellcasting ability for when you cast {@spell gust of wind} with this trait (choose when you select this race)."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Firbolg",
+      "source": "MPMM",
+      "page": 15,
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Firbolg Magic",
+          "entries": [
+            "You can cast {@spell detect magic} and {@spell disguise self} spells with this trait. When you use this version of {@spell disguise self}, you can seem up to 3 feet shorter or taller. Once you cast either of these spells with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast these spells using any spell slots you have.",
+            "Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Hidden Step",
+          "entries": [
+            "As a bonus action, you can magically turn {@condition invisible} until the start of your next turn or until you attack, make a damage roll, or force someone to make a saving throw. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Powerful Build",
+          "entries": [
+            "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Speech of Beast and Leaf",
+          "entries": [
+            "You have the ability to communicate in a limited manner with Beasts, Plants, and vegetation. They can understand the meaning of your words, though you have no special ability to understand them in return. You have advantage on all Charisma checks you make to influence them."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Firbolg",
+      "source": "VGM",
+      "page": 107,
+      "entries": [
+        {
+          "name": "Age",
+          "type": "entries",
+          "entries": [
+            "As humanoids related to the fey, firbolg have long lifespans. A firbolg reaches adulthood around 30, and the oldest of them can live for 500 years."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Firbolg are between 7 and 8 feet tall and weigh between 240 and 300 pounds. Your size is Medium."
+          ]
+        },
+        {
+          "name": "Firbolg Magic",
+          "entries": [
+            "You can cast {@spell detect magic} and {@spell disguise self} with this trait, using Wisdom as your spellcasting ability for them. Once you cast either spell, you can't cast it again with this trait until you finish a short or long rest. When you use this version of {@spell disguise self}, you can seem up to 3 feet shorter than normal, allowing you to more easily blend in with humans and elves."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Hidden Step",
+          "entries": [
+            "As a bonus action, you can magically turn {@condition invisible} until the start of your next turn or until you attack, make a damage roll, or force someone to make a saving throw. Once you use this trait, you can't use it again until you finish a short or long rest."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Powerful Build",
+          "entries": [
+            "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Speech of Beast and Leaf",
+          "entries": [
+            "You have the ability to communicate in a limited manner with beasts and plants. They can understand the meaning of your words, though you have no special ability to understand them in return. You have advantage on all Charisma checks you make to influence them."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common, Elvish, and Giant."
+          ],
+          "type": "entries"
+        }
+      ]
+    },
+    {
+      "name": "Grung",
+      "source": "OGA",
+      "page": 4,
+      "entries": [
+        {
+          "name": "Age",
+          "type": "entries",
+          "entries": [
+            "Grungs mature to adulthood in a single year, but have been known to live up to 50 years."
+          ]
+        },
+        {
+          "name": "Alignment",
+          "type": "entries",
+          "entries": [
+            "Most grungs are lawful, having been raised in a strict caste system. They tend toward evil as well, coming from a culture where social advancement occurs rarely, and most often because another member of your army has died and there is no one else of that caste to fill the vacancy."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Grungs stand between 2½ and 3½ feet tall and average about 30 pounds. Your size is Small."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Arboreal Alertness",
+          "entries": [
+            "You have proficiency in the {@skill Perception} skill."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Amphibious",
+          "entries": [
+            "You can breathe air and water."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Poison Immunity",
+          "entries": [
+            "You're immune to poison damage and the {@condition poisoned} condition."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Poisonous Skin",
+          "entries": [
+            "Any creature that grapples you or otherwise comes into direct contact with your skin must succeed on a {@dc 12} Constitution saving throw or become {@condition poisoned} for 1 minute. A {@condition poisoned} creature no longer in direct contact with you can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+            "You can also apply this poison to any piercing weapon as part of an attack with that weapon, though when you hit the poison reacts differently. The target must succeed on a {@dc 12} Constitution saving throw or take {@damage 2d4} poison damage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Standing Leap",
+          "entries": [
+            "Your long jump is up to 25 feet and your high jump is up to 15 feet, with or without a running start."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Water Dependency",
+          "entries": [
+            "If you fail to immerse yourself in water for at least 1 hour during a day, you suffer one level of {@condition exhaustion} at the end of that day. You can only recover from this {@condition exhaustion} through magic or by immersing yourself in water for at least 1 hour."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Grung."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hadozee",
+      "source": "AAG",
+      "page": 13,
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "You are Medium or Small. You choose the size when you select this race."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Dexterous Feet",
+          "entries": [
+            "As a bonus action, you can use your feet to manipulate an object, open or close a door or container, or pick up or set down a Tiny object."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Glide",
+          "entries": [
+            "When you fall at least 10 feet above the ground, you can use your reaction to extend your skin membranes to glide horizontally a number of feet equal to your walking speed, and you take 0 damage from the fall. You determine the direction of the glide."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Hadozee Dodge",
+          "entries": [
+            "The magic that runs in your veins heightens your natural defenses. When you take damage, you can use your reaction to roll a {@dice d6}. Add your proficiency bonus to the number rolled, and reduce the damage you take by an amount equal to that total (minimum of 0 damage).",
+            "You can use this trait a number of times equal to your proficiency bonus. You regain all expended uses when you finish a long rest."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Harengon",
+      "source": "MPMM",
+      "page": 22,
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "You are Medium or Small. You choose the size when you select this race."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Hare-Trigger",
+          "entries": [
+            "You can add your proficiency bonus to your initiative rolls."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Leporine Senses",
+          "entries": [
+            "You have proficiency in the {@skill Perception} skill."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Lucky Footwork",
+          "entries": [
+            "When you fail a Dexterity saving throw, you can use your reaction to roll a {@dice d4} and add it to the save, potentially turning the failure into a success. You can't use this reaction if you're {@condition prone} or your speed is 0."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Rabbit Hop",
+          "entries": [
+            "As a bonus action, you can jump a number of feet equal to five times your proficiency bonus, without provoking opportunity attacks. You can use this trait only if your speed is greater than 0. You can use it a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Harengon",
+      "source": "WBtW",
+      "page": 13,
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "You are Medium or Small. You choose the size when you select this race."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Hare-Trigger",
+          "entries": [
+            "You can add your proficiency bonus to your initiative rolls."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Leporine Senses",
+          "entries": [
+            "You have proficiency in the {@skill Perception} skill."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Lucky Footwork",
+          "entries": [
+            "When you fail a Dexterity saving throw, you can use your reaction to roll a {@dice d4} and add it to the save, potentially turning the failure into a success. You can't use this reaction if you're {@condition prone} or your speed is 0."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Rabbit Hop",
+          "entries": [
+            "As a bonus action, you can jump a number of feet equal to five times your proficiency bonus, without provoking opportunity attacks. You can use this trait only if your speed is greater than 0. You can use it a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hexblood",
+      "source": "VRGR",
+      "page": 18,
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Creature Type",
+          "entries": [
+            "You are a Fey."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "You are Medium or Small. You choose the size when you gain this lineage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ancestral Legacy",
+          "entries": [
+            "If you replace a race with this lineage, you can keep the following elements of that race: any skill proficiencies you gained from it and any climbing, flying, or swimming speed you gained from it.",
+            "If you don't keep any of those elements or you choose this lineage at character creation, you gain proficiency in two skills of your choice."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness as shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Eerie Token",
+          "entries": [
+            "As a bonus action, you can harmlessly remove a lock of your hair, one of your nails, or one of your teeth. This token is imbued with magic until you finish a long rest. While the token is imbued in this way, you can take these actions:",
+            {
+              "type": "list",
+              "style": "list-hang-notitle",
+              "items": [
+                {
+                  "type": "item",
+                  "name": "Telepathic Message",
+                  "entry": "As an action, you can send a telepathic message to the creature holding or carrying the token, as long as you are within 10 miles of it. The message can contain up to twenty-five words."
+                },
+                {
+                  "type": "item",
+                  "name": "Remote Viewing",
+                  "entry": "If you are within 10 miles of the token, you can enter a trance as an action. The trance lasts for 1 minute, but it ends early if you dismiss it (no action required) or are {@condition incapacitated}. During this trance, you can see and hear from the token as if you were located where it is. While you are using your senses at the token's location, you are {@condition blinded} and {@condition deafened} in regard to your own surroundings. When the trance ends, the token is harmlessly destroyed."
+                }
+              ]
+            },
+            "Once you create a token using this feature, you can't do so again until you finish a long rest, at which point your missing part regrows."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Hex Magic",
+          "entries": [
+            "You can cast the {@spell disguise self} and {@spell hex} spells with this trait. Once you cast either of these spells with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast these spells using any spell slots you have.",
+            "Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose the ability when you gain this lineage).",
+            {
+              "type": "inset",
+              "name": "Becoming a Hag",
+              "entries": [
+                "Hags can undertake a ritual to irreversibly transform a hexblood they created into a new hag, either one of their own kind or that embodies the hexblood's nature. This requires that both the hag and hexblood be in the same place and consent to the lengthy ritual—circumstances most hexbloods shun but might come to accept over the course of centuries. Once a hexblood undergoes this irreversible ritual, they emerge as a hag NPC no longer under the control of the hexblood's player, unless the DM rules otherwise."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kenku",
+      "source": "MPMM",
+      "page": 24,
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Your size is Medium or Small. You choose the size when you select this race."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Expert Duplication",
+          "entries": [
+            "When you copy writing or craftwork produced by yourself or someone else, you have advantage on any ability checks you make to produce an exact duplicate."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Kenku Recall",
+          "entries": [
+            "Thanks to your supernaturally good memory, you have proficiency in two skills of your choice.",
+            "Moreover, when you make an ability check using any skill in which you have proficiency, you can give yourself advantage on the check before rolling the {@dice d20}. You can give yourself advantage in this way a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Mimicry",
+          "entries": [
+            "You can accurately mimic sounds you have heard, including voices. A creature that hears the sounds you make can tell they are imitations only with a successful Wisdom ({@skill Insight}) check against a DC of 8 + your proficiency bonus + your Charisma modifier."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kenku",
+      "source": "VGM",
+      "page": 109,
+      "entries": [
+        {
+          "name": "Age",
+          "type": "entries",
+          "entries": [
+            "Kenku have shorter lifespans than humans. They reach maturity at about 12 years old and can live to 60."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Kenku are around 5 feet tall and weigh between 90 and 120 pounds. Your size is Medium."
+          ]
+        },
+        {
+          "name": "Expert Forgery",
+          "entries": [
+            "You can duplicate other creatures' handwriting and craftwork. You have advantage on all checks made to produce forgeries or duplicates of existing objects."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Kenku Training",
+          "entries": [
+            "You are proficient in your choice of two of the following skills: {@skill Acrobatics}, {@skill Deception}, {@skill Stealth}, and {@skill Sleight of Hand}."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Mimicry",
+          "entries": [
+            "You can mimic sounds you have heard, including voices. A creature that hears the sounds can tell they are imitations with a successful Wisdom ({@skill Insight}) check opposed by your Charisma ({@skill Deception}) check."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Languages",
+          "entries": [
+            "You can read and write Common and Auran, but you can only speak using your Mimicry trait."
+          ],
+          "type": "entries"
+        }
+      ]
+    },
+    {
+      "name": "Orc",
+      "source": "ERLW",
+      "page": 31,
+      "entries": [
+        {
+          "name": "Age",
+          "type": "entries",
+          "entries": [
+            "Orcs reach adulthood at age 12 and live up to 50 years."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Alignment",
+          "entries": [
+            "The orcs of Eberron are a passionate people, given to powerful emotion and deep faith. They are generally chaotic, but can be any alignment."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Your size is Medium."
+          ]
+        },
+        {
+          "name": "Darkvision",
+          "entries": [
+            "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Aggressive",
+          "entries": [
+            "As a bonus action, you can move up to your movement speed toward a hostile creature you can see or hear. You must end this move closer to the enemy than you started."
+          ],
+          "type": "entries"
+        },
+        {
+          "type": "entries",
+          "name": "Primal Intuition",
+          "entries": [
+            "You have proficiency in two of the following skills of your choice: {@skill Animal Handling}, {@skill Insight}, {@skill Intimidation}, {@skill Medicine}, {@skill Nature}, {@skill Perception}, and {@skill Survival}."
+          ]
+        },
+        {
+          "name": "Powerful Build",
+          "entries": [
+            "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Orc."
+          ],
+          "type": "entries"
+        }
+      ]
+    },
+    {
+      "name": "Orc",
+      "source": "MPMM",
+      "page": 28,
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Adrenaline Rush",
+          "entries": [
+            "You can take the {@action Dash} action as a bonus action. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+            "Whenever you use this trait, you gain a number of temporary hit points equal to your proficiency bonus."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Powerful Build",
+          "entries": [
+            "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Relentless Endurance",
+          "entries": [
+            "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. Once you use this trait, you can't do so again until you finish a long rest."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Orc",
+      "source": "VGM",
+      "page": 120,
+      "entries": [
+        {
+          "name": "Age",
+          "type": "entries",
+          "entries": [
+            "Orcs reach adulthood at age 12 and live up to 50 years."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Orcs are usually over 6 feet tall and weigh between 230 and 280 pounds. Your size is Medium."
+          ]
+        },
+        {
+          "name": "Darkvision",
+          "entries": [
+            "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Aggressive",
+          "entries": [
+            "As a bonus action, you can move up to your movement speed toward a hostile creature you can see or hear. You must end this move closer to the enemy than you started."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Primal Intuition",
+          "entries": [
+            "You have proficiency in two of the following skills of your choice: {@skill Animal Handling}, {@skill Insight}, {@skill Intimidation}, {@skill Medicine}, {@skill Nature}, {@skill Perception}, and {@skill Survival}."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Powerful Build",
+          "entries": [
+            "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Orc."
+          ],
+          "type": "entries"
+        }
+      ]
+    },
+    {
+      "name": "Reborn",
+      "source": "VRGR",
+      "page": 20,
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "You are Medium or Small. You choose the size when you gain this lineage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Ancestral Legacy",
+          "entries": [
+            "If you replace a race with this lineage, you can keep the following elements of that race: any skill proficiencies you gained from it and any climbing, flying, or swimming speed you gained from it.",
+            "If you don't keep any of those elements or you choose this lineage at character creation, you gain proficiency in two skills of your choice."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Deathless Nature",
+          "entries": [
+            "You have escaped death, a fact represented by the following benefits:",
+            {
+              "type": "list",
+              "items": [
+                "You have advantage on saving throws against disease and being {@condition poisoned}, and you have resistance to poison damage.",
+                "You have advantage on death saving throws.",
+                "You don't need to eat, drink, or breathe.",
+                "You don't need to sleep, and magic can't put you to sleep. You can finish a long rest in 4 hours if you spend those hours in an inactive, motionless state, during which you retain consciousness."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Knowledge from a Past Life",
+          "entries": [
+            "You temporarily remember glimpses of the past, perhaps faded memories from ages ago or a previous life. When you make an ability check that uses a skill, you can roll a {@dice d6} immediately after seeing the number on the {@dice d20} and add the number on the {@dice d6} to the check. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Triton",
+      "source": "MPMM",
+      "page": 35,
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": [
+            "Your walking speed is 30 feet, and you have a swimming speed equal to your walking speed."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Amphibious",
+          "entries": [
+            "You can breathe air and water."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Control Air and Water",
+          "entries": [
+            "You can cast {@spell fog cloud} with this trait. Starting at 3rd level, you can cast the {@spell gust of wind} spell with this trait. Starting at 5th level, you can also cast the {@spell water walk} spell with it. Once you cast any of these spells with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast these spells using any spell slots you have of the appropriate level.",
+            "Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Emissary of the Sea",
+          "entries": [
+            "You can communicate simple ideas to any Beast, Elemental, or Monstrosity that has a swimming speed. It can understand your words, though you have no special ability to understand it in return."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Guardian of the Depths",
+          "entries": [
+            "Adapted to the frigid ocean depths, you have resistance to cold damage."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Triton",
+      "source": "VGM",
+      "page": 115,
+      "entries": [
+        {
+          "name": "Age",
+          "type": "entries",
+          "entries": [
+            "Tritons reach maturity around age 15 and can live up to 200 years."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "Tritons are slightly shorter than humans, averaging about 5 feet tall. Your size is Medium."
+          ]
+        },
+        {
+          "name": "Swim Speed",
+          "entries": [
+            "You have a swimming speed of 30 feet."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Amphibious",
+          "entries": [
+            "You can breathe air and water."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Control Air and Water",
+          "entries": [
+            "A child of the sea, you can call on the magic of elemental air and water. You can cast {@spell fog cloud} with this trait. Starting at 3rd level, you can cast {@spell gust of wind} with it, and starting at 5th level, you can also cast {@spell wall of water|xge} with it. Once you cast a spell with this trait, you can't cast that spell with it again until you finish a long rest. Charisma is your spellcasting ability for these spells."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Darkvision",
+          "type": "entries",
+          "entries": [
+            "You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+          ]
+        },
+        {
+          "name": "Emissary of the Sea",
+          "entries": [
+            "Aquatic beasts have an extraordinary affinity with your people. You can communicate simple ideas with beasts that can breathe water. They can understand the meaning of your words, though you have no special ability to understand them in return."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Guardians of the Depths",
+          "entries": [
+            "Adapted to even the most extreme ocean depths, you have resistance to cold damage."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Primordial."
+          ],
+          "type": "entries"
+        }
+      ]
+    }
+  ],
+  "sourceFeat": {
+    "name": "Svirfneblin Magic",
+    "url": "https://www.dndbeyond.com/feats/47-svirfneblin-magic",
+    "verified": "self-only at-will Nondetection without material component; once each Blindness/Deafness, Blur, Disguise Self per long rest; Intelligence; lowest spell levels; deep gnome prerequisite"
+  },
+  "supplementalRules": [
+    "Ancestral Legacy",
+    "Aggressive",
+    "Primal Intuition",
+    "Kenku Training",
+    "Mimicry (Kenku VGTM)",
+    "Svirfneblin Magic"
+  ],
+  "sourceCorrections": [
+    "Grung contact condition versus piercing-weapon damage; saving throws natural 1; no MPMM reprint; homebrew balancing explicitly author proposal",
+    "Gith swapped subrace names and paladin fear immunity level",
+    "Hadozee post-errata reaction, jumping thresholds, Wild Shape duration, invocation prerequisite",
+    "Custom Lineage only +2, not +2/+1",
+    "Reborn no breathing and Ancestral Legacy creation conditions",
+    "Svirfneblin Magic includes Blindness/Deafness with a saving throw",
+    "Dwarf Enlarge does not increase reach; Rune Knight size order and level18",
+    "Kenku old opposed Mimicry versus MPMM fixed DC",
+    "Aarakocra Gust of Wind save timing and 50ft versus30ft versions"
+  ],
+  "databaseAccess": false
+}

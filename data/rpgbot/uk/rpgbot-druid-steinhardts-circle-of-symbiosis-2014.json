@@ -1,0 +1,3186 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-81184a7bc27f87b5",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-81184a7bc27f87b5-4c791eca8567b256",
+      "sourceId": "rpgbot-81184a7bc27f87b5",
+      "fetchedAt": "2026-09-29T19:16:19.038884+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:33:32-04:00",
+      "contentHash": "5888fe57764f501df81aa5a53fcb68db3a84faba5665c9799b6619c49ace6337",
+      "title": "Steinhardt’s Circle of Symbiosis Druid: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-81184a7bc27f87b5-4c791eca8567b256.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+    "sourceId": "rpgbot-81184a7bc27f87b5",
+    "slug": "druid-steinhardts-circle-of-symbiosis-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Коло симбіозу Стейнхардта — гайд підкласу Друїда (2014)",
+    "titleEn": "Steinhardt’s Circle of Symbiosis Druid: DnD 5e Subclass Guide",
+    "topics": [
+      "Друїд",
+      "Коло симбіозу",
+      "підклас",
+      "приклад збірки",
+      "сторонній контент"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "sourceRevisionId": "rpgbot-81184a7bc27f87b5-4c791eca8567b256",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Коло симбіозу|Circle of the Symbiosis}}, представлене Еваном Маскаро (MonkeyDM) у {{Путівник Стейнхардта з потойбічного полювання|Steinhardt’s Guide to the Eldritch Hunt}}, — новий погляд на Друїда: він перетворюється на витривалу загрозу ближнього бою на передовій, зберігаючи здатність накладати друїдські заклинання. Знакова риса «Плетений кістяний велет»{{Wickerbone Behemoth}} розвʼязує проблему крихкості Друїда й дає ефективну атаку зброєю, якої вистачить для багатьох зіткнень. Підклас також додає кілька заклинань остеомантії з книжки Стейнхардта — захопливу магію кісток із незвичними й потужними ефектами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найближчий офіційний аналог {{Кола симбіозу|Circle of Symbiosis}} — "
+                },
+                {
+                  "type": "link",
+                  "text": "Коло спор",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/"
+                },
+                {
+                  "type": "text",
+                  "text": ": обидва підкласи використовують Дику форму{{Wild Shape}}, щоб Друїд перетворився на бойову форму, став небезпечнішим у бою й водночас зберіг можливість накладати заклинання. Порівняно з Колом спор, Коло симбіозу значно менше навантажує економіку дій, але спирається на подібні тактики й вибір збірки. У багатьох аспектах Коло симбіозу простіше зібрати й відігрувати, але воно залишає значно більше свободи дій, не заважаючи створити ефективного персонажа. Водночас підклас найкраще працює, якщо добре розуміти тимчасові ХП і заклинання Дубова шкіра [Barkskin]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки заклинання Дубова шкіра [Barkskin] відіграє в підкласі важливу роль, варто розуміти його роботу. Воно встановлює "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "мінімальний"
+                },
+                {
+                  "type": "text",
+                  "text": " КБ, а не базовий КБ, як обладунок. Бонуси на кшталт щита не додаються до КБ 16 від Дубової шкіри [Barkskin], а активувати «Плетеного кістяного велета»{{Wickerbone Behemoth}} в обладунках не можна, тож обладунок вам узагалі не потрібен."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця стаття присвячена сторонньому контенту, опублікованому "
+                },
+                {
+                  "type": "link",
+                  "text": "MonkeyDM",
+                  "href": "https://www.monkeydm.com/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Для цієї статті надано матеріали для огляду. Стаття також розглядає інші варіанти з книжки {{Путівник Стейнхардта з потойбічного полювання|Steinhardt’s Guide to the Eldritch Hunt}} від MonkeyDM. Де доречно, після варіанта вказано (Стейнхардт), щоб зазначити його походження. Докладніше дивіться на "
+                },
+                {
+                  "type": "link",
+                  "text": "сторінці Kickstarter",
+                  "href": "https://www.kickstarter.com/projects/monkey-dm/eldritch-hunt?ref=epxhhw"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Кола симбіозу",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Кола симбіозу",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#circle-of-symbiosis-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Кола симбіозу",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#circle-of-symbiosis-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Кола симбіозу",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#circle-of-symbiosis-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Кола симбіозу",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#circle-of-symbiosis-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Кола симбіозу",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#circle-of-symbiosis-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — чемпіон світу з потойбічної лясканини{{Eldritch Slap Fight World Champion}}",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#example-build-eldritch-slap-fight-world-champion"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Кола симбіозу",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Заклинання"
+                  },
+                  {
+                    "type": "text",
+                    "text": ":"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "2-й рівень: Кийок [Shillelagh] — зазвичай добре заклинання, але для {{Кола симбіозу|Circle of Symbiosis}} воно здебільшого зайве. Натомість використовуйте «Плетеного кістяного велета»{{Wickerbone Behemoth}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Дубова шкіра [Barkskin] здається зайвою, бо «Плетений кістяний велет»{{Wickerbone Behemoth}} і так дає цей ефект. Скелетний хвіст [Skeletal Tail] (Стейнхардт) — добре підсилення для контролю області: ворогам буде складно рухатися, поки ви поруч. Хвилинної тривалості вистачить на бій, але, якщо можете, накладіть його заздалегідь."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Кістковий карцер [Osseus Cage] (Стейнхардт) — бюджетна версія Силової клітки [Forcecage], що дає змогу замкнути ворогів у клітці разом із вами або лишити їх зовні. Ріст рослин [Plant Growth] — чудовий контроль області."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Діва кісток [Maiden of Bones] (Стейнхардт) повністю виводить ворога з бою щонайбільше на хвилину й, що дивовижно, не потребує Концентрації. Для істот, які не покладаються на Силу, це вирок. Камʼяна шкіра [Stoneskin] — чудовий захисний варіант. Воно потребує Концентрації, але з половиною шкоди від більшості атак вам буде значно легше пройти ряткидки на Концентрацію."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Ліс жаху [Forest of Dread] (Стейнхардт) — прийнятний контроль області, але шкода завдається лише під час руху істот, тож цілком можливо, що вороги просто стоятимуть на місці під час бою або вийдуть із зони дії в першому раунді. Деревний шлях [Tree Stride] — щонайбільше посереднє заклинання, і то лише тоді, коли ви постійно буваєте в лісах із потрібними деревами."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Плетений кістяний велет|Wickerbone Behemoth}}: знакова риса {{Кола симбіозу|Circle of Symbiosis}}, що перетворює вас на загрозу ближнього бою. Для атаки ви використовуєте руки-дубинки. Риса дозволяє їм працювати як дубинкам під дією Кийка [Shillelagh]. Дубинки мають властивість «Легка», тож підходять для бою двома зброями. Якщо бонусна дія не зайнята заклинанням, ви часто атакуватимете в ближньому бою обома руками. А як же сумнозвісно слабкий захист Друїда? Кубики здоровʼя к8 і поганий вибір обладунків роблять ближній бій лячним. Дубова шкіра [Barkskin] трохи допомагає, але КБ 16 — це ще не невразливість. Якщо ви витримаєте шкоду, виманювати атаки, щоб спричинити 1к4 шкоди у відповідь при влучанні по вас, може бути дуже ефективно, особливо серед ворогів. Ви маєте виживати завдяки третьому пункту риси. Відновлення половини отриманої шкоди — до потрійного модифікатора Мудрості — допомагає легко витримувати невелику шкоду, навіть із кількох джерел, але відновлюється лише половина, тож бій треба завершувати швидко. Подумайте про рису «Здоровань»{{Tough}}, щоб витримувати більше шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Вживлена сила"
+                  },
+                  {
+                    "type": "text",
+                    "text": ":"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Спина ведмедя|Bear Back}}: додавання Мудрості до перевірок Сили найчастіше корисне для захоплення й штовхання. З Додатковою атакою{{Extra Attack}} це справді корисна тактика: можна за один хід виконати "
+                  },
+                  {
+                    "type": "link",
+                    "text": "комбінацію захоплення й штовхання",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Але для цього потрібно вкластися в Силу або витратити рису на Експертизу, щоб компенсувати низьке значення Сили. Це дорожче, ніж Голова оленя{{Deer Head}}, але може бути того варте."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Голова оленя|Deer Head}}: більшість перевірок Уважності покладається на зір, тож ця сила буде корисною постійно. Це фактично стандартний варіант — беріть його, якщо не плануєте захоплювати ворогів Спиною ведмедя{{Bear Back}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Копита кози|Goat Hooves}}: швидкість лазіння корисна, але за потреби можна скористатися Дикою формою{{Wild Shape}} й перетворитися на павука, щоб лазити, або на птаха й узагалі не лазити. Перевага на ряткидки проти ефектів, що збивають вас із ніг, приємна, але корисна лише ситуативно. Найчастіше істот збивають із ніг гравці."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Додаткова атака|Extra Attack}}: якщо вже ви збираєтеся атакувати зброєю, вам потрібні або підсилення шкоди при влучанні (Друїд їх не отримує), або Додаткова атака."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Гнів природи|Nature’s Wrath}}: постійна Дубова шкіра [Barkskin] — чудово, хоча це не велике покращення, бо «Плетений кістяний велет»{{Wickerbone Behemoth}} і так дає її в бою. Великий розмір цілком прийнятний, але без збільшення досяжності не надто вражає. А от тимчасові ХП кожного ходу — чудово, особливо якщо ви бʼєте тричі за хід зброєю в обох руках. Додаткові тимчасові ХП легко компенсують порівняно низький КБ і, можливо, навіть відсутність щита. Також зважайте на взаємодію з відновленням від «Плетеного кістяного велета»: якщо шкода припала на тимчасові ХП, ви все одно отримали її й усе одно відновите справжні ХП. Це чудово, коли ви отримуєте шкоду по справжніх ХП, яка не завжди проходить крізь тимчасові ХП."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Серце терну|Briarheart}}: бонус до шкоди складається з Кийком [Shillelagh], тож на цьому рівні ваші атаки завдаватимуть імовірно 1к8 + 10 шкоди 2–3 рази за хід. Цей бонус критично важливий, щоб шкода від атак залишалася відчутною. Ефект при падінні до 0 ХП — додаткова страховка, якщо тимчасові ХП, відновлення й здатність накладати Зцілення [Heal] не допоможуть утриматися. Союзники отримують переваги «Плетеного кістяного велета»{{Wickerbone Behemoth}} (імовірно, без зміни розміру від «Гніву природи»{{Nature’s Wrath}}): руки-дубинки під дією Кийка [Shillelagh], Дубову шкіру [Barkskin] і відновлення. Текст не уточнює цього, але, на мою думку, союзники мають використовувати ваш модифікатор базової характеристики заклинань, тож варварові з Мудрістю 8 не доведеться хвилюватися через відсутність відновлення. Автор підтвердив: коли ви обираєте союзників цілями, їм дозволено носити обладунок, хоча вам самим це заборонено."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-symbiosis-ability-scores",
+          "heading": "Характеристики Кола симбіозу",
+          "sourceAnchor": "circle-of-symbiosis-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-symbiosis-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спершу максимізуйте Мудрість, потім Статуру, а далі розподіліть очки між Силою та Спритністю як вам до вподоби. У бою ви здебільшого підтримуватимете Дубову шкіру [Barkskin], тож Спритність для вас менш важлива, ніж для більшості друїдів. Сили потрібно лише стільки, щоб захоплення мало сенс, та й то тільки якщо плануєте брати Спину ведмедя{{Bear Back}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-symbiosis-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: «Вживлена сила»{{Grafted Power}} (Спина ведмедя{{Bear Back}}) робить захоплення й штовхання життєздатною тактикою. Якщо не плануєте брати Спину ведмедя, занедбайте Силу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-symbiosis-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: «Плетений кістяний велет»{{Wickerbone Behemoth}} задає мінімальний КБ 16 від Дубової шкіри [Barkskin]. Щоб отримати лише КБ 17, знадобилися б Спритність 20 і щит, тому вкладатися у Спритність не варто. Утім, її невеликий бонус до ініціативи, ряткидків Спритності й КБ до активації велета корисний."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-symbiosis-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: ви будуєте персонажа для ближнього бою з кубиками здоровʼя к8."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-symbiosis-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-symbiosis-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: заклинання й руки-дубинки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-symbiosis-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-symbiosis-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір (Спина ведмедя)"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір (інше)"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-symbiosis-races",
+          "heading": "Раси Кола симбіозу",
+          "sourceAnchor": "circle-of-symbiosis-races",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-symbiosis-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для {{Кола симбіозу|Circle of Symbiosis}} важливі Мудрість для атак і Статура, щоб компенсувати крихкість Друїда, тож шукайте расу, яка підвищує обидві характеристики. Також стануть у пригоді додаткові ХП, опір до шкоди, опір або імунітет до станів і додаткові заклинання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-symbiosis-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нижче розгляну нові расові варіанти з {{Путівник Стейнхардта з потойбічного полювання|Steinhardt’s Guide to the Eldritch Hunt}}. Книжка використовує метод підвищення характеристик, що діяв до «Казана Таші з усім» (правове обговорення застосування правил налаштованого походження{{Customized Origin}} до продуктів за {{Відкритою ліцензією на ігри|OGL}} складне), але я додам оцінки і за типовим підвищенням характеристик, і за варіантами з налаштованим походженням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-symbiosis-races-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо шукаєте расу поза книжкою Стейнхардта, прості варіанти — пагорбовий дворф{{Hill Dwarf}} за опір отруті й додаткові ХП, Варіант людини{{Variant Human}} за рису та черепаха{{Tortle}} з налаштованим походженням{{Custom Origin}} за КБ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-7",
+          "parentSectionId": "section-circle-of-symbiosis-races",
+          "heading": "Проклятий тифлінг{{Accursed Tiefling}}",
+          "blocks": [
+            {
+              "blockId": "block-section-7-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: швидкість лазіння, Темний зір, опір некротичній шкоді (його нелегко отримати) й трохи вродженого чаротворства. Ви можете подивитися на Удаване життя [False life] і подумати: «Гнів природи{{Nature’s Wrath}} вирішує цю проблему», але «Гнів природи» не спрацьовує, доки ви не активуєте «Плетеного кістяного велета»{{Wickerbone Behemoth}}, тож кілька тимчасових ХП на початку дня дуже корисні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-7-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: поганий розподіл характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-8",
+          "parentSectionId": "section-circle-of-symbiosis-races",
+          "heading": "Проклятокровний{{Cursed-Blood}}",
+          "blocks": [
+            {
+              "blockId": "block-section-8-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Збільшення характеристик Проклятокровного{{Cursed-Blood}} дають змогу отримати три бонуси +1: до Спритності, до іншої характеристики на ваш вибір і, нарешті, від підраси. Схоже, бонус підраси можна додати до бонусів основної раси. Якщо користуєтеся правилами налаштованого походження{{Custom Origin}} із «Казана Таші з усім», можна обрати +2/+1 або три бонуси +1."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-8-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Риси Проклятокровного{{Cursed-Blood}} цікаві, але не надто сильні. Швидкість така сама, як у малих рас з PHB, наприклад напівросликів, плюс є швидкість лазіння. «Злитий близнюк»{{Conjoined Twin}} дає кілька утилітарних варіантів, які іноді можуть стати в пригоді, але не вражають."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-9",
+          "parentSectionId": "section-8",
+          "heading": "Облитий Проклятокровний{{Doused Cursed-Blood}}",
+          "blocks": [
+            {
+              "blockId": "block-section-9-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: +1 до Спритності й +2 до Мудрості або +1 до Спритності, Статури й Мудрості; порада щодо типових правил лишається чинною."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-9-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: +1 до Мудрості (можна взяти +1 до Спритності й +2 до Мудрості або +1 до Спритності, Статури й Мудрості) та змога зменшувати шкоду двох типів. Раджу вогонь і отруту. Якщо починаєте приблизно з 10-го рівня або вище, оберіть холод замість отрути й покладайтеся на імунітет Друїда до отрути. Це зменшення шкоди не є «опором», тож може діяти одночасно з опором до типу шкоди. У такому разі памʼятайте, що "
+                },
+                {
+                  "type": "link",
+                  "text": "опір застосовується після всіх інших модифікаторів шкоди",
+                  "href": "https://www.dndbeyond.com/sources/basic-rules/combat#DamageResistanceandVulnerability"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-10",
+          "parentSectionId": "section-8",
+          "heading": "Громіздкий Проклятокровний{{Hulking Cursed-Blood}}",
+          "blocks": [
+            {
+              "blockId": "block-section-10-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: помірне покращення варіантів характеристик, але головна проблема Громіздкого Проклятокровного{{Hulking Cursed-Blood}} — «Камʼяна шкіра»{{Stone Skin}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-10-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: «Камʼяна шкіра»{{Stone Skin}} працює лише проти колючої шкоди, тож корисна дуже ситуативно. Можуть минути довгі періоди, коли вона не спрацює."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-11",
+          "parentSectionId": "section-8",
+          "heading": "Міражний Проклятокровний{{Mirage Cursed-Blood}}",
+          "blocks": [
+            {
+              "blockId": "block-section-11-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: якщо доступний ідеальний розподіл характеристик, усе залежить від «Шкіри тіні»{{Shadowveil Skin}}. У сетингу Стейнхардта вона може бути дуже сильною, але через суттєві обмеження корисна лише ситуативно. Якби вона діяла, коли ви злегка затулені будь-чим, варіант був би привабливішим; утім, Коло симбіозу — не збірка для скритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-11-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: бонуси основної раси можна розподілити так, щоб отримати важливий +1 до Мудрості, але «Шкіра тіні» недостатньо пасує підкласу, щоб цей вибір став чудовим."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-12",
+          "parentSectionId": "section-circle-of-symbiosis-races",
+          "heading": "Демідрич{{Demidritch}}",
+          "blocks": [
+            {
+              "blockId": "block-section-12-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вищий темнозір{{Superior Darkvision}} і опір холоду чудові, але +2 до Харизми марні для {{Кола симбіозу|Circle of Symbiosis}}, якщо ви не використовуєте правила налаштованого походження{{Custom Origin}} із «Казана Таші з усім»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-13",
+          "parentSectionId": "section-12",
+          "heading": "Окуляре{{Oculare}}",
+          "blocks": [
+            {
+              "blockId": "block-section-13-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: «Всевидющі очі»{{All-seeing Eyes}} цікаві, але проти невидимих ворогів можна накласти Вогники фей [Faerie fire]. Здатність виростити крила на 12-му рівні завдяки «Всевидющим очам» теж захоплива, але для польоту у вас є заклинання й Дика форма{{Wild Shape}}. Володіння Уважністю завжди доречне."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-13-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: поганий розподіл характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-14",
+          "parentSectionId": "section-12",
+          "heading": "Небуляре{{Nebulare}}",
+          "blocks": [
+            {
+              "blockId": "block-section-14-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: «Астральне тяжіння»{{Astral Attraction}} завдає шкоди без кидка атаки, а область важкопрохідної місцевості ускладнить ворогам втечу від вас або обхід у ближньому бою. Єдина проблема — сила діє лише раз на день."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-14-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: поганий розподіл характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-15",
+          "parentSectionId": "section-circle-of-symbiosis-races",
+          "heading": "Дворф",
+          "blocks": [
+            {
+              "blockId": "block-section-15-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стейнхардт не додає дворфам унікальних рис (крім Дворфа з глибин{{Deep One Dwarf}}, якого розглянуто нижче), але описує їхні расові знання в межах сетингу. Расові риси дворфів дивіться в SRD або інших офіційних матеріалах."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-16",
+          "parentSectionId": "section-circle-of-symbiosis-races",
+          "heading": "Дворф із глибин{{Deep One Dwarf}}",
+          "blocks": [
+            {
+              "blockId": "block-section-16-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дворф із глибин{{Deep One Dwarf}} має Темний зір і опір отруті, як і інші дворфи з «Довідника гравця»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-16-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: чудове поєднання, якщо взяти «Вживлену силу»{{Grafted Power}} (Спина ведмедя{{Bear Back}}). «Звивиста рука»{{Coiling Arm}} дає змогу атакувати й захоплювати однією рукою, забезпечуючи економіку дій бою двома зброями й залишаючи вільну руку для щита, який може підняти КБ вище за 16 від Дубової шкіри [Barkskin]. Також можна атакувати й захоплювати в один хід ще до отримання Додаткової атаки{{Extra Attack}} — велике покращення економіки дій на низьких рівнях. Використайте правила налаштованого походження, щоб отримати +2 до Мудрості й +1 до Статури, трохи вкладіться в Силу, щоб не шкодити перевіркам Атлетики, а після отримання «Вживленої сили» будете готові до захоплень."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-16-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: поганий розподіл характеристик. Прикро мати цікаві расові риси, що залежать від Сили, але не отримувати бонуса до Сили."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-17",
+          "parentSectionId": "section-circle-of-symbiosis-races",
+          "heading": "Ельф",
+          "blocks": [
+            {
+              "blockId": "block-section-17-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стейнхардт не додає ельфам унікальних рис, але описує їхні расові знання в межах сетингу. Расові риси ельфів дивіться в SRD або інших офіційних матеріалах."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-18",
+          "parentSectionId": "section-circle-of-symbiosis-races",
+          "heading": "Напівельф",
+          "blocks": [
+            {
+              "blockId": "block-section-18-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стейнхардт не додає напівельфам унікальних рис, але описує їхні расові знання в межах сетингу. Расові риси напівельфів дивіться в SRD або інших офіційних матеріалах."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-19",
+          "parentSectionId": "section-circle-of-symbiosis-races",
+          "heading": "Людина",
+          "blocks": [
+            {
+              "blockId": "block-section-19-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стейнхардт не додає людям унікальних рис, але описує їхні расові знання в межах сетингу. Расові риси людей дивіться в SRD або інших офіційних матеріалах."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-20",
+          "parentSectionId": "section-circle-of-symbiosis-races",
+          "heading": "Орк",
+          "blocks": [
+            {
+              "blockId": "block-section-20-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стейнхардт не додає оркам унікальних рис, але описує їхні расові знання в межах сетингу. Расові риси орків дивіться в офіційних матеріалах. Найновішу офіційну версію орка можна знайти в {{Морденкайнен представляє: Монстри Мультивсесвіту|Mordenkainen Presents: Monsters of the Multiverse}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-21",
+          "parentSectionId": "section-circle-of-symbiosis-races",
+          "heading": "Манекен{{Manikin}}",
+          "blocks": [
+            {
+              "blockId": "block-section-21-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підвищення Статури, опір до одного типу шкоди й «Модульне золоте покриття»{{Modular Gold Plating}}. «Створений служити»{{Born to Serve}} може стати проблемою, якщо ви опинитеся наодинці в соціальній ситуації, тож тримайте поруч мудрішого друга або візьміть володіння Аналізом Поведінки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-21-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Модульне золоте покриття{{Modular Gold Plating}} Манекена{{Manikin}} — унікальний спосіб отримати КБ. Максимальний КБ нижчий, ніж у порівнянного фабричного обладунку (крім важкого варіанта; див. таблицю нижче). Але обладунок не потребує володіння й не заважає класовим рисам на кшталт «Плетеного кістяного велета»{{Wickerbone Behemoth}}, тому це привабливий варіант для класів зі слабким КБ. Друїд — один із них, тож золоте покриття дуже цікаве. Воно нагадує фіксований КБ 17 черепахи, але потребує певних вкладень у характеристики, тому це не таке просте розвʼязання проблеми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-21-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Тип"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Макс. КБ"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Макс. КБ фабричного обладунку"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Без обладунку"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній (Спритність)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середній (Сила)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Важкий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-22",
+          "parentSectionId": "section-21",
+          "heading": "Хранитель{{Custodian}}",
+          "blocks": [
+            {
+              "blockId": "block-section-22-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: підвищте Статуру й Мудрість, доведіть Силу до 14, оберіть важкий варіант Золотого покриття{{Gold Plating}} й «Вживлену силу»{{Grafted Power}} (Спина ведмедя{{Bear Back}}) — ось вам і збірка. КБ 18, чудово підходить для захоплень, а «Обережний захисник»{{Careful Defender}} дає додатковий спосіб грати танка."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-22-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: бракує лише бонусу до Мудрості, щоб це стало оцінкою «синій»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-23",
+          "parentSectionId": "section-21",
+          "heading": "Дресирувальник{{Handler}}",
+          "blocks": [
+            {
+              "blockId": "block-section-23-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: єдина корисна риса — володіння Непомітністю, та й воно особливо не допомагає {{Колу симбіозу|Circle of Symbiosis}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-23-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: поганий розподіл характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-24",
+          "parentSectionId": "section-21",
+          "heading": "Актор{{Thespian}}",
+          "blocks": [
+            {
+              "blockId": "block-section-24-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: трюк із пересуванням цікавий, але недостатньо сильний, щоб вплинути на гру протягом однієї хвилини на день."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-24-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: поганий розподіл характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-25",
+          "parentSectionId": "section-circle-of-symbiosis-races",
+          "heading": "Народжений бичем{{Scourgeborne}}",
+          "blocks": [
+            {
+              "blockId": "block-section-25-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зверніть увагу: «Потойбічне прокляття»{{Eldritch Curse}} зазначає, що ви маєте імунітет лише до "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "заклинань"
+                },
+                {
+                  "type": "text",
+                  "text": ", які змінюють вашу форму. Якби йшлося про «заклинання й ефекти», ви мали б імунітет до Дикої форми{{Wild Shape}} й, імовірно, до «Плетеного кістяного велета»{{Wickerbone Behemoth}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-26",
+          "parentSectionId": "section-25",
+          "heading": "Аранея{{Aranea}}",
+          "blocks": [
+            {
+              "blockId": "block-section-26-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: прийнятні характеристики, але швидкість лазіння можна отримати різними способами, а «Павучий плювок»{{Web Spit}} не вартий того, щоб діяти лише раз на день."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-26-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: може згодитися, але ледве-ледве."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-27",
+          "parentSectionId": "section-25",
+          "heading": "Белуа{{Belua}}",
+          "blocks": [
+            {
+              "blockId": "block-section-27-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: не набагато краще за типові правила."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-27-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: може згодитися, але «Голова оленя»{{Deer Head}} робить «Гострі чуття»{{Keen Senses}} здебільшого зайвими, а «Голодні щелепи»{{Hungry Jaws}} будуть менш ефективними, ніж накласти Цілюще слово [healing word]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-28",
+          "parentSectionId": "section-25",
+          "heading": "Цервус{{Cervus}}",
+          "blocks": [
+            {
+              "blockId": "block-section-28-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: наявні підвищення характеристик уже підходять Друїдові, тож налаштоване походження нічого не покращує."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-28-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: чудові підвищення характеристик, а «Таранний наскок»{{Goring Charge}} чудово доповнює вашу тактику."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-29",
+          "parentSectionId": "section-25",
+          "heading": "Веспертіліо{{Vespertilio}}",
+          "blocks": [
+            {
+              "blockId": "block-section-29-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Налаштоване походження|Customized Origin}}: невелике покращення порівняно з типовими правилами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-29-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: характеристики прийнятні, але не ідеальні. Сліпозір чудовий, але покладайтеся на союзників із кращим зором, щоб ті попереджали про загрози далі ніж за 30 футів. Політ чудовий, хоч і обмежений, але для Друїда це не надто велика перевага: можна перетворитися на птаха чи кажана."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-symbiosis-feats",
+          "heading": "Риси Кола симбіозу",
+          "sourceAnchor": "circle-of-symbiosis-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-symbiosis-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Доторкнутий космосом|Cosmos Touched}} (Стейнхардт): +1 до Мудрості й змога вивчити заклинання школи Захисту, наприклад Обладунок Агатіса [Armor of Agathys] або Щит [Shield] (якщо потрібен лише Щит [Shield], дивіться також Кістяний щит [Bone Shield] зі Стейнхардта)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Адепт остеомантії|Osteomantic Adept}}: +1 до Мудрості й змога підвищувати рівень заклинань остеомантії, кілька з яких є у списку заклинань підкласу. Якщо ви підтримуєте «Плетеного кістяного велета»{{Wickerbone Behemoth}}, то відновлюєте частину отриманої шкоди, зменшуючи ціну цієї риси. На високих рівнях, коли «Гнів природи»{{Nature’s Wrath}} легко дає тимчасові ХП, використовувати рису ще простіше: спершу витрачаються тимчасові ХП."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Здоровань|Tough}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": не надто захопливо, але з рисою «Здоровань» набагато безпечніше покладатися на відновлення від «Плетеного кістяного велета»{{Wickerbone Behemoth}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Бойовий заклинатель|War Caster}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у ближньому бою ви отримуватимете шкоду частіше за типового Друїда, але найкращі заклинання й далі потребують Концентрації. Перевага на ряткидки Концентрації від «Бойового заклинателя» чудова, а змога використовувати замовляння під час принагідної атаки дає змогу застосовувати варіанти на кшталт Первісної дикості [Primal Savagery], щоб відлякувати ворогів від втечі."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-symbiosis-weapons",
+          "heading": "Зброя Кола симбіозу",
+          "sourceAnchor": "circle-of-symbiosis-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-symbiosis-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У вас руки-дубинки, і ви все ще повний заклинач. Більше зброї не потрібно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-symbiosis-armor",
+          "heading": "Обладунки Кола симбіозу",
+          "sourceAnchor": "circle-of-symbiosis-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-symbiosis-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не можна активувати «Плетеного кістяного велета»{{Wickerbone Behemoth}} в обладунках, тож не носіть їх. Щит використовувати можна, але він майже потрібен лише до активації велета."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Варвар: Захист без обладунків{{Unarmored Defense}} і опір шкоді від Люті{{Rage}} чудові, але бонус шкоди від Люті й Безрозсудна атака{{Reckless Attack}} не посилять атаки на основі Кийка [Shillelagh]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик: спільне чаротворство на основі Мудрості, а ще можна отримати потужні риси підкласу 1-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Воїн: бойовий стиль — чудове доповнення, але не беріть {{Бій двома зброями|Two-Weapon Fighting}}: математично приріст шкоди не вартий того. Два рівні заради Сплеску дій{{Action Surge}} завжди спокусливі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Монах: Захист без броні{{Unarmored Defense}} може значно підвищити КБ, але я б не просувався далі 1-го рівня, а варіант Варвара краще пасує підкласу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Слідопит: два рівні заради бойового стилю й Мисливської мітки [Hunter's Mark] спокусливі, але, мабуть, не варті цих рівнів порівняно з ще двома рівнями друїдського чаротворства."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-eldritch-slap-fight-world-champion",
+          "heading": "Приклад збірки — чемпіон світу з потойбічної лясканини{{Eldritch Slap Fight World Champion}}",
+          "sourceAnchor": "example-build-eldritch-slap-fight-world-champion",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-eldritch-slap-fight-world-champion-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "«Навіщо?» — Еван (Стейнхардт, с. 176)"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-eldritch-slap-fight-world-champion-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Робимо велику ставку на роль танка на передовій. Завдяки Кийку [Shillelagh] на обох руках і друїдським заклинанням контролю області ми можемо стати великою проблемою для ворогів на полі бою. «Плетений кістяний велет»{{Wickerbone Behemoth}} робить нас напрочуд витривалими для Друїда, тож можна спокійно витримувати шкоду, яка вбила б більшість друїдів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-eldritch-slap-fight-world-champion-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "До цієї збірки легко додати багато шкоди у відповідь. «Плетений кістяний велет»{{Wickerbone Behemoth}} уже завдає 1к4 (2к4 на 10-му рівні) кожному, кого забажаєте, в межах 5 футів, а такі ефекти, як Кістяний щит [Bone Shield], Вогняний щит [Fire Shield] і Обладунок Агатіса [Armor of Agathys], можуть додати ще шкоди. Будьте обережні: так можна швидко витратити обмежені ресурси й потрапити в «"
+                },
+                {
+                  "type": "link",
+                  "text": "хибу танка",
+                  "href": "https://rpgbot.net/the-tank-fallacy/"
+                },
+                {
+                  "type": "text",
+                  "text": "»{{Tank Fallacy}}. Якщо ви помітите, що вороги вагаються, чи атакувати вас, змініть тактику в наступних боях. Звісно, коли збірка розвинеться, ви будете достатньо страшними, щоб ворогам було складно вирватися з ближнього бою, у який вони з вами потрапили, — завдяки захопленням і/або заклинанням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-eldritch-slap-fight-world-champion-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У збірці нижче є чимало джерел тимчасових ХП. Памʼятайте: коли у вас уже є тимчасові ХП і ви отримуєте ще, ви обираєте, який запас лишити, а не додаєте їх. Це особливо важливо для Обладунку Агатіса [Armor of Agathys], дія якого закінчується разом із тимчасовими ХП."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-eldritch-slap-fight-world-champion-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я не враховуватиму додаткові класові уміння{{Optional Class Features}}, крім заклинань, доданих до списків у «Казані Таші з усім», але використаю матеріали з {{Путівник Стейнхардта з потойбічного полювання|Steinhardt’s Guide to the Eldritch Hunt}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-build-eldritch-slap-fight-world-champion",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З +1 до Статури й Мудрості отримаємо 16 в обох характеристиках. Решту очок розподілимо між Спритністю й Статурою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Після підвищення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-eldritch-slap-fight-world-champion",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Цервус, народжений бичем|Cervus Scourgeborne}}. Отримаємо +1 до Статури й Мудрості — цього досить. Додаткова швидкість пересування корисна, а «Таранний наскок»{{Goring Charge}} чудово допомагає почати бій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спершу я планував збірку з {{Манекеном-хранителем|Custodian Manikin}}, але {{Цервус, народжений бичем|Cervus Scourgeborne}} краще показує базову оптимізовану збірку без незвичних поступок (тут це була б низька Мудрість заради КБ 18)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-eldritch-slap-fight-world-champion",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Мисливець на звірів|Beast Hunter}}. Візьмемо володіння Атлетикою, Виживанням і набором травника. Набір травника дублює класові володіння Друїда, тож його можна замінити на інструмент на кшталт кухарського начиння, щоб додатково лікуватися під час короткого відпочинку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-background-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Нікчемна оболонка»{{Worthless Husk}} теж добре пасувала б, але навмисно дає менше володінь."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-eldritch-slap-fight-world-champion",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від класу беремо Природу й Уважність, а від передісторії — Атлетику й Виживання. Також отримуємо набір травника від Друїда й кухарське начиння від передісторії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-eldritch-slap-fight-world-champion",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьмемо кілька гібридних рис, але лише з 8-го рівня, коли буде більше слотів заклинань і ХП, якими можна ризикувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо «Доторкнутий космосом»{{Cosmos Touched}}. Він дає +1 до Мудрості й дозвіл вивчити на вибір заклинання школи Захисту 1-го рівня. Виберемо Обладунок Агатіса [Armor of Agathys], накладемо його поверх «Плетеного кістяного велета»{{Wickerbone Behemoth}}, Кістяного щита [Bone Shield] і Вогняного щита [Fire Shield] і кинемо виклик будь-кому, хто настільки дурний, щоб атакувати нас із КБ 16."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо «Адепта остеомантії»{{Osteomantic Adept}}. Він знову дає +1 до Мудрості й доводить її до 20. Тепер ХП достатньо, щоб витратити трохи на цю рису, особливо якщо діє «Плетений кістяний велет»{{Wickerbone Behemoth}} і відновлює половину отриманої шкоди. Кістяний щит [Bone Shield] особливо весело поєднувати з Адептом остеомантії: можна отримати 1к6 шкоди, щоб додати 1к12 поглиненої шкоди й завдати її нападнику."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо «Бойового заклинателя»{{War Caster}}. Без нього ми довго шкутильгали, бо здебільшого робили ряткидки Концентрації (див. Вартовий природи [Guardian of Nature]), а ще хочемо застосовувати Первісну дикість [Primal Savagery] для принагідних атак."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні беремо «Здорованя»{{Tough}} або підвищуємо Статуру на 2. Будь-який варіант значно підвищить витривалість."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна відмовитися від однієї з рис вище на користь «Експерта у навичках»{{Skill Expert}}. Збільшення характеристики на +1 і Експертиза в Атлетиці, завдяки яким наші захоплення стануть надійнішими, можуть дуже вплинути на гру. Найпростіше замінити «Доторкнутого космосом»{{Cosmos Touched}}. Хоч би який веселий був Обладунок Агатіса [Armor of Agathys], для збірки він не є необхідним."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-eldritch-slap-fight-world-champion",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Друїдична мова|Druidic}}\nЧаротворство{{Spellcasting}}\nВідомі замовляння:\n– Настанова [Guidance]\n– Створення вогню [Produce Flame]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1-й рівень складний: ми не збираємо звичайного друїда, але «Плетеного кістяного велета»{{Wickerbone Behemoth}} ще немає. Візьміть щит і постарайтеся не загинути. На 2-му рівні, коли отримаєте велета, продайте обладунок. Якщо Майстер дозволить перевчити замовляння (див. додаткові класові уміння{{Optional Class Features}} у «Казані Таші з усім»), візьміть Кийок [Shillelagh] замість Створення вогню [Produce Flame]. Із підготовлених заклинань беріть перевірені класичні, як-от Цілюще слово [healing word] і Вогники фей [Faerie fire]. Якщо є місце, додайте Поглинання стихій [Absorb Elements] і Кістяний щит [Bone Shield] (Стейнхардт), щоб помʼякшити сильні удари."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дика форма{{Wild Shape}}\nКоло друїдів{{Druidic Circle}}: {{Коло симбіозу|Circle of Symbiosis}}\n«Плетений кістяний велет»{{Wickerbone Behemoth}}\nВживлені сили{{Grafted Powers}} (Спина ведмедя{{Bear Back}})\nНове відоме замовляння:\n– Кийок [Shillelagh]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер збірка запрацювала! «Плетений кістяний велет»{{Wickerbone Behemoth}} одразу стає нашою основною бойовою тактикою. Та запас ХП невеликий, тож один-два сильні удари можуть нас повалити, хай ми й відновлюємо половину отриманої шкоди щораунду. Будьте обережні. Мудрості вистачає, щоб відновити до 9 ХП — щедрий запас. Імовірно, 18 шкоди виведуть нас із ладу (на цьому рівні в середньому 19 ХП). КБ у велеті такий самий, як був би з проклепаним шкіряним обладунком і щитом, тож продайте і обладунок, і щит. Якщо можете, активуйте велета до вступу в бій, інакше в більшості зіткнень перший хід піде на активацію. Руками-дубинками під дією Кийка [Shillelagh] можна битися двома зброями; без щита немає причин цього не робити, якщо тільки ми не робимо щось, що потребує заклинання. Памʼятайте, що Кийок [Shillelagh] не скасовує правило, за яким модифікатор характеристики не додається до атаки другою зброєю, тож друга атака завдає лише 1к8 шкоди. Шкода у відповідь, коли по нас влучають, імовірно спрацьовуватиме кожного ходу, коли ми в ближньому бою. Вважатимемо, що вона вражає одну істоту, і додамо це до DPR. DPR із боєм двома зброями на Кийках [Shillelagh] і 1к4 шкоди у відповідь від «Плетеного кістяного велета» при влучанні: 10,75. Вживлені сили{{Grafted Powers}}: Спина ведмедя{{Bear Back}} підвищує наш модифікатор Атлетики до +6 — чудово для цього рівня без Експертизи, але це аж ніяк не гарантія."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Скелетний хвіст [Skeletal Tail] (Стейнхардт, список заклинань {{Кола симбіозу|Circle of Symbiosis}}) — цікаве заклинання контролю області, але для накладання потрібна дія, тож його може бути важко вписати у вашу тактику. Якщо хочете особливо хитрий трюк, накладіть його перед тим, як перетворитися за допомогою Дикої форми{{Wild Shape}} на істоту, що літає (звісно, з 8-го рівня), а потім літайте, затягуйте ворогів у повітря, коли ті намагаються рухатися під вами, й кидайте їх додолу, завдаючи шкоди від падіння. Заряджена блискавкою [Lightning Charged] (Стейнхардт) може стати гарним доповненням до вашої тактики: з тривалістю 10 хвилин і без Концентрації вона мінімальними зусиллями додасть 1к6 шкоди до ваших атак ближнього бою. Це саме те підсилення шкоди при влучанні, якого потребує бій двома зброями, а 6 зарядів із запасом вистачить на типове зіткнення з трьох раундів. DPR із боєм двома зброями на Кийках [Shillelagh] і 1к4 шкоди у відповідь від «Плетеного кістяного велета»{{Wickerbone Behemoth}} при влучанні: 10,75. DPR із боєм двома зброями на Кийках [Shillelagh], Зарядженою блискавкою [Lightning Charged] і 1к4 шкоди у відповідь від «Плетеного кістяного велета» при влучанні: 13,15. Збільшення/Зменшення [Enlarge/Reduce] робить вас більшою загрозою в ближньому бою: збільшує досяжність, додає трохи шкоди й дає Перевагу на перевірки Сили. Загалом чудове, хоч тривалість у 1 хвилину та накладання дією можуть бути проблемою. Якщо вам потрібна Перевага на перевірки Сили, краще підійде Покращення здібності [Enhance Ability] із тривалістю 1 година. Проростання шипів [Spike Growth] — популярне заклинання контролю натовпу; із вашою непоганою здатністю захоплювати можна захоплювати ворогів і тягати їх туди-сюди крізь область, завдаючи шкоди. Захисний вітер [Warding Wind] створює навколо вас область важкопрохідної місцевості, яка заважає ворогам відійти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дика форма{{Wild Shape}} (ПН 1/2)\nПокращення Характеристик: Мудрість 16 → 18\nНове відоме замовляння:\n– Гуркіт грому [Thunderclap]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Збільшення Мудрості не надто захопливе, але ми сильно від неї залежимо, а слотів заклинань і ХП ще замало, щоб витрачати їх на бажані риси. Модифікатор Мудрості +4 означає, що тепер відновлюємо до 12 ХП за раунд. DPR із боєм двома зброями на Кийках [Shillelagh] і 1к4 шкоди у відповідь від «Плетеного кістяного велета»{{Wickerbone Behemoth}} при влучанні: 11,4. DPR із боєм двома зброями на Кийках [Shillelagh], Зарядженою блискавкою [Lightning Charged] і 1к4 шкоди у відповідь від «Плетеного кістяного велета» при влучанні: 13,80. Вивчимо Гуркіт грому [Thunderclap], щоб дешево впоратися з кількома ворогами в ближньому бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Астральний залп [Astral Barrage] (Стейнхардт) займає всі ваші дії протягом зіткнення, але завдає непоганої шкоди одній цілі. Кістковий карцер [Osseus Cage] (Стейнхардт, список заклинань {{Кола симбіозу|Circle of Symbiosis}}) — бюджетна Силова кліть [Forcecage]: можна замкнути ворогів у клітці разом із собою або лишити їх зовні. Реакцією можна впускати й випускати істот — лише одну на раунд, але цього, ймовірно, вистачить, щоб союзники могли за потреби заходити в укриття й виходити. Зауважте, що клітка дає лише укриття на три чверті: крізь неї можна бачити й накладати заклинання, але ви отримуєте вагомий бонус до КБ і ряткидків Спритності. Аура живучості [Aura of Vitality] — зазвичай не те заклинання, яке я використовую, але раджу її розглянути: ви очікуєте отримувати багато шкоди, а кубики здоровʼя допоможуть лише до певної межі. На цьому рівні зʼявляється Стихійна зброя [Elemental Weapon], і вона варта уваги. Руки-дубинки під дією Кийка [Shillelagh] вважаються зброєю, хоч і не магічною, тож є допустимими цілями для Стихійної зброї [Elemental Weapon]. Бонуси до атаки й шкоди можуть дуже допомогти, а завдяки тривалості 1 година це зручний спосіб витратити слот заклинання. На жаль, вона діє лише на одну руку, тож, якщо взагалі її братимете, дочекайтеся Додаткової атаки{{Extra Attack}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}} дає нам багато, а найменш цікава її користь — приріст DPR. Три атаки за хід справді швидше витрачають заряди Зарядженої блискавкою [Lightning Charged], але двох ходів атак усе одно досить, щоб виправдати заклинання, а частину ходів ми, імовірно, витрачатимемо на накладання заклинань. DPR із Додатковою атакою, боєм двома зброями на Кийках [Shillelagh], Зарядженою блискавкою [Lightning Charged], Стихійною зброєю [Elemental Weapon] на основних атаках і 1к4 шкоди у відповідь від «Плетеного кістяного велета»{{Wickerbone Behemoth}} при влучанні: 29,45. Маючи Додаткову атаку, ми тепер можемо виконати "
+                    },
+                    {
+                      "type": "link",
+                      "text": "комбінацію захоплення й штовхання",
+                      "href": "https://rpgbot.net/dnd5/characters/grapple/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " за один хід. Ще краще, що можна скористатися «Таранним наскоком»{{Goring Charge}}, щоб збити цілі з ніг, якщо ми вважаємо, що ряткидок спрацює краще за змагання перевірок. Увірвіться в ближній бій, влучте однією атакою, використайте «Таранний наскок» бонусною дією, а другою атакою захопіть ціль. Якщо все піде добре, ворог лишиться лежати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Виверження блискавки [Erupting Lightning] (Стейнхардт) завдає непоганої шкоди, яку можна розподілити так, щоб не зачепити союзників, але 7 кубів означає дуже малу дальність. Діва кісток [Maiden of Bones] (Стейнхардт, список заклинань {{Кола симбіозу|Circle of Symbiosis}}) — заклинання типу «ряткидок Сили або біда». Закиньте туди ворога, розберіться з його друзями й чекайте, чи вибереться ціль, поки її не вбила тривала шкода. Вогняний щит [Fire Shield] додає ще одне джерело шкоди, коли вороги влучають по вас; з тривалістю 10 хвилин і без Концентрації його легко накласти заздалегідь разом із «Плетеним кістяним велетом»{{Wickerbone Behemoth}} і Зарядженою блискавкою [Lightning Charged]. Лише стежте, щоб не зробити напад на вас настільки лячним, що вороги проігнорують вас і підуть бити ваших друзів. Це і є «"
+                    },
+                    {
+                      "type": "link",
+                      "text": "хиба танка",
+                      "href": "https://rpgbot.net/the-tank-fallacy/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "»{{Tank Fallacy}}. Вартовий природи [Guardian of Nature] — мабуть, ідеальне підсилення для нас. Час накладання — бонусна дія, тож можна накласти його й ще атакувати або активувати велета. Перевага на ряткидки Статури стосується й ряткидків для підтримки Концентрації. Перевага на атаки, засновані на Мудрості, охоплює наші руки-дубинки під дією Кийка [Shillelagh]. 10 тимчасових ХП допомагають вижити. Ще 1к6 силової шкоди при влучанні зброєю додає чимало до DPR. Це означає відмову від Стихійної зброї [Elemental Weapon], але Вартовий природи [Guardian of Nature] матиме значно більший вплив — і на DPR, і на тактичні переваги. DPR із Додатковою атакою{{Extra Attack}}, боєм двома зброями на Кийках [Shillelagh], Зарядженою блискавкою [Lightning Charged], Вартовим природи [Guardian of Nature] і 1к4 шкоди у відповідь від велета при влучанні: 43,16. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/pathfinder/characters/polymorph/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Polymorph] відкриває жахливу можливість поєднати його з велетом. Перетворіться на велетенську мавпу й використовуйте Кийок [Shillelagh] на руці горили, або перетворіться на тиранозавра й користуйтеся значно вищим КБ та шкодою у відповідь на додачу до своїх 136 ХП. Можливо, це навіть ефективніше, ніж морочитися з Кийком [Shillelagh]. Камʼяна шкіра [Stoneskin] виглядає надзвичайно привабливою, і підвищена витривалість справді така, особливо з тривалістю 1 година. Але остерігайтеся хиби танка. Без Вартового природи [Guardian of Nature] чи Стихійної зброї [Elemental Weapon] наша шкода суттєво відставатиме, якщо не покладатися на заклинання зі слотами."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дика форма{{Wild Shape}} (ПН 1, політ)\nРиса: «Доторкнутий космосом»{{Cosmos Touched}} (Мудрість 18 → 19, Обладунок Агатіса [Armor of Agathys])"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Доторкнутий космосом»{{Cosmos Touched}} дає нам Обладунок Агатіса [Armor of Agathys]. Його можна було б отримати й мультикласуванням, але в гайдах підкласів ми намагаємося складати однокласові збірки — так легше показати особливості підкласу. Обладунок Агатіса [Armor of Agathys] дає запас тимчасових ХП, а коли вороги влучають по нас, вони отримують шкоду холодом. Заклинання діє годину, тож одне накладання буде корисним довго, якщо тимчасові ХП протримаються за нашого жалюгідного КБ 16. Накладайте його слотом будь-якого рівня, який вважаєте прийнятним. Наразі слот 2-го рівня здається розумним, але з підвищенням рівня можна накладати його слотами вищого рівня. Щоб продовжити дію, помʼякшуйте шкоду Кістяним щитом [Bone Shield]. Обладунку Агатіса [Armor of Agathys] важливо лише, що по вас влучила атака ближнього бою; чи отримали ви шкоду, йому байдуже."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ліс жаху [Forest of Dread] (Стейнхардт, список заклинань {{Кола симбіозу|Circle of Symbiosis}}) цілком прийнятний, але за можливості вибору я б у більшості випадків краще наклав Проростання шипів [Spike Growth]. Зорепад [Starfall] (Стейнхардт) цікавий і чудовий проти натовпу, але шкода надто повільна, щоб відчутно вплинути на бій. На цьому рівні мало заклинань, які особливо добре підходять нашій збірці. Вир [Maelstrom] чудово поєднується з Кістковим карцером [Osseus Cage]: у першому ході підбігайте до ворогів і замкніть їх у клітці. Якщо лишився рух, вибігайте з клітки. У другому ході накладіть Вир [Maelstrom] усередині клітки. Дивіться, як вороги намагаються пробити 100 ХП клітки, поки Вир [Maelstrom] мелить їх. Вир [Maelstrom] завдає шкоди лише істотам, тож клітка від нього не постраждає, і ваші цілі не отримають допомоги в її руйнуванні. Навіть якщо вони її отримають, ви добре захоплюєте й штовхаєте ворогів, тож можете просто загнати їх назад у вир."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гнів природи{{Nature’s Wrath}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Величезне покращення витривалості. Завдяки постійній Дубовій шкірі [Barkskin] ми більше не вразливі поза «Плетеним кістяним велетом»{{Wickerbone Behemoth}}. Тимчасові ХП спрацьовують від будь-якого джерела дробячої, колючої чи ріжучої шкоди, зокрема від заклинань на кшталт Чарівного каменя [Magic Stone] або Виру [Maelstrom]. Шкода у відповідь від велета також зростає на цьому рівні. Для підрахунку DPR, як і раніше, припускаємо, що кожного раунду вразимо в середньому одну ціль. DPR із Додатковою атакою{{Extra Attack}}, боєм двома зброями на Кийках [Shillelagh], Зарядженою блискавкою [Lightning Charged], Вартовим природи [Guardian of Nature] і 2к4 шкоди у відповідь від велета при влучанні: 45,56."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме замовляння:\n– Первісна дикість [Primal Savagery]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Поки що ми навряд чи часто використовуватимемо Первісну дикість [Primal Savagery], але після отримання «Бойового заклинателя»{{War Caster}} вона стане нашою принагідною атакою. Вивчаємо її тепер, бо це остання нагода вивчити замовляння. Підготуйте Зцілення [Heal]. Ви танк із кубиками здоровʼя к8. "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Підготуйте Зцілення [Heal]."
+                    },
+                    {
+                      "type": "text",
+                      "text": " На цьому рівні мало інших заклинань, що пасують нашій збірці."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: «Адепт остеомантії»{{Osteomantic Adept}} (Мудрість 19 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Остеомантична магія майже завжди варта ціни. Посилення майже кожного заклинання остеомантії зі списку Друїда набагато переважує невелику шкоду від «Адепта остеомантії»{{Osteomantic Adept}} — і це ще без урахування нашого запасу тимчасових ХП, лікування й відновлення від «Плетеного кістяного велета»{{Wickerbone Behemoth}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ампутація [Amputate] виглядає дуже круто, але починати бій зі слів «я відриваю руку, якою супротивник атакує» — прямий шлях до суперечок за столом. Це також заклинання остеомантії найвищого рівня, до якого ми маємо доступ як друїди. Утім, мене влаштовує й альтернативна шкода. 15к8 (у середньому 67,5) — непогано, а за допомогою «Адепта остеомантії»{{Osteomantic Adept}} можна за 3к6 (у середньому 10,5) шкоди завдати ще 6к8 (у середньому 27). Якщо діє Вартовий природи [Guardian of Nature], атака має Перевагу, бо залежить від Мудрості, тож влучити буде значно легше."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Серце терну|Briarheart}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+5 шкоди до кожної атаки з Кийком [Shillelagh]. Вартовий природи [Guardian of Nature] і досі наше найкраще підсилення для ближнього бою. DPR із Додатковою атакою{{Extra Attack}}, боєм двома зброями на Кийках [Shillelagh], Зарядженою блискавкою [Lightning Charged], Вартовим природи [Guardian of Nature], {{Серцем терну|Briarheart}} і 2к4 шкоди у відповідь від «Плетеного кістяного велета»{{Wickerbone Behemoth}} при влучанні: 60,8. Це тримає нас у діапазоні високого DPR аж до 19-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нічого важливого для нашої збірки, але Сонячний спалах [Sunburst] цікавий."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: «Бойовий заклинатель»{{War Caster}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перевага на ряткидки Концентрації, коли не діє Вартовий природи [Guardian of Nature], — величезне покращення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зрозумівши, що «Плетений кістяний велет»{{Wickerbone Behemoth}} можна зберегти під час Перевтілення [Polymorph], нескладно здогадатися, що він працюватиме й разом із Перекиданням [Shapechange]. Ще краще, що нова форма теж здатна його використовувати, тож ви можете активувати велета, вже перетворившись на дракона."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невмируще тіло{{Timeless Body}}\nЗаклинання звіра{{Beast Spells}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми ніколи не використовуємо Дику форму{{Wild Shape}}, тож Заклинання звіра{{Beast Spells}} мало що нам дають."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: «Здоровань»{{Tough}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП! За бажанням можна натомість підвищити Статуру на 2."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Архі-друїд{{Archdruid}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Плетений кістяний велет»{{Wickerbone Behemoth}} — коли завгодно! Особливо під час Перекидання [Shapechange]!"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-001",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "2-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-002",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-003",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-004",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-005",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-006",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Плетений кістяний велет",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-007",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Спина ведмедя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-008",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Голова оленя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-009",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Копита кози",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-010",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Додаткова атака",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-011",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-12",
+      "context": "Гнів природи",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-012",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-13",
+      "context": "Серце терну",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-013",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-circle-of-symbiosis-ability-scores",
+      "targetBlockId": "block-section-circle-of-symbiosis-ability-scores-2",
+      "optionId": "section-circle-of-symbiosis-ability-scores-block-section-circle-of-symbiosis-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-circle-of-symbiosis-ability-scores-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-014",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-circle-of-symbiosis-ability-scores",
+      "targetBlockId": "block-section-circle-of-symbiosis-ability-scores-3",
+      "optionId": "section-circle-of-symbiosis-ability-scores-block-section-circle-of-symbiosis-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-circle-of-symbiosis-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-015",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-circle-of-symbiosis-ability-scores",
+      "targetBlockId": "block-section-circle-of-symbiosis-ability-scores-4",
+      "optionId": "section-circle-of-symbiosis-ability-scores-block-section-circle-of-symbiosis-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-circle-of-symbiosis-ability-scores-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-016",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-circle-of-symbiosis-ability-scores",
+      "targetBlockId": "block-section-circle-of-symbiosis-ability-scores-5",
+      "optionId": "section-circle-of-symbiosis-ability-scores-block-section-circle-of-symbiosis-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-circle-of-symbiosis-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-017",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-circle-of-symbiosis-ability-scores",
+      "targetBlockId": "block-section-circle-of-symbiosis-ability-scores-6",
+      "optionId": "section-circle-of-symbiosis-ability-scores-block-section-circle-of-symbiosis-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-circle-of-symbiosis-ability-scores-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-018",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-circle-of-symbiosis-ability-scores",
+      "targetBlockId": "block-section-circle-of-symbiosis-ability-scores-7",
+      "optionId": "section-circle-of-symbiosis-ability-scores-block-section-circle-of-symbiosis-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-circle-of-symbiosis-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-019",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-1",
+      "optionId": "section-7-block-section-7-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-7-1"
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-020",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-2",
+      "optionId": "section-7-block-section-7-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-7-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-021",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-9",
+      "targetBlockId": "block-section-9-1",
+      "optionId": "section-9-block-section-9-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-9-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-022",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-9",
+      "targetBlockId": "block-section-9-2",
+      "optionId": "section-9-block-section-9-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-9-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-023",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-10",
+      "targetBlockId": "block-section-10-1",
+      "optionId": "section-10-block-section-10-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-10-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-024",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-10",
+      "targetBlockId": "block-section-10-2",
+      "optionId": "section-10-block-section-10-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-10-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-025",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-11",
+      "targetBlockId": "block-section-11-1",
+      "optionId": "section-11-block-section-11-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-11-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-026",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-11",
+      "targetBlockId": "block-section-11-2",
+      "optionId": "section-11-block-section-11-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-11-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-027",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-13",
+      "targetBlockId": "block-section-13-1",
+      "optionId": "section-13-block-section-13-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-13-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-028",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-13",
+      "targetBlockId": "block-section-13-2",
+      "optionId": "section-13-block-section-13-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-13-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-029",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-14",
+      "targetBlockId": "block-section-14-1",
+      "optionId": "section-14-block-section-14-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-14-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-030",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-14",
+      "targetBlockId": "block-section-14-2",
+      "optionId": "section-14-block-section-14-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-14-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-031",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-16",
+      "targetBlockId": "block-section-16-2",
+      "optionId": "section-16-block-section-16-2",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-16-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-032",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-16",
+      "targetBlockId": "block-section-16-3",
+      "optionId": "section-16-block-section-16-3",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-16-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-033",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-22",
+      "targetBlockId": "block-section-22-1",
+      "optionId": "section-22-block-section-22-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-22-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-034",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-22",
+      "targetBlockId": "block-section-22-2",
+      "optionId": "section-22-block-section-22-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-22-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-035",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-23",
+      "targetBlockId": "block-section-23-1",
+      "optionId": "section-23-block-section-23-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-23-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-036",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-23",
+      "targetBlockId": "block-section-23-2",
+      "optionId": "section-23-block-section-23-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-23-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-037",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-24",
+      "targetBlockId": "block-section-24-1",
+      "optionId": "section-24-block-section-24-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-24-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-038",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-24",
+      "targetBlockId": "block-section-24-2",
+      "optionId": "section-24-block-section-24-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-24-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-039",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-26",
+      "targetBlockId": "block-section-26-1",
+      "optionId": "section-26-block-section-26-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-26-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-040",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-26",
+      "targetBlockId": "block-section-26-2",
+      "optionId": "section-26-block-section-26-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-26-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-041",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-27",
+      "targetBlockId": "block-section-27-1",
+      "optionId": "section-27-block-section-27-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-27-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-042",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-27",
+      "targetBlockId": "block-section-27-2",
+      "optionId": "section-27-block-section-27-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-27-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-043",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-28",
+      "targetBlockId": "block-section-28-1",
+      "optionId": "section-28-block-section-28-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-28-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-044",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-28",
+      "targetBlockId": "block-section-28-2",
+      "optionId": "section-28-block-section-28-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-28-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-045",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-29",
+      "targetBlockId": "block-section-29-1",
+      "optionId": "section-29-block-section-29-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-29-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-046",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-29",
+      "targetBlockId": "block-section-29-2",
+      "optionId": "section-29-block-section-29-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-29-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-047",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-circle-of-symbiosis-feats",
+      "targetBlockId": "block-section-circle-of-symbiosis-feats-2",
+      "optionId": "section-circle-of-symbiosis-feats-block-section-circle-of-symbiosis-feats-2-item-0",
+      "context": "Доторкнутий космосом",
+      "explanationBlockId": "block-section-circle-of-symbiosis-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-048",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-circle-of-symbiosis-feats",
+      "targetBlockId": "block-section-circle-of-symbiosis-feats-2",
+      "optionId": "section-circle-of-symbiosis-feats-block-section-circle-of-symbiosis-feats-2-item-1",
+      "context": "Адепт остеомантії",
+      "explanationBlockId": "block-section-circle-of-symbiosis-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-049",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-circle-of-symbiosis-feats",
+      "targetBlockId": "block-section-circle-of-symbiosis-feats-2",
+      "optionId": "section-circle-of-symbiosis-feats-block-section-circle-of-symbiosis-feats-2-item-2",
+      "context": "ЗдорованьPHB",
+      "explanationBlockId": "block-section-circle-of-symbiosis-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-050",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-circle-of-symbiosis-feats",
+      "targetBlockId": "block-section-circle-of-symbiosis-feats-2",
+      "optionId": "section-circle-of-symbiosis-feats-block-section-circle-of-symbiosis-feats-2-item-3",
+      "context": "Бойовий заклинательPHB",
+      "explanationBlockId": "block-section-circle-of-symbiosis-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-051",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-0",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-052",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-1",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-053",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-2",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-054",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-3",
+      "context": "Монах",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-steinhardts-circle-of-symbiosis-2014-055",
+      "articleId": "rpgbot-druid-steinhardts-circle-of-symbiosis-2014",
+      "translationRevisionId": "translation-rpgbot-druid-steinhardts-circle-of-symbiosis-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-4",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

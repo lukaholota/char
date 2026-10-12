@@ -11,7 +11,7 @@ import dictionary from "@/lib/refs/dictionary.json";
 const CYRILLIC = /[а-яіїєґ]/i;
 const TRANSLATIONS_DIR = join(process.cwd(), "data/2014/beyond-srd-uk");
 /// 78 після KR23.5 плюс девʼять статей глав 1 і 4 PHB (KR29.1, перекладені в KR29.2).
-const EXPECTED_ARTICLES = 87;
+const EXPECTED_ARTICLES = 88;
 
 /// Ця стаття тільки про 2014 — KR23.4 додав 2024-корпус (глави XDMG) у той самий файл, і без
 /// звуження за ruleset тут порахувалося б 119, а не 87.
@@ -19,7 +19,7 @@ const beyondSrd = getBeyondSrdArticlesByRuleset("RULES_2014");
 const body = beyondSrd.flatMap((article) => article.subsections.map((subsection) => subsection.content)).join("\n");
 
 describe("KR23.2 — переклад варіантних правил 2014 поза SRD", () => {
-  it("перекладає всі 87 статей без жодного англійського підрозділу", () => {
+  it("перекладає всі 88 статей без жодного англійського підрозділу", () => {
     expect(beyondSrd.length).toBe(EXPECTED_ARTICLES);
     expect(beyondSrd.filter((article) => !article.isTranslated).map((article) => article.id)).toEqual([]);
 

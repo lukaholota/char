@@ -1,0 +1,2537 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "51aac5194954d5c3c73b0abb4a638cab5eeb1083cc07a8d6d8a007cd6f94c297",
+  "sourceRevision": {
+    "revisionId": "rpgbot-f9471bb0881a1317-51aac5194954d5c3",
+    "sourceId": "rpgbot-f9471bb0881a1317",
+    "fetchedAt": "2026-09-29T19:26:02.363602+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:39:26-04:00",
+    "contentHash": "fb2ae07c5e84d6be8c372ed21f679da84f67a75c04b147512bd0cf08f9513e59",
+    "title": "Oath of Redemption Paladin 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-f9471bb0881a1317-51aac5194954d5c3.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oath of Redemption is an interesting subclass that attempts to take a Paladin in a more Controller direction via excellent spells, while protecting their party with a unique mechanic that allows them to literally take damage in place of others. With two excellent Channel options, you end up having to decide very carefully how you use your resources if you’re allowed the Harness Divine Power Optional Class Feature, because basically anything you could do with it would be a good idea given the right circumstance."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As usual for a Paladin, it’s also an excellent Defender, taken to new heights by that unique protection mechanic. With a little optimization, you can become a nigh-unkillable damage sponge that forces particularly rough opponents to attack you with Compelled Duel backed by a full caster’s spell DC, or have the flexibility to save-or-suck things out of fights and chip away at groups of enemies with our recommended cantrips."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Redemption Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Redemption Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#oath-of-redemption-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Redemption Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#oath-of-redemption-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Redemption Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#oath-of-redemption-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Redemption Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#oath-of-redemption-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Redemption Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#oath-of-redemption-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Apostle of Peace",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#example-build-apostle-of-peace"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-redemption/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Oath of Redemption Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Oath Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A lot of excellent spells.\n\t\tThey all fit the theme, and nearly all of the options are great additions to\n\t\tyour spellcasting options. However, many rely on saving throws so your\n\t\tCharisma needs to be high enough to make them reliable.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both great ways to\n\t\t\t\tdiscourage violence, but the hit point cap on Sleep makes it borderline\n\t\t\t\tuseless for a half-caster."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Calm Emotions is great\n\t\t\t\tarea control and doesn’t care about spell level. Hold Person is fine,\n\t\t\t\tbut you’re left without options to address most creature types, and even\n\t\t\t\tagainst humanoids you’ll have trouble upcasting it to affect multiple\n\t\t\t\ttargets."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": If you can get\n\t\t\t\tCounterspell, you should get Counterspell. It’s one of the most powerful\n\t\t\t\tspells in the game. However, you have very few spell slots to spend it\n\t\t\t\tupon, and you only go up to 5th-level spell slots so you can’t rely on\n\t\t\t\tupcasting it to forcibly counter spells without an ability check."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Resilient Sphere is\n\t\t\t\twonderful offensively or defensively, and Stoneskin will help you to\n\t\t\t\twithstand attacks while you figure out how to end a fight, but the\n\t\t\t\tmaterial cost may be prohibitive."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": More great ways to end a\n\t\t\t\tfight nonlethally, but Hold Monster on a single creature may not feel\n\t\t\t\tsatisfying at this level compared to what full casters can do."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\texcellent, and very easy to bring into play.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Emissary of Peace"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent for a\n\t\t\t\tface, and one of very few Channel Divinity options which is meaningfully\n\t\t\t\tuseful outside of combat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rebuke the Violent"
+              },
+              {
+                "type": "text",
+                "text": ": Great for\n\t\t\t\tcreatures with large single attacks or after an ally suffers a big\n\t\t\t\tcritical hit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aura of the Guardian"
+              },
+              {
+                "type": "text",
+                "text": ": Don’t try to combine\n\t\tthis with the Protection fighting style. Both consume your Reaction, so you\n\t\twon’t be able to use them together. You don’t want to use this constantly,\n\t\tbut when your allies start running short on hit points it’s a good idea. Be\n\t\tsure to invest in your Constitution and consider the Tough feat so that you\n\t\thave enough hit points to absorb damage for your allies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Protective Spirit"
+              },
+              {
+                "type": "text",
+                "text": ": This makes Aura of the\n\t\tGuardian much safer to use."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Emissary of Redemption"
+              },
+              {
+                "type": "text",
+                "text": ": Expect to spend\n\t\ta lot of time grappling and tripping enemies while you try to talk them out\n\t\tof fighting you. You can’t even use Rebuke the Violent without negating this\n\t\tfeature for that creature for the day.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Note that the damage which you deal to other creatures is half of what\n\t\t\tyou take "
+              },
+              {
+                "type": "emphasis",
+                "text": "after"
+              },
+              {
+                "type": "text",
+                "text": " applying resistances, so if a creature deals 4\n\t\t\tdamage, you take 2 and they take 1. That’s not going to kill anything in a\n\t\t\thurry, but it might be abough to scare them off. If you have enough hit\n\t\t\tpoints, you could risk walking around unarmored and let people beat you\n\t\t\tuntil they get tired of taking radiant damage. Protective Spirit is\n\t\t\thealing you for 16+10 every turn when you’re below half hp, so you can\n\t\t\tafford to do this somewhat safely depending on your enemies’ damage\n\t\t\toutput."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-redemption-ability-scores",
+      "heading": "Oath of Redemption Ability Scores",
+      "sourceAnchor": "oath-of-redemption-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-redemption-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Oath of Redemption’s best spells and features rely on a high Charisma to function, so Blessed Warrior is a strong choice, meaning you’re going to have a rough level one but then you’ll scale very well."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-redemption-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Start it at 15 for the plate you’re going to eventually wear and keep it there."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-redemption-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-redemption-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Third in importance. While you have many defensive capabilities, you also spend a bunch of time eating attacks for others."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-redemption-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-redemption-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-redemption-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": The Paladin’s spells and many class features are powered by Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-redemption-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-redemption-races",
+      "heading": "Oath of Redemption Races",
+      "sourceAnchor": "oath-of-redemption-races",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-redemption-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tiefling"
+            },
+            {
+              "type": "text",
+              "text": ": You might think it would be fun to use Aura of the Guardian to take the damage for someone and then Hellish Rebuke the attacker for their trouble, but they both take your Reaction and so can’t be combined."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-redemption-feats",
+      "heading": "Oath of Redemption Feats",
+      "sourceAnchor": "oath-of-redemption-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-redemption-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We like taking damage for our allies and we like running spells to keep us going. Resilient (Con), Warcaster, Tough, and the like are going to be very important."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-redemption-weapons",
+      "heading": "Oath of Redemption Weapons",
+      "sourceAnchor": "oath-of-redemption-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-redemption-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different than any other "
+            },
+            {
+              "type": "link",
+              "text": "Paladin",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/"
+            },
+            {
+              "type": "text",
+              "text": ". Probably stick to sword and board since we’re already going to be taking damage outside our control."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-redemption-armor",
+      "heading": "Oath of Redemption Armor",
+      "sourceAnchor": "oath-of-redemption-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-redemption-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different than any other "
+            },
+            {
+              "type": "link",
+              "text": "Paladin",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you plan on taking advantage of the excellent expanded spell list at higher levels and don’t want to use Blessed Warrior, taking a level or two of "
+            },
+            {
+              "type": "link",
+              "text": "Hexblade",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/"
+            },
+            {
+              "type": "text",
+              "text": " would be fantastic for removing your dependence on Strength so that you can just focus on Charisma. I would go Paladin 1, Hexblade 1, Paladin X, putting in the second level of Hexblade after Paladin 8."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-apostle-of-peace",
+      "heading": "Example Build – Apostle of Peace",
+      "sourceAnchor": "example-build-apostle-of-peace",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-apostle-of-peace-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "Help, it’s only level 6 and I’ve run out of good exalted feats to choose from."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-apostle-of-peace-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build will be substantially improved by getting access to the Harness Divine Power class feature as it’s heavily spellcasting focused. Lobby hard for it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-apostle-of-peace",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will assume the point buy abilities suggested above."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-apostle-of-peace",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We want to be a Dwarf for reasons, and we don’t really need all the stuff a regular Dwarf would get us, but we love resistance vs charmed and stunned, hella Darkvision, and Duergar Magic, so Deep Dwarf it is."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-apostle-of-peace",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spy. What better way to prevent violence than by gaining information and feeding it where it can do the most good? Trade the Stealth for Athletics because we’re still a Paladin, and the two tools for languages that are relevant to your campaign."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-apostle-of-peace",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Intimidation and Persuasion from the class join the skills listed above."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-apostle-of-peace",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 4 gets us Telekinetic ("
+            },
+            {
+              "type": "emphasis",
+              "text": "again"
+            },
+            {
+              "type": "text",
+              "text": ") and I hate it"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 8 caps Charisma"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 12 gets us Dwarven Fortitude"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Levels 16 gets us Durable"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 19 caps Con"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-apostle-of-peace",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": " Feat(s) and Features "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Sense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lay on Hands"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting equipment, take the chainmail, longsword, shield, and Javelins. Be a slightly underperforming Paladin (thanks to only having 15 strength instead of 16) until level 2."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Stye:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Blessed Warrior"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Word of Radiance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": " – Compelled Duel"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shield of Faith"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Cure Wounds"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Word of Radiance will be our go-to damage option for almost our entire career. Sacred Flame isn’t better DPR than just hitting something with your sword until level 17, even with our Strength never increasing, so we’ll pick up Guidance until then. Don’t forget the +d4."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For real spells, we continue doing standard Paladin things. Compelled Duel is going to do a lot of work at higher levels when we start forcing things to attack into our Dodging selves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Health"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Emissary of Peace"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Rebuke the Violent"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells always prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sanctuary"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sleep"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enlarge/Reduce"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We already talked about how to use Rebuke the Violent above under the subclass features. Do that."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Enlarge from our race will help us overcome relatively low Strength when we want to do Athletical things or if we need to eke out a little more DPR with our sword. We don’t actually have the slots to recast it right now, so we only get the free one until level 5."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Telekinetic (Cha)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thunderous Smite"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Ceremony"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Believe me I’m not thrilled, but we’re not getting anything else that uses our bonus action and we need the Charisma. Take Fey-Touched instead if you’re sick of this feat. Otherwise, do all the silly things like disengaging allies for them as a bonus action or pushing enemies off of cliffs. Is it really violence if "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "gravity"
+                },
+                {
+                  "type": "text",
+                  "text": " is what causes the damage?"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Or you could split an ASI between Strength and Charisma, but what fun is that?"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Find Steed"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Heroism"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Lesser Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hold Person"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Calm Emotions"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Invisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Drop Shield of Faith and Ceremony for the spells listed."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lesser Restoration is a little bit redundant with Lay on Hands, but our pool of both is so limited right now that the backup is welcome."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Extra Attack means that our DPR is higher against single targets just attacking twice, even though Sacred Flame damage would have gone up at this level. The total DPR is less than 8 either way, so realistically your best bet is to either dive into a group and use Word of Radiance or use your spells to be a Controller."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "What that really means is that we should tailor ourselves to our group. If many allies are ranged, grab Sacred Flame and keep your auras on them. If mostly melee, wade in and do better damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Find Steed is a complicated spell to handle. You may want to read the "
+                },
+                {
+                  "type": "link",
+                  "text": "Practical Guide to Mounted Combat",
+                  "href": "https://rpgbot.net/dnd5/characters/mounted_combat/"
+                },
+                {
+                  "type": "text",
+                  "text": " and listen to our "
+                },
+                {
+                  "type": "link",
+                  "text": "podcast episode about mounted combat",
+                  "href": "https://rpgbot.net/rpgbot-podcast-episode-2/"
+                },
+                {
+                  "type": "text",
+                  "text": ". I don’t recommend this spell because I think you should be mounted, I recommend it because having a celestial warhorse is neat and could very well be useful in a lot of ways."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "While we don’t need to cast the spell all that often (and so should spend most days with cure Wounds prepared in that slot instead), we do need to cast it when the horse dies. Given its AC of 11 and no save proficiencies, that will be somewhat often. But better your horse than your less-replaceable allies."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Meanwhile, our race gives us another boon in the form of a free Invisibility per day and the ability to recast it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Aura of Protection"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Did you want a free +4 to all your saves? Hey, so did your party. It is worth noting that it doesn’t specify what saves it applies to, meaning it applies to all of them, including Death Saves. Stay near dying friends, even if you can’t spare the action to Lay on Hands them. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Aura of the Guardian"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re pretty durable already, so we can afford to take a few hits for our allies. Keep in mind that it will trigger a Concentration save if you’re running a spell, so try to only prevent moderately-sized incoming damage instead of the huge crits. Use Rebuke the Violent on those instead."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Charisma 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s a satisfying but uninteresting level. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Revivify"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Counterspell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hypnotic Pattern"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Every spell at this level is great and our only point of sadness is not enough slots to use all of them. Hypnotic Pattern can end a fight before it begins. Just let your friends go through and pick enemies off one at a time. Consider restraining them first because it doesn’t break the effect."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Aura of Courage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I interpret the wording of “can’t be frightened” to mean that, if someone is frightened, simply walking to within 10 feet of them means that your aura will remove whatever fear effect is on them instead of just suppressing it. This doesn’t jive with Jeremy Crawford’s depiction of RAI, but even he admits that "
+                },
+                {
+                  "type": "link",
+                  "text": "RAW is unclear",
+                  "href": "https://twitter.com/JeremyECrawford/status/722860204459630592"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Divine Smite"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I wish I could tell you that Sacred Flames is finally better DPR than swinging a sword. It’s not. Unless your opponent fails the Dex save on a d20 roll of a 16, the fact that we just added a d8 to each attack means that the math stays in favor of using the Attack action against a single target."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dwarven Fortitude"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Con goes up to an odd number, but we now get a really nice benefit from Dodging while maintaining concentration on Compelled Duel and using our Reaction to take damage for our friends."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Find Greater Steed"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Death Ward"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Resilient Sphere"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Stoneskin"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Drop whatever you started preparing at level 8 for Death Ward and start using Find Greater Steed to get a celestial pegasus instead of a warhorse. Death Ward yourself and have it apply to the horse too. This is especially good because it means we can do something like tank a Disintegrate for our friend if we need to, confident that Death Ward will keep us up."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cleansing Touch"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Boop."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Protective Spirit"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is definitely excellent, but it only works when we’re below half. What if I want HP when I’m above half?"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Durable"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Con goes up again, and we can now regain 12-14 HP every time we take the Dodge action instead of 4-13 like it was last level. Just keep an eye on your number of hit dice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Holy Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Destructive Wave"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hold Monster"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Scrying"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sacred Flame would finally be better single-target damage, but it’s a little late to stop using Guidance. We take two spells that we prefer not to use, but will in a pinch because there’s nothing else better for us. Especially with Destructive Wave already having our full save DC."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Aura Improvements"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This makes positioning much easier."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement: Constitution 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "So many hit points, so much Concentration."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Emissary of Redemption"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The Resistance we get from this won’t apply to damage taken from Warding Bond or Aura of the Guardian, but it still stretches our hit points on attacks we take directly, which is nice."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Oath of Redemption Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Oath Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Emissary of Peace"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Rebuke the Violent"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Aura of the Guardian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Protective Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Emissary of Redemption"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Tiefling"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-oath-of-redemption-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-oath-of-redemption-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-oath-of-redemption-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-oath-of-redemption-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-oath-of-redemption-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-oath-of-redemption-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-oath-of-redemption-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-oath-of-redemption-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-oath-of-redemption-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-oath-of-redemption-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-oath-of-redemption-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-oath-of-redemption-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-build-apostle-of-peace-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-build-apostle-of-peace-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2676,
+    "sections": 17,
+    "blocks": 35,
+    "tables": 3,
+    "ratingSignals": 24
+  },
+  "status": "needs-editorial-review"
+}

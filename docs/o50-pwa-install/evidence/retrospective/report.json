@@ -1,0 +1,55 @@
+{
+  "standalone": "navigator.standalone emulated, not native installation",
+  "checks": [
+    {
+      "engine": "chrome",
+      "scenario": "modal close consumes exactly one history entry; no duplicate Back action",
+      "passed": true
+    },
+    {
+      "engine": "chrome",
+      "scenario": "cold deep link Back falls back to characters",
+      "passed": true
+    },
+    {
+      "engine": "chrome",
+      "scenario": "Back after full-document touch navigation returns to prior app route",
+      "passed": true
+    },
+    {
+      "engine": "chrome",
+      "scenario": "deep-link fallback retains no-ai mode",
+      "passed": true
+    },
+    {
+      "engine": "chrome",
+      "scenario": "browser retains existing Home navigation",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "scenario": "modal close consumes exactly one history entry; no duplicate Back action",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "scenario": "cold deep link Back falls back to characters",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "scenario": "Back after full-document touch navigation returns to prior app route",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "scenario": "deep-link fallback retains no-ai mode",
+      "passed": true
+    },
+    {
+      "engine": "webkit",
+      "scenario": "browser retains existing Home navigation",
+      "passed": true
+    }
+  ]
+}

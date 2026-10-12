@@ -1,0 +1,2352 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "74803e68a5898177752b8fa403b7a781926e4d6163169c5458c746537b3e43bf",
+  "sourceRevision": {
+    "revisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+    "sourceId": "rpgbot-bcfc3c7f2a6d8814",
+    "fetchedAt": "2026-09-29T19:20:51.639556+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:43:14-04:00",
+    "contentHash": "7ab8ebdcafc8f6dcdcd5553887cac9bace2c8cb43e57023fbe25caa953988369",
+    "title": "Celestial Warlock 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-bcfc3c7f2a6d8814-74803e68a5898177.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Celestial offers three tempting options: access to some cleric spells, a pool of easy hit point restoration (Healing Light), and access to some sources of radiant/fire damage. Unfortunately, it doesn’t do any of those especially well. The radiant/fire damage options will still lag behind your core Warlock options, and the Cleric spell options are so limited that they’re only good in a party where having a real divine spellcaster is not a possibility or where your divine spellcaster has an unconsciousness problem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While the Celestial does add a splash of Healer to the Warlock’s roles, it may not be enough in a typical campaign to replace a cleric. The rest of the subclass’s features focus primarily on Blaster and Controller options, further emphasizing that this is still primarily a warlock with just a taste of "
+            },
+            {
+              "type": "link",
+              "text": "Light Domain Cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re desperate for healing but also need to be a warlock for some reason, the Celestial is fine. Otherwise, it’s a mix of decent healing and disappointing blasting on top of the Warlock’s excellent core features. If you want to actually cast spells like a Cleric while not being a Cleric, consider the "
+            },
+            {
+              "type": "link",
+              "text": "Divine Soul Sorcerer",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/divine-soul/"
+            },
+            {
+              "type": "text",
+              "text": " instead."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Celestial Warlock Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Celestial Warlock Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Celestial Warlock Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Celestial Warlock Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Celestial Warlock Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Celestial Warlock Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Celestial Warlock Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Celestial Support Warlock",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Celestial Warlock Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ": Most of the options\n\t\tare poor attempts to introduce fire damage to the Warlock’s spell list, but\n\t\tthere are a handful of useful options mixed in with the garbage, including\n\t\tstaple healing options like Lesser Restoration and Restoration.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": You don’t really\n\t\t\t\tneed either. Cure Wounds is tempting, but you get Healing Light which\n\t\t\t\twill provide comparable healing without eating your extremely limited\n\t\t\t\tspell slots. You can still use Cure Wounds right before a short rest to\n\t\t\t\tget some healing out of any leftover spell slots, but I’ve never seen a\n\t\t\t\twarlock make it to a short rest with remaining spell slots."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Both good options,\n\t\t\t\tbut Lesser Restoration should be left to your party’s divine spellcaster\n\t\t\t\tif possible. Flaming Sphere looks tempting with Radiant Soul, but\n\t\t\t\tRadiant Soul only applies to one damage roll for a given spell, so you\n\t\t\t\tdon’t get to apply it every time your sphere hits something. Still, it’s\n\t\t\t\ta decent area control option, and you get a lot of use out of a single\n\t\t\t\tspell slot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Get Revivify. Let\n\t\t\t\tme clarify: "
+              },
+              {
+                "type": "emphasis",
+                "text": "you should really get Revivify. It’s really good"
+              },
+              {
+                "type": "text",
+                "text": ".\n\t\t\t\tThe one concern is that you only have two spell slots until 11th level\n\t\t\t\tand it’s hard to reserve one of them so that you always have revivify\n\t\t\t\tready. Get a Pearl of Power if you can."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Wall of Fire is one\n\t\t\t\tof the most iconic area control spells, and it works very well in the\n\t\t\t\tWarlock philosophy of spending one spell slot to massively reshape an\n\t\t\t\tencounter before reverting to cantrips. You can use invocations to\n\t\t\t\tpush/pull enemies through the wall, too. Unfortunately you still only\n\t\t\t\tget to apply Radiant Soul once each time you cast it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Flame Strike is\n\t\t\t\tfine, but it does less damage in a smaller AOE than Fireball and Radiant\n\t\t\t\tSoul’s bonus damage only affects one target. In general, spending a\n\t\t\t\tspell slot to deal instantaneous AOE damage is rarely a good use of a Warlock’s  resources compared to other damaging options like Hunger of Hadar.\n\t\t\t\tRestoration is a situational but important healing option. If you can,\n\t\t\t\tleave high-powered healing to your party’s divine spellcaster."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bonus Cantrips"
+              },
+              {
+                "type": "text",
+                "text": ": Warlocks don’t have a way\n\t\tto create light with a cantrip, so Light is nice. Sacred Flame won’t matter\n\t\toften since Eldritch Blast will outpace Sacred Flame’s damage (especially\n\t\twith Agonizing Blast), but more cantrips never hurt and sometimes you need\n\t\tto keep zombies down or deal with creatures that have high AC but low Dexterity\n\t\tsaves."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Healing Light"
+              },
+              {
+                "type": "text",
+                "text": ": Roughly equivalent to\n\t\tHealing Word, but without eating into your spell slots. This provides enough\n\t\thealing that the Celestial Warlock made a solid showing in the\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Healbot Olympics",
+                "href": "https://rpgbot.net/dnd5/characters/healbot-olympics"
+              },
+              {
+                "type": "text",
+                "text": ".\n\t\tHowever, it’s the Celestial’s only healing option and doesn’t solve problems\n\t\tbeyond hit point restoration, so you still need to look elsewhere for options\n\t\tto handle status conditions."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Radiant Soul"
+              },
+              {
+                "type": "text",
+                "text": ": Warlocks deal the vast\n\t\tmajority of their damage with Eldritch Blast and Agonizing Blast. Celestial\n\t\twarlocks get Sacred Flame, which is probably the best way to make use of\n\t\tthis feature, but If you pick up Agonizing Blast (you should, it’s amazing), this\n\t\twill almost never matter while using cantrips because Eldritch Blast will\n\t\tmassively outpace any other cantrip’s damage output, even with the damage\n\t\tboost from Radiant Soul. If you don’t take Agonizing Blast, Sacred Flame\n\t\twill do slightly more damage than Eldritch Blast.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The Celestial’s expanded spell list offers a handful of extra spells that\n\t\t\tdeal radiant/fire damage, but most of them aren’t a great use of your\n\t\t\twarlock spell slots and the damage still only affects one target on one\n\t\t\tdamage roll (e.g. one target of Flame Strike)."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Celestial Resilience"
+              },
+              {
+                "type": "text",
+                "text": ": This will save a ton\n\t\tof your party’s healing resources. It’s not quite as good as the Inspiring\n\t\tLeader feat since it only works after a rest and your allies don’t get as many temporary hit points, but it’s very close, and you\n\t\tdon’t need to give your party a 10-minute pep talk to make it work."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Searing Vengeance"
+              },
+              {
+                "type": "text",
+                "text": ": There is no save to\n\t\tresist the blinding effect, so you can stand up and safely walk yourself to\n\t\tsomewhere safe before going back to lasering stuff to death. Since creatures\n\t\tthat you damage are blinded, you get Advantage on attacks against them, so\n\t\tit’s a great time for Eldritch Blast.\n"
+              },
+              {
+                "type": "text",
+                "text": "But, like anything that only triggers while you’re dying, it’s entirely possible that you will never need this because you’re doing such a good job at staying conscious."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Celestial Warlock Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Celestial Warlock Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Celestial Warlock Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Celestial Warlock Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Celestial Warlock Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Celestial Warlock Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Build – Celestial Support Warlock",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warlocks have few class options dedicated to supporting fellow party members, and The Celestial is the only subclass that adds such options. In this build we’ll lean into supporting our party using spells, invocations, and Pact of the Talisman. We’re not going to focus on damage in this build, but if you need a little more damage output you can drop one of the Invocations recommended below in favor of Agonizing Blast."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll start close to the ability scores recommended in our Warlock Handbook,\n\tand put our +2 into Charisma and our +1 into Dexterity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom Origin Stout Halfling. We want Lucky and Bountiful Luck to add even more support capabilities. If you’re playing in Eberron, Mark of Healing and Mark of Hospitality can also work."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Faction Agent. Weirdly, the Warlock’s skill list doesn’t include Persuasion,\n\tso we want it from our background. This gets us both Insight and Persuasion,\n\tplus two languages to support our role as a Face."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take Arcana and History from our class, giving us Arcana, History,\n\tInsight, and Persuasion. We got languages from our background, so we don’t\n\thave any tool proficiencies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 4 we take Bountiful Luck. This lets us share our Lucky trait as a\n\tReaction"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 8 we’ll split an Ability Score Increase between Constitution and Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 12 we’ll max Charisma to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 16 we’ll take Eldritch Adept (Agonizing Blast). Better late than never,\n\tright?"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 19 we’ll take Cartomancer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Otherworldly Patron: The Celestial"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expanded Spell List"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bonus\n\t\t\t\t\tCantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Light"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sacred Flame"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Healing Light"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact\n\t\t\t\t\tMagic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hex"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Protection from Evil and\n\t\t\t\t\tGood"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Create Bonfire"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eldritch\n\t\t\t\t\tBlast"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We come out of the gate with 4 cantrips, giving us an edge over other Warlocks. Like other Warlocks, Hex+Eldritch Blast is our go-to combat option. Sacred Flame will work for enemies with high AC, but otherwise ignore it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Healing Light is a small pool, but it still lets us save a dying ally as a Bonus Action. Don’t expect to use it for anything else, because it will never heal enough to keep pace with enemy attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Invocations"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Repelling Blast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fiendish\n\t\t\t\t\tResilience"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hellish Rebuke"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fiendish Resilience is here temporarily to help us stay alive until\n\t\t\t\t\tlevel 3."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Repelling Blast lets us control the battlefield a\n\t\t\t\t\tbit. It won’t add to our damage unless your DM lets you get away with\n\t\t\t\t\tlaunching enemies away at an upward angle, but it’s enough to keep\n\t\t\t\t\tenemies out of melee, to break grapples, and otherwise to make\n\t\t\t\t\tyourself a problem for enemies."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Boon: Pact of the Talisman"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Misty\n\t\t\t\t\tStep"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fiendish Resilience -> Rebuke of\n\t\t\t\t\tthe Talisman"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact of the Talisman lets us boost the wearer’s ability checks a few times per day. At this level, our PB is only +2, so it’s not much. Expect to use it for high-value ability checks like in social situations or when an ally uses Athletics to Grapple or Shove an enemy."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now that we have our pact, we can retrain an Invocation into Rebuke of the Talisman. This lets us get into our pact’s Invocations 2 levels early."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rebuke of the Talisman isn’t a ton of damage, but the only usage limitation is your Reaction, psychic damage resistance is rare, and knocking enemies 10 feet away can include knocking them 10 feet upward and away in order to drop them for another 1d6 damage and force them prone, potentially preventing them from getting back into melee within the same turn or launching them into something dangerous."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If possible, plan to pass your talisman to a front-line ally when you’re somewhere dangerous, then take it back for social situations. It doesn’t require attunement or anything, so you can freely pass it back and forth."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Bountiful Luck"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "Minor Illusion",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Lesser Restoration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bountiful Luck allows us to protect nearby allies from rolling a Natural 1. It’s a great asset in any party, and it gets better as your party makes more attack rolls and ability checks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Minor Illusion adds some utility."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ll grab a spell from our subclass list for the first time. Lesser Restoration is useful for removing annoying status conditions, which happens enough that any party needs it available. If you have a Cleric or a Druid in the party, you can probably skip it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Maddening Hex"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tHunger of Hadar"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Maddening Hex gives us a way to handle groups of enemies. Use\n\t\t\t\t\tEldritch Blast+Repelling Blast to push enemies into a group, then\n\t\t\t\t\ttrigger Maddening Hex as a Bonus Action. It’s not as consistently\n\t\t\t\t\tuseful as Agonizing Blast, but remember that we’re emphasizing\n\t\t\t\t\tsupporting our allies in this build, so direct damage isn’t our focus.\n\t\t\t\t\tInstead, position enemies for allies to succeed."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hunger of\n\t\t\t\t\tHadar is simply too good to pass up. Use Eldritch Blast+Repelling\n\t\t\t\t\tBlast to shove enemies into it and keep them toward the middle of the\n\t\t\t\t\teffect."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Radiant Soul"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Revivify"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The damage bonus from Radiant Soul feels really exciting, but it’s one damage roll against one target of the spell. It does apply to cantrips, which is nice, but it’s not enough to make other damage cantrips beat Eldritch Blast+Hex even without considering invocations. It does make it less frustrating to resort to Sacred Flame when necessary, but that’s not huge."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Revivify is a tax. If you can get it, you’re obligated to do so because it’s too important to not have available."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Protection of the Talisman"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell\n\t\t\t\t\tKnown:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Wall of Fire"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Protection of the Talisman is a fantastic defensive buff for the\n\t\t\t\t\twearer."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "One of the better options on our subclass spell\n\t\t\t\t\tlist, Wall of Fire is fantastic area control. It’s not so brutally\n\t\t\t\t\teffective as Hunger of Hadar, but Wall of Fire’s area of effective is\n\t\t\t\t\tmuch more flexible, the damage scales with spell level, and you can\n\t\t\t\t\tstill use both Rebuke of the Talisman and Repelling Blast to launch\n\t\t\t\t\tenemies through it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Con 15 -> 16, Cha 17 -> 18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell\n\t\t\t\t\tKnown:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Aberration",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Summon Aberration is among the better summon spells. Commanding the summoned creature will conflict with our other Bonus Action stuff, but sometimes you need an extra body. Use what suits the situation."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Grasp of Hadar"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tSynaptic Static"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Super late, but we finally add the second forced movement option to\n\t\t\t\t\tEldritch Blast. This lets us perform “cheese grater” tactics by\n\t\t\t\t\tforcing enemies to move 10 feet away then 10 feet immediately closer\n\t\t\t\t\t(or vice versa), potentially re-triggering area control effects like\n\t\t\t\t\tSpike Growth or Wall of Fire. With two shots, we can do this twice per\n\t\t\t\t\tturn, but remember that area control effects typically only apply\n\t\t\t\t\ttheir effects once per turn. Plan to target two enemies or use your\n\t\t\t\t\tsecond shot as insurance."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Note that Xanathar’s clarified\n\t\t\t\t\tthat\n\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "you get to pick the order of simultaneous effects",
+                  "href": "https://www.dndbeyond.com/sources/xgte/dungeon-masters-tools#SimultaneousEffects"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Synaptic Static gives us a burst of area damage with a\n\t\t\t\t\thuge AOE and a debuff that doesn’t require Concentration. We could\n\t\t\t\t\tlearn Flame Strike instead, but… why? The damage is bad, and Radiant\n\t\t\t\t\tSoul doesn’t fix that."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Celestial Radiance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mind Sliver"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Celestial Radiance is basically Inspiring Leader, giving you and your party a big pile of temporary hit points."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Eyebite"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Restoration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hopefully you’ll never need to cast Restoration. It’s expensive. If\n\t\t\t\t\tanyone in your party can cast it, learn something else."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Cha 18 > 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Bond\n\t\t\t\t\tof the Talisman"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bond of the Talisman is a really weird invocation, but\n\t\t\t\t\twe’re leaning into Talisman hard here. The teleportation has no range\n\t\t\t\t\tlimitation within the same plane of existence, so you can use this\n\t\t\t\t\tboth to get around in combat and to travel great distances safely."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Plane Shift"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Plane Shift is a combination utility and save-or-suck."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Searing Vengeance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If you’re going to go down, this is a great retaliatory option. Of\n\t\t\t\t\tcourse, if you never drop to 0, it will literally never matter."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Maddening Darkness"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tAny"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shroud of Shadow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Maddening Darkness takes the place of Hunger of Hadar and Wall of Fire as our best area control option. Unfortunately, it doesn’t limit creatures’ movement, so you’ll need to repeatedly launch them into the area with Repelling Blast."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Shroud of Shadow lets us cast Invisibility at will without spending a spell slot. We can cast it on ourselves or on an ally. Either option will be consistently useful."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Eldritch Adept (Agonizing Blast)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A huge boost in DPR, though admittedly very far into our career."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Foresight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Give someone in your party the gift of Foresight. There isn’t a\n\t\t\t\t\tbetter buff."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Visions of Distant Realms"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "My favorite scouting option for free! Scout an area from a safe\n\t\t\t\t\tdistance before risking your allies’ safety."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this point,\n\t\t\t\t\tstrongly consider multiclassing."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Cartomancer"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cartomancer is a lot of fun. Throw an Eyebite into it, and you can cast Eyebite, then immediately re-trigger it using your Action."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Master"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Literally always a disappointing capstone."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Celestial Warlock Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bonus Cantrips"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Healing Light"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Radiant Soul"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Celestial Resilience"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Searing Vengeance"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-2-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2843,
+    "sections": 17,
+    "blocks": 27,
+    "tables": 2,
+    "ratingSignals": 16
+  },
+  "status": "needs-editorial-review"
+}

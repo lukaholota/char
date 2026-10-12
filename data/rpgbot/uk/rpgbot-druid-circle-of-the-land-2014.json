@@ -1,0 +1,2237 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-7b57c43f20999858",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-7b57c43f20999858-e2cb200ccdf03640",
+      "sourceId": "rpgbot-7b57c43f20999858",
+      "fetchedAt": "2026-09-29T19:15:53.359804+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:32:54-04:00",
+      "contentHash": "dfc769083a09157a2a7ad299fedbd8ce6ad2529888d860ac05c2af9b31353bf6",
+      "title": "Circle of the Land Druid 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-7b57c43f20999858-e2cb200ccdf03640.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-druid-circle-of-the-land-2014",
+    "sourceId": "rpgbot-7b57c43f20999858",
+    "slug": "druid-circle-of-the-land-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Коло землі — гайд підкласу Друїда (2014)",
+    "titleEn": "Circle of the Land Druid 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Друїд",
+      "Коло землі",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "sourceRevisionId": "rpgbot-7b57c43f20999858-e2cb200ccdf03640",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви хочете зробити акцент на чаротворстві Друїда, саме цей підклас — шлях до цього. {{Коло землі|Circle of the Land}} майже нічого не додає до складності Друїда, і це чудово, бо це вже й так такий складний клас. Проте якщо вам не вистачає самого лише чаротворства Друїда, Коло землі цієї проблеми не розвʼяже, бо воно розширює наявні можливості чаротворства Друїда, але не додає класу жодних нових можливостей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Коло землі|Circle of the Land}}, мабуть, найдоступніший з усіх повних заклинателів. Вам не треба керувати відомими заклинаннями, як чародієві{{Sorcerer}}, не треба вести книгу заклинань, як чарівникові{{Wizard}}, а в бою, де все стає хаотичним, можна здебільшого ігнорувати інші класові уміння Друїда й зосередитися лише на чаротворстві. Це робить Друїда Кола землі чудовим варіантом для нових гравців, які вчаться грати заклинателем."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте ця простота означає, що досвідчені гравці й ті, кому подобається заглиблюватися в механіку, можуть виявити, що в {{Колі землі|Circle of the Land}} замало «кнопок», щоб утримати їхню цікавість у довгій грі. Завдяки простим потребам підкласу й низькій вбудованій складності у вас багато простору, щоб досліджувати риси й інші складні варіанти для гравця та розширювати свої можливості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Друїда Кола землі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Друїда Кола землі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#circle-of-the-land-druid-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Друїда Кола землі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#circle-of-the-land-druid-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Друїда Кола землі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#circle-of-the-land-druid-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Друїда Кола землі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#circle-of-the-land-druid-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Друїда Кола землі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#circle-of-the-land-druid-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Друїда Кола землі — «Мудра стара сова»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#example-circle-of-the-land-druid-build-wise-old-owl"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-land/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Друїда Кола землі",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткове замовляння{{Bonus Cantrip}}: друїди отримують на одне замовляння менше, ніж інші повні заклинателі, тож це ставить {{Друїда Кола землі|Land Druid}} на рівні з іншими повними заклинателями."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Природне відновлення{{Natural Recovery}}: це дає трохи стійкості, що допоможе вам лишатися дієздатним протягом пригодницького дня, поки ви витрачаєте заклинання з рівнями. Без жодних запасних варіантів, окрім замовлянь, надзвичайно важливо мати достатньо слотів заклинань для підтримки ваших найкращих варіантів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Колові закляття{{Circle Spells}}: залежать від біому."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Арктика{{Arctic}}: кілька чудових заклинань контролю області. На жаль, половина варіантів закриває схожі потреби й вимагає Концентрації, тож їх важко поєднувати між собою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Стримування особи [Hold Person] і Проростання шипів [Spike Growth] — чудові варіанти контролю натовпу/області. Проте обидва вимагають Концентрації."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Завірюха [Sleet Storm] посередня, і з вибору між Завірюхою [Sleet Storm] та Проростанням шипів [Spike Growth] я щоразу обирав би Проростання шипів [Spike Growth]. Уповільнення [Slow] усе ще добре. І знову ж таки, обидва вимагають Концентрації."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Крижаний шторм [Ice Storm] поганий. Свобода рухів [Freedom of Movement] дозволяє вашим союзникам легше проходити крізь ваші ефекти контролю області й вивільнятися із захоплень, але все одно корисна лише ситуативно. Ви вже маєте «Стежку землі»{{Land’s Stride}}, тож Свобода рухів [Freedom of Movement] вам мало допомагає."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: корисне віщування й добре джерело миттєвої шкоди по області, яке зазвичай недоступне Друїдам."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Узбережжя{{Coast}}: Узбережжя починається дуже сильно, але більшість варіантів заклинань лише зрідка стане в пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Віддзеркалення [Mirror Image] — один із найкращих захисних варіантів у грі, а Туманний крок [Misty Step] — фантастично корисний спосіб пересуватися. Жоден із них зазвичай недоступний Друїдам."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: обидва дуже ситуативні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: обидва ситуативні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Стеження [Scrying] дуже ситуативне, але Зʼява стихійника [Conjure Elemental] досить чудова. Прикличте вогняного елементаля й підпаліть цілі зіткнення. Допомогу із Зʼявою стихійника [Conjure Elemental] шукайте в моєму "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Практичному гайді із заклинань виклику",
+                    "href": "https://rpgbot.net/dnd5/characters/summoning#conjure-elemental"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пустеля{{Desert}}: гарна суміш різних варіантів із різними застосуваннями й пара заклинань, зазвичай недоступних Друїдам."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Розмиття [Blur] — пристойний захисний варіант, а Тиша [Silence] часом корисна для скрадання й для виведення заклинателів із ладу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: більшість груп ігнорують споживання їжі й води, доки раптом не можуть її здобути. На щастя, зазвичай можна протриматися день, щоб підготувати Створення їжі та води [Create Food and Water], тож тримати це постійно підготовленим не допомагає. Захист від енергії [Protection from Energy] набагато корисніший."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: обидва дуже ситуативні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: обидва — чудові варіанти контролю області."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ліс{{Forest}}: нічого справді видатного."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Дубова шкіра [Barkskin] — фантастичний баф, хоча він не такий важливий, бо {{Друїди Кола землі|Land Druids}} не бʼються в «Дикій формі»{{Wild Shape}}. Павуче лазіння [Spider Climb] ситуативне й здається трохи безглуздим, зважаючи на те, що можна перетворитися на павука."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Накликання блискавки [Call Lightning] — одне з найзнаковіших заклинань Друїда, але ним може бути важко користуватися. Шкода за раунд не вражає, але здатність раз по раз метати блискавки робить його надзвичайно ефективним використанням слотів заклинань, а щойно ви його наклали, можна перетворитися на птаха «Дикою формою»{{Wild Shape}} і далі активувати Накликання блискавки [Call Lightning]. Ріст рослин [Plant Growth] складний, але потенційно дуже ефективний контроль області."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: обидва варіанти ситуативні, але Віщування [Divination] зазвичай недоступне Друїдам."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Звернення до природи [Commune with Nature] — гарне віщування, хоча Віщування [Divination], імовірно, краще, а Деревний шлях [Tree Stride] — пристойний спосіб пересуватися, але не може конкурувати зі справжньою телепортацією."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівнини{{Grassland}}: кілька чудових бафів, частина яких зазвичай недоступна Друїдам, але великі частини списку заклинань ситуативні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: два чудові варіанти для скрадання й проникнення. Ефекти зберігаються, коли ви використовуєте «Дику форму»{{Wild Shape}}, тож ви можете стати невидимим, перетворитися на сову й літати майже непомітно, або ж скористатися Переміщенням без сліду [Pass without Trace], щоб уся ваша група ефективно діяла в Непомітності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Денне світло [Daylight] ситуативне, але Прискорення [Haste] — один із найкращих бафів у грі, якщо поруч є бойові персонажі на кшталт варварів і воїнів, що можуть цим скористатися."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: обидва варіанти ситуативні, але Віщування [Divination] зазвичай недоступне Друїдам."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Сновидіння [Dream] вкрай ситуативне, але Нашестя комах [Insect Plague] — добрий контроль області."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гори{{Mountain}}: надійні варіанти на всьому протязі списку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Павуче лазіння [Spider Climb] не дуже корисне, бо можна перетворитися на павука, але Проростання шипів [Spike Growth] — одне з моїх улюблених заклинань контролю області."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Заряд блискавки [Lightning Bolt] — пристойний варіант шкоди, хоча його дещо важко застосувати проти натовпів ворогів, бо дуже складно вразити лінійним ефектом більше двох істот. Злиття з каменем [Meld into Stone] дуже ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Форма каменю [Stone Shape] шалено корисна, а Камʼяна шкіра [Stoneskin] — чудовий баф, якщо у вас вистачає золота, щоб оплатити вартість компонента."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Створити прохід [Passwall] вкрай корисне, а Стіна з каменю [Wall of Stone] — чудове утилітарне заклинання й заклинання контролю області."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Болото{{Swamp}}: починається дуже сильно, але варіанти вищих рівнів погані."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: два добрі варіанти, жоден із яких Друїдам недоступний."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Ходіння по воді [Water Walk] дуже ситуативне, але Смердюча хмара [Stinking Cloud] — фантастичний контроль області."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: обидва варіанти корисні лише ситуативно. Свобода рухів [Freedom of Movement] допомагає проти захоплень і сковування, але для друїдів вона трохи менш корисна, бо ви отримуєте «Стежку землі»{{Land’s Stride}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Стеження [Scrying] ситуативне, але Нашестя комах [Insect Plague] — добрий контроль області."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підморок{{Underdark}}: багато фантастичних варіантів, багато з яких зазвичай недоступні Друїдам."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: я чув, ви любите павуків. Павутиння [Web] — добрий контроль області."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: я чув, ви любите дивні гази. Смердюча хмара [Stinking Cloud] — добрий контроль області, а Газоподібна форма [Gaseous Form] — чудова форма для втечі/проникнення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Більша невидимість [Greater Invisibility] фантастична, а Форма каменю [Stone Shape] надзвичайно корисна."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Вбивча хмара [Cloudkill] надзвичайно смертоносна, але важко вразити ту саму ціль більше ніж раз, якщо її не затиснуто в малій області. Нашестя комах [Insect Plague] — добрий контроль області."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стежка землі{{Land’s Stride}}: ситуативно, але це, ймовірно, дозволяє пройти крізь область заклинання Ріст рослин [Plant Growth] без наслідків, бо магічний ефект миттєвий, а рослини після цього моменту природні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Оборона природи{{Nature’s Ward}}: чудові захисти від поширених і часто проблемних ефектів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Святилище природи{{Nature’s Sanctuary}}: майже імунітет до двох типів істот. До цього часу ви вже повинні мати 20 Мудрості, а звірі й рослини зазвичай мають низькі ряткидки Мудрості. На жаль, звірі давно перестали бути загрозливими (особливо якщо ви підготували Дружбу з тваринами [Animal friendship]), а рослинні істоти рідкісні, тож це рідко матиме значення."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                2,
+                2,
+                2,
+                2,
+                1,
+                2,
+                2,
+                2,
+                2,
+                1,
+                2,
+                2,
+                2,
+                2,
+                1,
+                2,
+                2,
+                2,
+                2,
+                1,
+                2,
+                2,
+                2,
+                2,
+                1,
+                2,
+                2,
+                2,
+                2,
+                1,
+                2,
+                2,
+                2,
+                2,
+                1,
+                2,
+                2,
+                2,
+                2,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-land-druid-ability-scores",
+          "heading": "Характеристики Друїда Кола землі",
+          "sourceAnchor": "circle-of-the-land-druid-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-land-druid-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Коло землі|Circle of the Land}} — це дуже типовий друїд, тож наші характеристики збігаються з "
+                },
+                {
+                  "type": "link",
+                  "text": "типовим друїдом",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-land-druid-races",
+          "heading": "Раси Друїда Кола землі",
+          "sourceAnchor": "circle-of-the-land-druid-races",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-land-druid-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#races"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-land-druid-feats",
+          "heading": "Риси Друїда Кола землі",
+          "sourceAnchor": "circle-of-the-land-druid-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-land-druid-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-land-druid-weapons",
+          "heading": "Зброя Друїда Кола землі",
+          "sourceAnchor": "circle-of-the-land-druid-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-land-druid-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-land-druid-armor",
+          "heading": "Обладунки Друїда Кола землі",
+          "sourceAnchor": "circle-of-the-land-druid-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-land-druid-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-circle-of-the-land-druid-build-wise-old-owl",
+          "heading": "Приклад збірки Друїда Кола землі — «Мудра стара сова»",
+          "sourceAnchor": "example-circle-of-the-land-druid-build-wise-old-owl",
+          "blocks": [
+            {
+              "blockId": "block-section-example-circle-of-the-land-druid-build-wise-old-owl-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це більш оптимізована версія нашої "
+                },
+                {
+                  "type": "link",
+                  "text": "базової збірки Друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#example"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Staple Druid Build}}. На відміну від наших базових збірок, ми розглядаємо варіанти поза Основними правилами/SRD, що дозволяє створити значно потужнішого й цікавішого друїда."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-circle-of-the-land-druid-build-wise-old-owl-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друїди мають одні з найкращих ефектів контролю області в грі, що дозволяє їм керувати полем бою за допомогою складної місцевості, фізичних перепон, стад худоби й ефектів контролю натовпу, як-от сковування істот Обплутуванням [Entangle]. Ця збірка спирається на найкращі частини "
+                },
+                {
+                  "type": "link",
+                  "text": "списку заклинань Друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/spells/"
+                },
+                {
+                  "type": "text",
+                  "text": ", використовуючи ці можливості, щоб суттєво впливати на бій, навіть якщо ми самі завдаємо небагато шкоди безпосередньо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-circle-of-the-land-druid-build-wise-old-owl-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поза боєм ми маємо навички, щоб бути розвідником групи, а з такими варіантами, як фамільяр, Невидимість [Invisibility] і Переміщення без сліду [Pass without Trace], ми дуже добре з цим справляємося й можемо брати групу з собою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-circle-of-the-land-druid-build-wise-old-owl-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми використаємо всі додаткові класові уміння{{Optional Class Features}} Друїда."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-circle-of-the-land-druid-build-wise-old-owl",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Починаємо з 15 у Спритності/Статурі/Мудрості, потім вкладаємо +2 у Мудрість для заклинань і +1 у Спритність для кращого КБ і ряткидків. Згодом візьмемо «Стійкого (Статура)»{{Resilient (Con)}}, щоб вирівняти Статуру."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-circle-of-the-land-druid-build-wise-old-owl",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Совин{{Owlin}}. Ми й так застрягли в легких обладунках (чи в поганих середніх), тож обмеження обладунків щодо польоту нам не шкодить. Темнозір і політ обидва чудові, і хоча ми можемо отримати їх і через «Дику форму»{{Wild Shape}}, використання «Дикої форми» ми збережемо для «Дикого супутника»{{Wild Companion}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-circle-of-the-land-druid-build-wise-old-owl",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Що завгодно. Вона майже не впливає на збірку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-circle-of-the-land-druid-build-wise-old-owl",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Непомітність ми отримуємо від раси, Аналіз Поведінки й Уважність — від класу, а ще дві навички — від передісторії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також ми отримуємо набір травника{{Herbalist’s Kit}} і все, що дає передісторія."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-circle-of-the-land-druid-build-wise-old-owl",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У нас немає вбудованого застосування для бонусної дії, окрім жменьки заклинань, тож варіанти, що спираються на бонусну дію, значно привабливіші. Природно, це означає звичні гібридні риси на кшталт «Доторку феї»{{Fey Touched}} і «Телекінетика»{{Telekinetic}}. Ми також дуже залежатимемо від заклинань Концентрації, через що «Стійкий (Статура)»{{Resilient (Con)}} виглядає дуже привабливо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Окрім цього, стане в пригоді все, що розширює й покращує наші можливості, але ми не залежимо від чогось конкретного для цієї мети. «Удача»{{Lucky}} і «Адепт метамагії»{{Metamagic Adept}} — добрі типові варіанти. Якщо ви сильно покладаєтеся на викликаних істот, може згодитися «Посвячений у бій»{{Fighting Initiate}} заради «Бойового Стилю (Захист)»{{Fighting Style (Protection)}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-circle-of-the-land-druid-build-wise-old-owl",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Друїдична мова\nЧаротворство\nВідомі замовляння:\n– Настанова\n– Терновий батіг\nПідготовлені заклинання:\n– Обплутування\n– Вогники фей\n– Доброягода\n– Цілюще слово"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для стартового спорядження обирайте варіант із золотом. Ми отримуємо 2к5×10 зм, що в середньому дає 50. Купіть щит (10 зм), шкіряний обладунок{{Leather Armor}} (10 зм), набір мандрівника{{Explorer’s Pack}} (10 зм), друїдичний фокус{{Druidic Focus}} (1–10 зм), кинджал для ближнього бою й пращу. Щойно дозволять кошти, оновіть обладунок до {{проклепаного шкіряного обладунку|Studded Leather}}.\n\nДротики — наш основний варіант атаки між заклинаннями з рівнями. Наші модифікатори Спритності й Мудрості зараз однакові, тож до 4-го рівня бонус атаки з дротиками такий самий, як і з заклинаннями, а далі 1к4+3 шкоди (у середньому 5,5) від дротиків перевершуватимуть більшість наших варіантів атаки. Чарівний камінь [Magic Stone] трохи кращий, але економіка дій там значно складніша, ніж «беру дротик і кидаю».\n\nТерновий батіг [Thorn whip] не переважить шкоду дротиків аж до 5-го рівня, але ми беремо його заради можливості примусово переміщати ворогів, а не заради шкоди. Звісно, можна й підлетіти просто над ворогом, підтягнути його на 10 футів угору й скинути, щоб завдати зайвий к6 шкоди від падіння й залишити його Поваленим.\n\nДля підготовлених заклинань беріть основні друїдські варіанти. Обплутування [Entangle] — для контролю натовпу. Вогники фей [Faerie fire] — для всього надто сильного, щоб стримати його Обплутуванням [Entangle]. Цілюще слово [healing word] — для екстреного лікування. Доброягода [Goodberry] — щоб використати слоти заклинань, що лишилися наприкінці дня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дикий супутник\nДика форма (ПН 1/4)\nКоло друїдів: Коло землі (Рівнини)\nДодаткове замовляння:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Формування води",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nПриродне відновлення\nНові підготовлені заклинання:\n– Поглинання стихій"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми отримуємо «Дику форму»{{Wild Shape}}, але користуватимемося нею рідко. Радше витрачатимемо ці використання «Дикої форми» на «Дикого супутника»{{Wild Companion}}, щоб прикликати собі тимчасову "
+                    },
+                    {
+                      "type": "link",
+                      "text": "сову",
+                      "href": "https://en.wikipedia.org/wiki/Burrowing_owl"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Відправляйте її в бій, щоб раз за разом виконувати дію Допомога й підсилювати атаки вашої групи. Якщо вона загине, її можна замінити. Також можна відправляти фамільяра розвідувати небезпечні місця, і, на відміну від чарівникового, вам не доведеться витрачати 10 хвилин і 10 зм, щоб замінити фамільяра, коли він наступить на пастку чи його зʼїсть грю{{grue}}.\n\nФормування води [Shape Water] дозволяє робити кумедні речі: літати з кубом води зі стороною 5 футів поруч із собою, зависнути високо над чимось, а потім заморозити цей куб води в багатотонний блок льоду й скинути його.\n\n«Природне відновлення»{{Natural Recovery}} масштабується повільно, але чудово підходить для відновлення слотів низьких рівнів. Окрім іншого, можна підживлювати ним повторні накладання Доброягоди [Goodberry] і Поглинання стихій [Absorb Elements].\n\nЗамовляння масштабуються на цьому рівні. Киньте дротики й звертайтеся до замовлянь, коли потрібна шкода."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Колові закляття\nНові підготовлені заклинання:\n– Невидимість (безкоштовно)\n– Переміщення без сліду (безкоштовно)\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик Звіра",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-beast"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невидимість [Invisibility] і Переміщення без сліду [Pass without Trace] роблять скрадання набагато життєздатнішим варіантом і для нас, і для групи.\n\nХоча за можливостями виклику ми не зрівняємося з "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Колом пастуха",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Circle of the Shepherd}}, Виклик Звіра [Summon Beast] усе одно дає нам потужного бойового улюбленця. Якщо контроль натовпу вам не потрібен, Виклик Звіра [Summon Beast] лишається простим типовим варіантом для вашої Концентрації на всю карʼєру. Тривалість 1 година робить його дуже вигідним використанням наших слотів найвищого рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Телекінетик (Мудрість 17 → 18)\nПокращення Дикої форми (ПН 1/2)\nНове замовляння:\n– Створення вогню\nНові підготовлені заклинання:\n– Проростання шипів"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Телекінетик»{{Telekinetic}} дає нам стабільне застосування бонусної дії, а ще Магічну руку [Mage Hand] і підвищує наш модифікатор Мудрості.\n\nПроростання шипів [Spike Growth] — це весело, бо воно дозволяє комбінації «тертка для сиру»{{cheese grater}}. Популярна готова комбінація — Позамежний заряд [Eldritch Blast] + Відштовхувальний вибух{{Repelling Blast}} + {{Хватка Хадара|Grasp of Hadar}}. Але те саме можна зробити й бонусною дією від «Телекінетика», і з Терновим батогом [Thorn whip], завдаючи цілі 6к4 шкоди безкоштовно, щойно Проростання шипів [Spike Growth] запрацює.\n\nОскільки ми готуємо заклинання, просто замініть його на Мале відновлення [Lesser Restoration], щойно комусь у вашій групі треба щось виправити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Колові закляття\nНові підготовлені заклинання:\n– Денне світло (безкоштовно)\n– Прискорення (безкоштовно)\n– Відродження"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Прискорення [Haste] справді спокушає, але той, на кого ви його накладете, має вміти зробити з цією однією додатковою атакою більше, ніж ваш викликаний звір міг би зробити з однією атакою й великою купою ХП — і все це зі слота нижчого рівня.\n\nВідродження [Revivify] — по суті податок, але в нас достатньо чудових наступальних варіантів, щоб не страждати від того, що ми його носимо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стежка землі\nНові підготовлені заклинання:\n– Виверження землі"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мені дуже хочеться, щоб «Стежка землі»{{Land’s Stride}} була кориснішою, але вона не робить нас імунними чи бодай надійно стійкими до нашого ж Обплутування [Entangle], а проти Росту рослин [Plant Growth] вона не дає взагалі нічого. Якби ми були добрі в ряткидках Сили, Перевага дозволила б накласти Обплутування [Entangle] на самих себе з розумним шансом не мати клопотів, але без володіння й зі Силою −1 цього не станеться.\n\nВиверження землі [Erupting Earth] — один із небагатьох варіантів шкоди по області у Друїда. Це не Вогнекуля [Fireball], але воно ще й створює складну місцевість. Якщо ми вже на чомусь концентруємося й не хочемо накладати Обплутування [Entangle], це може бути чудовим способом керувати полем бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Колові закляття\nНові підготовлені заклинання:\n– Віщування (безкоштовно)\n– Свобода рухів (безкоштовно)\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня дають нам дещо цікаве. Віщування [Divination] дозволяє отримати трохи інформації від Майстра, а Перевтілення [Polymorph] — перетворитися на велетенську мавпу на цьому рівні, а відразу після цього настає час тиранозавра. Також можна накласти Виклик Звіра [Summon Beast] слотом вищого рівня, щоб отримати дві атаки. На жаль, ми й далі можемо концентруватися лише на одному заклинанні одночасно, але наш перелік інструментів для розвʼязання будь-яких проблем, що трапляються, зростає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дика форма (ПН 1)\nПокращення Характеристик (Мудрість 18 → 20)\nНові підготовлені заклинання:\n– Форма каменю"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Дика форма»{{Wild Shape}} дозволяє нам літати на цьому рівні. Чудово.\n\nФорма каменю [Stone Shape] — чудова. Багато речей збудовано з каменю, а печери зазвичай складаються з каменю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Колові закляття\nНові підготовлені заклинання:\n– Звернення до природи (безкоштовно)\n– Деревний шлях (безкоштовно)\n– Вир"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вир [Maelstrom] завдає шкоди дуже повільно, але проти ворогів, які не надто сильні, може стати смертним вироком. Більшості істот доведеться використати Ривок, щоб дістатися від центру до краю ефекту, а у вас, на щастя, є Телекінез [Telekinesis] і ви можете підштовхнути їх назад у зону дії. Якщо вони все ж якось виберуться, можна влетіти у вир, вдарити їх Терновим батогом [Thorn whip] і знову вилетіти. Ви отримаєте шкоду, лише якщо будете в зоні на початку свого ходу.\n\nЯкщо Вир [Maelstrom] вам не підходить, розгляньте Виклик духу дракона [Summon Draconic Spirit]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оборона природи\nНові підготовлені заклинання:\n– Стіна з каменю"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Набридло, що вороги виходять із вашого Виру [Maelstrom]? Збудуйте навколо нього стіну."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання:\n– Зцілення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Єдине лікування в бою, яке в більшості випадків можна виправдати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура 15 → 16)\nНові підготовлені заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Стійкий (Статура)»{{Resilient (Con)}} дає нам володіння ряткидками Статури, а підвищення Статури до 16 додає купу ХП."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання:\n– Планарний перехід"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Скористайтеся своїм одноразовим фамільяром, щоб за допомогою Планарного переходу [Plane Shift] відправити неохочих ворогів кудись, де їм буде неприємно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Святилище природи\nНові підготовлені заклинання:\n– Обернена гравітація"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Святилище природи»{{Nature’s Sanctuary}} не надто корисне. Дуже мало звірів і рослин, що можуть по-справжньому вам загрожувати на такому ПН.\n\nОбернена гравітація [Reverse Gravity] — майже безвідмовне рішення проти ворогів, що бʼються лише в ближньому бою й не вміють літати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Тіло звіра",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-animal-shapes/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перетворіть свій мішок щурів на велетенських скорпіонів і скиньте їх на свої проблеми."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка\nНові підготовлені заклинання:\n– Сонячний спалах"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спаліть і засліпіть усе на величезній території."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання:\n– Передбачення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Передбачення [Foresight] — найкращий баф у грі. Виберіть свою улюблену людину, щоб поділитися ним."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання звіра\nНевмируще тіло\nНові підготовлені заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перекидання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/true-polymorph-and-shapechange/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перекидання [Shapechange] справді класне, але також забирає здатність накладати чудові заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка\nНові підготовлені заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Архі-друїд\nНові підготовлені заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нескінченні безкоштовні фамільяри! Прикликайте їх і кидайте в пастки, доки не закінчаться пастки чи терпіння."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-001",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Додаткове замовляння",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-002",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Природне відновлення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-003",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Колові закляття",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-004",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Арктика",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-005",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-006",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-007",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-008",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-009",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Узбережжя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-010",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-011",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-012",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-013",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-12",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-014",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-13",
+      "context": "Пустеля",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-015",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-14",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-016",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-15",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-017",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-16",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-018",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-17",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-019",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-18",
+      "context": "Ліс",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-020",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-19",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-021",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-20",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-022",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-21",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-023",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-22",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-024",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-23",
+      "context": "Рівнини",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-025",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-24",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-026",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-25",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-027",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-26",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-028",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-27",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-029",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-28",
+      "context": "Гори",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-030",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-29",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-031",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-30",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-032",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-31",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-033",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-32",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-034",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-33",
+      "context": "Болото",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-035",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-34",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-036",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-35",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-037",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-36",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-038",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-37",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-039",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-38",
+      "context": "Підморок",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-040",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-39",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-041",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-40",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-042",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-41",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-043",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-42",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-044",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-43",
+      "context": "Стежка землі",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-045",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-44",
+      "context": "Оборона природи",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-land-2014-046",
+      "articleId": "rpgbot-druid-circle-of-the-land-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-45",
+      "context": "Святилище природи",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

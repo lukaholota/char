@@ -1,0 +1,817 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-7e64f6092242bb75",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-7e64f6092242bb75-e82ee55ec8994f30",
+      "sourceId": "rpgbot-7e64f6092242bb75",
+      "fetchedAt": "2026-09-29T19:16:10.820987+00:00",
+      "sourceUpdatedAt": "2024-12-12T08:38:44-05:00",
+      "contentHash": "ab6f73374592ed4460c3637a43dcb57912b7a73b9f54509cc20a35fbceb9b9e7",
+      "title": "DnD 5e Dunamancy Spells Breakdown",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-7e64f6092242bb75-e82ee55ec8994f30.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-dunamancy-2014",
+    "sourceId": "rpgbot-7e64f6092242bb75",
+    "slug": "dunamancy-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Dunamancy — гайд заклинань D&D 5e (2014)",
+    "titleEn": "DnD 5e Dunamancy Spells Breakdown",
+    "topics": [
+      "spell"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "articleId": "rpgbot-dunamancy-2014",
+      "sourceRevisionId": "rpgbot-7e64f6092242bb75-e82ee55ec8994f30",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Путівник дослідника по Вайлдмаунту запровадила Dunamancy{{Dunamancy}} — нові заклинання, переважно призначені двом підкласам Чарівника з тієї ж книги."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Книга має вставку «Dunamancy for Non-Dunamancers»: Майстер може дозволити іншим чаротворцям вивчати ці заклинання. Класи там не розрізняються, тому теоретично доступний будь-який клас із дозволом Майстра. Але автор не може припускати таку поблажливість, тож обмежує рекомендації двома конкретними підкласами Чарівника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells",
+          "heading": "Заклинання Dunamancy",
+          "sourceAnchor": "spells",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Опційні заклинання позначаються словом «опційне» після назви. Це опційні правила за Казан Таші з усім; узгодьте використання з Майстром. Примітка редакції: це загальна примітка джерела; заклинання Dunamancy походять із EGW, а їхній доступ визначають правила тієї книги."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spells-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Частина заклинань позначена Chronurgy чи Graviturgy. Відповідні підкласи Чарівника мають ці теми, але текст правил не обмежує кожну категорію лише одним підкласом. Категоризація тематична, не механічна: Чарівник Chronurgy може вивчати й накладати Graviturgy."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cantrips",
+          "parentSectionId": "section-spells",
+          "heading": "Замовляння",
+          "sourceAnchor": "cantrips",
+          "blocks": [
+            {
+              "blockId": "block-section-cantrips-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Знесилюючий укол [Sapping Sting] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Мала шкода, коротка дальність і ряткидок Статури, який часто високий. Повалення лише трохи заважає, якщо союзники ближнього бою не ходять після вас, але перед ціллю, щоб скористатися ним. Легко порівнювати з Моторошний дотик [Chill Touch] через некротичну шкоду, але краще з Дзвін небіжчика [Toll the Dead]: удвічі більша дальність, к8 чи к12 — удвічі або втричі більша кістка — та зазвичай надійніший ряткидок Мудрості. Ідея не погана, але ненадійна й малоефективна навіть при успіху. Автор пропонує к6, дальність 50–60 футів або ряткидок Сили. Примітка редакції: це домашні зміни автора, не офіційний опис."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-1",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 1-го рівня",
+          "sourceAnchor": "spells-1",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Дар готовності [Gift of Alacrity] (Chronurgy) "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Ранній хід у бою дуже приємний, а тривалість 8 годин покриває день. На високих рівнях це стабільно корисна витрата комірки 1-го рівня, але вона конкурує з Поглинання стихій [Absorb Elements] і Щит [Shield]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Збільшення тяжіння [Magnify Gravity] (Graviturgy) "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": На 1-му рівні автор порівнює це з Вогнекуля [Fireball]: 2к8 небагато після низьких рівнів, але два чи більше ворогів у зоні можуть означати величезну шкоду й вирішений бій одним заклинанням. Шкода силовим полем рідко зустрічає Стійкість чи Імунітет; уповільнення приємне. Проте Статура часто висока, і на пізніших рівнях цілі частіше врятуються. Шкода масштабується нормально, але автор очікує відмовитися від заклинання після низьких рівнів."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-2",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 2-го рівня",
+          "sourceAnchor": "spells-2",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Прихильність долі [Fortune's Favor] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Автор іноді забуває, що Matt Mercer і Critical Role починали з Pathfinder, аж поки пряме перенесення ідей 1-ї редакції не нагадає. Заклинання дуже хороше, тому матеріальний компонент — витратна перлина за 100 зм. Не використовуйте постійно, якщо не любите порожній гаманець. На високих рівнях вища комірка дозволяє охопити всіх союзників однією перлиною."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Нерухомий обʼєкт [Immovable Object] (Graviturgy) "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Дещо ситуативне, але кмітливий гравець багато отримає. Майже перетворює відповідний предмет на Нерухомий жезл{{Immovable Rod}}, дозволяючи вирішувати чи створювати проблеми. Комірка 6-го рівня робить ефект постійним, що надихає на завислі будівлі й задоволення Чарівника. У бою користі мало, поза боєм шукайте творчі можливості. Примітка редакції: предмет має відповідати обмеженню ваги й решті правил; «зависла будівля» — творча пропозиція, не необмежена вага чи масштаб."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Наручна кишеня [Wristpocket] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Триває годину, потребує Концентрації й дії для зберігання чи повернення предмета. Автор не певен, яку проблему це вирішує, крім непомітного перенесення одного предмета. На щастя, це Ритуал{{Ritual}}, тож Чарівнику не потрібно готувати його. Примітка редакції: накладання для зберігання використовує дію заклинання; дія також потрібна для подальшого повернення."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-3",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 3-го рівня",
+          "sourceAnchor": "spells-3",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Імпульсна хвиля [Pulse Wave] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Конус хороший для рівня, шкода пристойна, а штовхання чи притягування достатньо велике, щоб зацікавити. Вогнекуля [Fireball] зазвичай краще проти натовпу, але не скидає з урвища й не штовхає в яму. Шкода нормально масштабується, а відстань руху теж зростає з рівнем комірки, незвично порівняно з Громова хвиля [Thunderwave]. Це дозволяє обирати потрібну відстань і зберігає ситуативну користь на високих рівнях."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-4",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 4-го рівня",
+          "sourceAnchor": "spells-4",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-4-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Гравітаційна воронка [Gravity Sinkhole] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Якщо не тягнете цілі в повітря, втрачаєте безкоштовну шкоду, для якої, за оцінкою автора, задумане заклинання. Успішний ряткидок тоді дає менш ніж половину очікуваної сумарної шкоди. Сферу може знадобитися опустити, щоб охопити більше цілей, зменшуючи падіння. І знову ряткидок Статури, який у середньому високий. Примітка редакції: шкода падіння залежить від фактичної висоти й можливості падіння цілі; це тактичне припущення автора."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-5",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 5-го рівня",
+          "sourceAnchor": "spells-5",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-5-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Часовий зсув [Temporal Shunt] (Chronurgy) "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Автор радить замість Контрчари [Counterspell] викинути чаротворця з часу, змарнувавши заклинання. Ефективність не залежить від рівня ворожого заклинання: не потрібен Counterspell 9-го рівня. Чаротворці часто мають хорошу Мудрість, але засновані на Інтелекті чи Харизмі можуть провалитися. Можна реагувати й на атаки; краще на першу, щоб забрати якнайбільше активності. Дивно, що вища комірка дозволяє вплинути на додаткових істот, не повʼязаних із атакою чи заклинанням. Добре, але незвично для реакції."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-6",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 6-го рівня",
+          "sourceAnchor": "spells-6",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-6-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Гравітаційна тріщина [Gravity Fissure] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Для істот на лінії це звичайне зональне заклинання з половиною шкоди при успішному ряткидку. Близьких до лінії може втягнути, готуючи інший лінійний ефект. Розгляньте Подих Дракона [Dragon's Breath] на фамільярі або допомогу іншого чаротворця. Примітка редакції: в оригіналі помилкова назва Gravity Fissue; офіційна — Gravity Fissure."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-7",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 7-го рівня",
+          "sourceAnchor": "spells-7",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-7-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Звʼязок сутностей [Tether Essence] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": По суті ворожа Охоронний звʼязок [Warding Bond]. Накладіть на початку бою, потім за можливості завдайте зональної шкоди обом цілям. Якщо кожна одночасно отримує 10, разом кожна отримає 20."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-8",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 8-го рівня",
+          "sourceAnchor": "spells-8",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-8-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Темна зірка [Dark Star] (Graviturgy) "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Хороша шкода й велика зона; хвилини достатньо для великої користі. Радіус можна зменшити — «до 40 футів» — але навмисно це потрібно рідко. Важкопрохідна місцевість{{Difficult Terrain}}, темрява й тиша ускладнюють втечу, якщо істота не була біля краю. Громова хвиля [Thunderwave] чи Імпульсна хвиля [Pulse Wave] повертають ворога до центру наступними ходами; можна й оточити зону стіною. Проблема — Статура, але якщо тримати цілі всю тривалість, це менш важливо. Дезінтеграція дивна: істоти, які вже мають 0 ХП чи мертві, не зникають, як і залишені неживі предмети. Але істота, яку саме заклинання знизило до 0, стає пилом разом із усім немагічним спорядженням."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Перерва реальності [Reality Break] (Chronurgy) "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Ефекти веселі, але випадкові й ненадійні; багато все ще дозволяють цілі діяти. Шкода пристойна, не надзвичайна. Найбільша проблема — ціль припиняє ефект одним успішним ряткидком і робить його щохід. Автор завжди обрав би Стримування монстра [Hold Monster]."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-9",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 9-го рівня",
+          "sourceAnchor": "spells-9",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-9-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Ненажерлива безодня [Ravenous Void] (Graviturgy) "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Справжня сила — зона в радіусі 100 футів навколо сфери. Шкода низька для такого рівня, але притягування всередину й Обмеження на кілька ходів дають достатньо. Сферу можна поставити в повітрі, піднімати ворогів і змушувати зазнавати шкоди падіння при втечі, а потім затягувати знову, перш ніж вони покинуть зону."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спустошення часу [Time Ravage] (Chronurgy) "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Складно уявити типову ситуацію, де це краще за Стримування монстра [Hold Monster] чи Слово сили: Смерть [Power Word Kill]. Щоб зробити когось надто слабким для опору, є дешевші варіанти. Для вбивства є заклинання різних рівнів. Тема Chronurgy підходить ідеально, але автор не знає, коли обирати його замість іншого. Також неясно, як воно діє на істот, що не старіють."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-dunamancy-2014-001",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-1",
+      "optionId": "section-cantrips-block-section-cantrips-1-item-0",
+      "context": "Знесилюючий укол [Sapping Sting] EGW",
+      "explanationBlockId": "block-section-cantrips-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-002",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-0",
+      "context": "Дар готовності [Gift of Alacrity]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-003",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-1",
+      "context": "Збільшення тяжіння [Magnify Gravity]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-004",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-0",
+      "context": "Прихильність долі [Fortune's Favor] EGW",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-005",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-1",
+      "context": "Нерухомий обʼєкт [Immovable Object]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-006",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-2",
+      "context": "Наручна кишеня [Wristpocket] EGW",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-007",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-0",
+      "context": "Імпульсна хвиля [Pulse Wave] EGW",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-008",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-4",
+      "targetBlockId": "block-section-spells-4-1",
+      "optionId": "section-spells-4-block-section-spells-4-1-item-0",
+      "context": "Гравітаційна воронка [Gravity Sinkhole] EGW",
+      "explanationBlockId": "block-section-spells-4-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-009",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-5",
+      "targetBlockId": "block-section-spells-5-1",
+      "optionId": "section-spells-5-block-section-spells-5-1-item-0",
+      "context": "Часовий зсув [Temporal Shunt]",
+      "explanationBlockId": "block-section-spells-5-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-010",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-6",
+      "targetBlockId": "block-section-spells-6-1",
+      "optionId": "section-spells-6-block-section-spells-6-1-item-0",
+      "context": "Гравітаційна тріщина [Gravity Fissure] EGW",
+      "explanationBlockId": "block-section-spells-6-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-011",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-7",
+      "targetBlockId": "block-section-spells-7-1",
+      "optionId": "section-spells-7-block-section-spells-7-1-item-0",
+      "context": "Звʼязок сутностей [Tether Essence] EGW",
+      "explanationBlockId": "block-section-spells-7-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-012",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-8",
+      "targetBlockId": "block-section-spells-8-1",
+      "optionId": "section-spells-8-block-section-spells-8-1-item-0",
+      "context": "Темна зірка [Dark Star]",
+      "explanationBlockId": "block-section-spells-8-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-013",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-8",
+      "targetBlockId": "block-section-spells-8-1",
+      "optionId": "section-spells-8-block-section-spells-8-1-item-1",
+      "context": "Перерва реальності [Reality Break]",
+      "explanationBlockId": "block-section-spells-8-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-014",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-9",
+      "targetBlockId": "block-section-spells-9-1",
+      "optionId": "section-spells-9-block-section-spells-9-1-item-0",
+      "context": "Ненажерлива безодня [Ravenous Void]",
+      "explanationBlockId": "block-section-spells-9-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-dunamancy-2014-015",
+      "articleId": "rpgbot-dunamancy-2014",
+      "translationRevisionId": "translation-rpgbot-dunamancy-2014-draft1",
+      "sectionId": "section-spells-9",
+      "targetBlockId": "block-section-spells-9-1",
+      "optionId": "section-spells-9-block-section-spells-9-1-item-1",
+      "context": "Спустошення часу [Time Ravage]",
+      "explanationBlockId": "block-section-spells-9-1",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

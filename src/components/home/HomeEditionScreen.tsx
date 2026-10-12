@@ -2,6 +2,7 @@
 
 import type { CSSProperties } from "react";
 import { motion } from "framer-motion";
+import { TAPPABLE_HIDDEN_OPACITY, useEntranceLayers } from "@/lib/tappable-entrance";
 import { ArrowLeftRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -11,6 +12,7 @@ import { type AccentSchemeName, findEditionAccent } from "@/styles/edition-accen
 import { ModeLink } from "@/components/no-ai/ModeLink";
 import { HomeCategoryCard } from "./HomeCategoryCard";
 import { HomeFooter } from "./HomeFooter";
+import { InstallAppEntry } from "@/components/pwa/InstallAppEntry";
 import { StarDivider } from "@/components/ui/StarDivider";
 import {
   HOME_EDITION_HEADINGS,
@@ -40,17 +42,18 @@ const VIEWPORT_CLASS_NAMES: Record<HomeCardViewport, string | undefined> = {
 };
 
 const screenMotion = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: TAPPABLE_HIDDEN_OPACITY },
   show: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0.04 } },
 } as const;
 
 const blockMotion = {
-  hidden: { opacity: 0, y: 14 },
+  hidden: { opacity: TAPPABLE_HIDDEN_OPACITY, y: 14 },
   show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
 } as const;
 
 export function HomeEditionScreen({ edition }: { edition: Edition }) {
   const { heroes, tiles } = collectHomeCardRows(edition);
+  const entranceLayers = useEntranceLayers();
 
   return (
     <motion.div
@@ -58,9 +61,11 @@ export function HomeEditionScreen({ edition }: { edition: Edition }) {
       variants={screenMotion}
       initial="hidden"
       animate="show"
+      {...entranceLayers}
     >
       <div className="mx-auto flex w-full max-w-[1400px] flex-col gap-4 px-3 pt-4 sm:gap-6 sm:px-6 sm:pt-6">
         <EditionHeading edition={edition} />
+        <InstallAppEntry placement="banner" />
         <HeroRow heroes={heroes} />
         <TileGrid tiles={tiles} />
       </div>
@@ -74,7 +79,7 @@ function EditionHeading({ edition }: { edition: Edition }) {
   const heading = HOME_EDITION_HEADINGS[edition];
 
   return (
-    <motion.header variants={blockMotion} className="text-center">
+    <motion.header variants={blockMotion} data-entrance-layer className="text-center">
       <h1 className="font-rpg-display text-lg uppercase tracking-[0.22em] text-slate-100 sm:text-2xl md:text-3xl">
         {heading.system} · Редакція <EditionYear edition={edition} />
       </h1>

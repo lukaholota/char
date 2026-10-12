@@ -1,0 +1,230 @@
+{
+  "monster": [
+    {
+      "name": "Demos Magen",
+      "source": "IDRotF",
+      "page": 300,
+      "size": [
+        "M"
+      ],
+      "type": "construct",
+      "alignment": [
+        "U"
+      ],
+      "ac": [
+        {
+          "ac": 16,
+          "from": [
+            "{@item chain mail|PHB}"
+          ]
+        }
+      ],
+      "hp": {
+        "average": 51,
+        "formula": "6d8 + 24"
+      },
+      "speed": {
+        "walk": 30
+      },
+      "str": 14,
+      "dex": 14,
+      "con": 18,
+      "int": 10,
+      "wis": 10,
+      "cha": 7,
+      "passive": 10,
+      "immune": [
+        "poison"
+      ],
+      "conditionImmune": [
+        "charmed",
+        "exhaustion",
+        "frightened",
+        "paralyzed",
+        "poisoned"
+      ],
+      "languages": [
+        "understands the languages of its creator but can't speak"
+      ],
+      "cr": "2",
+      "trait": [
+        {
+          "name": "Fiery End",
+          "entries": [
+            "If the magen dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying."
+          ]
+        },
+        {
+          "name": "Magic Resistance",
+          "entries": [
+            "The magen has advantage on saving throws against spells and other magical effects."
+          ]
+        },
+        {
+          "name": "Unusual Nature",
+          "entries": [
+            "The magen doesn't require air, food, drink, or sleep."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Multiattack",
+          "entries": [
+            "The magen makes two melee attacks."
+          ]
+        },
+        {
+          "name": "Greatsword",
+          "entries": [
+            "{@atk mw} {@hit 4} to hit, reach 5 ft., one target. {@h}9 ({@damage 2d6 + 2}) slashing damage."
+          ]
+        },
+        {
+          "name": "Light Crossbow",
+          "entries": [
+            "{@atk rw} {@hit 4} to hit, range 80/320 ft., one target. {@h}6 ({@damage 1d8 + 2}) piercing damage."
+          ]
+        }
+      ],
+      "attachedItems": [
+        "greatsword|phb",
+        "light crossbow|phb"
+      ],
+      "traitTags": [
+        "Magic Resistance",
+        "Unusual Nature"
+      ],
+      "actionTags": [
+        "Multiattack"
+      ],
+      "languageTags": [
+        "CS"
+      ],
+      "damageTags": [
+        "P",
+        "S"
+      ],
+      "miscTags": [
+        "MLW",
+        "MW",
+        "RNG",
+        "RW"
+      ],
+      "hasToken": true,
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Galvan Magen",
+      "source": "IDRotF",
+      "page": 301,
+      "size": [
+        "M"
+      ],
+      "type": "construct",
+      "alignment": [
+        "U"
+      ],
+      "ac": [
+        14
+      ],
+      "hp": {
+        "average": 68,
+        "formula": "8d8 + 32"
+      },
+      "speed": {
+        "walk": 30,
+        "fly": {
+          "number": 30,
+          "condition": "(hover)"
+        },
+        "canHover": true
+      },
+      "str": 10,
+      "dex": 18,
+      "con": 18,
+      "int": 12,
+      "wis": 10,
+      "cha": 7,
+      "passive": 10,
+      "immune": [
+        "lightning",
+        "poison"
+      ],
+      "conditionImmune": [
+        "charmed",
+        "exhaustion",
+        "frightened",
+        "paralyzed",
+        "poisoned"
+      ],
+      "languages": [
+        "understands the languages of its creator but can't speak"
+      ],
+      "cr": "3",
+      "trait": [
+        {
+          "name": "Fiery End",
+          "entries": [
+            "If the magen dies, its body disintegrates in a harmless burst of fire and smoke, leaving behind anything it was wearing or carrying."
+          ]
+        },
+        {
+          "name": "Magic Resistance",
+          "entries": [
+            "The magen has advantage on saving throws against spells and other magical effects."
+          ]
+        },
+        {
+          "name": "Unusual Nature",
+          "entries": [
+            "The magen doesn't require air, food, drink, or sleep."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Multiattack",
+          "entries": [
+            "The magen makes two Shocking Touch attacks."
+          ]
+        },
+        {
+          "name": "Shocking Touch",
+          "entries": [
+            "{@atk ms} {@hit 6} to hit, reach 5 ft., one target (the magen has advantage on the attack roll if the target is wearing armor made of metal). {@h}7 ({@damage 1d6 + 4}) lightning damage."
+          ]
+        },
+        {
+          "name": "Static Discharge {@recharge 5}",
+          "entries": [
+            "The magen discharges a lightning bolt in a 60-foot line that is 5 feet wide. Each creature in that line must make a {@dc 14} Dexterity saving throw (with disadvantage if the creature is wearing armor made of metal), taking 22 ({@damage 4d10}) lightning damage on a failed save, or half as much damage on a successful one."
+          ]
+        }
+      ],
+      "traitTags": [
+        "Magic Resistance",
+        "Unusual Nature"
+      ],
+      "actionTags": [
+        "Multiattack"
+      ],
+      "languageTags": [
+        "CS"
+      ],
+      "damageTags": [
+        "L"
+      ],
+      "miscTags": [
+        "AOE"
+      ],
+      "savingThrowForced": [
+        "dexterity"
+      ],
+      "hasToken": true,
+      "hasFluff": true,
+      "hasFluffImages": true
+    }
+  ]
+}

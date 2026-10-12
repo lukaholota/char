@@ -72,6 +72,8 @@ export function FeatsClient({ feats, ruleset = "RULES_2014" }: Props) {
   const { qInput, setQInput, selection } = useCatalogUrlSync<SelectionState>(
     parseSelection
   );
+  // Feat categories exist only in the 2024 rules.
+  const selectedCategories = useMemo(() => (is2024 ? selection.categories : new Set<string>()), [is2024, selection.categories]);
 
   const filtered = useMemo(() => {
     const q = selection.q.trim().toLowerCase();
@@ -81,7 +83,7 @@ export function FeatsClient({ feats, ruleset = "RULES_2014" }: Props) {
         if (!hay.includes(q)) return false;
       }
 
-      if (selection.categories.size > 0 && !selection.categories.has(f.category || "")) {
+      if (selectedCategories.size > 0 && !selectedCategories.has(f.category || "")) {
         return false;
       }
 
@@ -99,7 +101,7 @@ export function FeatsClient({ feats, ruleset = "RULES_2014" }: Props) {
 
       return true;
     });
-  }, [feats, selection]);
+  }, [feats, selection, selectedCategories]);
 
   const selectedFeat = useMemo(() => {
     if (selection.feat) {
@@ -163,15 +165,15 @@ export function FeatsClient({ feats, ruleset = "RULES_2014" }: Props) {
   const availableSources = useMemo(() => collectCatalogSources(feats), [feats]);
 
   const activeTab = useMemo(() => {
-    if (selection.categories.size === 1) {
-      return Array.from(selection.categories)[0] as FeatCategory;
+    if (selectedCategories.size === 1) {
+      return Array.from(selectedCategories)[0] as FeatCategory;
     }
-    if (selection.categories.size === 0) return "ALL";
+    if (selectedCategories.size === 0) return "ALL";
     return null;
-  }, [selection.categories]);
+  }, [selectedCategories]);
 
   const activeFiltersCount =
-    selection.categories.size +
+    selectedCategories.size +
     (selection.repeatable !== null ? 1 : 0) +
     (selection.noPrerequisite ? 1 : 0) +
     countSourceFilters(selection.source);
@@ -188,7 +190,7 @@ export function FeatsClient({ feats, ruleset = "RULES_2014" }: Props) {
       activeFiltersCount={activeFiltersCount}
       onOpenFilters={() => setFiltersOpen(true)}
       onClearFilters={clearFilters}
-      tabs={
+      tabs={is2024 && (
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar">
           {CATEGORY_TABS.map((tab) => {
             const isSelected = activeTab === tab.key;
@@ -209,7 +211,7 @@ export function FeatsClient({ feats, ruleset = "RULES_2014" }: Props) {
             );
           })}
         </div>
-      }
+      )}
       data={filtered}
       emptyState={
         <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
@@ -267,9 +269,11 @@ export function FeatsClient({ feats, ruleset = "RULES_2014" }: Props) {
                   </div>
 
                   <div className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-slate-400">
-                    <span className={cn("rounded-md px-2 py-0.5 text-[11px] font-medium border", visual.badgeClass)}>
-                      {categoryLabel}
-                    </span>
+                    {categoryLabel && (
+                      <span className={cn("rounded-md px-2 py-0.5 text-[11px] font-medium border", visual.badgeClass)}>
+                        {categoryLabel}
+                      </span>
+                    )}
                     {feat.isRepeatable && (
                       <span className="flex items-center gap-1 text-cyan-400 text-[11px]" title="Можна обирати кілька разів">
                         <Repeat className="h-3 w-3" />
@@ -308,7 +312,7 @@ export function FeatsClient({ feats, ruleset = "RULES_2014" }: Props) {
           open={filtersOpen}
           onOpenChange={setFiltersOpen}
           is2024={is2024}
-          selectedCategories={selection.categories}
+          selectedCategories={selectedCategories}
           toggleCategory={toggleCategory}
           repeatableOnly={Boolean(selection.repeatable)}
           toggleRepeatable={toggleRepeatable}

@@ -1,0 +1,2911 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "1c98c2148d119d612aff442e7189341d66ba0af04cec4c05426e599c4a8eaa87",
+  "sourceRevision": {
+    "revisionId": "rpgbot-5778d896b80f693d-1c98c2148d119d61",
+    "sourceId": "rpgbot-5778d896b80f693d",
+    "fetchedAt": "2026-09-29T19:13:29.984726+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:36:21-04:00",
+    "contentHash": "fd6791422118ab2319d367c93d2369b9ac371e5bc0d6e351e2391a1d454fffe5",
+    "title": "Samurai Fighter 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-5778d896b80f693d-1c98c2148d119d61.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Samurai. A Title. A Class. A Profession. Just saying the word evokes certain ideas and images of what a Samurai is, what a Samurai does, and how a Samurai fights. Don’t let those images restrict you. Samurai as a Fighter subclass is not bound by the name Samurai. Not that you can’t make your Samurai just like the real-world namesake if you wanted to, that’s up to you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mechanically, the Samurai is a powerhouse because of the ability to just decide “I have Advantage this turn” a few times a day. Taking advantage of your on-demand Advantage is key to playing Samurai and we’ll discuss ways to do that as we go through options for the class."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our example build is not only a great way to show off the diverse options for building a Samurai, but an exercise in flavour as well. If you look at it and think “How is this a Samurai?” then I’ve done my job. If you look at it and think “Yeah that’s exactly what a Samurai is.” then you’re in on the reference."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Samurai Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Samurai Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#samurai-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Samurai Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#samurai-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Samurai Fighting Styles",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#samurai-fighting-styles"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Samurai Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#samurai-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Samurai Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#samurai-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Samurai Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#samurai-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Samurai Build – A Fistful of Advantage",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#example-samurai-build-a-fistful-of-advantage"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "A Note about Firearms",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#a-note-about-firearms"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Samurai Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Bonus Proficiency"
+              },
+              {
+                "type": "text",
+                "text": ": A free skill or\n\t\tlanguage proficiency. Pick the skill. Languages can be solved magically."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fighting Spirit"
+              },
+              {
+                "type": "text",
+                "text": ": Making this require a\n\t\tbonus action means that you can’t use two-weapon fighting in the same round,\n\t\tso building around two-handed weapons is your best bet. Guaranteed Advantage\n\t\ton all of your attacks means that feats like Great Weapon Master and\n\t\tSharpshooter become extremely tempting. The temporary HP also makes it easier\n\t\tto go without a shield. However, at just three uses per day you can’t expect\n\t\tto use this in every fight until you get Tireless Spirit at level 10.\n"
+              },
+              {
+                "type": "text",
+                "text": "If your table is using the optional flanking rules, this is less important for melee\nbuilds because it’s so much easier to get Advantage, but it remains excellent for fighting\nat range."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elegant Courtier"
+              },
+              {
+                "type": "text",
+                "text": ": Allowing you to use\n\t\tWisdom in addition to Charisma on Charisma (persuasion) checks means that\n\t\tyou can function as a face without having high Charisma. An additional\n\t\tsaving throw proficiency is even better, as most characters never get more\n\t\tthan two saving throw proficiencies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tireless Spirit"
+              },
+              {
+                "type": "text",
+                "text": ": Once you have this, you\n\t\tshould plan to begin every fight with Fighting Spirit. Come out swinging,\n\t\tand do a lot of damage up front."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rapid Strike"
+              },
+              {
+                "type": "text",
+                "text": ": Advantage is nice because\n\t\tyou get to roll twice and keep the higher. Rapid Strike lets you keep\n\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "both"
+              },
+              {
+                "type": "text",
+                "text": ", so if you get lucky and both rolls are high you can hit\n\t\ttwice. You only get to do this once per turn, but this means that you can\n\t\tget four attacks in a single turn (5 once you hit 20th level, more if you\n\t\thave Haste, use Two-Weapon Fighting, activate Action Surge, etc.).\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Fighting Spirit’s guarantee Advantage is an easy way to trigger Rapid\n\t\t\tStrike, but remember that Fighting Spirit only works three times per day.\n\t\t\tA more reliable tactic is to Shove your opponent prone before attacking\n\t\t\tthem, or if an ally can land Hold Person/Monster then all attacks have advantage and all melee attacks are automatic critical hits."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Strength before Death"
+              },
+              {
+                "type": "text",
+                "text": ": An entire turn.\n\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "An entire turn."
+              },
+              {
+                "type": "text",
+                "text": ". Drink a potion, use Second Wind. Anything to get\n\t\tyou some hit points and keep you conscious. Otherwise, take the Attack\n\t\taction and get revenge! If you’re close to 0 on your own turn and have some way to give yourself enough falling damage to trigger this with just your movement you could in theory take a full turn with action surge and Fighting Spirit fueled Rapid Strike, fall to trigger Strength Before Death, and then do it all again, in the same round. And fun fact, if we do this during our own turn and we’ve already used Fighting Spirit then Fighting Spirit is still active (it says “interrupting the current turn”) because the turn that we used it on hasn’t ended yet. Even crazier, you could activate Action Surge again during this mid-turn bonus turn. If you can’t find a way to fall you can always use your last attack on yourself if you’re close enough to 0."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-samurai-ability-scores",
+      "heading": "Samurai Ability Scores",
+      "sourceAnchor": "samurai-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-samurai-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As a Fighter, we have options. We can either go with Strength or Dexterity as a primary attack stat and our subclass abilities work equally well with Melee and Ranged options. So pick whichever you want, leave the other behind and put the rest of your points into Constitution and Wisdom."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-samurai-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": We can use this and go swinging with big heavy two-handed weapons."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-samurai-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Or we can use this and shoot from afar while having finesse weapons to keep safe in melee."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-samurai-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Don’t let this fall behind. Dying is suboptimal."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-samurai-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": We’re not the knowledge guy."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-samurai-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": We’ll be getting Proficiency in these saves at level 7, so maybe use some leftover points at creation."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-samurai-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": We’re going to need too many points in other places to really focus on this, but we do have some Face abilities so if you’re rolling for stats and get a 4th good one, this might be a place for it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-samurai-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15 (8)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15 (12)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8 (15)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12 (15)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-samurai-races",
+      "heading": "Samurai Races",
+      "sourceAnchor": "samurai-races",
+      "blocks": [
+        {
+          "blockId": "block-section-samurai-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Honestly, not too much changes from the core Fighter "
+            },
+            {
+              "type": "link",
+              "text": "way of doing things",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-samurai-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Elves"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": What? The race that has a feat for Super Advantage is good for the subclass that can just decide it has Advantage? You don’t say."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Kobold"
+              },
+              {
+                "type": "link",
+                "text": "MMoM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Whether we have Legacy with Pack Tactics or MMoM with Draconic Cry, some of our features give extra benefits to Advantage while we only get to use Fighting Spirit three times a day, so having additional ways to get Advantage is not as redundant as you might initially assume."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Kalashtar"
+              },
+              {
+                "type": "link",
+                "text": "ERLW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": We end up with proficiency in Wisdom saves so doubling down with Advantage on Wisdom saves is just a great way to tell a lot of terrible save-or-suck spells to eat it."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-samurai-fighting-styles",
+      "heading": "Samurai Fighting Styles",
+      "sourceAnchor": "samurai-fighting-styles",
+      "blocks": [
+        {
+          "blockId": "block-section-samurai-fighting-styles-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Samurai can really be built however you want, so long as your strategy doesn’t fall apart just because you need to use your Bonus Action for Fighting Spirit."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-samurai-fighting-styles-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Archery"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Having a +2 on top of deciding you have Advantage means a feat like Sharpshooter can do lots of work."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blind Fighting"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Negating the Disadvantage from being Blinded means nothing inhibits Fighting Spirit Advantage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Two-Weapon Fighting"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Fighting spirit and dual wielding compete for our bonus action. That said, we only get three fighting spirit per day so if you’re dead set on dual wielding it’s only a minor inconvenience."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-samurai-feats",
+      "heading": "Samurai Feats",
+      "sourceAnchor": "samurai-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-samurai-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Crossbow Expert"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": It’s not a bad option if we want a ranged weapon. Ignore Loading for crossbows. Ignore Disadvantage for shooting in melee. Bonus action hand crossbow attack that is incompatible with Fighting Spirit. I guess that’s why it’s green."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elven Accuracy"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": "
+              },
+              {
+                "type": "link",
+                "text": "I’m not explaining this one.",
+                "href": "https://rpgbot.net/oops-all-elves/"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Great Weapon Master"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": While it’s still good, since we use our bonus action to gain Advantage, we lose out on the Cleave half of this feat some of the time. Not a deal breaker, but something to consider."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gunner"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": So the "
+              },
+              {
+                "type": "link",
+                "text": "DPR difference between the ranged weapons isn’t that big",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/"
+              },
+              {
+                "type": "text",
+                "text": ", especially if you can use a Longbow. Funny thing about this feat, the ignore Disadvantage part works with any ranged attack and not just with guns. And this feat gives us +1 Dexterity instead of Crossbow benefits. And real Samurai were horseback archers."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resilient"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Samurai gain Wisdom save proficiency, which means that, if we had an odd Dexterity score to smooth out, using this would both raise the modifier for it and give us proficiency in the big three."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sharpshooter"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Advantage means we can reliably land the bonus damage even with the -5 penalty. Also, it means we can use our Advantage out at longer ranges without having it negated by Disadvantage."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-samurai-weapons",
+      "heading": "Samurai Weapons",
+      "sourceAnchor": "samurai-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-samurai-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not too much to add here. Just follow the"
+            },
+            {
+              "type": "link",
+              "text": " Fighter Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#fighter-weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-samurai-armor",
+      "heading": "Samurai Armor",
+      "sourceAnchor": "samurai-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-samurai-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Same as above. "
+            },
+            {
+              "type": "link",
+              "text": "Fighter Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#fighter-armor"
+            },
+            {
+              "type": "text",
+              "text": " has you covered."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-samurai-build-a-fistful-of-advantage",
+      "heading": "Example Samurai Build – A Fistful of Advantage",
+      "sourceAnchor": "example-samurai-build-a-fistful-of-advantage",
+      "blocks": [
+        {
+          "blockId": "block-section-example-samurai-build-a-fistful-of-advantage-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Did you know that "
+            },
+            {
+              "type": "link",
+              "text": "Cowboys",
+              "href": "https://en.wikipedia.org/wiki/The_Magnificent_Seven"
+            },
+            {
+              "type": "text",
+              "text": " and "
+            },
+            {
+              "type": "link",
+              "text": "Samurai",
+              "href": "https://en.wikipedia.org/wiki/Seven_Samurai"
+            },
+            {
+              "type": "text",
+              "text": " are basically"
+            },
+            {
+              "type": "link",
+              "text": " the same thing",
+              "href": "https://en.wikipedia.org/wiki/Remakes_of_films_by_Akira_Kurosawa"
+            },
+            {
+              "type": "text",
+              "text": "?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-a-note-about-firearms",
+      "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+      "heading": "A Note about Firearms",
+      "sourceAnchor": "a-note-about-firearms",
+      "blocks": [
+        {
+          "blockId": "block-section-a-note-about-firearms-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Yes, Firearms are an optional rule. Yes, Firearms don’t exist in every campaign. Yes, this build works exactly the same if you use a bow (even the Gunner feat). But we’re using a Kobold so it’s stuck with a 1d6 Shortbow because the Heavy property is dumb."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-a-note-about-firearms-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "And that’s why I’m giving the Kobold a gun.",
+              "href": "https://rpgbot.net/dnd5/characters/feats/gunner/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to be building a gunslinging ranged attack Fighter. That means we’ll prioritize Dexterity and dump Strength. Because point buy gives us enough points to work with three stats, we’re going to put some into Wisdom as well to really benefit from that Wisdom save proficiency Samurai get."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The reason we put a 10 in Intelligence instead of 15 into Wisdom is that we’re not planning anything that would even out the 15. Might as well remove a -1. You could just as easily move that to Charisma. It doesn’t matter and is totally up to you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-3",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 (8)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 (8)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8 (10)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8 (10)"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kobold from MMoM. Legacy Kobold would also work fine here but Draconic Cry is almost like getting additional uses of Fighting Spirit but for your whole team. Kobold Legacy is also rather nice (wish they would have picked a less confusable name though)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to take Draconic Sorcery for a cantrip, Blade Ward. It’s actually quite useful as a replacement for Dodge when enemy attack bonuses swing up around the teens and "
+            },
+            {
+              "type": "link",
+              "text": "Dodge starts to be less reliable",
+              "href": "https://www.youtube.com/watch?v=GQfB_pTVstM"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Alternatively, Defiance would give us Advantage vs Frightened effects. Being frightened is bad so being better against those effects is great."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Far Traveler gives us all we need to be that wandering "
+            },
+            {
+              "type": "text",
+              "text": "ronin"
+            },
+            {
+              "type": "text",
+              "text": " gunslinger that comes into town, saves the day, and vanishes. We gain Stealth and Perception proficiency. For our tool we have to take Playing Card Set proficiency. It’s just required. We’re good at playing cards."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing from our Race. From Fighter we take Survival and Acrobatics. Samurai grants an additional choice and 3rd level so we take Insight because we have some Wisdom. As mentioned above, our Background grants Stealth and Perception as well as Playing Card Set."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fighters have more ASIs than other classes and we’re taking all twenty levels."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourth, we take Gunner. As discussed above, if our campaign doesn’t allow guns we’re going to use this with a Shortbow anyway because this lets us just be up close and personal with our opponents so we can use Draconic Cry."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixth, we take Resilient (Dexterity). Fighter having extra ASIs means that we can sneak in extra Hybrid feats at 6th and 8th unlike other classes that need to take a +2 at 8th. We’re picking Resilient Dex because Fighter gets Con and Samurai get Wis so why not have the big three?"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Alternatively, Skill Expert would work if you wanted some other skill and some expertise for your Samurai. Elven Accuracy would also go well here if you chose to be an Elf instead."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At eighth, we’re taking Piercer to bring Dexterity to 20 and give us damage die rerolls. Also, since we’re using a Musket with a 1d12 damage die, we get 3d12 when we happen to crit."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At twelvth, Sharpshooter gives us a great damage boost as well as squeezing a bit more range out of our Musket. Even with this, our Musket’s maximum range is 30 feet less than what a Longbow can do without this feat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourteen, sixteen, and nineteen, we take +2 Constitution twice and the Tough feat in whatever order we want. For this build we took Tough last so we could square up Constitution saves. Doing this has us finish with 264 Hit Points at level 20. Alternatively, we could look at feats like Lucky which fit easily into any build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-samurai-build-a-fistful-of-advantage",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style=>Archery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Darkvision"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Draconic Cry"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Kobold Legacy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Draconic Sorcery=>Blade Ward"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level we’re a basic Archery fighter. We hit a bit more often thanks to the Archery fighting style."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Put on some Medium Armor and get a Light Crossbow. It will serve well enough until we get Firearms proficiency from the Gunner feat. The Loading property only matters when we have extra attack."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge is so strong that some other classes take two levels of Fighter instead of their 19 and 20 because it’s just better."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Martial Archetype=>Samurai"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bonus Proficiency=>Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fighting Spirit"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get the Samurai subclass."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We get a free skill proficiency and take Insight because we have the Wisdom score to make use of it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fighting spirit is great. We already had a similar ability from Draconic Cry, but Fighting Spirit will give us some Temporary HP and work from any range while Draconic Cry is limited to 10 feet. We can use these abilities in different situations so it’s great to have both. If nothing else, think of Draconic Cry as additional uses per day of Fighting Spirit."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Gunner"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dexterity +1 (17=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Alright, put down that Crossbow and Annie, get your gun. We no longer have trouble shooting when our foes run up to us, which conveniently brings them into range for Draconic Cry.Our Dexterity also improves to 18."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Double Tap. Thanks, Gunner."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Resilient Dexterity"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dexterity +1 (18=>19)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dexterity Save proficiency helps keep us better at dodging pesky Fireballs and what not."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elegant Courtier"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get to add Wisdom to Persuasion checks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get Wisdom Save proficiency which helps us stave off debilitating effects from no-good "
+                },
+                {
+                  "type": "text",
+                  "text": "bandits"
+                },
+                {
+                  "type": "text",
+                  "text": " casters."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Piercer"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dexterity +1 (19=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Piercer on a d12 is nice. The reroll is about a "
+                },
+                {
+                  "type": "link",
+                  "text": "+2 to DPR",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/#piercer"
+                },
+                {
+                  "type": "text",
+                  "text": " and the crit bonus is as big as it can be."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have proficiency in four saves and now we can try again once a day if we still manage to fail."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "That’s what they call True Grit."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tireless Spirit"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If we start a fight with no uses remaining of Fighting Spirit, we get one back.This means we should always use it at least once in every fight."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Between this and Draconic Cry, across a typical adventuring day (6-8 combat encounters lasting roughly 3 rounds each with 2 Short Rests interspersed), we should basically have Advantage more often than we don’t."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Additionally, Fighting Spirit’s Temporary Hit Points increase from 5 to 10 at this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Semi-Automatic."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Sharpshooter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we actually have some respectable range with this weapon."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Additionally, between Advantage and Archery, taking the -5 to add +10 to damage is almost always a gain for us."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now you get to retry the Dex save to avoid the squeaky floorboard and the Con save to keep the tequila worm down before you have to rest."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: +2 Constitution (16=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We got to level 14 before we took a regular ASI."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We put the points into Constitution to get more HP and better saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rapid Strike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "When we attack with Advantage we attack even faster by trading Advantage on one attack to make two regular attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We usually call this move Fanning the Hammer."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fighting Spirit also improves from 10 to 15 Temp HP."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: +2 Constitution (18=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Again, into Constitution for HP and saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge (2)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Indomitable (3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We reach for the sky and pluck from it more Action Surge and the ability to reroll more failed saves. Great level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Strength before Death"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Instead of dying, we spend our reaction to just take an entire turn in the middle of another turn. Even our own turn if we somehow hit 0 during it. You know, like if we’re close to 0 so we just shoot ourselves in the face with the last attack on an Action Surge and get a free turn."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Tough"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Hit Points, less dying."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Musket? More like an Automatic Rifle."
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-levels-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At twenty, there are two ways to measure a theoretical maximum turn. The difference is if we’re doing something shenanigans to activate Strength before Death in the middle of our own turn or not. Because of the exact timing of everything you have to pull off to get the maximum power from that without dying, we won’t use that during our full power turn."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-levels-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Resources used: Action Surge and either Draconic Cry or Fighting Spirit."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-levels-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will assume that we do not have a +X magic weapon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-levels-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Begin the turn by activating either Cry or Spirit depending on range to the target. Declaring the attack action, because we have Advantage, we can trade one of our attacks for two attacks without Advantage thanks to Rapid Strike."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "We have Archery fighting style and Sharpshooter feat, so following "
+            },
+            {
+              "type": "link",
+              "text": "Fundamental Math",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": ", we need to roll 11 on the d20 to do 1d12+5+10. Additionally, because of the Piercer feat we do an extra 1d12 if we crit. We have two attacks with neither Advantage or Disadvantage, and three attacks with Advantage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-levels-6",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Dice"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rapid Strike"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Advantage"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Total"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1d12+5+10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11.08*2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17.39*3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "74.33"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-levels-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We can then Action Surge to take another Attack action. However, we have already used Rapid Strike this turn. Our second Attack action will instead be four attacks with Advantage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-levels-8",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Dice"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Advantage"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Total"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1d12+5+10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17.39*4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "69.57"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-levels-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Together this totals 143.9. Because we get two Action Surges per Short Rest, and we always get at least one Fighting Spirit per fight, assuming a typical adventuring day (6-8 combat encounters lasting roughly 3 rounds each with 2 Short Rests interspersed) we can do this six times a day as we will have that many Action Surges across the day’s rests."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-levels-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But this is a theoretical solo DPR. D&D is less often Yojimbo and more often The Magnificent Seven. If teamwork allows us to get Advantage then we can save Draconic Cry and Fighting Spirit for when we need them."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Samurai Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bonus Proficiency"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Fighting Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Elegant Courtier"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Tireless Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Rapid Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Strength before Death"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Elves"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Kobold"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Kalashtar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Archery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Blind Fighting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Two-Weapon Fighting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Crossbow Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Elven Accuracy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Great Weapon Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Gunner"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Resilient"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Sharpshooter"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-samurai-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-samurai-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-samurai-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-samurai-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-samurai-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-samurai-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-samurai-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-samurai-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-samurai-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-samurai-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-samurai-fighting-styles-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-samurai-fighting-styles-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-samurai-feats-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-samurai-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-samurai-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-samurai-build-a-fistful-of-advantage-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-a-note-about-firearms-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-a-note-about-firearms-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-3"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-race-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "p/s[1]",
+      "detail": "s"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-feats-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "td/s[1]",
+      "detail": "s"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-levels-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-levels-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-levels-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-levels-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-6"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-levels-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-levels-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-levels-10"
+    }
+  ],
+  "metrics": {
+    "words": 3234,
+    "sections": 18,
+    "blocks": 52,
+    "tables": 5,
+    "ratingSignals": 29
+  },
+  "status": "needs-editorial-review"
+}

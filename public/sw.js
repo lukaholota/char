@@ -36,7 +36,30 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("message", (event) => {
   if (event.data === "forget-offline-pages") event.waitUntil(caches.delete(PAGE_CACHE));
+  if (event.data?.type === "save-for-offline") {
+    event.waitUntil(saveForOffline(event.data).then((saved) => event.ports[0]?.postMessage({ saved })));
+  }
 });
+
+// Сторінка, відкрита до того, як воркер узяв її під контроль, або клієнтським переходом Next,
+// повз воркер не проходила: без цього її HTML і вже завантажені чанки офлайн відсутні.
+async function saveForOffline({ pages = [], assets = [] }) {
+  try {
+    const shell = await caches.open(SHELL_CACHE);
+    for (const url of assets) {
+      if (!(await shell.match(url))) await shell.add(url);
+    }
+    await dropOldestEntries(shell, MAX_CACHED_SHELL_FILES);
+    for (const url of pages) {
+      const response = await fetch(url, { headers: { Accept: "text/html" } });
+      if (!response.ok || response.redirected) return false;
+      await rememberPage(new Request(url), response);
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 self.addEventListener("fetch", (event) => {
   const request = event.request;

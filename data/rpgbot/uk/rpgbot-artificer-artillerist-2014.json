@@ -1,0 +1,2400 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-681007a7f2b64cb5",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-681007a7f2b64cb5-c3375fc31cd5d044",
+      "sourceId": "rpgbot-681007a7f2b64cb5",
+      "fetchedAt": "2026-09-29T19:14:42.221899+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:24:56-04:00",
+      "contentHash": "d5f6fe471ebd97257c274bacd4c07b3198ff583f2d18272f106a047cf8706a2f",
+      "title": "Artillerist Artificer 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-681007a7f2b64cb5-c3375fc31cd5d044.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-artificer-artillerist-2014",
+    "sourceId": "rpgbot-681007a7f2b64cb5",
+    "slug": "artificer-artillerist-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Артилерист — гайд підкласу Винахідника (2014)",
+    "titleEn": "Artillerist Artificer 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Винахідник",
+      "Артилерист",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "sourceRevisionId": "rpgbot-681007a7f2b64cb5-c3375fc31cd5d044",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Вогонь із головної гармати.",
+                  "href": "https://www.youtube.com/watch?v=5r1AIGnQwXs"
+                },
+                {
+                  "type": "text",
+                  "text": " — Freelancer Integrated Logistics and Support System (F.I.L.S.S.)"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Артилерист-Винахідник дістає гармату й обстрілює ворогів на полі бою. Магічну гармату з атаками заклинання. Разом із магічною рушницею, яка накладає заклинання. Перед зануренням у підклас варто знати: це Винахідник, зосереджений на наступальному чаротворстві; для цього має і гармати, і чудовий додатковий список заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У бою Артилерист постійно тисне на ворога: активує гармату бонусною дією щораунд і водночас чаклує, атакує чи використовує дію інакше. Так, тимчасові ХП для всієї групи кожного раунду — теж тиск, який вороги відчують, якщо оберете таку гармату."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У прикладі персонажа бігатимемо полем бою на чотирьох ногах, наводячи гармати на ворожі лави. І ні, це не верхова їзда."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Артилериста",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Артилериста",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інфузії Артилериста",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-infusions"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад персонажа — Практичний розвʼязувач проблем",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#example-artillerist-specialist-build-practical-problem-solver"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інфузії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#infusions"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Тактика бою",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#tactical-combat"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах офіційного контенту ми не враховуємо сторонні матеріали, Unearthed Arcana й хоумбрю, оскільки не можемо припустити, що ваша гра їх дозволяє."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Артилериста",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Володіння інструментами|Tool Proficiency (Artillerist)}}: пригодники рідко різьблять дерево; спорядження, яке можна виготовити цими інструментами, небагато. Але можна робити стріли й арбалетні болти: 5 за короткий відпочинок, 20 за тривалий. Із цих чисел можна навіть обґрунтовувати 1 чи 5 метальних списів за такий самий час. Ви можете їх не використовувати, але групі стане в пригоді виготовлення боєприпасів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання артилериста|Artillerist Spells}}: насамперед наступальні заклинання з деяким контролем області. Жодне не входить до основного списку Винахідника — незвично порівняно з аналогічними вміннями інших класів, які зазвичай дають хоча б кілька ситуативних заклинань, що вже є у вашому списку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Щит [Shield] чудовий на будь-якому рівні. Оскільки вимога інструментів додає матеріальний компонент усім вашим заклинанням, його можна накладати із зайнятими руками, якщо тримаєте чи носите предмет з інфузією або відповідний інструмент. Громова хвиля [Thunderwave] не завдає багато шкоди, але відштовхне ворогів, якщо застрягли в ближньому бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: два хороші наступальні заклинання. Але Винахідник — напівчаротворець, тож отримує Друзки [Shatter], коли Чарівник уже має Вогнекуля [Fireball]. Арканна вогнепальна зброя теж зʼявляється зараз і посилює шкоду, але лише один її кидок. Тому ефекти по області, як Друзки, ефективніші проти кількох цілей, ніж Розпечений промінь [Scorching Ray]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Вогнекуля — одне з найкращих заклинань шкоди по області, особливо для свого рівня; бонус Арканної вогнепальної зброї частково скорочує відставання від Чарівника. Стіна вітрів [Wind Wall] непогане, але дуже ситуативне: можна не використати за всю карʼєру."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "13-й рівень: Крижаний шторм [Ice Storm] не надто хороше, але Стіна вогню [Wall of Fire] — чудовий контроль області."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "17-й рівень: Конус холоду [Cone of Cold] має чудову область, але шкода ненабагато краща за Вогнекулю. Справжній переможець — Стіна енергії [Wall of Force]: надійно вимикає одного чи кількох ворогів без ряткидка на тривалість заклинання, а більшість нічого не можуть із цим зробити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Містична гармата|Eldritch Cannon}}: фактично помічник, який виконує лише одну дію. Швидкість 15 футів дуже обмежує: зазвичай створюєте Крихітну гармату й носите самі або доручаєте комусь, чи створюєте Малу, коли треба займати клітинку. Створення витрачає дію, особливо цінну на початку бою; краще зробити до нього. Окрім активних можливостей, гармата добре витримує удари: КБ 18 і пристойні ХП поглинають шкоду, яку інакше отримала б група. Між боями лагодьте замовлянням, але Лагодження [Mending] накладається хвилину, і час швидко накопичується. Мала гармата може дати укриття Малим персонажам, а в тісноті — повністю перегородити шлях ворогам. Та не жертвуйте необачно: лише одна гармата, лише одне безкоштовне створення на день, тривалість година. Потім потрібен слот, хоча слот 1-го рівня — мала ціна за таку користь."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вогнемет{{Eldritch Cannon}}: зі швидкістю 15 футів і областю 15 футів важко тримати цілі в зоні, крім тісних підземель. Але при несподіваній сутичці зі щільною групою створити Вогнемет часто ефективніше за Палючі долоні [Burning Hands] чи подібне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Силова баліста{{Eldritch Cannon}}: звичний варіант шкоди. Лише трохи цікавіша за арбалет, але шкода пристойна, атака використовує Інтелект — добре, якщо треба вбивати по одній істоті. Відштовхування невелике, але достатнє, щоб розірвати захоплення, відсунувши ворога від союзника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Захисник{{Eldritch Cannon}}: Удаване життя [False life] — лише заклинання 1-го рівня зі схожою користю, але не для всієї групи й не щораунд протягом години. Навіть якщо гармата лише ходить за танком і поповнює тимчасові ХП, суттєво економить щоденні ресурси групи. Між боями активуйте, доки не випаде 8, щоб починати кожен бій із максимально можливими тимчасовими ХП."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Арканна вогнепальна зброя|Arcane Firearm}}: застосовується до всіх ваших заклинань Винахідника. Подумайте про Друзки й Вогнекулю. к8 менш надійний за модифікатор Інтелекту, але в середньому 4,5 шкоди — приблизно стільки ж. Зверніть увагу на формулювання: не додаєте 1к8 шкоди, а кидаєте 1к8 і додаєте значення кістки. Автор вважає, що через це критичне влучання його не множить.\n\nРедакційна примітка: висновок про критичне влучання є авторським трактуванням формулювання Арканної вогнепальної зброї; саме вміння прямо не описує окремого винятку з правила критичних влучань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Вибухова гармата|Explosive Cannon}}: +50% шкоди Вогнемета й Силової балісти. Захисник нічого не отримує, але й без того чудовий. Також можна перетворити гармату на бомбу зі шкодою хоча б рівня заклинання 1-го рівня. Та вести в натовп і підривати — зазвичай гірше, ніж залишити її діяти далі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Укріплена позиція|Fortified Position}}: половинне укриття — +2 КБ для всієї групи, суттєве підсилення. Друга гармата зменшує муки вибору; якщо один наступальний варіант явно найкращий, можна створити дві однакові. Але безкоштовно на день усе ще лише одна, тож носіть Крихітні гармати або готуйте слоти."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artillerist-specialist-ability-scores",
+          "heading": "Характеристики Артилериста",
+          "sourceAnchor": "artillerist-specialist-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-artillerist-specialist-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Артилерист — наступальний чаротворець серед Винахідників, тож повторюємо розподіл із "
+                },
+                {
+                  "type": "link",
+                  "text": "основного гайда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artillerist-specialist-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сил: можна знехтувати. Не бʼємося зблизька й не захоплюємо — ми тут для артилерії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artillerist-specialist-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спр: корисна для КБ. Майте 14 і носіть середні обладунки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artillerist-specialist-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ста: виживання й ряткидки концентрації."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artillerist-specialist-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інт: треба ж рахувати складні параболи для артилерії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artillerist-specialist-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Муд: потрібна деяким навичкам; якщо Спритності достатньо 14, можна поставити тут 10 замість −1."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artillerist-specialist-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хар: нехай хтось інший розмовляє, ми зайняті "
+                },
+                {
+                  "type": "link",
+                  "text": "будівництвом мостів",
+                  "href": "https://www.youtube.com/watch?v=vrXPefXStoc"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artillerist-specialist-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artillerist-specialist-races",
+          "heading": "Раси",
+          "sourceAnchor": "artillerist-specialist-races",
+          "blocks": [
+            {
+              "blockId": "block-section-artillerist-specialist-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Аналіз рас",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/races/"
+                },
+                {
+                  "type": "text",
+                  "text": " основного гайда працює добре, але є додаткові міркування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artillerist-specialist-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Раси з володінням бойовою зброєю: Артилерист більше за інших Винахідників хоче чаклувати. Винахідники володіють вогнепальною зброєю, тож "
+                  },
+                  {
+                    "type": "link",
+                    "text": "візьміть рушницю",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", якщо дуже хочете зброю. Але краще залиште зброю іншим підкласам і замініть ці володіння інструментами."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Автогном{{Autognome}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Спелджаммер: Пригоди в космосі",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Броньований корпус мало дає через наявні середні обладунки, зате Лагодження працює і на гармату, і на вас. Решта рис теж хороші."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кентавр{{Centaur}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Монстри Мультивсесвіту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": додаткова швидкість корисна всім; переміщувати Містичну гармату простіше з вищою швидкістю та Кінською статурою{{Equine Build}}. Вдягніть Вʼючне сідло й поставте башту на спину."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ельфи й Напівельфи "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга гравця",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": заклинання й Силова баліста використовують Інтелект для атак — очевидно, "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Ельфійська точність",
+                    "href": "https://rpgbot.net/oops-all-elves/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Три-крін{{Thri-Kreen}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Спелджаммер: Пригоди в космосі",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Містична гармата може бути Крихітним обʼєктом і технічно не є зброєю, тож її можна тримати додатковими руками, не займаючи основні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artillerist-specialist-infusions",
+          "heading": "Інфузії Артилериста",
+          "sourceAnchor": "artillerist-specialist-infusions",
+          "blocks": [
+            {
+              "blockId": "block-section-artillerist-specialist-infusions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розгляньмо інфузії, які добре працюють для Артилериста."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artillerist-specialist-infusions-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Покращений арканний фокус|Enhanced Arcane Focus}}: чудовий для атак заклинання, зокрема Силової балісти, але не для СК. Можемо залишити собі, якщо використовуємо гармату здалеку, а не конус."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Покращений захист|Enhanced Defense}}: потрібен кожному Винахіднику, але віддайте персонажу першої лінії чи сильному бійцю ближнього бою — це не наша роль."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Покращена зброя|Enhanced Weapon}}: ми не використовуємо зброю, але Воїну з його численними атаками чи Пройдисвіту з Прихованою атакою вона змінює "
+                  },
+                  {
+                    "type": "link",
+                    "text": "математику на нашу користь",
+                    "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Якщо +1 допоміг союзнику влучити, це наша шкода. Ще важливіше: зброя магічна, а багато ворогів мають опір чи імунітет до немагічної."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Променева зброя|Radiant Weapon}}: пристойний спосіб дати групі ще одну магічну зброю ближнього бою. Не потрібна разом із Повторним пострілом, хіба що у вас троє чи більше бійців зі зброєю."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Повторний постріл|Repeating Shot}}: для додаткової далекобійної зброї. Обидві разом із Променевою зброєю зазвичай не потрібні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Відштовхувальний щит|Repulsion Shield}}: ще трохи КБ, можна залишити собі. Викинути когось із ближньої досяжності корисно; можна активувати навіть реакцією на влучання провокованої атаки."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Повертальна зброя|Returning Weapon}}: ще один спосіб додати зброю +1 на поле бою."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artillerist-specialist-feats",
+          "heading": "Риси",
+          "sourceAnchor": "artillerist-specialist-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-artillerist-specialist-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Майже без відмінностей від "
+                },
+                {
+                  "type": "link",
+                  "text": "основного гайда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": ", але уникайте нових бонусних дій: вони потрібні гарматам."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artillerist-specialist-weapons",
+          "heading": "Зброя",
+          "sourceAnchor": "artillerist-specialist-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-artillerist-specialist-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Під зброєю маємо на увазі чаротворчі фокуси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artillerist-specialist-weapons-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Будь-які Інструменти ремісника чи Інструменти злодія: фантазуйте й розважайтеся описами. Інструменти як фокуси дають нескінченні можливості."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Універсальний інструмент|All-Purpose Tool}}: спеціальний магічний фокус Винахідника. Посилює обидві наступальні гармати та заклинання. Усі ремісничі інструменти водночас із безкоштовним володінням — чудово. На 6-му рівні Експертиза інструментів Винахідника працює і з володінням, яке дає предмет."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artillerist-specialist-armor",
+          "heading": "Обладунки",
+          "sourceAnchor": "artillerist-specialist-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-artillerist-specialist-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Майте Спритність 14 і носіть середні обладунки зі щитом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artillerist-specialist-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "artillerist-specialist-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-artillerist-specialist-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є цікаві взаємодії, але також дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "основний гайд",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artillerist-specialist-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Чорнокнижник: один-два рівні звучать дивно, але слоти пакту дозволяють відновлювати створення гармати після короткого відпочинку. Інвокації й уміння теж корисні, адже Чорнокнижник обирає підклас на 1-му рівні."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+          "heading": "Приклад персонажа — Практичний розвʼязувач проблем",
+          "sourceAnchor": "example-artillerist-specialist-build-practical-problem-solver",
+          "blocks": [
+            {
+              "blockId": "block-section-example-artillerist-specialist-build-practical-problem-solver-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Послухай, друже. Я інженер. Це означає, що я вирішую проблеми.",
+                  "href": "https://www.youtube.com/watch?v=SNgNBsCI4EA"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-artillerist-specialist-build-practical-problem-solver-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Персонаж вирішує різні проблеми Містичною гарматою. Тобто як сьогодні битися з ворогами: далекобійною силовою рушницею, коротким конусом Вогнемета чи роздавачем тимчасових ХП?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Купуємо Інтелект, Статуру й Спритність. Спритності достатньо 14, тож десь ще ставимо 10 — нехай у Мудрості, це не надто важливо. Обираємо Кентавра й вкладаємо расові +2/+1 в Інтелект і Статуру."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищені"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кентавр: потрібна швидкість ходи 40 футів, а Кінська статура дозволяє поставити Містичну гармату на Вʼючне сідло. Копита як природну зброю не використовуємо, і це нормально."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Обираємо Слідчого{{Investigator}} з двох причин. По-перше, Уважність й Розслідування беремо від Винахідника, тож передісторія дає Аналіз поведінки, а повторну навичку можна замінити будь-якою. Обираємо Магію для створення сувоїв. По-друге, хочемо два володіння інструментами. Слідчий дає Набір для гриму й Інструменти злодія, які вже маємо від Винахідника. Замінюємо їх Інструментами тесляра."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Кентавра — Виживання. Винахідник автоматично дає Інструменти злодія й Інструменти лудильника; також обираємо Розслідування, Інструменти чинбаря й Уважність. Артилерист дає Інструменти різьбяра по дереву. Передісторія — Магію, Інструменти тесляра, Набір для гриму та Аналіз поведінки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 6-му рівні Винахідник має експертність з інструментами, якими володіє. Хоча клас зосереджений на ремісничих інструментах, це працює з усіма. Тож шукайте передісторії з двома інструментами й раси, які дозволяють замінювати інші володіння інструментами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо {{Доторк феї|Fey Touched}}, +1 Інтелект і заклинання Зурочення [Bane]. Разом із Вогнеметом ускладнює уникнення повної шкоди й заклинань союзників. Натомість можна Благословення, якщо група частіше використовує атаки, а не ряткидки: воно теж допомагає Силовій балісті."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні +2 Інтелекту максимізує його до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо {{Рухливий|Mobile}}: швидкість ходи 50 і можливість ударити в ближньому бою замість Відступу. Гармата на спині швидко переміщується для максимальної користі кожного раунду."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му й 19-му рівнях можна підвищувати Статуру до 20. Або дві риси з +1 Статури, як {{Експерт у навичках|Skill Expert}} і {{Кухар|Chef}}, для додаткових переваг і Статури 18. Інші варіанти — {{Бойовий заклинатель|War Caster}} для переваги на ряткидки концентрації чи {{Здоровань|Tough}} для ХП. Усе наступальне вже є; це різні захисні варіанти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-infusions",
+          "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+          "heading": "Інфузії",
+          "sourceAnchor": "infusions",
+          "blocks": [
+            {
+              "blockId": "block-section-infusions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вивчимо 12 інфузій, але максимум 6 активні водночас. Хочеться залишити собі всі, проте роздати бонуси й магічні предмети союзникам значно сильніше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 2-му рівні знаємо чотири, активні дві. Звичайні — Покращений арканний фокус і Покращений захист. Інші можуть бути будь-якими: беремо Покращену зброю й {{Репліка: Сумка зберігання|Replicate: Bag of Holding}}, корисні групі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 6-му рівні вивчаємо ще дві, активні три: Відштовхувальний щит і {{Кільце підживлення заклять|Spell-Refueling Ring}}. Якщо використовуємо фокус, можемо дати іншу інфузію союзнику; якщо вже роздали захист і зброю, носіть одну з нових самі. Предмети з інфузією — фокуси заклинань Винахідника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 10-му рівні ще дві інфузії й чотири активні. {{Крилаті чоботи|Winged Boots}} — наш новий особистий вибір: політ зі швидкістю ходи, дуже швидко. {{Шолом обізнаності|Helm of Awareness}} чудовий для того, хто "
+                },
+                {
+                  "type": "link",
+                  "text": "виграє від першого ходу",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Або {{Плащ захисту|Cloak of Protection}} дає союзнику +1 КБ і ряткидків. Базові покращені інфузії зараз стають +2 і лишаються актуальними."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наступного рівня замовляння знову посилюються. Якщо роздаємо предмети, фокус Чорнокнижнику для трьох Позамежний заряд [Eldritch Blast] може бути кращим за нашу гармату. {{Наручі стрільби з лука|Bracers of Archery}} натомість додають +2 шкоди від лука — можливо, віддамо стрільцю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На рівнях 14 і 18 вивчаємо по дві й активуємо ще одну. Уже маємо все потрібне; решта залежить від особистих уподобань."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-tactical-combat",
+          "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+          "heading": "Тактика бою",
+          "sourceAnchor": "tactical-combat",
+          "blocks": [
+            {
+              "blockId": "block-section-tactical-combat-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ідея — бігати полем бою зі швидкістю ходи 40, потім 50 футів, згодом літаючи, і ставити конуси Вогнемета там, де потрібні. Якщо гармата вже зібрана й закріплена, дією можна робити Ривок для кращого розташування, Відступ для несподіваного кута або накладати заклинання чи замовляння через Арканну вогнепальну зброю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-tactical-combat-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ще про конуси й політ: 15-футовий конус униз охоплює 9 клітинок, якщо ви за 15 футів над землею."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середні обладунки, щит; ряткидки Статури й Інтелекту; навички: Магія, Аналіз поведінки, Розслідування, Уважність, Виживання; інструменти: Інструменти тесляра, Набір для гриму, Інструменти чинбаря, Інструменти злодія, Інструменти лудильника; {{Магічне майстрування|Magical Tinkering}}; {{Чаротворення (Винахідник)|Spellcasting (Artificer)}}: замовляння Кислотні бризки [Acid splash], Лагодження; заклинання 1-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Використовуємо середнє стартове золото 5к4 × 10: 12,5 × 10 = 125. У вашій грі може бути інакше, тож наведемо пріоритети. Спершу лускатий обладунок і щит, потім Вʼючне сідло й інструменти. Пріоритет Інструментам тесляра, чинбаря й різьбяра по дереву: разом вони дозволяють зробити й підтримувати кріплення гармати на боці. Потім Інструменти злодія, за залишку золота — рюкзак. Бути наполовину конем чудово. Заклинання можна готувати щодня зі всього списку, але замовляння обираємо: Кислотні бризки й Лагодження. Лагодження ремонтує гармату й пошкоджені речі. Кислотні бризки беремо, бо на 5-му рівні бонус Арканної вогнепальної зброї працює на обидві цілі. Для сильнішої одиночної атаки можна Вогняний заряд [Fire Bolt]. Маємо Магію, тож масово робимо сувої за "
+                    },
+                    {
+                      "type": "link",
+                      "text": "«Гайдом Занатара», с. 133",
+                      "href": "https://www.dndbeyond.com/sources/xgte/downtime-revisited#ScribingaSpellScroll"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Може, залишиться золото на сувій 1-го рівня; зайве Лікування ран [Cure Wounds] завжди доречне. Сувої легші й компактніші за зілля. Але інша передісторія з Набором травника для зіль — теж варіант."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Вливання предмета|Infuse Item}}; інфузії: Покращений арканний фокус, Покращений захист, Покращена зброя, Репліка: Сумка зберігання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беремо базові корисні інфузії +1. Подивіться, що потрібно групі: +1 КБ або зброя +1 бійцю першої лінії дуже допомагає на цьому рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Потрібний інструмент для роботи|The Right Tool for the Job}}; спеціалізація Артилерист; Інструменти різьбяра по дереву; Заклинання артилериста; Містична гармата"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отримуємо тематичне створення інструментів за годину. Можна робити під час короткого чи тривалого відпочинку без його переривання. Важливіше — стаємо Артилеристом. Фокус допомагає Силовій балісті: хоч це не заклинання, це атака заклинання, тож працює бонус атак і ігнорування половинного укриття. Для інших гармат фокус не працює."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Доторк феї; +1 Інтелект; заклинання: Зурочення або Благословення, Туманний крок [Misty Step]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Обираємо тип гармати. Від Доторку феї рекомендую Зурочення чи Благословення. Зурочення заважає уникати Вогнемета й псує атаки ворогів. Благословення робить Силову балісту точнішою й посилює атаки та ряткидки групи. Я оберу Зурочення, бо для точності балісти Винахідник має Вогники фей [Faerie fire]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканна вогнепальна зброя; заклинання 2-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Маємо магічну рушницю. Де купили? Це особливий фокус, що посилює заклинання "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "Винахідника"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Автор розрізняє додаткову кістку й додавання значення к8, вважаючи, що критичне влучання бонус не посилює. Найкраще використовувати область: один кидок шкоди застосовується до всіх цілей. Кислотні бризки — приклад замовляння, саме тому обрали. Громова хвиля 1-го й Друзки 2-го рівня теж хороші; згодом Вогнекуля 3-го.\n\nРедакційна примітка: твердження про критичне влучання є авторським трактуванням; окремого винятку для цієї здібності її текст не встановлює."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інфузії: Відштовхувальний щит, Кільце підживлення заклять; {{Експертиза інструментів|Tool Expertise}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вивчаємо дві інфузії, описані вище. Експертиза інструментів чудова. Подвоєний БМ десь сильніший; не брали транспорт, який "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "справді"
+                    },
+                    {
+                      "type": "text",
+                      "text": " виграв би від експертності, але принаймні маємо Інструменти злодія."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Спалах геніальності|Flash of Genius}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Реакцією додаємо Інтелект до видимої перевірки характеристики чи ряткидка в межах 30 футів. Ініціатива ж теж перевірка. Напевно, є "
+                    },
+                    {
+                      "type": "link",
+                      "text": "граничні випадки",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " з "
+                    },
+                    {
+                      "type": "link",
+                      "text": "кумедними наслідками",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/war-magic/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: +2 Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кращі атаки заклинань і СК. Багато пояснювати нічого."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вибухова гармата; заклинання 3-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гармата отримує ще кістку шкоди. Просто більше шкоди, не самознищення. Добре. Серйозно: дією можна самознищити гармату й завдати силової шкоди в радіусі 20 футів. Але кісток стільки ж, як у звичайної атаки, а потім ще дія на нову гармату. Дві дії за посередню кулю силової шкоди з ряткидком Спритності. До того ж тепер маємо Вогнекулю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інфузії: {{Репліка: Крилаті чоботи|Replicate: Winged Boots}}, {{Репліка: Плащ захисту|Replicate: Cloak of Protection}}; {{Адепт магічних предметів|Magic Item Adept}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткове налаштування чудове, але головне інше. Якщо немає Універсального інструмента, зробіть його: пів тижня й 100 золотих. Тепер маєте магічний інструмент із володінням усіма ремісничими інструментами; виготовляйте більше предметів для групи. Також отримуємо останню пару взуття — Крилаті чоботи.\n\nРедакційна примітка: виготовлення магічного предмета потребує доступної формули та інших умов правил створення; класове прискорення й знижка самі по собі не дають автоматичного доступу до предмета."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Предмет-осередок заклять|Spell-Storing Item}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покладіть заклинання в коробку, нехай хтось інший використовує й підтримує концентрацію. Нехай Пройдисвіт побуде Людиною-павуком."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Рухливий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "40 футів швидкості приємно; 50 із гарматами — гнітюче."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хороші варіанти: Свобода рухів [Freedom of Movement], Таємна скриня Леомунда [Leomund's Secret Chest], Особисте святилище Морденкайнена [Mordenkainen's Private Sanctum], Стіна вогню [Wall of Fire]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Знавець магічних предметів|Magic Item Savant}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пʼять налаштувань та ігнорування обмежень предметів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Укріплена позиція{{Fortified Position}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Удвічі більше гармат — удвічі більше сили. Обидві активуються однією бонусною дією й можуть бути різними. Союзники в межах 10 футів від гармати отримують половинне укриття: +2 КБ просто за присутність. Поставте Захисника на спину бійця першої лінії як прапор і дайте предмет зі збереженим Розмиття [Blur] — буде весело."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: +2 Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП, кращі ряткидки концентрації."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 5-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зірка — Стіна сили, але також маємо Більше відновлення [Greater Restoration], Посилення навички [Skill Empowerment], Перетворення каменю [Transmute Rock] і Стіна з каменю [Wall of Stone]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Майстер магічних предметів|Magic Item Master}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шість налаштувань. Майже повернення до персонажа-ялинки з магічних предметів із 3.5."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: +2 Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще більше ХП й ще кращі ряткидки концентрації."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Душа винахідництва|Soul of Artifice}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потужне завершальне вміння. Кожен налаштований предмет дає +1 до всіх ряткидків. Також припиніть інфузію, щоб замість падіння до 0 залишитися з 1 ХП. Можемо ефективно масово виготовляти звичайні й незвичайні предмети, багато з налаштуванням, тож не варто займати інфузії лише заради шести налаштувань."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-artificer-artillerist-2014-001",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Володіння інструментами",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-002",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Заклинання артилериста",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-003",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-004",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-005",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-006",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "13-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-007",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "17-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-008",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Містична гармата",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-009",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Вогнемет",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-010",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Силова баліста",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-011",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Захисник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-012",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Арканна вогнепальна зброя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-013",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-12",
+      "context": "Вибухова гармата",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-014",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-13",
+      "context": "Укріплена позиція",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-015",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-ability-scores",
+      "targetBlockId": "block-section-artillerist-specialist-ability-scores-2",
+      "optionId": "section-artillerist-specialist-ability-scores-block-section-artillerist-specialist-ability-scores-2",
+      "context": "Сил",
+      "explanationBlockId": "block-section-artillerist-specialist-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-016",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-ability-scores",
+      "targetBlockId": "block-section-artillerist-specialist-ability-scores-3",
+      "optionId": "section-artillerist-specialist-ability-scores-block-section-artillerist-specialist-ability-scores-3",
+      "context": "Спр",
+      "explanationBlockId": "block-section-artillerist-specialist-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-017",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-ability-scores",
+      "targetBlockId": "block-section-artillerist-specialist-ability-scores-4",
+      "optionId": "section-artillerist-specialist-ability-scores-block-section-artillerist-specialist-ability-scores-4",
+      "context": "Ста",
+      "explanationBlockId": "block-section-artillerist-specialist-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-018",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-ability-scores",
+      "targetBlockId": "block-section-artillerist-specialist-ability-scores-5",
+      "optionId": "section-artillerist-specialist-ability-scores-block-section-artillerist-specialist-ability-scores-5",
+      "context": "Інт",
+      "explanationBlockId": "block-section-artillerist-specialist-ability-scores-5",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-019",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-ability-scores",
+      "targetBlockId": "block-section-artillerist-specialist-ability-scores-6",
+      "optionId": "section-artillerist-specialist-ability-scores-block-section-artillerist-specialist-ability-scores-6",
+      "context": "Муд",
+      "explanationBlockId": "block-section-artillerist-specialist-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-020",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-ability-scores",
+      "targetBlockId": "block-section-artillerist-specialist-ability-scores-7",
+      "optionId": "section-artillerist-specialist-ability-scores-block-section-artillerist-specialist-ability-scores-7",
+      "context": "Хар",
+      "explanationBlockId": "block-section-artillerist-specialist-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-021",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-races",
+      "targetBlockId": "block-section-artillerist-specialist-races-2",
+      "optionId": "section-artillerist-specialist-races-block-section-artillerist-specialist-races-2-item-0",
+      "context": "Раси з володінням бойовою зброєю",
+      "explanationBlockId": "block-section-artillerist-specialist-races-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-022",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-races",
+      "targetBlockId": "block-section-artillerist-specialist-races-2",
+      "optionId": "section-artillerist-specialist-races-block-section-artillerist-specialist-races-2-item-1",
+      "context": "Автогном",
+      "explanationBlockId": "block-section-artillerist-specialist-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-023",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-races",
+      "targetBlockId": "block-section-artillerist-specialist-races-2",
+      "optionId": "section-artillerist-specialist-races-block-section-artillerist-specialist-races-2-item-2",
+      "context": "Кентавр",
+      "explanationBlockId": "block-section-artillerist-specialist-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-024",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-races",
+      "targetBlockId": "block-section-artillerist-specialist-races-2",
+      "optionId": "section-artillerist-specialist-races-block-section-artillerist-specialist-races-2-item-3",
+      "context": "Ельфи й Напівельфи Книга гравця",
+      "explanationBlockId": "block-section-artillerist-specialist-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-025",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-races",
+      "targetBlockId": "block-section-artillerist-specialist-races-2",
+      "optionId": "section-artillerist-specialist-races-block-section-artillerist-specialist-races-2-item-4",
+      "context": "Три-крін",
+      "explanationBlockId": "block-section-artillerist-specialist-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-026",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-infusions",
+      "targetBlockId": "block-section-artillerist-specialist-infusions-2",
+      "optionId": "section-artillerist-specialist-infusions-block-section-artillerist-specialist-infusions-2-item-0",
+      "context": "Покращений арканний фокус",
+      "explanationBlockId": "block-section-artillerist-specialist-infusions-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-027",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-infusions",
+      "targetBlockId": "block-section-artillerist-specialist-infusions-2",
+      "optionId": "section-artillerist-specialist-infusions-block-section-artillerist-specialist-infusions-2-item-1",
+      "context": "Покращений захист",
+      "explanationBlockId": "block-section-artillerist-specialist-infusions-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-028",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-infusions",
+      "targetBlockId": "block-section-artillerist-specialist-infusions-2",
+      "optionId": "section-artillerist-specialist-infusions-block-section-artillerist-specialist-infusions-2-item-2",
+      "context": "Покращена зброя",
+      "explanationBlockId": "block-section-artillerist-specialist-infusions-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-029",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-infusions",
+      "targetBlockId": "block-section-artillerist-specialist-infusions-2",
+      "optionId": "section-artillerist-specialist-infusions-block-section-artillerist-specialist-infusions-2-item-3",
+      "context": "Променева зброя",
+      "explanationBlockId": "block-section-artillerist-specialist-infusions-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-030",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-infusions",
+      "targetBlockId": "block-section-artillerist-specialist-infusions-2",
+      "optionId": "section-artillerist-specialist-infusions-block-section-artillerist-specialist-infusions-2-item-4",
+      "context": "Повторний постріл",
+      "explanationBlockId": "block-section-artillerist-specialist-infusions-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-031",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-infusions",
+      "targetBlockId": "block-section-artillerist-specialist-infusions-2",
+      "optionId": "section-artillerist-specialist-infusions-block-section-artillerist-specialist-infusions-2-item-5",
+      "context": "Відштовхувальний щит",
+      "explanationBlockId": "block-section-artillerist-specialist-infusions-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-032",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-infusions",
+      "targetBlockId": "block-section-artillerist-specialist-infusions-2",
+      "optionId": "section-artillerist-specialist-infusions-block-section-artillerist-specialist-infusions-2-item-6",
+      "context": "Повертальна зброя",
+      "explanationBlockId": "block-section-artillerist-specialist-infusions-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-033",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-weapons",
+      "targetBlockId": "block-section-artillerist-specialist-weapons-2",
+      "optionId": "section-artillerist-specialist-weapons-block-section-artillerist-specialist-weapons-2-item-0",
+      "context": "Будь-які Інструменти ремісника чи Інструменти злодія",
+      "explanationBlockId": "block-section-artillerist-specialist-weapons-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-034",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-weapons",
+      "targetBlockId": "block-section-artillerist-specialist-weapons-2",
+      "optionId": "section-artillerist-specialist-weapons-block-section-artillerist-specialist-weapons-2-item-1",
+      "context": "Універсальний інструмент",
+      "explanationBlockId": "block-section-artillerist-specialist-weapons-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-artillerist-2014-035",
+      "articleId": "rpgbot-artificer-artillerist-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+      "sectionId": "section-artillerist-specialist-multiclassing",
+      "targetBlockId": "block-section-artillerist-specialist-multiclassing-2",
+      "optionId": "section-artillerist-specialist-multiclassing-block-section-artillerist-specialist-multiclassing-2-item-0",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-artillerist-specialist-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

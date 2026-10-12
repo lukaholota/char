@@ -77,6 +77,36 @@ afterEach(() => {
   cardForTest.current = null;
 });
 
+it("uses the Ukrainian rule subsection as the title when the dictionary has no entry", async () => {
+  await openTerm({ ...emptyCard, original: "Alchemist's Supplies", ruleset: "RULES_2014", article: {
+    title: "Володіння інструментами", summary: "Правила інструментів", ruleset: "RULES_2014",
+    href: "/rules/tool-proficiencies#alchemist", subsection: { title: "Приладдя алхіміка", content: "Алхімічне ремесло." },
+  } }, "");
+  expect(screen.getByRole("heading", { name: "Приладдя алхіміка" })).toBeTruthy();
+});
+
+it("restores a term's Ukrainian title and description together when going back from another term", async () => {
+  const firstCard: TermCard = { ...emptyCard, original: "Bastion", dictionary: [{ term: "Бастіон", section: "правила 2024" }], article: bastionArticle };
+  const secondCard: TermCard = { ...emptyCard, original: "Paralyzed", dictionary: [{ term: "Паралізований", section: "стани" }], condition: paralyzedCondition };
+  window.history.pushState({}, "", "/2024/rules/bastions?term=Bastion&term-edition=2024");
+  await openTerm(firstCard, "Бастіон");
+  expect(screen.getByRole("heading", { name: "Бастіон", exact: true })).toBeTruthy();
+
+  cardForTest.current = secondCard;
+  act(() => {
+    window.history.pushState({}, "", "/2024/rules/bastions?term=Paralyzed&term-edition=2024");
+    window.dispatchEvent(new CustomEvent(TERM_OPEN_EVENT, { detail: { original: "Paralyzed", ruleset: "RULES_2024", term: "паралізованою" } }));
+  });
+  await screen.findByText("Істота не може рухатися.");
+  expect(screen.getByRole("heading", { name: "паралізованою", exact: true })).toBeTruthy();
+
+  cardForTest.current = firstCard;
+  act(() => window.history.back());
+  await screen.findByText("Бастіон — це місце, що належить персонажу гравця.");
+  expect(screen.getByRole("heading", { name: "Бастіон", exact: true })).toBeTruthy();
+  expect(screen.queryByRole("heading", { name: "паралізованою", exact: true })).toBeNull();
+});
+
 describe("KR30.3 — порядок секцій модалки терміна", () => {
   it("стаття йде першою, а словникова форма, що повторює заголовок, не показується", async () => {
     const dialog = await openTerm(

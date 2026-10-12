@@ -1,0 +1,149 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "bard-eloquence-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-bard-eloquence-2014-draft1",
+    "sourceRevisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761"
+  },
+  "exampleSection": "section-example-build-college-of-eloquence-bard-build-amiable-jack",
+  "levelTableSection": "section-levels",
+  "classKey": "BARD_2014",
+  "subclassKey": "COLLEGE_OF_ELOQUENCE",
+  "raceKey": "SATYR_MPMM",
+  "backgroundKey": "CHARLATAN",
+  "abilityScores": { "STR": 8, "DEX": 14, "CON": 14, "INT": 10, "WIS": 10, "CHA": 15 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "revision": 3,
+  "levels": [
+    { "level": 2, "spells": {"knownSpellKeys": ["silvery-barbs"]} },
+    {
+      "level": 3,
+      "subclassKey": "COLLEGE_OF_ELOQUENCE",
+      "expertise": ["PERSUASION", "DECEPTION"],
+      "spells": { "knownSpellKeys": ["crown-of-madness"] },
+      "replaceSpell": { "drop": "charm-person", "add": "phantasmal-force" }
+    },
+    {
+      "level": 4,
+      "featKey": "FEY_TOUCHED",
+      "featOptions": [{ "optionNameEng": "FEY_TOUCHED Ability (Charisma)" }],
+      "section": "section-feats",
+      "spells": { "cantripKeys": ["mage-hand"], "knownSpellKeys": ["lesser-restoration"] }
+    },
+    { "level": 5, "spells": {"knownSpellKeys": ["hypnotic-pattern"]} },
+    {
+      "level": 6,
+      "spells": { "knownSpellKeys": ["dispel-magic"] },
+      "replaceSpell": { "drop": "sleep", "add": "leomunds-tiny-hut" }
+    },
+    { "level": 7, "spells": {"knownSpellKeys": ["charm-monster"]} },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [{ "ability": "CHA", "amount": 2 }],
+      "section": "section-feats",
+      "spells": { "knownSpellKeys": ["greater-invisibility"] },
+      "replaceSpell": { "drop": "crown-of-madness", "add": "polymorph" }
+    },
+    {
+      "level": 9,
+      "openSpellPicks": [{ "category": "knownSpells", "count": 1 }],
+      "replaceSpell": { "drop": "lesser-restoration", "add": "greater-restoration" }
+    },
+    {
+      "level": 10,
+      "expertise": ["INTIMIDATION", "PERCEPTION"],
+      "spells": { "cantripKeys": ["minor-illusion"] },
+      "openSpellPicks": [{ "category": "knownSpells", "count": 2 }]
+    },
+    { "level": 11, "spells": {"knownSpellKeys": ["eyebite"]} },
+    { "level": 12, "featKey": "INSPIRING_LEADER", "section": "section-feats" },
+    {
+      "level": 13,
+      "spells": { "knownSpellKeys": ["forcecage"] },
+      "replaceSpell": { "drop": "leomunds-tiny-hut", "add": "mordenkainens-magnificent-mansion" }
+    },
+    { "level": 14, "openSpellPicks": [{"category": "knownSpells", "count": 2}] },
+    { "level": 15, "spells": {"knownSpellKeys": ["dominate-monster"]} },
+    {
+      "level": 16,
+      "featKey": "RESILIENT",
+      "featOptions": [{ "optionNameEng": "Resilient (Constitution)" }],
+      "section": "section-feats"
+    },
+    { "level": 17, "spells": {"knownSpellKeys": ["true-polymorph"]} },
+    { "level": 18, "openSpellPicks": [{"category": "knownSpells", "count": 2}] },
+    { "level": 19, "featKey": "LUCKY", "section": "section-feats" },
+    { "level": 20 }
+  ],
+  "incomplete": [
+    {
+      "field": "Стартове золото замість набору",
+      "reason": "Автор радить узяти золото й купити проклепаний шкіряний обладунок, рапіру, флейту Пана та інструменти злодія; пресет бере стандартний набір класу, а не купівлю за золото.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Музичні інструменти",
+      "reason": "Автор називає волинку, ручний барабан, лютню Досс і флейту Пана; пресет не записує вибір музичних інструментів (лютня є в стандартному наборі).",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Інструменти злодія для ролі розвідника",
+      "reason": "Для ролі розвідника автор радить замінити Шарлатана на Безпритульного або Злочинця заради інструментів злодія; пресет лишає Шарлатана, як у основному прикладі.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Магічні таємниці (10, 14 і 18 рівні)",
+      "reason": "Автор бере заклинання з чужих списків (Відродження, Пошук вищого скакуна; Зцілення, Симулякр; Бажання, Обачливість); платформа приймає в плані лише заклинання зі списку Барда, тому вибір лишено гравцеві (openSpellPicks).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання «Доторку феї»",
+      "reason": "Автор не називає заклинання 1-го рівня від «Доторку феї»; воно не входить до `levels`.",
+      "section": "section-feats"
+    },
+    {
+      "field": "Риса на 19-му рівні",
+      "reason": "Автор пропонує кілька рівноцінних варіантів (Містичний адепт, Щасливчик, Здоровань, Оборонний дуеліст); записано перший названий у таблиці рівнів — Щасливчик.",
+      "section": "section-feats"
+    },
+    {
+      "field": "Масове цілюще слово на 9-му рівні",
+      "reason": "Автор бере Масове цілюще слово, але його немає в списку заклинань Барда в каталозі, тож платформа його не приймає; нове заклинання 9-го рівня лишено гравцеві (openSpellPicks).",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/bard-eloquence-2014.webp",
+    "title": "Бард — Колегія красномовства, Сатир",
+    "description": "Сатир-Шарлатан з Харизмою 17 і Статурою 15: «обличчя» групи з сімома навичками. Колегія красномовства відкриється на 3-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": ["CHA", "CON", "CHA"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["INTIMIDATION", "PERCEPTION", "STEALTH"], "race": [], "background": [] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": ["ELVISH"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": [] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": ["prestidigitation", "vicious-mockery"],
+      "knownSpellKeys": ["charm-person", "detect-magic", "healing-word", "sleep"],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Два замовляння й чотири заклинання названі автором."
+    },
+    "abilityExplanation": "Сатир із власним походженням за правилами Таші: +2 до Харизми й +1 до Статури, як у авторській таблиці (Харизма 17, Статура 15); це вже враховано.",
+    "skillExplanation": "Виступ і Переконання дає Сатир, Обман і Спритність рук — Шарлатан. Бард додає Залякування, Уважність і Непомітність: так виходить авторський набір із семи навичок (Обман, Залякування, Уважність, Виступ, Переконання, Спритність рук, Непомітність). Експертиза з 3-го рівня. Мову раси ми обрали за вас: автор її не називає.",
+    "equipmentExplanation": "Автор радить узяти золото й купити проклепаний шкіряний обладунок, рапіру, флейту Пана та інструменти злодія, але купівлі за золото пресет не відтворює. Рапіру, набір дипломата, лютню (її автор теж згадує), шкіряну броню й кинджал ми обрали за вас — це вибір платформи."
+  }
+}

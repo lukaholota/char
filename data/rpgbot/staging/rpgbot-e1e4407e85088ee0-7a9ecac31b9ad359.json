@@ -1,0 +1,2151 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "7a9ecac31b9ad3599e6c54033312634c3e0aebed037469e4d343c67e8f5b6d26",
+  "sourceRevision": {
+    "revisionId": "rpgbot-e1e4407e85088ee0-7a9ecac31b9ad359",
+    "sourceId": "rpgbot-e1e4407e85088ee0",
+    "fetchedAt": "2026-09-29T19:23:56.813466+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:26:47-04:00",
+    "contentHash": "01cdada98a2f088db3d428e21bf8ea85548336e9384cb5892aca429a05a2856a",
+    "title": "Path of Wild Magic Barbarian 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-e1e4407e85088ee0-7a9ecac31b9ad359.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Perhaps unsurprisingly given my fondness for making guides for gish builds, when someone in our Discord asked for a Path of Wild Magic Barbarian, I replied “"
+            },
+            {
+              "type": "link",
+              "text": "yes, chef",
+              "href": "https://www.youtube.com/watch?v=Kx55Rkynhtk"
+            },
+            {
+              "type": "text",
+              "text": ".” While that may not make a ton of sense right now as the class itself doesn’t really have magic, it both feels very thematically magical and, as you’ll see in my multiclassing notes, has a really excellent pairing or two that can elevate the experience of playing this wonderful subclass."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Even by itself, it speaks to people who are either not interested in optimizing super hard or who have already done all the optimizing they feel the need to do, and are now just looking for some fun. Having the core identity of the class be based around a feature that is inherently uncontrollable means that, while I can help you optimize by reminding you to keep some things in mind and letting you know what to do in each case, actually piloting this character could result in a very different experience than what I write for no matter how closely you follow it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But you came here knowing that already, so let’s get started."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of Wild Magic Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of Wild Magic Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#path-of-wild-magic-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of Wild Magic Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#path-of-wild-magic-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of Wild Magic Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#path-of-wild-magic-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of Wild Magic Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#path-of-wild-magic-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of Wild Magic Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#path-of-wild-magic-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – \"Did he just slap me with a giant spork?\"",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#example-build-did-he-just-slap-me-with-a-giant-spork"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-wild-magic/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Path of Wild Magic Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Magic Awareness"
+              },
+              {
+                "type": "text",
+                "text": ": Basically Detect Magic\n\t\tin a circle. Ideally you’ll have a spellcaster in the party who can handle\n\t\tthis since you’re not really suited to do anything about whatever you find out, but it can be a load off of spellcasters who learn spells permanently if they’re the only casters in your party."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wild Surge"
+              },
+              {
+                "type": "text",
+                "text": ": Path of Wild Magic’s Wild\n\t\tMagic table is universally beneficial. What you roll on the table may\n\t\trequire you to reconsider your tactics, but with some quick thinking you can\n\t\tturn any of the effects into a major advantage. Keep in mind that many of\n\t\tthe activated effects use your Bonus Action, so avoid character options that\n\t\tuse your Bonus Action such as two-weapon fighting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bolstering Magic"
+              },
+              {
+                "type": "text",
+                "text": ": Adding a d3 to attack\n\t\trolls sounds underwhelming, but it’s still an average of +2 to all of your\n\t\tattacks, it lasts 10 minutes, and it doesn’t require Concentration like\n\t\teffects like Bless. Combined with Reckless Attack, you can make it all but\n\t\tcertain that your attacks will hit, even if you’re taking the penalty from\n\t\tGreat Weapon Master.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The option to restore spell slots is neat for allies who don’t rely on\n\t\t\tattacks, but the impact of another low-level spell slot will diminish as\n\t\t\tyou gain levels (though Warlocks will never complain), while +1d3 to\n\t\t\tattacks will literally always be helpful."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Unstable Backlash"
+              },
+              {
+                "type": "text",
+                "text": ": Using this as your\n\t\tReaction when you take damage or fail a save means that you can likely use\n\t\tthis every round (especially if you intentionally cause damage to yourself). If your current Wild Magic effect doesn’t appeal to you,\n\t\tgo looking for a better option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Controlled Surge"
+              },
+              {
+                "type": "text",
+                "text": ": While none of the\n\t\teffects on Path of Wild Magic’s Wild Magic table are negative, the ability\n\t\tto choose between two effects (or any of them if you’re lucky) means that\n\t\tyou can pick whichever option suits your current needs best. This also\n\t\tworks with Unstable Backlash, so you can repeatedly choose to reroll your\n\t\tresult until you finally get one that you’re happy with."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-path-of-wild-magic-ability-scores",
+      "heading": "Path of Wild Magic Ability Scores",
+      "sourceAnchor": "path-of-wild-magic-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-path-of-wild-magic-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Still the core barbarian stat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-wild-magic-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": We only want to fill out medium armor unless you’re rolling for stats and end up with 3 high rolls. If that happens, you can take advantage of the unique version of unarmored defense offered by the class and make all three physical stats as high as possible."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-wild-magic-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Melee martials need this even more than most things."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-wild-magic-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-wild-magic-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Anything you have leftover should go here to prevent yourself from being taken out of the fight by a common mental status effect."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-wild-magic-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-wild-magic-ability-scores-7",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-path-of-wild-magic-races",
+      "heading": "Path of Wild Magic Races",
+      "sourceAnchor": "path-of-wild-magic-races",
+      "blocks": [
+        {
+          "blockId": "block-section-path-of-wild-magic-races-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Scourge Aasimar"
+              },
+              {
+                "type": "text",
+                "text": ":\nIf you can get your DM to let you take the old version but customize it with Tasha’s custom origin rules, this has a particularly good niche use for you. Radiant Consumption causing you damage every turn will keep your Rage running even if you miss everything and aren’t attacked, a very rare and useful trait."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-path-of-wild-magic-feats",
+      "heading": "Path of Wild Magic Feats",
+      "sourceAnchor": "path-of-wild-magic-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-path-of-wild-magic-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different than the standard "
+            },
+            {
+              "type": "link",
+              "text": "Barbarian Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/"
+            },
+            {
+              "type": "text",
+              "text": ". Three of the options on the Wild Magic table provide repeatable uses for our bonus action, so there’s much less incentive to take a feat that provides one."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-path-of-wild-magic-weapons",
+      "heading": "Path of Wild Magic Weapons",
+      "sourceAnchor": "path-of-wild-magic-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-path-of-wild-magic-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different than the standard "
+            },
+            {
+              "type": "link",
+              "text": "Barbarian Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-path-of-wild-magic-armor",
+      "heading": "Path of Wild Magic Armor",
+      "sourceAnchor": "path-of-wild-magic-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-path-of-wild-magic-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As described above, you either want to put your 14 Dex to work in a Breastplate/half plate or go naked."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Giving yourself even a single level of a spellcasting class with access to "
+            },
+            {
+              "type": "link",
+              "text": "Silvery Barbs",
+              "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+            },
+            {
+              "type": "text",
+              "text": " becomes an incredible way to use Bolstering Magic. Sure you can give yourself +2 to attacks, but how about negating the advantage you gave someone by being in a bad spot and then giving your Rogue friend that advantage instead? You’d need to muck with stats to do that, but I’d probably throw Clockwork Sorcerer on and take it to level 4 so you got better slots and access to upcasting Armor of Agathys, always a good idea on a martial."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Obviously you can’t do those things "
+            },
+            {
+              "type": "emphasis",
+              "text": "while"
+            },
+            {
+              "type": "text",
+              "text": " raging, but nothing says you can’t throw an Armor of Agathys on before walking into combat or Barbs something before you turn on rage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you don’t want to go that route, Fighter for a fighting style and action surge is always nice and has a great use described below."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+      "heading": "Example Build – “Did he just slap me with a giant spork?”",
+      "sourceAnchor": "example-build-did-he-just-slap-me-with-a-giant-spork",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As above, so below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since we’re stuck in medium armor anyway, why not fly? Winged Tiefling also gets us darkvision and resistance to a very common damage type (which is also a surprise tool that will help us later)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Doesn’t matter to the build, but flavoring Haunted One as being surrounded by chaos instead of spirits is pretty fun. It also gets us extra money towards the upgrade to a breastplate. Drop the skills for Stealth and Survival (so you can hide in the closets from everyone but the Dredge), and drop one language for Thieves’ Tools."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Between the skills we just grabbed from the background and Athletics and Perception from Barbarian, we make a good enough pinch Scout."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 4 gets us Crusher so that our Reckless Attack has a decent chance of letting our whole team roll with advantage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 8 gets us Great Weapon Master. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 12 caps Strength."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 16 increases Con to 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 19 caps Con."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 20 also caps Strength and Con."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmored Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Take the greataxe and handaxes, sell the greataxe and your monster hunting kit from the background, buy a maul, a chain shirt (or scale if you have a real Scout), and a few more handaxes. Why the handaxes? We’ll get there."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Do barbarian things until level 3. One fun tactic we can do immediately though is a bizarro version of grapple/shove. With our large Athletics score (and advantage on strength checks while raging), we have a decent chance of starting grapples. If we then fly 10 feet straight up and release the grapple, our target falls 10 feet, inflicting 1d6 damage and the prone condition, allowing other melee attackers to attack with advantage. Use this if you have a couple other people in your party that don’t use ranged attacks since it will probably be a DPR increase for the party overall even accounting for you giving up your attack."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reckless Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Danger Sense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reckless Attack is rarely a bad idea, and if we’re more worried about a bunch of incoming attacks than we are about our friends, we can always attack recklessly and then fly upwards just out of reach, provoking an opportunity attack but denying our enemies the chance to multiattack into us."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Awareness"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wild Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Awareness will hardly ever matter, but it’s nice to have."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wild Surge, on the other hand, is the entirety of what differentiates this subclass. Given that a couple of the abilities mention targets within 30 feet of you, it’s best to be in the middle of some enemies when you activate your Rage. This is going to be a wall of text, and I’d apologize, but this is probably why you’re here. Let’s talk about each of the possible rolls."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1: One and done that works best when you’re already in the fray. See advice given in the last paragraph."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "2: Nothing says you can’t teleport upward as long as the space is unoccupied. That’s a bad idea for most things, but not for winged tieflings. Use this to Reckless Attack and bamf to safety."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "3: I don’t think I need to tell you to aim for packs when you summon your "
+                },
+                {
+                  "type": "text",
+                  "text": "penguin"
+                },
+                {
+                  "type": "text",
+                  "text": " pixie of doom, but this is an optimization article so I’m going to say it anyway. If possible, use Crusher’s forced movement to push extra targets into the area of effect once you take it at level 4."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "4: This presents several interesting things and is what I’m going to spend most of my time talking about. The weapon gaining the thrown property will allow you to do fun things like Crusher people tens of feet apart with ease, even while flying. That’s all well and good, but that weapon also gaining the light property means you can now dual wield your maul and something else. Like those handaxes we bought at level 1. The two-handed property requires that you use two hands to attack with the weapon, but not just to hold it.  The two-weapon fighting rules say that either or both attacks can be with thrown weapons if they have that property. Yeet your maul (twice once you’re past level 5), draw a handaxe as your interaction for the turn, and throw it. Alternately, if you want to take advantage of Reckless Attack, still swing with your maul, draw a handaxe and attack with it (being prepared to drop it at the end of your turn) and collect them all back up when combat ends. That’s the hidden way they’re making this table entry also into bonus action damage. What does that mean for us? It means that, among other things, if you wanted to spend a feat picking up Fighting Style (Dual Wielding) instead of Great Weapon Master, you could almost double your extra DPR when using this option. Even easier, you could take a level or two of Fighter, either before going Barbarian so you get the armor for free, or at 7 so you can action surge to get attacks in even after using Bolstering Touch on yourself. If you’re investing into this tactic like that, you’re going to want to target getting a 4 when you have options later like Unstable Backlash and Controlled Surge."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "5: This further incentivizes Reckless Attack. Look for someone to give you temp HP via either the spell Heroism, the Chef feat (ask them for waffles), or the Inspiring Leader feat since we seem to recommend one of those in nearly every guide. Or do it yourself with Armor of Agathys if you’re multiclassing like I suggested above."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "6: Woo."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "7: This can turn you into a very powerful area denial Defender. Probably don’t be flying while you’re doing this since it’s a sphere given that it doesn’t say it isn’t, meaning that you’d only get the square directly under you if you were 10 feet up (unless your table is treating spheres as cubes because 5e doesn’t have a concept of diagonals being longer)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "8: It targets the worst save, but the rider is really good. If you roll this in a fight with only beefy targets, probably try to reroll it once you get that ability."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Crusher (Str 17 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now our hit and run tactics are even safer. Whack someone, use the final attack for a turn (which matters starting next level) to Crush them 5 feet away which puts many things out of reach of you, then fly 10 feet straight up. Of course, don’t do this if you’re the only thing standing between angry sacks of hitpoints and your wizard, but keep in mind that it’s a thing you "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "can"
+                },
+                {
+                  "type": "text",
+                  "text": " do."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fast Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "As per this "
+                },
+                {
+                  "type": "link",
+                  "text": "Crawford Tweet",
+                  "href": "https://twitter.com/JeremyECrawford/status/618278294912286721"
+                },
+                {
+                  "type": "text",
+                  "text": ", the bonus to movement applies to our flight speed as well. Zoom zoom. Zim zim? No no, that’s too random."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Since we can attack twice per turn now, if we crit something with the first attack and want to fish for crits on a second target to apply the Crusher debuff to, we can simply flap our way over to them mid-attack. We’re still allowing things to Opportunity Attack us when we move away, but that’s usually still a better option as described above."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bolstering Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s neat that we get this three times per day right now and expect at most three fights per day for most groups. If our healer is just completely out of spell slots somehow and needs a slot back for Healing Word, don’t hesitate. That’s way more important than a fight at +d3 to attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feral Instinct"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember that anyone we attack who hasn’t gone yet needs to use their flat-footed armor cla– no, wait, wrong edition."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Great Weapon Master"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Between advantage on demand and an additional +d3 to hit, we can both afford to not stay on track with the fundamental math and take the penalty to hit for the big damage increase. Crit fishing or cleaving will allow us to use our bonus action if we don’t already have an ability turned on that lets us do something with it, so keep an eye out for those opportunities."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Less fun with a Maul than with a greataxe, but still free DPR."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unstable Backlash"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "By this level, you probably have "
+                },
+                {
+                  "type": "link",
+                  "text": "more money than you know what to do with",
+                  "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#wealth-by-level-table"
+                },
+                {
+                  "type": "text",
+                  "text": ". Conveniently, I have something to do with it for you. We’re resistant to fire damage. Alchemist’s Fire costs 50gp. Keep a dozen or so around and, on any turn where you need to maintain Rage but can’t attack, just light yourself on fire. We’re resistant, so we’re never going to take more than 2 damage per turn from it, and it will keep Rage going. Now, that tactic has been available to you since you started having spare money. Why does it matter at this level? Because it can also proc Unstable Backlash, allowing you to change your effect (and therefore get the effect of the roll) on 75% of turns as a reaction in addition to still getting to do something with your bonus action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Why only 75% of turns? Well, resistance does turn things into half damage round down. If you roll a 1, you will take no damage. Just something to keep in mind."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Relentless Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Become "
+                },
+                {
+                  "type": "link",
+                  "text": "too angry to die",
+                  "href": "https://knowyourmeme.com/memes/man-literally-too-angry-to-die"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Str 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Come on, "
+                },
+                {
+                  "type": "link",
+                  "text": "hit it like you mean it",
+                  "href": "https://old.reddit.com/r/wow/comments/115w5d6/a_sentence_that_makes_complete_sense_to_a_wow/j97pkfs/"
+                },
+                {
+                  "type": "text",
+                  "text": "!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical Upgrade"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Relentless Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Lighting yourself on fire is still a decent idea if you like targeting a specific table entry like number 4 or if you just want to optimize your reactions too."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Con 16 -> 18"
+                }
+              ],
+              [
+                {
+                  "type": "link",
+                  "text": "Helth",
+                  "href": "https://knowyourmeme.com/memes/helth"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical Upgrade"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable Might"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The goofiest version of reliable talent, making you extremely consistent at picking people up via grapple to fly them into the air and drop them for terminal velocity falling damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Con 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Primal Champion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I am become "
+                },
+                {
+                  "type": "link",
+                  "text": "Ben Swolo",
+                  "href": "https://knowyourmeme.com/memes/ben-swolo"
+                },
+                {
+                  "type": "text",
+                  "text": ". Removing our "
+                },
+                {
+                  "type": "text",
+                  "text": "cowl"
+                },
+                {
+                  "type": "text",
+                  "text": " armor to reveal our ultimate form is now optimal because Unarmored Defense gives us an AC of 19, which is higher than we’re getting from medium armor."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Path of Wild Magic Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Magic Awareness"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Wild Surge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bolstering Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Unstable Backlash"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Controlled Surge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Scourge Aasimar"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-path-of-wild-magic-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-path-of-wild-magic-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-path-of-wild-magic-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-path-of-wild-magic-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-path-of-wild-magic-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-path-of-wild-magic-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-path-of-wild-magic-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-path-of-wild-magic-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-path-of-wild-magic-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-path-of-wild-magic-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-path-of-wild-magic-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-multiclassing-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-multiclassing-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-build-did-he-just-slap-me-with-a-giant-spork-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "td/s[1]",
+      "detail": "s"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "td/s[1]",
+      "detail": "s"
+    }
+  ],
+  "metrics": {
+    "words": 2963,
+    "sections": 17,
+    "blocks": 36,
+    "tables": 3,
+    "ratingSignals": 17
+  },
+  "status": "needs-editorial-review"
+}

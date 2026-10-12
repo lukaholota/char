@@ -1,0 +1,298 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "artificer-armorer-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+    "sourceRevisionId": "rpgbot-ce6eb0a11556fda5-b60c2edb7b98c5da"
+  },
+  "exampleSection": "section-example-build-vedalken-artificer",
+  "levelTableSection": "section-levels",
+  "classKey": "ARTIFICER_2014",
+  "subclassKey": "ARMORER",
+  "raceKey": "VEDALKEN_GGTR",
+  "backgroundKey": "CLOISTERED_SCHOLAR",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 15,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "infusions": [
+        "Homunculus Servant",
+        "Replicate: Goggles of Night",
+        "Enhanced Weapon",
+        "Replicate: Bag of Holding"
+      ]
+    },
+    {
+      "level": 3,
+      "subclassKey": "ARMORER",
+      "subclassOptions": [
+        {
+          "optionNameEng": "Infiltrator (Armor Model)"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (INT)"
+        },
+        {
+          "optionNameEng": "Skill Expert Proficiency (STEALTH)"
+        },
+        {
+          "optionNameEng": "Skill Expert Expertise (ARCANA)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "infusions": [
+        "Replicate: Gloves of Thievery",
+        "Spell-Refueling Ring"
+      ]
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "infusions": [
+        "Replicate: Winged Boots",
+        "Helm of Awareness"
+      ],
+      "spells": {
+        "cantripKeys": [
+          "ray-of-frost"
+        ]
+      }
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "FEY_TOUCHED",
+      "featOptions": [
+        {
+          "optionNameEng": "FEY_TOUCHED Ability (Wisdom)"
+        }
+      ]
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "infusions": [
+        "Replicate: Gem of Seeing",
+        "Replicate: Ring of Protection"
+      ],
+      "spells": {
+        "cantripKeys": [
+          "mage-hand"
+        ]
+      }
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "featKey": "TELEKINETIC",
+      "featOptions": [
+        {
+          "optionNameEng": "TELEKINETIC Ability (Wisdom)"
+        }
+      ]
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18,
+      "infusions": [
+        "Replicate: Amulet of Health",
+        "Replicate: Boots of Speed"
+      ]
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Невтомна точність",
+      "reason": "Автор обирає для Невтомної точності Непомітність, якої немає серед дозволених навичок (редакційна примітка статті), і Інструменти злодія; пресет бере навичку раси з дозволеного переліку за платформою і не записує вибір інструментів.",
+      "section": "section-race"
+    },
+    {
+      "field": "Стартове золото",
+      "reason": "Автор радить взяти гроші замість стартового спорядження й купити кольчужну сорочку та щит; пресет бере стандартний набір класу.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Навички Замкненого вченого",
+      "reason": "Автор називає Історію та Природу чи Релігію залежно від групи; каталог дає Замкнений учений: Історія й Релігія.",
+      "section": "section-background"
+    },
+    {
+      "field": "Інструменти",
+      "reason": "Автор радить інструменти роботи з деревом і чинбаря для виготовлення; пресет не записує вибір інструментів.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Модель броні",
+      "reason": "Автор пише «Модель броні» і не називає вибір; пресет бере Лазутчика (вибір платформи, можна змінити на листі).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заміна Вогняного заряду на Настанову (3-й рівень)",
+      "reason": "Заміна замовлень 2014 платформою не підтримана; Вогняний заряд лишається.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заміна Окулярів ночі на Стійку броню (10-й рівень)",
+      "reason": "Заміна вливань платформою не підтримана; Репліка: Окуляри ночі лишається, а вливання 10-го рівня додано без заміни.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риса Експерт у навичках (4-й рівень)",
+      "reason": "Автор не називає навичку з Володіння й Експертизою; пресет бере Непомітність та експертизу в Аркані (вибір платформи).",
+      "section": "section-feats"
+    },
+    {
+      "field": "Підготовлені заклинання на 4, 6, 9-му рівнях",
+      "reason": "Автор називає частину підготовлених (Тривога, Захист від енергії, Розвіювання магії) і «будь-яке»; підготовлені заклинання пресет не записує, їх обирають на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риси Доторк феї (12-й) і Телекінетик (16-й)",
+      "reason": "Автор не обирає характеристику: Інтелект уже 20, тож пресет бере Мудрість (вибір платформи); друге заклинання Доторку феї обирає гравець.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Нові замовляння та вливання «будь-яке»",
+      "reason": "На 14-му рівні автор додає «будь-яку» вливання, на 18-му «дві будь-які»; пресет бере Репліку: Перстень захисту на 14-му й Репліку: Амулет здоровʼя та Репліку: Чоботи швидкості на 18-му (вибір платформи).",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/artificer-armorer-vedalken-2014-6e13525bc7.webp",
+    "title": "Винахідник — Ведалкен-Зброяр",
+    "description": "Ведалкен-Винахідник Зброяр: Інтелект 17, Спритність 16 і замовляння Вогняний заряд та Лагодження.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "INT",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "MEDICINE"
+      ],
+      "race": [
+        "PERFORMANCE"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH",
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": [
+          "DAGGER",
+          "DAGGER"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Ведалкен за правилами Таші: +2 до Інтелекту й +1 до Спритності (автор переносить очко Мудрості у Спритність), як у авторській таблиці (Інтелект 17, Спритність 16); це вже враховано.",
+    "skillExplanation": "Магія й Медицина — класові навички за авторським вибором, Історія й Релігія — від Замкненого вченого. Навичку раси (Виступ) і три мови ми обрали за вас: Непомітність, яку називає автор, у Невтомній точності недоступна.",
+    "equipmentExplanation": "Автор радить гроші замість спорядження, щоб купити кольчужну сорочку й щит; ми взяли стандартний набір: два кинджали, легкий арбалет, лускату броню, набір дослідника підземель та інструменти злодія. Їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "fire-bolt",
+        "mending"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "detect-magic",
+        "cure-wounds",
+        "tashas-caustic-brew"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Вогняний заряд і Лагодження — авторський рядок 1-го рівня. Підготовлені заклинання Виявлення магії, Лікування ран і Їдке Вариво Таші названо автором.",
+      "platformChoices": []
+    }
+  }
+}

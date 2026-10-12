@@ -1,0 +1,1233 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/weapon-mastery/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "c707374c2abb2cebe617c42a22a8ae790d42084d2f2514eb47440287ad72d929",
+  "sourceRevision": {
+    "revisionId": "rpgbot-1e6c1c1859755b63-c707374c2abb2ceb",
+    "sourceId": "rpgbot-1e6c1c1859755b63",
+    "fetchedAt": "2026-09-29T19:09:59.413326+00:00",
+    "sourceUpdatedAt": "2026-08-17T18:34:56-04:00",
+    "contentHash": "979f1594f03dc327f25cd38e9ac594a7a36b561ca678fdd81e6dc68b67c08d43",
+    "title": "DnD 5.5 Weapon Mastery Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-1e6c1c1859755b63-c707374c2abb2ceb.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Weapon Mastery",
+              "href": "https://www.dndbeyond.com/sources/dnd/phb-2024/equipment#MasteryProperties"
+            },
+            {
+              "type": "text",
+              "text": " is the only truly “new” system in the updated DnD 5.5 rules, and it’s an exciting addition to the game. By providing martial characters with additional tactical options, characters can impact combat in more interesting ways without relying on spellcasting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You may also enjoy our RPGBOT.Podcast episode discussing "
+            },
+            {
+              "type": "link",
+              "text": "Weapon Mastery",
+              "href": "https://rpgbot.net/2024-dd-phb-weapon-mastery-breakdown-if-you-attack-something-youre-going-to-do-damage-rpgbot-podcast-s4e89/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Classes with Weapon Mastery",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#classes-with-weapon-mastery"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Switching Weapons to Use Different Weapon Mastery Properties",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#switching-weapons-to-use-different-weapon-mastery-properties"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Weapon Mastery Properties",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#weapon-mastery-properties"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cleave",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#cleave"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Graze",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#graze"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Nick",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#nick"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Push",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#push"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Sap",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#sap"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Slow",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#slow"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Topple",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#topple"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Vex",
+                "href": "https://rpgbot.net/2024-dnd/weapon-mastery/#vex"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice in this article is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2024 DnD Character Optimization Meta",
+              "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows. Also be sure to check for "
+            },
+            {
+              "type": "link",
+              "text": "errata",
+              "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+            },
+            {
+              "type": "text",
+              "text": " periodically."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes-with-weapon-mastery",
+      "heading": "Classes with Weapon Mastery",
+      "sourceAnchor": "classes-with-weapon-mastery",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-with-weapon-mastery-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Only certain classes get access to Weapon Mastery unless you take the Weapon Master feat. With the exception of the Fighter getting more slots, every class uses the same rules for Weapon Mastery."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-classes-with-weapon-mastery-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Barbarian"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fighter"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Paladin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ranger"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rogue"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-switching-weapons-to-use-different-weapon-mastery-properties",
+      "heading": "Switching Weapons to Use Different Weapon Mastery Properties",
+      "sourceAnchor": "switching-weapons-to-use-different-weapon-mastery-properties",
+      "blocks": [
+        {
+          "blockId": "block-section-switching-weapons-to-use-different-weapon-mastery-properties-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The 5.5 DnD rules allow you to "
+            },
+            {
+              "type": "link",
+              "text": "draw or stow one weapon",
+              "href": "https://www.dndbeyond.com/sources/dnd/phb-2024/rules-glossary#AttackAction"
+            },
+            {
+              "type": "text",
+              "text": " each time you attack as part of the Attack action, and you can do so before or after attacking. This means that you can easily change weapons mid-combat, especially once you have Extra Attack."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-switching-weapons-to-use-different-weapon-mastery-properties-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Once you have Extra Attack, you can attack with one weapon, then stow it following the attack, then draw your second weapon before making your second attack. This enables combos like attacking with a Slow weapon, then switching to a Push weapon to knock your target away before moving out of range of their penalized speed."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-switching-weapons-to-use-different-weapon-mastery-properties-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not that the text is very specific about what it means by “unequip”:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-switching-weapons-to-use-different-weapon-mastery-properties-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Unequipping a weapon includes sheathing, stowing, or dropping it."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-switching-weapons-to-use-different-weapon-mastery-properties-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dropping a weapon on the ground is no easier than stowing it, and you can no long use a brace of pistols to easily bypass the Loading property by dropping them on the ground instead of stowing them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapon-mastery-properties",
+      "heading": "Weapon Mastery Properties",
+      "sourceAnchor": "weapon-mastery-properties",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-cleave",
+      "parentSectionId": "section-weapon-mastery-properties",
+      "heading": "Cleave",
+      "sourceAnchor": "cleave",
+      "blocks": [
+        {
+          "blockId": "block-section-cleave-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weapons: Greataxe, Halberd"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cleave-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The ability to make an additional attack during your turn can be very powerful. However, because the secondary target must be adjacent to your primary target, positioning can be difficult enough that Cleave is unreliable. It’s also totally useless against single enemies."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cleave-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Using a reach weapon (a Halberd) makes this much easier, as you can Cleave into a secondary target standing directly behind your primary target. You may be able to force enemies into position to be Cleaved (cloven?) by using a Push weapon before switching to Cleave weapon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cleave-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cleave still functions with Opportunity Attacks, but odds are even smaller that you’ll be able to reach a secondary target."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-graze",
+      "parentSectionId": "section-weapon-mastery-properties",
+      "heading": "Graze",
+      "sourceAnchor": "graze",
+      "blocks": [
+        {
+          "blockId": "block-section-graze-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weapons: Glaive, Greatsword"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-graze-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Comfort and reliability for players who consistently roll badly. The Fundamental Math expects that you’ll hit CR-appropriate enemies roughly 65% of the time, which means that 35% of the time you’ll get the damage from Graze. With a +5 ability modifier, that adds 1.75 to your DPR per attack, provided that you’re not consistently rolling with Advantage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-graze-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the odds of missing are smaller when you have Advantage, I recommend that Barbarians look elsewhere."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-nick",
+      "parentSectionId": "section-weapon-mastery-properties",
+      "heading": "Nick",
+      "sourceAnchor": "nick",
+      "blocks": [
+        {
+          "blockId": "block-section-nick-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weapons: Dagger, Light Hammer, Sickle, Scimitar"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-nick-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nick weapons are tailor-made to function in your off hand for two-weapon fighting. You "
+            },
+            {
+              "type": "emphasis",
+              "text": "only"
+            },
+            {
+              "type": "text",
+              "text": " need the Nick mastery on your off-hand weapon in order to make the additional attack during your Attack action. You "
+            },
+            {
+              "type": "emphasis",
+              "text": "do not"
+            },
+            {
+              "type": "text",
+              "text": " need to use two Nick weapons."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-nick-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The ability to make an additional attack during your Attack action can be extremely powerful, especially for builds that have on-hit damage bonuses such as Divine Favor, Hex, or Hunter’s Mark. Leaving your Bonus Action free thanks to Nick means that you can use your Bonus Action without cutting into your number of attacks, leaving you the ability to use spells like Divine Smite or features like Cunning Action."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-nick-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Dual Wielder feat allows you to make an attack with your off-hand weapon as a Bonus Action. This does not conflict with Nick, allowing you to make two off-hand attacks in the same turn, provided that you use suitable weapons to do so."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-nick-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There is one Nick weapon per weapon damage type (two for Slashing), allowing you to be effective with two-weapon fighting and still allowing you to use Crusher, Piercer, or Slasher."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-push",
+      "parentSectionId": "section-weapon-mastery-properties",
+      "heading": "Push",
+      "sourceAnchor": "push",
+      "blocks": [
+        {
+          "blockId": "block-section-push-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weapons: Greatclub, Pike, Warhammer, Heavy Crossbow"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-push-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Pushing enemies 10 feet is enough to force almost any creature out of melee reach, to break grapples, and to forcibly reposition enemies to somewhere unpleasant. If you have multiple attacks, you can follow enemies and repeatedly push them, allowing you to reposition them great distances without resorting to grappling."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-push-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Remember that Push says “you "
+            },
+            {
+              "type": "emphasis",
+              "text": "can"
+            },
+            {
+              "type": "text",
+              "text": " push”, not that you "
+            },
+            {
+              "type": "emphasis",
+              "text": "must"
+            },
+            {
+              "type": "text",
+              "text": " push. If you like your target right where they are, it’s fine to keep them there. This is also important when you make Opportunity Attacks because you don’t want to give your enemy 10 feet of free movement."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-push-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Push mastery is also careful to say “straight away”, rather than just “away”, so you can’t use it to launch enemies upward at an angle to get free damage and knock them prone."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-push-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The "
+            },
+            {
+              "type": "link",
+              "text": "movement rules",
+              "href": "https://www.dndbeyond.com/sources/dnd/phb-2024/playing-the-game#MovingaroundOtherCreatures"
+            },
+            {
+              "type": "text",
+              "text": " state “You can’t willingly end a move in a space occupied by another creature. If you somehow end a turn in a space with another creature, you have the Prone condition (see the rules glossary) unless you are Tiny or are of a larger size than the other creature.” It’s not clear if forced movement counts as “ending a move.” If it does, you can knock two creatures Prone by forcing them into the same space. That doesn’t seem intentional, so I don’t think that’s intended to work."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sap",
+      "parentSectionId": "section-weapon-mastery-properties",
+      "heading": "Sap",
+      "sourceAnchor": "sap",
+      "blocks": [
+        {
+          "blockId": "block-section-sap-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weapons: Mace, Spear, Flail, Longsword, Morningstar, War Pick"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sap-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An easy go-to choice, especially at low levels before most enemies have Multiattack. Reliably imposing Disadvantage will make your entire party more likely to survive. Once you pick up Extra Attack, consider spreading your attacks between multiple enemies in order to impose Disadvantage on more attacks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sap-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Remember that the Sap mastery won’t stack with itself, even if it’s from another weapon or from another creature. The target will have Disadvantage on their next attack, and that is all."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-slow",
+      "parentSectionId": "section-weapon-mastery-properties",
+      "heading": "Slow",
+      "sourceAnchor": "slow",
+      "blocks": [
+        {
+          "blockId": "block-section-slow-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weapons: Club, Javelin, Light Crossbow, Sling, Whip, Longbow, Musket"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-slow-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Great for keeping melee enemies from quickly engaging targets, as well as for keeping enemies from fleeing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-slow-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Remember that the Slow mastery won’t stack with itself, even if it’s from another weapon or from another creature. It may help to coordinate with your party and make sure that only one person in the party is primarily using a Slow weapon so that you’re not consistently wasting the benefits of your Weapon Mastery."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-slow-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, speed penalties from other sources such as Ray of Frost and the Slasher feat will stack as normal. The abundance of speed debuffs in the 2024 DnD rules has made reducing enemies speed to 0 a feasible win condition."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-topple",
+      "parentSectionId": "section-weapon-mastery-properties",
+      "heading": "Topple",
+      "sourceAnchor": "topple",
+      "blocks": [
+        {
+          "blockId": "block-section-topple-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weapons: Quarterstaff, Battleaxe, Lance, Maul, Trident"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-topple-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The only mastery to allow a saving throw. Knocking a foe prone, especially before making additional attacks, is very powerful. Unfortunately, Constitution saves are consistently high, which means that Topple is unreliable. Making multiple attacks will make it more reliably, as enemies only need to fail the save once to fall prone."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-topple-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Note that the Trident is the only weapon which can be used at range and which also has the Topple mastery. This effectively turns it into a surface-to-air missile, allowing you to Topple flying enemies and cause them to fall prone. Melee martial characters should strongly consider making the Trident their second mastery."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-vex",
+      "parentSectionId": "section-weapon-mastery-properties",
+      "heading": "Vex",
+      "sourceAnchor": "vex",
+      "blocks": [
+        {
+          "blockId": "block-section-vex-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weapons: Handaxe, Dart, Shortbow, Rapier, Shortsword, Blowgun, Hand Crossbow, Pistol"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-vex-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Vex weapons are built to focus on single targets for an extended period of time, making them excellent for engaging big, single enemies. In fights with numerous, smaller enemies, you may not benefit from Vex reliably."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-vex-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Two-weapon fighting builds should note the presence of the Handaxe and the Shortsword. Hitting with one of these weapons will give you Advantage on your next attack, which might be with your off-hand Nick weapon."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Cleave"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Graze"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Nick"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Push"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Sap"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Slow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Topple"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Vex"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-classes-with-weapon-mastery-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-classes-with-weapon-mastery-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-switching-weapons-to-use-different-weapon-mastery-properties-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-switching-weapons-to-use-different-weapon-mastery-properties-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-switching-weapons-to-use-different-weapon-mastery-properties-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-switching-weapons-to-use-different-weapon-mastery-properties-4"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">Unequipping a weapon includes sheathing, stowing, or dropping it.</p>"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-switching-weapons-to-use-different-weapon-mastery-properties-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-cleave-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-cleave-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-cleave-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-cleave-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-graze-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-graze-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-graze-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-nick-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-nick-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-nick-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-nick-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-nick-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-push-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-push-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-push-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-push-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-push-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-sap-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-sap-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-sap-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-slow-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-slow-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-slow-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-slow-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-topple-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-topple-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-topple-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-vex-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-vex-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-vex-3"
+    }
+  ],
+  "metrics": {
+    "words": 1487,
+    "sections": 14,
+    "blocks": 44,
+    "tables": 0,
+    "ratingSignals": 12
+  },
+  "status": "needs-editorial-review"
+}

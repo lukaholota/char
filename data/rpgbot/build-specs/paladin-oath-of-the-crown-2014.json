@@ -1,0 +1,71 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "paladin-oath-of-the-crown-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+    "sourceRevisionId": "rpgbot-154f7af4779cafb6-73299f1aef26bdd8"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "PALADIN_2014",
+  "subclassKey": "OATH_OF_THE_CROWN",
+  "raceKey": "ORC_MPMM",
+  "backgroundKey": "SOLDIER",
+  "abilityScores": { "STR": 15, "DEX": 8, "CON": 15, "INT": 8, "WIS": 8, "CHA": 15 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "incomplete": [
+    {
+      "field": "Замовляння Благословенного воїна",
+      "reason": "Автор на 2-му рівні бере Дзвін небіжчика й Слово сяйва як замовляння Благословенного воїна; платформа не записує замовляння цього бойового стилю, тому їх треба додати на листі.",
+      "section": "section-levels"
+    }
+  ],
+  "revision": 2,
+  "levels": [
+    {"level": 2, "classOptions": [{"optionNameEng": "Blessed Warrior"}]},
+    {"level": 3, "subclassKey": "OATH_OF_THE_CROWN"},
+    {"level": 4, "abilityScoreIncrease": [{"ability": "CON", "amount": 1}, {"ability": "CHA", "amount": 1}], "section": "section-feats-2"},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "featKey": "RESILIENT", "featOptions": [{"optionNameEng": "Resilient (Constitution)"}], "section": "section-feats-2"},
+    {"level": 9},
+    {"level": 10},
+    {"level": 11},
+    {"level": 12, "abilityScoreIncrease": [{"ability": "CHA", "amount": 2}], "section": "section-feats-2"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "featKey": "INSPIRING_LEADER", "section": "section-feats-2"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "featKey": "TOUGH", "section": "section-feats-2"},
+    {"level": 20}
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/paladin-oath-of-the-crown-2014.webp",
+    "title": "Паладин — Клятва корони, Орк",
+    "description": "Орк за правилами Таші, охоронець союзників: Харизма 17 і Статура 16 з першого рівня, кольчуга та щит.",
+    "subraceKey": null,
+    "racialAbilities": ["CHA", "CON", "CHA"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["INSIGHT", "PERSUASION"], "race": [], "background": [] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": ["ELVISH"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": ["LONGSWORD"] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Орк за правилами Таші: +2 до Харизми й +1 до Статури, як у таблиці автора (Харизма 17, Статура 16). Це вже враховано.",
+    "skillExplanation": "Аналіз поведінки й Переконання — від Паладина, Атлетика й Залякування — від Солдата, як радить автор. Мову ми обрали за вас: автор її не називає.",
+    "equipmentExplanation": "Автор не називає стартового спорядження. Довгий меч зі щитом, пʼять списів, Набір священика, кольчугу та святий символ ми обрали за вас; їх можна змінити."
+  }
+}

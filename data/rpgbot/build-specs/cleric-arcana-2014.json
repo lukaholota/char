@@ -1,0 +1,15 @@
+{
+  "status": "blocked",
+  "ruleset": "RULES_2014",
+  "articleSlug": "cleric-arcana-domain-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-cleric-arcana-domain-2014-draft1",
+    "sourceRevisionId": "rpgbot-95c20bb6267243d9-924f6eb5d8e20dfd"
+  },
+  "exampleSection": "section-example",
+  "reasonCode": "missing-catalog-entity",
+  "reason": "Власна передісторія (Уважність, Непомітність, інструменти злодія, мова) і Посвячений у магію (Друїд) підтримані, але вміння «Арканний адепт» Домену магії в каталозі не має запису про навичку: Магія, яку автор вважає безкоштовною з 1-го рівня, не видається ні в конструкторі, ні сервером, тож авторський набір навичок відтворити не можна.",
+  "missing": [
+    "навичка Магія від «Арканного адепта» (feature 8447 без skill_proficiencies; SQL для власника у catalog-data-gaps-subclass-skills-2026-10-10-owner-applies.sql)"
+  ]
+}

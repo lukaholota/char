@@ -1,0 +1,390 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-enchantment-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-enchantment-2014-draft1",
+    "sourceRevisionId": "rpgbot-e98185cb2dbb53fd-68e6ab726fcc37b8"
+  },
+  "exampleSection": "section-example-build-say-the-magic-words",
+  "levelTableSection": "section-levels",
+  "classKey": "WIZARD_2014",
+  "subclassKey": "SCHOOL_OF_ENCHANTMENT",
+  "raceKey": "KENKU_MPMM",
+  "backgroundKey": "COURTIER",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 13,
+    "INT": 15,
+    "WIS": 9,
+    "CHA": 13
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "subclassKey": "SCHOOL_OF_ENCHANTMENT",
+      "spells": {
+        "spellbookKeys": [
+          "absorb-elements",
+          "shield"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "spells": {
+        "spellbookKeys": [
+          "detect-thoughts",
+          "tashas-mind-whip"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "TELEKINETIC",
+      "featOptions": [
+        {
+          "optionNameEng": "TELEKINETIC Ability (Intelligence)"
+        }
+      ],
+      "section": "section-feats",
+      "spells": {
+        "spellbookKeys": [
+          "hold-person",
+          "suggestion"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "spells": {
+        "spellbookKeys": [
+          "enemies-abound"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "spells": {
+        "spellbookKeys": [
+          "fast-friends",
+          "tongues"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "spells": {
+        "spellbookKeys": [
+          "raulothims-psychic-lance"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (INT)"
+        }
+      ],
+      "openAdvancement": true,
+      "section": "section-feats",
+      "spells": {
+        "spellbookKeys": [
+          "banishment"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "spells": {
+        "spellbookKeys": [
+          "modify-memory",
+          "hold-monster"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "spells": {
+        "spellbookKeys": [
+          "rarys-telepathic-bond",
+          "skill-empowerment"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "spells": {
+        "spellbookKeys": [
+          "mass-suggestion",
+          "ottos-irresistible-dance"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 14,
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "spells": {
+        "spellbookKeys": [
+          "dominate-monster",
+          "power-word-stun"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "openAdvancement": true,
+      "section": "section-feats",
+      "spells": {
+        "spellbookKeys": [
+          "feeblemind"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "spells": {
+        "spellbookKeys": [
+          "power-word-kill",
+          "wish"
+        ]
+      }
+    },
+    {
+      "level": 18,
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "featKey": "WAR_CASTER",
+      "openAdvancement": true,
+      "section": "section-feats",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Четверте замовлення",
+      "reason": "Автор називає чотири замовляння (наступальне на вибір, Дружба, Розщеплення Розуму, Мала ілюзія), а Чарівник 1-го рівня знає три; платформа залишила перші три, четверте (Мала ілюзія) можна змінити замість будь-якого з них.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Наступальне замовлення",
+      "reason": "Автор лише радить «щось для атаки» (Вогняний заряд, Промінь холоду тощо), не називаючи одного замовлення; платформа обрала Вогняний заряд.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Покращення здібності (3-й рівень)",
+      "reason": "Автор бере Покращення здібності, якої немає у списку Чарівника. Пресет бере замість неї Виявлення думок — близьке за соціальною роллю заклинання 2-го кола Чарівника (вибір платформи); можна змінити на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Стримування монстра (7-й рівень)",
+      "reason": "Автор називає Стримування монстра і на 7-му, і на 9-му рівні, а заклинання 5-го кола Чарівник вивчає лише з 9-го. Пресет записує його на 9-му; одне місце на 7-му рівні лишено гравцеві (вибір платформи).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риса 8-го рівня і риси 16-го та 19-го рівнів",
+      "reason": "На 8-му автор не називає рису («див. праворуч»: Експерт у навичках, Доторк феї тощо), на 16-му й 19-му пише «будь-яка» і радить Стійкого, Бойового заклинателя, Надихаючого лідера. Пресет бере Експерта у навичках (Інтелект), Стійкого (Статура) і Бойового заклинателя (вибір платформи); гравець може змінити перед створенням.",
+      "section": "section-feats"
+    },
+    {
+      "field": "Заклинання «будь-які» та Майстерність заклинань",
+      "reason": "Автор пише «будь-яке» для замовляння (4-й рівень), заклинань (5, 7, 8, 12, 13, 14, 16, 18, 19, 20-й) і замовляння 10-го рівня; це вибір гравця. Майстерність заклинань (Сріблясті шпильки, Психічний Батіг Таші) і Фірмові заклинання (Швидкі друзі) у каталозі не мають вибору, тож гравець обирає їх на листі.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/wizard-enchantment-2014.webp",
+    "title": "Чарівник Школи чарування — Кенку",
+    "description": "Кенку-Чарівник із «обличчям» групи: Харизма 14, Інтелект 16 і повний набір соціальних навичок. Причарування особи, Сон і Огидний сміх Таші з першого рівня.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CON",
+      "INT",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "INSIGHT"
+      ],
+      "race": [
+        "INTIMIDATION",
+        "HISTORY"
+      ],
+      "background": [
+        "DECEPTION"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DRACONIC",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "fire-bolt",
+        "friends",
+        "mind-sliver"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [
+        "charm-person",
+        "find-familiar",
+        "mage-armor",
+        "silvery-barbs",
+        "sleep",
+        "tashas-hideous-laughter"
+      ],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "charm-person",
+        "mage-armor",
+        "sleep",
+        "tashas-hideous-laughter"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Автор називає чотири замовляння, а Чарівник 1-го рівня знає три: платформа залишила перші три за порядком автора, четверте (Мала ілюзія) можна змінити замість будь-якого з них; наступальне замовлення (Вогняний заряд) ми обрали за вас. Шість заклинань книги взято з авторського старту; початкову підготовку чотирьох заклинань з цієї книги ми також обрали за вас.",
+      "platformChoices": [
+        "classCantrips",
+        "preparedSpells"
+      ]
+    },
+    "abilityExplanation": "Автор використовує три підвищення Кенку по +1 до Статури, Інтелекту й Харизми (Інтелект 16, Харизма 14, Статура 14); це вже враховано за правилами Таші.",
+    "skillExplanation": "Автор бере Магію й Аналіз Поведінки від класу; Аналіз Поведінки дублює Придворного, тому його замінено на Обман, як радить автор. Кенку дає Залякування й Історію або Релігію: Історію ми обрали за вас, бо автор лишає вибір групі. Три мови (одну від раси, дві від Придворного) ми теж обрали за вас.",
+    "equipmentExplanation": "Автор радить кинджал, мішечок із компонентами або фокус, будь-який набір і книгу заклинань. Кинджал, мішечок із компонентами й набір ученого ми обрали за вас; їх можна змінити."
+  }
+}

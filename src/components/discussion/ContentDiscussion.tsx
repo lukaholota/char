@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { Flag, Loader2 } from "lucide-react";
+import { Flag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { voteContent } from "@/lib/actions/content-discussion-actions";
 import { fetchDiscussion } from "@/lib/catalog-reads";
@@ -14,16 +14,18 @@ import { VoteControl } from "./VoteControl";
 
 type Props = { target: string; ownTargetReason?: string; className?: string };
 
+const LOADING_REASON = "Завантаження обговорення";
+
 export function ContentDiscussion({ target, ownTargetReason = "За свій запис голосувати не можна", className }: Props) {
-  const { discussion, reload } = useDiscussion(target);
+  const { discussion: loadedDiscussion, reload } = useDiscussion(target);
   const [replyTo, setReplyTo] = useState<number | null>(null);
   const [isReporting, setReporting] = useState(false);
   const { requireSignIn, signInDialog } = useSignInGate();
 
-  if (discussion === undefined) {
-    return <Loader2 className="mx-auto my-6 h-5 w-5 animate-spin text-slate-500" aria-label="Завантаження обговорення" />;
-  }
-  if (discussion === null) return null;
+  if (loadedDiscussion === null) return null;
+  // The empty section holds the place while loading, so the modal does not jump when the data arrives.
+  const isLoading = loadedDiscussion === undefined;
+  const discussion = loadedDiscussion ?? buildEmptyDiscussion(target);
 
   const afterReply = () => {
     setReplyTo(null);
@@ -31,13 +33,13 @@ export function ContentDiscussion({ target, ownTargetReason = "За свій з�
   };
 
   return (
-    <section className={cn("space-y-4", className)} aria-label="Обговорення">
+    <section className={cn("space-y-4", className)} aria-label="Обговорення" aria-busy={isLoading}>
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h2 className="text-lg font-semibold text-slate-100">
           Обговорення <span className="text-slate-400">({discussion.commentCount})</span>
         </h2>
         <div className="flex items-center gap-1">
-          <VoteControl score={discussion.score} myVote={discussion.myVote} blockedReason={discussion.canVoteTarget ? null : ownTargetReason} onVote={(value) => voteContent(target, value)} />
+          <VoteControl score={discussion.score} myVote={discussion.myVote} blockedReason={isLoading ? LOADING_REASON : discussion.canVoteTarget ? null : ownTargetReason} onVote={(value) => voteContent(target, value)} />
           {discussion.canReportTarget ? (
             <Button type="button" variant="ghost" size="icon" className="h-11 w-11 text-slate-400" aria-label="Поскаржитися на запис" onClick={() => requireSignIn(() => setReporting(true))}>
               <Flag className="h-4 w-4" />
@@ -45,7 +47,7 @@ export function ContentDiscussion({ target, ownTargetReason = "За свій з�
           ) : null}
         </div>
       </div>
-      <DiscussionCommentForm target={target} parentCommentId={null} placeholder="Що думаєте?" viewerName={discussion.viewerName} onDone={reload} />
+      <DiscussionCommentForm target={target} parentCommentId={null} placeholder="Що думаєте?" viewerName={discussion.viewerName} isReady={!isLoading} onDone={reload} />
       {discussion.comments.length === 0 ? <p className="text-sm text-slate-400">Поки ніхто не коментував.</p> : null}
       <ul className="space-y-3">
         {discussion.comments.map((comment) => (
@@ -98,6 +100,10 @@ function CommentThread({ target, comment, viewerName, isReplying, onReply, onCha
       ) : null}
     </li>
   );
+}
+
+function buildEmptyDiscussion(target: string): DiscussionView {
+  return { target, viewerName: null, score: 0, myVote: 0, canVoteTarget: false, canReportTarget: false, commentCount: 0, comments: [] };
 }
 
 function useDiscussion(target: string) {

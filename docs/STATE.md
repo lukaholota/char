@@ -10,6 +10,14 @@
 
 ---
 
+## 2026-10-10 — O49: локальні повні набори тестів і браузерне приймання; прод не переміряно
+
+Метод: локальне робоче дерево (не закомічене), `bunx tsc --noEmit`, `check:ui-decomposition`, `check:db-boundary`, `eslint src tests scripts prisma --quiet`, `test:rules:coverage`, `test:no-db`, `test:integration` (воркер-копії `spells_test`), Playwright на копії дерева з production-збіркою та клоном БД. Продакшен, його база й деплой не перевірялися; commit/push/deploy не виконувалися.
+
+- tsc 0 помилок (поза `.next/types`), UI-декомпозиція й межа БД без порушень, eslint 0 помилок на відстежуваному коді; `test:rules:coverage` 938/938; `test:no-db` 5614/5640 після змін вечора (падіння: `pers-edition-pin` і компонентні тести пресета, які правляться паралельною сесією з UI; не O49-дані); `test:integration` 1375 пройшли, 2 впали (`tests/db/magic-items-seeded`, `tests/db/spell-source-2014-seeded`: описи в `data/aidedd/magic-items-2014.json` і `data/2014/spells.json` змінені поза O49 і не засіяні в локальну `spells_test`).
+- Облік O49: 135 пресетів 2014, усі з виконуваними рівнями понад 1-й, 132 до 20-го (3 ручні рецепти до 5–7-го); 11 специфікацій blocked. Деталі й відкриті межі: [checkpoint-2026-10-09.md](o49-rpgbot-analysis/checkpoint-2026-10-09.md).
+- Браузер (production-збірка): 118/118 пресетів (на момент прогону) відкриваються анонімно, 12 створених персонажів перевірено в БД, JS `/char/create` 886 КБ (iPhone 13, gzip, холодний кеш).
+
 ## 2026-09-27 — локальні документи й git; прод не переміряно
 
 Метод: читання локальних файлів, `git status -sb`, `git log`, `package.json`, Vitest-конфігів,

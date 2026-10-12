@@ -1,0 +1,2836 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "d3961c5916542c6e1290fbede6d143ecca7d4d6996282c57451b94904e766f73",
+  "sourceRevision": {
+    "revisionId": "rpgbot-fb23b38d0a797a30-d3961c5916542c6e",
+    "sourceId": "rpgbot-fb23b38d0a797a30",
+    "fetchedAt": "2026-09-29T19:26:09.148903+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:07:20-04:00",
+    "contentHash": "d136c1e78f42b05f8078f15d21c7bdc08acab4b5d82699504c287fd1d4213b01",
+    "title": "DnD 5.5 Trickery Domain Cleric Subclass Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-fb23b38d0a797a30-d3961c5916542c6e.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Trickery Domain Cleric is an effective Scout, providing better stealth options through spells and through Blessing of the Trickster. Their signature feature, Invoke Duplicity, provides a powerful combat option which encourages you to confuse and misdirect your enemies."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In a party, the Trickery Cleric adds the Scout role to the Cleric’s already broad list of capabilities primarily due to new spell options. You could arguably also add Face to that list thanks to Charm Person, but Charm Person won’t fix 8 Charisma and no skills. Beyond that, you’re free to do as you please with all of the Cleric’s other capabilities."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is for the 2024 Trickery Domain Cleric. For help with the 2014 rules, see our "
+            },
+            {
+              "type": "link",
+              "text": "2014 Trickery Domain Cleric Subclass Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Features",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Backgrounds",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#backgrounds"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Species",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#species"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Ability Scores",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Feats",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Weapons",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Armor",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Multiclassing",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Trickery Domain Cleric Build – Tricksy Nonsense",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Species",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#species"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skill and Tool Proficiencies",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#skill-and-tool-proficiencies"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats and Ability Score Increases",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#feats-and-ability-score-increases"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice in this article is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2024 DnD Character Optimization Meta",
+              "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows. Also be sure to check for "
+            },
+            {
+              "type": "link",
+              "text": "errata",
+              "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+            },
+            {
+              "type": "text",
+              "text": " periodically."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-4",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-4-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Features",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Backgrounds",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#backgrounds"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Species",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#species"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Ability Scores",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Feats",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Weapons",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Armor",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Cleric Multiclassing",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Trickery Domain Cleric Build – Tricksy Nonsense",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Species",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#species"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skill and Tool Proficiencies",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#skill-and-tool-proficiencies"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats and Ability Score Increases",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#feats-and-ability-score-increases"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/2024-dnd/classes/cleric/trickery-domain/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Trickery Domain Cleric Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Blessing of the Trickster"
+              },
+              {
+                "type": "text",
+                "text": ": Perpetual\n\t\tAdvantage without Concentration. Fantastic and reliable."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Invoke Duplicity"
+              },
+              {
+                "type": "text",
+                "text": ": This can be difficult\n\t\tto use effectively, but once you get your head around it, it’s very potent.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The best use case is to put the illusion somewhere visible while you’re\n\t\t\thidden nearby and use the illusion as the origin point of your short-range\n\t\t\tspells. Options like Word of Radiance are much safer when you can walk\n\t\t\tyour illusion into a crowd of enemies to cast it, and, since the illusion\n\t\t\tisn’t a creature, it’s not worried about things like Opportunity Attacks,\n\t\t\tarea control effects, or even enemy creatures blocking spaces."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You can use the illusion to get yourself Advantage in melee, but I’m\n\t\t\tnervous to recommend capitalizing on that as a go-to tactic. Weapon\n\t\t\tattacks aren’t a great option for Clerics. Easy access to Advantage may\n\t\t\tmake weapons viable compared to cantrips, especially with Divine Strike,\n\t\t\tbut don’t let that compel you to build around melee. This notably applies\n\t\t\tto all attacks, so you can deliver spells like Inflict Wounds and\n\t\t\tSpiritual Weapon with Advantage."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you’re happy using your illusory double as a distraction and as a\n\t\t\tcourier for your spells, you can totally ignore the Advantage part of\n\t\t\tInvoke Duplicity and you’ll still do just fine."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The wording of the ability allows you to place the illusion and\n\t\t\tmove it around in the air. This may be helpful for targeting spells with\n\t\t\tless concerns about cover, or for targeting flying enemies."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Strangely, Invoke Duplicity doesn’t offer details on how to handle\n\t\t\tinteraction with the illusory double. What happens if the illusion is\n\t\t\tattacked? Can creatures disbelieve it, and if they do so, how do they then\n\t\t\tperceive the illusion? If creatures are aware that the double is an\n\t\t\tillusion, do you still get Advantage on attacks when you and your double\n\t\t\tare adjacent to a creature? Jeremy Crawford has confirmed that the\n\t\t\tduplicate is\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "immune to damage and that weapons pass right through it",
+                "href": "https://twitter.com/JeremyECrawford/status/775482420497756161"
+              },
+              {
+                "type": "text",
+                "text": ", but that’s the only useful rules answer that I’ve found on the\n\t\t\tsubject."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Trickery Domain Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Lots of really fun\n\t\toptions, many of which aren’t normally available to Clerics, and many of\n\t\twhich can make your entire party stealthy.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 1 Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Disguise Self and\n\t\t\t\tCharm Person can diffuse quite a few social situations. Charm Person\n\t\t\t\tcan’t completely replace a real Face, but it gets pretty close."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3 Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Two of the best\n\t\t\t\tstealth spells in the game."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5 Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Hypnotic Pattern can\n\t\t\t\tshut down entire encounters with one spell. Nondetection is only\n\t\t\t\tsituationally useful, but it does protect stealthy characters like the\n\t\t\t\tTrickery Cleric from magical detection."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 7 Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Confusion sucks, but\n\t\t\t\tteleportation is great."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 9 Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Modify Memory is very\n\t\t\t\tsituational, but Dominate Person is a great way to turn a powerful\n\t\t\t\thumanoid enemy into a fun pet for up to a minute."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Trickster’s Transposition"
+              },
+              {
+                "type": "text",
+                "text": ": Teleportation\n\t\tlike this can be very powerful, allowing you to move around easily in combat\n\t\tand to get around obstacles outside of combat by flying your duplicate to\n\t\twherever you want to go, then switching places with it."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Improved Duplicity"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shared Distraction"
+              },
+              {
+                "type": "text",
+                "text": ": You no longer need\n\t\t\t\tto be in melee with the target to benefit, and now your allies also\n\t\t\t\tbenefit. Providing easy Advantage on attacks for your entire party is a\n\t\t\t\thuge benefit even if you’re not taking advantage of it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Healing Illusion"
+              },
+              {
+                "type": "text",
+                "text": ": Not a lot of\n\t\t\t\thealing, but potentially a good way to rescue a dying ally without\n\t\t\t\tspending a Spell Slot. You may be able to use this on yourself when you\n\t\t\t\tfall unconscious since the illusion ends when you become\n\t\t\t\tIncapacitated."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-backgrounds",
+      "heading": "Trickery Domain Cleric Backgrounds",
+      "sourceAnchor": "backgrounds",
+      "blocks": [
+        {
+          "blockId": "block-section-backgrounds-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Clerics",
+              "href": "https://rpgbot.net/2024-dnd/classes/Cleric/#backgrounds"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-species",
+      "heading": "Trickery Domain Cleric Species",
+      "sourceAnchor": "species",
+      "blocks": [
+        {
+          "blockId": "block-section-species-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Clerics",
+              "href": "https://rpgbot.net/2024-dnd/classes/Cleric/#species"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Trickery Domain Cleric Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Clerics",
+              "href": "https://rpgbot.net/2024-dnd/classes/Cleric/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Trickery Domain Cleric Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Magic Initiate"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Access to weapon attack cantrips like Booming Blade and True Strike can make weapons much more effective. Minor Illusion also provides a great utility option. For your leveled spell, consider Absorb Elements, Mage Armor, or Shield."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skill Expert"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": A broadly useful option to improve your skill capabilities. Without built-in access to Expertise or additional skill proficiencies, Skill Expert can make it much easier to fill in for a more traditional Scout character like a Rogue."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Trickery Domain Cleric Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Clerics",
+              "href": "https://rpgbot.net/2024-dnd/classes/Cleric/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Trickery Domain Cleric Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Clerics",
+              "href": "https://rpgbot.net/2024-dnd/classes/Cleric/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Trickery Domain Cleric Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Fighter"
+              },
+              {
+                "type": "text",
+                "text": ": Great if you’re focusing on melee combat, but you don’t need heavy armor proficiency, so Rogue is a much better choice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rogue"
+              },
+              {
+                "type": "text",
+                "text": ": One level for weapon proficiencies, Expertise, and Weapon Mastery will go a long way. Two levels for Cunning Action may be worthwhile, but remember that your Bonus Action will frequently be dedicated to moving your duplicate."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Trickery Domain Cleric Build – Tricksy Nonsense",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build has a ton of room for adjustment. You can focus on spells or on weapon use, you can prepare basically whatever clerics spells you want, and your choices of Background and Species both have several options which can work."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build can largely replace a Rogue in your party, filling the crucial Scout role. You won’t have as many skills, but the utility of spells can easily close that gap."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Scribe. We can get increases to Dexterity and to Wisdom, Investigation and Perception are great skills on a Scout, and the Skilled feat can get us proficiency in Thieves’ Tools plus two other skills that we need."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-background-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wayfarer could also work, provided that your party can cover the lack of skill proficiencies, or if you can get more skills from your Species."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-species-2",
+      "parentSectionId": "section-example",
+      "heading": "Species",
+      "sourceAnchor": "species",
+      "blocks": [
+        {
+          "blockId": "block-section-species-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "High Elf. Darkvision is essential, and we can get proficiency in another skill, but we’re here for the innate spellcasting. Use the cantrip to get True Strike."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-species-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You might also go for Goliath and pick the Frost Giant lineage because you think Loki is neat. If you want more skills and don’t care to use weapons, Kenku and Tabaxi are both great choices."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to build around Dexterity and Wisdom, the traditional pair for sneaking and scouting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want social skills instead of knowledge skills, swap Intelligence and Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-3",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Adjusted"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "21"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skill-and-tool-proficiencies",
+      "parentSectionId": "section-example",
+      "heading": "Skill and Tool Proficiencies",
+      "sourceAnchor": "skill-and-tool-proficiencies",
+      "blocks": [
+        {
+          "blockId": "block-section-skill-and-tool-proficiencies-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get Insight from our species, Investigation and Perception from our Background, and we’ll use our class skills to get History and Religion. We’ll use Skilled to get proficiency in Thieves’ Tools, Sleight of Hand, and Stealth. Remember that"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skill-and-tool-proficiencies-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re going for social skills over knowledge skills, drop History and take Persuasion instead."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-and-ability-score-increases",
+      "parentSectionId": "section-example",
+      "heading": "Feats and Ability Score Increases",
+      "sourceAnchor": "feats-and-ability-score-increases",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 1 we take Skilled. We’ll use it to get proficiency in Thieves’ Tools, Sleight of Hand, and Stealth."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we take War Caster and increase our Wisdom to 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we take a +2 Wisdom increase."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we take Skill Expert to raise our Constitution and improve our skill capabilities."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16 we take Resilient (Constitution) to ensure that our Concentration is basically unbreakable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19 we take Boon of the Night Spirit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Order: Thaumaturge"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thaumaturgy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Toll the Dead"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Word of Radiance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re building primarily around spellcasting rather than weapon usage, so we take Thaumaturge. This gets us an extra Cantrip known and +Wis to our Intelligence (Arcana) check and Intelligence (Religion) checks, which works great with our +1 Intelligence. We’re not proficient with Arcana, but it helps."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Guidance and Thaumaturgy provide some utility. Toll the Dead and Word of Radiance are our go-to combat cantrips. Keep in mind that casting a spell with a Verbal component breaks stealth no matter how sneaky you are."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level you’re a pretty standard cleric. Grab the heaviest medium armor you can afford that doesn’t impose Disadvantage on your Stealth checks. If you start combat hidden, your first attack might be with a crossbow since the expected damage will be considerably better than your cantrips. Attack with or without True Strike since your modifiers are the same."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stick to staple Cleric spells at this level. Bless, Healing Word, etc."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Not much change here. Just stay alive to level 3."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Trickery Domain"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blessing of the Trickster"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Invoke Duplicity"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Trickery Domain Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Charm Person*"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Disguise Self*"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Invisibility*"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Pass Without Trace*"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "And now it’s time for mischief! High-five Loki, Shar, and Tzeentch, I guess, then get back to adventuring."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Invoke Duplicity immediately becomes a central tactic for us. The Advantage on melee attacks benefit is near, but won’t be especially useful since we don’t have any interesting melee attack options. We’ll need to avoid Spiritual Weapon since the two options both consume our Bonus Action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Your go-to combat tactic is to walk your duplicate into crowds of enemies and use Word of Radiance. Against single enemies, save Invoke Duplicity and hit them with single-target spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re also really good at Stealth now. We don’t have Expertise, but Expertise can’t match the +10 from Pass Without Trace, plus we get easy Advantage from Blessing of the Trickster. If you need to bring your party along, consider putting Blessing of the Trickster on the least sneaky person in your party to avoid getting the whole party caught because one guy insisted on plate armor."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level we now have Detect Magic available from our species."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: War Caster (Wis 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sacred Flame"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "War Caster will help us maintain Concentration on important spells like Spirit Guardians. We can use True Strike in place of a normal Opportunity Attack, and, if our duplicate is positioned well, we can attack with Advantage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sear Undead"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Spirit Guardians"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hypnotic Pattern*"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Nondetection*"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Even the Trickery Domain isn’t immune to how good Spirit Guardians is. Hypnotic Pattern will let you save-or-suck an entire encounter, but sometimes you need to resort to damage by turning yourself into a blender."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level we now have Misty Step available from our species."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Trickster’s Transposition"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Trickster’s Transposition improved Invoke Duplicity. At your least creative, you can use it to move around. You’re free to move your duplicate into the air, so you can use Trickster’s Transposition to reach difficult locations up to 120 feet away. But we can do better."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In most cases, creatures have no mechanism to identify the duplicate until they interact with it unless you’re doing something to obviously distinguish yourself from the duplicate. If you’re leaning into this, talk to your DM about keeping the answer secret from the DM, such as by keeping the answer on a face-down slip of paper. Whenever you move the duplicate, reconsider the answer and turn the paper face down. This will help your DM to play the monsters realistically, and it could be a lot of fun for both sides of the table."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can also use our duplicate as a drone to drive Spirit Guardians around. It can fly, it can’t be harmed, and it can’t provoke opportunity attacks because it’s not a creature (which raises some rules questions on its own). Combine with Invoke Duplicity, we can move into position, use our Bonus Action to swap places, then use our duplicate’s 30 feet of movement to walk through a crowd of enemies."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "link",
+                  "text": "Blessed Strikes",
+                  "href": "https://rpgbot.net/2024-dnd/classes/divine-strike-and-primal-strike/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Confusion*"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dimension Door*"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Blessed Strikes presents an interesting choice. The answer is nearly always Potent Spellcasting, but our article "
+                },
+                {
+                  "type": "link",
+                  "text": "comparing the two options",
+                  "href": "https://rpgbot.net/2024-dnd/classes/divine-strike-and-primal-strike/"
+                },
+                {
+                  "type": "text",
+                  "text": " doesn’t take account of Advantage. Of the listed options, combining True Strike and Divine Strike comes the closest to matching Toll the Dead and Potent Spellcasting. If we assume that Toll the Dead works 65% of the time, Advantage makes True Strike+Divine Strike more damaging than cantrips with Potent Spellcasting."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But that assumes that you can get Advantage. Invoke Duplicity makes that very easy."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you don’t go for Divine Strike, Potent Spellcasting works very well with Word of Radiance. Cast Spirit Guardians from your duplicate’s space, pilot them into crowds, and nuke things with Word of Radiance. It’s a good time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ve had Misty Step for a while, but now we add Dimension Door as a third teleportation option. It’s cast as an Action, which is helpful if we’re busy using our Bonus Action to move our duplicate."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Wisdom 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Not very exciting, but there aren’t many obviously appealing feats that increase our Wisdom. Easy options like Fey Touched and Telekinetic both compete for our Bonus Action with Invoke Duplicity."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dominate Person*"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Modify Memory*"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Intervention"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Skill Expert"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Con 14 -> 15"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Proficiency: Arcana"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Expertise: Stealth"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Stealth, plus proficiency in Arcana. Remember that you also get to add your Wisdom modifier, so you’re suddenly very good at it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Blessed Strikes"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More damage for Divine Strike or free Temporary Hit Points for Potent Spellcasting."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Resilient (Constitution 15 -> 16)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our Concentration is very reliable now."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Duplicity"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We no longer need to be in melee to benefit from Invoke Duplicity’s Advantage on attacks! Consider grabbing a Heavy Crossbow. Your allies will also likely enjoy easy Advantage on their attacks, though they likely have multiple options for that by this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Epic Boon: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Boon of the Night Spirit (Wisdom 20 -> 21)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The trickiest possible tactic: Move into darkness. Cast Spirit Guardians as an Action. Activate Boon of the Night Spirit as a Bonus Action. Walk around blending your enemies while invisible."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Greater Divine Intervention"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Always great."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Trickery Domain Cleric Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blessing of the Trickster"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Invoke Duplicity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Trickery Domain Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 1 Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 3 Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 5 Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 7 Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 9 Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Trickster’s Transposition"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Shared Distraction"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Healing Illusion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Magic Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Skill Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Rogue"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-4-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"3\"><span class=\"rating-green\">Invoke Duplicity</span>: This can be difficult to use effectively, but once you get your head around it, it’s very potent. <p>The best use "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-backgrounds-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-species-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-background-2"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#species",
+      "detail": "section-species -> section-species-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-species-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-species-2-2"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-skill-and-tool-proficiencies-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-skill-and-tool-proficiencies-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-and-ability-score-increases-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-and-ability-score-increases-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-and-ability-score-increases-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-and-ability-score-increases-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-and-ability-score-increases-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-and-ability-score-increases-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2801,
+    "sections": 19,
+    "blocks": 35,
+    "tables": 2,
+    "ratingSignals": 20
+  },
+  "status": "needs-editorial-review"
+}

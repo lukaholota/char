@@ -5,12 +5,11 @@ import {
   weaponTypeTranslations,
   damageTypeTranslations,
   weaponPropertyTranslations,
-  sourceTranslations,
 } from "@/lib/refs/translation";
+import { findSourceLabel } from "@/lib/refs/source-label";
 import { findWeaponMasteryDescription, formatWeaponMasteryLabel } from "@/lib/refs/weapon-mastery";
 import { cn } from "@/lib/utils";
-import { Sword, Crosshair, Target, ShieldAlert, Sparkles, Weight, Coins } from "lucide-react";
-import { getWeaponVisual } from "@/components/catalogs/catalog-visuals";
+import { Sparkles } from "lucide-react";
 import { findAccentVariant } from "@/styles/edition-accent";
 import { EditionAccentChip } from "@/components/ui/EditionAccent";
 
@@ -34,11 +33,9 @@ export function WeaponDetailCard({
   weapon: WeaponData;
   is2024?: boolean;
 }) {
-  const visual = getWeaponVisual(weapon.weaponType, weapon.isRanged);
-  const Icon = visual.icon;
   const weaponTypeLabel = weaponTypeTranslations[weapon.weaponType] || weapon.weaponType;
   const damageTypeLabel = damageTypeTranslations[weapon.damageType] || weapon.damageType;
-  const sourceLabel = sourceTranslations[weapon.source as keyof typeof sourceTranslations] || weapon.source;
+  const sourceLabel = findSourceLabel(weapon.source);
 
   return (
     <div
@@ -107,7 +104,7 @@ export function WeaponDetailCard({
           </div>
         </div>
 
-        <div className="rounded-xl border border-white/5 bg-slate-900/40 p-3 text-center">
+        {weapon.weight || weapon.cost ? <div className="rounded-xl border border-white/5 bg-slate-900/40 p-3 text-center">
           <div className="text-[11px] text-slate-400 font-medium">Вага / Ціна</div>
           <div className="text-sm font-semibold text-slate-200 mt-1">
             {weapon.weight || "-"}
@@ -115,7 +112,7 @@ export function WeaponDetailCard({
           <div className="text-[11px] text-slate-400">
             {weapon.cost || "-"}
           </div>
-        </div>
+        </div> : null}
       </div>
 
       {/* 2024 Weapon Mastery Callout */}
@@ -148,12 +145,12 @@ export function WeaponDetailCard({
             {weapon.properties.map((prop) => {
               const propKey = String(prop).toUpperCase();
               const label = weaponPropertyTranslations[propKey] || prop;
-              const desc = PROPERTY_DESCRIPTIONS[propKey];
+              const desc = propKey === "SPECIAL" && weapon.description ? weapon.description : PROPERTY_DESCRIPTIONS[propKey];
 
               return (
                 <div key={propKey} className="rounded-xl border border-white/5 bg-slate-900/40 p-3">
                   <div className={cn("text-xs font-semibold", findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" }))}>
-                    {label} [{propKey}]
+                    {label} [{formatPropertyEngName(propKey)}]
                   </div>
                   {desc && (
                     <div className="mt-1 text-xs text-slate-300 leading-relaxed">
@@ -168,4 +165,8 @@ export function WeaponDetailCard({
       </div>
     </div>
   );
+}
+
+function formatPropertyEngName(propertyKey: string): string {
+  return propertyKey.toLowerCase().split("_").map((word) => word[0].toUpperCase() + word.slice(1)).join("-");
 }

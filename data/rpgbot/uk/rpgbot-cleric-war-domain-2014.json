@@ -1,0 +1,2140 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-bce96ff66fa9ba1e",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+      "sourceId": "rpgbot-bce96ff66fa9ba1e",
+      "fetchedAt": "2026-09-29T19:20:46.285465+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:31:42-04:00",
+      "contentHash": "ab3730e22ad68d6e4243b0fdc01a7dd0d853ad562f658dc09f4e2d0b35723a39",
+      "title": "War Domain Cleric 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-cleric-war-domain-2014",
+    "sourceId": "rpgbot-bce96ff66fa9ba1e",
+    "slug": "cleric-war-domain-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Домен війни — гайд підкласу Клірика (2014)",
+    "titleEn": "War Domain Cleric 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Клірик",
+      "Домен війни",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Клірик домену війни 5e: гайд підкласу D&D 5e",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є лиш одна штуковина, у яку ми віримо. І, всесвіте, вона йде по тебе: це ВААААГХ! "
+                },
+                {
+                  "type": "link",
+                  "text": "Time to WAAAGH!",
+                  "href": "https://www.youtube.com/watch?v=_E-23lto5YY"
+                },
+                {
+                  "type": "text",
+                  "text": " – Shootas, Blood, and Teef"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Домен війни{{War Domain}} належить до сильніших доменів кліриків, якщо ви не заплутаєтеся в спробах користуватися зброєю й не відволічетеся на роль дешевого Паладина{{Paladin}}. О, не зрозумійте мене хибно: ці підкласові уміння цілком придатні, щойно ви їх отримуєте. На низьких рівнях Клірик домену війни може кинутися в саму гущу бою, якщо захоче, але природа доброго солдата, звісно, — дослужитися до офіцера, загартованого полумʼям Війни. Якщо цей шлях здається вам придатним, сідайте на свого "
+                },
+                {
+                  "type": "link",
+                  "text": "Червоного скакуна",
+                  "href": "https://en.wikipedia.org/wiki/Four_Horsemen_of_the_Apocalypse#Red_Horse"
+                },
+                {
+                  "type": "text",
+                  "text": ", і, можливо, опинитеся в товаристві вершників "
+                },
+                {
+                  "type": "link",
+                  "text": "Білого",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "link",
+                  "text": "Чорного",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/"
+                },
+                {
+                  "type": "text",
+                  "text": " і "
+                },
+                {
+                  "type": "link",
+                  "text": "Блідого",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Втім, якщо ви з якоїсь причини справді хочете й далі розмахувати зброєю, граючи ще й Кліриком, я не бачу, чому б вас зупиняти. Зрештою, це домен, найбільш придатний саме для цього. Це не найпродуктивніше використання Клірика, але ви ухвалите це рішення самі, цілком усвідомлюючи наслідки. А наслідок такий, що ви все одно Клірик: найкращий клас у грі (вам доведеться уявити звук, з яким Тайлер телепортується до мене додому й волає)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Приклад збірки нижче — четвертий член нашої армії нежиті, «Воїтелька руйнування»{{Die Kriegerin der Zerstörung}}, що прибуває з модним запізненням, щоб нагадати вам: моторошність ніколи не закінчується. Принісши жагу війни, щоб перетворити цей неорганізований натовп на особливо нищівну руйнівну силу, ми проторуємо шлях по землі й розчавимо всю опозицію під своїми підборами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клірика домену війни",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клірика домену війни",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#war-domain-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Клірика домену війни",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#war-domain-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клірика домену війни",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#war-domain-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Клірика домену війни",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#war-domain-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Клірика домену війни",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#war-domain-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Клірика домену війни — «Воїтелька руйнування»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#example-war-cleric-build-die-kriegerin-der-zerstorung"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клірика домену війни",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання домену{{Domain Spells}}: багато справді фантастичних варіантів, але більше половини заклинань домену вимагають Концентрації, через що важко використати більше одного чи двох за бій."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Божа милість [Divine Favor] не залишиться корисною після низьких рівнів, але на низькому рівні це приємна порція додаткової шкоди з пристойною тривалістю, що коштує бонусної дії для накладання. Щит віри [Shield of Faith] залишатиметься корисним на кожному рівні. +2 до КБ — це багато в пʼятій редакції, а 10 хвилин — фантастична тривалість для слота заклинання. Проте воно вимагає Концентрації, а отже, його не можна поєднувати з іншими чудовими підсиленнями низьких рівнів на кшталт Благословення [Bless]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: оскільки Магічна зброя [Magic Weapon] вимагає Концентрації, його зазвичай варто використовувати лише тоді, коли у вас немає постійної магічної зброї, і лише проти ворогів, що мають опір до немагічної зброї. Духовна зброя [Spiritual Weapon] — базовий варіант клірика й чудовий спосіб перетворити бонусну дію на шкоду без потреби в Концентрації."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Мантія хрестоносця [Crusader's Mantle] — це Божа милість [Divine Favor] для всієї групи. Шкода за атаку все ще мала, але якщо хтось користується «Боєм двома зброями»{{Two-Weapon Fighting}}, союзники мають «Додаткову атаку»{{Extra Attack}} або просто велика група, вигода швидко накопичується. Але загалом воно не може конкурувати з Духами захисниками [Spirit Guardians], які ви теж отримуєте. Духи захисники [Spirit Guardians] є серед найефективніших варіантів шкоди в грі, і багато кліриків готують їх щодня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Камʼяна шкіра [Stoneskin] — фантастичне підсилення, але вона дуже дорога й не допоможе вам, щойно ви отримаєте «Аватар битви»{{Avatar of Battle}}. Свобода рухів [Freedom of Movement] корисна ситуативно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Полумʼяний удар [Flame Strike] — пристойне заклинання шкоди по області, але за той самий слот заклинання я б набагато охочіше накладав Духи захисники [Spirit Guardians] і йшов у бій. Стримування монстра [Hold Monster] — просте заклинання «пройди-ряткидок-або-страждай»{{save-or-suck}}, добре масштабується рівнем заклинання, тож лишається ефективним довго."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткові майстерності{{Bonus Proficiencies}}: важкі обладунки чудові для Клірика, а бойова зброя додає ще кілька бойових варіантів, зокрема кращі дворучні, якщо ви хочете піти цим шляхом."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Священик війни{{War Priest}}: аж "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "пʼять"
+                  },
+                  {
+                    "type": "text",
+                    "text": " додаткових атак на день! Це жахливо розчаровує. Те, що воно забирає вашу бонусну дію, абсурдне на додачу до трагічно малої кількості використань. «Божественний удар»{{Divine Strike}} додає шкоди, тож ваші атаки принаймні відчуватимуться вагомими, але «Божественний удар» застосовується лише раз на кожен ваш хід, тож активувати «Священика війни» загалом корисно лише на низьких рівнях або якщо ви високого рівня й схибили своєю атакою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Наведений удар|Channel Divinity: Guided Strike}}: це не обмежується атаками зброєю, а клірики мають кілька потужних атак заклинаннями на кшталт Завдання ран [Inflict Wounds], які від цього виграють. Проте атаки заклинаннями стають рідкісними після низьких рівнів, тож цінність цього уміння з часом зменшується. На високих рівнях, імовірно, краще використати додаткове класове уміння «Спрямування божественної сили»{{Harness Divine Power}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Благословення бога війни|Channel Divinity: War God’s Blessing}}: хоч Клірики зазвичай не завдають величезної шкоди своїми атаками, союзники на кшталт Пройдисвітів її точно завдають, і коли вони схибили своєю єдиною атакою за раунд, +10 може справді змінити результат бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественний удар{{Divine Strike}}: хоч він не такий ефектний, як версія «Божественного удару» Клірика домену природи, здатність завдавати того самого типу шкоди, що й ваша зброя, дозволяє відносно легко змінювати типи шкоди, змінюючи зброю. Проте проти ворогів з опором до шкоди від немагічної зброї це дуже дратуватиме. Якщо у вашій грі немає магічних предметів, обовʼязково готуйте Магічну зброю [Magic Weapon] чи подібні підсилення, через які ваша зброя завдає шкоди як магічна. Дивіться також: "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Божественний удар проти замовлянь",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/war-domain/#divine-strike-vs-cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": " вище."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Аватар битви|Avatar of Battle}}: більшість шкоди цих типів походить від немагічної зброї чи від монстрів із немагічними частинами тіла, тож цей опір постійно корисний навіть на високих рівнях."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-war-domain-ability-scores",
+          "heading": "Характеристики Клірика домену війни",
+          "sourceAnchor": "war-domain-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-war-domain-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не надто відрізняється від довідника Клірика, але оскільки ми маємо доступ до важких обладунків, у нас є можливість зробити ставку на Силу замість Спритності. На жаль, це мало що змінює: обмін потреби в Спритності 14 для середніх обладунків на потребу в Силі 15 для важких, по суті, нічого не змінює для повного заклинателя на кшталт Клірика."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є кілька винятків, про які йтиметься нижче в розділі про раси. Ці винятки були б корисні, якби нам потрібна була ще одна характеристика, здебільшого для мультикласування, але щойно Мудрість і Статура в нормі, Клірикам, власне, не "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "потрібна"
+                },
+                {
+                  "type": "text",
+                  "text": " ще одна характеристика."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: якщо хочете розмахувати зброєю ближнього бою й носити важкі обладунки, візьміть трохи цього."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: якщо хочете стріляти зі зброї дальнього бою й носити середні обладунки, беріть натомість це."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: щоб не померти, беріть Статуру."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: якщо ви не один із винятків, ваші бали характеристик мають піти деінде."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: СК ряткидків і Бонус атаки заклинанням. Характеристика Клірика номер один."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-ability-scores-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: якщо ви не один із винятків, ваші бали характеристик мають піти деінде."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-ability-scores-9",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 (8)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 (8)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 (15)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 (13)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-war-domain-races",
+          "heading": "Раси Клірика домену війни",
+          "sourceAnchor": "war-domain-races",
+          "blocks": [
+            {
+              "blockId": "block-section-war-domain-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе, чого немає в переліку нижче, дивіться в "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі рас Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як зазначено вище, є кілька рас, що дозволяють переставити пріоритети ваших третьорядних характеристик, не псуючи вам КБ. Ці винятки стосуються будь-якого Клірика з доступом до важких обладунків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-races-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Кентавр{{Centaur}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Кентавр не ігнорує штраф, але завдяки вищій від початку базовій швидкості штраф опускає її до звичайної швидкості 30 футів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дворфи{{Dwarves}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": оскільки дворфи можуть ігнорувати штраф важких обладунків, ви можете ігнорувати і Силу, і Спритність, не жертвуючи ні КБ, ні швидкістю."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Черепаха{{Tortle}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Черепаха — третій виняток: вона має вбудований КБ 17. Зауважте, що цей варіант працює для будь-якого Клірика, але включений для повноти."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-races-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоч ці винятки цікаві, можливість вкладати бали характеристик в Інтелект чи Харизму замість Сили чи Спритності не надто корисна, якщо ви не збираєтеся мультикласувати. Утім, це не єдині варіанти, які варто розглянути."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-races-5",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Дракононароджений Фізбана{{Fizban’s Dragonborn}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "FToD",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": прочитайте про «Священика війни»{{Warpriest}}, а тоді про зброю дихання дракононароджених Фізбана. Дія Атака, щоб скористатися зброєю дихання, достатня, щоб дозволити атаку бонусною дією від «Священика війни». Це не найоптимальніший спосіб бути Кліриком, але це веселий і тематичний спосіб поєднати обидва уміння, особливо тому, що загальна кількість використань на день у кожного схожа. Можна було б зробити й гірше, ніж дихнути стихійною шкодою й одразу додати атаку зброєю."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-war-domain-feats",
+          "heading": "Риси Клірика домену війни",
+          "sourceAnchor": "war-domain-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-war-domain-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Раджу просто дотримуватися порад із "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Клірика щодо рис",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": ". Різниця незначна, якщо ви будуєте оптимального Клірика, навіть з уміннями Домену війни{{War Domain}}. Утім, якщо ви наполягаєте на ближньому бою, я не можу вас зупинити, але можу допомогти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-war-domain-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Стійкий (Статура)|Resilient (Constitution)}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": обмін ударами в ближньому бою означає, що по вас час від часу влучатимуть. Дуже прикро втратити цілий слот заклинання 3-го рівня, коли хтось вибиває з вас Духів захисників [Spirit Guardians]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойовий заклинатель{{War Caster}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": улюблена зброя в одній руці, щит у другій і жодного способу виконати соматичні компоненти — поганий життєвий вибір для будь-якого заклинателя, тож не потрапляйте в таку халепу."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-war-domain-weapons",
+          "heading": "Зброя Клірика домену війни",
+          "sourceAnchor": "war-domain-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-war-domain-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки «Додаткові майстерності»{{Bonus Proficiencies}} домену дають володіння всією бойовою зброєю, на столі лежить будь-що, чим ви захочете користуватися. Вам усе одно краще зосередитися на заклинаннях, але це ваш персонаж, тож робіть як знаєте. Окремо зазначу арбалети: властивість «Заряджання»{{Loading}} не заважає зробити дві атаки, якщо ці атаки є окремими діями."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-war-domain-armor",
+          "heading": "Обладунки Клірика домену війни",
+          "sourceAnchor": "war-domain-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-war-domain-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми маємо доступ до важких обладунків, але, як я пояснював вище, Клірику це мало що змінює. Остаточна різниця між важкими й середніми обладунками — 1 КБ, але щоб отримати максимум від цих варіантів, потрібна або Сила 15, або Спритність 14. Для всіх, хто робить атаки зброєю, це істотна різниця у виборі, але повному заклинателю, що спирається на заклинання й замовляння, вона нічого суттєво не змінює."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-war-cleric-build-die-kriegerin-der-zerstorung",
+          "heading": "Приклад збірки Клірика домену війни — «Воїтелька руйнування»",
+          "sourceAnchor": "example-war-cleric-build-die-kriegerin-der-zerstorung",
+          "blocks": [
+            {
+              "blockId": "block-section-example-war-cleric-build-die-kriegerin-der-zerstorung-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цих прикладах збірок ми маємо зробити дві речі: показати уміння підкласу й запропонувати оптимізовану збірку, що користується цими уміннями. Робити обидві речі разом може бути досить складно залежно від підкласу, тож іноді ми обираємо третій варіант — зійти з рейок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-war-cleric-build-die-kriegerin-der-zerstorung-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Домен війни{{War Domain}} пропонує цікавий переворот десь між 5-м і 6-м рівнями. Поки ні в кого немає «Додаткової атаки»{{Extra Attack}}, ніщо по-справжньому не заважає грати як один із бойових класів — з двома уміннями, що трохи його підсилюють. А щойно решта ватаги отримує свої «Додаткові атаки», Домен війни здобуває щось доволі рідкісне серед кліриків: другий спосіб витрачати «Канал божественності»{{Channel Divinity}}. Це створює природну прогресію від солдата до офіцера. Нам лише бракує армії, якою командувати. Цікаво, "
+                },
+                {
+                  "type": "link",
+                  "text": "як ми її роздобудемо",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/animating-the-dead/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-war-cleric-build-die-kriegerin-der-zerstorung-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Що, ви сподівалися, що саме Домен смерті{{Death Domain}} ми неоковирно втиснемо в групу з Підійманням мерців [Animate Dead]? Не кажіть дурниць, "
+                },
+                {
+                  "type": "link",
+                  "text": "Смерть",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/"
+                },
+                {
+                  "type": "text",
+                  "text": " у нас уже є. Це "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Війна"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-war-cleric-build-die-kriegerin-der-zerstorung",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щоб скористатися важкими обладунками без штрафу до швидкості, ми візьмемо Силу 15, і вона залишиться 15 на всю карʼєру. Знаю, що це непарне число дратуватиме дехто, але наші Мудрість і Статура надто важливі. До речі, очки купівлі характеристик ми теж вкладемо в ці дві характеристики. Цікаво, але +2 від нашого расового бонусу ми вкладемо в Статуру, а +1 — у Мудрість. Чому саме так, пояснимо в розділі про риси нижче."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-war-cleric-build-die-kriegerin-der-zerstorung",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як расу беремо Хроматичного дракононародженого{{Chromatic Dragonborn}} і обираємо Зеленого. Як зазначено вище в розділі про раси, оскільки новіші дракононароджені використовують зброю дихання як частину дії Атака, «Священик війни»{{Warpriest}} може спрацювати, але в нас, по суті, немає сили, щоб скористатися цим. Натомість ми зможемо користуватися отруйною зброєю дихання, не завдаючи шкоди нашим скелесолдатам{{Skelesoldiers}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-war-cleric-build-die-kriegerin-der-zerstorung",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо Мудреця{{Sage}} заради Магії, щоб створювати сувої, і Історії, щоб знати війни. Ми отримуємо дві мови, якими можуть бути будь-які, що добре пасують до вашої кампанії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-war-cleric-build-die-kriegerin-der-zerstorung",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Клірика беремо Аналіз Поведінки, бо це єдина по-справжньому корисна навичка Мудрості в нашому класовому списку, і Релігію, щоб знати нежить. З навичками в нас не дуже, але це, власне, і не наша робота."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-war-cleric-build-die-kriegerin-der-zerstorung",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На четвертому рівні ми візьмемо «Стійкого (Статура)»{{Resilient (Constitution)}}, що дасть нам +1 до Статури, тож вона дійде до 18, а також володіння ряткидками Статури. Я "
+                },
+                {
+                  "type": "link",
+                  "text": "довго розводився",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#why-did-we-delay-wisdom-in-favor-of-resilient-constitution"
+                },
+                {
+                  "type": "text",
+                  "text": " раніше про те, що підтримувати Концентрацію на заклинаннях протягом усієї тривалості може бути краще, ніж різниця в 5–10% у провалі ряткидків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На восьмому рівні візьмемо Покращення Характеристик на +2 до Мудрості, теж доводячи її до 18. Є відчайдушний варіант — взяти «Дарунок хроматичного дракона»{{Gift of the Chromatic Dragon}} раніше й ще більше відкласти підвищення Мудрості, але я б цього не радив."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На дванадцятому рівні завершуємо Мудрість другим Покращенням Характеристик на +2. На цьому рівні було б розумніше взяти «Дарунок»{{Gift of the Chromatic Dragon}} раніше, а Покращення Мудрості взяти на 16-му рівні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На шістнадцятому рівні беремо «Дарунок хроматичного дракона»{{Gift of the Chromatic Dragon}} насамперед заради реакції, що дає опір стихійній шкоді, адже клірики не отримують Поглинання стихій [Absorb Elements]. Менше шкоди означає, що нам доведеться проходити ряткидки Концентрації з нижчим СК. У деяких обставинах цю рису можна взяти раніше. Є цікаві заклинання, яким узагалі байдужа наша Мудрість, а бонусна дія для додавання шкоди до зброї раз на день на цьому рівні слабка."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На девʼятнадцятому рівні візьмемо ще одне Покращення Характеристик, щоб довести Статуру до 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-war-cleric-build-die-kriegerin-der-zerstorung",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественний домен{{Divine Domain}}: Війна\n– Важкі (абісальні?) обладунки\n– Бойова зброя\n– Священик війни\nЧаротворство\nЗамовляння:\n– Настанова\n– Дзвін небіжчика\n– Слово сяйва\nЗаклинання 1-го рівня:\n– Божа милість (К)\n– Спрямований заряд\n– Цілюще слово\n– Захист від зла й добра (К)\n– Щит віри (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми починаємо зі щита, {{кольчуги|Chain Mail}} і {{бойового молота|Warhammer}}. Ми можемо розмахувати цією зброєю і принаймні кілька рівнів робити це з розумною ефективністю, якщо захочемо. Головна проблема — не мати зайнятих рук під час виконання соматичних компонентів наших заклинань. «Бойового заклинателя»{{War Caster}} у цій збірці ми не беремо, бо десь на пʼятому рівні перестанемо користуватися зброєю власноруч. Якщо ж ми хочемо вдовольнити свою фантазію про могутнього Клірика ближнього бою раніше, раджу тримати бойовий молот чи іншу зброю обома руками, щоб усе ще накладати заклинання без надто складної жонглерії. Важко вибирати між подихом дракона і подвійним рубанням, але ж Домену війни загалом нелегко. Якщо шукаємо наступальну магію, Спрямований заряд [Guiding Bolt] завдає пристойної променевої шкоди як атака заклинанням, яку можна поєднати з «Наведеним ударом»{{Guided Strike}}, коли ми отримаємо його на наступному рівні. Захист від зла й добра [Protection from Evil and Good] і Щит віри [Shield of Faith] — обидва добрі захисні варіанти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності\n– Вигнання нежиті\n– Наведений удар\nСпрямування божественної сили (за бажанням)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Наведений удар»{{Guided Strike}} корисний, поки ми ще розмахуємо бойовим молотом: отримуємо бонус до влучання, побачивши кидок і вирішивши, чи він вартий ціни. Він не буде корисним вічно, але згодом ми зручно отримаємо другий «Канал божественності»{{Channel Divinity}}. «Спрямування божественної сили»{{Harness Divine Power}} чудово дає додаткові слоти заклинань щодня, особливо якщо ми не збираємося використовувати «Наведений удар»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 2-го рівня:\n– Мале відновлення\n– Магічна зброя (К)\n– Духовна зброя"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мале відновлення [Lesser Restoration] знімає деякі небезпечні ефекти, тож його варто мати під рукою. Якщо можна, використайте володіння Магією, щоб створити сувій із ним. Так, це трохи дорого, але воно не потрібне щодня, тож тримати його у футлярі для сувоїв на крайній випадок — чудово. Магічна зброя [Magic Weapon] — не найефектніше й не найпотужніше використання нашої бонусної дії, але накладений на зброю союзника він може стати корисним підсиленням на цілу годину. Духовна зброя [Spiritual Weapon] чудовий, бо дає нам чудове застосування і для бонусної дії, і для «Наведеного удару». Він також переконливо свідчить, що «Священика війни»{{War Priest}} більше ніколи не варто використовувати. До того ж ніщо не заважає зробити так, щоб він виглядав як пістолет, коса чи батіг, якщо вам набридне, що це меч, навіть вищий за вас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура)\n– +1 до Статури (17 → 18)\nЧаротворство\nЗамовляння:\n– Світло"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Стійкий (Статура)»{{Resilient (Constitution)}} посилить нашу здатність утримувати заклинання Концентрації протягом усієї тривалості. Світло [Light] — добре замовляння, щоб бачити в темряві. Тільки не зіпсуйте собі нічний зір."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 1/2)\nЧаротворство\nЗаклинання 3-го рівня:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Підіймання мерців",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/animating-the-dead/#animate-dead-3rdlevel"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Мантія хрестоносця (К)\n– Відродження\n– Духи захисники (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 3-го рівня дозволяють нам почати поповнювати армію нежиті Скелекорп{{Skelecorp}}. Звісно, наш особистий набір слуг буде слабшим, ніж у Некроманта{{Necromancer}}, але тіло є тілом. А справжній наш внесок у цю групу — Мантія хрестоносця [Crusader's Mantle], заклинання, яке зазвичай виключно паладинське. У радіусі 30 футів кожен скелет (чи будь-хто інший, кого ми вважаємо союзником), натиснутий у цей квадратний круг, додаватиме 1к4 променевої шкоди до кожної своєї атаки. Це дуже багато шкоди. Відродження [Revivify] — податок, який ми мусимо сплатити, але з нашим володінням Магією розсудливо буде мати його у вигляді сувою на крайній випадок. Духи захисники [Spirit Guardians] сильні. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Ми докладно про це говорили",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#why-did-we-delay-wisdom-in-favor-of-resilient-constitution"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Якщо ми не граємо в групі Скелебро{{Skelebros}}, це сильніше за Мантія хрестоносця [Crusader's Mantle], але якщо ми в купі слуг, то тут багато складної математики, що визначає, що краще. Я цієї математики не робитиму, бо вона сильно залежить від того, який КБ у ворожих цілей проти будь-яких бонусів атаки наших скелетів і скільки ворогів ми можемо вразити Духами захисниками [Spirit Guardians]. Користуйтеся тим, що вам подобається, обидва допоможуть нам вбивати людей. Але памʼятайте, що ми можемо призначити будь-яку кількість істот імунними до Духів захисників [Spirit Guardians], зокрема й наших скелетів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (2/відпочинок)\n– Благословення бога війни"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "За допомогою «Благословення бога війни»{{War God’s Blessing}} ми тепер можемо віддавати бонус, який отримували до своїх кидків атаки, колегам-офіцерам і солдатам під нашою командою. Це добре, бо ми вже не атакуємо, окрім кількох атак заклинаннями."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 4-го рівня:\n– Захист від смерті\n– Свобода рухів\n– Камʼяна шкіра (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут ми нарешті отримуємо заклинання 4-го рівня. Захист від смерті [Death Ward] насамперед корисний, щоб блокувати ефекти миттєвої смерті, але його також можна використати для трюку, відомого як «нашарування Захисту від смерті»{{Death Ward Stacking}}. Як і будь-які інші ефекти, тривалості однакових ефектів перекриваються, а дія всіх, крім одного, пригнічується на час перекриття. Це означає, що якщо Захист від смерті [Death Ward] накласти на ціль двічі й ціль опуститься до 0 ХП, один Захист від смерті [Death Ward] закінчується. Ціль лишається з 1 ХП, а інший Захист від смерті [Death Ward] більше не пригнічений і готовий знову не дати цілі померти, що може трапитися дуже швидко, бо тепер у неї 1 ХП. Свобода рухів [Freedom of Movement] — загалом корисне захисне підсилення, що запобігає багатьом ефектам, які обмежують рух і контроль."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: +2 до Мудрості (16 → 18)\nЗнищення нежиті (ПН 1)\nБлагословенні удари (за бажанням)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут ми підвищимо Мудрість, щоб наші СК ряткидків і атаки заклинаннями не відставали надто сильно від Фундаментальної математики. Додаткове класове уміння «Благословенні удари»{{Blessed Strikes}} беремо, бо вже відмовилися користуватися зброєю власноруч. Навіть якщо ви таки використовуєте зброю, приріст шкоди той самий."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 5-го рівня:\n– Зараження\n– Полумʼяний удар\n– Більше відновлення\n– Стримування монстра (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зараження [Contagion] зазвичай трохи ризикований хід, бо вимагає підійти впритул, але оскільки це атака заклинанням, ми можемо застосувати «Наведений удар»{{Guided Strike}}, щоб гарантовано влучити заклинанням. Тоді ціль матиме стан Отруєний принаймні 3 і до 5 раундів. Якщо нам пощастить і вона провалить 3 ряткидки Статури, ми можемо накласти цілий перелік ще гірших ефектів. Мені дуже до вподоби постійний стан Приголомшений від «Слизької загибелі»{{Slimy Doom}}. Полумʼяний удар [Flame Strike] — пристойна порція шкоди, хіба що інші заклинателі користуються Вогнекулею [Fireball] для тієї самої сумарної шкоди ще з пʼятого рівня. Більше відновлення [Greater Restoration] добре знімає деякі погані стани. Добре мати його під рукою на такі екстрені випадки. Стримування монстра [Hold Monster] хороший, якщо його можна накласти на когось, оточеного союзниками ближнього бою. Наприклад, купою скелетів. Активна Духовна зброя [Spiritual Weapon] теж могла б отримати автоматичний критичний удар, якби ми були на це схильні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне втручання\nЧаротворство\nЗамовляння:\n– Дивотворство"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Божественне втручання»{{Divine Intervention}} — це кидок d100, щоб отримати "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "щось"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Що саме — вирішуєте ви з вашим Майстром. Можливо, прикликати решту вершників. Це напевно було б апокаліптично погано для ваших ворогів. Добрі замовляння ми вже взяли, тож тепер беремо веселе."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 2)\nЧаротворство\nЗаклинання 6-го рівня:\n– Зцілення\n– Істинний зір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зцілення [Heal]: повертає ХП комусь просто в обличчя. Істинний зір [True Seeing]. Бачить правду. Більше про це заклинання сказати нічого. Добре мати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше Мудрості. Кращі СК ряткидків."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 7-го рівня:\n– Етерність\n– Планарний перехід"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Етерність [Etherealness] чудовий для підступних шпигунських місій. Планарний перехід [Plane Shift] — для мобілізації військ або для відправлення когось, хто вам не до вподоби, кудись, де все вороже до їхнього існування."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 3)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут особливо нічого сказати. Тобто хто взагалі захоче "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "знищувати"
+                    },
+                    {
+                      "type": "text",
+                      "text": " нежить?"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 8-го рівня:\n– Свята аура (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чудове підсилення, обмежене лише кількістю союзників, що вміщаються в радіус. А союзників у нас предостатньо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Дарунок хроматичного дракона"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отримання половини шкоди вдвічі зменшує СК ряткидка Концентрації, а це, імовірно, більше підсилення цих ряткидків, ніж будь-що інше, що ми можемо зробити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Аватар битви\nЗнищення нежиті (ПН 4)\nЧаротворство\nЗаклинання 9-го рівня:\n– Масове зцілення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Випустіть свого внутрішнього демона з «Аватаром битви»{{Avatar of Battle}}, ставши дуже міцним проти немагічної зброї. Хоч отримання половини шкоди саме по собі чудове, наші СК Концентрації теж удвічі менші. Масове зцілення [Mass Heal] добре підтримує групу при житті. Так, усе так просто."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (3/відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потрійне «Благословення бога війни»{{War God’s Blessing}}. Допоможіть союзникам завдати того вирішального удару тричі за відпочинок."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: +2 до Статури (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП. Краща Концентрація."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращене божественне втручання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перейдіть від 19% шансу до 100% шансу отримати ефект від цього уміння."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-cleric-war-domain-2014-001",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання домену",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-002",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-003",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-004",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-005",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-006",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-007",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Додаткові майстерності",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-008",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Священик війни",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-009",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-010",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-011",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Божественний удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-012",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Аватар битви",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-013",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-war-domain-ability-scores",
+      "targetBlockId": "block-section-war-domain-ability-scores-3",
+      "optionId": "section-war-domain-ability-scores-block-section-war-domain-ability-scores-3",
+      "context": "Сила",
+      "explanationBlockId": "block-section-war-domain-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-014",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-war-domain-ability-scores",
+      "targetBlockId": "block-section-war-domain-ability-scores-4",
+      "optionId": "section-war-domain-ability-scores-block-section-war-domain-ability-scores-4",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-war-domain-ability-scores-4",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-015",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-war-domain-ability-scores",
+      "targetBlockId": "block-section-war-domain-ability-scores-5",
+      "optionId": "section-war-domain-ability-scores-block-section-war-domain-ability-scores-5",
+      "context": "Статура",
+      "explanationBlockId": "block-section-war-domain-ability-scores-5",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-016",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-war-domain-ability-scores",
+      "targetBlockId": "block-section-war-domain-ability-scores-6",
+      "optionId": "section-war-domain-ability-scores-block-section-war-domain-ability-scores-6",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-war-domain-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-017",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-war-domain-ability-scores",
+      "targetBlockId": "block-section-war-domain-ability-scores-7",
+      "optionId": "section-war-domain-ability-scores-block-section-war-domain-ability-scores-7",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-war-domain-ability-scores-7",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-018",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-war-domain-ability-scores",
+      "targetBlockId": "block-section-war-domain-ability-scores-8",
+      "optionId": "section-war-domain-ability-scores-block-section-war-domain-ability-scores-8",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-war-domain-ability-scores-8",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-019",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-war-domain-races",
+      "targetBlockId": "block-section-war-domain-races-3",
+      "optionId": "section-war-domain-races-block-section-war-domain-races-3-item-0",
+      "context": "Кентавр",
+      "explanationBlockId": "block-section-war-domain-races-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-020",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-war-domain-races",
+      "targetBlockId": "block-section-war-domain-races-3",
+      "optionId": "section-war-domain-races-block-section-war-domain-races-3-item-1",
+      "context": "Дворфи",
+      "explanationBlockId": "block-section-war-domain-races-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-021",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-war-domain-races",
+      "targetBlockId": "block-section-war-domain-races-3",
+      "optionId": "section-war-domain-races-block-section-war-domain-races-3-item-2",
+      "context": "Черепаха",
+      "explanationBlockId": "block-section-war-domain-races-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-022",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-war-domain-races",
+      "targetBlockId": "block-section-war-domain-races-5",
+      "optionId": "section-war-domain-races-block-section-war-domain-races-5-item-0",
+      "context": "Дракононароджений Фізбана",
+      "explanationBlockId": "block-section-war-domain-races-5",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-023",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-war-domain-feats",
+      "targetBlockId": "block-section-war-domain-feats-2",
+      "optionId": "section-war-domain-feats-block-section-war-domain-feats-2-item-0",
+      "context": "Стійкий",
+      "explanationBlockId": "block-section-war-domain-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-war-domain-2014-024",
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sectionId": "section-war-domain-feats",
+      "targetBlockId": "block-section-war-domain-feats-2",
+      "optionId": "section-war-domain-feats-block-section-war-domain-feats-2-item-1",
+      "context": "Бойовий заклинатель",
+      "explanationBlockId": "block-section-war-domain-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

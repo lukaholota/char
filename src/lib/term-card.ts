@@ -9,6 +9,7 @@ import type { Ruleset } from "@prisma/client";
 import type { ConditionData, RuleArticle } from "@/lib/rulesData";
 import { findRuleTermHref, listRuleTermLinks, type TermLink } from "@/lib/term-link";
 import { toEntitySlug } from "@/lib/slug-utils";
+import { findNestedRuleSection } from "./nested-rule-terms";
 
 export type TermDictionaryEntry = { term: string; section: string };
 
@@ -195,13 +196,16 @@ function findArticle(link: TermLink, articles: Record<Ruleset, RuleArticle[]>): 
 }
 
 function findArticleByHref(href: string, ruleset: Ruleset, articles: Record<Ruleset, RuleArticle[]>): TermArticle | null {
+  const lookupHref = href.replace(/\?[^#]*(?=#|$)/, "");
   const prefix = findRoutePrefix(ruleset);
   for (const article of articles[ruleset]) {
     const articleHref = `${prefix}/rules/${article.category}`;
-    if (href === `${articleHref}#${article.slug}`) {
+    const nested = findNestedRuleSection(article, lookupHref);
+    if (nested) return { title: article.title, summary: article.summary, href, ruleset, subsection: nested };
+    if (lookupHref === `${articleHref}#${article.slug}`) {
       return { title: article.title, summary: article.summary, href, ruleset, subsection: null };
     }
-    const subsection = article.subsections.find((section) => href === `${articleHref}#${section.id}`);
+    const subsection = article.subsections.find((section) => lookupHref === `${articleHref}#${section.id}`);
     if (subsection) {
       return {
         title: article.title,
@@ -306,7 +310,7 @@ function collectAliases(
 ): string[] {
   const keys = [toEntitySlug(link.original), ...dictionary.map((entry) => entry.term)];
   const found = new Set(findAliases(link.ruleset, ALIAS_ENTITY_TYPES, keys));
-  if (article) {
+  if (article && !findRuleTermHref(link.original, link.ruleset)) {
     const slug = article.href.split("#")[1] ?? "";
     for (const alias of findAliases(article.ruleset, ["rule"], [slug, article.title])) found.add(alias);
   }

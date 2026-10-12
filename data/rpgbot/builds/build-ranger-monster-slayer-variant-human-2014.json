@@ -1,0 +1,865 @@
+{
+  "buildId": "build-ranger-monster-slayer-variant-human-2014",
+  "revisionId": "build-ranger-monster-slayer-variant-human-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад Слідопита — Конклав убивці монстрів: «Старий надійний»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-ranger-monster-slayer-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+      "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "RANGER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "RANGER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "RANGER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Archery"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "ensnaring-strike"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "RANGER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "MONSTER_SLAYER_CONCLAVE",
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Primal Awareness"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "RANGER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GUNNER"
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "RANGER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "RANGER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "RANGER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "RANGER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "RANGER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "elemental-weapon"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "RANGER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Nature's Veil"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "RANGER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "RANGER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "RANGER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "RANGER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "RANGER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "RANGER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "RANGER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "swift-quiver"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "RANGER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "RANGER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "RANGER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-monster-slayer-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+          "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "MONSTER_SLAYER_CONCLAVE",
+    "raceKey": "HUMAN_2014",
+    "variantKey": "HUMAN_VARIANT",
+    "backgroundKey": "HERMIT",
+    "featKey": "PIERCER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Два підвищення на +1 вкладаємо у Спритність і Мудрість, а потім за допомогою +1 від Проколювача піднімаємо Спритність до 17.\n\n Базові Після підвищень Сил 8 8 Спр 15 17 Ста 15 14 Інт 8 10 Муд 15 16 Хар 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Варіант людини{{Variant Human}}. На 1-му рівні візьмемо Стрільця. Додаткова навичка теж приємна. Своя раса{{Custom Lineage}} також підійде з невеликими змінами підвищень характеристик на пізніших рівнях збірки.\n\nГіфф{{Giff}} також дуже добре підійде, але Гіффи не відтворюють здатність риси Стрілець використовувати вогнепальну зброю в ближньому бою, а я вже зробив озброєного вогнепальною зброєю бегемота, якому подобається Обплутуючий удар [Ensnaring Strike]. Технічно мушкет нам також не обовʼязковий: можна обрати іншу расу й довгий лук, майже не змінюючи збірку.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Будь-яке, що підходить до навичок. Практично всі звичайні варіанти Слідопита спрацюють.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Отримаємо 2 навички від класу, 2 від походження й одну як Варіант людини. Також матимемо Експертизу{{Expertise}} в одній навичці завдяки вмінню {{Кмітливий|Canny}}. Раджу Уважність або Непомітність.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 1-му рівні беремо Проколювача, який підвищує Спритність на +1.\n\nНа 4-му рівні беремо Стрільця й піднімаємо Спритність до 18.\n\nНа 8-му рівні піднімаємо Спритність до 20.\n\nНа 12-му рівні піднімаємо Мудрість до 18.\n\nНа 16-му рівні беремо {{Щасливчик|Lucky}}.\n\nНа 19-му рівні піднімаємо Мудрість до 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Риса: Проколювач; Мічений ворог; {{Вправний дослідник|Deft Explorer}}; Кмітливий — будь-яка навичка; 2 мови",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Бойовий стиль: Стрільба з лука; {{Чаротворення|Spellcasting}}; відомі заклинання: Обплутуючий удар [Ensnaring Strike], Обплутування [Entangle]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підклас: Конклав убивці монстрів; Магія вбивці чудовиськ; Відчуття мисливця; Здобич вбивці; {{Первородне усвідомлення|Primal Awareness}}; нове відоме заклинання: будь-яке; Захист від зла й добра [Protection from Evil and Good]*",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Стрілець (Спритність 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "{{Додаткова атака|Extra Attack}}; нове відоме заклинання: Магічна зброя; Зона правди [Zone of Truth]*",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "{{Мандрівний|Roving}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Надприродний захист; нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення характеристик: Спритність 18 → 20; {{Хода землею|Land’s Stride}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нове відоме заклинання: Стихійна зброя [Elemental Weapon]; Магічне коло [Magic Circle]*",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "{{Вуаль природи|Nature’s Veil}}; {{Невтомний|Tireless}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Закляття-ворог; нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення характеристик: Мудрість 16 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нове відоме заклинання: будь-яке; Вигнання [Banishment]*",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "{{Зникнення|Vanish}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Контрудар вбивці; нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Щасливчик",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Нове відоме заклинання: Швидкий сагайдак [Swift Quiver]; Стримування монстра [Hold Monster]*",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "{{Дикі почуття|Feral Senses}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення характеристик: Мудрість 18 → 20; нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "{{Убивця ворогів|Foe Slayer}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Заклинання Слідопита: Обплутування й Магічна зброя",
+        "reason": "На 2-му рівні автор називає Обплутування, а на 5-му Магічну зброю, але цих заклинань немає в списку Слідопита платформи; замість них у плані відкриті місця для вибору гравця. На 3-му, 7-му, 11-му, 13-му, 15-му й 19-му рівнях автор радить «будь-яке» заклинання, тому там теж відкриті місця. Заклинання Конклаву (Захист від зла й добра, Зона правди, Магічне коло, Вигнання, Стримування монстра) видає сам підклас.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-monster-slayer-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+            "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

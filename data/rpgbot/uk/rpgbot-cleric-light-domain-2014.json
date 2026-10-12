@@ -1,0 +1,1586 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-6dd9431be91b32ca",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-6dd9431be91b32ca-1b68e83e1381f121",
+      "sourceId": "rpgbot-6dd9431be91b32ca",
+      "fetchedAt": "2026-09-29T19:14:53.048145+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:30:34-04:00",
+      "contentHash": "8ffb70612c908bc22a61e4ebef7e16272fcf712a6b81a32ccdb0ad51074b5b2b",
+      "title": "Light Domain Cleric 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-6dd9431be91b32ca-1b68e83e1381f121.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-cleric-light-domain-2014",
+    "sourceId": "rpgbot-6dd9431be91b32ca",
+    "slug": "cleric-light-domain-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Домен світла — гайд підкласу Клірика (2014)",
+    "titleEn": "Light Domain Cleric 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Клірик",
+      "Домен світла",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "sourceRevisionId": "rpgbot-6dd9431be91b32ca-1b68e83e1381f121",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірик домену світла — найкращий варіант нюкера, доступний Клірикові: він пропонує розширені варіанти шкоди, запозичені з інших списків заклинань. З потужними варіантами на кшталт Вогнекулі [Fireball] ви легко зрівняєтеся за шкодою з такими класами, як Чарівник."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Жоден інший клас у грі не має такого доступу до променевої шкоди, як Клірики, і після написання нашого "
+                },
+                {
+                  "type": "link",
+                  "text": "розбору списку заклинань Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/spells/"
+                },
+                {
+                  "type": "text",
+                  "text": " мені дуже захотілося побачити, як далеко можна зайти зі збіркою, зосередженою здебільшого на променевій шкоді. Оскільки Домен світла дає саме це плюс вогняну шкоду, я вирішив, що обмеження збірки цими двома типами шкоди дасть цікавого персонажа і з механічного, і з концептуального погляду, і захотів поділитися результатами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Домену світла",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#subclass-features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Домену світла",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Домену світла",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Домену світла",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Домену світла",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Домену світла",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Домену світла",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Клірика світла — Варіант людини, Клірик домену світла",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Домену світла",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-subclass-features",
+          "heading": "Уміння Домену світла",
+          "sourceAnchor": "subclass-features",
+          "blocks": [
+            {
+              "blockId": "block-section-subclass-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання домену{{Domain Spells}}: Фантастичний набір наступальних заклинань, що скорочує розрив між Кліриками і Чарівниками."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Вогники фей [Faerie fire] — чудовий спосіб упоратися з невидимими істотами, але це також корисний підтримувальний варіант для союзників, що покладаються на атаки, бо це легке джерело Переваги на кубику проти кількох цілей. Палючі долоні [Burning Hands] — чудове низькорівневе заклинання шкоди по області, але стримайте спокусу спалити всі слоти заклинань на його накладання, інакше не залишиться слотів для зцілення. На високих рівнях Вогники фей [Faerie fire] залишаються неймовірно потужними, а Палючі долоні [Burning Hands] застаріють за кілька рівнів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Розпечений промінь [Scorching Ray] — чудовий варіант, особливо якщо діє Благословення [Bless] чи Вогники фей [Faerie fire], що підвищують кидки атаки. Палюча сфера [Flaming Sphere] однозначно гірша за Духовну зброю [Spiritual Weapon], але досить добра, щоб розглянути можливість не готувати Духовну зброю [Spiritual Weapon], якщо вам бракує місця для підготовлених заклинань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Денне світло [Daylight] ситуативне, але Вогнекуля [Fireball] — кувалда серед наступальних заклинань: іноді просто треба бити по своїх проблемах, поки вони не впадуть. Щодо миттєвої шкоди по області, немає іншого заклинання, що могло б змагатися з Вогнекулею [Fireball], поки заклинання 9-го рівня не додають таке, як Рій метеорів [Meteor Swarm]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Стіна вогню [Wall of Fire] — одне з найкращих заклинань контролю зони в грі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Полумʼяний удар [Flame Strike] значно менш важливий, бо у вас є Вогнекуля [Fireball], а Стеження [Scrying] корисне лише ситуативно, тож дратує мати його щодня підготовленим."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бонусне замовляння{{Bonus Cantrip}}: Не вражає, але Клірик світла справді має мати Світло [Light], і в більшості груп хтось має вміти його накладати (хіба що в усіх є темнозір)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спалах захисника{{Warding Flare}}: Використань буде небагато, тож бережіть його для ворогів, що можуть завдати багато шкоди однією атакою. Його треба активувати «до того, як атака влучить чи схибить», що дратівливо розпливчасто, але я припускаю, що це означає «до визначення результату атаки». Тож ваш Майстер може кинути кубик, запитати «25 влучає?», прекрасно знаючи, що так, а ви можете вигукнути «Спалах захисника!» до того, як Майстер скаже «по вас влучили», і тоді Майстер кидатиме з Перешкодою на кубику (тобто кидає другий кубик і обирає нижчий із двох результатів, а не скидає те, що вже випало). Звісно, ваш Майстер може прочитати це інакше й погано сприйняти мій опис такої взаємодії, тож перевірте зі своїм Майстром, перш ніж припускати, як це працює. На жаль, єдина відповідь Джеремі Кроуфорда на цю тему "
+                  },
+                  {
+                    "type": "link",
+                    "text": "насправді не прояснює відповіді",
+                    "href": "https://twitter.com/JeremyECrawford/status/839263164936003584"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Проміння світанку|Channel Divinity: Radiance of the Dawn}}: Шкода на вищих рівнях не вражає. Магічна темрява справді може створювати проблеми, і гарантований спосіб її прибрати дуже зручний, але магічну темряву можна також скасувати заклинанням Денним світлом [Daylight], яке ви отримуєте підготовленим безкоштовно з 5-го рівня. Тож є невелике віконце рівнів, коли це може бути впливовим, але після низьких рівнів ви часто отримуватимете кращі результати від додаткового класового уміння «Спрямування божественної сили»{{Harness Divine Power}}, якщо ваш Майстер це дозволяє."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Покращений спалах{{Improved Flare}}: Фантастично, якщо у вас є союзники тендітніші за вас (як Чарівник) або якщо треба виграти час, поки ви зможете когось зцілити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Потужне заклинання{{Potent Spellcasting}}: До цього рівня у вас майже напевно 20 Мудрості, що дає вражаюче підвищення вашої шкоди. Зауважте, що це стосується лише замовлянь Клірика, тож ви не можете поєднувати це з рисою «Посвячений у магію»{{Magic Initiate}}, щоб перетворити на проблему такі речі, як Позамежний заряд [Eldritch Blast], але додавання Мудрості до основних замовлянь, як-от Священне полумʼя [Sacred Flame], Слово сяйва [Word of Radiance] і Дзвін небіжчика [Toll the Dead], усе одно чудове."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Корона світла|Corona of Light}}: Якщо ви хоч трохи схожі на мене, щоразу, коли бачите це уміння, вам хочеться пожартувати про легке пиво. Але на відміну від легкого пива, це весело. По суті, це кнопка «форсажу» для ваших заклинань вогняної та променевої шкоди, що особливо добре працює із «Заклинаннями домену»{{Domain Spells}} Домену світла та з основними заклинаннями Клірика на кшталт Духів захисників [Spirit Guardians]."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Домену світла",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "звичайного клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Домену світла",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "звичайного клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#races"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Домену світла",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мало чим відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "звичайного клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Адепт стихій{{Elemental Adept}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Оскільки ви так сильно покладаєтеся на вогняну шкоду, «Адепт стихій» може зробити найкращі варіанти вашого підкласу надійнішими. Звісно, коли натрапите на опір, можна й перемкнутися на інші варіанти шкоди."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Домену світла",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "звичайного клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": ". Домен світла зосереджений на чаротворстві, тож цілком імовірно, що ви ніколи не користуватиметеся зброєю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Домену світла",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "звичайного клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": ". Домен світла не дає важких обладунків, тож беріть напівлати й щит."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Домену світла",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "звичайного клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Клірика світла — Варіант людини, Клірик домену світла",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Якби ж то мені бути таким… непристойно розжареним."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка доволі проста. Обмеження наших варіантів шкоди лише вогнем і променевою шкодою вкрай стискає вибір, але ці типи все одно охоплюють багато найкращих заклинань шкоди в грі. У групі це переважно заклинач дальнього бою, але з середніми обладунками й щитом ми все одно можемо стати між слабшими союзниками та тим, що має списи й зуби, якщо воно прорветься повз наших союзників, більш орієнтованих на ближній бій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка отримала почесну згадку в "
+                },
+                {
+                  "type": "link",
+                  "text": "наших 10 улюблених збірках D&D 5e",
+                  "href": "https://rpgbot.net/rpgbots-10-favorite-dnd-character-builds-that-arent-wizards/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут враховано два гнучкі збільшення характеристик на +1 від Варіанта людини{{Variant Human}}. Ви легко можете скоригувати їх залежно від своєї ролі в групі. Якщо ви берете якісь навички «обличчя», поміняйте місцями Інтелект і Харизму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варіант людини{{Variant Human}}. Два збільшення характеристик вкладемо в Статуру й Мудрість. Вільну навичку витратимо на Уважність, бо це найважливіша навичка в грі, а в списку навичок Клірика її немає. Додаткову мову можна вкласти в будь-що, і Небесна здається доречною. Про риси поговоримо нижче."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Уважність ми отримуємо від раси, а ще дві навички — зі списку Клірика. Релігія майже напевно потрібна, тож припустімо, що це наш перший вибір. Якщо ви — «обличчя» своєї групи, візьміть Переконання. Якщо ні, візьміть Історію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наш вибір передісторії майже не впливає на збірку, тож оберіть те, що вам до душі або що допомагає у вашій ролі в групі. Якщо не можете вирішити, Послушник{{Acolyte}} — чудовий варіант. Візьміть Аналіз Поведінки, Переконання та дві мови, поширені в сеттингу, де відбувається ваша кампанія."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вибір расової риси непростий. «Адепт стихій»{{Elemental Adept}} виглядає привабливо, але всього заклинань, що завдають вогняної шкоди, ми отримуємо лише 6, тож користі від нього буде небагато. Ми навіть не отримуємо замовляння Вогняний заряд [Fire Bolt]. «Важкоозброєний»{{Heavily Armored}} спокушає, але це загалом лише +1 до КБ, а підвищення Сили нам не допомагає. «Майстер середніх обладунків»{{Medium Armor Master}} міг би спрацювати, але нам усе одно знадобиться більше Спритності, щоб скористатися ним повною мірою, і я не бачу, щоб наш сяючий клірик багато крався."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Снайпер заклять»{{Spell Sniper}} і «Посвячений у магію»{{Magic Initiate}} обидва виглядають привабливо заради додаткових замовлянь, але в нас уже є Священне полумʼя [Sacred Flame] і Слово сяйва [Word of Radiance], тож більше нам майже нічого не треба. Якщо хтось має опір чи імунітет до променевої шкоди, можна натомість використати заклинання з рівнями. У Клірика майже немає наступальних заклинань, що вимагають атак заклинаннями, тож «Снайпер заклять» майже нічого не дає, а я не можу придумати жодних конкретних заклинань з інших класів, які ми б хотіли отримати через «Посвяченого у магію»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наші найкращі варіанти — на кшталт «Удачі»{{Lucky}}, «Спостережливого»{{Observant}} та «Стійкого»{{Resilient}}. «Удача» — просто загалом чудова риса, тож це чудовий запасний варіант, якщо не знаєте, що обрати. «Спостережливий» дає нам +1 до Мудрості або Інтелекту, тож якщо ви користуєтеся Купівлею характеристик, можна опустити базову Мудрість до 14, витратити зекономлені очки деінде й усе одно мати 16 Мудрості на 1-му рівні. Або можна переставити запропоновані мною значення характеристик так, щоб (після застосування расових підвищень і бонусу від «Спостережливого» чи «Стійкого») вийшло два непарні значення, і ваше перше підвищення характеристик збільшило два ваші модифікатори характеристик."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Стійкий»{{Resilient}} погано підходить, щоб підвищити Мудрість на 1-му рівні, бо клірики вже володіють ряткидками Мудрості, але його можна взяти на Статуру, і ви все одно матимете трохи зайвих очок на Купівлю характеристик, які можна витратити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна запланувати дві риси, що дають +1 до характеристики: почати з 17 Мудрості, а на 4-му рівні отримати 18. На жаль, я не знаю комбінації рис, яка це підтримує, окрім «Спостережливого»{{Observant}} і «Стійкого»{{Resilient}}, а надлишкове володіння ряткидками використати нікуди, тож це здається марнотратством."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для цієї збірки припустімо «Удачу»{{Lucky}} як вибір риси за замовчуванням, але я закликаю вас експериментувати. Якщо ніхто інший у групі не має високої Уважності, я наполегливо раджу натомість розглянути «Спостережливого»{{Observant}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання домену\nВідомі замовляння:\n– Настанова\n– Священне полумʼя\n– Слово сяйва\nБонусне замовляння домену світла:\n– Світло\nСпалах захисника"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Як стартове спорядження виберіть булаву, лускатий обладунок, кинджал, будь-який із наборів, а також щит і священний символ{{Holy Symbol}}. Якщо ви взяли передісторію Послушника{{Acolyte}}, у вас може вийти два священні символи, але мати запасний приємно. На 1-му рівні у вас КБ 18, поки ви тримаєте щит. Можна ходити з кинджалом і щитом напоготові, але щоб виконувати соматичні компоненти, зброю доведеться прибрати, а єдина причина носити кинджал — Принагідні атаки. Ваші основні наступальні варіанти — замовляння. Священне полумʼя [Sacred Flame] — для одиничних цілей, а Слово сяйва [Word of Radiance] — якщо можете зачепити більше однієї цілі, підійшовши впритул, але не бійтеся діставати Палючі долоні [Burning Hands], якщо хочете більше шкоди або можете влучити по купі цілей. Очікуйте, що лікуватися доведеться здебільшого відпочинком, але для екстрених випадків майте Цілюще слово [healing word]. Розгляньте Благословення [Bless] або Щит віри [Shield of Faith], щоб підсилити союзників, але памʼятайте, що слотів заклинань на цьому рівні дуже мало. Якщо вам треба захистити лише себе, пропустіть Щит віри [Shield of Faith] і покладайтеся замість нього на «Спалах захисника»{{Warding Flare}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (1/день)\nБожественність: Проміння світанку"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На низьких рівнях «Проміння світанку»{{Radiance of the Dawn}} — пристойний засіб шкоди по області з фантастичним радіусом. З ростом рівнів шкода дуже швидко відстає, але воно лишається безвідмовним способом упоратися з магічною темрявою, яка інакше була б величезною проблемою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3-й рівень приносить заклинання 2-го рівня, і наші заклинання домену містять два нових веселих способи завдавати вогняної шкоди. Духовна зброя [Spiritual Weapon] зазвичай краще заклинання, ніж Палюча сфера [Flaming Sphere], але ми обмежуємо себе вогняною й променевою шкодою, тож готуйтеся викликати дуже маленьке сонце й таранити ним людей. Серед заклинань 2-го рівня є й Вічне полумʼя [Continual Flame], і, чесно кажучи, якщо ваш священний символ не світиться безперервно, то який ви взагалі клірик світла?"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 16 → 18\nНове відоме замовляння:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше Мудрості багато дає клірикові. Більше підготовлених заклинань, більше лікування від Лікування ран [Cure Wounds] і від Цілющого слова [healing word], вищі СК наших заклинань і ще одне використання «Спалаху захисника»{{Warding Flare}}. Замовляння, які мене цікавлять, у нас уже є, тож розгляньте щось цікаве на кшталт Дивотворства [Thaumaturgy] чи Милості до вмирущого [Spare the Dying]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену\nЗнищення нежиті (ПН 1/2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5-й рівень приносить кілька важливих віх. Шкода замовлянь зростає, і ви додаєте Денне світло [Daylight] та Вогнекуля [Fireball]. Вогнекуля [Fireball] — одне з найкращих заклинань шкоди в грі для свого рівня, і я закликаю вас застосовувати його щоразу, коли ситуація бодай віддалено це виправдовує. Обовʼязково візьміть Духи захисники [Spirit Guardians]. Перетворіться на блендер променевої шкоди й увійдіть у ближній бій. Ви все одно отримуєте свою дію, тож можете додати ще променевої шкоди через Слово сяйва [Word of Radiance] чи «Проміння світанку»{{Radiance of the Dawn}}, якщо потрібно більше шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (2/відпочинок)\nПокращений спалах"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткове використання «Проміння світанку»{{Radiance of the Dawn}} не вражає, але це дешевий ефект по області з великим радіусом, тож застосовуйте його щоразу, коли можете накрити ефектом купу ворогів. «Покращений спалах»{{Improved Flare}} — чудове покращення «Спалаху захисника»{{Warding Flare}}. Накладення Перешкоди на кубику на кидки атаки проти будь-кого з ваших союзників означає, що у вас є простий спосіб захистити слабких чи поранених союзників, не урізаючи час, який ви витрачаєте на завдання шкоди. Використань усе одно лише кілька на день, тож бережіть його для атак, які справді створюватимуть проблеми, а не вичерпуйте запас «Спалаху захисника», щойно виймають зброю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні нічого, крім заклинань 4-го рівня. Стіна вогню [Wall of Fire] — чудовий контроль області, через що Вартовий віри [Guardian of Faith] порівняно з нею здається безглуздим, бо це менш корисне заклинання контролю області. Вартовий віри [Guardian of Faith], щоправда, має тривалість 8 годин, що відкриває кілька цікавих варіантів, але загалом ви обиратимете Стіну вогню [Wall of Fire]. Дуже добре освойтеся зі Стіною вогню [Wall of Fire]. Її шкода масштабується на 1к8 за рівень заклинання, так само як у Духів захисників [Spirit Guardians], а те, що шкоду можна завдавати багаторазово, робить її чудовим варіантом для слотів заклинань вищих рівнів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 18 → 20\nЗнищення нежиті (ПН 1)\nПотужне заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер у нас максимальна Мудрість, і це чудово. Більше шкоди, кращі СК і більше «Спалаху захисника»{{Warding Flare}}! «Потужне заклинання»{{Potent Spellcasting}} — велике підсилення, особливо для Слова сяйва [Word of Radiance]. Якщо вдасться зачепити двох ворогів, шкода 2к6+5 справді чудова, і вона стає ще кращою, коли вороги збираються довкола вас. Не знаю, чому б вони це робили, зважаючи на існування Духів захисників [Spirit Guardians], але вороги бувають настільки тупими, що просто кидаються на найближчого гравця."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні нічого, крім заклинань 5-го рівня, і Домен світла не дає нічого цікавого. Більшість днів ви не користуватиметеся Стеженням [Scrying] (хоча вам варто неодмінно купити для нього матеріальний компонент), а Полумʼяний удар [Flame Strike] — це просто дорожча Вогнекуля [Fireball], тож, імовірно, ви не повинні користуватися ним ніколи. Втім, ми отримуємо доступ до Світанку [Dawn] і Священної зброї [Holy Weapon], і хоча вони не надто важливі, це все одно чудові джерела променевої шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне втручання\nНове відоме замовляння:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Божественне втручання»{{Divine Intervention}} справді круте, але також цілком ненадійне. На цьому рівні шанс отримати Божественне втручання — лише 10%. Користуйтеся ним часто, хоча б для того, щоб мати шанс справді запустити ефекти. На жаль, це також останній на довгий час рівень, де ми отримуємо захопливе й цілком нове класове уміння. Далі все — поступові покращення й нові рівні заклинань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 6-го рівня, і ви можете знищувати нежить із ПН 2. Шкода замовлянь теж зростає. Трагічно, але серед заклинань Клірика 6-го рівня немає жодного, що завдає променевої чи вогняної шкоди, проте наші улюблені заклинання на кшталт Духів захисників [Spirit Guardians] і Стіни вогню [Wall of Fire] усе ще чудові варіанти. Ви справді отримуєте чудові речі на кшталт Зцілення [Heal], але жодна з них не є вибухом божественного сонячного світла, тож для наших цілей вони не надто захопливі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура 14 → 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ваше перше підвищення характеристики, яке не мусить іти в Мудрість. Статура покращить ваші ХП, але якщо вас рідко обирають цілями, розгляньте риси. Якщо ви не взяли «Стійкого»{{Resilient}} на першому рівні, це чудовий варіант."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні нічого, крім заклинань 7-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 3)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищуйте ще більше нежиті."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні нічого, крім заклинань 8-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Статура 16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще одне Покращення Характеристик або риса."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 4)\nКорона світла"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 9-го рівня й «Корона світла»{{Corona of Light}}. «Корона світла» триває лише хвилину, але накладіть Духів захисників [Spirit Guardians] як заклинання 9-го рівня, активуйте «Корону світла» — і ви невпинний торнадо променевої шкоди, що завдає 9к8 шкоди за раунд, причому ряткидки Спритності на половину шкоди проходять із Перешкодою на кубику. Усе, що вам треба, — утримувати ворогів у зоні й не померти, а якщо після повної хвилини вам не вдалося вбити все в кімнаті загальною шкодою 90к8 (у середньому 405; трохи менше за 2/3 ХП Тараска), сподіваймося, що спам «Проміння світанку» й Слова сяйва [Word of Radiance] компенсували різницю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (3/відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні змін немає, але додаткове використання «Проміння світанку»{{Radiance of the Dawn}} добре поєднується з «Короною світла»{{Corona of Light}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Статура 18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще одне Покращення Характеристик або риса."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращене божественне втручання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Божественне втручання»{{Divine Intervention}} стрибає з 19% ефективності до 100%. На цьому рівні ви достатньо близькі до свого божества, щоб завжди просити й отримувати пряму допомогу. Це навмисно розмите уміння, тож очікуйте певних переговорів зі своїм Майстром, щоб визначити, яку допомогу ви отримаєте."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-cleric-light-domain-2014-001",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-0",
+      "context": "Заклинання домену",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-light-domain-2014-002",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-light-domain-2014-003",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-light-domain-2014-004",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-light-domain-2014-005",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-light-domain-2014-006",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-light-domain-2014-007",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-6",
+      "context": "Бонусне замовляння",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-light-domain-2014-008",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-7",
+      "context": "Спалах захисника",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-light-domain-2014-009",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-8",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-light-domain-2014-010",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-9",
+      "context": "Покращений спалах",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-light-domain-2014-011",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-10",
+      "context": "Потужне заклинання",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-light-domain-2014-012",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-11",
+      "context": "Корона світла",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-light-domain-2014-013",
+      "articleId": "rpgbot-cleric-light-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-0",
+      "context": "Адепт стихій",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

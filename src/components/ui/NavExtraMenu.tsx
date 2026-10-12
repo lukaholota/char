@@ -1,6 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import { InstallAppEntry } from "@/components/pwa/InstallAppEntry";
+import { ReloadAppEntry } from "@/components/pwa/ReloadAppEntry";
+import type { InstallPath } from "@/lib/pwa/install-platform";
+
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useCallback, useMemo, useRef, useState, RefObject } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
@@ -25,6 +30,9 @@ import { useOmniSearchStore } from "@/lib/stores/omniSearchStore";
 import { MENU_PANEL } from "@/components/ui/menu-panel";
 import { collectMenuCatalogs, findCatalogHref, findCatalogTitle, type CatalogEntry } from "@/lib/catalogs/catalog-registry";
 import type { Edition } from "@/rules/route-helpers";
+import { buildRpgbotCtaProps } from "@/lib/monitoring/rpgbot-analytics-model";
+
+const InstallAppInstructions = dynamic(() => import("@/components/pwa/InstallAppInstructions").then((module) => module.InstallAppInstructions), { loading: () => null });
 
 type Props = {
   showHomeLinkInMenu?: boolean;
@@ -38,6 +46,7 @@ type MenuItemsProps = {
   close: () => void;
   onOpenAuth: () => void;
   onOpenReport: () => void;
+  onInstallInstructions: (path: InstallPath) => void;
   logoutConfirm: {
     ref: RefObject<HTMLButtonElement | null>;
     isConfirming: boolean;
@@ -54,6 +63,7 @@ type CatalogLink = {
   label: string;
   iconClass?: string;
   mobileOnly?: boolean;
+  slug?: string;
 };
 
 function buildCatalogLinks(is2024: boolean, showHome: boolean): CatalogLink[] {
@@ -65,7 +75,7 @@ function buildCatalogLinks(is2024: boolean, showHome: boolean): CatalogLink[] {
 
   const catalogs = collectMenuCatalogs(edition).flatMap((entry) => {
     const href = findCatalogHref(entry.slug, edition);
-    return href ? [{ href, icon: entry.menuIcon, label: buildMenuLabel(entry, edition), iconClass: accent }] : [];
+    return href ? [{ href, icon: entry.menuIcon, label: buildMenuLabel(entry, edition), iconClass: accent, slug: entry.slug }] : [];
   });
 
   const spellsHref = findCatalogHref("spells", edition);
@@ -91,6 +101,7 @@ function NavMenuItems({
   close,
   onOpenAuth,
   onOpenReport,
+  onInstallInstructions,
   logoutConfirm,
 }: MenuItemsProps) {
   const { open: openSearch } = useOmniSearchStore();
@@ -111,8 +122,11 @@ function NavMenuItems({
         <kbd className="ml-auto text-[10px] font-mono text-slate-500 bg-white/5 px-1.5 py-0.5 rounded border border-white/10">⌘K</kbd>
       </button>
 
-      {buildCatalogLinks(is2024, showHome).map(({ href, icon: Icon, label, iconClass, mobileOnly }) => (
-        <Link key={href} href={href} onClick={close} className={cn(MENU_ITEM, mobileOnly && "md:hidden")}>
+      <ReloadAppEntry className={`${MENU_ITEM} w-full`} onActivate={close} />
+      <InstallAppEntry placement="menu" className="w-full px-3 text-slate-200" onActivate={close} onInstructions={onInstallInstructions} />
+
+      {buildCatalogLinks(is2024, showHome).map(({ href, icon: Icon, label, iconClass, mobileOnly, slug }) => (
+        <Link key={href} href={href} onClick={close} {...(slug === "rpgbot" ? buildRpgbotCtaProps("open_index", "menu") : {})} className={cn(MENU_ITEM, mobileOnly && "md:hidden")}>
           <Icon className={cn("h-4 w-4", iconClass)} />
           {label}
         </Link>
@@ -202,6 +216,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
   const [open, setOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [reportOpen, setReportOpen] = useState(false);
+  const [installInstructions, setInstallInstructions] = useState<InstallPath | null>(null);
 
   const reduceMotion = useReducedMotion();
 
@@ -236,6 +251,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
 
   return (
     <>
+      {installInstructions ? <InstallAppInstructions path={installInstructions} onClose={() => setInstallInstructions(null)} /> : null}
       <GoogleAuthDialog open={authOpen} onOpenChange={setAuthOpen} />
       <ReportProblemDialog open={reportOpen} onOpenChange={setReportOpen} pathname={pathname} />
 
@@ -247,15 +263,15 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
           aria-haspopup="menu"
           onClick={toggle}
           className={cn(
-            "flex w-16 flex-col items-center justify-center gap-1 rounded-xl py-2 text-slate-400 transition-all hover:bg-white/5 hover:text-slate-200 md:w-16",
+            "safe-nav-item flex w-16 flex-col items-center justify-center gap-1 rounded-xl py-2 text-slate-400 transition-all hover:bg-white/5 hover:text-slate-200 md:w-16",
             open && "bg-white/5 text-slate-200"
           )}
         >
           <Menu className="h-6 w-6" />
-          <span className="text-[11px] leading-none">Меню</span>
+          <span className="safe-nav-label text-xs leading-none">Меню</span>
         </button>
 
-        <AnimatePresence>
+        {installInstructions === null ? <AnimatePresence>
           {open ? (
             <>
               {/* Overlay */}
@@ -289,6 +305,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
               {/* Mobile sheet */}
               <motion.div
                 key="mobile-sheet"
+                data-safe-menu
                 ref={mobilePanelRef}
                 role="menu"
                 className={cn(
@@ -308,6 +325,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
                       close={close}
                       onOpenAuth={() => setAuthOpen(true)}
                       onOpenReport={() => setReportOpen(true)}
+                      onInstallInstructions={setInstallInstructions}
                       logoutConfirm={logoutConfirmMobile}
                     />
                   </div>
@@ -334,6 +352,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
                       close={close}
                       onOpenAuth={() => setAuthOpen(true)}
                       onOpenReport={() => setReportOpen(true)}
+                      onInstallInstructions={setInstallInstructions}
                       logoutConfirm={logoutConfirmDesktop}
                     />
                   </div>
@@ -341,7 +360,7 @@ export function NavExtraMenu({ showHomeLinkInMenu = false, className }: Props) {
               </motion.div>
             </>
           ) : null}
-        </AnimatePresence>
+        </AnimatePresence> : null}
       </div>
     </>
   );

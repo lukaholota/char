@@ -1,0 +1,132 @@
+{
+  "monster": [
+    {
+      "name": "Bore Worm",
+      "source": "WDMM",
+      "page": 171,
+      "size": [
+        "G"
+      ],
+      "type": "construct",
+      "alignment": [
+        "U"
+      ],
+      "ac": [
+        {
+          "ac": 18,
+          "from": [
+            "natural armor"
+          ]
+        }
+      ],
+      "hp": {
+        "average": 247,
+        "formula": "15d20 + 90"
+      },
+      "speed": {
+        "walk": 50,
+        "burrow": 30
+      },
+      "str": 28,
+      "dex": 7,
+      "con": 22,
+      "int": 1,
+      "wis": 8,
+      "cha": 4,
+      "save": {
+        "con": "+11",
+        "wis": "+4"
+      },
+      "senses": [
+        "blindsight 30 ft.",
+        "tremorsense 60 ft."
+      ],
+      "passive": 9,
+      "immune": [
+        "poison",
+        "psychic",
+        {
+          "immune": [
+            "bludgeoning",
+            "piercing",
+            "slashing"
+          ],
+          "note": "from nonmagical attacks that aren't adamantine",
+          "cond": true
+        }
+      ],
+      "conditionImmune": [
+        "blinded",
+        "charmed",
+        "deafened",
+        "exhaustion",
+        "frightened",
+        "paralyzed",
+        "petrified",
+        "poisoned",
+        "prone"
+      ],
+      "cr": "16",
+      "trait": [
+        {
+          "name": "Tunneler",
+          "entries": [
+            "The worm can burrow through solid rock at half its burrow speed and leaves a 10-foot-diameter tunnel in its wake."
+          ]
+        },
+        {
+          "name": "Regeneration",
+          "entries": [
+            "The worm regains 10 hit points at the start of each of its turns if it has at least 1 hit point."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Multiattack",
+          "entries": [
+            "The worm makes two attacks: one with its grinding jaws and one with its stinger."
+          ]
+        },
+        {
+          "name": "Grinding Jaws",
+          "entries": [
+            "{@atk mw} {@hit 9} to hit, reach 10 ft., one target. {@h}22 ({@damage 3d8 + 9}) slashing damage."
+          ]
+        },
+        {
+          "name": "Tail Stinger",
+          "entries": [
+            "{@atk mw} {@hit 14} to hit, reach 10 ft., one creature. {@h}19 ({@damage 3d6 + 9}) piercing damage, and the target must make a {@dc 19} Constitution saving throw, taking 42 ({@damage 12d6}) poison damage on a failed save, or half as much damage on a successful one."
+          ]
+        }
+      ],
+      "traitTags": [
+        "Regeneration",
+        "Tunneler"
+      ],
+      "senseTags": [
+        "B",
+        "T"
+      ],
+      "actionTags": [
+        "Multiattack"
+      ],
+      "damageTags": [
+        "I",
+        "P",
+        "S"
+      ],
+      "miscTags": [
+        "MW",
+        "RCH"
+      ],
+      "savingThrowForced": [
+        "constitution"
+      ],
+      "hasToken": true,
+      "hasFluff": true,
+      "hasFluffImages": true
+    }
+  ]
+}

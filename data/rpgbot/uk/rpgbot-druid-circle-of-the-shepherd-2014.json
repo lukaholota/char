@@ -1,0 +1,1995 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-ba54053a375f58d8",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-ba54053a375f58d8-45b76cd5d803826d",
+      "sourceId": "rpgbot-ba54053a375f58d8",
+      "fetchedAt": "2026-09-29T19:20:36.526257+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:33:13-04:00",
+      "contentHash": "e78cb627d1b897bfefb8e1c73ef8776cb3c4bf9d642126822cfd3b6b40d33f22",
+      "title": "Circle of the Shepherd Druid 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-ba54053a375f58d8-45b76cd5d803826d.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+    "sourceId": "rpgbot-ba54053a375f58d8",
+    "slug": "druid-circle-of-the-shepherd-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Коло пастуха — гайд підкласу Друїда (2014)",
+    "titleEn": "Circle of the Shepherd Druid 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Друїд",
+      "Коло пастуха",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "sourceRevisionId": "rpgbot-ba54053a375f58d8-45b76cd5d803826d",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Коло пастуха|Circle of the Shepherd}} пропонує Друїдові чудові можливості підтримувати свою групу й викликати потужніших істот за допомогою Зʼяви тварин [Conjure Animals] і Зʼяви феї [Conjure Fey]. Якщо вам подобається викликати істот і підсилювати союзників, це чудовий вибір. Загалом, Коло пастуха додає багато можливостей контролера, цілителя й сапорта-заклинача."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки виклик істот — серцевина {{Кола пастуха|Circle of the Shepherd}}, я наполегливо раджу прочитати наш "
+                },
+                {
+                  "type": "link",
+                  "text": "Практичний гайд із виклику істот",
+                  "href": "https://rpgbot.net/dnd5/characters/summoning"
+                },
+                {
+                  "type": "text",
+                  "text": ". Важко переоцінити, наскільки виклик центральний для Кола пастуха, а розуміння можливостей друїдових заклинань виклику зробить вас значно ефективнішим."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Дух єдинорога»{{Unicorn Spirit}} настільки сильно доповнює друїдове лікування, що друїд {{Кола пастуха|Circle of the Shepherd}} потрапив до "
+                },
+                {
+                  "type": "link",
+                  "text": "Олімпіади хілботів",
+                  "href": "https://rpgbot.net/dnd5/characters/healbot-olympics"
+                },
+                {
+                  "type": "text",
+                  "text": ", де розділив 1-ше місце з Кліриком Домену життя{{Life Domain Cleric}} у груповому лікуванні за 1 раунд і посів 2-ге за загальною кількістю медалей."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Кола пастуха",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Кола пастуха",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#circle-of-the-shepherd-druid-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Кола пастуха",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#circle-of-the-shepherd-druid-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Кола пастуха",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#circle-of-the-shepherd-druid-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Кола пастуха",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#circle-of-the-shepherd-druid-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Кола пастуха",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#circle-of-the-shepherd-druid-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Друїда Кола пастуха — «Мала Бо-Піп, ГОАТ»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Кола пастуха",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мова лісу|Speech of the Woods}}: безкоштовна мова й постійна Розмова з тваринами [Speak with Animals]. Не завжди корисно, але чудово мати Друїдові, і допомагає, якщо ви викликаєте звірів, бо ви можете з ними розмовляти, щоб дізнатися про те, що вони могли бачити, і використовувати звірів як ефективних одноразових розвідників. Наприклад, ви можете викликати купу звірів з низьким ПН за допомогою Зʼяви тварин [Conjure Animals] (сподівайтеся на щурів, круків чи інших малих поширених тварин) і відправити їх розвідати місцевість і доповісти вам."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дух-тотем|Spirit Totem}}: потужний і різнобічний, а оскільки це Бонусна дія, ним можна користуватися, не заважаючи вашому чаротворству."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дух ведмедя{{Bear Spirit}}: якщо ваша група в обороні, це добрий спосіб накласти на союзників трохи тимчасових ХП. Якщо у вас у групі є персонаж-борець або ви стикаєтеся з ворогом, що захоплює вашу групу, Перевага на перевірки Сили фантастична. Проте тимчасові ХП застосовуються лише коли ви вперше створюєте духа, тож у більшості випадків його ефективність швидко зменшується. Це також дуже корисно, якщо ви викликаєте численних істот з низьким ПН. Тимчасові ХП діють на всіх союзників у зоні, тож якщо у вас 8 викликаних гієн чи щось подібне, вони раптом стають значно живучішими й можуть поглинути значно більше шкоди, яку інакше спрямували б на членів групи. Ваші виклики теж отримують Перевагу на перевірки Сили, але більшість істот, що захоплюють, мають атаку, яка захоплює автоматично. Проте ви можете наказати їм захопити звичайними засобами, що може бути ефективніше, бо в них є Перевага."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дух яструба{{Hawk Spirit}}: ваш основний вибір у більшості випадків, особливо якщо ви не плануєте заливати бій викликаними істотами. Як заклинач задньої лінії, ви можете використати свою здебільшого проігноровану Реакцію, щоб дати Перевагу на кидок атаки. Якщо у вашій групі є пройдисвіт, це легкий спосіб отримати «Підступну атаку»{{Sneak Attack}}. Для інших членів групи це просто приємний баф, який можна надавати раз на раунд, але коли зʼявиться «Додаткова атака»{{Extra Attack}}, він відчуватиметься менш впливовим."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дух єдинорога{{Unicorn Spirit}}: якщо ви робите короткий відпочинок і ще не витратили «Дух-тотем»{{Spirit Totem}}, скористайтеся цим перед відпочинком, щоб отримати трохи додаткового лікування. Заклинання, яке ви накладаєте, не обовʼязково має бути чимось вишуканим: воно просто має бути заклинанням з рівнем, що відновлює ХП. Наприклад, Цілюще слово [healing word] підходить, і це чудовий спосіб запускати це багаторазово. Незрозуміло, чи задумано, щоб заклинання на кшталт Доброягоди [Goodberry] чи Духа зцілення [Healing Spirit] працювали, бо вони не лікують одразу вибрану істоту, коли ви накладаєте заклинання, але вони таки відновлюють ХП, тож {{за правилами як написано|RAW}} я вважаю, що воно працює. Це захопливий варіант, коли у вас численні викликані істоти, бо додаткове лікування не має обмеження на кількість цілей. Якщо у вас маленька армія викликаних істот, ви можете вилікувати їх безкоштовно, розтягуючи вигоди вашого слота заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Могутній призиватель{{Mighty Summoner}}: одна з найбільших проблем викликаних істот у тому, що більшість не може подолати опір до шкоди чи імунітет до немагічних атак. Це вирішує цю проблему, а також робить ваших викликаних істот трохи живучішими, щоб ви витискали зі слотів заклинань трохи більше. Проте нові заклинання виклику, запроваджені в «Казані Таші з усім»{{Tasha’s Cauldron of Everything}}, схоже, не мають кубиків здоровʼя, тож не виграють від додаткових ХП. Усі істоти мали б мати кубики здоровʼя, і можна стверджувати, що вони мають кількість кубиків здоровʼя, що дорівнює рівню заклинання, яким їх викликали, але офіційної відповіді на це питання ми не отримали, тож обговоріть це з Майстром, перш ніж робити припущення. Виклик духу дракона [Summon Draconic Spirit], що працює за тими самими механіками, що й інші заклинання «Виклик X»{{Summon X}} епохи «Таші», уточнює, що в духа один кубик здоровʼя на рівень заклинання, що здається дуже слушним способом це вирішити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дух-охоронець|Guardian Spirit}}: із цим і «Могутнім призивателем»{{Mighty Summoner}} ви можете зробити так, щоб заклинання «Зʼява X»{{Conjure X}} діяли надзвичайно довго навіть у бою, навіть якщо ви не плануєте задіювати варіант «Дух єдинорога»{{Unicorn Spirit}}, щоб безкоштовно лікувати свої виклики."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вірні духи{{Faithful Summons}}: на цьому рівні істоти з ПН 2 навряд чи виграють за вас бій (навіть з перевагами «Могутнього призивателя»{{Mighty Summoner}}), але вони можуть тримати ворогів на відстані достатньо довго, щоб ваша група встигла прийти вам на допомогу. Формулювання досить чітке: ви не можете запустити це добровільно, тож, на жаль, не можна попросити союзників побити вас до непритомності заради безкоштовних викликів (хоча технічно вони могли б вирішити це самі, якщо ви не погоджувалися з їхнім планом). Це також унікально дозволяє вам обирати звірів, яких ви викликаєте, що дивно, бо Зʼява тварин [Conjure Animals] зазвичай цього не дозволяє. Я раджу Гігантського удава, бо його атаки можуть захоплювати ваших ворогів і виграти вашим союзникам більше часу, щоб вас врятувати. Але Гігантського вепра важко вбити завдяки «Невгамовності»{{Relentless}}, а атаки Полярного ведмедя справді добрі й не вимагають бігати довкола, залишаючи ваше непритомне тіло беззахисним."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-shepherd-druid-ability-scores",
+          "heading": "Характеристики Кола пастуха",
+          "sourceAnchor": "circle-of-the-shepherd-druid-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друїди-пастухи дуже схожі на більшість друїдів, але акцент на викликах означає, що у вас є другий запас ХП, який відвертає увагу від вас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: КБ, ініціатива, важливі ряткидки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: вам вона справді майже не потрібна. Між вами та будь-чим страшним буде вся група плюс ціла отара. Імовірно, ви все одно закінчите з 14, але навіть якщо після створення персонажа у вас 12, усе буде гаразд."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: здебільшого занедбайте, але Природа може вас зацікавити настільки, щоб вкласти в неї кілька очок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: ваші заклинання й класові уміння."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: занедбайте. Якимось дивом вона абсолютно марна у взаємодії зі звірами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-shepherd-druid-races",
+          "heading": "Раси Кола пастуха",
+          "sourceAnchor": "circle-of-the-shepherd-druid-races",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "стандартних друїдів",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#races"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-shepherd-druid-feats",
+          "heading": "Риси Кола пастуха",
+          "sourceAnchor": "circle-of-the-shepherd-druid-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого так само, як у "
+                },
+                {
+                  "type": "link",
+                  "text": "інших друїдів",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": ", але сильна залежність від викликаних істот може відкрити кілька нових варіантів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Посвячений у бій|Fighting Initiate}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": друїди зазвичай мало користуються Реакцією, а викликані істоти зазвичай менш живучі, ніж порівнянний член групи, подібний до воїна. Бойовий Стиль{{Fighting Style}} (Перехоплення) чи (Захист) — добрий спосіб подовжити життя ваших викликаних істот. Проте {{Дух-тотем|Spirit Totem}} (яструб) дозволяє використати Реакцію, щоб підтримати союзників у нападі, тож у багатьох боях ваша Реакція може бути вже зайнята — залежно від того, якому духові ви віддаєте перевагу. Це може бути корисно, якщо ви частіше обираєте ведмедя чи єдинорога, а не яструба."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Військовий адепт|Martial Initiate}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": можна взяти «Наказ атакувати»{{Commander’s Strike}}, щоб наказати викликаній істоті атакувати, але більшість ваших викликів покладається на кілька малих атак, а не на одну велику й вагому."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Надихаючий лідер{{Inspiring Leader}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": багато заклинань виклику істот діють годину — цілком досить, щоб викликати зграю тварин, посадити їх і виголосити натхненну промову. {{Дух-тотем|Spirit Totem}} (ведмідь) дає тимчасові ХП швидше й без залежності від Харизми, але ця риса може зняти потребу використовувати Дух-тотем (ведмідь), тож ви зможете зосередитися на інших варіантах."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Адепт метамагії{{Metamagic Adept}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": два очки, витрачені на «Подовжене заклинання»{{Extended Spell}}, означають подовження тривалості двох заклинань виклику, що тривають 1 годину. Щойно ви отримаєте «Дух-охоронець»{{Guardian Spirit}} на 10-му рівні, ви легко протягнете один виклик крізь кілька боїв і, можливо, короткий відпочинок, якщо правильно розрахуєте час."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-shepherd-druid-weapons",
+          "heading": "Зброя Кола пастуха",
+          "sourceAnchor": "circle-of-the-shepherd-druid-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "стандартних друїдів",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-shepherd-druid-armor",
+          "heading": "Обладунки Кола пастуха",
+          "sourceAnchor": "circle-of-the-shepherd-druid-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-shepherd-druid-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "стандартних друїдів",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Пройдисвіт{{Rogue}}: легконогий напіврослик{{Lightfoot Halfling}} із «Хитрою дією»{{Cunning Action}} може перетворити поле викликаних істот на благодатний ґрунт для сховку. Викличте отару овець і привʼяжіть свою групу під ними, щоб прослизнути повз циклопа, бігаючи між ними, накладаючи заклинання й ховаючись. Звісно, це суперечитиме вашій і так напруженій економіці дій, тож залиште це члену групи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чародій{{Sorcerer}}: {{Дух-тотем|Spirit Totem}} (єдиноріг) спрацьовує щоразу, коли ви накладаєте заклинання з рівнем, що відновлює ХП. Тож найефективніший спосіб активувати єдинорога — раз по раз накладати заклинання 1-го рівня на кшталт Лікування ран [Cure Wounds]. Це схоже на завдання для здатності «Джерела магії»{{Font of Magic}} переплавляти слоти високих рівнів на більшу кількість слотів 1-го рівня."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat",
+          "heading": "Приклад збірки Друїда Кола пастуха — «Мала Бо-Піп, ГОАТ»",
+          "sourceAnchor": "example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat",
+          "blocks": [
+            {
+              "blockId": "block-section-example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Коло пастуха|Circle of the Shepherd}} — безсумнівно, найорієнтованіший на виклик варіант персонажа в грі. Навіть {{Школа заклику|School of Conjuration}} не допомагає викликати речі так ощутимо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми плануємо використати додаткове класове уміння{{Optional Class Feature}} «Дикий супутник»{{Wild Companion}}, але для роботи збірки воно насправді не обовʼязкове. Приємно мати змогу викликати щось на 2-му рівні, а не чекати 3-го, коли ви отримуєте Виклик Звіра [Summon Beast]. Також ми припускаємо, що ви дозволяєте додаткові заклинання, додані до списків заклинань у «Казані Таші з усім»{{Tasha’s Cauldron of Everything}}, бо цей список містить усі оновлені заклинання виклику."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ця збірка використовує заклинання, що викликають кількох істот, "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "будь ласка"
+                },
+                {
+                  "type": "text",
+                  "text": ", прочитайте правила «Посібника Майстра»{{DMG}} про "
+                },
+                {
+                  "type": "link",
+                  "text": "поводження з натовпами",
+                  "href": "https://www.dndbeyond.com/sources/dmg/running-the-game#HandlingMobs"
+                },
+                {
+                  "type": "text",
+                  "text": ". Кидати 0 атак значно швидше, ніж кидати кількість атак, кратну 8."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо розподіл, запропонований вище, і додаємо +2 до Мудрості й +1 до Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сатир{{Satyr}}, бо це найближче до стадної тварини з усього, що ми можемо отримати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Агент фракції{{Faction Agent}}. Ми будемо членами братського ордену пастухів «Три-Ягняти»{{Tri-Lamb}}. Це дає нам володіння Аналізом Поведінки, однією навичкою на основі Харизми й двома мовами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для двох класових навичок беремо Природу й Уважність. Виступ і Переконання отримуємо від раси. Від передісторії отримуємо Аналіз Поведінки й навичку на основі Харизми, тож беремо Обман, щоб було чим стригти людей. Ми з осудом поглядатимемо на Поводження з тваринами — паршиву вівцю серед навичок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З таким набором навичок «обличчя» можна було б подумати, що нам потрібна хоч якась Харизма."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нам треба лише довести Мудрість до максимуму, тож для рис є купа місця. Майже напевно ми почнемо з 17 у Мудрості, тож гібридна риса — легкий варіант."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Доторк феї»{{Fey Touched}} заради +1 до Мудрості та кількох нових заклинань з інших списків заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо «Адепта метамагії»{{Metamagic Adept}}, щоб подовжувати наші дорогі заклинання виклику й вичавити з них максимум користі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо «Надихаючого лідера»{{Inspiring Leader}}, бо на цьому рівні запас тимчасових ХП достатньо великий, щоб нас не турбував наш модифікатор Харизми -1."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні в нас буде вільний слот, але ви можете зробити з ним практично що завгодно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-circle-of-the-shepherd-druid-build-little-bopeep-the-goat",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Друїдична мова|Druidic}}\nЧаротворство{{Spellcasting}}\nВідомі замовляння:\n– Настанова\n– Терновий батіг"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для стартового спорядження візьміть деревʼяний щит, пастуший ціпок (гаразд, палицю), шкіряний обладунок, набір мандрівника{{Explorer’s Pack}} й друїдичний фокус{{Druidic Focus}}. Як і інші друїди, ми навряд чи колись матимемо щось краще за {{шкуряний обладунок|Hide}}, тож початковий КБ 15 і максимальний КБ 16 — наш найкращий результат. На цьому рівні беремо Терновий батіг [Thorn whip], бо згодом ним будемо контролювати поле бою: притягатимемо ворогів ближче до викликаних істот і в область дії «Духа-тотема»{{Spirit Totem}}. До 2-го рівня ви звичайний друїд. Тримайтеся основних заклинань на кшталт Цілющого слова [healing word] і Вогників фей [Faerie fire]. Якщо маєте зайве золото й Майстер дозволить, інвестуйте в невеличку отару кіз. Вони коштують 1 зм кожна й мають лише ПН 0, але вівці коштують 2 зм і не мають атаки. Корови коштують 10 зм, тож вони трохи не по кишені. Ви цілком слушно можете запитати: «Навіщо вам це?», і це дуже відповідальне запитання. У кози лише 3 ХП, але її атака Тараном{{Ram}} і риса «Штурм»{{Charge}} дають трохи потенційної шкоди, якщо ми зможемо спрямувати її на ворога. Порівняйте це з ціною 50 зм за флягу алхімічного вогню. Якщо козу вбʼють, ворог витратив атаку на козу, а не на союзника, який нам небайдужий, і до того ж ви нагодували групу на наступні кілька днів. Складність лише в тому, щоб переконати купу кіз атакувати ваших ворогів. На щастя, ця проблема існує лише до 2-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дика форма{{Wild Shape}}\nДодаткове: «Дикий супутник»{{Wild Companion}}\n{{Коло пастуха|Circle of the Shepherd}}\n{{Мова лісу|Speech of the Woods}}\n{{Дух-тотем|Spirit Totem}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На 2-му рівні ми відразу отримуємо чимало цікавого. «Мова лісу»{{Speech of the Woods}} — це по суті постійна Розмова з тваринами [Speak with Animals], яка стане чудовою, коли ми зможемо викликати власних тварин. Якщо можете взяти «Дикого супутника»{{Wild Companion}}, це добре доповнить можливості {{Кола пастуха|Circle of the Shepherd}}. Не зовсім зрозуміло, чи вважається він «викликаною» істотою, але формулювання Пошуку фамільяра [Find Familiar] тематично подібне до заклинань на кшталт Виклику феї [Summon Fey], тож, на мою думку, зараховується. Якщо так, «Могутній призиватель»{{Mighty Summoner}} (його ми отримаємо на 6-му рівні) дасть фамільярові ще 2 ХП і підвищить його запас аж до 3. Цього якраз може вистачити, щоб істота з ПН 0 не вбила вашу одноразову сову одним ударом. Та нічого: за короткий відпочинок можна викликати двох, тож не треба засмучуватися, якщо з них зроблять набивку для подушок. На жаль, за допомогою Пошуку фамільяра [Find Familiar] не можна отримати собаку, а то ми завели б собі чудового пастушого пса. Можливо, якщо переконаєте Майстра, що він не дратуватиме більше за одноразових сов і що ви щодня його викликатимете й годуватимете, він нарешті дозволить завести цуценя. На цьому рівні в нас має бути приблизно 100 зм, згідно з таблицею "
+                    },
+                    {
+                      "type": "link",
+                      "text": "багатства за рівнями",
+                      "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#wealth-by-level-table"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Усе ще замало, щоб купити купу корів, але кіз ми вже могли б перетягати чимало. Разом із «Мовою лісу» ми тепер можемо розмовляти зі стадом кіз і, в ідеалі, переконувати його битися на нашому боці. Розумна система правил вимагала б для цього перевірки Поводження з тваринами, але, на диво, у 5e цього не потрібно, бо "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Поводження з тваринами взагалі не працює так",
+                      "href": "https://rpgbot.net/animal-handling-rpgbot-podcast-s2e90/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Отже, тепер у вас є стадо кіз. Проблема кіз — їхні 3 ХП. Знаєте, що у вас іще є? {{Дух-тотем|Spirit Totem}}. Дух-тотем (ведмідь) дає кожній козі з вашої групи ще по 7 тимчасових ХП. Ведмідь також дає союзникам Перевагу на перевірки Сили, зокрема на спроби штовхнути. Чи можна дозволити стаду кіз оточити ворогів і зіштовхнути їх у небезпеку? Ні, мабуть, не можна. А от вашій групі — звісно. Кози скінчилися? Майстер заборонив вам мрії про пастуше вівчарство? Гаразд. Викличте духа-тотема (яструба) й давайте союзникові Перевагу на одну атаку щораунду."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут лише заклинання 2-го рівня, зате ми отримуємо "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик Звіра",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-beast"
+                    },
+                    {
+                      "type": "text",
+                      "text": " — наше перше заклинання виклику. Оскільки ми ще на низькому рівні й маємо мало ресурсів, серйозно подумайте про повітряний варіант: «Обліт»{{Flyby}} допоможе йому вижити й бути корисним. Якщо ж у вас мала група або треба зняти тиск зі стада кіз, яке править вам за воїна, чудовий вибір — наземний варіант."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Доторк феї{{Fey Touched}} (Мудрість 17 → 18)\nПокращення Дикої форми (ПН 1/2)\nНове відоме замовляння:\n– Будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Доторк феї»{{Fey Touched}} дає нам Туманний крок [Misty Step] і одне заклинання 1-го рівня з короткого списку. Візьмемо Сон [Sleep], щоб присипляти ворогів, а тоді будити народець. Або Сріблясті шпильки [Silvery Barbs]. Насправді підійде будь-що з цього. Також риса підвищує Мудрість до 18, тож ми не відстаємо від "
+                    },
+                    {
+                      "type": "link",
+                      "text": "основної математики",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". На цьому рівні у вас має бути приблизно 400 зм, згідно з прогресією "
+                    },
+                    {
+                      "type": "link",
+                      "text": "багатства за рівнями",
+                      "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#wealth-by-level-table"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", а в PHB повно чудової худоби, з якої можна скласти маленьку армію. Кози коштують 1 зм, і це досі найкраще співвідношення золота до учасників бою, але, можливо, вже не найкращий варіант. Спробуйте слона. За 200 зм ви отримуєте звіра з ПН 4, горою ХП і атаками, від яких воїн у вашій групі замислиться над своїм життям. Чому ці істоти коштують 200 зм і настільки поширені, що потрапили до PHB? Гадки не маю. Якби вони не були Величезними, це була б настільки велика проблема, що збірки персонажів майже не мали б значення, хіба що давали б більше золота та/або слонів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут лише заклинання 3-го рівня, серед яких є Зʼява тварин [Conjure Animals] і Виклик феї [Summon Fey]. Уперше можна безпосередньо порівняти заклинання «Зʼява X»{{Conjure X}} з епохи PHB і заклинання «Виклик X»{{Summon X}} з епохи «Казана Таші», а це порівняння критично важливе для оптимізації Кола пастуха. Зʼява тварин [Conjure Animals] має магічну властивість дозволяти Майстрові обрати тварин, яких ви викликаєте; він може цілковито зіпсувати заклинання, якщо образився або вважає, що викликати корів посеред крижаної тундри не відповідає задуму заклинання. Це цілком розумно, аж поки ви не опинитеся на Плані вогню, де вам потрібні корови, а Майстру доведеться зʼясовувати, які звичайні звірі там водяться, і виявиться, що жодні — тепер ви з Майстром граєте в гляделки й чекаєте, поки він витягне всіх із халепи, яку сам створив. Якщо Майстер дозволить обирати тварин, ви у виграші. Викликайте корів. Можна навіть обрати кошлатих високогірних корів, щоб вони пасували до ваших кіз і овець. За мірками ПН 0 вони страхітливі, і протягом години можна отримати 8 штук. У них 15 ХП, тож вони витримають один-два влучання, а якщо викликати духа-тотема (єдинорога) й накласти Доброягоду [Goodberry] (так, це зараховується), можна одним махом вилікувати всіх корів (і, мабуть, групу), витративши майже нічого, і ще залишитися з кишенею перекусів на потім. Тепер порівняймо це з Викликом Звіра [Summon Beast] і Викликом феї [Summon Fey]. Ваш звір чи фея значно ефективніше атакуватимуть, ніж окрема корова, матимуть удвічі більше ХП і будуть куди мобільніші за вісьмох корів. DPR феї буде приблизно 8,15, звіра — близько 9,65 у наземному варіанті, а стада корів — жалюгідні 37,4. Дрібничка, еге ж. Усе залежить від обставин. Велике відкрите поле, а Майстер дозволяє вам вибирати тварин? Зʼява тварин [Conjure Animals]. Тісне підземелля? Виклик Звіра [Summon Beast] або Виклик феї [Summon Fey]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стежка землі{{Land’s Stride}}\nМогутній призиватель{{Mighty Summoner}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цей час вороги з опором дроблячій, колючій і рубляній шкоді від немагічних атак уже поширені, тож можливість долати такий опір дуже корисна. Додаткові ХП від «Могутнього призивателя»{{Mighty Summoner}} — одна з тих рис, що здаються цілком розумними, аж поки не розберешся, як працюють ХП, кубики здоровʼя, розмір і ПН. Коротко: ПН враховує ХП, але не кількість кубиків здоровʼя. Розмір істоти визначає розмір її кубиків здоровʼя. Тому менша істота з тим самим ПН матиме більше кубиків здоровʼя, якщо всі інші параметри (ХП, шкода тощо) однакові. На жаль, на практиці це не зовсім працює, бо наступальний і захисний ПН істоти врівноважують один одного. Є істоти з ПН 1/4, що мають від 1 до 4 кубиків здоровʼя. Ці звірі з чотирма кубиками здоровʼя дуже спокушають. У гігантської жаби 19 ХП, а з «Могутнім призивателем» буде аж 27! І ще краще: з ПН 1/4 їх можна викликати по 8 за допомогою Зʼяви тварин [Conjure Animals]. Вони не такі пастуші, як корови, але від їхнього захвату важко відмовитися, а в корів лише 2 кубики здоровʼя. А як «Могутній призиватель» працює з Викликом Звіра [Summon Beast] та Викликом феї [Summon Fey]? Ніяк. У викликаної істоти немає кубиків здоровʼя, тому «Могутній призиватель» просто не діє. Дуже прикро; як компроміс запропонуйте Майстрові дати їм 2 ХП за рівень заклинання. Це здається справедливим порівняно з 64 ХП, які я пропонував додати жабам вище."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня дають Виклику Звіра [Summon Beast] і Виклику феї [Summon Fey] другу атаку, майже подвоюючи їхній DPR. Також доступні Зʼява малих стихійників [Conjure Minor Elementals], Зʼява лісових створінь [Conjure Woodland Beings] і Виклик елементаля [Summon Elemental], тож варіантів виклику стає втричі більше. Вибір аж паралізує.\n– Зʼява тварин [Conjure Animals]: багато істот із низьким ПН. Зграя гігантських жаб швидко прикінчить одиночного ворога, а тотеми ведмедя й єдинорога зроблять її дуже живучою, якщо вороги не завдають шкоди по площі.\n– Зʼява лісових створінь [Conjure Woodland Beings]: викличте 8 спрайтів і нехай вони присипляють ворогів. Шкода тут не має значення. Надто дратує? Гаразд, викличте 4 сатирів і станьте найкрутішим цапом серед кіз. Це майже як мати чотирьох воїнів 1-го рівня. Якщо підтримати їх духом-тотемом (єдиноріг), вони цілком здатні бути танками для всієї групи.\n– Зʼява малих стихійників [Conjure Minor Elementals]: кілька атак подихом мефітів звучить непогано, але шкода мізерна, а самі вони паперові. По суті, єдиний корисний варіант — викликати гаргуйля, цілком пристойну ціль для поглинання шкоди на кілька рівнів, до того ж він літає. Це щось середнє між повітряним і земляним варіантами Виклику елементаля [Summon Elemental].\n– Виклик Звіра [Summon Beast]: якщо не використовуєте слот заклинання нижчого рівня (а іноді доведеться), Виклик елементаля [Summon Elemental] майже завжди буде ефективнішим.\n– Виклик феї [Summon Fey]: за наявності кількох атак «Розлючений»{{Fuming}} уже не такий корисний, як інші варіанти, але якщо ви не можете надійно використати додаткові ефекти «Фейського кроку»{{Fey Step}}, Виклик елементаля [Summon Elemental] буде кориснішим.\n– Виклик елементаля [Summon Elemental]: земляний варіант — ваш основний танк (якщо не можете викликати 8 гігантських жаб), а повітряний — основний літун. Основні варіанти — Зʼява тварин [Conjure Animals], Зʼява лісових створінь [Conjure Woodland Beings] і Виклик феї [Summon Fey]; Виклик Звіра [Summon Beast] тримайте для слотів 2-го рівня, коли кращі слоти заклинань закінчилися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті рівень, який не цікавий і не перетворюється на стіну математики й припущень про стадних тварин."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 5-го рівня. Зʼява тварин [Conjure Animals], накладене слотом 5-го рівня, викликає вдвічі більше істот, ніж слот 3-го рівня, тож можна викликати 16 гігантських жаб. Оточіть посиленими жабами двох істот середнього розміру, викличте духа-тотема (єдинорога), щоб кожного ходу лікувати всіх у цій області, і знайдіть у «Посібнику Майстра»{{DMG}} "
+                    },
+                    {
+                      "type": "link",
+                      "text": "правила атак по натовпу",
+                      "href": "https://www.dndbeyond.com/sources/dmg/running-the-game#HandlingMobs"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", щоб не кидати 16 кидків атаки. До цього часу на жаб дедалі важче покладатися. КБ і шкода зростають, а шкода по площі трапляється все частіше, тож істот із низьким ПН важко втримати живими навіть із бонусними ХП від «Могутнього призивателя»{{Mighty Summoner}}. Молодий синій дракон (ПН 9) завдає подихом у середньому 55 шкоди — більш ніж удвічі більше за максимальні ХП наших жаб. Навіть дух-тотем (ведмідь) не допоможе пережити одну пристойну атаку по площі. Переважно час відпустити Зʼяву тварин [Conjure Animals] на спочинок. Проти окремих ворогів (тих, хто не має шкоди по площі й не може протидіяти захопленню) воно ще ефективне, але більше не може бути нашим основним варіантом. На щастя, 9-й рівень — саме тоді, коли відкриваються високорівневі заклинання «Зʼява X»{{Conjure X}}. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Зʼява стихійника",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#conjure-elemental"
+                    },
+                    {
+                      "type": "text",
+                      "text": " пристойне, але його сильно обмежує брак елементалів у межах ПН заклинання. На 5-му рівні слота вони не набагато кращі за елементаля, викликаного Зʼявою стихійника [Conjure Elemental], зате мають кубики здоровʼя; ще 24 ХП зроблять земляного елементаля дуже живучим танком. Єдине нове заклинання «Виклик X»{{Summon X}} цього рівня — Виклик духу дракона [Summon Draconic Spirit], і воно, що важливо, викликає не звіра й не фею, тож не отримує переваг від «Могутнього призивателя» чи «Духа-охоронця»{{Guardian Spirit}}. Не беріть його. Драконів не випасають."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Дух-охоронець|Guardian Spirit}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Памʼятаєте, як ми раз по раз використовували духа-тотема (єдинорога), щоб лікувати отару жаб, елементалів чи кого завгодно? Тепер це не потрібно. Ваші викликані створіння пасивно лікуватимуться, просто перебуваючи в області тотема; можна перейти на яструба, щоб підсилити атаки союзників, або на ведмедя, щоб група збивала ворогів із ніг, даючи Перевагу вашій армії викликаних істот. На жаль, до цього рівня ви можете викликати істот із понад 100 ХП, тож такого лікування може не вистачити, щоб повністю їх відновити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 6-го рівня дають змогу накласти «Виклик X»{{Summon X}} слотом вищого рівня й отримати три атаки; Зʼява стихійника [Conjure Elemental] дає елементалів ПН 6, як-от неймовірно несправедливого невидимого мисливця, а ще можна накласти Зʼяву феї [Conjure Fey]. Це заклинання дивне. Так, можна викликати фей, але майже жоден із доступних варіантів ними не є. Переважно це «викликати гігантську тварину», а пасти з них не можна хіба що трицератопса. На цьому рівні доступні варіанти не дуже очевидні. Особисто я вибрав би Гігантського крокодила, бо він може захопити й стримувати цілі, що допоможе всій групі. Анніс-відьма завдасть значно більше шкоди, але нікого не стримує."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Адепт метамагії",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/metamagic/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Metamagic Adept}} (Подовжене заклинання{{Extended Spell}}, будь-яке інше)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ви добре справляєтеся й утримуєте свою високорівневу викликану істоту живою? Чудово! Тоді час подовжити тривалість двох найкращих слотів заклинань удвічі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні нових заклинань немає, а «Виклик X»{{Summon X}} майже нічого не отримує (трохи шкоди й ХП), тож щонайменше теоретично цей слот піде на Зʼяву стихійника [Conjure Elemental] і Зʼяву феї [Conjure Fey]. Насправді Зʼява стихійника [Conjure Elemental] нічого не дає, бо елементалів ПН 7 не існує. Варіанти Зʼяви феї [Conjure Fey] у бою слабкі. Бгеур-відьма швидко витратить заклинання, а далі користуватиметься Променем холоду [Ray of Frost], хіба що ви майже завжди бʼєтеся з гуманоїдами. Атаки корреда пристойні, але будь-яке «Виклик X» завдаватиме набагато більше шкоди. Звісно, корред може за бажанням накладати Форму каменю [Stone Shape] протягом години дії заклинання, і цього вже досить, щоб багато чого зробити (наприклад, "
+                    },
+                    {
+                      "type": "link",
+                      "text": "збудувати замок-комору",
+                      "href": "https://rpgbot.net/dnd5/players/defending-a-permanent-base/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "). Загалом, для виклику це не надто цікавий рівень."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вірні духи{{Faithful Summons}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чесно кажучи, те, що я не можу вибрати й викликати 32 корови, аби вони сповістили про мою неминучу загибель, — справжня трагедія. Гаразд, обійдемося чотирма полярними ведмедями чи чимось таким."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 8-го рівня! «Виклик X»{{Summon X}} отримує четверту й останню атаку, Зʼява стихійника [Conjure Elemental] знову нічого не дає, а Зʼява феї [Conjure Fey] дозволяє викликати тиранозавра рекса. Тиранозавр чудово захоплює й стримує одного ворога, має великий запас ХП й довго триматиметься, особливо якщо його лікуватиме «Дух-охоронець»{{Guardian Spirit}}. Але чи кращий він за «Виклик X» слотом 8-го рівня? Порівняймо із земляним варіантом Виклику елементаля [Summon Elemental]. Тиранозавр має 162 ХП із бонусом «Могутнього призивателя»{{Mighty Summoner}}, тоді як елементаль має 90 (106, якщо Майстер дозволить запропонований мною розрахунок +2 ХП за рівень заклинання). DPR тиранозавра — 36,75, елементаля — 46,6. Отже, ви віддаєте майже чверть шкоди елементаля за більший запас ХП і здатність тиранозавра захопити та стримати одну ціль. ХП важко порівнювати через опори елементаля до шкоди. Елементаль також не Величезний, тож може проходити у двері тощо. Важко сказати, що обʼєктивно краще, але я схиляюся до тиранозавра, якщо його можна протягнути туди, куди ви прямуєте, бо він не навантажує вашу економіку дій так, як заклинання «Виклик X». На жаль, він не літає, тож проти летючих ворогів беріть Виклик Звіра [Summon Beast] (повітряний) або Виклик елементаля [Summon Elemental] (повітряний)."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Надихаючий лідер{{Inspiring Leader}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Час накинути тимчасових ХП на тиранозавра й усіх інших, хто протримався до цього рівня, попри те, що їх раз по раз оточували корови та гігантські жаби."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 9-го рівня! Ви, ймовірно, накладете Передбачення [Foresight] на когось (можливо, на свого тиранозавра), але памʼятайте: Зʼява феї [Conjure Fey] може викликати морозну саламандру. З «Могутнім призивателем» у неї рівно 200 ХП. Вона має 5 атак, але її DPR лише 33,05, тож у цьому тиранозавр кращий. Сильна сторона саламандри — 60-футовий конус подиху: у більшості боїв проти кількох ворогів він легко зачепить три цілі, а навіть за успішного ряткидка завдасть 66 шкоди. Це як Конус холоду [Cone of Cold] 8-го рівня щораунду. Ви слушно зауважите: «Але він відновлюється лише на кидку 6 на к6, тож зможу використати його раз за сутичку», і загалом матимете рацію. Та риса «Палюча лють»{{Burning Fury}} морозної саламандри миттєво відновлює подих, якщо вона отримує шкоду вогнем. Тож підпаліть її алхімічним вогнем: вона отримуватиме 1к4 шкоди вогнем (подвоєної через вразливість) за хід, а «Дух-охоронець»{{Guardian Spirit}} одразу зцілюватиме 8 ХП за хід — саме стільки, скільки максимум саламандра може втратити від вогню. На цьому етапі ми отримали від Друїда все, що нас цікавить, тож якщо плануєте мультикласуватися, зараз слушний час."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тіло поза часом{{Timeless Body}}\nЗаклинання звіра{{Beast Spells}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Заклинання звіра»{{Beast Spells}} — круто: можна перетворитися на птаха й далі викликати всяке. На жаль, у подобі звіра ви не зможете активувати тотеми, тож увійдіть у бій разом із тиранозавром або підпаленою морозною саламандрою, бонусною дією активуйте тотем, дією перетворіться на птаха й спокійно тримайтеся на відстані, накладаючи заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Буквально будь-що. «Щасливчик»{{Lucky}} підійде."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Архі-друїд{{Archdruid}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Памʼятаєте, як ми вирішили взяти класове уміння «Дикий супутник»{{Wild Companion}}? Тепер у нас безмежний запас одноразових фамільярів!"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-001",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features",
+      "context": "Уміння Кола пастуха",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-002",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Мова лісу",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-003",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Дух-тотем",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-004",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Дух ведмедя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-005",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Дух яструба",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-006",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Дух єдинорога",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-007",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Могутній призиватель",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-008",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Дух-охоронець",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-009",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Вірні духи",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-010",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-circle-of-the-shepherd-druid-ability-scores",
+      "targetBlockId": "block-section-circle-of-the-shepherd-druid-ability-scores-2",
+      "optionId": "section-circle-of-the-shepherd-druid-ability-scores-block-section-circle-of-the-shepherd-druid-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-circle-of-the-shepherd-druid-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-011",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-circle-of-the-shepherd-druid-ability-scores",
+      "targetBlockId": "block-section-circle-of-the-shepherd-druid-ability-scores-3",
+      "optionId": "section-circle-of-the-shepherd-druid-ability-scores-block-section-circle-of-the-shepherd-druid-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-circle-of-the-shepherd-druid-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-012",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-circle-of-the-shepherd-druid-ability-scores",
+      "targetBlockId": "block-section-circle-of-the-shepherd-druid-ability-scores-4",
+      "optionId": "section-circle-of-the-shepherd-druid-ability-scores-block-section-circle-of-the-shepherd-druid-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-circle-of-the-shepherd-druid-ability-scores-4",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-013",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-circle-of-the-shepherd-druid-ability-scores",
+      "targetBlockId": "block-section-circle-of-the-shepherd-druid-ability-scores-5",
+      "optionId": "section-circle-of-the-shepherd-druid-ability-scores-block-section-circle-of-the-shepherd-druid-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-circle-of-the-shepherd-druid-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-014",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-circle-of-the-shepherd-druid-ability-scores",
+      "targetBlockId": "block-section-circle-of-the-shepherd-druid-ability-scores-6",
+      "optionId": "section-circle-of-the-shepherd-druid-ability-scores-block-section-circle-of-the-shepherd-druid-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-circle-of-the-shepherd-druid-ability-scores-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-015",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-circle-of-the-shepherd-druid-ability-scores",
+      "targetBlockId": "block-section-circle-of-the-shepherd-druid-ability-scores-7",
+      "optionId": "section-circle-of-the-shepherd-druid-ability-scores-block-section-circle-of-the-shepherd-druid-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-circle-of-the-shepherd-druid-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-016",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-circle-of-the-shepherd-druid-feats",
+      "targetBlockId": "block-section-circle-of-the-shepherd-druid-feats-2",
+      "optionId": "section-circle-of-the-shepherd-druid-feats-block-section-circle-of-the-shepherd-druid-feats-2-item-0",
+      "context": "Посвячений у бій TCoE",
+      "explanationBlockId": "block-section-circle-of-the-shepherd-druid-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-017",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-circle-of-the-shepherd-druid-feats",
+      "targetBlockId": "block-section-circle-of-the-shepherd-druid-feats-2",
+      "optionId": "section-circle-of-the-shepherd-druid-feats-block-section-circle-of-the-shepherd-druid-feats-2-item-1",
+      "context": "Військовий адепт PHB",
+      "explanationBlockId": "block-section-circle-of-the-shepherd-druid-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-018",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-circle-of-the-shepherd-druid-feats",
+      "targetBlockId": "block-section-circle-of-the-shepherd-druid-feats-2",
+      "optionId": "section-circle-of-the-shepherd-druid-feats-block-section-circle-of-the-shepherd-druid-feats-2-item-2",
+      "context": "Надихаючий лідер",
+      "explanationBlockId": "block-section-circle-of-the-shepherd-druid-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-019",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-circle-of-the-shepherd-druid-feats",
+      "targetBlockId": "block-section-circle-of-the-shepherd-druid-feats-2",
+      "optionId": "section-circle-of-the-shepherd-druid-feats-block-section-circle-of-the-shepherd-druid-feats-2-item-3",
+      "context": "Адепт метамагії",
+      "explanationBlockId": "block-section-circle-of-the-shepherd-druid-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-020",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-0",
+      "context": "Пройдисвіт",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-the-shepherd-2014-021",
+      "articleId": "rpgbot-druid-circle-of-the-shepherd-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-the-shepherd-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-1",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

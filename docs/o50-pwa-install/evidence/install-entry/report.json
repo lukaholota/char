@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-10",
+  "browser": "154.0.8037.58",
+  "origin": "http://127.0.0.1:3208",
+  "checks": [
+    {
+      "scenario": "before-hydration native prompt, one use, appinstalled hides menu",
+      "passed": true
+    },
+    {
+      "scenario": "ios-safari instructions, phone bounds, browser back",
+      "geometry": {
+        "x": 8,
+        "y": 313.5,
+        "width": 396,
+        "height": 288
+      },
+      "passed": true
+    },
+    {
+      "scenario": "ios-chrome instructions, phone bounds, browser back",
+      "geometry": {
+        "x": 8,
+        "y": 295.5,
+        "width": 396,
+        "height": 324
+      },
+      "passed": true
+    },
+    {
+      "scenario": "telegram instructions, phone bounds, browser back",
+      "geometry": {
+        "x": 8,
+        "y": 327.5,
+        "width": 396,
+        "height": 260
+      },
+      "passed": true
+    },
+    {
+      "scenario": "android-menu instructions, phone bounds, browser back",
+      "geometry": {
+        "x": 8,
+        "y": 285.5,
+        "width": 396,
+        "height": 344
+      },
+      "passed": true
+    },
+    {
+      "scenario": "navigator.standalone hides entry",
+      "passed": true
+    },
+    {
+      "scenario": "banner first/second visit and dismiss after reload",
+      "passed": true
+    },
+    {
+      "scenario": "desktop keyboard enter and escape",
+      "passed": true
+    },
+    {
+      "scenario": "WebKit touch instructions and back",
+      "passed": true
+    }
+  ]
+}

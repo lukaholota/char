@@ -2,7 +2,8 @@
  * O48 — раса 2014, що дає гравцеві обрати замовляння, а не називає його: High Elf Cantrip («one cantrip
  * of your choice from the wizard spell list»), спадок кобольда Draconic Sorcery MPMM («one cantrip of your
  * choice from the sorcerer spell list») і Astral Fire астрального ельфа («one of the following cantrips of
- * your choice: dancing lights, light, or sacred flame»). Вибір — за фільтром ([Р42](../../docs/DECISIONS.md#р42)),
+ * your choice: dancing lights, light, or sacred flame») і спадок Місячного або Сонячного ельфа в напівельфа
+ * SCAG (Cantrip: «one cantrip of your choice from the wizard spell list»). Вибір — за фільтром ([Р42](../../docs/DECISIONS.md#р42)),
  * рядок — виду, як у виданих поіменно (`race-granted-spells-2014.ts`).
  */
 
@@ -24,6 +25,13 @@ const RACE_SPELL_CHOICES_2014: readonly RaceSpellChoiceEntry[] = [
     subrace: "ELF_HIGH_2014",
     raceOptionName: null,
     label: "Замовляння вищого ельфа",
+    pick: { count: 1, spellLevel: 0, schools: null, spellList: classTranslations.WIZARD_2014 },
+  },
+  {
+    race: "HALF_ELF_2014",
+    subrace: null,
+    raceOptionName: "Замовляння",
+    label: "Замовляння напівельфа",
     pick: { count: 1, spellLevel: 0, schools: null, spellList: classTranslations.WIZARD_2014 },
   },
   {

@@ -1,0 +1,327 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "bard-glamour-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-bard-glamour-2014-draft1",
+    "sourceRevisionId": "rpgbot-f3057ace3b59b272-f4d54f85b940d363"
+  },
+  "exampleSection": "section-example-build-college-of-glamour-bard-build-the-marshal",
+  "levelTableSection": "section-levels",
+  "classKey": "BARD_2014",
+  "raceKey": "CUSTOM_LINEAGE_TCE",
+  "backgroundKey": "FAR_TRAVELER",
+  "featKey": "TELEKINETIC",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 14,
+    "INT": 8,
+    "WIS": 12,
+    "CHA": 15
+  },
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "FIGHTER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Archery"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "spells": {
+        "knownSpellKeys": [
+          "identify"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "subclassKey": "COLLEGE_OF_GLAMOUR",
+      "expertise": [
+        "INSIGHT",
+        "PERCEPTION"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "featKey": "CROSSBOW_EXPERT",
+      "section": "section-feats",
+      "spells": {
+        "knownSpellKeys": [
+          "enhance-ability"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "spells": {
+        "knownSpellKeys": [
+          "dispel-magic"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "classKey": "FIGHTER_2014"
+    },
+    {
+      "level": 8,
+      "classKey": "FIGHTER_2014",
+      "subclassKey": "BATTLE_MASTER",
+      "subclassOptions": [
+        {
+          "optionNameEng": "Commander's Strike (Maneuver)"
+        },
+        {
+          "optionNameEng": "Commanding Presence (Maneuver)"
+        },
+        {
+          "optionNameEng": "Maneuvering Attack (Maneuver)"
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "classKey": "FIGHTER_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 10,
+      "classKey": "FIGHTER_2014"
+    },
+    {
+      "level": 11,
+      "classKey": "FIGHTER_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 12,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "freedom-of-movement"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats",
+      "spells": {
+        "knownSpellKeys": [
+          "raulothims-psychic-lance"
+        ]
+      }
+    },
+    {
+      "level": 15,
+      "spells": {
+        "knownSpellKeys": [
+          "greater-restoration"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "expertise": [
+        "INTIMIDATION",
+        "PERSUASION"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 19,
+      "spells": {
+        "knownSpellKeys": [
+          "forcecage"
+        ]
+      }
+    },
+    {
+      "level": 20,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Таблиця рівнів",
+      "reason": "Розділ «Рівні» статті — одна комірка суцільного тексту з рядками «Рівень і клас» (Бард та Воїн), а не таблиця; рівні персонажа розібрано вручну за цими рядками (Бард 1, Воїн 1, Бард 2–5, Воїн 2–6, Бард 6–14), і текстовий план рівнів у рецепті не збирається.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Набір для драконячих шахів",
+      "reason": "Автор бере Далекого мандрівника заради набору для драконячих шахів, але в каталозі передісторія фіксує музичний інструмент; прибрати його чи додати набір платформа не вміє, тож драконячі шахи не записано.",
+      "section": "section-background"
+    },
+    {
+      "field": "Інструменти лудильника",
+      "reason": "Вміння «Учень війни» Майстра бойових мистецтв на 8-му рівні дає вибрати інструменти (автор бере інструменти лудильника); платформа цього вибору не записує.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання поза списком Барда",
+      "reason": "Автор називає Збільшення/Зменшення (4-й рівень), Масове цілюще слово (12-й) і Бенкет героїв (17-й), яких немає в списку Барда 2014 платформи, а також Магічні таємниці з чужих списків: Пошук вищого скакуна і Швидкий сагайдак (16-й), Зцілення і Планарний перехід (20-й); платформа приймає Магічні таємниці лише зі списку Барда. Усі ці місця лишено вільними для вибору гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Нові замовляння Барда без назви",
+      "reason": "На 5-му і 16-му рівнях персонажа Бард отримує ще по одному замовленню, яких автор не називає; їх обирає гравець.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Рівні вище 20",
+      "reason": "Автор описує лише 20 рівнів персонажа (Бард 14 і Воїн 6).",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "title": "Бард Колегії гламуру — Своя раса (Маршал)",
+    "description": "Бард Колегії гламуру зі Своєю расою і Телекінетиком: Харизма 18 з першого рівня, Темнозір, Далекий мандрівник; далі мультиклас у Воїна Майстра бойових мистецтв.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "INTIMIDATION",
+        "PERSUASION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": [
+      "Середній",
+      "Темнозір"
+    ],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": "TELEKINETIC Ability (Charisma)",
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "vicious-mockery",
+        "minor-illusion"
+      ],
+      "knownSpellKeys": [
+        "comprehend-languages",
+        "faerie-fire",
+        "healing-word",
+        "silvery-barbs"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "featSpellKeys": [],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Злісне глузування й Мала ілюзія (Магічну руку дає Телекінетик) і заклинання Розуміння мов, Вогники фей, Цілюще слово та Сріблясті шпильки названо автором.",
+      "platformChoices": []
+    },
+    "abilityExplanation": "Своя раса дає +2 до Харизми, а Телекінетик ще +1: Харизма 18 на 1-му рівні, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Обман, Залякування й Переконання бере Бард, Аналіз поведінки й Уважність — Далекий мандрівник, як радить автор. Темнозір обрано за автором, розмір (Середній) і дві мови (расову й від Далекого мандрівника) ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор не називає стартового спорядження. Рапіру, набір дипломата, лютню, шкіряну броню й кинджал ми обрали за вас — вибір платформи."
+  }
+}

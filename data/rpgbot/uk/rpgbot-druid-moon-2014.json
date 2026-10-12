@@ -1,0 +1,1717 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-622700c08fc484f6",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+      "sourceId": "rpgbot-622700c08fc484f6",
+      "fetchedAt": "2026-09-29T19:14:14.288331+00:00",
+      "sourceUpdatedAt": "2026-07-30T07:54:36-04:00",
+      "contentHash": "860ca54914f9873dbc274546ed2b18912307da01f5cd3ea1281f36658e83d4a1",
+      "title": "Circle of the Moon Druid 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-622700c08fc484f6-8af42bd9cb3b43ea.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-druid-moon-2014",
+    "sourceId": "rpgbot-622700c08fc484f6",
+    "slug": "druid-moon-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Коло місяця — гайд підкласу Друїда (2014)",
+    "titleEn": "Circle of the Moon Druid 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Друїд",
+      "Коло місяця",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "articleId": "rpgbot-druid-moon-2014",
+      "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друїдів у D&D знають за кілька речей: чаротворство природної тематики, тварину-супутника (у цій редакції, на жаль, зведеного до додаткового класового уміння{{Optional Class Feature}}) і перетворення на тварин для бою. Друїди {{Кола місяця|Circle of the Moon}} зосереджені на «Дикій формі»{{Wild Shape}} і перетворюють Друїда на універсального бійця ближнього бою, зберігаючи при цьому повноцінне чаротворство. Звісно, до дуже високих рівнів вони не можуть користуватися цими двома уміннями водночас, але все одно виходить неймовірно потужний персонаж."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Левова частка вашої сили — це універсальність і живучість у ближньому бою. Тоді як інші, традиційніші танки можуть мати високий КБ і прийоми для зменшення вхідної шкоди, ви натомість просто начіпляєте на себе смуги здоровʼя, як дощовики, і зношуєте їх за потреби. Це може змусити персонажа почуватися дуже сильним, але означає, що ваш стиль гри мусить змінитися "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "кардинально"
+                },
+                {
+                  "type": "text",
+                  "text": ", якщо ви не можете скористатися «Дикою формою»{{Wild Shape}}, і часто на щось, до чого ви не дуже оптимізовані. На щастя, з правильним вибором заклинань можна лишатися корисним, хай чого потребує мить."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Кола місяця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Кола місяця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#circle-of-the-moon-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Кола місяця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#circle-of-the-moon-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Кола місяця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#circle-of-the-moon-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Кола місяця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#circle-of-the-moon-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Кола місяця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#circle-of-the-moon-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Друїда Кола місяця — «Місячний моряк»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#example-circle-of-the-moon-druid-build-moon-sailor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/moon/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Кола місяця",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойова Дика форма{{Combat Wild Shape}}: перехід у «Дику форму»{{Wild Shape}} Бонусною дією означає, що ви можете перетворитися, пересунутися й атакувати в тому самому ході. Це значно полегшує вибір правильної форми для бою, бо вгадувати до початку бою не треба. Це також означає, що коли вас вибивають із Дикої форми, ви можете швидко повернутися в неї, часто без значної шкоди для ваших справжніх ХП."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Форми кола{{Circle Forms}}: це дозволяє приймати кілька пристойних бойових форм. Добірку й аналіз можливих форм дивіться в нашому "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Практичному гайді із Дикої форми",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wildshape"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Первісний удар{{Primal Strike}}: вам траплятиметься чимало істот, що мають опір до типів шкоди від немагічної зброї, тож це дуже важливо."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дика форма елементаля{{Elemental Wild Shape}}: вогняний елементаль — палаюча машина вбивства, якою можна користуватися відтепер і до 18-го рівня, коли ви зможете перетворюватися на Мамонта. Це забирає обидва ваші використання «Дикої форми»{{Wild Shape}}, але якщо вам вдасться швидко підпалити все довкола, ви можете уникнути достатньо шкоди, щоб розтягнути це на кілька боїв."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тисячі форм{{Thousand Forms}}: це заклинання 2-го рівня, а проблеми, які воно розвʼязує, краще розвʼязує «Дика форма»{{Wild Shape}}."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-moon-ability-scores",
+          "heading": "Характеристики Кола місяця",
+          "sourceAnchor": "circle-of-the-moon-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-moon-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від звичайного Друїда, хоча захисту ми можемо приділяти менше уваги. Ми проводимо у своєму звичайному тілі ще менше часу, ніж більшість друїдів, тож можемо дозволити собі тримати Спритність і Статуру на 14, а зайві очки вкласти в Інтелект, щоб бути хоч трохи корисними для перевірок Природи, як і мають бути Друїди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-moon-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: занедбайте, якщо не плануєте брати дуже популярний мультиклас у Варвара{{Barbarian}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-moon-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: більшу частину часу вам не слід користуватися власною Спритністю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-moon-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: власною Статурою вам теж здебільшого не слід користуватися, але коли це відбувається, то, найімовірніше, заради накладання чогось із Концентрацією."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-moon-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: візьміть трохи, щоб бути корисним у знанні речей про природу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-moon-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: ваше чаротворство живиться Мудрістю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-moon-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-moon-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-moon-races",
+          "heading": "Раси Кола місяця",
+          "sourceAnchor": "circle-of-the-moon-races",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-moon-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми намагаємося не проводити багато часу у власному тілі, деякі його особливості не надто важливі. Проте формулювання «Дикої форми»{{Wild Shape}} означає, що ми зберігаємо володіння навичками під час перетворення, тож раси з володіннями навичками чудові. Також будь-яка здібність, що не є заклинанням, але не потребує вашої анатомії, працює як звичайно, тож такі речі, як «Удача»{{Lucky}}, «Хоробрість»{{Brave}} тощо в напівросликів{{Halfling}} чи «Несподівана атака»{{Surprise Attack}} у ведмебая{{Bugbear}}, працюють чудово."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-moon-feats",
+          "heading": "Риси Кола місяця",
+          "sourceAnchor": "circle-of-the-moon-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-moon-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Експерт у навичках»{{Skill Expert}} потребує обговорення. Хоч це й справді добрий спосіб підвищити перевірки Атлетики у формі звіра, ви не можете замінити жодну з атак у дії «Мультиатака»{{Multiattack}} захопленням чи штовханням так, як це можна зробити з дією «Атака», тож по-справжньому добре це стає лише на 9-му рівні, коли ви можете стати Скорпіоном і вам треба не давати здобичі вислизати з ваших клешень."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-the-moon-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Утім, тут ми з Тайлером не згодні. Він тлумачить правила «Дикої форми»{{Wild Shape}} так, що для вивільнення із захоплення діє фіксований СК, закладений у блок характеристик монстра, але для мене це не має сенсу, зважаючи на те, що в нас уже є спосіб розвʼязувати вивільнення цілей із захоплень гравців. Для монстрів це цілком логічно, бо зменшує кількість кидків Майстра й пришвидшує бій, але дивно було б, якби захоплення одного персонажа працювали інакше, ніж захоплення іншого. Обговоріть це зі своїм Майстром, перш ніж братися за це."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-moon-weapons",
+          "heading": "Зброя Кола місяця",
+          "sourceAnchor": "circle-of-the-moon-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-moon-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від будь-якого іншого Друїда."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-the-moon-armor",
+          "heading": "Обладунки Кола місяця",
+          "sourceAnchor": "circle-of-the-moon-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-the-moon-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вирушайте в {{шкуряному обладунку|Hide}}, бо він безкоштовний; натомість вдягніть {{проклепаний шкіряний обладунок|Studded Leather}}, якщо проігноруєте цей гайд зі збірки й підвищите Спритність понад 15."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви граєте цього персонажа як бійця першої лінії, то, що не дивно, можна отримати чимало користі від занурення на 3 рівні в якісь бойові класи. Варвар{{Barbarian}} дуже популярний із кількох причин. Шкода від «Люті»{{Rage}} застосовується до кожного влучання мультиатаки, тож ви цілком можете завдавати її значно більше, ніж мало б бути в персонажа, особливо на низьких рівнях. Якщо обрати {{Тотемного воїна|Totem}} і вибрати ведмедя, можна отримати опір до всієї шкоди, через що ХП тварини тривають удвічі довше, або вибрати вовка, щоб дати перевагу вашій групі, і прийняти форму з купою ХП, щоб надавати її якомога довше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Воїн{{Fighter}} також має кілька чудових варіантів. Лицар луни{{Echo Knight}} дозволяє бути "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "двома"
+                },
+                {
+                  "type": "text",
+                  "text": " лютими вовками{{Dire Wolf}} одночасно. Оскільки атакуєте саме ви, якщо щось віддаляється від вашої луни, ваш укус може повалити його, якщо воно провалить ряткидок. {{Майстер бойових мистецтв|Battle Master}} дає чудову утилітарність, бо і кубики переваги, і «Дика форма»{{Wild Shape}} відновлюються за Короткий відпочинок, що спонукає вашу групу дозволяти вам відновлювати ресурси, а потім і далі робити таке, як застосовувати «Підніжку»{{Trip Attack}} (маневр) на першому влучанні мультиатаки, щоб отримати перевагу на решті."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монах{{Monk}} дозволить застосовувати «Захист без броні»{{Unarmored Defense}} і «Бойові мистецтва»{{Martial Arts}} під час «Дикої форми»{{Wild Shape}}. Високий КБ нас хвилює менше, ніж інші підкласи, бо ми раніше отримуємо доступ до значно міцніших форм, але користь від цього все одно може бути. «Бойові мистецтва» трохи дивні. Виконання дії «Мультиатака»{{Multiattack}} — це не дія «Атака», тож воно не дасть вам атаки бонусною дією чи «Шквалу ударів»{{Flurry of Blows}}, якщо ви візьмете принаймні 2 рівні Монаха. Також, строго кажучи, «беззбройні удари»{{Unarmed Attacks}} не включають атак із назвами «Укус», «Кіготь», «Копита» тощо, тож навіть якщо ви робите одну атаку, цілком можливо, що жодна з цих частин «Бойових мистецтв» не спрацює."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-circle-of-the-moon-druid-build-moon-sailor",
+          "heading": "Приклад збірки Друїда Кола місяця — «Місячний моряк»",
+          "sourceAnchor": "example-circle-of-the-moon-druid-build-moon-sailor",
+          "blocks": [
+            {
+              "blockId": "block-section-example-circle-of-the-moon-druid-build-moon-sailor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спираючись на обговорення вище щодо можливості використання расових рис, усі здібності Кремезного напіврослика{{Stout Halfling}} працюють під час «Дикої форми»{{Wild Shape}}. Ми отримуємо багато атак, перебуваючи в образі кількох тварин, завдяки «Мультиатаці»{{Multiattack}}. Нехай захист від осічок робить свою справу після наших коротких перетворень."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-circle-of-the-moon-druid-build-moon-sailor",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як описано вище. Вкладемо +2 у Мудрість, а +1 — у Статуру."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-circle-of-the-moon-druid-build-moon-sailor",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кремезний напіврослик{{Stout Halfling}} із налаштованим походженням{{Custom Origin}}. Ми з Тайлером знову не згодні щодо того, що означає «ви зберігаєте користь від будь-яких умінь вашого класу, раси чи іншого джерела й можете користуватися ними, якщо нова форма фізично на це здатна»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Удача»{{Lucky}} і «Хоробрість»{{Brave}}, очевидно, працюють у формі тварини, але з опором до шкоди отрутою менш ясно. Тайлер вважає, що, оскільки ваше тіло Кремезного напіврослика фізично опірне до отрути, перетворення вашого тіла на домашнього кота позбавить цього опору. Я думаю, що жодна частина здібності не вказує, що вона залежить від анатомії, тож опір до отрути ви зберігаєте. Гадаю, це на розсуд Майстра, бо WotC так і не розʼяснили."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Спритність напівросликів»{{Halfling Nimbleness}} теж має працювати під час перетворення, бо не залежить від вашої фізичної форми, тож сміливо заходьте в простір Величезного велетня, поки ви — Великий звір."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-circle-of-the-moon-druid-build-moon-sailor",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Моряк{{Sailor}}. Ми любимо володіння Уважністю до нашої високої Мудрості, а Атлетика чудова для утримання захоплень у перетвореному вигляді відповідно до мого тлумачення, описаного вище. Ми беремо варіантне уміння «Погана репутація»{{Bad Reputation}} і подаємо це так, ніби люди вдячні, що ми ніколи не тікаємо від справжньої бійки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-circle-of-the-moon-druid-build-moon-sailor",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друїд дає нам володіння Природою, Виживанням і Набором травника{{Herbalism Kit}}, а Уважність і Атлетику ми отримуємо від передісторії, як зазначено вище."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-circle-of-the-moon-druid-build-moon-sailor",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "4-й рівень дає нам «Телекінетика»{{Telekinetic}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "8-й рівень піднімає Мудрість до межі в 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "12-й рівень дає «Щедру удачу»{{Bountiful Luck}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "16-й рівень дає «Стійкого (Статура)»{{Resilient (Con)}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "19-й рівень дає нам «Рухливого»{{Mobile}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-circle-of-the-moon-druid-build-moon-sailor",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замовляння:\n– Настанова\n– Створення вогню\nПідготовлені заклинання:\n– Виявлення магії\n– Обплутування\n– Цілюще слово\n– Крижаний кинджал\nДруїдична мова"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Місяць ще не благословив нас, тож у бою доводиться обмежуватися метанням спалахів полумʼя (чомусь у польоті вони виглядають як фрісбі). Поза боєм маємо Настанову [Guidance], про чию крутість на цьому сайті ви, імовірно, вже наслухалися. Утім, якщо ви завжди стоїте попереду як основний танк, візьміть Кийок [Shillelagh] замість Створення вогню [Produce Flame] і дивуйтеся, звідки на вашій палиці взялися всі ці мотиви сердець і крил. З лише двома слотами заклинань на день ми готуємо Виявлення магії [Detect Magic], бо його можна накласти як ритуал, і Обплутування [Entangle], щоб не забути взяти його пізніше. Якщо хочете використати заклинання з рівнем для шкоди, Крижаний кинджал [Ice Knife] завдає більшої середньої шкоди одній цілі, ніж Громова хвиля [Thunderwave], і значно простіший у використанні. Цілком імовірно, обидва слоти підуть на Цілюще слово [healing word], щоб піднімати людей на ноги. Зі стартового спорядження візьміть щит, палицю на випадок, якщо доведеться накладати на неї Кийок [Shillelagh] (або просто щоб ходити з нею), і безкоштовні обладунок, набір і фокус. Фокус — це, безперечно, паличка, на кінці якої ми вирізали півмісяць на знак відданості Колу{{Circle}}, яке оберемо на наступному рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлені заклинання:\n– Доброягода\nДика форма\nБойова Дика форма\nФорми кола"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми можемо перемагати людей іменем Місяця. До 6-го рівня ми проводитимемо багато часу у формі Лютого вовка{{Dire Wolf}} з усіх причин, описаних у "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Практичному гайді із Дикої форми",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Practical Guide to Wild Shape}}. Завдяки його володінню Непомітністю й Уважністю, «Гострому слуху й нюху»{{Keen Hearing and Smell}} та нашій власній високій Мудрості ми виходимо чудовим розвідником. Розвідником-моряком, якщо хочете. Для бою є й інші варіанти, але переконати Майстра, що ви бачили дейноніха, — це, імовірно, важко. Проте якщо вдасться, він використає всі ті мультиатаки, які я згадував і які «Удача»{{Lucky}} (расова риса, а не однойменна риса) чудово захищає, щоб завдати купу шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлені заклинання:\n– Стримування особи\nКрижаний кинджал → Палюча сфера"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Технічно ми могли зробити це вже на минулому рівні, але іноді вам траплятимуться сильні істоти, які з більшою ймовірністю провалять ряткидок Мудрості, ніж ряткидок Сили. Під «цим» я маю на увазі накладення стану Скований чи Паралізований на когось, а потім атаку з «Мультиатакою»{{Multiattack}}, що вбиває ціль. Якщо вдасться, щоб Стримування особи [Hold Person] протримався до наступного ходу цілі, ми потенційно можемо отримати 3 автоматичні криті влучання по цілі за один хід завдяки «Наскоку»{{Pounce}} Дейноніха{{Deinonychus}}. Паралізована ціль автоматично провалює ряткидок Сили, щоб не бути поваленою, а отже, укус бонусною дією гарантований."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замовляння:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Формування води",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nПідготовлені заклинання:\n– Покращення здібності\n– Дух зцілення\nРиса: Телекінетик (Мудрість 17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Mage Hand] і Формування води [Shape Water] — два утилітарні гіганти серед замовлянь. «Телекінетик»{{Telekinetic}} також дає вам що робити бонусною дією щораунду, якщо ви не заняті нею чимось іншим, наприклад переміщенням вашої Палючої сфери [Flaming Sphere]. Покращення здібності [Enhance Ability] годиться практично на все, зокрема на Силу на собі, щоб краще захоплювати цілі в «Дикій формі»{{Wild Shape}}, або на більш типові речі на кшталт переваги на Спритність під час скрадання чи на Мудрість під час розвідки. Дух зцілення [Healing Spirit] тим часом трохи схожий на Масове цілюще слово [Mass Healing Word], але повільніший. Він добре піднімає кількох людей поруч за один раунд за один слот заклинання, що й на цьому рівні лишається цінним. Просто накладіть його бонусною дією й проводьте людей крізь нього своїм рухом і дією. Оформте його як маленького чорного кота, щоб спонукати членів групи торкатися його."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлені заклинання:\n– Захист від енергії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Жодне із заклинань Друїда 3-го рівня не є надто чудовим, тож здебільшого цей рівень минає в тужливому погляді на 6-й."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлені заклинання:\n– Приливна хвиля\nПервісний удар\nФорми кола"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "А знаєте, що ще керується місяцем? Припливи. Нарешті новий розділ у наших здібностях до перетворення. Очікуйте, що проводитимете багато часу як кіт чи лось із магічними кінцівками."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлені заклинання:\n– Стіна вогню"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отже, ми вже можемо перетворюватися на {{Гігантського удава|Giant Constrictor}}. Тепер можна спершу створити Стіну вогню [Wall of Fire], а потім тримати щось за 10 футів від неї, поки самі сидимо за 15 футів від неї. Змії зазвичай не готують їжу, але це не мусить нас зупиняти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 18 → 20\nПідготовлені заклинання:\n– Камʼяна шкіра\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/pathfinder/characters/polymorph/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перевтілення [Polymorph] чудове, якщо ваша поточна форма недостатня й вам просто потрібне щось магічніше, щоб ви з друзями подолали виклик цього тижневого епізо… сесії. Камʼяна шкіра [Stoneskin] тут із дуже схожої причини, але, очевидно, його слід накладати до «Дикої форми»{{Wild Shape}}. На щастя, оскільки «Дика форма» для нас — бонусна дія, ви можете зробити обидва в один хід. Цей рівень ми проводимо в бою в образі "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Кетцалькоатля",
+                      "href": "https://www.dndbeyond.com/monsters/17242-quetzalcoatlus"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Quetzalcoatlus}}, насолоджуючись неймовірною безпекою «Обліту»{{Flyby}}, хіба що ми танк групи й від нас чекають, що ми станемо попереду."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлені заклинання:\n– Масове лікування ран"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми все ще божественний заклинач, і це заклинання все ще чудовий спосіб розвʼязати проблему, коли помирає більше однієї людини одночасно. Друїди, на жаль, не отримують Масового цілющого слова [Mass Healing Word]. Це також рівень, на якому ми починаємо ставати Гігантським скорпіоном{{Giant Scorpion}}. Тепер можна схопити "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "двох"
+                    },
+                    {
+                      "type": "text",
+                      "text": " ворогів і піднести їх до Стіни вогню [Wall of Fire], яку ви поставили."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дика форма елементаля\nПідготовлені заклинання:\n– Виклик духу дракона"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "У «Практичному гайді із Дикої форми»{{Practical Guide to Wild Shape}} Тайлер розповідав про тактики для вогняних елементальних витівок. Ви неодмінно повинні це робити, якщо не хочете натомість смажити ворогів у своїх клешнях. Але іноді спершу варто викликати друга, щоб він допоміг в особливо складному бою. Ніщо не заважає вам стверджувати, що ваш Дух дракона{{Draconic Spirit}} виглядає як хлопець у смокінгу, масці й циліндрі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлені заклинання:\n– Зцілення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Обовʼязковий вибір для будь-кого, хто може його взяти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса:\n– Щедра удача\nПідготовлені заклинання:\n– Бенкет героїв"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер нам також є що надійно робити реакцією. На цьому рівні багато чого починає мати дуже страшні ефекти «пройди-ряткидок-або-страждай»{{save-or-suck}}, тож добре мати змогу дозволити друзям позичити трохи нашої місячної космічної сили."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлені заклинання:\n– Обернена гравітація"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Обернена гравітація [Reverse Gravity] — смертний вирок для всього, що не вміє літати. Якщо накласти його там, де немає за що вхопитися, вони навіть не отримують жодного ряткидка. Наче їх тягне… місяць?"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлені заклинання:\n– Вогняний шторм\nТисячі форм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Тисячі форм»{{Thousand Forms}} чудово підходять, якщо у вас закінчилися використання «Дикої форми»{{Wild Shape}}, не вдається відпочити, а "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "просто зараз"
+                    },
+                    {
+                      "type": "text",
+                      "text": " треба зробити одну з кількох конкретних речей. Вогняний шторм [Fire Storm] гарний тим, що це велика купа шкоди, яку дуже зручно цілити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлені заклинання:\n– Слабоумство"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер можна вигнати чийсь інтелект у Царство тіней. Стоп, це неправильно. Це також рівень, на якому ми можемо почати перетворюватися на Гігантського крокодила{{Giant Crocodile}} чи Бронтозавра{{Brontosaurus}}. Ех, наприкінці зростання сили справді зашкалює."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса:\n– Стійкий (Статура 15 → 16)\nПідготовлені заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Тіло звіра",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-animal-shapes/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Стійкого»{{Resilient}} ми на цьому етапі беремо здебільшого заради володіння, але це володіння застосовуватиметься до будь-якого величезного значення Статури, яке ми отримаємо від обраної форми. Я не зможу пояснити Тіло звіра [Animal shapes] краще, ніж це зробила Беа. Проте скажу, що вам неодмінно варто заохотити кожного з друзів придумати, як виглядає їхня послідовність перетворення. Можливо, всі вони вийдуть різнокольоровими варіаціями тварин."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлені заклинання:\n– Передбачення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Концентрація не потрібна, тож просто накладайте цей Святий Грааль серед заклинань і насолоджуйтеся перемогами цілий день."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тіло поза часом\nЗаклинання звіра\nПідготовлені заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перекидання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/true-polymorph-and-shapechange/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чесно кажучи, я б, імовірно, ніколи не накладав це, бо це не Передбачення [Foresight]. Проте «Заклинання звіра»{{Beast Spells}} чудові. Тепер ви можете виконувати частину своїх трюків, не виходячи з форми, і піднімати людей на ноги Цілющим словом [healing word] без жодного занепокоєння щодо використань «Дикої форми»{{Wild Shape}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Рухливий\nПідготовлені заклинання:\n– Істинне воскресіння"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Рухливий»{{Mobile}} — чудове доповнення до вашого величезного арсеналу місячних палиць, прикрас і пудрениць (для стеження [Scrying], звісно). Усі частини риси мають діяти під час «Дикої форми»{{Wild Shape}}. Додатковий рух чудово підходить для перенесення істот у захопленні, адже рух коштує вдвічі більше, коли ви це робите. Ривок, по суті, не має спрацьовувати, але приємно мати його, якщо ви підготуєте кілька інших заклинань, що створюють великі області складної місцевості, у які ви потім плануєте кинутися, а здатність відходити від ворогів — "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "чудова"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Вдарте двох ворогів клешнями, схопіть обох, вжальте третього хвостом і відійдіть, щоб безпечно смажити свої трофеї на Стіні вогню [Wall of Fire]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Архі-друїд{{Archdruid}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це, безперечно, одне з найкращих завершальних умінь у грі. Тепер, як друїд {{Кола місяця|Circle of the Moon}}, ви можете Вічно бути будь-якою твариною, яку бачили (тварин, яких Вигадали, все ще не можна), і можете накладати набагато більше заклинань у цих формах. Це трохи антисинергічно, бо тепер, коли у вас безкінечна кількість використань «Дикої форми»{{Wild Shape}}, вам значно менше заважає виходити з неї, щоб накласти заклинання, а потім бонусною дією перетворюватися назад, але воно все одно "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "відчувається"
+                    },
+                    {
+                      "type": "text",
+                      "text": " дуже добре, чого не скажеш про більшість завершальних умінь класів."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-druid-moon-2014-001",
+      "articleId": "rpgbot-druid-moon-2014",
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Бойова Дика форма",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-moon-2014-002",
+      "articleId": "rpgbot-druid-moon-2014",
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Форми кола",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-moon-2014-003",
+      "articleId": "rpgbot-druid-moon-2014",
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Первісний удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-moon-2014-004",
+      "articleId": "rpgbot-druid-moon-2014",
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Дика форма елементаля",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-moon-2014-005",
+      "articleId": "rpgbot-druid-moon-2014",
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Тисячі форм",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-moon-2014-006",
+      "articleId": "rpgbot-druid-moon-2014",
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "sectionId": "section-circle-of-the-moon-ability-scores",
+      "targetBlockId": "block-section-circle-of-the-moon-ability-scores-2",
+      "optionId": "section-circle-of-the-moon-ability-scores-block-section-circle-of-the-moon-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-circle-of-the-moon-ability-scores-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-moon-2014-007",
+      "articleId": "rpgbot-druid-moon-2014",
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "sectionId": "section-circle-of-the-moon-ability-scores",
+      "targetBlockId": "block-section-circle-of-the-moon-ability-scores-3",
+      "optionId": "section-circle-of-the-moon-ability-scores-block-section-circle-of-the-moon-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-circle-of-the-moon-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-moon-2014-008",
+      "articleId": "rpgbot-druid-moon-2014",
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "sectionId": "section-circle-of-the-moon-ability-scores",
+      "targetBlockId": "block-section-circle-of-the-moon-ability-scores-4",
+      "optionId": "section-circle-of-the-moon-ability-scores-block-section-circle-of-the-moon-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-circle-of-the-moon-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-moon-2014-009",
+      "articleId": "rpgbot-druid-moon-2014",
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "sectionId": "section-circle-of-the-moon-ability-scores",
+      "targetBlockId": "block-section-circle-of-the-moon-ability-scores-5",
+      "optionId": "section-circle-of-the-moon-ability-scores-block-section-circle-of-the-moon-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-circle-of-the-moon-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-moon-2014-010",
+      "articleId": "rpgbot-druid-moon-2014",
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "sectionId": "section-circle-of-the-moon-ability-scores",
+      "targetBlockId": "block-section-circle-of-the-moon-ability-scores-6",
+      "optionId": "section-circle-of-the-moon-ability-scores-block-section-circle-of-the-moon-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-circle-of-the-moon-ability-scores-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-moon-2014-011",
+      "articleId": "rpgbot-druid-moon-2014",
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "sectionId": "section-circle-of-the-moon-ability-scores",
+      "targetBlockId": "block-section-circle-of-the-moon-ability-scores-7",
+      "optionId": "section-circle-of-the-moon-ability-scores-block-section-circle-of-the-moon-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-circle-of-the-moon-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

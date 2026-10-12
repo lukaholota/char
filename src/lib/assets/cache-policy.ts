@@ -14,6 +14,20 @@ export function buildStaticAssetHeaders() {
       ],
     },
     {
+      source: "/icons/:path*",
+      headers: [
+        { key: "Cache-Control", value: `public, max-age=${WEEK_IN_SECONDS}, stale-while-revalidate=86400` },
+      ],
+    },
+    {
+      source: "/sw.js",
+      headers: [{ key: "Cache-Control", value: "no-cache" }],
+    },
+    {
+      source: "/manifest.json",
+      headers: [{ key: "Cache-Control", value: "no-cache" }],
+    },
+    {
       source: "/fonts/:path*",
       headers: [{ key: "Cache-Control", value: `public, max-age=${YEAR_IN_SECONDS}, immutable` }],
     },

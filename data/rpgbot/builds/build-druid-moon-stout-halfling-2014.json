@@ -1,0 +1,809 @@
+{
+  "buildId": "build-druid-moon-stout-halfling-2014",
+  "revisionId": "build-druid-moon-stout-halfling-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Друїда Кола місяця — «Місячний моряк»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-druid-moon-2014",
+      "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+      "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+      "sectionId": "section-example-circle-of-the-moon-druid-build-moon-sailor",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "DRUID_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "DRUID_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "DRUID_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CIRCLE_OF_THE_MOON",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "DRUID_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "DRUID_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TELEKINETIC",
+        "featOptions": [
+          {
+            "optionNameEng": "TELEKINETIC Ability (Wisdom)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "shape-water"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "DRUID_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "DRUID_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "DRUID_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "DRUID_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "DRUID_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "DRUID_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "DRUID_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "DRUID_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "BOUNTIFUL_LUCK"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "DRUID_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "DRUID_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "DRUID_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "DRUID_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "DRUID_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "DRUID_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "DRUID_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "MOBILE"
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "DRUID_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-moon-2014",
+          "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+          "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "CIRCLE_OF_THE_MOON",
+    "raceKey": "HALFLING_2014",
+    "backgroundKey": "SAILOR",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 12
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Як описано вище. Вкладемо +2 у Мудрість, а +1 — у Статуру.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 14 14 Статура 14 15 Інтелект 12 12 Мудрість 15 17 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Кремезний напіврослик{{Stout Halfling}} із налаштованим походженням{{Custom Origin}}. Ми з Тайлером знову не згодні щодо того, що означає «ви зберігаєте користь від будь-яких умінь вашого класу, раси чи іншого джерела й можете користуватися ними, якщо нова форма фізично на це здатна».\n\n«Удача»{{Lucky}} і «Хоробрість»{{Brave}}, очевидно, працюють у формі тварини, але з опором до шкоди отрутою менш ясно. Тайлер вважає, що, оскільки ваше тіло Кремезного напіврослика фізично опірне до отрути, перетворення вашого тіла на домашнього кота позбавить цього опору. Я думаю, що жодна частина здібності не вказує, що вона залежить від анатомії, тож опір до отрути ви зберігаєте. Гадаю, це на розсуд Майстра, бо WotC так і не розʼяснили.\n\n«Спритність напівросликів»{{Halfling Nimbleness}} теж має працювати під час перетворення, бо не залежить від вашої фізичної форми, тож сміливо заходьте в простір Величезного велетня, поки ви — Великий звір.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Моряк{{Sailor}}. Ми любимо володіння Уважністю до нашої високої Мудрості, а Атлетика чудова для утримання захоплень у перетвореному вигляді відповідно до мого тлумачення, описаного вище. Ми беремо варіантне уміння «Погана репутація»{{Bad Reputation}} і подаємо це так, ніби люди вдячні, що ми ніколи не тікаємо від справжньої бійки.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Друїд дає нам володіння Природою, Виживанням і Набором травника{{Herbalism Kit}}, а Уважність і Атлетику ми отримуємо від передісторії, як зазначено вище.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "4-й рівень дає нам «Телекінетика»{{Telekinetic}}.\n\n8-й рівень піднімає Мудрість до межі в 20.\n\n12-й рівень дає «Щедру удачу»{{Bountiful Luck}}.\n\n16-й рівень дає «Стійкого (Статура)»{{Resilient (Con)}}.\n\n19-й рівень дає нам «Рухливого»{{Mobile}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Замовляння:\n– Настанова\n– Створення вогню\nПідготовлені заклинання:\n– Виявлення магії\n– Обплутування\n– Цілюще слово\n– Крижаний кинджал\nДруїдична мова",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Підготовлені заклинання:\n– Доброягода\nДика форма\nБойова Дика форма\nФорми кола",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підготовлені заклинання:\n– Стримування особи\nКрижаний кинджал → Палюча сфера",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Замовляння:\n– Формування води\nПідготовлені заклинання:\n– Покращення здібності\n– Дух зцілення\nРиса: Телекінетик (Мудрість 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Підготовлені заклинання:\n– Захист від енергії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Підготовлені заклинання:\n– Приливна хвиля\nПервісний удар\nФорми кола",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Підготовлені заклинання:\n– Стіна вогню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Мудрість 18 → 20\nПідготовлені заклинання:\n– Камʼяна шкіра\n– Перевтілення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Підготовлені заклинання:\n– Масове лікування ран",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Дика форма елементаля\nПідготовлені заклинання:\n– Виклик духу дракона",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Підготовлені заклинання:\n– Зцілення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса:\n– Щедра удача\nПідготовлені заклинання:\n– Бенкет героїв",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Підготовлені заклинання:\n– Обернена гравітація",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Підготовлені заклинання:\n– Вогняний шторм\nТисячі форм",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Підготовлені заклинання:\n– Слабоумство",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса:\n– Стійкий (Статура 15 → 16)\nПідготовлені заклинання:\n– Тіло звіра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Підготовлені заклинання:\n– Передбачення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Тіло поза часом\nЗаклинання звіра\nПідготовлені заклинання:\n– Перекидання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Рухливий\nПідготовлені заклинання:\n– Істинне воскресіння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Архі-друїд{{Archdruid}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Варіантне уміння передісторії",
+        "reason": "Автор бере варіантне уміння Моряка «Погана репутація»; пресет не записує вибір варіантного уміння передісторії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Підготовлені заклинання 2–20 рівнів",
+        "reason": "Автор називає підготовлені заклинання по рівнях (і заміну Крижаного кинджала на Палючу сферу на 3-му), але підготовку Друїда на вищих рівнях плану не веде жоден модуль платформи; їх готують на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння 10-го рівня",
+        "reason": "Друїд 10-го рівня обирає ще одне замовляння, а автор його не називає, тож вибір лишено гравцеві.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-moon-2014",
+            "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+            "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

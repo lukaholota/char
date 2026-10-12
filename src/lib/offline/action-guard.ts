@@ -28,6 +28,11 @@ export function isOfflineActionError(error: unknown): error is OfflineActionErro
 }
 
 let installed = false;
+let pendingServerActions = 0;
+
+export function hasPendingServerActions(): boolean {
+  return pendingServerActions > 0;
+}
 
 export function installOfflineActionGuard(): void {
   if (installed || typeof window === "undefined") return;
@@ -45,6 +50,7 @@ export function installOfflineActionGuard(): void {
     const startedAt = Date.now();
     if (!navigator.onLine) throw refuseOfflineAction(startedAt, null);
 
+    pendingServerActions += 1;
     try {
       const response = await originalFetch(input, init);
       noteOriginResponse(input);
@@ -53,6 +59,8 @@ export function installOfflineActionGuard(): void {
     } catch (error) {
       if (navigator.onLine && !(error instanceof TypeError)) throw error;
       throw refuseOfflineAction(startedAt, error, "Звʼязок обірвався — дія не виконана. Спробуйте ще раз, коли мережа повернеться.");
+    } finally {
+      pendingServerActions -= 1;
     }
   };
 

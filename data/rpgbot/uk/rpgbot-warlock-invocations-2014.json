@@ -1,0 +1,2755 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-cf9974d7a7f1b836",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-cf9974d7a7f1b836-e123a6f389699bb3",
+      "sourceId": "rpgbot-cf9974d7a7f1b836",
+      "fetchedAt": "2026-09-29T19:22:31.531370+00:00",
+      "sourceUpdatedAt": "2026-03-14T15:05:13-04:00",
+      "contentHash": "200a4ce2eea8ab07fa9f301d24baff304e3b4294411c4b9e5b5d68ac0ff2b669",
+      "title": "DnD 5e Warlock Eldritch Invocations Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-cf9974d7a7f1b836-e123a6f389699bb3.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-warlock-invocations-2014",
+    "sourceId": "rpgbot-cf9974d7a7f1b836",
+    "slug": "warlock-invocations-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Потойбічні виклики Чорнокнижника — гайд (2014)",
+    "titleEn": "DnD 5e Warlock Eldritch Invocations Guide",
+    "topics": [
+      "Чорнокнижник",
+      "Потойбічні виклики",
+      "Дар пакту",
+      "Містичний адепт",
+      "рейтинг викликів"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "sourceRevisionId": "rpgbot-cf9974d7a7f1b836-e123a6f389699bb3",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Виклики — потужний спосіб налаштувати свого чорнокнижника: вони додають пасивні бафи, нові уміння, нові варіанти чаротворства та інші ефекти. Вибір викликів так само важливий, як і вибір покровителя, а знання про те, які варіанти доступні й як ними користуватися, вирішальне, якщо ви хочете досягти успіху як чорнокнижник."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоча Потойбічні виклики{{Eldritch Invocations}} — насамперед класове уміння Чорнокнижника, вони також доступні з рисою «Містичний адепт»{{Eldritch Adept}}. Варіанти, доступні з «Містичним адептом», розглянуто нижче основного розділу про виклики."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Потойбічні виклики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "1-й рівень",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-1"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "3-й рівень (потрібен Дар пакту)",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-3"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "5-й рівень",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-5"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "7-й рівень",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-7"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "9-й рівень",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-9"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "12-й рівень",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-12"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "15-й рівень",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#invocations-level-15"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риса «Містичний адепт»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations/#eldritch-adept"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-invocations",
+          "heading": "Потойбічні виклики",
+          "sourceAnchor": "invocations",
+          "blocks": [
+            {
+              "blockId": "block-section-invocations-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Виклики часто мають вимоги до рівня, тож нижче їх упорядковано за рівнем. Виклики вищого рівня не обовʼязково кращі за виклики низького рівня, тож не відчувайте змушеності обирати виклики найвищого рівня, які вам доступні на цей момент."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-invocations-level-1",
+          "parentSectionId": "section-invocations",
+          "heading": "1-й рівень",
+          "sourceAnchor": "invocations-level-1",
+          "blocks": [
+            {
+              "blockId": "block-section-invocations-level-1-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ці виклики не мають вимоги до рівня, тож вони доступні, щойно ви можете їх отримати. Хоча більшість чорнокнижників не можуть отримати виклик до 2-го рівня, раси, що дають рису на 1-му рівні, відкривають доступ до цих викликів через рису «Потойбічний виклик»{{Eldritch Invocation}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-invocations-level-1-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Мучливий вибух",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#AgonizingBlast"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Agonizing Blast}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": його бере майже кожен чорнокнижник. Шкода просто надто хороша, щоб її пропустити. Вона примножується з кожним додатковим променем, тож загальна додаткова шкода зростає від +3 на низьких рівнях до максимуму +20 на 17-му рівні."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунок тіней",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#ArmorofShadows"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Armor of Shadows}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ви вже володієте легкими обладунками, а Обладунок мага [Mage Armor] дає лише +1 КБ порівняно з проклепаним шкіряним обладунком. Викликів вам дають замало, щоб виправдано марнувати один із них на це. {{Відьмацькі клинки|Hexblades}} можуть розглянути цей виклик, щоб скоротити розрив у КБ між легкими/середніми й важкими обладунками, але мене не переконує, що це краще за мультикласування заради володіння важкими обладунками."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мова звірів",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#BeastSpeech"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Beast Speech}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дуже ситуативний."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Спокусливий вплив",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#BeguilingInfluence"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Beguiling Influence}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дуже корисний, якщо ви хочете бути «обличчям», але Обман ви вже отримуєте як варіант класової навички, а Переконання можна взяти з передісторії."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зір диявола",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#DevilsSight"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Devil’s Sight}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Темний зір може дати величезну тактичну перевагу, але смолоскип його нівелює. «Зір диявола» дозволяє використовувати магічну темряву, зокрема заклинання Темрява [Darkness], щоб отримати величезну перевагу над ворогами. Однак памʼятайте, що вашим союзникам, імовірно, усе ще буде важко битися в магічній темряві, тож використання цього варіанта часто може призводити до егоїстичної тактики, яка дратує союзників. Зауважте, що «Зір диявола» "
+                  },
+                  {
+                    "type": "link",
+                    "text": "не впливає на те, як ви бачите в тьмяному світлі",
+                    "href": "https://twitter.com/jeremyecrawford/status/957031642979221504"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", тож можуть виникати дивні випадки, коли вам важко роздивитися речі біля свічок, а кільце тьмяного світла навколо багатьох джерел світла (смолоскипів тощо) створює «бублик» невеликих незручностей."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Потойбічний розум",
+                    "href": "https://www.dndbeyond.com/sources/tcoe/warlock#EldritchMind"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Eldritch Mind}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чорнокнижники мають дуже мало слотів заклинань, а багато їхніх найкращих заклинань потребують Концентрації. Перевага на ряткидках для підтримання Концентрації — величезний плюс. {{Відьмацьким клинкам|Hexblades}} варто розглянути натомість рису «Бойовий заклинатель»{{War Caster}}, але решті чорнокнижників «Потойбічного розуму» цілком досить."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Потойбічний зір",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#EldritchSight"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Eldritch Sight}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": майже кожен повноцінний заклинатель отримує Виявлення магії [Detect Magic], і його можна накладати як ритуал. Єдина перевага тут у тому, що він діє швидше, ніж витрачати 10 хвилин на накладання як ритуалу."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Потойбічний спис",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#EldritchSpear"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Eldritch Spear}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": 120 футів зазвичай досить для більшості сутичок. Якщо сутичка відбувається на більшій відстані, ви завжди можете підійти ближче."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Очі хранителя рун",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#EyesoftheRuneKeeper"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Eyes of the Rune Keeper}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": візьміть «Книгу давніх секретів»{{Book of Ancient Secrets}} або рису «Ритуальний заклинатель»{{Ritual Caster}} і накладайте Розуміння мов [Comprehend Languages]."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Вогняна енергійність",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#FiendishVigor"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Fiendish Vigor}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": із тривалістю 1 година й без потреби в Концентрації ви можете накладати його знову й знову, поки не викинете максимум ХП, щоразу, коли маєте на це кілька раундів. Якщо ви не спите, він завжди має бути ввімкнений. Кількість додаткових ХП — це по суті ще один Кубик Здоровʼя, тож він сильно підвищує вашу живучість, що робить його чудовим варіантом для {{Відьмацьких клинків|Hexblades}} і будь-яких інших чорнокнижників, які планують проводити час у ближньому бою, але може бути менш корисним для інших, які бʼються здалеку, де вони (відносно) в безпеці. Є й ефективніші варіанти, як-от «Надихаючий лідер»{{Inspiring Leader}}, що можуть дати більші запаси тимчасових ХП, тож якщо у вас є місце для таких варіантів, ви можете взяти цей виклик на початку карʼєри, а потім замінити його на інший."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Погляд двох розумів",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#GazeofTwoMinds"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Gaze of Two Minds}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дуже ситуативний. Не можу згадати, коли його можна було б використовувати регулярно."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Хватка Хадара",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#GraspofHadar"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Grasp of Hadar}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо ви достатньо користуєтеся Позамежним зарядом [Eldritch Blast], щоб виправдати вкладення в нього, зазвичай вам потрібно тримати ворогів подалі від себе. Проте можливість підтягувати ворогів ближче може бути корисною для ваших союзників, а ще за її допомогою ви можете утримувати ворогів усередині тривалих ефектів по області, як-от Голод Хадара [Hunger of Hadar]."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Спис млявості",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#LanceofLethargy"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Lance of Lethargy}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": незначна прикрість. Ефекти не складаються самі з собою, тож не вийде повторно знижувати швидкість цілі. Найкращий випадок, який я можу уявити, — якщо ви сильно покладаєтеся на заклинання контролю області на кшталт Голоду Хадара [Hunger of Hadar] чи Нудотного сяйва [Sickening Radiance], які залежать від шкоди, що завдається впродовж кількох раундів. У таких випадках зниження швидкості істот може допомогти втримати ворогів у зоні. Звісно, того самого можна досягти, переміщуючи цілі за допомогою «Хватки Хадара»{{Grasp of Hadar}} чи «Відштовхувального вибуху»{{Repelling Blast}}, а оскільки «Відштовхувальний вибух» може працювати більше ніж раз на ціль, він, імовірно, ефективніший."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Маска багатьох облич",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#MaskofManyFaces"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Mask of Many Faces}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у грі зі скритністю чи інтригами здатність маскуватися — велика перевага. Можливість робити це миттєво й безкоштовно дозволяє бути ким завгодно й коли завгодно."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Туманні видіння",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#MistyVisions"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Misty Visions}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": кмітливий гравець із Майстром, який готовий підіграти, може досягти багато чого навіть із базовою ілюзією. 15-футовий куб — це теж величезний простір. Розміщуйте ілюзорні стіни, двері, статуї чи інші предмети, які істоти не очікують бачити рухомими чи такими, що створюють інші подразники на кшталт тепла або запахів, і в багатьох випадках це так само добре, як створити щось справжнє. Якщо істоти не розуміють, що ваша ілюзорна стіна — ілюзія, вони ставитимуться до неї як до стіни."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Відштовхувальний вибух",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#RepellingBlast"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Repelling Blast}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": це може бути особливо приємно, коли ви отримуєте додаткові промені, щоб тримати ворогів далеко від ближнього бою, але він не завжди корисний, а на низьких рівнях відштовхування на 10 футів не дасть великої різниці, хіба що ви використовуєте його, щоб розірвати захоплення."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Злодій пʼяти доль",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#ThievofFiveFates"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Thief of Five Fates}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": прийнятний дебаф, але не вартий слота заклинань. На низьких рівнях він може зачепити надто мало істот, щоб виправдати слот заклинань, а на високих ви маєте робити набагато більше, ніж просто штрафувати атаки, якщо збираєтеся витрачати один із ваших дорогоцінних слотів заклинань."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-invocations-level-3",
+          "parentSectionId": "section-invocations",
+          "heading": "3-й рівень (потрібен Дар пакту)",
+          "sourceAnchor": "invocations-level-3",
+          "blocks": [
+            {
+              "blockId": "block-section-invocations-level-3-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Формально ці виклики не мають вимоги до рівня, але вони потребують «Дару пакту»{{Pact Boon}}, що є умінням 3-го рівня, тож на практиці вимога до рівня є."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-invocations-level-3-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Покровительство місяця",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#AspectoftheMoon"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Aspect of the Moon}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт гримуара|Pact of the Tome}}) Якщо вам справді здається, що це потрібно, вам слід було грати ельфом чи расою, що не спить, як-от Воєнокований{{Warforged}}. Навіть тоді користь тут украй незначна порівняно з більшістю викликів."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Книга давніх секретів",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#BookofAncientSecrets"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Book of Ancient Secrets}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт гримуара|Pact of the Tome}}) Це по суті риса «Ритуальний заклинатель»{{Ritual Caster}}. Ефекти риси за ціну виклику — це чудово, а оскільки ви — еквівалент Чарівника у своїй групі, вам може знадобитися доступ до важливих ритуальних заклинань, як-от Виявлення магії [Detect Magic]. Він також замінює потребу в кількох викликах, що дають доступ до ритуальних заклинань, зокрема «Мови звірів»{{Beast Speech}} та «Очей хранителя рун»{{Eyes of the Rune Keeper}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Дари вічних",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#GiftoftheEverLivingOnes"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Gift of the Ever-Living Ones}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт ланцюга|Pact of the Chain}}) Це охоплює лікувальні заклинання, як-от Цілюще слово [healing word] і Лікування ран [Cure Wounds], а також Кубики Здоровʼя, кинуті під час відпочинку. Це добре, особливо якщо ви часто отримуєте шкоду, але ви не повинні притягувати стільки вогню, щоб це мало значення."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Покращена пактова зброя",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#ImprovedPactWeapon"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Improved Pact Weapon}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт клинка|Pact of the Blade}}) У кампанії без магічних предметів це могло б бути чудово. Навіть коли магічні предмети доступні, багато магічної зброї не дає +1 до атак і шкоди, а будь-який бонус до кидків атаки — це чудово. Можливість викликати довгі луки також означає, що чорнокнижники ближнього бою можуть легко перемикатися на дальній бій і повністю відмовитися від Позамежного заряду [Eldritch Blast] та викликів, які чорнокнижники зазвичай витрачають на його оптимізацію."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інвестиція майстра ланцюгів",
+                    "href": "https://www.dndbeyond.com/sources/tcoe/warlock#InvestmentoftheChainMaster"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Investment of the Chain Master}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт ланцюга|Pact of the Chain}}) Практично обовʼязковий для «Пакту ланцюга». Він надто хороший, щоб його оминати. Без нього ваш фамільяр — трохи вигадливіший улюбленець, ніж інші фамільяри. «Інвестиція майстра ланцюгів» перетворює його на потужного союзника. Дивна порада: оберіть швидкість плавання. Кожен фамільяр, якого варто мати, уже має спосіб отримати швидкість польоту 40 фт. або більше."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Відплата талісмана",
+                    "href": "https://www.dndbeyond.com/sources/tcoe/warlock#RebukeoftheTalisman"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Rebuke of the Talisman}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт талісмана|Pact of the Talisman}}) Більшість чорнокнижників не мають багато добрих способів використати свою Реакцію, тож це цікавий варіант. Він також робить рішення про те, хто носить ваш талісман, трохи вагомішим. Звісно, ви можете тримати його на собі й використовувати, щоб відштовхувати ворогів від себе, коли вони вас атакують. Але можна також віддати його союзникові на передовій, який стабільно отримуватиме удари, і тоді ви зможете завдавати стабільної, надійної шкоди без ризику для себе. Памʼятайте, що ефект відштовхування обовʼязковий, якщо ви завдаєте шкоди, тож ваші союзники ближнього бою можуть дратуватися, коли ви змушуєте їх ганятися за ворогами, але ви також можете виштовхнути ворогів за межі їхньої досяжності й нівелювати частину їхніх атак, якщо їм не вистачає руху, щоб повернутися на позицію для атаки."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Голос майстра ланцюгів",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#VoiceoftheChainMaster"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Voice of the Chain Master}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт ланцюга|Pact of the Chain}}) Фамільяри — чудові розвідники, тож дослідження небезпечних місць через фамільяра — чудовий спосіб діяти. Це також корисно для спілкування з іншими істотами з безпечної відстані. Спершу візьміть «Інвестицію майстра ланцюгів»{{Investment of the Chain Master}}, але після цього розгляньте і цей виклик."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-invocations-level-5",
+          "parentSectionId": "section-invocations",
+          "heading": "5-й рівень",
+          "sourceAnchor": "invocations-level-5",
+          "blocks": [
+            {
+              "blockId": "block-section-invocations-level-5-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Плащ мух",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#CloakofFlies"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Cloak of Flies}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": цей ефект триває, доки ви його не скасуєте, тож це чудовий баф і для нападу, і для захисту. Чорнокнижники ближнього бою можуть цим скористатися, пірнаючи в групи ворогів і намагаючись накрити областю дії якомога більше з них. Якщо вороги намагаються втекти, застосуйте Принагідні атаки, а потім доженіть їх наступного ходу. Проти ворогів, у яких особливо важко влучити, заженіть їх у кут, заблокуйте їм утечу, станьте поруч і виконайте Ухиляння. Шкода гарантована й не дозволяє ряткидка, тож проти багатьох ворогів можна просто стояти й чекати, поки вони впадуть. Проте я б не брав цей виклик на жодного чорнокнижника, крім {{Відьмацького клинка|Hexblade}}, а отруйна шкода часто має опір, тож не завжди можна розраховувати на його ефективність."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Містична кара",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#EldritchSmite"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Eldritch Smite}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт клинка|Pact of the Blade}}) Рідко коли варто витрачати на це слот заклинань. Шкода пристойна, але зазвичай ви можете зробити набагато більше, витративши цей слот на заклинання, навіть якщо воно лише завдає шкоди. Збивати ворогів додолу спокусливо, але це також ускладнює влучання по них дальніми атаками, зокрема Позамежним зарядом [Eldritch Blast]. Найкраще залишати це на момент, коли ви завдаєте критичного влучання: тоді можна вирішити використати «Містичну кару» й подвоїти кубики шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Далекий писар",
+                    "href": "https://www.dndbeyond.com/sources/tcoe/warlock#FarScribe"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Far Scribe}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт гримуара|Pact of the Tome}}) Дуже круто, але дуже ситуативно. Мені подобається, як працює цей виклик, але більшості чорнокнижників він просто не дуже корисний. Ваш Майстер міг би зробити його привабливим, додавши потужних НІП{{NPC}} до пулу істот, з якими ви можете спілкуватися, але це сильно залежить і від готовності Майстра підігравати, і від того, чи ці НІП при тямі, корисні й готові відповісти в будь-який момент. Якщо ви раз у раз надсилаєте Послання [Sending] зі словами «Не спиш?» людям у будь-які години ночі, їм це врешті набридне. Як Майстер я розглянув би додавання покровителя чорнокнижника до списку істот. Це був би дуже цікавий спосіб забезпечити напівпряму взаємодію з покровителем Чорнокнижника, а Майстрові — чудовий спосіб передавати гравцям інформацію або просто загалом із ними бавитися."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Дари глибин",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#GiftoftheDepths"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Gift of the Depths}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": корисний лише в морських кампаніях, а якщо ви в морській кампанії, то, мабуть, захочете вміти діяти під водою набагато раніше за 5-й рівень."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Божевільне прокляття",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#MaddeningHex"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Maddening Hex}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": 5 шкоди бонусною дією цілі та цілям на ваш вибір у межах 5 футів. Якщо ви тримаєте Проклін [hex] увесь день, це буде стабільна, майже безкоштовна шкода в більшості раундів."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Загрузнути в розумі",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#MireoftheMind"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Mire the Mind}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Уповільнення [Slow] — добре заклинання, але воно не масштабується зі слотом, а використати його можна лише раз на день. Бережіть слоти заклинань для потужніших варіантів."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Один з тінями",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#OnewithShadows"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{One with Shadows}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Невидимість [Invisibility] надзвичайно корисна. На жаль, щоб лишатися невидимим, треба стояти на місці й нічого не робити, але можна пересунутися, стати невидимим до наступного ходу, а потім повторити."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Знак лихого знамення",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#SignofIllOmen"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Sign of Ill Omen}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Наділити прокляттям [Bestow Curse] — чудовий дебаф на одну ціль, але з деякими труднощами. Він діє лише на одну ціль, а оскільки з «Знаком лихого знамення» ви можете накласти його лише раз на день, найкраще накладати його на потужних одиночних цілей. Проте він потребує Концентрації й дозволяє ряткидок, тож є велика ймовірність, що ціль пройде ряткидок, і ваше щоденне накладання Наділити прокляттям [Bestow Curse] піде намарно. Навіть якщо спрацює, ви застрягнете в Концентрації на ньому, і, на відміну від Прокліну [hex], ефект не можна переносити між цілями. Проклін [hex] частково перетинається із заклинанням Наділити прокляттям [Bestow Curse], даючи схожий дебаф до характеристик і схожий бонус до шкоди, але Проклін [hex] не дозволяє цілі ряткидок і дозволяє переносити заклинання між цілями, тож ви отримуєте значно більше користі зі своєї крихітної кількості слотів заклинань."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Спрагле лезо",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#ThirstingBlade"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Thirsting Blade}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт клинка|Pact of the Blade}}) Критично важливий для {{Відьмацьких клинків|Hexblades}}, щоб не відставати від звичайніших бійців ближнього бою, які отримують «Додаткову атаку»{{Extra Attack}} на 5-му рівні, але вам може бути краще із замовлянням ближнього бою на кшталт Гримучого Клинка [Booming Blade], якщо тільки ви не розглядаєте й варіанти на кшталт «Майстра важкої зброї»{{Great Weapon Master}} чи «Влучного стрільця»{{Sharpshooter}}. Розбір математики порівняння замовлянь ближнього бою зі звичайними атаками бійців дивіться в моїй статті "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Замовляння ближнього бою проти Додаткової атаки",
+                    "href": "https://rpgbot.net/dnd5/characters/melee_cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Гробниця Левістуса",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#TombofLevistus"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Tomb of Levistus}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": це чудовий варіант на випадок паніки, і з 10 тимчасовими ХП за рівень чорнокнижника він здатен поглинути практично будь-що, що вас вдарить, якщо тільки ви не бʼєтеся з чимось із ПН значно вище вашого рівня. Однак ви недієздатні протягом ходу після його використання, а отже, віддаєте свій хід, щоб його застосувати. Якщо союзники не зможуть прийти вам на допомогу, це може бути серйозною проблемою. Оскільки правила смерті в 5e дуже мʼякі, може навіть бути безпечніше отримати шкоду, знепритомніти, а потім нехай союзник зцілить вас пізніше."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Невмируще рабство",
+                    "href": "https://www.dndbeyond.com/sources/tcoe/warlock#UndyingServitude"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Undying Servitude}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ви отримуєте одного скелета чи зомбі, і навіть не крутого. Це загальний гуманоїдний скелет/зомбі. ПН 1/4. Ви не можете підсилити заклинання, щоб отримати їх більше, бо не витрачаєте слот. Гадаю, вони можуть нести вашу здобич чи щось таке? Спрацьовувати пастки? Якщо хочете улюбленця, візьміть фамільяра. Якщо хочете воїна-немертвого, накладіть Виклик немертвого [Summon Undead]. Чесно кажучи, не можу пояснити, чому вони просто не додали Підіймання мерців [Animate Dead] до списку заклинань Чорнокнижника."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-invocations-level-7",
+          "parentSectionId": "section-invocations",
+          "heading": "7-й рівень",
+          "sourceAnchor": "invocations-level-7",
+          "blocks": [
+            {
+              "blockId": "block-section-invocations-level-7-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Чарівливий шепіт",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#BewitchingWhispers"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Bewitching Whispers}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Примушування [Compulsion] — цікавий ефект контролю натовпу, але він не масштабується зі слотом, ви можете використати його лише раз на день, і він недостатньо ефективний, щоб виправдати виклик."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Жахливе слово",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#DreadfulWord"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Dreadful Word}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Спантеличення [Confusion] — ненадійний дебаф навіть у найкращих випадках. Я б узяв «Загрузнути в розумі»{{Mire the Mind}} замість цього будь-коли."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Примарний погляд",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#GhostlyGaze"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Ghostly Gaze}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": можливість бачити крізь стіни, навіть на обмеженій відстані, — величезна перевага для авантюристів. Знання про те, що в наступній кімнаті підземелля, часто може перетворити складний бій на прогулянку або допомогти повністю обійти проблемну сутичку."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Захист талісмана",
+                    "href": "https://www.dndbeyond.com/sources/tcoe/warlock#ProtectionoftheTalisman"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Protection of the Talisman}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт талісмана|Pact of the Talisman}}) Додає в середньому +2,5 до кидка. На жаль, може бути важко визначити Складність ряткидка, якщо ваш Майстер не любʼязний її озвучити, тож використання часто буде азартною грою. Якщо ви все ж дізнаєтеся Складність ряткидка, можна легко зважити, наскільки ви далекі від успіху, вирішуючи, чи витрачати спробу. Якщо не вистачає 1 або 2 — однозначно робіть це. Якщо не вистачає 3 — робіть, якщо наслідки провалу серйозні (багато шкоди, параліч тощо). Якщо не вистачає 4 — зазвичай кидайте, лише якщо ви у відчаї."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Невблаганне прокляття",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#RelentlessHex"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Relentless Hex}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": потенційно корисний для чорнокнижників ближнього бою. Вашого руху зазвичай досить, але якщо ворог особливо швидкий або на шляху є перешкоди, ви можете знайти цей виклик ситуативно корисним."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Відьомська втеча",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#TricktersEscape"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Trickster’s Escape}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ситуативний. Свобода рухів [Freedom of Movement] іноді чудова, але у вас не вистачає варіантів викликів, щоб це був простий вибір, і те, що можна обрати ціллю лише себе, не допомагає."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Скульптор плоті",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#SculptorofFlesh"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Sculptor of Flesh}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": навіть раз на день Перевтілення [Polymorph] — чудове заклинання «пройди-ряткидок-або-страждай»{{save-or-suck}} на одну ціль, поєднане з чудовим заклинанням-утилітою. Перетворюйте ворогів на нешкідливих тварин або себе чи союзника на щось, що дозволяє втекти, дослідити чи краще битися. Однак памʼятайте, що ментальні характеристики цілі змінюються, тож не перетворюйте союзників на тварин, або вони можуть тимчасово забути, хто вони."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-invocations-level-9",
+          "parentSectionId": "section-invocations",
+          "heading": "9-й рівень",
+          "sourceAnchor": "invocations-level-9",
+          "blocks": [
+            {
+              "blockId": "block-section-invocations-level-9-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Висхідний крок",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#AscendantStep"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Ascendant Step}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у чорнокнижників є доступ до заклинання Політ [Fly], але важко виправдати витрачання ваших дорогоцінних слотів заклинань на баф для самого себе. Левітація [Levitate] дає найбільшу перевагу польоту (відстань від землі) за набагато нижчу ціну. Проте вам усе одно потрібно концентруватися."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Дар захисників",
+                    "href": "https://www.dndbeyond.com/sources/tcoe/warlock#GiftoftheProtectors"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Gift of the Protectors}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт гримуара|Pact of the Tome}}) Уявіть рису напіворка «Невгамовна витривалість»{{Relentless Endurance}}, але спільну для всієї вашої групи. Хоча вона не допоможе вам активно щось досягти, це чудовий варіант підтримки, який будь-яка група буде рада мати."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Слуги хаосу",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#MinionsofChaos"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Minions of Chaos}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у списку заклинань Чорнокнижника тепер є заклинання виклику, тож цей виклик застарів."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Потойбічний стрибок",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#OtherworldlyLeap"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Otherworldly Leap}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Стрибок [Jump] — заклинання 1-го рівня, а на цьому рівні ви вже можете накласти Політ [Fly]."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Шепіт могили",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#WhispersoftheGrave"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Whispers of the Grave}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Розмова з мертвими [Speak with Dead] — одне з моїх улюблених віщувань, бо дає легкий доступ до інформації, яка інакше втрачена назавжди. Те, що його можна накладати безкоштовно й без обмежень, означає, що ви можете допитувати кожного випадкового статиста, якого вбиваєте у своїй довгій, ганебній карʼєрі «вбивці-волоцюги»{{murder-hoboing}}. Але памʼятайте, що ціль не змушена розповідати щось корисне, тож це не завжди надійно."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-invocations-level-12",
+          "parentSectionId": "section-invocations",
+          "heading": "12-й рівень",
+          "sourceAnchor": "invocations-level-12",
+          "blocks": [
+            {
+              "blockId": "block-section-invocations-level-12-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Узи талісмана",
+                    "href": "https://www.dndbeyond.com/sources/tcoe/warlock#BondoftheTalisman"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Bond of the Talisman}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт талісмана|Pact of the Talisman}}) Телепортацію Дією в бою часто важко виправдати. Необмежена дальність приємна, але якщо ви достатньо далеко від свого талісмана, щоб це мало значення, ви робите щось дуже незвичайне."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Життєпийця",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#LifeDrinker"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Lifedrinker}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт клинка|Pact of the Blade}}) Обовʼязковий для чорнокнижників клинка. Бонус додається до шкоди разом із вашою Харизмою (для {{Відьмацьких клинків|Hexblades}}) або Силою/Спритністю (для всіх інших), тож ви матимете дуже міцний статичний бонус до шкоди своїх атак."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-invocations-level-15",
+          "parentSectionId": "section-invocations",
+          "heading": "15-й рівень",
+          "sourceAnchor": "invocations-level-15",
+          "blocks": [
+            {
+              "blockId": "block-section-invocations-level-15-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Ланцюги Каркері",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#ChainsofCarceri"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Chains of Carceri}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ({{Пакт ланцюга|Pact of the Chain}}) Стримування монстра [Hold Monster] — дуже хороше заклинання, але обмеження цілей трьома конкретними типами істот різко знижує його корисність. Втім, ви можете використовувати його без обмежень, що спокушає. Ви не можете застосувати його до тієї самої цілі, доки не завершите тривалий відпочинок, але якщо ви стикаєтеся з істотами потрібних типів, можна використати його кілька разів на день, зробивши його основним варіантом, схожим на Позамежний заряд [Eldritch Blast]. Але, ще раз, він обмежений лише трьома типами істот."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Майстер численних форм",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#MasterofMyriadForms"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Master of Myriad Forms}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо хочете маскуватися, «Маска багатьох облич»{{Mask of Many Faces}} доступна вже давно. На цьому рівні варіант природної зброї жахливий, а варіант водного пристосування надто ситуативний, щоб цей виклик був вартий вибору. Ви можете вирішити замінити «Маску багатьох облич» на цей виклик, бо варіанти «Зміна зовнішності»{{Change Appearance}} із заклинання Зміни вигляду [Alter self] мають певні переваги над Маскуванням [Disguise Self] (це не ілюзія), але памʼятайте, що Зміна вигляду [Alter self] потребує Концентрації, тож це не краще в усьому."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Вкритий тінню",
+                    "href": "https://www.dndbeyond.com/sources/xgte/subclasses#ShroudofShadow"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Shroud of Shadow}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо у вас є вільна мить, ви маєте ставати невидимим. Єдині моменти, коли ви маєте бути видимим, — коли розмовляєте з людьми або коли порушили невидимість."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Видіння далеких царств",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#VisionsofDistantRealms"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Visions of Distant Realms}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Арканне око [Arcane eye] — один із моїх улюблених варіантів розвідки, а можливість накладати його без обмежень робить його ще кращим. Ніколи не заходьте в кімнату, не знаючи точно, що там."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Відьомський зір",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#WitchSight"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Witch Sight}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": невидимість — ілюзія, а виявлення невидимих істот важливе для класу, що так залежить від дальніх атак. На жаль, дальність 30 футів — велика проблема, а на цьому рівні у вас було досить часу, щоб навчитися справлятися з невидимими істотами за допомогою заклинань по області на кшталт Голоду Хадара [Hunger of Hadar] і Нудотного сяйва [Sickening Radiance]."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-eldritch-adept",
+          "heading": "Риса «Містичний адепт»",
+          "sourceAnchor": "eldritch-adept",
+          "blocks": [
+            {
+              "blockId": "block-section-eldritch-adept-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для чорнокнижників «Містичний адепт»{{Eldritch Adept}} дає один додатковий виклик. Хоча чорнокнижники їх уже отримують кілька, є достатньо хороших варіантів, що ще один може бути дуже корисним. Також є можливість узяти «Містичного адепта» на 1-му рівні завдяки «Своїй расі»{{Custom Lineage}} і «Варіанту людини»{{Variant Human}}, а початок на 1-му рівні з чимось на кшталт «Мучливого вибуху»{{Agonizing Blast}} може бути дуже ефективним. Для чорнокнижників, що беруть «Містичного адепта», дивіться розділ про Потойбічні виклики вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-eldritch-adept-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для не-чорнокнижників «Містичний адепт» — спосіб отримати доступ до Потойбічного виклику без рівнів чорнокнижника. Це дає дуже цікаві варіанти, але обмеження на виклики з передумовами означає, що вибір дуже обмежений. У цьому розділі наведено поради щодо викликів, спеціально призначених для не-чорнокнижників."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-eldritch-adept-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунок тіней",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#ArmorofShadows"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Armor of Shadows}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": візьміть «Посвяченого у магію»{{Magic Initiate}}. Тривалість Обладунку мага [Mage Armor] — 8 годин, тож одного накладання вистачить на день. Єдиний випадок, коли це має сенс, — Чарівники {{Школи огородження|School of Abjuration}}, які можуть використовувати це, щоб багаторазово накладати Обладунок мага [Mage Armor] і відновлювати свою «Арканну варту»{{Arcane Ward}} без витрат слотів заклинань."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мова звірів",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#BeastSpeech"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Beast Speech}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дуже ситуативний. Я б розглянув один рівень друїда задовго до того, як витрачати на це рису."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Спокусливий вплив",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#BeguilingInfluence"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Beguiling Influence}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": візьміть натомість рису «Умілець»{{Skilled}} або «Експерт у навичках»{{Skill Expert}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зір диявола",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#DevilsSight"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Devil’s Sight}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чи є у вас союзники, які люблять користуватися магічною темрявою? Це зробить таку тактику меншою проблемою."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Потойбічний розум",
+                    "href": "https://www.dndbeyond.com/sources/tcoe/warlock#EldritchMind"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Eldritch Mind}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудовий майже для будь-якого заклинателя, але «Бойовий заклинатель»{{War Caster}} дає ту саму перевагу плюс дещо ще."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Потойбічний зір",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#EldritchSight"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Eldritch Sight}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": майже кожен повноцінний заклинатель отримує Виявлення магії [Detect Magic], і його можна накладати як ритуал. Єдина перевага тут у тому, що він діє швидше, ніж витрачати 10 хвилин на накладання як ритуалу."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Очі хранителя рун",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#EyesoftheRuneKeeper"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Eyes of the Rune Keeper}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": накладайте Розуміння мов [Comprehend Languages]."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Вогняна енергійність",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#FiendishVigor"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Fiendish Vigor}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": тимчасові ХП дуже спокушають, але вони не масштабуються, бо Удаване життя [False life] ви завжди накладаєте на 1-му рівні, тож підвищення Статури, риса «Кухар»{{Chef}}, риса «Надихаючий лідер»{{Inspiring Leader}} чи риса «Здоровань»{{Tough}} — ефективніші способи збільшити ваші ХП."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Погляд двох розумів",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#GazeofTwoMinds"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Gaze of Two Minds}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дуже ситуативний. Не можу згадати, коли його можна було б використовувати регулярно, хіба що ви заклинатель із фамільяром чи щось таке, а тоді ту саму проблему можна вирішити безліччю інших способів, зокрема віщувальними заклинаннями."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Маска багатьох облич",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#MaskofManyFaces"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Mask of Many Faces}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо хочете накласти Маскування [Disguise Self], візьміть «Посвяченого у магію»{{Magic Initiate}}. Якщо хочете постійних маскувань, або здобудьте володіння набором для гриму, або грайте за змінника{{Changeling}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Туманні видіння",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#MistyVisions"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Misty Visions}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": кмітливий гравець із Майстром, який готовий підіграти, може досягти багато чого навіть із базовою ілюзією. 15-футовий куб — це теж величезний простір. Розміщуйте ілюзорні стіни, двері, статуї чи інші предмети, які істоти не очікують бачити рухомими чи такими, що створюють інші подразники на кшталт тепла або запахів, і в багатьох випадках це так само добре, як створити щось справжнє. Якщо істоти не розуміють, що ваша ілюзорна стіна — ілюзія, вони ставитимуться до неї як до стіни."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Злодій пʼяти доль",
+                    "href": "https://www.dndbeyond.com/sources/phb/classes#ThievofFiveFates"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Thief of Five Fates}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": технічно його можна вибрати, не маючи слотів заклинань чорнокнижника, а це означає, що він цілком марний. Не робіть так. Кумедно, що це можливо, але це жахлива ідея."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-warlock-invocations-2014-001",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-0",
+      "context": "Мучливий вибух",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-002",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-1",
+      "context": "Обладунок тіней",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-003",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-2",
+      "context": "Мова звірів",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-004",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-3",
+      "context": "Спокусливий вплив",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-005",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-4",
+      "context": "Зір диявола",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-006",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-5",
+      "context": "Потойбічний розум",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-007",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-6",
+      "context": "Потойбічний зір",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-008",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-7",
+      "context": "Потойбічний спис",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-009",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-8",
+      "context": "Очі хранителя рун",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-010",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-9",
+      "context": "Вогняна енергійність",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-011",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-10",
+      "context": "Погляд двох розумів",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-012",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-11",
+      "context": "Хватка Хадара",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-013",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-12",
+      "context": "Спис млявості",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-014",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-13",
+      "context": "Маска багатьох облич",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-015",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-14",
+      "context": "Туманні видіння",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-016",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-15",
+      "context": "Відштовхувальний вибух",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-017",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-1",
+      "targetBlockId": "block-section-invocations-level-1-2",
+      "optionId": "section-invocations-level-1-block-section-invocations-level-1-2-item-16",
+      "context": "Злодій пʼяти доль",
+      "explanationBlockId": "block-section-invocations-level-1-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-018",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-3",
+      "targetBlockId": "block-section-invocations-level-3-2",
+      "optionId": "section-invocations-level-3-block-section-invocations-level-3-2-item-0",
+      "context": "Покровительство місяця",
+      "explanationBlockId": "block-section-invocations-level-3-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-019",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-3",
+      "targetBlockId": "block-section-invocations-level-3-2",
+      "optionId": "section-invocations-level-3-block-section-invocations-level-3-2-item-1",
+      "context": "Книга давніх секретів",
+      "explanationBlockId": "block-section-invocations-level-3-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-020",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-3",
+      "targetBlockId": "block-section-invocations-level-3-2",
+      "optionId": "section-invocations-level-3-block-section-invocations-level-3-2-item-2",
+      "context": "Дари вічних",
+      "explanationBlockId": "block-section-invocations-level-3-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-021",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-3",
+      "targetBlockId": "block-section-invocations-level-3-2",
+      "optionId": "section-invocations-level-3-block-section-invocations-level-3-2-item-3",
+      "context": "Покращена пактова зброя",
+      "explanationBlockId": "block-section-invocations-level-3-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-022",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-3",
+      "targetBlockId": "block-section-invocations-level-3-2",
+      "optionId": "section-invocations-level-3-block-section-invocations-level-3-2-item-4",
+      "context": "Інвестиція майстра ланцюгів",
+      "explanationBlockId": "block-section-invocations-level-3-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-023",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-3",
+      "targetBlockId": "block-section-invocations-level-3-2",
+      "optionId": "section-invocations-level-3-block-section-invocations-level-3-2-item-5",
+      "context": "Відплата талісмана",
+      "explanationBlockId": "block-section-invocations-level-3-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-024",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-3",
+      "targetBlockId": "block-section-invocations-level-3-2",
+      "optionId": "section-invocations-level-3-block-section-invocations-level-3-2-item-6",
+      "context": "Голос майстра ланцюгів",
+      "explanationBlockId": "block-section-invocations-level-3-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-025",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-5",
+      "targetBlockId": "block-section-invocations-level-5-1",
+      "optionId": "section-invocations-level-5-block-section-invocations-level-5-1-item-0",
+      "context": "Плащ мух",
+      "explanationBlockId": "block-section-invocations-level-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-026",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-5",
+      "targetBlockId": "block-section-invocations-level-5-1",
+      "optionId": "section-invocations-level-5-block-section-invocations-level-5-1-item-1",
+      "context": "Містична кара",
+      "explanationBlockId": "block-section-invocations-level-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-027",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-5",
+      "targetBlockId": "block-section-invocations-level-5-1",
+      "optionId": "section-invocations-level-5-block-section-invocations-level-5-1-item-2",
+      "context": "Далекий писар",
+      "explanationBlockId": "block-section-invocations-level-5-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-028",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-5",
+      "targetBlockId": "block-section-invocations-level-5-1",
+      "optionId": "section-invocations-level-5-block-section-invocations-level-5-1-item-3",
+      "context": "Дари глибин",
+      "explanationBlockId": "block-section-invocations-level-5-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-029",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-5",
+      "targetBlockId": "block-section-invocations-level-5-1",
+      "optionId": "section-invocations-level-5-block-section-invocations-level-5-1-item-4",
+      "context": "Божевільне прокляття",
+      "explanationBlockId": "block-section-invocations-level-5-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-030",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-5",
+      "targetBlockId": "block-section-invocations-level-5-1",
+      "optionId": "section-invocations-level-5-block-section-invocations-level-5-1-item-5",
+      "context": "Загрузнути в розумі",
+      "explanationBlockId": "block-section-invocations-level-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-031",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-5",
+      "targetBlockId": "block-section-invocations-level-5-1",
+      "optionId": "section-invocations-level-5-block-section-invocations-level-5-1-item-6",
+      "context": "Один з тінями",
+      "explanationBlockId": "block-section-invocations-level-5-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-032",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-5",
+      "targetBlockId": "block-section-invocations-level-5-1",
+      "optionId": "section-invocations-level-5-block-section-invocations-level-5-1-item-7",
+      "context": "Знак лихого знамення",
+      "explanationBlockId": "block-section-invocations-level-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-033",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-5",
+      "targetBlockId": "block-section-invocations-level-5-1",
+      "optionId": "section-invocations-level-5-block-section-invocations-level-5-1-item-8",
+      "context": "Спрагле лезо",
+      "explanationBlockId": "block-section-invocations-level-5-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-034",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-5",
+      "targetBlockId": "block-section-invocations-level-5-1",
+      "optionId": "section-invocations-level-5-block-section-invocations-level-5-1-item-9",
+      "context": "Гробниця Левістуса",
+      "explanationBlockId": "block-section-invocations-level-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-035",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-5",
+      "targetBlockId": "block-section-invocations-level-5-1",
+      "optionId": "section-invocations-level-5-block-section-invocations-level-5-1-item-10",
+      "context": "Невмируще рабство",
+      "explanationBlockId": "block-section-invocations-level-5-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-036",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-7",
+      "targetBlockId": "block-section-invocations-level-7-1",
+      "optionId": "section-invocations-level-7-block-section-invocations-level-7-1-item-0",
+      "context": "Чарівливий шепіт",
+      "explanationBlockId": "block-section-invocations-level-7-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-037",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-7",
+      "targetBlockId": "block-section-invocations-level-7-1",
+      "optionId": "section-invocations-level-7-block-section-invocations-level-7-1-item-1",
+      "context": "Жахливе слово",
+      "explanationBlockId": "block-section-invocations-level-7-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-038",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-7",
+      "targetBlockId": "block-section-invocations-level-7-1",
+      "optionId": "section-invocations-level-7-block-section-invocations-level-7-1-item-2",
+      "context": "Примарний погляд",
+      "explanationBlockId": "block-section-invocations-level-7-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-039",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-7",
+      "targetBlockId": "block-section-invocations-level-7-1",
+      "optionId": "section-invocations-level-7-block-section-invocations-level-7-1-item-3",
+      "context": "Захист талісмана",
+      "explanationBlockId": "block-section-invocations-level-7-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-040",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-7",
+      "targetBlockId": "block-section-invocations-level-7-1",
+      "optionId": "section-invocations-level-7-block-section-invocations-level-7-1-item-4",
+      "context": "Невблаганне прокляття",
+      "explanationBlockId": "block-section-invocations-level-7-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-041",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-7",
+      "targetBlockId": "block-section-invocations-level-7-1",
+      "optionId": "section-invocations-level-7-block-section-invocations-level-7-1-item-5",
+      "context": "Відьомська втеча",
+      "explanationBlockId": "block-section-invocations-level-7-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-042",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-7",
+      "targetBlockId": "block-section-invocations-level-7-1",
+      "optionId": "section-invocations-level-7-block-section-invocations-level-7-1-item-6",
+      "context": "Скульптор плоті",
+      "explanationBlockId": "block-section-invocations-level-7-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-043",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-9",
+      "targetBlockId": "block-section-invocations-level-9-1",
+      "optionId": "section-invocations-level-9-block-section-invocations-level-9-1-item-0",
+      "context": "Висхідний крок",
+      "explanationBlockId": "block-section-invocations-level-9-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-044",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-9",
+      "targetBlockId": "block-section-invocations-level-9-1",
+      "optionId": "section-invocations-level-9-block-section-invocations-level-9-1-item-1",
+      "context": "Дар захисників",
+      "explanationBlockId": "block-section-invocations-level-9-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-045",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-9",
+      "targetBlockId": "block-section-invocations-level-9-1",
+      "optionId": "section-invocations-level-9-block-section-invocations-level-9-1-item-2",
+      "context": "Слуги хаосу",
+      "explanationBlockId": "block-section-invocations-level-9-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-046",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-9",
+      "targetBlockId": "block-section-invocations-level-9-1",
+      "optionId": "section-invocations-level-9-block-section-invocations-level-9-1-item-3",
+      "context": "Потойбічний стрибок",
+      "explanationBlockId": "block-section-invocations-level-9-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-047",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-9",
+      "targetBlockId": "block-section-invocations-level-9-1",
+      "optionId": "section-invocations-level-9-block-section-invocations-level-9-1-item-4",
+      "context": "Шепіт могили",
+      "explanationBlockId": "block-section-invocations-level-9-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-048",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-12",
+      "targetBlockId": "block-section-invocations-level-12-1",
+      "optionId": "section-invocations-level-12-block-section-invocations-level-12-1-item-0",
+      "context": "Узи талісмана",
+      "explanationBlockId": "block-section-invocations-level-12-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-049",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-12",
+      "targetBlockId": "block-section-invocations-level-12-1",
+      "optionId": "section-invocations-level-12-block-section-invocations-level-12-1-item-1",
+      "context": "Життєпийця",
+      "explanationBlockId": "block-section-invocations-level-12-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-050",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-15",
+      "targetBlockId": "block-section-invocations-level-15-1",
+      "optionId": "section-invocations-level-15-block-section-invocations-level-15-1-item-0",
+      "context": "Ланцюги Каркері",
+      "explanationBlockId": "block-section-invocations-level-15-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-051",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-15",
+      "targetBlockId": "block-section-invocations-level-15-1",
+      "optionId": "section-invocations-level-15-block-section-invocations-level-15-1-item-1",
+      "context": "Майстер численних форм",
+      "explanationBlockId": "block-section-invocations-level-15-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-052",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-15",
+      "targetBlockId": "block-section-invocations-level-15-1",
+      "optionId": "section-invocations-level-15-block-section-invocations-level-15-1-item-2",
+      "context": "Вкритий тінню",
+      "explanationBlockId": "block-section-invocations-level-15-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-053",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-15",
+      "targetBlockId": "block-section-invocations-level-15-1",
+      "optionId": "section-invocations-level-15-block-section-invocations-level-15-1-item-3",
+      "context": "Видіння далеких царств",
+      "explanationBlockId": "block-section-invocations-level-15-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-054",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-invocations-level-15",
+      "targetBlockId": "block-section-invocations-level-15-1",
+      "optionId": "section-invocations-level-15-block-section-invocations-level-15-1-item-4",
+      "context": "Відьомський зір",
+      "explanationBlockId": "block-section-invocations-level-15-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-055",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-eldritch-adept",
+      "targetBlockId": "block-section-eldritch-adept-3",
+      "optionId": "section-eldritch-adept-block-section-eldritch-adept-3-item-0",
+      "context": "Обладунок тіней",
+      "explanationBlockId": "block-section-eldritch-adept-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-056",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-eldritch-adept",
+      "targetBlockId": "block-section-eldritch-adept-3",
+      "optionId": "section-eldritch-adept-block-section-eldritch-adept-3-item-1",
+      "context": "Мова звірів",
+      "explanationBlockId": "block-section-eldritch-adept-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-057",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-eldritch-adept",
+      "targetBlockId": "block-section-eldritch-adept-3",
+      "optionId": "section-eldritch-adept-block-section-eldritch-adept-3-item-2",
+      "context": "Спокусливий вплив",
+      "explanationBlockId": "block-section-eldritch-adept-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-058",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-eldritch-adept",
+      "targetBlockId": "block-section-eldritch-adept-3",
+      "optionId": "section-eldritch-adept-block-section-eldritch-adept-3-item-3",
+      "context": "Зір диявола",
+      "explanationBlockId": "block-section-eldritch-adept-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-059",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-eldritch-adept",
+      "targetBlockId": "block-section-eldritch-adept-3",
+      "optionId": "section-eldritch-adept-block-section-eldritch-adept-3-item-4",
+      "context": "Потойбічний розум",
+      "explanationBlockId": "block-section-eldritch-adept-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-060",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-eldritch-adept",
+      "targetBlockId": "block-section-eldritch-adept-3",
+      "optionId": "section-eldritch-adept-block-section-eldritch-adept-3-item-5",
+      "context": "Потойбічний зір",
+      "explanationBlockId": "block-section-eldritch-adept-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-061",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-eldritch-adept",
+      "targetBlockId": "block-section-eldritch-adept-3",
+      "optionId": "section-eldritch-adept-block-section-eldritch-adept-3-item-6",
+      "context": "Очі хранителя рун",
+      "explanationBlockId": "block-section-eldritch-adept-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-062",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-eldritch-adept",
+      "targetBlockId": "block-section-eldritch-adept-3",
+      "optionId": "section-eldritch-adept-block-section-eldritch-adept-3-item-7",
+      "context": "Вогняна енергійність",
+      "explanationBlockId": "block-section-eldritch-adept-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-063",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-eldritch-adept",
+      "targetBlockId": "block-section-eldritch-adept-3",
+      "optionId": "section-eldritch-adept-block-section-eldritch-adept-3-item-8",
+      "context": "Погляд двох розумів",
+      "explanationBlockId": "block-section-eldritch-adept-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-064",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-eldritch-adept",
+      "targetBlockId": "block-section-eldritch-adept-3",
+      "optionId": "section-eldritch-adept-block-section-eldritch-adept-3-item-9",
+      "context": "Маска багатьох облич",
+      "explanationBlockId": "block-section-eldritch-adept-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-065",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-eldritch-adept",
+      "targetBlockId": "block-section-eldritch-adept-3",
+      "optionId": "section-eldritch-adept-block-section-eldritch-adept-3-item-10",
+      "context": "Туманні видіння",
+      "explanationBlockId": "block-section-eldritch-adept-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-invocations-2014-066",
+      "articleId": "rpgbot-warlock-invocations-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-invocations-2014-draft1",
+      "sectionId": "section-eldritch-adept",
+      "targetBlockId": "block-section-eldritch-adept-3",
+      "optionId": "section-eldritch-adept-block-section-eldritch-adept-3-item-11",
+      "context": "Злодій пʼяти доль",
+      "explanationBlockId": "block-section-eldritch-adept-3",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

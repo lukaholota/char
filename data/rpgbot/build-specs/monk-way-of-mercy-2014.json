@@ -1,0 +1,90 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "monk-way-of-mercy-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-monk-way-of-mercy-2014-draft1",
+    "sourceRevisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458"
+  },
+  "exampleSection": "section-example-build-stuck-halfway",
+  "levelTableSection": "section-levels",
+  "classKey": "MONK_2014",
+  "raceKey": "HALF_ELF_2014",
+  "backgroundKey": "ACOLYTE",
+  "abilityScores": { "STR": 8, "DEX": 15, "CON": 15, "INT": 8, "WIS": 15, "CHA": 8 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "incomplete": [
+    {
+      "field": "Раса",
+      "reason": "Автор бере напівельфа з лісовим походженням і заміною Універсальності навичок на «Ельфійську зброю». Окремого лісового різновиду в каталозі немає, але у Напівельфа є вибір «Ельфійське бойове навчання» (довгий меч, короткий меч, короткий лук, довгий лук); узято його разом із правилами Таші для підвищень (Спритність +2, Статура +1, Мудрість +1), як у таблиці автора.",
+      "section": "section-race"
+    },
+    {
+      "field": "Володіння зброєю й інструментами раси",
+      "reason": "Автор міняє володіння довгим мечем на батіг, а коротким луком — на інструменти злодія. Платформа записує лише готовий набір «Ельфійського бойового навчання», тому довгий меч і короткий лук лишаються, а батога й інструментів злодія немає.",
+      "section": "section-race"
+    },
+    {
+      "field": "Інструменти",
+      "reason": "Автор радить інструменти чинбаря як інструмент Монаха (для маски). Вибір інструмента Монаха пресет не записує; його можна обрати на листі.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Спорядження",
+      "reason": "На 1-му рівні автор грає з довгим луком; пресет бере стандартний набір Монаха (короткий меч, Набір дослідника підземель, дротики) без покупки довгого лука. Запасний варіант із Переслідуваним (продаж набору за золото) не відтворено.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риса 4-го рівня",
+      "reason": "Автор дає дві гілки: Ельфійська точність (якщо стіл має легку Перевагу) або Рубака. Узято Рубаку, як у таблиці рівнів і за припущенням автора.",
+      "section": "section-feats"
+    }
+  ],
+  "revision": 2,
+  "levels": [
+    { "level": 2 },
+    { "level": 3, "subclassKey": "WAY_OF_MERCY" },
+    { "level": 4, "featKey": "SLASHER", "featOptions": [{ "optionNameEng": "SLASHER Ability (Dexterity)" }], "section": "section-feats" },
+    { "level": 5 },
+    { "level": 6 },
+    { "level": 7 },
+    { "level": 8, "abilityScoreIncrease": [{ "ability": "DEX", "amount": 2 }] },
+    { "level": 9 },
+    { "level": 10 },
+    { "level": 11 },
+    { "level": 12, "abilityScoreIncrease": [{ "ability": "WIS", "amount": 2 }] },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15 },
+    { "level": 16, "abilityScoreIncrease": [{ "ability": "WIS", "amount": 2 }] },
+    { "level": 17 },
+    { "level": 18 },
+    { "level": 19, "featKey": "GIFT_OF_THE_METALLIC_DRAGON", "section": "section-feats" },
+    { "level": 20 }
+  ],
+  "preset": {
+    "title": "Монах — Шлях милосердя, Напівельф",
+    "description": "Монах Шляху милосердя з Напівельфом за правилами Таші та «Ельфійським бойовим навчанням», Послушником із Уважністю й Виживанням і Рубакою на 4-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": ["CON", "WIS", "DEX"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["ACROBATICS", "STEALTH"], "race": [], "background": ["PERCEPTION", "SURVIVAL"] },
+    "backgroundCustomization": { "tools": [] },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": ["Ельфійське бойове навчання"],
+    "languages": ["DWARVISH", "GNOMISH", "ORC"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": [] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Напівельф за правилами Таші: +2 до Спритності та по +1 до Статури й Мудрості, тож Спритність 17, Статура 16, Мудрість 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Акробатика й Непомітність — від Монаха, Уважність і Виживання — від Послушника замість Проникливості й Релігії (правило PHB «Налаштування передісторії»), як радить автор. Мови (Напівельф і Послушник дають їх три) ми обрали за вас — вибір платформи. Проникливість, Медицину й Набір травника додасть підклас на 3-му рівні.",
+    "equipmentExplanation": "Автор не називає стартового спорядження; короткий меч, Набір дослідника підземель і 10 дротиків ми обрали за вас — вибір платформи."
+  }
+}

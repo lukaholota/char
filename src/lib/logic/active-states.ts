@@ -12,7 +12,7 @@ import {
   type StateEffects,
   type StatePart,
 } from "@/rules/state-effects";
-import { calculateFinalModifier, collectActiveFeatures, readStateEffects } from "./bonus-calculator";
+import { calculateFinalModifier, collectActiveFeatures, hasEquippedHeavyArmor, readStateEffects } from "./bonus-calculator";
 import { listActiveFeatureEngNames } from "./feature-state-rows";
 import { listActiveBuffKeys } from "./pers-effect-rows";
 
@@ -44,7 +44,7 @@ export function listActiveStateParts(pers: PersWithRelations): StatePart[] {
       barbarianLevel: sumClassLevels(pers, BARBARIAN_CLASS_NAMES),
       intelligenceModifier: calculateFinalModifier(pers, Ability.INT),
       bloodHunterLevel: sumClassLevels(pers, BLOOD_HUNTER_CLASS_NAMES),
-      wearsHeavyArmor: (pers.armors ?? []).some((entry) => entry.equipped && entry.armor?.armorType === "HEAVY"),
+      wearsHeavyArmor: hasEquippedHeavyArmor(pers),
     }),
     ...collectSpellBuffParts(listActiveBuffKeys(pers), pers.ruleset),
     ...(exhaustion ? [{ sourceKey: EXHAUSTION_SOURCE_KEY, part: exhaustion }] : []),

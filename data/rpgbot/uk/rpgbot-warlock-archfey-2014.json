@@ -1,0 +1,1444 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-2493c74f5f3fb41f",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+      "sourceId": "rpgbot-2493c74f5f3fb41f",
+      "fetchedAt": "2026-09-29T19:10:20.785617+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:43:05-04:00",
+      "contentHash": "c8825be4722b952155d4878185fd94eadb95a9d284a6d6fa3b07aae0ee3aab23",
+      "title": "Archfey Warlock 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-2493c74f5f3fb41f-044a5edf7422e00e.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-warlock-archfey-2014",
+    "sourceId": "rpgbot-2493c74f5f3fb41f",
+    "slug": "warlock-archfey-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Архіфея — гайд підкласу Чорнокнижника (2014)",
+    "titleEn": "Archfey Warlock 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Чорнокнижник",
+      "Архіфея",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ до гайда Чорнокнижника Архіфеї",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зосереджений на ілюзіях, обмані та причаруванні. Підкласові уміння Архіфеї{{Archfey}} дають різноманітні корисні варіанти. Проте ілюзії, причарування й ефекти страху наштовхуються на труднощі, бо опір і імунітет до таких ефектів — звичайна річ. Вам потрібно урізноманітнити свої можливості, щоб зустріч із чимось безмозким не звела вас до спаму Позамежним зарядом [Eldritch Blast] без жодних інших корисних варіантів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоч мало які з варіантів Архіфеї{{Archfey}} справді погані, єдине по-справжньому фантастичне уміння — Вогники фей [Faerie fire]. Далі більшість варіантів хороші, але непримітні. Тут дуже мало чого винятково видатного, але й дуже мало справді розчаровуючого."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загалом Архіфея{{Archfey}} — надійний, але не вражаючий варіант. Чаротворство розширює ваші можливості, не додаючи значної складності, тож Архіфея — добрий вибір для порівняно недосвідчених гравців, які хочуть краще зрозуміти заклинательські класи. Досвідчені гравці можуть вважати Архіфею цілком ефективною, але ситуативніші частини умінь підкласу можуть довго лишатися без користі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки Чорнокнижник Архіфеї{{Archfey}} надто близький до основних концепцій Чорнокнижника, деякі розділи цього довідника пропущено. Допомогу з цими аспектами вашого персонажа шукайте в "
+                },
+                {
+                  "type": "link",
+                  "text": "довіднику Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ до гайда Чорнокнижника Архіфеї",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Чорнокнижника Архіфеї",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Чорнокнижника Архіфеї",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#archey-warlock-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Чорнокнижника Архіфеї",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#archey-warlock-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Чорнокнижника Архіфеї",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#archey-warlock-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — «Чувак», він же найледачіший чорнокнижник у світі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#example-build-the-dude-aka-the-worlds-laziest-warlock"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/archfey/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Чорнокнижника Архіфеї",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Заклинання покровителя|Expanded Spell List}}: Широкий добір утилітарних, наступальних і захисних варіантів. Усі вони — причарування чи ілюзії, тож остерігайтеся істот з імунітетом до таких ефектів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-features-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 1-го рівня: Вогники фей [Faerie fire] дуже полегшують життя будь-яким Пройдисвітам у групі, і це чудовий спосіб розправлятися з невидимими ворогами. Сон [Sleep] — зазвичай варіант, який Чарівники кидають після низьких рівнів, бо він недостатньо добрий, щоб витрачати на нього слоти високих рівнів, але Чорнокнижники накладають кожне заклинання своїм найкращим слотом, тож немає причин, чому Сон [Sleep] не може лишатися основним вибором Чорнокнижника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 2-го рівня: Два пристойні варіанти «пройди-ряткидок-або-страждай»{{save-or-suck}}. Вгамування емоцій [Calm Emotions] дає раду натовпам, а Уявна сила [Phantasmal Force] — поодиноким цілям. На жаль, жодне з них не виграє від підвищення рівня слота."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 3-го рівня: Мерехтіння [Blink] — ефективне захисне підсилення, що не потребує Концентрації, але Тінь Мойла [Shadow of Moil] стає доступною із заклинаннями 4-го рівня, і якщо ви збираєтеся витратити слот заклинання й дію на підсилення на 1 хвилину, то хочете, щоб це була Тінь Мойла [Shadow of Moil]. Ріст рослин [Plant Growth] корисний не завжди, але коли спрацьовує — чудовий."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 4-го рівня: Підкорення звіра [Dominate Beast] дуже ситуативне, особливо тому, що до моменту, коли ви зможете накладати заклинання 4-го рівня, вам уже рідко траплятимуться звірі. Більша невидимість [Greater Invisibility] — абсолютно фантастичне заклинання з багатьох причин, але в бою Тінь Мойла [Shadow of Moil] може бути привабливішою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 5-го рівня: Підкорення особистості [Dominate Person] — одне з найкращих заклинань контролю/дебафу по одній цілі в грі, але воно діє лише на одну ціль і лише на один тип істот. Гуманоїдні вороги в бою на цьому рівні трапляються нечасто, а коли зʼявляються, то зазвичай це головні антагоністи, проте Підкорення особистості [Dominate Person] усе одно можна використовувати поза боєм, щоб досягати численних цілей, підкоряючи НІП{{NPC}}. Позірність [Seeming] — по суті масова версія Маскування [Disguise Self] з величезною тривалістю, і хоч це дуже ситуативно, 8-годинна тривалість означає, що ви можете накласти її на початку дня й одразу взяти Короткий відпочинок, щоб відновити слот заклинання. Здатність обирати ціллю непокірних істот відкриває кумедні тактичні можливості, як-от переодягнути всіх у кімнаті (включно з ворогами) в одну й ту саму істоту, і якщо це не волає «архіфея», то я не знаю, що тоді."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-features-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Присутність феї{{Fey Presence}}: Куб зі стороною 10 футів, що починається від вас, означає, що вам треба стояти майже впритул до того, кого ви хочете зачепити, і навряд чи ви вразите більше однієї-двох цілей одночасно. Ефект корисний, якщо вас затисли в ближньому бою, а ви цього не хочете, бо можна зробити цілі Наляканими, перш ніж тікати (Наляканий накладає Перешкоду на їхню принагідну атаку), але намагайтеся ніколи не потрапляти в таку ситуацію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-features-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Втеча туману{{Misty Escape}}: Чудовий спосіб утекти від великого ворога з мультиатакою або від шкідливих ефектів по області, що лишають по собі тривалі наслідки. Або, якщо у вас немає доброго варіанта телепортації, нехай члени групи трохи потовчуть вас, а ви «втечете» від них."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-features-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Звабливий захист{{Beguiling Defenses}}: Ситуативно за задумом, але ефекти причарування поширені, і повернення їх проти істоти може бути і потужним, і кумедним. Уявіть, що ви повертаєте «Причарування» вампіра проти нього самого."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-features-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Темний марево{{Dark Delirium}}: Це майже «пройди-ряткидок-або-страждай»{{save-or-suck}} по одній цілі, але ціль здебільшого все одно може діяти вільно (у межах стану Причарований чи Наляканий). Ефект закінчується, якщо ціль отримує шкоду, тож якщо ваші союзники збираються накинутися на ціль, їм слід постаратися, щоб усі їхні атаки відбулися до того, як ціль матиме ще один шанс діяти. Можна використати це, щоб ненадовго причарувати ціль і мило поговорити з нею, але одна хвилина — короткий проміжок, тож діяти треба швидко."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-archey-warlock-ability-scores",
+          "heading": "Характеристики Чорнокнижника Архіфеї",
+          "sourceAnchor": "archey-warlock-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-archey-warlock-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чорнокнижник Архіфеї{{Archfey}} — дуже типовий чорнокнижник, тож тут чинні поради з "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-archey-warlock-races",
+          "heading": "Раси Чорнокнижника Архіфеї",
+          "sourceAnchor": "archey-warlock-races",
+          "blocks": [
+            {
+              "blockId": "block-section-archey-warlock-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вибір рас для Чорнокнижника Архіфеї{{Archfey}} суттєво не відрізняється від вибору типового чорнокнижника. Дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "Гайд із рас для Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-archey-warlock-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки Архіфея{{Archfey}} сильно покладається на ефекти, що впливають на розум, може бути корисно шукати вроджене чаротворство, яке виходить за межі причарувань. Також не додавайте заклинань, що вимагають Концентрації, бо Вогники фей [Faerie fire] зазвичай кращі за інші варіанти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-archey-warlock-feats",
+          "heading": "Риси Чорнокнижника Архіфеї",
+          "sourceAnchor": "archey-warlock-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-archey-warlock-feats-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Доторк феї{{Fey Touched}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Доторк феї не кращий для Чорнокнижника Архіфеї{{Archfey}}, ніж для інших чорнокнижників, але тема відчувається доречною."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+          "heading": "Приклад збірки — «Чувак», він же найледачіший чорнокнижник у світі",
+          "sourceAnchor": "example-build-the-dude-aka-the-worlds-laziest-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-the-dude-aka-the-worlds-laziest-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доступ до Вогників фей [Faerie fire] дозволяє одразу запустити збірку на основі "
+                },
+                {
+                  "type": "link",
+                  "text": "Ельфійської точності",
+                  "href": "https://rpgbot.net/oops-all-elves/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Elven Accuracy}}. Почніть як будь-який різновид ельфа чи напівельфа, візьміть «Ельфійську точність» на 4-му рівні, вкладайте виклики в Позамежний заряд [Eldritch Blast] і спостерігайте, як стрімко зростає ваш DPR. Але це надзвичайно проста збірка, тож докладний розбір мало чим вам допоможе."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-the-dude-aka-the-worlds-laziest-warlock-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Натомість ми створимо найледачішого чорнокнижника у світі. Наша мета з цією збіркою — перекласти будь-яку роботу на когось іншого. Це одночасно збірка з «улюбленцем» і збірка підтримки, збудована навколо «Пакту ланцюга»{{Pact of the Chain}} та добірки підтримувальних заклинань для вашої групи. У групах, що сильно покладаються на кидки атаки, ви будете дуже популярні. А ще краще: вам по суті не доведеться рухатися, якщо тільки хтось не підбереться до вас у ближній бій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-the-dude-aka-the-worlds-laziest-warlock-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Серед іншого ми візьмемо "
+                },
+                {
+                  "type": "link",
+                  "text": "Пакт ланцюга",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Pact of the Chain}}. Знову ж таки: робота — чужа проблема. Він також дозволить нам вдаватися до всіляких фейських витівок. Ми оберемо спрайта своїм фамільяром, бо це логічний варіант серед фей, і витрачатимемо багато часу на отруєння ворогів. Для цього знадобиться певне володіння тактикою «Пакту ланцюга», яку ми розбираємо в "
+                },
+                {
+                  "type": "link",
+                  "text": "Гайді з Дарів пакту Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/"
+                },
+                {
+                  "type": "text",
+                  "text": " і до якої повернемося в прикладі збірки нижче."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Почнемо з характеристик, рекомендованих у довіднику Чорнокнижника. Збільшення на +2 вкладемо в Харизму, а збільшення на +1 — у Спритність, щоб одним Покращенням Характеристик підвищити обидві й одразу покращити обидва модифікатори."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Риса нам особливо не потрібна, тож своя раса{{Custom Lineage}} і людина{{Human}} відпадають. Політ був би чудовим, але це виглядає як робота. Навички — це добре. Вроджене чаротворство теж добре. Змінник{{Changeling}} і Сатир{{Satyr}} — чудові кандидати (вони ж таки феї), а ще є кілька чудових варіантів серед тифлінгів{{Tiefling}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для цієї збірки ми візьмемо варіант "
+                },
+                {
+                  "type": "link",
+                  "text": "{{Тифлінг (диявольський язик)|Devil’s Tongue Tiefling}}",
+                  "href": "https://www.dndbeyond.com/sources/scag/races-of-the-realms#LoneFaithful"
+                },
+                {
+                  "type": "text",
+                  "text": " за правилами налаштованого походження{{Custom Origin}}. Злісне глузування [Vicious Mockery] дає нам добрий наступально-підтримувальний варіант, Причарування особи [Charm Person] допомагає виконувати роль «обличчя» без «Експертизи»{{Expertise}} чи Покращення здібності [Enhance Ability], а Захоплива промова [Enthrall] принаймні кумедна, якщо вже не особливо корисна. {{Тифлінг (Діспатер)|Dispater Tiefling}} і {{Тифлінг (Гласія)|Glasya Tiefling}} теж чудові варіанти, залежно від того, який набір вродженого чаротворства вам потрібен."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Придворний{{Courtier}}. Він дає нам володіння навичками Аналіз Поведінки та Переконання й двома мовами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із класових навичок ми візьмемо Обман і Залякування, а від передісторії Придворного{{Courtier}} — Аналіз Поведінки та Переконання. Придворний також дає нам дві мови — скажімо, ельфійську та сільван (ними зазвичай розмовляють феї)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Надихаючого лідера»{{Inspiring Leader}}. Хоч пул тимчасових ХП, який він дає, дещо невеликий, він вирішальний для нашого фамільяра, у якого лише 2 ХП. На 4-му рівні «Надихаючий лідер» дасть нашому фамільяру 7 тимчасових ХП (наш модифікатор Харизми на той момент становитиме +3), що не так уже й багато, але цього досить, щоб фамільяр справді мав шанс пережити атаку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щойно ми доведемо Харизму до 20 (це станеться на 12-му рівні), у нас зʼявиться місце для додаткових рис із Покращеннями Характеристик на 16-му та 19-му рівнях. Нам не потрібне нічого, що забиратиме нашу бонусну дію в бою, бо вона зарезервована для наказів фамільяру. «Містичний адепт»{{Eldritch Adept}}, «Адепт метамагії»{{Metamagic Adept}} і «Стійкий»{{Resilient}} — усе добрі варіанти. Можна взяти «Доторк феї»{{Fey Touched}} на 12-му рівні й ще одну гібридну рису на 16-му, але це надовго відставить вас від "
+                },
+                {
+                  "type": "link",
+                  "text": "Фундаментальної математики",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Fundamental Math}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічний покровитель (Архіфея)\nПрисутність феї\nМагія пакту\nВідомі заклинання:\n– Вогники фей\n– Сон\nЗамовляння:\n– Магічна рука\n– Розщеплення Розуму"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для стартового спорядження беріть легкий арбалет і 20 болтів, {{мішечок із компонентами|component pouch}} або чаротворчий фокус (мені більше до вподоби фокус, бо він виглядає крутіше, хоч функціонально вони однакові), будь-який набір, шкіряний обладунок, будь-яку просту зброю на ваш смак (ви нею не користуватиметеся) і кинджал. Наше перше підкласове уміння, Присутність феї{{Fey Presence}}, — здебільшого бойовий варіант, але й поза боєм від нього є користь. Хоч тривалість у нього лише 1 раунд, явного візуального ефекту він не має, а ціль не знає, що на неї вплинула магія, тож ним можна на мить причарувати істот і отримати Перевагу на кубику на перевірку Харизми. Якщо вам потрібно щось просте, як-от пройти повз охоронюваний вхід, цього може вистачити. Якщо ні, то з 3-го рівня ви зможете накладати Причарування особи [Charm Person] як вроджене заклинання. На цьому рівні ви знаєте лише два заклинання й маєте лише один слот заклинання, тож нам потрібно, щоб заклинання були добрими. Проклін [hex] — типовий основний вибір для чорнокнижників низьких рівнів, але Вогники фей [Faerie fire] займають схожу нішу й можуть бути значно ефективнішими. Вони дають менший приріст DPR, ніж Проклін [hex], але користь отримує вся ваша група, тож вони можуть рішуче схилити сутичку на вашу користь. Звісно, вони діють лише протягом однієї сутички за одне накладання, тож якщо ваш Майстер скупий на короткі відпочинки, беріть натомість Проклін [hex]. Сон [Sleep] — чудовий спосіб розчистити натовпи ворогів із малою кількістю ХП, але він не завжди ефективний, тож Вогники фей [Faerie fire] — ваш основний вибір. Із замовлянь беріть Магічну руку [Mage Hand] заради утилітарності. Бойові варіанти в нас — Злісне глузування [Vicious Mockery] від раси та Розщеплення Розуму [Mind Sliver]. Жодне не завдає багато шкоди, але Злісне глузування [Vicious Mockery] може захистити ваших союзників, а Розщеплення Розуму [Mind Sliver] робить ворогів вразливими до інших ефектів, що вимагають ряткидка, а отже, може зробити міцних ворогів вразливими до інших ефектів від вашої групи. Якщо вам потрібна лише шкода, користуйтеся арбалетом. Навіть із модифікатором Спритності +2 він усе одно ефективніший за Позамежний заряд [Eldritch Blast] без покращень. Але це схоже на роботу, тож замовляння краще. Жодне з наших наступальних замовлянь не вимагає соматичних компонентів, тож нам навіть руки піднімати не доведеться."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічні виклики{{Eldritch Invocations}}:\n– Вогняна енергійність\n– Туманні видіння\nНове відоме заклинання: Невидимий служник"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ви отримуєте другий слот заклинання й перший потойбічний виклик. Ми візьмемо «Туманні видіння»{{Misty Visions}} і щосили вдаримося у фейські витівки. Приберігайте слоти заклинань для бою, але навіть у бою у вас є кілька варіантів. Куб зі стороною 15 футів легко може слугувати якимось укриттям, а якщо ви самі переконаєтеся, що це ілюзія (спробуйте пройти крізь нього з боку, де вороги вас не бачать), то зможете бачити крізь образ. А ще краще, що так може вся ваша група, тож вона зможе сховатися всередині кубічного валуна зі стороною 15 футів, який виник нізвідки. Також ми візьмемо «Вогняну енергійність»{{Fiendish Vigor}}, щоб дожити до 3-го рівня. Утім, це вимагає Концентрації, яка конкуруватиме за місце з Вогниками фей [Faerie fire]. Коли це має сенс, накладайте Вогники фей [Faerie fire], шукайте справжнє укриття і, якщо треба, вдавайтеся до замовлянь чи арбалета. Як заклинання з рівнем ми вивчаємо Невидимого служника [Unseen Servant]. Де Магічна рука [Mage Hand] замало, щоб упоратися із завданням, або коли вам потрібно щось, що вимагає постійних зусиль, на допомогу прийде Невидимий служник [Unseen Servant]. Накладіть його перед Коротким відпочинком і накажіть обшукувати тіла чи активувати пастки або щось таке. Він може «виконувати прості завдання, які міг би виконувати слуга-людина» — формулювання навмисно розмите, тож дізнайтеся, що вам дозволить ваш Майстер. Можливо, він зможе стояти на варті й дзвонити в дзвінок, якщо побачить істоту. Служник не зникає, якщо виходить за межі досяжності, тож можна дати йому свічку й змусити ходити довкола, щоб привертати увагу. Можна дати йому металеву сковорідку, щоб він упустив її десь і зчинив гучний шум. Проявіть фантазію, але не вставайте зі стільця. Це робота служника. Якщо хтось скаржитиметься, скористайтеся «Туманними видіннями» і створіть дуже переконливу ілюзію того, як ви робите щось корисне й важливе."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дар пакту (Пакт ланцюга)\nПеренавчання потойбічного виклику:\n– Вогняна енергійність → Інвестиція майстра ланцюгів\nНове відоме заклинання: Туманний крок\nПеренавчання заклинання: Сон → Вгамування емоцій"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Пакт ланцюга»{{Pact of the Chain}} — це місце, де наша збірка по-справжньому злітає. Ми візьмемо спрайта, бо це фейський варіант, а ще тому, що він стане справді приголомшливим, щойно ми візьмемо «Інвестицію майстра ланцюгів»{{Investment of the Chain Master}}. Назвемо спрайта Волтером, бо можемо, а ще тому, що я намагаюся зробити кінореференс. О, дивіться, уже зроблено. Круто. Ми можемо перенавчити виклик щоразу, коли здобуваємо рівень чорнокнижника, тож зробімо це зараз. «Інвестиція майстра ланцюгів» дає нашому спрайту швидкість польоту або плавання, тож дамо йому швидкість плавання, бо кращу швидкість польоту він уже має. Реакцією ми можемо дати йому опір до одного джерела шкоди, але з 2 ХП це менш корисно, ніж можна сподіватися, бо 4 шкоди все одно вбʼють вашого фамільяра. Купіть велику купу матеріального компонента для Пошуку фамільяра [Find Familiar] і розраховуйте накладати його знову після кожного бою. Що найважливіше, атаки нашого спрайта тепер вважаються магічними, а отрута на його атаках із лука використовує наш СК ряткидків заклинань. Це одразу стає одним із наших найкращих тактичних варіантів проти всього, що не має імунітету до отрути. Ви можете віддавати фамільяру усні накази без дії, але також можете витратити Бонусну дію, щоб він атакував. Оскільки наш спрайт користується луком, розташувати його для цієї атаки легше, ніж для більшості фамільярів. «Пакт ланцюга» також дозволяє виконати дію Атака й відмовитися від однієї зі своїх атак (тобто від усіх ваших атак), щоб фамільяр атакував, тож наш спрайт може атакувати двічі за один хід. Накладіть Вогники фей [Faerie fire], і обидві ці атаки можна виконати з Перевагою на кубику. Кожне влучання змушує робити ряткидок Статури, і хоч вони зазвичай високі, ви можете змусити їх робити двічі за хід, а якщо ціль провалить ряткидок, вона отруєна на цілу хвилину, що майже напевно триватиме довше за вашу бойову сутичку. Якщо результат ряткидка цілі — 5 або менше, вона стає Непритомною. Незрозуміло, чи йдеться про 5 нижче базової СК 10, але я виходитиму з найгіршого й припущу, що це просто 5 або менше за будь-яких обставин, тож на цей шанс розраховувати не варто. Стан Отруєний сильно послаблює все, що покладається на атаки, а Перешкода на кубику на перевірках характеристик чудова, якщо хтось у вашій групі любить Захоплення. На ході вашого спрайта він витрачає власну Дію, щоб стати невидимим і змінити позицію. Наш спрайт також уміє ставати невидимим і літати. З Непомітністю +8 його дуже важко виявити. А ще, зручно, що Пошук фамільяра [Find Familiar] дозволяє бачити його очима. Це означає, що ваш спрайт — також фантастичний віддалений розвідник (хоч і з обмеженою дальністю). А якщо його спіймають і він загине, ви можете відтворити його за 10 зм. На цьому рівні ваші слоти заклинань зростають до 2-го рівня, тож можна починати вивчати заклинання 2-го рівня. Наші заклинання 1-го рівня лишаються добрими основними варіантами, а ми додамо Туманний крок [Misty Step] на випадок, якщо якось потрапимо в халепу. До того ж тікати від речей важко, тож ми телепортуватимемося від своїх проблем. Також із 3-го рівня ми можемо накладати Причарування особи [Charm Person] як вроджене заклинання. Воно не завжди корисне й не завжди спрацьовує, але в соціальних ситуаціях, де ви очікуєте довго взаємодіяти з однією істотою, неодмінно спробуйте ним скористатися. Просто намагайтеся не видати себе, виконуючи Вербальні та Соматичні компоненти просто перед ціллю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Надихаючий лідер\nНове замовляння: Мала ілюзія\nНове відоме заклинання: Невидимість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Надихаючий лідер»{{Inspiring Leader}} — чудова риса. На цьому рівні й із такими характеристиками вона дає 6 істотам по 7 тимчасових ХП. Подбайте, щоб серед них був ваш фамільяр, — і раптом у нього 9 ХП, а Реакцією ви можете дати йому опір до одного джерела шкоди, тож він справді може пережити шкоду принаймні один раз. На цьому рівні ви вивчаєте нове замовляння. Для більших ілюзій ми вже взяли «Туманні видіння»{{Misty Visions}}, але Мовчазний образ [Silent Image] не може створювати звук і вимагає Концентрації. Мала ілюзія [Minor Illusion] може створювати звук, триває хвилину й не вимагає Концентрації. Поєднання її з Мовчазним образом [Silent Image] означає, що у вас є бездонна криниця ілюзій (а отже, бездонна криниця креативних рішень), яку може зупинити лише фізична взаємодія або перевірка Розслідування ціною Дії істоти. Для прикладу: можна створити ілюзію мамонта (величезної істоти, тож куб зі стороною 15 футів) із довгою кудлатою шерстю, що волочиться по підлозі (щоб ви могли сховатися всередині ілюзії), і використати Малу ілюзію [Minor Illusion], щоб відтворити звук ходи мамонта, поки ви рухаєте ілюзію. Додамо й ще одне заклинання 2-го рівня. Невидимість [Invisibility] — надійний вибір як підтримувальний варіант, навіть якщо розвідкою для вашої групи займається фамільяр."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик: Голос майстра ланцюгів\nНове відоме заклинання: Голод Хадара"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На 5-му рівні ви отримуєте ще один виклик, тож беремо «Голос майстра ланцюгів»{{Voice of the Chain Master}}. Він дозволяє використовувати фамільяра як віддаленого розвідника будь-де в межах тієї самої площини існування, а не лише в межах 100 футів, у яких це дозволяє Пошук фамільяра [Find Familiar]. Також ви можете спілкуватися з фамільяром телепатично, тож вільні віддавати йому конкретні накази, поки він рухається. На жаль, у спрайтів немає Темного зору, що може стати проблемою. Якщо є така змога, попросіть союзника накласти Темний зір [Darkvision] на вашого спрайта. Якщо зовсім припече, дайте йому джерело світла, і істоти зможуть дивуватися світлу, що, здається, випромінюється з порожнього повітря без видимого джерела. 5-й рівень приносить заклинання 3-го рівня. Беремо Голод Хадара [Hunger of Hadar]. За мірками чорнокнижників він не надто хитрий чи новаторський, але іноді, коли перед вами світ, повний цвяхів, вам просто потрібен справді добрий молоток. До того ж ви можете накласти Голод Хадара [Hunger of Hadar] і піти подрімати, поки він робить свою справу, тож від вас потрібно дуже мало зусиль. На цьому рівні ви отримуєте змогу накладати Захоплива промова [Enthrall] як вроджене заклинання від нашої раси. Воно по суті корисне лише як відволікання в ситуаціях, що не скотилися до насильства, але чудове, якщо вам потрібно, щоб фамільяр утнув якусь дурницю непоміченим. Цілям також не треба бачити вас, щоб воно спрацювало, тож можна сховатися всередині ілюзії («Малим образом» зобразіть 15-футового велетня чи щось таке) і накласти Захопливу промову [Enthrall]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Втеча туману\nНове відоме заклинання: Контрчари\nПеренавчання заклинання: Невидимість → Розвіювання магії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Втеча туману{{Misty Escape}} — захід безпеки. Він слугує схожій меті, що й Туманний крок [Misty Step], але не вимагає чекати на свій хід і не витрачає слот заклинання. Якщо ви просто намагаєтеся обійти перешкоду, попросіть когось ляснути вас, щоб запустити телепортацію. Проти бійців у нас є отрута від спрайта, проти нерозумних ворогів — ілюзії, а проти натовпів — Голод Хадара [Hunger of Hadar]. Але проти ворожих заклинателів доброго протидійного засобу в нас немає, тож виправимо це. Ми можемо відмовитися від одного з наявних відомих заклинань і взяти і Контрчари [Counterspell], і Розвіювання магії [Dispel Magic]. Раджу відмовитися або від Невидимості [Invisibility], або від Невидимого служника [Unseen Servant]. Так чи так, ваш спрайт замінить будь-яку можливість, якою ви пожертвуєте (розвідку чи виконання хатньої роботи)."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик: Скульптор плоті\nНове відоме заклинання: Вигнання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7-й рівень приносить заклинання 4-го рівня й ще один виклик. Візьмемо «Скульптор плоті»{{Sculptor of Flesh}}, бо очевидніших викликів «Пакту ланцюга»{{Pact of the Chain}} більше немає, а "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/true-polymorph-and-shapechange/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " справді чудове. Додамо Вигнання [Banishment] як наше нове заклинання 4-го рівня. Це чудова протидія всьому позапланарному, а навіть проти тих, хто таким не є, це чудовий спосіб тимчасово прибрати ворога з бою, поки ваші друзі й фамільяр розбираються з рештою. На цьому рівні можна також перенавчити Голод Хадара [Hunger of Hadar] на Нудотне сяйво [Sickening Radiance]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Спритність 15 → 16, Харизма 17 → 18)\nНове відоме заклинання: Більша невидимість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наше перше Покращення Характеристик — аж на 8-му рівні. Ми все ще на 1 відстаємо від «Фундаментальної математики»{{Fundamental Math}}, але це не фатально, і ми все ще цілком корисні. Більшість наших варіантів не залежить від ряткидків, а ті, що залежать (замовляння, Голод Хадара [Hunger of Hadar], Вигнання [Banishment], Присутність феї{{Fey Presence}}), можна націлювати на ворогів, які ймовірно їх провалять, або ж тримати ворогів у магічному блендері достатньо довго, щоб це не мало значення. Більша невидимість [Greater Invisibility] — подарунок для нашого фамільяра. Накладіть її на спрайта, а потім відправте його в бій без підтримки. Дивіться його відчуттями й спілкуйтеся телепатично за допомогою «Голосу майстра ланцюгів»{{Voice of the Chain Master}}, нехай він літає довкола й труїть ворогів, а коли всі роздратовані, спантеличені й отруєні, нехай решта вашої групи вибиває двері й прибирає безлад. Більша невидимість [Greater Invisibility] триває лише хвилину, тож у сутичках із багатьма ворогами це може бути складно, але тоді варто обирати Голод Хадара [Hunger of Hadar] або Нудотне сяйво [Sickening Radiance], а не посилати спрайта."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик: Шепіт могили\nНове відоме заклинання: Стримування монстра"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Шепіт могили»{{Whispers of the Grave}} — приємний, універсально привабливий варіант. Спершу стріляйте, потім ставте запитання. На цьому рівні ми вивчимо Стримування монстра [Hold Monster]. Воно працює майже в будь-якій сутичці, а іноді здатне навіть запобігти сутичці. Також тут наші слоти заклинань перестають покращуватися, але ми й далі кожні кілька рівнів вивчаємо нові заклинання, тож повертатимемося вниз списком заклинань Чорнокнижника й додаватимемо нові варіанти. Також ви можете перенавчати одне заклинання на кожному рівні, тож у вас багато простору для експериментів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звабливий захист\nНове замовляння: Штукарство"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звабливий захист{{Beguiling Defenses}} спрацьовуватиме не завжди, але коли спрацює, це буде справді круто. Вибір нового замовляння особливого значення не має. Наступальних варіантів у нас вдосталь, тож додамо трохи утиліти й пустощів зі Штукарством [Prestidigitation]. Серед іншого ним можна чистити речі, тож купання й прання можна викреслити зі списку справ."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум: Масове навіювання\nНове відоме заклинання: Позірність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Масове навіювання [Mass Suggestion] дуже добре пасує до теми Архіфеї{{Archfey}}. Тривалість 24 години, щедрі обмеження, а межі встановлює здебільшого ваша креативність і те, що вам дозволить зійти з рук Майстер. Позірність [Seeming] — дивне заклинання, і воно не завжди буде корисним, але ним можна замаскувати всю групу, щоб обманом змусити ворогів атакувати танка вашої групи, який виглядатиме як чувак-чорнокнижник у халаті й капцях. Тривалість 8 годин означає, що його можна накласти на початку дня й одразу взяти Короткий відпочинок, щоб повернути слоти заклинань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Харизма 18 → 20)\nНовий потойбічний виклик: Будь-який"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті ми наздогнали «Фундаментальну математику»{{Fundamental Math}}. Якщо ви й далі трохи відстаєте за СК ряткидків, можна натомість взяти «Доторк феї»{{Fey Touched}}, «Експерта у навичках»{{Skill Expert}} або «Доторк тіні»{{Shadow Touched}}. Будь-яка з цих трьох дає збільшення Харизми на +1, а ще одну з трьох можна взяти на 16-му рівні, щоб довести Харизму до 20."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум: Планарний перехід\nНове відоме заклинання: Будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Планарний перехід [Plane Shift] — чудовий варіант для далеких подорожей, але оскільки накласти його можна лише раз на день, вам треба буде зупинитися десь у приємному місці й узяти довгий відпочинок, перш ніж повертатися на Матеріальний план. Я чув, що Елізіум чудовий, тож це добрий вибір. Також ним можна позбуватися клопітних ворогів: зробіть фамільяра невидимим і відправте його на відстань дотику до цілі, щоб доставити заклинання. Воювати з речами важко, тож натомість можна відправити їх у чудову довгу відпустку куди завгодно, лише не сюди. Я чув, що План Вогню жахливий, тож це гарний вибір."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Темний марево{{Dark Delirium}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо ви використаєте «Темний марево»{{Dark Delirium}} у бою, зробіть істоту Наляканою, а тоді нехай ваші союзники схоплять її, Штовханням повалять і, можливо, зроблять Скутою мотузкою чи сіткою. Ілюзія не зникає, доки істота не отримає шкоди, але однієї хвилини з головою вистачить, щоб ваша група скувала Налякану й фактично сліпу істоту. Поза боєм це можна використати, щоб відволікти істот, поки ваша група прокрадається повз, або щоб змусити когось коротко поговорити з вами віч-на-віч. Ілюзія не обовʼязково має бути фантастичною, дивною чи страшною. Цілком можна помістити ціль в ілюзію її ж оточення, просто щоб вона не бачила вашу групу, коли та проходить повз чи оточує істоту. Якщо ви кмітливі, істота може так і не помітити, що щось із цього відбулося."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик: Вкритий тінню\nМістичний арканум: Впевненість\nНове відоме заклинання: Будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Ланцюги Каркері»{{Chains of Carceri}} — це нормально, але у вас повно варіантів для поводження з іншими істотами, а істот, на яких можна цілити «Ланцюгами Каркері», часто краще обробляє Вигнання [Banishment]. Натомість візьмемо «Вкритий тінню»{{Shroud of Shadow}}, щоб ставати невидимими майже так само легко, як наш фамільяр-спрайт. Ви вільні накладати Невидимість [Invisibility] і на інших істот, але з викликом «Вкритий тінню» її не можна підсилити слотом вищого рівня, а вимога Концентрації обмежує вас однією істотою за раз. Як «Містичний арканум»{{Mystic Arcanum}} цього рівня візьмемо Впевненість [Glibness]. Вона зводить нанівець складність будь-якої ситуації, яку можна вирішити перевіркою Харизми, а отже, робить соціальні ситуації дуже легкими. Щоб охопити три стовпи гри: під час дослідження користуйтеся спрайтом. Він невидимий, підступний, вміє літати, і ви можете бачити його очима будь-де на площині. У бою ваша недорога основна тактика — підтримати групу заклинанням із рівнем, потім труїти ворогів спрайтом і дати вашій групі добити рештки. Під час соціальної взаємодії Впевненість [Glibness] робить вас нестримно чарівним, а ще ви можете час від часу підкидати ефект причарування заклинаннями на кшталт Причарування монстра [Charm Monster] і підкласовими уміннями. Ви завжди приголомшливі, і в переважній більшості випадків можете бути приголомшливими, сидячи й працюючи віддалено через фамільяра."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик або риса"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо на 12-му рівні ви взяли гібридну рису, візьміть ще одну тут. Інакше розгляньте «Містичного адепта»{{Eldritch Adept}} заради ще одного виклику або «Адепта метамагії»{{Metamagic Adept}}. Якщо візьмете Приховане заклинання{{Subtle Spell}}, зможете накладати Причарування особи [Charm Person] і Причарування монстра [Charm Monster], щоб істоти не здогадувалися, що ви це робите, ще більше спрощуючи соціальні ситуації."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум: Передбачення\nНове відоме заклинання: Будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Накладіть Передбачення [Foresight] на одного з бойових персонажів вашої групи. Це буквально найкраще підсилення в грі, і щоразу, коли хтось каже вашому персонажеві: «Гей, може, тобі варто підвестися й допомогти в бою», ви можете відповісти: «Слухай, я вранці наклав Передбачення [Foresight], мій фамільяр літає й щось робить, а коли ви закінчите, я накладу Невидимого служника [Unseen Servant], щоб прибрати. Чого ще ви від мене хочете?»"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик: Відьомський зір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ваш останній слот «Потойбічного виклику»{{Eldritch Invocation}}. «Пакт ланцюга»{{Pact of the Chain}} має небагато викликів, тож очевидні варіанти в нас закінчилися вже давно. «Відьомський зір»{{Witch Sight}} допоможе нам не потрапляти на хитрощі інших істот."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик або риса: Будь-яка\nНове відоме заклинання: Будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ваша Харизма — 20, і ви майже напевно маєте кілька рис. Тут нам є з чого вибирати. Можливо, візьмемо «Кухаря»{{Chef}}? «Надихаючий лідер»{{Inspiring Leader}} уже дає велику купу тимчасових ХП, але роздача наших ласощів дозволяє групі отримати ще більше посеред бою, якщо вони чомусь ще не використовують свої Бонусні дії стабільно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний майстер{{Eldritch Master}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20-й рівень, на жаль, трохи нудний. «Містичний майстер»{{Eldritch Master}} дозволяє раз на день попросити слоти заклинань назад без завершення короткого відпочинку, що заощаджує вам 59 хвилин раз на день."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-warlock-archfey-2014-001",
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1",
+      "context": "Заклинання покровителя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-archfey-2014-002",
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-0",
+      "context": "Заклинання 1-го рівня",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-archfey-2014-003",
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-1",
+      "context": "Заклинання 2-го рівня",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-archfey-2014-004",
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-2",
+      "context": "Заклинання 3-го рівня",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-archfey-2014-005",
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-3",
+      "context": "Заклинання 4-го рівня",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-archfey-2014-006",
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-4",
+      "context": "Заклинання 5-го рівня",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-archfey-2014-007",
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-3",
+      "optionId": "section-features-block-section-features-3",
+      "context": "Присутність феї",
+      "explanationBlockId": "block-section-features-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-archfey-2014-008",
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-4",
+      "optionId": "section-features-block-section-features-4",
+      "context": "Втеча туману",
+      "explanationBlockId": "block-section-features-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-archfey-2014-009",
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-5",
+      "optionId": "section-features-block-section-features-5",
+      "context": "Звабливий захист",
+      "explanationBlockId": "block-section-features-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-archfey-2014-010",
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-6",
+      "optionId": "section-features-block-section-features-6",
+      "context": "Темний марево",
+      "explanationBlockId": "block-section-features-6",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-archfey-2014-011",
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "sectionId": "section-archey-warlock-feats",
+      "targetBlockId": "block-section-archey-warlock-feats-1",
+      "optionId": "section-archey-warlock-feats-block-section-archey-warlock-feats-1-item-0",
+      "context": "Доторк феї",
+      "explanationBlockId": "block-section-archey-warlock-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

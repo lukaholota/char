@@ -1,0 +1,999 @@
+{
+  "buildId": "build-wizard-bladesinging-2014",
+  "revisionId": "build-wizard-bladesinging-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— Гоблін, Чарівник Школи співу клинків",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+      "sectionId": "section-example-build-goblin-bladesinging-wizard",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "WIZARD_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "WIZARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WIZARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "SCHOOL_OF_BLADESINGING",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "absorb-elements",
+            "shield"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WIZARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "magic-weapon",
+            "identify"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WIZARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "PIERCER",
+        "featOptions": [
+          {
+            "optionNameEng": "PIERCER Ability (Dexterity)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "fire-bolt"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "misty-step"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WIZARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "fireball"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WIZARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "counterspell",
+            "dispel-magic"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WIZARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "greater-invisibility",
+            "polymorph"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WIZARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 1
+          },
+          {
+            "ability": "INT",
+            "amount": 1
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "arcane-eye",
+            "stone-shape"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WIZARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "rarys-telepathic-bond",
+            "wall-of-force"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WIZARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "skill-empowerment",
+            "creation"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WIZARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "tensers-transformation",
+            "disintegrate"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WIZARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "contingency",
+            "globe-of-invulnerability"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WIZARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "teleport",
+            "forcecage"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WIZARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "plane-shift",
+            "simulacrum"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WIZARD_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "draconic-transformation",
+            "maze"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WIZARD_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "feeblemind",
+            "clone"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WIZARD_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "foresight",
+            "wish"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WIZARD_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Two-Weapon Fighting"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-bladesinging-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+          "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "SCHOOL_OF_BLADESINGING",
+    "raceKey": "GOBLIN_MPMM",
+    "backgroundKey": "CLOISTERED_SCHOLAR",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 15
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities-2",
+        "title": "Характеристики",
+        "text": "Ми припускатимемо характеристики за купівлею, запропоновані вище.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 14 14 Інтелект 15 17 Мудрість 10 10 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-abilities-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Гоблін{{Goblin}}, представлений у «Монстрах Мультивсесвіту»{{Monsters of the Multiverse}}, дає дуже вагому причину обрати щось мале. Бонусний Відступ, доступний вам, — чудовий інструмент для Співців клинка, щоб згладити прогалини в «Пісні клинка» на ранніх рівнях (і, чесно кажучи, загалом дозволяє не палити слоти на Щит [Shield], якщо хочете переміститися), а «Лють маленького»{{Fury of the Small}} — просто приємна додаткова шкода. Ви також починаєте з 30 футів руху навіть будучи Малим, а Темний зір і «Фейське походження»{{Fey Ancestry}} завжди доречні. До того ж те, що це раса з «Монстрів Мультивсесвіту», означає, що ви можете розподілити свої +2/+1 як вважаєте за потрібне, навіть якщо Майстер не хоче використовувати правила «Казана Таші».",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Візьміть Магію й Релігію.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Візьміть Замкненого ученого{{Cloistered Scholar}} заради Історії й Природи, лишивши Розслідування єдиною навичкою Інтелекту без володіння. Ваш природно високий Інтелект витягне вас у цьому як запасного для будь-якого розвідника у вашій групі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Оскільки мені насправді байдужа фундаментальна математика чи мої власні поради, скажу: візьміть «Проколювача»{{Piercer}} на 4-му рівні, на 8-му вирівняйте характеристики до 18 у Спритності й Інтелекті, 12-й доводить Інтелект до межі, 16-й — Спритність, а на 19-му ми не отримуємо Покращення Характеристик, бо натомість є несподіваний інструмент, який допоможе нам пізніше.\n\nЯ цілком свідомо не дозволив собі взяти «Телекінетика»{{Telekinetic}}, але не брати його тут теж розумний вибір, бо Відступ бонусною дією використовуватиметься часто.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Чаротворство\nМагічне відновлення\nВідомі замовляння:\n– Формування води\n– Гримучий Клинок\n– Штукарство\n– Магічна рука\nВідомі заклинання:\n– Палючі долоні\n– Розуміння мов (Р)\n– Виявлення магії (Р)\n– Пошук фамільяра (Р)\n– Обладунок мага\n– Магічний дротик",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Школа співу клинків\nНавчання війні та пісні\nПісня клинка\nВідомі заклинання:\n– Поглинання стихій\n– Щит",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Відомі заклинання:\n– Магічна зброя\n– Розпізнавання (Р)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса (Проколювач)\n+1 Спритності, разом 17\nНове відоме замовляння:\n– Вогняний заряд\nНові підготовлені заклинання:\n– Туманний крок\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Відомі заклинання:\n– Вогнекуля\n– дивіться примітки",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Додаткова атака\nВідомі заклинання:\n– Контрчари\n– Розвіювання магії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Відомі заклинання:\n– Більша невидимість\n– Перевтілення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Спритність та Інтелект 17 → 18)\nНові підготовлені заклинання:\n– Арканне око\n– Форма каменю",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Відомі заклинання:\n– Телепатичний звʼязок Рері\n– Стіна енергії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Нові відомі замовляння:\n– будь-яке\nВідомі заклинання:\n– Посилення навички\n– Творення\nПісня захисту",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Відомі заклинання:\n– Тензерова трансформація\n– Розщеплення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Відомі заклинання:\n– Обачливість\n– Сфера невразливості\nПокращення Характеристик (Інтелект 18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Відомі заклинання:\n– Телепорт\n– Силова кліть",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Відомі заклинання:\n– Планарний перехід\n– Симулякр\nПісня перемоги",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Нові підготовлені заклинання:\n– Драконяче перетворення\n– Лабіринт",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик (Спритність 18 → 20)\nВідомі заклинання:\n– Слабоумство\n– Клон",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Відомі заклинання:\n– Передбачення\n– Бажання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Майстерність заклинань{{Spell Mastery}}:\n– Щит\n– Туманний крок\nВідомі заклинання:\n– будь-які два",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Друге дихання\nБойовий Стиль (Бій двома зброями)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Сплеск дій{{Action Surge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Четверте замовлення",
+        "reason": "Автор називає чотири замовляння (Формування води, Гримучий клинок, Штукарство, Магічна рука), а Чарівник 1-го рівня знає три; платформа залишила перші три, четверте (Магічна рука) можна змінити замість будь-якого з них.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Стартове спорядження за гроші",
+        "reason": "Автор радить узяти гроші замість набору й купити проклепаний шкіряний обладунок, легкий арбалет, два короткі мечі та фокус; пресет не підтримує стартове золото, тому взято стандартний набір Чарівника.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Підготовлені заклинання",
+        "reason": "На 4-му й 8-му рівнях автор називає «нові підготовлені» заклинання (Туманний крок, Арканне око, Форма каменю, Драконяче перетворення, Лабіринт); їх записано як нові заклинання книги цього рівня, а сама підготовка на листі лишається вибором гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання «будь-які»",
+        "reason": "На 4-му рівні автор не називає другого заклинання, на 5-му відсилає до приміток (Крихітна хатинка Леомунда або Прискорення залежно від групи), на 18-му називає «будь-які два»; це вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Майстерність заклинань",
+        "reason": "На 18-му рівні автор обирає Щит і Туманний крок; платформа не записує вибір заклинань Майстерності заклинань.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-bladesinging-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+            "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

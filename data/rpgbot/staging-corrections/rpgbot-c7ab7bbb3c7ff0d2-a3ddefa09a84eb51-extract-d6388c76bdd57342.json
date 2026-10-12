@@ -1,0 +1,5088 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/artificer/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "a3ddefa09a84eb516725260e735f7dc98046458a53d662158945e8414b5f53b3",
+  "sourceRevision": {
+    "revisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+    "sourceId": "rpgbot-c7ab7bbb3c7ff0d2",
+    "fetchedAt": "2026-09-29T19:21:49.016267+00:00",
+    "sourceUpdatedAt": "2026-03-27T16:32:25-04:00",
+    "contentHash": "584eaf245ee28960f3e5394d2ad49759147b75154014978a32d6a6e3e911dcb3",
+    "title": "Artificer 5e: DnD 5e Class Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Artificer is a class with a tool for every job and a solution to every\n\tproblem. They excel as a Support character, but make decent Defenders,\n\tHealers, and Strikers, too. With the right infusions and spells, they can fill\n\tnearly any role in the party, making the Artificer’s versatility rival that of\n\tthe Bard."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Artificer has been a popular concept since at least 3rd edition, where\n\tthe Artificer first appeared as a class unique to the Eberron campaign\n\tsetting. Since then, the class has reappeared in 4th edition, and was in high\n\tdemand when 5th edition was released, but didn’t see a final release until\n\tfully 5 years after 5th edition’s initial release. The concept of a character\n\twho performs magic by binding it to items and who crafted all sorts of\n\ttechnological or magical gadgets is a fun novelty in a game where magic rarely\n\ttakes those forms."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, the Artificer is complicated. This is not a class I would recommend\n\tfor new players or for players who suffer from analysis paralysis. The\n\tArtificer has more decision points than any class to date, including the\n\tWizard. Every time you finish a long rest you can reset your prepared spells,\n\tshuffle where you apply all of your infusions, and pick magic items from a\n\tlist of some 40+ options. While some of these decisions may remain static for\n\tlong periods of time, the intent of the class is that you will tailor your\n\tabilities day-to-day to suit the challenges you expect to face. While that\n\tversatility and adaptability is very powerful, it also requires a great deal\n\tof micromanagement of your character."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is the sort of class that can be rewarding for players who enjoy\n\t“crunch” and fiddling with their character’s build, but which will be\n\tabsolutely punishing for players who don’t like to spend hours agonizing over\n\tthe differences between individual character options. The need to manage\n\tspells and infusions plus the mental load of trying to make tool proficiencies\n\tuseful is often frustrating for many players, but I have always enjoyed\n\texactly those sorts of challenges, so I’ve enjoyed artificers every time I’ve\n\tplayed one."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Several of the Artificer’s features are related to crafting and to magic\n\titems. If your game does not allow item crafting or does not use magic items,\n\tyou’re going to miss out on those features. Of course, you may also be the\n\tonly source of magic items, which makes you a very popular member of your\n\tparty. Most published games don’t leave space for downtime and crafting and\n\talso provide pre-determined magic items which might not appeal to your\n\tparty."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In those situations I’ve found that changing your infusions to fill gaps for your party is immensely effective, and your party may be willing to trade permanent magic items among the group if everyone ends up happy with whatever items and infusions they’re using at any given moment."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is for the latest version of the Artificer class. The full version\n\twas originally published in Eberron: Rising from the Last War, and updated in\n\tTasha’s Cauldron of Everything. If you are currently using the version\n\tpublished in Eberron, I recommend checking the\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Errata document",
+              "href": "https://media.wizards.com/2020/dnd/downloads/ERftLW-Errata.pdf"
+            },
+            {
+              "type": "text",
+              "text": "\n\tfor the latest improvements, as the changes are significant."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "After reading this guide, I encourage you to read our other supporting material:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-9",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Artificer Races Guide",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/races/"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artificer Subclasses Guide",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artificer Infusions Guide",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artificer Roleplay Guide",
+                "href": "https://rpgbot.net/dnd5/players/dnd-artificer-roleplay-guide/"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "RPGBOT.Podcast: 5e Artificer Optimization Part 1",
+                "href": "https://rpgbot.net/artificers-crafting-chaos-a-guide-to-building-the-master-artisan-rpgbot-podcast-s4e43/"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "RPGBOT.Podcast: 5e Artificer Optimization Part 2",
+                "href": "https://rpgbot.net/artificers-2-crafting-magic-a-guide-to-the-ultimate-tinkerer-rpgbot-podcast-s4e44/"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article is for the 2014 DnD 5e rules. For the DnD 5.5 rules, see our "
+            },
+            {
+              "type": "link",
+              "text": "DnD 5.5 Artificer Class Guide",
+              "href": "https://rpgbot.net/2024-dnd/classes/artificer/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-class-features",
+      "heading": "Artificer Class Features",
+      "sourceAnchor": "class-features",
+      "blocks": [
+        {
+          "blockId": "block-section-class-features-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hit Points"
+            },
+            {
+              "type": "text",
+              "text": ": With d8 hit points and medium\n\tarmor, the artificer is not a tank by any means. You’ll probably want to\n\tremain at range, but if you find yourself in melee a lot be sure to pad your\n\thit points with False Life, plenty of Constitution, and as many AC boosts as\n\tyou can manage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Saves"
+            },
+            {
+              "type": "text",
+              "text": ": Constitution is great, especially\n\tsince many artificers fight on the front lines where you’ll be repeatedly\n\tmaking saves to maintain Concentration. Intelligence saves are exceptionally\n\trare."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": Medium armor and shields\n\twill keep you alive in melee, but with only simple weapons your best Finesse\n\toption is a dagger. That’s fine for most Artificers since fighting with ranged\n\tspells is your best option, but the Battle Smith will eventually take up\n\tmartial weapons and use Intelligence for their attacks and damage. The\n\tArtificer’s skills are mostly Intelligence and Wisdom-based, and most are\n\tknowledge skills, but Sleight of Hand is an option. You also get three tool\n\tproficiencies, which gives you room to tailor your character to the theme\n\tyou’re going for. Your Artificer Specialist (your subclass) will grant you proficiency in an\n\tadditional set of tools relevant to the subclass at 3rd level."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Magical Tinkering"
+            },
+            {
+              "type": "text",
+              "text": ": This is very similar to\n\tcantrips like Prestidigitation. The effects are interesting and unique, and if\n\tyou’re clever you can come up with all kinds of uses for Magical Tinkering.\n\tYou can have multiple objects affected at the same time, so consider carrying\n\taround a few prepared items which you can quickly produce and use."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spellcasting"
+            },
+            {
+              "type": "text",
+              "text": ": Artificers are a 2/3 caster\n\tthat prepares and casts spells like a cleric (prepare daily from the full\n\tclass list). You get ritual casting, which is always great, and the spell list\n\tis a combination of options from the cleric and wizard spell lists, allowing the Artificer\n\tto serve as a Blaster, a Healer, and a Support caster. Notably, the Artificer\n\tcan retrain a cantrip every level. To the best of my knowledge, the Artificer\n\tis the only class with the ability to replace cantrips unless you allow\n\toptional class features."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Artificer’s spellcasting foci are also unique. Rather than a wand or\n\tsomething, you use Thieves’ Tools or a set of Artisan’s Tools. You can wave a\n\tset of lockpicks around to cast fireball, which I think will inevitably lead\n\tto some laughs at the table and countless goofy characters using weird tools\n\tto perform magic."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can also use any item that’s the subject of one of your infusions, which\n\tmeans that if you have infused a weapon or a shield you can easily have a\n\tfocus in hand without dropping your weapon or shield to pull out a wand or\n\tsomething. Your choice of subclass will add additional focus options, but\n\tthey’re typically no better than what the Artificer gets by default, though\n\tthey’ll certainly fit the theme of your subclass."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s also very important to note that the Artificer must "
+            },
+            {
+              "type": "emphasis",
+              "text": "always"
+            },
+            {
+              "type": "text",
+              "text": " use\n\ta focus when casting spells. Errata and the updated version of the Artificer\n\tclass explain that this adds a Material component to all of the Artificer’s\n\tspells. Thanks to the core rules for spell components, this means that you can\n\talways use the hand holding your focus to perform somatic components. That\n\tmakes the Artificer the only spellcaster who can perform every one of their\n\tspells with items in both of their hands. (Typically you can’t perform somatic\n\tcomponents with a focus in your hand unless the spell also requires an\n\tinexpensive material component. I complain about this rule frequently.)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Artificers get surprisingly few prepared spells (level/2+Int), which can be\n\tvery limiting and makes good spell selection crucial. For help selecting\n\tspells, see our\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Artificer Spell List Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/spells"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Infuse Item"
+            },
+            {
+              "type": "text",
+              "text": ": This may be the Artificer’s\n\tmost iconic ability. You get to start with two infused items chosen from four\n\tInfusion known, which is like getting two magic items at 2nd level. For\n\tadvice on Infusions, see my\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Artificer Infusions Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Artificer Specialist"
+            },
+            {
+              "type": "text",
+              "text": ": Artificer subclasses are briefly summarised below. See my "
+            },
+            {
+              "type": "link",
+              "text": "Artificer Subclasses Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses"
+            },
+            {
+              "type": "text",
+              "text": " for help selecting your subclass."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-12",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Alchemist",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses#alchemist"
+              },
+              {
+                "type": "text",
+                "text": ": Add new support and healing options, as well as bonus healing and bonus\n\t\tdamage with spells which deal certain damage types."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Armorer",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses#armorer"
+              },
+              {
+                "type": "text",
+                "text": ": Don a suit of magic armor and smash or blast your foes in combat."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artillerist",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses#artillerist"
+              },
+              {
+                "type": "text",
+                "text": ": Emphasize the Artificer’s abilities as a Blaster, and add the ability to\n\t\tsummon magical canons to aid you in combat."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Smith",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses#battle-smith"
+              },
+              {
+                "type": "text",
+                "text": ": Focus on fighting with weapons alongside your new Steel Defender, a\n\t\tsturdy pet construct designed for combat."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Right Tool for the Job"
+            },
+            {
+              "type": "text",
+              "text": ": You technically\n\tnever receive a free set of tools except for the Thieves’ Tools included in\n\tthe Artificer starting equipment. If you’re short on gold, you might not be\n\table to afford the tools related to your subclass. Instead, you get this. I\n\tthink the expectation is that you can use this to craft the tools for your\n\tsubclass for free, and trade them out for other tools when you need them."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tool Expertise"
+            },
+            {
+              "type": "text",
+              "text": ": There’s a reason WotC is\n\tcomfortable granting universal expertise with tools: unless the DM is going\n\tout of their way or you are making a truly impressive effort, most tool\n\tproficiencies rarely matter beyond the flavor of your character. I can’t think\n\tof an instance where a character made frequent checks with Brewer’s Tools over\n\tthe course of a campaign, for example. However, the notable exception of\n\tThieves’ Tools means that Tool Expertise has at least one important use case\n\tin a typical campaign."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flash of Genius"
+            },
+            {
+              "type": "text",
+              "text": ": A bonus of up to +5 on a\n\tsave can easily turn a failed save or check into a successful one, and using\n\tthis up to 5 times a day means that it’s a powerful and reliable part of your\n\tskillset."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Magic item Adept"
+            },
+            {
+              "type": "text",
+              "text": ": Attuning one additional\n\titem is typically not a huge difference, but considering many Infusions\n\trequire attunement, this can be very important in campaigns which include\n\tmagic items. The ability to craft your own magic items faster and for less\n\tgold improves this ability further because you can craft items which require\n\tattunement with less concern about the limited number of items you can attune.\n\tIf you don’t have an All-Purpose Tool yet, build one now. It will take half a\n\tweek and 100 gold. Congratulations, you now have a magical tool that grants\n\tproficiency in all artisan tools. Use that to craft more magic items for\n\teveryone."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spell-Storing Item"
+            },
+            {
+              "type": "text",
+              "text": ": It may only be a 1st- or\n\t2nd-level spell, but you can cast it up to 10 times per day at 20\n\tIntelligence. Obvious options include Cure Wounds, False Life, Invisibility,\n\tand other restorative or protective spells, buffs, and utility options which\n\tyou’re going to cast repeatedly throughout a normal day of adventuring."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, it appears that you can’t choose a 1st-level spell cast with a\n\t2nd-level slot, but that’s probably fine."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Remember that any creature can use this, so consider passing this off to an\n\tally (the Homunculus Servant and the Battle Smith’s Steel Defender could both\n\tsuffice if you need more precise control than letting another player use it)\n\tif the spell you choose makes more sense coming from someone else, if the\n\tspell targets the caster, or if you chose a spell which requires Concentration\n\tand someone in your party is a non-spellcaster so their Concentration isn’t\n\tbeing utilized."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Strangely, the text of Spell-Storing Item doesn’t use the phrase “Cast a\n\tSpell” to describe the action, so unlike a wand or similar item, creatures may\n\tbe able to use this when they normally can’t cast spells (like when raging).\n\tYou also notably don’t need to provide components, so you can use spells\n\tsilently, without moving, and without providing material components (including\n\texpensive ones!) so you can get away with all kinds of trickery."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Magic item Savant"
+            },
+            {
+              "type": "text",
+              "text": ": One more attuned item,\n\tand you can ignore class/race/spell/level requirements on magic items. Those\n\trequirements are rare, but maybe you want to use a Holy Avenger or\n\tsomething."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Magic item Master"
+            },
+            {
+              "type": "text",
+              "text": ": One more attuned\n\titem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-class-features-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Soul of Artifice"
+            },
+            {
+              "type": "text",
+              "text": ": You can (and should) be\n\tattuned to 6 items, giving you a +6 bonus to all of your saves. Add Flash of\n\tGenius to that, and you can add +11 to any save on top of your normal\n\tbonus."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Artificers live and die by their Intelligence score, but Dexterity and\n\tConstitution are just as helpful to the Artificer as they are to everyone\n\telse. The Artificer has an impressive three total dump stats, allowing you to\n\tdump all of your points into the abilities which we care about and leave the\n\trest at 8. Replicate Magic Item gives you access to ability score boosting\n\titems and items which boost all of your saving throws, so you can often offset\n\tor override incredibly low ability scores with little effort."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Typically a dump stat. You don’t need\n\tStrength for anything unless you spend a feat on proficiency with heavy armor,\n\tand considering how many AC buffs you can get from your Infusions you really\n\tdon’t need to do that. Only the Battlesmith will invest heavily in fighting\n\twith weapons, and they can rely on Intelligence for attack and damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": You’ll want some Dexterity to fill out\n\tyour AC and to help with weapons at low levels, but you’ll never need more\n\tthan 14. Armorer artificers planning to go all-in on Guardian armor can\n\tsurvive with 8 Dexterity, though getting to level 3 will require a great deal\n\tof caution if you’re starting at level 1."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Always essential."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Your primary stat. Fuels your spells\n\tand all of your class features."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Technically a dump stat, but it\n\tcomplements many of your skills nicely so it may be helpful to put some points\n\tinto it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump stat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Ranged Artificer"
+              }
+            ],
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Melee Artificer"
+              }
+            ],
+            []
+          ],
+          "rows": [
+            [
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "Point Buy"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Standard Array"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Point Buy"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Standard Array"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Artificer Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The most important thing you can get from your race is an Intelligence\n\tincrease. Even front-line subclass options like the Armorer and the Battle\n\tSmith are almost entirely dependent on Intelligence for their features. Ranged\n\tartificers will need a bit of Dexterity to fill out medium armor, but 14\n\tDexterity is easily achieved by any races, so Constitution is typically your\n\tbest secondary increase. Also look for options which complement the\n\tArtificer’s limited spellcasting and for additional tool proficiencies."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For help selecting a race, see our\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Artificer Races Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For a classic wizard feel, consider the Rock Gnome. For a sturdy front-line\n\tartificer, the Hill Dwarf and the Goliath (MMoM version) both work very well.\n\tFor a ranged artificer, consider the High Elf or the Fairy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills",
+      "heading": "Artificer Skills",
+      "sourceAnchor": "skills",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Arcana"
+              },
+              {
+                "type": "text",
+                "text": " (Int): Among the most important\n\t\tknowledge skills, and you have the intelligence to back it up."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "History"
+              },
+              {
+                "type": "text",
+                "text": " (Int): Situational, and how\n\t\tuseful it is is heavily dependent on your GM and the campaign you’re\n\t\tin."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Investigation"
+              },
+              {
+                "type": "text",
+                "text": " (Int): With high\n\t\tIntelligence, you’re a great candidate to use Investigation."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medicine"
+              },
+              {
+                "type": "text",
+                "text": " (Wis): This skill is useless.\n\t\tMedicine is best done magically."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Nature"
+              },
+              {
+                "type": "text",
+                "text": " (Int): Good knowledge skill, but\n\t\tnot as crucial as Arcana or Religion."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Perception"
+              },
+              {
+                "type": "text",
+                "text": " (Wis): The most-rolled skill in\n\t\tthe game."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sleight of Hand"
+              },
+              {
+                "type": "text",
+                "text": " (Dex): Sleight of hand\n\t\tis neat, but it’s not especially useful in most campaigns."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "heading": "Artificer Backgrounds",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section does not address every published background, as doing so would result in an ever-growing list of options which don’t cater to the class. Instead, this section will cover the options which I think work especially well for the class, or which might be tempting but poor choices. Racial feats are discussed in the Races section, above."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-background-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Look for backgrounds which provide additional Intelligence-based skills. Proficiency with more tools fits the theme of the class very well, but you’ll get at least 4 tool proficiencies from class features alone so you may not need more."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-background-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re having trouble deciding, here are some suggestions:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-background-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Clan Crafter"
+              },
+              {
+                "type": "link",
+                "text": "SCAG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Basically an improved version of Guild Artisan, you still get one Face\n\t\tskill and one language which you won’t benefit from very much, but History\n\t\tis a good skill and the starting gear works great for the Artificer."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Guild Artisan"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Artificer is not a good Face, and getting two Face skills doesn’t\n\t\tchange that. Thematically, this makes sense, but mechanically it\n\t\tdoesn’t."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sage"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Two Intelligence-based skills and two Languages."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Artificer Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section does not address every published feat, as doing so would result\n\tin an ever-growing list of options which don’t cater to the class. Instead,\n\tthis section will cover feats which we think work especially well for the\n\tclass or which might be tempting but poor choices. For more specific advice on\n\tindividual feats, see our\n\t"
+            },
+            {
+              "type": "link",
+              "text": "2024 DnD Feat Guides",
+              "href": "https://rpgbot.net/2024-dnd/feats/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Artificer Initiate"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": You already get an abundance of everything offered by Artificer Initiate.\n\t\tIf you want more spellcasting, consider Magic Initiate since it gets you an\n\t\textra cantrip instead of yet another tool proficiency."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cartomancer"
+              },
+              {
+                "type": "link",
+                "text": "BoMT",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The card spell effectively lets you choose one spell from your spell list (not from your prepared spells) and quicken it ahead of time. You do still need to spend a spell slot, so this isn’t any better than quickening a spell with Metamagic Adept, and you give up the ability to change which spell you quicken. This isn’t bad, it’s just not as good as Metamagic Adept for prepared spellcasters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Chef"
+              },
+              {
+                "type": "text",
+                "text": ": Great for front-line builds\n\t\tto pad their hit points, and easy for back-line builds to turn into a\n\t\tsupport ability. Once you hit 20 Intelligence, this is a good choice,\n\t\tespecially if you have an odd-numbered Constitution score."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Defensive Duelist"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A good way to boost your survivability in melee, but a dagger is the only\n\t\tthing you’re proficient with that works with the feat. Also, you can cast\n\t\tShield."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elemental Adept"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Acid or fire for Alchemist and fire for Artillerist. Sure, you’ve got\n\t\tways to deal damage with other elements, but those are the easiest elements\n\t\tfor the subclasses so it makes sense to minimize their weaknesses and\n\t\tmaximize their value."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fey Touched"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Misty step is fantastic on any character, and the Artificer gets\n\t\talarmingly few Divination spell options. Fey Touched provides some easy\n\t\taccess to some great spells like Bless and Compelled Duel. Back-row\n\t\tartificers will find that Bless is a powerful buff at any level, while\n\t\tfront-row artificers will find that Compelled Duel makes them an\n\t\texceptionally effective Defender.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "For more advice on Fey Touched, see my\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Spellcasting Feats Guide",
+                "href": "https://rpgbot.net/dnd5/characters/spellcasting-feats#fey-touched"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fighting Initiate"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Many artificers use weapons, and something like Fighting Style (Archery)\n\t\tcan do a lot to improve your damage output."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gift of the Chromatic Dragon"
+              },
+              {
+                "type": "link",
+                "text": "FToD",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Reactive Resistance portion of the feat replicates the important\n\t\tparts of Absorb Elements, which makes this a tempting option for front-line\n\t\tartificers who are frequently targeted by spells, breath weapons, and other\n\t\tcommon sources of the affected damage types. Of course, you can already cast\n\t\tAbsorb Elements, so this is just more of what you can already do.\n\t\tRegardless, wait to take this feat until your Proficiency Bonus is higher\n\t\tthan +2."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gift of the Gem Dragon"
+              },
+              {
+                "type": "link",
+                "text": "FToD",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Great for melee artificers. You get +1 increase to put into Intelligence,\n\t\tand when you’re hit with an attack despite your insane AC you can push\n\t\tenemies out of reach, potentially stopping them from hitting you again if\n\t\tthey have multiple attacks. If you’ve hit the target with Booming Blade on\n\t\tyour previous turn, they might be stuck in place unless they’re willing to\n\t\ttake the extra damage to attack you again. Of course, if that’s the combo\n\t\tyou want you should just take Crusher."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gift of the Metallic Dragon"
+              },
+              {
+                "type": "link",
+                "text": "FToD",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Protective Wings is similar to Shield, but you can also protect allies.\n\t\tNot essential, but it means that you can prevent many attacks from hitting\n\t\twithout cutting into precious spell slots."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gunner"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Minimal benefit for the Artificer. The only thing that the Artificer\n\t\tcan’t already replicate is ignoring adjacent enemies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Healer"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Without a real cleric in the party you may find it helpful to complement\n\t\tyour magical healing with this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Heavily Armored"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Strength doesn’t help the Artificer, and +1 AC relative to 14 Dex and\n\t\tHalf Plate is not enough for a feat when you have several Infusion options\n\t\tthat provide the same amount of extra AC."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lucky"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Good on any character."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magic Initiate"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": With the additions to the Artificer made by Tasha’s Cauldron of\n\t\tEverything, there is very little for the Artificer to gain from Magic\n\t\tInitiate. Any spellcasting which you might want from the Wizard is already\n\t\ton the Artificer’s spell list, and there aren’t any great combinations with\n\t\tspells from other classes.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "For more advice on Magic Initiate, see my\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Spellcasting Feats Guide",
+                "href": "https://rpgbot.net/dnd5/characters/spellcasting-feats#magic-initiate"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Metamagic Adept"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent on any spellcaster, even with the Artificer’s 2/3 spellcasting\n\t\tyou can still do a lot with metamagic. For advice on Metamagic Adept, see my\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Sorcerer Metamagic Guide",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/metamagic#metamagic-adept"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medium Armor Master"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Many races like elves and halflings could easily end up with 16 Dexterity\n\t\twithout cutting into your Intelligence. If you have 16 Dexterity, this will\n\t\tmake Stealth easier and give you a nice +1 AC bonus. Not essential unless\n\t\tyou’re playing your party’s Scout, but still good."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Piercer"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Tempting for artificers built to use weapons (crossbow+shield is a great\n\t\tcombo), but the Strength or Dexterity increase isn’t helpful. Consider\n\t\tCrossbow Expert instead."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resilient"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": More saving throw proficiencies never hurt, but the Artificer already\n\t\tgets proficiency in Constitution saving throws."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ritual Caster"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Artificers can already cast rituals, provided that they have the spell\n\t\tprepared. Ritual Caster will broaden your ritual options, but that’s\n\t\tprobably not enough to justify a feat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shadow Touched"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This is a good feat, but there are few spell options that appeal to the\n\t\tArtificer. Silent Image is likely your best option.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "For more advice on Shadow Touched, see my\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Spellcasting Feats Guide",
+                "href": "https://rpgbot.net/dnd5/characters/spellcasting-feats#shadow-touched"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sharpshooter"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": For the Armorer in Infiltrator armor, you can use your first attack to\n\t\thit a target and grant yourself Advantage on the next attack against the\n\t\ttarget. At that point, use Sharpshooter’s option to take an attack penalty\n\t\tin exchange for more damage and the Advantage will mostly offset the penalty\n\t\tto your attack roll."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skill Expert"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Expertise is really nice, but it’s hard to decide what skill to put it\n\t\tinto. Keep in mind that artificers already get to add double their\n\t\tProficiency bonus with tools thanks to Tool Expertise, so the expertise from\n\t\tSkill Expert should definitely go into a skill."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skilled"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": In a small party you need to wear many hats to fill gaps in your party’s\n\t\tskillset. More proficiencies help you do just that. But if you’re looking at\n\t\ttool proficiencies, consider getting them from your race instead since you\n\t\tcan trade racial armor/weapon proficiencies for tool proficiencies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Slasher"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Potentially helpful for front-line battlesmiths."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spell Sniper"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Many artificers rely on cantrips for their primary damage source, and\n\t\tthis can make crucial spells like Fire Bolt more useful. Unfortunately the\n\t\tAlchemist’s reliance on Acid Splash and Poison Spray (neither of which uses\n\t\tattack rolls) won’t benefit much, so this isn’t as useful as it is for other\n\t\tartificers."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "War Caster"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re a Battlesmith, you want this. Juggling your weapon to cast\n\t\tspells is annoying, but the ability to maintain Concentration even more\n\t\treliably when you take damage means that you can reliably maintain spells\n\t\teven while drawing a lot of attacks."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Artificer Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Crossbow, Hand"
+              },
+              {
+                "type": "text",
+                "text": ": Use the Repeating Shot\n\t\tinfusion and grab a shield."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crossbow, Light"
+              },
+              {
+                "type": "text",
+                "text": ": Until 5th level the\n\t\tdamage will technically beat Cantrip damage, but unless you have 16\n\t\tDexterity yout cantrips will be more reliable."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dagger"
+              },
+              {
+                "type": "text",
+                "text": ": Your go-to melee weapon (unless\n\t\tyou’re a Battlesmith). It works in melee and at range, and since it’s a\n\t\tfinesse weapon you can use it with Dexterity. The damage isn’t as good as a\n\t\tbow or crossbow, but you can’t make opportunity attacks with ranged\n\t\tweapons."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Longbow"
+              },
+              {
+                "type": "text",
+                "text": ": A great option for a ranged\n\t\tBattlesmith. Your attacks are all made with Intelligence."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons-for-battlesmiths",
+      "parentSectionId": "section-weapons",
+      "heading": "Weapons for Battlesmiths",
+      "sourceAnchor": "weapons-for-battlesmiths",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-for-battlesmiths-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Battlesmith’s weapon selection resembles that of the Fighter more than\n\tthat of the Artificer. If you want to use a shield (and you should since you\n\thave d8 hit dice) and fight in melee, go for a longsword or something. If\n\tyou’re fighting at range, go for a Longbow."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-for-battlesmiths-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you spend an Infusion on Repeating Shot, a heavy crossbow will deal very slightly more damage, but at level 12 Enhance Weapon will improve to +2 and a +2 Longbow will match the average damage of a +1 Heavy Crossbow and will have +1 higher attack bonus. On top of that, you can get Bracers of Archery, and they don’t apply to crossbows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-for-battlesmiths-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, that doesn’t mean that crossbows are a bad option: you can use a hand crossbow with Repeating Shot while also using a shield. Since you don’t need to reload your crossbow you don’t need a free hand. Cantrips will deal similar damage, but 1d6+Int+1 damage (Repeating Shot adds +1 to attack and damage) with Extra Attack will outdo your cantrip damage for a long time. If you have 20 Intelligence, two attacks at 1d6+5+1 (avg. 19 total) will exceed Firebolt (avg. 5.5, 11, 16.5, and 22 depending on your level) until your cantrips improve for the last time at 17th level. If you instead use a pistol, you’ll average 23 damage instead, and at that point there’s no reason to learn Fire Bolt."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-firearms",
+      "parentSectionId": "section-weapons",
+      "heading": "Firearms",
+      "sourceAnchor": "firearms",
+      "blocks": [
+        {
+          "blockId": "block-section-firearms-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Artificer is the first class to be published with reference to firearms, but firearms canonically do not exist in the Eberron setting from which the Artificer originates. Many groups do not choose to include firearms in their games, but your group might still choose to do so."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Generally groups which choose to use firearms will use the “Renaissance”\n\tweapons, as they were historically used in time periods where using a sword or\n\ta crossbow still made sense, so you can include these weapons without\n\tsignificantly changing the fantasy, medieval feel of a typical Dungeons and\n\tDragons setting. These weapons also come the closest to existing weapons\n\tmechanically, so you can include them without worrying about unbalancing your\n\tgame because every adventurer suddenly has a revolver."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If your group chooses to use firearms, the Artificer can be proficient with\n\tthem if your character “has been exposed to the operation of such weapons”.\n\tCheck with your DM to see if they’ll let you be proficient. If you’re\n\tfortunate enough to have access to firearms, compare the pistol to the hand\n\tcrossbow and the musket to the light crossbow. In both cases, the firearm uses\n\ta damage die two sizes larger, but has diminished range. If the range isn’t a\n\tproblem, these firearms will deal more damage than bows or crossbows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Musket"
+              },
+              {
+                "type": "text",
+                "text": ": Basically a better light\n\t\tcrossbow. The damage compared to the Pistol isn’t much better, so personally\n\t\tI recommend using a Pistol with the Repeating Shot infusion so that you can\n\t\tuse a shield at the same time."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pistol"
+              },
+              {
+                "type": "text",
+                "text": ": Basically a better hand crossbow.\n\t\tUse the Repeating Shot infusion and grab a shield."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Artificer Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Studded Leather"
+              },
+              {
+                "type": "text",
+                "text": ": Bad choice for starting\n\t\tarmor."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scale Mail"
+              },
+              {
+                "type": "text",
+                "text": ": Starting armor."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Half Plate"
+              },
+              {
+                "type": "text",
+                "text": ": Your ideal armor."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shield"
+              },
+              {
+                "type": "text",
+                "text": ": You can hold your spellcasting\n\t\tfocus in one hand and a shield in the other, but if you’re using a bow or\n\t\tcrossbow you won’t have a hand free for a shield, and it takes an action to\n\t\tdon/doff a shield so it’s difficult to switch mid-combat."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Artificer has an interesting note in its Multiclassing rules: when you\n\tmulticlass as an Artificer, you round your Artificer levels "
+            },
+            {
+              "type": "emphasis",
+              "text": "up"
+            },
+            {
+              "type": "text",
+              "text": " for\n\tdetermining spell slots instead of rounding them down like every other class\n\twith Spellcasting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Fighter"
+              },
+              {
+                "type": "text",
+                "text": ": Starting with a level in fighter\n\t\tgets you proficiency in heavy armor so that you can ignore Dexterity and in\n\t\tConstitution saves, which the Artificer gets by default and it would be hard\n\t\tto sacrifice that proficiency for better armor. Keep in mind that you don’t\n\t\tget heavy armor if you multiclass into fighter after first level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rogue"
+              },
+              {
+                "type": "text",
+                "text": ": It’s a hard build to play, but\n\t\tthree levels of Rogue can get you the Thief archetype and the Fast Hands\n\t\tability. The ability to use items as a Bonus Action offers a lot of\n\t\tpossibilities, though you’ll need to spend a lot of time researching items,\n\t\tstudying the rules for using items (especially magic items), and managing\n\t\tyour inventory to make it worth three levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wizard"
+              },
+              {
+                "type": "text",
+                "text": ": Most of the wizard’s spells are\n\t\talready on the Artificer’s spell list, but two levels gets you access to an\n\t\tArcane Tradition. Many traditions have great initial features, and\n\t\tBladesinging is incredibly tempting for battlesmith artificers."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items",
+      "heading": "Artificer Magic Items",
+      "sourceAnchor": "magic-items",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-magic-items-common",
+      "parentSectionId": "section-magic-items",
+      "heading": "Common Magic Items",
+      "sourceAnchor": "magic-items-common",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-common-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ruby of the War Mage"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Artificers need to use a tool or an infused item to cast their spells,\n\t\tand the Ruby of the War Mage doesn’t remove that requirement. Weirdly, if\n\t\tyou replicate a Ruby of the War Mage using Infuse Item it will work, (though\n\t\tusing an infused weapon or shield is probably a better choice) but if you\n\t\tjust find a Ruby of the War Mage it’s useless for you."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items-uncommon",
+      "parentSectionId": "section-magic-items",
+      "heading": "Uncommon Magic Items",
+      "sourceAnchor": "magic-items-uncommon",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-uncommon-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Adamantine Armor"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Use the Enhanced Defense Infusion instead."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "All-Purpose Tool"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": +1 to your spell attacks and spell DC’s, you can turn it into any other\n\t\ttool (including really heavy ones), and as an Action you can give yourself\n\t\taccess to a cantrip from any class as an artificer cantrip. For melee\n\t\tartificers, consider Swordburst or Word of Radiance. For ranged artificers,\n\t\tconsider Eldritch Blast unless you have an effect like Alchemical Savant\n\t\twhich boosts specific damage types."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ammunition, +1"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Single-use and expensive. Use the Enhanced Weapon Infusion."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Broom of Flying"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Easily overlooked, but one of the best ways to get flight for any\n\t\tcharacter. It doesn’t require attunement, and has a fly speed of 50 feet,\n\t\tthough many medium characters will exceed the 200 pound limit to reduce the\n\t\tspeed to 30 feet, but even then 30 feet fly speed with no duration cap and\n\t\trequiring no action after speaking the command word is absolutely\n\t\tincredible. The only drawback is that you’re using the item’s speed rather\n\t\tthan giving yourself a fly speed, so things that improve your speed won’t\n\t\tmake the broom move faster, and you can’t Dash with the broom. Even so, I\n\t\thonestly can’t justify why this is only Uncommon considering how\n\t\texceptionally good it is."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Eyes of Minute Seeing"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent in dungeon crawls. Investigation is typically used for finding\n\t\tthings like traps, and even if you’re not proficient you almosy certainly\n\t\thave the highest Intelligence in the party."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Headband of Intellect"
+              },
+              {
+                "type": "text",
+                "text": ": By the time you can get\n\t\tthis, you probably already have 18 Intelligence so there’s little benefit.\n\t\tGive it to the least-intelligent person in the party."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mithral Armor"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Use the Enhanced Defense infusion on a Breastplate."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pearl of Power"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Useful on any spellcaster."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sentinel Shield"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Advantage on Initiative rolls is really nice so you can get a buff or and\n\t\tare control effect running before everyone else starts moving."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shield, +1"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": +1 AC, no attunement. Nothing fancy, but very effective. You can use the\n\t\tEnhanced Defense infusion, but at low levels an Uncommon item replacing an\n\t\tInfusion can save you a powerful asset."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Slippers of Spider Climbing"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The next-best thing to flight. Walking up a wall has all the benefits of\n\t\tflying out of reach."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stone of Good Luck"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent on literally any character, but if you just want better defense\n\t\ta Cloak of Protection may be more effective. Stone of Good Luck shines if\n\t\tyou’re heavily reliant on skills and ability checks."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wand of the War Mage"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Helpful if you’re heavily reliant on cantrips like Fire Bolt, but an\n\t\tAll-Purpose Tool will be considerably more useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Weapon, +1"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent for the Battle Smith, but you have the Enhance Weapon infusion\n\t\tto provide the same benefit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Winged Boots"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A Broom of Flying is better, and you can created Winged Boots with an\n\t\tinfusion if you still want them."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items-rare",
+      "parentSectionId": "section-magic-items",
+      "heading": "Rare Magic Items",
+      "sourceAnchor": "magic-items-rare",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-rare-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "All-Purpose Tool"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": +2 to your spell attacks and spell DC’s. See All-Purpose Tool under\n\t\tUncommon Magic Items for more."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Amulet of Health"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Setting your Constitution to 19 means that you don’t need to put Ability\n\t\tScore Increases into it unless you’re really certain that you want 20\n\t\tConstitution. Less ASI’s into Constitution means more room for feats."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Armor, +1"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Use the Enhanced Defense infusion."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Armor of Resistance"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent, but unpredictable in most games since you can’t perfectly\n\t\tpredict what sort of damage you’ll face. Fire and poison are safe\n\t\tchoices."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cloak of Displacement"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Among the best defensive items in the game. Taking damage from any source\n\t\t(spells, etc.) suppresses the effect temporarily, so make a point to kill\n\t\tanything that can damage you without an attack roll."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Periapt of Proof Against Poison"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Poison damage is very common across the full level range, so immunity to\n\t\tit is a significant improvement in your durability."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Evasion"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A great way to mitigate damage from AOE spells and things like breath\n\t\tweapons which can often be problems from front-line martial characters,\n\t\tespecially if you’re not built around Dexterity."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Protection"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Cloak of Protection is lower rarity and has the same effect."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Resistance"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A fine item in a vaccuum, but a Ring of Spell Storing full of Absorb\n\t\tElements will be much more effective."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Spell Storing"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Fill it with Absorb Elements and Shield and recharge it whenever possible\n\t\tand this is a spectacular defensive asset on almost any character."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shield, +2"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Use the Enhanced Defense infusion."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Weapon, +2"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent for the Battle Smith, but you have the Enhance Weapon infusion\n\t\tto provide the same benefit."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items-very-rare",
+      "parentSectionId": "section-magic-items",
+      "heading": "Very Rare Magic Items",
+      "sourceAnchor": "magic-items-very-rare",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-very-rare-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "All-Purpose Tool"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": +3 to your spell attacks and spell DC’s. See All-Purpose Tool under\n\t\tUncommon Magic Items for more."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Amulet of the Planes"
+              },
+              {
+                "type": "text",
+                "text": ": Plane Shift for free, and\n\t\tsince it’s an Intelligence check you’ll be able to pass it without too much\n\t\ttrouble. If you do fail, you can use it again the next round so long as you\n\t\tdon’t end up somewhere which would prevent you from doing so."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Animated Shield"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Tempting for anyone not fighting with a one-handed weapon, but a Cloak of\n\t\tProtection is two rarities lower, works persistently, and arguably provides\n\t\ta better numeric bonus."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Armor, +2"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Use the Enhanced Defense infusion."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lucent Destroyer"
+              },
+              {
+                "type": "link",
+                "text": "GotG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Artificers are the only class proficient with firearms by default, and\n\t\tthe only other way to get proficiency is the Gunner feat, which lets you\n\t\tignore the Loading property, so the Lucent Destroyer logically must be\n\t\tintended for use by artificers. But artificers can remove Loading with an\n\t\tInfusion, and the spellcasting certainly isn’t good enough to justify the\n\t\trarity. Sunbeam just isn’t that good once per day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Manual of Bodily Health"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Permanent Constitution bonus and raises your cap by 2. Unless you’re\n\t\tusing a magic item that fixes your Constitution as a specific score, this is\n\t\texcellent."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shield, +3"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": +3 AC, no attunement. Enhanced Defense doesn’t go this high."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thunderbuss"
+              },
+              {
+                "type": "link",
+                "text": "GotG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A +1 pistol that ignores Loading and deals Thunder damage. Resistance to\n\t\tmagic piercing damage is basically non-existent, so the damage type isn’t a\n\t\thuge upgrade, and you can replicate the rest with an Infusion."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tome of Clear Thought"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Permanent Intelligence bonus and raises your cap by 2."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Weapon, +3"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Enhanced Weapon doesn’t go this high."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items-legendary",
+      "parentSectionId": "section-magic-items",
+      "heading": "Legendary Magic Items",
+      "sourceAnchor": "magic-items-legendary",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-legendary-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Armor of Invulnerability"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Resistance (immunity sometimes) to non-magical damage may protect you\n\t\tfrom most weapon attacks. At high enough level that you might have this item\n\t\tthere will definitely be enemies with access to magic attacks (spellcasters,\n\t\tmagic weapons, natural weapons which count as magical, etc.), but in many\n\t\tencounters this will still provide a great deal of protection."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cloak of Invisibility"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Invisibility is extremely powerful in 5e. Note that this is just the\n\t\tinvisible condition, not the spell spell Invisibility, so you can still\n\t\tattack or whatever while invisible. Unless you’re playing a Defender and\n\t\tactively trying to draw attacks away from your allies, this is absolutely\n\t\tamazing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ioun Stone (Mastery)"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Proficiency Bonuses apply to a lot of things and a +1 bonus goes a long\n\t\tway. Attacks, saves, skills, etc. all benefit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Spell Turning"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Given the choice, I would much rather haqve a Mantle of Spell Resistance\n\t\tsimply because the Ring of Spell Turning doesn’t provide any protection\n\t\tagainst area effect spells. Otherwise, this is a really fun item, and if it\n\t\tprovided Advantage on saves against area of effect spells it would shoot\n\t\tstraight up to "
+              },
+              {
+                "type": "text",
+                "text": "blue"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Three Wishes"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Use this to do one of the things that risks permanently removing the\n\t\tability to cast Wish, such as granting 10 creatures permanent resistance to\n\t\tonce damage type. If you lose the ability to cast Wish, pass this off to\n\t\tanother ally who will never be able to cast Wish by any other means. Repeat\n\t\tuntil the last charge is used.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "For more help with Wish, see my\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Wish",
+                "href": "https://rpgbot.net/dnd5/characters/wish"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ruby Weave Gem"
+              },
+              {
+                "type": "link",
+                "text": "FToD",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Artificers don’t get many spells that require an expensive material\n\t\tcomponent, but you can cast Glyph of Warding, Stoneskin, and Restoration, so\n\t\tthe gold savings isn’t totally wasted. The ability to borrow a spell from\n\t\tany spell list for a day is more appealing, but since your spells stop at\n\t\t6th level it’s good but not amazing. You can combine the two benefits to get\n\t\taccess to other spells that require expensive material components and cast\n\t\tthem at a discount, such as Raise Dead and Revivify."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scarab of Protection"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": An upgrade from the Mantle of Spell Resistance, the Scarab of Protection\n\t\tadds a limited benefit against necromancy and undead creatures, and doesn’t\n\t\ttake up your cloak slot, leaving you free to take items like a Cloak of\n\t\tProtection or Cloak of Invisibility instead."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Artificer Build – Rock Gnome Alchemist Artificer",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "I like making things. Mostly trouble."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is a “Staple Build”. This build is simple, and relies on options from the SRD and the Basic Rules wherever possible. If you need a functional build with nothing fancy or complicated, this is a great place to start."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Rock Gnome doubles down on the Artificer’s theme by adding the Rock\n\tGnome’s Tinker trait. Beyond the complexity of using Tinker in addition to the\n\tArtificer’s class features, this is a very simple build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is available to copy on\n\t"
+            },
+            {
+              "type": "link",
+              "text": "D&D Beyond",
+              "href": "https://ddb.ac/characters/19847512/oskCJq"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will assume the point buy abilities suggested above, but we’ll reverse the\n\tConstitution and Intelligence scores to work better with our race."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rock Gnome. The Intelligence increase brings us to 16, and the Constitution\n\tincrease brings us to 16, which makes us effective with your class features\n\tand reasonably durable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tinker is the Rock Gnome’s only particularly complicated trait, but it offers\n\ta fun way to embrace the Artificer’s theme."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Artificer gets two skills from their class list, one type of Artisan’s\n\ttools, and two fixed tools. Guild Artisan will add Insight, Persuasion, an\n\textra set of artisan’s tools. Pick whatever artisan’s tools sound like fun."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background-1",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background-1",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Guild Artisan. The skill proficiencies aren’t fantastic for the artificer,\n\tbut there are few backgrounds which are setting-agnostic and work well. The\n\tFailed Merchant out of Acquisitions Incorporated works well, and starts you\n\twith some very expensive starting equipment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats-2",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build doesn’t require feats. At high levels you might consider feats\n\tonce you reach 20 Intelligence, but it’s not strictly necessary."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magical Tinkering"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting gear, take two daggers, a light crossbow and 20 bolts, scale mail, theives’ tools, and a dungeoneering pack. The crossbow is useful when enemies are outside of your cantrip range, but you’ll have better results if you sell it and use the gold to buy a shield."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level your options are really limited. You’ll feel more like a weird wizard than like an actual artificer. Keep your shield out, prepare spells that will keep you alive, and just try to make it to 2nd level. Fire Bolt will deal enough damage to make you useful in combat, and you long list of proficiencies, Tinker, and Magical Tinkering give you plenty of utility options outside of combat. Bring Cure Wounds to help your allies in combat, but try to avoid using it until you absolutely need to do so; you only have two spell slots"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Infuse Item"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infused Items: 2"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infusions Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enhanced Arcane Focus"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enhanced Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enhanced Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Replicate Magic Item (Bag of Holding)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Level 2 is where the Artificer really starts to feel like they\n\t\t\t\t\t\tshould. You don’t get any more spell slots, but 2 magic items can be\n\t\t\t\t\t\ta massive improvement to your capabilities."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you need nothing else, use Enhanced Arcane Focus and Enhanced\n\t\t\t\t\t\tDefense to boost your spell attacks and your AC. +1 to AC will bring\n\t\t\t\t\t\tyou up to 19 AC, giving you nearly as much AC as a fighter in full\n\t\t\t\t\t\tplate. If you have allies to defend you, consider sharing Enhanced\n\t\t\t\t\t\tDefense and/or Enhanced Weapon."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Artificer Specialist: Alchemist"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The Right Tool for the Job"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tool Proficiency: Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Alchemist Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Experimental Elixir (1)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Third level brings a lot of good things. You get another 1st-level spell slot just in time to get an expanded spell list, including the absolutely essential Healing Word. You can stop preparing Cure Wounds, and instead rely on Healing Word for emergency healing in combat."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The Alchemist gains proficiency with Alchemist’s Supplies, but we got that at first level, so you get to replace it with any other tool proficiency."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The Right Tool for the Job doesn’t change much, but it’s basically a free set of tools."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This level also brings Experimental Elixir. The free elixir won’t reliably be something that you can count on, but you can turn spells into elixirs to get a bunch of useful buffs."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Constitution Intelligence 16 ->\n\t\t\t\t\t\t\t18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A bunch of extra hit points, and your spell attacks, DC’s, and a\n\t\t\t\t\t\tbunch of other things improve."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Alchemical Savant"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level, Alchemical Savant is a +4 bonus to one roll per\n\t\t\t\t\t\tspell. Your cantrips also improve at this spell, so you go from 1d10\n\t\t\t\t\t\twith Fire Bolt to 2d10+4, which is a massive increase. Your leveled\n\t\t\t\t\t\tspells benefit too: Healing Word is now 1d4+8 instead of 1d4+4."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "5th level also brings 2nd-level spells. The Alchemist’s spell list\n\t\t\t\t\t\toffers two offensive options, so be sure to prepare something else\n\t\t\t\t\t\tthat will make good use of your 2nd-level spell slots."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tool Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infused Items: 3"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Infusions Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Resistant Armor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Replicate Magic Item (Lantern of Revealing)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Experimental Elixir (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Several things improve incrementally at this level. You get access\n\t\t\t\t\t\tto the second group of Infusions and the second group of options for\n\t\t\t\t\t\tReplicate Magic Item, and you get a third Infused Item per day."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You have plenty of options for infusions. Resistant Armor (fire) is\n\t\t\t\t\t\ta great defensive option, but feel free to experiment. You get to\n\t\t\t\t\t\tretrain one option at every level (including this one), so you could\n\t\t\t\t\t\ttrade out low-level Infusions for new options as you gain levels if\n\t\t\t\t\t\tyou find that you’re not using older options."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You also gain Tool Expertise at this level, doubling your\n\t\t\t\t\t\tproficiency bonus with all five of your tool proficiencies."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Flash of Genius"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s hard to understate how good Flash of Genius is. +4 can turn a\n\t\t\t\t\t\tfailure into a success very easily. +4 covers 20% of the range over\n\t\t\t\t\t\twhich a d20 can roll, and when your Intelligence improves again at\n\t\t\t\t\t\t8th level it gets even better."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Intelligence 18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It may not feel exciting, but this improves a lot about your\n\t\t\t\t\t\tcharacter. The Artificer is massively dependent on Intelligence, so\n\t\t\t\t\t\tany improvement is significant."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Restorative Reagents"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "By now you get two doses of Experimental Elixir per day, but the\n\t\t\t\t\t\tfree elixirs are still not reliably useful. This adds some Temporary\n\t\t\t\t\t\tHit points to their effects, so even if you don’t roll a useful\n\t\t\t\t\t\teffect you can still get some Temporary Hit Points out of the extra\n\t\t\t\t\t\telixirs. You also get to cast Lesser Restoration 5 times per day for\n\t\t\t\t\t\tfree, which allows you to use your limited spell slots for anything\n\t\t\t\t\t\telse."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Item Adept"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infused Items: 4"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Infusions Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Replicate Magic Item (Cloak of Protection)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Replicate Magic Item (Winged Boots)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Allowing you to attune four magic items is very useful at this\n\t\t\t\t\t\tpoint. Now that you can create four Infused Items per day, you could\n\t\t\t\t\t\teasily make four that require Attunement. That’s probably not a good\n\t\t\t\t\t\tidea, but it’s possible."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Hit Points"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Saves"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Magical Tinkering"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Spellcasting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Infuse Item"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue The Right Tool for the Job"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Tool Expertise"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Flash of Genius"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Magic item Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Spell-Storing Item"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Magic item Savant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Magic item Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Soul of Artifice"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Arcana"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange History"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Investigation"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Medicine"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Nature"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Perception"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Sleight of Hand"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Clan Crafter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Guild Artisan"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Artificer Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cartomancer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Chef"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Defensive Duelist"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Elemental Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Fey Touched"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fighting Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Gift of the Chromatic Dragon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Gift of the Gem Dragon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Gift of the Metallic Dragon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Gunner"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Healer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Heavily Armored"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Lucky"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Magic Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Metamagic Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Medium Armor Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Piercer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Resilient"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Ritual Caster"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Shadow Touched"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Sharpshooter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Skill Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Skilled"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Slasher"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Spell Sniper"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue War Caster"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Crossbow, Hand"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Crossbow, Light"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Dagger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Longbow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Musket"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Pistol"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Studded Leather"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Scale Mail"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Half Plate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shield"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Wizard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Ruby of the War Mage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Adamantine Armor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue All-Purpose Tool"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Ammunition, +1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Broom of Flying"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Eyes of Minute Seeing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Headband of Intellect"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Mithral Armor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Pearl of Power"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sentinel Shield"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Shield, +1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Slippers of Spider Climbing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Stone of Good Luck"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Wand of the War Mage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Weapon, +1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Winged Boots"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue All-Purpose Tool"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Amulet of Health"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Armor, +1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Armor of Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cloak of Displacement"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Periapt of Proof Against Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ring of Evasion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Ring of Protection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Ring of Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ring of Spell Storing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Shield, +2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Weapon, +2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue All-Purpose Tool"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Amulet of the Planes"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Animated Shield"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Armor, +2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Lucent Destroyer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Manual of Bodily Health"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shield, +3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Thunderbuss"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Tome of Clear Thought"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Weapon, +3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Armor of Invulnerability"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cloak of Invisibility"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ioun Stone (Mastery)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Ring of Spell Turning"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[2]",
+      "detail": "rating-blue blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ring of Three Wishes"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ruby Weave Gem"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Scarab of Protection"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-introduction-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-introduction-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-introduction-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-introduction-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-introduction-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-class-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-class-features-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-class-features-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-class-features-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-class-features-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-class-features-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-class-features-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-class-features-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-class-features-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-class-features-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-class-features-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-class-features-12"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-class-features-13"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-class-features-14"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-class-features-15"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-class-features-16"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-class-features-17"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-class-features-18"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-class-features-19"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-class-features-20"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-class-features-21"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-class-features-22"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-class-features-23"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-8"
+    },
+    {
+      "code": "empty-table-row-review",
+      "location": "tbody/tr[6]",
+      "detail": "<tr></tr>"
+    },
+    {
+      "code": "multi-header-row-review",
+      "location": "figure/table[1]",
+      "detail": "Additional header rows are retained as table rows"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-races-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-skills-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-background-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-background-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-background-4"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-weapons-for-battlesmiths-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-weapons-for-battlesmiths-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-weapons-for-battlesmiths-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-firearms-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-firearms-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-firearms-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-firearms-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[55]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[10]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[11]",
+      "detail": "block-section-magic-items-common-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[12]",
+      "detail": "block-section-magic-items-uncommon-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[13]",
+      "detail": "block-section-magic-items-rare-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[14]",
+      "detail": "block-section-magic-items-very-rare-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[15]",
+      "detail": "block-section-magic-items-legendary-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[56]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[57]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[58]",
+      "detail": "block-section-example-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[59]",
+      "detail": "block-section-example-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[60]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[61]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[62]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[63]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[64]",
+      "detail": "block-section-background-1-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[65]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 7572,
+    "sections": 27,
+    "blocks": 82,
+    "tables": 2,
+    "ratingSignals": 120
+  },
+  "status": "needs-editorial-review",
+  "correctionOf": "staging/rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51.json"
+}

@@ -1,0 +1,1890 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-116b811892b44f5c",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+      "sourceId": "rpgbot-116b811892b44f5c",
+      "fetchedAt": "2026-09-29T19:09:12.909605+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:55:27-04:00",
+      "contentHash": "5d81c267de718cbe959c69a37e1da4ab755b2f4a60add87fe7f7ae3cdb513f9c",
+      "title": "Clockwork Soul Sorcerer 5e: DnD Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-116b811892b44f5c-5deae67874d2998e.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+    "sourceId": "rpgbot-116b811892b44f5c",
+    "slug": "sorcerer-clockwork-soul-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Механічна душа — гайд підкласу Чародія (2014)",
+    "titleEn": "Clockwork Soul Sorcerer 5e: DnD Subclass Guide",
+    "topics": [
+      "Чародій",
+      "Механічна душа",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Чародій Механічної душі 5e: гайд підкласу D&D 5e",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ти загубишся, можеш озирнутися — і знайдеш мене. Знову і знову. Якщо впадеш, я підхоплю тебе, я чекатиму. Знову і знову. "
+                },
+                {
+                  "type": "link",
+                  "text": "{{Знову і знову|Time After Time}}",
+                  "href": "https://www.youtube.com/watch?v=VdQY7BusJNU"
+                },
+                {
+                  "type": "text",
+                  "text": " – Сінді Лопер"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наводити лад у всесвіті — хліб насущний Чародія Механічної душі{{Clockwork Soul}}, а це кумедно, бо виявляється, що всесвіт зроблено з кубиків. Тож половина умінь Механічної душі по-новому впливає на механізм всесвіту (к20). Інша половина натомість відмотує годинник для істот, предметів і ефектів, повертаючи їх у попередній стан. Якщо хочете підтримувальних умінь на основі Чародія, дозвольте показати, як цокає всесвіт."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "По суті, Механічна душа — це Чародій із додатковими десятьма заклинаннями шкіл Захисту або Перетворення, і це відкриває кілька цікавих варіантів. Деякі основні заклинання, як-от Щит [Shield] і Контрчари [Counterspell], належать до цих шкіл, тож Чародій може віддати звичайні вибори заклинань під інші. Про частину таких варіантів ми поговоримо далі в статті."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Механічної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Чародія Механічної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#clockwork-soul-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Чародія Механічної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#clockwork-soul-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Чародія Механічної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#clockwork-soul-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Чародія Механічної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#clockwork-soul-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Чародія Механічної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#clockwork-soul-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Чародія Механічної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#clockwork-soul-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — «Точна інженерія»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#example-clockwork-soul-build-precision-engineering"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/clockwork-soul/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Механічної душі",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання порядку|Clockwork Magic}}: У цьому умінні захована велика складність, яку дуже легко не помітити, але розуміння того, що робить його таким потужним, допоможе вам цим скористатися. Перша й найочевидніша перевага: ви отримуєте кілька чудових заклинань, зокрема деякі клірицькі, як-от Підтримка [Aid], і чарівницькі, як-от Виклик конструкту [Summon Construct] та Стіна енергії [Wall of Force]. Звісно, не все в списку — коштовність, тож обовʼязково зазирніть у мій "
+                  },
+                  {
+                    "type": "link",
+                    "text": "розбір списку заклинань Клірика",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/spells"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (для заклинань клірика, які ви отримуєте за замовчуванням), а також у мій "
+                  },
+                  {
+                    "type": "link",
+                    "text": "розбір списку заклинань Чорнокнижника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/spells"
+                  },
+                  {
+                    "type": "text",
+                    "text": " та "
+                  },
+                  {
+                    "type": "link",
+                    "text": "розбір списку заклинань Чарівника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/spells"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", щоб дізнатися про заклинання, позичені зі списку заклинань Чарівника, а також можливі варіанти перенавчання. Трохи менш очевидне: це додає вашому чародієві загалом 10 відомих заклинань з рівнями. Чародій 20-го рівня зазвичай знає лише 15 заклинань, тож це величезне збільшення. Навіть на 1-му рівні ви знаєте вдвічі більше заклинань, ніж типовий чародій. Третє, і найлегше пропустити, — механіка перенавчання. Чародій і так може перенавчати одне відоме заклинання з кожним новим рівнем, але «Заклинання порядку» дозволяють перенавчати й заклинання, отримані завдяки цьому умінню. Дивовижно, але обирати можна зі списків заклинань чародія, чорнокнижника й чарівника, хоча ви обмежені заклинаннями Захисту та Перетворення. Звісно, чудових варіантів Захисту й Перетворення вистачає (Поглинання стихій [Absorb Elements] і Щит [Shield] добрі на будь-якому рівні), тож це не проблема. Змінюйте заклинання, з яких не маєте користі, у міру здобуття рівнів, особливо тому, що варіанти Захисту часто лишаються корисними ще довго після того, як рівень їхнього слота перестає бути визначальним у бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Захист від зла й добра [Protection from Evil and Good] — базове підсилення на будь-якому рівні, що закриває широкий спектр небезпечних істот. Тривога [Alarm] недостатньо корисна, щоб виправдати її для чародія, тож перенавчіть її."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Два базові клірицькі варіанти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Базовий утилітарний варіант і важливе захисне підсилення. Непоказне й не яскраве, але без нього важко обійтися."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Свобода рухів [Freedom of Movement] корисна ситуативно, але допомагає проти ворогів, що люблять захоплювати. Виклик конструкту [Summon Construct] — виключно чарівницьке заклинання, і це пристойний варіант виклику, якщо вам потрібен улюбленець-танк."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Більше відновлення [Greater Restoration] не таке важливе, як Мале відновлення [Lesser Restoration], але все одно дуже важливе. Стани, які воно виправляє, жалюгідні й нерідко на межі смертельних. Стіна енергії [Wall of Force] (ще одне виключно чарівницьке заклинання) — один із найкращих ефектів контролю зони, особливо якщо у вашій групі є інший заклинатель, що може накласти якусь тривалу шкоду по області, перш ніж ви помістите ворогів у непроникну напівсферу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Відновлення балансу{{Restore Balance}}: Це розвʼязує багато проблем. Істоти з Перевагою на ряткидки проти певних станів поширені, а для чародія зіткнення з такою стійкістю може сильно ускладнити життя через обмежений запас відомих заклинань. Так само, якщо ваші союзники мають Перешкоду на ряткидок (наприклад, бо вони Скуті або Отруєні), ви можете допомогти їх захистити. Запас використань обмежений, тож бережіть це для моментів, коли це справді важливо."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Бастіон закону|Bastion of Law}}: Багато в чому схоже на тимчасові ХП (хоч ви можете застосувати його поверх тимчасових ХП). Тривалість чудова, а те, що ціль сама обирає, коли використати захист, дозволяє вам прийняти трохи шкоди, коли ви знаєте, що попереду Короткий відпочинок, щоб витратити кілька Кубиків Здоровʼя й розпоряджатися обмеженими ресурсами. Порівняйте це з накладанням Удаваного життя [False life]. Удаване життя [False life] — заклинання 1-го рівня, тож ви можете витратити два очки чародійства{{Sorcery Points}}, щоб отримати слот заклинання й накласти ним Удаване життя [False life]. Удаване життя [False life] триває одну годину й дає 1к4+4 (у середньому 6,5) тимчасових ХП. Кожен додатковий рівень заклинання додає ще 5 ХП. За ті самі два очки чародійства ви можете дати істоті захист із двома кубиками, який запобіжить у середньому 9 шкоди й триватиме до Довгого відпочинку. Кожне додаткове очко чародійства додає ще 4,5 захисту від шкоди, тоді як для Удаваного життя [False life] одне-два очки чародійства дають ще 5 тимчасових ХП. Тож «Бастіон закону» дешевший порівняно зі слотом заклинання 1-го рівня, а зростальна вартість перетворення очок чародійства на слоти заклинань робить його ефективнішим."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Транс порядку|Trance of Order}}: "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Фундаментальна математика",
+                    "href": "https://rpgbot.net/dnd5/characters/fundamental_math"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Fundamental Math}} D&D 5e виходить із того, що гравці влучатимуть атаками по типовому КБ, відповідному ПН, якщо викинуть 8 або більше (за умови, що ваша основна характеристика досягає 16, 18 і 20 на рівнях 1, 4 і 8), тобто мають 65% шанс влучити по середньому ворогу, відповідному ПН. Гарантований мінімум 10 на кидках атаки, ряткидках і перевірках характеристик означає, що ви майже гарантовано влучаєте атаками, проходите будь-які ряткидки, у яких володієте майстерністю й маєте пристойну характеристику, та проходите будь-які перевірки навичок, до яких добре пристосовані. З тривалістю 1 хвилина цього вистачить, щоб пройти одну битву або виконати серію перевірок навичок, якщо діяти швидко. Це чудове уміння майже для будь-якого іншого класу, але для Чародія його корисність вкрай обмежена. Заклинання, що потребують кидків атаки (окрім замовлянь), здебільшого зникають десь на заклинаннях 2-го рівня, якщо тільки ви не накладаєте заклинання низьких рівнів слотами вищих рівнів. Чародії володіють ряткидками Статури, тож це допомагає з Концентрацією, і допомагає дуже сильно. Оскільки чародії спираються на Харизму, більшість ваших навичок теж, а використання Переконання в бою працює не надто добре. Тож три найкращі застосування — замовляння, накладання заклинань низьких рівнів на вищих рівнях на кшталт Розпеченого променя [Scorching Ray] та Концентрація. Це розчаровує для уміння, перезарядка якого коштує 5 очок чародійства{{Sorcery Points}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кавалькада годинника{{Clockwork Cavalcade}}: навіть із трьома ефектами це все одно корисне лише ситуативно. 100 ХП зцілення — найстабільніше корисний варіант для авантюристів: він дозволяє поставити союзників на ноги й відновити чималу купу ХП. Проте на цьому рівні варіанти зцілення на кшталт Масового лікування ран [Mass Cure Wounds] і Зцілення [Heal] уже доступні давно. Ефект ремонту зручний, але лише зрідка корисний. Втім, його можна використати для розвʼязання деяких головоломок: уявіть "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Розетський камінь",
+                    "href": "https://upload.wikimedia.org/wikipedia/commons/2/23/Rosetta_Stone.JPG"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", а тепер уявіть Розетський камінь після того, як Чародій Механічної душі{{Clockwork Soul}} клацне пальцями, і всі уламки, що зникли тисячоліття тому, просто зʼявляться на місці з повним текстом, а всі сліди часу зникнуть. Мабуть, найпримітніший ефект — останній, що відверто завершує дію заклинань без перевірок характеристик, потрібних для Розвіювання магії [Dispel Magic]. Але навіть так рідко трапляється, що ви зіткнетеся з більш ніж жменькою ворогів із магічними ефектами, тож у більшості випадків можна просто накласти Розвіювання магії [Dispel Magic] на 6-му рівні, щоб отримати той самий ефект, якщо не хочете ризикувати перевірками характеристик."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-clockwork-soul-ability-scores",
+          "heading": "Характеристики Чародія Механічної душі",
+          "sourceAnchor": "clockwork-soul-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-clockwork-soul-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Суттєво не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "гайду Чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-clockwork-soul-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: не важлива для Чародія, що не мультикласить."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-clockwork-soul-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: візьміть трохи для КБ, бо обладунку в нас немає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-clockwork-soul-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: візьміть трохи, бо ХП нам потрібні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-clockwork-soul-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: можливо, для навичок, якщо лишаться зайві очки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-clockwork-soul-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: можливо, для навичок і ряткидків, якщо лишаться зайві очки. На відміну від більшості інших заклинателів, Чародії не володіють цим ряткидком."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-clockwork-soul-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: основна характеристика заклинань. СК заклинань і заклинальні атаки. Вона чудова, беріть."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-clockwork-soul-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 (12)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 (10)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-clockwork-soul-races",
+          "heading": "Раси Чародія Механічної душі",
+          "sourceAnchor": "clockwork-soul-races",
+          "blocks": [
+            {
+              "blockId": "block-section-clockwork-soul-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Додати майже нічого понад те, що вже сказано в "
+                },
+                {
+                  "type": "link",
+                  "text": "огляді рас Чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-clockwork-soul-feats",
+          "heading": "Риси Чародія Механічної душі",
+          "sourceAnchor": "clockwork-soul-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-clockwork-soul-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поради в гайді Чародія вже чудово "
+                },
+                {
+                  "type": "link",
+                  "text": "пояснюють риси",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-clockwork-soul-weapons",
+          "heading": "Зброя Чародія Механічної душі",
+          "sourceAnchor": "clockwork-soul-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-clockwork-soul-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Замовляння й заклинання з рівнями — ваша «зброя»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-clockwork-soul-armor",
+          "heading": "Обладунки Чародія Механічної душі",
+          "sourceAnchor": "clockwork-soul-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-clockwork-soul-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чародії від природи не мають обладунків, але якщо вдасться мультикласом отримати середні обладунки й щит і час від часу накладати заклинання Щит [Shield], ви виявитеся міцнішими за більшість персонажів без заклинань. Якщо такий мультиклас не вписується, можливо, підійде й раса з природною бронею{{natural armor}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-clockwork-soul-multiclassing",
+          "heading": "Мультикласування Чародія Механічної душі",
+          "sourceAnchor": "clockwork-soul-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-clockwork-soul-multiclassing-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Чорнокнижник{{Warlock}}: єдине, чого Чародієві бракує для «Транс порядку»{{Trance of Order}}, — причина робити атаки. Два рівні Чорнокнижника заради Позамежного заряду [Eldritch Blast] з «Мучливим вибухом»{{Agonizing Blast}} — чудова причина. Підійде будь-який Чорнокнижник, але {{Відьмацький клинок|Hexblade}}, що дає середні обладунки й щити, — по-справжньому сильний варіант. Я б оцінив це вище, якби «Транс порядку» не зʼявлявся так пізно."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-clockwork-soul-build-precision-engineering",
+          "heading": "Приклад збірки — «Точна інженерія»",
+          "sourceAnchor": "example-clockwork-soul-build-precision-engineering",
+          "blocks": [
+            {
+              "blockId": "block-section-example-clockwork-soul-build-precision-engineering-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Можливо, ви ніколи не помічали, але час, що лежить в основі всесвіту, стрибає вперед кожні шість секунд."
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Моліться, щоб ніколи не дізнатися чому."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-clockwork-soul-build-precision-engineering-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Збирати Механічну душу{{Clockwork Soul}} доводиться з трохи більшою кількістю рішень, ніж старіші підкласи Чародія, бо треба вирішувати, які з розширених заклинань залишити, а які замінити. Одні віддати легше, ніж інші, а деякі залежать від того, що може запропонувати решта вашої групи."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-clockwork-soul-build-precision-engineering",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми беремо Гірського дворфа{{Mountain Dwarf}} із кількох причин, а приємний побічний ефект — +2/+2 до характеристик. Вкладемо їх у Статуру й Харизму. Завдяки расовим рисам, що дають нам володіння середніми обладунками, можна обмежитися Спритністю 14, а Статуру теж поставимо на 14, щоб після +2 вийшло парне число. Тоді вистачає вільних очок, щоб трохи підняти Мудрість і допомогти проти тих жахливих ряткидків Мудрості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 20"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-clockwork-soul-build-precision-engineering",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гірський дворф{{Mountain Dwarf}} із налаштованим походженням{{Custom Origin}} дає нам добрий обладунок, а ще купу володінь зброєю, які ми міняємо на інструменти. Які саме? Усі, що знадобляться, щоб будувати годинники."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-clockwork-soul-build-precision-engineering",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо передісторію Гільдійський ремісник{{Guild Artisan}}: отримуємо Аналіз Поведінки{{Insight}}, Переконання{{Persuasion}} і вільний вибір одного з інструментів ремісника. Беремо Інструменти лудильника{{Tinker’s Tools}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-clockwork-soul-build-precision-engineering",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З навичок на першому рівні маємо Магію{{Arcana}}, Аналіз Поведінки{{Insight}}, Залякування{{Intimidation}} і Переконання{{Persuasion}}. Пізніше додаємо Уважність{{Perception}}, коли беремо рису «Експерт у навичках»{{Skill Expert}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З інструментів маємо Інструменти тесляра{{Carpenter’s Tools}}, Інструменти склодува{{Glassblower’s Tools}}, Інструменти ювеліра{{Jeweler’s Tools}}, Інструменти чинбаря{{Leatherworker’s Tools}}, Інструменти каменяра{{Mason’s Tools}} та Інструменти лудильника{{Tinker’s Tools}}. Разом це все, що потрібно, щоб робити настінні й наручні годинники. Бо кумедно, коли Чародій Механічної душі{{Clockwork Soul}} буквально годинникар."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-clockwork-soul-build-precision-engineering",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Доторк феї»{{Fey Touched}}: +1 до Харизми й заклинання Дисонуючий шепіт [Dissonant Whispers]. Це добрий варіант, щоб зіпсувати ворогові позиціонування, а безкоштовне накладання можна наче підвищити за рівнем, застосувавши метамагію «Спарене заклинання»{{Twinned Spell}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо Покращення Характеристик на +2 до Харизми, що доводить її до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо «Стійкий (Мудрість)»{{Resilient (Wisdom)}}, щоб зміцнити захист від тих неймовірно виснажливих ефектів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо «Експерт у навичках»{{Skill Expert}}, додаючи +1 до Мудрості, щоб вирівняти її. Беремо навичку Уважність{{Perception}} і Експертизу в Магії{{Arcana}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні беремо ще одне Покращення Характеристик на +2 до Статури."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-clockwork-soul-build-precision-engineering",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середні обладунки\nПоходження чародія: Механічна душа\n– Відновлення балансу\nЧаротворство\nЗамовляння:\n– Вогняний заряд\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Розщеплення Розуму\n– Штукарство\nЗаклинання 1-го рівня:\n– Тривога\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічний дротик",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/magic-missile/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Сон\n– Захист від зла й добра (К)\nНавички:\n– Магія\n– Аналіз Поведінки\n– Залякування\n– Переконання\nІнструменти:\n– Інструменти тесляра\n– Інструменти склодува\n– Інструменти ювеліра\n– Інструменти чинбаря\n– Інструменти каменяра\n– Інструменти лудильника"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Як Чародій ми можемо обрати підклас уже на першому рівні, тож починаємо одразу Механічною душею{{Clockwork Soul}}. Наше перше уміння — прибирати Перевагу чи Перешкоду з кидка к20, зробленого поблизу. Чудове уміння для підтримки союзників: воно знімає штрафи з них і бонуси з ворогів. Замовлянь обираємо чотири: Вогняний заряд [Fire Bolt] як заповнювач шкоди, Розщеплення Розуму [Mind Sliver] заради потенціалу послаблення, а Магічна рука [Mage Hand] і Штукарство [Prestidigitation] для утиліти. З заклинань беремо Магічний дротик [Magic missile] для надійної шкоди й Сон [Sleep], щоб кілька рівнів миттєво вигравати зіткнення. Від Механічної душі отримуємо Тривога [Alarm] і Захист від зла й добра [Protection from Evil and Good]. Тривога [Alarm] без можливості накладати його як ритуал не надто корисне, тож на наступному рівні ми його замінимо, а от Захист від зла й добра [Protection from Evil and Good] непогано прислужиться ще якийсь час проти тих конкретних цілей, на яких воно діє. З навичок маємо кілька соціальних і Магію{{Arcana}}, щоб виконувати роль «обличчя» й водночас могти виготовляти сувої. Також беремо велику кількість володінь інструментами, щоб Механічна душа була буквально годинникарем. Як Гірський дворф{{Mountain Dwarf}} ми ще й володіємо середніми обладунками. Можливо, вдасться зібрати трохи грошей, щоб почати з Лускатий обладунок{{Scale mail}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії\nЧаротворство\nЗаклинання 1-го рівня:\n– Щит\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nПрибрано:\n– Тривога"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Джерело магії»{{Font of Magic}} дає нам очки чародійства{{Sorcery Points}}. Метамагії в нас поки немає, тож єдине, що з ними можна зробити, — створити додатковий слот заклинань 1-го рівня. До слотів 1-го рівня: вивчаємо Щит [Shield], замінюючи Тривога [Alarm], а також вивчаємо Сріблясті шпильки [Silvery Barbs]. Завдяки умінню «Заклинання порядку»{{Clockwork spells}} можна було б узяти Обладунок Агатіса [Armor of Agathys] зі списку Чорнокнижника. Це заклинання дало б нам на годину тимчасові ХП, що відбивають трохи шкоди холодом щоразу, коли по нас влучає атака ближнього бою, але воно суперечило б нашим середнім обладункам і тому, що ми не прагнемо ближнього бою. Тимчасові ХП можна навіть розтягнути, а отже, вичавити ще більше шкоди, коли пізніше отримаємо «Бастіон закону»{{Bastion of Law}}, але для цього ворожа атака ближнього бою мала б пробити наш майбутній КБ 22, коли {{напівлати|half plate}} поєднуються із заклинанням Щит [Shield]. Це добра комбінація, але це зовсім інша збірка й стиль гри, ніж у цьому гайді."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія\n– Спарене заклинання\n– Подовжене заклинання\nЧаротворство\nЗаклинання 2-го рівня:\n– Підтримка\n– Мале відновлення\n– Психічний Батіг Таші"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для Метамагії{{Metamagic}} беремо «Спарене заклинання»{{Twinned Spell}} і «Подовжене заклинання»{{Extended Spell}}, щоб розтягнути наші слоти заклинань. До речі про «Спарене заклинання»: Захист від зла й добра [Protection from Evil and Good] — одне з найкращих його застосувань, бо ефект такий хороший за свою ціну. Вивчаємо Підтримка [Aid], Мале відновлення [Lesser Restoration] і Психічний Батіг Таші [Tasha's Mind Whip]. Підтримка [Aid] дасть групі невеликий запас здоровʼя й буде корисним щонайменше кілька рівнів. Його можна використовувати й як Масове цілюще слово [Mass Healing Word], бо воно підвищує максимальні "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "й поточні"
+                    },
+                    {
+                      "type": "text",
+                      "text": " ХП істот. Мале відновлення [Lesser Restoration] чудово знімає багато проблемних станів. Психічний Батіг Таші [Tasha's Mind Whip] — добре заклинання, що серйозно виводить ціль із ладу. Але в нас є «Спарене заклинання», тож можна вивести з ладу двох."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Доторк феї\n– +1 до Харизми (17 → 18)\n– Дисонуючий шепіт\n– Туманний крок\nЧаротворство\nЗамовляння:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Мала ілюзія",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/#minor-illusion"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nЗаклинання 2-го рівня:\n– Павутиння (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Доторк феї»{{Fey Touched}} дасть нам Дисонуючий шепіт [Dissonant Whispers] і Туманний крок [Misty Step] — два добрі заклинання. Дисонуючий шепіт [Dissonant Whispers] — ще один хороший вибір для «Спареного заклинання»{{Twinned Spell}}, особливо тому, що підвищення рівня заклинання додає лише цілі, тож спарене базове накладання — це як покращення слота 1-го рівня за ціну одного очка чародійства. На цьому рівні ми отримуємо ще одне замовляння. Мала ілюзія [Minor Illusion] може бути неймовірно корисною утилітою. З заклинань з рівнями беремо Павутиння [Web], бо Павутиння [Web] чудове. Технічно його можна було б подовжити, але в жодній реалістичній ситуації це не знадобиться."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 3-го рівня:\n– Розвіювання магії\n– Гіпнотичний візерунок (К)\n– Захист від енергії (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розвіювання магії [Dispel Magic] зручне, але його отримує кожен заклинатель, тож це головний кандидат на заміну на наступному рівні, якщо в групі є інші заклинателі. Гіпнотичний візерунок [Hypnotic Pattern] може справді перевернути бій, прибравши приблизно половину бою одним лише ряткидком. Захист від енергії [Protection from Energy] — з тих заклинань, які приємно мати, особливо коли його можна спарити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бастіон закону\nЧаротворство\nЗаклинання 3-го рівня:\n– Контрчари\n– Вогнекуля\n– Політ (К)\nПрибрано:\n– Розвіювання магії\n– Сон"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бастіон закону»{{Bastion of Law}} дозволяє звести силове поле навколо когось. Накладайте його на того, хто прийматиме основний удар ворожого натиску. На цьому рівні беремо й кілька добрих заклинань. На жаль, Сон [Sleep] доведеться відправити спати й замінити на Вогнекуля [Fireball]. Ще вивчаємо Контрчари [Counterspell], бо це ж Контрчари. А тоді міняємо Розвіювання магії [Dispel Magic] на Політ [Fly]. Ви можете подумати, що замінювати можна лише одне заклинання на рівень, але це не так. І «Чаротворство»{{Spellcasting}}, і «Заклинання порядку»{{Clockwork Magic}} мають незалежні правила заміни заклинань, і обидва можна використати на одному й тому ж рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 4-го рівня:\n– Свобода рухів\n– Виклик конструкту (К)\n– Більша невидимість (К)\nЗаклинання 2-го рівня:\n– Покращення здібності (К)\nПрибрано:\n– Підтримка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Свобода рухів [Freedom of Movement] — досить добре підсилення, що не їсть Концентрацію. Виклик конструкту [Summon Construct] — пристойне заклинання, і поки що ми можемо ним користуватися, але на наступному рівні замінимо його. Більша невидимість [Greater Invisibility] — одне з тих чудових заклинань, що були б трохи кращими, якби могли вражати двох. Ой, зачекайте, «Спарене заклинання»{{Twinned Spell}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Харизма 18 → 20)\nЧаротворство\nЗаклинання 4-го рівня:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " (К)\n– Виготовлення\nПрибрано:\n– Виклик конструкту"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше Харизми — вищі СК ряткидків. Перевтілення [Polymorph], як і Більша невидимість [Greater Invisibility] з попереднього рівня, — чудовий кандидат для «Спареного заклинання»{{Twinned Spell}}. Міняємо Виклик конструкту [Summon Construct] на Виготовлення [Fabricate], бо весело вміти створювати речі магією, особливо з усіма цими володіннями інструментами. А ще тому, що Чародіям воно зазвичай недоступне, і це круто."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 5-го рівня:\n– Більше відновлення\n– Стіна енергії (К)\n– Стіна з каменю (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше відновлення [Greater Restoration] приємно мати, але потреба в ньому виникає досить рідко, тож краще, щоб його готував підготовлений заклинатель за потреби. Стіна енергії [Wall of Force] — чудове заклинання, щоб замкнути ворогів у непробивному куполі, особливо якщо вони ще й застрягли в тривалій області дії. Стіна з каменю [Wall of Stone] може здатися зайвим, але має інші застосування. У бою ним можна створити прорізи, у яких стоятиме ваш важкий танк, обгородивши ворогів коробкою зі стін. Памʼятайте: ряткидок вони отримують лише якщо повністю замуровані, а якщо ви залишите отвір, який випадково заповнить Воїн{{Fighter}}, ряткидка не буде. По-друге, якщо тримати Концентрацію на повну тривалість, це безкоштовна купа каменю для заклинання Виготовлення [Fabricate]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія\n– Пришвидшене заклинання\nЧаротворство\nЗамовляння:\n– Захист від зброї\nЗаклинання 5-го рівня:\n– Стримування монстра (К)\n– Створити прохід (необовʼязкове)\nПрибрано:\n– Більше відновлення (необовʼязкове)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Накладати заклинання бонусною дією — чудово, тож беремо «Пришвидшене заклинання»{{Quickened Spell}}. Останнім замовлянням для цих вищих рівнів стає Захист від зброї [Blade Ward]. Коли ви тримаєте Концентрацію, це замовляння чудово згладжує вхідну шкоду, і нам легше проходити ряткидки. Також вивчаємо Стримування монстра [Hold Monster], бо воно допомагає вбивати. За бажанням, якщо ми можемо покластися на іншого заклинателя в ситуаціях, що потребують Більше відновлення [Greater Restoration], раджу замінити його на Створити прохід [Passwall]. Можливість зробити двері практично в чому завгодно дуже корисна й доступна лише в кількох списках заклинань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 6-го рівня:\n– Істинний зір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Істинний зір [True Seeing] дає істинний зір, що дозволяє бачити крізь усілякі проблеми. Добре для подовження чи спарювання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Мудрість)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ряткидки Мудрості повʼязані з небезпечними ефектами, тож володіння ними — суттєве посилення нашого захисту."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 7-го рівня:\n– Драконяче перетворення (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Драконяче перетворення [Draconic Transformation] — для випадків, коли хочемо стабільно завдавати шкоди по області, не витрачаючи купу слотів заклинань. Літайте навколо й видихайте подих із силовою шкодою, як у Вогнекуля [Fireball]. Оскільки на це потрібна лише бонусна дія, а заклинання вимагає Концентрації, можна витрачати свої дії на Ухилення{{Dodge}} чи Захист від зброї [Blade Ward], але якщо вороги не можуть вам зашкодити, ту саму дію можна витратити на наступальні заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Транс порядку{{Trance of Order}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мати мінімальне значення на всіх наших кидках к20 протягом хвилини — дуже круто. Навіть якщо ми майже не робимо кидків атаки, це потужна захисна стійка проти ефектів, від яких ми кидаємо ряткидки. І не забувайте, що це ще й нівелює Перевагу на кубику для атак по нас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 8-го рівня:\n– Сонячний спалах"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сонячний спалах [Sunburst] — це просто велика Вогнекуля [Fireball] зі станом Осліплений. Хороше заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках\n– Уважність\n– Експертиза в Магії\n– +1 до Мудрості"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беремо «Експерт у навичках»{{Skill Expert}}, бо лишити Мудрість непарною після того посилення ряткидків — бридко для впорядкованого всесвіту. Тож тренуємо Уважність{{Perception}} і здобуваємо експертизу в Магії{{Arcana}}, щоб компенсувати низький Інтелект."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 9-го рівня:\n– Клинок катастрофи (К)\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nПрибрано:\n– Магічний дротик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бажав би я не ставити Бажання [Wish] у кожну збірку, але це прописано в моєму контракті. Натомість я б вивчив заклинання на кшталт Клинок катастрофи [Blade of Disaster], що робить кидки атаки, щоб користуватися «Транс порядку»{{Trance of Order}}. Гадаю, довелося б замінити на нього щось на кшталт Магічний дротик [Magic missile]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кавалькада годинника{{Clockwork Cavalcade}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Кавалькада годинника»{{Clockwork Cavalcade}} — потужний ефект, що лише зрідка робить більше, ніж лікує кількох людей. Знімати ефекти заклинань іноді корисно, але я маю на увазі те, що «Кавалькада» може полагодити будь-що, що вміщається в область. Це не звучить вражаюче, бо Виготовлення [Fabricate] теж по суті може те саме, але з «Кавалькадою» нам не треба знати, як щось лагодити. Воно просто полагоджене. У багатьох пригодах трапляється зламаний давній пристрій, який ми б ніяк не змогли полагодити. Ми все одно його полагодимо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: +2 до Статури (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП, кращі ряткидки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відновлення чарівництва{{Sorcerous Restoration}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Повертати частину очок чародійства{{Sorcery Points}} після Короткого відпочинку краще, ніж не повертати їх."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-001",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання порядку",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-002",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-003",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-004",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-005",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-006",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-007",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Відновлення балансу",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-008",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Бастіон закону",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-009",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Транс порядку",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-010",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Кавалькада годинника",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-011",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-clockwork-soul-ability-scores",
+      "targetBlockId": "block-section-clockwork-soul-ability-scores-2",
+      "optionId": "section-clockwork-soul-ability-scores-block-section-clockwork-soul-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-clockwork-soul-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-012",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-clockwork-soul-ability-scores",
+      "targetBlockId": "block-section-clockwork-soul-ability-scores-3",
+      "optionId": "section-clockwork-soul-ability-scores-block-section-clockwork-soul-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-clockwork-soul-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-013",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-clockwork-soul-ability-scores",
+      "targetBlockId": "block-section-clockwork-soul-ability-scores-4",
+      "optionId": "section-clockwork-soul-ability-scores-block-section-clockwork-soul-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-clockwork-soul-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-014",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-clockwork-soul-ability-scores",
+      "targetBlockId": "block-section-clockwork-soul-ability-scores-5",
+      "optionId": "section-clockwork-soul-ability-scores-block-section-clockwork-soul-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-clockwork-soul-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-015",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-clockwork-soul-ability-scores",
+      "targetBlockId": "block-section-clockwork-soul-ability-scores-6",
+      "optionId": "section-clockwork-soul-ability-scores-block-section-clockwork-soul-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-clockwork-soul-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-016",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-clockwork-soul-ability-scores",
+      "targetBlockId": "block-section-clockwork-soul-ability-scores-7",
+      "optionId": "section-clockwork-soul-ability-scores-block-section-clockwork-soul-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-clockwork-soul-ability-scores-7",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-clockwork-soul-2014-017",
+      "articleId": "rpgbot-sorcerer-clockwork-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+      "sectionId": "section-clockwork-soul-multiclassing",
+      "targetBlockId": "block-section-clockwork-soul-multiclassing-1",
+      "optionId": "section-clockwork-soul-multiclassing-block-section-clockwork-soul-multiclassing-1-item-0",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-clockwork-soul-multiclassing-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

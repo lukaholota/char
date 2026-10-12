@@ -1,0 +1,4226 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "5d36f3571cf392ac781d452bbc1d9b45db3b170a61e3d353a5a5ac943312b9ac",
+  "sourceRevision": {
+    "revisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+    "sourceId": "rpgbot-ce1bbc1195e7953b",
+    "fetchedAt": "2026-09-29T19:22:22.117059+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:43:53-04:00",
+    "contentHash": "5c0be43eccbcc63f700ab63a6ab72da72c4aa13b7e6d981a2c94bed53a07cf43",
+    "title": "Genie Warlock 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "intro",
+      "heading": "Genie Warlock 5e: DnD 5e Subclass Guide",
+      "blocks": [
+        {
+          "blockId": "block-intro-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "You got a brand of magic never fails"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "You got some power in your corner now"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "Heavy ammunition in your camp"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "You got some punch, pizazz, yahoo, and how?"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "All you gotta do is rub that lamp"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "link",
+              "text": "Friend Like Me",
+              "href": "https://www.youtube.com/watch?v=ojXaQJexpnQ"
+            },
+            {
+              "type": "text",
+              "text": " – Aladdin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "They say Hexblade’s curse is pretty good since it’s PB scaling damage on your cursed target, but it only lasts one minute against one target once per short rest. What if instead it was once per turn, every turn, against any target? Well then it would be Genie’s Wrath, and that’s pretty neat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Genie Warlock has four flavors, depending on what kind of Genie you want for a patron, determining your additional spells list, your damage resistance, and the damage you deal with Genie’s Wrath. We have the Dao, Earth genies with Bludgeoning; Djinni, Air genies with Thunder; Efreeti, Fire genies with Fire; and Marid, Water genies with Cold. We’ll go over the pros and cons of each in the subclass features section."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Just don’t miss the example build down at the end of the handbook. Especially if you’ve ever been told that only Hexblade Warlocks can use weapons. If you’re tired of Eldritch Blast and just want something a little different from Warlock I’m sure you’ll find plenty of inspiration."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-3",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Genie Patron Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Genie Patron Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#genie-patron-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Genie Patron Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#genie-patron-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Genie Patron Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#genie-patron-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Genie Patron Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#genie-patron-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Genie Patron Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#genie-patron-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Genie Patron Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#genie-patron-multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Genie Patron Invocations",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#genie-patron-invocations"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Genie Warlock Build – Half-Genie Accuracy",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#example-genie-warlock-build-halfgenie-accuracy"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Damage vs Utility: Why Pact of the Blade?",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#damage-vs-utility-why-pact-of-the-blade"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Playstyle and Tactics",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#playstyle-and-tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Genie Patron Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ": Unlike most warlock\n\t\tsubclasses, the Genie gives you a base set of additional spell options, plus\n\t\tthe choice of four spell lists depending on your genie patron’s specific\n\t\ttype.\n\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You also get a type of damage resistance depending on their type at 6th\n\t\t\tlevel, but the spell list is the big part. Every variety of genie also\n\t\t\tadds Wish as a 9th-level spell option (Mystic Arcanum), so the 1st through\n\t\t\t5th-level spells are where each variety of genie distinguishes itself from\n\t\t\tthe others."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Genie Spells"
+              },
+              {
+                "type": "text",
+                "text": ": You get these spells\n\t\t\t\tregardless of what type of genie your patron is in addition to spells\n\t\t\t\tfrom one of the four lists below.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Situational.\n\t\t\t\t\t\tHelpful in any party, but spending a warlock spell slot on it is\n\t\t\t\t\t\thard."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A good option\n\t\t\t\t\t\tagainst creatures with poor Intelligence scores (which is most\n\t\t\t\t\t\tcreatures). The effects don’t scale with spell level, but if you\n\t\t\t\t\t\tdon’t care about the spell’s damage this remains an effective way to\n\t\t\t\t\t\tlock down single foes for your whole career."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Rations are\n\t\t\t\t\t\tcheap."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": An excellent\n\t\t\t\t\t\tsingle-target damage option, and all of the damage scales with spell\n\t\t\t\t\t\tlevel rather than just the initial damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic if\n\t\t\t\t\t\tyou’re creative enough to find a use for it, but generally not a\n\t\t\t\t\t\tgo-to option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dao"
+              },
+              {
+                "type": "text",
+                "text": ": With one exception, everything on\n\t\t\t\tthe Dao’s spell list is excellent, and every spell is new to the\n\t\t\t\tWarlock’s spell list.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Potentially\n\t\t\t\t\t\tforcing enemies to give up an attack is great. Sanctuary has a Bonus\n\t\t\t\t\t\tAction casting time, so you can attack or cast a cantrip in the same\n\t\t\t\t\t\tturn, then follow it with Sanctuary. However, since Sanctuary allows\n\t\t\t\t\t\tthe attacker to retarget their attack, Sanctuary isn’t as effective\n\t\t\t\t\t\tagainst ranged attacks, and if you try to hurt your enemies while\n\t\t\t\t\t\tit’s running the spell ends early. So you may want to use this to\n\t\t\t\t\t\tprotect yourself while you cast buffs or utility spells, if you have\n\t\t\t\t\t\tan ally who’s unable to attack for some reason, or if you already\n\t\t\t\t\t\thave an ongoing non-damaging spell running like Hold Person."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": 2d4 damage\n\t\t\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "every 5 feet"
+              },
+              {
+                "type": "text",
+                "text": ", and it’s every time the creature “travels”,\n\t\t\t\t\t\tnot every time the creature moves. So if you push or pull the\n\t\t\t\t\t\tcreature, they take damage. Sounds like a job for Eldritch\n\t\t\t\t\t\tBlast!"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Very\n\t\t\t\t\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": One of my\n\t\t\t\t\t\tabsolute favorite utility spells."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Not as precise\n\t\t\t\t\t\tas Stone Shape, but much easier to use in combat. Give yourself\n\t\t\t\t\t\tcover, separate enemies, or make yourself a nice home out of\n\t\t\t\t\t\tstone."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Djinni"
+              },
+              {
+                "type": "text",
+                "text": ": Several good options, but the\n\t\t\t\tDjinni’s spell options range wildly in effectiveness.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Decent\n\t\t\t\t\t\tshort-range AOE damage, especially if you’re being swarmed or\n\t\t\t\t\t\tgrappled and can’t teleport. This isn’t a go-to offensive option\n\t\t\t\t\t\tsince the AOE is small and the damage isn’t great, but it can\n\t\t\t\t\t\toccasionally solve problems for you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Useful for\n\t\t\t\t\t\tpushing enemies into ongoing AOE damage effects, but since it\n\t\t\t\t\t\trequires Concentration it’s hard to combine with things like Hunger\n\t\t\t\t\t\tof Hadar so any ongoing AOE damage effects would likely need to come\n\t\t\t\t\t\tfrom an ally."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Very\n\t\t\t\t\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Invisibility in\n\t\t\t\t\t\t5e is "
+              },
+              {
+                "type": "emphasis",
+                "text": "really"
+              },
+              {
+                "type": "text",
+                "text": " good, and running around for a full minute\n\t\t\t\t\t\tbeing almost impossible to target is a huge advantage. Sure, you\n\t\t\t\t\t\talready get Shadow of Moil at this level, but Greater Invisibility\n\t\t\t\t\t\tprevents you from being targeted rather than just making you\n\t\t\t\t\t\tdifficult to attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Very situational,\n\t\t\t\t\t\tbut with an 8-hour duration you can cast it early in the day and\n\t\t\t\t\t\timmediately take a Short Rest and recover your spell slot. Still, it\n\t\t\t\t\t\tmight not be worth learning permanently."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Efreeti"
+              },
+              {
+                "type": "text",
+                "text": ": The Efreeti is a blaster,\n\t\t\t\tsharing many spells with the Fiend. The biggest things that blasters\n\t\t\t\tneed are good AOE damage spells and lots of spell slots to fuel them.\n\t\t\t\tWarlocks don’t have the spell slots to back this up. This is definitely\n\t\t\t\tthe simplest option for the Genie, but that doesn’t make it good.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Burning Hands\n\t\t\t\t\t\tis a decent AOE, especially at low levels, and since warlocks get\n\t\t\t\t\t\tarmor and more hp than other arcane spellcasters like the wizard you\n\t\t\t\t\t\tcan survive being close enough to melee to use it. However, I\n\t\t\t\t\t\twouldn’t use it beyond very low levels. You’ll get more total damage\n\t\t\t\t\t\tout of Hex or other spell options despite Burning Hands’\n\t\t\t\t\t\tscaling."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Like Eldritch\n\t\t\t\t\t\tBlast but with a worse damage type. It works great with Hex since\n\t\t\t\t\t\tyou get an additional ray per spell level (up to 6 when you get\n\t\t\t\t\t\t5th-level spells), but that’s the only thing that makes it better\n\t\t\t\t\t\tthan Eldritch Blast once you add Agonizing Blast."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Fireball\n\t\t\t\t\t\tremains the best instantaneous AOE damage spell at every spell level\n\t\t\t\t\t\tuntil around spell level 8, and while the Warlock can’t cast\n\t\t\t\t\t\tFireball past 5th level, it still remains a perfect go-to AOE blast\n\t\t\t\t\t\toption. However, remember that you will often get better results out\n\t\t\t\t\t\tof spells with ongoing effects like Hunger of Hadar, and with so few\n\t\t\t\t\t\tspell slots you need to squeeze as much out of them as you can."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": You’re almost\n\t\t\t\t\t\tcertainly not built to be in melee enough that using this makes\n\t\t\t\t\t\tsense. Cast Armor of Agathys."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Flame Strike is\n\t\t\t\t\t\tFireball, but a smaller AOE and worse damage. Sure, some of the\n\t\t\t\t\t\tdamage is radiant, but if damage resistance if a problem you should\n\t\t\t\t\t\tbe using Eldritch Blast since nearly nothing resist Eldritch\n\t\t\t\t\t\tBlast."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Marid"
+              },
+              {
+                "type": "text",
+                "text": ": Almost nothing worth having.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": An excellent\n\t\t\t\t\t\tway to cover your escape, but you can’t see through the fog any\n\t\t\t\t\t\tbetter than anyone else, so don’t expect to fight in this without\n\t\t\t\t\t\tsome other advantage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A great\n\t\t\t\t\t\tdefensive option, but with a short duration and it requires\n\t\t\t\t\t\tConcentration. Still, it’ll help until you can get Shadow of\n\t\t\t\t\t\tMoil."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": This is not good\n\t\t\t\t\t\tenough for a 3rd-level spell slot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Too\n\t\t\t\t\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Cone of Cold\n\t\t\t\t\t\tis decent but unremarkable AOE damage, but if you need area damage\n\t\t\t\t\t\tyou’ll have better results with Hunger of Hadar."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "All"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": The best spell\n\t\t\t\t\t\tin the game. You get one Mystic Arcanum which can cast a 9th-level\n\t\t\t\t\t\tspell, and honestly Wish is so good that there is very little\n\t\t\t\t\t\tmechanical reason to select anything except Wish.\n\t\t\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "For more help with Wish, see our\n\t\t\t\t\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Wish",
+                "href": "https://rpgbot.net/dnd5/characters/wish"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Genie’s Vessel"
+              },
+              {
+                "type": "text",
+                "text": ": Bottled Respite is mostly\n\t\tfor flavor, but Genie’s Wrath is a compelling reason to keep your vessel in\n\t\thand when you’re in a fight, and to work to prevent its destruction even\n\t\tthough you can get a replacement for free.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bottled Respite"
+              },
+              {
+                "type": "text",
+                "text": ": Use this to\n\t\t\t\teavesdrop on people, to evade harmful effects, and to hide or store\n\t\t\t\titems, but the fact that you can only enter the vessel once per long\n\t\t\t\trest means that you can’t just pop in and out at random. Eventually\n\t\t\t\tyou’ll be able to stay inside long enough that you and your whole party\n\t\t\t\tcan rest inside the vessel, conveniently removing the need for things\n\t\t\t\tlike tents, keeping watch while resting, or spells like Rope Trick or\n\t\t\t\tLeomund’s Tiny Hut, but even at low levels you can still stay in the\n\t\t\t\tvessel long enough to take a Short Rest without risk of enemies\n\t\t\t\twandering by and surprising you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Genie’s Wrath"
+              },
+              {
+                "type": "text",
+                "text": ": A small, but meaningful\n\t\t\t\tand scaling bonus to your damage. It only applies once per turn, but\n\t\t\t\tthat’s really all that you need. This applies to attack rolls of any\n\t\t\t\tkind, and once again the warlock is the only class to add their\n\t\t\t\tProficiency Bonus to damage (the Hexblade does it too).\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dao"
+              },
+              {
+                "type": "text",
+                "text": ": Things with resistance to\n\t\t\t\t\t\tbludgeoning damage typically resist bludgeoning, piercing, and\n\t\t\t\t\t\tslashing damage from non-magical attacks. You will likely\n\t\t\t\t\t\tdeliver this with either a cantrip or a magic weapon (Pact of the\n\t\t\t\t\t\tBlade), so nearly nothing in the game will resist it. You\ncan combine this with the Crusher feat for extra benefits."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Djinni"
+              },
+              {
+                "type": "text",
+                "text": ": Resistance to thunder\n\t\t\t\t\t\tdamage is very rare."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Efreeti"
+              },
+              {
+                "type": "text",
+                "text": ": Fire damage is among\n\t\t\t\t\t\tthe most common resistances/immunities, so you’ll often find that\n\t\t\t\t\t\tyour bonus damage is ineffective."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Marid"
+              },
+              {
+                "type": "text",
+                "text": ": Cold damage isn’t quite as\n\t\t\t\t\t\tcommonly-resisted as fire damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elemental Gift"
+              },
+              {
+                "type": "text",
+                "text": ": Flight for 10 minutes at a\n\t\ttime which you can activate as a Bonus Action without Concentration. This\n\t\twould be good once per Short Rest, but you can use this 3 to 6 times per day\n\t\tdepending on your Proficiency Bonus. Oh, you get some damage resistance too.\n\t\tBut honestly, the flight is so good that I forgot about the damage\n\t\tresistance.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dao"
+              },
+              {
+                "type": "text",
+                "text": ": Bludgeoning damage is one of the\n\t\t\t\tthree types of weapon damage, but most monsters which deal damage\n\t\t\t\tthrough weapons rely primarily on teeth and claws so bludgeoning is the\n\t\t\t\tleast common of the three weapon damage types. Of course, it’s also\n\t\t\t\tdifficult to get permanent resistance to weapon damage types, so the\n\t\t\t\trarity of this resistance adds to the value."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Djinni"
+              },
+              {
+                "type": "text",
+                "text": ": Thunder damage is\n\t\t\t\tuncommon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Efreeti"
+              },
+              {
+                "type": "text",
+                "text": ": Fire damage is one of the\n\t\t\t\tmost common types of non-weapon damage, so permanent resistance is\n\t\t\t\tgreat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mardi"
+              },
+              {
+                "type": "text",
+                "text": ": Cold damage isn’t quite as\n\t\t\t\tcommon as fire damage, but it’s still very common."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sanctuary Vessel"
+              },
+              {
+                "type": "text",
+                "text": ": The ability to hide\n\t\tyour party in something as small as a ring while taking a short rest means\n\t\tthat you can rest even in extremely dangerous places so long as you can hide\n\t\tyour vessel somewhere. The added healing benefits are minor, but they still\n\t\tfeel nice even when taking a 10-minute short rest in an extradimensional\n\t\tspace isn’t an impactful benefit at the moment.\n"
+              },
+              {
+                "type": "text",
+                "text": "Consider having one person who doesn’t need a Short Rest carry the vessel while the\nrest of your party has a ten-minute power nap. This removes the need to hide the vessel and\nprevents you (and potentially a subset of your party) from making the party wait around while\nyou take a nap."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Limited Wish"
+              },
+              {
+                "type": "text",
+                "text": ": You know how the Bard gets\n\t\tMagical Secrets? Yeah, forget that. This is so much better that it’s in its\n\t\town league. You don’t even have to pay for expensive components! Sure,\n\t\tthere’s a 1d4 Long Rests cooldown, but when the effect is this good a few\n\t\tdays is nothing. Look for anything that has expensive material components or\n\t\ta permanent duration. Abuse those spells."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-genie-patron-ability-scores",
+      "heading": "Genie Patron Ability Scores",
+      "sourceAnchor": "genie-patron-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-genie-patron-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re a Warlock, the wacky different spellcaster. That means we’re still a spellcaster."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-genie-patron-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": There are some melee setups we could do, but those are uncommon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-genie-patron-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": We wear Light Armour, so we need some of this for AC."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-genie-patron-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Hit Points and Concentration saves. We need some of this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-genie-patron-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Alright, listen: smart people do not ask Genies for stuff. We are not smart."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-genie-patron-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": However, we also have Wisdom save proficiency, and Wisdom saves against mean stuff."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-genie-patron-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": This is our zippy zappy blasty stat. Max it out. Or don’t. Maybe you’re some weird archery build. That’s totally a valid warlock build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-genie-patron-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-genie-patron-races",
+      "heading": "Genie Patron Races",
+      "sourceAnchor": "genie-patron-races",
+      "blocks": [
+        {
+          "blockId": "block-section-genie-patron-races-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Elves"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": "
+              },
+              {
+                "type": "link",
+                "text": "Elven Accuracy is a hell of a drug.",
+                "href": "https://rpgbot.net/oops-all-elves/"
+              },
+              {
+                "type": "text",
+                "text": " We’re either going to fire off Eldritch Blast with Charisma or do some weird Archery thing. Both of these would benefit from Elven Accuracy."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Races with Innate Known Spells"
+              },
+              {
+                "type": "text",
+                "text": ": We have a very limited number of spells known. These races can expand our list a bit, giving us a bit of extra utility and flexibility, as well as letting us cast a few more spells per day."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Look for races that have text along the lines of “You can also cast either of those spells using any spell slots you have of the appropriate level.” Those races add the granted spells to your spells known. While most races going forward that have spells, such as Fairy or the Genasi in MMotM, have that text, a handful of older published races, like Drow, do not grant the spells known at the time of writing this article. That said, even once per day, an extra casting of a spell can be very strong given our Warlock limitations."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Races with Expanded Spell Lists"
+              },
+              {
+                "type": "text",
+                "text": ": This is a standard feature on the Dragonmarked races. We would still need to learn the spells with our limited number of spells known, but some racial lists have options that are not usually on the Warlock spell list."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-genie-patron-feats",
+      "heading": "Genie Patron Feats",
+      "sourceAnchor": "genie-patron-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-genie-patron-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The write up in the "
+            },
+            {
+              "type": "link",
+              "text": "Warlock Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#warlock-feats"
+            },
+            {
+              "type": "text",
+              "text": " is pretty comprehensive. Not too much changes by being a Genie."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-genie-patron-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Crusher"
+              },
+              {
+                "type": "text",
+                "text": ": However, if you choose Dao, you’ll always add some Bludgeoning damage on an attack every turn. Crusher doesn’t limit the direction of the movement when this happens, so with some positional setup, we can lift a target up diagonally 5 feet towards us, changing the angle they get sent when Repelling Blast moves them away from us, leaving the target up 15 feet in the air and "
+              },
+              {
+                "type": "link",
+                "text": "then causing falling damage.",
+                "href": "https://www.dndbeyond.com/sources/basic-rules/adventuring#Falling"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "This works from 10 feet away because the game handles movement in discrete 5 foot increments. According to "
+              },
+              {
+                "type": "link",
+                "text": "Xanathar’s Guide",
+                "href": "https://www.dndbeyond.com/sources/xgte/dungeon-masters-tools#SimultaneousEffects"
+              },
+              {
+                "type": "text",
+                "text": ", when two things happen at the same time, we as the active player decide the order, so we get to decide that they target is lifted first, then launched."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-genie-patron-weapons",
+      "heading": "Genie Patron Weapons",
+      "sourceAnchor": "genie-patron-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-genie-patron-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Contrary to popular opinion, we can use weapons without being a Hexblade. Yes, Hexblade is a little easier because it can use Charisma for weapons, but we still like having high Dexterity and we can Fly without using Concentration."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-genie-patron-weapons-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Longbow"
+              },
+              {
+                "type": "text",
+                "text": ": Slightly less damage than a Heavy Crossbow or Eldritch Blast, but no Loading property means that if we choose it as an Improved Pact Weapon we don’t need Crossbow Expert to use Thirsting Blade."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Heavy Crossbow"
+              },
+              {
+                "type": "text",
+                "text": ": It’s just like Eldritch Blast except you can use Sharpshooter for extra damage, and it requires martial weapon proficiency."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Melee Weapons"
+              },
+              {
+                "type": "text",
+                "text": ": I would advise not closing to melee. You certainly can make it work, but it’s not the easiest setup unless you’re doing some multiclass stuff."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-genie-patron-armor",
+      "heading": "Genie Patron Armor",
+      "sourceAnchor": "genie-patron-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-genie-patron-armor-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Armor of Shadows"
+              },
+              {
+                "type": "text",
+                "text": ": Yes this is an invocation but unless you find +1 Studded Leather this is your best option, and you would need to find +2 Studded Leather to beat it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Half Plate"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re doing a multiclass thing, this is better than Armour of Shadows until Dexterity is 18, then they’re equal."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-genie-patron-multiclassing",
+      "heading": "Genie Patron Multiclassing",
+      "sourceAnchor": "genie-patron-multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-genie-patron-multiclassing-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Fighter"
+              },
+              {
+                "type": "text",
+                "text": ": At Genielock level ten, we gain the ability to jump into our Genie bottle and get a short rest in ten minutes. At Genielock level twenty, we gain the ability to get our Pact Spells back in 1 minute. Both of these are once per day. In narrative time, those are about the same so if we take 2-3 levels of Fighter instead of 20 in Warlock we gain a Fighting Style, Action Surge, and maybe a subclass and still get to sneak in an additional short rest of spells every day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rogue"
+              },
+              {
+                "type": "text",
+                "text": ": Sneak attack is once per turn, Genie’s Wrath is once per your turn, Booming Blade is one big attack. Getting one nice big swing in each turn with all of your damage is pretty nice, especially if you can get some Advantage going to increase your accuracy."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Paladin"
+              },
+              {
+                "type": "text",
+                "text": ": Six levels of Genie adds Flying to a Paladin, three Invocations, a pact boon, a pair of 3rd level short rest recharging Smite slots, some damage resistance, and PB to damage once per turn. You could argue this applies to any martial, but since they both need Charisma anyways, it’s less of a stretch to meet the multiclassing minimums just to add a little Genie to your Paladin."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-genie-patron-invocations",
+      "heading": "Genie Patron Invocations",
+      "sourceAnchor": "genie-patron-invocations",
+      "blocks": [
+        {
+          "blockId": "block-section-genie-patron-invocations-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While the "
+            },
+            {
+              "type": "link",
+              "text": "Eldritch Invocations Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations"
+            },
+            {
+              "type": "text",
+              "text": " covers most of these, we can make some special considerations."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-genie-patron-invocations-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Grasp of Hadar"
+              },
+              {
+                "type": "text",
+                "text": ": Having access to concentration-free flight means we can fly directly above a target and pull it ten feet into the air so it falls ten feet. If we’re a Dao with the Crusher feat, we can add another 5 feet, but 10 feet is enough to cause fall damage, "
+              },
+              {
+                "type": "link",
+                "text": "which is enough to knock the target prone.",
+                "href": "https://www.dndbeyond.com/sources/phb/adventuring#Falling"
+              },
+              {
+                "type": "text",
+                "text": " Consequently, we should do this on our last blast of the turn or switch targets since being prone will give us Disadvantage on hitting the target."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Repelling Blast"
+              },
+              {
+                "type": "text",
+                "text": ": If we set up a dangerous area effect that does damage when a target enters the zone for the first time on a turn (Create Bonfire, etc.), we can push them in with this. If we also have Grasp of Hadar, we can pull a target out and then push back in on the same blast too."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-genie-warlock-build-halfgenie-accuracy",
+      "heading": "Example Genie Warlock Build – Half-Genie Accuracy",
+      "sourceAnchor": "example-genie-warlock-build-halfgenie-accuracy",
+      "blocks": [
+        {
+          "blockId": "block-section-example-genie-warlock-build-halfgenie-accuracy-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Eldritch Blast is pretty great, and there are plenty of Invocations that support it and turn it into a great go-to option for any Warlock. This build takes none of those options. This build takes Pact of the Blade and shows off that you don’t have to be a Hexblade to be a weapon damage Warlock."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-damage-vs-utility-why-pact-of-the-blade",
+      "parentSectionId": "section-example-genie-warlock-build-halfgenie-accuracy",
+      "heading": "Damage vs Utility: Why Pact of the Blade?",
+      "sourceAnchor": "damage-vs-utility-why-pact-of-the-blade",
+      "blocks": [
+        {
+          "blockId": "block-section-damage-vs-utility-why-pact-of-the-blade-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level twenty, a Warlock firing 4 Eldritch Blasts does this kind of damage assuming 8 on the die is a hit. We’ll be using Elven Accuracy to keep things equal:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-damage-vs-utility-why-pact-of-the-blade-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Dice"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Damage Avg"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "DPR"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Advantage"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Blast"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d10+5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "28.4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "43.34"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "EB+Hex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d10+5+1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "38.2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "58.73"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-damage-vs-utility-why-pact-of-the-blade-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build will be using a longbow with Archery fighting style, the Fighter Champion subclass, and Elven Accuracy alongside various invocations that boost the Pact Weapon as well as using Eldritch Smite +6d8 on critical hits:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-damage-vs-utility-why-pact-of-the-blade-4",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Dice"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Damage Avg"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "DPR"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Advantage"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Longbow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8+4+5+1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14.5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "37.95"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "66.16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Sharpshooting"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8+4+5+1+10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "24.5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "39.20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "79.83"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-damage-vs-utility-why-pact-of-the-blade-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As you can see, when we have Advantage, we push ahead considerably, but what these numbers don’t show is the utility we give up. We don’t get to push and pull constantly with Repelling Blast and Grasp of Hadar. However, because Hex benefits us less, we can Concentrate on something else, like Shadow of Moil or even Greater Invisibility if we’re Dijinni, to gain the use of our Elven Accuracy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-playstyle-and-tactics",
+      "parentSectionId": "section-example-genie-warlock-build-halfgenie-accuracy",
+      "heading": "Playstyle and Tactics",
+      "sourceAnchor": "playstyle-and-tactics",
+      "blocks": [
+        {
+          "blockId": "block-section-playstyle-and-tactics-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "What this build does is use all the Warlock tricks to get Advantage like Darkness and Devil’s Sight or putting enemies inside Hunger of Hadar, but then combining Elven Accuracy with Eldritch Smite and 3 levels into Champion Fighter to fish for Smite Crits while also putting out Sharpshooter damage. Also we’re a Genie so we can fly at the same time that we’re busy Concentrating on those other spells."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-genie-warlock-build-halfgenie-accuracy",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to be a Drow Half-Elf for access to both the Faerie Fire and Darkness spells, but that also gives us +2/+1/+1 ability score increases to work with."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While it may seem unusual to have our Dexterity ahead of our Charisma, we’re going to be using a Longbow and we’re not a Hexblade."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-3",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-genie-warlock-build-halfgenie-accuracy",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re a Half-Elf Drow so we have access to Drow Magic on top of Darkvision and Fey Ancestry. A handful of extra useful spells to cast every day, but remember that you can’t recast them using your innate spellcasting, so if you want to cast them more than once you still need to learn them permanently."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-genie-warlock-build-halfgenie-accuracy",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re taking Urchin to get easy Sleight of Hand and Stealth proficiency."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-genie-warlock-build-halfgenie-accuracy",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re actually taking our first level as Fighter so we can have Heavy Armor and Martial Weapon Proficiency, though we’ll only really wear Medium Armour due to low Strength. More importantly, we’ll have Constitution Save Proficiency for our Concentration spells. From Fighter we learn Acrobatics and Intimidation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-genie-warlock-build-halfgenie-accuracy",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Usually multiclassing involves a lot of juggling to make sure we get our ASIs and Feats on time. However, we’re going to jump right back into Warlock at second level, so we won’t be far behind everyone else."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fifth Level (Fighter 1/Warlock 4): We take Elven Accuracy, putting a point into our odd-numbered Dexterity score, making it an 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Ninth Level (Fighter 1/Warlock 8): We take Sharpshooter, allowing us to ignore anything less than full cover, fire a Longbow from 600 feet with no penalty, and subtract 5 from an attack roll to add +10 to the damage roll. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Why are we doing this instead of Eldritch Blast? Well if the average damage of 1d10+5 is 10.5, then firing Sharpshooter twice will make up the difference in damage of those two other blasts. Other factors would influence the DPR, such as if we’re Concentrating on Hex or not, but the point here is just about the damage of four naked Agonizing Blasts vs extra attack with Sharpshooter."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fifteenth Level (Fighter 3/Warlock 12): We take an ASI in Charisma for 16->18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At nineteenth Level (Fighter 3/Warlock 16): We take an ASI in Charisma for 18->20."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-genie-warlock-build-halfgenie-accuracy",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels and Classes"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1: Fighter 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style (Archery)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Acrobatics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Intimidation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "All Armour and Shields"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Drow Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Dancing Lights"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We start our journey as a Fighter and we might as well wear Medium armor and pick up a Longbow."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We take the Archery fighting style because we love to "
+                },
+                {
+                  "type": "link",
+                  "text": "break maths",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": ", and +2 to attack rolls is a good start."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2: Warlock 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Genie Patron (Djinni)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Djinni Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Genie’s Vessel"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Bottled Respite"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Genie’s Wrath"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†"
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†"
+                },
+                {
+                  "type": "link",
+                  "text": "Prestidigitation",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/prestidigitation/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Arms of Hadar"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Expeditious Retreat"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We gain quite a lot at this level, as Warlock is very front-loaded."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We gain our Genie container, granting us a little hiding spot storage space and granting us PB to damage once per our turn. We choose Djinni so our extra damage is Thunder."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also gain Pact Magic. We’re not taking Eldritch Blast because we intend to be an Archer, but you could just take it anyways if you want a backup for losing your bow or something. Instead, Mage Hand and Prestidigitation are great cantrips with tons of utility. See their dedicated guides for more information."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For leveled spells, we’re picking up Arms of Hadar and Expeditious Retreat. Arms are great if we get surrounded, and Expeditious Retreat is for not getting surrounded in the first place by kiting hard."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3: Warlock 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Invocations"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "‡Devil’s Sight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "‡Eyes of the Rune Keeper"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Hellish Rebuke"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Drow Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Faerie Fire"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pretty standard Invocation loadout. Eyes of the Rune Keeper can be any Invocation though because we’re not keeping it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For spells, we’ll pick up Hellish Rebuke. It’s respectable damage as a reaction if someone comes up and smacks us."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our Drow Magic grants us once per long rest Faerie Fire."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4: Warlock 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Boon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "‡Pact of the Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Invocation Replacement"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "‡Eyes of the Rune Keeper -> Improved Pact Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic 2nd level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Misty Step"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We immediately trade out Eyes of the Rune Keeper for Improved Pact Weapon. This allows the Pact Weapon we just acquired to be a +1 Longbow which pushes us further ahead on math."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We pick up Misty Step to have a get out of jail free card in our back pocket."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5: Warlock 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Elven Accuracy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Dexterity"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrip"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Darkness"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Expeditious Retreat -> Hold Person"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Drow Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Darkness"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We now roll 3d20 when we have Advantage and our Dexterity becomes 18."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We gain a free use of Darkness once per day from Drow Magic, but we would like to know it for our Pact Slots too."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We drop Expeditious Retreat to learn Hold Person instead because Paralyzed is one of the most debilitating conditions we can inflict."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6: Warlock 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Invocation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "‡Thirsting Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic 3rd level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Hunger of Hadar"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We gain Warlock Extra Attack. Pew pew."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hunger of Hadar is another way to gain Advantage because targets inside the area are Blinded."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7: Warlock 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elemental Gift (Djinni)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Bludgeoning Resistance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Bonus Action Flight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Fly"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We gain Thunder resistance from our Djinni patron, and we gain the ability to fly for 10 minutes PB times per long rest."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "However, that only lets us fly. The Fly spell will allow us to make an ally fly."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8: Warlock 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Invocation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "‡Eldritch Smite"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic 4th level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Greater Invisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take the Eldritch Smite Invocation, allowing us to trade in a Spell Slot for extra damage on a Pact Weapon Attack. Typically the way to use this is when landing a critical hit on an enemy because the extra smite damage is multiplied."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "To assist with fishing for those critical hits in situations where we can’t use Darkness or Hunger of Hadar, we take Greater Invisibility."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9: Warlock 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Sharpshooter"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Sickening Radiance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sharpshooter pumps up our damage, especially if we have Advantage. Our Improved Pact Weapon’s +1 bonus offsets not being able to improve Dexterity at this level, and our Archery Style +2 further offsets some of the penalty from using Sharpshooter."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sickening Radiance causes Exhaustion. Six stacks of Exhaustion is instant death. This is pretty good."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10: Fighter 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s like getting two turns. We could use this to set up Advantage with a spell and then take advantage of the Advantage right away."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11: Fighter 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Champion Archetype"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Improved Critical"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With Elven Accuracy and all the ways we can gain Advantage, being able to crit on 19s more often for Eldritch Smites is such a good option."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "link",
+                  "text": "Sure would be weird if we could only do this for a minute to one guy once per short rest.",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/hexblade/"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12: Warlock 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Invocation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "‡Eldritch Mind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic 5th level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Wall of Stone"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take Eldritch Mind for Advantage on Concentration checks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For our 5th-level spell, we take Wall of Stone because it’s just a great way to split a battlefield."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13: Warlock 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sanctuary Vessel"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrip"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Minor Illusion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sanctuary Vessel lets us sneak in a Short Rest in only ten minutes, with some small bonuses for doing so. Consider having one person who doesn’t need a Short Rest carry the vessel while the rest of your party has a ten-minute power nap."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We learn our fourth cantrip and grab Minor Illusion for additional utility."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14: Warlock 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Creation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum 6"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Mental Prison"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Creation is a good utility spell."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mental Prison targets Intelligence and Restrains the target with no recurring saves, giving our team Advantage for up to a minute."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15: Warlock 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Charisma +2 (16->18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Invocation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "‡Lifedrinker"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can finally start increasing our Charisma just in time for Lifedrinker to add Charisma to damage with our Pact Weapon on top of Dexterity."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16: Warlock 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Synaptic Static"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum 7"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Forcecage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Synaptic Static is a Psychic Fireball with an Intelligence Save that applies a penalty to attack rolls for a full minute."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Forcecage is a box with no saving throw. We know Sickening Radiance and we have Action Surge. We can put things in a blender of Exhaustion."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17: Warlock 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Limited Wish"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Just read this "
+                },
+                {
+                  "type": "link",
+                  "text": "guide to Magical Secrets",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/magical_secrets/"
+                },
+                {
+                  "type": "text",
+                  "text": " and you’ll find spells that are good to cast with Limited Wish. Just keep in mind that you are limited to spells with a casting time of one action or less."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18: Warlock 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Invocation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "‡Shroud of Shadows"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Banishment"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum 8"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Maddening Darkness"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Invisibility at will."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Maddening Darkness is Hunger of Hadar’s big brother."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We choose Banishment because we’re running out of must-have spells and we can start looking into “nice to have if we need it” spells."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19: Warlock 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Charisma +2 (18->20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20 Charisma. Better late than never."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20: Warlock 17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Teleportation Circle"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum 9"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "†Wish"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Teleportation Circle is good for traveling."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wish. "
+                },
+                {
+                  "type": "link",
+                  "text": "It’s Wish.",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Genie Patron Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Genie Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dao"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Djinni"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Efreeti"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Marid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none All"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Genie’s Vessel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bottled Respite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Genie’s Wrath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dao"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Djinni"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Efreeti"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Marid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Elemental Gift"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Dao"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Djinni"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Efreeti"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mardi"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sanctuary Vessel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Limited Wish"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Elves"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Races with Innate Known Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Races with Expanded Spell Lists"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Crusher"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Longbow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Heavy Crossbow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Melee Weapons"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Armor of Shadows"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Half Plate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Grasp of Hadar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Repelling Blast"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-intro-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center has-small-font-size is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\"><em>You got a brand of magi"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-genie-patron-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-genie-patron-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-genie-patron-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-genie-patron-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-genie-patron-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-genie-patron-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-genie-patron-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-genie-patron-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-genie-patron-races-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-genie-patron-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-genie-patron-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-genie-patron-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-genie-patron-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-genie-patron-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-genie-patron-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-genie-patron-invocations-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-genie-patron-invocations-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-example-genie-warlock-build-halfgenie-accuracy-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-damage-vs-utility-why-pact-of-the-blade-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-damage-vs-utility-why-pact-of-the-blade-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-damage-vs-utility-why-pact-of-the-blade-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-damage-vs-utility-why-pact-of-the-blade-4"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-damage-vs-utility-why-pact-of-the-blade-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-playstyle-and-tactics-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-3"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 5052,
+    "sections": 21,
+    "blocks": 47,
+    "tables": 5,
+    "ratingSignals": 72
+  },
+  "status": "needs-editorial-review"
+}

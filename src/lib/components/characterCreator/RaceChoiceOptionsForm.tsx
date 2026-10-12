@@ -3,13 +3,10 @@
 import { useEffect, useMemo, useRef } from "react";
 import { useStepForm } from "@/hooks/useStepForm";
 import { raceChoiceOptionsSchema } from "@/lib/zod/schemas/persCreateSchema";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import clsx from "clsx";
+import { Card } from "@/components/ui/card";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import type { RaceI } from "@/lib/types/model-types";
-import { FormattedDescription } from "@/components/ui/FormattedDescription";
-import { buildSelectableCardProps } from "@/lib/components/characterCreator/selectable-card-props";
+import { RaceChoiceOptionGroups, type RaceChoiceOptionLike } from "@/lib/components/characterCreator/RaceChoiceOptionGroups";
 import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
 import { buildGroupPickHint, findFirstHint } from "@/lib/components/wizard/pick-hint";
 
@@ -21,16 +18,6 @@ interface Props {
 }
 
 type RaceWithChoices = RaceI & { raceChoiceOptions?: RaceChoiceOptionLike[] };
-
-type RaceChoiceOptionLike = {
-  optionId: number;
-  subraceId?: number | null;
-  choiceGroupName: string;
-  optionName: string;
-  description?: string | null;
-  selectMultiple?: boolean;
-  maxSelection?: number;
-};
 
 const RaceChoiceOptionsForm = ({ race, subraceId, formId, onNextDisabledChange }: Props) => {
   const { updateFormData, nextStep } = usePersFormStore();
@@ -126,66 +113,7 @@ const RaceChoiceOptionsForm = ({ race, subraceId, formId, onNextDisabledChange }
         </p>
       </div>
 
-      <div className="space-y-4">
-        {groupedOptions.map(({ groupName, options }) => (
-          <Card key={groupName}>
-            <CardContent className="space-y-3 p-4">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.14em] text-slate-400">Група</p>
-                  <p className="text-base font-semibold text-white">{groupName}</p>
-                </div>
-                <Badge variant="outline" className="border-white/15 bg-white/5 text-slate-200">
-                  Оберіть 1
-                </Badge>
-              </div>
-
-              <div className="grid gap-3 sm:grid-cols-2">
-                {options.map((opt) => {
-                  const selected = selections[groupName] === opt.optionId;
-
-                  return (
-                    <Card
-                      key={opt.optionId}
-                      className={clsx(
-                        "glass-card cursor-pointer transition-all duration-200",
-                        selected ? "glass-active" : ""
-                      )}
-                      {...buildSelectableCardProps({
-                        isSelected: selected,
-                        isMultiSelect: false,
-                        onSelect: () => selectOption(groupName, opt.optionId),
-                      })}
-                    >
-                      <CardContent className="flex h-full flex-col gap-2 p-3 sm:p-4">
-                        <div className="flex items-center justify-between gap-2">
-                          <p className="truncate text-sm font-semibold text-white">{opt.optionName}</p>
-                          <Badge
-                            variant={selected ? "secondary" : "outline"}
-                            className={clsx(
-                              "border-white/15 bg-white/5 text-slate-200",
-                              selected && "text-slate-100"
-                            )}
-                          >
-                            {selected ? "Обрано" : "Обрати"}
-                          </Badge>
-                        </div>
-
-                        {opt.description ? (
-                          <FormattedDescription
-                            content={opt.description}
-                            className="text-sm text-slate-200/90"
-                          />
-                        ) : null}
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      <RaceChoiceOptionGroups groupedOptions={groupedOptions} selections={selections} onSelectOption={selectOption} />
     </form>
   );
 };

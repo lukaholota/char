@@ -1,0 +1,731 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/races/deep-gnome/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "1aaffd29c2a9ec39c7bb481fe4160f394a88ad0f5e4ac8ad5ad30cb82967768f",
+  "sourceRevision": {
+    "revisionId": "rpgbot-28214a9ccc812bfe-1aaffd29c2a9ec39",
+    "sourceId": "rpgbot-28214a9ccc812bfe",
+    "fetchedAt": "2026-09-29T19:10:34.474725+00:00",
+    "sourceUpdatedAt": "2025-10-29T13:43:56-04:00",
+    "contentHash": "dbdf97003f9dcc3081fcdddab93f0d18198b411d52b1500a92a4a4f1b60d4431",
+    "title": "Deep Gnome: DnD 5e Race/Species Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-28214a9ccc812bfe-1aaffd29c2a9ec39.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is for the version of the Deep Gnome published in Monsters of the Multiverse. For the classic version of the Gnome, see our "
+            },
+            {
+              "type": "link",
+              "text": "Gnome Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/races/gnome/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Also known as the “Svirfneblin”, deep gnomes are gnomes that typically live in the Underdark. The Underdark is a terrifying place full of enormous, nightmarish things that like to eat humanoids, so naturally the Deep Gnome is well adapted to stealth. Originally a subrace for the Gnome, the Deep Gnome was republished in Monsters of the Multiverse with updated traits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Deep Gnome’s traits are almost exclusively dedicated to avoiding notice. Darkvision and Gnomish Magic Resistance are exceptions, but the Deep Gnome’s innate spellcasting and Svirfneblin Camouflage are all about not being noticed. This makes the Deep Gnome a natural fit for stealthy characters, but also means that they’ll struggle in other roles."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gnome Camouflage is a great stealth tool, but remember that it only applies to a few rolls per day. If you’re re-rolling Stealth a lot (such as during combat) you’re going to burn through those uses very quickly. Nondetection provides an additional stealth tool, protecting your from divinations like Scrying, but also less obvious options like See Invisibility and Detect magic. You also don’t have to provide the 25 gp material component when you use the free once per day casting, which is nice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/races/deep-gnome/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/races/deep-gnome/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Deep Gnome Classes",
+                "href": "https://rpgbot.net/dnd5/characters/races/deep-gnome/#classes"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes",
+      "heading": "Deep Gnome Classes",
+      "sourceAnchor": "classes",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-artificer",
+      "parentSectionId": "section-classes",
+      "heading": "Artificer",
+      "sourceAnchor": "artificer",
+      "blocks": [
+        {
+          "blockId": "block-section-artificer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want a stealthy artificer, you’re going to build around an armorer in Infiltrator armor, which will make Svirfneblin Camouflage redundant. Artificers can also cast Detect Magic, so even that isn’t especially helpful. The only meaningful things that the Svirfneblin brings to the Artificer are Nondetection and Gnome Magic Resistance, and while Gnome Magic Resistance is great for the Artificer, it’s not enough to commit your race to it when satyrs and yuan-ti exist."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-barbarian",
+      "parentSectionId": "section-classes",
+      "heading": "Barbarian",
+      "sourceAnchor": "barbarian",
+      "blocks": [
+        {
+          "blockId": "block-section-barbarian-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With Darkvision and Svirfneblin Camouflage, the Barbarian can be decently stealthy. You won’t match a bard, a ranger, or a rogue, but it still helps. Gnome Magic Resistance is a helpful defense for a class which is notoriously poor at mental saves, and even the innate spellcasting is decent since it’s mostly only useful outside of combat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-bard",
+      "parentSectionId": "section-classes",
+      "heading": "Bard",
+      "sourceAnchor": "bard",
+      "blocks": [
+        {
+          "blockId": "block-section-bard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bards get Expertise, which can pair nicely with Svirfneblin Camouflage to make you a very effective Scout. Bards can also re-cast the Deep Gnome’s innate spells, nicely complementing the Bard’s limited number of spells known."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cleric",
+      "parentSectionId": "section-classes",
+      "heading": "Cleric",
+      "sourceAnchor": "cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With the exception of trickery clerics, clerics can’t cast Disguise Self, and none of them except Knowledge Domain can cast Nondetection. The Trickery Cleric’s Blessing of the Trickster only works on other creatures. The Deep Gnome neatly fills those gaps in capabilities. Trickery is almost certainly your best choice of domain to capitalize on the Deep Gnome’s traits."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-druid",
+      "parentSectionId": "section-classes",
+      "heading": "Druid",
+      "sourceAnchor": "druid",
+      "blocks": [
+        {
+          "blockId": "block-section-druid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Deep Gnome’s innate spellcasting isn’t great for the Druid. Druids can can’t Nondetection, but Disguise Self is mostly useless because druids can turn into animals."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-druid-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gnomish Magic Resistance and Svirfneblin Camouflage "
+            },
+            {
+              "type": "emphasis",
+              "text": "might"
+            },
+            {
+              "type": "text",
+              "text": " work while using Wild Shape. Neither discuss your character’s anatomy and they don’t seem to be dependent on your physical form."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fighter",
+      "parentSectionId": "section-classes",
+      "heading": "Fighter",
+      "sourceAnchor": "fighter",
+      "blocks": [
+        {
+          "blockId": "block-section-fighter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For a Dexterity-based build, Svirfneblin Camouflage is a passable replacement for Expertise in Stealth, allowing you to more easily serve as your party’s Scout. Gnome Magic Resistance is a helpful defense for a class which is notoriously poor at mental saves, and even the innate spellcasting is decent since it’s mostly only useful outside of combat. The Eldritch Knight is a tempting option because you can re-cast the spells, but they’re not consistently useful enough to build around them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-monk",
+      "parentSectionId": "section-classes",
+      "heading": "Monk",
+      "sourceAnchor": "monk",
+      "blocks": [
+        {
+          "blockId": "block-section-monk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gnome Magic Resistance is a helpful defense for the Monk since monks aren’t proficient in any mental saves until their get Diamond Body. Svirfneblin Camouflage helps make up for not getting Expertise so you can almost compete with a rogue as your party’s Scout."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-paladin",
+      "parentSectionId": "section-classes",
+      "heading": "Paladin",
+      "sourceAnchor": "paladin",
+      "blocks": [
+        {
+          "blockId": "block-section-paladin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For a Dexterity-based build, Svirfneblin Camouflage is a passable replacement for Expertise in Stealth, allowing you to more easily serve as your party’s Scout. Gnome Magic Resistance is a helpful defense, but with Aura of Protection in place it’s less impactful than it is for other martial classes. The Paladin can recast the Deep Gnome’s innate spells, but that won’t be necessary most of the time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ranger",
+      "parentSectionId": "section-classes",
+      "heading": "Ranger",
+      "sourceAnchor": "ranger",
+      "blocks": [
+        {
+          "blockId": "block-section-ranger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Svirfneblin Camouflage mostly compensates for rangers not getting Expertise (unless you’re using the optional class features), making it easier for the Ranger to compete with the Rogue as a Scout. The Deep Gnome’s innate spellcasting offers some occasionally helpful options, and you can re-cast the spells using spell slots if you need to."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-rogue",
+      "parentSectionId": "section-classes",
+      "heading": "Rogue",
+      "sourceAnchor": "rogue",
+      "blocks": [
+        {
+          "blockId": "block-section-rogue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Expertise paired with Svirfneblin Camouflage makes you profoundly good at stealth. Evasion paired with Gnome Magic Resistance gives you broad protection on saving throws. The Deep Gnome’s innate spellcasting can protect you from pesky methods of detecting you like divinations and like people knowing what you look like."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-rogue-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Arcane Trickster Rogue is perhaps the Svirfneblin’s most obvious class and subclass because the Rogue pairs so nicely, and the Arcane Trickster allows you to re-cast the Deep Gnome’s innate spells."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sorcerer",
+      "parentSectionId": "section-classes",
+      "heading": "Sorcerer",
+      "sourceAnchor": "sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don’t expect to get anything out of Svirfneblin Camouflage, but otherwise the Deep Gnome’s traits are nice. Darkvision saves you a spell, Gnomish Magic Resistance protects you on some saves (sorcerers have poor Int/Wis saves), and the innate spellcasting is occasionally useful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-warlock",
+      "parentSectionId": "section-classes",
+      "heading": "Warlock",
+      "sourceAnchor": "warlock",
+      "blocks": [
+        {
+          "blockId": "block-section-warlock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don’t expect to get anything out of Svirfneblin Camouflage, but otherwise the Deep Gnome’s traits are nice. Darkvision saves you an invocation, Gnomish Magic Resistance protects you on some saves, and the innate spellcasting is occasionally useful and complements your tiny pool of spell slots."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-wizard",
+      "parentSectionId": "section-classes",
+      "heading": "Wizard",
+      "sourceAnchor": "wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wizards can cast Disguise Self, Nondetection, Darkvision, and Invisibility, so the Deep Gnome adds very little to the Artificer."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Wizard"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-artificer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-barbarian-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-bard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-druid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-druid-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-fighter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-monk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-paladin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-ranger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-rogue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-rogue-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-warlock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-wizard-1"
+    }
+  ],
+  "metrics": {
+    "words": 1121,
+    "sections": 17,
+    "blocks": 24,
+    "tables": 0,
+    "ratingSignals": 17
+  },
+  "status": "needs-editorial-review"
+}

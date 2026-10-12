@@ -1,0 +1,664 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-4a8be9195383920c",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-4a8be9195383920c-27cec9cf9421ae2d",
+      "sourceId": "rpgbot-4a8be9195383920c",
+      "fetchedAt": "2026-09-29T19:12:54.802103+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:43:32-04:00",
+      "contentHash": "e7b2a9d163c15334a00df4cd646e874adfe94b708cd437ff822dd35f5ef4f480",
+      "title": "Fire Genasi: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-4a8be9195383920c-27cec9cf9421ae2d.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-fire-genasi-2014",
+    "sourceId": "rpgbot-4a8be9195383920c",
+    "slug": "fire-genasi-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Геназі вогню — гайд раси (2014)",
+    "titleEn": "Fire Genasi: DnD 5e Race/Species Guide",
+    "topics": [
+      "races"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "sourceRevisionId": "rpgbot-4a8be9195383920c-27cec9cf9421ae2d",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей гайд присвячений {{геназі вогню|Fire Genasi}} з книги Монстри Мультивсесвіту. Щодо класичної версії геназі дивіться наш "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд геназі",
+                  "href": "https://rpgbot.net/dnd5/characters/races/genasi/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Геназі вогню — нащадки іфритів зі Стихійного плану Вогню. До оновлення в Монстри Мультивсесвіту вони були єдиним прикладом чаротворення від Статури й єдиним прикладом особливого Темнозору: бачили червоні відтінки замість сірих. Ці механічні особливості втрачено, але решта змін технічно додавала можливості. Примітка редакції: слова «єдиним прикладом чаротворення від Статури» неточні — його мали й інші геназі з EEPC; Аберантна мітка дракона також використовує Статуру."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Попри стійкість до шкоди й Темнозір, найважливіша риса геназі вогню — вроджене чаротворення. Вони отримують Створення вогню [Produce Flame] та Палючі долоні [Burning Hands], два непоганих варіанти шкоди на низьких рівнях. Однак їх дуже стримує винятково слабкий Вогняний клинок [Flame Blade]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вогняний клинок [Flame Blade] практично непридатний: робить приблизно те саме, що замовляння, але потребує і Концентрації, і рівневого слота. Через його слабкість корисні риси геназі вогню легко замінити одним рівнем Чаклуна або Чарівника. Поза цим геназі вогню — здебільшого гірший тифлінг."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо твердо вирішили грати геназі вогню, запитайте Майстра, чи дозволить він замінити Вогняний клинок [Flame Blade] на Пекло Аганаззара [Aganazzar's Scorcher] або Розпечений промінь [Scorching Ray]. Я не можу припускати, що він погодиться, але сподіваюся, що вам пощастить. Це пропозиція автора щодо домашньої зміни, а не правило раси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/fire-genasi/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/fire-genasi/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Класи для геназі вогню",
+                    "href": "https://rpgbot.net/dnd5/characters/races/fire-genasi/#classes"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes",
+          "heading": "Класи для геназі вогню",
+          "sourceAnchor": "classes",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ припускає, що ви використовуєте опціональні правила «"
+                },
+                {
+                  "type": "link",
+                  "text": "Налаштування походження",
+                  "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+                },
+                {
+                  "type": "text",
+                  "text": "» з книги Казан Таші з усім. Якщо ні, прокрутіть до наступного розділу. Примітка редакції: це типовий текст автора; іншого розділу з фіксованими підвищеннями характеристик у цьому гайді немає. Версія геназі з MPMM уже дозволяє самостійно обрати характеристики для расових підвищень."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Винахідники можуть отримати стійкість до вогню й Темнозір через заклинання та Вливання. Вогняний заряд [Fire Bolt] кращий за Створення вогню [Produce Flame], а Палючі долоні [Burning Hands] вже доступні Винахіднику. Нічого нового. Темнозір і стійкість до вогню чудові, але тоді грайте тифлінгом. Безкоштовного знання Палаючих Рук недостатньо. Примітка редакції: у стандартному списку заклинань Винахідника 2014 Burning Hands немає; твердження джерела про доступ до нього помилкове."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стара версія геназі вогню була кращою: Варвару потрібна непогана Статура, тож вроджене чаротворення було хоч трохи корисним. Нове чаротворення ви не зможете застосовувати особливо ефективно, тому залишаються лише Темнозір і стійкість до вогню."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Барди практично не мають атак заклинаннями. Хоча Злісне глузування [Vicious Mockery] — чудовий атакувальний варіант, Створення вогню [Produce Flame] завдає вдвічі більше шкоди, і часом потрібне саме це. Палючі долоні [Burning Hands] дають корисну шкоду по області на близькій відстані; попри відмінності вони можуть замінити Друзки [Shatter]. Темнозір полегшує потайні дії в темряві, а стійкість до вогню часто корисна. Геназі вогню не підтримують конкретний стиль чи збірку, але є хорошою основою майже для будь-якого Барда."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірики не мають Створення вогню [Produce Flame] — Священне полумʼя [Sacred Flame] краще, — а більшість не має Палаючих Рук. Здобутки дуже малі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друїди вже мають Створення вогню [Produce Flame], а також Вогняний клинок [Flame Blade], який нікого не цікавить. Більшість не має Палаючих Рук, але саме собою це небагато. Якщо дуже хочете Палючі долоні [Burning Hands], грайте {{Колом дикого вогню|Circle of Wildfire}}. Для геназі вогню це, безумовно, цікава тема, проте механічних переваг над тифлінгом майже немає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найочевидніше поєднання — Потойбічний лицар, адже інші підкласи Воїна не мають слотів заклинань. Навіть для нього ці заклинання не є хорошими варіантами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Створення вогню [Produce Flame] дає прийнятну дальню атаку, але метання дротиків майже напевно ефективніше."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращий бойовий клас для геназі вогню. Паладини мають мало хороших дальніх атак, тож Створення вогню [Produce Flame] може допомогти, коли справді потрібно атакувати здалеку. Вони також погано справляються з натовпами, тому Палючі долоні [Burning Hands] інколи корисні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Способи Слідопита підвищувати шкоду не працюють з атаками заклинаннями, тому Створення вогню [Produce Flame] мало корисне. Палючі долоні [Burning Hands] непогані зблизька й, безумовно, кращі за інші способи Слідопита завдавати шкоди по області. Темнозір чудово підходить для потайних дій у темряві, а стійкість до вогню завжди добра."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes",
+          "heading": "Розбійник",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розбійник надто залежить від атак зброєю, щоб більшість рис геназі вогню мала значення. Грайте тифлінгом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes",
+          "heading": "Чаклун",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Додаткові заклинання недостатньо хороші, щоб обирати заради них расу. Практично будь-яка інша раса з вродженим чаротворенням вплине сильніше. Якщо вам неодмінно потрібні Темнозір і стійкість до вогню, грайте тифлінгом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Додаткові заклинання недостатньо хороші, щоб обирати заради них расу. Практично будь-яка інша раса з вродженим чаротворенням вплине сильніше. Якщо вам неодмінно потрібні Темнозір і стійкість до вогню, грайте тифлінгом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чарівник може замінити всі корисні можливості геназі вогню. Якщо вам неодмінно потрібні Темнозір і стійкість до вогню, грайте тифлінгом."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-fire-genasi-2014-001",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fire-genasi-2014-002",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fire-genasi-2014-003",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fire-genasi-2014-004",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fire-genasi-2014-005",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fire-genasi-2014-006",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fire-genasi-2014-007",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fire-genasi-2014-008",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fire-genasi-2014-009",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fire-genasi-2014-010",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fire-genasi-2014-011",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fire-genasi-2014-012",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fire-genasi-2014-013",
+      "articleId": "rpgbot-fire-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-fire-genasi-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

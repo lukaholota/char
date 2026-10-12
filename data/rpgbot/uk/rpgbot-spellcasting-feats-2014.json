@@ -1,0 +1,757 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-2e759c36bb76f615",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-2e759c36bb76f615-451b64ad11eea02f",
+      "sourceId": "rpgbot-2e759c36bb76f615",
+      "fetchedAt": "2026-09-29T19:11:13.367571+00:00",
+      "sourceUpdatedAt": "2024-06-19T09:25:37-04:00",
+      "contentHash": "0ca762225b3c5cd436649f81f3f695d2347e062616826eb50ef06dcf3b39fdb6",
+      "title": "Spellcasting Feats in DnD 5e",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-2e759c36bb76f615-451b64ad11eea02f.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-spellcasting-feats-2014",
+    "sourceId": "rpgbot-2e759c36bb76f615",
+    "slug": "spellcasting-feats-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Чаротворчі риси — гайд рис (2014)",
+    "titleEn": "Spellcasting Feats in DnD 5e",
+    "topics": [
+      "feats"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-spellcasting-feats-2014-draft1",
+      "articleId": "rpgbot-spellcasting-feats-2014",
+      "sourceRevisionId": "rpgbot-2e759c36bb76f615-451b64ad11eea02f",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Чаротворчі риси» — не офіційний термін. Я використовую його, щоб приблизно обʼєднати риси на кшталт {{Доторку феї|Fey Touched}}, які дозволяють персонажам вивчати й накладати заклинання понад можливості расових рис та класових умінь. Такі риси часто замінюють мультикласування: додають потужну магію без втрати розвитку основного класу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Але ці риси складні. Вибір правильної риси й правильних заклинань може дуже сильно вплинути на персонажа. Оцінити широкий набір можливостей непросто, особливо коли Wizards of the Coast випускає дедалі більше доповнень і гора доступних заклинань невпинно зростає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Обираючи заклинання для рис Доторк феї та {{Посвячений у магію|Magic Initiate}}, подумайте, як вони вписуються в решту збірки. Бойовим персонажам без чаротворення або з малим його обсягом часто підходять заклинання з Концентрацією, бо вона зазвичай нічим не зайнята. Ці персонажі, імовірно, також хочуть тривалих ефектів, тож довга тривалість корисна. Натомість персонажі, які вже накладають заклинання, найбільше виграють від заклинань поза власним списком, достатньо хороших, щоб витрачати на них слот, особливо якщо накладання вищим слотом допомагає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За допомогою щодо {{Містичного адепта|Eldritch Adept}}, який не зовсім підпадає під наш термін «чаротворча риса», зверніться до "
+                },
+                {
+                  "type": "link",
+                  "text": "аналізу інвокацій Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations#eldritch-adept"
+                },
+                {
+                  "type": "text",
+                  "text": ". {{Ритуальний заклинатель|Ritual Caster}} у цій статті також не розглядається."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Поширені запитання",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#faq"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чаротворчі риси",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#spellcasting-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Аберантна мітка дракона",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#aberrant-dragonmark"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Посвячений у винахідництво",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#artificer-initiate"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Доторк феї",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#fey-touched"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Посвячений у магію",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#magic-initiate"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Доторк тіні",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#shadow-touched"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Снайпер заклять",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#spell-sniper"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Посвячений Стріксхейвена",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#strixhaven-initiate"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-faq",
+          "heading": "Поширені запитання",
+          "sourceAnchor": "faq",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-5",
+          "parentSectionId": "section-faq",
+          "heading": "Чи можна витрачати слоти на заклинання чаротворчої риси?",
+          "blocks": [
+            {
+              "blockId": "block-section-5-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загалом так, хоча Посвячений у магію — виняток. Автор пояснює це тим, що більшість чаротворчих рис дозволяє «вивчити» надане заклинання відповідного рівня. Він вважає, що його можна накладати слотами так само, як заклинання з іншого джерела, наприклад класу. Додатково риси дозволяють накладати його на найнижчому рівні без слота.\n\nРедакційна примітка: саме слово «вивчити» не дає універсального дозволу накладати заклинання будь-якими слотами. Перевіряйте точний текст риси й вашого чаротворення. Доторк феї, Доторк тіні, Посвячений у винахідництво та Посвячений Стріксхейвена мають явний дозвіл використовувати слоти; опис Аберантної мітки дракона в ERLW такого універсального дозволу не містить."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-5-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Sage Advice Compendium пояснює Посвяченого у магію: витрачати слоти на його заклинання можна лише тоді, коли клас, обраний для риси, є одним із ваших класів.\n\nРедакційна примітка: необхідно також дотримуватися звичайних правил чаротворення цього класу. Наприклад, Чарівник може додати таке заклинання Чарівника до книги, а потім підготувати його; сам факт наявності рівня класу не скасовує підготовку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-6",
+          "parentSectionId": "section-faq",
+          "heading": "Яку характеристику використовують заклинання чаротворчої риси?",
+          "blocks": [
+            {
+              "blockId": "block-section-6-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Відповідь залежить від риси. {{Аберантна мітка дракона|Aberrant Dragonmark}} використовує Статуру. {{Посвячений у винахідництво|Artificer Initiate}} — завжди Інтелект, оскільки використовує чаротворення Винахідника. Посвячений у магію використовує характеристику обраного класу. Доторк феї та {{Доторк тіні|Shadow Touched}} використовують характеристику, яку ви підвищили, беручи рису.\n\nРедакційна примітка: {{Снайпер заклять|Spell Sniper}} також використовує характеристику обраного класового списку. Для Посвяченого Стріксхейвена ви самі обираєте Інтелект, Мудрість або Харизму. Варіанти коледжу: {{Посвячений Стріксхейвена (Лорхолд)|Strixhaven Initiate (Lorehold)}}, {{Посвячений Стріксхейвена (Прізмарі)|Strixhaven Initiate (Prismari)}}, {{Посвячений Стріксхейвена (Квандрікс)|Strixhaven Initiate (Quandrix)}}, {{Посвячений Стріксхейвена (Сілверквіл)|Strixhaven Initiate (Silverquill)}}, {{Посвячений Стріксхейвена (Візерблум)|Strixhaven Initiate (Witherbloom)}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-6-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це важливо розуміти. Вибір слабкої для вас характеристики може суттєво знизити користь чаротворчої риси. Якщо знаєте про проблему, можете обрати заклинання, що не покладаються на її модифікатор, і обійти її."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spellcasting-feats",
+          "heading": "Чаротворчі риси",
+          "sourceAnchor": "spellcasting-feats",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-aberrant-dragonmark",
+          "parentSectionId": "section-spellcasting-feats",
+          "heading": "Аберантна мітка дракона",
+          "sourceAnchor": "aberrant-dragonmark",
+          "blocks": [
+            {
+              "blockId": "block-section-aberrant-dragonmark-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Аберантна мітка дракона — незвичайна риса, яку часто не помічають. Вона ховається наприкінці розділу Еберрону: Постання з Останньої Війни про драконячі мітки, які автор приблизно описує як підраси. Рису легко пропустити: це малий блок тексту в довгому розділі, а її переваги також неочевидні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-aberrant-dragonmark-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання відповідного рівня можна накладати через Аберантну мітку дракона раз між короткими або тривалими відпочинками, замість лише тривалих, як у інших чаротворчих рис. Вона також підвищує Статуру й може дати тимчасові хіт-поінти. Проте є ціна: ви отримуєте на одне замовляння менше, ніж із Посвяченим у магію, і обмежені списком заклинань Чаклуна."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-aberrant-dragonmark-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше — у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Аберантної мітки дракона",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/aberrant-dragonmark/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artificer-initiate",
+          "parentSectionId": "section-spellcasting-feats",
+          "heading": "Посвячений у винахідництво",
+          "sourceAnchor": "artificer-initiate",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-initiate-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Багато в чому це Посвячений у магію для Винахідника, але ви віддаєте одне замовляння за володіння інструментом і можливість використовувати цей інструмент як магічний фокус для чаротворення на основі Інтелекту. Ці переваги невеликі. Можливо, знайдете магічний інструмент із бонусом до атак заклинаннями та Складності ряткидків, але є чимало інших фокусів із такими бонусами, які не вимагають риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artificer-initiate-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Справжня користь прихована у списку заклинань Винахідника. Ви отримуєте багато замовлянь Чаклуна чи Чарівника, зокрема перевірений Гримучий Клинок [Booming Blade]. Водночас Винахідник має заклинання, яких немає у Чарівника, наприклад Лікування ран [Cure Wounds], Вогники фей [Faerie Fire] та Святилище [Sanctuary]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artificer-initiate-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше — у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Посвяченого у винахідництво",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/artificer-initiate/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fey-touched",
+          "parentSectionId": "section-spellcasting-feats",
+          "heading": "Доторк феї",
+          "sourceAnchor": "fey-touched",
+          "blocks": [
+            {
+              "blockId": "block-section-fey-touched-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "+1 до будь-якої ментальної характеристики робить рису простим вибором для чаротворчого класу. Туманний крок [Misty Step] — заклинання 2-го рівня й одне з найбільш тактично впливових у грі. Додатково ви вивчаєте заклинання Віщування чи Зачарування 1-го рівня й можете безкоштовно накладати його раз на день.\n\nРедакційна примітка: безкоштовні накладання відновлюються після тривалого відпочинку, а не за календарним денним лімітом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fey-touched-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Явний переможець серед заклинань Доторку феї — Сріблясті шпильки [Silvery Barbs]. Воно надзвичайно потужне, і якщо ви дозволяєте його у грі, оцінка Доторку феї піднімається до синьої — 4/4. Загальна оцінка розділу без цієї умови лишається зеленою — 3/4."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fey-touched-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше — у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Доторку феї",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/fey-touched/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-magic-initiate",
+          "parentSectionId": "section-spellcasting-feats",
+          "heading": "Посвячений у магію",
+          "sourceAnchor": "magic-initiate",
+          "blocks": [
+            {
+              "blockId": "block-section-magic-initiate-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перша чаротворча риса досі є перевіреним варіантом для багатьох збірок, що хочуть позичити магію інших класів. Отримуєте два замовляння та заклинання відповідного рівня; нерідко цього достатньо, щоб обійтися без мультикласування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-magic-initiate-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше — у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Посвяченого у магію",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/magic-initiate/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-shadow-touched",
+          "parentSectionId": "section-spellcasting-feats",
+          "heading": "Доторк тіні",
+          "sourceAnchor": "shadow-touched",
+          "blocks": [
+            {
+              "blockId": "block-section-shadow-touched-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "+1 до будь-якої ментальної характеристики робить рису простим вибором для чаротворчого класу, але її заклинання не такі універсально привабливі, як у Доторку феї. Невидимість [Invisibility] — потужне, проте не завжди корисне. Будь-який шукач пригод може ефективно використовувати Імлистий крок, тоді як Невидимість не завжди допомагає, коли ви гримите латами. Варіантів заклинань 1-го рівня також менш ніж половина від кількості для Доторку феї, і справді привабливих серед них небагато."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-touched-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше — у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Доторку тіні",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/shadow-touched/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spell-sniper",
+          "parentSectionId": "section-spellcasting-feats",
+          "heading": "Снайпер заклять",
+          "sourceAnchor": "spell-sniper",
+          "blocks": [
+            {
+              "blockId": "block-section-spell-sniper-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вибір обмежено замовляннями з атаками заклинаннями, тож варіантів дуже мало й небагато з них варті уваги. Ви використовуєте характеристику класу, з якого берете заклинання, тому чаротворці зазвичай обмежені класами з тією самою характеристикою. Це суттєво звужує користь риси. Ще гірше: кілька чаротворчих класів не мають відповідних замовлянь.\n\nРедакційна примітка: буквальна умова вибору — замовляння, що вимагає кидка атаки; бонуси до дальності й укриття мають власні умови й не перетворюють атаку зброєю на атаку заклинанням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spell-sniper-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дуже вузьке призначення, бідний вибір замовлянь і ситуативність інших переваг означають, що зовсім небагато персонажів отримують від Снайпера заклять відчутну користь."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spell-sniper-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше — у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Снайпера заклять",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/spell-sniper/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-strixhaven-initiate",
+          "parentSectionId": "section-spellcasting-feats",
+          "heading": "Посвячений Стріксхейвена",
+          "sourceAnchor": "strixhaven-initiate",
+          "blocks": [
+            {
+              "blockId": "block-section-strixhaven-initiate-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Багато в чому Посвячений Стріксхейвена нагадує оновленого Посвяченого у магію. Варіанти замовлянь — відомі заклинання кількох класів із Книги Гравця (2014). Таке обмеження не дозволяє брати потенційно проблемні замовляння з інших доповнень, як-от Гримучий Клинок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-strixhaven-initiate-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше — у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Посвяченого Стріксхейвена",
+                  "href": "https://rpgbot.net/strixhaven-initiate/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-spellcasting-feats-2014-001",
+      "articleId": "rpgbot-spellcasting-feats-2014",
+      "translationRevisionId": "translation-rpgbot-spellcasting-feats-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark",
+      "targetBlockId": "block-section-aberrant-dragonmark-1",
+      "optionId": "section-aberrant-dragonmark",
+      "context": "Аберантна мітка дракона",
+      "explanationBlockId": "block-section-aberrant-dragonmark-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-spellcasting-feats-2014-002",
+      "articleId": "rpgbot-spellcasting-feats-2014",
+      "translationRevisionId": "translation-rpgbot-spellcasting-feats-2014-draft1",
+      "sectionId": "section-artificer-initiate",
+      "targetBlockId": "block-section-artificer-initiate-1",
+      "optionId": "section-artificer-initiate",
+      "context": "Посвячений у винахідництво",
+      "explanationBlockId": "block-section-artificer-initiate-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-spellcasting-feats-2014-003",
+      "articleId": "rpgbot-spellcasting-feats-2014",
+      "translationRevisionId": "translation-rpgbot-spellcasting-feats-2014-draft1",
+      "sectionId": "section-fey-touched",
+      "targetBlockId": "block-section-fey-touched-1",
+      "optionId": "section-fey-touched",
+      "context": "Доторк феї",
+      "explanationBlockId": "block-section-fey-touched-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-spellcasting-feats-2014-004",
+      "articleId": "rpgbot-spellcasting-feats-2014",
+      "translationRevisionId": "translation-rpgbot-spellcasting-feats-2014-draft1",
+      "sectionId": "section-magic-initiate",
+      "targetBlockId": "block-section-magic-initiate-1",
+      "optionId": "section-magic-initiate",
+      "context": "Посвячений у магію",
+      "explanationBlockId": "block-section-magic-initiate-1"
+    },
+    {
+      "ratingId": "rating-spellcasting-feats-2014-005",
+      "articleId": "rpgbot-spellcasting-feats-2014",
+      "translationRevisionId": "translation-rpgbot-spellcasting-feats-2014-draft1",
+      "sectionId": "section-shadow-touched",
+      "targetBlockId": "block-section-shadow-touched-1",
+      "optionId": "section-shadow-touched",
+      "context": "Доторк тіні",
+      "explanationBlockId": "block-section-shadow-touched-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-spellcasting-feats-2014-006",
+      "articleId": "rpgbot-spellcasting-feats-2014",
+      "translationRevisionId": "translation-rpgbot-spellcasting-feats-2014-draft1",
+      "sectionId": "section-spell-sniper",
+      "targetBlockId": "block-section-spell-sniper-1",
+      "optionId": "section-spell-sniper",
+      "context": "Снайпер заклять",
+      "explanationBlockId": "block-section-spell-sniper-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-spellcasting-feats-2014-007",
+      "articleId": "rpgbot-spellcasting-feats-2014",
+      "translationRevisionId": "translation-rpgbot-spellcasting-feats-2014-draft1",
+      "sectionId": "section-strixhaven-initiate",
+      "targetBlockId": "block-section-strixhaven-initiate-1",
+      "optionId": "section-strixhaven-initiate",
+      "context": "Посвячений Стріксхейвена",
+      "explanationBlockId": "block-section-strixhaven-initiate-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

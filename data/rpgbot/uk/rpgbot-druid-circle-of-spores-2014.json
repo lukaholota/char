@@ -1,0 +1,3797 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-7e83f670a054730f",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+      "sourceId": "rpgbot-7e83f670a054730f",
+      "fetchedAt": "2026-09-29T19:16:13.918114+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:32:31-04:00",
+      "contentHash": "8590fb2344275185c55a19131e98af1056fd8bd98a596910471b86fbb188565f",
+      "title": "Circle of Spores Druid 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-7e83f670a054730f-e0ac96b716da532b.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-druid-circle-of-spores-2014",
+    "sourceId": "rpgbot-7e83f670a054730f",
+    "slug": "druid-circle-of-spores-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Коло спор — гайд підкласу Друїда (2014)",
+    "titleEn": "Circle of Spores Druid 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Друїд",
+      "Коло спор",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друїд {{Кола спор|Circle of Spores}} — складний, непростий підклас. Він пропонує низку цікавих умінь, завдяки яким жодна частина вашого ходу не пропаде даремно й вам завжди буде що цікаве робити. Проте його складно будувати й складно ним грати, а гравцям доведеться майже постійно ухвалювати непрості рішення на межі ризику й винагороди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей гайд присвячений саме друїду Кола спор і пропускає розділи з моїх типових гайдів класів, коли ці розділи суттєво не відрізняються від інших представників підкласу. Докладніше про Друїда дивіться в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "Гайді Друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Кола спор",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#subclass-features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Кола спор",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Кола спор",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Еберрона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#races-eberron"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мітки дракона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#races-eberron-dragonmarks"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Равніки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#races-ravnica"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Вайлдмаунта",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#races-wildemount"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Кола спор",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Кола спор",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Кола спор",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання Кола спор",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#spells"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Замовляння",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#cantrips"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Друїда Кола спор — Друїд-черепаха",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Кола спор",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                2,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-subclass-features",
+          "heading": "Уміння Кола спор",
+          "sourceAnchor": "subclass-features",
+          "blocks": [
+            {
+              "blockId": "block-section-subclass-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Колові закляття{{Circle Spells}}: майже все у списку часто стає в пригоді, а ще ви отримуєте жменю варіантів, яких немає у списку заклинань Друїда."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Замовляння: Моторошний дотик [Chill Touch] ви отримуєте безкоштовно на 2-му рівні. Воно заховане в тексті «Колових заклять»{{Circle Spells}}, а не в таблиці колових заклять поруч з усім іншим, тож його легко пропустити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: фантастичний дебаф і вкрай ситуативний утилітарний варіант."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: логіка того, чому друїди {{Кола спор|Circle of Spores}} можуть піднімати нежить, — "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "величезна"
+                  },
+                  {
+                    "type": "text",
+                    "text": " натяжка, але Підіймання мерців [Animate Dead] чудове в будь-якому разі. Чотири людські скелети корисні на будь-якому рівні, бо їх не шкода, і їх легко використовувати як приманку, не почуваючись погано через убивство невинної людини. Газоподібна форма [Gaseous Form] теж чудова для різноманітних цілей скрадання й розвідки."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: пристойне заклинання шкоди по одній цілі, що чудово працює проти рослин, і посередній, ненадійний дебаф."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: два чудові наступальні варіанти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Коло спор|Circle of Spores}}: коли ви вперше це отримуєте, безкоштовні 1к4 шкоди — справді приємне підсилення вашої шкоди. Шкода зростає дуже повільно, тож на високих рівнях вона не буде особливо загрозливою, але зважте, як рідко більшість друїдів взагалі щось роблять Реакцією, — це фантастичне покращення вашої економіки дій. Знайдіть союзників з численними атаками (воїнів тощо), щоб {{довго не давати ворогам діяти|stun-lock}}. На жаль, дальність мала, тож подбайте, щоб між вами й тим, що намагається вас убити, був міцний союзник-танк."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Симбіотична сутність{{Symbiotic Entity}}: нарешті хтось придумав, як друїдам процвітати в ближньому бою, не перетворюючись на тварину! Накладіть Кийок [Shillelagh] на дубинку чи палицю, візьміть щит і вперед гамселити. Тривалості в 10 хвилин може вистачити на кілька боїв, якщо діяти швидко, а навіть якщо ви не розмахуєте зброєю, 4 тимчасові ХП за рівень класу — величезна купа ХП."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Грибне зараження{{Fungal Infestation}}: ви обмежені малими чи середніми звірами й гуманоїдами, тож найкраща надія — що вовк чи щось подібне помре поруч з вами. Круто, що це можна активувати Реакцією, але від 1 до 5 зомбі з ПН 1/4 нічого особливого не зроблять. Найкращий сценарій: те, з чим ви бʼєтеся, витратить атаку на зомбі замість вас і ваших союзників (памʼятайте, що ваші зомбі мають лише 1 ХП)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Спори, що розповсюджуються|Spreading Spores}}: це створює додаткову область, у якій вороги можуть отримувати шкоду від вашої «Аури спор»{{Halo of Spores}}. Ви активуєте це Бонусною дією, але після цього істоти отримують шкоду без витрати вашої Реакції, тож якщо вдасться утримувати ворогів усередині області, це краще використання дій, і ви навіть можете завдати більше шкоди, якщо вразите кілька цілей. На жаль, ви втрачаєте можливість використовувати «Ауру спор» Реакцією, а ще, як не дивно, уміння не виключає вас із шкоди, тож будьте обережні й не скидайте «Спори, що розповсюджуються» на себе. Накладіть щось на кшталт Обплутування [Entangle], щоб вороги не могли швидко піти, а тоді киньте на них свої спори. Це також може монополізувати вашу Бонусну дію, що суперечить поширеній тактиці на кшталт «Майстра древкової зброї»{{Polearm Master}}. Це цілком може бути нормально залежно від вашої збірки й ситуації. Не кожен хід має включати розмахування Кийком [Shillelagh], а чергування ходів з атаками й ходів, на яких ви переміщуєте «Спори, що розповсюджуються» і накладаєте заклинання, може бути чудовим способом стабільно задіяти всі ваші варіанти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Грибне тіло{{Fungal Body}}: гарний список імунітетів до станів. Ви все ще можете отримувати отруйну шкоду, що дивно, але я ніколи не скаржитимуся на імунітети до станів."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Кола спор",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На відміну від інших друїдів, друїду {{Кола спор|Circle of Spores}} доводиться дбати про свої фізичні характеристики. Ви не покладаєтеся на перетворення на тварину, але все одно маєте діяти в ближньому бою чи поблизу нього, тож вам треба вміти самостійно вижити в ближньому бою. На жаль, це означає, що друїд Кола спор — більш MAD, ніж інші друїди. Як не дивно, це також означає, що ваші вимоги до характеристик збігаються з вимогами Монаха{{Monk}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: ви не можете дозволити собі високі значення в чотирьох характеристиках, а Сила просто недостатньо корисна. Єдине, що вам знадобилося б від Сили, — це атаки в ближньому бою, а це можна вирішити фінесною зброєю або накладанням Кийка [Shillelagh]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: у друїдів сумнозвісно поганий КБ, а будь-що, що ви зробите для його покращення, усе одно потребуватиме високої Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: друїд Кола спор потребує Статури більше за інших друїдів. Так, «Симбіотична сутність»{{Symbiotic Entity}} дає вам величезну купу тимчасових ХП, але ви неминуче отримаєте шкоду понад свої тимчасові ХП, і вам не хочеться померти лише через те, що ваша Статура — 10."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: заклинання Друїда працюють на Мудрості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Кола спор",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Характеристики для друїда {{Кола спор|Circle of Spores}} критично важливі. У більшості випадків шукайте якесь поєднання Спритності, Статури й Мудрості. Але на додачу шукайте способи зробити себе витривалішим. Природну броню й опір станам пропонують кілька рас. Вроджене чаротворство й додаткові навички можуть здаватися спокусливими, але зазвичай для них не знайдеться місця у вашій збірці з Колом спор."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перелік рас і підрас нижче навмисно скорочений до тих варіантів, які, на мою думку, дають ефективного друїда {{Кола спор|Circle of Spores}} або мають риси, що показують, на що звертати увагу в інших расах, і він не розглядає додаткові правила «Налаштування свого походження»{{Customizing Your Origin}}. Це аж ніяк не єдині життєздатні варіанти (особливо з додатковими правилами), і я закликаю вас вивчити інші варіанти, не перелічені нижче. Повне охоплення рас (зокрема розгляд варіантів, що добре працюють із Колом спор) дивіться в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі рас Друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/races/"
+                },
+                {
+                  "type": "text",
+                  "text": ", який містить увесь спектр доступних рас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ааракокра{{Aarakocra}} "
+                },
+                {
+                  "type": "link",
+                  "text": "EEPC",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": збільшення Спритності й Мудрості та політ. Щоб значна частина Кола спор працювала, вам треба бути в ближньому бою чи поблизу нього, тож політ мало що дає, окрім швидшого входу в ближній бій. Можна взяти рису «Рухливий»{{Mobile}}, щоб застосовувати тактику «вдар і тікай» у польоті, — це суттєве покращення, але Коло спор дуже MAD, тож часто важко пожертвувати Покращенням Характеристик заради риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дворф{{Dwarf}} "
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": +2 до Статури, Темний зір і «Дворфська стійкість»{{Dwarven Resilience}} — усе чудово. На жаль, скористатися «Дворфським бойовим навчанням»{{Dwarven Combat Training}} не вийде, бо ми занедбуємо Силу й покладаємося на Кийок [Shillelagh]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-5",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Пагорбовий{{Hill}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Статура, Мудрість і велика купа додаткових ХП. За цифрами загалом надійно, але раси, що дають спосіб розвʼязати жахливий КБ друїда, усе одно будуть ефективнішими."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Фірболг{{Firbolg}} "
+                },
+                {
+                  "type": "link",
+                  "text": "VGTM",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": «Прихований крок»{{Hidden Step}} чудовий, коли «Симбіотична сутність»{{Symbiotic Entity}} закінчується, а ви застрягли в ближньому бою, і зважаючи на те, що Фірболг і так добрий варіант для друїда."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ґіт{{Gith}} "
+                },
+                {
+                  "type": "link",
+                  "text": "MToF",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": Ґітцерай{{Githzerai}} — пристойний варіант, але вибір Інтелекту змарнований."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-8",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Ґітцерай{{Githzerai}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MToF",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": збільшення Мудрості, Щит [Shield] як вроджене заклинання й «Ментальна дисципліна»{{Mental Discipline}}. Щит [Shield] виглядає дуже спокусливо, але виконати соматичний компонент може бути важко, коли в одній руці щит, а в другій — кийок."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гоблін{{Goblin}}"
+                },
+                {
+                  "type": "superscript",
+                  "text": "VGtM"
+                },
+                {
+                  "type": "text",
+                  "text": ": Спритність і Статура — це добре, але відставання з Мудрістю — серйозна вада на довгий час. «Спритна втеча»{{Nimble Escape}} — чудове доповнення на випадок, коли «Симбіотична сутність»{{Symbiotic Entity}} закінчується, а «Лють маленького»{{Fury of the Small}} може бути корисним підсиленням шкоди, бо більшість ворогів середнього розміру чи більші."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напівельф{{Half-Elf}}: характеристики чудово підходять, а бонусні навички завжди приємні, але Варіант людини{{Variant Human}} строго кращий."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-11",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Високий/Місячний/Сонячний{{High/Moon/Sun}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": одне замовляння зі списку заклинань Чарівника{{Wizard}} означає, що ви можете отримати Гримучий Клинок [Booming Blade] чи Клинок Зеленого Полумʼя [Green-Flame Blade] без «Посвяченого у магію»{{Magic Initiate}}. Проте на цьому етапі ви отримаєте набагато більше, граючи Варіантом людини{{Variant Human}} і взявши «Посвяченого у магію»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Звичайний "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дві навички приємні майже будь-якому персонажу, але вони нічим не допомагають Колу спор, а вам справді потрібно, щоб раса доповнювала підклас, аби хоч щось із цього працювало."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-12",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напіврослик{{Halfling}} "
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": збільшення Спритності дає корисне підвищення КБ, а Примарний напіврослик{{Ghostwise}} дає збільшення Мудрості. «Удача»{{Lucky}} і «Хоробрість»{{Brave}} можуть трохи допомогти, але можуть бути не такими корисними, як щось, що дає більше опору до станів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-13",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Примарний{{Ghostwise}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": невеликий приріст Мудрості — це добре, але це єдине, що нас справді цікавить."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-14",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Людина{{Human}} "
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": універсальна й фантастична в усьому."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-15",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Звичайна: +1 до кожної характеристики означає +1 до кожної з трьох, що нас цікавлять. Цього все одно недостатньо, щоб це був чудовий варіант, але це хоч щось."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Варіантна: вкладіть бонуси в Спритність і Мудрість і візьміть рису. «Посвячений у магію»{{Magic Initiate}} і «Майстер древкової зброї»{{Polearm Master}} — обидва чудові вибори."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-16",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ящеролюд{{Lizardfolk}} "
+                },
+                {
+                  "type": "link",
+                  "text": "VGTM",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": природна броня Ящеролюда не така добра, як у Локсодона{{Loxodon}}, бо вам усе одно знадобляться і Спритність, і Статура, але все інше в Ящеролюда краще. На жаль, «Укус»{{Bite}} і «Голодні щелепи»{{Hungry Jaws}} обидва базуються на Силі, тож не очікуйте від них багато."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-17",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Черепаха{{Tortle}} "
+                },
+                {
+                  "type": "link",
+                  "text": "TP",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": попри те, що збільшує лише одну з потрібних нам характеристик, природна броня Черепахи робить її серйозним претендентом. +1 до Мудрості достатньо, щоб тримати вас на прогресії «атака проти КБ», а КБ 17 означає, що Спритність можна повністю ігнорувати. Візьміть щит, і ваш КБ на 1-му рівні становитиме 19, що зрівнює вас із більшістю інших друїдів аж до дуже високих рівнів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-18",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Три-крін{{Thri-Kreen}} "
+                },
+                {
+                  "type": "link",
+                  "text": "SAiS",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": чотири руки означають, що можна використовувати щит "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "і"
+                },
+                {
+                  "type": "text",
+                  "text": " бій двома зброями, що дозволяє краще використовувати можливості Кола спор у ближньому бою без «Майстра древкової зброї»{{Polearm Master}}. «Хамелеон-Панцир»{{Chameleon Carapace}} перевершить будь-який немагічний варіант обладунків, доступний Друїду."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-19",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Раси, специфічні для окремих світів, розглянуто нижче. Не кожен світ дозволяє кожну расу, і хоча більшість рас з основних правил і матеріалів для Забутих Королівств можна використовувати в інших світах, раси, специфічні для таких світів, як Равніка, зазвичай в інших світах не дозволені. Обговоріть із Майстром, які раси дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races-eberron",
+          "parentSectionId": "section-races",
+          "heading": "Раси Еберрона",
+          "sourceAnchor": "races-eberron",
+          "blocks": [
+            {
+              "blockId": "block-section-races-eberron-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Калаштар{{Kalashtar}} "
+                },
+                {
+                  "type": "link",
+                  "text": "ERLW",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": збільшення Мудрості чудове, але воно не вирішує проблему слабкої живучості друїда. Захист Калаштара здебільшого ментальний, а проблеми друїда — здебільшого з фізичним захистом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перевертень{{Shifter}} "
+                },
+                {
+                  "type": "link",
+                  "text": "ERLW",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": оскільки використання «Симбіотичної сутності»{{Symbiotic Entity}} не змінює вашу базову форму (надто сильно), ви все одно можете скористатися «Перевертанням»{{Shifting}} під час її дії й поєднувати обидва ефекти. Проте тимчасові ХП від двох ефектів не складаються, а якщо ви втрачаєте тимчасові ХП від «Симбіотичної сутності» (наприклад, вирішивши замінити їх тимчасовими ХП від «Перевертання»), «Симбіотична сутність» одразу закінчується."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Звіроша шкіра|Beasthide}}: додаткова Статура — чудово, але оскільки тимчасові ХП від «Перевертання»{{Shifting}} конфліктують із «Симбіотичною сутністю»{{Symbiotic Entity}}, значна частина привабливості Перевертня Звірошої шкіри втрачається. Якщо вам просто потрібні Статура й КБ, грайте Воєнокованим{{Warforged}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дикий мисливець|Wildhunt}}: характеристики добре збігаються, а Перевага на кубику на перевірки Мудрості приємна, але жодне з цього не розвʼязує проблему живучості друїда."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Воєнокований{{Warforged}} "
+                },
+                {
+                  "type": "link",
+                  "text": "ERLW",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": найбільша проблема друїда — живучість, а Воєнокований — це все про живучість. Опір до отруйної шкоди, щоправда, зайвий, але це нормально, зважаючи на те, наскільки корисне все інше."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races-eberron-dragonmarks",
+          "parentSectionId": "section-races-eberron",
+          "heading": "Мітки дракона",
+          "sourceAnchor": "races-eberron-dragonmarks",
+          "blocks": [
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоч задум {{Міток дракона|Dragonmarks}} полягав у тому, щоб дати кожному трохи вродженого чаротворства, кожна мітка дракона містить розширений список заклинань, що, мабуть, є вагомішою перевагою, ніж більшість наданих расових рис. Оскільки розширені варіанти заклинань — така важлива частина міток дракона, якщо ви не граєте заклинателя, ви відмовляєтеся від величезної частини расових рис, і тому надзвичайно важко виправдати гру персонажем із міткою дракона, який не може накладати заклинання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Напіворк із міткою дракона|Dragonmarked Half-Orc}} "
+                },
+                {
+                  "type": "link",
+                  "text": "ERLW",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": риси мітки дракона замінюють УСІ ваші расові риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Пошуку|Mark of Finding}}: збільшення Статури й Мудрості чудові, а Мисливська мітка [Hunter's Mark] дає невелике, але приємне підвищення вашої шкоди. Проте багато заклинань мітки дракона вже є в списку заклинань Друїда."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Напіврослик із міткою дракона|Dragonmarked Halfling}} "
+                },
+                {
+                  "type": "link",
+                  "text": "ERLW",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": риси мітки дракона замінюють вашу підрасу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-5",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Зцілення|Mark of Healing}}: Спритність, Мудрість і кілька нових заклинань, як-от Масове цілюще слово [Mass Healing Word]."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Людина з міткою дракона|Dragonmarked Human}} "
+                },
+                {
+                  "type": "link",
+                  "text": "ERLW",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": риси мітки дракона замінюють УСІ ваші расові риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-7",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Пошуку|Mark of Finding}}: дивіться «Мітку Пошуку» під «Напіворк із міткою дракона» вище. Механічно підсумкові расові риси ідентичні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Поводження|Mark of Handling}}: характеристики чудово підходять, але майже всі заклинання вже є в списку заклинань Друїда."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Переходу|Mark of Passage}}: характеристики чудові, а заклинання мітки дракона додають до списку заклинань Друїда чимало нових заклинань, зокрема потужні варіанти на кшталт Туманного кроку [Misty Step], що допомагають швидко входити в ближній бій і виходити з нього."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Вартового|Mark of Sentinel}}: характеристики чудові, ви раз на день безкоштовно отримуєте Щит [Shield], а більшість заклинань мітки дракона для Друїда нові, зокрема потужні варіанти низьких рівнів на кшталт Щита віри [Shield of Faith], що можуть допомогти компенсувати поганий КБ друїда."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races-ravnica",
+          "parentSectionId": "section-races",
+          "heading": "Раси Равніки",
+          "sourceAnchor": "races-ravnica",
+          "blocks": [
+            {
+              "blockId": "block-section-races-ravnica-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Локсодон{{Loxodon}} "
+                },
+                {
+                  "type": "link",
+                  "text": "GGTR",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": чудові характеристики для друїда й жменя корисних пасивних переваг. «Природна броня»{{Natural Armor}} Локсодона базується на Статурі, тож можна спокійно занедбати Спритність і бути неймовірно живучим, що значно полегшує побудову друїда й потенційно навіть залишає місце для рис. «Локсодонська безтурботність»{{Loxodon Serenity}} також дає корисний захист від поширених станів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-ravnica-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Симічний гібрид{{Simic Hybrid}} "
+                },
+                {
+                  "type": "link",
+                  "text": "GGTR",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": вкладіть гнучке збільшення в Мудрість. Візьміть будь-яке з поліпшень 1-го рівня, а на 5-му рівні візьміть «Панцир»{{Carapace}}. «Чіпкі відростки»{{Grappling Appendages}} спокушають, але вони базуються на Силі, тож це не добрий варіант. На жаль, без збільшення Спритності чи іншого способу підвищити КБ Симічний гібрид відставатиме від інших варіантів на низьких рівнях."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-ravnica-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ведалкен{{Vedalken}} "
+                },
+                {
+                  "type": "link",
+                  "text": "GGTR",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": гарний варіант для багатьох друїдів, але захист Ведалкена лише ментальний, а проблема друїда здебільшого у фізичній живучості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races-wildemount",
+          "parentSectionId": "section-races",
+          "heading": "Раси Вайлдмаунта",
+          "sourceAnchor": "races-wildemount",
+          "blocks": [
+            {
+              "blockId": "block-section-races-wildemount-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ельф{{Elf}} "
+                },
+                {
+                  "type": "link",
+                  "text": "EGtW",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": ельфи Вайлдмаунта{{Wildemount}} мають спільні основні риси з основними ельфами, але Вайлдмаунт додає дві нові підраси ельфів. Інформацію про основні риси ельфів дивіться вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-wildemount-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Блідий ельф{{Pallid Elf}}: ті самі збільшення характеристик, що й у Лісового ельфа{{Wood Elf}}, але з більшим акцентом на мисленні й магії, ніж на тому, щоб бігати серед природи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Морський ельф{{Sea Elf}}: дивіться вище."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-wildemount-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напіврослик{{Halfling}} "
+                },
+                {
+                  "type": "link",
+                  "text": "EGtW",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": напівросліки Вайлдмаунта{{Wildemount}} мають спільні основні риси з основними напівросликами, але Вайлдмаунт додає нову підрасу напівросликів. Інформацію про основні риси напівросликів дивіться вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-wildemount-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Лотусден{{Lotusden}}: Спритність, Мудрість і кілька безкоштовних друїдських заклинань. Однозначно підходить друїду загалом, але нічого, що розвʼязало б вашу проблему живучості."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Кола спор",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ не охоплює кожну опубліковану рису, бо це призвело б до постійно зростаючого списку варіантів, що не підходять класу. Натомість тут розглянуто риси, які, на нашу думку, особливо добре працюють для класу або які можуть спокушати, але є поганим вибором. Докладніші поради щодо окремих рис шукайте в наших "
+                },
+                {
+                  "type": "link",
+                  "text": "гайдах про риси D&D 2024",
+                  "href": "https://rpgbot.net/2024-dnd/feats/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загальніші поради щодо рис дивіться в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "Гайді Друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Адепт стихій{{Elemental Adept}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": трагічно, але «Адепт стихій» не дозволяє обрати некротичну шкоду."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Посвячений у магію|Magic Initiate}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Посвячений у магію» — чудовий варіант для Кола спор. Ближні замовляння на кшталт Гримучого Клинка [Booming Blade] і Клинка Зеленого Полумʼя [Green-Flame Blade] дозволяють перевищити вашу звичайну шкоду від замовлянь, поєднуючи Кийок [Shillelagh], замовляння атаки, і додаткову 1к6 шкоди від «Симбіотичної сутності»{{Symbiotic Entity}}. На додачу можна отримати й Обладунок мага [Mage Armor]. КБ 13+Спритність від Обладунку мага [Mage Armor] перевищить 12+Спритність від {{проклепаного шкіряного обладунку|Studded Leather}}, піднімаючи ваш максимально можливий КБ до 20 (13 базових, 20 Спритності, +2 щит) без мультикласування чи магічних предметів. Докладніші поради щодо «Посвяченого у магію» дивіться в нашому "
+                  },
+                  {
+                    "type": "link",
+                    "text": "розборі рис для заклинателів",
+                    "href": "https://rpgbot.net/dnd5/characters/spellcasting-feats"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рухливий{{Mobile}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": не обовʼязковий, але корисний, коли тимчасові ХП «Симбіотичної сутності»{{Symbiotic Entity}} закінчуються, а те, що ви не стоїте безпосередньо в ближньому бою, допоможе зменшити шкоду."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Майстер древкової зброї|Polearm Master}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": працює з палицями, а отже, з Кийком [Shillelagh] і всіма нашими іншими витівками. Якщо ви не хочете покладатися на ближні замовляння, використання «Майстра древкової зброї» для додаткової атаки — чудовий варіант. Ви все одно можете застосувати додаткову 1к6 шкоди від «Симбіотичної сутності»{{Symbiotic Entity}} на атаці бонусною дією."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стійкий{{Resilient}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": володіння ряткидками Статури справді корисне для класу з великою кількістю дійсно чудових заклинань, що потребують Концентрації, особливо оскільки ви плануєте проводити багато часу в ближньому бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вартовий{{Sentinel}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудово, якщо ви хочете бути танком, але я думаю, що від інших рис ви отримаєте кращі результати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер щита{{Shield Master}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у друїдів зазвичай недостатньо Сили, щоб варіант «Штовхання»{{Shove}} був корисним."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Здоровань{{Tough}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": більше ХП ніколи не завадить, але майже напевно у вас замало рис, щоб знайти місце для цієї."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойовий заклинатель{{War Caster}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ви проводитимете багато часу в зоні ближнього бою, і в цей час у ваших руках можуть бути зброя й щит. Жонглювання зброєю заради накладання заклинань у багатьох випадках може бути проблемою, тож «Бойовий заклинатель» може позбавити вас чималих клопотів. Навіть якщо ви користуєтеся Посохом (друїди можуть використовувати деревʼяний посох як фокус, а посохи-фокуси мають ті самі характеристики зброї, що й палиця{{quarterstaff}}), зазвичай ви не можете виконувати соматичні компоненти зі зброєю в руці, якщо заклинання не має ще й матеріальних компонентів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер зброї{{Weapon Master}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ви вже володієте всім, що може бути ціллю Кийка [Shillelagh], але якщо у вас винятково висока Спритність, можна обрати рапіру{{rapier}} замість палиці{{quarterstaff}}, а якщо хочете кращу фінесну зброю, можна зіграти Лісовим ельфом{{Wood Elf}} і користуватися коротким мечем{{short sword}}. Різниця в шкоді між рапірою та коротким мечем недостатньо велика, щоб марнувати на це рису."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Кола спор",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Дубинка{{Club}}: працює з Кийком [Shillelagh], але палиця{{quarterstaff}} працює з «Майстром древкової зброї»{{Polearm Master}}, і це довша палка для штурхання пасток та інших дивних предметів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кинджал{{Dagger}}: не працює з Кийком [Shillelagh], але ваша Спритність має бути пристойною, тож це чудова запасна зброя, і кожен персонаж має носити кинджал для утилітарних цілей і щоб прорізати собі шлях із шлунків істот."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Палиця{{Quarterstaff}}: цілком добре, і її можна використовувати і з «Майстром древкової зброї»{{Polearm Master}}, і з Кийком [Shillelagh]."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Кола спор",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Шкуряний обладунок|Hide}}: ваш стартовий обладунок, якщо на 1-му рівні у вас немає Спритності 16."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Шкіряний обладунок|Leather}}: ваш стартовий обладунок, якщо на 1-му рівні у вас Спритність 16 або більше."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Проклепаний шкіряний обладунок|Studded Leather}}: найкращий обладунок, який ви можете отримати, але зачекайте з ним, доки ваша Спритність не досягне щонайменше 16."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Щит{{Shield}}: щит вам потрібен, як риба воді. Ви багато будете в ближньому бою. Якщо вибирати між зброєю та щитом, завжди обирайте щит. У друїдів жахливий КБ, а тимчасових ХП від «Симбіотичної сутності»{{Symbiotic Entity}} недостатньо, щоб це компенсувати."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Варвар{{Barbarian}}: «Захист без обладунків»{{Unarmored Defense}} корисний, але це єдине, що нас цікавить, а версія Монаха працює краще."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик{{Cleric}}: більше чаротворства на основі Мудрості, а деякі уміння доменів 1-го рівня спокушають, але нічого, що безпосередньо допомагало б Колу спор."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Монах{{Monk}}: друїди Кола спор проводять більшість часу, особливо на низьких рівнях, у ближньому бою чи поблизу нього, але самі по собі вони дуже тендітні попри живучість, яку додає «Симбіотична сутність»{{Symbiotic Entity}}. У друїда жахливий КБ, а додаткових атак зброєю він ніколи не отримує, тож додаткова 1к6 шкоди від «Симбіотичної сутності» часто не має значення вище низьких рівнів. Один рівень Монаха розвʼязує всі ці проблеми. «Захист без броні»{{Unarmored Defense}} дозволяє досягти КБ 20 з характеристиками, які ви й так збиралися підвищувати, і вам більше не потрібен щит. Можна використовувати беззбройні удари замість зброї, але також можна тримати палицю двома руками з Кийком [Shillelagh] чи без нього залежно від того, на чому ви волієте зосередитися — на Спритності чи на Мудрості. Однак ваш беззбройний удар бонусною дією все одно базуватиметься на Спритності, тож я раджу спершу зосередитися на Спритності замість Мудрості й дати вашому чаротворству відставати, доки ви не доведете і Спритність, і Мудрість до 20."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells",
+          "heading": "Заклинання Кола спор",
+          "sourceAnchor": "spells",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друїду {{Кола спор|Circle of Spores}}, імовірно, потрібно тримати в руці зброю ближнього бою і для атак у власний хід, і для принагідних атак. Йому також потрібен щит, щоб упоратися з сумнозвісно поганим КБ друїда. На жаль, це означає, що вам доведеться постійно діставати/ховати зброю, щоб звільнити руку для накладання заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spells-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо вам потрібно дістати чаротворчий фокус або матеріальні компоненти, це може вимагати витратити взаємодію з предметом на двох послідовних ходах, щоб перейти від зброї до фокуса чи від зброї до фокуса. Оскільки це може бути проблемою й часто залишатиме вас із порожніми руками між ходами, намагайтеся по змозі використовувати заклинання без матеріальних і соматичних компонентів, якщо тільки не збираєтеся взяти «Бойового заклинателя»{{War Caster}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spells-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У розділі нижче розглянуто лише замовляння. Більша частина чаротворства друїда {{Кола спор|Circle of Spores}} по суті така сама, як у решти друїдів. Ваші замовляння будуть трохи іншими, щоб зробити акцент на ближньому бою чи бою поблизу нього, але здебільшого ви все одно звичайний друїд. Докладніші поради щодо заклинань дивіться в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі заклинань Друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/spells"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cantrips",
+          "parentSectionId": "section-spells",
+          "heading": "Замовляння",
+          "sourceAnchor": "cantrips",
+          "blocks": [
+            {
+              "blockId": "block-section-cantrips-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Моторошний дотик [Chill Touch] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": безкоштовний на 2-му рівні завдяки «Коловим закляттям»{{Circle Spells}}. Моторошний дотик [Chill Touch] завдає стільки ж шкоди, як Створення вогню [Produce Flame], з вчетверо більшою дальністю, ще й це некротична шкода, що для Друїда рідкість. Він також накладає дебаф на нежить, що фантастично, бо нежить зазвичай має опір чи імунітет до некротичної шкоди, яка домінує в шкоді, що її завдає Коло спор."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Первісна дикість [Primal Savagery] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": оскільки це заклинальна атака, вона не отримає користі від додаткової шкоди «Симбіотичної сутності»{{Symbiotic Entity}}. Масштабування шкоди зрештою перевершить Кийок [Shillelagh], але лише з 17-го рівня. На жаль, друїд отримує останнє нове замовляння на 4-му рівні, і якщо ви не користуєтеся необовʼязковими правилами з «Казана Таші з усім»{{Tasha’s Cauldron of Everything}}, перенавчити замовляння неможливо. Я просто не можу порадити носити з собою замовляння, яким ви, імовірно, ніколи не скористаєтеся 14 рівнів. Воно має ту перевагу, що не вимагає використання зброї, але якщо є ймовірність магічної зброї або ви не плануєте брати «Бойового заклинателя»{{War Caster}}, Кийок [Shillelagh] усе одно здається кращим варіантом."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кийок [Shillelagh] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо ви плануєте будь-який ближній бій узагалі, вам майже напевно потрібен Кийок [Shillelagh]. Ви не можете дозволити собі вкладатися в Силу, а Мудрості доведеться віддавати перевагу над Спритністю, доки не досягнете 20 Мудрості, щоб ваше чаротворство залишалося на належному рівні, бо це все ще головна функція вашого класу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Терновий батіг [Thorn whip] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": шкода пристойна, але справжня принада — ефект підтягування. 10 футів можуть здаватися небагатьма, але цього досить, щоб стягувати ворогів з уступів, затягувати низько літаючих ворогів у ближній бій, затягувати ворогів в ефект контролю території на кшталт Створення багаття [Create Bonfire] чи Стіни вогню [Wall of Fire], витягувати ворогів із захоплення, а в скруті можна витягти з небезпечного місця й союзника (хоч і ціною певної шкоди своїм)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гуркіт грому [Thunderclap] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": завдавати шкоди кожній істоті в межах 5 футів від вас — чудово, якщо ви в ближньому бою проти численних ворогів. Навіть із «Додатковою атакою»{{Extra Attack}} проти трьох чи більше ворогів ви завдасте цим більше шкоди, ніж зброєю. Дивіться нашу статтю про "
+                  },
+                  {
+                    "type": "link",
+                    "text": "ближні замовляння проти Додаткової атаки",
+                    "href": "https://rpgbot.net/dnd5/characters/melee_cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", де розібрано математику порівняння ближніх замовлянь зі звичайними бойовими атаками."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Друїда Кола спор — Друїд-черепаха",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Якщо подумати, капелюшок гриба чимось схожий на панцир черепахи. Хіба що гриб не може сховатися всередині панцира. Гаразд, жахливе порівняння. Рухаймося далі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Черепаха{{Tortle}} спрощує багато чого для Кола спор. КБ 17 перевершить КБ кожного іншого друїда на низьких рівнях, а КБ — величезна проблема для друїдів, особливо якщо ви будете в ближньому бою. Навіть Локсодон{{Loxodon}} матиме на першому рівні лише КБ 16, а ви, імовірно, не захочете витрачати підвищення характеристик ні на що, окрім Мудрості, доки Мудрість не досягне 20, тож Черепаха матиме найвищий КБ серед друїдів до 12-го рівня."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На високих рівнях інші друїди зрештою можуть перевершити ваш КБ, але для цього знадобиться занурення в Монаха{{Monk}}, і навіть так це станеться не раніше 9-го рівня, тож Черепаха добра майже для половини діапазону рівнів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З фіксованим базовим КБ вам не треба так хвилюватися про Спритність, як більшості інших друїдів Кола спор. Вона потрібна здебільшого лише для ряткидків, а оскільки нам не треба максимально підвищувати Спритність, ми можемо розподілити ці очки між іншими характеристиками, щоб наші бонуси до ряткидків і навичок не були занедбані заради необхідної бойової ефективності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми припускатимемо характеристики за купівлею, запропоновані вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Черепаха{{Tortle}}. Як ми обговорювали вище, Черепаха разюче спрощує і ваші характеристики, і ваш КБ — два з найбільших викликів для друїда {{Кола спор|Circle of Spores}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна без особливих проблем замінити Черепаху{{Tortle}} на Локсодона{{Loxodon}}. Ви почнете з вищою Статурою, але з трохи меншим КБ. Імовірно, ви не зможете знайти місце для підвищення Статури, доки не доведете Мудрість до максимуму, але 12-й і 16-й рівні дадуть дуже приємні підвищення характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Почніть із Природи й Уважності — чудових навичок для друїда. Ще дві ви отримаєте від передісторії, але для того, щоб Коло спор працювало, це не особливо важливо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ваш вибір передісторії мало важить поза звичайними друїдськими справами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми почнемо з Мудрістю 16, тож два підвищення характеристик підуть у Мудрість, але ще три ми зможемо витратити. Старт зі Статурою 15 означає, що ми можемо взяти «Стійкого»{{Resilient}}, щоб довести її до 16 і водночас отримати володіння ряткидками Статури. Також можна розглянути інші риси на кшталт "
+                },
+                {
+                  "type": "link",
+                  "text": "«Бойовий заклинатель»",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/war-caster/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{War Caster}}, але нічого, що було б нам конче потрібне, немає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Друїдична мова|Druidic}}\nЧаротворство{{Spellcasting}}\nВідомі замовляння:\n– Кийок\n– Терновий батіг"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для стартового спорядження візьміть деревʼяний щит, палицю, шкіряний обладунок, набір мандрівника{{Explorer’s Pack}} й друїдичний фокус{{Druidic Focus}}. Із щитом у руці ваш КБ дорівнює 19. На 1-му рівні це не поступається більшості воїнів зі щитами, тож, попри трохи менші ХП, ви все одно дуже живучі. У бою ваша основна роль подібна до ролі Воїна: підійти впритул і лупцювати супротивників палицею. Кийок [Shillelagh] одразу стане в пригоді, а на цьому рівні у вас дуже мало способів використати Бонусну дію; утім, призвичайтеся постійно накладати Кийок [Shillelagh], якщо вас можуть атакувати. Із часом ваша економіка дій буде завантажена, а якщо Кийок уже діятиме на початку бою, Бонусну дію можна буде витратити на інше. На відстані ваш основний варіант — Терновий батіг [Thorn whip]. Зазвичай вам потрібно зблизитися з ворогами, особливо якщо вони самі не хочуть наближатися, а притягнути їх на 10 футів може допомогти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дика форма{{Wild Shape}}\nКоло друїдів{{Druidic Circle}}: {{Коло спор|Circle of Spores}}\nКолові закляття{{Circle Spells}}\nКолове закляття:\n– Моторошний дотик\n{{Аура спор|Halo of Spores}}\nСимбіотична сутність{{Symbiotic Entity}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2-й рівень — великий для Друїда. Ви отримуєте здатність перетворюватися на тварин за допомогою Дикої форми{{Wild Shape}}, але, ймовірно, використовуватимете її лише для корисних справ і дослідження. Що важливіше, ви отримуєте уміння підкласу. Зокрема, {{Коло спор|Circle of Spores}} дає додаткове замовляння "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Моторошний дотик",
+                      "href": "https://www.dndbeyond.com/spells/chill-touch"
+                    },
+                    {
+                      "type": "text",
+                      "text": " на цьому рівні. Його легко не помітити, бо воно зазначене в тексті «Колових заклять»{{Circle Spells}}, а не в таблиці «Колових заклять». «Аура спор»{{Halo of Spores}} і «Симбіотична сутність»{{Symbiotic Entity}} — найважливіші здобутки цього рівня й два найважливіші наші бойові варіанти. Без «Симбіотичної сутності» ви теж непогано битиметеся й користуватиметеся тією самою тактикою, але вона — наче {{кнопка Caps Lock|Caps Lock button}} для добрячого гамселення. Її активація потребує Дії, а триває вона 10 хвилин, тож в ідеалі її слід активувати до початку бою, хоча це не завжди можливо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 2-го рівня. Коли отримуватимете доступ до нових заклинань, шукайте ті, що допомагають у ближньому бою. Захисний вітер [Warding Wind] добре ускладнює ворогам утечу від вас, а заклинання контролю території на кшталт Проростання шипів [Spike Growth] допомагають контролювати поле бою. Якщо у вас мало ХП, накладіть Дух зцілення [Healing Spirit] і стійте на своєму, поки воно вас лікує."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Мудрість 16 → 18)\nПокращення Дикої форми\nНове замовляння:\n– Гуркіт грому"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вища Мудрість одночасно покращує чаротворство й атаки. На цьому рівні вивчаємо Гуркіт грому [Thunderclap]. Поки що немає доброго способу впоратися з натовпом, а з лише однією атакою зброєю за хід на будь-якому рівні може бути важко впоратися з численними ворогами, що вступили з вами в ближній бій."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 3-го рівня. Добрих друїдських заклинань 3-го рівня небагато, а тих, що підходять Колу спор, ще менше."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Грибне зараження{{Fungal Infestation}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Грибне зараження»{{Fungal Infestation}} не надто потужне, але дає вам зомбі-улюбленця на строк до години. Ним можна блокувати пересування ворогів або накинути на нього рюкзак і доручити нести скарби чи щось таке."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня. На цьому рівні є чудові варіанти. Гігантська комаха [Giant Insect] дуже добре підходить, а якщо комусь і носити з собою купу комах у кишенях, то друїду Кола спор. Вартовий природи [Guardian of Nature] теж пасує чудово. Також на цьому рівні ми отримуємо доступ до "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/pathfinder/characters/polymorph/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Ви вже 7-го рівня, тож вам доступні майже всі варіанти перевтілення. Наскільки я можу судити, можна спершу активувати «Симбіотичну сутність»{{Symbiotic Entity}}, а потім накласти «Перевтілення» й зберегти всі переваги «Симбіотичної сутності». Звісно, після перевтілення ви не зможете активувати класові уміння, тож вам залишаться лише тимчасові ХП і додаткові 1к6 некротичної шкоди від атак зброєю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Мудрість 18 → 20)\nПокращення Дикої форми"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зазвичай я раджу спершу довести основну характеристику до 18, перш ніж розглядати риси, тож саме тепер уперше варто додати риси до збірки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 5-го рівня. Є кілька добрих варіантів, але жоден не змінює нашу тактику."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Спори, що розповсюджуються|Spreading Spores}}\nНове відоме замовляння:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер у вас є чимало чудових заклинань контролю території, як-от Проростання шипів [Spike Growth] і Стіна з каменю [Wall of Stone]. Накладіть щось, щоб вороги не втекли, а тоді висипте на них спори й зачекайте. Якщо вони виберуться зі спор, витратьте ще одну Бонусну дію, щоб перемістити «Спори, що розповсюджуються»{{Spreading Spores}} поверх них. Усі потрібні нам замовляння вже є, тож на цьому рівні беріть будь-яке. Мені завжди до вподоби Формування води [Shape Water], бо воно неймовірне, а Ремесло друїдів [Druidcraft] — паруюча купа нікчемного сміття."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 6-го рівня. Вбрання вогню [Investiture of Flame] і Вбрання льоду [Investiture of Ice] чудово підходять для ближнього бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура 15 → 16)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стійкий{{Resilient}} підвищує нашу Статуру, дає купу ХП і володіння ряткидками Статури."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 7-го рівня. На цьому рівні нічого захопливого, але за допомогою Планарного переходу [Plane Shift] можна позбутися ворогів, із якими важко впоратися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Грибне тіло{{Fungal Body}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Грибне тіло»{{Fungal Body}} дає чимало приємних імунітетів до станів. Тактика не змінюється, але ви стаєте трохи живучішими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 8-го рівня. Знову нічого, що змінює нашу тактику."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Статура 16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще одна нагода взяти рису, але до цього рівня ви, ймовірно, вже достатньо впевнено володітимете тактикою й додаткова риса не знадобиться."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 9-го рівня. Накладіть на себе Передбачення [Foresight]. Усі цілі мають перешкоду на атаки проти вас, що значно підвищить вашу живучість і легко компенсує проблеми з КБ, яких вам досі не вдалося позбутися. Також протягом усіх 8 годин ви матимете Перевагу на всі атаки, перевірки характеристик і ряткидки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тіло поза часом{{Timeless Body}}\nЗаклинання звіра{{Beast Spells}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На жаль, «Заклинання звіра»{{Beast Spells}} ми, ймовірно, ніколи не використаємо. Для інших друїдів це потужний варіант: він дає змогу за допомогою Дикої форми покращити свою мобільність, триматися поза досяжністю ворогів і водночас накладати наступальні заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Статура 18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще одна велика купа ХП або ще одна риса."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Архі-друїд{{Archdruid}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Архі-друїд»{{Archdruid}} дає дві чудові переваги. По-перше, ви можете використовувати Дику форму скільки завгодно разів, а отже, можете скільки завгодно разів активувати «Симбіотичну сутність». По суті, вона має діяти постійно, а якщо тимчасових ХП стане мало, можна навіть поновити її посеред бою. По-друге, для друїдських заклинань можна ігнорувати всі соматичні й вербальні компоненти та більшість матеріальних. Вам більше не потрібна вільна рука для соматичних компонентів — це було проблемою майже всю карʼєру, якщо тільки ви не взяли «Бойового заклинателя»{{War Caster}}."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-001",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-0",
+      "context": "Колові закляття",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-002",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-1",
+      "context": "Замовляння",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-003",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-004",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-005",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-006",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-007",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-6",
+      "context": "Коло спор",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-008",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-7",
+      "context": "Симбіотична сутність",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-009",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-8",
+      "context": "Грибне зараження",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-010",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-9",
+      "context": "Спори, що розповсюджуються",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-011",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-subclass-features",
+      "targetBlockId": "block-section-subclass-features-1",
+      "optionId": "section-subclass-features-block-section-subclass-features-1-item-10",
+      "context": "Грибне тіло",
+      "explanationBlockId": "block-section-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-012",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-2",
+      "optionId": "section-ability-scores-block-section-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-013",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-3",
+      "optionId": "section-ability-scores-block-section-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-ability-scores-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-014",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-4",
+      "optionId": "section-ability-scores-block-section-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-015",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-5",
+      "optionId": "section-ability-scores-block-section-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-016",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-6",
+      "optionId": "section-ability-scores-block-section-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-ability-scores-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-017",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-7",
+      "optionId": "section-ability-scores-block-section-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-018",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-3",
+      "optionId": "section-races-block-section-races-3",
+      "context": "Ааракокра",
+      "explanationBlockId": "block-section-races-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-019",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-4",
+      "optionId": "section-races-block-section-races-4",
+      "context": "Дворф",
+      "explanationBlockId": "block-section-races-4"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-020",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-5",
+      "optionId": "section-races-block-section-races-5-item-0",
+      "context": "Пагорбовий",
+      "explanationBlockId": "block-section-races-5",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-021",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-6",
+      "optionId": "section-races-block-section-races-6",
+      "context": "Фірболг",
+      "explanationBlockId": "block-section-races-6",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-022",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-7",
+      "optionId": "section-races-block-section-races-7",
+      "context": "Ґіт",
+      "explanationBlockId": "block-section-races-7"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-023",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-8",
+      "optionId": "section-races-block-section-races-8-item-0",
+      "context": "Ґітцерай",
+      "explanationBlockId": "block-section-races-8",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-024",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-9",
+      "optionId": "section-races-block-section-races-9",
+      "context": "Гоблін",
+      "explanationBlockId": "block-section-races-9",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-025",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-10",
+      "optionId": "section-races-block-section-races-10",
+      "context": "Напівельф",
+      "explanationBlockId": "block-section-races-10"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-026",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-11",
+      "optionId": "section-races-block-section-races-11-item-0",
+      "context": "Високий/Місячний/Сонячний",
+      "explanationBlockId": "block-section-races-11",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-027",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-11",
+      "optionId": "section-races-block-section-races-11-item-1",
+      "context": "Звичайний PHB",
+      "explanationBlockId": "block-section-races-11",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-028",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-12",
+      "optionId": "section-races-block-section-races-12",
+      "context": "Напіврослик",
+      "explanationBlockId": "block-section-races-12"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-029",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-13",
+      "optionId": "section-races-block-section-races-13-item-0",
+      "context": "Примарний",
+      "explanationBlockId": "block-section-races-13",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-030",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-14",
+      "optionId": "section-races-block-section-races-14",
+      "context": "Людина",
+      "explanationBlockId": "block-section-races-14"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-031",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-15",
+      "optionId": "section-races-block-section-races-15-item-0",
+      "context": "Звичайна",
+      "explanationBlockId": "block-section-races-15",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-032",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-15",
+      "optionId": "section-races-block-section-races-15-item-1",
+      "context": "Варіантна",
+      "explanationBlockId": "block-section-races-15",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-033",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-16",
+      "optionId": "section-races-block-section-races-16",
+      "context": "Ящеролюд",
+      "explanationBlockId": "block-section-races-16",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-034",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-17",
+      "optionId": "section-races-block-section-races-17",
+      "context": "Черепаха",
+      "explanationBlockId": "block-section-races-17",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-035",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-18",
+      "optionId": "section-races-block-section-races-18",
+      "context": "Три-крін",
+      "explanationBlockId": "block-section-races-18",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-036",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron",
+      "targetBlockId": "block-section-races-eberron-1",
+      "optionId": "section-races-eberron-block-section-races-eberron-1",
+      "context": "Калаштар",
+      "explanationBlockId": "block-section-races-eberron-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-037",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron",
+      "targetBlockId": "block-section-races-eberron-2",
+      "optionId": "section-races-eberron-block-section-races-eberron-2",
+      "context": "Перевертень",
+      "explanationBlockId": "block-section-races-eberron-2"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-038",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron",
+      "targetBlockId": "block-section-races-eberron-3",
+      "optionId": "section-races-eberron-block-section-races-eberron-3-item-0",
+      "context": "Звіроша шкіра",
+      "explanationBlockId": "block-section-races-eberron-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-039",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron",
+      "targetBlockId": "block-section-races-eberron-3",
+      "optionId": "section-races-eberron-block-section-races-eberron-3-item-1",
+      "context": "Дикий мисливець",
+      "explanationBlockId": "block-section-races-eberron-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-040",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron",
+      "targetBlockId": "block-section-races-eberron-4",
+      "optionId": "section-races-eberron-block-section-races-eberron-4",
+      "context": "Воєнокований",
+      "explanationBlockId": "block-section-races-eberron-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-041",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-2",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-2",
+      "context": "Напіворк із міткою дракона ERLW",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-2"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-042",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-3",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-3-item-0",
+      "context": "Мітка Пошуку",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-043",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-4",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-4",
+      "context": "Напіврослик із міткою дракона ERLW",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-4"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-044",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-5",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-5-item-0",
+      "context": "Мітка Зцілення",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-5",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-045",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-6",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-6",
+      "context": "Людина з міткою дракона ERLW",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-6"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-046",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-7",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-7-item-0",
+      "context": "Мітка Пошуку",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-7"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-047",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-7",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-7-item-1",
+      "context": "Мітка Поводження",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-7",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-048",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-7",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-7-item-2",
+      "context": "Мітка Переходу",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-7",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-049",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-7",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-7-item-3",
+      "context": "Мітка Вартового",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-7",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-050",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-ravnica",
+      "targetBlockId": "block-section-races-ravnica-1",
+      "optionId": "section-races-ravnica-block-section-races-ravnica-1",
+      "context": "Локсодон",
+      "explanationBlockId": "block-section-races-ravnica-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-051",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-ravnica",
+      "targetBlockId": "block-section-races-ravnica-2",
+      "optionId": "section-races-ravnica-block-section-races-ravnica-2",
+      "context": "Симічний гібрид",
+      "explanationBlockId": "block-section-races-ravnica-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-052",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-ravnica",
+      "targetBlockId": "block-section-races-ravnica-3",
+      "optionId": "section-races-ravnica-block-section-races-ravnica-3",
+      "context": "Ведалкен",
+      "explanationBlockId": "block-section-races-ravnica-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-053",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-wildemount",
+      "targetBlockId": "block-section-races-wildemount-1",
+      "optionId": "section-races-wildemount-block-section-races-wildemount-1",
+      "context": "Ельф",
+      "explanationBlockId": "block-section-races-wildemount-1"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-054",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-wildemount",
+      "targetBlockId": "block-section-races-wildemount-2",
+      "optionId": "section-races-wildemount-block-section-races-wildemount-2-item-0",
+      "context": "Блідий ельф",
+      "explanationBlockId": "block-section-races-wildemount-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-055",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-wildemount",
+      "targetBlockId": "block-section-races-wildemount-2",
+      "optionId": "section-races-wildemount-block-section-races-wildemount-2-item-1",
+      "context": "Морський ельф",
+      "explanationBlockId": "block-section-races-wildemount-2"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-056",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-wildemount",
+      "targetBlockId": "block-section-races-wildemount-3",
+      "optionId": "section-races-wildemount-block-section-races-wildemount-3",
+      "context": "Напіврослик",
+      "explanationBlockId": "block-section-races-wildemount-3"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-057",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-races-wildemount",
+      "targetBlockId": "block-section-races-wildemount-4",
+      "optionId": "section-races-wildemount-block-section-races-wildemount-4-item-0",
+      "context": "Лотусден",
+      "explanationBlockId": "block-section-races-wildemount-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-058",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-3",
+      "optionId": "section-feats-block-section-feats-3-item-0",
+      "context": "Адепт стихій",
+      "explanationBlockId": "block-section-feats-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-059",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-3",
+      "optionId": "section-feats-block-section-feats-3-item-1",
+      "context": "Посвячений у магію PHB",
+      "explanationBlockId": "block-section-feats-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-060",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-3",
+      "optionId": "section-feats-block-section-feats-3-item-2",
+      "context": "Рухливий",
+      "explanationBlockId": "block-section-feats-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-061",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-3",
+      "optionId": "section-feats-block-section-feats-3-item-3",
+      "context": "Майстер древкової зброї PHB",
+      "explanationBlockId": "block-section-feats-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-062",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-3",
+      "optionId": "section-feats-block-section-feats-3-item-4",
+      "context": "Стійкий",
+      "explanationBlockId": "block-section-feats-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-063",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-3",
+      "optionId": "section-feats-block-section-feats-3-item-5",
+      "context": "Вартовий",
+      "explanationBlockId": "block-section-feats-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-064",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-3",
+      "optionId": "section-feats-block-section-feats-3-item-6",
+      "context": "Майстер щита",
+      "explanationBlockId": "block-section-feats-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-065",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-3",
+      "optionId": "section-feats-block-section-feats-3-item-7",
+      "context": "Здоровань",
+      "explanationBlockId": "block-section-feats-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-066",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-3",
+      "optionId": "section-feats-block-section-feats-3-item-8",
+      "context": "Бойовий заклинатель",
+      "explanationBlockId": "block-section-feats-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-067",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-3",
+      "optionId": "section-feats-block-section-feats-3-item-9",
+      "context": "Майстер зброї",
+      "explanationBlockId": "block-section-feats-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-068",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-weapons",
+      "targetBlockId": "block-section-weapons-1",
+      "optionId": "section-weapons-block-section-weapons-1-item-0",
+      "context": "Дубинка",
+      "explanationBlockId": "block-section-weapons-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-069",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-weapons",
+      "targetBlockId": "block-section-weapons-1",
+      "optionId": "section-weapons-block-section-weapons-1-item-1",
+      "context": "Кинджал",
+      "explanationBlockId": "block-section-weapons-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-070",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-weapons",
+      "targetBlockId": "block-section-weapons-1",
+      "optionId": "section-weapons-block-section-weapons-1-item-2",
+      "context": "Палиця",
+      "explanationBlockId": "block-section-weapons-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-071",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-armor",
+      "targetBlockId": "block-section-armor-1",
+      "optionId": "section-armor-block-section-armor-1-item-0",
+      "context": "Шкуряний обладунок",
+      "explanationBlockId": "block-section-armor-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-072",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-armor",
+      "targetBlockId": "block-section-armor-1",
+      "optionId": "section-armor-block-section-armor-1-item-1",
+      "context": "Шкіряний обладунок",
+      "explanationBlockId": "block-section-armor-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-073",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-armor",
+      "targetBlockId": "block-section-armor-1",
+      "optionId": "section-armor-block-section-armor-1-item-2",
+      "context": "Проклепаний шкіряний обладунок",
+      "explanationBlockId": "block-section-armor-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-074",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-armor",
+      "targetBlockId": "block-section-armor-1",
+      "optionId": "section-armor-block-section-armor-1-item-3",
+      "context": "Щит",
+      "explanationBlockId": "block-section-armor-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-075",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-0",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-076",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-1",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-077",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-2",
+      "context": "Монах",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-078",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-1",
+      "optionId": "section-cantrips-block-section-cantrips-1-item-0",
+      "context": "Моторошний дотик [Chill Touch] PHB",
+      "explanationBlockId": "block-section-cantrips-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-079",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-1",
+      "optionId": "section-cantrips-block-section-cantrips-1-item-1",
+      "context": "Первісна дикість [Primal Savagery] XGtE",
+      "explanationBlockId": "block-section-cantrips-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-080",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-1",
+      "optionId": "section-cantrips-block-section-cantrips-1-item-2",
+      "context": "Кийок [Shillelagh] PHB",
+      "explanationBlockId": "block-section-cantrips-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-081",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-1",
+      "optionId": "section-cantrips-block-section-cantrips-1-item-3",
+      "context": "Терновий батіг [Thorn whip] PHB",
+      "explanationBlockId": "block-section-cantrips-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-spores-2014-082",
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-1",
+      "optionId": "section-cantrips-block-section-cantrips-1-item-4",
+      "context": "Гуркіт грому [Thunderclap] EEPC / XGtE",
+      "explanationBlockId": "block-section-cantrips-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

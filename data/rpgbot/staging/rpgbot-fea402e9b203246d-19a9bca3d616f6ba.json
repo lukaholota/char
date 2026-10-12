@@ -1,0 +1,2256 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "19a9bca3d616f6ba6db8eab4fe0dac7e92f2f1210916190a6807d047828bd63e",
+  "sourceRevision": {
+    "revisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba",
+    "sourceId": "rpgbot-fea402e9b203246d",
+    "fetchedAt": "2026-09-29T19:26:28.836217+00:00",
+    "sourceUpdatedAt": "2026-03-14T14:55:55-04:00",
+    "contentHash": "1001dedb1e65c4fbd908eae82b23b226249c3501fba94c0f4e0fd191eed2e9c5",
+    "title": "Draconic Bloodline Sorcerer 5e: DnD Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-fea402e9b203246d-19a9bca3d616f6ba.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In terms of raw spell damage output, it’s hard to match the Draconic\n\tBloodline Sorcerer thanks to Elemental Affinity and Metamagic. The Evocation\n\tWizard is comparable, but the ability to break the action economy with\n\tMetamagic allows the Draconic Sorcerer to produce much higher spikes of damage\n\tthan even the Evocation Wizard can match."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because Draconic Bloodline leans so heavily on elemental damage, the\n\tElemental Adept feat is essentially required. Resistances will be a persistent\n\tproblem which can negate your most exciting Draconic Bloodline Sorcerer\n\tfeatures and render your favorite spells nearly useless. Transmuted Spell\n\tMetamagic is another tax so that you can fit more spells into your favorite\n\telement."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Draconic Bloodline is primarily a blaster focusing on damage via a single\n\telemental damage type, and between its unusual durability and emphasis on\n\tdirect damage, it’s very simple to play. This makes the Draconic Bloodline\n\tSorcerer an excellent choice for new players."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Draconic Bloodline Sorcerer Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Draconic Bloodline Sorcerer Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Draconic Bloodline Sorcerer Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Draconic Bloodline Sorcerer Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Draconic Bloodline Sorcerer Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Draconic Bloodline Sorcerer Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Draconic Bloodline Sorcerer Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Draconic Bloodline Sorcerer Build – Dungeons and Several Dragons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/draconic-bloodline/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Draconic Bloodline Sorcerer Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Dragon Ancestor"
+              },
+              {
+                "type": "text",
+                "text": ": Your choice of ancestor\n\t\tonly matters mechanically for the energy type, and it only affects the\n\t\tElemental Affinity ability. That said, you want to pick an energy type which\n\t\tyou can use frequently and which offers a large number of spell options\n\t\twhich can apply Elemental Affinity.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Acid"
+              },
+              {
+                "type": "text",
+                "text": ": Recent sourcebooks have\n\t\t\t\tgradually added new and powerful options for acid damage, including\n\t\t\t\texcellent spells like Tasha’s Caustic Brew. Acid damage from enemies is\n\t\t\t\troughly as common as cold or lightning."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cold"
+              },
+              {
+                "type": "text",
+                "text": ": Roughly as many damage options\n\t\t\t\tas Acid or Lightning, but they’re less consistently good. Expect to rely\n\t\t\t\ton spell options like Ice Knife and Snilloc’s Snowball Swarm which may\n\t\t\t\tbe slightly more challenging than comparable fire-based spells."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fire"
+              },
+              {
+                "type": "text",
+                "text": ": Of the available options, fire\n\t\t\t\tdamage has the most available spells by far, but resistance and\n\t\t\t\timmunity to fire are common, so expect to take Elemental Adept. Enemies\n\t\t\t\twho deal fire damage are also common, so the resistance is frequently\n\t\t\t\thelpful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lightning"
+              },
+              {
+                "type": "text",
+                "text": ": Nearly as common as Fire\n\t\t\t\tspells, and considerably fewer creatures resist it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Poison"
+              },
+              {
+                "type": "text",
+                "text": ": Poison resistance and immunity\n\t\t\t\tare extremely common, and since Elemental Adept doesn’t allow you to\n\t\t\t\tselect Poison you will have trouble overcoming resistance. There also\n\t\t\t\taren’t many good spells which deal poison damage. Poison damage from\n\t\t\t\tenemies is common, but if you’re worried about it you can play a\n\t\t\t\tdwarf."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Draconic Resilience"
+              },
+              {
+                "type": "text",
+                "text": ": This helps offset\n\t\tyour d6 hit points, and gives you the equivalent of permanent Mage Armor.\n\t\tYou’ll still want a bit of Dexterity and Constitution, but this is very\n\t\thelpful. Note that the bonus hit points only apply to Sorcerer levels, but\n\t\tif you’re taking a Sorcerer dip the armor will continue to function."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elemental Affinity"
+              },
+              {
+                "type": "text",
+                "text": ": According to\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Sage Advice",
+                "href": "https://www.sageadvice.eu/2015/06/28/scorching-ray-dd-errata/"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\tand the Errata, this effect (and similar effects) apply to a single damage\n\t\troll per spell, so it’s much more effective on AOE spells like Fireball than\n\t\ton multiple-attack style spells like Scorching Ray. A boost of up to 5\n\t\tdamage per spell, especially with AOE spells, is a considerable boost,\n\t\tespecially on low-level spells like Burning Hands, so your low-level spells\n\t\tcan continue to be big damage dealers while consuming your less-powerful\n\t\tspell slots. You also have the ability to grant yourself energy resistance\n\t\tfor an hour without the need to concentrate."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dragon Wings"
+              },
+              {
+                "type": "text",
+                "text": ": Flight is crucial at high\n\t\tlevels, especially for spellcasters who need to stay out of reach of\n\t\tterrifying melee enemies. Spells like Fly require Concentration, which\n\t\tseverely limits your options, so the ability to remain in flight and\n\t\tconcentrate on other effects is a massive tactical advantage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Draconic Presence"
+              },
+              {
+                "type": "text",
+                "text": ": Cast Fear or cast\n\t\tCalm Emotions or something. This is rarely worth 5 Sorcery Points. The big\n\t\tadvantage over other options is that the AOE follows you and creatures that\n\t\tenter the area after you activate Draconic Presence are affected. The best\n\t\tuse case for this is when a mob of enemies are charging you and your allies,\n\t\tbut those situations are rare and could easily be handled by Wall of Fire."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Draconic Bloodline Sorcerer Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical sorcerer",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Draconic Bloodline Sorcerer Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical sorcerer",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#races"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Draconic Bloodline Sorcerer Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical sorcerer",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#feats"
+            },
+            {
+              "type": "text",
+              "text": ", though the emphasis on damage from a single element makes some feats\n\tunusually useful"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Elemental Adept"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Ignoring resistance to your favorite damage type means that you can rely\n\t\talmost exclusively on that damage type, which becomes especially impactful\n\t\twhen you pick up Elemental Affinity at level 6."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Flames of Phlegethos"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Charisma increase and damage rerolls are nice, but mathematically\n\t\tyou’ll get more out of Elemental Adept."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Draconic Bloodline Sorcerer Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical sorcerer",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Draconic Bloodline Sorcerer Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical sorcerer",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#sorcerer"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Draconic Bloodline Sorcerer Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Alchemist"
+              },
+              {
+                "type": "text",
+                "text": ": Alchemical Savant’s damage\n\t\tbonus stacks with Elemental Affinity, but it takes 5 levels to get and\n\t\trequires us to invest in a dump stat. You’ll get more out of putting those\n\t\tlevels into Sorcerer."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wizard"
+              },
+              {
+                "type": "text",
+                "text": ": Order of Scribes look tempting for the\n\t\tability to swap damage types without spending Sorcery Points, but remember\n\t\tthat it only applies to wizard spells. School of Evocation is tempting for\n\t\tSculpt Spells, but you could also take the Careful Spell metamagic. You\n\t\tdon’t want to put enough levels in to get the higher-level Draconic\n\t\tBloodline Sorcerer features. If you did, you would be playing a Wizard."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Draconic Bloodline Sorcerer Build – Dungeons and Several Dragons",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Okay, what if we liked dragons? What if we "
+            },
+            {
+              "type": "emphasis",
+              "text": "really"
+            },
+            {
+              "type": "text",
+              "text": " liked dragons, and\n\twe wanted to make that our whole deal? “Madness!” they would tell us. And we\n\twould respond “Yeah, probably,” and then breath fire on everything because\n\t"
+            },
+            {
+              "type": "emphasis",
+              "text": "dragons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to lean hard into the content in Fizban’s Treasury of Dragons.\n\tShould I have published this closer to the books release and included an\n\taffiliate link? Yeah, probably, but dragons have blindsight, not hindsight."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build will start from the ability scores suggested in our Sorcerer\n\tHandbook, but but we’ll dump Intelligence to get a base 15 Constitution, then\n\tput our +1 into Con and our +2 into Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fizban’s Metalic Dragonborn (Silver). This gets us cold resistance and a cold\n\tdamage breath weapon. We’ll take +2/+1 for our ability score increases. At\n\tlevel 5 we get Metallic Breath Weapon, which gives us a cool breath option\n\tonce per day that nicely complements our spellcasting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Noble. We’re a fancy dragon person, after all. This get us proficiency in\n\tHistory and Persuasion. Honestly, any background will suffice here. Courtier\n\tcould also be fun."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From our class skills we’ll take Insight and Intimidation. With History and\n\tPersuasion from our Background, we don’t have every Face skill, but we can\n\tsurvive without deceiving people."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we’ll take Elemental Adept."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we’ll take Gift of the Chromatic Dragon. We have permanent\n\tresistance to cold and we can get resistance to fire for 1 hour at a time, but\n\tsometimes we’ll be surprised or we’ll be hit by another element, so we want\n\tthe additional protection without eating spell slots to cast Absorb\n\tElements."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we’ll take Gift of the Metallic Dragon. Cure Wounds is\n\toccasionally helpful, and the ability to protect ourselves and nearby allies\n\tfrom attacks can mitigate some incoming damage. However, since our AC likely\n\twon’t improve past 15, this may not be reliable. Consider taking\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Fey Touched",
+              "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/"
+            },
+            {
+              "type": "text",
+              "text": "\n\tor a +2 Charisma instead."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16 we’ll take Gift of the Gem Dragon to raise our Charisma to 20 and\n\tto complete our dragon-themed feats. The retaliatory Reaction may prove more\n\treliable than Gift of the Metallic Dragon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19 we’ll take Lucky because we’re out of dragon-themed feats and we\n\tdon’t really need the Dragonborn race-specific feats."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sorcerous Origin: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Draconic Bloodline"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dragon Ancestor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Draconic\n\t\t\t\t\tResilience"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Acid\n\t\t\t\t\tSplash"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fire Bolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mage Hand"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Prestidigitation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells\n\t\t\t\t\tKnown"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Chromatic Orb"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’ll choose one of the fire elemental dragons as our ancestor. This\n\t\t\t\t\teventually gets us resistance to temporary fire damage from Elemental\n\t\t\t\t\tAffinity. Paired with resistance to cold damage from our race, we’re\n\t\t\t\t\tin good shape. We also have 15 AC (13+Dex) from Draconic Resilience\n\t\t\t\t\tand a relatively impressive 10 hit points. By Sorcerer standards,\n\t\t\t\t\twe’re pretty sturdy."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re starting with two offensive\n\t\t\t\t\tcantrips. Fire Bolt is our go-to, but Acid Splash works great if we\n\t\t\t\t\tcatch two enemies adjacent to each other."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Font of Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Ice Knife"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I basically never use Ice Knife. I don’t like that it has two points\n\t\t\t\t\tof failure. But it’s also a ranged AOE on a 1st-level spell, which is\n\t\t\t\t\thard to find. When we pick up Elemental Affinity at level 6, this\n\t\t\t\t\tbecomes an inexpensive way to deliver our ability score modifier as\n\t\t\t\t\tdamage in a small area by transmutin Ice Knife to fire damage and\n\t\t\t\t\tapplying the damage bonus to the splash damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re\n\t\t\t\t\tnot into Ice Knife (or if you don’t want it right now), consider Magic\n\t\t\t\t\tMissile or Absorb Elements instead."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Metamagic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Heightened Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Transmuted Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New\n\t\t\t\t\tSpells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dragon’s Breath"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "There are three dragon-themed spells available to us at 2nd level:\n\t\t\t\t\tDragon’s Breath, Nathair’s Mischief, and Raulothim’s Binding Ice.\n\t\t\t\t\tWe’re going to start with Dragon’s Breath because it’s awesome, then\n\t\t\t\t\twe’ll pick up Raulothim’s Binding Ice beause it’s decent with\n\t\t\t\t\tHeightened Spell, then we’ll pretend that Nathair’s Mischief doesn’t\n\t\t\t\t\texist because, yes, it is that bad and I do dislike it that much."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re\n\t\t\t\t\tnot taking Quickened Spell yet because we have a very limited pool of\n\t\t\t\t\tSorcery Points and we don’t want to burn through resources too quickly\n\t\t\t\t\tby quickening spells every turn. Save that for when we’re higher\n\t\t\t\t\tlevel. If you don’t care for Heightened Spell, Twinned or Quickened\n\t\t\t\t\tare both great choices."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Elemental Adept"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New\n\t\t\t\t\tSpells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Raulothim’s Binding Ice"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re leaning into fire damage, and that’s going to be a huge problem\n\t\t\t\t\tunless we have Elemental Adept. We’ll be slightly behind the\n\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "Fundamental Math",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": ", but we’ll survive. We could rely on Transmute Spell and a different\n\t\t\t\t\tdamage type, but the constant 1 SP tax on every transmuted Fireball\n\t\t\t\t\twill quickly drain our resources. Instead, we’ll use Transmuted Spell\n\t\t\t\t\tto get around immunity."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fireball"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You know it, you love, and sometimes you transmute it into a\n\t\t\t\t\tdifferent damage type to get around immunity."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level\n\t\t\t\t\twe get Chromatic Breath from our race. It’s only once per long rest,\n\t\t\t\t\tbut it still offers some interesting tactical options."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elemental Affinity"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Ashardalon’s\n\t\t\t\t\tStride"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elemental Affinity is immediately a huge damage boost. +3 damage on\n\t\t\t\t\tall of our fire spells will add up quickly, especially on multi-target\n\t\t\t\t\tspells like Fireball or Acid Splash (which we can transmute to deal\n\t\t\t\t\tfire damage)."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Wall of Fire"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Note that Elemental Affinity only applies to the initial damage from\n\t\t\t\t\tWall of Fire. It’s still a fantastic spell."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Gift of the Chromatic Dragon (Cha 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells\n\t\t\t\t\tKnown"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Raulothim’s Psychic Lance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Gift of the Chromatic Dragon provides the importants parts of Absorb\n\t\t\t\t\tElements PB/day."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sadly, Raulothim’s Psychic Lance won’t\n\t\t\t\t\tbenefit from Elemental Affinity, but it does let us incapacitate an\n\t\t\t\t\tenemy on an Intelligence save, and it’s named after a dragon. We like\n\t\t\t\t\tall of those things."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Summon Draconic Spirit"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We love dragons so much that we’re now going to summon one."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If\n\t\t\t\t\tyou haven’t already retrained Dragon’s Breath, now is a great time to\n\t\t\t\t\tretrain it into something else. Enhance Ability is a great choice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Metamagic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Quickened Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Twinned Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New\n\t\t\t\t\tCantrip Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hold\n\t\t\t\t\tMonster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Quicken a leveled spell like Fireball, then twin Fire Bolt to hit two\n\t\t\t\t\tadjacent enemies. Massive damage against multiple targets in the space\n\t\t\t\t\tof one turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You can also quicked Mind Sliver for a save\n\t\t\t\t\tdebuff before hitting an enemy with a save-or-suck like Raulothim’s\n\t\t\t\t\tBinding Ice or Hold Monster. Add Heightened Spell, and you’re\n\t\t\t\t\tbasically unstoppable."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Otiluke’s Freezing Sphere"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Transmute Otiluke’s Freezing Sphere to fire damage, then hand it to\n\t\t\t\t\tan ally. It still applies Elemental Affinity and it still benefits\n\t\t\t\t\tfrom Elemental Adept. If you can’t benefit from this tactic reliably,\n\t\t\t\t\tdrop Freezing Sphere for something else."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fizban’s Platinum\n\t\t\t\t\tShield is really neat, but instead of protecting an ally with a buff\n\t\t\t\t\tyou can summon a dragon to stand in front of them, so we’re no taking\n\t\t\t\t\tit."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Gift of the Metallic Dragon (Cha 18 -> 19)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The Reaction defense is big on top of our extremely mediocre AC, and\n\t\t\t\t\tthe ability to cast Cure Wounds is occasionally useful. Consider\n\t\t\t\t\tretraining Shield if you’d like an extra spell known since it will\n\t\t\t\t\tcompete for our Reaction."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Draconic Transformation"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The wings will feel silly once we get them permanently from Dragon\n\t\t\t\t\tWings at level 14, and most of the time I would rather cast Summon\n\t\t\t\t\tDraconic Spirit, but this still feels really awesome."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dragon Wings"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Permanent flight without Concentration!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dominate Monster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Heightened Dominate Monster is very powerful."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Gift of the Gem Dragon (Cha 19 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\tWe also finally max out our Charisma! Gift of the Gem Dragon gives us\n\t\t\t\t\ta cool retaliation when nearby enemies damage us."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sorcerers don’t get access to Illusory Dragon or True Polymorph."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Draconic Presence"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Draconic Presence"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Lucky"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sometimes you just need a reroll."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sorcerous Restoration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unimpressive."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Draconic Bloodline Sorcerer Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Dragon Ancestor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Acid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cold"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fire"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Lightning"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Draconic Resilience"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Elemental Affinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dragon Wings"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Draconic Presence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Elemental Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Flames of Phlegethos"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Alchemist"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating- Wizard"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-2-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2552,
+    "sections": 17,
+    "blocks": 30,
+    "tables": 2,
+    "ratingSignals": 19
+  },
+  "status": "needs-editorial-review"
+}

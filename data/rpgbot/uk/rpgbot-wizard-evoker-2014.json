@@ -1,0 +1,1969 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-a6145d437ebe8928",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+      "sourceId": "rpgbot-a6145d437ebe8928",
+      "fetchedAt": "2026-09-29T19:19:19.892506+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:45:54-04:00",
+      "contentHash": "b26444d8968d427e1b6dc3d714d54a12f489f1d227fda3a7f4496badde35b8da",
+      "title": "Evoker Wizard 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-a6145d437ebe8928-fc07b0dcab681d04.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-wizard-evoker-2014",
+    "sourceId": "rpgbot-a6145d437ebe8928",
+    "slug": "wizard-evoker-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Школа втілення — гайд підкласу Чарівника (2014)",
+    "titleEn": "Evoker Wizard 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Чарівник",
+      "Школа втілення",
+      "заклинач стихій",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "sourceRevisionId": "rpgbot-a6145d437ebe8928-fc07b0dcab681d04",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Чарівник Школи втілення 5e: гайд підкласу D&D 5e",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Я Торг, і я тут, щоб поставити вам одне запитання, і лише одне: ВИБУХИ?!"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "Містер Торг",
+                  "href": "https://www.youtube.com/watch?v=V-GKwfHC9jQ"
+                },
+                {
+                  "type": "text",
+                  "text": " – Borderlands"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Робота Чарівника Школи втілення — без розбору накривати поле бою магією, що завдає величезної шкоди. Школа втілення дозволяє користуватися великими небезпечними заклинаннями на кшталт Вогнекулі [Fireball], не турбуючись про дружній вогонь. Забудьте про позиціювання союзників: завдяки «Ліпленню заклять»{{Sculpt Spells}} вони просто стають імунними до ваших заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Одна з багатьох чудових речей у грі за Чарівника Школи втілення — це те, що ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Чарівник"
+                },
+                {
+                  "type": "text",
+                  "text": ". Ми кращі за інших Чарівників у магії шкоди, але все ще чудово володіємо всіма ефектами контролю області, які стандартно йдуть із кожним Чарівником. Один раунд накладаєте Стримування особи [Hold Person], а наступного скидаєте Вогнекулю [Fireball] на всіх, не вбиваючи всіх своїх друзів. Ось це командна робота."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Приклад збірки заклинача стихій нижче грає роль нюкера: він обирає якомога більше заклинань по області, що завдають половини шкоди при успішному ряткидку, щоб якнайповніше скористатися «Ліпленням заклять»{{Sculpt Spells}}. Якщо ви хочете триматися позаду й користуватися всіма цими великими заклинаннями шкоди на кшталт Вогнекулі [Fireball], не переживаючи за союзників, спробуйте Школу втілення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Школи втілення",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Школи втілення",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#school-of-evocation-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Школи втілення",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#school-of-evocation-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Школи втілення",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#school-of-evocation-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя й обладунки Школи втілення",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#school-of-evocation-weapons-and-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Школи втілення",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#school-of-evocation-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Школи втілення — «Марш гренадерів»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#example-school-of-evocation-build-the-grenadiers-march"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Школи втілення",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Знавець втілення{{Evocation Savant}}: стандартне для підкласів Чарівника з PHB. Дивно, але це уміння спонукає використовувати два безкоштовні заклинання, вивчені на кожному рівні, на буквально будь-що, крім заклинань вашої улюбленої школи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ліплення заклять{{Sculpt Spells}}: дружній вогонь неминуче трапляється, коли в групі є заклинач стихій. Це значною мірою зменшує проблему, і вам слід зловживати тим, що ваші союзники імунні до ваших заклинань, де лише можливо. Є дивний нюанс, який легко пропустити: хоч це явно мало захищати союзників від Палючі долоні [Burning Hands], Вогнекуля [Fireball] та інших подібних варіантів шкоди по області, захист не закінчується після початкового ефекту заклинання. Істоти захищені від ефектів заклинання протягом усієї його тривалості. Це означає, що ваші союзники можуть спокійно ходити в областях заклинань на кшталт Нудотне сяйво [Sickening Radiance], потенційно тягаючи ворогів усередині області, щоб змусити їх отримувати шкоду. Ви навіть можете накласти Крижана куля Отілюка [Otiluke's Freezing Sphere], позначити союзників як захищених «Ліпленням заклять», а тоді відправити їх із кишенями, повними крижаних куль, розбивати їх біля своїх ніг у кімнаті, повній ворогів. Чесно кажучи, я не думаю, що це було задумано, коли WotC писали Школу втілення. Як і з «Підсиленим втіленням»{{Empowered Evocation}}, я думаю, що вони мали на увазі, що «Ліплення заклять» застосовується лише до початкових ефектів. Але минуло понад 5 років, а еррати чи твітів від Джеремі Кроуфорда ми не отримали, тож, схоже, «Ліплення заклять» працює так, як я описав, доки хтось не скаже нам інакше."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Потужне замовляння{{Potent Cantrip}}: Кислотні бризки [Acid splash] і Отруйні бризки [Poison Spray] — єдині замовляння Чарівника, що завдають шкоди й вимагають ряткидка в PHB, але інші доповнення різко збільшили ваші варіанти. Крім того, це уміння не обмежене замовляннями Чарівника на випадок, якщо у вас є щось від іншого класу, риси чи расового уміння. Це приємна страховка, і воно заохочує використовувати замовляння з ряткидком на кшталт Обмороження [Frostbite] замість замовлянь з атакою на кшталт Вогняний заряд [Fire Bolt], бо гарантована половина шкоди означає, що ваш DPR обчислюється за формулою ([Середнє кубиків]*([Шанс провалу ряткидка]+0,5*(1-[Шанс провалу ряткидка]))). Ця формула застосовується до будь-якого ряткидка на половину ефекту, тож актуальна й для багатьох заклинань з рівнями. Приклад на рівні, коли ми це отримуємо: з Дзвін небіжчика [Toll the Dead] (2к12, у середньому 13) і 60% шансом провалу цілі: (13*(0,6+0,5*(0,4)))=10,4 очікуваного DPR. Якби ціль провалювала ряткидок лише в 50% випадків: (13*(0,5+0,5*(0,5)))=9,75 очікуваного DPR. Це різниця лише в 0,65 DPR. Вогняний заряд [Fire Bolt] на тому ж рівні, за очікуваною математикою атаки зі шкодою 2к10 при влучанні, дає 7,7 DPR і нічого не робить при промаху."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підсилене втілення{{Empowered Evocation}}: такий бонус до шкоди — значне підсилення, особливо для ваших заклинань низьких рівнів на кшталт Палючі долоні [Burning Hands], що все ще можуть бути пристойними джерелами шкоди за низьку ціну слота заклинання. За словами "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Джеремі Кроуфорда",
+                    "href": "http://www.sageadvice.eu/2015/06/28/scorching-ray-dd-errata/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ще 2015 року, цей бонус застосовується до кожного снаряда Магічний дротик [Magic missile] і до всіх цілей області дії, але лише до однієї атаки для заклинань із кількома атаками на кшталт Розпечений промінь [Scorching Ray]. Якщо «Підсилене втілення» застосовується до кожного снаряда, Магічний дротик [Magic missile] стає дуже потужним. Це суперечить новішим рішенням Кроуфорда, де він постановив, що кожен снаряд Магічний дротик [Magic missile] — окремий кидок шкоди, тож подібні бонуси до шкоди застосовуються лише до одного зі снарядів. Особисто я вважаю, що новіше рішення має більше сенсу, але обговоріть це з Майстром. Щодо випадку з Магічний дротик [Magic missile] дивіться наш Практичний гайд із "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Магічного дротика",
+                    "href": "https://rpgbot.net/dnd5/characters/spells/magic-missile/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Надзаряд{{Overchannel}}: чудовий спосіб вичавити більше з надійних заклинань нижчих рівнів на кшталт Магічний дротик [Magic missile] і Вогнекуля [Fireball] на рівні, де ваші заклинання вищих рівнів зазвичай їх затьмарюють. Просто подбайте, щоб під рукою був Клірик, коли почнете отримувати шкоду. {{За правилами як написано|RAW}}, шкода максимізується щоразу, коли заклинання завдає шкоди, що робить заклинання на кшталт Стіна вогню [Wall of Fire] особливо потужними. Проте за словами "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Джеремі Кроуфорда",
+                    "href": "https://www.sageadvice.eu/2016/12/17/if-i-overchannel-bigbys-hand/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", ефект мав застосовуватися лише до першого кидка шкоди заклинання, тож триматися Вогнекуля [Fireball], імовірно, найкращий вибір. Уточніть у Майстра, як він хоче це розвʼязувати."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-evocation-ability-scores",
+          "heading": "Характеристики Школи втілення",
+          "sourceAnchor": "school-of-evocation-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-evocation-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чарівникам потрібен Інтелект для СК заклинань, Статура — для ХП і ряткидків Концентрації, а Спритність — для КБ. Заклиначі стихій дотримуються цієї тенденції."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-evocation-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: занедбайте. У нас є сили Чарівника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-evocation-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: нам потрібно трохи для КБ, щоб по нас, можливо, іноді не влучали."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-evocation-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: більше ХП. Кращі ряткидки Концентрації. Добре в усіх відношеннях."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-evocation-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: визначає СК заклинань і бонус заклинальної атаки, а також покращує «Підсилене втілення»{{Empowered Evocation}}. Доведіть його до 20 якнайшвидше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-evocation-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: ці ряткидки зазвичай неприємно провалювати, тож якщо після всього іншого щось лишиться, вкладіть очко сюди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-evocation-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: занедбайте. Нехай хтось інший теревенить. Ми тут заради вибухів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-evocation-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-evocation-races",
+          "heading": "Раси Школи втілення",
+          "sourceAnchor": "school-of-evocation-races",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-evocation-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як завжди, для всього, чого немає нижче, зверніться до "
+                },
+                {
+                  "type": "link",
+                  "text": "розбору рас Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-evocation-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щодо раси, заклиначі стихій хочуть того ж, що й інші Чарівники, — підвищення Інтелекту. Проте після «Казана Таші з усім»{{Tasha’s Cauldron of Everything}} будь-яка раса може дати підвищення Інтелекту, а отже, доводиться заглиблюватися в расові риси. Оскільки заклинач стихій зосереджує більшу частину своєї магії на нападі, ми можемо отримати користь від расових рис, що розширюють наші можливості підтримки групи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-evocation-races-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Астральний ельф{{Astral Elf}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "SJAiS",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Священне полумʼя [Sacred Flame] — добре джерело променевої шкоди, а «Потужне замовляння»{{Potent Cantrip}} не обмежене замовляннями Чарівника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Геназі землі{{Earth Genasi}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Захист від зброї [Blade Ward] — пристойне замовляння, особливо якщо вдасться використовувати його бонусною дією, але ми тут заради Переміщення без сліду [Pass without Trace], що дає справжню користь для групи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кобольд{{Kobold}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Драконячий крик»{{Draconic Cry}} може дати вашій групі трохи Переваги на кубику бонусною дією. Ми й так не використовуємо цю бонусну дію, окрім кількох конкретних варіантів заклинань, тож чому б не мати в кишені кумедне невелике підсилення для групи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Варіант людини{{Variant Human}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": додаткова риса, як-от «Стійкий (Статура)»{{Resilient (Constitution)}}, завжди може бути приємною."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-evocation-feats",
+          "heading": "Риси Школи втілення",
+          "sourceAnchor": "school-of-evocation-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-evocation-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Довідник Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": " уже докладно розглядає риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-evocation-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і більшість повних заклинателів, заклиначі стихій просто хочуть якнайшвидше довести свою базову характеристику заклинань, Інтелект, до 20. Після цього ми або зміцнюємо захист, або обираємо щось інше цікаве."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-evocation-feats-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Адепт стихій{{Elemental Adept}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ця риса — свого роду пастка для заклинача стихій, бо він має мати заклинання різних типів шкоди, а не покладатися на один тип. Крім того, головна проблема, з якою ви можете зіткнутися, — імунітет, а ця риса нічого з ним не робить."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-evocation-weapons-and-armor",
+          "heading": "Зброя й обладунки Школи втілення",
+          "sourceAnchor": "school-of-evocation-weapons-and-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-evocation-weapons-and-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Без мультикласування заклиначі стихій не володітимуть "
+                },
+                {
+                  "type": "link",
+                  "text": "обладунками",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": ", а "
+                },
+                {
+                  "type": "link",
+                  "text": "зброя",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": " не завдає більше шкоди, ніж замовляння."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-evocation-multiclassing",
+          "heading": "Мультикласування Школи втілення",
+          "sourceAnchor": "school-of-evocation-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-evocation-multiclassing-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Клірик Домену смерті|Death Cleric}}: «Жнець»{{Reaper}} у поєднанні з Дзвін небіжчика [Toll the Dead] і «Потужним замовлянням»{{Potent Cantrip}} — цікава комбінація, якщо ви можете виділити 13 Мудрості для мультикласування в Клірика."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-school-of-evocation-build-the-grenadiers-march",
+          "heading": "Приклад збірки Школи втілення — «Марш гренадерів»",
+          "sourceAnchor": "example-school-of-evocation-build-the-grenadiers-march",
+          "blocks": [
+            {
+              "blockId": "block-section-example-school-of-evocation-build-the-grenadiers-march-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Памʼятайте, діти: на стрілі може бути написано ваше імʼя, але Вогнекуля [Fireball] адресована «Усім, кого це стосується». Renato Corvato – випадковий коментар на YouTube"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-school-of-evocation-build-the-grenadiers-march-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як зазначено вище, формула DPR для половини шкоди при ряткидку така: ([Середнє кубиків]*([Шанс провалу ряткидка]+0,5*(1-[Шанс провалу ряткидка])))."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-school-of-evocation-build-the-grenadiers-march-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коротке пояснення цієї формули таке: відсоткова зміна очікуваної шкоди буде меншою за відсоткову зміну того, як часто ціль провалює ряткидок. Інакше кажучи, якщо ціль проходить ряткидок у 60% випадків, DPR становить 70% середнього значення кубиків, але якщо ми підвищимо Інтелект настільки, щоб збільшити СК на 2 пункти, та сама істота матиме шанси 50 на 50 пройти ряткидок чи провалити його — це зміна на 10%, але DPR становитиме 75% середнього значення кубиків — це зміна лише на 5%."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-school-of-evocation-build-the-grenadiers-march-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це також можна використати, щоб порівнювати, на які ряткидки цілитися. Це означає дві речі: по-перше, те, який ряткидок ми обираємо ціллю, менш важливе, коли ми лише намагаємося завдавати шкоди, і, по-друге, відкладання підвищень Інтелекту заради важливої риси суттєво не шкодить нашому DPR."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-school-of-evocation-build-the-grenadiers-march-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Натомість важливі наші "
+                },
+                {
+                  "type": "link",
+                  "text": "типи шкоди",
+                  "href": "https://docs.google.com/spreadsheets/d/1X70jdBX0X0n_5V7stc1_kYERXLNGJIbdjhl3BUbKxQI/edit#gid=0"
+                },
+                {
+                  "type": "text",
+                  "text": ". Кілька заклинань шкоди громом — Громова хвиля [Thunderwave] і Друзки [Shatter], що цілять у Статуру, — гарний спосіб урізноманітнитися й уникнути поширених опорів, як-от до вогню. На пізніших рівнях заклинань ту саму нішу займає променева шкода від заклинань на кшталт Нудотне сяйво [Sickening Radiance] чи Світанок [Dawn]: цей тип шкоди значно рідше має опір, але теж цілить у Статуру."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-school-of-evocation-build-the-grenadiers-march",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Те, що я сказав, що можна відкласти зростання Інтелекту заради риси, не означає, що ми не вкладаємо очки в Інтелект під час створення. Навпаки, наведений вище висновок стосується різниці між тим, щоб лишатися на 16 заради чогось на кшталт «Бойового заклинателя»{{War Caster}}, і тим, щоб підніматися до 18 і 20 якнайшвидше. Ми беремо Варіант людини{{Variant Human}} з +1 до Спритності й Інтелекту та «Стійкого (Статура)»{{Resilient (Constitution)}} як нашу рису першого рівня."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 20"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-school-of-evocation-build-the-grenadiers-march",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо {{Варіант людини|Variant Human}}, щоб узяти «Стійкого (Статура)»{{Resilient (Constitution)}} на першому рівні. Як варіант, за бажання можна поміняти це місцями з вибором «Бойового заклинателя»{{War Caster}} на четвертому рівні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За бажання можна почати перший рівень у {{Винахіднику|Artificer}} замість Чарівника, щоб отримати володіння ряткидками Статури й середні обладунки, що відкриває інші варіанти для вибору раси. Ще одна прихована перевага такої збірки — слоти підготовки для обох класів, що звільняє трохи місця в нашому списку підготовлених заклинань Чарівника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-school-of-evocation-build-the-grenadiers-march",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як заклинач на Інтелекті, ми й так маємо мотивацію підвищувати Інтелект, тому беремо передісторію Мудрець{{Sage}} заради навичок Магія й Історія, але трохи її змінимо, створивши власну передісторію, і обміняємо одну з мов на інструмент. Беремо володіння флейтою{{Flute}}, щоб справді зіграти "
+                },
+                {
+                  "type": "link",
+                  "text": "Марш гренадерів",
+                  "href": "https://www.youtube.com/watch?v=AvU8LaE0-xw"
+                },
+                {
+                  "type": "text",
+                  "text": " як фентезійний гренадер, бо це весело, а Розуміння мов [Comprehend Languages] завжди можна накласти пізніше."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-school-of-evocation-build-the-grenadiers-march",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варіант людини{{Variant Human}} дає одне володіння навичкою, тож ми оберемо Природу, бо це єдина навичка Інтелекту, якої немає в списку Чарівника. Чарівник дозволить обрати Розслідування й Релігію. Мудрець{{Sage}} завершує наш список Магією та Історією."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Разом цей список дає нам добрі шанси пройти будь-які перевірки знань, а також гострий зір на дрібніші деталі під час ґрунтовного Розслідування."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-school-of-evocation-build-the-grenadiers-march",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варіант людини{{Variant Human}} дозволяє взяти рису вже на першому рівні, і ми обрали «Стійкого (Статура)»{{Resilient (Constitution)}} заради +1 до Статури та володіння ряткидками Статури. Як варіант, можна поміняти цей вибір місцями з вибором четвертого рівня — «Бойовим заклинателем»{{War Caster}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні наша риса на вибір — «Бойовий заклинатель»{{War Caster}}. Ми заклиначі стихій: випускаємо заклинання по області з високою шкодою, що все одно завдають половини шкоди при успішному ряткидку, тож відставання за СК ряткидка шкодить нам значно менше, ніж, скажімо, Зачарувальнику{{Enchanter}}, який зазвичай використовує заклинання, що нічого не роблять при проваленому ряткидку. Це означає, що ми можемо дозволити собі витратити момент на кращі перевірки Концентрації."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му й 12-му рівнях ми беремо Покращення Характеристик на +2 Інтелекту кожне, доводячи його до 20, щоб підсилити заклинальні атаки й СК заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му й 19-му рівнях ми беремо ще Покращення Характеристик на +2 Спритності щоразу, доводячи її до 20, щоб підвищити наш КБ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-school-of-evocation-build-the-grenadiers-march",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса Варіанта людини: Стійкий (Статура)\nМагічне відновлення\nЧаротворство\nЗамовляння:\n– Розщеплення Розуму\n– Гуркіт грому\n– Дзвін небіжчика\nЗаклинання 1-го рівня:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічний дротик",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/magic-missile/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Обладунок мага\n– Щит\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Сон\n– Громова хвиля"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Починаючи як {{Варіант людини|Variant Human}}, ми отримуємо бонусну рису й обираємо для неї «Стійкого (Статура)»{{Resilient (Constitution)}}. Це підвищує нашу Статуру й додатково дає володіння ряткидком Статури. Із замовлянь ми візьмемо три наступальні варіанти, бо вони дають нам добрі тактичні можливості. Хочемо накласти на ціль сильне ослаблення? Розщеплення Розуму [Mind Sliver] дасть нам перевагу проти наступного ряткидка, який ціль мусить зробити. Опинилися поруч із парою ворогів, поруч із якими не хочемо бути? Що ж, скидаємо Гуркіт грому [Thunderclap] (і, сподіваємося, тікаємо Туманним кроком [Misty Step]). Просто перегони за шкодою? Бім-бом: Дзвін небіжчика [Toll the Dead]. Щодо заклинань 1-го рівня, ми беремо набір захисних варіантів (Обладунок мага [Mage Armor] і Щит [Shield]), заклинань шкоди (Магічний дротик [Magic missile] і Громова хвиля [Thunderwave]) та утиліти для ослаблення (Сріблясті шпильки [Silvery Barbs] і Сон [Sleep])."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Школа втілення\n– Знавець втілення\n– Ліплення заклять\nЧаротворство\nЗаклинання 1-го рівня:\n– Поглинання стихій\n– Їдке Вариво Таші"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На 2-му рівні ми обираємо свою арканну традицію — {{Школу втілення|School of Evocation}}. Завдяки «Ліпленню заклять»{{Sculpt Spells}} ми тепер можемо робити те, за що на всіх інших кричать: скидати смертоносні заклинання по області прямо на групу, не вбиваючи всіх. Просто остерігайтеся того, як це працює: це має бути заклинання Втілення, і ми можемо захистити кількість істот до 1 + рівень заклинання. Тож Громова хвиля [Thunderwave] може проігнорувати двох цілей, якщо накласти його слотом 1-го рівня, а якщо накласти слотом 2-го — трьох. Але Смердюча хмара [Stinking Cloud] і Павутиння [Web] — обидва заклинання Виклику, тож ми не можемо зробити когось імунним до їхніх ефектів. Це не означає, що не слід брати такі заклинання (слід, бо це чудові заклинання): це означає, що треба памʼятати, які заклинання можна безпечно жбурнути в різанину ближнього бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 2-го рівня:\n– Друзки\n– Психічний Батіг Таші"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми отримуємо заклинання 2-го рівня й лишаємося вибуховим заклиначем стихій, обравши Друзки [Shatter], але також беремо Психічний Батіг Таші [Tasha's Mind Whip]. Друзки [Shatter] не потребує пояснень: це як менша Вогнекуля [Fireball], але зі шкодою громом. Не лякайтеся ряткидка Статури: для таких заклинань, що завдають половини шкоди при успіху, це майже не рухає шкалу DPR, а різноманітність типів шкоди буде дуже доречною, коли ви наткнетеся на ворога з опором чи імунітетом до вогню. Психічний Батіг Таші [Tasha's Mind Whip], своєю чергою, цілить в Інтелект, що зазвичай нижча характеристика, і завдає доброї шкоди одній цілі з особливо виснажливим додатковим ефектом при проваленому ряткидку, але при успіху все одно завдає хоча б половини шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Бойовий заклинатель\nЧаротворство\nЗаклинання 2-го рівня:\n– Покращення здібності\n– Туманний крок\n– Павутиння"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Можна взяти трохи утилітарної магії на кшталт Покращення здібності [Enhance Ability], Туманний крок [Misty Step] чи Павутиння [Web]. Також беремо рису «Бойовий заклинатель»{{War Caster}}, щоб мати більше шансів утримати Концентрацію, якщо по нас вдарять. Це доволі добра страховка."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 3-го рівня:\n– Вогнекуля\n– Заряд блискавки\n– Мельфові маленькі метеори"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Просто Вогнекуля [Fireball]. Лише Вогнекуля [Fireball]. Насправді ні, але іноді так, слід використати Вогнекуля [Fireball]. Для всього іншого є Заряд блискавки [Lightning Bolt]. Варто розглянути й Мельфові маленькі метеори [Melf's Minute Meteors]. Легко глянути на шкоду й побачити, що це 12к6 шкоди, розбитої на окремі шматки по 2к6, які можна роздавати бонусними діями, до 4к6 за використання. Це на 50% більше шкоди, ніж у Вогнекуля [Fireball], але розтягнуто щонайменше на 3 раунди й до того ж займає нашу Концентрацію. Оскільки воно триває 10 хвилин, то якщо вдасться запустити його до початку бою, ніщо не заважає вплітати метеори між іншими заклинаннями."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потужне замовляння\nЧаротворство\nЗаклинання 3-го рівня:\n– Політ\n– Гіпнотичний візерунок"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Потужне замовляння»{{Potent Cantrip}} особливо приємне. Воно просто означає, що в нас завжди є спосіб завдати якоїсь гарантованої шкоди. Так, заклинання з рівнями сильніші, але замовляння безкоштовні, а іноді нам потрібно робити такі речі, як Туманний крок [Misty Step]. Політ [Fly] і Гіпнотичний візерунок [Hypnotic Pattern] можуть бути не нашим звичним різновидом заклинань «рознеси все», але ми все одно їм раді. Політ [Fly] — це політ. Усі ми знаємо, як добре літати. Більшість гучних заклинань Втілення не вимагають Концентрації, тож легко віддати Концентрацію під Політ [Fly] і весь час зливати шкоду на ворогів. Гіпнотичний візерунок [Hypnotic Pattern] може добряче зіпсувати життя групі ворогів, виводячи частину з них із зіткнення. Накладіть його рано, а коли приблизно половина загине, спробуйте вишикувати Заряд блискавки [Lightning Bolt] по лінії решти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 4-го рівня:\n– Нудотне сяйво\n– Стіна вогню"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Треба бути особливо обережними з тим, як працює Стіна вогню [Wall of Fire]. Так, вона має ряткидок, але лише коли стіну ставлять уперше. Ми можемо захистити від цього союзників, але ряткидка за перебування в стіні чи на гарячому боці стіни немає, тож «Ліплення заклять»{{Sculpt Spells}} нікого не захищає від цієї шкоди. Нудотне сяйво [Sickening Radiance], навпаки, ідеально підходить для зловживання «Ліпленням заклять». Зробіть до пʼяти істот імунними до заклинання й робіть усе можливе, щоб тримати ворогів замкненими всередині небезпечної зони."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Інтелект +2 (16 → 18)\nЧаротворство\nЗаклинання 4-го рівня:\n– Більша невидимість\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект для СК і заклинальних атак."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 5-го рівня:\n– Конус холоду\n– Світанок\n– Синаптичний розряд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Конус холоду [Cone of Cold] і Світанок [Dawn] — добрі варіанти. Хоч Світанок [Dawn] і Нудотне сяйво [Sickening Radiance] завдають однакової шкоди, а Нудотне сяйво [Sickening Radiance] має жахливі додаткові ефекти, що вбивають ваших ворогів, Світанок [Dawn] можна пересувати бонусною дією у ваш хід. Це може бути корисним у нішевих сценаріях, але в 9 випадках із 10 ви просто використаєте Нудотне сяйво [Sickening Radiance]. Синаптичний розряд [Synaptic Static] — сильне заклинання по області, але мушу також застерегти. Це заклинання Причарування, тож його не можна «ліпити». Нам доведеться насправді уникати команди цим заклинанням. Воно того варте: психічна шкода, ряткидок Інтелекту й, найважливіше, штраф -1к6 до кидків атаки для цілей протягом хвилини."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підсилене втілення\nЧаротворство\nЗаклинання 5-го рівня:\n– Стіна енергії\n– Стіна з каменю"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додайте Інтелект до шкоди заклинань Втілення. Це приємно, і воно застосовується до заклинань по області. Хоч на заклинанні на кшталт Вогнекуля [Fireball] воно не здається таким помітним, якщо дивитися лише на 8к6, воно застосовується до кожної цілі заклинання по області, тож що більше цілей, то більше разів додається цей модифікатор."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 6-го рівня:\n– Ланцюгова блискавка\n– Сонячний промінь\n– Крижана куля Отілюка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ланцюгова блискавка [Chain Lightning] особливо сильна: завдає 10к8+Інт кожній цілі, до 4 цілей. Добра, якщо треба завдати шкоди негайно, а вороги розташовані незвично, чи якщо потрібна шкода блискавкою, але проти 5 і більше ворогів Вогнекуля [Fireball], накладена вищим слотом, завдавала б 11к6+Інт, а ми можемо просто «ліпити» навколо союзників. Сонячний промінь [Sunbeam] — класне заклинання. Звісно, воно займає Концентрацію й цілить у Статуру, але ми можемо цілу хвилину пускати лазерні лінії, і це круто. До того ж, оскільки воно завдає половини шкоди при ряткидку, те, що це Статура, не так важливо. Крижана куля Отілюка [Otiluke's Freezing Sphere] має веселу взаємодію: союзники можуть підняти й пізніше підірвати кулю, надійно захищені від шкоди «Ліпленням заклять»{{Sculpt Spells}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Інтелект +2 (18 → 20)\nЧаротворство\nЗаклинання 6-го рівня:\n– Розщеплення\n– Істинний зір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимальний Інтелект означає максимальні СК заклинань. Не те щоб нас це надто хвилювало з усіма нашими заклинаннями на половину шкоди при ряткидку, але в нас є й інші заклинання, яким це допомагає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 7-го рівня:\n– Корона зірок\n– Вогнекуля відкладеної дії\n– Вихор"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Корона зірок [Crown of Stars] — пристойний спосіб стабільно використовувати бонусні дії. Заклинання триває годину й не потребує Концентрації. Вогнекуля відкладеної дії [Delayed Blast Fireball] має дуже цікаву взаємодію з «Ліпленням заклять»{{Sculpt Spells}}. Оскільки істоти, яких ви обрали, автоматично проходять ряткидки, обрана вами істота автоматично проходить ряткидок, щоб підняти вогнекулю, і може потім віднести її ще далі (потенційно кілька разів), можливо, звивистим коридором чи щось таке. 22к6 — не зовсім Рій метеорів [Meteor Swarm], але це купа шкоди. Вихор [Whirlwind] — невелика область дії, і шкоди він завдає менше, ніж можна було б припустити для заклинання 7-го рівня, але має цікаві ефекти, які роблять його вартим використання. Зокрема, як заклинання Втілення, це майже єдиний ефект контролю натовпу, для якого ми також можемо призначити цілі, імунні до нього. Воно сковує цілі й несе їх разом із вихором, дозволяючи вашим союзникам (яких виключено завдяки «Ліпленню заклять») безпечно битися всередині вихору, поки ви збираєте кожного ворога зіткнення на невеликій території, перш ніж накрити їх недорогими заклинаннями по області. Памʼятайте, що стан Скований також накладає Перешкоду на кубику на ряткидки Спритності."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надзаряд\nЧаротворство\nЗаклинання 7-го рівня:\n– Силова кліть\n– Планарний перехід"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Надзаряд»{{Overchannel}} — максимальна шкода. Добрий ефект. Але не перестарайтеся. Поєднайте його з тривалим ефектом на кшталт Світанок [Dawn] чи Нудотне сяйво [Sickening Radiance], щоб вичавити з нього максимум (див. розділ про уміння підкласу вище; там є певне обговорення правил). Навіть якщо просто максимізувати Вогнекуля [Fireball] 5-го рівня, це 60 шкоди (10к6 максимізовано)."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 8-го рівня:\n– Нестерпна темрява\n– Сонячний спалах"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми підходимо до моменту, коли заклинань Втілення лишається не так багато, але, до комічного, ми можемо вибирати між світлом і темрявою. Нестерпна темрява [Maddening Darkness] схожа на звичайну Темрява [Darkness] тим, що це магічна темрява, яка перешкоджає Темному зору, тільки ще й завдає психічної шкоди. Цілі, яких ми обираємо «Ліпленням заклять»{{Sculpt Spells}}, можуть проігнорувати шкоду, але не темряву. Сонячний спалах [Sunburst], навпаки, — одиничний спалах променевої шкоди, що може засліплювати цілі, які провалили ряткидок. Своєрідна більша й злісніша вогнекуля."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність +2 (16 → 18)\nЧаротворство\nЗаклинання 8-го рівня:\n– Клон\n– Лабіринт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нічого додати, окрім того, що нам потрібен більший КБ."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 9-го рівня:\n– Бажання\n– Рій метеорів"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "link",
+                      "text": "Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Wish]. Бо мені не дозволять опублікувати цю статтю без нього. Рій метеорів [Meteor Swarm] — єдине заклинання Втілення тут, але ми можемо обрати аж десять цілей, щоб захистити їх від заклинання. Що добре, бо ми не хочемо, щоб нашу команду розплющило під 40к6 шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстерність заклинань{{Spell Mastery}}:\n– Щит\n– Туманний крок"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чесно кажучи, нескінченні Щити [Shield] — це божевілля, і вони варті того, щоб бути одним із наших виборів для «Майстерності заклинань»{{Spell Mastery}}. Для вибору 2-го рівня Туманний крок [Misty Step] — чудовий варіант. Можливість просто телепортуватися бонусною дією, коли потрібно, дуже корисна."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "І це доведе наш КБ до максимуму. З Обладунок мага [Mage Armor] це дає КБ 18. З Щит [Shield] можна піднятися до 23."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підписні заклинання{{Signature Spells}}:\n– Вогнекуля\n– Заряд блискавки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це безкоштовна шкода. Додати нема що. Підривайте все."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-wizard-evoker-2014-001",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Знавець втілення",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-002",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Ліплення заклять",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-003",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Потужне замовляння",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-004",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Підсилене втілення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-005",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Надзаряд",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-006",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-school-of-evocation-ability-scores",
+      "targetBlockId": "block-section-school-of-evocation-ability-scores-2",
+      "optionId": "section-school-of-evocation-ability-scores-block-section-school-of-evocation-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-school-of-evocation-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-007",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-school-of-evocation-ability-scores",
+      "targetBlockId": "block-section-school-of-evocation-ability-scores-3",
+      "optionId": "section-school-of-evocation-ability-scores-block-section-school-of-evocation-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-school-of-evocation-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-008",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-school-of-evocation-ability-scores",
+      "targetBlockId": "block-section-school-of-evocation-ability-scores-4",
+      "optionId": "section-school-of-evocation-ability-scores-block-section-school-of-evocation-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-school-of-evocation-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-009",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-school-of-evocation-ability-scores",
+      "targetBlockId": "block-section-school-of-evocation-ability-scores-5",
+      "optionId": "section-school-of-evocation-ability-scores-block-section-school-of-evocation-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-school-of-evocation-ability-scores-5",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-010",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-school-of-evocation-ability-scores",
+      "targetBlockId": "block-section-school-of-evocation-ability-scores-6",
+      "optionId": "section-school-of-evocation-ability-scores-block-section-school-of-evocation-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-school-of-evocation-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-011",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-school-of-evocation-ability-scores",
+      "targetBlockId": "block-section-school-of-evocation-ability-scores-7",
+      "optionId": "section-school-of-evocation-ability-scores-block-section-school-of-evocation-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-school-of-evocation-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-012",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-school-of-evocation-races",
+      "targetBlockId": "block-section-school-of-evocation-races-3",
+      "optionId": "section-school-of-evocation-races-block-section-school-of-evocation-races-3-item-0",
+      "context": "Астральний ельф",
+      "explanationBlockId": "block-section-school-of-evocation-races-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-013",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-school-of-evocation-races",
+      "targetBlockId": "block-section-school-of-evocation-races-3",
+      "optionId": "section-school-of-evocation-races-block-section-school-of-evocation-races-3-item-1",
+      "context": "Геназі землі",
+      "explanationBlockId": "block-section-school-of-evocation-races-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-014",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-school-of-evocation-races",
+      "targetBlockId": "block-section-school-of-evocation-races-3",
+      "optionId": "section-school-of-evocation-races-block-section-school-of-evocation-races-3-item-2",
+      "context": "Кобольд",
+      "explanationBlockId": "block-section-school-of-evocation-races-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-015",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-school-of-evocation-races",
+      "targetBlockId": "block-section-school-of-evocation-races-3",
+      "optionId": "section-school-of-evocation-races-block-section-school-of-evocation-races-3-item-3",
+      "context": "Варіант людини",
+      "explanationBlockId": "block-section-school-of-evocation-races-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-016",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-school-of-evocation-feats",
+      "targetBlockId": "block-section-school-of-evocation-feats-3",
+      "optionId": "section-school-of-evocation-feats-block-section-school-of-evocation-feats-3-item-0",
+      "context": "Адепт стихій",
+      "explanationBlockId": "block-section-school-of-evocation-feats-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-wizard-evoker-2014-017",
+      "articleId": "rpgbot-wizard-evoker-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-evoker-2014-draft1",
+      "sectionId": "section-school-of-evocation-multiclassing",
+      "targetBlockId": "block-section-school-of-evocation-multiclassing-1",
+      "optionId": "section-school-of-evocation-multiclassing-block-section-school-of-evocation-multiclassing-1-item-0",
+      "context": "Клірик Домену смерті",
+      "explanationBlockId": "block-section-school-of-evocation-multiclassing-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

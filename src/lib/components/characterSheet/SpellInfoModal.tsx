@@ -16,11 +16,13 @@ import {
   closeSpellLink,
   dispatchLocationChange,
   findSpellLinkInSearch,
-  isCatalogOwningSpellParam,
+  isCatalogOwningSpellLink,
   isSameSpellLink,
   type SpellLink,
 } from "@/lib/spell-link";
 import { sourceTranslations, spellSchoolTranslations } from "@/lib/refs/translation";
+import { useReadingDialogFocus } from "@/hooks/useReadingDialogFocus";
+import { SpellModalRatings } from "@/components/spells/SpellModalRatings";
 
 function findSpellLinkInLocation(): SpellLink | null {
   if (typeof window === "undefined") return null;
@@ -66,13 +68,15 @@ function matchesLoadedSpell(spell: SpellData, link: SpellLink): boolean {
 }
 
 export function SpellInfoModal() {
+  const focus = useReadingDialogFocus();
   const params = useParams();
   const currentPersId = params?.id ? Number(params.id) : null;
   const isIdValid = currentPersId !== null && !isNaN(currentPersId);
 
   const [spellLink, setSpellLink] = useState<SpellLink | null>(() => findSpellLinkInLocation());
-  const isSpellCatalogPage = typeof window !== "undefined" && isCatalogOwningSpellParam(window.location.pathname);
-  const open = Boolean(spellLink) && !isSpellCatalogPage;
+  const isOwnedByCatalog =
+    spellLink !== null && typeof window !== "undefined" && isCatalogOwningSpellLink(window.location.pathname, spellLink);
+  const open = spellLink !== null && !isOwnedByCatalog;
 
   const [spell, setSpell] = useState<SpellData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -216,6 +220,7 @@ export function SpellInfoModal() {
       }}
     >
       <DialogContent
+        {...focus.dialogProps}
         className="max-h-[90vh] w-[95vw] max-w-2xl overflow-y-auto p-0 bg-gradient-to-b from-slate-950/18 to-slate-950/12"
       >
         <div className="px-4 py-5 sm:p-6 min-w-0">
@@ -283,6 +288,8 @@ export function SpellInfoModal() {
               </div>
             ) : null}
           </div>
+
+          {spell ? <SpellModalRatings spell={spell} /> : null}
 
           {spell ? (
             <div className="mt-4 border-t border-slate-800/70 pt-3 text-[13px] text-slate-400">

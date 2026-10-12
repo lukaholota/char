@@ -1,0 +1,1693 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-a3b86389033dc30b",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+      "sourceId": "rpgbot-a3b86389033dc30b",
+      "fetchedAt": "2026-09-29T19:19:13.275934+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:30:42-04:00",
+      "contentHash": "b822cdeefc5461f14f5ebce5f09c81d95ebc54d91faedade442460f18e61f855",
+      "title": "Order Domain Cleric 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-a3b86389033dc30b-73a3e321e4c8f67d.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-cleric-order-2014",
+    "sourceId": "rpgbot-a3b86389033dc30b",
+    "slug": "cleric-order-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Домен порядку — гайд підкласу Клірика (2014)",
+    "titleEn": "Order Domain Cleric 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Клірик",
+      "Домен порядку",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "articleId": "rpgbot-cleric-order-2014",
+      "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спочатку Клірик домену порядку{{Order Domain}} був задуманий як втілення гільдії Азоріус{{Azorius}} з однієї з кросоверних книг про Magic the Gathering, і він дає неймовірно потужне уміння, що одразу привернуло увагу оптимізаторів усюди. Коли його додали до книги, не привʼязаної до конкретного сетингу, він швидко став цінним вибором серед потужних кліриків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зі сильним наголосом на «мотивації» — змушуванні союзників атакувати поза чергою й посиленні власних заклинань Причарування — цей підклас дає чимало інструментів, щоб бути неймовірно ефективним кліриком. Проте, як ви побачите нижче, він насправді дає ще кращі інструменти, щоб робити зовсім інше."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клірика домену порядку",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клірика домену порядку",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#order-domain-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Клірика домену порядку",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#order-domain-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клірика домену порядку",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#order-domain-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Клірика домену порядку",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#order-domain-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Клірика домену порядку",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#order-domain-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Клірика порядку — до мене дійшла чутка, що спочатку це був контент «Відкритої Аркани»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клірика домену порядку",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання домену{{Domain Spells}}: список заклинань коливається між парами фантастичних варіантів і парами ситуативних. Загалом він доволі добрий, і багато заклинань вам знадобляться, особливо заклинання Причарування."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: обидва — чудові варіанти з широким спектром застосувань, і вони лишаються корисними аж до високих рівнів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Стримування особи [Hold Person] ситуативне, але може бути дуже зручним у кампанії з багатьма ворогами-гуманоїдами. Зона правди [Zone of Truth] рідко буває важливою в будь-якій кампанії."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: базове заклинання клірика й добрий варіант контролю натовпу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: обидва заклинання в кращому разі ситуативні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Звернення [Commune] — одне з моїх найулюбленіших заклинань Віщування, бо воно таке різнобічне й надійне. Підкорення особистості [Dominate Person] формально ситуативне, але якщо в зіткненні є ворог-гуманоїд, важко придумати кращий варіант для накладання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткові майстерності{{Bonus Proficiencies}}: важкі обладунки — завжди фантастичний варіант для клірика, а додаткова навичка завжди доречна."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Голос влади|Voice of Authority}}: попри багато сміливих спроб, клірики майже ніколи не бувають такими ж добрими в атаках зброєю, як їхні більш орієнтовані на бій союзники. Використовуйте це, щоб дати своєму пройдисвітові шанс завдати «Підступну атаку»{{Sneak Attack}} під час вашого ходу («Підступна атака» діє раз на хід, а не раз на раунд), а якщо в групі немає пройдисвіта, віддайте її тому, хто завдасть найбільше шкоди. Заклинання, яке ви накладаєте, має бути лише заклинанням з рівнем, тож коли ви досягнете достатнього рівня, на якому ваші заклинання низьких рівнів уже не впливатимуть на бій напряму, ви можете використовувати заклинання бонусною дією на кшталт Цілющого слова [healing word], щоб запустити цей ефект, а свою дію витратити на накладання замовляння. Щойно ви отримаєте «Втілення закону»{{Embodiment of Law}}, ви зможете кілька разів на день накладати заклинання Причарування бонусною дією, що дає вам ще більше способів це робити. Це також можна використати для цікавих трюків, якщо ваші друзі випадково мають "
+                  },
+                  {
+                    "type": "link",
+                    "text": "одну з кількох рис",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Наказ порядку|Channel Divinity: Order’s Demand}}: роззброюйте кожну ціль у межах 30 футів, що провалила ряткидок Мудрості. Чудово проти ворогів-гуманоїдів, але менш корисно проти монстрів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Втілення закону|Embodiment of Law}}: 3–5 разів на день здається небагато, але з огляду на наголос домену порядку на заклинаннях Причарування цього, імовірно, вистачить, щоб покрити більшість ситуацій, коли ви хочете накласти заклинання Причарування й виконати ще якусь дію в той самий хід."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественний удар{{Divine Strike}}: психічна шкода — серед найнадійніших типів шкоди в грі, але нерозумні істоти на кшталт зомбі й конструктів часто імунні до неї, тож вам знадобляться інші наступальні варіанти для цих ворогів. Дивіться також: "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Божественний удар проти замовлянь",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/#divine-strike-vs-cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кара порядку{{Order’s Wrath}}: для такого високорівневого уміння це дуже слабко, і воно просто не дотягує до можливостей, які на цьому рівні дає більшість інших доменів. Життя може максимізувати кубики лікування. Природа може командувати армією звірів. Підступність може вдавати, що перебуває в пʼяти місцях одразу, й накладати заклинання з будь-якого з них. Порядок "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "можливо"
+                  },
+                  {
+                    "type": "text",
+                    "text": " завдасть 2к8 шкоди, якщо ви влучите своєю єдиною атакою за хід і поруч буде союзник, щоб вдарити ту саму істоту. Ідеальний сценарій — вдарити ворога зброєю й завдати шкоди «Божественного удару»{{Divine Strike}}, потім бонусною дією накласти заклинання з рівнем, щоб запустити «Голос влади»{{Voice of Authority}}, а союзник влучить по тій самій цілі, щоб запустити бонусну шкоду. Це означає, що ви завдаєте 4к8 психічної шкоди (2к8 від «Божественного удару», 2к8 від «Кари порядку»), плюс те, що завдає ваша зброя, плюс те, що завдає атака вашого союзника. Це непогано, але на цьому рівні Священне полумʼя [Sacred Flame] завдає 4к8 шкоди (більше — інші варіанти на кшталт Слова сяйва [Word of Radiance] чи Дзвону небіжчика [Toll the Dead]), а СК ваших заклинань, імовірно, буде надійнішою за ваш бонус атаки, тож накладання замовляння — значно стабільніше джерело шкоди."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-order-domain-ability-scores",
+          "heading": "Характеристики Клірика домену порядку",
+          "sourceAnchor": "order-domain-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-order-domain-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від стандартного клірика, із застереженням, що ви — один із доменів, які безкоштовно дають важкі обладунки. Якщо можете підняти Силу до 15, щоб носити лати{{Plate}} без надто великих жертв, варто це зробити. Хоча, власне, єдине, що ви втрачаєте, усе одно вдягнувши їх, — це 10 футів швидкості пересування, а для сапорт-заклинателя це набагато менш важливо, ніж ви можете уявити. Особливо якщо ви вкладете ранні ресурси в {{мітлу польоту|Broom of Flying}}, яка має власну швидкість і їй байдуже, яка швидкість у вас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-order-domain-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У стандартному наборі Харизма отримує перевагу над Інтелектом, бо клірики іноді стають фактичними «обличчями» групи, адже люди зазвичай уявляють їх корисними. До того ж провалити ряткидок Інтелекту паскудно, а ряткидок Харизми — "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "ще паскудніше"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-order-domain-ability-scores-3",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-order-domain-races",
+          "heading": "Раси Клірика домену порядку",
+          "sourceAnchor": "order-domain-races",
+          "blocks": [
+            {
+              "blockId": "block-section-order-domain-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вас може спокусити раса з вродженим чаротворством, як-от Фея{{Fairy}} чи Юань-ті{{Yuan-ti}}, але формулювання і «Голосу влади»{{Voice of Authority}}, і «Втілення закону»{{Embodiment of Law}} вимагає витрачати слоти заклинань, щоб їх запустити, а отже, вони не взаємодіють. Це не робить їх поганим вибором, хоча фею важко порекомендувати, бо нам доведеться обирати між польотом і володінням важкими обладунками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-order-domain-feats",
+          "heading": "Риси Клірика домену порядку",
+          "sourceAnchor": "order-domain-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-order-domain-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доторк феї{{Fey Touched}}: Сон [Sleep] і Огидний сміх Таші [Tasha's Hideous Laughter] — обидва основні потужні заклинання, які цей клас може перетворити на бонусну дію завдяки «Втіленню закону»{{Embodiment of Law}}, за умови, що ви накладаєте їх через слот заклинання, а не лише безкоштовним накладанням від самої риси. Зауважте, що риса каже, що ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "можете"
+                },
+                {
+                  "type": "text",
+                  "text": " це зробити, а не що "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "мусите"
+                },
+                {
+                  "type": "text",
+                  "text": ", тож безкоштовне накладання можна приберегти для моменту, коли вам усе одно не потрібно, щоб воно було швидшим. Я б згадав тут Героїзм [Heroism], але домен і так дає його вам."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-order-domain-weapons",
+          "heading": "Зброя Клірика домену порядку",
+          "sourceAnchor": "order-domain-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-order-domain-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від будь-якого іншого клірика."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-order-domain-armor",
+          "heading": "Обладунки Клірика домену порядку",
+          "sourceAnchor": "order-domain-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-order-domain-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Один із різновидів клірика, що може носити важкі обладунки, а отже, повинен це робити, якщо може дозволити собі потрібну Силу й гроші."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Чародій{{Sorcerer}}: я так твердо переконаний, що найкращий спосіб грати Клірика порядку — взяти в ньому один рівень і негайно втекти до Чародія Божественної душі{{Divine Soul Sorcerer}}, що я так і зробив в одноразовій грі{{oneshot}}. Ви просто берете замовляння й заклинання, що не залежать від атаки заклинанням чи СК (тобто здебільшого заклинання підтримки на кшталт Благословення [Bless]), лишаєте Мудрість на 13, а тоді потрапляєте до підкласу з найкращим добором заклинань у грі, що дає вам гнучкість брати багато різних варіантів, щоб запускати «Голос влади»{{Voice of Authority}}, і водночас дозволяє заважати ворогам, як контролер. Насправді я писав це й "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Гайд Чародія Божественної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/divine-soul/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " одночасно, бо спочатку вони були однією статтею. Перегляньте, що виходить, якщо ви справді хочете оптимізувати саме «Голос влади», а не весь підклас."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чарівник{{Wizard}}: є одна химерна штука, яку можна зробити, глибоко занурившись у {{Чарівника Школи чарування|Enchanter Wizard}}: тоді ви можете використати «Втілення закону»{{Embodiment of Law}}, щоб перетворити щось на бонусну дію, і поєднати це з «Розділеними чарами»{{Split Enchantment}}, щоб одним заклинанням вразити двох осіб. Я б не рекомендував цього, бо ви сильно калічите прогресію заклинань в обох класах, але це кумедна взаємодія."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+          "heading": "Приклад збірки Клірика порядку — до мене дійшла чутка, що спочатку це був контент «Відкритої Аркани»",
+          "sourceAnchor": "example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+          "blocks": [
+            {
+              "blockId": "block-section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка бере невелике занурення в Чародія, щоб отримати доступ до Сріблясті шпильки [Silvery Barbs], бо це просто настільки добре, особливо разом із «Голосом влади»{{Voice of Authority}}. Щоб вона не була надто схожою на гайд Божественної душі{{Divine Soul}}, це все, що ми візьмемо, хоча не можу не підкреслити: якби я мав вибір, то 10 разів із 10 грав би збірку Божественної душі, а не цю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для мультикласування Харизма має бути щонайменше 13, а оскільки Спритність чи Сила нам ні до чого, ми робимо Статуру якомога вищою, а запасними очками підіймаємо Харизму до 14."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перевертень{{Shifter}}. Ми отримуємо володіння Залякуванням і одним із двох варіантів. Якщо вас справді непокоїть повільна швидкість через обладунок, «Швидкий крок»{{Swiftstride}} це виправить. Проте я б, імовірно, взяв «Дикого мисливця»{{Wildhunt}} заради можливості «перевірити вайб» когось Аналізом Поведінки або під час кидків Уважності/Виживання, щоб щось знайти чи вистежити."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо передісторію Шпигун{{Spy}}, а володіння Непомітністю переносимо на Уважність. Виявляється, шпигуни загалом корисні лише тоді, коли справді можуть щось бачити й чути."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми будемо «обличчям» (хоч і трохи гіршим за версію Клірик 1/Чародій X), тож поводимося відповідно. Початок із Клірика дає нам Медицину й Аналіз Поведінки, а додаткове володіння Переконанням — від домену. Разом із расою й передісторією це дає нам володіння всіма стандартними навичками «обличчя» (Обман, Аналіз Поведінки, Залякування, Переконання) і загалом 6 володінь навичками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми відставатимемо на один рівень за Покращеннями Характеристик протягом усього життя персонажа, тож неодмінно хочемо взяти гібридну рису на 5-му рівні й підняти основну характеристику до 20 на 9-му. Беремо «Доторк феї»{{Fey Touched}}, як обговорювали вище. На 13-му беремо «Надихаючого лідера»{{Inspiring Leader}} і покажемо трохи математики, чому він неймовірний на цьому рівні. На 17-му беремо «Містичного адепта»{{Eldritch Adept}} заради «Зору диявола»{{Devil's Sight}}, перш ніж нарешті взяти «Стійкого (Статура)»{{Resilient (Con)}} на 20-му як умовне завершальне уміння."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 – Клірик 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замовляння:\n– Настанова\n– Дзвін небіжчика\n– Священне полумʼя\nПідготовлені заклинання:\n– Цілюще слово\n– Спрямований заряд\n– Захист від зла й добра\n– Щит віри\nЗаклинання домену:\n– Наказ\n– Героїзм\nГолос влади"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми починаємо, як будь-який інший Клірик, але з упором на запуск «Голосу влади»{{Voice of Authority}}, бо це вже неймовірне уміння. Для цього Цілюще слово [healing word] зробить за вас багато роботи. До речі, про заклинання бонусною дією: Щит віри [Shield of Faith] просто чудовий. Дочекайтеся, поки ваш друг-боєць зайде в ближній бій, накиньте на нього +2 до КБ бонусною дією й насолоджуйтеся, як він вдарить того бідолаху, що стоїть поруч. Те, що на цьому рівні у вас лише два слоти заклинань, означає, що доведеться дуже ретельно вирішувати, коли їх витрачати і на що. Не витрачайте слот, якщо це не питання життя і смерті або якщо він не може запустити «Голос влади». Для стартового спорядження візьміть {{кольчугу|Chain Mail}}, булаву{{Mace}} й легкий арбалет{{Light Crossbow}}. Негайно продайте обидва види зброї й використайте виручені гроші, щоб купити лати{{Plate}}, щойно зможете."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 – Чародій 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замовляння:\n– Штукарство\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Світло\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Формування води",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nЗаклинання:\n– Благословення\n– Сріблясті шпильки\n– Зурочення (Спорідненість)\nУлюбленець богів"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Я справді мав на увазі негайне перемикання на чародія. Усі замовляння тут утилітарні, бо наша Харизма ніколи не зростатиме. Зурочення [Bane] — приємний штрих, бо він цілить у ряткидок Харизми й, за словами Тайлера, ймовірно, є єдиним найкращим інструментом, щоб вибивати з важливих монстрів «Легендарний опір»{{Legendary Resistance}}. Ваша Харизма ніколи не масштабуватиметься, зате зростає ваш Бонус Майстерності, а майже в ніщо немає добрих ряткидків Харизми. Далі — Сріблясті шпильки [Silvery Barbs]. Тайлер так розлютився, коли це заклинання вийшло, що написав "
+                    },
+                    {
+                      "type": "link",
+                      "text": "цілу статтю",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " про те, чому його не варто використовувати. Але виявляється, що справжнє просвітлення цього заклинання — на Клірику порядку. Ви накладаєте замовляння (або будь-що з ряткидком, але замовляння безкоштовні). Ціль проходить ряткидок. Ви реакцією накладаєте Сріблясті шпильки [Silvery Barbs], змушуючи її перекинути ряткидок. Пройдений чи ні, тепер ви цілите в союзника другою половиною заклинання, даючи йому Перевагу на кубику на його наступну атаку. Це запускає «Голос влади»{{Voice of Authority}}. Ціль тепер може негайно зробити атаку з Перевагою на кубику, яку ви щойно їй дали. Ціль провалила ряткидок проти вашого замовляння? Просто дочекайтеся, коли вона щось успішно кине на своєму ході. Ціль так і не змогла нічого успішно кинути? Вітаю, ви заощадили слот заклинання, бо ваш ворог був повністю безрезультатним. Зверніть увагу: єдине обмеження «Голосу влади» — слоти заклинань. Якщо ви накладете Цілюще слово [healing word] на одного, а Сріблясті шпильки [Silvery Barbs] на когось іншого в одному раунді, обидва можуть зробити атаки реакцією."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 – Клірик 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлене заклинання:\n– Виявлення магії\nБожественність: Наказ порядку"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це ритуал, тож він не конкуруватиме за дорогоцінний слот заклинання. Зверніть також увагу: завдяки магії мультикласування в нас зараз є слоти 2-го рівня, але немає заклинань 2-го рівня, щоб їх туди накласти. Тож ви можете без докорів сумління підсилювати слотом вищого рівня Цілюще слово [healing word] (або Спрямований заряд [Guiding Bolt], якщо ваша команда "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "справді"
+                    },
+                    {
+                      "type": "text",
+                      "text": " добре справляється). Ми вже обговорювали «Наказ порядку»{{Order’s Demand}} вище, але зазначу кілька речей. Мабуть, найкраще застосування, яке я можу придумати, — використати його, коли ваша група бʼється з ворогами, що носять щити. Скористайтеся «Каналом», щоб змусити їх скинути спорядження, а тоді заклинанням бонусною дією на кшталт Щит віри [Shield of Faith] чи Цілющого слова [healing word] дайте комусь змогу атакувати по зниженому КБ. Саме по собі стан Причарований не такий уже й корисний. Проте він може й урятувати вас, якщо ви опинилися в оточенні. Істоти, причаровані вами, не можуть атакувати вас чи цілитися у вас ворожою магією, тож це може виграти вам хід, щоб друзі змогли в разі потреби знищити одного-двох ворогів. Один альтернативний варіант тут — узяти ще рівень чи два Чародія на цьому етапі замість продовження за Клірика. Це відкрило б доступ до «Джерела магії»{{Font of Magic}} і, можливо, до «Метамагії»{{Metamagic}} та Вихрове переміщення [Vortex Warp], як я розповідав у гайді Божественної душі, і при цьому дозволило б отримати заклинання Клірика 9-го рівня. Проте чим більше ви це робите, тим більше вас спокушатиме просто продовжувати й узяти Бажання [Wish] замість Масове зцілення [Mass Heal]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 – Клірик 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлене заклинання:\n– Духовна зброя\nЗаміна підготовленого: Спрямований заряд → Мале відновлення\nЗаклинання домену:\n– Стримування особи\n– Зона правди"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Можливо, ніхто ще не на позиції. Можливо, усі мертві, крім вас. Можливо, вам просто відчайдушно потрібна шкода силовим полем. Насолоджуйтеся тим, що можете використати Духовна зброя [Spiritual Weapon] і замовляння в одному ході. Оскільки тепер у вас є інший спосіб завдавати шкоди, обміняйте Спрямований заряд [Guiding Bolt] на основне заклинання підтримки Клірика. Стримування особи [Hold Person] — чудовий варіант «пройди-ряткидок-або-страждай»{{save-or-suck}}, якщо вам часто трапляються ворожі гуманоїди, а на цьому рівні, імовірно, так і є."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 – Клірик 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове замовляння:\n– Лагодження\nПідготовлені заклинання:\n– Вгамування емоцій\n– Підтримка\nРиса:\n– Доторк феї (+1 Мудрість)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вгамування емоцій [Calm Emotions] стане цілком придатною ціллю для «Втілення закону»{{Embodiment of Law}}, коли воно запрацює, і може бути дуже корисним трюком, якщо ви намагаєтеся завершити бій без кровопролиття, особливо тому, що воно цілить у ряткидок Харизми. Для «Доторку феї»{{Fey Touched}} ми вивчаємо Сон [Sleep], бо Стримування особи [Hold Person] — це, по суті, просто краща версія Огидний сміх Таші [Tasha's Hideous Laughter]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 – Клірик 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлене заклинання:\n– Маяк надії\nЗаклинання домену:\n– Масове цілюще слово\n– Уповільнення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хоча Маяк надії [Beacon of Hope] може здаватися привабливим бойовим підсиленням завдяки Перевазі на кубику в ряткидках Мудрості, насправді значно краще використати його під час Короткого відпочинку. У ньому не сказано, що воно максимізує лише магічне лікування, тож воно безперечно працюватиме на кубиках здоровʼя, витрачених під час відпочинку. Проте якщо ваша мета — лікування поза боєм і ваш Майстер дозволяє додаткові класові уміння{{Optional Class Features}}, візьміть замість нього Аура живучості [Aura of Vitality]. 20к6 лікування — абсурдна кількість, якої не мало б бути на цьому рівні, і це видно. Масове цілюще слово [Mass Healing Word] рідко вартує слота заклинання (використовуйте натомість Підтримка [Aid], бо воно теж підвищує поточні ХП істот), але Уповільнення [Slow] — фантастичний дебаф і може зробити бій із великою кількістю ворогів значно легшим для виживання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 – Клірик 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлене заклинання:\n– Розвіювання магії/Захист від енергії/Зняття проклять\nВтілення закону\nЗнищення нежиті (ПН 1/2)\nКанал божественності (2/відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оберіть те з цих захисних заклинань, що найкраще підійде вашій кампанії. Можливо, ви бʼєтеся з бригадою чарівників, які всі підготували Вогнекуля [Fireball]. Можливо, ви спускаєтеся в Аверн{{Avernus}} і маєте виправляти речі, спричинені божевіллям. Можливо, хтось накладає Стримування особи [Hold Person] на "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "вас."
+                    },
+                    {
+                      "type": "text",
+                      "text": " «Втілення закону»{{Embodiment of Law}} фантастичне, як ми обговорювали вище. Героїзм [Heroism], Сон [Sleep] і Стримування особи [Hold Person] — усе чудові варіанти, що все одно дозволять вам накласти замовляння."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 – Клірик 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлене заклинання:\n– Вигнання\nЗаклинання домену:\n– Примушування\n– Пошук істоти"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вигнання [Banishment] — фантастичний «пройди-ряткидок-або-страждай»{{save-or-suck}}, що знову ж таки цілить у Харизму. Проте якщо ви хочете змусити ворогів забрести під загрозу, Примушування [Compulsion] — слушна ціль для «Втілення закону»{{Embodiment of Law}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 – Клірик 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість 18 → 20\nПідготовлені заклинання:\n– Захист від смерті\n– Віщування\nЗнищення нежиті (ПН 1)\nБлагословенні удари"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захист від смерті [Death Ward] — вражаюче заклинання на будь-якому рівні. Віщування [Divination] — ритуал, а чудових варіантів 4-го рівня не так уже й багато. Користуйтеся ним щоразу, коли будуєте плани й маєте зайві 25 зм. Якщо ви збираєтеся обрати одне додаткове класове уміння{{optional class feature}}, щоб потріпати нерви своєму Майстрові, оберіть саме це. Обидві ваші характеристики для атак зброєю нікудишні, і це уміння ніколи б не знайшло застосування, якби його довелося лишити «Божественним ударом»{{Divine Strike}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 – Клірик 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлене заклинання:\n– Масове лікування ран\nЗаклинання домену:\n– Звернення\n– Підкорення особистості"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Протидія тому, що вас накрили Вогнекулею [Fireball]. Також його можна використати, щоб запустити «Голос влади»{{Voice of Authority}} на одного з тих, кого ви зцілюєте. Ми покращуємо здатність ставити запитання нашому божеству, переходячи від одного до трьох і прибираючи потребу віддавати йому гроші щоразу. Вам доведеться бути трохи точнішими, бо відповіді тепер «так/ні», а не відкриті, але якщо це важливо, просто накладіть одне, а тоді інше. Обидва — ритуали, а заборона на багаторазове накладання стосується лише самого заклинання, а не їхньої категорії. Підкорення особистості [Dominate Person] — неймовірне заклинання, якщо є гуманоїд, чий розум треба підкорити. Окрім цього, приємно мати його безкоштовно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 – Клірик 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове замовляння:\n– Дивотворство\nПідготовлене заклинання:\n– Більше відновлення\nБожественне втручання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Обітниця [Geas] може здаватися привабливою, але памʼятайте, що «Втілення закону»{{Embodiment of Law}} працює лише із заклинаннями, що накладаються однією дією, а Обітниця [Geas] має час накладання 1 хвилина."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 – Клірик 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлене заклинання:\n– Зцілення\nЗаміна підготовленого: Мале відновлення → Бенкет героїв\nЗнищення нежиті (ПН 2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зцілення [Heal] — єдине бойове лікувальне заклинання, достатньо ефективне, щоб справді вартувати слота на одну ціль, що не на 0 ХП. Проте на цьому рівні в нас лише один слот заклинання, а Бенкет героїв [Heroes' Feast] — неймовірне підсилення для всієї групи. Нас не надто турбує вартість усього алмазного пилу, що ми витрачаємо на Більше відновлення [Greater Restoration] на цьому рівні, тож ми відмовляємося від Малого відновлення [Lesser Restoration], щоб підготувати обидва."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 – Клірик 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса:\n– Надихаючий лідер\nПідготовлене заклинання:\n– Планарний союзник"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кожен відпочинок (короткий чи довгий) дає змогу накласти 14 тимчасових ХП на кожного члена групи. На цьому рівні це може здаватися небагато, але для середньої групи з 4 членів у день, коли ви прокидаєтеся, бʼєтеся, робите короткий відпочинок, бʼєтеся ще раз, знову короткий відпочинок, бʼєтеся востаннє й лягаєте спати, це майже 170 пунктів можливого лікування, яке вам не доведеться робити. Також, можливо, цього дня ви не мандруєте, але вам справді потрібен ангел, щоб він щось зробив для вас. Покличте одного й беріться торгуватися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 – Клірик 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлене заклинання:\n– Божественне слово"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "З цим новим рівнем слотів заклинань більшість того, що ми робитимемо за день, — усе ще Бенкет героїв [Heroes' Feast] і наявний слот 7-го рівня для Зцілення [Heal]. Проте якщо в сутичці ви зіткнетеся з багатьма дрібними ворогами, Божественне слово [Divine Word] може буквально просто вбити їх усіх при провалі ряткидка Харизми. Навіть якщо ви спершу знизите їх нижче 40, 10 хвилин у стані Засліплений у бою — це часто фактично смерть."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 – Клірик 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлене заклинання:\n– Планарний перехід\nЗнищення нежиті (ПН 3)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Врятуйте свого Чародія/Барда від необхідності витрачати на це відоме заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 – Клірик 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлене заклинання:\n– Свята аура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Протягом хвилини, поки ви підтримуєте Концентрацію (на яку це заклинання дає вам Перевагу на кубику), ваша група виграє бої."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 – Клірик 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлене заклинання:\n– будь-яке\nРиса:\n– Містичний адепт (Зір диявола)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Є "
+                    },
+                    {
+                      "type": "link",
+                      "text": "лише чотири заклинання Клірика 8-го рівня",
+                      "href": "https://www.dndbeyond.com/spells/class/cleric?filter-search=&filter-level=8&filter-verbal=&filter-somatic=&filter-material=&filter-concentration=&filter-ritual=&filter-sub-class=&filter-partnered-content=f"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", і жодне з решти не досить добре, щоб завжди його готувати. Візьміть «Зір диявола»{{Devil's Sight}} і накладіть Освячення [Hallow] на свою кімнату в постійній базі, яка в вас, імовірно, вже є на цей момент, наповнивши її магічною темрявою. Хоча це кумедний вибір для цього рівня замість «Стійкого (Статура)»{{Resilient (Con)}}, якого ми беремо пізніше, насправді можна взяти будь-що. Це тут, бо як високорівневий Клірик, ваше божество, схоже, проситиме вас битися з високорівневими дияволами, а нам хотілося б бути імунними до одного з їхніх найпоширеніших трюків. Якщо ваша кампанія не про це, сміливо міняйте їх місцями або навіть зовсім відмовтеся від цього на користь чогось із підвищенням Статури. Тільки не «Кухаря»{{Chef}}, бо ми вже роздаємо купу тимчасових ХП від «Надихаючого лідера»{{Inspiring Leader}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 – Клірик 17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготовлене заклинання:\n– Масове зцілення\nЗнищення нежиті (ПН 4)\nКара порядку"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це не Бажання [Wish], але це найкраще заклинання, яке Клірик може накласти в бою. Якщо вам усе-таки вдалося здобути «Благословенні удари»{{Blessed Strikes}}, то тепер хід «кинути в когось замовляння, накласти Сріблясті шпильки [Silvery Barbs] на його вдалий ряткидок, щоб він його провалив, змусити союзника його проколоти» завдає додаткових 2к8 психічної шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 – Клірик 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (3/відпочинок)\nПідготовлене заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 – Клірик 19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса:\n– Стійкий (Статура)\nПідготовлене заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ваше значення вже парне, але це все одно +6 до ряткидків."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-cleric-order-2014-001",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання домену",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-002",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-003",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-004",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-005",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-006",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-007",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Додаткові майстерності",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-008",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Голос влади",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-009",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-010",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Втілення закону",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-011",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Божественний удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-012",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Кара порядку",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-013",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-0",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-order-2014-014",
+      "articleId": "rpgbot-cleric-order-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-1",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

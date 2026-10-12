@@ -1,0 +1,4738 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-spells/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "63f7a6fb49adedcce102837291c38f2dfb1639468a861512b919b170bbc2abb9",
+  "sourceRevision": {
+    "revisionId": "rpgbot-dfaf348905f66be4-63f7a6fb49adedcc",
+    "sourceId": "rpgbot-dfaf348905f66be4",
+    "fetchedAt": "2026-09-29T19:23:40.615811+00:00",
+    "sourceUpdatedAt": "2026-09-24T21:42:53-04:00",
+    "contentHash": "88743e27f0a8a20125a8bc111578ccccf8de9be9743e9f636e4e4e95f204499e",
+    "title": "DnD 5.5 Ranger Spells Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-dfaf348905f66be4-63f7a6fb49adedcc.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "DnD 5.5 Ranger spells are an interesting mix of buffs and utility options\n\twith a handful of direct damage spells and healing options. Most of the spells\n\tare taken from the Druid’s spell list, though the Ranger gets several unique\n\toptions like Hunter’s Mark and Conjure Barrage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Ranger’s spell selection is also limited heavily by WotC’s concepts about\n\twhat a ranger is and where they go on adventures. Spells will heavily favor\n\tfighting in forests (or in forest-like environments like orchards. Basically\n\tanywhere with trees and other abundant foliage), which means that if you’re\n\tfighting anywhere else, your spell options are more limited."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Ranger’s spellcasting runs into issues with Concentration due to the\n\tclass’s reliance on Hunter’s Mark. Several of the Ranger’s class and subclass\n\tfeatures only function while you’re using Hunter’s Mark, which means that\n\tcasting other Concentration spells locks you out of some of your features.\n\tPowerful options like Summon Beast will easily beat Hunter’s Mark’s damage\n\toutput, but you’ll need to consider any other benefits you might give up when\n\tyou use those spells."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-spells/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-spells/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ranger Spells by Level",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-spells/#spells"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ranger Cantrips",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-spells/#ranger-cantrips"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 1 Ranger spells",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-spells/#level-1"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 2 Ranger spells",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-spells/#level-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 3 Ranger spells",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-spells/#level-3"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 4 Ranger spells",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-spells/#level-4"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 5 Ranger spells",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-spells/#level-5"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice in this article is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2024 DnD Character Optimization Meta",
+              "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows. Also be sure to check for "
+            },
+            {
+              "type": "link",
+              "text": "errata",
+              "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+            },
+            {
+              "type": "text",
+              "text": " periodically."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells",
+      "heading": "Ranger Spells by Level",
+      "sourceAnchor": "spells",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-ranger-cantrips",
+      "parentSectionId": "section-spells",
+      "heading": "Ranger Cantrips",
+      "sourceAnchor": "ranger-cantrips",
+      "blocks": [
+        {
+          "blockId": "block-section-ranger-cantrips-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fighting Style (Druidic Warrior) allows you to select two Cantrips. In order\n\tto justify the opportunity cost of choosing Druidic Warrior over any other\n\tfighting style, your choice of Cantrips in the context of the rest of your\n\tbuild needs to both justify the opportunity cost and answer the question “why\n\tnot just play a Druid?”"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ranger-cantrips-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since Cantrips reduce your reliance on Strength or Dexterity, we’ll assume\n\tthat you’re maximizing Charisma rather than Strength or Dexterity and building\n\taround using cantrips instead of using weapons normally."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ranger-cantrips-cantrips",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Control Flames"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "EEPC / XGtE",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Extremely disappointing utility."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Create Bonfire"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "EEPC / XGtE",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Good damage and cheap area control, but it requires Concentration, and\n\t\tit’s not good enough to justify over concentrating on Hunter’s Mark."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Druidcraft"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Extremely disappointing utility."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elementalism"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Very flavorful, but almost totally useless."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Frostbite"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "EEPC / XGtE",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Low damage for a cantrip (d6-based), but the big appeal is Disadvantage\n\t\ton the target’s next weapon attack. Unfortunately, it works on Constitution\n\t\tsaving throws, and those tend to be relatively high compared to other saving\n\t\tthrows."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Guidance"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Really good, but you likely can’t make room for it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gust"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "EEPC / XGtE",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": This spell is almost totally useless."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Infestation"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": The forced movement is the main appeal, and you can get that from Weapon\n\t\tMastery much more reliably."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magic Stone"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "EEPC / XGtE",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": 1d6+Wis damage. You get Extra Attack, and this doesn’t consume\n\t\tConcentration, so it can work with Hunter’s Mark. You can also fire the\n\t\tstones from a sling to use Weapon Mastery. The biggest issue is spending a\n\t\tBonus Action every 3 shots, which will compete heavily with Hunter’s Mark.\n\t\tIt’s doable, but there will be turns where you won’t have Hunter’s Mark in\n\t\tplace because you needed to refresh Magic Stone."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mending"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Too situational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Message"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Situational. Use this to send messages without revealing your\n\t\tposition."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mold Earth"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "EEPC / XGtE",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": You know what else can do this? A shovel. Sure, shoveling will take a\n\t\tlong time, but you get at most 3 Cantrips (5 with Circle of the Land), and\n\t\tif you can replace a Cantrip with a mundane item it’s probably a bad\n\t\tCantrip. The only important function is to create difficult terrain, but\n\t\tyou’re limited to two ongoing effects, which means you only get two 5-foot\n\t\tsquares. And, again, you could do that with a shovel. You’re about as likely\n\t\tto use this in combat as you are to use a shovel, too."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Poison Spray"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": This highest damage die for Cantrips, at least until Toll the Dead came\n\t\talong. Poison spray has serious problems: 10 ft. range, and it works on a\n\t\tConstitution saving throw, so enemies will frequently resist it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal Savagery"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Shillelagh will be more effective, so get Shillelagh unless you\n\t\tdesperately need an empty hand for some reason."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Produce Flame"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": A decent attack Cantrip, it notably also allows you to hold the flame and\n\t\tcarry it around as a light source. The action economy is annoying, though:\n\t\tyou need to spend a Bonus Action to activate the spell, then an Action to\n\t\tactually attack. You could walk around with this running to keep it ready,\n\t\tbut there’s not much reason to do when Starry Wisp exists."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resistance"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Considerably more difficult to use than Guidance. Your best bet is to\n\t\tthrow this on an ally before going into combat, but if you have that luxury\n\t\tyou should be casting a better Concentration spell."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shape Water"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "EEPC / XGtE",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": See our\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Shape Water",
+                "href": "https://rpgbot.net/dnd5/characters/shape-water"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\tfor more on how great Shape Water is."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shillelagh"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Basically the reason Druidic Warrior exists. In a lot of ways, this\n\t\tcantrip perfectly exemplifies the trade you’re making with Druidic Warrior.\n\t\tYou get to turn a club or quarterstaff into a longsword equivalent using\n\t\tyour Wisdom modifier. Consider grabbing Polearm Master, too."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spare the Dying"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": The only benefit to Spare the Dying is that it has 15-foot range, and\n\t\tthat’s so little range that it’s hardly worth considering. Buy a Healer’s\n\t\tKit and walk the 15 feet if you need to stabilize an ally as an Action."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Starry Wisp"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Decent damage, good damage type, and it prevents enemies from hiding or\n\t\tturning invisibile. But it won’t keep up with other options since you get\n\t\tExtra Attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thorn Whip"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": The damage is fine, but the real appeal is the pull effect. 10 feet may\n\t\tnot seem like much, but its enough to pull enemies off of ledges, to pull\n\t\tlow-flying enemies into melee, to pull enemies into an area control effect\n\t\tlike Create Bonfire or Wall of Fire, to pull enemies out of a grapple, or in\n\t\ta pinch you can pull an ally out of a dangerous location (albeit at the\n\t\tprice of some friendly fire)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thunderclap"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "EEPC / XGtE",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Damaging every creature within 5 feet of you is great if you’re in melee\n\t\tfacing numerous enemies. Even with Extra Attack you will deal more damage\n\t\twith this against three or more foes than you could with a weapon. See our\n\t\tarticle on\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Melee Cantrips vs. Extra Attack",
+                "href": "https://rpgbot.net//rpgbot.net/dnd5/characters/melee_Cantrips"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\tfor a breakdown of the math comparing melee Cantrips to normal martial\n\t\tattacks."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-level-1",
+      "parentSectionId": "section-spells",
+      "heading": "Level 1 Ranger spells",
+      "sourceAnchor": "level-1",
+      "blocks": [
+        {
+          "blockId": "block-section-level-1-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Absorb Elements"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": You get spellcasting later and slower than anyone else, so you have very\n\t\tfew options for protecting yourself from non-weapon damage. This will handle\n\t\tthat issue, but it will eat your spell slots quickly so be sure to eliminate\n\t\tthe source of the elemental damage as quickly as possible so that you don’t\n\t\trun through your spell slots too quickly.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The biggest challenge for Absorb Elements is that is has Somatic\n\t\t\tcomponents, which require a free hand. By default, this means that\n\t\t\ttwo-weapon fighting builds and sword-and-board builds will be unable to\n\t\t\tuse this unless you’re dilligent about drawing and stowing your weapon,\n\t\t\twhich both makes opportunity attacks hard and only allows Absorb Elements\n\t\t\tevery other round. Unfortunately, the only way around this is\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "War Caster",
+                "href": "https://rpgbot.net/dnd5/characters/feats/war-caster/"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Alarm"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Great to cast as a Ritual when you’re resting, but ."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Animal Friendship"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Arguably easier than proficiency in Animal Handling, but it will become\n\t\tobsolete once beasts disappear around CR 10."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Beast Bond"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "EEPC",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Largely useless. Even for Beast Master Rangers, your beast has 8\n\t\tIntelligence, so it doesn’t qualify."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Buzzing Bee"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "Drops",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Long\n\t\trange, no save, and it inhibits stealth, Perception, and Concentration. It’s\n\t\tsomehow both broadly useful but also very difficult to justify.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Buzzing Bee prevents the target from benefiting from invisibility, which\n\t\t\tmeans that they can’t benefit from hiding. But you need to be able to see\n\t\t\tthem, which means that most enemies that rely on invisiblity won’t care.\n\t\t\tThis doesn’t allow a save like Faerie Fire does, but Faerie Fire also\n\t\t\tdon’t require you to see the target, and Faerie Fire also works as a great\n\t\t\tsupport option even when enemies aren’t invisibile."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Imposing Disadvantage on Perception may be helpful for sneaking past\n\t\t\tenemies, but since Buzzing Bee is single-target and has a Verbal\n\t\t\tcomponent, which makes it difficult to use in most stealth situations."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The Concentration option may be helpful against enemy spellcasters, but\n\t\t\tfor the same action cost and spell slot you can use any number of other\n\t\t\tspells that could actually break Concentration."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cure Wounds"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Rangers don’t have as many spell slots as a full caster, so using your\n\t\tprecious few slots on healing can be difficult. However, someone in the\n\t\tparty needs to be able to heal the primary healer if they fall unconscious,\n\t\tand you’re someone."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Detect Magic"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Ideally someone in the party who can cast more spells than you will\n\t\thandle this, but sometimes you don’t really have a choice. Fortunately, you\n\t\tcan cast it as a Ritual to avoid spending precious spell slots."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Detect Poison and Disease"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Very situational, and unless you can also cast Protection From Poison,\n\t\tthere’s little you can do about it anyway other than physically avoiding the\n\t\tthreat. Fortunately, this can be cast as a Ritual."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ensnaring Strike"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Almost exclusive to Rangers, Ensnaring Strike is a great way to handle\n\t\tsingle targets that are causing you problems, especially if the target is a\n\t\tmelee monster. Note that you can use this at range, so archery builds can\n\t\tensnare a target, then either wear them down or shift their attention to\n\t\tother foes.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "It’s a Strength save, which means that most spellcasters and many agile\n\t\t\tenemies will have trouble with it, but big melee brutes will probably\n\t\t\tresist it. After the initial save, it takes an Action and and a Strength\n\t\t\t(Athletics) check (not a save) to escape, and the target takes damage\n\t\t\tevery round, so they’ll likely want to escape quickly. The damage scales\n\t\t\tlinearly with spell level, so this remains a powerful and efficient use of\n\t\t\ta spell slot throughout your career, but restraining the target is much\n\t\t\tmore impactful than the damage itself."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Ensnaring Strike is also an excellent counter to flying enemies because\n\t\t\tbeing restrained causes creatures which fly nonmagically to fall, which\n\t\t\tmeans that if you shoot a griffon or something it’s going to take a pile\n\t\t\tof falling damage.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Entangle"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": A great area control spell at any level. Strength saving throws tend to\n\t\tbe low for any creature that isn’t a gigantic Strength-based brute, so it’s\n\t\teasy to restrain even high-level enemies. However, it requires Concentration\n\t\tso you can’t easily combine it with things like Hunter’s Mark."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fog Cloud"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": An excellent way to cover your escape, but you can’t see through the fog\n\t\tany better than anyone else, so don’t expect to fight in this without some\n\t\tother advantage most of the time. Fog Cloud can be a way to negate Advantage\n\t\tif your enemies have the upper hand, so if you’re facing enemies who are\n\t\tinvisible, hidden, or have some other source of Advantage, Fog Cloud can\n\t\ttake that away, effectively leveling the playing field so that no one can\n\t\tsee each other. Such situations are rare, but it’s nice to know that there’s\n\t\ta countermeasure when those situations do arise."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Goodberry"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": An excellent resource, both in terms of healing and utility. A Druid can\n\t\tusually spare a prepared spell so that they can dump spells into Goodberry\n\t\tat the end of the day, but that may be harder for a Ranger since you get\n\t\tsuch a small number of spells known. Still, dumping your spell slots into a\n\t\tpile of goodberries the day before you leave on an adventure will give you a\n\t\thelpful pad of hit points that you can quickly use to heal after combat\n\t\twithout resorting to a short rest."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hail of Thorns"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": This shouldn’t be a go-to option, but it’s a nice way to handle\n\t\ttightly-packed groups of weak foes. Just don’t rely on it too heavily, as it\n\t\twill eat your spell slots quickly without a big payoff."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hunter’s Mark"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": The Ranger’s bread and butter, and required to benefit from many of the\n\t\tRanger’s class and subclass features. Many rangers will spend the bulk of\n\t\ttheir time using Concentration on Hunter’s Mark while they focus upon single\n\t\tfoes before switching to the next foe. As a Ranger, your Favored Enemy\n\t\tfeature gets you a pool of free castings of Hunter’s Mark, which allows you\n\t\tto save your spell slots for other things without losing chunks of your\n\t\tclass.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Hunter’s Mark taking so much focus in the design of the DnD 5.5 Ranger is\n\t\t\ta significant pain point in the class’s design. Unfortunately, there isn’t\n\t\t\ta way around it without giving up class and subclass features, though not\n\t\t\tall subclasses require Hunter’s Mark to the same degree. As you gain\n\t\t\tlevels, you may find that other Concentration spells like Elemental Weapon\n\t\t\tand Summon Beast are more impactful uses for your Concentration."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Jump"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": A great\n\t\tboost to your mobility with a Bonus Action casting time. You can’t afford to\n\t\tuse this in every encounter, but it’s great if you need to get past\n\t\tobstacles or hazards."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Longstrider"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": A\n\t\thelpful buff for highly-mobile characters, and with an hour-long duration it\n\t\tcan be a great use of low-level spell slots once your 1st-level spells start\n\t\tlagging in combat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Snare"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Good\n\t\tfor setting a trap, or if you’re resting somewhere dangerous with a\n\t\tconvenient choke point like a narrow hallway. Targets are restrained for at\n\t\tleast one round, which is hopefully enough for you to fight your way out of\n\t\tyour bedroll and grab a weapon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Speak with Animals"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tSituational, but sometimes the only witnesses are wild animals and you just\n\t\tneed a clue from your local family of squirrels. Fortunately, you can cast\n\t\tit as a Ritual, so it won’t cut into your spell slots."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Zephyr Strike"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Cast it as a Bonus Action, and you get the benefits of Disengage for the\n\t\tduration of the spell. You can also end the spell early for a boost of speed\n\t\tand a singled buffed attack.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you’re built to fight at range and something gets uncomfortably close\n\t\t\tto you, turn this on, step back 5 ft., shoot it to express your distaste,\n\t\t\tthen run away."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-level-2",
+      "parentSectionId": "section-spells",
+      "heading": "Level 2 Ranger spells",
+      "sourceAnchor": "level-2",
+      "blocks": [
+        {
+          "blockId": "block-section-level-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Aid"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": With an 8-hour duration and three targets, this is a staple buff that’s\n\t\tworth casting literally every day. Keep in mind that this actually increases\n\t\tthe targets’ hit point maximum, so temporary hit points can be added, too.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Aid’s casting time allows it to be used in combat, which is unusual but\n\t\t\toffers an interesting option. With three targets and a 30-foot range, you\n\t\t\tcan cast it to both buff and heal your allies during combat. Targets’\n\t\t\tcurrent hit points and hit point maximum both increase, so allies at 0 hit\n\t\t\tpoints are healed in addition to having their hit point maximum raised,\n\t\t\tthereby allowing Aid to serve a similar function to Mass Healing Word."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "However, since spells don’t stack with themselves, it’s hard to repeat\n\t\t\tthis trick. You’ll need to cast Aid again using higher-level spell slots,\n\t\t\twhich can get expensive quickly, so Mass Healing Word is probably better\n\t\t\tif Aid is already running and if Mass Healing Word is an option for your\n\t\t\tparty."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Air Bubble"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Only\n\t\tsituationally useful, but the 24-hour duration means that you can cast it\n\t\tbefore a Long Rest and still enjoy the effect all day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Animal Messenger"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Situational and\n\t\tless reliable than similar spells like Sending, but it’s also a spell level\n\t\tlower than Sending and it’s a Ritual. If you know that your recipient is\n\t\tgoing to be wherever you send your message, this works fine. Unfortunately,\n\t\tthe recipient doesn’t get to respond."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Barkskin"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": The best\n\t\tAC that the Druid can get until you can afford half plate or you get to 20\n\t\tDexterity. Not essential, and it will become obsolete, but it may be a\n\t\tuseful AC buff depending on your stats."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Beast Sense"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": The\n\t\tintent is that you will use this to scout an area using an animal. Maybe you\n\t\tcast Speak With Animals on it, then send it to explore somewhere and use\n\t\tBeast Sense to get a first-hand account. If you’re desperate, you might also\n\t\tuse this on an animal and carry it around to help address issues like\n\t\tblindness, deafness, or your own lack of Darkvision. Your DM might\n\t\treasonably impose Disadvantage on things like attack rolls when doing this\n\t\tdue to the uncomfortable shift in perspective, but if you’re truly desperate\n\t\tit might be enough."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cordon of Arrows"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": With a\n\t\t1-action casting time you might actually be able to use this in combat, but\n\t\tthe damage is really low (compare 1d6+Dex twice with Extra Attack to a total\n\t\tof 4d6 from Cordon of Arrows), so the intent is clearly to use this to lay\n\t\tambushes or to protect an area where you’re resting. Unlike similar options\n\t\tlike Alarm and Snare, this doesn’t make a significant amount of noise when\n\t\tit goes into effect, so consider tying a bell to each piece of ammunition\n\t\tafter you cast the spell so that you now when it’s triggered.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "There’s nothing preventing you from casting this multiple times, but the\n\t\t\trules for stacking may disallow you from casting it in the same space\n\t\t\tmultiple times. If you have a bunch of spell slots before you take a Long\n\t\t\tRest, you could spend them on Cordon of Arrows to create an exceptionally\n\t\t\tdangerous area for intruders. Unfortunately, there’s no way to exclude\n\t\t\tyour allies from this or to end the spell early, so be careful not to let\n\t\t\tallies stumble through the area."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Darkvision"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tFantastic at any level. 8-hour duration, no Concentration, and almost\n\t\tnothing in the game can match 150 feet of Darkvision. If you can afford the\n\t\tspell slots, cast this on everyone in the party who doesn’t get it from\n\t\ttheir race."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dueling Ground"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "AU",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": More\n\t\tplot point than actual spell, this will rarely see use by players in a\n\t\ttypical campaign. Used as intended, this creates a small area in which two\n\t\tcharacters can kick each other in the shins until someone runs out of hit\n\t\tpoints without risk of anyone actualy dying. But it doesn’t do anything\n\t\tabout other nasty effects, so participants can petrify, curse, or otherwise\n\t\truin their opponent’s day without Dueling Ground protecting them.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Dueling Ground’s fighting ring is notably porous. The participants are\n\t\t\tfree to interact with anything outside of the ring unless they leave it,\n\t\t\tand even then the spell doesn’t actually end. If you can bring this up in\n\t\t\ttime for combat, you can effectively give both participants Death Ward for\n\t\t\tthe spell’s duration (or until a third creature enters the area)."
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Enhance Ability"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tFantastic and versatile. Using this to buff Charisma for your party’s Face\n\t\twill make any social situation go a lot better."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Find Traps"
+              },
+              {
+                "type": "text",
+                "text": ": Too\n\t\texpensive and too imprecise. Invest in Investigation."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gust of Wind"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tPotentially a great way to shove enemies around, but at 15 ft. per round\n\t\tenemies will frequently be able to walk back the distance they were pushed\n\t\twithout issue. Your best bet is to push enemies into area control effects,\n\t\tbut since Gust of Wind requires your Concentration you may have trouble\n\t\tcreating effects to use."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Healing Spirit"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Likely\n\t\tnot good enough to replace healing from a Short Rest when your party is in\n\t\trough shape, but very efficient for the spell slot if your Wisdom modifier\n\t\tis high. It’s not nearly as fast as Cure Wounds and requires Concentration,\n\t\tso it’s not great in combat, but it’s decent between fights if you don’t\n\t\thave time to rest.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The total healing goes up by 1d6 times your spellcasting modifier per\n\t\t\tspell level past level 2, so you can double the healing by using a level 3\n\t\t\tslot. That’s better scaling than Cure Wounds, but remember that you’re\n\t\t\ttrading time for the extra healing per spell slot."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lesser Restoration"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tSituational, but a situation that comes up often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Locate Animals or Plants"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Too\n\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Locate Object"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Too situational,\n\t\tand too easy to counter. Anyone with any knowledge of magic that’s trying to\n\t\thide something will wrap it in lead."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magic Weapon"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": If your\n\t\tgame uses magic items, you may never need this. If it doesn’t, this is\n\t\tessential. A bonus to your attacks makes your damage output multiplicatively\n\t\tmore reliable. With a 1-hour duration and no Concentration, one casting\n\t\tprovides a lot of value from one of your few spell slots."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pass without Trace"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": A +10\n\t\tbonus in a game where most characters max out at +11 is huge. The bonus is\n\t\tenough to offset problems like a fighter in full plate armor. But remember:\n\t\tthis is not invisibility. You can’t cast this and crouch down in plain view\n\t\tand magically disappear. I hear that mistake being made constantly on\n\t\tpodcasts. A +10 bonus doesn’t negate line of sight rules. You still need\n\t\tcover or something."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Protection From Poison"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tSituational, but poison is common across the full CR range, so this is a\n\t\tfantastic defensive option at any level. The 1-hour duration means that you\n\t\tcan get a lot of mileage out of a single spell slot even if you cast it\n\t\tahead of time."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Silence"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Verbal components\n\t\tare extremely common in spells, including many that spellcasters frequently\n\t\tuse to escape dangerous situations. If you can trap an enemy spellcaster in\n\t\tplace (such as by having an ally grapple them) and drop Silence around them,\n\t\tyou’ll significantly limit their options. In the 2024 rules, spellcasting\n\t\tenemies will have combat actions that aren’t actually spells and which will\n\t\tignore Silence, but you’ll still limit some of their best options."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spike Growth"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": 2d4\n\t\tdamage "
+              },
+              {
+                "type": "emphasis",
+                "text": "every 5 feet"
+              },
+              {
+                "type": "text",
+                "text": ", and it’s every time the creature “travels”,\n\t\tnot every time the creature moves. So if you push or pull the creature, they\n\t\ttake damage. A 20-foot radius spread is a fairly large area, too, so you can\n\t\teasily affect whole rooms or long stretches of hallway."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Summon Beast"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": The\n\t\tlowest-level Summon spell. With a 1-hour duration you can get a ton of\n\t\tmileage out of a spell slot, and the beasts are very effective in combat. If\n\t\tyou have other melee allies, throwing one of the beasts with Pack Tactics\n\t\talongside them can yield a lot of consistent, reliable damage. The Air beast\n\t\thas Flyby, which is appealing if you need a more durable version of the owl\n\t\tfamiliar’s hit-and-run Help trick, but won’t be as effective offensively as\n\t\tthe Land and Water options.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Summon Beast has an odd place in the Ranger’s tactics. It competes for\n\t\t\tyour Concentration with Hunter’s Mark, but the beast deals 1d8+6 (avg.\n\t\t\t10.5) damage per turn with a level 2 spell slot. Hunter’s Mark, assuming\n\t\t\ttwo attacks, deals 2d6 (avg. 7). Summon Beast also puts a body on the\n\t\t\tfield to take damage in place of the actual party mmbers. In most cases, a\n\t\t\tsummon is a better use of a spell slot than HUnter’s Mark, which is\n\t\t\tespecially frustrating because many of the Ranger’s class and subclass\n\t\t\tfeatures requirey ou to have Hunter’s Mark running."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "For more help, see our\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Summoning Spells",
+                "href": "https://rpgbot.net/dnd5/characters/summoning#summon-beast"
+              },
+              {
+                "type": "text",
+                "text": ".\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tortoise Shell"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "Drops",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Only\n\t\tsituationally useful. If you need an ally to block a choke point, this could\n\t\tbe a helpful defensive boost. Otherwise, characters typically want the\n\t\tmobility to respond to problems, and the +1 AC isn’t worth Concentration.\n\t\tStrongly consider Barkskin before casting this."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-level-3",
+      "parentSectionId": "section-spells",
+      "heading": "Level 3 Ranger spells",
+      "sourceAnchor": "level-3",
+      "blocks": [
+        {
+          "blockId": "block-section-level-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ashardalon’s Stride"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "FToD",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Bonus\n\t\tAction casting time, and the damage doesn’t allow a save. This is similar in\n\t\tconcept to Zephyr Strike, but you get free damage in exchange for a\n\t\tconsiderably higher spell level. The damage may not be huge by this level,\n\t\tbut in encounters with numerous enemies this can add up quickly."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Conjure Animals"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tPortable, good damage, and a 10-minute duration. The pack of animals is 10\n\t\tfeet across and the damage effect extends 10 feet from the pack, so the area\n\t\tis a square that’s 30 feet across. You move the area without spending any\n\t\tsort of action, so you can still use the rest of your action economy for\n\t\tother cool stuff.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Much like Summon Beast, Conjure Animals has a weird place in the Ranger’s\n\t\t\ttactics. It doesn’t last as long, but the 3d10 damage will easily exceed\n\t\t\tHunter’s Mark, especially when facing multiple enemies."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Conjure Barrage"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": A\n\t\tmassive 60-foot cone, a great damage type, and decent damage. It won’t deal\n\t\tas much total damage as Conjure Animals over the course of a fight, but it’s\n\t\tgood burst damage if you catch a bunch of enemies clustered close\n\t\ttogether."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Daylight"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": A\n\t\tContinual Flame, Light, or even a torch is typically sufficient, but\n\t\tsometimes you need to light up larger areas like dark battlefields or\n\t\tmassive caverns. This also dispels magical darkness of 3rd level or lower,\n\t\twhich is great if you’re fighting enemies like drow which can produce\n\t\tmagical darkness. Since it produces sunlight, you can use this offensively\n\t\tagainst enemies like vampires and enemies Sunlight Sensitivity like\n\t\tdrow."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dispel Magic"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Every\n\t\tparty needs someone who can cast Dispel Magic. It’s simply too important to\n\t\tforgo."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elemental Weapon"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Not\n\t\tsignificantly better than Magic Weapon, a spell level higher, and it takes\n\t\tConcentration. Unfortunately, you can’t use both. Instead, you can cast\n\t\tMagic Weapon and Hunter’s Mark to get the same attack bonus and more\n\t\tadditional damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Flame Arrows"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "EEPC / XGtE",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tThis is a waste of a spell slot. It amounts to at most 12d6 damage, which is\n\t\ta tragic waste of a 3rd-level spell slot. If you somehow manage to hit one\n\t\ttarget with all 12 arrows, you’ll do more damage than Fireball. But you have\n\t\tto somehow hit with a bunch of arrows or pass them off to someone who will,\n\t\tand following the typical attack vs. AC progression means that a player will\n\t\thit something like 65% of the time, which means you’re getting 65% of the\n\t\tmaximum damage, so something like 7d6. At that point, Erupting Earth is\n\t\tbetter."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lightning Arrow"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tBasically a better version of Hail of Thorns, but the damage is rarely good\n\t\tenough to justify the spell slot so save this for when you have a big group\n\t\tof enemies in a small area. 5 or more seems like a good number."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Meld into Stone"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Very\n\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Nondetection"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Good,\n\t\tbut not totally essential. Divination spells include things like See\n\t\tInvisibility, so if you or your party relies on invisibility of any kind\n\t\tthis protects from several magical countermeasures to both stealth and\n\t\tinvisibility. However, most enemies aren’t spellcasters and won’t have\n\t\taccess to those divination options, so you can’t justify casting this every\n\t\tday. The spell also has an expensive material component specifically to\n\t\tdeter you from casting this all the time. Still, with an 8-hour duration, if\n\t\tyou need this spell it’s going to do exactly what you need it to do."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Plant Growth"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Situational.\n\t\tOutside of normal adventuring activities, the ability to enrich land to\n\t\tdouble crop yields is very useful. But DnD is a game primarily about\n\t\tadventuring, and the option to make an area of plants overgrown is the more\n\t\timportant option for most adventurers. In most cases, Entangle will work\n\t\tfine if you just need to slow your enemies down, but Plant Growth doesn’t\n\t\texpire, so those plants remain difficult to walk through until someone\n\t\tclears the plants (which may requires hours of chopping and/or burning). The\n\t\tspell also doesn’t specify that the plants grow along the ground or\n\t\tsurfaces, so RAW it can create a sphere of plants, creating super-difficult\n\t\tterrain extending 100 feet into the air, potentially engulfing flying\n\t\tenemies.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The math on Plant Growth’s speed reduction is impressive. Since most\n\t\t\tcreatures have a speed of around 30 feet, moving at 1/4 speed means that\n\t\t\tthey can move one 5-foot square and be left with 10 feet of movement that\n\t\t\twon’t get them anywhere (unless they dash or something). Jeremy Crawford\n\t\t\thas clarified that Plant Growth\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "doesn’t create difficult terrain",
+                "href": "https://twitter.com/JeremyECrawford/status/811643729966530560"
+              },
+              {
+                "type": "text",
+                "text": ", so it’s possible that difficult terrain would stack with Plant Growth,\n\t\t\tbut I personally think that’s not how it’s intended to work. Plant Growth\n\t\t\tspecifies that “a creature moving through the area must spend 4 feet of\n\t\t\tmovement for every 1 foot” while the difficult terrain rule specifies that\n\t\t\t“moving 1 foot in difficult terrain costs 2 feet of speed”, and since\n\t\t\tthose two statements conflict I think you’re intended to use whichever\n\t\t\teffect is greater rather than stacking them or multiplying them or\n\t\t\tsomething."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While it’s not discussed in the text of the spell, it seems likely that\n\t\t\tPlant Growth would also impede vision. If you turn a nicely-tended hedge\n\t\t\tinto a 100-foot-radius hemisphere of super-difficult terrain, there’s\n\t\t\tclearly enough stuff in the way that seeing through it is difficult. This\n\t\t\twould necessarily mean that creatures inside the area would likely be\n\t\t\tconcealed to some degree, so don’t expect to drop Plant Growth on an enemy\n\t\t\tand then spend the next several turns spraying them with cantrips until\n\t\t\tthey fall down."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Plant Growth’s problematic limitation is that it requires plants to be in\n\t\t\tthe area. However, there doesn’t seem to be any restriction on how many or\n\t\t\thow large these plants must be (just that they must be “normal”, whatever\n\t\t\tthat means), and where there’s lack of clarity there’s room for\n\t\t\tshenanigans. For example: you might carry around a potted plant and throw\n\t\t\tit into the area to provide the necessary plant life to support the spell.\n\t\t\tPlants like mint or clover can fit into a small pot, and when you make\n\t\t\tthem grow you get a pretty and pleasant-smelling field of super-difficult\n\t\t\tterrain. If your DM scoffs at the idea of 100-foot-tall clover patches,\n\t\t\tconsider carrying a bonsai tree or some other plant which would normally\n\t\t\tbe very tall (though a bonsai might not qualify as “normal” since we don’t\n\t\t\tknow what that word means here)."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Protection From Energy"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": An\n\t\timportant, staple defensive option, but it’s single-target and requires\n\t\tConcentration, so you can’t afford to keep it running constantly."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Revivify"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tEveryone who is capable of casting this should keep it handy. It’s simply\n\t\ttoo good to forgo."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Speak with Plants"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Situational. If you\n\t\tencounter plant creatures, this may allow you to handle them\n\t\tnonviolently."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Summon Fey"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": The\n\t\tsummon options do little to improve upon Summon Beast.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "For more help, see our\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Summoning Spells",
+                "href": "https://rpgbot.net/dnd5/characters/summoning#summon-fey"
+              },
+              {
+                "type": "text",
+                "text": ".\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Water Breathing"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tSituational, but crucial when you need it. Fortunately, it’s a Ritual, so it\n\t\tshould never eat a spell slot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Water Walk"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Usually\n\t\tflight is a better option than walking across a liquid. This can be cast as\n\t\ta Ritual, but it’s not useful often enough to prepare it if you don’t know\n\t\tfor sure\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wind Wall"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tExtremely situational."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-level-4",
+      "parentSectionId": "section-spells",
+      "heading": "Level 4 Ranger spells",
+      "sourceAnchor": "level-4",
+      "blocks": [
+        {
+          "blockId": "block-section-level-4-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Conjure Woodland Beings"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tFantastic for melee builds. Area damage in an Emanation. Conjure Woodland\n\t\tBeings Disengage as a Bonus Action so that you can easily move between\n\t\ttargets without provoking Opportunity Attacks, and your Action is still\n\t\tavailable for attacking once the spell is running.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Ranged builds could use similar tactics, but you may prefer to remain at\n\t\t\ta safer distance. Conjure Beasts may also be a better choice because you\n\t\t\tcan move it from a comfortable distance, though it will deal less damage\n\t\t\tthan Conjure Woodland Beings."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dominate Beast"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": By the time you can\n\t\tcast this, beasts have stopped being a threat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Freedom of Movement"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Nice, but\n\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grasping Vine"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Put the\n\t\tvine on a ceiling and use it to haul a creature off the ground. If they\n\t\tbreak the grapple, they fall and take damage, then you can grab them again.\n\t\tIf they stay still, you and your party have an easy target that can’t run\n\t\taway. If your party can place an inexpensive ongoing damage effect like\n\t\tCreate Bonfire, you can step behind cover and wait. Upcasting the spell\n\t\tallows you to target more creatures, keeping this relevant at any level\n\t\tagainst any Huge or smaller enemy that struggles to fight at range."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Guardian of Nature"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": This is\n\t\ta challenging spell. The benefits are great, but the duration is short and\n\t\tthe spell’s effectiveness depends heavily on how you’re built. Primal Beast\n\t\tis clearly intended to be the scary offensive form, but a druid making\n\t\tStrength-based melee attacks is either a poorly built druid or they’re using\n\t\tWild Shape.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Great Tree is usually the better option: advantage on Dexterity- and\n\t\t\tWisdom-based attacks covers important options like daggers, but also\n\t\t\tcovers anything you can use with Shillelagh. The temporary hit points will\n\t\t\thelp compensate for your poor AC, and the area of difficult terrain will\n\t\t\thelp you keep enemies in convenient melee range."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Circle of the Moon Druids can get some use out of Primal Beast, but it\n\t\t\thas a Bonus Action casting time and a 1-minute duration, so until you get\n\t\t\tBeast Spells at 18th level it’s hard to get both effects going at the same\n\t\t\ttime and you have at most 9 rounds to actually use the effects. Circle of\n\t\t\tthe Moon can choose to Wild Shape as either an Action or a Bonus Action so\n\t\t\tyou can start both effects in the turn, but you won’t be able to do much\n\t\t\telse in that turn. During the remaining 9 rounds you’ll be very effective,\n\t\t\tbut it’s still only 9 rounds."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Locate Creature"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": More\n\t\teffective than mundane tracking, but the 1,000-foot range can be a problem\n\t\tif the target is actively fleeing from you. If you’re going to use this, be\n\t\tsure that you’re moving faster than your target."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sticks to Snakes"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "Drops",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": This\n\t\tis effectively a summoning spell which summons 4 CR 1/8 creatures. By the\n\t\ttime you can cast this, that’s utterly useless. The best-case scenario is\n\t\tusing this on wooden items that enemies are carrying. You can’t use it on\n\t\tmagic items, so you can’t use it on the enemy wizard’s magic staff, but you\n\t\tcan use it on mundane enemy weapons like spears. Most enemies use nonmagical\n\t\tweapons even if their attacks are magic, so this could be occasionally\n\t\tuseful through the whole level range. But that depends on your enemies’\n\t\tweapon selection, which is difficult to predict, so this is only\n\t\tsituationally useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stoneskin"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tExpensive, but really good."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Summon Elemental"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": If you\n\t\tjust need a body in a fight, or if you need a creature that can burrow, this\n\t\tis great. Otherwise, you may find Summon Beast or Giant Insect to be more\n\t\teffective.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "For more help, see our\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Summoning Spells",
+                "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-elemental"
+              },
+              {
+                "type": "text",
+                "text": ".\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-level-5",
+      "parentSectionId": "section-spells",
+      "heading": "Level 5 Ranger spells",
+      "sourceAnchor": "level-5",
+      "blocks": [
+        {
+          "blockId": "block-section-level-5-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Alustriel’s Mooncloak"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "FRHoF",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": This is a good spell, but you get exactly one level 5 spell slot, and\n\t\tthis is too situational to sit on your best spell slot hoping for this to\n\t\tmatter."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Commune with Nature"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": 3 miles\n\t\tisn’t an especially large range, but since this a ritual you can cast this\n\t\trepeatedly as you travel. You might get some useful information, but your DM\n\t\t(and your party) might get sick of sitting around waiting for you to perform\n\t\tthe ritual every time you travel 6 miles. You might be able to get away with\n\t\tperforming this from the back of a wagon or something, which would let you\n\t\tcast it repeatedly without slowing things down."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Conjure Elemental"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Unlike\n\t\ta typical summon spell, this conjures an immobile elemental that restrains\n\t\tyour enemies. It might be effective if the elemental can reach everywhere\n\t\twithin a room, or if you need to hold a choke point for an extended period,\n\t\tbut otherwise you’ll do better with other area control spells."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Conjure Volley"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net//rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Decent damage and a good damage type. This is the closest that the Ranger\n\t\tgets to casting Fireball. If you can hit a crowd of targets, it’s worth the\n\t\tspell slot even if they pass the saves. The damage is also 1d8 higher than\n\t\tConjure Barrage cast at the same level, and can be cast from a much safer\n\t\tdistance. Unfortunately, full casters can deal considerably more damage by\n\t\tthis level, so it will feel underwheling compared to Wizards slinging Meteor\n\t\tSwarm at the same level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Greater Restoration"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": " (Optional): A crucial\n\t\thealing option, but if your party has survived long enough to reach this\n\t\tlevel you almost certainly have access to this already, and you shouldn’t\n\t\tneed to learn it permanently."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Steel Wind Strike"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": If you have 20 Wisdom,\n\t\tyour Spell Attacks are as good as a full caster, which makes this great\n\t\tburst damage. But remember that Rangers only get one level 5 spell slot, so\n\t\tsave this for when you can hit a bunch of targets."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Summon Plant"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "AU",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": A bad\n\t\tsummoning spell compared to other options on your list. You can’t justify\n\t\tusing your single level 5 spell slot on this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swift Quiver"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Hugely improves your\n\t\taction economy, but since it requires Concentration, you can’t combine it\n\t\twith Hunter’s Mark or most other damage boosts, and it requires a ranged\n\t\tweapon with ammunition, so thrown weapon builds will find no value here. The\n\t\tideal is to use this with an archery build, have Magic Weapon running, then\n\t\tturn this on in an important fight.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Consider a same ranger with a longbow and without Crossbow Expert. For\n\t\t\tthat ranger, two extra attacks doubles their number of attacks for the\n\t\t\tturn, taking their damage output from 2d8+2d6+10 with Hunter’s Mark (avg.\n\t\t\t26) to 4d8+20 (avg. 38), a nearly 50% increase in damage output. We’re\n\t\t\tagain ignoring the possibility of critical hits, fighting style, magic\n\t\t\titems, etc. but any of those things tip the math further in favor of Swift\n\t\t\tQuiver. Even if you’re built for melee, Swift Quiver is a great way to\n\t\t\tswitch to ranged combat and deal a bunch of damage."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Now consider a high-level ranger with Crossbow Expert, nonmagical hand\n\t\t\tcrossbows, and 20 Dexterity. 4 attacks will deal a total of 4d6+20 (avg.\n\t\t\t36), while three attacks with Hunter’s Mark running will deal 6d6+15 (avg.\n\t\t\t36). There is some nuance to the math because the extra attack means\n\t\t\tanother chance to score a critical hit, but the difference isn’t big\n\t\t\tenough to make Swift Quiver worth being a level 5 spell when you can cast\n\t\t\tHunter’s Mark as a 1st-level spell."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Magic weapons, feats, or class features which add additional damage will\n\t\t\tmake the math favor Swift Quiver more heavily, but I’m not sure how much\n\t\t\tyou would need to justify the difference in spell level between Hunter’s\n\t\t\tMark and Swift Quiver."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tree Stride"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": In a\n\t\tforest this can be a helpful way to quickly travel short distances, but It’s\n\t\tnot nearly as effective for short distances as Misty Step, it’s not good for\n\t\tlong distances (you can go about a mile total if all the trees line up\n\t\tperfectly and you run a little bit during your turns), and you’re totally\n\t\tlimited by the position and species of trees."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wrath of Nature"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/2024-dnd/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": This\n\t\twould be a great spell if you could guarantee that you were in an area with\n\t\ttrees, grass, and loose stones every time you fought something. But you\n\t\tcan’t do that, and forests are a relatively small portion of most worlds’\n\t\tenvironments."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Control Flames"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Create Bonfire"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Druidcraft"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Elementalism"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Frostbite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Guidance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Gust"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Infestation"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Magic Stone"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Mending"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Message"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Mold Earth"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Poison Spray"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Primal Savagery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Produce Flame"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shape Water"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Shillelagh"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Spare the Dying"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Starry Wisp"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Thorn Whip"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Thunderclap"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Absorb Elements"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Alarm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Animal Friendship"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Beast Bond"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Buzzing Bee"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Cure Wounds"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Detect Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Detect Poison and Disease"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ensnaring Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Entangle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fog Cloud"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Goodberry"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Hail of Thorns"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hunter’s Mark"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Jump"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Longstrider"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Snare"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Speak with Animals"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Zephyr Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Aid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Air Bubble"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Animal Messenger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Barkskin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Beast Sense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Cordon of Arrows"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Darkvision"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Dueling Ground"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Enhance Ability"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Find Traps"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Gust of Wind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Healing Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Lesser Restoration"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Locate Animals or Plants"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Locate Object"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Magic Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Pass without Trace"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Protection From Poison"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Silence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Spike Growth"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Summon Beast"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tortoise Shell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Ashardalon’s Stride"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Conjure Animals"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Conjure Barrage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Daylight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dispel Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Elemental Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Flame Arrows"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Lightning Arrow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Meld into Stone"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Nondetection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Plant Growth"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Protection From Energy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Revivify"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Speak with Plants"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Summon Fey"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Water Breathing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Water Walk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Wind Wall"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Conjure Woodland Beings"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Dominate Beast"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Freedom of Movement"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Grasping Vine"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Guardian of Nature"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Locate Creature"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Sticks to Snakes"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Stoneskin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Summon Elemental"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Alustriel’s Mooncloak"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Commune with Nature"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Conjure Elemental"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Conjure Volley"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Greater Restoration"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Steel Wind Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Summon Plant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Swift Quiver"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tree Stride"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Wrath of Nature"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%0"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-ranger-cantrips-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-ranger-cantrips-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-level-1-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[5]",
+      "detail": "<li><span class=\"rating-red\">Buzzing Bee</span> <sup>(<a href=\"//rpgbot.net/2024-dnd/abbreviations/\">Drops</a>)</sup>: Long range, no save, and it inhibits stealth, Perception, and"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[9]",
+      "detail": "<li><span class=\"rating-green\">Ensnaring Strike</span> <sup>(<a href=\"//rpgbot.net//rpgbot.net/2024-dnd/abbreviations/\">PHB</a>)</sup>: Almost exclusive to Rangers, Ensnaring Strik"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-level-2-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[1]",
+      "detail": "<li><span class=\"rating-blue\">Aid</span><sup><a href=\"//rpgbot.net/2024-dnd/abbreviations/\">PHB</a></sup>: With an 8-hour duration and three targets, this is a staple buff that’s w"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[21]",
+      "detail": "<li><span class=\"rating-blue\">Summon Beast</span> <sup>(<a href=\"//rpgbot.net/2024-dnd/abbreviations/\">PHB</a>)</sup>: The lowest-level Summon spell. With a 1-hour duration you can"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-level-3-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[11]",
+      "detail": "<li><span class=\"rating-green\">Plant Growth</span> <sup>(<a href=\"/2024-dnd/abbreviations/\">PHB</a>)</sup>: Situational. Outside of normal adventuring activities, the ability to en"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-level-4-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[5]",
+      "detail": "<li><span class=\"rating-orange\">Guardian of Nature</span> <sup>(<a href=\"//rpgbot.net/2024-dnd/abbreviations/\">PHB</a>)</sup>: This is a challenging spell. The benefits are great, "
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-level-5-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[8]",
+      "detail": "<li><span class=\"rating-blue\">Swift Quiver</span> <sup>(<a href=\"/dnd5/abbreviations/\">PHB</a>)</sup>: Hugely improves your action economy, but since it requires Concentration, you"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    }
+  ],
+  "metrics": {
+    "words": 6775,
+    "sections": 10,
+    "blocks": 16,
+    "tables": 0,
+    "ratingSignals": 104
+  },
+  "status": "needs-editorial-review"
+}

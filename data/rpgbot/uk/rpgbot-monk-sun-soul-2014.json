@@ -1,0 +1,1785 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-66f9e0ecbc424019",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+      "sourceId": "rpgbot-66f9e0ecbc424019",
+      "fetchedAt": "2026-09-29T19:14:36.298667+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:37:58-04:00",
+      "contentHash": "1e22f060a309b5853e7b97a62a41c1c4357fbe731f3774700fad2505fe175fc2",
+      "title": "Way of the Sun Soul Monk 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-monk-sun-soul-2014",
+    "sourceId": "rpgbot-66f9e0ecbc424019",
+    "slug": "monk-sun-soul-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Шлях сонячної душі — гайд підкласу Монаха (2014)",
+    "titleEn": "Way of the Sun Soul Monk 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Монах",
+      "Шлях сонячної душі",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монахам завжди дістається найгірше. Навіть коли вони отримують круті сили, що звучать чудово на папері, як-от "
+                },
+                {
+                  "type": "link",
+                  "text": "привидні руки, що бʼють людей",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/"
+                },
+                {
+                  "type": "text",
+                  "text": ", вони зазвичай не витримують порівняння з рештою класів. Але це нормально. Ви обрали Шлях сонячної душі не тому, що це була гарна ідея. Ви обираєте його, бо хочете бути Ґоку{{Goku}}. Я зроблю все, щоб ми вичавили максимум із цього доволі веселого підкласу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Отже, що ми отримуємо від Шляху сонячної душі? Стабільну променеву шкоду від однієї з найдивніших атак у грі — «Променя сонячного світла»{{Radiant Sun Bolt}}. Він замінює атаки під час дії Атака дальніми атаками заклинаннями, і це дуже дивно. Також ми, невідомо чому, отримуємо «Палючі долоні [Burning Hands]» і область ураження, яку можна спамити{{AoE}}. Усе це чудові вміння, просто їх важко поєднати в застосуванні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наша збірка нижче, «Принц усіх хадозі»{{The Prince of All Hadozee}}, трохи спирається на жарт, але робить добрий вибір для гри цим підкласом. Ми користуємося деякими додатковими класовими уміннями з «Казана Таші з усім»{{Tasha’s Cauldron of Everything}}, щоб згладити частину труднощів, що виникають при використанні всіх умінь Сонячної душі. Якщо вам сподобається, спробуйте й розкажіть, що думаєте."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Монаха Шляху сонячної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Монаха Шляху сонячної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#way-of-the-sun-soul-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Монаха Шляху сонячної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#way-of-the-sun-soul-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Монаха Шляху сонячної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#way-of-the-sun-soul-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя й обладунки Монаха Шляху сонячної душі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#way-of-the-sun-soul-weapons-and-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Монаха Шляху сонячної душі — Принц усіх хадозі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#example-way-of-the-sun-soul-build-the-prince-of-all-hadozee"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Монаха Шляху сонячної душі",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Промінь сонячного світла{{Radiant Sun Bolt}}: нарешті змістовний дальній варіант для Монаха! Кубик шкоди, щоправда, малий порівняно зі списом у ближньому бою, але ви можете замінювати будь-яку зі своїх атак під час дії Атака (крім атаки від Бойових мистецтв), а кубик шкоди зростатиме з рівнем. Що справді робить це яскравим — друга половина вміння, яка розвʼязує проблему «Шквалу ударів» для дальніх збірок Монаха.\n\nДля цих атак не потрібні вільні руки, тож ви можете довільно перемикатися між списом і «Променем сонячного світла». Якщо витратити очко Кі, щоб виконати дві атаки бонусною дією, можна не відставати від справжніх заклиначів за дальньою шкодою, а то й переганяти їх. Навіть Чорнокнижник із «Позамежним зарядом [Eldritch Blast]» і «Мучливим вибухом»{{Agonizing Blast}} може не зрівнятися з «Променем сонячного світла», коли ви витрачаєте Кі на додаткові атаки бонусною дією, бо до цих атак усе одно додається ваш бонус Спритності.\n\nЧорнокнижник наздожене лише на 17-му рівні, коли «Позамежний заряд» додає четвертий промінь. Звісно, «Позамежний заряд» не коштує Кі на всі ці атаки, тож на 11-му рівні «Позамежний заряд» із «Мучливим вибухом» ефективніший, якщо ви не готові витрачати Кі. Ця атака створює дивну ситуацію, яку варто дослідити. Деякі магічні предмети дають бонус до кидків атаки заклинанням і мають різні вимоги налаштування.\n\nБільшість вимагає рівнів певного заклинача, тож працюють лише при мультикласуванні й лише для заклинань цього класу. «Жезл бойового мага [Wand of the War Mage]» дає бонус до всіх атак заклинаннями й вимагає «налаштування заклиначем». За ерратою до налаштування, якщо у вас є щось одне, що дозволяє накладати заклинання (уміння на кшталт «Пекучого дугового удару», расова риса тощо), ви вважаєтеся заклиначем для цілей налаштування. Це не допоможе вашим Складностям ряткидків, але для цього існує «Пояс із драконячої шкіри [Dragonhide Belt]»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пекучий дуговий удар{{Searing Arc Strike}}: чудовий варіант, коли ви стикаєтеся з натовпами ворогів у тісноті, але зачепити більше двох істот таким малим конусом важко, а шкода невелика, якщо не витратити купу Кі. Він також завдає вогняної шкоди, що дивно, бо всі інші вміння підкласу завдають променевої шкоди. Якщо ви можете зачепити трьох істот, це ефективніше використання і бонусної дії, і Кі, ніж витрата тих самих Кі на «Шквал ударів» або на атаку бонусною дією «Променем сонячного світла».\n\nНавіть із кубиком шкоди к10 і Спритністю 20 влучання по трьох істотах із шкодою 3к6 завдасть у середньому більше шкоди, ніж дві атаки. Ще краще те, що Приголомшені істоти автоматично провалюють ряткидки Спритності, тож якщо ви можете приголомшити цілі до «Пекучого дугового удару», можна обрушити на них купу шкоди. Отримання цього вміння на 6-му рівні може розчаровувати.\n\nКонуси добре працюють на бойових персонажах, що можуть вижити в ближньому бою, але це заклинання 1-го рівня, яке ви отримуєте на 6-му, з дальністю 15 футів у підкласі, який весь про те, щоб Монах функціонував на великій відстані. Щойно ви отримаєте «Пекучий сонячний вибух», це може здаватися застарілим. За ті самі два очки Кі «Пекучий сонячний вибух» завдає 6к6 шкоди (у середньому 21 проти 13,5 в «Пекучого дугового удару») у значно більшій області на 150 футів, хоч і витрачає Дію. Додаткові Кі ще більше збільшують розрив."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Пекучий сонячний вибух|Searing Sunburst}}: базова шкода невелика, але непогано масштабується й базова шкода не коштує жодних очок Кі.\n\nНа жаль, базова шкода така низька, що для серйозної шкоди треба витратити купу Кі, а оскільки це ряткидок Статури, вороги, ймовірно, його пройдуть, а це означає, що вони не отримають жодної шкоди, а не половину. Найкраще те, що це можна використовувати безкоштовно. 2к6 шкоди все ще небагато, але дальність чудова — 150 футів (проти лише 30 футів у «Променя сонячного світла»), тож якщо ви бʼєтеся на великій відстані, можете обстрілювати ворогів цим на базовій шкоді, доки вони не помруть або їм не набридне ваша витівка й вони не підійдуть ближче."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Сонячний щит{{Sun Shield}}: приємне стримування. Шкода невелика (імовірно, 10 на цьому рівні), але ефект постійний, доки ви його не вимкнете, що можна зробити, коли потрібна прихованість. Найбільше розчарування в тому, що це витрачає вашу Реакцію, тож її не можна використати для Принагідних атак чи чогось такого."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-way-of-the-sun-soul-ability-scores",
+          "heading": "Характеристики Монаха Шляху сонячної душі",
+          "sourceAnchor": "way-of-the-sun-soul-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-way-of-the-sun-soul-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і більшості Монахів, нам потрібно забагато хороших показників, бо наші вміння розкидані скрізь."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-sun-soul-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: завдяки дальнім атакам ми отримуємо з неї менше, ніж більшість Монахів, які можуть захотіти лишити Захоплення як варіант."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-sun-soul-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: Бойові мистецтва, КБ і аніме-лазерні атаки заклинаннями. Чудово."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-sun-soul-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: навіть якщо ми дотримуємося дальнього бою, не нехтуйте нею."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-sun-soul-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: нам надто потрібні інші характеристики."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-sun-soul-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: вона живить КБ, а також Складності ряткидків «Дуги» та «Вибуху»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-sun-soul-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: нам надто потрібні інші характеристики."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-sun-soul-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-way-of-the-sun-soul-races",
+          "heading": "Раси Монаха Шляху сонячної душі",
+          "sourceAnchor": "way-of-the-sun-soul-races",
+          "blocks": [
+            {
+              "blockId": "block-section-way-of-the-sun-soul-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сонячним душам здебільшого потрібне від раси "
+                },
+                {
+                  "type": "link",
+                  "text": "те саме",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/races/"
+                },
+                {
+                  "type": "text",
+                  "text": ", що й іншим Монахам. Здатність атакувати здалеку робить літаючих Монахів значно привабливішими, особливо з можливістю застосовувати «Пекучий дуговий удар» згори, що фактично перетворює область дії з конуса на коло для ворогів на землі. І ще один виняток."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-sun-soul-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Хадозі{{Hadozee}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SJ:AiS",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": я лише кажу, що хадозі виходять чудовими кунгфу-аніме-лазерними Монахами з космосу. Просто кажу. Не «супа»-кажу."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-way-of-the-sun-soul-feats",
+          "heading": "Риси Монаха Шляху сонячної душі",
+          "sourceAnchor": "way-of-the-sun-soul-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-way-of-the-sun-soul-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе, чого немає в переліку нижче, дивіться в "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-sun-soul-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Стрілець{{Gunner}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": але не заради користування вогнепальною зброєю, хоч Монахи можуть чудово її використовувати. Справжня причина в тому, що як напівриса{{half feat}}, що дає +1 до Спритності й водночас скасовує Перешкоду на кубику для кидків дальньої атаки, коли ціль у межах 5 футів, це чудова риса для нас."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-way-of-the-sun-soul-weapons-and-armor",
+          "heading": "Зброя й обладунки Монаха Шляху сонячної душі",
+          "sourceAnchor": "way-of-the-sun-soul-weapons-and-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-way-of-the-sun-soul-weapons-and-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми можемо використовувати будь-яку зброю Монаха, яку захочемо, бо вона не заважає нашим лазерам, але якщо ви берете рису «Стрілець», я раджу мати Мушкет{{Musket}} для стрільби за межами 30-футової дальності лазерів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-sun-soul-weapons-and-armor-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щодо обладунків: хоч я не раджу їх носити, формально вони не заважають жодному з умінь підкласу. Тобто було б справді дивно носити обладунки, але я вас не зупиняю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+          "heading": "Приклад збірки Монаха Шляху сонячної душі — Принц усіх хадозі",
+          "sourceAnchor": "example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+          "blocks": [
+            {
+              "blockId": "block-section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стріляти лазерами весело. Це не найкращий спосіб, але ми тут не заради добрих рішень. Ми тут, щоб бути зухвалими й нахабними, ухвалюючи погані рішення. Ця збірка повністю оптимізована… для веселощів!"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка використовує додаткові класові уміння «Присвячена зброя»{{Dedicated Weapon}}, «Атака, посилена Кі»{{Ki-Fueled Attack}} і «Зосереджене прицілювання»{{Focused Aim}}, хоч без них збірка теж працює. Вони насправді лише дають змогу отримати кілька додаткових атак при використанні певних умінь. Зокрема, лазери можна випускати бонусною дією лише якщо дію Атака вже використано, щоб випустити принаймні один лазер. Ці уміння не дають нам змарнувати цю бонусну дію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пріоритет віддамо Спритності, Статурі й Мудрості. Ми хадозі й обираємо варіант +1/+1/+1."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо хадозі, бо намагаємося бути Вегетою{{Vegeta}}. Планерування майже як політ, тож це круто. «Стійкість хадозі»{{Hadozee Resilience}} дасть змогу отримувати менше шкоди, тож нас можуть бити, а ми продовжуватимемо битися, доки Ґоку насправді не виграє бій. Так, я обрав расу заради посилання, але в неї є й корисні риси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви могли б подумати, що в "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "принца"
+                },
+                {
+                  "type": "text",
+                  "text": " Вегети має бути передісторія Аристократа, але ні, він цілком Солдат, тож і ми теж. Це дає нам Атлетику, Залякування, Наземний транспорт та Ігровий набір."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Монаха оберемо Акробатику й Аналіз Поведінки. Від «Експерта в навичках» на восьмому рівні вивчимо Виживання й отримаємо Експертизу в Аналізі Поведінки. Солдат дав нам Атлетику й Залякування."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На четвертому рівні беремо «Стрільця». Це дає +1 до Спритності, трохи вогнепальної справи, яку нам не обовʼязково використовувати, і здатність робити кидки дальньої атаки (наші лазерні вибухи) у ближньому бою без Перешкоди на кубику."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На восьмому рівні беремо «Експерта в навичках», вкладаючи ще +1 у Спритність і отримуючи Володіння Виживанням та Експертизу в Аналізі Поведінки. Тепер усі можуть питати нас, що перевірка Аналізу Поведінки каже про їхній рівень сили."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На дванадцятому рівні беремо підвищення характеристик на +2 до Спритності, доходячи до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На шістнадцятому рівні беремо підвищення характеристик на +2 до Мудрості, досягаючи 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На девʼятнадцятому рівні беремо підвищення характеристик на +2 до Мудрості, доходячи до 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лазерний кубик Бойових мистецтв"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захист без броні, Бойові мистецтва, Навички: Акробатика, Атлетика, Аналіз Поведінки, Залякування"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пробивайте шлях ударами рук і ніг через ці перші кілька рівнів. А під ударами рук і ніг я маю на увазі: візьміть спис, бо він завдає більше шкоди. Лазери ми отримаємо досить скоро."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кі, Рух без броні, Присвячена зброя (додаткове)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер у нас є Кі. У нас завжди стільки очок Кі, скільки наш рівень Монаха. Також ми трохи швидше рухаємося. «Присвячена зброя» дає змогу зробити (майже) будь-що зброєю Монаха, що дуже зручно, коли ми пізніше візьмемо «Стрільця»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шлях сонячної душі: Промінь сонячного світла, Відхилення снарядів, Атака, посилена Кі (додатково)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отже, «Промінь сонячного світла». Тепер ми можемо виконувати лазерні атаки, коли виконуємо дію Атака. Це вже само по собі круто, але ми можемо витратити те саме Кі, що витратили б на «Шквал ударів», щоб отримати дві лазерні атаки бонусною дією.\n\nНа жаль, безкоштовного бонусного лазера, як у стандартних Бойових мистецтвах, ми зробити не можемо. «Атака, посилена Кі» допоможе пізніше, коли ми почнемо витрачати Кі під час своєї дії й матимемо ще й вогнепальну зброю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стрілець, +1 до Спритності (16 → 17), Повільне падіння"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Стрілець» відкриває нам дві приємні речі: тепер ми можемо стріляти лазером, навіть коли вороги впритул, і можемо користуватися вогнепальною зброєю, якщо хочемо. Наприклад, можна вистрілити з мушкета бонусною дією, якщо спрацює «Атака, посилена Кі», що особливо добре, бо лазерами бонусною дією ми можемо стріляти лише тоді, коли і виконали дію Атака, і витратили Кі на бонусну дію. Мушкет — чудовий варіант, тож обовʼязково візьміть його, якщо можете."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака, Приголомшливий удар, Зосереджене прицілювання (додатково)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Подвійний лазер. Дака-дака-дака. «Приголомшливий удар» гарний, але з лазерами, на жаль, не працює. Для цього доведеться справді бити людей. «Зосереджене прицілювання» може допомогти перетворити майже промах на влучання, а використання його під час вашої Дії запустить «Атаку, посилену Кі»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Удари, посилені Кі, Пекучий дуговий удар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наші лазери вже завдавали магічної шкоди, але тепер усе інше теж може. «Пекучий дуговий удар» — це «Палючі долоні [Burning Hands]» бонусною дією за 2 Кі. Добре, якщо вдасться зачепити кількох ворогів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухилення, Спокій розуму"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Ухилення» — справді приємне вміння, що скасовує шкоду, яка інакше була б зменшена вдвічі. «Спокій розуму» нормальний. Деякі ефекти зачарування та страху або вже вимагають дії («Гнівна кара [Wrathful Smite]»), або вимагають певних умов («Страх [Fear]»), щоб повторити ряткидок і завершити ефект, тож витрата Дії просто щоб завершити ефект іноді чудова.\n\nІнші джерела просто дають цілі повторити ряткидок після кожного ходу, тож оцінюйте, наскільки поганою була Складність, перш ніж використовувати це для таких ефектів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках, +1 до Спритності (17 → 18), Володіння Уважністю, Експертиза в Аналізі Поведінки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Експерта в навичках» обирають здебільшого заради напівриси з варіантом Спритності. Уважність — приємна навичка, ми не хочемо, щоб нас застали зненацька. Експертиза в Аналізі Поведінки теж чудова, а в нас буде гарна Мудрість, щоб користуватися нею ще краще. Ми, мабуть, навіть зможемо добре оцінити, наскільки хтось сильний. Може, навіть виразити це числом."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рух без броні{{Unarmored Movement}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рухайтеся ще швидше. Вжух."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чистота тіла{{Purity of Body}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Імунітет до хвороб. Імунітет до отрути. Хвороби в 5e не надто поширені, але зазвичай виснажливі. Отрута ж — і поширений тип шкоди, і жахливий стан. Гарне вміння."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пекучий сонячний вибух{{Searing Sunburst}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вибух по області. Він хороший, але має дві проблеми. Перша: це не ряткидок на половину, а ряткидок на повне скасування. Це було б не так погано, якби це не був ще й ряткидок Статури.\n\nТакож Складність залежить від нашої Мудрості, а вона зараз ще низька, якщо ви не здобули «Пояс із драконячої шкіри [Dragonhide Belt]».\n\nПроте плюс у тому, що якщо ми витратимо навіть одне Кі, щоб спробувати отримати додаткову шкоду, ми таки активуємо «Атаку, посилену Кі»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кращі кидки атаки й шкода для лазерів. А, і для ударів кулаками теж, але хто б бив кулаками, коли можна стріляти лазером?"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Язик Сонця і Місяця{{Tongue of the Sun and Moon}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дивний вбудований універсальний перекладач."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Алмазна душа{{Diamond Soul}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кращі ряткидки всюди й можливість перекидання. Насправді приємне вміння."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невмируще тіло{{Timeless Body}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не старіємо й не потребуємо їжі чи води. Це круто, але багато рас уже це мають. Не наша раса, але чимало інших. Нам, втім, приємно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість +2 (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кращий КБ, кращі Складності. Беремо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сонячний щит{{Sun Shield}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ви більше не маєте справи із середнім Монахом-хадозі. Гаразд, жарти вбік: ми освітлюємо територію навколо себе й маємо реакцію, що завдає незначної променевої шкоди будь-кому, хто влучає по нас атакою ближнього бою. Приємно мати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Порожнє тіло{{Empty Body}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Порожнє тіло» дає змогу бути невидимим одну хвилину за 4 Кі. Цікавий факт: це не заважає нам освітлювати територію «Сонячним щитом». Тож ми можемо бути одночасно невидимими й заливати територію яскравим світлом. Це ще й добра невидимість, що дозволяє робити атаки й таке інше, не завершуючи її. А ще формально це запускає «Атаку, посилену Кі». Накиньте плащ і стріляйте з мушкета з Перевагою на кубику."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше КБ/Складності."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Досконале Я{{Perfect Self}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 Кі безкоштовно, коли ми починаємо бій без Кі. Нормально."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-monk-sun-soul-2014-001",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Промінь сонячного світла",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-sun-soul-2014-002",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Пекучий дуговий удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-sun-soul-2014-003",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Пекучий сонячний вибух",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-sun-soul-2014-004",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Сонячний щит",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-sun-soul-2014-005",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sectionId": "section-way-of-the-sun-soul-ability-scores",
+      "targetBlockId": "block-section-way-of-the-sun-soul-ability-scores-2",
+      "optionId": "section-way-of-the-sun-soul-ability-scores-block-section-way-of-the-sun-soul-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-way-of-the-sun-soul-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-sun-soul-2014-006",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sectionId": "section-way-of-the-sun-soul-ability-scores",
+      "targetBlockId": "block-section-way-of-the-sun-soul-ability-scores-3",
+      "optionId": "section-way-of-the-sun-soul-ability-scores-block-section-way-of-the-sun-soul-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-way-of-the-sun-soul-ability-scores-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-sun-soul-2014-007",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sectionId": "section-way-of-the-sun-soul-ability-scores",
+      "targetBlockId": "block-section-way-of-the-sun-soul-ability-scores-4",
+      "optionId": "section-way-of-the-sun-soul-ability-scores-block-section-way-of-the-sun-soul-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-way-of-the-sun-soul-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-sun-soul-2014-008",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sectionId": "section-way-of-the-sun-soul-ability-scores",
+      "targetBlockId": "block-section-way-of-the-sun-soul-ability-scores-5",
+      "optionId": "section-way-of-the-sun-soul-ability-scores-block-section-way-of-the-sun-soul-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-way-of-the-sun-soul-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-sun-soul-2014-009",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sectionId": "section-way-of-the-sun-soul-ability-scores",
+      "targetBlockId": "block-section-way-of-the-sun-soul-ability-scores-6",
+      "optionId": "section-way-of-the-sun-soul-ability-scores-block-section-way-of-the-sun-soul-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-way-of-the-sun-soul-ability-scores-6",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-sun-soul-2014-010",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sectionId": "section-way-of-the-sun-soul-ability-scores",
+      "targetBlockId": "block-section-way-of-the-sun-soul-ability-scores-7",
+      "optionId": "section-way-of-the-sun-soul-ability-scores-block-section-way-of-the-sun-soul-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-way-of-the-sun-soul-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-sun-soul-2014-011",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sectionId": "section-way-of-the-sun-soul-races",
+      "targetBlockId": "block-section-way-of-the-sun-soul-races-2",
+      "optionId": "section-way-of-the-sun-soul-races-block-section-way-of-the-sun-soul-races-2-item-0",
+      "context": "Хадозі",
+      "explanationBlockId": "block-section-way-of-the-sun-soul-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-sun-soul-2014-012",
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sectionId": "section-way-of-the-sun-soul-feats",
+      "targetBlockId": "block-section-way-of-the-sun-soul-feats-2",
+      "optionId": "section-way-of-the-sun-soul-feats-block-section-way-of-the-sun-soul-feats-2-item-0",
+      "context": "Стрілець",
+      "explanationBlockId": "block-section-way-of-the-sun-soul-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

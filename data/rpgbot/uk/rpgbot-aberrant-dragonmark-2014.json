@@ -1,0 +1,1991 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-778d2ee6b9e9e14a",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-778d2ee6b9e9e14a-204b10bacb64b171",
+      "sourceId": "rpgbot-778d2ee6b9e9e14a",
+      "fetchedAt": "2026-09-29T19:15:44.505741+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:42:18-04:00",
+      "contentHash": "58e451f80a019345911d1ac1ee3f8502fe6762a40e0e0950dbad760e3262c4e5",
+      "title": "Aberrant Dragonmark: DnD 5e Feat Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-778d2ee6b9e9e14a-204b10bacb64b171.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-aberrant-dragonmark-2014",
+    "sourceId": "rpgbot-778d2ee6b9e9e14a",
+    "slug": "aberrant-dragonmark-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Аберантна мітка дракона — гайд рис (2014)",
+    "titleEn": "Aberrant Dragonmark: DnD 5e Feat Guide",
+    "topics": [
+      "feats"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "sourceRevisionId": "rpgbot-778d2ee6b9e9e14a-204b10bacb64b171",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Аберантна мітка дракона|Aberrant Dragonmark}} — незвичайна риса, яку часто не помічають. Вона ховається наприкінці розділу Еберрону: Постання з Останньої Війни про драконячі мітки, які автор приблизно описує як підраси. Її легко пропустити: це малий блок у довгому розділі, а переваги також неочевидні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання відповідного рівня можна накладати через мітку раз між короткими або тривалими відпочинками, замість лише тривалих, як у інших "
+                },
+                {
+                  "type": "link",
+                  "text": "чаротворчих рис",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Це чудово для надійного основного заклинання на кшталт Поглинання стихій [Absorb Elements] чи Щит [Shield], яке ви очікуєте часто використовувати.\n\nРедакційна примітка: джерельне «Absorb Energy» тут виправлено на Absorb Elements — назву заклинання, оціненого нижче."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для бойових персонажів — або будь-кого, хто не є повним чаротворцем — це, можливо, найкраща чаротворча риса. Вона дає менше заклинань, ніж {{Посвячений у магію|Magic Initiate}}, але підвищує Статуру, зменшуючи ціну відмови від Покращення Характеристик. Статура також є характеристикою для заклинань риси. Це допомагає бойовим класам, яким інакше довелося б обирати між розвитком чаротворчої характеристики, наприклад Інтелекту, та Статури."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бойові класи також мають більші Кубики Здоровʼя, ніж повні чаротворці, тому третя перевага риси для них трохи впливовіша. Отримати 1к10 тимчасових хіт-поінтів чи завдати 1к10 шкоди трохи краще, ніж 1к6 у Чарівника чи подібного класу.\n\nРедакційна примітка: для цієї переваги ви витрачаєте власний Кубик Здоровʼя. Непарний результат завдає шкоди випадковій іншій істоті в межах 30 футів, а якщо інших істот немає — вам; це не атака по довільно обраному ворогу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте переваги мають ціну. Ви отримуєте на одне замовляння менше, ніж із Посвяченим у магію, і обмежені списком Чаклуна. Це виключає багато чудових заклинань, але Чаклун усе одно має численні надійні варіанти 1-го рівня, корисні будь-якому персонажу. Якщо плануєте регулярно використовувати обидва заклинання від мітки, це простий обмін."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Аберантна мітка дракона також пропонує можливість випадково отримувати "
+                },
+                {
+                  "type": "link",
+                  "text": "Епічний Дар",
+                  "href": "https://rpgbot.net/dnd5/characters/epic-boons/"
+                },
+                {
+                  "type": "text",
+                  "text": " при підвищенні рівня. Раджу ігнорувати цей варіант: він непередбачуваний, а коли спрацює, одразу створить проблеми у грі.\n\nРедакційна примітка: це необовʼязкове правило за рішенням Майстра, що починається з 10-го рівня: шанс 10% повторюється на наступних рівнях, доки Дар не отримано. Дар супроводжується незворотною втратою одного Кубика Здоровʼя та зменшенням максимуму хіт-поінтів. Це Дари з Посібника Майстра (2014), а не риси Епічних Дарів редакції 2024."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше про чаротворчі риси та їхні оцінки — у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді чаротворчих рис",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/aberrant-dragonmark/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/aberrant-dragonmark/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Замовляння Аберантної мітки дракона",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/aberrant-dragonmark/#aberrant-dragonmark-cantrips"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 1-го рівня Аберантної мітки дракона",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/aberrant-dragonmark/#aberrant-dragonmark-leveled-spells"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-aberrant-dragonmark-cantrips",
+          "heading": "Замовляння Аберантної мітки дракона",
+          "sourceAnchor": "aberrant-dragonmark-cantrips",
+          "blocks": [
+            {
+              "blockId": "block-section-aberrant-dragonmark-cantrips-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оцінки нижче пристосовані до персонажів, які, найімовірніше, оберуть цю рису. Повний перелік доступних замовлянь та їхні описи є на "
+                },
+                {
+                  "type": "link",
+                  "text": "DnDBeyond",
+                  "href": "https://www.dndbeyond.com/spells?filter-class=0&filter-class=6&filter-search=&filter-level=1&filter-verbal=&filter-somatic=&filter-material=&filter-concentration=&filter-ritual=&filter-sub-class="
+                },
+                {
+                  "type": "text",
+                  "text": ". Оцінки всього списку Чаклуна — в "
+                },
+                {
+                  "type": "link",
+                  "text": "аналізі заклинань Чаклуна",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/spells#cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-aberrant-dragonmark-cantrips-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Кислотні бризки [Acid Splash]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": можливість уразити двох сусідніх істот корисна недостатньо часто, щоб виправдати вибір."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Захист від зброї [Blade Ward]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": краще використайте {{Ухиляння|Dodge}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гримучий Клинок [Booming Blade]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG / TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": основне замовляння для бойових збірок. Воно не залежить від модифікатора чаротворчої характеристики, тож не потрібно підвищувати її до 20 заради надійності. Казан Таші з усім опублікував оновлену версію. За словами Jeremy Crawford в офіційному "
+                  },
+                  {
+                    "type": "link",
+                    "text": "подкасті Dragon Talk",
+                    "href": "https://dnd.wizards.com/articles/features/dragontalk_jeremy-crawford"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", оновлену версію не можна використати з {{Спареним заклинанням|Twinned Spell}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Моторошний дотик [Chill Touch]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": переваги над Вогняний заряд [Fire Bolt] чи Пронизання розуму [Mind Spike] надто ситуативні. Якщо матимете лише одне замовляння, воно має бути стабільно корисним.\n\nРедакційна примітка: Mind Spike у джерелі — заклинання 2-го рівня, не замовляння. Імовірно, автор мав на увазі Розщеплення Розуму [Mind Sliver], яке оцінює нижче."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Влада над вогнем [Control Flames]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Створення багаття [Create Bonfire]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": бюджетний контроль області. Початкова шкода така сама, як у більшості замовлянь, але повторна виникає лише коли істота заходить в область або закінчує там хід. Додаткову шкоду отримаєте, якщо примусово перемістите ворога туди або накладете на його місці й він лишиться там. Потрібна Концентрація, що заважає більшості чаротворців, але для бойових класів із малим використанням Концентрації це, імовірно, не проблема. Якщо любите захоплювати ворогів, це цікавий спосіб використати обмеження їхнього переміщення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мерехтливі вогники [Dancing Lights]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": візьміть смолоскип."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вогняний заряд [Fire Bolt]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо потрібна лише дистанційна шкода, візьміть дротик чи лук."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дружба [Friends]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": для соціальних ситуацій краще взяти {{Експерт у навичках|Skill Expert}} з Переконанням. Надійніше, а цілі ваших нових чарів не зненавидять вас за хвилину."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Обмороження [Frostbite]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": мала шкода замовляння на к6, але головна перевага — перешкода на наступну атаку зброєю цілі. На жаль, це ряткидок Статури, а він часто відносно високий."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клинок Зеленого Полумʼя [Green-Flame Blade]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": завжди друге після Гримучого Клинка. Використовувати складніше через розташування кількох цілей і застосування модифікатора чаротворчої характеристики до частини шкоди. Тому використати його максимально ефективно важко всім, крім Винахідників і Чарівників Школи співу клинків."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шквал [Gust]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне й слабке. Якщо лише хочете примусово переміщати ворогів, візьміть {{Телекінетик|Telekinetic}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зараження [Infestation]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто непередбачуване й ненадійне через високі ряткидки Статури та поширений опір до отрути. Для примусового переміщення візьміть Телекінетика, а шкоду шукайте деінде."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Світло [Light]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": купіть смолоскип."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ласо блискавки [Lightning Lure]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG / TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": попри дальність 15 футів, може бути чудовим для рукопашних збірок. Ворогів зі слабкою Силою, зокрема багатьох чаротворців, можна підтягнути до себе, змушуючи телепортуватися чи використовувати Відступ, щоб відійти неушкодженими. Якщо літаєте, можливо, підтягнете ворога в повітря заради невеликої шкоди від падіння. Ряткидок Сили, тож зберігайте для фізично слабких ворогів, наприклад інших чаротворців."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Магічна рука [Mage Hand]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": краще візьміть Телекінетика."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лагодження [Mending]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне. За винятком Rust Monsters, майже ніщо в 5e не пошкоджує ваше спорядження."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Повідомлення [Message]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розщеплення Розуму [Mind Sliver]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ряткидки Інтелекту часто низькі, тож це проста й надійна дистанційна шкода. Потрібен лише вербальний компонент, тому не доведеться жонглювати предметами для накладання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мала ілюзія [Minor Illusion]:"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": " якщо так хочете це заклинання, що готові витратити рису, розгляньте Лісового гнома{{Forest Gnome}} або Тифлінга (Гласія){{Тифлінг (Гласія)|Tiefling (Glasya)}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ліплення землі [Mold Earth]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Отруйні бризки [Poison Spray]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хороша шкода порівняно з більшістю замовлянь, але опір до отрути поширений, дальність практично рукопашна, а ряткидок Статури вороги часто проходитимуть."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Штукарство [Prestidigitation]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дуже цікаве, але недостатньо впливає на збірку, щоб виправдати рису. Більше порад — у "
+                  },
+                  {
+                    "type": "link",
+                    "text": "практичному гайді Штукарства",
+                    "href": "https://rpgbot.net/dnd5/characters/prestidigitation/#prestidigitation"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Промінь холоду [Ray of Frost]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": пристойна дистанційна шкода одній цілі, але якщо потрібна лише шкода, візьміть лук. Штраф до швидкості приємний, проте сам боїв не виграє."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Формування води [Shape Water]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дуже цікаве, але недостатньо впливове, щоб виправдати рису."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шокувальний дотик [Shocking Grasp]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у ближньому бою ви майже напевно використовуєте зброю, а тоді краще підійде Гримучий Клинок. Навіть до його появи звичайні атаки зброєю, імовірно, були кращими."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спалах Мечів [Sword Burst]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG / TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": погано справлялися з натовпом? Більше ні. Шкода чудова, а з додаванням цілей швидко випереджає атаки зброєю. Повністю зброю не замінить, особливо проти однієї цілі, але якщо кинетеся в середину натовпу, швидко завдасте багато шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гуркіт грому [Thunderclap]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": громова шкода гірша за шкоду силовим полем Спалаху мечів, а ряткидки Статури часто високі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Справжній удар [True Strike]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дуже ситуативне. Зазвичай дві атаки дадуть кращий результат, ніж це замовляння й одна атака."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-aberrant-dragonmark-leveled-spells",
+          "heading": "Заклинання 1-го рівня Аберантної мітки дракона",
+          "sourceAnchor": "aberrant-dragonmark-leveled-spells",
+          "blocks": [
+            {
+              "blockId": "block-section-aberrant-dragonmark-leveled-spells-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оцінки нижче пристосовані до персонажів, які, найімовірніше, оберуть цю рису. Повний перелік доступних заклинань та їхні описи є на "
+                },
+                {
+                  "type": "link",
+                  "text": "DnDBeyond",
+                  "href": "https://www.dndbeyond.com/spells?filter-class=0&filter-class=6&filter-search=&filter-level=1&filter-verbal=&filter-somatic=&filter-material=&filter-concentration=&filter-ritual=&filter-sub-class="
+                },
+                {
+                  "type": "text",
+                  "text": ". Оцінки всього списку Чаклуна — в "
+                },
+                {
+                  "type": "link",
+                  "text": "аналізі заклинань Чаклуна",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/spells#spells-1"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Поглинання стихій [Absorb Elements]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудовий захист на будь-якому рівні, який може врятувати життя від непередбачуваної стихійної шкоди пастки чи заклинання. Додаткова шкода наступної атаки також може допомогти бойовому персонажу. Але є соматичний компонент і немає матеріального, тож більшості персонажів потрібна вільна рука."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Палючі долоні [Burning Hands]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": шкода по області приваблює бойових персонажів, яким важко впоратися з натовпом, але на високих рівнях шкода не вражатиме."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Катапульта [Catapult]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": шкода не залишиться актуальною з підвищенням рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Снаряд хаосу [Chaos Bolt]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": візьміть лук чи дротик."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Причарування особи [Charm Person]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якби мав вибір, спершу взяв би Експерта у навичках із Переконанням, а не витрачав рису на це заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кольорова кулька [Chromatic Orb]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": візьміть лук чи дротик."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кольорові бризки [Color Spray]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": не залишається актуальним зі зростанням рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розуміння мов [Comprehend Languages]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": краще оберіть {{Ритуальний заклинатель|Ritual Caster}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виявлення магії [Detect Magic]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": краще оберіть Ритуального заклинателя."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Маскування [Disguise Self]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": розгляньте Змінника{{Changeling}}, расу з вродженим накладанням цього заклинання або володіння Набором для маскування."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спотворення вартості [Distort Value]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "AI",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": кумедна, але ситуативна забавка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тремтіння землі [Earth Tremor]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": важкопрохідна місцевість може допомогти, але область мала, а шкода не має значення за межами найнижчих рівнів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Удаване життя [False Life]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хороший спосіб підвищити витривалість, але якщо прийшли лише заради нього, краще може підійти {{Здоровань|Tough}}. Зі зростанням рівня Поглинання стихій чи Щит також відвертатимуть більше сумарної шкоди: Удаване життя від мітки не масштабується, а отримувана шкода — так."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Падіння пірʼїною [Feather Fall]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": важливе в будь-якій групі, але має бути потрібне недостатньо часто, щоб виправдати вибір як вашого єдиного заклинання відповідного рівня для регулярного накладання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Туманна хмара [Fog Cloud]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ситуативне, але пристойний спосіб утекти й прибрати перевагу, якщо вороги мають верх."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Крижаний кинджал [Ice Knife]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": вже не надто хороше заклинання, а зі зростанням рівня не лишиться актуальним.\n\nРедакційна примітка: позначку PHB збережено з джерела, але Крижаного кинджала опубліковано в Elemental Evil Player’s Companion, згодом у Довіднику Занатара про все."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стрибок [Jump]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Обладунок мага [Mage Armor]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +1 КБ порівняно з легкими обладунками, але оскільки ви не накладатимете його в бою, пропустите цікавий ефект Кубика Здоровʼя.\n\nРедакційна примітка: правило риси не вимагає бою для витрачання Кубика Здоровʼя; автор оцінює практичну корисність тимчасових хіт-поінтів чи випадкової шкоди саме в бойовій ситуації."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Магічний дротик [Magic Missile]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": не залишається актуальним зі зростанням рівня. Проте автор описує цікаву взаємодію з бонусами шкоди, як-от {{Арканна вогнепальна зброя|Arcane Firearm}} та {{Прокляття Відьмацького Клинка|Hexblade’s Curse}}. За його трактуванням правила кидків шкоди дротики влучають одночасно й використовують один кидок, тому подібні бонуси застосовуються до кожної цілі та дозволяють надійно завдати незвично багато шкоди. Автор також стверджує, що мітка дозволяє накладати це заклинання слотами без мультикласування, а незалежність від модифікатора характеристики дозволяє обійтися без великих вкладень у Статуру.\n\nРедакційна примітка: текст риси ERLW не дає явного дозволу використовувати будь-які власні слоти; можливість залежить від чинних правил вашого чаротворення. Arcane Firearm працює лише для заклинань Винахідника, накладених через відповідний фокус, тому заклинання зі списку Чаклуна від цієї риси не отримує цей бонус автоматично. Трактування одного кидка шкоди й бонусів для дротиків узгодьте з Майстром."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Промінь хвороби [Ray of Sickness]: загалом не надто хороше заклинання. Мало шкоди, мала тривалість, поширений імунітет до стану, а автор описує все як ряткидок Статури.\n\nРедакційна примітка: спочатку потрібна дистанційна атака заклинанням. Ряткидок Статури визначає стан Отруєний після влучання, а не сам факт завдання шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Щит [Shield]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надійне й стабільне підвищення КБ. Памʼятайте про соматичний компонент без матеріального: більшості персонажів потрібна вільна рука."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мовчазний образ [Silent Image]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудова й універсальна допоміжна можливість."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Сон [Sleep]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": не лишається актуальним зі зростанням рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Їдке Вариво Таші [Tasha’s Caustic Brew]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дуже подобається мені. Якщо влучите по кількох цілях і збережете Концентрацію, завдасть пристойної шкоди на всіх рівнях. Проте поза шкодою вплив невеликий."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Громова хвиля [Thunderwave]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ситуації, у яких це чудовий тактичний варіант, рідкісні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Відьомський снаряд [Witch Bolt]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": не лишається актуальним зі зростанням рівня."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-001",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-0",
+      "context": "Кислотні бризки [Acid Splash]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-002",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-1",
+      "context": "Захист від зброї [Blade Ward]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-003",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-2",
+      "context": "Гримучий Клинок [Booming Blade]SCAG / TCoE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-004",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-3",
+      "context": "Моторошний дотик [Chill Touch]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-005",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-4",
+      "context": "Влада над вогнем [Control Flames]EEPC / XGtE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-006",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-5",
+      "context": "Створення багаття [Create Bonfire]EEPC",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-007",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-6",
+      "context": "Мерехтливі вогники [Dancing Lights]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-008",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-7",
+      "context": "Вогняний заряд [Fire Bolt]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-009",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-8",
+      "context": "Дружба [Friends]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-010",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-9",
+      "context": "Обмороження [Frostbite]EEPC / XGtE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-011",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-10",
+      "context": "Клинок Зеленого Полумʼя [Green-Flame Blade]SCAG",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-012",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-11",
+      "context": "Шквал [Gust]EEPC / XGtE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-013",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-12",
+      "context": "Зараження [Infestation]XGtE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-014",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-13",
+      "context": "Світло [Light]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-015",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-14",
+      "context": "Ласо блискавки [Lightning Lure]SCAG / TCoE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-016",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-15",
+      "context": "Магічна рука [Mage Hand]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-017",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-16",
+      "context": "Лагодження [Mending]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-018",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-17",
+      "context": "Повідомлення [Message]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-019",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-18",
+      "context": "Розщеплення Розуму [Mind Sliver]TCoE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-020",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-19",
+      "context": "Мала ілюзія [Minor Illusion]",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-021",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-20",
+      "context": "Ліплення землі [Mold Earth]EEPC / XGtE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-022",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-21",
+      "context": "Отруйні бризки [Poison Spray]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-023",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-22",
+      "context": "Штукарство [Prestidigitation]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-024",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-23",
+      "context": "Промінь холоду [Ray of Frost]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-025",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-24",
+      "context": "Формування води [Shape Water]EEPC / XGtE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-026",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-25",
+      "context": "Шокувальний дотик [Shocking Grasp]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-027",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-26",
+      "context": "Спалах Мечів [Sword Burst]SCAG / TCoE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-028",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-27",
+      "context": "Гуркіт грому [Thunderclap]EEPC",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-029",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-cantrips",
+      "targetBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "optionId": "section-aberrant-dragonmark-cantrips-block-section-aberrant-dragonmark-cantrips-2-item-28",
+      "context": "Справжній удар [True Strike]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-cantrips-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-030",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-0",
+      "context": "Поглинання стихій [Absorb Elements]EEPC / XGtE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-031",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-1",
+      "context": "Палючі долоні [Burning Hands]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-032",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-2",
+      "context": "Катапульта [Catapult]EEPC",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-033",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-3",
+      "context": "Снаряд хаосу [Chaos Bolt]XGtE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-034",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-4",
+      "context": "Причарування особи [Charm Person]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-035",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-5",
+      "context": "Кольорова кулька [Chromatic Orb]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-036",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-6",
+      "context": "Кольорові бризки [Color Spray]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-037",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-7",
+      "context": "Розуміння мов [Comprehend Languages]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-038",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-8",
+      "context": "Виявлення магії [Detect Magic]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-039",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-9",
+      "context": "Маскування [Disguise Self]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-040",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-10",
+      "context": "Спотворення вартості [Distort Value]AI",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-041",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-11",
+      "context": "Тремтіння землі [Earth Tremor]EEPC / XGtE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-042",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-12",
+      "context": "Удаване життя [False Life]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-043",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-13",
+      "context": "Падіння пірʼїною [Feather Fall]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-044",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-14",
+      "context": "Туманна хмара [Fog Cloud]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-045",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-15",
+      "context": "Крижаний кинджал [Ice Knife]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-046",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-16",
+      "context": "Стрибок [Jump]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-047",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-17",
+      "context": "Обладунок мага [Mage Armor]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-048",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-18",
+      "context": "Магічний дротик [Magic Missile]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-049",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-19",
+      "context": "Промінь хвороби [Ray of Sickness]",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-050",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-20",
+      "context": "Щит [Shield]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-051",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-21",
+      "context": "Мовчазний образ [Silent Image]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-052",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-22",
+      "context": "Сон [Sleep]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-053",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-23",
+      "context": "Їдке Вариво Таші [Tasha’s Caustic Brew]TCoE",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-054",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-24",
+      "context": "Громова хвиля [Thunderwave]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-aberrant-dragonmark-2014-055",
+      "articleId": "rpgbot-aberrant-dragonmark-2014",
+      "translationRevisionId": "translation-rpgbot-aberrant-dragonmark-2014-draft1",
+      "sectionId": "section-aberrant-dragonmark-leveled-spells",
+      "targetBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "optionId": "section-aberrant-dragonmark-leveled-spells-block-section-aberrant-dragonmark-leveled-spells-2-item-25",
+      "context": "Відьомський снаряд [Witch Bolt]PHB",
+      "explanationBlockId": "block-section-aberrant-dragonmark-leveled-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

@@ -1,0 +1,1080 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-4d9d65ebdbd80a93",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-4d9d65ebdbd80a93-11751e1ba42590f4",
+      "sourceId": "rpgbot-4d9d65ebdbd80a93",
+      "fetchedAt": "2026-09-29T19:12:56.465783+00:00",
+      "sourceUpdatedAt": "2024-12-14T14:43:26-05:00",
+      "contentHash": "f5ab7e8d9ed93bf5c3ed88195f9ed6c54c19bbd3d79e38ccc13015dc4bffe4bc",
+      "title": "DnD 5e Epic Boons Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-4d9d65ebdbd80a93-11751e1ba42590f4.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-epic-boons-2014",
+    "sourceId": "rpgbot-4d9d65ebdbd80a93",
+    "slug": "epic-boons-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Епічні дари — гайд D&D 5e (2014)",
+    "titleEn": "DnD 5e Epic Boons Guide",
+    "topics": [
+      "feat"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "articleId": "rpgbot-epic-boons-2014",
+      "sourceRevisionId": "rpgbot-4d9d65ebdbd80a93-11751e1ba42590f4",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розвиток персонажа 5e «зупиняється» на 20-му рівні. Для багатьох груп це кінець: кілька сесій із фінальними класовими здібностями, потім відставка й нова історія. Але 20-й рівень не мусить бути кінцем."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Епічні дари дозволяють Майстру продовжити розвиток персонажів 20-го рівня. Посібник Майстра (2014) рекомендує один дар за кожні 30 000 досвіду понад необхідний для 20-го рівня. Істота з показником небезпеки 20 дає 25 000, тому група із чотирьох отримує дар приблизно за пʼять сутичок. Це здається швидким, але винагорода опційна, тож Майстер вільний змінити темп."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоч стаття про оптимізацію, вона корисна й Майстру. Посібник Майстра (2014) за замовчуванням доручає йому обирати дар, але дозволяє віддати вибір гравцю. Обидва підходи прийнятні. Якщо обираєте як Майстер, автор сподівається допомогти дарувати справді корисне."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-epic-boons",
+          "heading": "Епічні дари DMG 2014",
+          "sourceAnchor": "epic-boons",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-4",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Покращення характеристик або риса",
+          "blocks": [
+            {
+              "blockId": "block-section-4-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вставка «Альтернативи епічним дарам» пропонує Покращення характеристик{{Ability Score Improvement}} або рису. Це легко дати будь-кому, і кожен оцінить."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-4-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для класів із кількома потрібними характеристиками це шанс довести їх до 20 й узяти рису. Монах і Паладин часто жертвують такими можливостями; додатковий вибір зменшує ціну компромісу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-5",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Combat Prowess",
+          "blocks": [
+            {
+              "blockId": "block-section-5-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Combat Prowess{{Boon of Combat Prowess}}: Для бійців ближнього бою. Через рідкість найкращі великі одиничні удари, тобто на цьому рівні переважно Пройдисвіт. Корисно будь-якій бойовій збірці, але вражає лише його, і навіть для нього автор обрав би інше."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-6",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Dimensional Travel",
+          "blocks": [
+            {
+              "blockId": "block-section-6-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Dimensional Travel{{Boon of Dimensional Travel}}: Доторк феї{{Fey Touched}} зробила дар переважно зайвим."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-7",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Fate",
+          "blocks": [
+            {
+              "blockId": "block-section-7-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Fate{{Boon of Fate}}: Прекрасна підтримка без витрати дії, тому працює на будь-якому персонажі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-8",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Fortitude",
+          "blocks": [
+            {
+              "blockId": "block-section-8-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Fortitude{{Boon of Fortitude}}: Еквівалент Здоровань{{Tough}}: прийнятно для першої лінії, але Boon of Invincibility{{Boon of Invincibility}}, Boon of Recovery{{Boon of Recovery}} — якщо не маєте мізерних ХП — і Boon of Resilience{{Boon of Resilience}} додають більше витривалості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-9",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of High Magic",
+          "blocks": [
+            {
+              "blockId": "block-section-9-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of High Magic{{Boon of High Magic}}: Заклинання 9-го рівня мають шалені Передбачення [Foresight], Істинне перевтілення [True Polymorph] й Бажання [Wish]. Повному чаротворцю прекрасно; іншим автор пропонує Boon of Spell Recall{{Boon of Spell Recall}}. Примітка редакції: High Magic вимагає вже наявної комірки 9-го рівня; Spell Recall теж корисний лише за наявності відомого або підготовленого заклинання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-10",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Immortality",
+          "blocks": [
+            {
+              "blockId": "block-section-10-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Immortality{{Boon of Immortality}}: Радше сюжетний інструмент. Здібності на кшталт Timeless Body{{Timeless Body}} Друїда дають довге життя; без них дар привабливий. Навіть Чарівник може втомитися від Клон [Clone] й очікування старості до перезапуску тіла. Для історії на десятиліття чи століття дар може бути необхідним. Примітка редакції: Timeless Body Друїда сповільнює старіння, а не робить безсмертним; в оригіналі назва Ageless Body неточна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-11",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Invincibility",
+          "blocks": [
+            {
+              "blockId": "block-section-11-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Invincibility{{Boon of Invincibility}}: Чудово скасовує великий удар кілька разів на день з відпочинками. Корисно всім, найбільше першій лінії. Можна берегти для критичного влучання, але Рій метеорів [Meteor Swarm] майже напевно завдасть більше шкоди навіть за найстрашніший критичний удар."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-12",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Irresistible Offense",
+          "blocks": [
+            {
+              "blockId": "block-section-12-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Irresistible Offense{{Boon of Irresistible Offense}}: На цьому рівні магічна зброя вже має бути поширена, а її шкода рідко зустрічає Стійкість. Чаротворець зазвичай змінює заклинання при невдалому типі шкоди. Без фокусу на одному типі дар слабший, ніж здається; навіть тоді Адепт стихій{{Elemental Adept}} може бути кращою. Примітка редакції: дар обходить Стійкість, не Імунітет."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-13",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Luck",
+          "blocks": [
+            {
+              "blockId": "block-section-13-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Luck{{Boon of Luck}}: Схожа на Boon of Fate{{Boon of Fate}}, але лише для себе. Хороша, проте доступність одному персонажу замість трьох інших у групі з чотирьох, за оцінкою автора, гірша."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-14",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Magic Resistance",
+          "blocks": [
+            {
+              "blockId": "block-section-14-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Magic Resistance{{Boon of Magic Resistance}}: Надзвичайно сильна для будь-кого. Зазвичай потрібен легендарний предмет або старий Сатир{{Satyr}}/Юань-ті{{Yuan-Ti}} до Монстри Мультивсесвіту, щоб відтворити захист."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-15",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Peerless Aim",
+          "blocks": [
+            {
+              "blockId": "block-section-15-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Peerless Aim{{Boon of Peerless Aim}}: Майже гарантує влучання, але на відміну від Boon of Combat Prowess{{Boon of Combat Prowess}} використовується до кидка. Автор вважає це слабшим; і без того Combat Prowess не особливо сильний."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-16",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Perfect Health",
+          "blocks": [
+            {
+              "blockId": "block-section-16-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Perfect Health{{Boon of Perfect Health}}: Хвороби й отрути трапляються на всіх рівнях, а Статура охоплює небезпечні ефекти та Концентрацію. Чудово для будь-кого."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-17",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Planar Travel",
+          "blocks": [
+            {
+              "blockId": "block-section-17-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Planar Travel{{Boon of Planar Travel}}: Цікаво й потенційно чудово для сюжету, але не особливо корисно механічно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-18",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Quick Casting",
+          "blocks": [
+            {
+              "blockId": "block-section-18-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Quick Casting{{Boon of Quick Casting}}: Прекрасно. Вища комірка, схоже, не заважає: Вогнекуля [Fireball] стає бонусною дією з будь-яким підвищенням рівня. Але вже не можна обрати звичайну дію, й обмеження інших заклинань при бонусному накладанні зберігається."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-18-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Особливо сильно зі Spell Mastery{{Spell Mastery}} Чарівника або Boon of Spell Mastery{{Boon of Spell Mastery}}: безкоштовне заклинання тепер і безкоштовне, і бонусне."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-19",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Recovery",
+          "blocks": [
+            {
+              "blockId": "block-section-19-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Recovery{{Boon of Recovery}}: Хороше бойове лікування першій лінії, але автор обирає лише з величезним запасом ХП: Варвар чи Воїн із високою Статурою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-20",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Resilience",
+          "blocks": [
+            {
+              "blockId": "block-section-20-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Resilience{{Boon of Resilience}}: Навіть на цьому рівні багато атак монстрів немагічні. Дар надійно захищає від поширених типів шкоди й допомагає бойовим персонажам проти натовпу слабших ворогів. Примітка редакції: точний текст стосується шкоди немагічної зброї; застосовуйте класифікацію конкретної атаки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-21",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Skill Proficiency",
+          "blocks": [
+            {
+              "blockId": "block-section-21-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Skill Proficiency{{Boon of Skill Proficiency}}: Мало персонажів ефективні з більшою кількістю навичок, ніж початковий набір. Навіть із Володінням ви можете поступатися іншому члену групи, який краще підходить цій навичці."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-21-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Reliable Talent{{Reliable Talent}} Пройдисвіта особливо корисна. Ioun Stone of Mastery{{Ioun Stone (Mastery)}} підвищує Бонус Майстерності, даючи мінімум 17 + модифікатор для будь-якої навички."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-22",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Speed",
+          "blocks": [
+            {
+              "blockId": "block-section-22-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Speed{{Boon of Speed}}: Відступ{{Disengage}} бонусною дією привабливий, а +30 футів швидкості дозволяє більшості ворогів важко тримати вас у досяжності без вашого бажання. Чудово Монаху, Слідопиту й Пройдисвіту ближнього бою; може допомогти чаротворцю з короткою дальністю. Примітка редакції: бонусна дія цього дару доступна лише раз між короткими відпочинками, не щохід."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-23",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Spell Mastery",
+          "blocks": [
+            {
+              "blockId": "block-section-23-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Spell Mastery{{Boon of Spell Mastery}}: Чудово, майже як Spell Mastery{{Spell Mastery}} Чарівника. На 1-му рівні є Поглинання стихій [Absorb Elements], Цілюще слово [Healing Word] й Щит [Shield]. Примітка редакції: обране заклинання має також належати списку Чародія, Чорнокнижника чи Чарівника; Healing Word доступна не кожній збірці для цього вибору."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-24",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Spell Recall",
+          "blocks": [
+            {
+              "blockId": "block-section-24-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Spell Recall{{Boon of Spell Recall}}: Дозволяє раз між тривалими відпочинками накласти відоме чи підготовлене заклинання без комірки. Не можна витратити вищу комірку для підвищення рівня, тож майже напевно оберете найвищий доступний рівень для найбільшої вигоди."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-25",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of the Fire Soul",
+          "blocks": [
+            {
+              "blockId": "block-section-25-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of the Fire Soul{{Boon of the Fire Soul}}: Імунітет до вогню приємний на будь-якому рівні: це постійно один із найпоширеніших типів шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-25-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 20-му рівні Палючі долоні [Burning Hands] слабше за замовляння. Так, кілька цілей, але недостатньо для постійної користі. Автор розглянув би бойового персонажа разом із Boon of Quick Casting{{Boon of Quick Casting}}, щоб атакувати дією й накладати Burning Hands бонусною щохід. Примітка редакції: Quick Casting вимагає обрати одне зі своїх заклинань; сумісність з окремо наданим даром способом накладання узгодьте з Майстром."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-26",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of the Night Spirit",
+          "blocks": [
+            {
+              "blockId": "block-section-26-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of the Night Spirit{{Boon of the Night Spirit}}: За метою схожий на Ring of Invisibility{{Ring of Invisibility}}, але має суворіші умови місця й інші тригери завершення. Текст не каже окремо про невидимість спорядження, але автор не вважає, що Wizards of the Coast задумували невидимого персонажа з видимими речами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-26-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Текст завершення називає дію й реакцію, але не бонусну дію. Автор вважає, що бонусні заклинання й Cunning Action{{Cunning Action}} не припиняють невидимість. Він також дозволив би атаку лише бонусною дією, на відміну від Невидимість [Invisibility]. Примітка редакції: це спірне буквальне тлумачення автора: загальні правила 2014 називають бонусну дію додатковою дією. Узгодьте застосування з Майстром."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-27",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of the Stormborn",
+          "blocks": [
+            {
+              "blockId": "block-section-27-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of the Stormborn{{Boon of the Stormborn}}: Схожий на Boon of the Fire Soul{{Boon of the Fire Soul}} із тими самими труднощами. Примітка редакції: в оригіналі неточне Fire Spirit."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-28",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of the Unfettered",
+          "blocks": [
+            {
+              "blockId": "block-section-28-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of the Unfettered{{Boon of the Unfettered}}: Надто ситуативно. Якщо так боїтеся Схоплення{{Grapple}}, попросіть союзника накласти Свобода рухів [Freedom of Movement]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-29",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Truesight",
+          "blocks": [
+            {
+              "blockId": "block-section-29-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Truesight{{Boon of Truesight}}: Чудово, але технічно ситуативно. На цьому рівні багато сильних чаротворців із невидимістю й ілюзіями, тож бачити крізь них — хороший захист."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-30",
+          "parentSectionId": "section-epic-boons",
+          "heading": "Boon of Undetectability",
+          "blocks": [
+            {
+              "blockId": "block-section-30-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Boon of Undetectability{{Boon of Undetectability}}: Прекрасно для будь-якого Пройдисвіта й інших непомітних персонажів. Але якщо не використовуєте Непомітність у бою, не необхідне."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-aberrant-dragonmark",
+          "heading": "Аберрантна драконяча мітка",
+          "sourceAnchor": "aberrant-dragonmark",
+          "blocks": [
+            {
+              "blockId": "block-section-aberrant-dragonmark-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Аберантна мітка дракона{{Aberrant Dragonmark}} з Еберрон: Постання з Останньої Війни може, за опційним правилом, дати 10% шансу епічного дару при отриманні рівня, починаючи з 10-го."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-aberrant-dragonmark-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор радить не використовувати цю механіку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-aberrant-dragonmark-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Aberrant Dragonmark і так одна з найкращих "
+                },
+                {
+                  "type": "link",
+                  "text": "рис чаротворення",
+                  "href": "https://rpgbot.net/dnd5/characters/spellcasting-feats/"
+                },
+                {
+                  "type": "text",
+                  "text": " й не потребує додаткової сили. Автор пише, що персонаж, який починає з 10-го рівня з рисою, в середньому очікуватиме дару й випереджатиме групу. Випадковий вибір також може дати марний дар, наприклад бонусне заклинання персонажу без магії. Примітка редакції: один 10% кидок на 10-му рівні не гарантує й не дає в середньому один дар; авторське твердження про очікування на старті неточне. Це опційний дозвіл Майстра, не автоматична частина риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-aberrant-dragonmark-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна відкласти дар і обрати вручну, але тоді ви просто видаєте його із зайвими кроками й розчаруванням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-aberrant-dragonmark-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ще раз: автор радить не використовувати цю механіку."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-epic-boons-2014-001",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-4",
+      "targetBlockId": "block-section-4-1",
+      "optionId": "section-4",
+      "context": "Покращення характеристик або риса",
+      "explanationBlockId": "block-section-4-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-002",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-5",
+      "targetBlockId": "block-section-5-1",
+      "optionId": "section-5",
+      "context": "Boon of Combat Prowess",
+      "explanationBlockId": "block-section-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-003",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-6",
+      "targetBlockId": "block-section-6-1",
+      "optionId": "section-6",
+      "context": "Boon of Dimensional Travel",
+      "explanationBlockId": "block-section-6-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-004",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-8",
+      "targetBlockId": "block-section-8-1",
+      "optionId": "section-8",
+      "context": "Boon of Fortitude",
+      "explanationBlockId": "block-section-8-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-005",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-9",
+      "targetBlockId": "block-section-9-1",
+      "optionId": "section-9",
+      "context": "Boon of High Magic",
+      "explanationBlockId": "block-section-9-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-006",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-10",
+      "targetBlockId": "block-section-10-1",
+      "optionId": "section-10",
+      "context": "Boon of Immortality",
+      "explanationBlockId": "block-section-10-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-007",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-11",
+      "targetBlockId": "block-section-11-1",
+      "optionId": "section-11",
+      "context": "Boon of Invincibility",
+      "explanationBlockId": "block-section-11-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-008",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-12",
+      "targetBlockId": "block-section-12-1",
+      "optionId": "section-12",
+      "context": "Boon of Irresistible Offense",
+      "explanationBlockId": "block-section-12-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-009",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-13",
+      "targetBlockId": "block-section-13-1",
+      "optionId": "section-13",
+      "context": "Boon of Luck",
+      "explanationBlockId": "block-section-13-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-010",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-13",
+      "targetBlockId": "block-section-13-1",
+      "optionId": "section-13-block-section-13-1",
+      "context": "Boon of Luck",
+      "explanationBlockId": "block-section-13-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-011",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-14",
+      "targetBlockId": "block-section-14-1",
+      "optionId": "section-14",
+      "context": "Boon of Magic Resistance",
+      "explanationBlockId": "block-section-14-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-012",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-15",
+      "targetBlockId": "block-section-15-1",
+      "optionId": "section-15",
+      "context": "Boon of Peerless Aim",
+      "explanationBlockId": "block-section-15-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-013",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-16",
+      "targetBlockId": "block-section-16-1",
+      "optionId": "section-16",
+      "context": "Boon of Perfect Health",
+      "explanationBlockId": "block-section-16-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-014",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-17",
+      "targetBlockId": "block-section-17-1",
+      "optionId": "section-17",
+      "context": "Boon of Planar Travel",
+      "explanationBlockId": "block-section-17-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-015",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-18",
+      "targetBlockId": "block-section-18-1",
+      "optionId": "section-18",
+      "context": "Boon of Quick Casting",
+      "explanationBlockId": "block-section-18-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-016",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-19",
+      "targetBlockId": "block-section-19-1",
+      "optionId": "section-19",
+      "context": "Boon of Recovery",
+      "explanationBlockId": "block-section-19-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-017",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-20",
+      "targetBlockId": "block-section-20-1",
+      "optionId": "section-20",
+      "context": "Boon of Resilience",
+      "explanationBlockId": "block-section-20-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-018",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-21",
+      "targetBlockId": "block-section-21-1",
+      "optionId": "section-21",
+      "context": "Boon of Skill Proficiency",
+      "explanationBlockId": "block-section-21-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-019",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-22",
+      "targetBlockId": "block-section-22-1",
+      "optionId": "section-22",
+      "context": "Boon of Speed",
+      "explanationBlockId": "block-section-22-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-020",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-23",
+      "targetBlockId": "block-section-23-1",
+      "optionId": "section-23",
+      "context": "Boon of Spell Mastery",
+      "explanationBlockId": "block-section-23-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-021",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-24",
+      "targetBlockId": "block-section-24-1",
+      "optionId": "section-24",
+      "context": "Boon of Spell Recall",
+      "explanationBlockId": "block-section-24-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-022",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-25",
+      "targetBlockId": "block-section-25-1",
+      "optionId": "section-25",
+      "context": "Boon of the Fire Soul",
+      "explanationBlockId": "block-section-25-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-023",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-26",
+      "targetBlockId": "block-section-26-1",
+      "optionId": "section-26",
+      "context": "Boon of the Night Spirit",
+      "explanationBlockId": "block-section-26-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-024",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-27",
+      "targetBlockId": "block-section-27-1",
+      "optionId": "section-27",
+      "context": "Boon of the Stormborn",
+      "explanationBlockId": "block-section-27-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-025",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-28",
+      "targetBlockId": "block-section-28-1",
+      "optionId": "section-28",
+      "context": "Boon of the Unfettered",
+      "explanationBlockId": "block-section-28-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-026",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-29",
+      "targetBlockId": "block-section-29-1",
+      "optionId": "section-29",
+      "context": "Boon of Truesight",
+      "explanationBlockId": "block-section-29-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-epic-boons-2014-027",
+      "articleId": "rpgbot-epic-boons-2014",
+      "translationRevisionId": "translation-rpgbot-epic-boons-2014-draft1",
+      "sectionId": "section-30",
+      "targetBlockId": "block-section-30-1",
+      "optionId": "section-30",
+      "context": "Boon of Undetectability",
+      "explanationBlockId": "block-section-30-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

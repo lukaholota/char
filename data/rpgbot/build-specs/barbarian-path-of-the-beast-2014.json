@@ -1,0 +1,83 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "barbarian-path-of-the-beast-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+    "sourceRevisionId": "rpgbot-9c86efebfbb0fa13-4f009477b81c0030"
+  },
+  "exampleSection": "section-example-build-wrathful-leaps",
+  "levelTableSection": "section-levels",
+  "classKey": "BARBARIAN_2014",
+  "subclassKey": "PATH_OF_THE_BEAST",
+  "raceKey": "SATYR_MPMM",
+  "backgroundKey": "OUTLANDER",
+  "abilityScores": { "STR": 15, "DEX": 14, "CON": 15, "INT": 8, "WIS": 10, "CHA": 8 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "revision": 2,
+  "levels": [
+    { "level": 2 },
+    { "level": 3, "subclassKey": "PATH_OF_THE_BEAST" },
+    {
+      "level": 4,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        { "optionNameEng": "Skill Expert (STR)" },
+        { "optionNameEng": "Skill Expert Proficiency (INSIGHT)" },
+        { "optionNameEng": "Skill Expert Expertise (ATHLETICS)" }
+      ]
+    },
+    { "level": 5 },
+    { "level": 6 },
+    { "level": 7 },
+    { "level": 8, "abilityScoreIncrease": [{"ability": "STR", "amount": 2}] },
+    { "level": 9 },
+    { "level": 10 },
+    { "level": 11 },
+    { "level": 12, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}] },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15 },
+    { "level": 16, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}] },
+    { "level": 17 },
+    { "level": 18 },
+    { "level": 19, "featKey": "TOUGH", "section": "section-feats" },
+    { "level": 20 }
+  ],
+  "incomplete": [
+    {
+      "field": "Музичні інструменти",
+      "reason": "Сатир і Чужинець дають володіння музичними інструментами на вибір; автор їх не називає, а пресет не записує вибір інструментів.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Характеристики",
+      "reason": "У таблиці автора базова Статура вказана як 14, але текст каже про Статуру 15 на 1-му рівні й 16 після підвищення; пресет бере 15 і підвищення +2 до Сили, +1 до Статури.",
+      "section": "section-abilities"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/barbarian-path-of-the-beast-2014.webp",
+    "title": "Варвар — Сатир Шляху звіра",
+    "description": "Сатир-Варвар Шляху звіра: Сила 17, Статура 16, опір магії й веселі стрибки для найкращого стрибуна гри.",
+    "subraceKey": null,
+    "racialAbilities": ["STR", "CON", "STR"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["INTIMIDATION", "PERCEPTION"], "race": [], "background": [] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": ["ELVISH", "SYLVAN"],
+    "equipment": [
+      { "group": 1, "option": "b", "weapons": ["WARHAMMER"] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Сатир за правилами Таші: +2 до Сили й +1 до Статури, як у авторській таблиці (Сила 17, Статура 16); це вже враховано. Базова Статура 15, а не 14 з таблиці: так кажуть текст автора й підвищена Статура 16.",
+    "skillExplanation": "Виступ і Переконання — від Сатира, Атлетика й Виживання — від Чужинця, Залякування й Уважність — класові навички за авторським вибором. Дві мови (від раси й передісторії) автор не називає: їх ми обрали за вас.",
+    "equipmentExplanation": "Бойовий молот, дві ручні сокири, набір мандрівника й метальні списи — з авторського рядка 1-го рівня. Музичні інструменти автор не називає, а пресет їх не записує."
+  }
+}

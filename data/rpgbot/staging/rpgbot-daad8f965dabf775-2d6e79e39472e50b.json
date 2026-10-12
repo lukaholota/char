@@ -1,0 +1,783 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/races/githyanki/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "2d6e79e39472e50b451d6f36fab34488706d502ac7fe2b9aed95e6a58766e0fb",
+  "sourceRevision": {
+    "revisionId": "rpgbot-daad8f965dabf775-2d6e79e39472e50b",
+    "sourceId": "rpgbot-daad8f965dabf775",
+    "fetchedAt": "2026-09-29T19:23:17.598864+00:00",
+    "sourceUpdatedAt": "2025-10-29T13:43:35-04:00",
+    "contentHash": "9c3276d6d429161667dbfba66d5515c111727a82f4c9a1a168da470621a08481",
+    "title": "Githyanki: DnD 5e Race/Species Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-daad8f965dabf775-2d6e79e39472e50b.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Originally published as a subrace of the Gith in Mordenkainen’s Tome of Foes, the Githyanki was updated in Monsters of the Multiverse as party of WotC’s move away from the idea of subraces. If you are using the previous version of the Gith, see our "
+            },
+            {
+              "type": "link",
+              "text": "Gith Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/races/gith/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githyanki is an interesting mix of traits, combining some free proficiencies, some innate spellcasting, and resistance to psychic damage. This combination of traits is decent for nearly any character, but it also means that it’s hard to find builds where all of the Githyanki’s traits are meaningful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the Githyanki’s most noteworthy trait is their innate spellcasting, their selection of spells has a big impact on which classes make sense for the Githyanki. Chief among those is Misty Step, offering one of the best short-distance mobility options in the game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Of course, if you just want Misty Step, the Eladrin or the Shadar-Kai will be better choices, so to justify playing a Githyanki you need to want the flexibility of Astral Knowledge and ideally you’ll also benefit from Mage Hand and Jump."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/races/githyanki/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/races/githyanki/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Githyanki Versions",
+                "href": "https://rpgbot.net/dnd5/characters/races/githyanki/#githyanki-versions"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Githyanki Classes",
+                "href": "https://rpgbot.net/dnd5/characters/races/githyanki/#classes"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-githyanki-versions",
+      "heading": "Githyanki Versions",
+      "sourceAnchor": "githyanki-versions",
+      "blocks": [
+        {
+          "blockId": "block-section-githyanki-versions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Githyanki effectively has three versions. The original version was published in Mordenkainen’s Tome of Foes."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-githyanki-versions-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The introduction of the custom origin rules in Tasha’s Cauldron of everything gave use the second version of the Githyanki."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-githyanki-versions-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Most recently, Monsters of the Multiverse updated the Githyanki’s traits, making some significant changes. They now use the same basic rules for ability score increases and innate spellcasting, but they gave up the armor proficiencies provided by Martial Prodigy to get resistance to psychic damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes",
+      "heading": "Githyanki Classes",
+      "sourceAnchor": "classes",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section assumes that you’re using the option “"
+            },
+            {
+              "type": "link",
+              "text": "Customizing Your Origin",
+              "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+            },
+            {
+              "type": "text",
+              "text": "” rules presented in Tasha’s Cauldron of Everything. If you’re not using those rules, scroll down to the next section."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artificer",
+      "parentSectionId": "section-classes",
+      "heading": "Artificer",
+      "sourceAnchor": "artificer",
+      "blocks": [
+        {
+          "blockId": "block-section-artificer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Artificers don’t have a way to get resistance to psychic damage, and innate spellcasting is always welcome since artificers get relatively few spell slots compared to full casters. Astral Knowledge allows you to change the proficiencies you get every day, so if you’re building a front-line artificer you might select a weapon proficiency at levels 1 and 2 until you hit level 3 and your subclass gives you more proficiencies, then start selecting a tool proficiency with Astral Knowledge."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-barbarian",
+      "parentSectionId": "section-classes",
+      "heading": "Barbarian",
+      "sourceAnchor": "barbarian",
+      "blocks": [
+        {
+          "blockId": "block-section-barbarian-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Innate spellcasting is always hard on a barbarian, but Misty Step even once per day can solve a lot of mobility problems that Barbarians otherwise struggle with. If you’re using it in combat, you’ll likely teleport on turn 1, then be forced to wait for turn 2 to activate Rage. Of course, other options like the Eladrin and the Shadar-kai can teleport while raging."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-bard",
+      "parentSectionId": "section-classes",
+      "heading": "Bard",
+      "sourceAnchor": "bard",
+      "blocks": [
+        {
+          "blockId": "block-section-bard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bards don’t get Misty Step, and since they learn spells permanently, the innate spellcasting provides a permanent expansion to your spellcasting options. Astral Knowledge offers an extra skill, which is great since bards do so much with skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cleric",
+      "parentSectionId": "section-classes",
+      "heading": "Cleric",
+      "sourceAnchor": "cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Clerics don’t get Misty Step or Mage Hand. Astral Knowledge offers access to a martial weapon if you insist on using a weapon for some reason, but more likely you want the extra skill."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-druid",
+      "parentSectionId": "section-classes",
+      "heading": "Druid",
+      "sourceAnchor": "druid",
+      "blocks": [
+        {
+          "blockId": "block-section-druid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Druids don’t get Misty Step, but you can typically Wild Shape into an owl as a substitute. The extra skill is nice, but not huge. If you have dreams of playing a moon druid and teleporting while in animal form, look to the Eladrin and the Shadar-Kai instead."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fighter",
+      "parentSectionId": "section-classes",
+      "heading": "Fighter",
+      "sourceAnchor": "fighter",
+      "blocks": [
+        {
+          "blockId": "block-section-fighter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Both Jump and Misty Step great for melee builds, allowing you to circumvent obstacles like difficult terrain. The Eldritch Knight can re-cast both spells, and since they get so few spells known, two more is very helpful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-monk",
+      "parentSectionId": "section-classes",
+      "heading": "Monk",
+      "sourceAnchor": "monk",
+      "blocks": [
+        {
+          "blockId": "block-section-monk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The extra skill is nice, but the Monk benefits very little from the innate spellcasting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-paladin",
+      "parentSectionId": "section-classes",
+      "heading": "Paladin",
+      "sourceAnchor": "paladin",
+      "blocks": [
+        {
+          "blockId": "block-section-paladin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Paladins are almost entirely locked into melee, so Jump and Misty Step are helpful mobility options. Astral Knowledge will help you to expand beyond Face skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ranger",
+      "parentSectionId": "section-classes",
+      "heading": "Ranger",
+      "sourceAnchor": "ranger",
+      "blocks": [
+        {
+          "blockId": "block-section-ranger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An extra skill helps close the skill gap between the Ranger and the Rogue. The innate spellcasting is helpful, but if you just want teleportation you may prefer to play a Horizon Walker."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-rogue",
+      "parentSectionId": "section-classes",
+      "heading": "Rogue",
+      "sourceAnchor": "rogue",
+      "blocks": [
+        {
+          "blockId": "block-section-rogue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An extra skill is great for the Rogue since they do a lot with skills, and the innate spellcasting provides some helpful options for any rogue. Arcane Tricksters can re-cast the leveled spells, making Misty Step especially useful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sorcerer",
+      "parentSectionId": "section-classes",
+      "heading": "Sorcerer",
+      "sourceAnchor": "sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mage Hand is a staple utility spell, and Misty Step is a staple escape mechanism for spellcasters. Getting both is a helpful complement to the Sorcerer’s extremely limited number of spells known. An extra skill and tool proficiency help you to expand beyond Face skills, and damage resistances are always nice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-warlock",
+      "parentSectionId": "section-classes",
+      "heading": "Warlock",
+      "sourceAnchor": "warlock",
+      "blocks": [
+        {
+          "blockId": "block-section-warlock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Innate spellcasting is always welcome on the Warlock, and Astral Knowledge gives you an extra skill proficiency so that you can expand beyond Face skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-wizard",
+      "parentSectionId": "section-classes",
+      "heading": "Wizard",
+      "sourceAnchor": "wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The innate spellcasting is nice, but is less impactful for the Wizard than for other spellcasters. Resistance to psychic damage is also nice, but psychic damage is uncommon and if you know it’s coming you can cast Intellect Fortress. The additional proficiencies don’t hurt, but wizards don’t do much with skills."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Wizard"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-githyanki-versions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-githyanki-versions-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-githyanki-versions-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-classes-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-artificer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-barbarian-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-bard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-druid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-fighter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-monk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-paladin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-ranger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-rogue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-warlock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-wizard-1"
+    }
+  ],
+  "metrics": {
+    "words": 1022,
+    "sections": 18,
+    "blocks": 26,
+    "tables": 0,
+    "ratingSignals": 17
+  },
+  "status": "needs-editorial-review"
+}

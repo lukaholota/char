@@ -1,0 +1,3358 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "5beae02cc103c46b34cc6ce851fa1975b5a27e99e23ec75e876b6264095a4ea8",
+  "sourceRevision": {
+    "revisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+    "sourceId": "rpgbot-1532f05108b2ca37",
+    "fetchedAt": "2026-09-29T19:09:22.086743+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:36:48-04:00",
+    "contentHash": "b3e930c36c28038cf8d10a92bc16acb78031a8e9b0883297285578e4a111e555",
+    "title": "A Fistful of d4s: A DnD 5e Multiclass Build Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-1532f05108b2ca37-5beae02cc103c46b.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When Tasha’s Cauldron of Everything released, I immediately raised a fuss online about the "
+            },
+            {
+              "type": "link",
+              "text": "Peace Domain Cleric",
+              "href": "https://rpgbot.net/ban-5es-peace-domain/"
+            },
+            {
+              "type": "text",
+              "text": ". While I have many problems with the subclass, the first you’ll encounter is the ability to stack d4’s added to attack rolls and saving throws, invalidating much of 5e’s mathematical assumptions and thereby disrupting any semblance of game balance. But, of course, the issue gets worse."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Guidance and Bardic Inspiration have been around since the Player’s Handbook, and over time more ways to add dice to d20 rolls have made their way into the game, creating a growing number of options to turn DnD into a dice pool game and toss the "
+            },
+            {
+              "type": "link",
+              "text": "Fundamental Math",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": " right out the window."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "So let’s lean into the problem and find every way to add a die to a d20 roll and see just how badly we can break things. We’ll look for anything that adds a die to some combination of attacks/checks/saves."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Classes and Subclasses",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artificer (Alchemist)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#artificer-alchemist"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Bard (College of Eloquence)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#bard-college-of-eloquence"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cleric (Peace Domain)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#cleric-peace-domain"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Sorcerer (Divine Soul)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#sorcerer-divine-soul"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Warlock (Fiend or any)",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#warlock-fiend-or-any"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Spells",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Magic Items",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#magic-items"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Fully Automated d4 Dispensing Robot",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#example-build-fully-automated-d4-dispensing-robot"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#feats-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Dice Pool",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/#the-dice-pool"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Classes and Subclasses",
+      "sourceAnchor": "features",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-artificer-alchemist",
+      "parentSectionId": "section-features",
+      "heading": "Artificer (Alchemist)",
+      "sourceAnchor": "artificer-alchemist",
+      "blocks": [
+        {
+          "blockId": "block-section-artificer-alchemist-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re here for Experimental Elixir (Boldness), which is functionally a single-target Bless. You get one elixir for free at level 3, but it’s chosen at random. Instead, plan to feed 1st-level spell slots into the feature to get a bunch more of them. Unfortunately you only get a limited number of 1st-level spell slots, so you’ll either need to dip into Sorcerer for Font of Magic or you’ll need to use progressively higher-level slots."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artificer-alchemist-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Remember that your allies can drink the elixirs on their own, so you can pass them out at your convenience if you don’t intend to hoard them for yourself."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artificer-alchemist-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Alchemists can also learn Guidance and Resistance, and can infuse +1 weapons and armor, all of which is fantastic."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artificer-alchemist-4",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magical Tinkering"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Learn Guidance. Ignore Resistance."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Infuse Items"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A boon in any party. Enhanced Armor and Enhanced Weapon are easy +1 bonuses."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Artificer Specialist: Alchemist"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tool Proficiency"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Alchemist Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Experimental Elixir"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re here for Experimental Elixir (Boldness)."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-bard-college-of-eloquence",
+      "parentSectionId": "section-features",
+      "heading": "Bard (College of Eloquence)",
+      "sourceAnchor": "bard-college-of-eloquence",
+      "blocks": [
+        {
+          "blockId": "block-section-bard-college-of-eloquence-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bardic Inspiration allows you to give "
+            },
+            {
+              "type": "emphasis",
+              "text": "anyone except yourself"
+            },
+            {
+              "type": "text",
+              "text": " a die on an attack/check/save within the next 10 minutes. You get Cha/day dice, which then becomes Cha/rest at level 5, and the die size scales over time. It’s a great way to add dice to a d20 roll. The only problem is that you can’t use it on yourself."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-bard-college-of-eloquence-2",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d6)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration is the main reason that we’re here. Tragically, you can’t use it on yourself."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Jack of all Trades"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d6)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Jack of all Trades helps us be good at everything, especially when combined with our big pile of dice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bard College: College of Eloquence"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Silver Tongue"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unsettling Words"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise (any 2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Silver Tongue gives you a floor of 10 on your d20 roll for Deception and Persuasion. It’s not quite the strategy that we’re here for, but it’s still amazing."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d8)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Font of Inspiration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Font of Inspiration helps us stretch our resources over a long adventuring day."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unfailing Inspiration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Insurance if you somehow still fail a roll despite having Bardic Inspiration."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cleric-peace-domain",
+      "parentSectionId": "section-features",
+      "heading": "Cleric (Peace Domain)",
+      "sourceAnchor": "cleric-peace-domain",
+      "blocks": [
+        {
+          "blockId": "block-section-cleric-peace-domain-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The subclass that inspired this whole mess. A single level of peace cleric is arguably the most impactful thing in this whole article. Emboldening Bond lets you bond PB creatures, who then get to add 1d4 to an attack/check/save once per turn for 10 minutes. Sure, once per turn isn’t as good as Bless’s 1d4, but Bond of Peace applies to ability checks and doesn’t require Concentration."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cleric-peace-domain-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can do this PB/day. The number of targets and number of uses scales as you gain levels, leaving your actual cleric capabilities far behind you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cleric-peace-domain-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "On top of that, we get access to Bless, Guidance, and Resistance."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cleric-peace-domain-4",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Domain: Peace Domain"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Implement of Peace"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Emboldening Bond"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re here for Emboldening Bond, but grab Guidance and Bless while you’re here."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sorcerer-divine-soul",
+      "parentSectionId": "section-features",
+      "heading": "Sorcerer (Divine Soul)",
+      "sourceAnchor": "sorcerer-divine-soul",
+      "blocks": [
+        {
+          "blockId": "block-section-sorcerer-divine-soul-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Divine soul sorcerers get access to cleric spells, including Guidance and Bless. Favored of the Gods can add 2d4 to an attack/save once per rest. Those are both fine."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sorcerer-divine-soul-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But we’re likely here for Font of Magic so that we can produce more 1st-level spell slots to cast Bless and/or to fuel Experimental Elixir. Keep in mind that your maximum number of Sorcery Points is determined by your sorcerer level, so if you want to melt higher-level spell slots you likely want to go beyond 3rd level in sorcerer so that you’re not wasting points when you melt spell slots of 3rd level and above."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sorcerer-divine-soul-3",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sorcerous Origin: Divine Soul"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored by the Gods"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Favored by the Gods lets you add 2d4 to a failed attack or save once per rest."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With access to cleric spells, we can learn Guidance and Bless."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Font of Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Melt higher-level spell slots into 1st-level slots to cast Bless more."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-warlock-fiend-or-any",
+      "parentSectionId": "section-features",
+      "heading": "Warlock (Fiend or any)",
+      "sourceAnchor": "warlock-fiend-or-any",
+      "blocks": [
+        {
+          "blockId": "block-section-warlock-fiend-or-any-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Warlock’s contributions to the dice pool effort come online slowly, and they come from the easily-overlooked Pact of the Talisman. Fortunately, we can also grab Eldritch Blast+Agonizing Blast, which is almost certainly our go-to offensive option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-warlock-fiend-or-any-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fiend isn’t strictly necessary here since the thing we care about from the subclass doesn’t come online until level 6, and you might not take your build that far into warlock. If you do go that far, go to 7 so that you can get Protection of the Talisman, too."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-warlock-fiend-or-any-3",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Otherworldly Patron: The Fiend"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dark One’s Blessing"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Invocations:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Boon: Talisman"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "+1d4 to a failed ability check PB/day."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Rebuke of the Talisman"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rebuke of the Talisman because we’re already here, so we might as well maximize the benefit. You could also retrain an invocation into this at level 3 if it works better for your build."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dark One’s Own Luck"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Once per rest, add 1d10 to a check or save after seeing the roll."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Protection of the Talisman"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Add a d4 to a failed save PB/day."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Autognome"
+              },
+              {
+                "type": "link",
+                "text": "SAiS",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tBuilt for Success is stunningly easy to use and a natural fit for this build. +1d4 to any attack/check/save after seeing the roll PB/day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dhampir"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tVampiric Bite can add a bonus to an attack roll or skill check. The bonus can be much larger than the base d4 and you can even improve the bonus by improving your bite damage, but you can’t use it reactively and you can’t use it on saving throws, so there are pros and cons compared to the Autognome."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells",
+      "heading": "Spells",
+      "sourceAnchor": "spells",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Bless"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t+1d4 to attacks and saves, targets 3 creatures, 1-minute duration, requires Concentration. This is excellent in basically any encounter at any level. Available on the cleric and paladin spell lists."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Guidance"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t+1d4 to an attack or check. 1-minute duration, requires Concentration. Outside of combat, you\nshould use this as often as possible when you’re making ability checks. Available on the artificer, cleric, and druid spell lists."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resistance"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t+1d4 to one save. 1-minute duration, requires Concentration. Hard to time and competes\nfor Concentration with better options like Bless. Available on the artificer, cleric, and druid spell lists."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Weirdly, there are none."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-magic-items",
+      "heading": "Magic Items",
+      "sourceAnchor": "magic-items",
+      "blocks": [
+        {
+          "blockId": "block-section-magic-items-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Clockwork Amulet"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tOnce per day, take 10 on an attack roll instead of rolling. Common, doesn’t require attunement. Grab a whole stack of them if you can."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stone of Good Luck"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tNot technically a die, but +1 to all checks/saves is still really good."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+      "heading": "Example Build – Fully Automated d4 Dispensing Robot",
+      "sourceAnchor": "example-build-fully-automated-d4-dispensing-robot",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-fully-automated-d4-dispensing-robot-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is primarily a skill monkey and support build. Our attack options improve very little over our career, so our damage roughly reflects an Eldritch Blast warlock who forgot to cast Hex. But that’s not why we’re here."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-fully-automated-d4-dispensing-robot-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Instead, we’re here to have a big pile of d4’s to add to d20 rolls. As we add options, they spill over to our party, making us a powerful force multiplier. Depending on their source, these dice add to attacks, checks, and saves, making both us and our party impossibly accurate and problematically good at saving throws. Outside of combat, our pile of dice can add to ability checks, making proficiencies and even Expertise feel minor by comparison."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is MAD. MAD I tell you! We need 13 in all of our mental ability scores, plus 14 Dexterity to max out medium armor, plus a high ability score in whatever stat we’re attacking with. In this case, we’re working with Charisma because most of our spellcasting comes from Sorcerer and Warlock."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Autognome. We want to be built for success. 13+Dex AC is nice, too, until we can get a breastplate."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any. It doesn’t matter to the build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It doesn’t matter to the build, really. At high levels we’ll have bonuses to checks that will make proficiencies feel silly."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+      "heading": "Feats",
+      "sourceAnchor": "feats-2",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll have room for exactly one feat, and we’ll take Lucky just to make things even worse."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1 – Cleric 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Domain: Peace Domain"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Implement of Peace"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Emboldening Bond"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level we’re a very strange cleric. Avoid offensive spellcasting. Our main contributions in combat are Emboldening Bond and Bless, but we can also use a crossbow and get slightly higher DPR than another character using a crossbow with 16 Dexterity. We also get +2d4 to all of our saves and can pull in Built for Success in a pinch."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Attack with 14 Dex, Emboldening Bond, Bless: average +9 to hit."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Crossbow: 5.75"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2 – Warlock 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Otherworldly Patron: The Fiend"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dark One’s Blessing"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Grab Eldritch Blast, but hang onto it for now. Currently our crossbow is still our best offensive option until level 3."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "link",
+                  "text": "We can use Warlock spell slots to cast regular spellcasting spells",
+                  "href": "https://www.dndbeyond.com/sources/phb/customization-options#Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": ", which conveniently includes Bless. Keep your cleric spells for things like Healing Word and use your warlock spells for Bless."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 – Warlock 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Invocations:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Agonizing Blast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Blast+Agonizing Blast is what’s going to keep our damage somewhat relevant for most of our career. It’s still not great, but it’s enough that we’re actually contributing directly in combat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 – Warlock 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Boon: Talisman"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Eldritch Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Retrain into Rebuke of the Talisman"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "+1d4 to a failed ability check PB/day. We could share this, but… don’t. With Guidance, Emboldening Bond, and both Talisman and Built for Success as insurance, we can add up to +4d4 (avg. +10) to an ability check. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rebuke of the Talisman lets us damage enemies and knock them away if they hit us, and that remains our go-to Reaction for our whole career."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfortunately, the Fundamental Math moves along without us since we’re not taking an ASI."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 – Artificer 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magical Tinkering"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We don’t need much from our artificer spellcasting, but the Artificer’s rules for multiclassing allow you to round up your artificer levels rather than rounding down, so our spell slots advance a tiny bit better than if we multiclassed into paladin or something. That’s great, because we’re level 5 and have spell slots like a 2nd-level character."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our cantrips improve and our PB increases to +3. More Emboldening Bond, more Built for Success, more Talisman."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 – Artificer 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Infuse Items"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re not using a weapon, so a +1 weapon doesn’t help us. But we can make ourselves a +1 breastplate, grab a shield, and take our AC up to 20 while still casting spells."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 – Artificer 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Artificer Specialist: Alchemist"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tool Proficiency"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Alchemist Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Experimental Elixir"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Time to start chucking experimental elixirs! We have some 1st-level spellcasting slots, but we also have easily-replenished Pact Magic slots, so we can easily get a few elixirs for ourselves. You may not have enough to share with your party, unfortunately."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With Bless, Experimental Elixir (Boldness), and Emboldening Bond, we’re now getting +3d4 (avg. 7.5) to all of our saves, then we can bring in Built for Success for another +1d4 in a pinch. Outside of combat, we can still get 4d4 using our pre-existing options."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 – Sorcerer 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sorcerous Origin: Divine Soul"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored by the Gods"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We now have the spell slots of a 4th-level spellcaster, and we add sorcerer to the mix. Since the Sorcerer’s spellcasting is Charisma-based, we’re well suited to using sorcerer spellcasting offensively."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With Bless, Experimental Elixir (Boldness), and Emboldening Bond, we’re now getting +3d4 (avg. 7.5) to all of our saves, then we can bring in Built for Success and/or Favored by the Gods for up to +3d4 (avg. 7.5, total +15) more in a pinch."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Eldritch Blast will still outdo any of our other cantrip options, but we can use leveled spells to great effect. Upcasting Chromatic Orb or Guiding Bolt to 2nd level is a decent chunk of damage, and with +3d4 to hit and Built for Success as a fallback we’re accurate despite being 2 points behind the Fundamental Math."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 – Sorcerer 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Font of Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We want Font of Magic so that we can get more low-level spell slots to fuel Experimental Elixir and Bless. We now get 3rd-level spell slots, but if we melt them into Sorcery Points we lose 1 because our max is currently 2 points, so save those slots for upcasting spells. Similarly, melting 2nd-level spells gets you enough points for a single 1st-level slot, so save yourself a step."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "PB increases to +4. More Emboldening Bond, more Built for Success, more Talisman."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10 – Sorcerer 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Metamagic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can now learn 2nd-level spells, and our maximum number of Sorcery Points is now 3."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Learn Spiritual Weapon. We’ve largely ignored our Bonus Action, and the attack benefits from our pile of bonus d4s without competing for our Concentration, then we can use our Action to do other stuff."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11 – Sorcerer 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Cha 16 -> 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can now hold 4 Sorcery Points, cantrips improve, we get 4th-level spell slots, and we finally start advancing our Charisma. It’s a wonderful level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We now get to ask ourselves “what next?” and I don’t have a definitive answer. More sorcerer levels is the easier choice, advancing our spellcasting slots to both get better spells and higher-level spell slots. That’s a fine answer."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But we’re here for the dice, so it’s back to Warlock."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12 – Warlock 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Cha 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Back on the Fundamental Math exactly 4 levels late. Not too bad, honestly."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13 – Warlock 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3rd-level warlock spells and spell slots."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14 – Warlock 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dark One’s Own Luck"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Once per rest, add 1d10 to a check or save after seeing the roll. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15 – Warlock 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Eldritch Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Protection of the Talisman"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th-level warlock spells and spell slots. I’m glad we took Sorcerer to 4 so that we can get the most out of Font of Magic. Two 4th-level Pact Magic slots can turn into 4 1st-level spell slots to get 4 Experimental Elixirs. That’s enough for a whole party!"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We upgrade our Talisman so now we have separate pools which can add a d4 to failed checks and saves. Honestly, we have so many options it’s getting hard to keep track of them all."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We now have everything that we want from warlock, and we have exactly 5 levels left. If only there were a good fit that had something cool 5 levels in…"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16 – Bard 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d6)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our regular spellcasting continues to advance!"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration is only for our friends, unfortunately, but the other people enjoying Emboldening Bond, Experimental Elixir, and Bless probably won’t complain when you hand out even more dice. Probably."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17 – Bard 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Jack of all Trades"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d6)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5th-level slots."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Jack of All Trades adds +3 to all ability checks. Between that and our pile of d4’s, does proficiency even matter?"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18 – Bard 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bard College: College of Eloquence"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Silver Tongue"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unsettling Words"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise (any 2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Silver Tongue sets a floor of 10 on Deception/Perception. We add +3 for Jack of All Trades and +5 from Charisma for a floor of 18. Then we add as much as 4d4. We basically can’t fail."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We get Expertise here, too."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19 – Bard 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Lucky"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6th-level slots and the most annoying feat. We’re almost immune to failing."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Even at this level, the highest-level spell we know is 4th level with Pact Magic and 2nd level with regular Spellcasting. Get comfortable upcasting your favorite low-level spells."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20 – Bard 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d8)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Font of Inspiration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Font of Inspiration is a weird capstone, but here we are."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-dice-pool",
+      "parentSectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+      "heading": "The Dice Pool",
+      "sourceAnchor": "the-dice-pool",
+      "blocks": [
+        {
+          "blockId": "block-section-the-dice-pool-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Let’s sum up our sources of dice and look at how many we can apply to each type of d20 roll."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-dice-pool-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Bless: +1d4 on attack/save once per turn, persistent for 1 minute"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Built for Success: +1d4 on attack/check/save PB/day"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dark One’s Own Luick: +1d10 on check or save once/rest"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Emboldening Bond: 1d4 on attack/check/save once per turn, persistent for 10 minutes PB/day"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Experimental Elixir (Boldness): +1d4 on attack/save once per turn, persistent for 1 minute"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Favored by the Gods: +2d4 on failed attack or save once/rest"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Guidance: +1d4 on attack or check"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pact of the Talisman:\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Base Effect: +1d4 on failed ability check PB/day"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Protection of the Talisman: +1d4 on failed save PB/day"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-the-dice-pool-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bardic Inspiration gets an honorable mention, but we can’t use it on ourselves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-dice-pool-4",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "d20"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Persistent"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Optional"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Max"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Avg. Max"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Check"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d4+1d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4d4+1d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "+15.5"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Attack Roll"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3d4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3d4+1d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6d4+1d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "+20.5"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Saving Throw"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3d4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4d4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7d4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "+17.5"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Classes and Subclasses"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Autognome"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dhampir"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bless"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Guidance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Clockwork Amulet"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Stone of Good Luck"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-artificer-alchemist-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-artificer-alchemist-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-artificer-alchemist-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-artificer-alchemist-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-bard-college-of-eloquence-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-bard-college-of-eloquence-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-cleric-peace-domain-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-cleric-peace-domain-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-cleric-peace-domain-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-cleric-peace-domain-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-sorcerer-divine-soul-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-sorcerer-divine-soul-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-sorcerer-divine-soul-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-warlock-fiend-or-any-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-warlock-fiend-or-any-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-warlock-fiend-or-any-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-spells-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-magic-items-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-build-fully-automated-d4-dispensing-robot-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-build-fully-automated-d4-dispensing-robot-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-the-dice-pool-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-the-dice-pool-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-the-dice-pool-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-the-dice-pool-4"
+    }
+  ],
+  "metrics": {
+    "words": 3207,
+    "sections": 21,
+    "blocks": 41,
+    "tables": 8,
+    "ratingSignals": 12
+  },
+  "status": "needs-editorial-review"
+}

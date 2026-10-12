@@ -1,0 +1,758 @@
+{
+  "buildId": "build-warlock-genie-2014",
+  "revisionId": "build-warlock-genie-2014-v5",
+  "ruleset": "RULES_2014",
+  "title": "Чорнокнижника Джина — «Напівджинова точність»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-warlock-genie-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+      "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+      "sectionId": "section-example-genie-warlock-build-halfgenie-accuracy",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "FIGHTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "THE_GENIE",
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Genie Kind: Djinni"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "mage-hand",
+            "prestidigitation"
+          ],
+          "knownSpellKeys": [
+            "arms-of-hadar",
+            "expeditious-retreat"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Devil's Sight"
+          },
+          {
+            "optionNameEng": "Eyes of the Rune Keeper"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hellish-rebuke"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Blade"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "misty-step"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceOptions": [
+          {
+            "drop": {
+              "optionNameEng": "Eyes of the Rune Keeper"
+            },
+            "add": {
+              "optionNameEng": "Improved Pact Weapon"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ELVEN_ACCURACY",
+        "featOptions": [
+          {
+            "optionNameEng": "ELVEN_ACCURACY Ability (Dexterity)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "mind-sliver"
+          ],
+          "knownSpellKeys": [
+            "darkness"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "expeditious-retreat",
+          "add": "hold-person"
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Thirsting Blade"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hunger-of-hadar"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fly"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Eldritch Smite"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "greater-invisibility"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SHARPSHOOTER",
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "sickening-radiance"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CHAMPION",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Eldritch Mind"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "minor-illusion"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "creation"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "classOptions": [
+          {
+            "optionNameEng": "Lifedrinker"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "synaptic-static"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Shrouded in Shadow"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "banishment"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-genie-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+          "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "raceKey": "HALF_ELF_2014",
+    "backgroundKey": "URCHIN",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-damage-vs-utility-why-pact-of-the-blade",
+        "title": "Шкода проти корисності: чому Пакт клинка?",
+        "text": "На 20-му рівні Чорнокнижник, що випускає 4 промені Позамежного заряду [Eldritch Blast], завдає ось такої шкоди, припускаючи, що 8 на кубику влучає. Ми користуватимемося «Ельфійською точністю»{{Elven Accuracy}}, щоб зрівняти умови:\n\n Кубики Середня шкода DPR Перевага Позамежний заряд 1к10+5 10.5 28.4 43.34 Позамежний заряд + Проклін 1к10+5+1к6 14 38.2 58.73\n\nЦя збірка користуватиметься {{довгим луком|Longbow}} із Бойовим Стилем «Стрільба з лука»{{Archery}}, підкласом Воїна{{Fighter}} Чемпіон{{Champion}} і «Ельфійською точністю»{{Elven Accuracy}} разом із різними потойбічними викликами, що підсилюють пактову зброю, а також «Містичною карою»{{Eldritch Smite}} +6к8 на критичних влучаннях:\n\n Кубики Середня шкода DPR Перевага Довгий лук 1к8+4+5+1 14.5 37.95 66.16 Влучна стрільба 1к8+4+5+1+10 24.5 39.20 79.83\n\nЯк бачите, коли ми маємо Перевагу на кубику, ми значно вирвалися вперед, але ці цифри не показують корисності, якої ми зрікаємося. Ми не можемо постійно штовхати й тягнути «Відштовхувальним вибухом»{{Repelling Blast}} і «Хваткою Хадара»{{Grasp of Hadar}}. Проте оскільки Проклін [hex] корисний нам менше, ми можемо концентруватися на чомусь іншому, як-от на Тіні Мойла [Shadow of Moil] чи навіть на Більшій невидимості [Greater Invisibility], якщо ми Джинн{{Djinni}}, щоб скористатися нашою Ельфійською точністю.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-genie-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+            "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+            "sectionId": "section-damage-vs-utility-why-pact-of-the-blade",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-playstyle-and-tactics",
+        "title": "Стиль гри й тактика",
+        "text": "Ця збірка використовує всі хитрощі Чорнокнижника, щоб отримати Перевагу на кубику, — як-от Темрява [Darkness] і «Зір диявола»{{Devil's Sight}} або заштовхування ворогів у Голод Хадара [Hunger of Hadar], — а тоді поєднує «Ельфійську точність»{{Elven Accuracy}} із «Містичною карою»{{Eldritch Smite}} і 3 рівнями {{Воїна-Чемпіона|Champion Fighter}}, щоб полювати на критичні влучання для Кари, водночас завдаючи шкоди зі «Влучним стрільцем»{{Sharpshooter}}. До того ж ми Джин, тож можемо літати, поки зайняті Концентрацією на тих інших заклинаннях.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-genie-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+            "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+            "sectionId": "section-playstyle-and-tactics",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми будемо {{Напівельфом-дроу|Drow Half-Elf}}, щоб мати доступ і до Вогників фей [Faerie fire], і до Темряви [Darkness], але це також дає нам збільшення характеристик +2/+1/+1, з якими можна працювати.\n\nХоч може здатися незвичним, що Спритність у нас вища за Харизму, ми користуватимемося {{довгим луком|Longbow}} і не є {{Відьмацьким клинком|Hexblade}}.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 17 Статура 15 16 Інтелект 8 8 Мудрість 8 8 Харизма 15 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-genie-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+            "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ми {{Напівельф-дроу|Half-Elf Drow}}, тож маємо «Магію дроу»{{Drow Magic}} на додачу до «Темнозору»{{Darkvision}} і «Фейського походження»{{Fey Ancestry}}. Це жменя додаткових корисних заклинань щодня, але памʼятайте, що перекласти їх за допомогою вродженого чаротворства не можна, тож якщо хочете накладати їх частіше, їх усе одно треба вивчити назавжди.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-genie-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+            "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беремо передісторію Безпритульний{{Urchin}}, щоб легко отримати володіння Спритністю рук і Непомітністю.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-genie-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+            "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Насправді свій перший рівень ми беремо у Воїні{{Fighter}}, щоб отримати володіння важкими обладунками й військовою зброєю, хоч через низьку Силу носитимемо лише середні обладунки. Важливіше те, що ми матимемо володіння ряткидками Статури для наших заклинань Концентрації. Від Воїна ми беремо Акробатику й Залякування.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-genie-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+            "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Зазвичай мультикласування вимагає багато жонглювання, щоб вчасно отримувати Покращення Характеристик і риси. Проте ми одразу повернемося в Чорнокнижника на другому рівні, тож не відстанемо від решти надто сильно.\n\nНа пʼятому рівні (Воїн 1 / Чорнокнижник 4) беремо «Ельфійську точність»{{Elven Accuracy}}, вкладаючи одне очко в нашу непарну Спритність і доводячи її до 18.\n\nНа девʼятому рівні (Воїн 1 / Чорнокнижник 8) беремо «Влучного стрільця»{{Sharpshooter}}, що дозволяє ігнорувати все, що менше за повне укриття, стріляти з довгого лука з 600 футів без штрафу й віднімати 5 від кидка атаки, щоб додати +10 до кидка шкоди.\n\nНавіщо ми це робимо замість Позамежного заряду [Eldritch Blast]? Якщо середня шкода 1к10+5 дорівнює 10,5, то двічі вистрілити зі «Влучним стрільцем» компенсує різницю в шкоді тих двох інших зарядів. На DPR впливали б і інші чинники, наприклад, чи концентруємося ми на Прокліні [hex], але суть тут лише в шкоді чотирьох голих «Мучливих вибухів»{{Agonizing Blast}} проти додаткової атаки зі «Влучним стрільцем».\n\nНа пʼятнадцятому рівні (Воїн 3 / Чорнокнижник 12) беремо Покращення Характеристик у Харизму, 16 → 18.\n\nНа девʼятнадцятому рівні (Воїн 3 / Чорнокнижник 16) беремо Покращення Характеристик у Харизму, 18 → 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-genie-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+            "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бойовий Стиль (Стрільба з лука)\nДруге дихання\nАкробатика\nЗалякування\nУсі обладунки й щити\nВійськова зброя\nМагія дроу\n– Мерехтливі вогники",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-genie-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+            "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Магія дроу",
+        "reason": "Автор бере Напівельфа-дроу заради Вогників фей й Темряви (Магія дроу); каталог дає лише вибір «Магія дроу» без видачі заклинань (BUG-O49-HALF-ELF-DROW-MAGIC).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-genie-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+            "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Містичний арканум",
+        "reason": "Автор називає Ментальну вʼязницю (14-й рівень персонажа), Силову клітку (16-й), Нестерпну темряву (18-й) і Бажання (20-й); платформа не записує вибір арканума, тож їх слід додати вручну.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-genie-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+            "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Коло телепортації на 20-му рівні",
+        "reason": "На 20-му рівні автор бере Коло телепортації (Teleportation Circle), якого немає у списку Чорнокнижника й розширеному списку Джина (сервер його відхиляє), тож на 20-му рівні записано відкритий вибір одного заклинання гравця, а не вигадане замість автора. Містичний арканум 9 (Бажання) платформа не записує.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-genie-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+            "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Стіна каменю на 12-му рівні",
+        "reason": "Автор бере Стіну каменю (Wall of Stone) на 12-му рівні, але її немає в списку Джина обраного роду (Джин-Джинн); сервер її відхиляє, тож на 12-му рівні записано відкритий вибір заклинання гравця, а не вигадане замість автора.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-genie-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-genie-2014-draft1",
+            "sourceRevisionId": "rpgbot-ce1bbc1195e7953b-5d36f3571cf392ac",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

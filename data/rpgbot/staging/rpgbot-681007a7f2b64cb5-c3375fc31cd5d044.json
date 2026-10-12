@@ -1,0 +1,3402 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "c3375fc31cd5d0440a400ab22300df71665db12e44ebe6cf48954e190a6443ba",
+  "sourceRevision": {
+    "revisionId": "rpgbot-681007a7f2b64cb5-c3375fc31cd5d044",
+    "sourceId": "rpgbot-681007a7f2b64cb5",
+    "fetchedAt": "2026-09-29T19:14:42.221899+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:24:56-04:00",
+    "contentHash": "d5f6fe471ebd97257c274bacd4c07b3198ff583f2d18272f106a047cf8706a2f",
+    "title": "Artillerist Artificer 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-681007a7f2b64cb5-c3375fc31cd5d044.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "link",
+              "text": "Firing Main Cannon.",
+              "href": "https://www.youtube.com/watch?v=5r1AIGnQwXs"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "-Freelancer Integrated Logistics and Support System (F.I.L.S.S.)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Artillerist Artificer is all about pulling out a cannon to fire broadsides at your foes on the battlefield. A magic cannon that makes spell attacks. With a magic gun that casts spells. The important thing to know before diving into Artillerist is that this is the spell blaster Artificer subclass, which it is well equipped to do with both cannons and a great expanded spell list."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In combat, the Artillerist applies constant pressure to the enemy, being able to activate the cannon every round as a bonus action while still casting, attacking or doing anything else with their action. And before you ask, yes putting temporary HP onto your whole party every round is definitely pressure that your enemies will feel if that’s the cannon you pull out."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For our example build, we’re zipping around the battlefield on four legs to bring our cannons to bear upon the enemy line. And no, we’re not mounted."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artillerist Specialist Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artillerist Specialist Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artillerist Specialist Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artillerist Specialist Infusions",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-infusions"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artillerist Specialist Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artillerist Specialist Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artillerist Specialist Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artillerist Specialist Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#artillerist-specialist-multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Artillerist Specialist Build – Practical Problem Solver",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#example-artillerist-specialist-build-practical-problem-solver"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Infusions",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#infusions"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Tactical Combat",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#tactical-combat"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/artillerist/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Artillerist Specialist Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Tool Proficiency"
+              },
+              {
+                "type": "text",
+                "text": ": Adventurers don’t\n\t\ttypically do a lot of wood carving, and there are few pieces of adventuring\n\t\tgear that you can make with wood carving tools, but notably you can craft arrows or crossbow bolts, 5 on a short rest and 20 on a long rest. One could even argue from those numbers carving up 1 or 5 javelins in the same time frames. You might not use them, but your party might benefit from the ability to manufacture ammunition."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Artillerist Spells"
+              },
+              {
+                "type": "text",
+                "text": ": The Artillerist’s\n\t\tspell list is primarily offensive with some area control effects thrown in.\n\t\tNone of the spells are on the Artificer spell list, which is strange\n\t\tcompared to similar class features on other classes which typically saddle\n\t\tyou with at least a few situational spells that are already on your class’s\n\t\tspell list.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd Level"
+              },
+              {
+                "type": "text",
+                "text": ": Shield is a great spell at\n\t\t\t\tany level, and since Tools Required adds a material component to all of your\n\t\t\t\tspells, you can cast it with your hands full (provided that you’re holding or\n\t\t\t\twearing an infused item or an appropriate tool). Thunderwave isn’t a\n\t\t\t\tton of damage, but it’s nice for pushing enemies away if you get stuck\n\t\t\t\tin melee."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Two good offensive spells,\n\t\t\t\tbut remember that the Artificer is a half caster, so you’re\n\t\t\t\tgetting Shatter at the same level that Wizards get Fireball. Arcane\n\t\t\t\tFirearm comes online at the same level and provides a damage boost, but\n\t\t\t\tit only applies to one damage roll, so AOE options like Shatter are more\n\t\t\t\tefficient against multiple targets than options like Scorching Ray."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Fireball is one of the\n\t\t\t\tbest AOE damage spells in the game, especially for its level, and adding\n\t\t\t\tArcane Firearm’s damage boost will close some of the gap between the\n\t\t\t\tArtificer and the Wizard. Wind Wall is fine, but it’s really situational\n\t\t\t\tso you may go your entire career without casting it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Ice Storm isn’t a great\n\t\t\t\tspell, but Wall of Fire is an excellent area control option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Cone of Cold’s AOE is\n\t\t\t\tgreat, but the damage isn’t significantly better than that of Fireball.\n\t\t\t\tWall of Force is the real winner here. It’s a reliable, no-save way to\n\t\t\t\tshut off one or more enemies for the duration of the spell, and most\n\t\t\t\tenemies are totally powerless to escape or counter it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Eldritch Cannon"
+              },
+              {
+                "type": "text",
+                "text": ": The eldritch cannon is\n\t\tbasically a pet that can only perform one action. They’re severely limited\n\t\tby their 15 ft. movement speed, so generally you’ll either create a Tiny\n\t\tcannon and carry it around (or make someone else do it) or you’ll create a\n\t\tnew Small cannon whenever you need a cannon that can occupy a space.\n\t\tCreating a cannon takes an Action, so consider your choices carefully; an\n\t\tAction early in combat (or ideally before combat starts) is very important.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "In addition to their active abilities, your cannon makes a decent tank.\n\t\t\tWith an AC of 18 and a decent pool of hit points, they can take a lot of\n\t\t\tdamage which would otherwise be dealt to your party members, and you can\n\t\t\theal them between fights using a cantrip (though the 1-minute casting time\n\t\t\tfor Mending can add up quickly if you’re not careful)."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Small cannons are big enough to provide cover for small characters, and\n\t\t\tin tight quarters they might be able to completely prevent enemies from\n\t\t\treaching you by interposing themselves. However, be cautious about\n\t\t\tsacrificing your cannon: you can only have one, you only get to create one\n\t\t\tfor free each day, and it only lasts for an hour. After that it will cost\n\t\t\tyou a spell slot, but a 1st-level spell slot is a negligible price to pay\n\t\t\tfor how good the cannons can be."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Flamethrower"
+              },
+              {
+                "type": "text",
+                "text": ": With 15 ft. speed and\n\t\t\t\ta 15 ft. AOE, it will be difficult to keep the flamethrower in range\n\t\t\t\tunless you’re in small areas like a cramped dungeon, but if you find\n\t\t\t\tyourself unexpectedly in an encounter with close-packed enemies, it’s\n\t\t\t\toften more efficient to create a flamethrow cannon than to cast Burning\n\t\t\t\tHands or something similar."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Force Ballista"
+              },
+              {
+                "type": "text",
+                "text": ": Your go-to damage\n\t\t\t\toption. It’s only slightly more interesting than a crossbow. The damage\n\t\t\t\tis decent and it uses your Intelligence for the attack, so if all you\n\t\t\t\tneed is to kill one creature at a time, this is a good choice. The push\n\t\t\t\teffect isn’t huge, but it’s enough to break grapples by forcing enemies\n\t\t\t\tout of reach of your allies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Protector"
+              },
+              {
+                "type": "text",
+                "text": ": False Life is only a\n\t\t\t\t1st-level spell and provides largely the same benefit, but False Life\n\t\t\t\tdoesn’t affect your whole party and you can’t spam it every round for an\n\t\t\t\thour. Even if your cannon spends all of its time following your party’s\n\t\t\t\ttank around to replenish their temporary hit points, the Protector\n\t\t\t\tcannon can go a long way to stretch your party’s limited daily\n\t\t\t\tresources. Between fights, activate the cannon repeatedly until you roll\n\t\t\t\tan 8 to ensure that you and your party members go into every fight with\n\t\t\t\tas many temporary hit points as possible."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane Firearm"
+              },
+              {
+                "type": "text",
+                "text": ": This applies to all of\n\t\tyour artificer spells. Consider this on Shatter or Fireball. The d8 isn’t as reliable\n\t\tas adding your intelligence bonus, but it’s 4.5 damage on average, so it’s\n\t\troughly equivalent. Also note the wording of the ability. You don’t add 1d8 to the damage; you roll 1d8 and add the value on the die to the damage. Specifically this means it does not get multiplied by a critical hit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Explosive Cannon"
+              },
+              {
+                "type": "text",
+                "text": ": A 50% damage increase\n\t\tfor the Flamethrower and the Force Ballista, but the Protector doesn’t get\n\t\tanything (not that the Protector needs anything; it’s still spectacular).\n\t\tYou also get the ability to turn your cannon into a bomb, and the damage\n\t\twill at least match a 1st-level spell, but I wouldn’t consider walking your\n\t\tcannon into a group of enemies and detonating it to be a good go-to option\n\t\tin most cases since your cannon continuing to act will be more impactful\n\t\tthan the explosion."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fortified Position"
+              },
+              {
+                "type": "text",
+                "text": ": Half cover means +2 AC\n\t\tfor your entire party, which is a significant boost. The second cannon means\n\t\tthat you’ll spend less time stressing over which cannon to choose, and if\n\t\tone of the offensive options is clearly the best option you could even\n\t\tchoose to make two of them. However, you still only get one free cannon per\n\t\tday, so either carry around Tiny cannons or expect to spend some spell\n\t\tslots."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artillerist-specialist-ability-scores",
+      "heading": "Artillerist Specialist Ability Scores",
+      "sourceAnchor": "artillerist-specialist-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-artillerist-specialist-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Artillerist is the blaster-caster of the Artificers, so we’ll mirror the spread found in the "
+            },
+            {
+              "type": "link",
+              "text": "main handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artillerist-specialist-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump. We’re not gonna melee. We’re not gonna grapple. We’re here to fire the artillery."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artillerist-specialist-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Good for our AC. Get a 14 and wear medium armor."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artillerist-specialist-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Stay alive and make Concentration saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artillerist-specialist-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Gotta do that complex parabolic math to fire the artillery."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artillerist-specialist-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Some skills like this stat, so if you only need 14 in Dex maybe put a 10 here to get rid of that -1."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artillerist-specialist-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Let someone else handle Face duty, we’re too busy "
+            },
+            {
+              "type": "link",
+              "text": "building bridges",
+              "href": "https://www.youtube.com/watch?v=vrXPefXStoc"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artillerist-specialist-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artillerist-specialist-races",
+      "heading": "Artillerist Specialist Races",
+      "sourceAnchor": "artillerist-specialist-races",
+      "blocks": [
+        {
+          "blockId": "block-section-artillerist-specialist-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You’ll do fine following the main handbook’s "
+            },
+            {
+              "type": "link",
+              "text": "Race Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/races/"
+            },
+            {
+              "type": "text",
+              "text": " but there’s some additional things to consider."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artillerist-specialist-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Races with Martial Proficiencies"
+              },
+              {
+                "type": "text",
+                "text": ": Artillerists want to be casters more than the other Artificer subclasses but also Artificers have Firearms proficiency so just "
+              },
+              {
+                "type": "link",
+                "text": "get a gun",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/"
+              },
+              {
+                "type": "text",
+                "text": " if you really want to use a weapon. But really weapons are for other subclasses, so trade away those weapon proficiencies for more tool proficiencies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Autognome"
+              },
+              {
+                "type": "link",
+                "text": "SJAiS",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": While the Armored Casing wont do much as we already get Medium Armor, we get to use Mending on both our cannon and ourself. The rest of the traits are good too."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Centaur"
+              },
+              {
+                "type": "link",
+                "text": "MMoM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": While extra speed certainly benefits anyone, repositioning the Eldritch Cannon is certainly easier with more move speed and Equine Build. Put on a pack saddle and mount your turret on your back."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "(Half-)Elves"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Spells and your force-ballista cannon will use Intelligence for attack rolls so clearly, "
+              },
+              {
+                "type": "link",
+                "text": "Elven Accuracy",
+                "href": "https://rpgbot.net/oops-all-elves/"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thri-Kreen"
+              },
+              {
+                "type": "link",
+                "text": "SJAiS",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Eldritch Cannon can be a tiny object and is not technically a weapon so it can be held in the Secondary Arms of a Thri-Kreen without impeding the use of either primary arm."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artillerist-specialist-infusions",
+      "heading": "Artillerist Specialist Infusions",
+      "sourceAnchor": "artillerist-specialist-infusions",
+      "blocks": [
+        {
+          "blockId": "block-section-artillerist-specialist-infusions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll go over the Infusions that work well for Artillerists."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artillerist-specialist-infusions-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Enhanced Arcane Focus"
+              },
+              {
+                "type": "text",
+                "text": ": This is great for spell attacks, which includes the force ballista, but doesn’t benefit save DCs. We can be selfish with this one if we’re focused on using the cannon at longer range and not as a cone."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Enhanced Defense"
+              },
+              {
+                "type": "text",
+                "text": ": Every Artificer should take this one, but hand it off to either our frontliner or the melee powerhouse because we’re not a melee Artificer."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Enhanced Weapon"
+              },
+              {
+                "type": "text",
+                "text": ": We don’t use weapons, but putting this on a Fighter with all those attacks, or a Rogue with all that sneak attack bends "
+              },
+              {
+                "type": "link",
+                "text": "math in our favor",
+                "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+              },
+              {
+                "type": "text",
+                "text": ". Remember, if that +1 means they hit the bad guy, that’s our damage. More important than the math however, is the fact that the weapon becomes magical. There are more than a handful of enemies that are immune or resistant to non-magical weapons."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Radiant Weapon"
+              },
+              {
+                "type": "text",
+                "text": ": Decent option to hand an extra magic melee weapon to the party. You don’t really need both this and Repeating unless your party has three or more martials."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Repeating Weapon"
+              },
+              {
+                "type": "text",
+                "text": ": This is what we use if the extra weapon is ranged. Don’t really need both this and Radiant."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Repulsion Shield"
+              },
+              {
+                "type": "text",
+                "text": ": Another way to get some extra AC. This one might be useful to keep for personal use. Throwing someone out of melee range can be useful. We can even use this in reaction to getting hit by an opportunity attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Returning Weapon"
+              },
+              {
+                "type": "text",
+                "text": ": Just another way to get another +1 weapon on the field."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artillerist-specialist-feats",
+      "heading": "Artillerist Specialist Feats",
+      "sourceAnchor": "artillerist-specialist-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-artillerist-specialist-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not really different from the "
+            },
+            {
+              "type": "link",
+              "text": "Main Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#feats"
+            },
+            {
+              "type": "text",
+              "text": ", but avoid things that give you a new Bonus Action because you need those for your cannons"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artillerist-specialist-weapons",
+      "heading": "Artillerist Specialist Weapons",
+      "sourceAnchor": "artillerist-specialist-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-artillerist-specialist-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "By weapons we mean spell foci."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artillerist-specialist-weapons-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Any Artisan’s Tools or Thieves’ Tools"
+              },
+              {
+                "type": "text",
+                "text": ": Have fun and go nuts with your descriptions. Tools as spell foci are infinite fun."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "All-Purpose Tool"
+              },
+              {
+                "type": "text",
+                "text": ": This is the Artificer specific magic spell focus. If you can get one it will boost both forms of your offensive cannon as well as your spells. Being literally all artisan’s tools at once with free proficiency is good. The fact that Artificers get free expertise with all proficient tools at sixth level stacks with this proficiency granted by the item."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artillerist-specialist-armor",
+      "heading": "Artillerist Specialist Armor",
+      "sourceAnchor": "artillerist-specialist-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-artillerist-specialist-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Just get 14 Dexterity and wear medium armor with a shield."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artillerist-specialist-multiclassing",
+      "heading": "Artillerist Specialist Multiclassing",
+      "sourceAnchor": "artillerist-specialist-multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-artillerist-specialist-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We have some interesting interactions to think about, but also refer to the "
+            },
+            {
+              "type": "link",
+              "text": "Main Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artillerist-specialist-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Warlock"
+              },
+              {
+                "type": "text",
+                "text": ": Taking one or two levels of Warlock might sound odd, but treating the pact slots as making your cannon return on a short rest can be useful. Invocations and subclass features can also be nice since Warlocks choose a subclass at first level."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+      "heading": "Example Artillerist Specialist Build – Practical Problem Solver",
+      "sourceAnchor": "example-artillerist-specialist-build-practical-problem-solver",
+      "blocks": [
+        {
+          "blockId": "block-section-example-artillerist-specialist-build-practical-problem-solver-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Hey look, buddy. I’m an Engineer. That means I solve problems.",
+              "href": "https://www.youtube.com/watch?v=SNgNBsCI4EA"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-artillerist-specialist-build-practical-problem-solver-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is about using the Eldritch Cannon to solve different problems. By problems I mean how do we fight the enemies today? Long Range Force Gun? Short Cone Flamethrower Gun? Temporary Hit Points Dispenser?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re using point buy and spending it on Intelligence, Constitution, Dexterity, and since we only need 14 in Dexterity we can put a 10 somewhere else. It’s not that important but we’ll put the 10 in Wisdom. We’re taking Centaur and getting a +2/+1 racial modifier which goes into Intelligence and Constitution."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to be a Centaur. We want the 40 feet walking speed and Equine Build allows us to put the Eldritch Cannon onto a pack saddle. We’re not going to use the hooves natural weapon but that’s fine."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re taking Investigator as our background. We want this for two reasons. First off, we’re taking Perception and Investigation from Artificer, so Investigator gives us Insight and then since we’re out of valid options we can replace the other skill with any skill. We’re choosing Arcana so we can scribe scrolls. Second, we want a background that grants two tool proficiencies. Investigator grants Disguise Kit, which is nifty, but it also grants Thieves’ Tools that we already get from Artificer allowing yet another free replacement. For our replacement we’ve chosen Carpenter’s Tools."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Centaur, we choose to take Survival. Artificer automatically gives us thieves’ tools and tinker’s tools. We also choose Investigation, Leatherworker’s Tools, and Perception. Once we have Artillerist Specialty we also gain Woodcarver’s Tools. Our background gives us Arcana, Carpenter’s Tools, Disguise Kit, and Insight."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As an Artificer, we have expertise with tools at sixth level as long as we’re proficient. Interestingly while the Artificer is designed more around Artisan’s Tools, this Expertise applies to all tools, so if you want a different background or race, we prefer backgrounds with two tools and if a race can give us tools by trading in other proficiencies that’s also a great thing to look for."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourth level, we take the Fey Touched feat. We put the ability increase into Intelligence and we choose Bane as our spell. We want Bane to combine with our Flamethrower cannon to make it harder for our foes to avoid the full blast as well as the spells of our fellow casters. We could instead choose Bless if our party has more attack rolls than saving throws which does benefit our Force Ballista as well."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At eighth level, we take an ASI for +2 Intelligence to cap it at 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At twelfth level, we take Mobile, increasing our walking speed to 50 and allowing us to take a swing at something in melee if we don’t want to Disengage. Because we’ve got our cannon on our back, we can reposition it very quickly to get the most output in any given round."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixteenth and nineteenth level, we can take ASIs for Constitution, which would cap it at 20. Alternatively, we could take two hybrid feats that can choose Constitution, such as Skill Expert and Chef for alternate benefits while hitting 18. Other options include Warcaster for Advantage on those Concentration saves and Tough for more hit points. The build already has all the offensive tools it needs by now, these are just different defensive options that can be taken."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-infusions",
+      "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+      "heading": "Infusions",
+      "sourceAnchor": "infusions",
+      "blocks": [
+        {
+          "blockId": "block-section-infusions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll get to learn 12 Infusions but eventually only have a maximum of 6 active at any given time. While it is tempting to hoard all the infusions, consider that putting all of these bonuses and magical items on other players is far more powerful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At second level, we have four options, but can only make two at a time, so we take Enhanced Arcane Focus and Enhanced Defense for our regular infusions. Our other two options can be anything so we’ll pick Enhanced Weapon and Replicate Magic Item (Bag of Holding) because those can be useful to our party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixth level, we can learn two more and increase to three at a time. The repulsion shield and the spell-refueling ring are good options here so we pick them up. At this level, if we’re using the Enhanced Focus then we can probably share one of these infusions with another party member, but if we’ve handed out Enhanced Armor and Enhanced Weapon, pick one of these to wear. Don’t forget that Infused items count as a spell focus for Artificer spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At tenth level, we get another pair and are allowed four at a time. Winged Boots are our new personal pick of the pile. With a fly speed equal to our walking speed, we fly nice and fast. If someone in our party "
+            },
+            {
+              "type": "link",
+              "text": "benefits from going first",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/"
+            },
+            {
+              "type": "text",
+              "text": ", the Helm of Awareness is a great present. Alternatively the Cloak of Protection would be able to add +1 to AC and saves for a party member. The basic Enhanced infusions grow to +2 at this level so they stay relevant."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Next level, cantrips are growing stronger again, so if we’re spreading out the items across the party, handing the Enhanced Arcane Focus off to a Warlock for those three Eldritch Blasts might edge out over our cannon at this level if our party has one. Bracers of Archery on the other hand, will give anyone firing a bow +2 on damage rolls, so if there’s an archer in our party maybe we hand those over."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 14th and 18th levels, we learn two and get to have an additional one active at each level. At that point we already have all the good ones we need, so it’s up to the individual’s preference at that point."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-tactical-combat",
+      "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+      "heading": "Tactical Combat",
+      "sourceAnchor": "tactical-combat",
+      "blocks": [
+        {
+          "blockId": "block-section-tactical-combat-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The idea behind this build is to run around the battlefield with 40ft (later 50ft) of walking (later flying) speed to position flamethrower cones wherever they need to be. Assuming our cannon is already assembled and mounted, we can spend our Action doing things like Dashing to reposition harder, or Disengaging to put the cone at an unexpected angle, or maybe even toss out a leveled spell or a cantrip through the Arcane Firearm."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-tactical-combat-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Something else I need to point out about cones and flight: A 15 foot cone pointed down will hit 9 squares if you’re 15 ft off the ground."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-artillerist-specialist-build-practical-problem-solver",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Medium Armor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Shield"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Saves"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Constitution"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Intelligence"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Arcana"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Investigation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Survival"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Carpenter’s Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Disguise Kit"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Leatherworker’s Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Thieves’ Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Tinker’s Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Magical Tinkering"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Acid Splash"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Mending"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st level spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At first level, this example will take the average rolls of the starting gold on 5d4x10, or 12.5×10=125. You may or may not be using the same way of generating starting gold so we’ll list the priority for gear."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With that we purchase Scale Mail and a Shield first, then a Pack Saddle and tools. We want to prioritise Carpenter’s, Leatherworker’s, and Woodcarver’s tools first, because using these tools together is how we assemble and maintain a mounting harness for putting the cannon onto our flank. We then try to squeeze Thieves’ tools into our budget and if we still have some gold, we can also wear a backpack. Being part horse is pretty awesome."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We have spells, and while we can prepare anything on our list each day as needed, we have to choose our Cantrips so we’re going to take Acid Splash and Mending."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mending is for repairing the cannon when we get it as well as just performing minor repairs on damaged items as needed."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The reason to go with Acid Splash here is because when we get Arcane Firearm at fifth level, the bonus damage will apply to both targets of Acid Splash. If you wanted to go for something else with a bit more single target punch, take Firebolt instead."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We have the Arcana skill, so we’re mass-producing scrolls. ("
+                },
+                {
+                  "type": "link",
+                  "text": "Xanathar’s Guide p133",
+                  "href": "https://www.dndbeyond.com/sources/xgte/downtime-revisited#ScribingaSpellScroll"
+                },
+                {
+                  "type": "text",
+                  "text": ") We may have enough money left from our starting gold to make a 1st-level spell scroll. You can never go wrong with an extra scroll of Cure Wounds."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also, compared to potions, scrolls are lighter and take up far less storage space, but if you wanted to choose a different background to get herbalism kit proficiency to brew potions, that’s a valid option."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Infuse Item"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Enhanced Arcane Focus"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Enhanced Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Enhanced Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Replicate Magic Item (Bag of Holding)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We gain infusions here so we’re picking up the assortment of basic and useful +1 bonus infusions."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ll want to take a look at the party to see what we need. Handing the frontline fighter to +1 AC or a +1 weapon really does a lot of work this early."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The Right Tool for the Job"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Artillerist Specialty"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tool"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Woodcarver’s Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Artillerist Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Eldritch Cannon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "First off, we gain a flavorful ability to generate tools with an hour of work. Conveniently this work can also happen during a short or long rest without ruining the rest."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "More importantly, we’re now an Artillerist."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We now want to use Enhanced Arcane Focus with our Force Ballista to fire the cannons. Because it’s a spell attack despite not being a spell, the bonus to spell attack rolls from the focus applies, as does ignoring half-cover."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If we’re going to focus on the other types of cannon however, Enhanced Focus does not apply."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Fey Touched"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Intelligence"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Bane -or- Bless"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Misty Step"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level we take the Fey Touched Feat and start to nail down what kind of cannon we want to lean towards."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Of the list available from Fey Touched, I recommend either Bane or Bless. Bane will give your foes a hard time dodging the Flamethrower and ruin their attack rolls. Bless on the other hand will make your Force Ballista more accurate and enhance your party’s attacks and saves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Given the choice I will take Bane because Artificers also have Faerie Fire if the Force Ballista needs help landing."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Firearm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "2nd-level spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have a magic gun. Where’d we purchase that?"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The Arcane Firearm is a special spell focus that makes "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Artificer"
+                },
+                {
+                  "type": "text",
+                  "text": " spells do more damage. Specifically, the extra damage is not an additional die but the value rolled on a d8 is added to a damage roll, meaning that it is not increased by a critical hit."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "To get the most value out of this, try to use spells that hit an area. The damage for an AoE is rolled once and applied to all targets. Acid Splash is a great cantrip example of this which is why we chose that spell at first level. Thunderwave (1st level) and Shatter (2nd level) are great leveled AoE spells we could also use this with. Later on we can even use Fireball (3rd level) with this as well."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Infusions"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Repulsion Shield"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Spell-refuelling ring"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tool Expertise"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We learn two new infusions, Repulsion Shield and Spell-refuelling ring. The explanation is above."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tool Expertise is great. Double Proficiency is stronger on some tools than others, and this build hasn’t taken anything like Vehicles that would "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "really"
+                },
+                {
+                  "type": "text",
+                  "text": " shine with Expertise, but we at least have Thieves’ Tools."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Flash of Genius"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Add your Intelligence modifier to an ability check or a saving throw you can see within 30 feet as a Reaction."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You know, Initiative is an ability check. I’m sure there’s "
+                },
+                {
+                  "type": "link",
+                  "text": "some edge cases",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/"
+                },
+                {
+                  "type": "text",
+                  "text": " where that could have "
+                },
+                {
+                  "type": "link",
+                  "text": "funny consequences",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/war-magic/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: +2 Intelligence"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Better spell attack rolls and saving throw DCs. There’s not much to explain here."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Explosive Cannon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "3rd-level spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cannons get an extra damage die. Just that. Nothing about self-destruction. Just more damage. Damage is good."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Okay, in all seriousness, we do gain the ability to self-destruct the cannon as an Action, causing a 20ft radius of force damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The main issue with this is that the damage dice are the same as the attack from our cannon, so we don’t gain extra damage for losing the cannon, and we’ll have to later spend an action to assemble a new cannon. That’s two actions just to do a mediocre ball of Force damage against Dexterity saves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I mentioned it earlier when going over Arcane Firearm, but now we have access to Fireball."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Infusions"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Replicate Magic Item (Winged Boots)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cloak of Protection"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Magic Item Adept"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "An extra attunement slot is great, but that’s not the important part here. If we don’t have an All-Purpose Tool yet, build one now. It will take half a week and 100 gold."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Congratulations, you now have a magical tool that grants proficiency in all artisan tools. Use that to craft more magic items for everyone."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also we get our last pair of new shoes: Winged Boots."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell-Storing Item"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Put a spell in a box and let someone else use it and concentrate on it. Let the rogue be spider-man or something."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Mobile"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "40 feet of movement is nice. 50 feet of movement with cannons is oppressive."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th-level spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Good options for this level of spells include freedom of movement, secret chest, private sanctum, and wall of fire."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Item Savant"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Five Attunements and bypass restrictions to attune to any item. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fortified Position"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Double the Cannons for Double the Power. Both activate with the same bonus action and the cannons do not have to be the same type."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Additionally, your party members have half-cover while within 10 feet of the cannons. That’s +2 AC just for showing up. Stick the protector cannon on your frontliner’s back like a flag and hand them a spell-storing item with Blur for hilarity."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Constitution +2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More hit points, better Concentration saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5th-level spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The star of the show for these spells is wall of force, but we also have access to nice things like greater restoration, skill empowerment, transmute rock, and wall of stone."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Item Master"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Six Attunements. Almost back to that magic item christmas tree feel of 3.5."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Constitution +2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Even more hit points, even better Concentration saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Soul of Artifice"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Powerful capstone. For every item you have attuned, get +1 to all saves. Also, end an infusion when you would hit 0 to instead hit 1 HP."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember that we can effectively mass-produce common and uncommon magic items, many of which require attunement, so there’s no reason to tie up your infusions just to fill the six attunement slots."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Artillerist Specialist Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tool Proficiency"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Artillerist Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 3rd Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 9th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 13th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 17th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Eldritch Cannon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Flamethrower"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Force Ballista"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Protector"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Arcane Firearm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Explosive Cannon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Fortified Position"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Races with Martial Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Autognome"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Centaur"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue (Half-)Elves"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Thri-Kreen"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Enhanced Arcane Focus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Enhanced Defense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Enhanced Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Radiant Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Repeating Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Repulsion Shield"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Returning Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Any Artisan’s Tools or Thieves’ Tools"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue All-Purpose Tool"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Warlock"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "em/a[1]",
+      "detail": "link inside emphasis"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\"><em><em><a href=\"https://www.youtube.com/watch?"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Eldritch Cannon</span>: The eldritch cannon is basically a pet that can only perform one action. They’re severely limited by their 15 ft. mo"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-artillerist-specialist-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-artillerist-specialist-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-artillerist-specialist-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-artillerist-specialist-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-artillerist-specialist-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-artillerist-specialist-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-artillerist-specialist-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-artillerist-specialist-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-artillerist-specialist-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-artillerist-specialist-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-artillerist-specialist-infusions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-artillerist-specialist-infusions-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-artillerist-specialist-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-artillerist-specialist-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-artillerist-specialist-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-artillerist-specialist-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-artillerist-specialist-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-artillerist-specialist-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-artillerist-specialist-build-practical-problem-solver-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "em/a[1]",
+      "detail": "link inside emphasis"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-example-artillerist-specialist-build-practical-problem-solver-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-infusions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-infusions-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-infusions-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-infusions-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-infusions-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-infusions-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-tactical-combat-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-tactical-combat-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4672,
+    "sections": 20,
+    "blocks": 49,
+    "tables": 3,
+    "ratingSignals": 40
+  },
+  "status": "needs-editorial-review"
+}

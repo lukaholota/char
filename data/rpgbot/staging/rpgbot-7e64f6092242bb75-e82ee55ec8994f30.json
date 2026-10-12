@@ -1,0 +1,944 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/dunamancy/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "e82ee55ec8994f301157db0b9ddfa27fbd5b904c6eb1e16f4515fff6a9c119d0",
+  "sourceRevision": {
+    "revisionId": "rpgbot-7e64f6092242bb75-e82ee55ec8994f30",
+    "sourceId": "rpgbot-7e64f6092242bb75",
+    "fetchedAt": "2026-09-29T19:16:10.820987+00:00",
+    "sourceUpdatedAt": "2024-12-12T08:38:44-05:00",
+    "contentHash": "ab6f73374592ed4460c3637a43dcb57912b7a73b9f54509cc20a35fbceb9b9e7",
+    "title": "DnD 5e Dunamancy Spells Breakdown",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-7e64f6092242bb75-e82ee55ec8994f30.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Explorer’s Guide to Wildemount introduced “Dunamancy”, a set of new spells mostly exclusive to the two new wizard subclasses presented in the same book."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Explorer’s Guide to Wildemount include a sidebar on how to make Dunamancy spells available to non-Dunamancers (appropriately titled “Dunamancy for Non-Dunamanacers”) which details that the Dungeon Master might allow other spellcasters to learn these spells. The sidebar makes no distinction between classes, so theoretically any spellcasting class could gain access to these spells with the DM’s permission. However, I can’t assume that your DM will be that permissive, so I’ll assume that these spells are limited to two very specific wizard subclasses."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells",
+      "heading": "Dunamancy Spells",
+      "sourceAnchor": "spells",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optional spells are marked below with (Optional) following the spell’s name. These spells are considered optional rules, as described in Tasha’s Cauldron of Everything. Consult your DM before deciding to use these spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spells-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Some of the spells below are marked as either “Chronurgy” or “Graviturgy”. While the Chonurgy Magic and Graviturgy Magic subclasses correspond to those two categories, no part of the rules text further limits Dunamancy spells to wizards of either subclass. The categorization appears to be thematic rather than mechanical, so your Chronurgy Magic Wizard is free to learn and cast Graviturgy spells."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cantrips",
+      "parentSectionId": "section-spells",
+      "heading": "Cantrips",
+      "sourceAnchor": "cantrips",
+      "blocks": [
+        {
+          "blockId": "block-section-cantrips-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Sapping Sting"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Low damage, short range, and Constitution saves tend to be high. Knocking creatures prone is a minor inconvenience for them unless you have melee allies who will take their turns after yours but before the target’s so that they can capitalize on the target being prone. "
+              },
+              {
+                "type": "text",
+                "text": " It’s easy to compare this to Chill Touch because they both deal Necrotic damage, but Toll the Dead is a better comparison. Toll the dead has double the range, does d8 or d12 damage (double or triple damage by comparison), and targets Wisdom saves which aren’t as consistently high so you’ll be able to harm targets with it more consistently. The spell isn’t a bad concept, it’s just not reliable and when it does work it’s not effective. As a quick fix, try some combination of raising the damage die to d6s, extending the range to 50 or 60 ft., or change the saving throw to a Strength save."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-1",
+      "parentSectionId": "section-spells",
+      "heading": "1st-Level Spells",
+      "sourceAnchor": "spells-1",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Gift of Alacrity"
+              },
+              {
+                "type": "text",
+                "text": " (Chronurgy)"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Going early in combat is really nice, and with an 8-hour duration you can count on this to last all day. At high levels, this is a consistently useful way to spend your 1st-level spell slots, but it competes for space with staple defenses like Absorb Elements and Shield."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magnify Gravity"
+              },
+              {
+                "type": "text",
+                "text": " (Graviturgy)"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": At 1st level, this is basically Fireball. 2d8 damage doesn’t sound like much (and beyond low levels it’s not), but if you can catch two or more enemies in the area of effect you can deal a huge amount of damage, potentially deciding the outcome of an encounter with one spell. Magnify Gravity also deals Force damage, which nearly nothing is resistant/immune to, and the speed reduction is a nice bonus. However, it targets Constitution saving throws, which tend to be high on average so you may find that creatures pass the save frequently once you get beyond low levels. The damage scales fine, but I would expect to abandon this spell after low levels."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-2",
+      "parentSectionId": "section-spells",
+      "heading": "2nd-Level Spells",
+      "sourceAnchor": "spells-2",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Fortune’s Favor"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Sometimes I forget that Matt Mercer and Critical Role got their start as a Pathfinder campaign, then they remind me by porting content directly from 1st edition Pathfinder. This spell is really good, which is why it has a 100gp consumable material component. Don’t expect to throw this around a lot unless you enjoy the feeling of an empty wallet, but at high levels you can cast this as a higher-level spell to target everyone in your party with a single pearl."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Immovable Object"
+              },
+              {
+                "type": "text",
+                "text": " (Graviturgy)"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Situational to some degree, but a clever player can get a lot of mileage out of this. This essentially turns any valid target into an Immovable Rod, which means that you can use to solve (or cause) a lot of problems. The ability to make the spell permanent with 6th-level spell slots means that you can use it for things like floating buildings, which feels really satisfying as a wizard. Don’t expect to use this much in combat, but outside of combat look for opportunities for creativity."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wristpocket"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": 1-hour duration, it requires Concentration, and it takes an Action to stow or retrieve the object. I’m not sure what problem this spell is trying to solve, but the only one I can think of is smuggling single objects without scrutiny. Fortunately, this is a Ritual so you never need to prepare it."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-3",
+      "parentSectionId": "section-spells",
+      "heading": "3rd-Level Spells",
+      "sourceAnchor": "spells-3",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Pulse Wave"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The cone is a great size for this spell level, the damage is pretty good, and the push/pull effect is big enough to be interesting. Generally Fireball will be a better way to handle crowds, but Fireball won’t push people off cliffs or into holes. The damage scaling is fine, but the push distance also scales with spell level, which is unusual compared to similar spells like Thunder Wave, so you have the ability to adjust how far you want to push/pull targets, which means that this will remain occasionally useful well into high levels, even if it’s not a go-to option for handling crowds."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-4",
+      "parentSectionId": "section-spells",
+      "heading": "4th-Level Spells",
+      "sourceAnchor": "spells-4",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-4-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Gravity sinkhole"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re not using this to drag targets into the air, you’re missing out on free damage which the spell is designed to cause. Unfortunately, that means that if your targets pass their saves, they take less than half of the intended damage. Also, since the spell is a sphere you may need to lower it to catch additional targets, which means less total damage. On top of that, it’s a Constitution save, and those tend to be high on average."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-5",
+      "parentSectionId": "section-spells",
+      "heading": "5th-Level Spells",
+      "sourceAnchor": "spells-5",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-5-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Temporal Shunt"
+              },
+              {
+                "type": "text",
+                "text": " (Chronurgy)"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Don’t both counterspelling; shunt spellcasters out of time and totally waste their spell. This is just as effective against spellcasters regardless of what spell they’re casting, so no more 9th-level Counterspell to handle 9th-level spells. Of course, spellcasters often have high Wisdom saves, but an Intelligence- or Charisma-based spellcaster will still have a good chance of failing the save. You can also use this when creatures make attacks, so if you’re going to go that route you should do it for the creature makes its first attack so that you rob it of as much activity as possible. "
+              },
+              {
+                "type": "text",
+                "text": "Weirdly, you can cast this at a higher level to affect additional creatures who have nothing to do with the attack being made or the spell being cast. It’s great that you can do it, but it feels weird that you can do it as a Reaction."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-6",
+      "parentSectionId": "section-spells",
+      "heading": "6th-Level Spells",
+      "sourceAnchor": "spells-6",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-6-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Gravity Fissue"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": For creatures in the line this is a standard save-for-half AOE damage spell. For creatures close to the line, they might be yanked into the area, potentially allowing you to follow up with another line effect. Consider casting Dragon’s Breath on your familiar, or enlisting the help of another spellcaster."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-7",
+      "parentSectionId": "section-spells",
+      "heading": "7th-Level Spells",
+      "sourceAnchor": "spells-7",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-7-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Tether Essence"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Essentially Warding Bond but hostile. Drop this early in a fight, then drop AOE damage on both targets if you can. If you deal 10 damage to both targets at the same time, they each take a total of 20."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-8",
+      "parentSectionId": "section-spells",
+      "heading": "8th-Level Spells",
+      "sourceAnchor": "spells-8",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-8-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Dark Star"
+              },
+              {
+                "type": "text",
+                "text": " (Graviturgy)"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Good damage with a wide AOE, and a 1-minute duration is enough time to get a lot of mileage out of this. The fact that you can adjust the AOE (“up to 40 ft. radius”) is interesting, but it’s rare that you’ll intentionally reduce it. Difficult terrain, darkness, and silence inside the area make it hard for creatures to escape unless they were already close to the edge of the area, and if you have other ways to force movement like Thunderwave Pulse Wave you can use them to shove enemies back toward the center on later turns, or you could put up a well around the effect to prevent escape. The only problem is that the saves are Constitution-based, but if you can keep enemies in the area for the full duration that’s not likely to matter. "
+              },
+              {
+                "type": "text",
+                "text": "The disintegration mechanic is weird. If a creature is already at 0 hit points or dead, they’re fine. Unattended, inanimate objects are also fine. But creatures that fall to 0 from the spell are dust, along with everything they’re carrying which isn’t magic."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reality Break"
+              },
+              {
+                "type": "text",
+                "text": " (Chronurgy)"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The effects of the spell are amuzing, but since they’re random they’re unreliable, and many of the options still allow the target to take a turn. The damage is decent, but not spectacular. The spell’s biggest problem is that the target can end the effect by passing a single save, and they get to make a save every turn. Given the choice between this and Hold Monster, I would take Hold Monster every time."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells-9",
+      "parentSectionId": "section-spells",
+      "heading": "9th-Level Spells",
+      "sourceAnchor": "spells-9",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-9-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ravenous Void"
+              },
+              {
+                "type": "text",
+                "text": " (Graviturgy)"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The 100 ft. radius around the sphere is what really makes this spell work. The damage is really low for such a high-level spell, but if you can pull a creature into the sphere and restrain it for a few turn you’ll get plenty of damage. The fact that you can place the sphere in the air means that you can pull enemies into the air and force them to take falling damage when they escape, then potentially pull them back in before that can escape the area of the spell."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Time Ravage"
+              },
+              {
+                "type": "text",
+                "text": " (Chronurgy)"
+              },
+              {
+                "type": "link",
+                "text": "EGtW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": It’s hard to think of a common situation in which you would cast this spell instead of something like Hold Monster or Power Word Kill. If you want to make someone too weak to fight back, you have plenty of lower-level options. If you want to kill something, you have options across every spell level. This spell absolutely fits the them of Chronurgy, but I just don’t know when it’s a good time to use this over any other spell. It’s also unclear if or how this works on creatures which don’t age."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Sapping Sting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Gift of Alacrity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Magnify Gravity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fortune’s Favor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Immovable Object"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Wristpocket"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Pulse Wave"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Gravity sinkhole"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Temporal Shunt"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Gravity Fissue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Tether Essence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dark Star"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Reality Break"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ravenous Void"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Time Ravage"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-spells-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-cantrips-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-spells-1-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-spells-2-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-spells-3-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-spells-4-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-spells-5-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-spells-6-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-spells-7-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[10]",
+      "detail": "block-section-spells-8-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[11]",
+      "detail": "block-section-spells-9-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    }
+  ],
+  "metrics": {
+    "words": 1824,
+    "sections": 13,
+    "blocks": 18,
+    "tables": 0,
+    "ratingSignals": 19
+  },
+  "status": "needs-editorial-review"
+}

@@ -1,0 +1,2439 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "83f90d1641a0ab1223b7a4da2c310e09d5e925ed42e32811324d372e530056db",
+  "sourceRevision": {
+    "revisionId": "rpgbot-de91ea2e4bfde5b1-83f90d1641a0ab12",
+    "sourceId": "rpgbot-de91ea2e4bfde5b1",
+    "fetchedAt": "2026-09-29T19:23:37.531467+00:00",
+    "sourceUpdatedAt": "2025-04-04T09:08:10-04:00",
+    "contentHash": "b2dbb254c166fa3d02c2a552ff7f04dbecd0ad00be606eb4c59a4e08fb29709c",
+    "title": "2024 DnD Wild Magic Sorcerer Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-de91ea2e4bfde5b1-83f90d1641a0ab12.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Wild Magic Sorcerer is fun, but not especially powerful. The inherent unpredictability of Wild Magic makes the subclass unreliable. Wild Magic Sorcery is also the only Sorcerer subclass in the 2024 PHB that does not have a spell list giving you additional prepared spells. Instead, you get Wild Magic. This is not a fair trade, and lacking the versatility provided by 10 additional prepared spells is a huge limitation compared to any other subclass."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Wild Magic table will feature heavily in your experience playing a Wild Magic Sorcerer. Using Tides of Chaos consistently in order to force surges means that you can roll on the table multiple times per day, which is often a good choice because the vast majority of effects are benign. Not necessarily beneficial, but at worst harmless."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is for the 2024 Wild Magic Sorcery Sorcerer. For help with the 2014 rules, see our "
+            },
+            {
+              "type": "link",
+              "text": "2014 Wild Magic Sorcerer Subclass Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/wild-magic/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Wild Magic Sorcerer Features",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Wild Magic Sorcerer Backgrounds",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#backgrounds"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Wild Magic Sorcerer Species",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#species"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Wild Magic Sorcerer Ability Scores",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Wild Magic Sorcerer Feats",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Wild Magic Sorcerer Weapons",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Wild Magic Sorcerer Armor",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Wild Magic Sorcerer Multiclassing",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Wild Magic Sorcery Sorcerer Build – Wacky Chaos Fairy",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Species",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#species"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skill and Tool Proficiencies",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#skill-and-tool-proficiencies"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats and Ability Score Increases",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#feats-and-ability-score-increases"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/2024-dnd/classes/sorcerer/sorcerer-subclasses/wild-magic/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice in this article is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2024 DnD Character Optimization Meta",
+              "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows. Also be sure to check for "
+            },
+            {
+              "type": "link",
+              "text": "errata",
+              "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+            },
+            {
+              "type": "text",
+              "text": " periodically."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Wild Magic Sorcerer Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Wild Magic"
+              },
+              {
+                "type": "text",
+                "text": ": A 1 in 20 chance to roll on\n\t\tthe Wild Magic table isn’t significant. You don’t get 20 spell slots until\n\t\tyou’re level 19, which means that you’re likely to go days at a time without\n\t\ttriggering Wild Magic this way even if you try your hardest to do so. Instead, expect to trigger surges by using Tides of Chaos.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The effects of Wild Magic are mostly benign, but there are a few options\n\t\t\tlike Polymorphing yourself into a goat or casting Fireball on your party.\n\t\t\tBut, since those options are in the minority, Wild Magic is usually\n\t\t\tsafe and frequently helpful, though the unpredictable effects mean that\n\t\t\tyou can’t count on it to be consistently useful."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tides of Chaos"
+              },
+              {
+                "type": "text",
+                "text": ": Use this on any ability\n\t\tcheck or saving throw where the outcome matters more than a handful of hit\n\t\tpoints. Easy Advantage that you can recharge this easily is incredibly\n\t\tpowerful.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you’re not expecting many fights on any given day, you can use level 1\n\t\t\tspell slots to easily recharge this, then inexpensively replenish the\n\t\t\tslots with Font of Magic. This can be fantastic for social situations and\n\t\t\tfor exploration, though Enhance Ability will be less expensive for\n\t\t\tnumerous ability checks of the same type in quick succession."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bend Luck"
+              },
+              {
+                "type": "text",
+                "text": ": When your allies fail a save\n\t\tagainst death by 1 or two, it’s heart-breaking. Spend the Sorcery Points and\n\t\tbe everyone’s best friend. 2 Sorcery Points is expensive, but your allies’\n\t\tlives are worth it.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Conversely, if an enemy narrowly passes a save against a level 1+,\n\t\t\tspending 2 Sorcery Points to turn that into a failure is absolutely worth\n\t\t\tthe cost. 2 Sorcery Points could get you a level 1 spell slot, but it will\n\t\t\tnever recover the Action you spent to cast a spell unsuccessfully."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Controlled Chaos"
+              },
+              {
+                "type": "text",
+                "text": ": This considerably\n\t\treduces the threat of the Wild Magic table and makes it more of a source of\n\t\tunpredictable buffs and comic relief."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tamed Surge"
+              },
+              {
+                "type": "text",
+                "text": ": Many of the Wild Magic\n\t\teffects can be very beneficial if you can predict when they’ll occur. For\n\t\texample: Misty Step behind your enemies, make all creatures within 30 feet\n\t\tvulnerable to Piercing damage, then Dash and fly to safety. Unfortunately,\n\t\tyou only get this once per Long Rest with no way to recharge it early."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-backgrounds",
+      "heading": "Wild Magic Sorcerer Backgrounds",
+      "sourceAnchor": "backgrounds",
+      "blocks": [
+        {
+          "blockId": "block-section-backgrounds-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Sorcerers",
+              "href": "https://rpgbot.net/2024-dnd/classes/Sorcerer/#backgrounds"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-species",
+      "heading": "Wild Magic Sorcerer Species",
+      "sourceAnchor": "species",
+      "blocks": [
+        {
+          "blockId": "block-section-species-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Sorcerers",
+              "href": "https://rpgbot.net/2024-dnd/classes/Sorcerer/#species"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Wild Magic Sorcerer Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Sorcerers",
+              "href": "https://rpgbot.net/2024-dnd/classes/Sorcerer/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Wild Magic Sorcerer Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Sorcerers",
+              "href": "https://rpgbot.net/2024-dnd/classes/Sorcerer/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Wild Magic Sorcerer Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Sorcerers",
+              "href": "https://rpgbot.net/2024-dnd/classes/Sorcerer/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Wild Magic Sorcerer Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Sorcerers",
+              "href": "https://rpgbot.net/2024-dnd/classes/Sorcerer/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Wild Magic Sorcerer Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Sorcerers",
+              "href": "https://rpgbot.net/2024-dnd/classes/Sorcerer/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Wild Magic Sorcery Sorcerer Build – Wacky Chaos Fairy",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wild Magic is a powerful save-or-suck caster with the ability to give themselves Advantage on D20 Tests easily, but building yet another save-or-suck caster is boring, so we’re going to lean into the most chaotic options available. I’m philosophically opposed to this because unpredictable options are inherently unreliable, but sometimes you’re optimizing for fun rather than effectiveness."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build would work fine with pretty standard spell selections if you’re not planning to lean into the chaos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fairly standard for the Sorcerer. We’ll put our +2 into Charisma and our +1 into Constitution."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Adjusted"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "21"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Merchant. We’ll take +1 Constitution, +2 Charisma. We get Animal Handling and Persuasion, Navigator’s Tools which we’ll probably never use, and the Lucky feat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-background-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I don’t know what we’ll do with Animal Handling, but honestly neither does WotC. They’ve published the 5e rules twice, and still don’t have a good answer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-species-2",
+      "parentSectionId": "section-example",
+      "heading": "Species",
+      "sourceAnchor": "species",
+      "blocks": [
+        {
+          "blockId": "block-section-species-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Fairy",
+              "href": "https://www.dndbeyond.com/races/814913-fairy"
+            },
+            {
+              "type": "text",
+              "text": ". It feels nice and whimsical, and flight and innate spellcasting both work great."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skill-and-tool-proficiencies",
+      "parentSectionId": "section-example",
+      "heading": "Skill and Tool Proficiencies",
+      "sourceAnchor": "skill-and-tool-proficiencies",
+      "blocks": [
+        {
+          "blockId": "block-section-skill-and-tool-proficiencies-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get Animal Handling and Persuasion from our Background, plus Navigator’s Tools. We’ll take Deception and Insight from our two Sorcerer class skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-and-ability-score-increases",
+      "parentSectionId": "section-example",
+      "heading": "Feats and Ability Score Increases",
+      "sourceAnchor": "feats-and-ability-score-increases",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want to add even more chaos to the build, ask your DM if you can take "
+            },
+            {
+              "type": "link",
+              "text": "Scion of the Outer Planes",
+              "href": "https://www.dndbeyond.com/feats/1464731-scion-of-the-outer-planes"
+            },
+            {
+              "type": "text",
+              "text": " (Chaotic Outer Plane) at level 1 and "
+            },
+            {
+              "type": "link",
+              "text": "Cohort of Chaos",
+              "href": "https://www.dndbeyond.com/feats/1464722-cohort-of-chaos"
+            },
+            {
+              "type": "text",
+              "text": " at level 4. It won’t significantly change the build, and it would be really fun."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 1 we take Lucky."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we take Gift of the Gem Dragon and increase Charisma to 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we take Fey Touched and increase Charisma to 19."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we take Inspiring Leader and increase Charisma to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16 we take a +2 Constitution increase."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19 we take Boon of Fate and increase Charisma to 21."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Origin Feat: Lucky"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Innate Sorcery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Acid Splash"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sorcerous Burst"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– True Strike"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mage Armor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Magic Missile"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At level 1, stick to reliable options. True Strike is our go-to offensive option at least until level 5, but you can use Mind Sliver to debuff enemy saves and Acid Splash if you catch enemies adjacent to each other. We have few prepared spells and spell slots, so keep Mage Armor running and use Magic Missile against foes with high AC."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Reserve Lucky for saving throws as much as possible."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level our species also gives us Druidcraft."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Font of Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Metamagic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Extended Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Heightened Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Absorb Elements"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Tasha’s Hideous Laughter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extended spell is great for buffs and summon spells, especially at low levels when you need to stretch spell slots as far as possible. Heightened Spell is fantastic for save-or-suck spells, but 2 Sorcery Points is expensive at this level, so don’t expect to use it constantly."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wild Magic Sorcery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wild Magic Surge"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tides of Chaos"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Blindness/Deafness"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enhance Ability"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Nathair’s Mischief"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrained Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Magic Missile -> Chromatic Orb"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tides of Chaos immediately becomes a favorite. Use it before you resort to using Lucky since you can recharge Tides of Chaos, then trigger Wild Magic surges as often as possible. Remember: the vast majority of the effects are benign if not outright helpful."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With the ability to easily give ourselves Advantage, we’ll replace Magic Missile with Chromatic Orb. With the increased reliability, Chromatic Orb will deal better average damage. Innate Sorcery can also get us easy Advantage, but it’s only twice per day, which means we need to use it sparingly."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Nathair’s Mischief is unpredictable. Have your melee allies try to contain enemies within the area to maximize its benefits. Or trade it for Web."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level our species allows us to cast Faerie Fire. Unfortunately, it doesn’t count as a Sorcerer spell, so it doesn’t recharge Tides of Chaos."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Gift of the Gem Dragon (Charisma 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Prestidigitation or "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shatter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Gift of the Gem Dragon gives us a good countermeasure if enemies try to get into melee with us."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We have all the combat cantrips that we need, so it’s time to add a utility cantrip."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sorcerous Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fear or Hypnotic Pattern"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fireball"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Haste"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Level 3 spells bring a ton of power. Choose either Fear or Hypnotic Pattern as an AOE save-or-suck. Fireball is for crowds of weak enemies. Haste is for when your party is facing big, single foes. Strongly consider using Extended Spell on Haste so that you can cast it before walking into combat and to minimize the risk of losing Concentration."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level our species allows us to cast enlarge/reduce. Unfortunately, it doesn’t count as a Sorcerer spell, so it doesn’t recharge Tides of Chaos."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bend Luck"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enemies Abound"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is where our save-or-suck spells really get really crazy. Between this, Heighten Spell, and Innate Sorcery, we can make it nearly impossible to pass saves against our spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Enemies Abound is fantastically chaotic in a crowded encounter. Throw it on the biggest enemy in the fight and use Bend Luck to debuff their save if they pass."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sorcery Incarnate"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Confusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Polymorph"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Raulothim’s Psychic Lance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Confusion is not a good spell, but it certainly is the most chaotic spell around, so it’s on theme for the build. "
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/pathfinder/characters/polymorph/"
+                },
+                {
+                  "type": "text",
+                  "text": " can be similarly chaotic. Very few creatures expect a giant ape or a T-Rex to suddenly appear. Raulothim’s Psychic Lance can ruin a spellcaster’s day by breaking Concentration."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: "
+                },
+                {
+                  "type": "link",
+                  "text": "Fey Touched",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/fey-touched/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sleep"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Charisma 18 -> 19"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Spirit of Death"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fey Touched pads our list of prepared spells and gets us a couple extra spells per day. It feels great alongside being a fey and our chaotic nonsense theme. The 2024 version of Sleep is a weirdly powerful save-or-suck spell despite being level 1."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spirit of Death is just a nice, reliable summon. Nothing too fancy."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Insect Plague"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Seeming"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Telekinesis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More absolute chaos. Seeming lets you disguise your whole party as whoever you’re currently fighting. Telekinesis lets you cause all kinds of mischief."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This is the last time that we get a new prepared spell every time we gain a level. Enjoy it. Then consider retraining spells as you advance."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Metamagic:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Empower Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Quickened Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Empower Spell is for use with Chromatic Orb. We have easy Advantage from several sources to make it likely that our attacks hit, then we can use Empower Spell to improve our odds of rolling doubles so that the orb will hit additional targets. Upcasting Chromatic Orb becomes a surprising effective way to deal damage without endangering our allies."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Quickened Spell is just really good. Use it in combination with Mind Sliver to further debuff enemies’ saves before you hit them with a save-or-suck."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eyebite"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cruise control for an entire encounter. Be sure to use Bend Luck and Quickened Mind Sliver if you think you’ll need it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Inspiring Leader (Charisma 19 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A go-to for Charisma builds."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Prismatic Spray"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "So chaotic that you won’t know what it does until you cast it!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Controlled Chaos"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wild Magic Surge was already mostly beneficial, but this makes it even more so because your odds of hurting yourself or your allies are near 0. Look for every opportunity to trigger a surge."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Of course, we’ve been leaning into the chaos this whole time, so suddenly controlling the chaos somehow feels wrong."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dominate Monster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (Con 16 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Boring, but effective."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Metamagic:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Seeking Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Subtle Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Psychic Scream"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If you somehow miss with a Chromatic Orb attack, you can use Seeking Spell to reroll it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I’m kidding. It’s "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                },
+                {
+                  "type": "text",
+                  "text": ". It’s always Wish."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But Psychic Scream is pretty great for this build."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tamed Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Several options in the table are very powerful, such as the one that gives you an extra Action or the one that gives everyone within 30 feet vulnerability to piercing damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Epic Boon: Boon of Fate"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mass Polymorph"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Boon of Fate can be used offensively or defensively. We have both Lucky and Tides of Chaos to use defensively, so use Boon of Fate offensively. If it’s not enough, use Bend Lucky, too."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Apotheosis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Heighten Spell on potentially every spell you cast for a full minute. With the amount of Sorcery Points saved this way, you should spend the 2 points to recharg Sorcery Incarnate for every encounter."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Wild Magic Sorcerer Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Wild Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Tides of Chaos"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bend Luck"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Controlled Chaos"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Tamed Surge"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-backgrounds-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-species-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-background-2"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#species",
+      "detail": "section-species -> section-species-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-species-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-skill-and-tool-proficiencies-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-and-ability-score-increases-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-and-ability-score-increases-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-and-ability-score-increases-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-and-ability-score-increases-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-and-ability-score-increases-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-and-ability-score-increases-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-and-ability-score-increases-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2369,
+    "sections": 18,
+    "blocks": 32,
+    "tables": 2,
+    "ratingSignals": 10
+  },
+  "status": "needs-editorial-review"
+}

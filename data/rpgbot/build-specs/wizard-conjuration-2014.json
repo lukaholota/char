@@ -1,0 +1,385 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-conjuration-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-conjuration-2014-draft1",
+    "sourceRevisionId": "rpgbot-f4fd482091798130-50f586c68bc2d168"
+  },
+  "exampleSection": "section-example-build-generic-conjurer",
+  "levelTableSection": "section-levels",
+  "classKey": "WIZARD_2014",
+  "subclassKey": "SCHOOL_OF_CONJURATION",
+  "raceKey": "TORTLE_MPMM",
+  "backgroundKey": "SAGE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 13,
+    "INT": 15,
+    "WIS": 12,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "subclassKey": "SCHOOL_OF_CONJURATION",
+      "spells": {
+        "spellbookKeys": [
+          "tensers-floating-disk"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "spells": {
+        "spellbookKeys": [
+          "misty-step",
+          "web"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "spellbookKeys": [
+          "vortex-warp"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "spells": {
+        "spellbookKeys": [
+          "summon-shadowspawn"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "spells": {
+        "spellbookKeys": [
+          "evards-black-tentacles",
+          "summon-aberration"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "spells": {
+        "spellbookKeys": [
+          "summon-elemental"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ],
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "spells": {
+        "spellbookKeys": [
+          "steel-wind-strike",
+          "summon-draconic-spirit"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "spells": {
+        "spellbookKeys": [
+          "creation"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "spells": {
+        "spellbookKeys": [
+          "scatter"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "featKey": "METAMAGIC_ADEPT",
+      "section": "section-feats",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "spells": {
+        "spellbookKeys": [
+          "plane-shift",
+          "teleport"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "spells": {
+        "spellbookKeys": [
+          "maze"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "featKey": "INSPIRING_LEADER",
+      "section": "section-feats",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "spells": {
+        "spellbookKeys": [
+          "gate",
+          "wish"
+        ]
+      }
+    },
+    {
+      "level": 18,
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "featKey": "LUCKY",
+      "section": "section-feats",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Четверте замовлення",
+      "reason": "Автор називає чотири замовляння (Кислотні бризки, Магічна рука, Розщеплення Розуму, Штукарство), а Чарівник 1-го рівня знає три; платформа залишила перші три, четверте (Штукарство) можна змінити замість будь-якого з них.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Три заклинання «будь-які»",
+      "reason": "Автор називає лише Пошук фамільяра, Туманну хмару й Невидимого служника, а решту трьох заклинань книги лишає на вибір; їх обрала платформа.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання й замовляння «будь-які»",
+      "reason": "На рівнях 2, 4, 5 і 6 автор позначає частину заклинань книги «будь-якими»; нове замовляння 4-го рівня теж «будь-яке»; це вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Зʼява лісових створінь (8-й рівень)",
+      "reason": "На 8-му рівні автор бере Зʼяву лісових створінь, якої немає у списку Чарівника. Пресет бере замість неї Виклик елементаля — найближче заклинання виклику 4-го кола у списку Чарівника (вибір платформи); можна змінити на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Надихаючий лідер (16-й рівень)",
+      "reason": "Риса вимагає Харизму 13, а в персонажа Харизма 8; автор цього не помічає. Пресет записує рису за автором, платформа її приймає, але на листі умова не виконана.",
+      "section": "section-feats"
+    },
+    {
+      "field": "Заклинання «будь-які» на 12–20 рівнях і Майстерність заклинань",
+      "reason": "На 12, 14, 16, 18, 19, 20-му рівнях автор пише «будь-які 2», на 12-му — Адепт метамагії без вибору метамагії (BUG-O49-METAMAGIC-ADEPT); це вибір гравця. Майстерність заклинань (18-й) і Фірмові заклинання (20-й) автор лишає на вибір («будь-які»; Туманний крок або Павутиння), каталог не має їхнього вибору, тож гравець обирає на листі.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/wizard-conjuration-2014.webp",
+    "title": "Чарівник Школи заклику — Черепаха",
+    "description": "Черепаха-Чарівник зі змінюваним походженням: КБ 17 від панцира, Спритність 16, Статура 14, Інтелект 16, Мудрість 12. Універсальний викликач із фамільяром у книзі.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CON",
+      "INT"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INVESTIGATION",
+        "RELIGION"
+      ],
+      "race": [
+        "PERCEPTION"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DRACONIC",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "acid-splash",
+        "mage-hand",
+        "mind-sliver"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [
+        "find-familiar",
+        "fog-cloud",
+        "unseen-servant",
+        "magic-missile",
+        "shield",
+        "absorb-elements"
+      ],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "find-familiar",
+        "fog-cloud",
+        "magic-missile",
+        "shield"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Автор називає чотири замовляння, а Чарівник 1-го рівня знає три: платформа залишила перші три за порядком автора, четверте (Штукарство) можна змінити замість будь-якого з них. Пошук фамільяра, Туманну хмару й Невидимого служника обрав автор; решту трьох заклинань книги (Магічний дротик і Щит, які автор згадує як добрий вибір, та Поглинання стихій) і початкову підготовку чотирьох заклинань ми обрали за вас.",
+      "platformChoices": [
+        "classCantrips",
+        "spellbook",
+        "preparedSpells"
+      ]
+    },
+    "abilityExplanation": "Автор використовує три підвищення Черепахи по +1 (Спритність 16, Статура 14, Інтелект 16); це вже враховано за правилами Таші.",
+    "skillExplanation": "Автор бере Уважність від Черепахи, Магію й Історію від Мудреця, Розслідування й Релігію від класу. Три мови (одну від раси, дві від Мудреця) ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Автор радить кинджал, мішечок із компонентами або фокус, будь-який набір і книгу заклинань. Кинджал, мішечок із компонентами й набір ученого ми обрали за вас; їх можна змінити."
+  }
+}

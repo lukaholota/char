@@ -1,0 +1,316 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "cleric-trickery-domain-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+    "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a"
+  },
+  "exampleSection": "section-example-build-halfelf-trickery-cleric-rogue",
+  "levelTableSection": "section-levels",
+  "classKey": "ROGUE_2014",
+  "raceKey": "HALF_ELF_2014",
+  "backgroundKey": "CHARLATAN",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 10
+  },
+  "levelPlans": {
+    "levels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 1
+  },
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "CLERIC_2014",
+      "subclassKey": "TRICKERY_DOMAIN",
+      "spells": {
+        "cantripKeys": [
+          "guidance",
+          "sacred-flame"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "classKey": "CLERIC_2014"
+    },
+    {
+      "level": 4,
+      "classKey": "CLERIC_2014"
+    },
+    {
+      "level": 5,
+      "classKey": "CLERIC_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "classKey": "CLERIC_2014"
+    },
+    {
+      "level": 7,
+      "classKey": "CLERIC_2014"
+    },
+    {
+      "level": 8,
+      "classKey": "CLERIC_2014"
+    },
+    {
+      "level": 9,
+      "classKey": "CLERIC_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "classKey": "ROGUE_2014"
+    },
+    {
+      "level": 11,
+      "classKey": "ROGUE_2014",
+      "subclassKey": "ARCANE_TRICKSTER",
+      "spells": {
+        "cantripKeys": [
+          "booming-blade",
+          "minor-illusion"
+        ],
+        "knownSpellKeys": [
+          "mage-armor"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "classKey": "ROGUE_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "classKey": "ROGUE_2014"
+    },
+    {
+      "level": 14,
+      "classKey": "ROGUE_2014",
+      "expertise": [
+        "INSIGHT",
+        "PERCEPTION"
+      ]
+    },
+    {
+      "level": 15,
+      "classKey": "ROGUE_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "classKey": "ROGUE_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "classKey": "ROGUE_2014"
+    },
+    {
+      "level": 18,
+      "classKey": "ROGUE_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        },
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "classKey": "ROGUE_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "classKey": "ROGUE_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Експертиза в інструментах",
+      "reason": "На 1-му рівні автор бере Експертизу в Обмані та в інструментах злодія; експертиза в інструментах платформою не підтримана, тому замість інструментів злодія взято Переконання (слабка Харизма) — вибір платформи.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Навички: розподіл між класом і расою",
+      "reason": "Автор називає вісім навичок разом, але не каже, які шість від Пройдисвіта й Напівельфа дає клас, а які раса; розподіл — вибір платформи.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Замовляння Клірика",
+      "reason": "Третє замовлення Клірика на 2-му рівні та нове на 5-му автор не називає; їх обирає гравець.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Рівні 12–20",
+      "reason": "Таблиця статті закінчується на 12-му рівні й нічого не називає далі. Пресет просто бере рівні Пройдисвіта 4–12 (вибір платформи, автор не називає): підвищення Мудрість +2 на 12-му, Спритність +2 на 16-му, Статура +2 на 18-му, Харизма +2 на 20-му, друга Експертиза в Аналізі поведінки й Уважності на 14-му, нові заклинання й замовляння Містичного спритника лишено вибору гравця; гравець може змінити це на листі.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "title": "Пройдисвіт / Клірик — Домен підступності, Напівельф",
+    "description": "Мультиклас Пройдисвіт 1 / Клірик Домену підступності / Містичний спритник: Напівельф зі Спритністю 16 і Мудрістю 16, Шарлатан, експертиза в Обмані й Переконанні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "WIS"
+    ],
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "INVESTIGATION",
+        "PERCEPTION",
+        "STEALTH"
+      ],
+      "race": [
+        "INTIMIDATION",
+        "PERSUASION"
+      ],
+      "background": []
+    },
+    "expertise": [
+      "DECEPTION",
+      "PERSUASION"
+    ],
+    "classOptions": [],
+    "raceOptions": [
+      "Універсальність навичок"
+    ],
+    "languages": [
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля очок 8/15/14/8/15/10 з таблиці автора й підвищення Напівельфа: +2 до Харизми, +1 до Спритності та Мудрості, тож 16/14/16/12, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Автор називає вісім навичок: Обман і Спритність рук — від Шарлатана, решту шість (Аналіз поведінки, Залякування, Розслідування, Уважність, Переконання, Непомітність) дають Пройдисвіт і Напівельф; розподіл між ними ми обрали за вас — вибір платформи. Експертиза в Обмані — за автором, а друге місце замість інструментів злодія (їх платформа не вміє) ми заповнили Переконанням за вас — вибір платформи. Мову ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор не називає стартового спорядження: рапіру, короткий лук, набір грабіжника, шкіряну броню, інструменти злодія й два кинджали ми обрали за вас — вибір платформи."
+  },
+  "revision": 2
+}

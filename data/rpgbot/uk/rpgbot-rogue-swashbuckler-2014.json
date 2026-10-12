@@ -1,0 +1,2310 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-3599d6bf0b1d362f",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+      "sourceId": "rpgbot-3599d6bf0b1d362f",
+      "fetchedAt": "2026-09-29T19:11:35.190307+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:53:10-04:00",
+      "contentHash": "1fc8bd92cbce2d434dfb22ab2467e8996fe3d0929deb8fe8c61aa17b8b29dcd2",
+      "title": "Swashbuckler Rogue 5e: DnD Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-rogue-swashbuckler-2014",
+    "sourceId": "rpgbot-3599d6bf0b1d362f",
+    "slug": "rogue-swashbuckler-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Шибайголова — гайд підкласу Пройдисвіта (2014)",
+    "titleEn": "Swashbuckler Rogue 5e: DnD Subclass Guide",
+    "topics": [
+      "Пройдисвіт",
+      "Шибайголова",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Пройдисвіт-Шибайголова 5e: гайд підкласу D&D",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Щось змінилося всередині мене"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Щось уже не те"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Я покінчила з іграми за правилами"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Чужої гри"
+                },
+                {
+                  "type": "text",
+                  "text": " Ідіна Мензел – "
+                },
+                {
+                  "type": "link",
+                  "text": "Defying Gravity",
+                  "href": "https://www.youtube.com/watch?v=fEq3xM-i0Ng"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Шибайголова — це яскравий, показний, бомбастичний тип пригодника, зазвичай, але не обовʼязково, шермирувальник. У D&D 5e Шибайголова — Пройдисвітський архетип, що спеціалізується на суміші Харизматичного «Шику»{{Panache}} і вмінні бути майстром-дуелянтом. Дехто чує слово «Шибайголова» й думає про пірата, і хоч це цілком розумний напрям, є багато інших способів грати ним. На кожного Капітана Джека Горобця серед їхніх лав знайдеться й дʼАртаньян, Пітер Пен, Робін Гуд і Зорро."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Що відразу відрізняє Шибайголів від інших Пройдисвітів — їхня «Зухвала відвага»{{Rakish Audacity}}, що дозволяє надійно застосовувати шкоду «Підступної атаки»{{Sneak Attack}} у бою один на один. Крім того, «Витончена робота ніг»{{Fancy Footwork}} дає Шибайголові, по суті, безкоштовний Відступ проти його опонента в дуелі, щоб найсміливіші акробатичні рухи полем бою залишали ворога розгубленим і розладнаним."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "До слова про акробатичні маневри: вправніші Шибайголови можуть давати собі Перевагу на кубику на перевірки Атлетики й Акробатики, щоб виконувати такі дивовижні трюки. Ніколи не применшуйте корисність вчасного штовхання чи сміливого стрибка, щоб вибратися з халепи. З такою граційною мобільністю ваші опоненти не матимуть шансів проти такого Майстра-дуелянта, перетворюючи промах на фінт і користуючись відкриттям."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У прикладі збірки нижче ми дослідимо веселий спосіб побудувати Шибайголову як міцного бійця ближнього бою, що може постояти за себе серед найкращих. Не танк за жодним визначенням, але й не з паперу, Громовий шукач гострих відчуттів демонструє себе в бою як спритний дуелянт, що шмигає в бій і з нього, завдаючи точних ударів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви шукаєте щось трохи складніше за наші типові приклади збірок, у нас є мультикласова збірка за участю "
+                },
+                {
+                  "type": "link",
+                  "text": "Чорнокнижника Відьмацького клинка",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "link",
+                  "text": "Хлопчика, що не хотів рости",
+                  "href": "https://rpgbot.net/dnd5/characters/hexbuckler/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Використовуючи здатність Відьмацького клинка застосовувати Харизму для атак і шкоди, ця альтернативна збірка може принести додаткову магію до столу, як-от «Містичний спритник-лайт». Подивіться, якщо хочете побачити ще один веселий спосіб побудувати Шибайголову."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Шибайголови",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Шибайголови",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#swashbuckler-rogue-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Шибайголови",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#swashbuckler-rogue-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Шибайголови",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#swashbuckler-rogue-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Шибайголови",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#swashbuckler-rogue-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Шибайголови",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#swashbuckler-rogue-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Шибайголови",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#swashbuckler-rogue-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Шибайголови — Громовий шукач гострих відчуттів",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#example-swashbuckler-rogue-build-thundering-thrillseeker"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/swashbuckler/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Шибайголови",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Витончена робота ніг|Fancy Footwork}}: вам треба лише "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "атакувати"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ціль, а не влучити, тож якщо ви промахнулися й не хочете залишатися в досягу ближнього бою, можна безперешкодно відступити. Користування двома легкими зброями для бою двома зброями дозволяє пройти повз і атакувати двох ворогів, якщо відчуєте потребу. Вибір між використанням «Хитрої дії»{{Cunning Action}} для Відступу й покладанням на «Витончену роботу ніг» залежить і від того, чим ви володієте, і від кількості ворогів, яких треба обійти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зухвала відвага{{Rakish Audacity}}: це абсурдно добре. Будь-який Пройдисвіт може завдати «Підступну атаку», якщо союзник у межах 5 футів від цілі. «Зухвала відвага» дозволяє завдавати «Підступну атаку», якщо ніхто, крім цілі, не поруч із вами, а це означає, що доки вас не оточують, ви можете надійно завдавати «Підступну атаку» щоразу, коли влучаєте. Доки ви можете відійти від інших ворогів (скажімо, за допомогою «Хитрої дії» для Відступу), ви майже гарантовано можете завдати «Підступну атаку».\n\nОскільки вам усе ще треба бути в межах 5 футів, ви, імовірно, робите атаки ближнього бою, але технічно можна використовувати арбалет з «Експертом з арбалетів»{{Crossbow Expert}}. О, і наче цього не вистачало, ви додаєте бонус Харизми до кидків Ініціативи на додачу до Спритності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шик{{Panache}}: обовʼязково візьміть «Експертизу»{{Expertise}} в Переконанні, щоб це працювало. Воно того варте. Танкування зазвичай не входить до набору навичок Пройдисвіта, але перша частина цього уміння — механіка провокації. Майстер технічно міг би припинити здатність, змусивши істоту вийти за межі 60 футів, перш ніж повернутися, але це був би дешевий метагеймерський трюк, тож сміливо присоромте свого Майстра, якщо він спробує.\n\nЗ пристойним КБ і «Надприродним ухиленням»{{Uncanny Dodge}} ви легко впораєтеся з тим, що ви — єдина ціль однієї істоти протягом тривалого часу, залишаючи решту групи справлятися з рештою зіткнення, доки одна частина групи не прийде допомогти іншій. Поза боєм можна використовувати це, щоб Зачаровувати істот, роблячи їх дуже лояльним другом на дуже короткий час.\n\nЕфект не дає істоті зрозуміти, що її зачарували чи що ви зробили щось незвичайне, а оскільки він не дає тимчасового імунітету й не має обмеження на використання, можна використовувати «Шик» на тій самій істоті неодноразово, щоб підтримувати її Зачарованою. Якщо вдасться пройти початкову перевірку Харизми (Переконання), це зробить тривіальними соціальні взаємодії з одиночними істотами, які ще не ворожі до вас."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Елегантний маневр{{Elegant Maneuver}}: Перевага — це чудово, особливо для навички на кшталт Атлетики, що використовується для Штовхання ворогів додолу. На жаль, це використовує вашу бонусну дію лише щоб дати вам Перевагу, тож вам усе одно треба використати Дію для навички, не залишаючи нагоди атакувати. Найімовірніше, ви використовуватимете це, щоб вирватися із захоплень, перестрибнути складну місцевість чи робити інші подібні вигадливі речі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстерний дуелянт{{Master Duelist}}: іноді не можна ризикувати промахнутися, і в таких випадках це рятує життя. Здебільшого ви все ще можете використати «Витончену роботу ніг», щоб відійти й повернутися атакувати пізніше, але іноді це просто не варіант, і вам треба завдати шкоди відразу, а не затягувати."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-swashbuckler-rogue-ability-scores",
+          "heading": "Характеристики Шибайголови",
+          "sourceAnchor": "swashbuckler-rogue-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-swashbuckler-rogue-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зазвичай Пройдисвіти мають "
+                },
+                {
+                  "type": "link",
+                  "text": "певну гнучкість",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": " у характеристиках, бо після зміцнення Спритності й Статури зазвичай лишаються очки, щоб схилитися до різних категорій навичок. Проте в Шибайголови є уміння, що зважають на його Харизму, а це означає, що Шибайголови зазвичай беруть на себе й роль «обличчя» в групі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swashbuckler-rogue-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: ми отримуємо здатність мати Перевагу на кубику на Атлетику на 13-му рівні, тож це не високий пріоритет, але дозволити Силі бути четвертою найвищою характеристикою при стандартному наборі — непоганий варіант."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swashbuckler-rogue-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: це наш КБ, наша атака зі Спритністю чи дальньою зброєю й наші перевірки Ініціативи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swashbuckler-rogue-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: не дайте себе вбити, роблячи безглузді трюки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swashbuckler-rogue-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: читати книжки — для некрутих людей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swashbuckler-rogue-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: усвідомлювати оточення — для некрутих людей. Ні, зачекайте, це ще один добрий варіант для четвертої найвищої характеристики замість Сили."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swashbuckler-rogue-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: у нас є уміння, що виграють від нашої Харизми, з перевагами для Ініціативи, а також для Зачаровування цілей. Проте Шибайголові не обовʼязково йти цим шляхом, якщо він просто хоче завдавати шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swashbuckler-rogue-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-swashbuckler-rogue-races",
+          "heading": "Раси Шибайголови",
+          "sourceAnchor": "swashbuckler-rogue-races",
+          "blocks": [
+            {
+              "blockId": "block-section-swashbuckler-rogue-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми можемо дотримуватися рекомендацій з "
+                },
+                {
+                  "type": "link",
+                  "text": "огляду рас Пройдисвіта ",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "для всього, що не перелічено нижче."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swashbuckler-rogue-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Ведмебай{{Bugbear}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": бонус Шибайголови до ініціативи добре працює з «Несподіваною атакою»{{Surprise Attack}} Ведмебая, але «Довгі кінцівки»{{Long-Limbed}} не надто добре працюють із «Зухвалою відвагою», бо ми маємо бути в межах 5 футів від цілі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Своя раса{{Custom Lineage}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": з додатковою рисою не прогадаєте."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Фея{{Fairy}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Витончена робота ніг» для атаки на льоту, а додаткова вертикальність дає нам більше місць, що працюють для «Зухвалої відваги»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гаренгон{{Harengon}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо ви хочете ходити першим завжди, Гаренгони додають Бонус Майстерності до своєї Ініціативи на додачу до того, що «Зухвала відвага» додає Харизму і Спритність. Це своєю чергою означає, що щойно на 11-му рівні здобуто «Надійний талант»{{Reliable Talent}}, Гаренгон не може кинути менше 10 + Бонус Майстерності + Спритність + Харизма для всіх перевірок Ініціативи, що на цьому рівні дасть приблизно 10+4+5+3 = 22."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{(Напів)високий ельф|(Half-)High Elf}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": легкий доступ до «Гримучого Клинка [Booming Blade]» добре поєднується з комбо «Витончена робота ніг» і «Шик», заскакуючи, щоб влучити «Гримучим Клинком», а потім вибігаючи й лишаючи ворога або стояти там, або отримати вторинну шкоду."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Варіант людини{{Variant Human}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": бонусні риси чудові."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-swashbuckler-rogue-feats",
+          "heading": "Риси Шибайголови",
+          "sourceAnchor": "swashbuckler-rogue-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-swashbuckler-rogue-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Гайд Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": " уже досить добре описує вибір рис."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swashbuckler-rogue-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Надихаючий лідер{{Inspiring Leader}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ми й так будуємо збірку під Харизму, тож «Надихаючий лідер» добре нам підійде."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-swashbuckler-rogue-weapons",
+          "heading": "Зброя Шибайголови",
+          "sourceAnchor": "swashbuckler-rogue-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-swashbuckler-rogue-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щодо зброї, ми дотримуємося "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Пройдисвіта.",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#weapons"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swashbuckler-rogue-weapons-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рапіра{{Rapier}}: найбільший кубик шкоди для зброї зі Спритністю, окрім як узяти доступну лише ельфам "
+                  },
+                  {
+                    "type": "link",
+                    "text": "рису «Клинок ревенанта»",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#doublebladed-scimitar"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-swashbuckler-rogue-armor",
+          "heading": "Обладунки Шибайголови",
+          "sourceAnchor": "swashbuckler-rogue-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-swashbuckler-rogue-armor-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Проклепаний шкіряний обладунок|Studded Leather}}: найкращий варіант поза мультикласуванням."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-swashbuckler-rogue-multiclassing",
+          "heading": "Мультикласування Шибайголови",
+          "sourceAnchor": "swashbuckler-rogue-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-swashbuckler-rogue-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також зверніться до "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-swashbuckler-rogue-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Чорнокнижник Відьмацького клинка|Hexblade Warlock}}: оскільки ми отримуємо чудові переваги від Харизми, використання її й для атак теж корисне. Це також спосіб отримати «Гримучий Клинок [Booming Blade]» і «Клинок Зеленого Полумʼя [Green-Flame Blade]»."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-swashbuckler-rogue-build-thundering-thrillseeker",
+          "heading": "Приклад збірки Шибайголови — Громовий шукач гострих відчуттів",
+          "sourceAnchor": "example-swashbuckler-rogue-build-thundering-thrillseeker",
+          "blocks": [
+            {
+              "blockId": "block-section-example-swashbuckler-rogue-build-thundering-thrillseeker-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Кожен гравець знає"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Що секрет виживання"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Це знати, що викинути"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "І знати, що залишити"
+                },
+                {
+                  "type": "text",
+                  "text": " Кенні Роджерс – "
+                },
+                {
+                  "type": "link",
+                  "text": "The Gambler",
+                  "href": "https://www.youtube.com/watch?v=7hx4gdlfamo"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-swashbuckler-rogue-build-thundering-thrillseeker-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Шибайголова — чудовий підклас, яким можна грати без мультикласування 20 рівнів без значних проблем, і це мета цієї збірки. З такими уміннями, як «Витончена робота ніг», ми шмигатимемо в бійку й з неї, щоб уникнути побиття. Це робота для інших, менш вишуканих негідників. Ми — той тип негідника, який радше закінчив би бій одним добре влаштованим ударом у серце."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-swashbuckler-rogue-build-thundering-thrillseeker",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми використаємо Напіввисокого ельфа, щоб отримати +2/+1/+1 до наших характеристик. Ми налаштуємо своє походження, щоб +2 було в Спритності замість Харизми. Використовуючи купівлю характеристик, ми ставимо 15 у Спритність, Статуру й Харизму та розміщуємо +2, +1, +1 у цих трьох характеристиках відповідно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень 20"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-swashbuckler-rogue-build-thundering-thrillseeker",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми беремо Напівельфа{{Half-Elf}} заради поєднання розподілу характеристик і доступу до риси «Спадок високого ельфа»{{High-Elf Descent}}, що дозволяє вибрати замовляння Чарівника. Ми обираємо «Гримучий Клинок». Оскільки Пройдисвіти не мають «Додаткової атаки»{{Extra Attack}}, це чудовий спосіб збільшити нашу шкоду, коли інші класи отримали б це уміння."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "parentSectionId": "section-example-swashbuckler-rogue-build-thundering-thrillseeker",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спочатку ми планували збірку з певним мультикласуванням у цьому гайді, але між двома збірками надто багато відмінностей, щоб простого абзацу вистачило для пояснення версії без мультикласування. Ми вирішили, що було б марнотратством просто викинути все це, тож для цього ми відділили мультикласову збірку в окрему статтю, "
+                },
+                {
+                  "type": "link",
+                  "text": "Хлопчик, що не хотів рости",
+                  "href": "https://rpgbot.net/dnd5/characters/hexbuckler/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Так, це Пітер Пен."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-swashbuckler-rogue-build-thundering-thrillseeker",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щодо передісторії, Азартний гравець{{Gambler}} чудовий і для особистості, і для навичок, які ми отримуємо: Обман і Аналіз Поведінки. Володіння ігровим набором на ваш вибір — чудове доповнення; вони взаємозамінні загалом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-swashbuckler-rogue-build-thundering-thrillseeker",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Пройдисвіта ми обираємо Акробатику, Залякування, Переконання й Непомітність. Ми також отримуємо інструменти злодія. Від Азартного гравця ми отримуємо Обман і Аналіз Поведінки, а також ігровий набір. Пізніше ми беремо «Експерта у навичках»{{Skill Expert}} і отримуємо навичку Уважність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для «Експертизи» на 1-му рівні ми беремо Акробатику й Обман."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від «Експерта у навичках» на 4-му рівні ми беремо Аналіз Поведінки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для «Експертизи» знову на 6-му рівні ми беремо Залякування й Переконання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Разом ці «Експертизи» роблять нас неперевершеним «обличчям», а також взірцем акробатичних трюків."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-swashbuckler-rogue-build-thundering-thrillseeker",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На четвертому рівні ми беремо «Експерта у навичках» заради +1 до Спритності, володіння Уважністю й «Експертизи» в Аналізі Поведінки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На восьмому рівні ми беремо Покращення Характеристик на +2 до Спритності. (18=>20)"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На десятому рівні ми беремо рису «Надихаючий лідер»{{Inspiring Leader}}. На цьому рівні це 13 тимчасових ХП за короткий відпочинок для всієї групи, і воно зростатиме на одиницю кожного рівня. Це небагато на людину за раз, але це все одно від 52 до 78 шкоди на 4–6 людей, яку потім не доведеться зціляти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На дванадцятому рівні ми беремо рису «Здоровань»{{Tough}}. Це одразу додасть 24 хіти, більше, ніж додавання +2 до Статури."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інший варіант, що дає менше ХП загалом, але покращує наші ряткидки й можливості підтримки, — взяти «Стійкого»{{Resilient}} (Статура) зараз, на 12-му, і «Кухаря»{{Chef}} на 19-му, що дасть ту саму загальну Статуру з вищим ряткидком і додатковим зціленням для групи під час коротких відпочинків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На шістнадцятому рівні ми беремо Покращення Характеристик на +2 до Харизми. (16=>18)"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "А на девʼятнадцятому рівні ми беремо Покращення Характеристик на +2 до Статури. (16=>18)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-swashbuckler-rogue-build-thundering-thrillseeker",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підступна атака"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підступна атака\nНавички:\n– Акробатика\n– Обман\n– Аналіз Поведінки\n– Залякування\n– Переконання\n– Непомітність\nЕкспертиза:\n– Акробатика\n– Обман\nЗлодійська мова\nЕльфійське замовляння:\n-Гримучий Клинок"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Візьміть рапіру, трохи шкіряного обладунку й ваше стартове спорядження. Як і будь-який інший Пройдисвіт, ми починаємо з наших навичок, «Підступної атаки» й не багато чим іншим. Проте ми маємо замовляння «Гримучий Клинок», що добре працює з «Підступною атакою». Це не зовсім гіш, але воно таки дає нам натяк на колорит гіша. Працюйте зі своєю командою, щоб переконатися, що ви можете завдавати «Підступні атаки», і намагайтеся не померти по дорозі до 2-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хитра дія{{Cunning Action}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "З «Хитрою дією» ми можемо робити Ривок, Відступ чи перевірку Непомітності, щоб сховатися бонусною дією. Зручно в усіляких ситуаціях, це виведе нас із багатьох халеп. Ми можемо негайно вдавати з себе шибайголову, увійшовши в ближній бій, використавши «Гримучий Клинок», а потім використавши «Хитру дію», щоб відійти без провокації Принагідної атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шибайголова\n-Витончена робота ніг\n-Зухвала відвага"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шибайголова приходить із багатьма речами відразу, щойно його здобуто. «Витончена робота ніг» — як безкоштовний Відступ проти будь-якої цілі, по якій ми робимо атаку ближнього бою, влучили чи промахнулися. Використовуйте «Гримучий Клинок» для тактики «вдарив і втік». «Зухвала відвага» робить дві речі. По-перше, додає наш модифікатор Харизми до наших перевірок Ініціативи. По-друге, вона також застосовує шкоду нашої «Підступної атаки» до цілей, доки ціль є єдиною істотою в межах 5 футів від нас. Переконайтеся, що нікого (зокрема й ваших союзників) немає надто близько."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках\n– Навичка: Уважність\n– Експертиза: Аналіз Поведінки\nСпритність 17 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми беремо «Експерта у навичках», щоб отримати додаткову навичку, Уважність, і здобути «Експертизу» в Аналізі Поведінки. Наша нижча Мудрість — проблема при читанні людей, тож це компенсує."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надприродне ухилення{{Uncanny Dodge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Витрачайте реакцію, коли в нас влучають, щоб отримати половину шкоди від атаки. Приємно зауважити, що це не опір атаці, тож воно накопичується з опором."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза{{Expertise}}:\n– Залякування\n– Переконання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ставайте ще кращими з рештою навичок «обличчя». Тепер ми, по суті, найкращий перемовник."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухилення{{Evasion}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це потужне уміння: жодної шкоди при успішних ряткидках Спритності й половина шкоди при провалених."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "І тут ми досягаємо максимуму Спритності. Тепер у нас найкращі атаки й КБ, які ми можемо мати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "У бою це цікава механіка провокації, корисна, щоб змусити ціль зосередитися на нас, а не на решті групи. Поза боєм це просто робить переговори й інші заняття «обличчя» ще легшими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Надихаючий лідер"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Надихаючий лідер» зрештою стає чималим шматком тимчасових ХП, якщо підсумувати по групі. 13 на людину звучить небагато, але на чотирьох цілей це все одно 52 шкоди, яку не доведеться зціляти потім за короткий чи довгий відпочинок. У середній день із двома короткими відпочинками це 156 ХП. І це лише посилюватиметься з кожним рівнем."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надійний талант{{Reliable Talent}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Надійний талант» сформульований дивно, але я думаю про нього як про Перевагу на кубику, де один із кубиків завжди 10. Це робить його дуже легким для запамʼятовування."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Здоровань"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми могли б підвищити Статуру, але краще взяти «Здорованя» першим, а потім пізніше підвищити Статуру, якщо захочемо ще більше. Оскільки «Шик» заохочує ворогів зосереджуватися на нас, було б розумно мати більше хітів.\n\nЯк варіант, «Стійкий» (Статура) не дав би нам жодних ХП зараз, але підвищив би наш ряткидок на +4 прямо зараз, з ще +1 наступного рівня, коли Бонус Майстерності досягне +5. Якщо йти цим шляхом, то взяття «Кухаря» на 19-му замість Покращення Характеристик Статури заокруглить Статуру й дасть групі додаткові варіанти підтримки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Елегантний маневр{{Elegant Maneuver}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Трохи Переваги на кубику за запитом на Атлетику й Акробатику. Приємно, і ми знайдемо йому застосування, якщо нам треба робити сміливі сальто й таке. Також чудово, щоб вирватися із захоплення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сліповідчуття{{Blindsense}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знаходити приховане — приємно, але дальність досить мала. Непогано; воно не допомагатиме надто часто, якщо наші союзники не люблять покладатися на такі речі, як «Темрява [Darkness]» і «Туманна хмара [Fog Cloud]», але ми будемо раді, коли допоможе."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слизький розум{{Slippery Mind}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння ряткидками Мудрості. Нічого вигадливого, просто справді приємна річ."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Харизма 16 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще Харизми. Добре для перевірок ініціативи й навичок «обличчя», хоч ми й так маємо вигравати їх весь час завдяки нашій «Експертизі» й «Надійному таланту». А з цим підвищенням наша риса «Надихаючий лідер» тепер роздає 20 тимчасових ХП на людину за короткий відпочинок, що на чотирьох людей — 80 тимчасових ХП. За повний день із двома короткими відпочинками це 240 тимчасових ХП, приблизно стільки ж, як додаткове тіло на цьому рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстерний дуелянт{{Master Duelist}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перекидання промахнутої атаки, але з Перевагою на кубику, раз за відпочинок. Непогане уміння. Допомагає закріпити шкоду й убивства."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невловимий{{Elusive}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це чудове маленьке уміння: ніхто не може отримати Перевагу на кубику, атакуючи нас, якщо тільки ми не недієздатні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура 16 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше хітів, менше смертей."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шанс удачі{{Stroke of Luck}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це схоже на уміння, яке ми отримали від Шибайголови на 17-му, але замість перекидання ця просто змушує атаку влучити. На відміну від «Майстерного дуелянта», це уміння також працює на провалених перевірках характеристик, вважаючи їх за 20."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-001",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Витончена робота ніг",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-002",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Зухвала відвага",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-003",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Шик",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-004",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Елегантний маневр",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-005",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Майстерний дуелянт",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-006",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-ability-scores",
+      "targetBlockId": "block-section-swashbuckler-rogue-ability-scores-2",
+      "optionId": "section-swashbuckler-rogue-ability-scores-block-section-swashbuckler-rogue-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-swashbuckler-rogue-ability-scores-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-007",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-ability-scores",
+      "targetBlockId": "block-section-swashbuckler-rogue-ability-scores-3",
+      "optionId": "section-swashbuckler-rogue-ability-scores-block-section-swashbuckler-rogue-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-swashbuckler-rogue-ability-scores-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-008",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-ability-scores",
+      "targetBlockId": "block-section-swashbuckler-rogue-ability-scores-4",
+      "optionId": "section-swashbuckler-rogue-ability-scores-block-section-swashbuckler-rogue-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-swashbuckler-rogue-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-009",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-ability-scores",
+      "targetBlockId": "block-section-swashbuckler-rogue-ability-scores-5",
+      "optionId": "section-swashbuckler-rogue-ability-scores-block-section-swashbuckler-rogue-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-swashbuckler-rogue-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-010",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-ability-scores",
+      "targetBlockId": "block-section-swashbuckler-rogue-ability-scores-6",
+      "optionId": "section-swashbuckler-rogue-ability-scores-block-section-swashbuckler-rogue-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-swashbuckler-rogue-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-011",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-ability-scores",
+      "targetBlockId": "block-section-swashbuckler-rogue-ability-scores-7",
+      "optionId": "section-swashbuckler-rogue-ability-scores-block-section-swashbuckler-rogue-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-swashbuckler-rogue-ability-scores-7",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-012",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-races",
+      "targetBlockId": "block-section-swashbuckler-rogue-races-2",
+      "optionId": "section-swashbuckler-rogue-races-block-section-swashbuckler-rogue-races-2-item-0",
+      "context": "Ведмебай",
+      "explanationBlockId": "block-section-swashbuckler-rogue-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-013",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-races",
+      "targetBlockId": "block-section-swashbuckler-rogue-races-2",
+      "optionId": "section-swashbuckler-rogue-races-block-section-swashbuckler-rogue-races-2-item-1",
+      "context": "Своя раса",
+      "explanationBlockId": "block-section-swashbuckler-rogue-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-014",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-races",
+      "targetBlockId": "block-section-swashbuckler-rogue-races-2",
+      "optionId": "section-swashbuckler-rogue-races-block-section-swashbuckler-rogue-races-2-item-2",
+      "context": "Фея",
+      "explanationBlockId": "block-section-swashbuckler-rogue-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-015",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-races",
+      "targetBlockId": "block-section-swashbuckler-rogue-races-2",
+      "optionId": "section-swashbuckler-rogue-races-block-section-swashbuckler-rogue-races-2-item-3",
+      "context": "Гаренгон",
+      "explanationBlockId": "block-section-swashbuckler-rogue-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-016",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-races",
+      "targetBlockId": "block-section-swashbuckler-rogue-races-2",
+      "optionId": "section-swashbuckler-rogue-races-block-section-swashbuckler-rogue-races-2-item-4",
+      "context": "(Напів)високий ельф PHB",
+      "explanationBlockId": "block-section-swashbuckler-rogue-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-017",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-races",
+      "targetBlockId": "block-section-swashbuckler-rogue-races-2",
+      "optionId": "section-swashbuckler-rogue-races-block-section-swashbuckler-rogue-races-2-item-5",
+      "context": "Варіант людини",
+      "explanationBlockId": "block-section-swashbuckler-rogue-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-018",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-feats",
+      "targetBlockId": "block-section-swashbuckler-rogue-feats-2",
+      "optionId": "section-swashbuckler-rogue-feats-block-section-swashbuckler-rogue-feats-2-item-0",
+      "context": "Надихаючий лідер",
+      "explanationBlockId": "block-section-swashbuckler-rogue-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-019",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-weapons",
+      "targetBlockId": "block-section-swashbuckler-rogue-weapons-2",
+      "optionId": "section-swashbuckler-rogue-weapons-block-section-swashbuckler-rogue-weapons-2-item-0",
+      "context": "Рапіра",
+      "explanationBlockId": "block-section-swashbuckler-rogue-weapons-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-020",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-armor",
+      "targetBlockId": "block-section-swashbuckler-rogue-armor-1",
+      "optionId": "section-swashbuckler-rogue-armor-block-section-swashbuckler-rogue-armor-1-item-0",
+      "context": "Проклепаний шкіряний обладунок",
+      "explanationBlockId": "block-section-swashbuckler-rogue-armor-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-swashbuckler-2014-021",
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sectionId": "section-swashbuckler-rogue-multiclassing",
+      "targetBlockId": "block-section-swashbuckler-rogue-multiclassing-2",
+      "optionId": "section-swashbuckler-rogue-multiclassing-block-section-swashbuckler-rogue-multiclassing-2-item-0",
+      "context": "Чорнокнижник Відьмацького клинка",
+      "explanationBlockId": "block-section-swashbuckler-rogue-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

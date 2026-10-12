@@ -1,0 +1,3424 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/fighting-styles/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "f8236332d42f404a8a2da6adf101ae2ba1dae3787c944cb6ecf8cd37bec5b7cc",
+  "sourceRevision": {
+    "revisionId": "rpgbot-7c86beb8506cec30-f8236332d42f404a",
+    "sourceId": "rpgbot-7c86beb8506cec30",
+    "fetchedAt": "2026-09-29T19:15:59.061146+00:00",
+    "sourceUpdatedAt": "2026-07-09T10:35:56-04:00",
+    "contentHash": "ea3c87b6f8e490e62e640fefd7e2c9bd02c580a64d73646d1bbc6ccec4964655",
+    "title": "DnD 5e Fighting Styles Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-7c86beb8506cec30-f8236332d42f404a.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fighting Style is an important feature for some martial classes, offering a meaningful boost which supports your preferred weaponry. While these benefits are often simple, there is a lot of interesting mathematical nuance when comparing Fighting Styles, and understanding that nuance can help you get the most out of your character."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Several new Fighting Styles were introduced in Tasha’s Cauldron of Everything as Optional Class Features. For help deciding if you want to include these options in your game, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Optional Class Features",
+              "href": "https://rpgbot.net/dnd5/dungeonmasters/optional-class-features/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you enjoyed this article, or if you’re terrified by a wall of text, you’ll also enjoy our podcast episode discussing "
+            },
+            {
+              "type": "link",
+              "text": "Fighting Styles",
+              "href": "https://rpgbot.net/unlock-your-characters-martial-potential-fighting-styles-rpgbot-podcast-s3e102/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Getting a Fighting Style in DnD 5e",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#getting-a-fighting-style-in-dnd-5e"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Fighting Initiate",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#fighting-initiate"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "DnD 5e Fighting Styles",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#dnd-5e-fighting-styles"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Archery",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#archery"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Blessed Warrior",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#blessed-warrior"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Blind Fighting",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#blind-fighting"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Defense",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#defense"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Druidic Warrior",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#druidic-warrior"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Dueling",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#dueling"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Great Weapon Fighting",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#great-weapon-fighting"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Interception",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#interception"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Protection",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#protection"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Superior Technique",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#superior-technique"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Thrown Weapon Fighting",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#thrown-weapon-fighting"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Two-Weapon Fighting",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#twoweapon-fighting"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Unarmed Fighting",
+                "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#unarmed-fighting"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-getting-a-fighting-style-in-dnd-5e",
+      "heading": "Getting a Fighting Style in DnD 5e",
+      "sourceAnchor": "getting-a-fighting-style-in-dnd-5e",
+      "blocks": [
+        {
+          "blockId": "block-section-getting-a-fighting-style-in-dnd-5e-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Fighting Style feature is available to various classes and subclasses,\n\tbut the availability of specific Fighting Style options varies between\n\tclasses."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-getting-a-fighting-style-in-dnd-5e-2",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Fighting Style"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bard"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "(College of Swords)"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fighter"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Paladin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ranger"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Archery"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Blessed Warrior"
+                }
+              ],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Blind Fighting"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Defense"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Druidic Warrior"
+                }
+              ],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dueling"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Great Weapon Fighting"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Interception"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Protection"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Superior Technique"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Thrown Weapon Fighting"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Two-Weapon Fighting"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmed Fighting"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              []
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-getting-a-fighting-style-in-dnd-5e-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Champion Fighters gain a second Fighting Style at level 10, making them the only class or subclass that gets a second Fighting Style without multiclassing or feats."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fighting-initiate",
+      "parentSectionId": "section-getting-a-fighting-style-in-dnd-5e",
+      "heading": "Fighting Initiate",
+      "sourceAnchor": "fighting-initiate",
+      "blocks": [
+        {
+          "blockId": "block-section-fighting-initiate-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Fighting Initiate",
+              "href": "https://www.dndbeyond.com/feats/fighting-initiate"
+            },
+            {
+              "type": "text",
+              "text": " makes fighting styles available to any character, but it is limited to options available to the Fighter. This means that Blessed Warrior and Druidic Warrior are not available outside of the Paladin and Ranger classes, respectively."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-dnd-5e-fighting-styles",
+      "heading": "DnD 5e Fighting Styles",
+      "sourceAnchor": "dnd-5e-fighting-styles",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-archery",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Archery",
+      "sourceAnchor": "archery",
+      "blocks": [
+        {
+          "blockId": "block-section-archery-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The obvious choice for ranged builds. +2 to hit is a big deal in a game where a 20th-level character can expect a maximum of +11 to hit. The math of the game gives you a roughly 65% chance to hit when attacking a CR-appropriate creature with average AC, and raising that to 75% feels very satisfying. If you want to take the Sharpshooter feat, this is an absolute must."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-archery-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re considering a thrown weapon build, see Thrown Weapon Fighting, below, for a discussion on which fighting styles make sense for thrown weapons. Note that Archery applies to “attacks with ranged weapons,” not “ranged weapon attacks,” so there’s some frustrating nuance there."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-archery-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Feats: "
+            },
+            {
+              "type": "link",
+              "text": "Crossbow Expert",
+              "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+            },
+            {
+              "type": "text",
+              "text": ", "
+            },
+            {
+              "type": "link",
+              "text": "Gunner",
+              "href": "https://rpgbot.net/dnd5/characters/feats/gunner/"
+            },
+            {
+              "type": "text",
+              "text": ", "
+            },
+            {
+              "type": "link",
+              "text": "Sharpshooter",
+              "href": "https://rpgbot.net/dnd5/characters/feats/great-weapon-master-sharpshooter/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-archery-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Weapons: Bows, Crowssbows, Darts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-blessed-warrior",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Blessed Warrior",
+      "sourceAnchor": "blessed-warrior",
+      "blocks": [
+        {
+          "blockId": "block-section-blessed-warrior-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Access to cantrips allows the Paladin to build around spellcasting as their primary combat option. Unlike the Ranger with Druidic Warrior and Shillelagh, this doesn’t mean using a magically-enhanced weapon. Instead, it means switching to offensive cantrips. I recommend Word of Radiance so that you can handle crowds plus one offensive option with longer range and ideally a damage type other than radiant (though Sacred Flame is a perfectly fine choice)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-blessed-warrior-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unlike the Ranger’s Druidic Warrior, Blessed Warrior doesn’t have any effect on the Paladin’s armor choices. You’ll do just fine marching around in heavy armor, though you may want 15 Strength to avoid the 10 ft. speed penalty. It’s hard to run into melee to use Word of Radiance when you’re stuck at 20 ft. speed, though access to Find Steed (and it’s greater version) can significantly mitigate speed issues if you don’t spend a lot of time in cramped spaces."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-blessed-warrior-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want to use Blessed Warrior, you’re either building a paladin or taking a class dip. For paladins, it’s "
+            },
+            {
+              "type": "link",
+              "text": "technically possible",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#example"
+            },
+            {
+              "type": "text",
+              "text": " but sometimes difficult to build around Blessed Warrior. For other characters, if you’re dipping into paladin solely for Blessed Warrior, you should instead dip into cleric or divine soul sorcerer unless there are other paladin things that you want."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-blessed-warrior-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Feats: Magic Initiate (Sorcerer or Warlock) for additional Charisma-based spellcasting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-blessed-warrior-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Weapons: None."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-blind-fighting",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Blind Fighting",
+      "sourceAnchor": "blind-fighting",
+      "blocks": [
+        {
+          "blockId": "block-section-blind-fighting-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This one is hard. Blindsight, even at just 10-foot range, is extremely useful. It solves issues of invisible enemies, it helps make up for lack of magical options for Darkvision, and it addresses effects which block line of sight like fog, magical darkness, or other stuff. But those effects don’t appear in most encounters, so this is only situationally useful. When it works it’s great, but the rest of the time it’s useless. Unless you have allies in the party who plan to frequently use magical darkness or other options to obscure vision, I would skip this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-blind-fighting-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Races which suffer from Sunlight Sensitivity might consider this as a solution to their sunlight issues. If you don a blindfold (or close your eyes), your DM may allow you to overcome the effects of Sunlight Sensitivity by willingly blinding yourself. The text of Sunlight Sensitivity isn’t perfectly clear if it only applies to attacks which rely on sight, so this may not work RAW, but the idea makes sense."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-blind-fighting-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Feats: None."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-blind-fighting-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Weapons: Anything with reach."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-defense",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Defense",
+      "sourceAnchor": "defense",
+      "blocks": [
+        {
+          "blockId": "block-section-defense-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not very exciting, but since AC scales so little in 5e, a +1 can be a big difference. Defense also doesn’t lock you into using one type of weapon, so if you like to change weapons to suit the situation, Defense can be a great choice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-druidic-warrior",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Druidic Warrior",
+      "sourceAnchor": "druidic-warrior",
+      "blocks": [
+        {
+          "blockId": "block-section-druidic-warrior-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Access to cantrips allows the Ranger to build around spellcasting as their primary combat option. Shillelagh is your go-to choice for melee combat, and Produce Flame is your go-to ranged option, though I’m personally partial to Thorn Whip. Guidance is a great utility and Thunderclap can help handle crowds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-druidic-warrior-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While Druidic Warrior allows the Ranger to be built around Wisdom instead of Strength or Dexterity, it comes with its own complications. Wisdom-based builds will need medium armor, which means that you need 14 Dexterity and you’ll suffer Disadvantage on Dexterity (Stealth) checks just like Strength-based builds. Rangers also have very little spellcasting and few directly offensive spells, so your Wisdom score doesn’t do as much for the Ranger as it does for the Druid."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-druidic-warrior-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you look at the pros and cons of Druidic Warrior and you still want to use it on a ranger, the last question you need to ask yourself is “what will this character do that a druid couldn’t do better?” If you have an answer to that question which satisfies you (and there are some good answers), Druidic Warrior will work fine. Beast Master is a great go-to example; since you can rely on your beast in combat, focusing on Wisdom and spellcasting is often much easier. But for many other subclasses, sticking to weapons is often a better choice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-druidic-warrior-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Non-rangers considering Druidic Warrior should instead take a class dip in druid or in nature cleric."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-druidic-warrior-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Feats: Magic Initiate (Cleric or Druid) for additional Wisdom-based spellcasting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-druidic-warrior-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Weapons: None."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-dueling",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Dueling",
+      "sourceAnchor": "dueling",
+      "blocks": [
+        {
+          "blockId": "block-section-dueling-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "2 damage closes the damage gap between a longsword and a two-handed weapon like a greataxe or greatsword (4.5->6.5 vs. 6.5/7), so you can have the damage of a two-handed weapon with the AC of sword-and-board. It’s not fancy and it doesn’t change your tactics, but it always works and the damage bonus is reliable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-dueling-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Note that this works while using a shield."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-dueling-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Feats: Defensive Duelist, Shield Master."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-dueling-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Weapons: Longsword, Rapier, similar one-handed weapons."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-great-weapon-fighting",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Great Weapon Fighting",
+      "sourceAnchor": "great-weapon-fighting",
+      "blocks": [
+        {
+          "blockId": "block-section-great-weapon-fighting-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This adds an average of just over 1 damage per attack on average with a greatsword, and even less for other weapons. If you plan to use two-handed weapons, I generally recommend that you pick up Defense instead to compensate for lack of a shield."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-great-weapon-fighting-2",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Die"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Average"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Average With GWF"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improvement"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "d4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2.5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.5"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3.5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4.17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.67"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "d8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4.5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5.25"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.75"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5.5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.30"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "d12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.33"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.83"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-great-weapon-fighting-3",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Weapon"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Damage"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Average Damage"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Average with GWF"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improvement"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Longsword (two-handed)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5.5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Greataxe"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.33"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.83"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Greatsword"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.33"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1.33"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Double-Bladed Scimitar"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-what-can-i-reroll",
+      "parentSectionId": "section-great-weapon-fighting",
+      "heading": "What Can I Reroll?",
+      "sourceAnchor": "what-can-i-reroll",
+      "blocks": [
+        {
+          "blockId": "block-section-what-can-i-reroll-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Paladins and other characters with damage boosts that additional damage dice (Hex, Hunter’s Mark, a Flametongue sword, Brutal Critical, etc.) may find more value because rerolling the additional dice from Divine Smite will stretch the benefits of Great Weapon Fighting. However, that’s apparently not what the designers intended to happen."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-what-can-i-reroll-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I’m usually inclined to play the rules as intended or strictly as-written when the intent is unclear. In this case, the intent differents from RAW, and the result is that Great Weapon Fighting is mathemetically unappealing. The text says “When you roll a 1 or 2 on a damage die for an attack” and notably doesn’t specify “weapon damage dice”. This "
+            },
+            {
+              "type": "emphasis",
+              "text": "should"
+            },
+            {
+              "type": "text",
+              "text": " mean that you can reroll any damage dice from the attack, including things like Divine Smite, Hunter’s Mark, Elemental Weapon, and any other damage boosts. Discuss it with your DM and maybe they’ll be open-minded."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-what-can-i-reroll-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Feats: "
+            },
+            {
+              "type": "link",
+              "text": "Great Weapon Master",
+              "href": "https://rpgbot.net/dnd5/characters/feats/great-weapon-master-sharpshooter/"
+            },
+            {
+              "type": "text",
+              "text": ", "
+            },
+            {
+              "type": "link",
+              "text": "Polearm Master",
+              "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-what-can-i-reroll-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Weapons: Greatsword, Maul, Double-Bladed Scimitar."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-interception",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Interception",
+      "sourceAnchor": "interception",
+      "blocks": [
+        {
+          "blockId": "block-section-interception-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Conceptually similar to Protection, but there’s some nuance in how the two styles protect your target. Protection imposes Disadvantage, so if there’s a good chance that the attack would miss, it’s the better choice. Interception reduces the damage and always works, but for big attacks it won’t negate the whole attack."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-interception-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The decision between the two comes down to who you’re going to be protecting. If you’re protecting other allies with decent AC (a melee cleric or rogue, for example), go for Protection. If you’re protecting allies with awful AC (most wizards), Disadvantage won’t help much, so go for Interception."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-interception-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Feats: None."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-interception-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Weapons: Anything with reach or range."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-protection",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Protection",
+      "sourceAnchor": "protection",
+      "blocks": [
+        {
+          "blockId": "block-section-protection-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tempting for Defender builds, but allies need to remain adjacent to you for this to work. Being adjacent to the front line tank is generally a bad place to be unless you can do so safely without someone defending you. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-protection-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This also appeals to mounted combat builds because you can use it to compensate for your mount’s relative fragility, but if you’re going that route you really need the Mounted Combatant feat which lets you retarget attacks at yourself instead."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-protection-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Feats: Shield Master."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-protection-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Weapons: Whip (for reach while using a shield)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-superior-technique",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Superior Technique",
+      "sourceAnchor": "superior-technique",
+      "blocks": [
+        {
+          "blockId": "block-section-superior-technique-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re going for Battle Master Fighter and just can’t wait for level 3, this is really tempting, but numerically this isn’t a great choice. You’ll get much more mileage out of a style which adds to all of your attacks like Dueling, and if you’re desperate for Superiority Dice you can go for Custom Lineage or Variant Human and take the Martial Adept feat to get two maneuvers and one die at first level."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-superior-technique-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re high level and happy with your ability scores, you can take both Martial Adept and Fighting Initiate (Superior Technique) to get a total of three maneuvers known and two dice on top of the normal Battle Master progression."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-superior-technique-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Feats: Martial Adept."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-superior-technique-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Weapons: Any."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-thrown-weapon-fighting",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Thrown Weapon Fighting",
+      "sourceAnchor": "thrown-weapon-fighting",
+      "blocks": [
+        {
+          "blockId": "block-section-thrown-weapon-fighting-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is the most complex Fighting Style because you need to combine it with other options (feats and/or another Fighting Style) to make it truly effective, but those complex interactions also allow some really fun combinations, though none of them are optimized compared to typical archery or crossbow expert builds. I don’t recommend this for new players, but an experienced player could build an interesting character around this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unlike a bow or crossbow, you can use thrown weapons one-handed and some even work effectively with two-weapon fighting since thrown weapons are usually melee weapons with the Thrown property. If you’re using magic weapons, you may have some trouble since you’re repeatedly throwing your weapons away, but you’ll be able to recover them after combat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are a few ways to get magically returning weapons:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "The Artificer’s Returning Weapon Infusion"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Boomerang",
+                "href": "https://www.dndbeyond.com/equipment/boomerang"
+              },
+              {
+                "type": "text",
+                "text": " (Mundane, but "
+              },
+              {
+                "type": "link",
+                "text": "also comes in +X",
+                "href": "https://www.dndbeyond.com/magic-items/535335-boomerang-1"
+              },
+              {
+                "type": "text",
+                "text": ". Only returns if you miss)"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Boomerang Shield",
+                "href": "https://www.dndbeyond.com/magic-items/7526627-boomerang-shield"
+              },
+              {
+                "type": "text",
+                "text": " (Uncommon)"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Dwarven Thrower",
+                "href": "https://www.dndbeyond.com/magic-items/4627-dwarven-thrower"
+              },
+              {
+                "type": "text",
+                "text": " (Very Rare)"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Thrown Weapon Fighting has some unique interactions with other fighting styles. If you use a melee weapon with the light and thrown property like handaxes, you can benefit from the Two-Weapon Fighting style. If you take the Dual Wielder feat, you can upgrade to Javelins for extra range and it also allows you to draw enough weapons to perform two-weapon fighting every turn. But then we’re talking two fighting styles and a feat plus whatever ASIs you need to get to 20 Strength or 20 Dexterity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you instead use ranged weapons with the Thrown property like darts, you can benefit from the Archery style, adding +2 to attacks, but you won’t be able to use two-weapon fighting because it only works with melee weapons. Still, this allows you to match the average damage of a longbow while still holding a shield and fighting at range, so it makes sense to think of the Fighting Style as a +2 AC bonus and comparing that to the +2 attack bonus from Archery. If you can spare the cost, you can also add Archery, putting you ahead of what an archer can do at the expense of an admittedly expensive second Fighting Style and the complexity of figuring out how to reload fast enough with only one free item interaction per turn."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Speaking of second Fighting Styles, it might be tempting to take a class dip or a feat to add the Dueling fighting Style and think “If I’m using a melee thrown weapon and a shield, I should get the damage bonus.” The wording on Dueling, while pedantic, actually prevents this damage from applying to thrown weapons as it specifies that you must be wielding the weapon in one hand to get the +2 damage and, by definition, it is not in your hand when the thrown weapon deals damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can also use the Sharpshooter feat while throwing ranged weapons (darts). It notably doesn’t function when throwing melee weapons like daggers or javelins."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All of that is very complicated and mathy, so let’s look at four variant human champion fighter builds side-by-side and compare the DPR progression."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-10",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Longbow: Fighting Style (Archery), Sharpshooter at level 1, +2 Dex at 4 and 6. This leaves empty feats at 8 and 10."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crossbow Master with a Hand Crossbow: Fighting Style (Archery), Crossbow Master, Sharpshooter at 4, +2 Dex at 6 and 8. This leaves an empty feat at 10."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hand Axes / Javelins: Fighting Style (Thrown Weapon Fighting), Dual Wielder at level 1, Fighting Initiate (Two-Weapon Fighting) at 4, +2 Str at 6 and 8, . This leaves an empty feat at 10."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Darts and Shield A: Fighting Style (Thrown Weapon Fighting), Fighting Initiate (Archery) at level 1, Sharpshooter at 4, +2 Dex at 6 and 8 This leaves an empty feat at 10."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Darts and Shield B: Fighting Style (Thrown Weapon Fighting), Sharpshooter at 1, Fighting Initiate (Archery) at 4, +2 Dex at 6 and 8. This leaves an empty feat at 10."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-11",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Longbow"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crossbow Master"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hand Axes / Javelins"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Darts A"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Darts B"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.97"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9.45"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5.75"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.97"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9.45"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5.75"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9.20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.45"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9.80"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5.75"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.25"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9.70"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15.55"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.90"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "19.40"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "23.32"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16.35"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16.25"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16.25"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "22.35"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "27.30"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "19.58"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "19.00"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "19.00"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "22.35"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "27.30"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "19.58"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "19.00"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "19.00"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.40"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "28.80"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "21.53"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.00"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.00"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.40"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "28.80"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "21.53"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.00"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.00"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.40"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "28.80"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "21.53"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.00"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.00"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "30.60"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(31.95 w/ piercer)*"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "38.40"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(39.80 w/ Piercer)*"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "28.70"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(31.5 w/ Piercer)*"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "30.00"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(30.75 w/ Piercer)*"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "30.00"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(30.75 w/ Piercer)*"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "* – Not accounting for damage die reroll once per turn"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-13",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are several interesting things to take away from this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Longbow build is a sort of baseline. It’s very simple, doesn’t need complicated tactics or mechanics, and you can hand it to a new player and they can make it work. Despite that simplicity, it stays ahead of both Darts builds for the entire level range and leaves you with one more free feat than any of the other builds. As explained above, the Darts option trades the Longbow’s range and that additional feat for a +2 AC bonus, and the DPR gap is negligible by level 8. You could reasonably start with the Longbow build, then take Fighting Initiate (Thrown Weapon Fighting) at level 8 to pivot to throwing darts."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Every one of the builds above has a spare feat at 10, and the Longbow build has a spare at 8. I wanted to bring the table to level 11 to show the effect of Extra Attack (2). Piercer would be a natural fit in these builds because they all deal piercing damage, and all of them benefit from the +1 ability score increase. Slotting Piercer into the first ability score increase would objectively improve these builds. Oddly, the biggest beneficiary is the Hand Axes / Javelins build, going from the worst build at 11 to slightly ahead of the Darts builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The difference in DPR also highlights the difficulty of Two-Weapon Fighting in 5e. If your Bonus Action is available, especially before Extra Attack, TWF can easily do more damage than most single weapon builds. But once TWF comes online, the damage gap shrinks considerably and reverses once Extra Attack (2) comes online."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "And, of course, Crossbow Expert is the big winner here. TWF action economy with fewer headaches than Two-Weapon Fighting or Thrown Weapon Fighting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Of course, there are complicating factors. Not every martial class gets more than two attacks from Extra Attack, and other damage boosts further complicate things. Favored Foe works very well for two-weapon fighting builds, but since Crossbow Expert has the same action economy, Crossbow Expert remains the superior option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Magic weapons can also change the math here. A Boomerang Shield boosts the Darts build’s damage output simply by upgrading the damage die from d4 to d6, but the Longbow and Crossbow Expert builds would get a +1 weapon, not only maintaining their lead but stretching it. The Hand Axes / Javelins build is basically out of luck and the mere existence of magic items makes it obviously worse than the other options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-20",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Artificer Infusions can help here. The Returning Weapon infusion solves both drawing weapons and damage resistances, but only for one weapon (sorry, hand axes enthusiast) and grants a +1 to attack and damage, easily keeping page with a longbow user with a +1 weapon. But for the same Infusion cost, you can put Repeating Shot on a hand crossbow, giving the Hand Crossbow build the option of a shield while remaining the highest DPS option of the compared builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-21",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To summarize: Crossbow Expert is better if you just want damage output at range. Darts and a shield is comparable to using a Longbow, but you trade some range and some DPR before level 8 for a +2 AC bonus. Adding magic items to the mix makes thrown weapon builds very difficult to justify compared to other options, and adding Artificer Infusions makes them outright unviable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-22",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Feats: Dual Wielding, "
+            },
+            {
+              "type": "link",
+              "text": "Sharpshooter",
+              "href": "https://rpgbot.net/dnd5/characters/feats/great-weapon-master-sharpshooter/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thrown-weapon-fighting-23",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Weapons: Daggers, Darts, Hand Axes, Light Hammers, Javelins."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-twoweapon-fighting",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Two-Weapon Fighting",
+      "sourceAnchor": "twoweapon-fighting",
+      "blocks": [
+        {
+          "blockId": "block-section-twoweapon-fighting-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One of the biggest issues with two-weapon fighting is that you don’t get to add your ability modifier to your off-hand attack without this Fighting Style. While this resolves that issue, TWF is still a complicated choice which depends heavily on your build and your action economy."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-twoweapon-fighting-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Let’s look at how this works for each of the classes that can access it without taking a Feat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-twoweapon-fighting-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Feats: Dual Wielding."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-twoweapon-fighting-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Weapons: Anything with the Light property."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-swords-bard",
+      "parentSectionId": "section-twoweapon-fighting",
+      "heading": "College of Swords Bard",
+      "sourceAnchor": "college-of-swords-bard",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-swords-bard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While this presents a considerable boost to your weapon damage output, bards already have several abilities which consume their bonus action, including Bardic Inspiration and some spells, so in many turns you’ll need to give up your additional attack in order to do something more important."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fighter",
+      "parentSectionId": "section-twoweapon-fighting",
+      "heading": "Fighter",
+      "sourceAnchor": "fighter",
+      "blocks": [
+        {
+          "blockId": "block-section-fighter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fighters get more attacks than anyone else in the game and don’t have an on-hit damage boost effect like Hunter’s Mark or a crucial once-per-turn damage boost like Sneak Attack which requires you to attack as many times as possible to guarantee at least one hit."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-fighter-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Consider that one attack with your off-hand will likely deal something like 1d8+5 damage at most (assuming 20 in your attack stat, the Dual Wielding feat, and either longswords or rapiers) compared to 1d6, 2d6, 3d6, or 4d6 additional damage from using a Greatsword on your normal attacks (each d6 representing one additional attack, up to the Fighter’s maximum of 4 with Extra Attack). It’s 9.5 vs. 3.5, 7, 10.5, or 14 damage depending on how many attacks you get."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-fighter-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "By the time you get two attacks it’s close, but by the time you get 3, it’s clear that a two-handed weapon is the better choice. On top of that, two-weapon fighting eats your Bonus Action. Any time you want to use that for anything else (Second Wind, etc.) you lose 20-50% of your damage output for the round. Effects like Haste and Opportunity Attacks widen the gap even further, putting Two-Weapon Fighting further behind other weapon configurations in terms of damage output. Unless you’re going for the Champion archetype to fish for critical hits or you’re multiclassing, two-weapon fighting is a bad fit for the Fighter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ranger",
+      "parentSectionId": "section-twoweapon-fighting",
+      "heading": "Ranger",
+      "sourceAnchor": "ranger",
+      "blocks": [
+        {
+          "blockId": "block-section-ranger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "TWF is a perfectly viable option for many Rangers. Hunter’s Mark and Favored Foe add small but notable on-hit damage boosts which closes the damage gap between greatswords and short swords. If you’re going to lean into two-weapon fighting to capitalize on those boosts, the Fighting Style is a nice improvement, especially at low levels."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ranger-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, two-weapon fighting struggles with the action economy. Hunter’s Mark requires a Bonus Action to cast or re-assign, so in the heat of combat you often need to decide between using Hunter’s Mark or making your additional attack. Many subclasses also have features like Planar Warrior or Slayer’s Prey which also consume your Bonus Action, as do many other ranger spells, so for many subclasses you’ll find that your Bonus Action is in use too often to make use of two-weapon fighting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ranger-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "TWF can still work very well for the Hunter, but many other subclasses should avoid it. Before you commit to this, take a good look at your subclass and see if you’ll need your Bonus Action to activate subclass features."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-everyone-else",
+      "parentSectionId": "section-twoweapon-fighting",
+      "heading": "Everyone Else",
+      "sourceAnchor": "everyone-else",
+      "blocks": [
+        {
+          "blockId": "block-section-everyone-else-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Barbarians typically favor big weapons over two-weapon fighting, but using a second weapon offers another chance to apply your Rage damage bonus. Adding the Fighting Style means another big boost in damage. That said, Great Weapon Master with a two-handed weapon is still mathematically better without eating your Bonus Action."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-everyone-else-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Paladins don’t get the fighting style and typically don’t lean into two-weapon fighting, so it’s not an option most players consider. Even without the fighting style, using two weapons means another opportunity to deliver a smite, allowing you to quickly burst down enemies if you’re willing to burn through resources quickly."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-everyone-else-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rogues fighting in melee get a lot out of Sneak Attack. A second attack per turn can boost your DPR by nearly 50% solely because you get a second chance to deliver Sneak Attack. That said, you don’t need the Fighting Style at all to accomplish this, and spending a feat to get it is likely a huge waste. Consider your two-weapon fighting attack a backup plan if your regular Attack misses, and if you do hit, use your Bonus Action for Cunning Action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-unarmed-fighting",
+      "parentSectionId": "section-dnd-5e-fighting-styles",
+      "heading": "Unarmed Fighting",
+      "sourceAnchor": "unarmed-fighting",
+      "blocks": [
+        {
+          "blockId": "block-section-unarmed-fighting-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unless you’re benefiting from the bonus grapple damage, this is worse than just using a warhammer, so if you take this style, expect to lean heavily into the Athletics skill and the "
+            },
+            {
+              "type": "link",
+              "text": "Grapple+Shove",
+              "href": "https://rpgbot.net/dnd5/characters/grapple/"
+            },
+            {
+              "type": "text",
+              "text": " combo. Get Expertise in Athletics (either from the Skill Expert feat or from a class dip into rogue), build yourself around Strength, and see if there’s a way to get Advantage on Athletics checks, such as from the Enlarge/Reduce spell or from the Rune Knight’s Giant’s Might feature."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-unarmed-fighting-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For feats, consider the Tavern Brawler feat. Allowing you to Grapple as a Bonus Action will improve your action economy, though you may prefer to start with a Shove so that you can attack at Advantage and follow that attack with your Bonus Action Grapple. You still don’t need the Grappler feat, though. It’s awful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-unarmed-fighting-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Feats: "
+            },
+            {
+              "type": "link",
+              "text": "Skill Expert",
+              "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/"
+            },
+            {
+              "type": "text",
+              "text": ", Tavern Brawler."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-unarmed-fighting-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Complementary Weapons: None."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#archery",
+      "detail": "wp-block-heading rating-blue Archery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#blessed-warrior",
+      "detail": "wp-block-heading rating-orange Blessed Warrior"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#blind-fighting",
+      "detail": "wp-block-heading rating-orange Blind Fighting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#defense",
+      "detail": "wp-block-heading rating-green Defense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#druidic-warrior",
+      "detail": "wp-block-heading rating-orange Druidic Warrior"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#dueling",
+      "detail": "wp-block-heading rating-blue Dueling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#great-weapon-fighting",
+      "detail": "wp-block-heading rating-orange Great Weapon Fighting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#interception",
+      "detail": "wp-block-heading rating-orange Interception"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#protection",
+      "detail": "wp-block-heading rating-orange Protection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#superior-technique",
+      "detail": "wp-block-heading rating-orange Superior Technique"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#thrown-weapon-fighting",
+      "detail": "wp-block-heading rating-orange Thrown Weapon Fighting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#twoweapon-fighting",
+      "detail": "wp-block-heading rating-orange Two-Weapon Fighting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#college-of-swords-bard",
+      "detail": "wp-block-heading rating-orange College of Swords Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#fighter",
+      "detail": "wp-block-heading rating-orange Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#ranger",
+      "detail": "wp-block-heading rating-green Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#unarmed-fighting",
+      "detail": "wp-block-heading rating-orange Unarmed Fighting"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-getting-a-fighting-style-in-dnd-5e-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-getting-a-fighting-style-in-dnd-5e-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-getting-a-fighting-style-in-dnd-5e-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-fighting-initiate-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-archery-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-archery-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-archery-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-archery-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-blessed-warrior-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-blessed-warrior-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-blessed-warrior-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-blessed-warrior-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-blessed-warrior-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-blind-fighting-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-blind-fighting-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-blind-fighting-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-blind-fighting-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-defense-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-druidic-warrior-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-druidic-warrior-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-druidic-warrior-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-druidic-warrior-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-druidic-warrior-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-druidic-warrior-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-dueling-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-dueling-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-dueling-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-dueling-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-great-weapon-fighting-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-great-weapon-fighting-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-great-weapon-fighting-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-what-can-i-reroll-1"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[5]",
+      "detail": "<figure class=\"wp-block-embed is-type-rich is-provider-x wp-block-embed-x\"><div class=\"wp-block-embed__wrapper\"> <blockquote class=\"twitter-tweet\" data-width=\"550\" data-dnt=\"true\">"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-what-can-i-reroll-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-what-can-i-reroll-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-what-can-i-reroll-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-interception-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-interception-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-interception-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-interception-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-protection-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-protection-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-protection-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-protection-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-superior-technique-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-superior-technique-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-superior-technique-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-superior-technique-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-thrown-weapon-fighting-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-thrown-weapon-fighting-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-thrown-weapon-fighting-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-thrown-weapon-fighting-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-thrown-weapon-fighting-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[55]",
+      "detail": "block-section-thrown-weapon-fighting-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[56]",
+      "detail": "block-section-thrown-weapon-fighting-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[57]",
+      "detail": "block-section-thrown-weapon-fighting-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[58]",
+      "detail": "block-section-thrown-weapon-fighting-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-thrown-weapon-fighting-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-thrown-weapon-fighting-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/figcaption[1]",
+      "detail": "block-section-thrown-weapon-fighting-12"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[59]",
+      "detail": "block-section-thrown-weapon-fighting-13"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[60]",
+      "detail": "block-section-thrown-weapon-fighting-14"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[61]",
+      "detail": "block-section-thrown-weapon-fighting-15"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[62]",
+      "detail": "block-section-thrown-weapon-fighting-16"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[63]",
+      "detail": "block-section-thrown-weapon-fighting-17"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[64]",
+      "detail": "block-section-thrown-weapon-fighting-18"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[65]",
+      "detail": "block-section-thrown-weapon-fighting-19"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[66]",
+      "detail": "block-section-thrown-weapon-fighting-20"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[67]",
+      "detail": "block-section-thrown-weapon-fighting-21"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[68]",
+      "detail": "block-section-thrown-weapon-fighting-22"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[69]",
+      "detail": "block-section-thrown-weapon-fighting-23"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[70]",
+      "detail": "block-section-twoweapon-fighting-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[71]",
+      "detail": "block-section-twoweapon-fighting-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[72]",
+      "detail": "block-section-twoweapon-fighting-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[73]",
+      "detail": "block-section-twoweapon-fighting-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[74]",
+      "detail": "block-section-college-of-swords-bard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[75]",
+      "detail": "block-section-fighter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[76]",
+      "detail": "block-section-fighter-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[77]",
+      "detail": "block-section-fighter-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[78]",
+      "detail": "block-section-ranger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[79]",
+      "detail": "block-section-ranger-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[80]",
+      "detail": "block-section-ranger-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[81]",
+      "detail": "block-section-everyone-else-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[82]",
+      "detail": "block-section-everyone-else-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[83]",
+      "detail": "block-section-everyone-else-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[84]",
+      "detail": "block-section-unarmed-fighting-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[85]",
+      "detail": "block-section-unarmed-fighting-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[86]",
+      "detail": "block-section-unarmed-fighting-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[87]",
+      "detail": "block-section-unarmed-fighting-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[88]",
+      "detail": "block-section-unarmed-fighting-5"
+    },
+    {
+      "code": "text-coverage-review",
+      "location": "root",
+      "detail": "Extracted text differs from source content"
+    }
+  ],
+  "metrics": {
+    "words": 4206,
+    "sections": 24,
+    "blocks": 96,
+    "tables": 4,
+    "ratingSignals": 20
+  },
+  "status": "needs-editorial-review"
+}

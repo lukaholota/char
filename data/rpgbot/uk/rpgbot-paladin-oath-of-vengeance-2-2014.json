@@ -1,0 +1,1756 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-904b7b3e34283e86",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-904b7b3e34283e86-3553a26218a903b7",
+      "sourceId": "rpgbot-904b7b3e34283e86",
+      "fetchedAt": "2026-09-29T19:17:17.357640+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:40:19-04:00",
+      "contentHash": "271aa0df922af13eb1902db1695c042d0c23b633d35b69a897b1e98070e158c1",
+      "title": "Oath of Vengeance Paladin 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-904b7b3e34283e86-3553a26218a903b7.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+    "sourceId": "rpgbot-904b7b3e34283e86",
+    "slug": "paladin-oath-of-vengeance-2-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Паладин Клятви помсти — гайд підкласу (2014)",
+    "titleEn": "Oath of Vengeance Paladin 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Паладин",
+      "підклас",
+      "Клятва помсти",
+      "збірка"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "sourceRevisionId": "rpgbot-904b7b3e34283e86-3553a26218a903b7",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мабуть, ви вже помітили, що мені дуже подобаються заклиначі, чиї вміння залежать від Харизми. Можливо, ви цього не помічали, але це також цілковита правда: я часто граю персонажами підтримки, особливо тими, що можуть тримати передову. Можливо, ви помітили, що на діаграмі Венна ці вподобання підозріло перетинаються на Паладині. Тож я пограв чимало Паладинів і отримав від цього задоволення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоч я й чимало розповідав про свій досвід із "
+                },
+                {
+                  "type": "link",
+                  "text": "Клятвою завоювання",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/oath-of-conquest/"
+                },
+                {
+                  "type": "text",
+                  "text": ", спершу ми планували окрему статтю про Майстра древкової зброї{{Polearm Master}}, та згодом половина матеріалу перейшла до статті про "
+                },
+                {
+                  "type": "link",
+                  "text": "бойове застосування бонусних дій",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Тож спиратимуся на поради зі сторінки огляду підкласів і розкажу, як якнайкраще використати цю рису з класом, який отримує від неї чимало переваг. {{Клятва помсти|Oath of Vengeance}} — неймовірний атакер, але з правильними рисами вона може бути й дуже ефективним танком."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клятви помсти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клятви помсти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#oath-of-vengeance-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси для Клятви помсти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#oath-of-vengeance-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси для Клятви помсти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#oath-of-vengeance-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя для Клятви помсти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#oath-of-vengeance-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки для Клятви помсти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#oath-of-vengeance-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — {{Клятва відплати|Oath of Retribution}}",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#example-build-oath-of-retribution"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клятви помсти",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання клятви{{Oath Spells}}: Більшість заклинань просто чудові, але багато з них потребують Концентрації, а на високих рівнях список починає слабшати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Зурочення [Bane] ненадійне й рідко варте витрати слота заклинань. Мисливська мітка [Hunter's Mark] — приємний бонус до шкоди проти однієї пріоритетної цілі, але користь обмежена малою кількістю атак Паладина за раунд. Вона все ж може завдати значно більше шкоди, ніж Божественна кара{{Divine Smite}} за той самий слот заклинань, але лише якщо ви зможете підтримувати Концентрацію."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Параліч{{Paralysis}} виводить ворога з бою, але через низьку складність ряткидка ваших заклинань порівняно з повним заклиначем Стримування особи [Hold Person] ненадійне. Туманний крок [Misty Step] — чудовий спосіб переміщатися полем бою, особливо тому, що його можна накласти бонусною дією."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Прискорення [Haste] і Захист від енергії [Protection from Energy] — два найважливіші підсилення у грі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "13-й рівень: Обидва варіанти ситуативні, а Двері між вимірами [Dimension Door] менш привабливі, бо у вас уже є Туманний крок [Misty Step]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "17-й рівень: Стримування монстра [Hold Monster] робить Стримування особи [Hold Person] зайвим, але є значним поліпшенням. На жаль, складність ряткидків проти ваших заклинань, імовірно, усе ще нижча, ніж у повних заклиначів. Стеження [Scrying] дуже ситуативне, а ваші союзники-повні заклиначі вже давно мають його на цьому рівні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Канал божественності{{Channel Divinity}}:"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Відречення від ворога|Abjure Enemy}} багато в чому схоже на заклинання Виклик страху [Cause Fear], але ціль не отримує додаткових ряткидків, а її швидкість удвічі зменшується на весь час дії. Це особливо корисне проти почвар і нежиті, але діє на будь-яку істоту без імунітету до страху."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Обітниця ворожнечі|Vow of Enmity}}: Хвилина гарантованої переваги проти однієї цілі. Дуже корисно проти могутніх одиночних ворогів. Застосовуйте рано й часто."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Невтомний месник{{Relentless Avenger}}: Просто неймовірне вміння для збірки танка, особливо якщо у вас є ще й «Майстер древкової зброї»{{Polearm Master}}. Шукайте способи збільшити швидкість — наприклад, за допомогою магічних предметів або заклинань на кшталт Прискорення [Haste] чи Скорохода [Longstrider], — щоб переміщення на половину швидкості дозволяло вам утримувати ціль у межах досяжності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Душа помсти|Soul of Vengeance}}: Додаткова атака збільшує вашу шкоду на 50% (якщо тільки ви не використовуєте щось на кшталт бою двома зброями чи Майстра древкової зброї{{Polearm Master}})."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ангел помсти{{Avenging Angel}}: Раз на день протягом години ви можете переслідувати нажаханих ворогів і вбивати їх. Швидкість пересування чудова: ви швидко зближуєтеся з ворогами для ближнього бою, і вони опиняються в межах вашої аури. Більшість вершинних умінь підкласів Паладина діють лише хвилину, тож година дії — це неймовірно."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-vengeance-ability-scores",
+          "heading": "Характеристики Клятви помсти",
+          "sourceAnchor": "oath-of-vengeance-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-vengeance-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила визначає ваші атаки в ближньому бою, а також Атлетику — навичку, якою бойовим персонажам постійно доводиться користуватися."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-vengeance-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: можна не підвищувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-vengeance-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Третя за важливістю. Хоча у вас є чимало засобів захисту, ви бʼєтеся на передовій, тож вам потрібен відповідний запас ХП. Ви також маєте кілька заклинань із Концентрацією, а до появи Аури захисту вам стане в пригоді бонус до ряткидків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-vengeance-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: можна не підвищувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-vengeance-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: можна не підвищувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-vengeance-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання Паладина та багато його класових умінь залежать від Харизми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-vengeance-ability-scores-7",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-vengeance-races",
+          "heading": "Раси для Клятви помсти",
+          "sourceAnchor": "oath-of-vengeance-races",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-vengeance-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічого особливого порівняно з іншими Паладинами, хіба що ви точно збираєтеся брати рису «Майстер древкової зброї»{{Polearm Master}}. Тоді можна провернути кілька хитрощів{{shenanigans}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-vengeance-feats",
+          "heading": "Риси для Клятви помсти",
+          "sourceAnchor": "oath-of-vengeance-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-vengeance-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми вже кілька разів згадували «Майстра древкової зброї»{{Polearm Master}}, і недарма. Додаткова атака, якою можна завдати шкоди від «Покращеної божественної кари»{{Improved Divine Smite}}, — це чудово, а ще один спосіб спровокувати принагідні атаки{{Opportunity Attacks}} робить збірку надзвичайно ефективною. Тут також стає в пригоді «Вартовий»{{Sentinel}}: разом із «Майстром древкової зброї» це сильне поєднання, про яке ми ще майже не говорили на сайті, якщо вам вистачить місця для цієї риси. Якщо ні, «Рубака»{{Slasher}} дасть частину цієї користі й водночас підвищить характеристику."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-vengeance-weapons",
+          "heading": "Зброя для Клятви помсти",
+          "sourceAnchor": "oath-of-vengeance-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-vengeance-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ну, древкова зброя. Якщо не братимете «Вартового»{{Sentinel}}, "
+                },
+                {
+                  "type": "link",
+                  "text": "{{«Рубака»|Slasher}}",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/#slasher"
+                },
+                {
+                  "type": "text",
+                  "text": " та глефа дадуть вам змогу зменшити швидкість однієї цілі на 10 футів у свій хід, а завдяки «Майстру древкової зброї» — з більшою ймовірністю накласти його реакцією в інший момент раунду. "
+                },
+                {
+                  "type": "link",
+                  "text": "{{«Проколювач»|Piercer}}",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/#piercer"
+                },
+                {
+                  "type": "text",
+                  "text": " також підійде, якщо оберете піку, особливо тому, що ви зможете перекидати кубики шкоди від Кари."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-vengeance-weapons-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо не хочете користуватися древковою зброєю, підійде будь-яка інша зброя Паладина. Дворучний меч — хороший вибір, щоб обрати Бойовий Стиль «Бій великою зброєю» й перекидати кубики шкоди від Кари."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-vengeance-armor",
+          "heading": "Обладунки для Клятви помсти",
+          "sourceAnchor": "oath-of-vengeance-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-vengeance-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви не будуєте персонажа навколо Спритності й не берете один рівень Чорнокнижника з підкласом {{Відьмацький клинок|Hexblade}}, почніть із кольчуги, а за першої нагоди купіть лати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо плануєте скористатися чудовим розширеним списком заклинань на вищих рівнях, один або два рівні "
+                },
+                {
+                  "type": "link",
+                  "text": "{{Відьмацького клинка|Hexblade}}",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/"
+                },
+                {
+                  "type": "text",
+                  "text": " стануть чудовим вибором: так ви позбудетеся залежності від Сили й зможете зосередитися на Харизмі. Я б почав із Паладина 1-го рівня, потім узяв 1 рівень Відьмацького клинка, а далі розвивав Паладина; другий рівень Відьмацького клинка додав би після 8-го рівня Паладина."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-oath-of-retribution",
+          "heading": "Приклад збірки — {{Клятва відплати|Oath of Retribution}}",
+          "sourceAnchor": "example-build-oath-of-retribution",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-oath-of-retribution-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Як це я лише на 98-му перцентилі?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-oath-of-retribution",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьмемо розподіл характеристик за очками, запропонований вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-oath-of-retribution",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ведмебай{{Bugbear}}. Знаєте, у чому єдина проблема з «Майстром древкової зброї»{{Polearm Master}}? Якщо ви атакуєте щось, воно вже у вашій досяжності, тож не може спровокувати перший ефект цієї риси. Хіба що ваша досяжність змінюється залежно від того, ваш зараз хід чи ні. Додайте до цього «Несподівану атаку»{{Surprise Attack}}, «Додаткову атаку»{{Extra Attack}} та атаку бонусною дією — і в перший хід ви завдасте величезної шкоди, а потім зможете стати Паладином, який найкраще стримує ворогів у зоні. Безплатне володіння навичкою Непомітність також допоможе заглушити брязкіт важких обладунків або навіть зробить вас напрочуд непомітними, якщо ви візьмете рівень Відьмацького клинка й носитимете нагрудник."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-oath-of-retribution",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьміть передісторію «Міський мисливець за головами»{{Urban Bounty Hunter}} заради Обману й Переконання. Вона також дає вам інструменти злодія — особливо корисні, якщо ви обрали шлях {{Відьмацького клинка|Hexblade}} й маєте достатньо Спритності, щоб ними користуватися."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-oath-of-retribution",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Виберіть Атлетику й Залякування від класу — так ви доповните набір навичок, які зазвичай мають паладини. Якщо оберете варіант із {{Відьмацьким клинком|Hexblade}}, замініть Атлетику на Релігію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-oath-of-retribution",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Майстра древкової зброї»{{Polearm Master}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо «Рубаку»{{Slasher}}, щоб довести Силу до парного значення й отримати полегшену версію «Вартового»{{Sentinel}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні доводимо Силу до максимуму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му й 19-му рівнях доводимо Харизму до максимуму."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-oath-of-retribution",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "1"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественне відчуття{{Divine Sense}} {{Цілющі руки|Lay on Hands}}"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Для стартового спорядження візьміть кольчугу, глефу, метальні списи й дворучний меч. Дворучний меч продайте. Як я вже згадував у "
+                  },
+                  {
+                    "type": "link",
+                    "text": "гайді Потойбічного лицаря",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", накладати заклинання з дворучною зброєю дуже легко. Тримати її обома руками потрібно лише для атаки; в інший час її можна нести в одній руці й чаклувати іншою. На низьких рівнях нічого особливо захопливого, але наберіться терпіння. Ваша праведна помста невдовзі обернеться на стрімку відплату вашим ворогам."
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Бойовий стиль «Оборона»|Fighting Style (Defense)}}\nНові підготовлені заклинання:\n– Виклик на дуель [Compelled Duel]\n– Щит віри [Shield of Faith]\n– Лікування ран [Cure Wounds]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми не користуватимемося щитом, тож бойовий стиль, що це компенсує, — вдалий вибір, адже ми часто стоятимемо на передовій. Разом зі Щитом віри [Shield of Faith] він навіть дасть КБ вищий, ніж зі щитом. На старті наш модифікатор Харизми такий самий високий, як у повного заклинача, тож ми добре скористаємося Викликом на дуель [Compelled Duel], а Лікування ран [Cure Wounds] доповнить наші можливості. Утім, на день у вас лише два слоти, тож використовуйте їх ощадливо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне здоровʼя{{Divine Health}}\nКанал божественності{{Channel Divinity}}:\n– {{Відречення від ворога|Abjure Enemy}}\n– {{Обітниця ворожнечі|Vow of Enmity}}\nЗавжди підготовлені заклинання:\n– Зурочення [Bane]\n– Мисливська мітка [Hunter's Mark]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Обітниця ворожнечі|Vow of Enmity}} — ваш основний варіант застосування Каналу божественності{{Channel Divinity}} протягом усієї карʼєри. Особливо якщо у групі є ще один чи два класи, яким подобається короткий відпочинок, як-от чорнокнижники, монахи або барди середніх рівнів: застосовуйте її раз за бій проти найнебезпечнішого ворога. Утім, починаючи з наступного рівня, робіть це лише з другого ходу: вам дуже потрібна додаткова атака від «Майстра древкової зброї»{{Polearm Master}}, щоб завдати додаткових 2к6 шкоди від Несподіваної атаки{{Surprise Attack}}. Розрахунки в "
+                    },
+                    {
+                      "type": "link",
+                      "text": "калькуляторі шкоди за раунд",
+                      "href": "https://rpgbot.net/dnd5/tools/dpr-calculator/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " показують: немає такого рівня, на якому перевага для дії «Атака» була б варта відмови від атаки бонусною дією в перший хід — Несподівана атака надто ефективна. Якщо у вас раптом буде ще одна бонусна дія (наприклад, ви бʼєтеся з натовпом слабких ворогів і немає гідної цілі для Обітниці ворожнечі або ви можете накласти заклинання до кидка ініціативи), Мисливська мітка [Hunter's Mark] може завдати чимало шкоди завдяки трьом атакам за раунд, починаючи з 5-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Майстер древкової зброї»{{Polearm Master}}\nНові підготовлені заклинання:\n– Громова кара [Thunderous Smite]\n– Церемонія [Ceremony]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми спеціалізуємося на дворучній зброї й одразу отримуємо нову тактику. Як я вже згадував, у свій хід ми маємо більшу досяжність. «Майстер древкової зброї»{{Polearm Master}} не обмежує досяжність атаки бонусною дією, тож у свій хід ми можемо атакувати цілі з відстані 15 футів, а потім чекати, поки в їхній хід вони самі підійдуть на меншу відстань і спровокують нашу принагідну атаку. Наразі Громова кара [Thunderous Smite] — заклинання з найбільшою шкодою серед доступних нам; разом із Божественною карою{{Divine Smite}} воно дає змогу завдати величезної шкоди однією атакою. Часто ціль успішно проходитиме ряткидок Сили, але це не страшно. Проблема заклинань кар, як і більшості заклинань Паладина 1-го рівня, у тому, що вони часто потребують Концентрації. Ідея Концентрації для заклинань кар сама по собі слушна (ви гарантовано отримаєте ефект, навіть якщо промахнетеся першою атакою, зарядженою заклинанням), але тоді ви не зможете одночасно підтримувати інше підсилення, що потребує зосередження, як-от Героїзм [Heroism], Божа милість [Divine Favor] чи Щит віри [Shield of Faith]. Беремо Церемонію [Ceremony], щоб благословляти інших. Сподіваємося, наші рішення про те, кого благословити, будуть мудрими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}\nНові підготовлені заклинання:\n– Пошук скакуна [Find Steed]\n– Магічна зброя [Magic Weapon]\n– Мале відновлення [Lesser Restoration]\n– Стримування особи [Hold Person]\n– Туманний крок [Misty Step]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замість Щита віри [Shield of Faith] і Церемонії [Ceremony] підготуйте зазначені заклинання. Мале відновлення [Lesser Restoration] дещо дублює {{Цілющі руки|Lay on Hands}}, але зараз запас обох ресурсів обмежений, тож додатковий засіб стане в пригоді. Магічна зброя [Magic Weapon] огортає глефу сяйвом, коли ви починаєте зустрічати ворогів, стійких до немагічної шкоди. Пошук скакуна [Find Steed] — складне заклинання. Раджу прочитати "
+                    },
+                    {
+                      "type": "link",
+                      "text": "практичний гайд із бою верхи",
+                      "href": "https://rpgbot.net/dnd5/characters/mounted_combat/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " і послухати наш "
+                    },
+                    {
+                      "type": "link",
+                      "text": "епізод подкасту про кінний бій",
+                      "href": "https://rpgbot.net/rpgbot-podcast-episode-2/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Я рекомендую його не тому, що вважаю, ніби вам слід їздити верхи, а тому, що небесний бойовий кінь — це чудово й може стати в пригоді багатьма способами. Накладати заклинання часто не доведеться (тож більшість днів замість нього в цьому слоті варто підготувати Лікування ран [Cure Wounds]), але після загибелі коня його доведеться накласти знову. З КБ 11 і без володінь ряткидками кінь гинутиме доволі часто."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура захисту|Aura of Protection}}\nНове підготовлене заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хочете отримати +3 до всіх ряткидків безкоштовно? Ваша група теж цього хоче. Зауважте: уміння не уточнює, до яких саме ряткидків застосовується бонус, отже він діє на всі, зокрема ряткидки від смерті. Тримайтеся поруч із друзями, які помирають, навіть якщо не можете витратити дію, щоб зцілити їх {{Цілющими руками|Lay on Hands}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невтомний месник{{Relentless Avenger}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чудово! Тепер, коли хтось підійде до вас на відстань 10 футів, ви, як і належить хрестоносцю, зможете вдарити його глефою, а тоді відійти або стати на заваді йому. На наступному рівні, з огляду на штраф до швидкості, цілком реально опинитися поза досяжністю ворога."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Рубака»{{Slasher}} (Сила)\nНове підготовлене заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Цей новий бойовий прийом допоможе у вашому поході, де ви несете ворогам священну відплату. Памʼятайте: за правильного розташування ви можете застосувати його до однієї цілі у свій хід, а до іншої — своєю принагідною атакою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання:\n– Відродження [Revivify]\n– Прискорення [Haste]\n– Захист від енергії [Protection from Energy]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Усі заклинання цього рівня чудові; прикро лише, що слотів не вистачить на всі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура мужності|Aura of Courage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер наша непохитна віра захищає союзників поблизу від переляку. Я тлумачу формулювання «не може бути наляканим» так: якщо істота вже перелякана, достатньо підійти до неї на відстань 10 футів, щоб ваша аура хрестоносця усунула ефект переляку, а не просто придушила його. Це не узгоджується з тлумаченням правил за задумом Джеремі Крофорда, але навіть він визнає, що "
+                    },
+                    {
+                      "type": "link",
+                      "text": "формулювання правил неясне",
+                      "href": "https://twitter.com/JeremyECrawford/status/722860204459630592"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращена божественна кара{{Improved Divine Smite}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ваш фанатизм сягнув такого рівня, що священна сила пронизує кожну вашу атаку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}} (Сила 18 → 20)"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання:\n– Пошук вищого скакуна [Find Greater Steed]\n– Захист від смерті [Death Ward]\n– Вигнання [Banishment]\n– Двері між вимірами [Dimension Door]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відмовтеся від усього, що почали готувати на 8-му рівні, на користь Захисту від смерті [Death Ward], а замість бойового коня скористайтеся Пошуком вищого скакуна [Find Greater Steed], щоб отримати небесного пегаса (бойового скакуна?). Накладіть Захист від смерті [Death Ward] на себе — заклинання діятиме на вас обох. Вигнання [Banishment] — неймовірний спосіб вивести з ладу демона, дракона, велетня, гуманоїда чи нежить (і, мабуть, інші істоти теж) на хвилину. Зараз СК ваших заклинань на два пункти нижча, ніж у повного заклинача, але мало хто матиме високі ряткидки Харизми."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Очищувальний дотик{{Cleansing Touch}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нехай святість битви очистить ваших друзів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Душа помсти|Soul of Vengeance}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хоча для нашої реакції вже є дуже надійне застосування, можуть бути ходи, коли ми просто лупимо по босу без жодних хитрощів і хочемо завдати більше шкоди. Це ще один спосіб обрушити нашу священну лють."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}} (Харизма 16 → 18)\nНове підготовлене заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бонуси до ряткидків від аури та СК заклинань зростають."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання:\n– Священна зброя [Holy Weapon]\n– Руйнівна хвиля [Destructive Wave]\n– Стримування монстра [Hold Monster]\n– Стеження [Scrying]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Руйнівна хвиля [Destructive Wave] дає змогу обрушити священну лють на всіх істот поблизу, а ще за пару рівнів СК ваших заклинань зрівняється зі СК повного заклинача. Нарешті зʼявився надійний спосіб завдавати шкоди по площі й не відставати від інших класів, коли треба вразити велику групу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Аур{{Aura Improvements}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер наша майстерність аур беззаперечна."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}} (Харизма 18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимальна Харизма доводить усім, що серце хрестоносця сповнене переконливості."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ангел помсти{{Avenging Angel}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми можемо на годину перетворюватися на божественну бурю. Розправте крила й утілюйте помсту."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-001",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання клятви",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-002",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-003",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-004",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-005",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "13-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-006",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "17-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-007",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Канал божественності",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-008",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Відречення від ворога багато в чому схоже на заклинання Виклик страху [Cause Fear], але ціль не отримує додаткових ряткидків, а її швидкість удвічі зменшується на весь час дії. Це особливо корисне проти почвар і нежиті, але діє на будь-яку істоту без імунітету до страху.",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-009",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Обітниця ворожнечі",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-010",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Невтомний месник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-011",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Душа помсти",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-012",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Ангел помсти",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-013",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-oath-of-vengeance-ability-scores",
+      "targetBlockId": "block-section-oath-of-vengeance-ability-scores-1",
+      "optionId": "section-oath-of-vengeance-ability-scores-block-section-oath-of-vengeance-ability-scores-1",
+      "context": "Сила визначає ваші атаки в ближньому бою, а також Атлетику — навичку, якою бойовим персонажам постійно доводиться користуватися.",
+      "explanationBlockId": "block-section-oath-of-vengeance-ability-scores-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-014",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-oath-of-vengeance-ability-scores",
+      "targetBlockId": "block-section-oath-of-vengeance-ability-scores-2",
+      "optionId": "section-oath-of-vengeance-ability-scores-block-section-oath-of-vengeance-ability-scores-2",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-oath-of-vengeance-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-015",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-oath-of-vengeance-ability-scores",
+      "targetBlockId": "block-section-oath-of-vengeance-ability-scores-3",
+      "optionId": "section-oath-of-vengeance-ability-scores-block-section-oath-of-vengeance-ability-scores-3",
+      "context": "Третя за важливістю. Хоча у вас є чимало засобів захисту, ви бʼєтеся на передовій, тож вам потрібен відповідний запас ХП. Ви також маєте кілька заклинань із Концентрацією, а до появи Аури захисту вам стане в пригоді бонус до ряткидків.",
+      "explanationBlockId": "block-section-oath-of-vengeance-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-016",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-oath-of-vengeance-ability-scores",
+      "targetBlockId": "block-section-oath-of-vengeance-ability-scores-4",
+      "optionId": "section-oath-of-vengeance-ability-scores-block-section-oath-of-vengeance-ability-scores-4",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-oath-of-vengeance-ability-scores-4",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-017",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-oath-of-vengeance-ability-scores",
+      "targetBlockId": "block-section-oath-of-vengeance-ability-scores-5",
+      "optionId": "section-oath-of-vengeance-ability-scores-block-section-oath-of-vengeance-ability-scores-5",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-oath-of-vengeance-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-vengeance-2-2014-018",
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+      "sectionId": "section-oath-of-vengeance-ability-scores",
+      "targetBlockId": "block-section-oath-of-vengeance-ability-scores-6",
+      "optionId": "section-oath-of-vengeance-ability-scores-block-section-oath-of-vengeance-ability-scores-6",
+      "context": "Заклинання Паладина та багато його класових умінь залежать від Харизми.",
+      "explanationBlockId": "block-section-oath-of-vengeance-ability-scores-6",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

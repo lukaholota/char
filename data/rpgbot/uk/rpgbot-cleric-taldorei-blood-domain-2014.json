@@ -1,0 +1,1626 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-e6761a0671a5f0ee",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-e6761a0671a5f0ee-07fd58a23f9d99a2",
+      "sourceId": "rpgbot-e6761a0671a5f0ee",
+      "fetchedAt": "2026-09-29T19:24:19.650500+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:30:59-04:00",
+      "contentHash": "022b97c2c594d2df0307931b82d9fb40ab6b5fc7f90ff6de450c6cf62951d884",
+      "title": "Tal’Dorei Blood Domain Cleric 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-e6761a0671a5f0ee-07fd58a23f9d99a2.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+    "sourceId": "rpgbot-e6761a0671a5f0ee",
+    "slug": "cleric-taldorei-blood-domain-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Домен крові — гайд підкласу Клірика (2014)",
+    "titleEn": "Tal’Dorei Blood Domain Cleric 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Клірик",
+      "Домен крові",
+      "ТалʼДорей",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "sourceRevisionId": "rpgbot-e6761a0671a5f0ee-07fd58a23f9d99a2",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Один із двох підкласів гемокрафту{{Hemocraft}}, представлених у "
+                },
+                {
+                  "type": "link",
+                  "text": "«ТалʼДорей: Відроджений сеттинг кампанії»",
+                  "href": "https://www.drivethrurpg.com/product/420050/TalDorei-Campaign-Setting-Reborn?affiliate_id=389627"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Tal’Dorei: Campaign Setting Reborn}} ("
+                },
+                {
+                  "type": "link",
+                  "text": "партнерське посилання",
+                  "href": "https://rpgbot.net/about/faq#what-are-affiliate-links-and-why-do-you-use-them"
+                },
+                {
+                  "type": "text",
+                  "text": "), Клірик Домену крові{{Blood Domain Cleric}} робить ставку на моторошність керування кровʼю, даючи вам уміння, що шкодять ворогам і контролюють їх. Він додає трохи нюкера й контролера до наявних ролей Клірика, але не настільки відрізняється від вашого звичайного клірика, щоб суттєво змінювати вашу тактику."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слабке місце Домену крові{{Blood Domain}} — залежність від заклинань шкоди за відсутності будь-яких вагомих заклинань шкоди. «Фокус кровопускання»{{Bloodletting Focus}} застосовується рівно до 5 заклинань зі списку заклинань Клірика, а Домен крові додає лише одне. Вершинне уміння, «Аура судинної порчі»{{Vascular Corruption Aura}}, — моторошно звучна аура шкоди, але шкода така мала, що практично немає жодної причини її використовувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найвища точка класу — «Божественність: Кривава маріонетка»{{Channel Divinity: Blood Puppet}}, схожа на послаблену версію Підкорення монстра [Dominate Monster]. Оскільки це «Канал божественності»{{Channel Divinity}}, воно спрацьовує щоразу після короткого відпочинку, тож ви можете мати його напоготові постійно й випускати на найбільшу істоту в кожному бою. Це, імовірно, найвпливовіша частина підкласу: поки ваша маріонетка бігає й робить халепи, ви можете спокійно спамити Спрямованим зарядом [Guiding Bolt]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клірика Домену крові (ТалʼДорей)",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клірика Домену крові (ТалʼДорей)",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#taldorei-blood-domain-cleric-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Клірика Домену крові (ТалʼДорей)",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#taldorei-blood-domain-cleric-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клірика Домену крові (ТалʼДорей)",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#taldorei-blood-domain-cleric-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Клірика Домену крові (ТалʼДорей)",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#taldorei-blood-domain-cleric-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Клірика Домену крові (ТалʼДорей)",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#taldorei-blood-domain-cleric-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки кривавого клірика — «Неділя, кривава неділя»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#example-blood-cleric-build-sunday-bloody-sunday"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/taldorei-blood-domain/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клірика Домену крові (ТалʼДорей)",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання домену{{Domain Spells}}: коливаються між абсолютно чудовими рівнями та рівнями, від яких ви, можливо, буквально ніколи не отримаєте користі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Удаване життя [False life] — чудовий спосіб збільшити вашу живучість, особливо коли у вас достатньо слотів заклинань, щоб дозволити собі витрачати слоти низьких рівнів на його накладання після кожного бою, у якому ви отримали шкоду. Сон [Sleep] — приголомшливо потужний спосіб завершити зіткнення на низьких рівнях, але масштабування в нього не найкраще."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Стримування особи [Hold Person] чудове, коли спрацьовує, але гуманоїди — крихітна частка ворогів, з якими ви зіткнетеся в типовій грі. З усіх заклинань у грі Промінь ослаблення [Ray of Enfeeblement] — одне з них, і це найприємніше, що я можу про нього сказати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Прискорення [Haste] — чудове підсилення для бойових союзників із високою шкодою, а Уповільнення [Slow] — чудовий дебаф для великих одиночних ворогів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Усихання [Blight] погане. Камʼяна шкіра [Stoneskin] — добрий захист, але може швидко стати дорогим і вимагає Концентрації, тож постійно його використовувати не захочеться."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: заклинання чудові, але у вас уже є «Кривава маріонетка»{{Blood Puppet}}, що здебільшого робить те саме й не зʼїдає слот заклинання високого рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткові майстерності{{Bonus Proficiencies}}: здебільшого бойова зброя не стає для вас величезним покращенням. Ви ніколи не отримуєте «Додаткову атаку»{{Extra Attack}}, а «Божественний удар»{{Divine Strike}} слабкий навіть у найкращому разі, тож мало причин користуватися зброєю. Візьміть батіг, щоб можна було робити Принагідні атаки."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Фокус кровопускання{{Bloodletting Focus}}: пристойна кількість шкоди. Воно діє лише на заклинання з миттєвою тривалістю, тож Духовна зброя [Spiritual Weapon] чи Духи захисники [Spirit Guardians] не підходять, але Спрямований заряд [Guiding Bolt], Завдання ран [Inflict Wounds], Шкода [Harm], Полумʼяний удар [Flame Strike] і Сонячний спалах [Sunburst] працюють. На жаль, це буквально весь список заклинань клірика, до яких воно застосовується. Домен крові{{Blood Domain}} додає Усихання [Blight], але про нього ледь варто згадувати. Також не уточнено «заклинання клірика», тож це відкриває ще більше можливостей для витівок із мультикласуванням. Один рівень {{клірика Домену крові|blood cleric}}, прилаштований до будь-якого нюкера, — негайне й масивне покращення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Багряні узи|Channel Divinity: Crimson Bond}}: надзвичайно круто, але важко використовувати часто."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Кривава маріонетка|Channel Divinity: Blood Puppet}}: це по суті обмежена версія Підкорення монстра [Dominate Monster]. Навіть з обмеженнями вона приголомшливо ефективна."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Криваве повернення{{Sanguine Recall}}: обмеження раз на день означає, що це фактично один додатковий слот заклинання на день вашого найвищого рівня заклинань до 6-го рівня включно. Це добре, але нічого шаленого, чого ви не могли б зробити й так, воно не дасть. Вартість у ХП легко компенсувати заклинанням або кількома кубиками здоровʼя."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественний удар{{Divine Strike}}: "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Божественний удар поганий",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses#divine-strike-vs-cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Візьміть Додаткове класове уміння{{Optional Class Feature}}, якщо можете."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Аура судинної порчі{{Vascular Corruption Aura}}: удвічі більший радіус, ніж у Духів захисників [Spirit Guardians], без ряткидка, без Концентрації, але на цьому рівні 3к6 шкоди — дрібниця, хіба що ви стикаєтеся з роєм дрібніших ворогів, і навіть тоді це все одно менше шкоди, ніж від Духів захисників [Spirit Guardians] 3-го рівня (3к8). Можна запускати обидва ефекти, але обидва потребують Дії для початку, і, маючи вибір, накладання Духів захисників [Spirit Guardians] навіть трохи вищим слотом завдасть більше шкоди, якщо вам "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "справді"
+                  },
+                  {
+                    "type": "text",
+                    "text": " не потрібна більша область. Цього просто замало для настільки високорівневого уміння, яке можна використати лише раз на день. Я був би радий подвійній шкоді, бо тоді можна було б резонно сказати: «так, це обʼєктивно краще за Духів захисників [Spirit Guardians] у більшості випадків». Тут є цікава оптимізація довкола того, як повторно запускати шкоду. Шкода застосовується щоразу, коли істота «вперше за хід переміщується в межах 30 футів від вас або починає там свій хід». Загалом таке формулювання задумане для того, щоб істота отримувала шкоду, коли наближається до вас, і не мала спокуси вбігати в ауру й вибігати з неї, але це також означає, що ми можемо знову запускати шкоду, примушуючи до руху в інші ходи. Фокус у тому, що це відбувається, коли істота переміщується, а не коли входить в область (як працюють Духи захисники [Spirit Guardians]), тож ми не можемо робити такі речі, як заходити аурою на них чи втягувати їх рисою «Телекінетик»{{Telekinetic}}. Заклинання на кшталт Зараження [Infestation] і Дисонуючий шепіт [Dissonant Whispers] впораються, але памʼятайте, що все, що ви отримуєте, — це додаткові 3к6 шкоди, чого може бути недостатньо, щоб виправдати зусилля."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-taldorei-blood-domain-cleric-ability-scores",
+          "heading": "Характеристики Клірика Домену крові (ТалʼДорей)",
+          "sourceAnchor": "taldorei-blood-domain-cleric-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-taldorei-blood-domain-cleric-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від інших кліриків у середніх обладунках. Дивіться наш "
+                },
+                {
+                  "type": "link",
+                  "text": "довідник Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-taldorei-blood-domain-cleric-races",
+          "heading": "Раси Клірика Домену крові (ТалʼДорей)",
+          "sourceAnchor": "taldorei-blood-domain-cleric-races",
+          "blocks": [
+            {
+              "blockId": "block-section-taldorei-blood-domain-cleric-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дивіться наш "
+                },
+                {
+                  "type": "link",
+                  "text": "розбір рас Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/races/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Домен крові{{Blood Domain}} не має жодних особливих, унікальних взаємодій з опублікованими расами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-taldorei-blood-domain-cleric-feats",
+          "heading": "Риси Клірика Домену крові (ТалʼДорей)",
+          "sourceAnchor": "taldorei-blood-domain-cleric-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-taldorei-blood-domain-cleric-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Домен крові{{Blood Domain}} не має жодних унікальних взаємодій з опублікованими рисами, але «ТалʼДорей: Відроджений сеттинг кампанії»{{Tal’Dorei: Campaign Setting Reborn}} таки містить кілька нових варіантів рис. Найпомітніші наведено нижче, а решту дивіться в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі рис ТалʼДорей",
+                  "href": "https://rpgbot.net/dnd5/characters/taldorei-feats/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-taldorei-blood-domain-cleric-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Дивовижне відновлення{{Remarkable Recovery}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "T:CSR",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": спокусливий спосіб відновитися після «Кривавого повернення»{{Sanguine Recall}}, але він вам абсолютно не потрібен."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Рушій заклинань|Spelldriver}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "T:CSR",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у клірика на низьких рівнях безліч чудових заклинань бонусною дією, зокрема Цілюще слово [healing word], Щит віри [Shield of Faith] і Духовна зброя [Spiritual Weapon]. Можливість накласти ці заклинання й усе одно витратити свою Дію на більше заклинання — приголомшлива. Уявіть Духи захисники [Spirit Guardians] і Духовна зброя [Spiritual Weapon] на першому ході кожного бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Життєва жертва{{Vital Sacrifice}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "T:CSR",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": накладайте штраф -1к4 на ряткидок ціною 1к6 шкоди собі — скільки завгодно разів на день."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-taldorei-blood-domain-cleric-weapons",
+          "heading": "Зброя Клірика Домену крові (ТалʼДорей)",
+          "sourceAnchor": "taldorei-blood-domain-cleric-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-taldorei-blood-domain-cleric-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви таки отримуєте бойову зброю, але мало причин нею користуватися. Розгляньте батіг, щоб можна було робити принагідні атаки з досяжністю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-taldorei-blood-domain-cleric-armor",
+          "heading": "Обладунки Клірика Домену крові (ТалʼДорей)",
+          "sourceAnchor": "taldorei-blood-domain-cleric-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-taldorei-blood-domain-cleric-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від інших кліриків у середніх обладунках. Дивіться наш "
+                },
+                {
+                  "type": "link",
+                  "text": "довідник Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від інших кліриків у середніх обладунках. Дивіться наш "
+                },
+                {
+                  "type": "link",
+                  "text": "довідник Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-blood-cleric-build-sunday-bloody-sunday",
+          "heading": "Приклад збірки кривавого клірика — «Неділя, кривава неділя»",
+          "sourceAnchor": "example-blood-cleric-build-sunday-bloody-sunday",
+          "blocks": [
+            {
+              "blockId": "block-section-example-blood-cleric-build-sunday-bloody-sunday-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "«Я усвідомлюю, що я весь у крові й усі мої здібності повʼязані з боді-горором, але обіцяю вам, що я законно добрий і прийшов допомогти.»"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-blood-cleric-build-sunday-bloody-sunday-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми сильно спиратимемося і на уміння класу, і на риси. «Рушій заклинань»{{Spelldriver}} не надто цікавий, окрім Духовна зброя [Spiritual Weapon] + щось інше чи Цілюще слово [healing word] + щось інше, тож ми його пропустимо на користь «Життєвої жертви»{{Vital Sacrifice}} і сильно зробимо ставку на криваву магію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-blood-cleric-build-sunday-bloody-sunday-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З «Фокусом кровопускання»{{Bloodletting Focus}} на столі ми — аномально ефективний нюкер. Нам не треба покладатися виключно на вибухові заклинання, але це чудова відмовка не брати Духи захисники [Spirit Guardians] ще одному клірикові. На жаль, у Клірика є приблизно 5 заклинань, на які діє «Фокус кровопускання», тож ви багато часу кидатимете Спрямований заряд [Guiding Bolt]. Два з цих заклинань цілять у ряткидки Статури (Усихання [Blight] теж, але це заклинання домену), тож «Життєва жертва» тут чимало працюватиме."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-blood-cleric-build-sunday-bloody-sunday",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типово для клірика в середніх обладунках."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-blood-cleric-build-sunday-bloody-sunday",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пагорбовий дворф{{Hill Dwarf}} із налаштованим походженням{{Custom Origin}}. Додаткові ХП приємні, бо ми плануємо регулярно зʼїдати частину власних ХП, а оборонні риси дворфа чудово підходять клірикові. Проміняйте володіння зброєю на кухарське начиння{{chef’s tools}} (бонусні ХП під час витрачання кубиків здоровʼя) і на все інше, що вам може знадобитися."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна було б також обрати Варіант людини{{Variant Human}} і взяти «Здоровань»{{Tough}}, але скільки варіантів людини ви вже награли?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-blood-cleric-build-sunday-bloody-sunday",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Будь-яка. На збірку це суттєво не впливає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-blood-cleric-build-sunday-bloody-sunday",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "По суті те саме, що й у будь-якого іншого клірика."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-blood-cleric-build-sunday-bloody-sunday",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми зачекаємо до 4-го рівня, щоб узяти «Життєву жертву»{{Vital Sacrifice}}, бо жертвувати к6 ХП на 1-му рівні небезпечно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-blood-cleric-build-sunday-bloody-sunday",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання домену\nДомен крові\nДодаткові майстерності\nФокус кровопускання\nВідомі замовляння:\n– Настанова\n– Священне полумʼя\n– Дзвін небіжчика\nПідготовлені заклинання:\n– Благословення\n– Удаване життя (Домен)\n– Спрямований заряд\n– Цілюще слово\n– Святилище\n– Сон (Домен)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні, попри наш багряний пакт, наша тактика мало чим відрізняється від тактики інших кліриків. Ми візьмемо батіг для принагідних атак, але здебільшого він не буде у вас у руці, бо вам потрібна вільна рука для соматичних компонентів. Ми не надто живучі, тож намагайтеся триматися на відстані. Якщо справи погані, використовуйте Святилище [Sanctuary]. У нас лише два слоти заклинань, тож будьте обережні з їх витрачанням. Спрямований заряд [Guiding Bolt] завдасть вражаючих 4к6+3 шкоди, але на цьому рівні зазвичай усе одно краще витратити цей слот на щось із довшим впливом, як-от Благословення [Bless], або на те, що остаточно завершить бій, як-от Сон [Sleep]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (1/відпочинок)\nБожественність: Багряні узи\nНові підготовлені заклинання:\n– Завдання ран"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Багряні узи»{{Crimson Bond}} надто дорогі, щоб на цьому рівні використовувати їх для бачення крізь чуття інших істот, тож по суті вони годяться лише для того, щоб стежити за поточними ХП членів групи. Завдання ран [Inflict Wounds], як і Спрямований заряд [Guiding Bolt], отримує приріст шкоди від «Фокусу кровопускання»{{Bloodletting Focus}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання:\n– Підтримка\n– Стримування особи (домен)\n– Промінь ослаблення (домен)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підтримка [Aid] ще більше збільшить наш максимум ХП, полегшуючи оплату вартості «Життєвої жертви»{{Vital Sacrifice}}. Підтримка [Aid] діє на трьох істот, тож обовʼязково діліться з друзями."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Життєва жертва\nНове відоме замовляння:\n– Лагодження\nНові підготовлені заклинання:\n– Молитва зцілення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нам хочеться трохи кривавої магії в нашій кривавій магії. На цьому етапі ми достатньо живучі, щоб вартість «Життєвої жертви»{{Vital Sacrifice}} у ХП була прийнятною, а вона дає нам неймовірну трансфузію нових варіантів. Ми можемо використати Удаване життя [False life], щоб дати собі запас тимчасових ХП на «Життєву жертву», а якщо є поранені союзники, між боями можна витратити трохи часу на Молитва зцілення [Prayer of Healing]. Шкода від трьох дарів{{boons}} буде стабільно зцілюватися Молитва зцілення [Prayer of Healing], і ця математика лишається правильною впродовж усієї вашої каріʼєри, що добре вказує: більшість боїв ви можете починати з трьома дарами. Маючи можливість підсилювати наші кидки атаки к6 (плюс, можливо, к4 від Благословення [Bless]) або шкоду від наших атак заклинаннями на 2к6, подивімося, що ці варіанти роблять із DPR для Завдання ран [Inflict Wounds] і Спрямований заряд [Guiding Bolt]. Ми цілком могли б використати два дари на одне заклинання, але задля аргументу порівняймо лише з одним. Припустімо, що наш 1к6 випадає на 3, а наш 2к6 — на 7, щоб не морочитися із заокругленням чи чимось іншим. СЗ, база: 10,9; СЗ з даром на атаку: 13,45; СЗ з даром на шкоду: 15,45; СЗ з обома: 19,05; ЗР, база: 12,53; ЗР з даром на атаку: 15,45; ЗР з даром на шкоду: 17,08; ЗР з обома: 21,05. Як бачимо, бонус до шкоди дає вищий DPR. Звісно, ця математика змінюється, якщо накладати вищим слотом, і є інші міркування, як-от додатковий ефект Спрямованого заряду [Guiding Bolt], але бачити математику все одно корисно, щоб ухвалювати зважені рішення. Також можна розглянути фізичні заклинання «пройди-ряткидок-або-страждай»{{save-or-suck}}, але на цьому рівні в клірика їх мало. По суті це лише Сліпота/глухота [Blindness/Deafness]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 1/2)\nНові підготовлені заклинання:\n– Аура живучості (Додаткове)\n– Прискорення (Домен)\n– Уповільнення (Домен)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Аура живучості [Aura of Vitality] — додаткове заклинання, а це означає, що воно є у списку заклинань Клірика лише тоді, коли ваш Майстер дозволяє. Якщо дозволяє, «Життєва жертва»{{Vital Sacrifice}} раптом стає майже бездонним запасом дарів{{boons}}. Використовуйте «Життєву жертву», щоб довести ХП до однозначних чисел і зібрати якомога більше дарів, а тоді накладіть Ауру живучості [Aura of Vitality], щоб одразу повернути ХП до максимуму. «Життєва жертва» справді потребує обмеження кількості дарів, яку можна мати, але в книзі цього немає, тож поїхали. Якщо ваш Майстер це побачить і скаже: «Ви не отримуєте Ауру живучості [Aura of Vitality]», вистачить Молитва зцілення [Prayer of Healing]. Відтепер я наосліп припускатиму, що у вас більше дарів, ніж можна витратити за один бій, але також у вас не буде слотів заклинань 3-го рівня, бо їх витрачено на Ауру живучості [Aura of Vitality]. Натомість витрачайте дари, щоб підсилити і атаку, і шкоду Спрямованого заряду [Guiding Bolt], і ви завдаватимете чимало шкоди, не беручи до уваги, що ви, імовірно, ще й даєте союзникові Перевагу на його наступний кидок атаки. Якщо ви готові використовувати заклинання «пройди-ряткидок-або-страждай»{{save-or-suck}}, використовуйте Сліпота/глухота [Blindness/Deafness]. Можна витрачати дар щоразу, коли ваша ціль (цілі) робить ряткидок."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (2/відпочинок)\nБожественність: Кривава маріонетка\nКриваве повернення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Час чинити боді-горор! Ми одночасно додаємо до нашого кривавого запасу другий заряд «Каналу божественності»{{Channel Divinity}} і «Криваву маріонетку»{{Blood Puppet}}. Доволі звично мати лише два бої між відпочинками, тож «Кривава маріонетка» майже завжди готова до застосування. Проти ворогів зі слабкими розумовими характеристиками використайте «Криваву маріонетку», і вони більше не проблема. Якщо в зіткненні немає інших ворогів, змусьте їх атакувати самих себе й заходити в щось небезпечне. Проти ворогів із високими розумовими характеристиками використовуйте Сліпота/глухота [Blindness/Deafness] і послаблюйте їхній ряткидок дарами{{boons}} «Життєвої жертви»{{Vital Sacrifice}}. «Кривава маріонетка» вирізняється тим, що дозволяє обрати ціллю труп, і їй, схоже, байдуже, як цей труп там опинився. Знайдіть найбільшого мішка з мʼясом серед ворогів, якого тільки зможете, возіть його тіло на возі й перетворіть на мандрівного бойового улюбленця. Тіло доведеться лагодити; воно, на щастя, є обʼєктом, а не істотою, тому ми й узяли Лагодження [Mending] на 4-му рівні. Також можете накласти Нетлінні рештки [Gentle Repose], щоб тіло не набуло неприємного запаху."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання:\n– Усихання (Домен)\n– будь-яке\n– Камʼяна шкіра (Домен)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні в списку клірика немає ні заклинань шкоди, ні заклинань із фізичними ряткидками, але в нас є Усихання [Blight], тож порівняймо Усихання [Blight] з нашими іншими варіантами заклинань. Усихання [Blight] цілить у ряткидок Статури, тож ми можемо використовувати дари{{boons}} «Життєвої жертви»{{Vital Sacrifice}}, щоб штрафувати ряткидки цілі й перетворити це на справжню гемочуму. Цього штрафу, імовірно, достатньо, щоб вважати ряткидок Статури таким самим надійним, як інші ряткидки. Завдяки «Фокусу кровопускання»{{Bloodletting Focus}} ми завдаємо 8к8+6 шкоди (у середньому 42). Не думаю, що дари «Життєвої жертви» мають підсилювати шкоду заклинань без атаки, але це не зовсім зрозуміло. Якщо ж натомість накласти Спрямований заряд [Guiding Bolt] вищим слотом (це добре порівняння, бо він працює на відстані, а Завдання ран [Inflict Wounds] — ні) з даром на атаку й шкоду, ми завдамо 7к6+2к6+6 шкоди, у середньому 37,5. Це майже стільки ж шкоди, як від Усихання [Blight], до того ж Спрямований заряд [Guiding Bolt] з більшою ймовірністю спрацює (хоч, щоправда, при схибленні не завдає половини шкоди) і ще дає комусь Перевагу. Тримайтеся Спрямованого заряду [Guiding Bolt]. Шкода Усихання [Blight] трохи краще масштабується при накладанні вищим слотом, але недостатньо, щоб це справді мало значення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість (16 → 18)\nБожественний удар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо додаткові класові уміння{{Optional Class Features}} доступні, беріть «Благословенні удари»{{Blessed Strikes}}. Ми все ще трохи відстаємо від "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Фундаментальної математики",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Fundamental Math}}, але дари{{boons}} «Життєвої жертви»{{Vital Sacrifice}} легко надолужують різницю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання:\n– Підкорення особистості (Камʼяна шкіра)\n– Полумʼяний удар\n– Стримування монстра (Камʼяна шкіра)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підкорення особистості [Dominate Person] і Стримування монстра [Hold Monster] виглядають доволі безглуздо поруч із «Кривавою маріонеткою»{{Blood Puppet}}. Хоч як дивно, Полумʼяний удар [Flame Strike] — наше перше заклинання по області, до якого може застосовуватися «Фокус кровопускання»{{Bloodletting Focus}}. При 8к6 шкоди воно не краще за Вогнекулю [Fireball] 3-го рівня, якщо тільки типи шкоди не мають значення. Додавання +6 шкоди дуже допомагає: наша середня шкода відстає лише на 1 від Вогнекулі [Fireball] 5-го рівня, що є мізерною різницею. Очікуйте, що відтепер Полумʼяний удар [Flame Strike] стане основним варіантом. Навіть проти одиночних цілей він лише трохи відстає від Спрямованого заряду [Guiding Bolt], підсиленого даром{{boon}} «Життєвої жертви»{{Vital Sacrifice}}, тож проти кількох цілей це чудова шкода."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне втручання\nНові відомі замовляння:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нічого цікавого."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 2)\nНові підготовлені заклинання:\n– Шкода"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шкода [Harm] дуже схожа на Усихання [Blight]: величезна купа некротичної шкоди по ряткидку Статури. Як і для Усихання [Blight], ми можемо використати дар{{boon}} «Життєвої жертви»{{Vital Sacrifice}}, щоб штрафувати ряткидок цілі. Але оскільки обидва — це просто одноцільова шкода по ряткидку Статури, вони займають ту саму нішу. Що ж краще? Усихання [Blight], накладене 6-м рівнем із «Фокусом кровопускання»{{Bloodletting Focus}}, завдасть у середньому 53 шкоди. Шкода [Harm] завдасть у середньому 57. Тож різниця доволі мала. Шкода [Harm] має вдвічі більшу дальність, чого може бути достатньо, щоб виправдати її підготовку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті знову в ногу з «Фундаментальною математикою»{{Fundamental Math}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні нічого, крім заклинань 7-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 3)"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання:\n– Сонячний спалах"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила сонця… на моїй долоні. О ні, я його впустив! Сонячний спалах [Sunburst] лише ледь перевищить шкоду Полумʼяного удару [Flame Strike], накладеного вищим слотом, на 1к6, але область аж у 6 разів ширша, і він ще й осліплює. Зазвичай ряткидок Статури — проблема, але завдяки «Життєвій жертві»{{Vital Sacrifice}} це значно менша проблема. Скидайте 12к6+10 шкоди й засліплюйте все в будівлі пульсівними припливами {{кривавого|blood (закреслено в оригіналі)}} сонячного світла."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: будь-яка\nНові підготовлені заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це був би непоганий рівень, щоб узяти «Рушій заклинань»{{Spelldriver}}, якщо він вам потрібен."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 4)\nАура судинної порчі"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Аура — гарна дрібна новинка, але коли ви скидаєте 12к6+10 шкоди від Сонячного спалаху [Sunburst], 3к6 шкоди виглядає доволі смішно. Втім, заклинання 9-го рівня чудові."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (3/відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше «Кривавих маріонеток»{{Blood Puppets}}!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик/Риса: будь-яка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Може, «Здоровань»{{Tough}}? Може, «Стійкий»{{Resilient}}? Що завгодно на ваш смак."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращене божественне втручання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Попросіть свого бога зробити «Ауру судинної порчі»{{Vascular Corruption Aura}} кращою."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-001",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features",
+      "context": "Уміння Клірика Домену крові",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-002",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання домену",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-003",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-004",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-005",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-006",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-007",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-008",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Додаткові майстерності",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-009",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Фокус кровопускання",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-010",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-011",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-012",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Криваве повернення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-013",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Божественний удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-014",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-12",
+      "context": "Аура судинної порчі",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-015",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-taldorei-blood-domain-cleric-feats",
+      "targetBlockId": "block-section-taldorei-blood-domain-cleric-feats-2",
+      "optionId": "section-taldorei-blood-domain-cleric-feats-block-section-taldorei-blood-domain-cleric-feats-2-item-0",
+      "context": "Дивовижне відновлення",
+      "explanationBlockId": "block-section-taldorei-blood-domain-cleric-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-016",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-taldorei-blood-domain-cleric-feats",
+      "targetBlockId": "block-section-taldorei-blood-domain-cleric-feats-2",
+      "optionId": "section-taldorei-blood-domain-cleric-feats-block-section-taldorei-blood-domain-cleric-feats-2-item-1",
+      "context": "Рушій заклинань T",
+      "explanationBlockId": "block-section-taldorei-blood-domain-cleric-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-taldorei-blood-domain-2014-017",
+      "articleId": "rpgbot-cleric-taldorei-blood-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-taldorei-blood-domain-2014-draft1",
+      "sectionId": "section-taldorei-blood-domain-cleric-feats",
+      "targetBlockId": "block-section-taldorei-blood-domain-cleric-feats-2",
+      "optionId": "section-taldorei-blood-domain-cleric-feats-block-section-taldorei-blood-domain-cleric-feats-2-item-2",
+      "context": "Життєва жертва",
+      "explanationBlockId": "block-section-taldorei-blood-domain-cleric-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

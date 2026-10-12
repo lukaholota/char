@@ -1,0 +1,2097 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "51057c16aa223a652b7158e8c3132912ceb74481f97138dff093d8c677d078ec",
+  "sourceRevision": {
+    "revisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+    "sourceId": "rpgbot-071b19857f4ca74a",
+    "fetchedAt": "2026-09-29T19:08:14.889500+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:36:04-04:00",
+    "contentHash": "91e982cfb1819e1e631d99e87727cf3164921ba6fb088e258f65bf3b9eca4987",
+    "title": "Psi Warrior Fighter 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-071b19857f4ca74a-51057c16aa223a65.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Psi Warrior Fighter is a martial psionics user, making use of a semi-magical mechanism known as “psionics” to produce effects which are borderline but technically not magical. Mechanically, it’s a pool of dice that works very similarly to the Battle Master’s maneuvers, but you get a predefined set of powers on which you can spend your dice. The abilities provide an interesting mix of offensive, defensive, and utility options, resulting in a capable, versatile fighter. You’re still primarily a combat monster, but it’s a bit more versatile than trading hit points."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Psi Warrior shares some capabilities with the Eldritch Knight, and uses a resource pool similar to the Battle Master’s Superiority Dice. Unlike those two subclasses, the Psi Warrior has no decision points within the subclass, instead using a fixed set of built-in options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This lack of build diversity doesn’t mean that the Psi Warrior is ineffective. The Psi Warrior is much easier to build and play than either the Battle Master or the Eldritch Knight, and, if you manage your Psionic Energy Dice to last through the day, you can be very effective. There’s also nothing forcing the Psi Warrior into melee, which is a problem for the Battle Master and Eldritch Knight since so many of their best options are melee-only."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Psi Warrior Fighter Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Psi Warrior Fighter Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Psi Warrior Fighter Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Psi Warrior Fighter Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Psi Warrior Fighter Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Psi Warrior Fighter Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Psi Warrior Fighter Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Psi Warrior Fighter Build – Giff Yankee",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/psi-warrior/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Psi Warrior Fighter Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Psionic Power"
+              },
+              {
+                "type": "text",
+                "text": ": Your pool of Psionic Energy\n\t\tDice are your defining resource. You get a number equal to double your\n\t\tProficiency Bonus and the size goes from d6 to d12 over the course of your\n\t\tcareer. That sounds like a big pool, but they mostly recharge on a Long\n\t\tRest, and between Long Rests you can recharge just one die as a Bonus Action\n\t\tonce per Short Rest.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If your DM adheres to the Adventuring Day rules in the DMG, that means you can\n\t\t\trecharge as many as three dice per day. Across a full day of adventuring,\n\t\t\tthat’s a small pool to work with and you need to be cautious about\n\t\t\tspending your dice rather than burning through them in the first\n\t\t\tencounter. The initial options for spending your Psionic Energy Dice are\n\t\t\teasy ways to quickly burn through your dice for modest amounts of damage\n\t\t\tor protection."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Protective Field"
+              },
+              {
+                "type": "text",
+                "text": ": Preventing some or\n\t\t\t\tall of the damage from an attack can keep you or an ally fighting, and\n\t\t\t\tcan help allies maintain Concentration on spells. Save this for when hit\n\t\t\t\tpoints are low or when an ally’s Concentration is crucial, otherwise you\n\t\t\t\trisk running through your Psionic Energy dice in a hurry."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Psionic Strike"
+              },
+              {
+                "type": "text",
+                "text": ": A modest burst of\n\t\t\t\tdamage. The damage is a separate source from your attack (it deals\n\t\t\t\tdamage on its own rather than adding damage to the attack), so it’s not\n\t\t\t\tmultiplied on a critical hit. I wouldn’t consider this a go-to option\n\t\t\t\tuntil you add Telekinetic Thrust at level 7 because your pool of dice is\n\t\t\t\ttoo small and too precious to spend on something as mundane as a tiny\n\t\t\t\tbit of damage. However, you might make an exception in cases where the\n\t\t\t\textra damage could kill the creature or cause it to lose Concentration\n\t\t\t\t(since it’s a separate source of damage it forces a second saving\n\t\t\t\tthrow)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Telekinetic Movement"
+              },
+              {
+                "type": "text",
+                "text": ": Situational.\n\t\t\t\tYou get it once per Short Rest, which may be enough. This is forced\n\t\t\t\tmovement (even though the target is willing), so you can use it to pull\n\t\t\t\tallies out of melee (even if they’re grappled) without provoking\n\t\t\t\tOpportunity Attacks.\n"
+              },
+              {
+                "type": "text",
+                "text": "Despite being part of Psionic Power, this does not consume one of your Psionic Energy dice."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Telekinetic Adept"
+              },
+              {
+                "type": "text",
+                "text": ": Two new options for\n\t\tusing your Psionic Energy Dice.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Psi-Powered Leap"
+              },
+              {
+                "type": "text",
+                "text": ": Even though the\n\t\t\t\tflight only lasts until the end of your current turn, that’s enough to\n\t\t\t\tget into melee with flying enemies and beat them up (consider using\n\t\t\t\tAction Surge to maximize the benefits) or Shove them prone to force them\n\t\t\t\tto fall. You can also use this to fly over pits, high walls, and other\n\t\t\t\tbarriers. You get this once for free, but if you need it again you can\n\t\t\t\trecharge it with a Psionic Energy Die."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Telekinetic Thrust"
+              },
+              {
+                "type": "text",
+                "text": ": Shove is\n\t\t\t\ttypically sufficient for melee fighters, but this works at range, which\n\t\t\t\tmakes it a great counter to flying enemies. Flying creatures that are\n\t\t\t\tknocked Prone fall, which can both cause a lot of damage and bring them\n\t\t\tinto melee range.\n"
+              },
+              {
+                "type": "text",
+                "text": "While this doesn’t consume a Psionic Energy die on its own, this is an optional rider effect that you add to Psionic Strike, which does consume a die."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Guarded Mind"
+              },
+              {
+                "type": "text",
+                "text": ": While this is technically\n\t\tsituational, Charm and Fear effects are common and annoying across the full\n\t\tlevel range, and can take you out of a fight. They’re especially good\n\t\tcounters to martial characters (like you) because they tend to require\n\t\tWisdom saving throws which martial characters are usually bad at."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bulwark of Force"
+              },
+              {
+                "type": "text",
+                "text": ": +2 AC and +2 on Dexterity saves to you and possibly\n\t\tthe rest of your party for 1 minute, activated as a Bonus Action. This is a\n\t\tgreat buff at any level, but remember that it won’t stack with other sources\n\t\tof cover. You only get to use this once per day, but you can recharge it\n\t\twith a Psionic Energy Die, and I recommend doing so. The +2 AC to your whole\n\t\tparty will mitigate a huge amount of damage in a typical fight. +2 on a\n\t\t20-point scale is 10% of the scale, so a +2 AC bonus will negate roughly 10%\n\t\tof all attack damage to your party in that encounter."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Telekinetic Master"
+              },
+              {
+                "type": "text",
+                "text": ": By this level it’s\n\t\tentirely possible that you have raised both your Strength/Dexterity and your\n\t\tIntelligence to 20, so your Intelligence checks may be very good. That makes\n\t\tTelekinesis a useful option in combat, especially against foes with poor\n\t\tStrength like many spellcasters. You can use this to lift foes into the air\n\t\tand drop them, to move them over pits or into hazards, or just to pull them\n\t\tinto melee range.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The ability to make a weapon attack as a Bonus Action while\n\t\t\tconcentrating on Telekinesis is very exciting. The obvious intent is that\n\t\t\tyou use your Action to use Telekinesis, and that can be a powerful\n\t\t\tcombination: lift your target into the air and shoot them, or drop them to\n\t\t\tforce them to fall prone before attacking them in melee."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "However, you’re under no obligation to actually use Telekinesis while\n\t\t\tyou’re concentrating on it. The spell has a 10-minute duration, so you can\n\t\t\teasily use it as a buff to add an attack as a Bonus Action. If you enjoy\n\t\t\tthis strategy, I think you’ll agree that spending a Psionic Energy Die to\n\t\t\trecharge this ability is well worth the cost to get an additional attack\n\t\t\twith little effort."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Psi Warrior Fighter Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since the Psi Warrior Fighter’s features are Intelligence-based, we can use the Intelligence-based ability score scores recommended in our "
+            },
+            {
+              "type": "link",
+              "text": "Fighter Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Psi Warrior Fighter Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical fighter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#races"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Psi Warrior Fighter Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical fighter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Psi Warrior Fighter Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical fighter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Psi Warrior Fighter Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical fighter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Psi Warrior Fighter Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical fighter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Rogue"
+              },
+              {
+                "type": "text",
+                "text": ": Soulknife’s pool of psionic dice and powers are separate from the Psi Warrior’s. You can’t share dice between the two. That said, 3 levels to get a second pool of psionic abilities does feel very cool."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Psi Warrior Fighter Build – Giff Yankee",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re building a psionic, gun-toting space hippo. I’m not going to lean into the pun any more than that, but take comfort in the knowledge that I’m imagining a hippo gunslinger in a cowboy hat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll start with 15 in Dex and Int, but leave Con at 14 since we’re planning to fight at range and we have Protective Field if we’re desperate. That lets us get a little bit of Wisdom instead of going with a typically optimized 15/15/15/8/8/8. We’ll put our racial +2 into Dexterity and our racial +1 into Intelligence."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Giff! Yes, a Gith would make sense here since Gith are all about psionics, but we’re adding a gun to the build, and I love a stupid pun, so here we go. Astral Spark and Firearms Mastery both work great for what we’re planning."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Soldier. A staple for fighters, on theme for the build, and it gets us proficiency in Athletics."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll select Insight and Perception from our class skills to help compensate for our horrid Wisdom, then we get Athletics and Intimidation from our background. Extremely typical for a fighter. We’re also proficient in a gaming set and land vehicles, but those don’t come up often."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Athletics is going to be very important for us since we’re built for ranged combat but won’t be taking Gunner to make it safe to use ranged weapons in melee. Fortunately, we’re a "
+            },
+            {
+              "type": "text",
+              "text": "patriot"
+            },
+            {
+              "type": "text",
+              "text": " space hippo and get Advantage on Strength checks. With that and proficiency in Athletics we’re decent at shoving enemies even if our Strength is poor."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we’ll take Piercer. It’s a great half feat for ranged Striker builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 6 we’ll take Sharpshooter. Yet another staple for ranged builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we’ll take an ASI to max Dexterity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we’ll take Gift of the Chromatic Dragon. +1 Int and the ability to mitigate elemental damage as a Reaction."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 14 we’ll take Telekinetic. +1 int, some utility, Telekinetic Shove, and it fits the theme really well."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16 we’ll increase Intelligence to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19 we have an empty space."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Archery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "All fairly standard at this level. You may not be able to afford a musket, so use a bow or crossbow for now until you can purchase one or find one under a rock."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge (1)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge is literally always excellent."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "By this level you can almost certainly afford a heavy crossbow. Grab one and pretend that it’s a musket by shouting “bang” when you shoot things with it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Martial Archetype: Psi Warrior"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Psionic Energy Die: d6"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Psionic Power"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Protective Field"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Psionic Strike"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Telekinetic Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We only have two dice per Long Rest, plus we can recharge one per Short or Long Rest. If your DM is following the Adventuring Day rules in the DMG (and no one does, but let’s pretend) you’ll be able to recharge 3 dice per day for a total of 5 across 6-8 encounters. That’s clearly not enough to use one per encounter, so you’ll need to be careful about how you use them."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Protective Field blocks 1d6+3 damage, which is about how much you’ll take from a single weapon attack. Psionic Strike adds the same amount of damage, so a heavy crossbow would deal 1d10+1d6+6 damage, which is very respectable at this level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember that you apply Psionic Strike after you both hit and deal damage, so you may already know if a creature survived your attack before you use Psionic Strike. This makes it easy to use Psionic Strike to finish off enemies that have just a few hit points remaining without gambling your die on an enemy that would already be dead from your attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Telekinetic Movement is a nice utility."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Piercer (Dex 17 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This keeps us on the "
+                },
+                {
+                  "type": "link",
+                  "text": "Fundamental Math",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": ", plus a little bit of extra damage both from the reroll and from crits."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "By this level you can reasonably afford a pistol, but purchasing one is so expensive that you may not be able to afford a musket until level 6. Count your pocket change and make good financial decisions. Or don’t."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Psionic Energy Die: d8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is an excellent level. Our Proficiency Bonus increases to +3 so we get an extra Psionic Energy die, our die size increases, we get Extra Attack, and according to the "
+                },
+                {
+                  "type": "link",
+                  "text": "Wealth by Level Curve",
+                  "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#character-wealth-by-level"
+                },
+                {
+                  "type": "text",
+                  "text": " we can finally afford a musket! Time to cast "
+                },
+                {
+                  "type": "link",
+                  "text": "alakablam",
+                  "href": "https://youtu.be/t6OBk9YBLQU?si=wzjrNSmqsCN3UzNw&t=66"
+                },
+                {
+                  "type": "text",
+                  "text": " on all of our problems."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Extra Attack also makes it much easier for us to get"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Sharpshooter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have a gun, we have Archery for our gun, and now it’s time to take Sharpshooter."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Telekinetic Adept"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Psi-Powered Leap"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Telekinetic Thrust"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Psi-Powered Leap is very strangely named because it’s absolutely not a leap. You can only change direction mid-leap in video games. It is passable flight, though, and you get it once per day for free. It also lets you fire (sadly just one) gun while diving through the air in slow motion."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Telekinetic Thrust is a major buff to Psionic Strike. Keep in the mind that it’s a Strength saving throw based on our Intelligence, so big, bulky enemies will pass consistently. Enemies not built as melee monsters should fail somewhat reliably."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you see flying enemies, do your best Duck Hunt impression and shoot stuff out of the sky. Flying creatures automatically fall when they’re knocked prone, potentially adding falling damage to the results."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Dexterity 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Not flashy, but very important."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable (1)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable is fine. Our PB also improves at this level, so we get another Psionic Energy die!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Guarded Mind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Great defenses if Indomitable doesn’t do the job."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (2)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Psionic Energy Die: d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Yet another attack and our Psionic Energy Die increases, thereby improving both Protective Field and Psionic Strike."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Gift of the Gem Dragon (Int 16 -> 17)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A nice counter for nearby enemies that won’t cut into our psionics."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "indomitable (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Another Indomitable, another PB increase!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Telekinetic (Int 17 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Another half feat that increases our Intelligence. "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": " is a nice utility, especially on a class that’s basically all combat plus some mediocre skill capabilities. The Telekinetic Shove option is great crowd control in combat without cutting into our limited resource pools. It also means that we can try to use our brain to get out of melee before resorting to physical force."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Of course, we do have other uses for our Bonus Action built into our class and subclass: Second Wind, Psi-Powered Leap, Bulwark of Force, and eventually the Bonus Action attack from Telekinetic Master. You’re not going to use those every turn, though, nor are you intended to do so. Telekinetic Shove can occupy the rest of your Bonus Actions."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bulwark of Force"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It sure is a good thing that we just got our Intelligence modifier up to +4 so that we could affect 4 creatues with Bulwark of Force rather than just 3."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This feature is great. +2 to AC and +2 to Dexterity saves is a significant buff for your whole party, and you get to use this once per day for free before you need to spend a Psionic Energy die to recharge it. Even with 1d10+4 damage blocked by Protective Field, Bulwark of Force is massively more efficient at mitigating damage for the same resource cost."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Intelligence 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Not very flashy. I thought about Resilient (Int) here, but Intelligence saves are too rare to justify that. You could take another hybrid feat here like Fey Touched, but getting to 20 Intelligence to improve Bulwark of Force feels really good."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge (2)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Indomitable (3)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Psionic Energy Die: d12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Also, another Indomitable, and yet another PB increase! It’s weird that they did that three times. I have to wonder if that was intentional when designing the Fighter’s core class features. Our Psionic Energy Die also gets bigger, so we are at our absolutely maximum amount of psionic power."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Telekinetic Master"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Telekinesis lets you lift an enemy off the ground and hold them there with the Restrained condition until the end of your next turn. You could grab an enemy, lift them into the air, declare “cowboy, you just yee’ed your last haw”, and then spend your next turn shooting them before they fall, then repeat the combo until you run out of enemies, also spending every Bonus Action you have to make attacks. You could throw Action Surge in there somewhere, too, if you’re feeling enthusiastic."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Regardless, you’re making a lot of attacks with Advantage, and that’s to say nothing of the general benefits of making an enemy Restrained for most of a fight. They can’t move, they attack with Disadvantage, and your allies also attack them with Advantage. Unless they’re a spellcaster, they’re toast."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You get to do this once per day for free, but spending one of your now 6 to 9 daily Psionic Energy dice to recharge it is a pittance."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We don’t really need anything else, so go for staples like Lucky or a +2 Constitution increase."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Yes, we can now fire a muzzle-loaded musket 8 times in 6 seconds. Don’t question it. The wizard can cast Wish. We’re allowed to be cool, too."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Psi Warrior Fighter Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Psionic Power"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Protective Field"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Psionic Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Telekinetic Movement"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Telekinetic Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Psi-Powered Leap"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Telekinetic Thrust"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Guarded Mind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bulwark of Force"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Telekinetic Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Rogue"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[5]",
+      "detail": "<li value=\"18\"><span class=\"rating-green\">Telekinetic Master</span>: By this level it’s entirely possible that you have raised both your Strength/Dexterity and your Intelligence to"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-multiclassing-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "p/s[1]",
+      "detail": "s"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-2-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-2-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-2-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3111,
+    "sections": 17,
+    "blocks": 32,
+    "tables": 2,
+    "ratingSignals": 16
+  },
+  "status": "needs-editorial-review"
+}

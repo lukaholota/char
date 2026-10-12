@@ -1,0 +1,4 @@
+- levels row 6 (Cleric 5): the source says «Destroy Undead (CR 1)»; the PHB gives CR 1/2 at Cleric 5 (CR 1 comes at Cleric 8). Translated as written («ПН 1»).
+- levels row 12 note (Cleric 11): the source says the increased max HP from Heroes' Feast applies the Disciple of Life bonus; RAW this is debatable. Translated as written.
+- Catalog name of the Life Domain feature «Channel Divinity: Preserve Life» is «Божественність: Збереження життя» (no «Канал»); the intro uses that catalog form, the notes use «Збереження життя» as the sibling page does.
+- Remaining quality flags are intentional: author name «JoCat» in the epigraph attribution and the book code «ERftLW» as link text.

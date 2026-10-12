@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   distDir: process.env.NEXT_DEV_DIST_DIR || ".next",
   output: "standalone",
   deploymentId: process.env.DEPLOYMENT_VERSION,
+  env: { NEXT_PUBLIC_DEPLOYMENT_VERSION: process.env.DEPLOYMENT_VERSION || "" },
   experimental: {
     webpackMemoryOptimizations: true
   },

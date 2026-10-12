@@ -140,3 +140,23 @@ describe("PostHog", () => {
     await waitFor(() => expect(posthog.capture).toHaveBeenCalledWith("$pageview", expect.objectContaining({ edition: "2024", page_group: "char" }), { send_instantly: true }));
   });
 });
+
+it("registers display mode and carries it with queued install events", async () => {
+  vi.stubGlobal("matchMedia", () => ({ matches: true }));
+  try {
+    const { capturePostHogEvent, configurePostHogIdentity } = await importPostHogModules();
+    configurePostHogIdentity({ userId: "7", isInternal: false });
+    capturePostHogEvent("app_install_prompt_result", { outcome: "accepted" });
+    await runIdle();
+    expect(posthog.register).toHaveBeenCalledWith({ is_internal: false, display_mode: "standalone", is_signed_in: true });
+    expect(posthog.capture).toHaveBeenCalledWith("app_install_prompt_result", expect.objectContaining({ display_mode: "standalone", outcome: "accepted" }), { send_instantly: true });
+  } finally { vi.unstubAllGlobals(); }
+});
+
+it("marks anonymous visitors as not signed in", async () => {
+  const { capturePostHogEvent, configurePostHogIdentity } = await importPostHogModules();
+  configurePostHogIdentity({ userId: null, isInternal: false });
+  capturePostHogEvent("search_opened", {});
+  await runIdle();
+  expect(posthog.register).toHaveBeenCalledWith(expect.objectContaining({ is_signed_in: false }));
+});

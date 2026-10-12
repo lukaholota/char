@@ -1,0 +1,950 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-cb902752ddff5626",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-cb902752ddff5626-e24f99c2d06628ea",
+      "sourceId": "rpgbot-cb902752ddff5626",
+      "fetchedAt": "2026-09-29T19:21:59.711946+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:43:27-04:00",
+      "contentHash": "1de01538570d78d82da651d1354306fc7f1fb5b0e12970e0eb348afbdaa1ea52",
+      "title": "Hadozee: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-cb902752ddff5626-e24f99c2d06628ea.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-hadozee-2014",
+    "sourceId": "rpgbot-cb902752ddff5626",
+    "slug": "hadozee-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Хадозі — гайд раси (2014)",
+    "titleEn": "Hadozee: DnD 5e Race/Species Guide",
+    "topics": [
+      "races"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "articleId": "rpgbot-hadozee-2014",
+      "sourceRevisionId": "rpgbot-cb902752ddff5626-e24f99c2d06628ea",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хадозі дивні. Вони схожі на поєднання примата з летягою, мають хапальні стопи й можуть планерувати на шкірних перетинках. Я не розумію, як вони носять одяг: перетинки прикріплені до запʼясть, попереку й щиколоток, а офіційні ілюстрації показують звичайні людські штани. Спробуйте привʼязати нитку від щиколотки до запʼястя й надягнути штани. Ось із чим ми маємо справу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Механічно хадозі дуже витривалі. {{Стійкість Хадозі|Hadozee Dodge}} — практично {{Витривалість каменю|Stone's Endurance}} Голіафа, але з меншим кубиком та іншим масштабуванням: від Бонусу Майстерності, а не модифікатора Статури. На дуже високих рівнях це краще для персонажів, які мало вкладають у Статуру. Проте з типовими 14 Статури Hadozee Dodge наздоганяє альтернативу лише на 11-му рівні, до якого багато персонажів не доходять."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Планерування|Glide}} дозволяє швидко переміщатися горизонтально, але головне призначення — уникати шкоди від падіння чи стрибка з висоти. Додаткове пересування, вочевидь, вважали зловживанням, бо Wizards of the Coast послабила рису виправленням. {{Спритні Ступні|Dexterous Feet}} теж існує, але її можливості такі обмежені, що про неї легко забути."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найскладніше в грі хадозі — обґрунтувати вибір хадозі. {{Спритні Ступні|Dexterous Feet}} дуже обмежена й майже зайва, якщо обидві руки не зайняті предметами. {{Планерування|Glide}} корисна лише за достатнього стрибка — 10 футів після виправлення, — тому потрібна висока Сила. Лазіння допомагає, але поруч не завжди є куди видертися. Навіть коли планерування працює, воно часто лише кумедна дивина у світі магічного польоту. У переважній більшості випадків Голіаф кращий, бо {{Витривалість каменю|Stone's Endurance}} прямо перевершує Hadozee Dodge."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зверніть увагу: Wizards of the Coast змінила риси й історію хадозі та опублікувала "
+                },
+                {
+                  "type": "link",
+                  "text": "заяву щодо суперечки навколо хадозі",
+                  "href": "https://dnd.wizards.com/articles/statement-hadozee"
+                },
+                {
+                  "type": "text",
+                  "text": ". Поточна версія DnDBeyond прибрала значну частину історії й переписала Glide; ці зміни увійдуть у майбутні перевидання Спелджаммер: Пригоди в космосі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/hadozee/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/hadozee/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Dexterous Feet: що дозволяють стопи",
+                    "href": "https://rpgbot.net/dnd5/characters/races/hadozee/#dexterous-feet"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Glide: стрибки й падіння",
+                    "href": "https://rpgbot.net/dnd5/characters/races/hadozee/#glide"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Хадозі: вибір класу",
+                    "href": "https://rpgbot.net/dnd5/characters/races/hadozee/#classes"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dexterous-feet",
+          "heading": "Dexterous Feet: що дозволяють стопи",
+          "sourceAnchor": "dexterous-feet",
+          "blocks": [
+            {
+              "blockId": "block-section-dexterous-feet-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я не можу відтворити точний текст правил, бо Хадозі не входить до SRD. Візьміть свою Спелджаммер: Пригоди в космосі або відкрийте сторінку "
+                },
+                {
+                  "type": "link",
+                  "text": "Хадозі",
+                  "href": "https://www.dndbeyond.com/races/1121699-thri-kreen#HadozeeTraits"
+                },
+                {
+                  "type": "text",
+                  "text": " на DnDBeyond. Точні формулювання важливі, тому прочитайте {{Спритні Ступні|Dexterous Feet}}, перш ніж продовжувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dexterous-feet-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перефразую те, що стопи "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "можуть"
+                },
+                {
+                  "type": "text",
+                  "text": " робити:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dexterous-feet-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Маніпулювати предметами"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Відчиняти й зачиняти двері або контейнери"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Піднімати й класти Крихітні предмети"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-dexterous-feet-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Деякі звичайні можливості рук тут помітно відсутні. Це не вичерпний список, але ось важливі приклади того, чого стопами робити "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "не можна"
+                },
+                {
+                  "type": "text",
+                  "text": ":"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dexterous-feet-5",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Робити щось, що прямо потребує вільної руки, наприклад захоплення чи штовхання"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Захоплювати або штовхати істоту"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Перезаряджати зброю з властивістю Боєприпаси"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виконувати соматичні компоненти"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Використовувати магічний предмет"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Використовувати щит"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виконувати дію Використати предмет"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Орудувати зброєю"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-dexterous-feet-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є важлива різниця між маніпулюванням предметом і дією Використати предмет. Остання охоплює, наприклад, застосування алхімічного вогню. Маніпулювати означає тримати, перевертати, переносити, штовхати тощо. Хадозі може перевернути стіл, але не випити зілля допоміжними кінцівками. Думаю, це навмисне обмеження, щоб не надто порушувати економіку рук. Примітка редакції: згадка допоміжних рук перенесена з іншої раси; тут йдеться про стопи хадозі. Дія Використати предмет залежить від конкретного предмета; авторський перелік — тлумачення меж Dexterous Feet."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-glide",
+          "heading": "Glide: стрибки й падіння",
+          "sourceAnchor": "glide",
+          "blocks": [
+            {
+              "blockId": "block-section-glide-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На лазіння не завжди можна покластися, тому для максимальної користі {{Планерування|Glide}} потрібно розуміти стрибки й падіння. Після майже негайного виправлення Wizards of the Coast це складніше: потрібно падати щонайменше 10 футів, а горизонтальна відстань обмежена швидкістю ходьби. Спершу підніміться на 10 футів і впадіть. Стрибок у висоту з розбігу дорівнює 3 + модифікатор Сили, тому без магії регулярно активувати рису можуть хіба що Варвари з 24 Сили на 20-му рівні. Шукайте Стрибок [Jump] або {{Черевики кроку й стрибка|Boots of Striding and Springing}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-glide-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо {{Планерування|Glide}} вдалося активувати, за словами автора, вона не потребує дії й не витрачає вашого пересування понад можливі 20 футів підготовки: 10 розбігу й 10 стрибка. Із швидкістю 30 футів можна розбігтися, стрибнути на 10 футів угору й уперед, планерувати, а потім пройти ще 10 футів, подвоївши пересування ціною реакції. Примітка редакції: чинне виправлення прямо потребує реакції для планерування; твердження «не потребує дії» не означає безкоштовну активацію. Приклад залежить від траєкторії стрибка та наявності реакції."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes",
+          "heading": "Хадозі: вибір класу",
+          "sourceAnchor": "classes",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із 12 або більше Сили Стрибок [Jump] робить {{Планерування|Glide}} придатною до використання. На 10-му рівні можна влити магію в {{Черевики кроку й стрибка|Boots of Striding and Springing}}, щоб не витрачати слот щоразу: планерування стає ефективним пересуванням. Вливання {{Крилаті чоботи|Winged Boots}}, мабуть, краще, але точно менш веселе."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Стійкість Хадозі|Hadozee Dodge}} чудово захищає разом зі Стійкістю до шкоди від {{Лють|Rage}}. {{Спритні Ступні|Dexterous Feet}} може допомогти, якщо в кожній руці предмет. Для більшості Варварів {{Планерування|Glide}} не буде корисною до 20-го рівня."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-barbarian-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Шлях звіра{{Path of the Beast}} дозволяє стрибати на неймовірні відстані: можна підстрибнути високо й активувати {{Планерування|Glide}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви обираєте расу переважно заради {{Стійкість Хадозі|Hadozee Dodge}} й {{Спритні Ступні|Dexterous Feet}}. Якщо не знаходите вагомого застосування стопам, просто грайте Голіафом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви обираєте расу переважно заради {{Стійкість Хадозі|Hadozee Dodge}} й {{Спритні Ступні|Dexterous Feet}}. Якщо не знаходите вагомого застосування стопам, просто грайте Голіафом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви обираєте расу переважно заради {{Стійкість Хадозі|Hadozee Dodge}} й {{Спритні Ступні|Dexterous Feet}}. Якщо не знаходите вагомого застосування стопам, просто грайте Голіафом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-druid-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна поєднати {{Дика форма|Wild Shape}} з {{Планерування|Glide}}: злетіти високо, повернутися до природної форми й планерувати. Але навіщо ускладнювати? Дика форма триває годину. Для далекої подорожі перетворіться на швидкого птаха. Примітка редакції: тривалість Дикої форми дорівнює половині рівня Друїда в годинах, округленій униз; година — мінімум, а літальні форми доступні з 8-го рівня."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви обираєте расу переважно заради {{Стійкість Хадозі|Hadozee Dodge}} й {{Спритні Ступні|Dexterous Feet}}. Якщо не знаходите вагомого застосування стопам, просто грайте Голіафом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fighter-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Містичний лицар{{Eldritch Knight}} може накласти Стрибок [Jump], але слотів замало, щоб виправдати витрату заради {{Планерування|Glide}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Навіть якщо ви активуєте {{Планерування|Glide}}, Монаху вона менш корисна через {{Повільне падіння|Slow Fall}}. {{Стійкість Хадозі|Hadozee Dodge}} приємна, але тоді краще Голіаф. {{Крок вітру|Step of the Wind}} подвоює відстань стрибка й наближає до активації планерування, проте Сили все ще потрібно значно більше, ніж Монах може дозволити собі. Примітка редакції: для стрибка у висоту на 10 футів із розбігу й подвоєнням достатньо 14 Сили; це все одно дорога інвестиція для класу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви обираєте расу переважно заради {{Стійкість Хадозі|Hadozee Dodge}} й {{Спритні Ступні|Dexterous Feet}}. Якщо не знаходите вагомого застосування стопам, просто грайте Голіафом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Спритні Ступні|Dexterous Feet}} іноді корисна Слідопиту з двома видами зброї. {{Стійкість Хадозі|Hadozee Dodge}} також допоможе, але тоді просто грайте Голіафом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes",
+          "heading": "Розбійник",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розбійнику бракує Сили для корисних стрибків і планерування. Для предметів бонусною дією Злодій уже має {{Швидкі руки|Fast Hands}} ("
+                },
+                {
+                  "type": "link",
+                  "text": "поради щодо здібності",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/fast-hands/"
+                },
+                {
+                  "type": "text",
+                  "text": "), тому {{Спритні Ступні|Dexterous Feet}} стає зайвою. {{Стійкість Хадозі|Hadozee Dodge}} хороша, але {{Неймовірне ухилення|Uncanny Dodge}} ефективніша й не має денного ліміту. Примітка редакції: Неймовірне ухилення працює лише проти влучання атакою видимого нападника; Hadozee Dodge може зменшувати й інші джерела шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-rogue-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Робота на другому поверсі|Second-Story Work}} Злодія додає модифікатор Спритності до відстані стрибка з розбігу. Із 14 Сили й 20 Спритності можна досягти 10 футів для {{Планерування|Glide}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes",
+          "heading": "Чаклун",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із 12 Сили й Стрибок [Jump] {{Планерування|Glide}} іноді недорого замінює політ і телепортацію. {{Стійкість Хадозі|Hadozee Dodge}} чудово доповнює Кубик Здоровʼя Чаклуна к6."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sorcerer-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Магія шторму|Storm Sorcery}} також дозволяє піднятися на 10 футів, активуючи {{Планерування|Glide}} без Jump чи магічного предмета."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила Чорнокнижнику не потрібна, і Стрибок [Jump] недоступне без Відозви {{Потойбічний стрибок|Otherworldly Leap}}. Навіть із нею потрібно 12 Сили для висоти активації {{Планерування|Glide}}. Ця трохи незручна інвестиція — найпростіший доступний спосіб регулярно планерувати, тому Чорнокнижник добре підходить хадозі. Іншим класам варто розглянути мультиклас або {{Містичний адепт|Eldritch Adept}}, якщо доступ до {{Черевики кроку й стрибка|Boots of Striding and Springing}} чи подібного предмета не гарантований. Примітка редакції: Відозва 2014 потребує 9-го рівня Чорнокнижника; одна риса чи короткий мультиклас не обходять цю передумову."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-warlock-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Відозва {{Висхідний крок|Ascendant Step}} дозволяє довільно накладати на себе Левітація [Levitate], поступово піднімаючись на будь-яку висоту. Не зовсім ясно, що відбувається після завершення заклинання при спробі {{Планерування|Glide}}, але вертикальний рух такий повільний, що це радше розвага, ніж користь. Примітка редакції: наприкінці Levitate ціль плавно опускається, якщо ще перебуває в повітрі; це не звичайне падіння."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-warlock-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Потойбічний стрибок|Otherworldly Leap}} робить Стрибок [Jump] безкоштовним, але для висоти активації {{Планерування|Glide}} все одно потрібно 12 Сили."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із 12 Сили й Стрибок [Jump] {{Планерування|Glide}} іноді недорого замінює політ і телепортацію. {{Стійкість Хадозі|Hadozee Dodge}} чудово доповнює Кубик Здоровʼя Чарівника к6."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-hadozee-2014-001",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hadozee-2014-002",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hadozee-2014-003",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hadozee-2014-004",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hadozee-2014-005",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hadozee-2014-006",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hadozee-2014-007",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hadozee-2014-008",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hadozee-2014-009",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hadozee-2014-010",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hadozee-2014-011",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hadozee-2014-012",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-hadozee-2014-013",
+      "articleId": "rpgbot-hadozee-2014",
+      "translationRevisionId": "translation-rpgbot-hadozee-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

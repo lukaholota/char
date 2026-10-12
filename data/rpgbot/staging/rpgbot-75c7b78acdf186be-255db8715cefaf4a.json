@@ -1,0 +1,2874 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "255db8715cefaf4a46c2ef54bcc999c474230b2b9701fc5b2d5562ab74d7093c",
+  "sourceRevision": {
+    "revisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a",
+    "sourceId": "rpgbot-75c7b78acdf186be",
+    "fetchedAt": "2026-09-29T19:15:31.606135+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:35:25-04:00",
+    "contentHash": "889cd70f381d4387e02a8679ad79fbbd77ec8652bf36ec31a3964cba90a93ac1",
+    "title": "Cavalier Fighter 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-75c7b78acdf186be-255db8715cefaf4a.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Cavalier is a fantastic Defender, and possesses abilities which I have been hoping to find since I first started writing handbooks for 5e. Defenders in 5e face two major problems: first, enemies can freely move around a creature within that creature’s reach, often allowing them to circle around the Defender to get within reach of the Defender’s weak allies. Second, the limitation of one Reaction per round means only one Opportunity Attack per round. The Cavalier addresses both of these issues."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Cavalier also caters well to fighting while mounted, allowing you to protect your mount from harm and providing fun abilities like Ferocious Charge, but the abilities are also worded so that fighting mounted is not strictly required so you can still go into a dungeon without your horse."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, the Cavalier is not without challenges. Using a lance while mounted is an obvious and exciting option, but some of the Cavalier’s abilities only work while you’re within 5 feet of the creature you’re attacking (lances suffer Disadvantage while you’re attacking a creature within 5 feet of you) so you may need to make unarmed strikes or switch to a different weapon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you plan to play the Cavalier while mounted, I strongly encourage you to read our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Mounted Combat",
+              "href": "https://rpgbot.net/dnd5/characters/mounted_combat"
+            },
+            {
+              "type": "text",
+              "text": ". The Mounted Combat rules are brief but exceptionally confusing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cavalier Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cavalier Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#cavalier-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cavalier Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#cavalier-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cavalier Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#cavalier-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cavalier Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#cavalier-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cavalier Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#cavalier-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Barding (Horse Armor)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#barding-horse-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Tilting at Windmills Both Literally and Metaphorically",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#example-build-tilting-at-windmills-both-literally-and-metaphorically"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/cavalier/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Cavalier Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Bonus Proficiency"
+              },
+              {
+                "type": "text",
+                "text": ": A free skill or\n\t\tlanguage proficiency. Take the skill. Languages can be solved magically."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Born to the Saddle"
+              },
+              {
+                "type": "text",
+                "text": ": It’s difficult to\n\t\tknow how often you’ll need to make a saving throw to stay in the saddle.\n\t\tArguably anything with a save to prevent forced movement would count\n\t\t(Thunderwave, Command (Flee), Telekinesis, etc.), but it’s not clear.\n\t\tAllowing you to mount/dismount for only 5 feet of movement means that you\n\t\tcan get back onto your mount when you start your turn further away. However,\n\t\tit doesn’t remove the once-per-turn limitation on mounting or dismounting a\n\t\tmount, so don’t expect to go hopping on and off of your mount a bunch of\n\t\ttimes in the same round."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Unwavering Mark"
+              },
+              {
+                "type": "text",
+                "text": ": This is a great taunt\n\t\tmechanic. It makes it difficult for foes to attack your allies, and if they\n\t\tdo it anyway you get an extra attack as a Bonus Action on your next turn\n\t\twith a nice damage boost.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The Disadvantage portion of Unwavering Mark only functions while the\n\t\t\ttarget is within 5 feet of you, making lances, whips, and other reach\n\t\t\tweapons difficult to use in conjunction. You can still make the Bonus\n\t\t\tAction attack if those enemies attack someone else, but you still want to\n\t\t\tkeep enemies within 5 feet of you in order to impose Disadvantage on their\n\t\t\tattacks."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You’re limited in the number of times that you can use the Bonus\n\t\t\tAction attack between rests, so try to use the attack only as needed\n\t\t\trather than throwing it on everything you hit. But you can mark foes (and\n\t\t\timpose Disadvantage) as much as you want, so spread the marks around and\n\t\t\ttry to keep as many enemies as possible within 5 feet of you."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "For cavaliers fighting while mounted, imposing Disadvantage on attacks\n\t\t\tagainst creatures other than you is a good way to keep enemies from attacking\n\t\t\tyour mount. Considering how frail most mounts are compared to you, that’s\n\t\t\ta huge benefit."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you really want to lean into this feature, consider the Sentinel feat.\n\t\t\tIt will make it especially difficult for enemies to move away from you,\n\t\t\tmaking it easy to keep marked creatures within 5 feet of you. Even better,\n\t\t\tif they still attack a creature other than you, you get to attack them as\n\t\t\ta Reaction."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warding Maneuver"
+              },
+              {
+                "type": "text",
+                "text": ":Similar to the\n\t\tProtection Fighting Style. You can only use this a few times per Long Rest,\n\t\tso use it sparingly, and make steps to avoid needing it if you can."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hold the Line"
+              },
+              {
+                "type": "text",
+                "text": ": This is considerably better\n\t\tthan the Sentinel feat in most cases, as it prevents enemies from running\n\t\taround within your reach. This means that you can reliably hold enemies in\n\t\tplace while remaining adjacent to allies so that you can protect them with\n\t\tWarding Maneuver and/or the Protection Fighting Style. It gets even better\n\t\tif you have extended reach because it doesn’t require you to be within 5 feet\n\t\tof the target like other Unwavering Mark’s Disadvantage effect does. However, unlike Sentinel, the\n\t\tDisengage action still allows enemies to get past you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ferocious Charger"
+              },
+              {
+                "type": "text",
+                "text": ": Two important notes:\n\t\tFirst, your mount moving counts, so you don’t need to use your own movement.\n\t\tSecond, your mount can still Dash or Disengage to put distance between you\n\t\tand your enemy to set up your charge. You should be doing everything you can\n\t\tto use this every round. The benefits are simply too great to ignore."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vigilant Defender"
+              },
+              {
+                "type": "text",
+                "text": ": This solves the second\n\t\tmajor problem with Defender builds in 5e. Combined with Hold the Line you\n\t\tcan drop yourself into a crowd of enemies and force them all to stay exactly\n\t\twhere they are, especially if you have a reach weapon in hand."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cavalier-ability-scores",
+      "heading": "Cavalier Ability Scores",
+      "sourceAnchor": "cavalier-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-cavalier-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cavaliers are locked into Strength and Constitution thanks to their subclass\n\tfeatures, but you don’t really need anything else. Some Wisdom for Animal\n\tHandling and Perception is helpful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cavalier-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Attacks, damage, Unwavering Mark."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cavalier-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cavalier-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Hit points, one of the big saving\n\tthrows, Warding Maneuver."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cavalier-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cavalier-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Saves and some important skills."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cavalier-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cavalier-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cavalier-races",
+      "heading": "Cavalier Races",
+      "sourceAnchor": "cavalier-races",
+      "blocks": [
+        {
+          "blockId": "block-section-cavalier-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cavaliers want to be adjacent to at least one ally, so flight is largely\n\twasted. Feats from custom lineage or variant human help, but fighters also get\n\tmore ASIs than any other class, so the benefits of a feat may not be hugely\n\timpactful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cavalier-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re planning to fight while mounted, the big choice is between being a small or medium sized creature as your mount must be at least one size larger than you. Small creatures can ride creatures sized medium or larger, including ponies, mastiffs, and wolves, which can squeeze into small spaces. Medium creatures, on the other hand, must ride large or larger mounts like horses and griffons, which can be harder to take into tight quarters. There’s nothing that prevents small creatures from riding large mounts, but being small prevents you from using many reach weapons (whips and lances still work). If you want to be small and still get a feat, remember that custom lineage can do that."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cavalier-races-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are also a handful of interesting racial combos:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cavalier-races-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Astral Elf / High Elf"
+              },
+              {
+                "type": "text",
+                "text": ": At very high\n\t\tlevels, the ability to combine Vigilant Defender, War Caster, and a cantrip\n\t\tmeans that you can potentially cast a cantrip as an Opportunity Attack once\n\t\ton every creature’s turn. It’s not likely to be that effective, but it’s fun\n\t\tto think about."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bugbear"
+              },
+              {
+                "type": "text",
+                "text": ": Long Arms makes it easier to hit\n\t\tan enemy with Unwavering Mark while remaining out of reach."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cavalier-feats",
+      "heading": "Cavalier Feats",
+      "sourceAnchor": "cavalier-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-cavalier-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Crusher / Piercer / Slasher",
+                "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The “once per turn” effects can all trigger on Opportunity Attacks, which is exciting when paired with Vigilant Defender. Remember that Vigilant Defender works best with reach weapons, and Hold the Line reduces the target’s speed to 0, so Crusher (no reach bludgeoning weapons) and Slasher are both less effective for the Cavalier than Piercer."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dual Wielder"
+              },
+              {
+                "type": "link",
+                "text": "CRB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Yes, you can use two-weapon fighting with lances if you take Dual\n\t\tWielder. But you really don’t need to do that. Fighting Style (Dueling) will\n\t\tyield more damage in the long term, and sometimes you’ll already get a Bonus\n\t\tAction attack thanks to Warding Mark."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mounted Combatant"
+              },
+              {
+                "type": "link",
+                "text": "CRB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Cavalier is the best and most obvious choice for a mounted fighter\n\t\tbuild, and Mounted Combat fills some crucial gaps in your ability to defend\n\t\tyour mount, even when considering Unwavering Mark and Warding Maneuver."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Polearm Master"
+              },
+              {
+                "type": "link",
+                "text": "CRB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": the Bonus\n\t\t\tAction attack offers another chance to mark a creature, but it competes\n\t\t\tfor space with the Bonus Action attack from Unwavering Mark, so it’s less\n\t\t\tappealing than it would be normally. Similarly, Hold the Line provides\na similar function to Polearm Master triggering an opportunity attack when enemies enter your reach. You also can’t use Polearm Master with a lance, so it’s basically useless if you’re fighting mounted, and if you’re walking it’s much less useful than you want a feat to be."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ritual Caster"
+              },
+              {
+                "type": "link",
+                "text": "CRB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The fact that this is even on this list is extremely odd, and it’s here for exactly one spell: Phantom Steed. A 3rd-level ritual only available to wizards, you’ll need 13 Intelligence to take the version of the feat we want and you’ll need to be 5th level before you can add the ritual to your spellbook, but it neatly solves the issue of your mounts being both expensive and fragile."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sentinel"
+              },
+              {
+                "type": "link",
+                "text": "CRB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Hold the Line gives you the important parts. The only thing you’re\n\t\tmissing is the extra attack as a Reaction if an enemy attacks on your\n\t\tallies, but Warding Mark is close."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shield Master"
+              },
+              {
+                "type": "link",
+                "text": "CRB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Since you need to be good at protecting your mount from attacks, your\n\t\tenemies will inevitable try to kill your mount with area damage, such as\n\t\tfrom a breath weapon or a fireball. This means that you’re also likely to be\n\t\ttargeted, which can make Shield Master an interesting defensive option.\n\t\tUnfortunately, the protection against Dexterity saves only functions if\n\t\tyou’re the only target, and you’re going to have competition for your Bonus\n\t\tAction and a way to knock foes prone, so there’s little benefit from the\n\t\trest of the feat. Consider Gift of the Chromatic Dragon instead."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cavalier-weapons",
+      "heading": "Cavalier Weapons",
+      "sourceAnchor": "cavalier-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-cavalier-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re mounted, you want a lance. If you’re not mounted, strongly consider\n\ta weapon with reach so that you can maximize the benefits of Unwavering Mark\n\tand Hold the Line."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cavalier-weapons-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Lance"
+              },
+              {
+                "type": "text",
+                "text": ": Reach, d12 damage die, you can use\n\t\tit one-handed while mounted, and it doesn’t care if you’re small."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cavalier-armor",
+      "heading": "Cavalier Armor",
+      "sourceAnchor": "cavalier-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-cavalier-armor-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Full Plate"
+              },
+              {
+                "type": "text",
+                "text": ": You’re built around Strength.\n\t\tYou want full plate."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-barding-horse-armor",
+      "parentSectionId": "section-cavalier-armor",
+      "heading": "Barding (Horse Armor)",
+      "sourceAnchor": "barding-horse-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-barding-horse-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re using a live mount (not one summoned via a Figurine of Wondrous\n\tPower or a spell or something), you should put armor on it. See our\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Mounted Combat",
+              "href": "https://rpgbot.net/dnd5/characters/mounted_combat/#horse-armor"
+            },
+            {
+              "type": "text",
+              "text": "\n\tfor details on how that works."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Paladin"
+              },
+              {
+                "type": "text",
+                "text": ": Find Steed doesn’t come online\n\t\tuntil you’re 5 levels into paladin. A 5- or 6-level dip to get Find Steed\n\t\tand Aura of Protection may be worthwhile, but it’s massively expensive and\n\t\tmeans that you’ll never get Vigilant Defender and you may never get\n\t\tFerocious Charger."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ranger"
+              },
+              {
+                "type": "text",
+                "text": ": 3 levels in Beast Master gets\n\t\tyou a companion. If you’re using the PHB rules, you can get a pony, a\n\t\tpteranodon, or a wolf. If you’re small, you can ride them. Even better, you\n\t\tadd your Proficiency Bonus to their AC so they’re more durable than your\n\t\ttypical animal. Unfortunately, that’s a 3-level dip for an AC boost and if\n\t\tyour mount dies anyway you need 8 hours to bond with another."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+      "heading": "Example Build – Tilting at Windmills Both Literally and Metaphorically",
+      "sourceAnchor": "example-build-tilting-at-windmills-both-literally-and-metaphorically",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-tilting-at-windmills-both-literally-and-metaphorically-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Somewhere in La Mancha, in a place whose name I do not care to remember, a gentleman lived not long ago, one of those who has a lance and ancient shield on a shelf and keeps a skinny nag and a greyhound for racing."
+            },
+            {
+              "type": "link",
+              "text": "Don Quixote",
+              "href": "https://en.wikipedia.org/wiki/Don_Quixote"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-tilting-at-windmills-both-literally-and-metaphorically-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I have spoken "
+            },
+            {
+              "type": "link",
+              "text": "loudly",
+              "href": "https://rpgbot.net/dnd5/characters/mounted_combat/#horse-armor"
+            },
+            {
+              "type": "text",
+              "text": " and "
+            },
+            {
+              "type": "link",
+              "text": "often",
+              "href": "https://rpgbot.net/rpgbot-podcast-episode-2/"
+            },
+            {
+              "type": "text",
+              "text": " about how much 5e’s mounted combat rules bother me. That has not changed. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-tilting-at-windmills-both-literally-and-metaphorically-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build depends heavily on expensive gear, namely mounts and armor for both ourselves and our mount. A quick look at our "
+            },
+            {
+              "type": "link",
+              "text": "Wealth By Level Table",
+              "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#wealth-by-level-table"
+            },
+            {
+              "type": "text",
+              "text": " will be very informative, because the gold progression is extremely limiting to this build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll mostly use the ability scores suggested above, but since Custom Lineage only gives us a single +2 increase, we’ll drop Constitution to 14 and spread those points around. The only hybrid feat we’re taking is Piercer, so an odd-number Constitution won’t help us."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom Lineage. We’ll choose to be small and have Darkvision. Being small means that we can ride mounts anywhere that a human would fit, and Darkvision is just always useful. Not getting a second +1 to ability scores is annoying, but it will work out fine in the end. Fighters get a ton of ASIs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight. If ever there were a fighter that makes sense as a knight, it’s the cavalier. You can have your retainers help maintain your growing herd of mounts. History and Persuasion are both thematically appropriate but totally useless to us, so feel free to replace them with literally anything else. Perception would be good."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take Animal Handling and Athletics from the Fighter, plus History and Persuasion from our background. Our skills matter very little, and even Animal Handling is only as useful as your DM decides it should be."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take Mounted Combatant at level 1 because it’s almost required to keep your mount alive. At low levels when you’re short on gold for barding (or a replacement mount), being able to ride an 8gp mule is very helpful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll also take Piercer because it’s a hybrid feat and because it will boost our damage with lances. Piercer’s damage boost per attack isn’t huge, but we eventually get the ability to make a theoretically infinite number of Opportunity Attacks, so that minor damage boost adds up quickly."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We could also take Ritual Caster, but we would need to shift our ability scores around to get 13 Intelligence, and by level 5 when you can actually add it to your ritual book, you have enough gold to reasonably afford a few riding horses. If your party includes a wizard, hopefully they’re kind enough to share."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Mounted Combatant"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fighting Style (Dueling)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For our starting gear, select chain mail, a lance and a shield, a light crossbow and bolts, and either pack. We have 25gp from our background. Spend 24 of it on 3 mules. Sell the crossbow and the handaxes for some javelins, which will serve as our primary weapon while unmounted and also our ranged attack option. If you have extra gold, get more mules."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level we can immediately lean into fighting while mounted. Our lance works with Fighting Style (Dueling), so we come out of the gate with 40 ft. speed from our mule dealing 1d12+5 per hit with 18 AC. Windmills everywhere should tremble in fear."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you encounter small or tiny creatures, you’ll get Advantage on your attacks against them. At this level, many enemies are small beasts and humanoids like kobolds and goblins, so it may happen surprisingly often."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Your javelins deal a respectable 1d6+5 whether you’re stabbing with them or throwing them, so try to stay mounted."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mounted Combatant immediately becomes central to our tactics. With 10 AC and 11 hp, our mules are made of paper so you’ll need to direct every hit at yourself and hope for the best. A CR 1 creature is expected to deal 9 to 14 damage per turn according to the "
+                },
+                {
+                  "type": "link",
+                  "text": "Quick Monster Stats table",
+                  "href": "https://www.dndbeyond.com/sources/dmg/dungeon-masters-workshop#MonsterStatisticsbyChallengeRating"
+                },
+                {
+                  "type": "text",
+                  "text": ", so a single hit is likely to drop your mule to 0."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "There’s still basically nothing that we can do about area damage. Area damage effects like fireballs and most breath weapons allow a Dexterity save. Mounted Combatant makes our mounts able to mitigate their damage, but any significant area damage will take our mules down in a hit or two. Your best bet is for your mount to Dodge, giving it Advantage on Dexterity saves. Even then, a +0 bonus with Advantage isn’t perfect protection, so you may need to rush to kill whatever can deal AOE damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you face anything on a different save (example: white dragons use con saves for their breath weapons), you’re out of luck."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge (1/rest)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Consider buying some Hide barding for 40 gp. 12 AC isn’t much, but it beats the 10 that your mules have had until now. You might instead drop some gold to get a "
+                },
+                {
+                  "type": "link",
+                  "text": "draft horse",
+                  "href": "https://www.dndbeyond.com/monsters/16844-draft-horse"
+                },
+                {
+                  "type": "text",
+                  "text": " (19 hp, large, 40 ft. speed) or a "
+                },
+                {
+                  "type": "link",
+                  "text": "riding horse",
+                  "href": "https://www.dndbeyond.com/monsters/16997-riding-horse"
+                },
+                {
+                  "type": "text",
+                  "text": " (13 hp, large, 60 ft. speed). Either option will be slightly more durable than a mule, and the riding horse’s speed makes hit-and-run tactics much easier."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In either case, an actual horse is large, which makes it much easier to get Advantage from Mounted Combatant. Let your retainers ride the mules."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Martial Archetype: Cavalier"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bonus Proficiency"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Born to the Saddle"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unwavering Mark"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Take Insight for the extra proficiency. It’s the only option that we don’t already have and that isn’t attached to a dump stat."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Born to the Saddle basically doesn’t matter, but your DM might start looking for ways to unmount you if your character proves to be effective in combat."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unwavering Mark is where we start to really feel like a Defender rather than a pointy speedbump. You generally want to move toward an enemy and hit them with your lance "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "before"
+                },
+                {
+                  "type": "text",
+                  "text": " you get within 5 feet to impose Disadvantage on their attacks against other creatures. On following turns, have your mount Disengage, move you 5 feet away, and repeat the process. Remember that the usage limitation is only on the extra attack, not on marking the creature, and you can mark creatures with the attack from Unwavering Mark and with Opportunity Attacks in addition to your regular attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If your target damages something else anyway, on you next turn you can make an additional attack against them as a Bonus Action. Remember that the wording is “deals damage to anyone other than you”, not “hits with an attack”, so spells and other abilities still count."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It’s not entirely clear how Unwavering Mark works with Mounted Combatant’s redirected attack, so I would lean towards the least abusive interpretation: if you redirect the attack, it’s treated as though the attack targeted you the whole time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If your DM is feeling generous, you might instead allow Unwavering Mark to apply to attacks against your horse when you redirect them. The attack would be made at Disadvantage, and would trigger the additional attack if it hits you."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Piercer (Str 17 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The bonus Strength from Piercer gets us to 18, keeping us right in line with the "
+                },
+                {
+                  "type": "link",
+                  "text": "Fundamental Math",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Piercer’s other benefits aren’t amazing, but they’ll add up over time, especially if we’re making Opportunity Attacks frequently."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You should be able to scale mail barding by this level. It may be worth the cost to get 14 AC on your mount, but it may mean getting yourself full plate a level later, and 14 AC won’t make your mount durable enough to risk letting attacks go through."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Notably, this is the level at which you can afford an "
+                },
+                {
+                  "type": "link",
+                  "text": "elephant",
+                  "href": "https://www.dndbeyond.com/monsters/16855-elephant"
+                },
+                {
+                  "type": "text",
+                  "text": ". Yeah, that’s in the Player’s Handbook. 200 gp. I don’t understand it either, but if you can fit one into wherever you’re fighting and convince your DM to actually let you buy an elephant, it doesn’t matter."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Note that Unwavering Mark can be applied to anything you hit. As long as no one else is marking things (literally only possible for cavaliers and with an optional rule that no one uses), you’re free to spread it around."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This is the first level at which you can reasonably afford the 400gp to buy a warhorse, which is just unimaginably cruel because at this level paladins are casting Find Steed and getting one for free. With just 19 hp, a CR 3 creature’s minimum expected damage according to the "
+                },
+                {
+                  "type": "link",
+                  "text": "Quick Monster Stats table",
+                  "href": "https://www.dndbeyond.com/sources/dmg/dungeon-masters-workshop#MonsterStatisticsbyChallengeRating"
+                },
+                {
+                  "type": "text",
+                  "text": " reduces your warhorse to 0. You need to protect this thing very carefully if you spend the money on it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Strength 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 glorious levels where we’re ahead of the Fundamental Math."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This is the first level at which you can reasonably afford full plate armor for yourself. Provided that you’re not broke from buying horses, you should do so immediately."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Warding Maneuver"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is so much better than Fighting Style (Protection). If attacks target your horse, you can redirect them to yourself. If they hit you, you can use Warding Maneuver to halve or even potentially negate the damage. You can also use it against allies within 5 feet, which is helpful. Just remember that you only get it a few times per day."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Constitution 14 -> 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More hp, better saves, more Warding Maneuver uses."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable (1/day)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is the level at which you could reasonably afford full plate armor for yourself "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "and"
+                },
+                {
+                  "type": "text",
+                  "text": " full plate barding. If you’re on a warhorse or an elephant, consider it. If your mount has 18 AC and you use Warding Maneuver, it’s reasonably well defended, which can take a lot of pressure off of you. But you need to be very careful because one good hit will still kill your horse."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Honestly, it may not be worth the cost. 6,000 gp for plate barding is 15 warhorses."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hold the Line"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Another huge change to your tactics, Hold the Line is similar to the best 2/3 of the Sentinel feat, and it’s the primary reason why reach is so important to the Cavalier. Enemies moving 5 feet within your reach provoke Opportunity Attacks, so you want your reach to be as wide as possible."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Conveniently, your lance has reach. So when enemies move from the outer edge of your reach to the inner edge of your reach, you get an Opportunity Attack before they get close enough that you might attack with Disadvantage. If you hit them, they stop. You can potentially lock an enemy in place at the edge of your reach indefinitely."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Even if enemies do get within 5 feet, you can make Opportunity Attacks with an unarmed strike. You just need to hit. The damage isn’t the primary appeal."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The biggest difficulty is deciding between keeping enemies at the edge of your reach and keeping them within 5 feet to trigger Unwavering Mark in order to give them Disadvantage on attacks against other creatures. You’ll need to decide on a case-by-case basis. Melee-only enemies can stay at the edge of your reach where they’re mostly harmless, but enemies with ranged attacks may need to sit next to you to discourage them."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mark three things!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Constitution 16 -> 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More hp, better saves, more Warding Maneuver uses."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable 3/day"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "No changes here."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Constitution 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More hp, better saves, more Warding Maneuver uses."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ferocious Charger"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This makes movement extremely important. If you start in melee, expect to have your mount Disengage to get enough space to charge. If you’re still on a horse or something else that wears horseshoes, Horseshoes of Speed will double your mount’s speed, so even if you Disengage it should be very easy to get enough room."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The DC to resist being knocked prone will match the save DCs of full spellcasters, too, so it should be decently reliable unless you’re facing massive, strong enemies."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Once you knock a foe prone, hit them a whole bunch. Consider using Action Surge to pile on the damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level we’ve maxed out Strength and Constitution, and we have our essential feats, so we can do basically whatever we want here."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fighting Initiate for Fighting Style (Defense), Heavy Armor Master, Tough, and Resilient can all improve your durability. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Gift of the Chromatic Dragon is a decent choice. You can activate the damage boost, then march up front and let people walk onto your spear. Once you get Vigilant Defender, the damage bonus is really nice on your functionally bottomless supply of Opportunity Attacks when you’re facing multiple enemies. You can also use it to protect yourself from damage that Warding Maneuver generally doesn’t affect."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Savage Attacker is a bad feat. But hear me out: Once you get Vigilant Defender, you’re going to make a lot of attacks on a lot of turns. Savage Attacker works once "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "per turn"
+                },
+                {
+                  "type": "text",
+                  "text": ", so you can use it on every Opportunity Attack in addition to using it once on your own turn. Combined with the reroll from Piercer, you’re going to consistently roll well on that d12 damage die."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge 2/rest"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Indomitable 3/day"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "No changes here."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Vigilant Defender"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is functionally your capstone. You can make an Opportunity Attack on every other creature’s turn, which means you can make one per enemy. Combined with Hold the Line, you can lock enemies in place in huge numbers."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you were going to multiclass, now’s the time. I don’t know what else you want from life (just kidding, I do: "
+                },
+                {
+                  "type": "link",
+                  "text": "Emboldening Bond",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/peace-domain/"
+                },
+                {
+                  "type": "text",
+                  "text": " will happily apply its defensive benefits to your mount, too, and we already have the Wisdom to mutliclass into cleric), but it’s technically an option."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "See level 16."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "So many attacks! Between Vigilant Defender, Extra Attack, and Action Surge, you can make an insane number of attacks per round."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "rating- wp-block-heading Cavalier Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bonus Proficiency"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Born to the Saddle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Unwavering Mark"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Warding Maneuver"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hold the Line"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ferocious Charger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Vigilant Defender"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Astral Elf / High Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bugbear"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Crusher / Piercer / Slasher"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Dual Wielder"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mounted Combatant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Polearm Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ritual Caster"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Sentinel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Shield Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Lance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Full Plate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Ranger"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Unwavering Mark</span>: This is a great taunt mechanic. It makes it difficult for foes to attack your allies, and if they do it anyway you g"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-cavalier-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-cavalier-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-cavalier-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-cavalier-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-cavalier-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-cavalier-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-cavalier-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-cavalier-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-cavalier-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-cavalier-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-cavalier-races-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-cavalier-races-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-cavalier-feats-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-cavalier-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-cavalier-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-cavalier-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-barding-horse-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-example-build-tilting-at-windmills-both-literally-and-metaphorically-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"><p>Somewhere in La Mancha, in a place whose name I do not care to remember, a gentleman lived not lo"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-example-build-tilting-at-windmills-both-literally-and-metaphorically-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-example-build-tilting-at-windmills-both-literally-and-metaphorically-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4450,
+    "sections": 18,
+    "blocks": 41,
+    "tables": 3,
+    "ratingSignals": 31
+  },
+  "status": "needs-editorial-review"
+}

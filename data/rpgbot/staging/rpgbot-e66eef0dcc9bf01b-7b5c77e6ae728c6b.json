@@ -1,0 +1,2883 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "7b5c77e6ae728c6ba5c8c872712ce56c69f2a3d9c4495e87905fef276231bde2",
+  "sourceRevision": {
+    "revisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+    "sourceId": "rpgbot-e66eef0dcc9bf01b",
+    "fetchedAt": "2026-09-29T19:24:18.104571+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:47:44-04:00",
+    "contentHash": "030de7694e401bceccb59a8f918d1bcc581ca2c0cb53afabffcccbf34ef31a60",
+    "title": "Arcane Archer Fighter 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Arcane Archer Fighter is a really cool concept with disappointing mechanics that nowhere near match the appeal of the concept. Arcane Shot is the heart of the subclass, and with just two shots per Short or Long Rest, you can’t afford to rely on your signature feature often enough for it to be a meaningful part of your character. The Arcane Archer gets a couple of excellent features, but they simply don’t compensate for the massive amount of time you’ll spend wishing that you had more Arcane Shot uses."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Based on tweets from Mike Mearls (one of the design team at the time), the intent for the Arcane Archer was to keep the flat 2 uses per rest, but have their effects improve as you gained levels so the complexity stayed flat, but the effects stayed good. By comparison: The Battle Master’s maneuvers don’t get much better than they are level 3, but you get to use them more often. Unfortunately, they largely forgot the part where Arcane Shot should improve as you gain levels."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Beyond their dismal resource pool and abysmal scaling, the Arcane Archer suffers from a recurring design issue for 5e subclasses with a pool of options to choose from: With no level requirements, you’ll have all of the best options at low levels and select progressively worse options as you gain levels simply because you don’t have any other choice. The Battle Master Fighter faces a similar issue, but because there are so many good maneuver options, there’s no way to pick every good option. In fact, playing a Battle Master Fighter and saying “let’s all pretend that my maneuvers are magic” is an outright better character in every way that’s possible to compare. If you want actual magic, play an Eldritch Knight. Heck, a Bard with Swift Quiver is arguably a better option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If that doesn’t disappoint you enough to ster you away from playing an Arcane Archer, the subclass does have a handful of exciting options that can give an otherwise bland archery build some buttons to push. Using these options as precision tools to fit specific situations rather than burning through them as fast as possible can give you some tactical options which most martial characters can’t replicate."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want to make the Arcane Archer more playable, here are some suggested fixes:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-6",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Improve the number of Arcane Shot uses:\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Shots equal to Intelligence Modifier"
+              },
+              {
+                "type": "text",
+                "text": ": This adds a bit of MAD to the subclass, which serves as a built-in balancing mechanism. Players will likely sit at around 14 Intelligence, which keeps them at the same number of uses as the published version, but, if the player is willing to spend resources on Intelligence instead of feats or something else, they can get additional shots in exchange for the opportunity cost of an ASI which could be spent on a feat instead. It also adds some additional benefit to raising the character’s Intelligence, which in turns makes it more appealing to selecting Arcane Shot options which allow a saving throw."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Shots equal to Proficiency Bonus"
+              },
+              {
+                "type": "text",
+                "text": ": Automatically scales with level, so as the Fighter gets more attacks and learns more shots they also get to use them more frequently. The progression feels very satisfying, but this is a linear buff to the Arcane Archer, so be careful that you don’t buff the subclass too much by accident. Tying things to Proficiency Bonus also frequently encourages multiclassing abuse."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Shots equal to number of Arcane Shot options"
+              },
+              {
+                "type": "text",
+                "text": ": This provides scaling as you level, thought at weird level intervals."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improve Shot Effects:\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grant the level 18 Arcane Shot improvements at level 10, then again at 18, allowing the Fighter to increase the damage dice twice and keep the damage bonuses somewhat impactful."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Arcane Archer Fighter Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Arcane Archer Fighter Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Arcane Archer Fighter Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#arcane-archer-fighter-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Arcane Archer Fighter Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Arcane Archer Fighter Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Arcane Archer Fighter Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Arcane Archer Fighter Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Arcane Archer Fighter Build – Magical Elf Archer",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/arcane-archer/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Arcane Archer Fighter Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Arcane Archer Lore"
+              },
+              {
+                "type": "text",
+                "text": ": A skill proficiency\n\t\tand a cantrip. Choose Prestidigitation and then go read our\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Prestidigitation and Similar Cantrips",
+                "href": "https://rpgbot.net/dnd5/characters/prestidigitation"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane Shot"
+              },
+              {
+                "type": "text",
+                "text": ": A powerful and versatile\n\t\tfeatyre, but you get just 2 uses between short rests until you get\n\t\tEver-Ready Shot at 15th level. A lot of people mis-read the feature’s text:\n\t\tyou get additional Arcane Shot "
+              },
+              {
+                "type": "emphasis",
+                "text": "options"
+              },
+              {
+                "type": "text",
+                "text": ", not Arcane Shot\n\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "uses"
+              },
+              {
+                "type": "text",
+                "text": " as you gain levels. Plan to reserve your Arcane Shot uses until doing so is\n\t\texceptionally beneficial, because you don’t get enough to be careless with them.\n"
+              },
+              {
+                "type": "text",
+                "text": "This resource constraint was apparently intentional. The designers intended for the shot uses\nto remain flat, but for the "
+              },
+              {
+                "type": "link",
+                "text": "powers to increase over time",
+                "href": "https://twitter.com/mikemearls/status/937496034254536704?ref_src=twsrc%5Etfw"
+              },
+              {
+                "type": "text",
+                "text": " to keep the Arcane Archer consistently\npowerful. Unfortunately, they forgot the part where the power increases over time, and, since\nnone of the options are restricted by level, you are most powerful relative to your enemies\nat level 3 and only diminish in effectiveness from there."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "The saving throws are based on your Intelligence\n\t\tscore, which likely won’t be stellar, so your save DC may not be high enough\n\t\tto be reliable. Try to pick options which work against a variety of saving\n\t\tthrows and use them on foes which are bad at the chosen saving throw.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Banishing Arrow"
+              },
+              {
+                "type": "text",
+                "text": ": Take the target\n\t\t\t\tcreature out of combat for one round. This allows a Charisma saving\n\t\t\t\tthrow, and most creatures have absolutely terrible Charisma saves, so\n\t\t\t\tthis is decently reliable even with a poor save DC. Creatures which you\n\t\t\t\tmight expect to banish (demons, elementals, etc.) often have high\n\t\t\t\tCharisma saves, but you’re free to use Banishing Arrow on creatures of\n\t\t\t\tany type, so if you want to banish a dinosaur or a zombie or something\n\t\t\t\tyou’re ready to go.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "At high level this adds a little bit of damage, but it’s a negligible\n\t\t\t\t\tquantity of damage and it doesn’t improve Banishing Arrow’s\n\t\t\t\t\tusefulness."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Beguiling Arrow"
+              },
+              {
+                "type": "text",
+                "text": ": Prevents the target\n\t\t\t\tfrom attacking one of your allies for one round, and does a little bit\n\t\t\t\tof bonus damage. This allows a saving throw and relies on the Charmed\n\t\t\t\tcondition, so many creatures will be resistant, immune, or will have a\n\t\t\t\tgood chance of resisting simply due to a decent Wisdom score."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bursting Arrow"
+              },
+              {
+                "type": "text",
+                "text": ": A bit of extra damage\n\t\t\t\tand AOE damage with no saving throw. Excellent in an opening volley\n\t\t\t\tagainst groups of enemies, but it also requires that your enemies be\n\t\t\t\tnumerous and tightly packed to make this worthwhile. Unfortunately,\n\t\t\t\tBursting Arrow’s damage bonus isn’t “extra damage” so the damage isn’t\n\t\t\t\tmultiplied on a critical hit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Enfeebling Arrow"
+              },
+              {
+                "type": "text",
+                "text": ": Creatures that rely\n\t\t\t\ton weapon attacks tend to have good Constitution saving throws.\n\t\t\t\tBanishing Arrow will be more effective if you need an enemy not to do\n\t\t\t\tany damage for a turn."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grasping Arrow"
+              },
+              {
+                "type": "text",
+                "text": ": Bonus damage and a\n\t\t\t\tspeed debuff with ongoing damage. The target can waste its action to\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "attempt"
+              },
+              {
+                "type": "text",
+                "text": " to remove the brambles, but, even if they succeed,\n\t\t\t\tthey’ve wasted their Action for a turn, which is a trade that you should\n\t\t\t\tbe very happy to make."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Piercing Arrow"
+              },
+              {
+                "type": "text",
+                "text": ": Bonus damage, hit\n\t\t\t\teverything in a line, and ignore full cover. Unfortunately it’s hard to\n\t\t\t\thit more than two creatures with a line, and, since the line is only 30\n\t\t\t\tfeet long, you’ll need to be in close quarters to use this. Plan to spend\n\t\t\t\tas much movement as possible moving away after using this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Seeking Arrow"
+              },
+              {
+                "type": "text",
+                "text": ": Ignoring cover and such\n\t\t\t\tis nice, but the big draw is that you learn the target’s location, so\n\t\t\t\tyou can locate invisible creatures and enemies who might be hiding or\n\t\t\t\ttrying to escape from you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shadow Arrow"
+              },
+              {
+                "type": "text",
+                "text": ": An excellent way to\n\t\t\t\tincapacitate enemies who use extended reach, ranged weapons, or spells.\n\t\t\t\tUnfortunately it’s on a Wisdom save, so, if you just need a creature to\n\t\t\t\tbe unable to attack for a turn, you’ll have better results with Banishing\n\t\t\t\tArrow."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magic Arrow"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re in a campaign with\n\t\tfew or no magic items, this is absolutely essential."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Curving Shot"
+              },
+              {
+                "type": "text",
+                "text": ": Redirect a missed attack\n\t\tonce per turn. Absolutely amazing, at least in theory. With 2 to 4 attacks per turn, you’re\n\t\tinevitably going to miss with some of them, so turning a missed attack into\n\t\tanother chance to hit something provides roughly as much attack output as\n\t\tthe Crossbow Expert feat. This also makes the attack penalty from the\n\t\tSharpshooter feat less risky. All around, it’s really great, "
+              },
+              {
+                "type": "emphasis",
+                "text": "in theory"
+              },
+              {
+                "type": "text",
+                "text": ".\n"
+              },
+              {
+                "type": "text",
+                "text": "Unfortunately, you are required to use a magic arrow here, and the Magic Arrow feature doesn’t actually make your arrows magical despite the name being “Magic Arrow”. This means that you are required to find magic arrows, most of which are single-use, in order to use what is arguably your best class feature. Jeremy Crawford has stated on Twitter that\n"
+              },
+              {
+                "type": "link",
+                "text": "this an error",
+                "href": "https://www.sageadvice.eu/arcane-archer-the-arcane-shot-feature-is-not-intended-to-require-a-magic-arrow-errata/"
+              },
+              {
+                "type": "text",
+                "text": ", but that was 2017 and we still don’t have errata. At my tables I would allow the Magic Arrow feature to work with Curving Shot. There needs to be "
+              },
+              {
+                "type": "emphasis",
+                "text": "something"
+              },
+              {
+                "type": "text",
+                "text": " mechanically appealing about the Arcane Archer. If your DM won’t make that concession, maybe they’ll let you collect some "
+              },
+              {
+                "type": "link",
+                "text": "Unbreakable Arrows",
+                "href": "https://www.dndbeyond.com/magic-items/36838-unbreakable-arrow"
+              },
+              {
+                "type": "text",
+                "text": ", which are the only arrows I know of which aren’t single use."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ever-Ready Shot"
+              },
+              {
+                "type": "text",
+                "text": ": Now you can afford to\n\t\tuse your signature ability in every encounter. Sure, it’s only once and\n\t\tthat’s not nearly enough, but considering how resource-starved the Arcane\n\t\tArcher is, this is still a massive improvement."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane Shot (improved shots)"
+              },
+              {
+                "type": "text",
+                "text": ": At this\n\t\tlevel all of your Arcane Shot options deal 1d6 or 2d6 more damage and literally nothing else changes. This is\n\t\tnot at all significant when we’re 1 level past wizards casting Wish."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Arcane Archer Fighter Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Arcane Archer’s Fighter’s Ability Score needs are very similar to those of a Dexterity-based Arcane Archer. Dependence on three Ability Scores means that we are somewhat MAD, and with only 2 Arcane Shot uses per rest, you really need your save DC to be reliable. Fortunately, we can afford to slack on Constitution since the Arcane Archer is built to fight exclusively at range."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": You’re more archer than arcane."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": 14 is plenty."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Not as crucial as Dexterity, but still crucial. Shoot for 15 or 16 at level 1."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Saves and Perception."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-arcane-archer-fighter-races",
+      "heading": "Arcane Archer Fighter Races",
+      "sourceAnchor": "arcane-archer-fighter-races",
+      "blocks": [
+        {
+          "blockId": "block-section-arcane-archer-fighter-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from other archery "
+            },
+            {
+              "type": "link",
+              "text": "Fighters",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/races"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Arcane Archer Fighter Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from other archery "
+            },
+            {
+              "type": "link",
+              "text": "Fighters",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#feats"
+            },
+            {
+              "type": "text",
+              "text": ", though we can’t use Crossbow Expert or Gunner quite as well."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Arcane Archer Fighter Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Truly we have an abundance of options. Look at… both of them. Majestic."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Of course, you only actually need a bow when you use Arcane Shot. You could take Gunner and spend the rest of your time using a Musket."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Longbow"
+              },
+              {
+                "type": "text",
+                "text": ": Better damage, better range."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shortbow"
+              },
+              {
+                "type": "text",
+                "text": ": Only if you’re small."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Arcane Archer Fighter Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Studded Leather"
+              },
+              {
+                "type": "text",
+                "text": ": You’ll spend the majority of your career in studded leather armor. Starting in medium armor until you increase your Dexterity is a good idea, but eventually you’ll move into studded leather and live there forever."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Arcane Archer Fighter Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Artificer"
+              },
+              {
+                "type": "text",
+                "text": ": Intelligence-based spellcasting similar to the Wizard, and Infusions are nice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wizard"
+              },
+              {
+                "type": "text",
+                "text": ": Intelligence-based spellcasting. You’ll get the most use out of low-level buffs and defenses like Longstrider, Mage Armor, and Shield."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Arcane Archer Fighter Build – Magical Elf Archer",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Arcane Archers have been closely associated with elves for several real-world decades. Elves still make marginally better archers than other races due to Elven Accuracy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll max Dexterity and Intelligence, but, since we’re fighting at range, we can leave Con at 14 and put the spare points into Wisdom both for saves and for Perception. We’ll put our racial +2 into Dexterity and our +1 into Intelligence."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom Origin Wood Elf. The additional speed is nice for positioning ourselves to use Piercing Arrow, and proficiency in Perception is always nice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Urchin. A great choice for any Dexterity-based character, Urchin gets us all the proficiencies that we need to fill in for a rogue in our party."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get Perception from our race, Sleight of Hand, Stealth, and Thieve’s tools from our background, and we’ll take Insight and Survival from our class. Survival is borderline useless, but we dumped Intelligence and Strength, so our options aren’t great."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we’ll take Elven Accuracy. We don’t have an especially reliable way to get Advantage except Shadow Arrow, but combining Shadow Arrow and Action Surge can make for one very effective turn. It also gets us a +1 Dexterity increase, which is fantastic."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 6 we’ll take Sharpshooter. It’s a significant DPR increase, and since we apply it per attack we can lead with Shadow Arrow, effectively blind our target, then use Action Surge and drop a mountain of damage on them in one turn."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we’ll take Piercer for the +1 Dex and the general boost to piercing damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we’ll take Gunner, maxing our Dexterity and allowing us to use ranged weapons in melee without suffering Disadvantage. We can’t use a gun with Arcane Shot, unfortunately."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At levels 14, 16, and 19 we have open space. Lucky is an easy go-to option. Martial Adept can add another once-per-short-rest option to make your attacks cool. Gift of the Chromatic Dragon adds a great defensive option and lets you add some elemental damage to your weapon for 1 minute per day. Really any staple Fighter feat would work, but we already have all of the Archery-focused options, so you’ll need to get more creative."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Archery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I know, I know: Archery is a surprising choice. It’s basically our only choice, of course, but let’s pretend that it’s a novel and interesting build decision."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge (1)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Always wonderful."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Martial Archetype: Arcane Archer"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Arcane Archer Lore"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Arcana"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Prestidigitation",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/prestidigitation/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Arcane Shot"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Piercing Arrow"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shadow Arrow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Piercing Arrow is for crowds. Shadow Arrow is for big single targets."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you somehow find yourself with three or more enemies in a line, use Piercing Arrow. It doesn’t require an attack roll, so diving into melee to accomplish this may be worth the risk. We have d10 hit dice to endure an occasional Opportunity Attack, and we have slightly better speed than most creatures as a Wood Elf."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you can, use Action Surge and fire another Piercing Arrow before retreating."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This is technically where your Arcane Shot is most effective relative to enemies’ stats. Piercing Arrow will grow less appealing as we gain levels and add things like Sharpshooter which don’t benefit Piercing Arrow."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Elven Accuracy (Dex 17 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elven Accuracy is easy mode for martials, and it’s still not enough to make this subclass good."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Shadow Arrow, then Elven Accuracy on remaining attacks: 21.21"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with regular attacks: 6.60"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Average over 3 turns: 11.46"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We almost hit High DPR on turn 1, then our other turns are truly dismal. We barely hit Target DPR on average. Hopefully our allies can capitalize on the debuff from Shadow Arrow or we can get Advantage by other means."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Of course, our own DPR doesn’t paint the whole picture. Making an enemy functionally blind to ranged attackers for a round means that your whole party can focus their attacks, thereby increasing your party’s overall damage output for that turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At the same time, the fact that our DPR is only good when we use ALL of our offensive resources at the same time illustrates the fundamental problem with the subclass: Its spikes aren’t big enough to make up for the absolutely disappointing performance the rest of the time due to resource starvation."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now you can use both of your Arcane Shots in one turn without using Action Surge."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our best combo is to lead with Shadow Arrow, have our target fail their save, then use Action Surge to make a total of 3 additional attacks with Advantage. We can only do this once per Short Rest before reverting to a baseline of 2 attacks per turn, so even though this DPR is decently high, it will never be enough to make the Arcane Archer an effective Striker."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Shadow Arrow, then Elven Accuracy on remaining attacks: 39.23"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with regular attacks: 13.20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Average over 3 turns: 21.88"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our combo gets comfortably into High DPR for one turn, and our regular attacks get us into Target DPR. Our average is on the high end of the Target DPR range, so we’re still not impressing anyone."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Sharpshooter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Between Fighting Style (Archery) and the possibility of Elven Accuracy, missing is much less of a problem, making Sharpshooter an easy choice. Remember that you make the choice separately for each attack, so we can still perform our Shadow Arrow combo without a huge risk that our first attack will miss due to the -10 penalty."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfortunately, we don’t get the benefits of Sharpshooter’s damage bonus if we use Piercing Arrow."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Shadow Arrow, then Elven Accuracy+Sharpshooter on remaining attacks: 62.69"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Sharpshooter: 18.95"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Average over 3 turns: 33.53"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re finally averaging High DPR! Hopefully this makes up for us both not being a Defender and for our performance for the past 5 levels."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Curving Shot"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Magic Arrow"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Arcane Shot:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Grasping Arrow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "On our combo turns, Curving Shot is useful for our first attack because if we miss the first attack our DPR for the combo drops horribly, so we might as well try again on another turn. Once our combo is spent, Curving Shot is still useful because we’re still likely to miss attacks thanks to the Sharpshooter penalty."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Grasping Arrow gives us some crowd control very similar to Entangling Strike. If you can debuff your target’s Strength (Athletics) checks to prevent them from escaping, and, if the target still needs to move to be effective, the total damage can be huge."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Shadow Arrow and Curving Shot (treat as Advantage), then Elven Accuracy+Sharpshooter on remaining attacks: 66.14"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Curving Shot (treat as Advantage on one attack) and Sharpshooter: 23.79"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Average over 3 turns: 37.91"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Curving Shot makes a big difference in our DPR on non-combo turns."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Piercer (Dex 18 -> 19)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elven Accuracy allows you to crit nearly 15% of the time, and we need all the damage we can get, so Piercer is an obvious choice. This does put us slightly behind the "
+                },
+                {
+                  "type": "link",
+                  "text": "Fundamental Math",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": ", but Curving Shot, Fighting Style (Archery), and Elven Accuracy easily make up the gap."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Shadow Arrow, Curving Shot (treat as Advantage), and Piercer (ignoring reroll) then Elven Accuracy, Sharpshooter, and Piercer (ignoring reroll) on remaining attacks: 66.06"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Curving Shot (treat as Advantage on one attack), Piercer (ignoring reroll), and Sharpshooter: 22.56"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Average over 3 turns: 37.06"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Falling behind the Fundamental Math hurts us, and Piercer’s on-crit damage bonus doesn’t offset that. Hopefully the reroll makes up the difference, but it’s very hard to work that into the math. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable (1)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "No tactical change."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Arcane Shot:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Seeking Arrow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Find enemies trying to hide from you."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A major spike in damage output. We can now fire both Arcane Shots without Action Surge and still have a regular attack to spend."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Shadow Arrow, Curving Shot (treat as Advantage), and Piercer (ignoring reroll) then Elven Accuracy, Sharpshooter, and Piercer (ignoring reroll) on remaining attacks: 99.65"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Curving Shot (treat as Advantage on one attack), Piercer (ignoring reroll), and Sharpshooter: 31.33"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Average over 3 turns: 54.10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Gunner (Dex 19 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can’t use guns since we need to use arrows with our Arcane Archer feats. You could technically reserve your bow for Arcane Shot and use a musket the rest of the time, but that feels silly, and it makes magic items hard, so we’ll pretend you’re here for the +1 Dex and the ability to make ranged attacks in melee, which makes it easier to dive in to use Piercing Shot and allows us to draw attention away from squishy allies."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Shadow Arrow, Curving Shot (treat as Advantage), and Piercer (ignoring reroll) then Elven Accuracy, Sharpshooter, and Piercer (ignoring reroll) on remaining attacks: 108.76"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Curving Shot (treat as Advantage on one attack), Piercer (ignoring reroll), and Sharpshooter: 35.90"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Average over 3 turns: 64.52"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This is our last DPR increase until level 20. Fortunately, it manages to keep us just barely in the High DPR range through level 19."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "indomitable (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "No tactical changes."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "See the feats section of the example build for suggestions."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ever-Ready Shot"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Arcane Shot:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Every-Ready Shot is very welcome if you have somehow survived this far. Now you don’t need to beg your party for a Short Rest quite as often."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "See the feats section of the example build for suggestions."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge (2)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Indomitable (3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we get to do our combo twice between short rests!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Arcane Shot:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Improved Shot"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Shot is the first time that our shots get better, and literally the only thing that changes is that they add damage. Sure, I’ll welcome the damage, but this could be our 10th-level subclass feature and it would still be mediocre."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "See the feats section of the example build for suggestions."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "DPR with Shadow Arrow, Curving Shot (treat as Advantage), and Piercer (ignoring reroll) then Elven Accuracy, Sharpshooter, and Piercer (ignoring reroll) on remaining attacks: 145.45"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Curving Shot (treat as Advantage on one attack), Piercer (ignoring reroll), and Sharpshooter: 46.10"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Average over 3 turns: 79.22"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This puts us on the low end of the High DPR range. We’re not impressing anyone, but we’re not suffering."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Arcane Archer Fighter Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Arcane Archer Lore"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Arcane Shot"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Banishing Arrow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Beguiling Arrow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bursting Arrow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Enfeebling Arrow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Grasping Arrow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Piercing Arrow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Seeking Arrow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shadow Arrow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Magic Arrow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Curving Shot"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ever-Ready Shot"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Arcane Shot (improved shots)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Longbow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shortbow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Studded Leather"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Wizard"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-introduction-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"3\"><span class=\"rating-orange\">Arcane Shot</span>: A powerful and versatile featyre, but you get just 2 uses between short rests until you get Ever-Ready Shot at 15th le"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-arcane-archer-fighter-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-weapons-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-2-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-levels-2"
+    }
+  ],
+  "metrics": {
+    "words": 3900,
+    "sections": 17,
+    "blocks": 40,
+    "tables": 3,
+    "ratingSignals": 30
+  },
+  "status": "needs-editorial-review"
+}

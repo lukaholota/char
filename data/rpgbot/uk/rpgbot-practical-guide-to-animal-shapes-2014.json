@@ -1,0 +1,1073 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-f2b31dce7c2de847",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-f2b31dce7c2de847-2c527638082ee7be",
+      "sourceId": "rpgbot-f2b31dce7c2de847",
+      "fetchedAt": "2026-09-29T19:25:27.538828+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:25:05-04:00",
+      "contentHash": "efcbb39ba65faff06713eef17df9209d14aeadacbc8387173680939625cea330",
+      "title": "Animal Shapes Spell Guide: DnD 5e",
+      "authors": [
+        "Colby \"Bea\" Munro"
+      ],
+      "sourceFile": "source/rpgbot-f2b31dce7c2de847-2c527638082ee7be.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-practical-guide-to-animal-shapes-2014",
+    "sourceId": "rpgbot-f2b31dce7c2de847",
+    "slug": "practical-guide-to-animal-shapes-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Тіло звіра — практичний гайд (2014)",
+    "titleEn": "Animal Shapes Spell Guide: DnD 5e",
+    "topics": [
+      "spell"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-practical-guide-to-animal-shapes-2014-draft1",
+      "articleId": "rpgbot-practical-guide-to-animal-shapes-2014",
+      "sourceRevisionId": "rpgbot-f2b31dce7c2de847-2c527638082ee7be",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання 8-го рівня посідають незручне місце у шкалі магічної сили D&D. Вони мають виправдовувати очікування до 15-го рівня персонажа, але не знецінювати слот 9-го рівня. Деякі знаходять золоту середину, як-от Клон [Clone] чи Слабоумство [Feeblemind], проте більшість справляють слабке враження. На перший погляд, це стосується й Тіло звіра [Animal shapes] — заклинання 8-го рівня лише для Друїда."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Задум використання досить очевидний: перетворити членів групи на тварин, залишивши їм розум. Інколи всій групі корисно стати птахами чи щурами, і це виправдовує слот. Проте зазвичай віддають перевагу чомусь, що одразу завдає шкоди й не потребує Концентрації{{Concentration}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На думку автора, розробники пʼятої редакції написали заклинання, але не перевірили його досить уважно: Тіло звіра має надзвичайно сильні й зловживані взаємодії. Прочитавши текст, автор вважає його невдало сформульованим, легким для експлуатації й хаотичним у найкращому сенсі. Заклинання заслуговує другого погляду. Примітка редакції: висновки про зловживання нижче є авторськими трактуваннями; спірні взаємодії потребують рішення Майстра."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-animal-shapes/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-animal-shapes/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Опис заклинання «Тіло звіра»",
+                    "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-animal-shapes/#animal-shapes-spell-description"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Розбір заклинання",
+                    "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-animal-shapes/#breaking-down-the-spell"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мішок щурів",
+                    "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-animal-shapes/#bag-of-rats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бій натовпу",
+                    "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-animal-shapes/#mob-combat"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Форми звірів",
+                    "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-animal-shapes/#animal-forms"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-animal-shapes-spell-description",
+          "heading": "Опис заклинання «Тіло звіра»",
+          "sourceAnchor": "animal-shapes-spell-description",
+          "blocks": [
+            {
+              "blockId": "block-section-animal-shapes-spell-description-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Перетворення, 8-й рівень"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-shapes-spell-description-2",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "РІВЕНЬ / 8-й"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "ЧАС НАКЛАДАННЯ / 1 дія"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "ДАЛЬНІСТЬ / ОБЛАСТЬ / 30 футів"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "КОМПОНЕНТИ / В, С"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "ТРИВАЛІСТЬ / Концентрація, до 24 годин"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "ШКОЛА / Перетворення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "АТАКА / РЯТКИДОК / Немає"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "ШКОДА / ЕФЕКТ / Зміна форми"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-animal-shapes-spell-description-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Ваша магія перетворює інших на звірів. Оберіть будь-яку кількість згодних істот, яких бачите в межах дальності. Ви перетворюєте кожну ціль на Великого або меншого звіра з показником небезпеки 4 або нижче. У наступні ходи ви можете дією перетворювати істот під дією заклинання на нові форми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-shapes-spell-description-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Для кожної цілі перетворення триває до завершення заклинання, падіння до 0 ХП або смерті. Ви можете обрати окрему форму для кожної цілі. Її ігрові характеристики замінюються характеристиками обраного звіра, проте вона зберігає світогляд і значення Інтелекту, Мудрості й Харизми. Ціль отримує ХП нової форми; повертаючись до звичайної, відновлює ту кількість ХП, яку мала до перетворення. Якщо повернення спричинило падіння до 0 ХП, надлишкова шкода переноситься на звичайну форму. Якщо ця надлишкова шкода не знизила ХП звичайної форми до 0, істота не втрачає свідомість. Природа нової форми обмежує доступні дії; істота не може говорити чи накладати заклинання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-shapes-spell-description-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Спорядження цілі зливається з новою формою. Ціль не може активувати, використовувати чи інакше отримувати користь від свого спорядження."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-breaking-down-the-spell",
+          "heading": "Розбір заклинання",
+          "sourceAnchor": "breaking-down-the-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-breaking-down-the-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Класичне використання — перетворити всю групу на звірів, але саме так заклинання не надто ефективне. Розберімо, для чого воно справді корисне."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Оберіть будь-яку кількість згодних істот, яких бачите в межах дальності»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наскільки це сильне, обговоримо в наступному розділі. За вдалого розташування Середніх або менших істот можна перетворити понад 90 цілей. Якщо бажаєте надати їм Великих форм, які не затоптуватимуть одна одну, їх усе ще понад 20. Врахувавши третій вимір — риштування, балкони чи товщу води — можна вмістити ще більше. Примітка редакції: точна кількість залежить від сітки, доступного простору, видимості та рішення Майстра щодо розміщення збільшених цілей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Ви перетворюєте кожну ціль на Великого або меншого звіра з показником небезпеки 4 або нижче»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Незручність у тому, що в основних книжках немає звірів ПН 4, менших за Величезних, а для ПН 3 є лише Giant Scorpion. У пригодах та інших доповненнях трапляються цікаві варіанти, проте RPGbot тут їх не розглядає: не можна припускати, що ваша група використовує матеріали конкретних пригод."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зауважте: ПН початкової істоти може бути нижчим за ПН форми, на яку її перетворюють."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«У наступні ходи ви можете дією перетворювати істот під дією заклинання на нові форми»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут починається найцікавіше. Нова форма надає свої ХП, тож можна циклічно змінювати форми цілей і затримувати ворога, який не здатен за раунд зняти всі ХП форми. Так потенційно можна пройти цілий бій, не втративши власних ХП. Проте це повільно: шкода звірів, імовірно, нижча за звичайну шкоду групи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це корисно й для швидкої зміни розміру чи способу переміщення. Для подорожі можна надати всім форм маленьких птахів, а коли почнеться бій — дією перетворити їх на Giant Scorpion. Так можна використовувати заклинання протягом усього дня."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Для кожної цілі перетворення триває до завершення заклинання, падіння до 0 ХП або смерті»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-11",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор розрізняє закінчення конкретного перетворення при 0 ХП й закінчення самого заклинання: на його думку, наступною дією можна знову надати звірячу форму цілі, яка вже повернулася до звичайної. Примітка редакції: це спірне трактування. Текст дозволяє змінювати форми істот під дією заклинання; чи залишається такою ціль після завершення її перетворення, вирішує Майстер. Не розраховуйте на повторне застосування без погодження."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-12",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Ви можете обрати окрему форму для кожної цілі»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-13",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це дозволяє цікаві комбінації звірів. Межі визначають ваше знання придатних форм і вміння планувати тактику."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-14",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Її ігрові характеристики замінюються характеристиками обраного звіра, проте вона зберігає світогляд і значення Інтелекту, Мудрості й Харизми»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-15",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор порівнює це з Дикою подобою{{Wild Shape}} Друїда, з якою на 15-му рівні вже слід бути знайомим. Якщо ні, прочитайте "
+                },
+                {
+                  "type": "link",
+                  "text": "практичний гайд Дикої подоби",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Примітка редакції: це аналогія, а не тотожні правила. Збереження класових здібностей, спорядження й навичок визначається текстом конкретного ефекту."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-16",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Ціль отримує ХП нової форми; повертаючись до звичайної, відновлює ту кількість ХП, яку мала до перетворення. Якщо повернення спричинило падіння до 0 ХП, надлишкова шкода переноситься на звичайну форму. Якщо ця надлишкова шкода не знизила ХП звичайної форми до 0, істота не втрачає свідомість»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-17",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання не забороняє обрати істоту, яка вже помирає. Автор пропонує знову перетворювати живих цілей, повертаючи їх до бою та скидаючи ряткидки від смерті. Примітка редакції: повторна зміна форми після завершення перетворення спірна, а ряткидки від смерті скидаються при відновленні ХП чи стабілізації за відповідними правилами. Саме по собі набуття ХП звірячої форми не є прямо сформульованим лікуванням звичайної форми; рішення про цю взаємодію приймає Майстер."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-18",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Природа нової форми обмежує доступні дії; істота не може говорити чи накладати заклинання»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-19",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дика подоба прямо зберігає придатні до форми класові й расові здібності, а також має окремі правила Володінь. Тіло звіра такого дозволу не містить. Автор залишає це трактуванню Майстра. Примітка редакції: не переносьте переваги Дикої подоби на інше заклинання автоматично."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-20",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки Інтелект зберігається, автор припускає збереження розуміння мов: ціль може розуміти союзників, читати й, якщо форма дозволяє, писати. Для заклинань та інших здібностей вона є звіром, тому може спілкуватися з істотою, яка наклала Розмова з тваринами [Speak with Animals]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-21",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Спорядження цілі зливається з новою формою. Ціль не може активувати, використовувати чи інакше отримувати користь від свого спорядження»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-down-the-spell-22",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ціль не може обрати, яке спорядження залишити на тілі: воно зливається з формою, не діють навіть пасивні переваги на кшталт бонусу КБ від Bracers of Defense. Проте автор звертає увагу, що це відбувається при перетворенні. Річ на землі — можливо, хтось завчасно її кинув — не була спорядженням цілі в цю мить, тому автор дозволяє підняти й використати її, якщо форма придатна. Майстер може обґрунтовано поставитися до цього скептично; не зловживайте. Примітка редакції: джерело помилково називає предмет Bracers of Armor; у 5e 2014 відповідна назва — Bracers of Defense."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bag-of-rats",
+          "heading": "Мішок щурів",
+          "sourceAnchor": "bag-of-rats",
+          "blocks": [
+            {
+              "blockId": "block-section-bag-of-rats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На відміну від Перевтілення [Polymorph], доступний ПН форми не обмежений ПН початкової істоти. До того ж Тіло звіра може охопити приголомшливо багато цілей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-bag-of-rats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор пропонує накласти Тіло звіра й потім із безпечного місця підтримувати Концентрацію та змінювати форми. Якщо переговорник групи згуртує натовп сердитих селян проти дракона, який їх тероризує, одне заклинання дасть їм змогу взяти справу у свої руки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-bag-of-rats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте двадцять вартових, згодних ризикнути життям навіть із сильним магічним підсиленням, є не завжди. D&D переважно спонукає Майстра стримувати такі підходи, залишаючи героями пригоди саме персонажів гравців."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-bag-of-rats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут автор звертається до класичного трюку D&D: носити мішок щурів. За його трактуванням, Дружба з тваринами [Animal friendship] допоможе переконати нерозумну істоту добровільно прийняти магічний ефект. Заклинання триває 24 години, тому у вільний день можна менш ніж за дві хвилини витратити всі слоти на повторні накладання. На 15-му рівні, коли доступне Тіло звіра, Друїд має 18 слотів, якщо витрачати всі. Поєднання з Розмовою з тваринами або Speech of the Woods{{Speech of the Woods}} Друїда Кола пастуха{{Circle of the Shepherd}} дозволяє пояснювати тваринам накази. Примітка редакції: Дружба з тваринами зачаровує ціль, але не дає контролю над нею й не робить її автоматично згодною на будь-яке перетворення чи самогубні накази. Згоду та поведінку визначає Майстер. Повторне накладання того самого заклинання на одну істоту не складає його ефекти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-bag-of-rats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Метод може завдавати багато шкоди, але чимало ворогів мають опір немагічній дробильній, колотій і рубаній шкоді — основній шкоді вашої армії. Найкорисніше оточувати й стримувати ворогів, надавати Перевагу дією Допомога{{Help}} і приймати атаки, які інакше влучили б у персонажа групи."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-mob-combat",
+          "heading": "Бій натовпу",
+          "sourceAnchor": "mob-combat",
+          "blocks": [
+            {
+              "blockId": "block-section-mob-combat-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви, мабуть, уже думаєте: «Це всіх дратуватиме — ходи триватимуть вічність!» Так і було б, якби Майстер кидав кожну атаку окремо. На щастя, Посібник Майстра (2014) пропонує спосіб пришвидшити це — "
+                },
+                {
+                  "type": "link",
+                  "text": "правила дій натовпу",
+                  "href": "https://www.dndbeyond.com/sources/dmg/running-the-game#HandlingMobs"
+                },
+                {
+                  "type": "text",
+                  "text": " (с. 250). Автор радить ознайомитися з ними перед наступними розділами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-mob-combat-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За цими правилами армія не виконує окремих кидків атак, тому не розраховує на Перевагу для влучання чи критичні влучання для шкоди. Треба оточити ціль якомога більшою кількістю істот. Що більший ворог, то більше союзників можна розмістити біля нього. Ідеальна ціль — дуже велика істота з низькою чи середньою КБ: більше зайнятого простору дає більше місць для атак ближнього бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-mob-combat-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Важливе зауваження автора: правила натовпу не враховують ні Перевагу, ні Перешкоду. Він пропонує використати це з дальніми атаками — їх мають Ape та Giant Spider — або помістити армію в область "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Темрява [Darkness]"
+                },
+                {
+                  "type": "text",
+                  "text": ". Чи був це задум розробників, незрозуміло: текст просто не пояснює Перевагу й Перешкоду. Примітка редакції: це прогалина спрощеної процедури, не дозвіл ігнорувати вимоги атаки, видимості чи законної цілі. Застосування й адаптацію правил натовпу визначає Майстер."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-animal-forms",
+          "heading": "Форми звірів",
+          "sourceAnchor": "animal-forms",
+          "blocks": [
+            {
+              "blockId": "block-section-animal-forms-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоча заклинання дозволяє «Великого або меншого звіра з ПН 4 або нижче», в основних книжках звірів ПН 4 менших за Величезних немає. Тому розглядатимемо ПН 3 і нижче."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для кожної цілі можна обрати окрему форму й створити загін із взаємодоповнювальними здібностями. Памʼятайте про зміну форм дією: спочатку зручно розмістіть істот за допомогою однієї форми, а в наступні ходи надайте їм форми для атаки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гайд передбачає використання правил бою натовпу. Якщо ваш Майстер їх не застосовує, точніші для звичайного бою оцінки є в "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді Дикої подоби",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ПН 3 — Giant Scorpion"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Три атаки, автоматичне Захоплення при влучанні та пристойні ХП. Проте бонус атаки низький, а значна частка шкоди — отрута. Якщо у цілі сильний ряткидок Статури чи імунітет до отрути, обирайте Cave Bear. Якщо насамперед потрібне автоматичне Захоплення, автор радить Giant Octopus: він ще й Сковує ціль та має досяжність 15 футів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ПН 2 — Allosaurus"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чудові ХП, висока швидкість і відчутна шкода укусу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ПН 2 — Cave Bear"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мультиатака та найвищий бонус атаки серед звірів розглянутих ПН."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ПН 2 — Plesiosaurus"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-11",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найбільше ХП серед доступних варіантів, пристойний бонус атаки, прийнятна шкода й досяжність 10 футів. Досяжність дозволяє розташувати довкола ворога більше союзників. Дихає повітрям, тому придатний і на суші, якщо інша форма допоможе дістатися позиції."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-12",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ПН 2 — Hunter Shark"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-13",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Правила натовпу не дають використати Перевагу Blood Frenzy, тож тут цей варіант мало корисний."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-14",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ПН 1 — Giant Octopus"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-15",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Багато ХП як для ПН 1 та автоматичне Захоплення, яке також Сковує ціль. Досяжність щупалець 15 футів чудова для оточення ворога. На суші форма повільна, але можлива: автор радить щогодини її міняти, щоб не задихнутися. Примітка редакції: здатність затримувати подих на годину є у цього звіра, проте скидання її строку зміною форми прямо не визначене заклинанням. Узгодьте це з Майстром."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-16",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ПН 1/2 — Ape"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-17",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Одна з небагатьох форм із дальньою атакою, що завдає шкоди. Автор нагадує: його використання правил натовпу не враховує Перешкоди, тому дальній діапазон не знижує розрахункову точність. Можна навіть доручити фамільяру щохід доставляти трьом мавпам камінці від Чарівний камінь [Magic Stone]. Проте ХП небагато. Примітка редакції: це залежить від процедури Майстра; Чарівний камінь створює щонайбільше три камінці одним застосуванням, а доставка та кидання потребують відповідних дій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-18",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ПН 1/4 — Giant Owl"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-19",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Flyby чудово дозволяє налітати для атаки й тримати армію подалі від небезпеки, але бонус атаки Giant Owl дуже низький, а ХП мало."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-20",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ПН 1/4 — Giant Badger"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-21",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Через низькі ХП сенс є лише тоді, коли потрібна швидкість риття для засідки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-22",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ПН 1/8 — Flying Snake"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-forms-23",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Політ, Flyby і трохи кращий бонус атаки, ніж у Giant Owl. Завдяки Крихітному розміру легко розмістити багато таких змій довкола ворога. Проте майже будь-яке влучання їх убʼє, а ефект по області може миттєво знищити армію."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-practical-guide-to-animal-shapes-2014-001",
+      "articleId": "rpgbot-practical-guide-to-animal-shapes-2014",
+      "translationRevisionId": "translation-rpgbot-practical-guide-to-animal-shapes-2014-draft1",
+      "sectionId": "section-animal-forms",
+      "targetBlockId": "block-section-animal-forms-4",
+      "optionId": "section-animal-forms-block-section-animal-forms-4",
+      "context": "ПН 3 — Giant Scorpion",
+      "explanationBlockId": "block-section-animal-forms-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-practical-guide-to-animal-shapes-2014-002",
+      "articleId": "rpgbot-practical-guide-to-animal-shapes-2014",
+      "translationRevisionId": "translation-rpgbot-practical-guide-to-animal-shapes-2014-draft1",
+      "sectionId": "section-animal-forms",
+      "targetBlockId": "block-section-animal-forms-6",
+      "optionId": "section-animal-forms-block-section-animal-forms-6",
+      "context": "ПН 2 — Allosaurus",
+      "explanationBlockId": "block-section-animal-forms-6",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-practical-guide-to-animal-shapes-2014-003",
+      "articleId": "rpgbot-practical-guide-to-animal-shapes-2014",
+      "translationRevisionId": "translation-rpgbot-practical-guide-to-animal-shapes-2014-draft1",
+      "sectionId": "section-animal-forms",
+      "targetBlockId": "block-section-animal-forms-8",
+      "optionId": "section-animal-forms-block-section-animal-forms-8",
+      "context": "ПН 2 — Cave Bear",
+      "explanationBlockId": "block-section-animal-forms-8",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-practical-guide-to-animal-shapes-2014-004",
+      "articleId": "rpgbot-practical-guide-to-animal-shapes-2014",
+      "translationRevisionId": "translation-rpgbot-practical-guide-to-animal-shapes-2014-draft1",
+      "sectionId": "section-animal-forms",
+      "targetBlockId": "block-section-animal-forms-10",
+      "optionId": "section-animal-forms-block-section-animal-forms-10",
+      "context": "ПН 2 — Plesiosaurus",
+      "explanationBlockId": "block-section-animal-forms-10",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-practical-guide-to-animal-shapes-2014-005",
+      "articleId": "rpgbot-practical-guide-to-animal-shapes-2014",
+      "translationRevisionId": "translation-rpgbot-practical-guide-to-animal-shapes-2014-draft1",
+      "sectionId": "section-animal-forms",
+      "targetBlockId": "block-section-animal-forms-12",
+      "optionId": "section-animal-forms-block-section-animal-forms-12",
+      "context": "ПН 2 — Hunter Shark",
+      "explanationBlockId": "block-section-animal-forms-12",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-practical-guide-to-animal-shapes-2014-006",
+      "articleId": "rpgbot-practical-guide-to-animal-shapes-2014",
+      "translationRevisionId": "translation-rpgbot-practical-guide-to-animal-shapes-2014-draft1",
+      "sectionId": "section-animal-forms",
+      "targetBlockId": "block-section-animal-forms-14",
+      "optionId": "section-animal-forms-block-section-animal-forms-14",
+      "context": "ПН 1 — Giant Octopus",
+      "explanationBlockId": "block-section-animal-forms-14",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-practical-guide-to-animal-shapes-2014-007",
+      "articleId": "rpgbot-practical-guide-to-animal-shapes-2014",
+      "translationRevisionId": "translation-rpgbot-practical-guide-to-animal-shapes-2014-draft1",
+      "sectionId": "section-animal-forms",
+      "targetBlockId": "block-section-animal-forms-16",
+      "optionId": "section-animal-forms-block-section-animal-forms-16",
+      "context": "ПН 1/2 — Ape",
+      "explanationBlockId": "block-section-animal-forms-16",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-practical-guide-to-animal-shapes-2014-008",
+      "articleId": "rpgbot-practical-guide-to-animal-shapes-2014",
+      "translationRevisionId": "translation-rpgbot-practical-guide-to-animal-shapes-2014-draft1",
+      "sectionId": "section-animal-forms",
+      "targetBlockId": "block-section-animal-forms-18",
+      "optionId": "section-animal-forms-block-section-animal-forms-18",
+      "context": "ПН 1/4 — Giant Owl",
+      "explanationBlockId": "block-section-animal-forms-18",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-practical-guide-to-animal-shapes-2014-009",
+      "articleId": "rpgbot-practical-guide-to-animal-shapes-2014",
+      "translationRevisionId": "translation-rpgbot-practical-guide-to-animal-shapes-2014-draft1",
+      "sectionId": "section-animal-forms",
+      "targetBlockId": "block-section-animal-forms-20",
+      "optionId": "section-animal-forms-block-section-animal-forms-20",
+      "context": "ПН 1/4 — Giant Badger",
+      "explanationBlockId": "block-section-animal-forms-20",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-practical-guide-to-animal-shapes-2014-010",
+      "articleId": "rpgbot-practical-guide-to-animal-shapes-2014",
+      "translationRevisionId": "translation-rpgbot-practical-guide-to-animal-shapes-2014-draft1",
+      "sectionId": "section-animal-forms",
+      "targetBlockId": "block-section-animal-forms-22",
+      "optionId": "section-animal-forms-block-section-animal-forms-22",
+      "context": "ПН 1/8 — Flying Snake",
+      "explanationBlockId": "block-section-animal-forms-22",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

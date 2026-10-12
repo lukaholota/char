@@ -1,0 +1,1006 @@
+{
+  "buildId": "build-d4-dispenser-cleric-peace-2014",
+  "revisionId": "build-d4-dispenser-cleric-peace-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— автоматичний роздавач к4",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-d4-abuse-2014",
+      "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+      "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+      "sectionId": "section-example-build-fully-automated-d4-dispensing-robot",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "PEACE_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "FIEND",
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 2
+          },
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Agonizing Blast"
+          },
+          {
+            "optionNameEng": "Eldritch Mind"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Talisman"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ],
+        "replaceOptions": [
+          {
+            "drop": {
+              "optionNameEng": "Eldritch Mind"
+            },
+            "add": {
+              "optionNameEng": "Rebuke of the Talisman"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "infusions": [
+          "Enhanced Defense",
+          "Enhanced Arcane Focus",
+          "Replicate: Bag of Holding",
+          "Replicate: Goggles of Night"
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ALCHEMIST",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "DIVINE_SOUL",
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 4
+          },
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ],
+        "classOptionSpellKeys": [
+          "cure-wounds"
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "SORCERER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "SORCERER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Twinned Spell"
+          },
+          {
+            "optionNameEng": "Careful Spell"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "SORCERER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Eldritch Spear"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Armor of Shadows"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "BARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 2
+          },
+          {
+            "category": "knownSpells",
+            "count": 4
+          }
+        ],
+        "multiclassSkills": [
+          "PERSUASION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "BARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "BARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "COLLEGE_OF_ELOQUENCE",
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ],
+        "expertise": [
+          "INSIGHT",
+          "MEDICINE"
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "BARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY",
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "BARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-d4-abuse-2014",
+          "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+          "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "PEACE_DOMAIN",
+    "raceKey": "AUTOGNOME_SPELLJAMMER",
+    "backgroundKey": "FOLK_HERO",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 12
+      },
+      {
+        "ability": "CON",
+        "value": 12
+      },
+      {
+        "ability": "INT",
+        "value": 13
+      },
+      {
+        "ability": "WIS",
+        "value": 13
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores",
+        "title": "Характеристики",
+        "text": "Збірка залежить від багатьох характеристик. Дуже багатьох! Потрібно щонайменше 13 в Інтелекті, Мудрості й Харизмі для мультикласування, Спритність 14 для максимуму середніх обладунків і висока атакувальна характеристика. Тут це Харизма, бо більшість чаротворення походить від Чародія й Чорнокнижника.\n\n Базові Після підвищення Сила 8 8 Спритність 12 14 Статура 12 12 Інтелект 13 13 Мудрість 13 13 Харизма 15 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-ability-scores",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Автогном{{Autognome}}: потрібен Built for Success{{Built for Success}}. КБ 13 + модифікатор Спритності теж приємна, доки не дістанемо нагрудник.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Будь-яке походження: для цієї збірки неважливо.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Для самої збірки вибір не принциповий. На високих рівнях бонуси до перевірок настільки великі, що Володіння здаватимуться дрібницею.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси збірки",
+        "text": "Маємо місце лише для однієї риси. Візьмемо Щасливчик{{Lucky}}, щоб остаточно довести ситуацію до абсурду.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-the-dice-pool",
+        "title": "Запас кісток",
+        "text": "Підсумуймо джерела додаткових кісток і подивімося, скільки можна додати до кожного типу кидка к20.\n\nБлагословення [Bless]: +1к4 до атак і ряткидків, діє хвилину. Примітка редакції: джерело помилково додає обмеження «раз за хід»; заклинання його не має. Built for Success{{Built for Success}}: +1к4 до атаки, перевірки чи ряткидка; кількість застосувань дорівнює Бонусу Майстерності між тривалими відпочинками. Dark Oneʼs Own Luck{{Dark One's Own Luck}}: +1к10 до перевірки чи ряткидка один раз між короткими або тривалими відпочинками. Примітка редакції: виправлено помилку Luick у назві джерела. Emboldening Bond{{Emboldening Bond}}: +1к4 до атаки, перевірки чи ряткидка раз за хід; діє десять хвилин, застосувань стільки, скільки становить Бонус Майстерності між тривалими відпочинками. Потрібен інший учасник звʼязку в межах 30 футів. Experimental Elixir — Boldness{{Experimental Elixir}}: +1к4 до атак і ряткидків, діє хвилину. Примітка редакції: у джерелі помилково вказано «раз за хід»; ефект еліксиру такого обмеження не має. Favored by the Gods{{Favored by the Gods}}: +2к4 після невдалої атаки чи проваленого ряткидка один раз між короткими або тривалими відпочинками. Настанова [Guidance]: +1к4 до однієї перевірки характеристики. Примітка редакції: згадка атак у джерелі неправильна. Pact of the Talisman{{Pact of the Talisman}}: Базовий ефект: +1к4 після проваленої перевірки характеристики, застосувань стільки, скільки становить Бонус Майстерності між тривалими відпочинками. Protection of the Talisman{{Protection of the Talisman}}: +1к4 після проваленого ряткидка, окремий запас застосувань, рівний Бонусу Майстерності між тривалими відпочинками.\n\nБардове натхнення варте згадки, проте його не можна використати на себе.\n\nк20 Постійні бонуси Додаткові за вибором Максимум Середній максимум Перевірка характеристики 2d4 2d4+1d10 4d4+1d10 +15.5 Кидок атаки — помилка підсумку джерела: Dark Oneʼs Own Luck не діє на атаки; правильно максимум 6к4, середній бонус +15 3d4 3d4+1d10 6d4+1d10 +20.5 Ряткидок — підсумок джерела не враховує Dark Oneʼs Own Luck; з ним максимум 7к4 + к10, середній бонус +23 3d4 4d4 7d4 +17.5",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-the-dice-pool",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Чаротворення{{Spellcasting}}; Домен миру{{Peace Domain}}; Implement of Peace{{Implement of Peace}}; Emboldening Bond{{Emboldening Bond}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Покровитель Fiend{{Fiend}}; Dark One's Blessing{{Dark One's Blessing}}; Магія угоди{{Pact Magic}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Потойбічні інвокації{{Eldritch Invocations}}: Agonizing Blast{{Agonizing Blast}}; ще одна на вибір",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Pact of the Talisman{{Pact of the Talisman}}; перевчіть інвокацію на Rebuke of the Talisman{{Rebuke of the Talisman}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Magical Tinkering{{Magical Tinkering}}; Чаротворення{{Spellcasting}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Infuse Item{{Infuse Item}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Алхімік{{Alchemist}}; Tool Proficiency{{Tool Proficiency}}; Alchemist Spells{{Alchemist Spells}}; Experimental Elixir{{Experimental Elixir}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Чаротворення{{Spellcasting}}; Божественна душа{{Divine Soul}}; Divine Magic{{Divine Magic}}; Favored by the Gods{{Favored by the Gods}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Джерело магії{{Font of Magic}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Метамагія{{Metamagic}} — будь-які дві можливості",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Підвищення характеристик: Харизма 16 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Підвищення характеристик: Харизма 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Dark One's Own Luck{{Dark One's Own Luck}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Protection of the Talisman{{Protection of the Talisman}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Чаротворення{{Spellcasting}}; Бардове натхнення{{Bardic Inspiration}} (к6)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Майстер на всі руки{{Jack of All Trades}}; Song of Rest{{Song of Rest}} (к6)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Колегія красномовства{{College of Eloquence}}; Silver Tongue{{Silver Tongue}}; Unsettling Words{{Unsettling Words}}; Експертиза{{Expertise}} (дві навички)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Щасливчик{{Lucky}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Бардове натхнення{{Bardic Inspiration}} (к8); Font of Inspiration{{Font of Inspiration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Мультиклас Клірик/Чорнокнижник/Винахідник/Чародій/Бард",
+        "reason": "Автор не називає кількості рівнів кожного класу; порядок відновлено з таблиці статті: Клірик 1 на рівні персонажа 1, Чорнокнижник Почвари 1–3 на 2–4, Винахідник Алхімік 1–3 на 5–7, Чародій Божественної душі 1–4 на 8–11, Чорнокнижник 4–7 на 12–15, Бард Колегії красномовства 1–5 на 16–20. Виконуються всі 20 рівнів. Вибір платформи, автор не називає (гравець може змінити на листі): друга інвокація на 3-му рівні — Eldritch Mind (перевчена на 4-му на Rebuke of the Talisman, як пише автор); чотири вливання Винахідника — Enhanced Defense, Enhanced Arcane Focus, Replicate: Bag of Holding, Replicate: Goggles of Night; Спорідненість Божественної душі — Cure Wounds; дві метамагії на 10-му — Twinned Spell і Careful Spell; нові інвокації Чорнокнижника на 13-му й 15-му — Eldritch Spear і Armor of Shadows; Експертиза Барда на 18-му — Аналіз поведінки й Медицина; усі замовляння й заклинання Чорнокнижника, Винахідника, Чародія та Барда автор не називає — вони лишені вибору гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Походження та навички",
+        "reason": "Автор каже «будь-яке походження» і не називає навичок; вибір платформи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Навичка при вході в клас Бард (16-й рівень)",
+        "reason": "Бард, взятий другим класом, дає одну навичку на вибір. Автор її не називає, тому Переконання обрано за вас (вибір платформи); після створення її можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-d4-abuse-2014",
+            "translationRevisionId": "translation-rpgbot-d4-abuse-2014-draft1",
+            "sourceRevisionId": "rpgbot-1532f05108b2ca37-5beae02cc103c46b",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

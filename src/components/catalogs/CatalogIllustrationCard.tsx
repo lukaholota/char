@@ -11,6 +11,8 @@ import { cn } from "@/lib/utils";
 type CatalogIllustrationCardProps = {
   imageSrc?: string | null;
   title: string;
+  accessibleTitle?: string;
+  titleClassName?: string;
   englishTitle?: string;
   meta: ReactNode;
   fallbackIcon: ComponentType<{ className?: string }>;
@@ -22,6 +24,8 @@ type CatalogIllustrationCardProps = {
 export function CatalogIllustrationCard({
   imageSrc,
   title,
+  accessibleTitle,
+  titleClassName,
   englishTitle,
   meta,
   fallbackIcon: FallbackIcon,
@@ -43,6 +47,8 @@ export function CatalogIllustrationCard({
       role="button"
       tabIndex={0}
       aria-pressed={isSelected}
+      aria-label={accessibleTitle}
+      title={accessibleTitle}
       onClick={onSelect}
       onKeyDown={selectOnEnterOrSpace}
       className={cn(
@@ -54,6 +60,7 @@ export function CatalogIllustrationCard({
       {isArtHidden ? (
         <PlainTitleCard
           title={title}
+          titleClassName={titleClassName}
           englishTitle={englishTitle}
           meta={meta}
           isSelected={isSelected}
@@ -65,7 +72,7 @@ export function CatalogIllustrationCard({
       ) : (
       <FramedIllustration
         src={imageSrc}
-        alt={title}
+        alt={accessibleTitle ?? title}
         sizes="(max-width: 1023px) 100vw, 620px"
         chamfer="md"
         vignette="lg"
@@ -83,7 +90,8 @@ export function CatalogIllustrationCard({
         <div className="absolute inset-x-0 bottom-0 z-10 p-4">
           <h3
             className={cn(
-              "font-rpg-display text-xl uppercase leading-tight tracking-[0.08em] drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)] transition-colors duration-200 sm:text-2xl",
+              "font-rpg-display leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.85)] transition-colors duration-200",
+              titleClassName ?? "text-xl uppercase tracking-[0.08em] sm:text-2xl",
               isSelected ? accent.titleClassName : cn("text-white", accent.hoverTitleClassName)
             )}
           >

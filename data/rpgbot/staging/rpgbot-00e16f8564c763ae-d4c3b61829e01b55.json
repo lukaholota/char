@@ -1,0 +1,1955 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "d4c3b61829e01b55aa85649b0db32129f7ab967bb4bfa1b87c747720d7e82f86",
+  "sourceRevision": {
+    "revisionId": "rpgbot-00e16f8564c763ae-d4c3b61829e01b55",
+    "sourceId": "rpgbot-00e16f8564c763ae",
+    "fetchedAt": "2026-09-29T19:07:55.803824+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:36:39-04:00",
+    "contentHash": "55eca18d2f74b2eefd8ae5939d625801aa84dadbcebc0fc9e6765712393311c9",
+    "title": "Songs of the Spellbound Sea Buccaneer Fighter: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-00e16f8564c763ae-d4c3b61829e01b55.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Published in "
+            },
+            {
+              "type": "link",
+              "text": "Songs of the Spellbound Sea",
+              "href": "https://www.kickstarter.com/projects/somanyrobots/songs-of-the-spellbound-sea-new-player-options-for-5e"
+            },
+            {
+              "type": "text",
+              "text": " by "
+            },
+            {
+              "type": "link",
+              "text": "SoManyRobots",
+              "href": "https://www.somanyrobots.com/"
+            },
+            {
+              "type": "text",
+              "text": ", the Buccaneer Fighter is a tricky, highly mobile martial subclass built around Scoundrel’s Strike, which allows the Fighter to deal extra damage and apply debuffs to the target of their attacks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article covers 3rd-party content. Be sure to discuss using the content with your table before assuming that is available to you."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Buccaneer Fighter Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Buccaneer Fighter Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Buccaneer Fighter Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Buccaneer Fighter Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Buccaneer Fighter Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Buccaneer Fighter Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Buccaneer Fighter Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Buccaneer Fighter Build – Fiddle Me Timbers, It's a Giant Grab!",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/songs-of-the-spellbound-sea-buccaneer/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Buccaneer Fighter Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Savvy Shiphand"
+              },
+              {
+                "type": "text",
+                "text": ": Essential in any aquatic\n\t\tcampaign, but rarely useful otherwise."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scoundrel’s Strike"
+              },
+              {
+                "type": "text",
+                "text": ": The Buccaneer’s\n\t\tsignature feature, Scoundrel’s Strike adds a splash of extra damage and a\n\t\tpowerful debuff. Note that, like Sneak Attack, this works “once per turn”\nrather than “once on each of your turns”, which means that you can use it with Opportunity Attacks.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Opening Cut"
+              },
+              {
+                "type": "text",
+                "text": ": Against enemies that\n\t\t\t\twon’t do well in melee, this is fantastic. Strongly consider combining\n\t\t\t\tthis with Sentinel to make it especially difficult for enemies to get\n\t\t\t\taway from you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Unbalancing Blow"
+              },
+              {
+                "type": "text",
+                "text": ": Great for getting\n\t\t\t\tyourself and/or your allies out of melee safely."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Infuriating Strike"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent for\n\t\t\t\tdefending your allies, especially if you’re using hit-and-run tactics or\n\t\t\t\tif you’re using a ranged weapon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sea Legs"
+              },
+              {
+                "type": "text",
+                "text": ": A Strength-based build can jump\n\t\treasonably far, allowing you to get past obstacles like pits and difficult\n\t\tterrain. With this you can jump high enough that you would take fall damage,\n\t\tso be careful about leaping into the air to attack things. If you want to lean\n        into jumping, get a Ring of Jumping so that you can jump a total of 6 times\n        your normal jump distance."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improved Scoundrel’s Strike"
+              },
+              {
+                "type": "text",
+                "text": ": The extra\n\t\tdamage isn’t impactful, but two effects at once is fantastic."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Marine Captain"
+              },
+              {
+                "type": "text",
+                "text": ": If you’ve made it to\n\t\tthis level, your party has almost certainly learned to deal with swimming\n\t\tand with sailing. Most likely this will affect NPCs."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Buccaneering Spirit"
+              },
+              {
+                "type": "text",
+                "text": ": Extremely powerful.\n\t\tSharing the effects of Scoundrel’s Strike as a Reaction is already great,\n\t\tthen you get a second Reaction on top of it! Sharing Scoundrel’s Strike two\n\t\ttimes in a single round and then using it again on your own turn will have a\n\t\tmassive impact."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Buccaneer Fighter Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical Fighter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": ". If you want to take advantage of Sea Legs’ extended jump distance, build around Strength."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Buccaneer Fighter Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical Fighter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/races"
+            },
+            {
+              "type": "text",
+              "text": ". Songs of the Spellbound Sea has some really fun new race and lineage options."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Buccaneer Fighter Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Largely the same as a "
+            },
+            {
+              "type": "link",
+              "text": "typical Fighter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Athlete"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Synergizes well with Sea Legs if you plan to do a lot of jumping."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sentinel"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Combines very well with Scoundrel’s Strike, offering more opportunities\n\t\tto use it outside of your turn."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Buccaneer Fighter Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical Fighter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#weapons"
+            },
+            {
+              "type": "text",
+              "text": ". You may enjoy reach weapons so that you can use Scoundrel’s Strike (Infuriating Strike) before moving out of reach, but it’s not essential."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Buccaneer Fighter Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical Fighter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Buccaneer Fighter Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical Fighter",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Buccaneer Fighter Build – Fiddle Me Timbers, It’s a Giant Grab!",
+      "sourceAnchor": "example",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Songs of the Spellbound Sea suggests a Variant Rule to use +2/+1 or three +1 increases instead of a race’s default ability score increases. We’ll use that rule or the Tasha’s Custom Origin rule to put +2 into Strength and +1 into Constitution. If that’s not an option in your game, you can adjust the feat progression a little bit and you’ll still do fine."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re leaning into Songs of the Spellbound Sea and using the new Crabkin race. They get +1 Strength and +2 in either Constitution or Wisdom, a swim speed, natural armor, and a powerful unarmed strike with their fiddler crab claw which deals a stunning 1d10 damage, but can normally only be used once per turn. We’re going to lean into the Claw Combatant feat and use that claw to great effect."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Explorer. We get proficiency in Athletics, Survival, Cartographer’s Tools or Navigator’s Tools, and water vehicles. We already get proficiency in water vehicles from our subclass, so at level 3 we’ll take a different tool, instead."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll use our class skills to get proficiency in Insight and Perception, then we’ll get Athletics and Survival from our background. We’ll also get Cartographer’s Tools and water vehicles from our background. At level 3 we’ll add proficient in Navigator’s Tools since we’re already proficiency in water vehicles."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When we take Skill Expert at level 6 we’ll add proficiency in Intimidation or any other skill we like."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we take Claw Combatant and increase our Strength to 16."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 6 we take Skill Expert to get Expertise in Athletics, proficiency in one skill, and increase our Strength to 19."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we take Sentinel"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we take Athlete and raise our Strength to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 14 we take Shield Master."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16 we take Mobile for the speed increase."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19 we take an Ability Score Increase to raise our Constitution to 18."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Unarmed"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmed normally isn’t a great Fighting Style, but I promise that there’s a fun payoff later. If you’re using the optional features in Tasha’s Cauldron of Everything, pick Defense instead, then consider retraining at level 4."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Offensively, we’re all about that claw. Grab the heaviest armor you can afford and a shield, then go pinch people for 1d10+Strength. That’s the damage of many 2-handed weapons, but we still get a shield."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge (1/rest)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Always fantastic. Note that we still only get to attack once per turn with our claw, but there’s nothing stopping you from using Action Surge to Ready and then attack outside of your own turn. This is especially nice oncey you get Scoundrel’s Strike at level 3 because it’s “once per turn” and we can abuse Ready to apply it a second time in a round without hoping for an Opportunity Attack."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Buccaneer"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Savvy Shiphand"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Scoundrel’s Strike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Savvy Shiphand gets us very little due to our race and background. We already have a swim speed and we’re already proficient in water vehicles, but we can trade the redundant proficiency for another tool like Navigator’s Tools."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Scoundrel’s Strike gives us a great debuff and a splash of extra damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Claw Combatant (Str 17 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can now use Action Surge to attack twice during our own turn, but the Ready trick is still better for the moment unless you need your Reaction to be available. The ability to attack more than once with our claw is more important at level 5."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also note the automatic damage against grappled creatures."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Roughly double our damage output. Unfortunately, Scoundrel’s Strike is only once per turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now that we can make two attacks, we can use the "
+                },
+                {
+                  "type": "link",
+                  "text": "grapple+shove combo",
+                  "href": "https://rpgbot.net/dnd5/characters/grapple/"
+                },
+                {
+                  "type": "text",
+                  "text": " to grapple enemies and put them on the ground. We can combine the effects of Fighting Style (Unarmed) and the grapple effect from Claw Combatant to deal a total of 1d4+Str damage per round. The 1d4 is at the beginning of your turn, while the Str damage is at the beginning of their turn, which is weird but also forces two saves to maintain Concentration if you’re facing enemy spellcasters."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Skill Expert"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Expertise: Athletics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Skill: Any 1"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Str 18 -> 19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Expterise in Athletics ensures that we can grapple reliably. Not super exciting, but very important."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sea Legs"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can already jump 19 feet horizontally or 7 feet vertically with a running start. This raises those numbers to 38 and 14, respectively. Our move speed is only 30, so much of our movement is wasted on long jumps."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you can, look for movement speed bonuses from items and from spells like Longstrider. Raising how far you can move means that you can jump further. You can also dip into Rogue for Cunning Action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If we don’t get a running start, we can jump 19 feet. If you’re playing on a grid, drop that to 15 and you can jump 3 squares, easily clearing many objects."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The rules don’t say what happens when you jump while grappling a creature. You move at half speed, which is a significant limitation, but we can easily standing long jump 15 feet and bring our “cargo” along with us. Jump into the ocean. The rules for "
+                },
+                {
+                  "type": "link",
+                  "text": "fighting underwater",
+                  "href": "https://rpgbot.net/dnd5/how-to-play/underwater-combat/"
+                },
+                {
+                  "type": "text",
+                  "text": " are pretty brutal if they don’t have a swim speed, and you’re dealing automatic damage every turn even if you do nothing but Dash to drag them straight down."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Sentinel"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If you keep an ally nearby as a tempting target, you can use Sentinel’s Reaction to attack enemies if they attack your allies. This lets you apply Scoundrel’s Strike outside of your turn. If you use the Infuriating Strike effect, your target will feel even less inclined to attack your friend."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If your allies can risk getting hit, you might have them intentionally trigger Opportunity Attacks so that you can use Sentinel’s Reaction attack more often."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable (1/rest)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Always great."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Scoundrel’s Strike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More damage on Scoundrel’s Strike, and we can now apply two effects at once. Opening Cut and Infuriating Strike should be your go-to options unless you need to move away or if your target is prone."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With three attacks you can now grapple, shove your target prone, then attack them and apply Scoundrel’s Strike. The +2d8 damage and the debuffs."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infuriating Strike will seem less useful against a prone enemy, but there’s a chance that they can break the grapple somehow and then attack your friends. Watch for such opportunities and try to plan ahead."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Athlete (Str 19 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Athlete effectively gives us a climb speed and also lets us take running jumps in 5 feet instead of 10, which improves our mobility slightly. Increasing our Strength also means that our jump math improves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can now take a running high jump and jump 16 feet into the air. If you get a Ring of Jumping or a similar effect, you can jump height enough that you barely need flight. Jump into the rigging, drag a grappled enemy up to the crow’s nest, then drop them."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable (2/rest)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Still great."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Shield Master"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re not using our Bonus Action much and we’re using a shield, so this allows use us to move our Shove onto our Bonus Action and fit an extra attack into each of our turns. The enefits to Dexterity saves are also nice since we’re stomping around with 8 Dexterity."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Marine Captain"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This probably won’t do much for us, but if you have a bunch of NPC sailors or some very ambitious animals, they can help you sail a ship."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Mobile"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We want the speed increase so that we can jump further and haul enemies around a bit faster. The ability to ingore Opportunity Attacks is partially redundant with Scoundrel’s Strike, but that’s fine."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge (2/rest)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Indomitable (3/rest)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fantastic."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Buccaneering Spirit"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We now have a bunch of really great ways to use our Reaction. Sentinel, regular Opportunity Attacks, and sharing Buccaneering Spirit."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Constitution 16 -> 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Not super exciting, but more hp is always great."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack (3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Declare the Attack action. Grapple your target, Bonus Action to Shove them on the ground. Jump around to get them somewhere unpleasant. "
+                },
+                {
+                  "type": "link",
+                  "text": "Crab hammer",
+                  "href": "https://bulbapedia.bulbagarden.net/wiki/Crabhammer_(move)"
+                },
+                {
+                  "type": "text",
+                  "text": " until they stop resisting."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Buccaneer Fighter Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Savvy Shiphand"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Scoundrel’s Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Opening Cut"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Unbalancing Blow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Infuriating Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sea Legs"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Improved Scoundrel’s Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Marine Captain"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Buccaneering Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Athlete"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Sentinel"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[2]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-2-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-2-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-2-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-levels-2"
+    }
+  ],
+  "metrics": {
+    "words": 2151,
+    "sections": 17,
+    "blocks": 29,
+    "tables": 2,
+    "ratingSignals": 16
+  },
+  "status": "needs-editorial-review"
+}

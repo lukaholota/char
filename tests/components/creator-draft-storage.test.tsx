@@ -20,8 +20,13 @@ const createLocalStorageStub = () => {
   };
 };
 
-const writeDraft = (storage: ReturnType<typeof createLocalStorageStub>, key: string, classId: number) =>
-  storage.setItem(key, JSON.stringify({ state: { formData: { classId }, currentStep: 1, totalSteps: 7 }, version: 0 }));
+type StorageStub = ReturnType<typeof createLocalStorageStub>;
+
+const writeDraft = (storage: StorageStub, key: string, classId: number) =>
+  storage.setItem(key, JSON.stringify({ state: { formData: { classId }, currentStep: 1, totalSteps: 7 }, version: 1 }));
+
+const writeLegacyDraft = (storage: StorageStub, key: string, state: { formData: object; currentStep: number }) =>
+  storage.setItem(key, JSON.stringify({ state: { ...state, totalSteps: 9 }, version: 0 }));
 
 const readDraft = (key: string) => JSON.parse(localStorage.getItem(key) ?? "null")?.state.formData;
 
@@ -99,3 +104,66 @@ describe("чернетка конструктора при перемиканн�
     expect(readDraft("dnd-pers-form")).toEqual({ classId: 14 });
   });
 });
+
+describe("чернетка конструктора 2014 зі старим порядком кроків", () => {
+  const loadStoreWith = async (prepare: (storage: StorageStub) => void) => {
+    const storage = createLocalStorageStub();
+    prepare(storage);
+    vi.stubGlobal("localStorage", storage);
+    vi.resetModules();
+    store = await import("@/lib/stores/persFormStore");
+    store.activateCreatorDraftStorage("RULES_2014");
+  };
+
+  it("скидається разом із кроком, а гравець отримує одне повідомлення", async () => {
+    await loadStoreWith((storage) => writeLegacyDraft(storage, "dnd-pers-form", { formData: { raceId: 3, classId: 5 }, currentStep: 4 }));
+
+    expect(store.usePersFormStore.getState().formData).toEqual({});
+    expect(store.usePersFormStore.getState().currentStep).toBe(1);
+    expect(store.consumeDraftResetNotice()).toBe(true);
+    expect(store.consumeDraftResetNotice()).toBe(false);
+  });
+
+  it("повідомлення доживає до конструктора, навіть якщо скинула інша сторінка", async () => {
+    await loadStoreWith((storage) => writeLegacyDraft(storage, "dnd-pers-form", { formData: { classId: 5 }, currentStep: 2 }));
+    vi.resetModules();
+    store = await import("@/lib/stores/persFormStore");
+
+    expect(store.consumeDraftResetNotice()).toBe(true);
+    expect(store.consumeDraftResetNotice()).toBe(false);
+  });
+
+  it("порожня стара чернетка скидається без повідомлення", async () => {
+    await loadStoreWith((storage) => writeLegacyDraft(storage, "dnd-pers-form", { formData: {}, currentStep: 1 }));
+
+    expect(store.usePersFormStore.getState().formData).toEqual({});
+    expect(store.consumeDraftResetNotice()).toBe(false);
+  });
+
+  it("чернетка нової версії лишається, і повідомлення немає", async () => {
+    await loadStoreWith((storage) => writeDraft(storage, "dnd-pers-form", 14));
+
+    expect(store.usePersFormStore.getState().formData).toEqual({ classId: 14 });
+    expect(store.consumeDraftResetNotice()).toBe(false);
+  });
+
+  it("старі чернетки 2024, пресета, левелапу й листа не чіпає", async () => {
+    await loadStoreWith((storage) => {
+      for (const key of ["dnd-2024-pers-form", "dnd-preset-2014-pers-form", "dnd-pers-levelup", "dnd-pers-sheet-feat"]) {
+        writeLegacyDraft(storage, key, { formData: { classId: 9 }, currentStep: 3 });
+      }
+    });
+
+    for (const [ruleset, key] of [["RULES_2024", "dnd-2024-pers-form"]] as const) {
+      store.activateCreatorDraftStorage(ruleset);
+      expect(store.usePersFormStore.persist.getOptions().name).toBe(key);
+      expect(store.usePersFormStore.getState().formData).toEqual({ classId: 9 });
+    }
+    store.activateLevelUpDraftStorage();
+    expect(store.usePersFormStore.getState().formData).toEqual({ classId: 9 });
+    store.activateSheetFeatDraftStorage();
+    expect(store.usePersFormStore.getState().formData).toEqual({ classId: 9 });
+    expect(store.consumeDraftResetNotice()).toBe(false);
+  });
+});
+

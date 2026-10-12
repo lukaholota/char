@@ -45,7 +45,16 @@ describe("KR11.1 — Каталог та нормалізація Бестіар
       expect(c.intelligence).toMatch(/\d+\s*\([+-]?\d+\)/);
       expect(c.wisdom).toMatch(/\d+\s*\([+-]?\d+\)/);
       expect(c.charisma).toMatch(/\d+\s*\([+-]?\d+\)/);
-      expect(c.challenge).toBeTruthy();
+      if (c.nameEng === "Giant Fly") {
+        expect(c.source).toBe("DMG");
+        expect(c.challenge).toBe("");
+      } else if (c.nameEng === "Reaper Spirit") {
+        expect(c.source).toBe("BOMT");
+        expect(c.challenge).toBe("");
+        expect(c.ac).toContain("рівень заклинання");
+      } else {
+        expect(c.challenge).toBeTruthy();
+      }
     }
   });
 

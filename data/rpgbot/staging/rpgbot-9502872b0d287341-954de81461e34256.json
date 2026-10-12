@@ -1,0 +1,2885 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "954de81461e342560254586116e1a8264e6a375f4eba1d27a75848d2f65c7c58",
+  "sourceRevision": {
+    "revisionId": "rpgbot-9502872b0d287341-954de81461e34256",
+    "sourceId": "rpgbot-9502872b0d287341",
+    "fetchedAt": "2026-09-29T19:17:47.962393+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:46:55-04:00",
+    "contentHash": "711928bf3c8dff93644defb40e6de222695a63ba2c41570aa7bb3b272b6b3d15",
+    "title": "School of Necromancy Wizard 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-9502872b0d287341-954de81461e34256.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are a few pet classes out there like "
+            },
+            {
+              "type": "link",
+              "text": "Beast Master",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/"
+            },
+            {
+              "type": "text",
+              "text": " and "
+            },
+            {
+              "type": "link",
+              "text": "Battle Smith",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/"
+            },
+            {
+              "type": "text",
+              "text": ", but none of them solve the problem of wanting so many pets that they outnumber the player characters. Enter the School of Necromancy Wizard, more commonly known as the necromancer."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Now, first off, you should immediately look at that sentence and say “but Random, then how will the rest of my party have any fun in combat?” First, I agree, and the answer is maybe by asking one of them to play an "
+            },
+            {
+              "type": "link",
+              "text": "Oathbreaker Paladin",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/"
+            },
+            {
+              "type": "text",
+              "text": " so they’re getting in on the undead gravy train too. Second, this is very much a conversation to have with your table during a session zero so you can make sure no one is going to feel like they’re not contributing, and also make it clear that you understand that the situation could change in the future and be willing to be flexible."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With that said, the School of Necromancy Wizard is a surprisingly powerful addition to the party because it brings something few other Wizards can: party durability. If you’re presenting bodies for enemies to attack that don’t belong to the player characters, you’re preventing that damage from being dealt to them. Starting at level 6, if we ignore setup time and just think about using Animate Dead for the “maintain control on 4 skeletons” features, that’s a 3rd-level spell slot to prevent roughly 76 damage to people who, unlike your skeletons, you can’t just reanimate back into the same form later for no cost beyond another 3rd level spell."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "5e certainly doesn’t have the absurd capacity for controlling undead armies that 3.x did (a character I created once as a thought experiment could command something like 80,000 hit dice worth of skeletons at 20th level, all of which were immune to cold and fire damage and would explode in a burst that damaged living things and healed other undead near them when they died), but this handbook will guide you through making the best we can out of this incredibly popular trope."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Necromancy Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Necromancy Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#school-of-necromancy-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Necromancy Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#school-of-necromancy-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Necromancy Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#school-of-necromancy-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Necromancy Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#school-of-necromancy-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Necromancy Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#school-of-necromancy-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Necromancer Build – The Queen Decrees: Six Linked Minions",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#example-necromancer-build-the-queen-decrees-six-linked-minions"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "School of Necromancy Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Necromancy Savant"
+              },
+              {
+                "type": "text",
+                "text": ": Standard for PHB wizard\n\t\tsubclasses. Strangely, this feature incentivizes you to use your two free\n\t\tspells learned per level to learn literally anything except spells from your\n\t\tfavorite school."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grim Harvest"
+              },
+              {
+                "type": "text",
+                "text": ": \nRAW you can use this on any creature, so there’s nothing to stop you\n\t\tfrom carrying a bag of rats for you to “harvest” when you need hit points.\n\t\tUnfortunately, there aren’t many leveled necromancy spells which\n\t\tcan kill a creature, and many of them are weak. The lowest-level option is Ray of Sickness.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "For maximum efficiency, cast leveled spells with long durations and ongoing\n\t\tdamage like Vampiric Touch, then kill one rat per turn. Vampiric Touch also heals\non its own, so you can combine it with the bag\n\t\t\tof rats trick to double-dip on healing (though Vampiric Touch can’t heal\n\t\t\tyou more than the target’s hit points, and rats have 1 hp)."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "There is some ambiguity about how this works with the spell Summon\n\t\t\tUndead. Summon Undead is a necromancy spell, and the summoned creature is\n\t\t\tthe spell’s “effect”, so killing a creature with your summoned undead may\n\t\t\tqualify to trigger Grim Harvest. As a DM, I would not allow this because\n\t\t\tthe creature’s attacks are not the spell itself and because allowing it\n\t\t\twould immediately become a problem. Along the same lines: the effect of\n\t\t\tAnimate Dead is to create an undead creature. That creature killing\n\t\t\tsomething is not part of the spell’s effect and therefore doesn’t\n\t\t\tqualify."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Undead Thralls"
+              },
+              {
+                "type": "text",
+                "text": ": Additional hit points and\n\t\tdamage will make your pet undead considerably more lethal. Remember that\n\t\thaving more undead will require you to spend more spell slots every day to\n\t\tkeep them under control, so don’t have too many. Instead, try to focus on\n\t\thaving a few undead that you can rely upon and move about without\n\t\ttoo much trouble. See our "
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Animating the Dead",
+                "href": "https://rpgbot.net/dnd5/characters/spells/animating-the-dead/"
+              },
+              {
+                "type": "text",
+                "text": "\nfor help with the relevant spells.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Unfortunately, this doesn’t appear to work with the Summon Undead spell.\n\t\t\tSummon Undead "
+              },
+              {
+                "type": "emphasis",
+                "text": "summons"
+              },
+              {
+                "type": "text",
+                "text": " an undead creature, and Undead Thralls only\n\t\t\tapplies if you "
+              },
+              {
+                "type": "emphasis",
+                "text": "create"
+              },
+              {
+                "type": "text",
+                "text": " the undead creature."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Inured to Undeath"
+              },
+              {
+                "type": "text",
+                "text": ": Situational, but\n\t\tthematically appropriate. There aren’t spells that let you take control of\n\t\tundead that you stumble across or reassert control of undead which you\n\t\tcreate after you’ve lost control of them, so sometimes you’ll run into a\n\t\tshadow or something and need to actually fight them. Command Undead reduces\n\t\tthis risk somewhat, but you can only use it to control one undead at a time,\n\t\tso undead which can reduce your hit point maximum remain a risk.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The immunity to hit point reduction, while intended to address a common\n\t\t\tside-effect of attacks by undead creatures, isn’t limited to those attacks:\n\t\t\tyou’re still immune to hit point reduction from other sources. For\n\t\t\texample, the spells Create Homunculus and Create Magen both require you to\n\t\t\treduce your hit point maximum as part of the spells."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Immunity to hit point\n\t\t\treduction removes that cost, so your Homunculus can perpetually have half\n\t\t\tof your hit dice at no cost to your hit point maximum, and so long as you\n\t\t\thave the gold, you can create a small army of magens to serve you where\n\t\t\tundead might not do the job (i.e. almost anywhere with living people). I\n\t\t\tdon’t think that this was an intentional rules interaction, so your DM\n\t\t\tmight not be thrilled about it. Please be careful not to abuse it too\n\t\t\theavily."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Command Undead"
+              },
+              {
+                "type": "text",
+                "text": ": This is a very useful\n\t\tability if you have enemies which command undead or which are undead\n\t\tthemselves, but the fact that intelligent undead (very common by this level)\n\t\tget Advantage on the save makes this ability hard to use effectively. Some\n\t\thigh-CR undead like the Nightwalker are tempting targets, but unless you’re\n\t\tactively seeking them out (and your DM is silly enough to let you find and\n\t\tenslave one) you can’t count on just stumbling upon a suitable target."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-necromancy-ability-scores",
+      "heading": "School of Necromancy Ability Scores",
+      "sourceAnchor": "school-of-necromancy-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-necromancy-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No change from any other Wizard."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-necromancy-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": We are not a muscle Wizard. We leave casting Fist to the War Mages."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-necromancy-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": We can’t wear armor, so get this as high as your budget will let you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-necromancy-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Everything likes more Con."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-necromancy-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Wizard spells are powered by Int, plus it makes you good at knowing things."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-necromancy-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Wizards rarely concern themselves with whether or not they should do a thing after finding out they can."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-necromancy-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-necromancy-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-necromancy-races",
+      "heading": "School of Necromancy Races",
+      "sourceAnchor": "school-of-necromancy-races",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-necromancy-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I can only think of one race that’s any different than other wizards, and yeehaw it is goofy. Skeletons don’t weigh much of anything. Wood is cheap. There is absolutely nothing stopping you from pumping Strength up instead of Dex and grabbing armor proficiency from a multiclass level like Artificer or a feat. If you do that, you can be a Centaur and turn yourself into a transportation system, "
+            },
+            {
+              "type": "link",
+              "text": "carrying a platform on your back",
+              "href": "https://www.youtube.com/watch?v=3lSs89GQhGU"
+            },
+            {
+              "type": "text",
+              "text": " that you strap your shortbow-wielding skeletons onto. This removes the party durability aspect of the build and turn you into a roving artillery cannon, which I would absolutely do for a oneshot, but probably isn’t a great idea for an actual campaign."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-necromancy-feats",
+      "heading": "School of Necromancy Feats",
+      "sourceAnchor": "school-of-necromancy-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-necromancy-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mostly the same as "
+            },
+            {
+              "type": "link",
+              "text": "standard wizards",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-necromancy-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Inspiring Leader finds itself strangely useful on a pet-type Necromancer. While your Charisma isn’t huge, once you’ve capped Int and gotten your Resilient (Con), you have some wiggle room. Using that to put temp HP on not just your party but also some skeletons prevents even more incoming damage. Other than that, nothing different than other Wizards."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-necromancy-weapons",
+      "heading": "School of Necromancy Weapons",
+      "sourceAnchor": "school-of-necromancy-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-necromancy-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unlike most Wizards, you’ll actually want to buy weapons. But like most Wizards, you won’t be using weapons. Since any “monster” is considered proficient with anything in its stat block, getting an additional short sword for each of your skeletons is going to increase their DPR by nearly 50%. You don’t have any way to get them the fighting style for +2 damage, but the Undead Thralls feature will give them scaling damage anyway (up to +6 per hit) which makes that extra sword way more important."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-necromancy-armor",
+      "heading": "School of Necromancy Armor",
+      "sourceAnchor": "school-of-necromancy-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-necromancy-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You aren’t wearing any, but your minions sure can. As Rocco pointed out in our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Animating the Dead",
+              "href": "https://rpgbot.net/dnd5/characters/spells/animating-the-dead/"
+            },
+            {
+              "type": "text",
+              "text": ", they have a Dex of 14 which nicely fills out medium armor, so you can and should send every skeleton out with AC 16."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The only thing you could really do is to multiclass Oathbreaker yourself, but that makes you severely MAD and prevents you from casting Wish if you want to get up to Aura of Hate. Mostly just don’t multiclass unless you’re going to take a level of Artificer first for proficiencies and Cure Wounds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+      "heading": "Example Necromancer Build – The Queen Decrees: Six Linked Minions",
+      "sourceAnchor": "example-necromancer-build-the-queen-decrees-six-linked-minions",
+      "blocks": [
+        {
+          "blockId": "block-section-example-necromancer-build-the-queen-decrees-six-linked-minions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "Had you been my creation, brute, you would not have fallen so easily."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-necromancer-build-the-queen-decrees-six-linked-minions-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you remember that advice about picking up Inspiring Leader, you’ll recall that its effects can target up to 6 friendly creatures. Should you be using it on party members instead? Probably. But maybe this is your character for a solo campaign, maybe you just want to have your skeletons last a long time, or maybe your party lacks a Defender so you’re filling that capability gap with skeletons."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stats need to be weird to make Inspiring Leader work."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fairy is a very safe choice for a number of reasons. It has innate flight to keep us out of melee, the Fey creature type is good defense against hold/dominate, and, importantly, it provides Faerie Fire. The reason that’s so important for us is that Fairy Fire is one of the few multiplicative modifiers for minion attacks, and more damage is always good."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since I don’t want to put Sage in back-to-back handbooks, take Feylost and trade the skills for two Intelligence skills. Now you’re the conduit for prophetic DM loredrops, flavored around your friend/family member calling you from beyond the Feywild veil."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Between the class and the background, we can walk out with Arcana, History, Nature, and Religion to know all the things. We’ll also have one tool proficiency that we can assign to anything you like. With our Dex being 16, we could pick up Thieves’ Tools and perform something of the Scout role, particularly later on when we get access to Wizard staples like Arcane Eye. If you’re going to go that route, probably drop whichever of Nature or Religion your divine caster has access to and pick up Investigation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 4 gets us Telekinetic so we always have something to do with our Bonus Action. I wish there was another hybrid feat that provided such an option, but there isn’t and this class/subclass doesn’t provide one. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 8 caps Intelligence to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 12 gets us Inspiring Leader."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 16 gets us Resilient (Con)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 19 gets us Lucky to prevent ourselves from failing critical saves which get very scary at high levels."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Druidcraft (Racial)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fire Bolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Prestidigitation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st-Level Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Comprehend Languages"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Find Familiar"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mage Armor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Magic Missile",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/magic-missile/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sleep"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Necromancy Savant"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Arcane Recovery"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level, tactics aren’t all that interesting. Fly above fights and shoot things with a light crossbow. Wait, a light crossbow? Yes, 1d6+3 averages to 6.5, while Fire Bolt is only 5.5. Plus it raises the damage floor dramatically, which is very helpful in low-level fights."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re taking Mage Armor here so we don’t forget to have it at later levels when more things fly and have ranged attacks. We won’t really use it until then though, so feel free to spend your couple spell slots on Sleep on big crowds or Silvery Barbs to save your party members from stray crits."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Take the starting gold and walk out with a crossbow, a component pouch, and a spellbook."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Grim Harvest"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Absorb Elements"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level, you might reasonably expect that I’d recommend picking up Ray of Sickness to trigger the improved version of Grim Harvest. The thing is, it’s "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "really bad"
+                },
+                {
+                  "type": "text",
+                  "text": ". You need an attack roll to hit, then it deals less damage than Chromatic Orb, and it has to be the single most resisted damage type in the game, then it asks for a Con save (the perpetually highest type past CR 2) to apply a condition which many things are, once again, immune to. Just don’t."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Faerie Fire (Racial)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Maximilian’s Earthen Grasp"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Phantasmal Force"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Faire Fire will likely be your go-to concentration spell against multiple targets, especially since you get one free per day. It’s not control, but it definitely amplifies party damage which is the next best thing."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "So then we just need single-target control, and we get that with two excellent save-or-sucks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Telekinetic (Int)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Invisibility"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Wither and Bloom"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Since we can take our class features in any order, we grab Mage Hand first, then take Telekinetic to extend the range and grant all the other usual benefits."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wither and Bloom is a great replacement to Sleep in your prepared spell list. The damage, unfortunately, still targets a Con save, but this can be the follow up to Fireball which we get at next level, hoping to cull any remaining enemies and heal us accordingly. It also allows for some combat healing. It doesn’t specify that the creature you choose has to be conscious to take advantage of this effect, so you can very much use it to stand up a downed party member as long as they have hit dice left. Especially useful for making it so the healer who dropped doesn’t have to resurrect in town."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enlarge/Reduce (Racial)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fireball"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Haste"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Haste is an interesting pick on this character. Obviously, it’s good for many types of party member. Interestingly, it can also be a good choice to increase the minion speed for, say, the one skeleton you’ve been able to equip very well with full armor and two swords, perhaps even a magical sword if you’ve found such a mass of iron that no one else needed."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You’ll notice a lack of Tiny Hut appearing here. You can spend the money to put it in your book if you like and cast it as a ritual, but keep in mind that you have 4 permanent guards that don’t need to sleep."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Undead Thralls"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Animate Dead (Free)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Vampiric Touch"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Undead",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-undead"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hoo boy, what a level. First off, Undead Thralls comes online, "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "dramatically"
+                },
+                {
+                  "type": "text",
+                  "text": " increasing the damage and durability of the skeletons we can now create with Animate Dead, a spell which we also get for free at this level. As Rocco pointed out, any bones will do, even bones that have been a skeleton already which got knocked back into a pile of loose bones by receiving fatal damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Since we can control 4 of them with one 3rd-level spell slot, and we get two of those a day, spend a day casting it twice to animate two each time, then spend one slot per day maintaining control."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I mentioned that Telekinetic is good to always have a bonus action. You may look at the bonus action cost of redirecting your skeletons and think that you’ll be doing that frequently. The thing is, they will continue to carry out the last order you gave them until you issue a new one. Skeletons have Intelligence 6, which means they can discern, for instance, if you tell them “attack anything I point to” and then you just have to point to things, which isn’t an action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If that feels too much like cheese to you, “stand next to [party member] and attack anything that tries to hurt them” is a single order without a defined completion. It feels like maybe WoTC were trying to make it so you spent your bonus action controlling your skeletons more frequently, but they certainly left the wording vague enough that you don’t have to."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "That leaves you a slot each day to "
+                },
+                {
+                  "type": "link",
+                  "text": "summon a skeleton mage",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-undead"
+                },
+                {
+                  "type": "text",
+                  "text": ". Starting next level, you won’t have to rely on dead reckoning to get your party where they need to go thanks to Arcane Eye."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Arcane Eye"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Eye is one of the best scouting spells in the game. You can now map an entire dungeon before going inside. Many doors will have a 1-inch gap on or around them, even if it’s as simple as a keyhole or the gap between the door and the floor."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Polymorph, on the other hand, lets you take on a stat block. Flavor is free, and nothing prevents you from turning yourself or one of your minions into a skeletal version of the beast which has an identical stat block to the non-skeletal version."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With that said, I’m going to plug the utility of using this slot to upcast Summon Undead. It will give your minion more health, but, more importantly, it will give them an extra attack. Also keep in mind that you get an hour of your skeleton mage before it crumbles to dust, so you can very easily bring that through a couple fights and multiply the value of the spell slot."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Int 18 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Evard’s Black Tentacles"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Stone Shape"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Apart from now being able to be a "
+                },
+                {
+                  "type": "link",
+                  "text": "Tyrannosaurus skeleton",
+                  "href": "https://www.youtube.com/watch?v=9QuZ-veeqCo"
+                },
+                {
+                  "type": "text",
+                  "text": ", there isn’t much particularly interesting for this character at this level. We add an area-of-effect control spell and a tool for later, but, just like last level, I’m going to talk about the value of upcasting again."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you use a 4th-level slot for Animate Dead, you can control 6 skeletons/zombies with one spell. Those 6 linked skeletons make excellent meat shields, and focusing these predators into a feeding frenzy on a new target only takes a bonus action. Between that, the minion speed I talked about earlier, and the minion damage multiplier from Faerie Fire, you’re basically set."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Your skeletons will only continue to get tankier thanks to the scaling from levels due to Undead Thralls, your ability to afford better armor, and later your capacity to shield them with your charismatic energy when you pick up Inspiring Leader."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Danse Macabre"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Synaptic Static"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If you just want to animate a huge pile of additional skeletons on top of your permanent ones, press the "
+                },
+                {
+                  "type": "text",
+                  "text": "Vaal"
+                },
+                {
+                  "type": "text",
+                  "text": " Danse Macabre button on the pile of corpses you keep in your bag of holding for just such an occasion. You are creating them, so, unlike the Summon spell, each corpse will get the benefits of your passive ability Undead Thralls."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Synaptic Static is here because it’s one of the rare debuffs that doesn’t require concentration to maintain."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Shape Water",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Telekinesis"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Wall of Stone"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Inured to Death"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You know what every proper Necromancer needs? A "
+                },
+                {
+                  "type": "link",
+                  "text": "permanent base",
+                  "href": "https://rpgbot.net/dnd5/players/defending-a-permanent-base/"
+                },
+                {
+                  "type": "text",
+                  "text": " to fill with skeletons. We’re already occasionally taking time to get skeletons back out whenever they all die, so what’s another few days to make yourself a nice home with Wall of Stone and Stone Shape? You’ll need to pay a little to get Private Sanctum and Teleportation Circle into your spellbook, but we’ve grabbed all the other required spells along the way."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Create Homunculus"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Contingency",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/contingency/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "As we discussed above under the subclass features, your hitpoints can’t be reduced by the part of Create Homunculus where you transfer them to your pet, but the wording will still provide the extras to it. Have this summoned golem follow you around, shooting off something like a crafted Wand of Magic Missiles you’ve made for it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Then there’s Contingency, a spell so good I wrote a whole article on it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Inspiring Leader"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guards and Wards"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Disintegrate"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If you’re mostly just keeping around your standard 6 linked skeletons, now’s the time to start giving them speeches between rests. It’s weird that it works, but nothing says it can’t."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Disintegrate is there for obvious reasons, and Guards and Wards is to protect the necromantic hideout you’ve made with Wall of Stone and the Stone Shape you’ve paid to add to your book"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Finger of Death"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Create Magen"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Create Magen is the upgraded shenanigans version of Create Homunculus. We can’t lose hit point maximum, so nothing apart from monetary cost should prevent you from making as many of these as you want. Fill the hallways of your Guards and Wards’ed hideout with things capable of shooting lightning bolts that deal half damage on a save. Galvan magens are immune to lightning, so they can friendly-fire each other with no harm done. Demos magen are also great if you just want to spend all of your money creating minions capable of shooting bows at things."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In combat, though, you’ll want to use your 7th-level slot on Finger of Death as something is close to dying. It creates (not summons) a zombie, so it gets your bonuses, and the control is permanent. If you’re not good-aligned, you may want to keep a stock of humanoids on hand and farm up a bunch of zombies before heading out on your next adventure."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Command Undead"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Reverse Gravity"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Teleport"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "As I’ve mentioned before, Reverse Gravity is a death sentence for anything that can’t move while up in the air. Meanwhile, someone has to be able to Teleport, and getting through the maze full of traps, Magen, and other hazards is dumb when you can just teleport to the end."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The uses for Command Undead have been described above under the subclass features, but just remember to Mind Sliver an intelligent target before you try it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Horrid Wilting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Clone"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Horrid Wilting is a great spell you can fire into the middle of a group of enemies which also has your skeletons in it and not mind since undead are immune. Clone is part of becoming immortal, and especially the endgame."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Resilient (Con)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Maze"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Simulacrum"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We finally get proficiency on Con saves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For spells, Maze is the absolute last word in single-target removal and control. Simulacrum is the final piece of the puzzle before next level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "True Polymorph",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/true-polymorph-and-shapechange/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "After you’ve finished making infinite simulacra of yourself (wow mirror arrow got weird), use True Polymorph to turn all the rocks you can find into CR 9 monsters."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Mastery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Invisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Neither of these should really need an explanation, but having infinite Silvery Barbs is almost literally cheating."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Lucky"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dodge spells (with saves)! It’s not pseudorandom, so it really is dodging, not evading. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If that doesn’t sound compelling, split the ASI between Con and Charisma instead to bring both up to even."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Signature Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Your signature spells are Animate Dead and Animate Dead. I know you can’t actually choose it twice, but man I wish you could. That’s like a whole From Dust. Probably choose Dispel Magic as the last one and just don’t bother preparing it since you’ll rarely need more than one a day."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- School of Necromancy Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Necromancy Savant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Grim Harvest"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Undead Thralls"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Inured to Undeath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Command Undead"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"2\"><span class=\"rating-green\">Grim Harvest</span>: RAW you can use this on any creature, so there’s nothing to stop you from carrying a bag of rats for you to “harvest” "
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[4]",
+      "detail": "<li value=\"10\"><span class=\"rating-orange\">Inured to Undeath</span>: Situational, but thematically appropriate. There aren’t spells that let you take control of undead that you stu"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-school-of-necromancy-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-school-of-necromancy-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-school-of-necromancy-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-school-of-necromancy-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-school-of-necromancy-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-school-of-necromancy-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-school-of-necromancy-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-school-of-necromancy-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-school-of-necromancy-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-school-of-necromancy-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-school-of-necromancy-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-school-of-necromancy-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-school-of-necromancy-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-school-of-necromancy-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-example-necromancer-build-the-queen-decrees-six-linked-minions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-example-necromancer-build-the-queen-decrees-six-linked-minions-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "td/s[1]",
+      "detail": "s"
+    }
+  ],
+  "metrics": {
+    "words": 4202,
+    "sections": 17,
+    "blocks": 38,
+    "tables": 3,
+    "ratingSignals": 16
+  },
+  "status": "needs-editorial-review"
+}

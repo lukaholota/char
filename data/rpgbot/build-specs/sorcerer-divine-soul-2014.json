@@ -1,0 +1,362 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "sorcerer-divine-soul-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+    "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c"
+  },
+  "exampleSection": "section-example-build-5e-mystic-theurge",
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "ORDER_DOMAIN",
+  "raceKey": "SHIFTER_MPMM",
+  "backgroundKey": "SPY",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 10,
+    "WIS": 14,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "SORCERER_2014",
+      "subclassKey": "DIVINE_SOUL",
+      "classOptionSpellKeys": [
+        "bane"
+      ],
+      "spells": {
+        "cantripKeys": [
+          "fire-bolt",
+          "mage-hand",
+          "mind-sliver",
+          "shape-water"
+        ],
+        "knownSpellKeys": [
+          "silvery-barbs"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "classKey": "SORCERER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Heightened Spell"
+        },
+        {
+          "optionNameEng": "Twinned Spell"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "vortex-warp"
+        ]
+      }
+    },
+    {
+      "level": 5,
+      "classKey": "SORCERER_2014",
+      "featKey": "TELEKINETIC",
+      "featOptions": [
+        {
+          "optionNameEng": "TELEKINETIC Ability (Charisma)"
+        }
+      ],
+      "section": "section-feats",
+      "spells": {
+        "cantripKeys": [
+          "prestidigitation"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "fireball"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "haste"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "classKey": "SORCERER_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "polymorph"
+        ]
+      },
+      "section": "section-feats"
+    },
+    {
+      "level": 10,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "classKey": "SORCERER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Distant Spell"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        },
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "classKey": "SORCERER_2014",
+      "featKey": "INSPIRING_LEADER",
+      "section": "section-feats"
+    },
+    {
+      "level": 14,
+      "classKey": "SORCERER_2014",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "classKey": "SORCERER_2014"
+    },
+    {
+      "level": 16,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "dominate-monster"
+        ]
+      }
+    },
+    {
+      "level": 17,
+      "classKey": "SORCERER_2014",
+      "featKey": "ELDRITCH_ADEPT",
+      "featOptions": [
+        {
+          "optionNameEng": "Devil's Sight"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 18,
+      "classKey": "SORCERER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Quickened Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "spells": {
+        "knownSpellKeys": [
+          "wish"
+        ]
+      }
+    },
+    {
+      "level": 19,
+      "classKey": "SORCERER_2014"
+    },
+    {
+      "level": 20,
+      "classKey": "SORCERER_2014",
+      "featKey": "METAMAGIC_ADEPT",
+      "section": "section-feats"
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Заклинання зі списку Клірика (Божественна магія)",
+      "reason": "Автор бере Цілюще слово (2-й рівень), Спрямований заряд (3-й), Мале відновлення (5-й), Захист від смерті (8-й), Масове лікування ран (10-й), Дивотворство й Більше відновлення (11-й), Зцілення (12-й), Воскресіння (14-й) зі списку Клірика, який відкриває Божественна магія; платформа не додає заклинань Клірика до вибору Чародія (BUG-O49-DIVINE-SOUL-SPELL-LIST), тому на їхніх місцях відкриті вибори гравця. Заміни заклинань на 7-му (Зурочення на Наділити прокляттям), 12-му (Спрямований заряд на Розщеплення) і 14-му (Мале відновлення на Телепорт) рівнях не записано: ті заклинання недоступні або не названі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Продаж спорядження",
+      "reason": "Автор радить продати булаву й легкий арбалет і купити лати; пресет не записує продаж, тож лишено кольчугу, булаву й легкий арбалет.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія 18-го рівня та Адепт метамагії на 20-му",
+      "reason": "На 18-му рівні автор бере Бажання й метамагію «будь-яку» без назви: пресет бере Quickened Spell (вибір платформи), гравець може змінити перед створенням. На 20-му автор бере рису «Адепт метамагії»: вона записана без вибору метамагії, бо каталог не має її опцій (BUG-O49-METAMAGIC-ADEPT).",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/sorcerer-divine-soul-2014.webp",
+    "title": "Клірик 1 / Чародій — Божественна душа, Перевертень (Містичний теург)",
+    "description": "Мультиклас Клірик 1 (Домен порядку) / Чародій Божественної душі: Голос влади зі Сріблястими шпильками, Перевертень з Диким мисливцем, Шпигун з Уважністю.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA",
+      "CON",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "MEDICINE",
+        "INSIGHT"
+      ],
+      "race": [
+        "INTIMIDATION"
+      ],
+      "background": [
+        "DECEPTION",
+        "PERCEPTION"
+      ],
+      "subclass": [
+        "PERSUASION"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": [
+      "Дикий мисливець"
+    ],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "c",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 5,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "light",
+        "sacred-flame"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "bless",
+        "protection-from-evil-and-good",
+        "shield-of-faith"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Настанова, Світло й Священне полумʼя та підготовлені Благословення, Захист від зла й добра, Щит віри названо автором (Наказ і Героїзм дає Домен порядку).",
+      "platformChoices": []
+    },
+    "abilityExplanation": "Перевертень за правилами Таші: +2 до Харизми й +1 до Статури, тож Харизма 17, Статура 16, як у таблиці автора. Мудрість лишається 14. Це вже враховано.",
+    "skillExplanation": "Медицина й Аналіз поведінки — від Клірика, Залякування — від Перевертня, Переконання — від Домену порядку. Автор бере Шпигуна й переносить Непомітність на Уважність (правило PHB «Налаштування передісторії»). Усього шість навичок, як у автора. Мову ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Кольчуга, булава й легкий арбалет — за порадою автора; набір священика та щит ми обрали за вас — вибір платформи."
+  }
+}

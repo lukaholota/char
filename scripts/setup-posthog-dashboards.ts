@@ -1,6 +1,7 @@
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { config } from "dotenv";
 import { buildAnalyticsDashboards, type AnalyticsDashboard, type AnalyticsInsight } from "./posthog-dashboard-queries";
+import { buildRpgbotDashboard } from "./posthog-rpgbot-dashboard";
 
 config({ path: ".env.local", quiet: true });
 config({ path: ".env", quiet: true });
@@ -72,7 +73,7 @@ async function saveDashboard(definition: AnalyticsDashboard, existing: Dashboard
   const previous = existing.find((dashboard) => dashboard.tags.includes(TAG) && dashboard.name === definition.name);
   const body = { name: definition.name, description: definition.description, tags: [TAG], pinned: true };
   const dashboard = await request<Dashboard>(previous ? `dashboards/${previous.id}/` : "dashboards/", previous ? "PATCH" : "POST", body);
-  await request(`dashboards/${dashboard.id}/`, "PATCH", { filters: { date_from: "-24h", date_to: null } });
+  await request(`dashboards/${dashboard.id}/`, "PATCH", { filters: { date_from: definition.dateFrom ?? "-24h", date_to: null } });
   for (const insight of definition.insights) await saveInsight(insight, dashboard.id, insights);
   return arrangeDashboard(await request<Dashboard>(`dashboards/${dashboard.id}/`), definition);
 }
@@ -124,7 +125,16 @@ async function applyDashboards(definitions: AnalyticsDashboard[], personIds: str
     console.log(`Saved: ${definition.name}: ${HOST}/project/${PROJECT_ID}/dashboard/${dashboard.id}`);
   }
   await request("", "PATCH", { timezone: "Europe/Kyiv", test_account_filters_default_checked: true });
-  await writeFile("docs/posthog-dashboards.json", JSON.stringify({ projectId: PROJECT_ID, host: HOST, timezone: "Europe/Kyiv", dashboards: saved.map((dashboard) => ({ id: dashboard.id, name: dashboard.name, url: `${HOST}/project/${PROJECT_ID}/dashboard/${dashboard.id}`, insights: dashboard.tiles.filter((tile) => tile.insight).map((tile) => ({ id: tile.insight!.id, name: tile.insight!.name })) })) }, null, 2) + "\n");
+  await writeDashboardRegistry(saved);
+}
+
+type RegistryEntry = { id: number; name: string; url: string; insights: { id: number; name: string }[] };
+
+async function writeDashboardRegistry(saved: Dashboard[]): Promise<void> {
+  const previous: { dashboards?: RegistryEntry[] } = JSON.parse(await readFile("docs/posthog-dashboards.json", "utf8").catch(() => "{}"));
+  const savedEntries: RegistryEntry[] = saved.map((dashboard) => ({ id: dashboard.id, name: dashboard.name, url: `${HOST}/project/${PROJECT_ID}/dashboard/${dashboard.id}`, insights: dashboard.tiles.filter((tile) => tile.insight).map((tile) => ({ id: tile.insight!.id, name: tile.insight!.name })) }));
+  const kept = (previous.dashboards ?? []).filter((entry) => !savedEntries.some((entry2) => entry2.id === entry.id));
+  await writeFile("docs/posthog-dashboards.json", JSON.stringify({ projectId: PROJECT_ID, host: HOST, timezone: "Europe/Kyiv", dashboards: [...kept, ...savedEntries] }, null, 2) + "\n");
 }
 
 async function verifyDashboards(definitions: AnalyticsDashboard[]): Promise<void> {
@@ -133,14 +143,14 @@ async function verifyDashboards(definitions: AnalyticsDashboard[]): Promise<void
     const match = saved.find((dashboard) => dashboard.tags.includes(TAG) && dashboard.name === definition.name);
     if (!match) throw new Error(`Missing dashboard: ${definition.name}`);
     const dashboard = await request<Dashboard>(`dashboards/${match.id}/`);
-    if (dashboard.filters.date_from !== "-24h") throw new Error(`Unexpected date range: ${definition.name}`);
+    if (dashboard.filters.date_from !== (definition.dateFrom ?? "-24h")) throw new Error(`Unexpected date range: ${definition.name}`);
     for (const insight of definition.insights) {
       const savedInsight = dashboard.tiles.find((tile) => tile.insight?.name === insight.name)?.insight;
       if (!savedInsight || !matchesSavedQuery(savedInsight.query, insight.query)) {
         throw new Error(`Saved query differs: ${insight.name}`);
       }
     }
-    console.log(`Verified: ${definition.name}, ${definition.insights.length} insights, last 24 hours`);
+    console.log(`Verified: ${definition.name}, ${definition.insights.length} insights, ${definition.dateFrom ?? "-24h"}`);
   }
 }
 
@@ -158,9 +168,11 @@ function matchesSavedQuery(actual: unknown, expected: unknown): boolean {
 
 async function main(): Promise<void> {
   const mode = process.argv[2];
-  if (!["validate", "apply", "verify"].includes(mode)) throw new Error("Usage: bun scripts/setup-posthog-dashboards.ts validate|apply|verify");
+  if (!["validate", "apply", "verify"].includes(mode)) throw new Error("Usage: bun scripts/setup-posthog-dashboards.ts validate|apply|verify [dashboard name part]");
+  const nameFilter = process.argv[3];
   const personIds = await readInternalPersonIds();
-  const dashboards = buildAnalyticsDashboards(personIds);
+  const dashboards = [...buildAnalyticsDashboards(personIds), buildRpgbotDashboard(personIds)].filter((dashboard) => !nameFilter || dashboard.name.includes(nameFilter));
+  if (dashboards.length === 0) throw new Error(`No dashboard matches: ${nameFilter}`);
   if (mode === "validate") await validateInsights(dashboards);
   if (mode === "apply") await applyDashboards(dashboards, personIds);
   if (mode === "verify") await verifyDashboards(dashboards);

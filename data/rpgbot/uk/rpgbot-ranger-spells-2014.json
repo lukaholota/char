@@ -1,0 +1,3793 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-938c02227a54c7b0",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-938c02227a54c7b0-884f40e9ecccf82f",
+      "sourceId": "rpgbot-938c02227a54c7b0",
+      "fetchedAt": "2026-09-29T19:17:44.882910+00:00",
+      "sourceUpdatedAt": "2026-07-14T22:34:06-04:00",
+      "contentHash": "a3150aaad14bdf7438c7718d6c57e03ed537a6ae9322cca4bd4b2b873a6648eb",
+      "title": "Ranger Spells 5e: Guide to the Best DnD Ranger Spells",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-938c02227a54c7b0-884f40e9ecccf82f.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-ranger-spells-2014",
+    "sourceId": "rpgbot-938c02227a54c7b0",
+    "slug": "ranger-spells-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Огляд заклинань Слідопита (2014)",
+    "titleEn": "Ranger Spells 5e: Guide to the Best DnD Ranger Spells",
+    "topics": [
+      "Слідопит",
+      "заклинання"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "sourceRevisionId": "rpgbot-938c02227a54c7b0-884f40e9ecccf82f",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання Слідопита — цікава суміш бафів і утилітарних варіантів із жменею заклинань прямої шкоди й лікування. Більшість заклинань узято зі списку заклинань Друїда, хоч у Слідопита є й кілька унікальних, як-от Мисливська мітка [Hunter's Mark], а нерідко заклинання, спільні з друїдом, — найгірші варіанти Слідопита, тоді як унікальні для Слідопита — найкращі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вибір заклинань Слідопита також сильно обмежують уявлення розробників гри про те, ким є слідопит і куди він ходить у пригоди. Заклинання сильно тяжіють до боїв у лісах (чи в лісоподібних місцях, як-от сади — по суті, будь-де, де є дерева й інша рясна рослинність), а це означає, що коли ви бʼєтеся деінде, ваші варіанти заклинань обмежені ще більше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є й виразний ухил на користь дальнього бою: слідопити-стрільці з нетерпінням чекають на Швидкий сагайдак [Swift Quiver] на 5-му рівні заклинань, а слідопити ближнього бою отримують Удар сталевого вітру [Steel Wind Strike], якому абсолютно байдуже, наскільки ви добрі в ближньому бою, бо це заклинальна атака з власною шкодою, і слідопити-стрільці можуть користуватися ним так само добре. Сподіваюся, у майбутньому зʼявляться нові варіанти, але зважаючи на те, що в «Довіднику Занатара про все»{{Xanathar’s Guide to Everything}} слідопит отримав лише 6 нових заклинань, я не оптимістичний."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/spells/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/spells/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання Слідопита",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/spells/#spells"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Замовляння",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/spells/#cantrips"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 1-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/spells/#spells-1"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 2-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/spells/#spells-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 3-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/spells/#spells-3"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 4-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/spells/#spells-4"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 5-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/spells/#spells-5"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells",
+          "heading": "Заклинання Слідопита",
+          "sourceAnchor": "spells",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Необовʼязкові заклинання нижче позначено «(необовʼязкове)» після назви заклинання. Ці заклинання вважаються необовʼязковими правилами, як описано в «Казані Таші з усім». Перед рішенням користуватися цими заклинаннями порадьтеся зі своїм Майстром."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cantrips",
+          "parentSectionId": "section-spells",
+          "heading": "Замовляння",
+          "sourceAnchor": "cantrips",
+          "blocks": [
+            {
+              "blockId": "block-section-cantrips-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бойовий Стиль{{Fighting Style}} «Друїдичний воїн»{{Druidic Warrior}} дає змогу брати замовляння. Щоб виправдати втрату інших бойових стилів заради Друїдичного воїна, ваш вибір замовлянь у контексті решти збірки має компенсувати цю втрату й відповісти на запитання: «Чому б просто не зіграти за друїда?»"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cantrips-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки замовляння зменшують вашу залежність від Сили чи Спритності, вважатимемо, що ви максимально підвищуєте Мудрість, обираючи замовляння. На жаль, оскільки Слідопит — бойовий клас, а ефективних наступальних варіантів, окрім цих замовлянь, у вас не буде, утилітарні заклинання виправдати важче."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cantrips-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Влада над вогнем [Control Flames] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": украй розчаровує як утилітарний варіант."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Створення багаття [Create Bonfire] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": добра шкода й дешевий контроль території, але вимагає Концентрації, тож конкуруватиме з багатьма цікавішими речами, які роблять слідопити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ремесло друїдів [Druidcraft] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": украй розчаровує як утилітарний варіант."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Обмороження [Frostbite] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": низька шкода для замовляння (на к6), але головна принада — Перешкода на кубику на наступну атаку зброєю цілі. На жаль, воно діє на ряткидках Статури, а вони, як правило, відносно високі порівняно з іншими ряткидками."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Настанова [Guidance] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Дуже добре, але навряд чи ви знайдете для нього місце."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шквал [Gust] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": це заклинання майже цілком марне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зараження [Infestation] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ряткидки Статури, як правило, високі, і це найбільша проблема цього заклинання. Шкода низька, але прийнятна, а примусове переміщення достатнє, щоб воно було корисним: можна змушувати ворогів переміщатися небезпечними місцями або виходити із захоплення, хоч напрямку ви не контролюєте."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чарівний камінь [Magic Stone] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": 1к6+Мудрість шкоди. У вас є «Додаткова атака»{{Extra Attack}}, а це не витрачає Концентрацію, тож може працювати з Мисливською міткою [Hunter's Mark] чи «Міченим ворогом»{{Favored Foe}}. Це майже так само добре, як слідопит на Спритності зі зброєю, але ви відмовляєтеся від переваг бойового стилю заради вищої Мудрості, а ще постійно платите бонусною дією за використання, що сильно обмежить вашу економіку дій. Підкласам, що мають інше застосування бонусної дії, варто шукати щось інше."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лагодження [Mending] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Надто ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ліплення землі [Mold Earth] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": розчаровує як утилітарний варіант. Ніхто не може домовитися, що саме вважати «пухкою землею», тож зробити його надійним важко."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Отруйні бризки [Poison Spray] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": висока шкода, але все інше в ньому погане."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Первісна дикість [Primal Savagery] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Кийок [Shillelagh] буде ефективнішим, тож беріть Кийок [Shillelagh], якщо вам украй не потрібна вільна рука."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Створення вогню [Produce Flame] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ваш основний варіант дальньої шкоди в більшості випадків. Дальність більша, ніж у Тернового батога [Thorn whip] (хоч це не обовʼязково робить його кращим). Якщо ви берете це як основний варіант атаки, вам не слід брати «Друїдичного воїна»{{Druidic Warrior}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Опір [Resistance] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": погане."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Формування води [Shape Water] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дивіться наш "
+                  },
+                  {
+                    "type": "link",
+                    "text": "практичний гайд зі «Формування води»",
+                    "href": "https://rpgbot.net/dnd5/characters/shape-water"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", щоб дізнатися більше про те, наскільки чудове Формування води [Shape Water]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кийок [Shillelagh] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": по суті, причина, з якої існує «Друїдичний воїн»{{Druidic Warrior}}. Багато в чому це замовляння ідеально ілюструє угоду, на яку ви йдете з Друїдичним воїном. Ви можете перетворити дубинку чи палицю на еквівалент довгого меча, використовуючи модифікатор Мудрості. Подумайте й про «Майстра древкової зброї»{{Polearm Master}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Терновий батіг [Thorn whip] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": шкода пристойна, але справжня принада — ефект затягування. 10 футів можуть здаватися небагатьма, але цього досить, щоб стягувати ворогів з уступів, затягувати низько літаючих ворогів у ближній бій, затягувати ворогів в ефект контролю території на кшталт Створення багаття [Create Bonfire], витягувати ворогів із захоплення, а в скруті можна витягти з небезпечного місця й союзника (хоч і ціною певної дружньої шкоди)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гуркіт грому [Thunderclap] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": завдавати шкоди кожній істоті в межах 5 футів від вас — чудово, якщо ви в ближньому бою з численними ворогами. Навіть із «Додатковою атакою»{{Extra Attack}} проти трьох чи більше ворогів ви завдасте цим більше шкоди, ніж зброєю. Дивіться нашу статтю про "
+                  },
+                  {
+                    "type": "link",
+                    "text": "ближні замовляння проти Додаткової атаки",
+                    "href": "https://rpgbot.net/dnd5/characters/melee_cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", де розібрано математику порівняння ближніх замовлянь зі звичайними атаками бойових класів. Єдина проблема — ряткидок Статури, але це все одно чудово."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-1",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 1-го рівня",
+          "sourceAnchor": "spells-1",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Поглинання стихій [Absorb Elements] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ви отримуєте чаротворство пізніше й повільніше за будь-кого іншого, тож у вас дуже мало варіантів захисту від нефізичної шкоди. Це заклинання розвʼяже цю проблему, але швидко зʼїсть ваші слоти заклинань, тож обовʼязково усувайте джерело шкоди від стихій якомога швидше, щоб не витратити слоти надто швидко. Найбільша складність Поглинання стихій [Absorb Elements] у тому, що воно має Соматичні компоненти, які потребують вільної руки. За замовчуванням це означає, що збірки з боєм двома зброями й збірки з мечем і щитом не зможуть ним користуватися, якщо ви не будете наполегливо діставати й ховати зброю, що і ускладнює принагідні атаки, і дозволяє використовувати Поглинання стихій [Absorb Elements] лише раз на два раунди. На жаль, єдиний обхід — "
+                  },
+                  {
+                    "type": "link",
+                    "text": "«Бойовий заклинатель»",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/war-caster/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{War Caster}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тривога [Alarm] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": не варте одного з ваших обмежених відомих заклинань. Залиште це тому, хто вміє накладати ритуали."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дружба з тваринами [Animal friendship] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": імовірно, легше, ніж володіння навичкою Поводження з тваринами, але воно втратить актуальність, щойно звірі зникнуть десь на ПН 10."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Звірячі узи [Beast Bond] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": це справді працює лише з оригінальною версією {{Звіролова|Beast Master}} із «Книги гравця». Варіанти «Звір землі», «Звір моря» та «Звір неба» з «Казана Таші з усім» і драк-супутник {{Вартового дракона|Drakewarden}} мають Інтелект 8, через що заклинання автоматично провалюється. Якщо ви граєте за Звіролова з «Книги гравця» 2014 року, це чудово для компаньйонів, які ще не мають «Тактики зграї»{{Pack Tactics}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лікування ран [Cure Wounds] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у слідопитів не так багато слотів заклинань, як у повних заклинателів, тож витрачати на лікування свої дорогоцінні кілька слотів може бути важко. Проте комусь у групі треба вміти лікувати головного цілителя, якщо той втратить свідомість. Але щойно ви зможете отримати Дух зцілення [Healing Spirit], розгляньте заміну цього заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виявлення магії [Detect Magic] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": в ідеалі цим займеться хтось у групі, хто може накласти більше заклинань, ніж ви, але інколи вибору насправді немає."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виявлення отрут і хвороб [Detect Poison and Disease] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Дуже ситуативне; та й без можливості накладати Захист від отрути [Protection from Poison] мало що можна вдіяти. На щастя, це заклинання можна накладати ритуалом, але ви так не можете — залиште його тому, хто вміє."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Обплутуючий удар [Ensnaring Strike] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": майже ексклюзивне для Слідопитів, Обплутуючий удар [Ensnaring Strike] — чудовий спосіб упоратися з одиночною ціллю, що завдає вам проблем, особливо якщо ціль — монстр ближнього бою. Зауважте, що його можна використати на відстані, тож лучники можуть обплутати ціль, а потім або виснажувати її, або перемкнути її увагу на інших ворогів. Це ряткидок Сили, тож більшість заклинателів і багато спритних ворогів матимуть із ним труднощі, але великі громили ближнього бою, імовірно, йому опиратимуться. Це також чудова відповідь літаючим ворогам, бо стан Скутий змушує істот, що літають немагічно, падати, тож якщо ви підстрілите грифона чи щось таке, він отримає купу шкоди від падіння. Після першого ряткидка, щоб вирватися, потрібні Дія й перевірка Сили (не ряткидок), а ціль щораунду отримує шкоду, тож вона захоче вирватися швидко. Шкода зростає лінійно з рівнем заклинання, тож це лишається потужним і ефективним використанням слота заклинань упродовж усієї вашої карʼєри."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Обплутування [Entangle] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): чудове заклинання контролю території на будь-якому рівні. Ряткидки Сили, як правило, низькі в будь-якої істоти, що не є велетенським силачем, тож легко скувати навіть ворогів високих рівнів. Проте воно вимагає Концентрації, тож його непросто поєднувати з такими речами, як Мисливська мітка [Hunter's Mark]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Туманна хмара [Fog Cloud] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудовий спосіб прикрити свою втечу, але ви бачите крізь туман не краще за інших, тож здебільшого не чекайте, що зможете битися в ньому без якоїсь іншої переваги. Туманна хмара [Fog Cloud] може бути способом скасувати Перевагу на кубику, якщо вороги мають вигідніше становище, тож якщо ви протистоїте ворогам, які невидимі, сховані чи мають інше джерело Переваги на кубику, Туманна хмара [Fog Cloud] може це забрати, фактично вирівнюючи умови так, що ніхто нікого не бачить. Такі ситуації рідкісні, але приємно знати, що є контрзахід, коли вони трапляються."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Доброягода [Goodberry] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудовий ресурс і для лікування, і як утиліта. Друїд зазвичай може виділити одне підготовлене заклинання, щоб наприкінці дня вливати слоти заклинань у Доброягода [Goodberry], але слідопиту це може бути складніше, бо ви маєте таку малу кількість відомих заклинань. Проте якщо напередодні виходу в пригоду вкласти свої слоти заклинань у купу доброягід, ви отримаєте корисну подушку ХП, якою можна швидко підлікуватися після бою, не вдаючись до короткого відпочинку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Град шипів [Hail of Thorns] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": це не має бути основним варіантом, але це гарний спосіб упоратися з щільно зібраними групами слабких ворогів. Тільки не покладайтеся на нього надто сильно, бо воно швидко зʼїсть ваші слоти заклинань без великої віддачі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мисливська мітка [Hunter's Mark] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хліб насущний Слідопита. Багато слідопитів проводитимуть більшу частину часу, концентруючись на Мисливській мітці [Hunter's Mark], поки зосереджують вогонь на одиночних ворогах, перш ніж перемкнутися на наступного. Тривалість 1 година (більше, якщо накласти заклинання на вищому рівні) означає, що з одного слота заклинань можна вичавити купу користі, але якщо ви не бʼєтеся на відстані, вам доведеться постійно перейматися ряткидками для підтримки Концентрації. Книги правил, що вийшли після «Книги гравця», запровадили низку альтернатив Мисливської мітки [Hunter's Mark]. Додаткове класове уміння{{Optional Class Feature}} «Мічений ворог»{{Favored Foe}} — по суті, послаблена версія Мисливської мітки [Hunter's Mark] із власним запасом використань, який не їсть ваші слоти заклинань, а заклинання на кшталт Стихійної зброї [Elemental Weapon] можуть дати схоже підсилення шкоди. Мисливська мітка [Hunter's Mark] лишається основним бойовим варіантом Слідопита, але це вже не єдиний визначальний спосіб слідопита бути вагомою загрозою в бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стрибок [Jump] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Скорохід [Longstrider] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": додаткові 10 фт. руху завжди приємні, а тривалість 1 година означає, що ним можна втішатися довго з одного слота заклинань. Якщо ви граєте повільну расу чи просто хочете трохи більше маневровості, це чудове доповнення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Паляча кара [Searing Smite] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): пристойний спосіб завдавати триваючої шкоди ворогові з поганими ряткидками Статури, у якого вам важко влучити (як-от заклинач із захисними бафами), але воно працює лише з атаками зброєю ближнього бою, вимагає Концентрації, а ваша СК ряткидка, імовірно, замала, щоб це було надійно в переважній більшості боїв."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пастка [Snare] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": добре для встановлення пастки або якщо ви відпочиваєте в небезпечному місці зі зручним вузьким проходом, як-от вузький коридор. Цілі стають Скованими щонайменше на один раунд, чого, сподіваємося, вистачить, щоб ви вибралися зі спальника й схопили зброю."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розмова з тваринами [Speak with Animals] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ситуативне, але іноді єдині свідки — дикі тварини, а вам просто потрібна підказка від місцевої родини білок."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Удар Зефіра [Zephyr Strike] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": накладіть його бонусною дією, і ви отримаєте переваги Відступу. Якщо атакуєте, то отримаєте Перевагу на кубику на атаку, трохи додаткової шкоди "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "і"
+                  },
+                  {
+                    "type": "text",
+                    "text": " переваги Ривка. Це можна зробити лише раз, але якщо ви побудовані для бою на відстані й щось підійшло незручно близько, увімкніть його, відступіть на 5 фт., вистріліть, щоб висловити своє невдоволення, а потім тікайте."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-2",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 2-го рівня",
+          "sourceAnchor": "spells-2",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Підтримка [Aid] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): з тривалістю 8 годин і трьома цілями це класичний баф, який варто накладати буквально щодня. В ідеалі хочеться, щоб його накладав хтось інший, але якщо більше нікому, це добре заклинання, щоб закріпитися за ним, бо воно буквально завжди корисне. Час накладання Підтримки [Aid] дозволяє користуватися цим заклинанням у бою, що незвично, але дає цікавий варіант. З трьома цілями й дальністю 30 футів це заклинання можна накласти, щоб одночасно підсилити й підлікувати союзників у бою. І поточні ХП цілей, і максимум ХП збільшуються, тож союзники на 0 ХП зцілюються на додачу до підвищеного максимуму ХП, і так Підтримка [Aid] може виконувати схожу функцію з Масовим цілющим словом [Mass Healing Word]. Однак оскільки заклинання не складаються самі із собою, цей трюк важко повторити. Доведеться накласти Підтримку [Aid] знову слотами вищого рівня, що швидко може стати дорогим, тож Масове цілюще слово [Mass Healing Word], імовірно, краще, якщо Підтримка [Aid] уже діє й якщо Масове цілюще слово [Mass Healing Word] — варіант для вашої групи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тварина-посланець [Animal messenger] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ситуативне й менш надійне, ніж схожі заклинання на кшталт Послання [Sending], але воно й на рівень заклинання нижче за Послання [Sending]. Якщо ви знаєте, що отримувач буде там, куди ви відправляєте повідомлення, це працює нормально. На жаль, отримувач не може відповісти. До всіх цих складнощів додається те, що воно просто надто ситуативне, щоб Слідопит міг його виправдати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дубова шкіра [Barkskin] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": до того часу, як ви зможете її накласти, у вас уже має бути більше КБ, ніж вона здатна дати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тваринне чуття [Beast Sense] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": задум у тому, щоб ви використовували це для розвідки місцевості за допомогою тварини. Можливо, ви накладаєте на неї Розмову з тваринами [Speak with Animals], потім відправляєте її кудись на розвідку й користуєтеся Тваринним чуттям [Beast Sense], щоб отримати свідчення з перших рук. Якщо припече, ви також можете накласти це на тварину й носити її з собою, щоб упоратися з проблемами на кшталт сліпоти, глухоти чи власної відсутності темного зору. Ваш Майстер цілком може призначити Перешкоду на кубику на такі речі, як кидки атаки, через незручну зміну перспективи, але якщо вам справді припече, цього може вистачити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Завіса стріл [Cordon of Arrows] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": з часом накладання 1 Дія ви справді можете використати це в бою, але шкода дуже низька (порівняйте двічі 1к6+Спритність із сумарними 4к6), тож задум явно в тому, щоб влаштовувати засідки чи захищати місце, де ви відпочиваєте. На відміну від схожих варіантів на кшталт Тривоги [Alarm] і Пастки [Snare], воно не створює помітного шуму, коли спрацьовує, тож розгляньте можливість прикріпити дзвіночок до кожної стріли після накладання заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Темний зір [Darkvision] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": темний зір — значна тактична перевага, а з тривалістю 8 годин це фантастичний спосіб його здобути."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Покращення здібності [Enhance Ability] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): це легко надолужує розрив у навичках між Слідопитом і Пройдисвітом. Перевага на кубику не зовсім така ефективна, як «Експертиза»{{Expertise}}, щойно ваш бонус майстерності сягає +4, але близько. Це також легкий основний баф у різних ситуаціях, коли ваш власний персонаж може бути неефективним, як-от накладання Покращення здібності [Enhance Ability] (Харизма) на «обличчя» вашої групи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Порив вітру [Gust of Wind] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): надто ситуативне, щоб вивчати його назавжди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пошук пасток [Find Traps]: надто дорого й надто неточно. Вкладайтеся в Розслідування."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дух зцілення [Healing Spirit] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": це заклинання було "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "суттєво"
+                  },
+                  {
+                    "type": "text",
+                    "text": " послаблене ерратою, виданою 2020 року. Обмеження в 1+модифікатор використань означає, що більшість слідопитів можуть розраховувати приблизно на 3–4 використання заклинання, що в сумі дає лише 3к6/4к6 лікування при накладанні на 2-му рівні. Це все одно краще за Лікування ран [Cure Wounds], але недостатньо добре, щоб замінити лікування від короткого відпочинку, коли ваша група в скруті. Лікування зростає на 1к6 за кожен слот понад 2-й, тож його можна подвоїти, використавши слот 3-го рівня. Загалом не варто використовувати це під час бою, бо лікування недостатньо швидке й вимагає Концентрації, яку ви, можливо, присвячуєте Мисливській мітці [Hunter's Mark], але ця угода може бути виправданою, щоб не витрачати ще одне відоме заклинання на Лікування ран [Cure Wounds]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мале відновлення [Lesser Restoration] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": корисне, але до того часу, як ви його отримаєте, у вас, сподіваємося, уже є клірик чи хтось, у кого воно вже давно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пошук тварин або рослин [Locate Animals or Plants] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дуже ситуативне. Ситуації, коли треба знайти певний вид рослини, зазвичай є важливим сюжетним моментом, а не рутинним завданням, і якщо вашому Майстру не дуже подобається такий сюжетний прийом, воно не варте відомого заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пошук предмета [Locate Object] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне й надто легко протидіяти. Будь-хто, хто знається на магії й намагається щось сховати, загорне це у свинець."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Магічна зброя [Magic Weapon] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): якщо у вашій грі є магічні предмети, пропустіть це. Якщо ні, це величезне підсилення вашого DPR, що легко перевершує Мисливську мітку [Hunter's Mark], а ще усуває потребу перепризначати мітку бонусною дією. Переходьте на Стихійну зброю [Elemental Weapon], коли отримаєте заклинання 3-го рівня, але повертайтеся до Магічної зброї [Magic Weapon], коли отримаєте заклинання 4-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Переміщення без сліду [Pass without Trace] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +10 — це "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "величезний"
+                  },
+                  {
+                    "type": "text",
+                    "text": " бонус, якого легко вистачає, щоб перекрити жахливий бонус Спритності й Перешкоду на кубику від обладунку, тож уся ваша група може скрадатися. Тривалість 1 година теж чудова, але памʼятайте, що воно вимагає Концентрації."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Захист від отрути [Protection from Poison] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ситуативне, але отрута поширена в усьому діапазоні ПН, тож це фантастичний захисний варіант на будь-якому рівні. Тривалість 1 година означає, що з одного слота заклинання можна вичавити багато користі, навіть якщо накласти його заздалегідь."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тиша [Silence] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудова і для непомітності, і для виведення з ладу ворожих заклинателів, які часто можуть уникнути небезпеки за допомогою заклинань на кшталт Туманного кроку [Misty Step], що мають лише Вербальні компоненти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Проростання шипів [Spike Growth] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудовий контроль території для заклинання такого низького рівня, і воно не дозволяє ряткидка. Це особливо добре в сутичках із великою кількістю ворогів ближнього бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виклик Звіра [Summon Beast] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): надто залежить і від рівня заклинання, і від модифікатора заклинальної характеристики. Більшість слідопитів не матимуть Мудрості, щоб це підкріпити, а ті слідопити, які вкладаються в Мудрість, усе одно не отримують рівнів заклинань достатньо швидко, щоб звір лишався життєздатним у бою."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-3",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 3-го рівня",
+          "sourceAnchor": "spells-3",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Хода Ашардалона [Ashardalon's Stride] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "FToD",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": час накладання — бонусна дія, а шкода не дозволяє ряткидка. За задумом це схоже на Удар Зефіра [Zephyr Strike], але ви отримуєте безкоштовну шкоду в обмін на значно вищий рівень заклинання. Шкода на цьому рівні, можливо, вже не така велика, але в сутичках із численними ворогами вона може швидко накопичуватися."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зʼява тварин [Conjure Animals] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": зазвичай це чудове заклинання, але Слідопит отримує його так пізно, що воно цілком застаріле."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виклик обстрілу [Conjure Barrage] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": єдиний козир цього заклинання — величезний конус 60 футів. 3к8 шкоди разом із вашою відносно поганою СК ряткидка означають, що більшість ворогів, імовірно, пройдуть ряткидок і отримають у середньому лише 6,75 шкоди. Треба влучити щонайменше по 4 цілях, щоб зрівнятися за шкодою з двома звичайними пострілами з довгого лука з Мисливською міткою [Hunter's Mark], а Мисливська мітка [Hunter's Mark] лишається корисною й після першого раунду, у який ви її наклали. Якщо ви користуєтеся цим заклинанням, треба вміти влучити по вражаюче великій кількості цілей, але навіть тоді воно рідко варте слота заклинань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Денне світло [Daylight] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": зазвичай досить Вічного полумʼя [Continual Flame], але іноді треба освітити більші площі, як-от темні поля бою чи величезні печери. Воно також розвіює магічну темряву 3-го рівня чи нижче, що чудово, якщо ви бʼєтеся з ворогами на кшталт дроу, що можуть створювати магічну темряву. На жаль, не можна накласти Денне світло [Daylight] на вищому рівні, щоб розвіяти магічну темряву вищих рівнів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стихійна зброя [Elemental Weapon] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): це дає магічну зброю, схожу на заклинання Магічна зброя [Magic Weapon], але з більшим підсиленням шкоди. Це дуже добре лягає на звичну тактику Слідопита, але без витрат дії на постійне перепризначення Мисливської мітки [Hunter's Mark]. Мисливська мітка [Hunter's Mark] дає трохи більший бонус до шкоди й триватиме довше, якщо накласти її з тим самим слотом, але не дає бонусу до кидків атаки, який кратно покращує ваш DPR. Навіть коли накласти це як заклинання 5-го рівня, воно лишається чудовим вибором, що перевершує DPR Швидкого сагайдака [Swift Quiver], навіть якщо ви користуєтеся зброєю з великим кубиком шкоди на кшталт мушкета й застосовуєте «Влучного стрільця»{{Sharpshooter}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Полумʼяні стріли [Flame Arrows] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": за той самий слот заклинань можна накласти Мисливську мітку [Hunter's Mark] із тривалістю 8 годин. Мисливська мітка [Hunter's Mark] дасть таку саму кількість шкоди плюс інші переваги заклинання. Єдина перевага Полумʼяних стріл [Flame Arrows] над Мисливською міткою [Hunter's Mark] у тому, що не треба витрачати бонусну дію на зміну цілі, але навіть тоді ви обмежені таким малим запасом боєприпасів, що тривалість 1 година видається безглуздою. Звісно, накладання Полумʼяних стріл [Flame Arrows] коштує Дію (проти бонусної дії в Мисливської мітки [Hunter's Mark]), тож тривалість 1 година дещо полегшує підготовку перед боєм, якщо ви все одно наполягаєте на тому, щоб марнувати на це слот заклинань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Блискавична стріла [Lightning Arrow] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": по суті, краща версія Граду шипів [Hail of Thorns], але шкода рідко достатньо добра, щоб виправдати слот заклинань, тож приберігайте його для випадку, коли великий гурт ворогів стоїть на малій площі. 5 чи більше здається добрим числом."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Злиття з каменем [Meld into Stone] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): дуже ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Невиявлення [Nondetection] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": добре, але не зовсім необхідне. Заклинання віщування включають такі речі, як Бачення невидимого [See Invisibility], тож якщо ви чи ваша група покладаєтеся на невидимість будь-якого роду, це захищає від кількох магічних контрзаходів і проти скритності, і проти невидимості. Однак більшість ворогів не заклинателі й не матимуть доступу до тих варіантів віщування, тож не можна виправдати накладання цього щодня. Заклинання також має дорогий матеріальний компонент саме для того, щоб відбити бажання накладати його постійно. Проте з тривалістю 8 годин, якщо воно вам потрібне, воно зробить точно те, що вам треба."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ріст рослин [Plant Growth] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ситуативне. Поза звичайною пригодницькою діяльністю здатність збагачувати землю, удвічі збільшуючи врожайність, дуже корисна. Але D&D — це насамперед гра про пригоди, а варіант зробити зону рослин перерослою важливіший для більшості шукачів пригод. У більшості випадків Обплутування [Entangle] спрацює добре, якщо вам просто треба сповільнити ворогів, але Ріст рослин [Plant Growth] не закінчується, тож через ці рослини й далі важко пройти, доки хтось їх не розчистить (що може потребувати годин рубання й/або спалювання). Заклинання також не уточнює, що рослини ростуть уздовж землі чи поверхонь, тож {{за правилами як написано|RAW}} воно може створити сферу рослин, утворюючи надскладну місцевість, що сягає на 100 футів угору, потенційно поглинаючи літаючих ворогів. Математика зменшення швидкості від Росту рослин [Plant Growth] вражає. Оскільки більшість істот мають швидкість близько 30 футів, рух зі швидкістю 1/4 означає, що вони можуть пройти одну клітинку 5 футів, а решта 10 футів руху нікуди їх не приведе (хіба що вони виконають Ривок чи щось таке). Джереми Кроуфорд пояснив, що Ріст рослин [Plant Growth] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "не створює складної місцевості",
+                    "href": "https://twitter.com/JeremyECrawford/status/811643729966530560"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", тож можливо, що складна місцевість накопичуватиметься з Ростом рослин [Plant Growth], але особисто я думаю, що задумано не так. Ріст рослин [Plant Growth] зазначає, що «істота, яка рухається областю, мусить витрачати 4 фути руху за кожен 1 фут», а правило складної місцевості — що «рух на 1 фут по складній місцевості коштує 2 фути швидкості», і оскільки ці два твердження суперечать одне одному, я думаю, що слід використовувати той ефект, який більший, а не складати їх чи множити чи щось таке. Хоч у тексті заклинання про це не йдеться, схоже, що Ріст рослин [Plant Growth] також перешкоджатиме огляду. Якщо ви перетворите доглянутий живопліт на півсферу надскладної місцевості радіусом 100 футів, на шляху явно достатньо речей, щоб крізь них було важко бачити. Це неминуче означало б, що істоти всередині області, імовірно, були б певною мірою приховані, тож не чекайте, що можна накласти Ріст рослин [Plant Growth] на ворога, а потім кілька ходів поспіль обстрілювати його замовляннями, доки він не впаде. Проблемне обмеження Росту рослин [Plant Growth] — потреба, щоб в області були рослини. Проте, схоже, немає жодних обмежень щодо того, скільки їх має бути чи наскільки великими вони мають бути (лише що вони мають бути «звичайними», що б це не означало), а де немає ясності, там є простір для витівок. Наприклад: ви можете носити з собою рослину в горщику й кидати її в область, щоб забезпечити рослинне життя, необхідне для заклинання. Такі рослини, як мʼята чи конюшина, вміщуються в малий горщик, а коли ви змушуєте їх рости, отримуєте гарне й пахуче поле надскладної місцевості. Якщо ваш Майстер глузує з ідеї 100-футових конюшинових ділянок, подумайте про те, щоб носити дерево бонсай чи якусь іншу рослину, що зазвичай дуже висока (хоч бонсай може не відповідати «звичайній», оскільки ми не знаємо, що тут означає це слово)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Захист від енергії [Protection from Energy] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": украй важливий захисний варіант, але сподіваємося, що до цього рівня у вашій групі вже є повні заклинателі, які можуть його забезпечити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Відродження [Revivify] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): надто добре, щоб відмовлятися. Його варто взяти кожному, хто може."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розмова з рослинами [Speak with Plants] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ситуативне. Якщо вам потрібна інформація, Розмова з тваринами [Speak with Animals] часто дасть ту саму інформацію, бо де є рослини, там зазвичай є й тварини. Якщо вам потрібна складна місцевість, Ріст рослин [Plant Growth] краще й працює в тих самих сценаріях. Якщо ви зустрінете рослинних істот, Розмова з рослинами [Speak with Plants] — по суті, ваш єдиний варіант, але я ніколи не бачив слідопита з достатньою Харизмою, щоб це мало значення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виклик феї [Summon Fey] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): варіанти виклику мало що покращують порівняно з Викликом Звіра [Summon Beast], і вони все одно не є добрим вибором для Слідопита. Для додаткової допомоги дивіться наш "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Практичний гайд із заклинань виклику",
+                    "href": "https://rpgbot.net/dnd5/characters/summoning#summon-fey"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дихання водою [Water Breathing] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ситуативне, але вирішальне, коли воно вам потрібне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ходіння по воді [Water Walk] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": зазвичай політ — кращий варіант, ніж ходити по рідині."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стіна вітрів [Wind Wall] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативна. Зазвичай її використовують, щоб ворогам не вдалося стріляти по вас із дальньої зброї, але оскільки у вас недостатньо чаротворства, щоб покладатися на нього як на основний наступальний варіант, ви, імовірно, лише шкодите собі, хіба що повністю не здатні користуватися дальньою зброєю."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-4",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 4-го рівня",
+          "sourceAnchor": "spells-4",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-4-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Зʼява лісових створінь [Conjure Woodland Beings] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": зазвичай це чудове заклинання, але Слідопит отримує його так пізно, що воно цілком застаріле."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підкорення звіра [Dominate Beast] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": до того часу, як ви зможете його накласти, звірі вже перестали бути загрозою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Свобода рухів [Freedom of Movement] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": приємне, але ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Хапаюча лоза [Grasping Vine] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": не добре заклинання, ваша СК ряткидка буде відносно поганою, а бонусна дія вам потрібна для інших речей."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вартовий природи [Guardian of Nature]: можливо, єдиний варіант, доступний слідопитам, у якому Сила виглядає спокусливо. Вартовий природи [Guardian of Nature] робить вас справді сильним на 1 хвилину. Варіант «Первісний звір»{{Primal Beast}} робить вас дуже добрим у нападі, але Перевага на кубику на атаки на основі Сили свідчить, що він призначений для збірок на Силі, які для Слідопита зазвичай жахливі. Варіант «Велике дерево»{{Great Tree}} дає Перевагу на кубику на кидки атаки на основі Спритності (імовірно, найважливіша для вас частина), але також Перевагу на кубику на ряткидки Статури, тож ви рідше втрачатимете Концентрацію, а ще складну місцевість у зоні, тож ворогам буде важко входити в ближній бій із вами й виходити з нього."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пошук істоти [Locate Creature] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ефективніше за звичайне вистежування, але дальність 1000 футів може стати проблемою, якщо ціль активно тікає від вас. Якщо збираєтеся це використовувати, переконайтеся, що рухаєтеся швидше за ціль."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Камʼяна шкіра [Stoneskin] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": пристойний баф, але на цьому рівні магічні атаки поширені."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виклик елементаля [Summon Elemental] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): ви отримуєте це надто пізно, щоб воно було життєздатним у бою, а утилітарної користі тут небагато. Для додаткової допомоги дивіться наш "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Практичний гайд із заклинань виклику",
+                    "href": "https://rpgbot.net/dnd5/characters/summoning#summon-elemental"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-5",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 5-го рівня",
+          "sourceAnchor": "spells-5",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-5-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Звернення до природи [Commune with Nature] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": було б значно краще, якби ви могли накладати ритуали."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виклик залпу [Conjure Volley] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": це робить уміння «Залп»{{Volley}} Слідопита-Мисливця дещо надлишковим, але це не робить заклинання добрим варіантом. Воно має всі ті самі проблеми, що й у Виклику обстрілу [Conjure Barrage]. Ваша СК ряткидка буде відносно низькою, якщо ви не вклалися повністю в Мудрість після досягнення Спритності 20, тож більшість слідопитів можуть очікувати, що вороги часто проходитимуть ряткидок."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Більше відновлення [Greater Restoration] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (необовʼязкове): украй важливий варіант лікування, але якщо ваша група дожила до цього рівня, у вас майже напевно вже є до нього доступ, і вам не доведеться вивчати його назавжди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Удар сталевого вітру [Steel Wind Strike] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якби це була атака ближньою зброєю, а не заклинальна атака ближнього бою, воно було б чудовим, але ваші заклинальні атаки, імовірно, трохи відстають від атак зброєю, тож ви, швидше за все, промахнетеся, якщо щось інше не додає до ваших атак, як-от Вартовий природи [Guardian of Nature] чи Благословення [Bless]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Швидкий сагайдак [Swift Quiver] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": величезно покращує вашу економіку дій, але оскільки воно вимагає Концентрації, його не можна поєднувати з Мисливською міткою [Hunter's Mark] чи Вартовим природи [Guardian of Nature], і воно потребує дальньої зброї з боєприпасами, тож слідопити на Силі не мають доброго способу ним користуватися. Воно також робить «Експерта з арбалетів»{{Crossbow Expert}} дещо надлишковим, а залежно від кількох змінних (магічна зброя, можливо, інші бафи тощо) ви можете завдавати більше шкоди з Мисливською міткою [Hunter's Mark] і Експертом з арбалетів, ніж з одним додатковим пострілом із дальньої зброї без додаткового к6 шкоди. Розгляньмо слідопита високого рівня з Експертом з арбалетів, немагічним ручним арбалетом і Спритністю 20. 4 атаки завдадуть сумарно 4к6+20 (у середньому 36), тоді як три атаки з активною Мисливською міткою [Hunter's Mark] завдадуть 6к6+15 (у середньому 36). У математиці є певні нюанси, бо додаткова атака означає ще один шанс завдати Критичного влучання, але різниця недостатньо велика, щоб виправдати те, що Швидкий сагайдак [Swift Quiver] — заклинання 5-го рівня, коли Мисливську мітку [Hunter's Mark] можна накласти як заклинання 1-го рівня. Магічна зброя, риси чи класові уміння, що додають додаткову шкоду, схилять математику на бік Швидкого сагайдака [Swift Quiver] значно сильніше, але я не певен, скільки треба, щоб виправдати різницю в рівні заклинання між Мисливською міткою [Hunter's Mark] і Швидким сагайдаком [Swift Quiver]. Тепер розгляньмо того самого слідопита з довгим луком і без Експерта з арбалетів. Для нього дві додаткові атаки подвоюють кількість атак за хід, піднімаючи його шкоду з 2к8+2к6+10 із Мисливською міткою [Hunter's Mark] (у середньому 26) до 4к8+20 (у середньому 38), тобто майже на 50% більше шкоди. Ми знову ігноруємо можливість Критичних влучань, бойовий стиль, магічні предмети тощо, але будь-що з цього ще сильніше схиляє математику на користь Швидкого сагайдака [Swift Quiver]. Навіть якщо ви побудовані для ближнього бою, Швидкий сагайдак [Swift Quiver] — чудовий спосіб перейти на дальній бій і завдати купу шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Деревний шлях [Tree Stride] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ситуативне. У бою задум у тому, що ви використаєте це, щоб перехитрити ворогів, переміщаючись між деревами, але для цього потрібна велика кількість доступних дерев. Попри те, як сильно D&D любить ліси, вони становлять крихітну частку загального ландшафту пригод, тож не можна гарантувати, що це колись стане корисним у більшості кампаній."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гнів природи [Wrath of Nature] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": захопливе, але корисність заклинання залежить від рясноти рослинного життя в області. Було б краще, якби можна було замінювати частини заклинання під довкілля, але якщо ви в пустелі чи замерзлій тундрі, можете не отримати нічого. Як виправлення: дозвольте структурно схожому рослинному життю замінювати рослини, зазначені в описі заклинання: нехай водорості працюють як лози, великі кактуси чи гігантські гриби — як дерева тощо."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-11",
+          "parentSectionId": "section-spells",
+          "heading": "Чи можуть Слідопити замінювати заклинання?",
+          "blocks": [
+            {
+              "blockId": "block-section-11-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопити можуть замінювати одне відоме заклинання щоразу, коли здобувають рівень Слідопита."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-12",
+          "parentSectionId": "section-spells",
+          "heading": "Чи можуть Слідопити використовувати замовляння?",
+          "blocks": [
+            {
+              "blockId": "block-section-12-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопити зазвичай не вивчають замовлянь, але можуть вивчити два замовляння, взявши бойовий стиль «Друїдичний воїн»{{Druidic Warrior}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-13",
+          "parentSectionId": "section-spells",
+          "heading": "Скільки заклинань отримують Слідопити?",
+          "blocks": [
+            {
+              "blockId": "block-section-13-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопити знають два заклинання 1-го рівня, починаючи з 2-го рівня, але на 20-му рівні знатимуть до 11 заклинань."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-14",
+          "parentSectionId": "section-spells",
+          "heading": "Що Слідопити використовують для заклинань?",
+          "blocks": [
+            {
+              "blockId": "block-section-14-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопити накладають заклинання, використовуючи Мудрість. Для матеріальних компонентів вони можуть користуватися {{мішечком із компонентами|component pouch}}, але не можуть користуватися чаротворчими фокусами{{spellcasting focuses}}."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-ranger-spells-2014-001",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-0",
+      "context": "Влада над вогнем [Control Flames]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-002",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-1",
+      "context": "Створення багаття [Create Bonfire]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-003",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-2",
+      "context": "Ремесло друїдів [Druidcraft]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-004",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-3",
+      "context": "Обмороження [Frostbite]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-005",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-4",
+      "context": "Настанова [Guidance]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-006",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-5",
+      "context": "Шквал [Gust]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-007",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-6",
+      "context": "Зараження [Infestation]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-008",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-7",
+      "context": "Чарівний камінь [Magic Stone]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-009",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-8",
+      "context": "Лагодження [Mending]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-010",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-9",
+      "context": "Ліплення землі [Mold Earth]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-011",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-10",
+      "context": "Отруйні бризки [Poison Spray]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-012",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-11",
+      "context": "Первісна дикість [Primal Savagery]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-013",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-12",
+      "context": "Створення вогню [Produce Flame]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-014",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-13",
+      "context": "Опір [Resistance]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-015",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-14",
+      "context": "Формування води [Shape Water]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-016",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-15",
+      "context": "Кийок [Shillelagh]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-017",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-16",
+      "context": "Терновий батіг [Thorn whip]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-018",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-3",
+      "optionId": "section-cantrips-block-section-cantrips-3-item-17",
+      "context": "Гуркіт грому [Thunderclap]",
+      "explanationBlockId": "block-section-cantrips-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-019",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-0",
+      "context": "Поглинання стихій [Absorb Elements]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-020",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-1",
+      "context": "Тривога [Alarm]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-021",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-2",
+      "context": "Дружба з тваринами [Animal friendship]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-022",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-3",
+      "context": "Звірячі узи [Beast Bond]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-023",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-4",
+      "context": "Лікування ран [Cure Wounds]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-024",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-5",
+      "context": "Виявлення магії [Detect Magic]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-025",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-6",
+      "context": "Виявлення отрут і хвороб [Detect Poison and Disease]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-026",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-7",
+      "context": "Обплутуючий удар [Ensnaring Strike]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-027",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-8",
+      "context": "Обплутування [Entangle]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-028",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-9",
+      "context": "Туманна хмара [Fog Cloud]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-029",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-10",
+      "context": "Доброягода [Goodberry]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-030",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-11",
+      "context": "Град шипів [Hail of Thorns]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-031",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-12",
+      "context": "Мисливська мітка [Hunter's Mark]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-032",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-13",
+      "context": "Стрибок [Jump]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-033",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-14",
+      "context": "Скорохід [Longstrider]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-034",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-15",
+      "context": "Паляча кара [Searing Smite]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-035",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-16",
+      "context": "Пастка [Snare]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-036",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-17",
+      "context": "Розмова з тваринами [Speak with Animals]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-037",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-18",
+      "context": "Удар Зефіра [Zephyr Strike]",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-038",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-0",
+      "context": "Підтримка [Aid]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-039",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-1",
+      "context": "Тварина-посланець [Animal messenger]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-040",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-2",
+      "context": "Дубова шкіра [Barkskin]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-041",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-3",
+      "context": "Тваринне чуття [Beast Sense]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-042",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-4",
+      "context": "Завіса стріл [Cordon of Arrows]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-043",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-5",
+      "context": "Темний зір [Darkvision]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-044",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-6",
+      "context": "Покращення здібності [Enhance Ability]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-045",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-7",
+      "context": "Порив вітру [Gust of Wind]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-046",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-8",
+      "context": "Пошук пасток [Find Traps]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-047",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-9",
+      "context": "Дух зцілення [Healing Spirit]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-048",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-10",
+      "context": "Мале відновлення [Lesser Restoration]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-049",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-11",
+      "context": "Пошук тварин або рослин [Locate Animals or Plants]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-050",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-12",
+      "context": "Пошук предмета [Locate Object]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-051",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-13",
+      "context": "Магічна зброя [Magic Weapon]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-052",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-14",
+      "context": "Переміщення без сліду [Pass without Trace]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-053",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-15",
+      "context": "Захист від отрути [Protection from Poison]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-054",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-16",
+      "context": "Тиша [Silence]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-055",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-17",
+      "context": "Проростання шипів [Spike Growth]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-056",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-2",
+      "targetBlockId": "block-section-spells-2-1",
+      "optionId": "section-spells-2-block-section-spells-2-1-item-18",
+      "context": "Виклик Звіра [Summon Beast]",
+      "explanationBlockId": "block-section-spells-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-057",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-0",
+      "context": "Хода Ашардалона [Ashardalon's Stride]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-058",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-1",
+      "context": "Зʼява тварин [Conjure Animals]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-059",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-2",
+      "context": "Виклик обстрілу [Conjure Barrage]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-060",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-3",
+      "context": "Денне світло [Daylight]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-061",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-4",
+      "context": "Стихійна зброя [Elemental Weapon]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-062",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-5",
+      "context": "Полумʼяні стріли [Flame Arrows]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-063",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-6",
+      "context": "Блискавична стріла [Lightning Arrow]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-064",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-7",
+      "context": "Злиття з каменем [Meld into Stone]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-065",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-8",
+      "context": "Невиявлення [Nondetection]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-066",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-9",
+      "context": "Ріст рослин [Plant Growth]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-067",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-10",
+      "context": "Захист від енергії [Protection from Energy]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-068",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-11",
+      "context": "Відродження [Revivify]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-069",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-12",
+      "context": "Розмова з рослинами [Speak with Plants]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-070",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-13",
+      "context": "Виклик феї [Summon Fey]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-071",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-14",
+      "context": "Дихання водою [Water Breathing]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-072",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-15",
+      "context": "Ходіння по воді [Water Walk]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-073",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-3",
+      "targetBlockId": "block-section-spells-3-1",
+      "optionId": "section-spells-3-block-section-spells-3-1-item-16",
+      "context": "Стіна вітрів [Wind Wall]",
+      "explanationBlockId": "block-section-spells-3-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-074",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-4",
+      "targetBlockId": "block-section-spells-4-1",
+      "optionId": "section-spells-4-block-section-spells-4-1-item-0",
+      "context": "Зʼява лісових створінь [Conjure Woodland Beings]",
+      "explanationBlockId": "block-section-spells-4-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-075",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-4",
+      "targetBlockId": "block-section-spells-4-1",
+      "optionId": "section-spells-4-block-section-spells-4-1-item-1",
+      "context": "Підкорення звіра [Dominate Beast]",
+      "explanationBlockId": "block-section-spells-4-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-076",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-4",
+      "targetBlockId": "block-section-spells-4-1",
+      "optionId": "section-spells-4-block-section-spells-4-1-item-2",
+      "context": "Свобода рухів [Freedom of Movement]",
+      "explanationBlockId": "block-section-spells-4-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-077",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-4",
+      "targetBlockId": "block-section-spells-4-1",
+      "optionId": "section-spells-4-block-section-spells-4-1-item-3",
+      "context": "Хапаюча лоза [Grasping Vine]",
+      "explanationBlockId": "block-section-spells-4-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-078",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-4",
+      "targetBlockId": "block-section-spells-4-1",
+      "optionId": "section-spells-4-block-section-spells-4-1-item-4",
+      "context": "Вартовий природи [Guardian of Nature]",
+      "explanationBlockId": "block-section-spells-4-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-079",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-4",
+      "targetBlockId": "block-section-spells-4-1",
+      "optionId": "section-spells-4-block-section-spells-4-1-item-5",
+      "context": "Пошук істоти [Locate Creature]",
+      "explanationBlockId": "block-section-spells-4-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-080",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-4",
+      "targetBlockId": "block-section-spells-4-1",
+      "optionId": "section-spells-4-block-section-spells-4-1-item-6",
+      "context": "Камʼяна шкіра [Stoneskin]",
+      "explanationBlockId": "block-section-spells-4-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-081",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-4",
+      "targetBlockId": "block-section-spells-4-1",
+      "optionId": "section-spells-4-block-section-spells-4-1-item-7",
+      "context": "Виклик елементаля [Summon Elemental]",
+      "explanationBlockId": "block-section-spells-4-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-082",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-5",
+      "targetBlockId": "block-section-spells-5-1",
+      "optionId": "section-spells-5-block-section-spells-5-1-item-0",
+      "context": "Звернення до природи [Commune with Nature]",
+      "explanationBlockId": "block-section-spells-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-083",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-5",
+      "targetBlockId": "block-section-spells-5-1",
+      "optionId": "section-spells-5-block-section-spells-5-1-item-1",
+      "context": "Виклик залпу [Conjure Volley]",
+      "explanationBlockId": "block-section-spells-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-084",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-5",
+      "targetBlockId": "block-section-spells-5-1",
+      "optionId": "section-spells-5-block-section-spells-5-1-item-2",
+      "context": "Більше відновлення [Greater Restoration]",
+      "explanationBlockId": "block-section-spells-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-085",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-5",
+      "targetBlockId": "block-section-spells-5-1",
+      "optionId": "section-spells-5-block-section-spells-5-1-item-3",
+      "context": "Удар сталевого вітру [Steel Wind Strike]",
+      "explanationBlockId": "block-section-spells-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-086",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-5",
+      "targetBlockId": "block-section-spells-5-1",
+      "optionId": "section-spells-5-block-section-spells-5-1-item-4",
+      "context": "Швидкий сагайдак [Swift Quiver]",
+      "explanationBlockId": "block-section-spells-5-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-087",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-5",
+      "targetBlockId": "block-section-spells-5-1",
+      "optionId": "section-spells-5-block-section-spells-5-1-item-5",
+      "context": "Деревний шлях [Tree Stride]",
+      "explanationBlockId": "block-section-spells-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-spells-2014-088",
+      "articleId": "rpgbot-ranger-spells-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-spells-2014-draft1",
+      "sectionId": "section-spells-5",
+      "targetBlockId": "block-section-spells-5-1",
+      "optionId": "section-spells-5-block-section-spells-5-1-item-6",
+      "context": "Гнів природи [Wrath of Nature]",
+      "explanationBlockId": "block-section-spells-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

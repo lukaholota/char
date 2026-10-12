@@ -1,0 +1,197 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "rogue-phantom-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+    "sourceRevisionId": "rpgbot-51ef21035189f705-babeb18f83895075"
+  },
+  "exampleSection": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+  "levelTableSection": "section-levels",
+  "classKey": "ROGUE_2014",
+  "subclassKey": "PHANTOM",
+  "raceKey": "ELF_2014",
+  "backgroundKey": "MARINE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 10,
+    "WIS": 13,
+    "CHA": 10
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 3
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "PHANTOM"
+    },
+    {
+      "level": 4,
+      "featKey": "ELVEN_ACCURACY",
+      "featOptions": [
+        {
+          "optionNameEng": "ELVEN_ACCURACY Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "expertise": [
+        "RELIGION",
+        "STEALTH"
+      ]
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "featKey": "SLASHER",
+      "featOptions": [
+        {
+          "optionNameEng": "SLASHER Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "featKey": "ATHLETE",
+      "featOptions": [
+        {
+          "optionNameEng": "ATHLETE Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "featKey": "MOBILE",
+      "section": "section-feats"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Спорядження",
+      "reason": "Автор купує спорядження за середнє стартове золото (клепаний шкіряний обладунок, батіг, кухарське начиння, інструменти злодія); пресет не підтримує стартове золото, тому взято стандартний набір Пройдисвіта.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Володіння зброєю та інструментами раси",
+      "reason": "Автор замінює три володіння зброєю лісового ельфа на батіг та інструменти за правилами власного походження; пресет не записує володіння зброєю й інструментами, тому ця заміна не застосована.",
+      "section": "section-race"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/rogue-phantom-2014-fb82638518.webp",
+    "title": "Пройдисвіт — Фантом",
+    "description": "Лісовий ельф-Пройдисвіт із експертизою в Атлетиці та Виживанні. Мобільний розвідник і майстер навичок.",
+    "subraceKey": "ELF_WOOD_2014",
+    "racialAbilities": [],
+    "skills": {
+      "selectedClass": [
+        "ATHLETICS",
+        "INSIGHT",
+        "INVESTIGATION",
+        "STEALTH"
+      ],
+      "race": [],
+      "background": [
+        "RELIGION"
+      ]
+    },
+    "expertise": [
+      "ATHLETICS",
+      "SURVIVAL"
+    ],
+    "classOptions": [],
+    "languages": [],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Лісовий ельф додає +2 до Спритності й +1 до Мудрості, як у авторській таблиці; це вже враховано.",
+    "skillExplanation": "Атлетика, Аналіз поведінки, Розслідування й Непомітність — від Пройдисвіта, Уважність — від лісового ельфа, Виживання — від Морського піхотинця. Повторну Атлетику замінено на Релігію, а Експертиза — в Атлетиці та Виживанні, як радить автор.",
+    "equipmentExplanation": "Автор купує спорядження за стартове золото, а пресет не підтримує золото: набір Пройдисвіта ми обрали за вас, його можна змінити."
+  }
+}

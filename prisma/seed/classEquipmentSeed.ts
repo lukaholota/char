@@ -9,7 +9,7 @@ const ACTIVE_RULESET: Ruleset = "RULES_2014";
 
 export const seedClassEquipment = async (prisma: PrismaClient) => {
     console.log('🌟 Додаємо класове спорядження...')
-    const equipment: Prisma.ClassStartingEquipmentOptionCreateInput[] = [
+    const equipment: (Prisma.ClassStartingEquipmentOptionCreateInput | null)[] = [
         // GROUP 1: Armor choice
         // Option A: Chain mail
         {
@@ -873,14 +873,7 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
             quantity: 1,
             description: 'Книга Чарів чарівника'
         },
-        {
-            choiceGroup: 4,
-            option: 'a',
-            weapon: { connect: { name_ruleset: { name: WeaponCategory.DAGGER, ruleset: ACTIVE_RULESET } } },
-            class: { connect: { name_ruleset: { name: Classes.WIZARD_2014, ruleset: ACTIVE_RULESET } } },
-            quantity: 1,
-            description: 'Кинджал (1к4)'
-        },
+        null, // Reserved seed index 85: the obsolete extra Wizard dagger must not shift later rows.
 
 
         // ===== DRUID STARTING EQUIPMENT =====
@@ -1166,17 +1159,18 @@ export const seedClassEquipment = async (prisma: PrismaClient) => {
     let seedIndex = 1;
 
     for (const piece of equipment) {
+        const currentSeedIndex = seedIndex++;
+        if (!piece) continue;
         await prisma.classStartingEquipmentOption.upsert({
-            where: { seedIndex },
+            where: { seedIndex: currentSeedIndex },
             update: piece,
             create: {
-                seedIndex,
+                seedIndex: currentSeedIndex,
                 ...piece
             }
         })
 
-        seedIndex++;
     }
 
-    console.log(`✅ додано ${equipment.length} класового спорядження!`)
+    console.log(`✅ додано ${equipment.filter(Boolean).length} класового спорядження!`)
 }

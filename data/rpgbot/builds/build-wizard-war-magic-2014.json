@@ -1,0 +1,756 @@
+{
+  "buildId": "build-wizard-war-magic-2014",
+  "revisionId": "build-wizard-war-magic-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "традиції Бойової магії — «Дисципліна спускового гачка»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-wizard-war-magic-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+      "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+      "sectionId": "section-example-war-magic-tradition-build-trigger-discipline",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "ARTIFICER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WIZARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "find-familiar",
+            "fog-cloud",
+            "sleep"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 3
+          },
+          {
+            "category": "spellbook",
+            "count": 3
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WIZARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "SCHOOL_OF_WAR_MAGIC",
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WIZARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "blur",
+            "hold-person"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WIZARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "web"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "spellbook",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WIZARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "fireball",
+            "hypnotic-pattern"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WIZARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "major-image",
+            "phantom-steed"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WIZARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "phantasmal-killer",
+            "polymorph"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WIZARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "sickening-radiance",
+            "wall-of-fire"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WIZARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "hold-monster",
+            "wall-of-force"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WIZARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "wall-of-stone"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "spellbook",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WIZARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "contingency",
+            "disintegrate"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WIZARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ALERT",
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "true-seeing"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WIZARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "forcecage",
+            "reverse-gravity"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WIZARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WIZARD_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "illusory-dragon",
+            "maze"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WIZARD_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WIZARD_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "foresight",
+            "wish"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WIZARD_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WIZARD_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-war-magic-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+          "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ARMORER",
+    "raceKey": "HARENGON_MPMM",
+    "backgroundKey": "SHIPWRIGHT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 15
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми мало чим відрізняємося від звичайних чарівників, хіба що починаємо з одного рівня Винахідника{{Artificer}}, тож усе одно хочемо дотримуватися рекомендацій із розділу про характеристики вище. Ми будемо Гаренгоном{{Harengon}} і візьмемо +1/+1/+1 до Спритності, Статури й Інтелекту.\n\n Купівля характеристик Підвищене значення Сила 8 8 Спритність 15 16 Статура 15 16 Інтелект 15 16 Мудрість 8 8 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-war-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ми використаємо рису Гаренгона{{Harengon}} «Зайчачий рефлекс»{{Hare Trigger}}, щоб випередити всіх за Ініціативою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-war-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Оскільки наша передісторія не має значення, я роблю її Корабельним майстром{{Shipwright}}. Якщо ми візьмемо Історію з навичок класу, її можна замінити на Акробатику, а оскільки Уважність ми отримуємо від Гаренгона, її можна замінити на Непомітність. Також ми отримуємо інструменти тесляра{{Carpenter’s Tools}}, водний транспорт{{Water Vehicles}} і веселе вміння ремонтувати човни в морі. Це дуже згодиться на Війні.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-war-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Гаренгона{{Harengon}} ми отримуємо Уважність. Від навичок класу (памʼятайте, що ми починаємо з рівня Винахідника{{Artificer}}) ми отримуємо Розслідування, Історію, інструменти злодія{{Thieves’ Tools}}, інструменти лудильника{{Tinker Tools}} і каліграфічний набір{{Calligrapher’s Supplies}}. Від передісторії Корабельного майстра{{Shipwright}} ми замінюємо дубльовані навички на Акробатику й Непомітність, а також здобуваємо інструменти тесляра{{Carpenter’s Tools}} і водний транспорт{{Water Vehicles}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-war-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Ми беремо один рівень Винахідника{{Artificer}}, що відкладає наші Покращення Характеристик на один рівень.\n\nЧарівник 4-го рівня: Покращення Характеристик, +2 Інтелекту\n\nЧарівник 8-го рівня: Покращення Характеристик, +2 Інтелекту\n\nЧарівник 12-го рівня: риса «Пильний»{{Alert}}. Якщо ви вважаєте, що це перебір, ви не розумієте, що ми тут не заради +5 до Ініціативи, хоча візьмемо її як бонус. Ні, ми тут заради імунітету до того, щоб бути застигнутими зненацька. Дехто думає, що може ходити першим весь час. Е ні, це наша робота.\n\nЧарівник 16-го рівня: Покращення Характеристик, +2 Спритності\n\nЧарівник 19-го рівня: Покращення Характеристик, +2 Спритності",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-war-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Середні обладунки\nЩити\nЧаротворство\nМагічне майстрування\nНавички:\n– Акробатика\n– Історія\n– Розслідування\n– Уважність\n– Непомітність\nІнструменти:\n– Каліграфічний набір\n– Інструменти тесляра\n– Інструменти злодія\n– Інструменти лудильника\n– Водний транспорт",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-war-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Замовляння",
+        "reason": "Автор не називає ні замовлянь Винахідника, ні замовлянь Чарівника; замовляння Винахідника обрано за вас, замовляння Чарівника лишено гравцеві.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-war-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Покращення здібності (4-й рівень)",
+        "reason": "Автор бере Покращення здібності, якої немає у списку Чарівника. Пресет бере замість неї Розмиття — близьке за ролью захисне заклинання 2-го кола Чарівника (вибір платформи); можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-war-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання книги на рівнях 3–20",
+        "reason": "Автор групує заклинання за колом (на 6-му рівні чотири 3-го кола тощо), а Чарівник додає до книги лише два на рівень. Пресет записує названі заклинання по два на рівень у порядку автора, не раніше доступного кола; вільні місця (3-й рівень і останні рівні) та замовляння 5-го й 11-го рівнів — вибір платформи, автор не називає; можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-war-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Майстерність заклинань",
+        "reason": "Автор радить Майстерність заклинань на 19-му рівні, не називаючи заклинань, а каталог не має вибору цих заклинань; гравець обирає їх на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-war-magic-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+            "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

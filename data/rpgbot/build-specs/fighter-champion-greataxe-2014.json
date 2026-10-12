@@ -1,0 +1,214 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "fighter-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-fighter-2014-draft1",
+    "sourceRevisionId": "rpgbot-2c6409607d154834-653485f2ad5270a8"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "subclassKey": "CHAMPION",
+  "raceKey": "HALF_ORC_2014",
+  "backgroundKey": "SOLDIER",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 10,
+    "CON": 15,
+    "INT": 10,
+    "WIS": 9,
+    "CHA": 12
+  },
+  "levelPlans": {
+    "levels": [
+      1,
+      2,
+      3,
+      4,
+      8
+    ],
+    "notes": false
+  },
+  "incomplete": [
+    {
+      "field": "Покращення характеристик на 14, 16, 19-му рівнях",
+      "reason": "Автор пише «будь-яка» і не називає вибір. Пресет бере типовий (14-й: WIS +2, 16-й: WIS +2, 19-й: WIS +2); це вибір платформи, гравець може змінити його перед створенням.",
+      "section": "section-levels"
+    }
+  ],
+  "revision": 3,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "CHAMPION"
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "STR",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "abilityScoreIncrease": [
+        {
+          "ability": "STR",
+          "amount": 1
+        },
+        {
+          "ability": "CON",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Defense"
+        }
+      ]
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 1
+        },
+        {
+          "ability": "WIS",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 20
+    }
+  ],
+  "preset": {
+    "title": "Воїн — велика сокира",
+    "description": "Бийте важкою зброєю двома руками. Варіант Воїна для сильних ударів і простих рішень у бою.",
+    "skills": {
+      "selectedClass": [
+        "ATHLETICS",
+        "PERCEPTION"
+      ],
+      "race": [],
+      "background": [
+        "DECEPTION",
+        "PERSUASION"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [
+      "Great Weapon Fighting"
+    ],
+    "subraceKey": null,
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "GREATAXE",
+          "WARHAMMER"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "b",
+        "weapons": []
+      }
+    ],
+    "abilityExplanation": "Сила допомагає влучати важкою зброєю, а Статура — витримувати удари. Уже враховано расові бонуси напіворка.",
+    "skillExplanation": "Атлетика допомагає в бою, Уважність — помічати небезпеку. Повторні навички Солдата замінено на Обман і Переконання за авторським прикладом.",
+    "equipmentExplanation": "Велика сокира, бойовий молот, кольчуга й дві ручні сокири взяті з авторського прикладу. Набір для подорожей ми обрали за вас.",
+    "featSection": "section-feats-2",
+    "portraitSrc": "/images/presets/fighter-champion-greataxe-2014.webp",
+    "featOptionName": null,
+    "racialAbilities": [],
+    "languages": [],
+    "skillSection": "section-skills-and-tools",
+    "equipmentSection": "section-levels"
+  }
+}

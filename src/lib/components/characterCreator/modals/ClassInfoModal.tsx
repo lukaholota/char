@@ -254,7 +254,7 @@ export const ClassInfoModal = ({
         title={`Підкласи: ${title}`}
         contentClassName="w-[95vw] max-w-[95vw] sm:max-w-2xl overflow-x-hidden"
       >
-        <SubclassListDialogBody current={subclassBlocks.current} legacy={subclassBlocks.legacy} isLoading={isLoadingSubclasses} />
+        <SubclassListDialogBody current={subclassBlocks.current} legacy={subclassBlocks.legacy} isLoading={isLoadingSubclasses} parentClass={cls} />
       </ControlledInfoDialog>
     </>
   );

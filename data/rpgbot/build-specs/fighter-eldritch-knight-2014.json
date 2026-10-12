@@ -1,0 +1,271 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "fighter-eldritch-knight-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-fighter-eldritch-knight-2014-draft1",
+    "sourceRevisionId": "rpgbot-81169bd5697e5036-b3223bafa218534b"
+  },
+  "exampleSection": "section-example-build-a-good-scottish-name",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "subclassKey": "ELDRITCH_KNIGHT",
+  "raceKey": "CUSTOM_LINEAGE_TCE",
+  "backgroundKey": "FOLK_HERO",
+  "featKey": "SLASHER",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 15,
+    "WIS": 8,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Продаж спорядження",
+      "reason": "Автор радить продати легкий арбалет і запасний дворучний меч і купити метальні списи; пресет не записує продаж і купівлю, тож лишено кольчугу, два дворучні мечі й легкий арбалет зі стартових груп.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Доторк феї: заклинання риси",
+      "reason": "На 6-му рівні автор бере «Доторк феї» (Інтелект) і не називає заклинання Пророкування чи Чарів 1-го рівня; платформа не має вибору заклинань риси на підвищенні, тож воно на рівні не записане.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Ритуальний заклинатель: ритуальні заклинання",
+      "reason": "На 14-му рівні автор бере «Ритуального заклинателя» з заклинаннями Розуміння мов і Розпізнавання; платформа не має вибору заклинань риси на підвищенні, тож вони на рівні не записані.",
+      "section": "section-levels"
+    }
+  ],
+  "revision": 3,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "ELDRITCH_KNIGHT",
+      "spells": {
+        "cantripKeys": [
+          "booming-blade",
+          "sword-burst"
+        ],
+        "knownSpellKeys": [
+          "shield",
+          "absorb-elements",
+          "find-familiar"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "WAR_CASTER",
+      "spells": {
+        "knownSpellKeys": [
+          "protection-from-evil-and-good"
+        ]
+      }
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "featKey": "FEY_TOUCHED",
+      "featOptions": [
+        {
+          "optionNameEng": "FEY_TOUCHED Ability (Intelligence)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 7,
+      "spells": {
+        "knownSpellKeys": [
+          "darkness"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "STR",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "see-invisibility"
+        ]
+      }
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "spells": {
+        "cantripKeys": [
+          "toll-the-dead"
+        ],
+        "knownSpellKeys": [
+          "rimes-binding-ice"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "warding-wind"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "featKey": "CHEF",
+      "featOptions": [
+        {
+          "optionNameEng": "CHEF Ability (Constitution)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "fireball"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "featKey": "RITUAL_CASTER",
+      "spells": {
+        "knownSpellKeys": [
+          "fly"
+        ]
+      },
+      "section": "section-feats"
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "featKey": "GIFT_OF_THE_METALLIC_DRAGON",
+      "spells": {
+        "knownSpellKeys": [
+          "wall-of-sand"
+        ]
+      },
+      "section": "section-feats"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "MOBILE",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 20,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/fighter-eldritch-knight-2014.webp",
+    "title": "Воїн — Бойовий маг, Своя раса",
+    "description": "Воїн із Рубакою на 1-му рівні: Своя раса з +2 до Сили, великий меч у кольчузі, Магія й Розслідування від налаштованого Народного героя.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "STR"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ATHLETICS",
+        "HISTORY"
+      ],
+      "race": [],
+      "background": [
+        "ARCANA",
+        "INVESTIGATION"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [],
+    "classOptions": [
+      "Great Weapon Fighting"
+    ],
+    "raceOptions": [
+      "Середній",
+      "Темнозір"
+    ],
+    "platformChoices": [
+      "raceOptions"
+    ],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "GREATSWORD",
+          "GREATSWORD"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": "SLASHER Ability (Strength)",
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Своя раса за правилами Таші додає +2 до Сили, а Рубака (Сила) — +1: Сила 18 після купівлі 15, як описує автор. Це вже враховано.",
+    "skillExplanation": "Атлетика й Історія — від Воїна. Автор налаштовує Народного героя: замість Поводження з тваринами й Виживання бере Магію та Розслідування (правило PHB «Налаштування передісторії»). Темнозір і розмір (Середній) Своєї раси та мову ми обрали за вас — автор їх не називає.",
+    "equipmentExplanation": "Кольчуга і два дворучні мечі — за порадою автора. Легкий арбалет і набір дослідника підземель ми обрали за вас — це вибір платформи."
+  }
+}

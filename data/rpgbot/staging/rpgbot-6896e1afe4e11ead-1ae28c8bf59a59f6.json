@@ -1,0 +1,3448 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "1ae28c8bf59a59f6c7c9a8e78be17d7cbefb78ae1bcbf659e92bcea15a9a7674",
+  "sourceRevision": {
+    "revisionId": "rpgbot-6896e1afe4e11ead-1ae28c8bf59a59f6",
+    "sourceId": "rpgbot-6896e1afe4e11ead",
+    "fetchedAt": "2026-09-29T19:14:43.781726+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:50:08-04:00",
+    "contentHash": "7c6e15e068c624ed44f872363811ebd368fb5e6fb386402550ea590c6b67b1b5",
+    "title": "DnD 5.5 Eldritch Knight Subclass Guide | 2024 DnD",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-6896e1afe4e11ead-1ae28c8bf59a59f6.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "intro",
+      "heading": "DnD 5.5 Eldritch Knight Subclass Guide | 2024 DnD",
+      "blocks": [
+        {
+          "blockId": "block-intro-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Someone trying to use Booming Blade with a whip."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With several updates to core features of the subclass made in the 2024 rules (and given the immense popularity of gish archetypes in general), we present this new version of the Eldritch Knight Fighter. The improvements allow you to "
+            },
+            {
+              "type": "emphasis",
+              "text": "dramatically "
+            },
+            {
+              "type": "text",
+              "text": "lean into the role of a Defender using magic that isn’t just a Paladin while still also doing huge piles of damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This will still feel very much like a Fighter with spells bolted on as compared to a Bladesinger but a) Bladesinger isn’t in this book/edition and b) the spells feel like a core design principle rather than just being an afterthought. The changes to the base Fighter class interact with it in great ways to open up a lot of opportunity for tactical brilliance."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are many interesting ways those abilities interact that allow you to take this subclass in wildly different directions. I’m going to call them out in the Features section, but don’t be surprised when the example build sticks to something a little more normal. I’m just a sucker for the classics."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You may also enjoy our "
+            },
+            {
+              "type": "link",
+              "text": "2024 Eldritch Knight Fighter Spells Guide",
+              "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/spells/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article is for the 2024 DnD rules. For the 2014 rules, see our "
+            },
+            {
+              "type": "link",
+              "text": "2014 DnD 5e Eldritch Knight Fighter Subclass Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-3",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Knight Features",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Knight Backgrounds",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#backgrounds"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Knight Species",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Knight Ability Scores",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Knight Feats",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Knight Weapons",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Knight Armor",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Knight Multiclassing",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Eldritch Knight Build – Ash, Hunter of the Evil Dead",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Species",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#species"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skill and Tool Proficiencies",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#skill-and-tool-proficiencies"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats and Ability Score Increases",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#feats-and-ability-score-increases"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/eldritch-knight/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice in this article is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2024 DnD Character Optimization Meta",
+              "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows. Also be sure to check for "
+            },
+            {
+              "type": "link",
+              "text": "errata",
+              "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+            },
+            {
+              "type": "text",
+              "text": " periodically."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Eldritch Knight Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Spellcasting"
+              },
+              {
+                "type": "text",
+                "text": ": The Eldritch Knight is a 1/3\n\t\tspellcaster that draws their spells from the Wizard’s spell lists. You’ll\n\t\tknow very few spells and have very few spell slots, so you need to be\n\t\tabsolutely certain that any given spell is worth the space.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Be sure to pick up an offensive cantrip like Booming Blade which you can\n\t\t\tuse alongside weapon attacks with War Magic. True Strike looks appealing\n\t\t\ton its face, but Intelligence-based attacks are a harder prospect since\n\t\t\tyour Intelligence will lag behind your Strength or Dexterity."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The text explicitly calls of the Eldritch Knight’s spells “Wizard\n\t\t\tSpells”, which means that Wizard features and Eldritch Knight features work\n\t\t\twell together when multiclassing."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Weapon Bond"
+              },
+              {
+                "type": "text",
+                "text": ": Very cool, but it rarely\n\t\thas any mechanical impact unless you plan to throw your weapon(s) or want to\n\t\tappear unarmed somewhere. Casting spells like Light or Darkness on your\n\t\tbonded weapon before throwing it means that you can place the spell effect\n\t\tat greater range and recall the weapon in order to throw it again. But this\n\t\tcombo is both more work and less effective than most methods for abusing\n\t\tmagical darkness.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You can accomplish some odd shenanigans like bonding to oversized weapons\n\t\t\tor even siege weapons in order to freely teleport a massive object to\n\t\t\tyourself, but be cautious about how much your DM will tolerate before they\n\t\t\thave your bonded trebuchet appear in your hand and summarily crush it."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "War Magic"
+              },
+              {
+                "type": "text",
+                "text": ": A fantastic way to use weapons\n\t\tand spells at the same time. Most spells will rely on your Intelligence to\n\t\tattack, so your best options are Booming Blade and Green-Flame Blade because\n\t\tthey rely on weapon attacks.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If Booming Blade and Green-Flame Blade aren’t available, your next best\n\t\t\tbet may be True Strike to add an on-hit damage boost to a hit with your\n\t\t\tweapon. Your Intelligence is probably going to lag behind your Strength/Dexterity,\n\t\t\tso try to get Advantage before you attack to make up for the relative loss\n\t\t\tof attack bonus. Using a Vex weapon or knocking your target prone are\n\t\t\tgreat options."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Once you pick up Eldritch Strike, you might switch to a cantrip which\n\t\t\tcalls for a saving throw like Toll the Dead. Whether Toll the Dead will\n\t\t\tdeal more damage than a weapon cantrip will depend on your other build\n\t\t\tchoices."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Remember that this works each time that you take the Attack action. If\n\t\t\tyou use Action Surge, you can use War Magic again. Unfortunately, this\n\t\t\tdoesn’t work with Haste because Haste places additional limits on the\n\t\t\tadditional Action which it provides."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Eldritch Strike"
+              },
+              {
+                "type": "text",
+                "text": ": Since your Intelligence\n\t\tprobably won’t be as high as that of a real Wizard, save DCs can be a real problem.\n\t\tImposing disadvantage will make your spells considerably more effective.\n\t\tThis can enable some interesting combinations like attacking a bunch of\n\t\tadjacent enemies, then using War Magic to hit them with Acid Splash or Sword\n\t\tBurst, or shooting a bunch of enemies with a bow then hitting them with a\n\t\tfireball on the next turn."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane Charge"
+              },
+              {
+                "type": "text",
+                "text": ": This is as much movement as\n\t\tusing the Dash action for most characters, so, combined with Action Surge,\n\t\tyou get to do almost as much as you could in a complete additional turn (you\n\t\tstill don’t get a second Bonus Action)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improved War Magic"
+              },
+              {
+                "type": "text",
+                "text": ": Level 1 and 2 spells\n\t\twon’t be great for damage at this level compared to an entire Action worth\n\t\tof attacks, but you can easily use this for buffs like Enlarge/Reduce,\n\t\tdebuffs like Ray of Sickness, save-or-suck spells like Tasha’s Hideous\n\t\tLaughter, and area control options like Web.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you’re making a spell attack, I strongly recommend a Vex weapon to\n\t\t\tmake up for your Intelligence likely not being at 20. If you’re relying on\n\t\t\ta saving throw, you still want to attack your target(s) first to trigger\n\t\t\tEldritch Strike to debuff their saves."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This doesn’t conflict with War Magic, so you could trade three attacks to\n\t\t\tcast a Cantrip and a level 1 or level 2 spell in one Action. Once you get\n\t\t\tto level 20 and get your 4th attack, you can make a weapon attack and\n\t\t\tstill cast spells twice in a single Action. Literally no one else gets to\n\t\t\tdo that."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Remember that you’re still limited to casting one spell with a spell slot\n\t\t\tper turn, so even if you use Action Surge, you won’t be able to cast\n\t\t\tanother level 1 or level 2 spell with Improved War Magic."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-backgrounds",
+      "heading": "Eldritch Knight Backgrounds",
+      "sourceAnchor": "backgrounds",
+      "blocks": [
+        {
+          "blockId": "block-section-backgrounds-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We must take Artisan, Guard, or Noble for the correct ability score increases. If you plan on playing a Finesse weapon build, those are, instead, Artisan, Criminal, or Scribe."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-backgrounds-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Artisan"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Crafter is useful to help you buy the Plate armor you desperately want, and then largely never again. The skills, meanwhile, offer one passably interesting option and one that is almost always tied to your dump stat.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Criminal"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re going to be the Scout, just take Criminal. It gets you three proficiencies you want for the roll, including Thieves’ Tools, and a great starting Feat.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Guard"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": One and a half good and relevant skills and a scaling bonus to initiative so you can either get your buff going before anyone else takes a turn or donate your high roll to the supremacy caster.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Noble"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": With a bit of Intelligence, you can serve as your party’s Scholar. History, plus three skills from Skilled mean that you can get all of the knowledge skills. If you’re building around Dexterity, you might take a mix of Intelligence-based skills and Dexterity-based skills. However, not having Constitution as an ability may be a problem depending on your other build choices, so Scribe is likely a better choice for the same goal."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scribe"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Two decent skills for the build and more proficiencies. Criminal is a better choice if you’re planning to be your party’s Scout, but this may allow you serve as your party’s Scholar."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-backgrounds-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For information and advice regarding Origin Feats, including those granted by your Background, see the Eldritch Knight Feats section, below."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Eldritch Knight Species",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re in a kind of limbo between Defender and Striker, so choosing a complimentary Species can help define the roll."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Elves will be great for Finesse-based characters that want to do things like pick up Blind Fighting and turn themselves into a ball of Darkness that only they can see through before picking up Elven Accuracy. This not only gives you a reliable source of Advantage, it makes people want to leave your reach, turning Booming Blade into an excellent punishment for their efforts."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Goliaths, especially of the Cloud variety, will appreciate having the newly-freed Bonus Action to be able to position themselves much more effectively at the opening of fights and being able to grow into a large wall of meat that stands in between enemies and allies."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Human gives you the capacity to pick up Magic Initiate (Druid), giving you access to Shillelagh. This will let you bypass a primary attack stat entirely by just always spending your first Bonus Action to swap it to Intelligence. This will also let you pick up Healing Word, not only bringing good utility to your Bonus Action but turning you into something of an Int-based Paladin."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Orc also makes great use of your Bonus Action, giving you not only mobility but quite a lot of additional durability."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Eldritch Knight Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Likely your primary attack stat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": We should be wearing heavy armor unless you’re choosing to use finesse weapons."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Not only are you probably a front line character, you also need to make Concentration saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": It’s important that this be at least 14, but it can stop there if you don’t plan on using spells and cantrips with attack rolls."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": The most commonly targeted mental save. Give it whatever you have left over."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-7",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Eldritch Knight Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Having spellcasting makes several feats interesting for Eldritch Knights that Fighters otherwise don’t generally want. The section below is in addition to the regular Fighter Handbook section on Feats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fey-Touched: Misty Step is consistently one of the best spells in the game, and grabbing Hex is an easy way to up your damage if you don’t have anything else to Concentrate on. Also, in social situations, you can Hex a random rat from your bag of rats and kill it so you can move the Hex onto a creature at a later time without performing spell components in front of them. This will let you give someone disadvantage on, for instance, Perception (Wisdom) checks to spot you or Wisdom (Insight) to spot the lies your Face is telling."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Telekinetic: Oh no. If you didn’t pick up a Species like Goliath or Orc that has good uses for your Bonus Action, well… here we are again."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "War Caster: Every piece of this feat is tailor-made for Eldritch Knights. Get it as soon as you can."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Polearm Master: While the Bonus Action bonk is still good, the change to the wording of the attack you get when something enters your reach is "
+            },
+            {
+              "type": "emphasis",
+              "text": "devastating"
+            },
+            {
+              "type": "text",
+              "text": " for the interaction with War Caster. Because it’s not an Opportunity Attack, you can’t replace it with a spell, leaving you dealing a measly 12 damage instead of a ludicrous 53 (at level 17)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Eldritch Knight Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The only thing different from regular Fighters is if you decide to be a Human and abuse access to Magic Initiate, you will need a club or quarterstaff for Shillelagh. Given that the cantrip sets the damage die, you’re more interested in their properties. Slow from the club will make you a much stickier Defender, while Topple is reliant on Con saves (basically always the "
+            },
+            {
+              "type": "link",
+              "text": "highest save",
+              "href": "https://rpgbot.net/dnd5/characters/srd-monster-stats-analysis/"
+            },
+            {
+              "type": "text",
+              "text": " on monsters) to do anything and isn’t particularly interesting for our purposes."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "On the other hand, Quarterstaff is viable for Polearm Master, giving you another thing to do with your now-free Bonus Action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Eldritch Knight Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different than other Fighters."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Eldritch Knight Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One level of Artificer can get you Cure Wounds and three can get you a Subclass that lets you attack with Intelligence all the time, but honestly our features are so good we largely just want them as quickly as possible to enable our tactics."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Eldritch Knight Build – Ash, Hunter of the Evil Dead",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No, this isn’t another content-creator insert, he’s still over on our "
+            },
+            {
+              "type": "link",
+              "text": "Podcast",
+              "href": "https://rpgbot.net/podcast/"
+            },
+            {
+              "type": "text",
+              "text": " and had nothing to do with this. But here we are, in medieval times, casting Booming Blade through a magical stick. A "
+            },
+            {
+              "type": "link",
+              "text": "Boomstick",
+              "href": "https://youtu.be/pFriRcIwqNU?t=28"
+            },
+            {
+              "type": "text",
+              "text": ", if you will."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to be abusing Magic Initiate as described earlier, meaning we just have to balance our defensive layers between hit points and AC without having to worry about a primary attack stat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Adjusted"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "21"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our Dex is decent, will get better soon, and is certainly enough for Scout purposes. Time to be a Criminal."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-species",
+      "parentSectionId": "section-example",
+      "heading": "Species",
+      "sourceAnchor": "species",
+      "blocks": [
+        {
+          "blockId": "block-section-species-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We want that Shillelagh, so Human it is."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skill-and-tool-proficiencies",
+      "parentSectionId": "section-example",
+      "heading": "Skill and Tool Proficiencies",
+      "sourceAnchor": "skill-and-tool-proficiencies",
+      "blocks": [
+        {
+          "blockId": "block-section-skill-and-tool-proficiencies-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Criminal gives us Sleight of Hand, Stealth, and Thieves’ Tools. Fighter gives us Acrobatics and History, and Human will give us Arcana to capitalize on our high Intelligence."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-and-ability-score-increases",
+      "parentSectionId": "section-example",
+      "heading": "Feats and Ability Score Increases",
+      "sourceAnchor": "feats-and-ability-score-increases",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 1 we get Alert from our Background and Magic initiate (Druid) from our Species."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we’ll take War Caster."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 6 we’ll take Polearm Master."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we’ll take an ASI to increase Int to 20, keeping on track with "
+            },
+            {
+              "type": "link",
+              "text": "Fundamental Math",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we’ll take Sentinel."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 14 we’ll take Resilient (Dex)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16 we’ll take an ASI and increase Dex to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19 for our Epic Boon we take Spell Recall. When every slot in a day is covered by this boon, it’s good enough to be willing to leave things to chance. If you get another Boon, take Dimensional Travel to round up Intelligence and leave things hilariously out of range after we Attack+Booming Blade them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dueling"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Weapon Mastery:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Quarterstaff"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Longbow"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shillelagh"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Healing Word"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We walk out with tactics, a far cry from most builds in this rules update that are all locked out of subclasses until level 3."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Defense won’t work once we hit level 3 and stop wearing armor, so pick up Dueling instead to make up for using a one-hander."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "An amusing feature of Topple is that it doesn’t specify Strength or Dexterity, but instead says “the ability modifier used to make the attack.” This means it works just fine with Shillelagh because it will use your Intelligence."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Topple is fine to fish for save failures and get Advantage on follow up attacks. Incidentally, this means you should always save the Booming Blade for the second attack (once we hit level 7 and can do that) in case you can Prone them first and get a better chance to crit with the extra dice. Longbows with Mastery are a good way to kite something you’re afraid of getting into melee with."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our other Cantrip is the immediate reaction of everyone who played Baldur’s Gate 3 when asked for a skill check."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We only get one Healing Word a day right now, so save it for when your real healer drops and needs to be stood back up."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For gear, choose package B and sell the Scimitar and Shortsword to pick up a Quarterstaff and Shield. We walk out with only 16 AC, but that’s the same as Chainmail."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tactical Mind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember how I said we were a decent Scout? Now we can push rolls as necessary. This is mathematically better than Expertise until proficiency caps at +6, though of course it comes with a limited resource pool."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighter Subclass: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Eldritch Knight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Booming Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sword Burst"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Find Familiar"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mage Armor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Silent Image",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/#silent-image"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "War Bond"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Because we’re not strength-based, Mage Armor is actually +1 AC for our entire career. Find Familiar is an incredible spell that you should learn more about using well by checking the Wizard Spell Breakdown. Meanwhile, Silent Image can be used to drop a stone wall with arrow slits in it that will give you Advantage on shooting things that can’t see you through it and not immediately be obvious because, again, arrow slits. It has a bunch of other great uses you should read up on too."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Booming Blade will be our bread and butter. A quarterstaff works just fine despite the name of the cantrip. Sword Burst is present in case we can hit three or more targets."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "War Bond remains nearly useless, but is nice to have on the rare occasions it matters."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With our new spell slots we cast Find Familiar once, Mage Armor at the start of the day, and now we have one slot left per day to honestly probably be another Healing Word. You’ll notice I haven’t taken any Reaction spells. This is because we currently don’t have a hand free to cast them."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: War Caster"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(Int 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Absorb Elements"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind Uses 2 -> 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Conveniently, the quarterstaff we’re always holding is also an arcane focus, so we can now cast anything without an expensive material component even with both hands full. Additionally, Booming Blade is now a viable Reaction when something tries to walk away from you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Just in case something tries to target "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "us"
+                },
+                {
+                  "type": "text",
+                  "text": ", though, we take the spell that also gets us something when we attack back."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tactical Shift"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Whack, whack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tactical Shift is a great rider on a feature that got a huge buff in this rules update. Having three per short rest already means we can use this every expected turn in combat if we want to, letting you feasibly Booming Blade someone, hit them again, and then heal up and walk away without provoking an Opportunity Attack, daring them to follow you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you don’t want or need to do that, this is also the level Cantrips improve, so we should check some math."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Just attacking twice is over 15 DPR. Using Booming Blade instead is roughly 11 if they don’t move, but almost 17 if they do. Against anything that’s melee only, Booming Blade and Tactical Shift away is definitely the way to go."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Polearm Master"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(Dex 15 -> 16)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This gets our AC up to 18, equal to Plate. It also means that any turn we don’t need to reposition and heal we can spend bonking the thing next to us."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfortunately, while we have enchanted our whole quarterstaff, the wording of PAM means it will still only have a d4 base damage. It will still use our Intelligence and deal Force damage though."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You’ll now see another reason I haven’t taken many Reaction spells: we have many ways to use our Reaction already and don’t need more."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–  Earthen Grasp"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Absorb Elements – >See Invisibility"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "War Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Grasp something tight and lay into it with Advantage on your attack rolls."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Did you know that Hide grants the Invisible condition in this version of the rules? Did you know that See Invisibility negates the benefits of the Invisible condition? I have no idea if this was intended, but now nothing can ever Hide from you if you have a spell slot to spare."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "War Magic, on the other hand, represents a very nice immediate boost to our DPR. We can now get in a regular swing "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "and"
+                },
+                {
+                  "type": "text",
+                  "text": " a Booming Blade, putting our DPR to 18.5 or 22 if they move. Throw in a bonk from PAM and that’s up over 27, approaching High DPR while still being very durable."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Int 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Suggestion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have full caster save DC to help Suggestion land, and it’s going to get way better in two levels when the target has to roll the save with Disadvantage if you slapped them recently."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tactical Master"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rerolling a save with a +9 is already a nearly-guaranteed success and it will only get better as we keep leveling."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "So, quarterstaff has topple. This has been a fun thing we sometimes get to enjoy. But now, our quarterstaff has Push, Sap, and Slow, and we can choose which to use "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "per attack"
+                },
+                {
+                  "type": "text",
+                  "text": ". Not per Attack Action. Sap someone with the initial hit, then Booming Blade them and Push them 10 feet away. Now we use Polearm Master’s Reactive Strike to hit them again when they walk back up, having just taken the secondary Booming Blade damage for doing so, and laugh as they attack with Disadvantage into our Fighter AC."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Strike"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enhance Ability"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind Uses 3 -> 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We finally have enough room in our "
+                },
+                {
+                  "type": "text",
+                  "text": "spellbook"
+                },
+                {
+                  "type": "text",
+                  "text": " brain for something to help us perform our Scout role better. The extra Second Wind can help salvage something even if you manage to roll poorly twice, and remember it’s not used if you still somehow fail even with Guidance, Advantage, and a d10 on top."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also, this is the level we get to start doing things like actually weaving non-cantrip spells into our combat tactics, using things like Suggestion as mentioned earlier or Earthen Grasp to lock down single foes."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Two Extra Attacks"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Darkvision"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Darkvision just in case you somehow haven’t solved this human deficit magically by now."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With four total attacks (including the PAM bonk), we can now apply Topple, Sap, Slow, "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "and "
+                },
+                {
+                  "type": "text",
+                  "text": "Push, making things Prone, wrapped in thunder, over there and having a bad day if they do try to attack even if they stand up. DPR assuming the Topple succeeds and they move after standing (optimal conditions) is roughly 62, more than 50% over High DPR. Even under more normal conditions (topple doesn’t work), we’re still at 48.7, solidly over High DPR while being an exceptionally effective Defender."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This tactic remains High DPR or higher forever."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feats: Sentinel"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(Dex 16 -> 17)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Did something try to Disengage to get past our thunder Shenanigans? Start up a Multiattack on the Rogue next to us? Poor choice. Hit it with an Earthen Grasp, presumably with Disadvantage on the save thanks to Eldritch Strike. Now they can’t leave and any attacks they were making are at Disadvantage too. Hopefully they already used their action for the turn allowing you to spend your entire next turn (with Action Surge, presumably) dumping half a dozen attacks into them with Advantage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Studied Attacks"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fireball"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Darkvision -> Fly"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Indomitable (2 uses)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fortunately the order we’re applying our Mastery effects in has meant we’re used to not doing Booming Blade as the first attack in a round, despite it being the most exciting. This is good, because we should always save it for either last if we haven’t missed any attacks or for immediately after we miss to take advantage of the… Advantage from Studied Attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Then we pick up two third-level spells we’ve been drooling at for since the Wizard could cast them at 5."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Resilient"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(Dex 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enemies Abound"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With an AC now of 19, suddenly getting +5 on saves against a significant method of dealing damage to us is very nice. It also bumps up all those Scout skills we’re using."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For spells, smack something and then ask it for an Intelligence save with Disadvantage next round. Enjoy as it starts murdering its allies."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Charge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This doesn’t meaningfully change our tactics, but it’s fun to have. You can now perform the ridiculous topple/sap/slow/push Booming Blade combo on two people and then teleport far enough away that they can’t make it to you even if they stand up."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Dexterity 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Haste"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cap AC at 20, equivalent to +1 Plate and a shield. Scout better while you’re at it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Haste, on the other hand, is an incredible boon. AC goes up to 23 and we still get to Boomstick something away from us on the same turn thanks to War Magic."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "On following turns we can Booming Blade a second target because War Magic’s restriction of one Cantrip is per Attack, not per turn. If we can get a second target to avoid stacking Booming Blades (because the rider can only apply once per target), that brings our DPR up right around 85. Tack on an Action Surge to do that to a third target and we end up at 134, well over Dude Stop DPR."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge (2 uses)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Indomitable (3 uses)"
+                }
+              ],
+              [
+                {
+                  "type": "link",
+                  "text": "More",
+                  "href": "https://www.youtube.com/watch?v=uNy_MLr8mXA"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips also improve at this level, though that hardly matters. It’s a 10% DPR boost, but that’s practically irrelevant with how much damage we’re already doing."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved War Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s unfortunate that this only works with Level 1 or 2 spells, but means you can hit someone and then Earthen Grasp them as part of the same action (which they save against with Disadvantage) and Action Surge to attack again into a Restrained opponent for automatic Advantage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Epic Boon: Spell Recall"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Greater Invisibility"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Earthen Grasp -> Banishment"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our Int improves to 21, not that it does us any good, but every spell we cast now has a 25% chance of not costing a slot."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get a huge upgrade to our single-target save-or-suck."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Three Extra Attacks"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ten total attacks possible in one round including an Opportunity Attack. Enjoy the huge numbers."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Eldritch Knight Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Spellcasting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Weapon Bond"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue War Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Eldritch Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Arcane Charge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Improved War Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Artisan"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Criminal"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Guard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Noble"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Scribe"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/figcaption[1]",
+      "detail": "block-intro-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[1]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Spellcasting</span>: The Eldritch Knight is a 1/3 spellcaster that draws their spells from the Wizard’s spell lists. You’ll know very few sp"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"7\"><span class=\"rating-blue\">War Magic</span>: A fantastic way to use weapons and spells at the same time. Most spells will rely on your Intelligence to attack, so your "
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[6]",
+      "detail": "<li value=\"18\"><span class=\"rating-blue\">Improved War Magic</span>: Level 1 and 2 spells won’t be great for damage at this level compared to an entire Action worth of attacks, but "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-backgrounds-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-backgrounds-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-backgrounds-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-races-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-races-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-races-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-weapons-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-species-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-skill-and-tool-proficiencies-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-feats-and-ability-score-increases-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-feats-and-ability-score-increases-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-feats-and-ability-score-increases-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-feats-and-ability-score-increases-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-feats-and-ability-score-increases-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-feats-and-ability-score-increases-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-feats-and-ability-score-increases-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-feats-and-ability-score-increases-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "td/s[1]",
+      "detail": "s"
+    }
+  ],
+  "metrics": {
+    "words": 4476,
+    "sections": 19,
+    "blocks": 52,
+    "tables": 3,
+    "ratingSignals": 22
+  },
+  "status": "needs-editorial-review"
+}

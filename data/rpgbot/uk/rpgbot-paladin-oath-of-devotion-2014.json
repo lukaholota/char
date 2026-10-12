@@ -1,0 +1,1663 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-e07e0329a207ef54",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+      "sourceId": "rpgbot-e07e0329a207ef54",
+      "fetchedAt": "2026-09-29T19:23:51.073397+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:38:59-04:00",
+      "contentHash": "e18e232bd0bad50316d6b9c10d28b580260ede572dfa6e90a838f5f9b09632fe",
+      "title": "Oath of Devotion Paladin 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-e07e0329a207ef54-c1c0eef0503ce00c.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+    "sourceId": "rpgbot-e07e0329a207ef54",
+    "slug": "paladin-oath-of-devotion-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Паладин Клятви відданості — гайд підкласу (2014)",
+    "titleEn": "Oath of Devotion Paladin 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Паладин",
+      "підклас",
+      "Клятва відданості",
+      "збірка"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+      "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+      "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як описано на сторінці порівняння підкласів, Клятва відданості — це «типовий» Паладин{{Paladin}}. Вона настільки культова, що саме її обрано для гайду базового "
+                },
+                {
+                  "type": "link",
+                  "text": "Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Цей гайд цілком підійде для звичайного Паладина, який захищає групу, служить добру, носить лати й ніколи не замислювався ні про що цікаве."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З іншого боку, така збірка навряд чи надовго вас захопить. Варто комусь сказати «Паладин», і ви ще до кінця слова вже уявите саме цей архетип. У підкласу є розмитий присмак боротьби з почварами та нежиттю — типової справи Паладина, — але всі його вміння працюють проти будь-яких ворогів, просто проти одних — інакше або менш ефективно. Усі вміння підкласу пасивні, крім Каналу божественності{{Channel Divinity}} та завершального вміння 20-го рівня, тож по-справжньому поговорити є про що лише стосовно Каналу божественності. Тож покажімо, як використати його на повну."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клятви відданості",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клятви відданості",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Клятви відданості",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клятви відданості",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Клятви відданості",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Клятви відданості",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Клятви відданості",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Паладин Клятви відданості",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клятви відданості",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клятви відданості",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-devotion/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клятви відданості",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": ":"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": ":"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": ":"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Клятви відданості",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найкращі заклинання й уміння Клятви відданості залежать від високої Харизми, тож «Благословенний воїн»{{Blessed Warrior}} — сильний вибір. Це означає, що на 1-му рівні вам буде важко, зате згодом ви добре розвинетеся."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: спершу встановіть її на 15, щоб згодом носити лати, і надалі не підвищуйте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: можна занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: нам подобається мати багато ХП, а Силу особливо підвищувати не потрібно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: можна занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: можна занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: від неї залежать заклинання Паладина й чимало його класових умінь."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля за очки"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний масив"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Клятви відданості",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і для будь-якого іншого "
+                },
+                {
+                  "type": "link",
+                  "text": "Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Клятви відданості",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і для будь-якого іншого "
+                },
+                {
+                  "type": "link",
+                  "text": "Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/"
+                },
+                {
+                  "type": "text",
+                  "text": ", якщо тільки ви не збираєтеся вигадувати різні хитрощі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Клятви відданості",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і для будь-якого іншого "
+                },
+                {
+                  "type": "link",
+                  "text": "Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Клятви відданості",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і для будь-якого іншого "
+                },
+                {
+                  "type": "link",
+                  "text": "Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Клятви відданості",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви плануєте використовувати Харизму для атак, один або два рівні підкласу "
+                },
+                {
+                  "type": "link",
+                  "text": "Відьмацького клинка",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Hexblade}} Чорнокнижника{{Warlock}} стануть чудовим вибором: так ви позбудетеся залежності від Сили й зможете ще більше зосередитися на Харизмі. Я б узяв 1-й рівень Паладина, 1-й рівень Чорнокнижника, а далі — рівні Паладина. Другий рівень Чорнокнижника візьміть після 8-го рівня Паладина, щоб отримати потойбічні виклики{{Eldritch Invocations}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки — Паладин Клятви відданості",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "От би ще додавати Харизму до шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як уже згадувалося вище, приклад збірки з гайда базового Паладина — це звичайний Паладин Клятви відданості, тож цього разу збірка буде дещо дивною. Я хотів розвʼязати кілька проблем: як використати Канал божественності{{Channel Divinity}}, який у бою є чи не єдиним активним умінням підкласу; як зарадити тому, що для активації потрібна дія; і як зробити так, щоб Тайлер усе-таки дозволив мені опублікувати цей гайд, коли я закінчу?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Відповідь — створити дещо схоже на мій гайд про "
+                },
+                {
+                  "type": "link",
+                  "text": "Кару кожного ходу",
+                  "href": "https://docs.google.com/document/u/0/d/1tDOCr6kJnRIkUEZqYMKxFvE1g66qVXMIEake8c6xkkM/edit"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Smiting every turn}}, але з іншою метою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Примітка"
+                },
+                {
+                  "type": "text",
+                  "text": ": Нам повідомили, що брехня суперечить принципам Клятви відданості. Отже, наведені нижче поради користуватися Обманом несумісні з підкласом. Якщо це проблема у вашій грі, замініть Обман іншою навичкою і починайте кожну розмову словами: «Вітаю, мене звати X, мене переслідують привиди, але я прийшов допомогти»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьмімо запропоновану вище купівлю характеристик очками, а тоді додаймо +2 до Харизми й +1 до Статури."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Початкове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Після підвищення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є кілька хороших варіантів, але жоден не дає нам чогось особливого для цієї збірки, тож візьмімо Астрального ельфа{{Astral Elf}}. Це також чудова нагода зіграти за Юань-ті{{Yuan-ti}}, якщо ви ще ніколи не пробували; тактика майже не зміниться, просто на 1-му рівні доведеться краще стежити за позицією."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми мусимо взяти {{Переслідуваного|Haunted One}}, бо починаємо за Темного пориву{{Dark Urge}} — зачекайте, це не та гра. А якщо серйозно, для такого дешевого аналога {{Відьмацького клинка|Hexblade}} немає особливої причини не вибрати цю передісторію. Замініть навички на Обман, щоб удавати, ніби вас не проклято, і Залякування: в описі прямо сказано, що люди стривожені й допомагають вам, хоча цієї навички немає серед варіантів. Мови обирайте відповідно до кампанії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Атлетика й Переконання від класу приєднуються до Уважності від нашого "
+                },
+                {
+                  "type": "link",
+                  "text": "ельфійського зору",
+                  "href": "https://www.youtube.com/watch?v=HlBxPj4LQ_k"
+                },
+                {
+                  "type": "text",
+                  "text": " та згаданих вище Обману й Залякування."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки до бонусу атаки додаються модифікатори Сили й Харизми, нам не потрібно підвищувати характеристики, щоб не відставати від базових розрахунків. З часом ми все одно це зробимо, але не через Силу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "6-й рівень (4-й рівень Паладина): «Адепт метамагії»{{Metamagic Adept}}"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "10-й рівень (8-й рівень Паладина): «Майстер важкої зброї»{{Great Weapon Master}}"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "14-й рівень (12-й рівень Паладина): «Ельфійська точність»{{Elven Accuracy}}"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 18-му рівні (16-й рівень Паладина) доводимо Харизму до максимуму."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 — Паладин 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне відчуття\nЦілющі руки\nСвященне полумʼя"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для стартового спорядження візьміть {{кольчугу|chainmail}}, {{два дворучні мечі|two greatswords}} та {{метальні списи|Javelins}}. Продайте зайвий дворучний меч і метальні списи, адже завдяки астральному ельфу{{Astral Elf}} в нас є безкоштовне атакувальне замовляння дальнього бою. Протягом одного рівня застосовуйте Священне полумʼя [Sacred Flame] проти істот зі слабкими ряткидками Спритності, а проти істот із низьким КБ бийте мечем."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 — Паладин 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий стиль: — Благословенний воїн{{Blessed Warrior}}\nЗамовляння: — Настанова — Слово сяйва\nНові підготовлені заклинання: — Виклик на дуель — Лікування ран — Щит віри"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Протягом рівня до появи Священної зброї{{Sacred Weapon}} нашим основним способом завдавати шкоди буде Слово сяйва [Word of Radiance]. Священне полумʼя [Sacred Flame] не перевершить за шкодою за раунд звичайний удар мечем аж до 17-го рівня, навіть якщо ми так і не підвищимо Силу, тож до того часу обиратимемо Настанову [Guidance]. Не забувайте про +к4. Що ж до заклинань 1-го рівня й вище, то ми й далі робитимемо звичні для Паладина речі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 — Паладин 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне здоровʼя{{Divine Health}}\nКанал божественності: — Священна зброя{{Sacred Weapon}} — {{Вигнання нечестивих|Turn the Unholy}}\nНові завжди підготовлені заклинання: — Захист від зла й добра — Святилище"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Добре, що ми володіємо Переконанням: доведеться вмовляти решту групи зупинятися на годину після кожного бою, адже наша тактика залежить від єдиного заряду Каналу божественності{{Channel Divinity}} на всю карʼєру. Поки що після застосування Каналу божественності бонусною дією можемо лише телепортуватися й накладати кілька заклинань. Але скоро це виправимо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 — Чародій 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дикої магії\nПриплив хаосу\nНові замовляння: — Гримучий Клинок — Вогняний заряд — Штукарство — "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Формування води",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nВідомі заклинання: — Сріблясті шпильки — Щит"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перевага за бажанням — справді посередня річ для Чародія, але для Паладина з великим мечем (який незабаром битиметься з "
+                    },
+                    {
+                      "type": "link",
+                      "text": "силовою атакою",
+                      "href": "https://rpgbot.net/dnd5/characters/feats/great-weapon-master-sharpshooter/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ") вона на вагу золота. Пізніше, коли ми зможемо надійніше переживати ситуації на кшталт вибуху Вогнекулі [Fireball] просто перед нами, частіше накладатимемо заклинання, щоб відновлювати {{Приплив хаосу|Tides of Chaos}} й знову його застосовувати. Це узгоджується з темою проклятого персонажа: часом ми завдаємо шкоди собі. Звісно, ми також обрали проблематичне заклинання, що надає перевагу, хоча наша раса нібито мала б добре з ним поєднуватися (бо ми не взяли рівень {{Відьмацького клинка|Hexblade}}). Звичайний Гримучий Клинок [Booming Blade] ставатиме нашою основною атакою протягом кількох рівнів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 — Чародій 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії\nВідоме заклинання: — Поглинання стихій"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми маємо природний запас із 2 очок чарівництва, які можна витратити, щоб… тобто, щоб створити слоти заклинань. Тримайтеся. Оскільки тепер ми 5-го рівня, Гримучий Клинок [Booming Blade] завдає на один кубик шкоди більше від першого влучання та лишається чудовим інструментом танка завдяки своїй чіпкості. Відкладати Додаткову атаку{{Extra Attack}} завжди сумнівно, але ви вже завдаєте пристойної шкоди й водночас працюєте як дуже ефективний танк: якщо вороги відійдуть від вас до тендітніших союзників, вони вибухнуть."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 — Паладин 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Адепт метамагії{{Metamagic Adept}}: — Пришвидшене заклинання — Подовжене заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер у нас є 4 очки чарівництва, які можна витратити на Пришвидшене заклинання. Що пришвидшуємо? Гримучий Клинок [Booming Blade] у першому раунді після того, як дією активували Священну зброю{{Sacred Weapon}}. Для того самого трюку в очікуваному третьому бою за день доведеться витратити слот заклинання 2-го рівня, щоб отримати ще 2 очки, але воно того варте."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 — Паладин 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака\nНові підготовлені заклинання: — Пошук скакуна — Героїзм — Мале відновлення — Зона правди"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер, коли ми отримали Додаткову атаку{{Extra Attack}}, маємо вибір. Якщо боїтеся, що ворог відійде, атакуйте його Гримучим Клинком [Booming Blade]. Якщо ні — атакуйте двічі. Тепер доведеться провести чимало математичних обчислень: чи варто витрачати ці слоти заклинань на Божественну кару{{Divine Smite}}, чи на Гримучий Клинок [Booming Blade] із Пришвидшеним заклинанням? Якщо припустити, що ми накладаємо Пошук скакуна [Find Steed] лише в дні без пригод і не витрачаємо слоти ні на що, крім шкоди, зараз маємо два слоти 2-го рівня та чотири 1-го (памʼятайте, що один слот ми вже витратили на очки для Пришвидшеного заклинання в третьому бою за день). Це дає або 3 Гримучі Клинки [Booming Blade] із Пришвидшеним заклинанням, або 14к8 шкоди від Божественної кари. На перший погляд вибір очевидний: у середньому 63 чи 40,5 шкоди… якщо не спрацює вторинний ефект. Навіть одне додаткове спрацювання вторинного ефекту підвищує шкоду Гримучого Клинка [Booming Blade] до 49,5, тож різниця вже не така велика. Якщо спрацюють "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "усі"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", вийде аж 67,5 — і Гримучий Клинок [Booming Blade] на мить здається безумовним переможцем. Але це лише середня шкода. Якщо врахувати влучність, усе ускладнюється. Розумніше берегти Божественну кару для критичних влучань: так ви витратите ресурси ефективніше й отримаєте більше шкоди, адже кубики подвоюються, а вторинна шкода замовляння — ні. Перевага ще й підвищує ймовірність критичного влучання; її легко отримати завдяки {{Припливу хаосу|Tides of Chaos}} та накладанню Сріблястих шпильок [Silvery Barbs], щоб відновити його. Але це також витрачає слоти, тож на обидві речі залишиться менше ресурсів. Отже, мені вдалося взяти найзвичайнішого з усіх можливих Паладинів і наділити його такою складністю рішень і керування ресурсами, що виникає параліч аналізу. Будь ласка. Попри все сказане, Пошук скакуна [Find Steed] — складне заклинання. Можете прочитати "
+                    },
+                    {
+                      "type": "link",
+                      "text": "практичний посібник з кінного бою",
+                      "href": "https://rpgbot.net/dnd5/characters/mounted_combat/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " й послухати наш "
+                    },
+                    {
+                      "type": "link",
+                      "text": "подкаст про кінний бій",
+                      "href": "https://rpgbot.net/rpgbot-podcast-episode-2/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Я раджу це заклинання не тому, що ви обовʼязково маєте їздити верхи, а тому, що небесний бойовий кінь — це круто й може бути корисним у багатьох ситуаціях. Накладати його часто не доведеться (тож у більшості днів у цьому слоті краще мати підготовлене Лікування ран [Cure Wounds]), але після загибелі коня доведеться накласти знову. З КБ 11 і без володіння ряткидками це траплятиметься доволі часто. Та краще втратити коня, аніж союзників, яких замінити важче."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 — Паладин 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура захисту|Aura of Protection}}\nНове підготовлене заклинання: — будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хотіли безкоштовний +3 до всіх ряткидків? Ваша група теж. Варто зауважити, що в описі не вказано, до яких саме ряткидків застосовується бонус, отже він діє на всі, зокрема на ряткидки від смерті. Тримайтеся поруч із друзями при смерті, навіть якщо не можете витратити дію, щоб застосувати до них {{Цілющі руки|Lay on Hands}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 — Паладин 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура відданості|Aura of Devotion}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут нічого цікавого не сталося."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 — Паладин 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Майстер важкої зброї{{Great Weapon Master}}\nНове підготовлене заклинання: — будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знаєте, що чудово поєднується з фактично постійним бонусом +2 до влучання (це від Сили 15, яку ми не підвищували)? Силова атака. Застосовувати штраф у кожен хід, крім першого, — чудова ідея, адже у вас багато нагод влучити (особливо завдяки всій цій перевазі). Це також добре допомагає керувати ресурсами: якщо одна з двох атак стає критичним влучанням, не потрібно пришвидшувати Гримучий Клинок [Booming Blade], щоб використати бонусну дію для завдання шкоди. Так менше обчислень. Принаймні на мить."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 — Паладин 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання: — Відродження — Маяк надії — Розвіювання магії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Погляньмо на шкоду. На цьому рівні Гримучий Клинок [Booming Blade] посилюється: кожне накладання завдає 18 або 31,5 шкоди. Тепер маємо відповідно 4, 2 і 3 слоти заклинань. Це дає 26к8 шкоди від Божественної кари{{Divine Smite}} (в середньому 117) або 7 Гримучих Клинків [Booming Blade] із Пришвидшеним заклинанням. Чудові новини: стільки додаткових Пришвидшених заклинань вистачить на "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "кожен очікуваний раунд бою"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", адже в обчисленнях уже враховано трюк першого раунду кожного бою. Якщо хочете більше не вибирати, просто атакуйте й накладайте Гримучий Клинок [Booming Blade] із Пришвидшеним заклинанням у кожен раунд, а один слот 1-го рівня залиште на Сріблясті шпильки [Silvery Barbs]. Шкода за раунд із «силовою атакою» від Майстра важкої зброї: 41,25 з урахуванням додаткової шкоди. Якщо Гримучий Клинок [Booming Blade] має перевагу, буде аж 52,4. Це означає, що ми завжди перевищуємо поріг "
+                    },
+                    {
+                      "type": "link",
+                      "text": "високого DPR",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", а з перевагою на потужне замовляння опиняємося на півдорозі між ним і рівнем «Та годі вже». Чи краще так, ніж витратити половину слотів на Сріблясті шпильки [Silvery Barbs], а решту — на Божественну кару при критичних влучаннях? Ні, але так набагато простіше, і після останніх чотирьох рівнів ми на це заслужили."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 — Паладин 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура мужності|Aura of Courage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На мою думку, формулювання «не може бути наляканим» означає, що якщо істота налякана, достатньо підійти до неї на 10 футів, і ваша аура усуне ефект страху, а не лише придушить його. Це не узгоджується з тлумаченням наміру правил Джереми Кроуфорда, але навіть він визнає, що "
+                    },
+                    {
+                      "type": "link",
+                      "text": "буквальне прочитання правил нечітке",
+                      "href": "https://twitter.com/JeremyECrawford/status/722860204459630592"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Також ми просуваємося ще на рівень у таблиці чаротворства для мультикласованих персонажів: отримуємо слоти 4-го рівня, але заклинань для них немає. Збережіть слот для критичного влучання й вдарте когось Божественною карою{{Divine Smite}} на +12к6."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 — Паладин 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращена божественна кара{{Improved Divine Smite}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це чудове вміння, яке зовсім не змінює нашої тактики. Але шкоду за раунд воно помітно підвищує."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 — Паладин 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ельфійська точність{{Elven Accuracy}} (Харизма)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знаю, про що ви думаєте, але ні. Хоча ми додаємо бонус Харизми до кидка атаки, це не атака, яку здійснюють Харизмою (бо, знову ж таки, ми просто гірша версія {{Відьмацького клинка|Hexblade}}). Єдина річ, для якої ця риса нам знадобиться, — Вогняний заряд [Fire Bolt]. На цьому етапі можна було б, мабуть, виміняти спорядження на рапіру й щит та почати полювати на критичні влучання завдяки всій цій перевазі, але шкода насправді не буде більшою, адже ми й так чудово використовуємо «Майстра важкої зброї»{{Great Weapon Master}}. То навіщо я взяв цю рису? Через образ проклятого клинка{{Curseedge}}. «Експерт у навичках»{{Skill Expert}} кращий; обирайте його, якщо справді оптимізуєте кожен аспект персонажа."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 — Паладин 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання: — Пошук вищого скакуна — Захист від смерті — Свобода рухів — Вартовий віри"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замініть будь-яке заклинання, підготовлене на 8-му рівні, на Захист від смерті [Death Ward], а замість бойового коня тепер викликайте небесного пегаса заклинанням Пошук вищого скакуна [Find Greater Steed]. Накладіть Захист від смерті [Death Ward] на себе — його дія пошириться й на коня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 — Паладин 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Очищувальний дотик{{Cleansing Touch}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Буп."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 — Паладин 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Чистота духу|Purity of Spirit}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Добра новина: це захищає від багатьох істот, які становлять для нас серйозну загрозу на цьому рівні. Погана новина: нас і так не може зачарувати чи налякати жодна істота, а з одержимістю в цій редакції D&D я взагалі ніколи не стикався, тож увесь бюджет цього вміння йде просто на те, щоб ці істоти атакували нас із перешкодою. Утім, воно справді допомагає, адже ми не користуємося щитом, хоча до цього рівня якось вижили й без нього."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 — Паладин 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Харизма)\nНове підготовлене заклинання: — будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми підвищуємо Харизму до максимуму, отримуючи +1 до всіх ряткидків і +1 до кидків атаки (але не до шкоди, адже ми не {{Відьмацький клинок|Hexblade}})."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 — Паладин 17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання: — Священна зброя — Руйнівна хвиля — Звернення — Полумʼяний удар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відтепер наша тактика майже не змінюється. Та й «відтепер» лишилося небагато — але ось ми й тут. Полумʼяний удар [Flame Strike] завдає прийнятної шкоди по площі, та зазвичай нам усе одно краще просто атакувати. Утім, раз на день можна витратити дію на атаку, а потім накласти пришвидшений Полумʼяний удар [Flame Strike], щоб завдати величезної шкоди, особливо численній групі ворогів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 — Паладин 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Аур{{Aura Improvements}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наше завершальне вміння не надто важливе для тактики цієї збірки, але все одно приємно його мати."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-paladin-oath-of-devotion-2014-001",
+      "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-2",
+      "optionId": "section-ability-scores-block-section-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-ability-scores-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-devotion-2014-002",
+      "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-3",
+      "optionId": "section-ability-scores-block-section-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-ability-scores-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-devotion-2014-003",
+      "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-4",
+      "optionId": "section-ability-scores-block-section-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-devotion-2014-004",
+      "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-5",
+      "optionId": "section-ability-scores-block-section-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-devotion-2014-005",
+      "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-6",
+      "optionId": "section-ability-scores-block-section-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-devotion-2014-006",
+      "articleId": "rpgbot-paladin-oath-of-devotion-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-7",
+      "optionId": "section-ability-scores-block-section-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-ability-scores-7",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

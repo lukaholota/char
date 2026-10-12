@@ -45,6 +45,7 @@ export type ClassSpellSelection = {
 export type ClassSpellOffer = {
   className: string;
   classLabel: string;
+  subclassName?: string | null;
   ruleset: "RULES_2014" | "RULES_2024";
   quota: ClassSpellQuota;
   /** 2014: скільки ще до норми таблиці можна додати понад обовʼязкову прибавку рівня; у 2024 — нулі. */

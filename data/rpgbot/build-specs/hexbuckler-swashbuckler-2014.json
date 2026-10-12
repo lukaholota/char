@@ -1,0 +1,296 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "hexbuckler-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+    "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c"
+  },
+  "exampleSection": "section-hexbuckler-build-the-boy-who-wouldnt-grow-up",
+  "levelTableSection": "section-levels",
+  "classKey": "ROGUE_2014",
+  "subclassKey": "SWASHBUCKLER",
+  "raceKey": "CUSTOM_LINEAGE_TCE",
+  "backgroundKey": "FEYLOST",
+  "featKey": "FEY_TOUCHED",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 10,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 2,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Флейта Пана",
+      "reason": "Походження дає володіння музичним інструментом на вибір, автор радить флейту Пана; пресет інструменти не записує.",
+      "section": "section-background"
+    }
+  ],
+  "revision": 4,
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "WARLOCK_2014",
+      "subclassKey": "HEXBLADE",
+      "spells": {
+        "cantripKeys": [
+          "booming-blade",
+          "eldritch-blast"
+        ],
+        "knownSpellKeys": [
+          "protection-from-evil-and-good",
+          "shield"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classKey": "ROGUE_2014"
+    },
+    {
+      "level": 4,
+      "classKey": "ROGUE_2014",
+      "subclassKey": "SWASHBUCKLER"
+    },
+    {
+      "level": 5,
+      "classKey": "ROGUE_2014",
+      "featKey": "WAR_CASTER"
+    },
+    {
+      "level": 6,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Armor of Shadows"
+        },
+        {
+          "optionNameEng": "Fiendish Vigor"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "hellish-rebuke"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Pact of the Chain"
+        }
+      ],
+      "replaceOptions": [
+        {
+          "drop": {
+            "optionNameEng": "Armor of Shadows"
+          },
+          "add": {
+            "optionNameEng": "Gift of the Ever-Living Ones"
+          }
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "mirror-image"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "hellish-rebuke",
+        "add": "spider-climb"
+      }
+    },
+    {
+      "level": 8,
+      "classKey": "WARLOCK_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "replaceOptions": [
+        {
+          "drop": {
+            "optionNameEng": "Fiendish Vigor"
+          },
+          "add": {
+            "optionNameEng": "Voice of the Chain Master"
+          }
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "green-flame-blade"
+        ],
+        "knownSpellKeys": [
+          "invisibility"
+        ]
+      },
+      "section": "section-feats"
+    },
+    {
+      "level": 9,
+      "classKey": "ROGUE_2014"
+    },
+    {
+      "level": 10,
+      "classKey": "ROGUE_2014",
+      "expertise": [
+        "INSIGHT",
+        "PERCEPTION"
+      ],
+      "section": "section-skills-and-tools"
+    },
+    {
+      "level": 11,
+      "classKey": "ROGUE_2014"
+    },
+    {
+      "level": 12,
+      "classKey": "ROGUE_2014",
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13,
+      "classKey": "ROGUE_2014"
+    },
+    {
+      "level": 14,
+      "classKey": "ROGUE_2014",
+      "featKey": "TOUGH",
+      "section": "section-feats"
+    },
+    {
+      "level": 15,
+      "classKey": "ROGUE_2014"
+    },
+    {
+      "level": 16,
+      "classKey": "ROGUE_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17,
+      "classKey": "ROGUE_2014"
+    },
+    {
+      "level": 18,
+      "classKey": "ROGUE_2014"
+    },
+    {
+      "level": 19,
+      "classKey": "ROGUE_2014"
+    },
+    {
+      "level": 20,
+      "classKey": "ROGUE_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/hexbuckler-swashbuckler-2014.webp",
+    "title": "Hexbuckler — Пройдисвіт-шибайголова, Своя раса",
+    "description": "Хлопчик, який не хотів дорослішати: Пройдисвіт зі Своєю расою, Харизмою 18 та Дотиком феї з першого рівня, що згодом бере Відьмацький клинок.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ACROBATICS",
+        "INSIGHT",
+        "PERCEPTION",
+        "PERSUASION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [
+      "ACROBATICS",
+      "PERSUASION"
+    ],
+    "classOptions": [],
+    "raceOptions": [
+      "Середній",
+      "Темнозір"
+    ],
+    "platformChoices": [
+      "raceOptions"
+    ],
+    "languages": [
+      "SYLVAN",
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": "FEY_TOUCHED Ability (Charisma)",
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля очок 8/14/15/8/10/15 з таблиці автора. Своя раса дає +2, а Доторк феї +1 до Харизми, тож Харизма 18. Це вже враховано.",
+    "skillExplanation": "Акробатику, Аналіз поведінки, Уважність і Переконання бере Пройдисвіт, Обман і Виживання дає походження Загубленого у Світі Фей, Експертиза в Акробатиці й Переконанні — усе названо автором. Темнозір вибрано за автором; розмір (Середній) і другу мову (ельфійську) ми обрали за вас — це вибір платформи. Сильванську мову автор радить.",
+    "equipmentExplanation": "Автор називає рапіру; її взято. Короткий меч замість лука, набір грабіжника та шкіряну броню зі злодійськими інструментами ми обрали за вас — це вибір платформи, їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "featSpellKeys": [
+        "bless"
+      ],
+      "sectionId": "section-feats",
+      "explanation": "Доторк феї: заклинання Благословення обрано автором, Туманний крок риса дає сама.",
+      "platformChoices": []
+    }
+  }
+}

@@ -1,0 +1,3478 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-6582d5bddc223fb7",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+      "sourceId": "rpgbot-6582d5bddc223fb7",
+      "fetchedAt": "2026-09-29T19:14:25.203076+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:56:44-04:00",
+      "contentHash": "084d703dc3ca25e1b03fb95b9abb07d50cb5ba83690abde5a5dcb336e2ac5103",
+      "title": "Storm Sorcery Sorcerer 5e: DnD Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-6582d5bddc223fb7-d1c38a869a40df31.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+    "sourceId": "rpgbot-6582d5bddc223fb7",
+    "slug": "sorcerer-storm-sorcery-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Магія шторму — гайд підкласу Чародія (2014)",
+    "titleEn": "Storm Sorcery Sorcerer 5e: DnD Subclass Guide",
+    "topics": [
+      "Чародій",
+      "Магія шторму",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чародій Магії шторму{{Storm Sorcery}} — цікавий підклас, якому сильно шкодить нестача пристойних заклинань на підтримку. Грати Чародієм шторму складно й ризиковано: підклас постійно змушує наражатися на небезпеку, щоб застосовувати класові уміння, які працюють лише на короткій дистанції, а від неминучих контратак практично нічим не захищає. Цей підклас важко і збирати, і грати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цьому гайді я не раз висловлюватиму своє розчарування окремими елементами підкласу. Я хочу дуже чітко сказати, де саме проблеми, і, вказуючи на ці болючі місця, сподіваюся показати, де підклас кульгає і де вам як гравцеві доведеться компенсувати. Знання власних слабких місць збереже вам життя."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нова опція Метамагії{{Metamagic}} «Перетворене заклинання»{{Transmuted Spell}} із «Казана Таші з усім»{{Tasha’s Cauldron of Everything}} — мабуть, найкраще, що трапилося з підкласом: вона дає змогу вийти за межі мізерної кількості заклинань, що вже завдають блискавичної та громової шкоди, але водночас накладає прикрий «податок» на ваші очки чародійства{{Sorcery Points}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо хочете виправити Магію шторму, треба розвʼязати одну з двох проблем: відомі заклинання та «Бурхлива магія». "
+                },
+                {
+                  "type": "link",
+                  "text": "Дати Чародієві Магії шторму кілька відомих заклинань",
+                  "href": "https://rpgbot.net/blog/dnd-5e-expanded-spell-lists-for-non-tashas-sorcerer-subclasses"
+                },
+                {
+                  "type": "text",
+                  "text": ", що запускатимуть «Серце бурі», робить підклас працездатним на мінімальному рівні, бо гравці не зможуть випадково звести нанівець ціле підкласове уміння. Також можна змінити «Бурхливу магію», щоб вона працювала із замовляннями, що завдають блискавичної чи громової шкоди (зараз лише Гримучий Клинок [Booming Blade], Шокувальний дотик [Shocking Grasp] і Гуркіт грому [Thunderclap]), що дозволяє Чародієві шторму частіше користуватися «Бурхливою магією», щоб практикувати тактику «вдар і біжи», закладену в клас, уже з 1-го рівня."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Магії шторму",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Чародія шторму",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Родоводи",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#lineages"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Еберрона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#races-of-eberron"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Чародія шторму",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Чародія шторму",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Магічні предмети Чародія шторму",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#magic-items"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Звичайні магічні предмети",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#magic-items-common"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Незвичайні магічні предмети",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#magic-items-uncommon"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рідкісні магічні предмети",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#magic-items-rare"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Дуже рідкісні магічні предмети",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#magic-items-very-rare"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Легендарні магічні предмети",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#magic-items-legendary"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання Чародія шторму",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 1-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells-1"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 1-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells-1"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 1-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells-1"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 1-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells-1"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 1-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells-1"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання 1-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#spells-1"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Ааракокра, Чародій шторму",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#example-build-aarakocra-storm-sorcerer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#feats-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#levels"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Чародій шторму / Клірик домену бурі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#example-build-storm-sorcerertempest-cleric"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#abilities-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#race-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#skills-and-tools-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#background-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#feats-3"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/storm-sorcery/#levels-2"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Магії шторму",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Уміння Магії шторму{{Storm Sorcery}} не вражають, а ще вимагають робити багато такого, що водночас дратує й небезпечне."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-features-2",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Мова вітру{{Wind Speaker}}: По суті, чотири безкоштовні мови. Особливо приємно, якщо ви — «обличчя» своєї групи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бурхлива магія{{Tempestuous Magic}}: 10 футів польоту не заведуть вас нікуди цікаво. Основна функція — вивести вас із ближнього бою, не провокуючи принагідних атак. Це швидко перестане захоплювати, щойно ви зможете взяти Туманний крок [Misty Step] як заклинання 2-го рівня. Те, що воно безкоштовне, приємно, особливо якщо ви любите вриватися впритул, щоб доставити заклинання на кшталт Громової хвилі [Thunderwave]. Якби це працювало із замовляннями, воно було б визначальним умінням підкласу, але обмеження заклинаннями з рівнями робить його ситуативною новинкою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Серце бурі|Heart of the Storm}}: Бути в межах 10 футів від ворогів рідко буває доброю ідеєю для Чародія. Опір чудовий, але важко задіяти бонусну шкоду, серйозно не наражаючи себе на небезпеку. Бонус до шкоди досить добрий, тож якщо вам вдається підсунутися в ближній бій чи пролетіти просто над головами цілей, ви можете завдати чимало шкоди. У поєднанні з «Бурхливою магією»{{Tempestuous Magic}} можна влетіти, запустити «Серце бурі» й безпечно вилетіти поза досяжність. Вам усе одно доведеться щось зробити, щоб вороги не підійшли й не вбили вас, але принаймні ви не закінчили хід у межах їхньої досяжності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Порадник бурі{{Storm Guide}}: Якщо тільки ви не в морській кампанії, це майже напевно ніколи не матиме значення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лють бурі{{Storm's Fury}}: Це дуже корисно, бо від вас, схоже, очікують стояти в межах 10 футів від ворогів. Звісно, відкидання їх на 20 футів означає, що вам доведеться йти за ними, щоб і далі застосовувати «Серце бурі»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Душа вітру{{Wind Soul}}: Політ для всієї вашої групи фактично безкоштовно й без Концентрації."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чародій шторму мало чим відрізняється від інших чародіїв, тож і потреби в характеристиках такі самі. Якщо плануєте мультикласувати заради володіння обладунками, Спритність, можливо, вдасться занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: КБ і ряткидки Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: ХП."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: ряткидки Мудрості трапляються часто."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: ваша базова характеристика заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила: 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила: 8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність: 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність: 14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура: 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура: 13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект: 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект: 10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість: 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість: 12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма: 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма: 15"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Чародія шторму",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для Чародія шторму необхідні покращення живучості (бонуси до КБ тощо) і краща рухливість. Вам треба вміти швидко входити в ближній бій і виходити з нього, а ще — витримати кілька ударів, коли не вдалося відійти достатньо далеко після використання «Серця бурі»{{Heart of the Storm}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races-aarakocra",
+          "parentSectionId": "section-races",
+          "heading": "Ааракокра (EEPC)",
+          "sourceAnchor": "races-aarakocra",
+          "blocks": [
+            {
+              "blockId": "block-section-races-aarakocra-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Налаштоване походження{{Customized Origin}}: підвищення +2/+1 і політ. Чудово, але крилатий тифлінг{{Winged Tiefling}} кращий."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-aarakocra-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила: постійний немагічний політ чудовий, але в нападі ви відставатимете."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races-goblin",
+          "parentSectionId": "section-races",
+          "heading": "Гоблін (VGtM)",
+          "sourceAnchor": "races-goblin",
+          "blocks": [
+            {
+              "blockId": "block-section-races-goblin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Налаштоване походження{{Customized Origin}}: «Спритна втеча»{{Nimble Escape}} робить «Бурхливу магію»{{Tempestuous Magic}} здебільшого безглуздою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races-human",
+          "parentSectionId": "section-races",
+          "heading": "Людина",
+          "sourceAnchor": "races-human",
+          "blocks": [
+            {
+              "blockId": "block-section-races-human-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Налаштоване походження{{Customized Origin}}:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-human-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартна: коли для кожної раси доступний ідеальний розподіл характеристик, немає жодної причини грати стандартною людиною."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Варіантна: правила «Налаштування свого походження»{{Customizing Your Origin}} нічого не змінюють для Варіанта людини{{Variant Human}}."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-human-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-human-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартна: чародіям, по суті, потрібна лише Харизма, тож більшість бонусів просто марнується."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Варіантна: ви все одно отримуєте вирішальний бонус до Харизми, а ще й рису."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races-tiefling",
+          "parentSectionId": "section-races",
+          "heading": "Тифлінг (PHB)",
+          "sourceAnchor": "races-tiefling",
+          "blocks": [
+            {
+              "blockId": "block-section-races-tiefling-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Крилатий тифлінг{{Winged Tiefling}} може посісти ту саму нішу, що й ааракокра{{Aarakocra}}, але міняє швидкість ааракокри (на подив важливу для Чародія шторму) на змогу носити середні обладунки. Якщо плануєте мультикласувати заради володіння обладунками, крилатий тифлінг може бути кращим вибором, але для збірок з одним класом швидкість ааракокри допоможе тримати безпечну дистанцію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-lineages",
+          "parentSectionId": "section-races",
+          "heading": "Родоводи",
+          "sourceAnchor": "lineages",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-races-of-eberron",
+          "parentSectionId": "section-races",
+          "heading": "Раси Еберрона",
+          "sourceAnchor": "races-of-eberron",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-races-eberron-dragonmarks",
+          "parentSectionId": "section-races-of-eberron",
+          "heading": "Мітки дракона",
+          "sourceAnchor": "races-eberron-dragonmarks",
+          "blocks": [
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоч задум {{Міток дракона|Dragonmarks}} полягав у тому, щоб дати кожному трохи вродженого чаротворства, кожна мітка дракона містить розширений список заклинань, що, мабуть, є вагомішою перевагою, ніж більшість наданих расових рис. Оскільки розширені варіанти заклинань — така важлива частина міток дракона, якщо ви не граєте заклинателя, ви відмовляєтеся від величезної частини расових рис, і тому надзвичайно важко виправдати гру персонажем із міткою дракона, який не може накладати заклинання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races-dragonmarked-half-elf",
+          "parentSectionId": "section-races-eberron-dragonmarks",
+          "heading": "Напівельф із міткою дракона (ERLW)",
+          "sourceAnchor": "races-dragonmarked-half-elf",
+          "blocks": [
+            {
+              "blockId": "block-section-races-dragonmarked-half-elf-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Риси мітки дракона замінюють частину ваших звичайних расових рис, як описано в записі про кожну мітку дракона."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-dragonmarked-half-elf-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Налаштоване походження{{Customized Origin}}:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-dragonmarked-half-elf-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Шторму|Mark of Storm}}: заклинання мітки дракона вже є в списку заклинань Чародія, а інші переваги надто ситуативні. Здається, це чудовий вибір для Магії шторму{{Storm Sorcery}}, але щоб вивчити ці заклинання, вам усе одно доведеться витратити відомі заклинання, тож користь вкрай мала."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-dragonmarked-half-elf-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типові правила:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-dragonmarked-half-elf-5",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Шторму|Mark of Storm}}: підвищення характеристик підходять, але більшість заклинань мітки дракона вже є в списку заклинань Чародія. Здається, це чудовий вибір для Магії шторму{{Storm Sorcery}}, але щоб вивчити ці заклинання, вам усе одно доведеться витратити відомі заклинання, тож користь вкрай мала."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Адепт стихій{{Elemental Adept}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо й існує збірка, якій «Адепт стихій» став би в пригоді, то це Чародій шторму, але навіть він його не потребує. За ту саму ціну можна взяти «Адепта метамагії»{{Metamagic Adept}} і вивчити «Перетворене заклинання»{{Transmuted Spell}}, що розвʼяже ту саму проблему краще для Чародія."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Адепт метамагії{{Metamagic Adept}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Чародієві шторму доводиться витрачати купу очок чародійства{{Sorcery Points}}, щоб живити «Перетворене заклинання»{{Transmuted Spell}}, тож два додаткові очки й дві нові опції метамагії{{Metamagic}} — це чудово."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рухливий{{Mobile}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дублює «Бурхливу магію»{{Tempestuous Magic}}, але дає змогу застосовувати тактику «вдар і біжи», не витрачаючи слот заклинань."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Чародія шторму",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чародіям рідко потрібна зброя, але оскільки Чародій шторму проводить багато часу на близькій дистанції, зброя іноді може стати в пригоді для принагідних атак. Якщо можливо, добрий вибір — зброя з досягом, як-от батіг{{Whip}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Чародія шторму",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чародії не отримують володіння обладунками. Якщо хочете обладунок, візьміть рівень Клірика{{Cleric}} з доменом, що дає володіння важкими обладунками. Це дасть і важкі обладунки, і щити, різко покращивши ваш КБ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик{{Cleric}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": один рівень із доменом бурі{{Tempest domain}} багато дає Чародієві шторму. Важкі обладунки, щити, воїнська зброя, нові замовляння (тримайтеся утилітарних), доступ до основних кліриківських заклинань низьких рівнів на кшталт Благословення [Bless] і Цілющого слова [healing word]. Другий рівень дає «Божественність: Руйнівний гнів»{{Channel Divinity: Destructive Wrath}}, що дозволяє максимізувати шкоду заклинань, які визначають Чародія шторму."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-magic-items",
+          "heading": "Магічні предмети Чародія шторму",
+          "sourceAnchor": "magic-items",
+          "blocks": [
+            {
+              "blockId": "block-section-magic-items-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ охоплює лише предмети з унікальною користю для Чародія шторму. Повний огляд магічних предметів дивіться в моєму "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-magic-items-common",
+          "parentSectionId": "section-magic-items",
+          "heading": "Звичайні магічні предмети",
+          "sourceAnchor": "magic-items-common",
+          "blocks": [
+            {
+              "blockId": "block-section-magic-items-common-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": ":"
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-magic-items-uncommon",
+          "parentSectionId": "section-magic-items",
+          "heading": "Незвичайні магічні предмети",
+          "sourceAnchor": "magic-items-uncommon",
+          "blocks": [
+            {
+              "blockId": "block-section-magic-items-uncommon-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітла польоту|Broom of Flying}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "DMG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": і без того чудовий предмет, але особливо корисний чародіям шторму, які не мають расового польоту. Політ мітли не заважає користуватися «Бурхливою магією»{{Tempestuous Magic}}, а на відміну від скакуна не доведеться перейматися тим, що ви відлетите від скакуна, коли застосуєте «Бурхливу магію», бо мітла — це предмет."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-magic-items-rare",
+          "parentSectionId": "section-magic-items",
+          "heading": "Рідкісні магічні предмети",
+          "sourceAnchor": "magic-items-rare",
+          "blocks": [
+            {
+              "blockId": "block-section-magic-items-rare-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Уламок стихійної суті (Повітря)|Elemental Essence Shard (Air)}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": по суті, це «Бурхлива магія»{{Tempestuous Magic}}, але на відстань у 6 разів більшу й без витрат бонусної дії."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Паличка зарядів блискавки|Wand of Lightning Bolts}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "DMG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": її використання запускає «Серце бурі»{{Heart of the Storm}} і «Бурхливу магію»{{Tempestuous Magic}}, але не розвʼязує проблем із Зарядом блискавки [Lightning Bolt]."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-magic-items-very-rare",
+          "parentSectionId": "section-magic-items",
+          "heading": "Дуже рідкісні магічні предмети",
+          "sourceAnchor": "magic-items-very-rare",
+          "blocks": [
+            {
+              "blockId": "block-section-magic-items-very-rare-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": ":"
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-magic-items-legendary",
+          "parentSectionId": "section-magic-items",
+          "heading": "Легендарні магічні предмети",
+          "sourceAnchor": "magic-items-legendary",
+          "blocks": [
+            {
+              "blockId": "block-section-magic-items-legendary-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": ":"
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells",
+          "heading": "Заклинання Чародія шторму",
+          "sourceAnchor": "spells",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найболючіше місце Магії шторму{{Storm Sorcery}} — чаротворство, і це надзвичайно прикро, бо чаротворство — головна функція Чародія. Жодних відповідних заклинань ви автоматично не отримуєте, а мізерна кількість заклинань, що завдають блискавичної чи громової шкоди, означає, що ви змушені обходитися жменькою пристойних заклинань, які вам доступні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spells-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ зосереджується саме на заклинаннях, що запускають «Серце бурі»{{Heart of the Storm}}, тож ми обмежуємося заклинаннями з рівнями (отже, без замовлянь), які завдають блискавичної чи громової шкоди. Для «Бурхливої магії»{{Tempestuous Magic}} вистачить будь-якого заклинання з рівнем, але щоб отримати повний задуманий ефект Магії шторму{{Storm Sorcery}}, «Серце бурі» треба запускати якомога частіше. Повний огляд заклинань Чародія дивіться в моєму "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі списку заклинань Чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/spells/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spells-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зверніть увагу: у списку нижче рівні заклинань закінчуються на 7-му. Це прикро, але правильно. Заклинання на кшталт Подиху Дракона [Dragon's Breath], Істинного перевтілення [True Polymorph], заклинань виклику тощо не завдають потрібних типів шкоди як частину власних ефектів (ефект Подиху Дракона [Dragon's Breath] — дати зброю подиху, ефект Істинного перевтілення [True Polymorph] — змінити вашу форму тощо), тож не годяться для запуску «Серця бурі»{{Heart of the Storm}}. Це все одно чудові заклинання, але вони не відповідають критеріям цього списку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-1",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 1-го рівня",
+          "sourceAnchor": "spells-1",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Поглинання стихій [Absorb Elements] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": безумовно необхідне заклинання, але я не певен, чи запускає воно «Серце бурі»{{Heart of the Storm}}. Воно не завдає шкоди, а натомість дає вашій атаці ближнього бою на наступному ході бонус до шкоди. Як Майстер я б постановив, що воно не запускає «Серце бурі», але Джеремі Кроуфорд визнав, що Подих Дракона [Dragon's Breath] підходить, тож, може, і це заклинання підійде, якщо використати його, щоб отримати опір блискавичній шкоді. Обговоріть це зі своїм Майстром. Якщо це дозволено, можна раз у раз бити себе блискавкою, щоб запустити заклинання, а з ним і «Серце бурі», частіше."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Снаряд хаосу [Chaos Bolt] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": веселе заклинання, але лише з імовірністю 50% воно завдасть один із двох потрібних нам типів шкоди, тож воно ненадійне. Краще використовуйте Кольорову кульку [Chromatic Orb]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кольорова кулька [Chromatic Orb] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": найдешевший і найнадійніший спосіб запустити «Серце бурі»{{Heart of the Storm}}. Навіть на високих рівнях витратити очки чародійства{{Sorcery Points}} на додаткові слоти заклинань 1-го рівня заради цього заклинання може бути кращим вибором, ніж накладати замовляння на кшталт Вогняного заряду [Fire Bolt]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Громова хвиля [Thunderwave] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": незвично добре підходить Чародієві шторму, бо вас заохочують заскакувати в ближній бій і вискакувати з нього. Відкидання полегшує повернення на безпечну позицію після накладання заклинання, а «Серце бурі»{{Heart of the Storm}} охоплює більшу частину 15-футової області дії Громової хвилі [Thunderwave], тож часто можна вразити всі свої цілі обома ефектами."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Відьомський снаряд [Witch Bolt] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": просто не дуже добре заклинання. «Спарене заклинання»{{Twinned Spell}} може його врятувати, але в переважній більшості випадків не варте витрати дії, щоб щораунду знову запускати шкоду."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-1-2",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 2-го рівня",
+          "sourceAnchor": "spells-1",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Подих Дракона [Dragon's Breath] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": для Чародія не надто вдале заклинання. Джеремі Кроуфорд підтвердив, що "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Подих Дракона може запускати «Серце бурі»{{Heart of the Storm}}",
+                    "href": "https://twitter.com/JeremyECrawford/status/929094035892867072?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E929094035892867072%7Ctwgr%5E%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.sageadvice.eu%2Fif-a-storm-sorcerer-casts-dragons-breath-lightning-damage-does-that-initial-casting-trigger-the-extra-damage-from-heart-of-the-storm%2F"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", якщо обрати блискавичну шкоду для зброї подиху."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Друзки [Shatter] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ваш найпростіший і часто найбезпечніший варіант шкоди по області, але він вимагає ряткидка Статури, тож багато ворогів часто його проходитимуть."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-1-3",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 3-го рівня",
+          "sourceAnchor": "spells-1",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заряд блискавки [Lightning Bolt] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у область дії лінії завширшки 5 футів зазвичай дуже важко захопити більше двох цілей. Використання «Перетвореного заклинання»{{Transmuted Spell}} з Вогнекулею [Fireball] майже завжди ефективніше."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Громовий крок [Thunder Step] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Туманний крок [Misty Step] зазвичай кращий вибір, але Громовий крок [Thunder Step] має кілька унікальних взаємодій для Чародія шторму. «Бурхливу магію»{{Tempestuous Magic}} можна застосувати "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "до"
+                  },
+                  {
+                    "type": "text",
+                    "text": " накладання заклинання з рівнем, тож можна поєднати її зі звичайним рухом: влетіти в середину натовпу ворогів, скористатися «Бурхливою магією», щоб за потреби уникнути принагідних атак, а тоді накласти Громовий крок [Thunder Step] і запустити «Серце бурі»{{Heart of the Storm}}. Область дії обох — 10 футів, тож вони ідеально збігаються, і ви завдаєте пристойної шкоди, поки телепортуєтеся геть. Проте 3к10 шкоди Громового кроку [Thunder Step] буде різко меншою, ніж у Вогнекулі [Fireball], навіть із «Серцем бурі». Попри всю крутість цієї комбінації (а вона вражає), зазвичай її варто використовувати, лише якщо треба врятувати союзника, що потрапив у біду."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-1-4",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 4-го рівня",
+          "sourceAnchor": "spells-1",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1-4-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Штормова сфера [Storm Sphere] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": це слабке заклинання. Накладання Нудотного сяйва [Sickening Radiance] буде ефективнішим навіть із «Серцем бурі»{{Heart of the Storm}}, а Нудотне сяйво [Sickening Radiance] не їстиме вашу бонусну дію щоходу."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-1-5",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 6-го рівня",
+          "sourceAnchor": "spells-1",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1-5-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Ланцюгова блискавка [Chain Lightning] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": імовірно, найкраще заклинання Чародія шторму, якщо не брати до уваги «Перетворене заклинання»{{Transmuted Spell}}. Шкода пристойна, цілей чотири, а за себе й союзників можна не хвилюватися, тож його можна запускати впритул, щоб заразом запустити «Серце бурі»{{Heart of the Storm}}."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells-1-6",
+          "parentSectionId": "section-spells",
+          "heading": "Заклинання 7-го рівня",
+          "sourceAnchor": "spells-1",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1-6-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Веселкові бризки [Prismatic Spray] "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": існує шанс, що воно завдасть блискавичної шкоди. По одній цілі це трохи більше ніж 12,5% (математика складна). По двох цілях — трохи більше ніж 25%. Цього просто замало."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-aarakocra-storm-sorcerer",
+          "heading": "Приклад збірки — Ааракокра, Чародій шторму",
+          "sourceAnchor": "example-build-aarakocra-storm-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-aarakocra-storm-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Чому немає штормового відповідника фенікса? {{Громовий птах|Thunderbird}}? Це найкраще, що в нас є? Ох. Ну гаразд, тепер ми Запдос{{Zapdos}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-aarakocra-storm-sorcerer-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це, мабуть, найкраще, чого можна досягти для чародія шторму з одним класом. Ви проводитимете багато часу, просто як і кожен інший чародій, але на 6-му рівні у вас виникне залежність від забігання в ближній бій і вибігання з нього, щоб запускати «Серце бурі»{{Heart of the Storm}}. Очікуйте, що цілитель вашої групи постійно перейматиметься вашою безпекою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-aarakocra-storm-sorcerer",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо розподіл за очками, рекомендований вище, і вкладаємо +2/+1 у Харизму та Спритність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-aarakocra-storm-sorcerer",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для збірки з одним класом расовий політ — найлегший спосіб змусити збірку працювати, тож будувати її навколо ааракокри{{Aarakocra}} — добрий вибір. Тут я використаю правила налаштованого походження{{Custom Origin}}, але якщо ви ними не користуєтеся, цілком упораєтеся й із крилатим тифлінгом{{Winged Tiefling}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-aarakocra-storm-sorcerer",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе, що годиться Чародієві, годиться й тут."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-aarakocra-storm-sorcerer",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе, що годиться Чародієві, годиться й тут."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example-build-aarakocra-storm-sorcerer",
+          "heading": "Риси",
+          "sourceAnchor": "feats-2",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "20 Харизми ми можемо мати вже на 8-му рівні, тож для рис тут повно місця. «Адепт метамагії»{{Metamagic Adept}} корисний, але крім нього важко знайти легкий вибір."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-aarakocra-storm-sorcerer",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nВідомі замовляння:\n– Створення багаття\n– Розщеплення Розуму\n– Мала ілюзія\n– Штукарство\nВідомі заклинання:\n– Магічний дротик\n– Їдке Вариво Таші\nБурхлива магія\nМова вітру"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для стартового спорядження візьміть легкий арбалет, {{мішечок із компонентами|component pouch}} або чаротворчий фокус, будь-який набір і два кинджали.\n\nНа цьому рівні ви мало чим відрізняєтеся від будь-якого іншого чародія. «Бурхлива магія»{{Tempestuous Magic}} працює лише тоді, коли ви накладаєте заклинання з рівнем, а маючи лише два слоти заклинань, це означає, що «Бурхлива магія» діє лише двічі на день. Найкраща ставка — триматися поза досяжністю завдяки расовому польоту й атакувати здалеку. Якщо вас якось усе ж утягнуло в ближній бій, скористайтеся «Бурхливою магією», щоб вибратися з-під досяжності, накладіть заклинання з рівнем (памʼятайте: «Бурхливу магію» треба застосовувати безпосередньо до або після накладання заклинання з рівнем), а тоді використайте рух, щоб дістатися безпечної відстані.\n\nЗверніть увагу: жодне з наших заклинань не завдає блискавичної чи громової шкоди. Доки ми не отримаємо «Серце бурі»{{Heart of the Storm}} на 6-му рівні, тип нашої шкоди має таке саме значення, як і для будь-якого іншого чародія. До 6-го рівня «Бурхлива магія» — це картка «вийди з ближнього бою (майже) безкоштовно», а в усьому іншому вам просто треба бути дуже добрим чародієм.\n\nЗ-поміж замовлянь я запропонував два наступальні варіанти: Створення багаття [Create Bonfire] і Розщеплення Розуму [Mind Sliver]. Створення багаття [Create Bonfire] — добрий, дешевий контроль території, тож це гарний спосіб використати вашу Концентрацію. Розщеплення Розуму [Mind Sliver] чудове, але має малу дальність. Якщо потрібно вразити ворогів поза дальністю Розщеплення Розуму [Mind Sliver], скористайтеся арбалетом або накладіть Магічний дротик [Magic missile]. Якщо можна зачепити двох чи більше ворогів на одній лінії, використайте Їдке Вариво Таші [Tasha's Caustic Brew].\n\nКольорова кулька [Chromatic Orb] була б чудовим заклинанням на цьому рівні, але матеріальний компонент за 50 зм розчаровує своєю дорожнечею. Навіть якщо ви оберете золото замість звичайного стартового спорядження, то в середньому отримаєте 75 зм, а це означає, що вистачить на самоцвіт і практично ні на що інше. Можливість обрати блискавичну чи громову шкоду на цьому рівні теж мало що дає, тож Кольорова кулька [Chromatic Orb] не обовʼязкова. Поки що візьмемо Магічний дротик [Magic missile]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії\nНове відоме заклинання:\n– Кольорова кулька"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні «Джерело магії»{{Font of Magic}} — це лише додатковий слот заклинань 1-го рівня за кожен Довгий відпочинок.\n\nТут ми додаємо Кольорову кульку [Chromatic Orb], але ви можете натомість обрати щось захисне на кшталт Поглинання стихій [Absorb Elements] чи Щита [Shield]. За бажання можна перенавчити Магічний дротик [Magic missile] на щось, що ми захочемо залишити назавжди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія\n– Перетворене заклинання\n– Спарене заклинання\nНове відоме заклинання:\n– Друзки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Спарене заклинання»{{Twinned Spell}} — наш основний вибір метамагії{{Metamagic}}. Ви часто накладатимете спарену Кольорову кульку [Chromatic Orb], і почати можна одразу.\n\n«Перетворене заклинання»{{Transmuted Spell}} відразу не допоможе, але для Чародія шторму воно критично важливе. Щойно ви досягнете 6-го рівня, здатність завдавати блискавичної та громової шкоди будь-коли стає незамінною для збірки.\n\nДрузки [Shatter] — пристойна й недорога громова шкода по області. Найбільша проблема в тому, що вони вимагають ряткидка Статури, а тому ненадійні. Якщо виявите, що Друзки [Shatter] не працюють, обміняйте їх на щось інше, як-от Земляну хватку Максиміліана [Maximilian's Earthen Grasp]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Харизма 16 → 18)\nНові відомі замовляння:\n– Вогняний заряд\nНове відоме заклинання:\n– Покращення здібності"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристики ставить ваші заклинання попереду арбалета, особливо з огляду на зростання шкоди, що от-от настане на 5-му рівні, тож час брати Вогняний заряд [Fire Bolt] для наших потреб у дальній шкоді. Покращення здібності [Enhance Ability] не корисне в бою, але абсолютно чудове в усьому іншому."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– Вогнекуля"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шкода замовлянь зростає, і ми отримуємо доступ до заклинань 3-го рівня. Поки що Вогнекуля [Fireball] чудова й без змін. Вона лишається основним заклинанням шкоди на всю вашу карʼєру, а тип шкоди нас поки не турбує, хіба що ви стикаєтеся з опором до шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Серце бурі\nНове відоме заклинання:\n– Будь-яке\nПорадник бурі"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ось тут наш підклас по-справжньому стає цікавим. «Серце бурі»{{Heart of the Storm}} — мабуть, найвизначальніше уміння Чародія шторму, і його використання визначає фірмову тактику Чародія шторму. Тут наш тип шкоди нарешті починає мати значення, а отже, тут починає мати значення «Перетворене заклинання»{{Transmuted Spell}}. Використовуйте «Перетворене заклинання» з Вогнекулею [Fireball] та іншими подібними заклинаннями, щоб запускати «Серце бурі» заради легкої шкоди.\n\nПроте дальність «Серця бурі» в 10 футів вимагає забігати в ближній бій і вибігати з нього, тому «Бурхлива магія»{{Tempestuous Magic}} така важлива. Ваша основна тактика на один хід — вбігти в зону дії, запустити «Серце бурі» (досить накласти Кольорову кульку [Chromatic Orb], але завдяки «Перетвореному заклинанню» годиться будь-яке з ваших заклинань шкоди), скористатися «Бурхливою магією», щоб вилетіти з-під досяжності, а тоді використати решту руху, щоб відступити.\n\nІ все це лише заради запуску «Серця бурі», яке завдає по-справжньому приголомшливих 3 пунктів шкоди кожній цілі. Концептуально це дуже захопливо, але доведеться змиритися з тим, що шкода не вражає. Проте це гарантована шкода без ряткидка, а якщо вдасться зачепити кілька цілей, вона швидко накопичується.\n\nІ оскільки хтось неодмінно запитає: ні, спарювання заклинання не запускає «Серце бурі» двічі. Ви додаєте ціль, а не накладаєте заклинання вдруге.\n\nВогнекуля [Fireball] у нас на цьому рівні вже є, тож розгляньте інші заклинання залежно від вашої ролі в групі. Заклинання підтримки й утилітарні, як-от Підглядання [Clairvoyance], Контрчари [Counterspell], Розвіювання магії [Dispel Magic] і Прискорення [Haste], — усі вони гарний вибір. Хода Ашардалона [Ashardalon's Stride] — добрий вибір і для нападу, бо підвищує вашу швидкість, дає ще одне джерело шкоди й знімає потребу покладатися на «Бурхливу магію». Якщо її перетворити, нею можна навіть запустити «Бурхливу магію», залишивши дію для замовляння. Якщо підете цим шляхом, можете взяти Спалах Мечів [Sword Burst], щоб користуватися ним, пролітаючи крізь натовпи ворогів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– Стіна вогню"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут згодиться будь-яке заклинання, але мені дуже подобається Стіна вогню [Wall of Fire]. Це чудовий контроль території, і її, можливо, вдасться використати, щоб загнати ворогів у невелику область, а самому літати просто над ними й раз у раз бити їх «Серцем бурі»{{Heart of the Storm}}. Якщо перетворити її, можна запустити «Серце бурі» (хоч лише в момент накладання, бо «Серце бурі» спрацьовує лише тоді, коли ви накладаєте заклинання).\n\nАбо ж можна обрати Більшу невидимість [Greater Invisibility], щоб залишатися поблизу ворогів здебільшого непоміченим. До того ж можна й далі накладати спарену Кольорову кульку [Chromatic Orb] і робити атаки з Перевагою.\n\nНі за яких обставин не вивчайте Штормову сферу [Storm Sphere]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Харизма 18 → 20)\nНове відоме заклинання:\n– Будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 Харизми — це приємно. Жодних тактичних змін."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– Будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинань 5-го рівня, що особливо добре грають на тактику Чародія шторму, немає. Беріть будь-що за смаком."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія\n– Будь-яка\nНові відомі замовляння:\n– Будь-яке\nНове відоме заклинання:\n– Будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Робіть тут що завгодно. «Пришвидшене заклинання»{{Quickened Spell}} — основний варіант метамагії{{Metamagic}}, і, імовірно, його б я тут і взяв. Щойно запустите Ходу Ашардалона [Ashardalon's Stride], можна влетіти, накласти пришвидшене замовляння на кшталт Спалаху Мечів [Sword Burst] (який можна вивчити на цьому рівні, якщо ще не вивчили) і заклинання з рівнем, наприклад перетворену Вогнекулю [Fireball] чи Кольорову кульку [Chromatic Orb], щоб запустити «Серце бурі»{{Heart of the Storm}}, — і ви дуже швидко завдаєте купу шкоди. Щоправда, це зʼїсть ваші очки чародійства{{Sorcery Points}}, тож уважно стежте за ресурсами."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– Ланцюгова блискавка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ланцюгова блискавка [Chain Lightning] — добре заклинання. Вогнекуля [Fireball] завдасть більше шкоди за той самий слот заклинань, але Ланцюгова блискавка [Chain Lightning] не хвилюється ні про дружній вогонь, ні про спалені будинки чи щось таке, а якщо правильно обрати ціль, часто можна вразити цілі в ширшій області, ніж Вогнекулею [Fireball]. Її можна використати впритул, щоб запустити «Серце бурі»{{Heart of the Storm}}, а тоді або скористатися «Бурхливою магією»{{Tempestuous Magic}}, або й далі підтримувати Ходу Ашардалона [Ashardalon's Stride], щоб безпечно вибратися з-під досяжності."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Адепт метамагії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Адепт метамагії»{{Metamagic Adept}} дасть вам ще дві опції метамагії{{Metamagic}} і ще два очки чародійства{{Sorcery Points}}. Очки, ймовірно, корисніші, але вам може сподобатися й урізноманітнити варіанти метамагії. Якщо «Адепт метамагії» вам на цьому етапі не до душі, беріть що завгодно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– Драконяче перетворення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джеремі Кроуфорд постановив, що Подих Дракона [Dragon's Breath] запускає «Серце бурі»{{Heart of the Storm}}, тож Драконяче перетворення [Draconic Transformation] (яке також завдає шкоди одразу під час накладання) теж має його запускати. Драконяче перетворення [Draconic Transformation] дає сталий спосіб використати вашу бонусну дію щоходу, тож «Бурхлива магія»{{Tempestuous Magic}} знову відійде на другий план порівняно із заклинаннями. Починайте Драконяче перетворення [Draconic Transformation] рано в бою, тримайтеся достатньо близько, щоб запускати «Серце бурі» дією, накладаючи заклинання з рівнем, і витрачайте бонусну дію на використання зброї подиху щоходу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Лють бурі{{Storm's Fury}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ця збірка щосили намагається триматися поза досяжністю ближнього бою, тож сподіваюся, що «Лють бурі»{{Storm's Fury}} ніколи не знадобиться."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– Будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знову немає чудових заклинань для Чародія шторму на цьому рівні, тож беріть те, що підходить будь-якому іншому чародію."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик або риса"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беріть що забажаєте."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія\n– Будь-яка\nНове відоме заклинання:\n– Будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вивчайте що завгодно. Бажання [Wish] — завжди хороший вибір, а якщо хочете просто все рознести, можна перетворити Рій метеорів [Meteor Swarm]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Душа вітру{{Wind Soul}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер і ваші друзі можуть літати!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик або риса"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": " "
+                    },
+                    {
+                      "type": "text",
+                      "text": " "
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відновлення чарівництва{{Sorcerous Restoration}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відновлення очок чародійства{{Sorcery Points}} під час короткого відпочинку допоможе підживлювати вашу ресурсожерливу тактику."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-storm-sorcerertempest-cleric",
+          "heading": "Приклад збірки — Чародій шторму / Клірик домену бурі",
+          "sourceAnchor": "example-build-storm-sorcerertempest-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-storm-sorcerertempest-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Дивіться, усі, це Тор!"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-storm-sorcerertempest-cleric-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка — низка складних компромісів. Ми міняємо два рівні Чародія{{Sorcerer}} на два рівні Клірика{{Cleric}}, і навіть цієї доволі невеликої зміни збірки досить, щоб наша тактика помітно змінилася. Додавання важких обладунків, щитів і воїнської зброї відкриває цікаві тактичні варіанти, а ще різко покращує нашу живучість."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-storm-sorcerertempest-cleric-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми мультикласуємо в клас повного заклинателя, наші слоти заклинань розвиватимуться звичайним темпом. Проте наші відомі заклинання відставатимуть на один рівень від слота найвищого рівня, тож очікуйте накладати заклинання слотами вищих рівнів, щоб використати ці високорівневі слоти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-storm-sorcerertempest-cleric-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Скажу одразу: ця збірка не набагато краща за збірку з одним класом. Поєднання Магії шторму{{Storm Sorcery}} і домену бурі{{Tempest Domain}} тематично очевидне й веселе, бо «Руйнівний гнів»{{Destructive Wrath}} робить заклинання блискавки й грому смертоноснішими, але я не певен, що важкі обладунки (ціною легкого польоту) і «Руйнівний гнів» (ціною знання заклинань вищих рівнів) варті тих компромісів, на які ви йдете заради них."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities-2",
+          "parentSectionId": "section-example-build-storm-sorcerertempest-cleric",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities-2",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми робимо збірку у важких обладунках, що все ж залежить від руху, нам потрібна Сила 15, щоб уникнути штрафу до швидкості. Ще нам потрібна принаймні Мудрість 13, щоб мати змогу мультикласувати в Клірика (чи з Клірика). Через це збірка незвично залежна від багатьох характеристик (MAD) для чародія, а я не люблю стояти в ближньому бою чи поблизу нього всього з 12 Статури."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race-2",
+          "parentSectionId": "section-example-build-storm-sorcerertempest-cleric",
+          "heading": "Раса",
+          "sourceAnchor": "race-2",
+          "blocks": [
+            {
+              "blockId": "block-section-race-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми будуємо збірку навколо важких обладунків, наші расові варіанти змінюються. Ааракокра{{Aarakocra}} і фея{{Fairy}} можуть літати лише в легких обладунках, а навіть крилатий тифлінг{{Winged Tiefling}} літає лише в середніх."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Натомість розгляньмо варіанти, що працюють на землі. Швидкість кентавра{{Centaur}} спокушає, але кентавр надто вузько зосереджений на ближньому бою. Варіант людини{{Variant Human}} і «Своя раса»{{Custom Lineage}} обидва пропонують риси, а це дає дуже привабливі варіанти. Три підвищення характеристик напівельфа{{Half-Elf}} теж спокушають, бо розвʼязують наші проблеми із залежністю від багатьох характеристик (MAD)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут кілька добрих варіантів, але в цьому прикладі візьмемо Варіант людини{{Variant Human}} заради риси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools-2",
+          "parentSectionId": "section-example-build-storm-sorcerertempest-cleric",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools-2",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе, що годиться Чародієві, годиться й тут."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background-2",
+          "parentSectionId": "section-example-build-storm-sorcerertempest-cleric",
+          "heading": "Передісторія",
+          "sourceAnchor": "background-2",
+          "blocks": [
+            {
+              "blockId": "block-section-background-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе, що годиться Чародієві, годиться й тут."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-3",
+          "parentSectionId": "section-example-build-storm-sorcerertempest-cleric",
+          "heading": "Риси",
+          "sourceAnchor": "feats-3",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-3-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ця збірка більше залежить від багатьох характеристик (MAD), ніж збірка з одним класом, вписати в неї риси трохи важче, якщо тільки ми не отримуємо їх від раси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels-2",
+          "parentSectionId": "section-example-build-storm-sorcerertempest-cleric",
+          "heading": "Рівні",
+          "sourceAnchor": "levels-2",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-2-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 – Чародій 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Адепт метамагії\n– Перетворене заклинання\n– Спарене заклинання\nЧаротворство\nВідомі замовляння:\n– Створення багаття\n– Розщеплення Розуму\n– Мала ілюзія\n– Штукарство\nВідомі заклинання:\n– Магічний дротик\n– Їдке Вариво Таші\nБурхлива магія\nМова вітру"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для стартового спорядження візьміть легкий арбалет (який ви, імовірно, майже одразу продасте), {{мішечок із компонентами|component pouch}} або чаротворчий фокус, будь-який набір і два кинджали.\n\nНа цьому рівні наша збірка здебільшого така сама, як збірка з одним класом. Починаємо з Чародія{{Sorcerer}} заради володіння ряткидками Статури й тому, що варіанти навичок Чародія краще підходять збірці.\n\nЯк нашу рису 1-го рівня я запропонував «Адепта метамагії»{{Metamagic Adept}}. Для збірки вона не критична, але дає нам Метамагію{{Metamagic}} на 3 рівні раніше й компенсує втрату зростання очок чародійства{{Sorcery Points}} через мультикласування."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 – Клірик 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественний домен (Буря)\nДодаткові майстерності\nГнів бурі\nЧаротворство\nВідомі замовляння:\n– Настанова\n– Будь-які 2 інші"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наше кліриківське чаротворство вкрай обмежене. Ви можете підготувати лише 2 кліриківські заклинання з рівнем, і використовувати їх наступально не варто, тож тримайтеся утилітарних варіантів. Раджу підготувати Цілюще слово [healing word] і щось на кшталт Благословення [Bless] чи Героїзму [Heroism]. Вибір замовлянь не надто важливий, але візьміть Настанову [Guidance]. Вона справді хороша.\n\nНаш перший рівень Клірика{{Cleric}} теж дає важкі обладунки, щити й воїнську зброю. Візьміть щит і лати, і ваш КБ одразу стане 20. Можна користуватися зброєю, але жонглювати зброєю заради компонентів заклинань і чаротворчих фокусів буває непросто.\n\nЯкщо ви наполягаєте на тому, щоб тримати зброю, розгляньте «Бойового заклинателя»{{War Caster}} на 1-му рівні замість «Адепта метамагії»{{Metamagic Adept}}.\n\nНа жаль, «Гнів бурі»{{Wrath of the Storm}} спрацьовуватиме лише раз за Довгий відпочинок, а СК буде поганим, але десь же треба йти на жертви. Усе одно це круто, але серйозним стримувальним чинником це не стане."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 – Клірик 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (1/відпочинок)\n– Руйнівний гнів\n– Вигнання нежиті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Руйнівний гнів»{{Destructive Wrath}} підсилює шкоду наших великих заклинань блискавки/грому. Максимальна шкода трохи менша, ніж подвійна середня, що чудово, коли ви використовуєте слот найвищого рівня. Бережіть його для великих заклинань шкоди по області на кшталт перетвореної Вогнекулі [Fireball]. Робити це можна лише раз за Короткий відпочинок, але цього зазвичай досить, щоб витратити всі ваші слоти найвищого рівня незалежно від рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 – Чародій 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії\nНове відоме заклинання:\n– Кольорова кулька"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо ви взяли «Адепта метамагії»{{Metamagic Adept}} на 1-му рівні, «Джерело магії»{{Font of Magic}} на цьому рівні корисніше, ніж для типового чародія. Маючи разом 4 очки чародійства{{Sorcery Points}}, можна спарювати Кольорову кульку [Chromatic Orb] 4 рази на день.\n\nОскільки ми збудовані трохи краще стояти в ближньому бою, розгляньте можливість перенавчити Магічний дротик [Magic missile] на Громову хвилю [Thunderwave]. Це чудовий вибір для накладання слотом вищого рівня й поєднання з «Руйнівним гнівом»{{Destructive Wrath}}. Або ж можна перенавчити його на Поглинання стихій [Absorb Elements] чи Щит [Shield]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 – Чародій 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія\n– Будь-які 2\nНове відоме заклинання:\n– Друзки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Друзки [Shatter] — це, по суті, Громова хвиля [Thunderwave] на відстані. Ваша тактика майже не змінюється, але тепер можна накладати «Руйнівний гнів»{{Destructive Wrath}} на натовпи здалеку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6+"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Починаючи з 6-го рівня, наша збірка дуже схожа на збірку з одним класом. Дотримуйтеся збірки й тактики вище, але очікуйте, що проводитимете багато часу на відстані 10 футів від ворогів, а не літатимете приблизно за 10 футів над їхніми головами. Із зростанням рівнів чекайте на використання «Руйнівного гніву»{{Destructive Wrath}} у поєднанні з перетвореною Вогнекулею [Fireball], Ланцюговою блискавкою [Chain Lightning] і, зрештою, перетвореним Роєм метеорів [Meteor Swarm]."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-001",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-0",
+      "context": "Мова вітру",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-002",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-1",
+      "context": "Бурхлива магія",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-003",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-2",
+      "context": "Серце бурі",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-004",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-3",
+      "context": "Порадник бурі",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-005",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-4",
+      "context": "Лють бурі",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-006",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-2",
+      "optionId": "section-features-block-section-features-2-item-5",
+      "context": "Душа вітру",
+      "explanationBlockId": "block-section-features-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-007",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-2",
+      "optionId": "section-ability-scores-block-section-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-008",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-3",
+      "optionId": "section-ability-scores-block-section-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-009",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-4",
+      "optionId": "section-ability-scores-block-section-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-010",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-5",
+      "optionId": "section-ability-scores-block-section-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-011",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-6",
+      "optionId": "section-ability-scores-block-section-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-012",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-7",
+      "optionId": "section-ability-scores-block-section-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-ability-scores-7",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-013",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-aarakocra",
+      "targetBlockId": "block-section-races-aarakocra-1",
+      "optionId": "section-races-aarakocra-block-section-races-aarakocra-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-races-aarakocra-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-014",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-aarakocra",
+      "targetBlockId": "block-section-races-aarakocra-2",
+      "optionId": "section-races-aarakocra-block-section-races-aarakocra-2",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-races-aarakocra-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-015",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-goblin",
+      "targetBlockId": "block-section-races-goblin-1",
+      "optionId": "section-races-goblin-block-section-races-goblin-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-races-goblin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-016",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-human",
+      "targetBlockId": "block-section-races-human-1",
+      "optionId": "section-races-human-block-section-races-human-1",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-races-human-1"
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-017",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-human",
+      "targetBlockId": "block-section-races-human-2",
+      "optionId": "section-races-human-block-section-races-human-2-item-0",
+      "context": "Стандартна",
+      "explanationBlockId": "block-section-races-human-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-018",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-human",
+      "targetBlockId": "block-section-races-human-2",
+      "optionId": "section-races-human-block-section-races-human-2-item-1",
+      "context": "Варіантна",
+      "explanationBlockId": "block-section-races-human-2"
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-019",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-human",
+      "targetBlockId": "block-section-races-human-3",
+      "optionId": "section-races-human-block-section-races-human-3",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-races-human-3"
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-020",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-human",
+      "targetBlockId": "block-section-races-human-4",
+      "optionId": "section-races-human-block-section-races-human-4-item-0",
+      "context": "Стандартна",
+      "explanationBlockId": "block-section-races-human-4",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-021",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-human",
+      "targetBlockId": "block-section-races-human-4",
+      "optionId": "section-races-human-block-section-races-human-4-item-1",
+      "context": "Варіантна",
+      "explanationBlockId": "block-section-races-human-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-022",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-dragonmarked-half-elf",
+      "targetBlockId": "block-section-races-dragonmarked-half-elf-2",
+      "optionId": "section-races-dragonmarked-half-elf-block-section-races-dragonmarked-half-elf-2",
+      "context": "Налаштоване походження",
+      "explanationBlockId": "block-section-races-dragonmarked-half-elf-2"
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-023",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-dragonmarked-half-elf",
+      "targetBlockId": "block-section-races-dragonmarked-half-elf-3",
+      "optionId": "section-races-dragonmarked-half-elf-block-section-races-dragonmarked-half-elf-3-item-0",
+      "context": "Мітка Шторму",
+      "explanationBlockId": "block-section-races-dragonmarked-half-elf-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-024",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-dragonmarked-half-elf",
+      "targetBlockId": "block-section-races-dragonmarked-half-elf-4",
+      "optionId": "section-races-dragonmarked-half-elf-block-section-races-dragonmarked-half-elf-4",
+      "context": "Типові правила",
+      "explanationBlockId": "block-section-races-dragonmarked-half-elf-4"
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-025",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-races-dragonmarked-half-elf",
+      "targetBlockId": "block-section-races-dragonmarked-half-elf-5",
+      "optionId": "section-races-dragonmarked-half-elf-block-section-races-dragonmarked-half-elf-5-item-0",
+      "context": "Мітка Шторму",
+      "explanationBlockId": "block-section-races-dragonmarked-half-elf-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-026",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-0",
+      "context": "Адепт стихій",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-027",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-1",
+      "context": "Адепт метамагії",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-028",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-2",
+      "context": "Рухливий",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-029",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-0",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-030",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-magic-items-uncommon",
+      "targetBlockId": "block-section-magic-items-uncommon-1",
+      "optionId": "section-magic-items-uncommon-block-section-magic-items-uncommon-1-item-0",
+      "context": "Мітла польоту DMG",
+      "explanationBlockId": "block-section-magic-items-uncommon-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-031",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-magic-items-rare",
+      "targetBlockId": "block-section-magic-items-rare-1",
+      "optionId": "section-magic-items-rare-block-section-magic-items-rare-1-item-0",
+      "context": "Уламок стихійної суті",
+      "explanationBlockId": "block-section-magic-items-rare-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-032",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-magic-items-rare",
+      "targetBlockId": "block-section-magic-items-rare-1",
+      "optionId": "section-magic-items-rare-block-section-magic-items-rare-1-item-1",
+      "context": "Паличка зарядів блискавки DMG",
+      "explanationBlockId": "block-section-magic-items-rare-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-033",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-0",
+      "context": "Поглинання стихій [Absorb Elements] EEPC / XGtE",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-034",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-1",
+      "context": "Снаряд хаосу [Chaos Bolt] XGtE",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-035",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-2",
+      "context": "Кольорова кулька [Chromatic Orb] PHB",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-036",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-3",
+      "context": "Громова хвиля [Thunderwave] PHB",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-037",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-spells-1",
+      "targetBlockId": "block-section-spells-1-1",
+      "optionId": "section-spells-1-block-section-spells-1-1-item-4",
+      "context": "Відьомський снаряд [Witch Bolt] PHB",
+      "explanationBlockId": "block-section-spells-1-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-038",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-spells-1-2",
+      "targetBlockId": "block-section-spells-1-2-1",
+      "optionId": "section-spells-1-2-block-section-spells-1-2-1-item-0",
+      "context": "Подих Дракона [Dragon's Breath] XGtE",
+      "explanationBlockId": "block-section-spells-1-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-039",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-spells-1-2",
+      "targetBlockId": "block-section-spells-1-2-1",
+      "optionId": "section-spells-1-2-block-section-spells-1-2-1-item-1",
+      "context": "Друзки [Shatter] PHB",
+      "explanationBlockId": "block-section-spells-1-2-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-040",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-spells-1-3",
+      "targetBlockId": "block-section-spells-1-3-1",
+      "optionId": "section-spells-1-3-block-section-spells-1-3-1-item-0",
+      "context": "Заряд блискавки [Lightning Bolt] PHB",
+      "explanationBlockId": "block-section-spells-1-3-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-041",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-spells-1-3",
+      "targetBlockId": "block-section-spells-1-3-1",
+      "optionId": "section-spells-1-3-block-section-spells-1-3-1-item-1",
+      "context": "Громовий крок [Thunder Step] XGtE",
+      "explanationBlockId": "block-section-spells-1-3-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-042",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-spells-1-4",
+      "targetBlockId": "block-section-spells-1-4-1",
+      "optionId": "section-spells-1-4-block-section-spells-1-4-1-item-0",
+      "context": "Штормова сфера [Storm Sphere] PHB",
+      "explanationBlockId": "block-section-spells-1-4-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-043",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-spells-1-5",
+      "targetBlockId": "block-section-spells-1-5-1",
+      "optionId": "section-spells-1-5-block-section-spells-1-5-1-item-0",
+      "context": "Ланцюгова блискавка [Chain Lightning] PHB",
+      "explanationBlockId": "block-section-spells-1-5-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-storm-sorcery-2014-044",
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sectionId": "section-spells-1-6",
+      "targetBlockId": "block-section-spells-1-6-1",
+      "optionId": "section-spells-1-6-block-section-spells-1-6-1-item-0",
+      "context": "Веселкові бризки [Prismatic Spray] PHB",
+      "explanationBlockId": "block-section-spells-1-6-1",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

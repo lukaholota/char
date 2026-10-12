@@ -1,0 +1,2167 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-73d8e9e6abfc398f",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+      "sourceId": "rpgbot-73d8e9e6abfc398f",
+      "fetchedAt": "2026-09-29T19:15:09.010029+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:46:17-04:00",
+      "contentHash": "951fbc286464c66af289ad2f65b8aaed8e73ff138bb914d357237b6db0545ba7",
+      "title": "School of Abjuration Wizard 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-73d8e9e6abfc398f-31e8aca4457edc95.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-wizard-abjuration-2014",
+    "sourceId": "rpgbot-73d8e9e6abfc398f",
+    "slug": "wizard-abjuration-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Школа огородження — гайд підкласу Чарівника (2014)",
+    "titleEn": "School of Abjuration Wizard 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Чарівник",
+      "Школа огородження",
+      "Заборонець",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "sourceRevisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Школа огородження — це захист і оборона. Ця школа може похвалитися багатьма найвизначнішими захисними заклинаннями, зокрема Щит [Shield], Поглинання стихій [Absorb Elements] і Контрчари [Counterspell]. Чарівник Школи огородження отримує додаткові уміння, що дають посилений захист і оборону. Це дозволяє Заборонцю бути неймовірно міцним, навіть понад і так вищу за середню міцність інших оптимізованих Чарівників."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Так, Чарівники насправді доволі міцні, якщо правильно їх зібрати, через взаємодію "
+                },
+                {
+                  "type": "link",
+                  "text": "імовірності кидків кубиків",
+                  "href": "https://rpgbot.net/dice-math-rpgbot-podcast-s2e92/"
+                },
+                {
+                  "type": "text",
+                  "text": " і масштабування КБ у системі обмеженої точності. Є чимала математика, що виходить за межі цієї статті й розкладає всю залежність, але коротка версія така: оптимізовані повні заклинателі із зануренням заради обладунків можуть носити щит в одній руці, накладаючи заклинання іншою, мати Щит [Shield] та інші заклинання напоготові, коли потрібно, і все одно вагомо вносити вклад у бій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оптимізовані бійці, навпаки, потребують обох рук для обраної зброї, не лишаючи місця для щита, а як не-заклинателі не мають Щит [Shield] та інших захисних заклинань. Різниця в кубиках здоровʼя важить менше, коли нібито тендітні заклинателі отримують удари рідше. І це все до того, як ми обговоримо додаткові захисні уміння Чарівника Школи огородження."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Збирати Чарівника-Заборонця цікаво тим, що його уміння — це або пасивний захист, або підсилення конкретних реактивних заклинань. Це лишає саму суть того, що робить конкретний Заборонець, цілком відкритою для особистого вибору. Порівняйте із "
+                },
+                {
+                  "type": "link",
+                  "text": "заклиначами стихій",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/"
+                },
+                {
+                  "type": "text",
+                  "text": ", наприклад, чия основна риса — краще підривати все магією, а уміння всі про це, або "
+                },
+                {
+                  "type": "link",
+                  "text": "некромантами",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/"
+                },
+                {
+                  "type": "text",
+                  "text": ", чиї уміння створені, щоб повністю порушувати ігровий досвід, командуючи купкою нежиті. У Заборонців просто є магічне силове поле, що тримає їх живими довше, не підштовхуючи до жодних особливих чарівницьких шляхів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З такою свободою стилю й міцністю тіла ми можемо бути ким завгодно. Тому приклад збірки нижче — не суто збірка "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Заборонця"
+                },
+                {
+                  "type": "text",
+                  "text": ", але все ж робить вибори, що виграють від додаткового захисту від того, що ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "є"
+                },
+                {
+                  "type": "text",
+                  "text": " Заборонцем. Ми зробимо щось міцне, що не мусить стояти позаду, а натомість ігнорує ці заяложені стереотипи про тендітного чарівника. Саме так, люди, ви теж можете «крампнути» хибні уявлення про Піжамного Чоловіка в Шпилястому Капелюсі, принісши цю штуку у свою наступну кампанію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Школи огородження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Школи огородження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#school-of-abjuration-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Школи огородження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#school-of-abjuration-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Школи огородження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#school-of-abjuration-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Школи огородження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#school-of-abjuration-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Школи огородження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#school-of-abjuration-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Школи огородження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#school-of-abjuration-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Школи огородження — «Крампни Піжамного Чоловіка в Шпилястому Капелюсі»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування? У моєму гайді з підкласу?",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#multiclassin-in-my-subclass-guide"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Що це за дурниці з наростанням потужності? WotC зайшли надто далеко!",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#what-is-this-power-creep-malarky-wotc-has-gone-too-far"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Школи огородження",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Знавець захисту{{Abjuration Savant}}: стандартне для підкласів Чарівника з PHB. Дивно, але це уміння спонукає використовувати два безкоштовні заклинання, вивчені на кожному рівні, на буквально будь-що, крім заклинань вашої улюбленої школи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Арканна варта{{Arcane Ward}}: чудове джерело того, що по суті дорівнює тимчасовим ХП, але оскільки технічно це не тимчасові ХП, обидва ефекти складаються. Сама варта починається з повним запасом ХП, коли ви вперше за день накладаєте заклинання Захисту, навіть якщо все, що ви робите, — витрачаєте одинадцять хвилин на ритуальне накладання Тривога [Alarm] на щось неважливе. Потім вона діє, доки ви не закінчите наступний довгий відпочинок. Оскільки варта може приймати шкоду замість вас, ви навіть можете уникати ряткидків на підтримання Концентрації, коли отримуєте шкоду. Цей додатковий запас захисту — ресурс, а ресурси існують, щоб їх витрачати, але не будьте безрозсудними й не переоцінюйте себе. Обовʼязково вживайте всіх звичайних захисних заходів, і варта допоможе помʼякшити наслідки, коли кубики просто не на вашому боці. Якщо шукаєте простий спосіб зарядити варту, розгляньте рису «Містичний адепт»{{Eldritch Initiate}}, щоб отримати «Обладунок тіней»{{Armor of Shadows}}. «Обладунок тіней» дозволяє накладати Обладунок мага [Mage Armor] на себе за бажанням, що дозволяє повністю зарядити варту, щойно у вас є кілька хвилин, щоб неодноразово накладати Обладунок мага [Mage Armor] для її зарядки."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Проєктована варта{{Projected Ward}}: танк вашої групи, імовірно, отримує значно більше шкоди, ніж ви, тож поглинання частини її вашою вартою може значно зменшити кількість ресурсів, які група має витрачати на лікування. Просто памʼятайте, що ви не зможете накласти Щит [Shield], Поглинання стихій [Absorb Elements] і Контрчари [Counterspell] у відповідь на подальші події-тригери, якщо заблокуєте трохи шкоди союзнику."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Покращені захисні закляття|Improved Abjuration}}: ситуативні за задумом, але дуже потужні в іграх із ворожими заклинателями. Контрчари [Counterspell] — вимикач для цих ворожих заклинателів. Додавання Бонусу Майстерності різко підвищує його ефективність і дозволяє легко не давати ворожим заклинателям робити взагалі нічого без потреби палити слоти заклинань найвищих рівнів. Якщо ви також можете накласти на себе Покращення здібності [Enhance Ability] (Інтелект) перед входом у бій із ворожими заклинателями, то можете контрзаклинати з дуже малим ризиком провалу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Опір закляттям{{Spell Resistance}}: опір до заклинань чудовий для опору небезпечним заклинанням «пройди-ряткидок-або-страждай»{{save-or-suck}}, а опір до шкоди від заклинань робить вас дуже стійким до заклинань прямої шкоди, що зазвичай не вимагають ряткидків (Позамежний заряд [Eldritch Blast], Вогняний заряд [Fire Bolt] тощо). Обидві половини уміння діють одночасно, тож проти заклинань, що дозволяють ряткидок для зменшеної шкоди (Вогнекуля [Fireball] тощо), це надзвичайно ефективно, бо при успішному ряткидку ви часто отримуватимете лише чверть шкоди. Проте від вас очікують контрзаклинання, а не спроб опиратися, тож це здебільшого надлишковий захист на випадки, коли вас переважають чисельністю чи застають зненацька."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-abjuration-ability-scores",
+          "heading": "Характеристики Школи огородження",
+          "sourceAnchor": "school-of-abjuration-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-abjuration-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від порад у "
+                },
+                {
+                  "type": "link",
+                  "text": "довіднику Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": ". Інтелект — ваша найважливіша характеристика, а далі йдуть Статура й Спритність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-abjuration-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: занедбайте її. Навіть ці ряткидки зазвичай не такі вже й погані."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-abjuration-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: візьміть трохи для КБ."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-abjuration-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: візьміть трохи для ХП і ряткидків Концентрації."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-abjuration-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: потрібен для заклинальних атак і СК заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-abjuration-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: поширений ряткидок, провал якого неприємний."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-abjuration-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: рідкісний ряткидок, провал якого теж неприємний."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-abjuration-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-abjuration-races",
+          "heading": "Раси Школи огородження",
+          "sourceAnchor": "school-of-abjuration-races",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-abjuration-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Окрім оцінок у "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі рас Чарівника,",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/races/"
+                },
+                {
+                  "type": "text",
+                  "text": " є одна помітна відмінність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-abjuration-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дворф (Мітка Охорони)|Mark of Warding Dwarf}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "E:RtLW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": безкоштовні заклинання, що накладаються через уміння «Магія варди»{{Wards and Seals}}, — пристойний спосіб активувати «Арканну варту»{{Arcane Ward}} на початку кожного дня. Крім того, доступ до Обладунок Агатіса [Armor of Agathys] дає цікаву взаємодію: якщо по вас влучили, але «Арканна варта» поглинула всю шкоду, шкода холодом від «Агатіса» все одно вражає істоту, що влучила по вас, не витрачаючи жодних тимчасових ХП."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Свірфнеблін{{Svirfneblin}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": є один цікавий трюк із глибинними гномами — доступ до риси «Магія свірфнебліна»{{Магія свірфнебліна|Svirfneblin Magic}}. Ця риса дозволяє Глибинному гному накладати на себе Невиявлення [Nondetection] за бажанням без матеріальних компонентів. Зазвичай це нічого не означає, але оскільки Невиявлення [Nondetection] — заклинання Захисту 3-го рівня, кожне накладання відновлюватиме «Арканній варті» 6 ХП. У порівнянні з будь-якою іншою расою, що витрачає рису на «Містичного адепта»{{Eldritch Adept}} заради спаму Обладунок мага [Mage Armor] за бажанням від «Обладунку тіней»{{Armor of Shadows}}, мізерна різниця в позабойовому часі на поповнення варти від нуля до потенційного максимуму незначна."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-abjuration-feats",
+          "heading": "Риси Школи огородження",
+          "sourceAnchor": "school-of-abjuration-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-abjuration-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для всього, що тут не згадано, можна дотримуватися порад із "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-abjuration-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Містичний адепт{{Eldritch Adept}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": узяти це, щоб використовувати «Обладунок тіней»{{Armor of Shadows}} для поповнення варти між боями, може бути неймовірно корисно, особливо якщо ви не занурюєтеся заради обладунків."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Стійкий (Статура)|Resilient (Constitution)}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ряткидки Статури не потрібні, моя «Арканна варта» захистить мою Концентрацію. О, ця медуза перетворює мене на камінь, бо я забув мати добрий ряткидок Статури, а моя «Арканна варта» нічого не робить, щоб цьому завадити? Ой."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Магія свірфнебліна{{Магія свірфнебліна|Svirfneblin Magic}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": пояснено вище; якщо ви глибинний гном, ця риса дозволяє провернути трюк із «Обладунком тіней», але швидше. Поза боєм різниця незначна, але якщо ви вже Глибинний гном, бо хочете бути Глибинним гномом, чому б і ні. Використання версії Глибинного гнома/Свірфнебліна з «Монстрів Мультивсесвіту»{{Monsters of the Multiverse}} із цією рисою не передбачене, але все ж дозволене."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-abjuration-weapons",
+          "heading": "Зброя Школи огородження",
+          "sourceAnchor": "school-of-abjuration-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-abjuration-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Накладайте заклинання, Чарівнику."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-abjuration-armor",
+          "heading": "Обладунки Школи огородження",
+          "sourceAnchor": "school-of-abjuration-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-abjuration-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У Чарівників немає вбудованого володіння обладунками, але кілька занурень в інші класи дають середні обладунки й щити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-abjuration-armor-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напівлати, щит і заклинання Щит [Shield] на додачу до «Арканної варти», поки ви виконуєте дію Ухилення й підтримуєте Концентрацію на поточному обраному переможному заклинанні, змусять будь-кого заздрити."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-abjuration-multiclassing",
+          "heading": "Мультикласування Школи огородження",
+          "sourceAnchor": "school-of-abjuration-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-abjuration-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У "
+                },
+                {
+                  "type": "link",
+                  "text": "довіднику Чарівника ",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "є кілька слів із цього приводу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-abjuration-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Винахідник{{Artificer}}: так, оцінка така сама, як у довіднику Чарівника, але тут навіть краще через «Арканну варту». Скажу так: половина з округленням угору на к6 — це 4. Половина з округленням угору на к10 — це 6. «Арканна варта» дорівнює подвоєному рівню Чарівника. «Арканна варта» — це як мати стільки ж ХП, як у Воїна. Із зануренням у Винахідника ви раптом ще й маєте кращий КБ, ніж у Воїна, і повне чаротворство. Беріть це на першому рівні заради найважливішого володіння ряткидками Статури."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик{{Cleric}}: може зробити те саме з обладунками, що й занурення у Винахідника, але вимагає 13 Мудрості й не дає безкоштовного володіння Статурою. За ваші клопоти й вкладення можна обрати Домен порядку{{Order Domain}}, якщо хочете додати трохи наступальної підтримки, або Домен миру{{Peace Domain}} (я не вибачаюся за пропозицію зламаного добра, Тайлере.) для ще більшої захисної підтримки."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+          "heading": "Приклад збірки Школи огородження — «Крампни Піжамного Чоловіка в Шпилястому Капелюсі»",
+          "sourceAnchor": "example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+          "blocks": [
+            {
+              "blockId": "block-section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Краса магічного заклинання не в нитках, з яких воно складається, а в тому, як ці нитки переплітаються."
+                },
+                {
+                  "type": "text",
+                  "text": " Адаптовано з: "
+                },
+                {
+                  "type": "link",
+                  "text": "«Космос»",
+                  "href": "https://www.youtube.com/watch?v=XGK84Poeynk"
+                },
+                {
+                  "type": "text",
+                  "text": " — Карл Саган"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як було сказано вище, Чарівника-Заборонця уміння Школи огородження не привʼязують до конкретного стилю гри. Оскільки уміння, які ми отримуємо, — це радше пасивний захист або покращення заклинань на кшталт Контрчари [Counterspell], що накладаються реакціями, те, що ми справді робимо на своїх ходах, цілком залежить від особистого вибору. З огляду на це я роблю вибори збірки, що діють у синергії з нашими уміннями, але в плані наступальних заклинань роблю своє. Ці вибори включають початок із 1 рівня Винахідника перед 19 рівнями Чарівника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassin-in-my-subclass-guide",
+          "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+          "heading": "Мультикласування? У моєму гайді з підкласу?",
+          "sourceAnchor": "multiclassin-in-my-subclass-guide",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassin-in-my-subclass-guide-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Так, один рівень Винахідника. Нам потрібні обладунки й володіння ряткидками Статури, не вкладаючи надто багато рис, щоб воно того вартувало. Чи можна грати Заборонцем без цього занурення? Звісно. Але я намагаюся цією збіркою справді залишити бійців без роботи. Просто абсолютно знищити концепцію ролей у групі, що дають бійцям хоч щось робити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassin-in-my-subclass-guide-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми зазвичай уникаємо мультикласування в довідниках із підкласів, бо збірки з мультикласуванням можуть здаватися підміною обіцяного, коли люди очікують допомоги з конкретним підкласом. Але, як я пояснюю в таблиці рівнів нижче, Школа огородження не надто впливає на ваш стиль гри, окрім керування «Арканною вартою», тож щоб зробити цю збірку цікавішою за «ось стандартний чарівник», я вирішив приправити її зануренням у клас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassin-in-my-subclass-guide-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо хочете зіграти цю збірку без занурення в інший клас, гірські дворфи отримують середні обладунки, а черепахи — фіксований КБ 17. Це не дасть володіння щитами й не дасть володіння ряткидками Статури, але це збірка SAD, тож у неї можна без особливих проблем вписати «Стійкого (Статура)»{{Resilient (Constitution)}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-what-is-this-power-creep-malarky-wotc-has-gone-too-far",
+          "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+          "heading": "Що це за дурниці з наростанням потужності? WotC зайшли надто далеко!",
+          "sourceAnchor": "what-is-this-power-creep-malarky-wotc-has-gone-too-far",
+          "blocks": [
+            {
+              "blockId": "block-section-what-is-this-power-creep-malarky-wotc-has-gone-too-far-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щоб зробити майже таку саму збірку, використовуючи лише варіанти PHB 2016 року, вкладіть 15 Спритності натомість у Силу, змініть расу на Варіант людини{{V Human}} і візьміть рису «Здоровань»{{Tough}}. Станьте Воїном 1 із Бойовим Стилем «Оборона»{{Defense}} замість Винахідника й носіть важкі обладунки замість середніх. Потім візьміть 19 рівнів Чарівника точно як нижче, замінивши «Майстра середніх обладунків»{{Medium Armor Master}} на «Бойового заклинателя»{{War Caster}} чи щось подібне. Це було можливо в грі з першого дня."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми дотримуємося моїх пропозицій щодо купівлі характеристик із вищого розділу: отримуємо 15 у Спритності, Статурі й Інтелекті, а потім додаємо расові +1 до всіх трьох."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 20"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Обрана нами раса — Орк{{Orc}} (версія з «Монстрів Мультивсесвіту»{{Monsters of the Multiverse}}). Не з жодної механічної причини, хоч можливість робити Ривок і отримувати трохи тимчасових ХП бонусною дією кілька разів на день досить зручна, а відмова опускатися до 0 раз на день може врятувати ситуацію раз чи двічі. Ні, ми Орк, бо назва збірки зʼявилася раніше за все інше в цьому гайді. Не те щоб якась інша раса значно змінила збірку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для нашої передісторії ми налаштовуємо власну передісторію, щоб отримати і Акробатику, і Непомітність. У нас пристойна Спритність, і її непогано використати. Частина нашої мети — не виглядати чарівником, коли в цьому немає потреби."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З першого рівня, у Винахіднику, ми беремо навички Магія й Розслідування, а також отримуємо інструменти злодія, що дозволяє нам час від часу впоратися з пасткою чи замком скромніше. Маю на увазі те, що заклинання Стукіт [Knock] спричиняє «гучний стукіт, чутний на відстані до 300 футів». У поєднанні з навичками з нашої налаштованої передісторії ми маємо всі ті традиційні навички негідника. Чарівника-негідника. Для колориту ми також володіємо кухарським начинням, але можемо взяти будь-який інструмент ремісника від нашого рівня Винахідника, і все вийде так само."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми занурюємося на один рівень у Винахідника, наші Риси/Покращення Характеристик відкладаються на один рівень. Не кінець світу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні Чарівника, 5-му загалом, ми беремо Покращення Характеристик на +2 Інтелекту, досягаючи 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні Чарівника, 9-му загалом, ми беремо ще одне Покращення Характеристик на +2 Інтелекту, досягаючи 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні Чарівника, 13-му загалом, ми беремо «Майстра середніх обладунків»{{Medium Armor Master}}. Так, я знаю, це трохи дивно, але в нас є Спритність, щоб його підтримати, і володіння Непомітністю. Це справді дає додаткову міцність і потенціал для шпигунства й інтриг, що набагато веселіше, ніж Стеження [Scrying] чи щось подібне. Альтернативно «Здоровань»{{Tough}} може дати інший шар міцності, але він не такий синергійний з «Арканною вартою», як ще +1 до КБ."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні Чарівника, 17-му загалом, ми беремо Покращення Характеристик на +2 Статури, досягаючи 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні Чарівника, 20-му загалом, ми беремо Покращення Характеристик на +2 Статури, досягаючи 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 — Винахідник 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Середні обладунки\nЩит\nМагічне майстрування\nНавички:\n– Акробатика\n– Магія\n– Розслідування\n– Непомітність\nІнструменти:\n– Кухарське начиння\n– Інструменти злодія\n– Інструменти лудильника\nЧаротворство\nЗамовляння:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Настанова\nЗаклинання 1-го рівня:\n– Тривога\n– Виявлення магії\n– Скорохід"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Цей перший рівень — наш квиток до володіння Статурою й доброго КБ. Починаючи з одного рівня Винахідника, ми зможемо вичавити максимум зі своїх умінь Заборонця. З нашим набором навичок ми впораємося з більшістю типових розвідувальних завдань, як-от пошук пасток, і при цьому матимемо Магію, потрібну для роботи зі сувоями й створення інших магічних предметів. Для чаротворства ми беремо утилітарні варіанти, які не хочемо використовувати в бою, бо як заклинання Винахідника їх завжди треба накладати через фокус. Це ускладнює справи пізніше, коли нам потрібні порожні руки для заклинань Чарівника. Щоб уникнути цього конфлікту, ми беремо лише позабойові утилітарні варіанти, тож можемо дістати інструмент і накласти, коли потрібно. Особливо корисною буде Тривога [Alarm]. Те, що вона в нашій книзі заклинань, означає, що ми можемо накласти її як ритуал, щоб підготувати «Арканну варту», коли отримаємо її на третьому рівні, не займаючи дорогоцінних слотів підготовки заклинань Чарівника."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 — Чарівник 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магічне відновлення\nЧаротворство\nЗамовляння:\n– Розщеплення Розуму\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Мала ілюзія",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Дзвін небіжчика\nЗаклинання 1-го рівня:\n– Поглинання стихій\n– Туманна хмара\n– Смалець\n– Щит"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зі Спритністю 16 ми можемо користуватися легким арбалетом, якщо захочемо, або носити щит і поки що стріляти замовляннями. «Магічне відновлення» дуже корисне: воно дозволяє розтягнути наші слоти заклинань. Спочатку його буде небагато, але з часом половини нашого рівня Чарівника вистачить, щоб відновити кілька слотів нижчих рівнів, витрачених на такі речі, як Щит [Shield] і Поглинання стихій [Absorb Elements], щоб ми трималися протягом дня. З такою кількістю заклинань на вибір обовʼязково перегляньте й "
+                    },
+                    {
+                      "type": "link",
+                      "text": "розбір заклинань Чарівника",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/wizard/spells/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", бо, як я пояснював вище, наші підкласові уміння не змушують нас до конкретних бойових варіантів, і ви вільні змішувати як забажаєте. З заклинань у нас є захисні іграшки — Поглинання стихій [Absorb Elements] і Щит [Shield]. Обидва вимагають соматичних компонентів, тож вільна рука критично важлива, тому ми не беремо їх із чаротворства Винахідника, як я пояснював вище. Туманна хмара [Fog Cloud] і Смалець [Grease] — обидва пристойні заклинання для обмеження території й контролю. Якщо у вас є хороша дальність для підготовки, можна заходити в Туманна хмара [Fog Cloud] і виходити з нього, щоб бути важкою ціллю, коли не ваш хід."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 — Чарівник 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканна традиція\n– Знавець захисту\n– Арканна варта"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті ми стаємо Заборонцем на тому самому рівні, на якому більшість класів отримує підклас, тож відставання невелике. «Арканна варта» — головне зіркове уміння цього підкласу. Два пункти на рівень Чарівника приблизно дорівнюють кубику хітів к10, якщо брати середнє значення з округленням угору для ХП на кожному рівні. Щоб заряджати її щоранку, можна просто витратити 11 хвилин на ритуальне накладання Тривога [Alarm], і вона завжди починається з повним запасом здоровʼя. На цьому етапі в неї буде 7 ХП, а в нас 25 ХП, разом 32. Клас із к10, як-от Воїн із такою самою Статурою 16, мав би зараз усього 35. Якщо припустити, що ми все ще носимо стартові обладунки, 16 КБ до додавання щита — там, де буде більшість людей, 18 зі щитом, але ми можемо кілька разів на день накласти Щит [Shield], якщо потрібно. Нагадайте ще раз, що можуть ті нібито витриваліші бійці такого, чого не можемо ми?"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 — Чарівник 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 2-го рівня:\n– Невидимість\n– Друзки\n– Психічний Батіг Таші\n– Павутиння"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інші отримують Покращення Характеристик, а ми — заклинання 2-го рівня. Нічого страшного. Невидимість [Invisibility] — зручне утилітарне заклинання на всі випадки, яке стає ще кращим завдяки нашому володінню Непомітністю. Друзки [Shatter] завдає людям болю. Друзки [Shatter] убиває людей. Психічний Батіг Таші [Tasha's Mind Whip] — одне з тих заклинань «одноцільова шкода з сильним додатковим ефектом». Влучання по зазвичай слабкому ряткидку Інтелекту — це просто вишенька на торті. Павутиння [Web] просто сильне. Воно справді може звʼязати ворогів і зробити їх набагато легшими для влучання, а їм — складнішим дістатися наших потужних захистів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 — Чарівник 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: +2 Інтелекту (16 → 18)\nЗамовляння:\n– Штукарство"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наші замовляння тепер масштабуються, що зручно. Ми також отримуємо перше Покращення Характеристик, підвищуючи Інтелект. Але тут відбувається ще одна важлива річ, яку я ще не обговорював: у нас два слоти 3-го рівня й жодного заклинання 3-го рівня. Так буде протягом усієї нашої карʼєри, і ми багато накладатимемо вищими слотами, щоб використати ці додаткові слоти. До речі, про накладання вищими слотами — поговорімо про поповнення варти. Щоразу, коли ми накладаємо заклинання Захисту, ми відновлюємо варті подвоєний рівень заклинання. Якщо варта пошкоджена, інколи правильним рішенням може бути накласти Щит [Shield] вищим слотом. Якщо накласти слотом 3-го рівня, воно стане заклинанням 3-го рівня й відновить варті 6 ХП. На цьому рівні це половина варти, максимум якої 12 ХП: 8 від рівнів і 4 від модифікатора Інтелекту. У нас буде 39 ХП на цьому рівні, разом 51. Клас із к10 з такою самою Статурою 16 матиме разом 49. Гадаю, ми перемагаємо, люди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 — Чарівник 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 3-го рівня:\n– Контрчари\n– Розвіювання магії\n– Вогнекуля\n– Заряд блискавки\n– Фантомний скакун"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Контрчари [Counterspell] і Розвіювання магії [Dispel Magic] — важливі заклинання для будь-якого Чарівника, але вдвічі важливіші для Заборонців, бо згодом ми отримаємо уміння, що підвищує ефективність цих заклинань. Вогнекуля [Fireball] і Заряд блискавки [Lightning Bolt] — досить стандартні заклинання шкоди по області, що органічно вписуються в репертуар кожного Чарівника. Нам вони строго "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "не потрібні"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", але чудові для всіляких ситуацій. Фантомний скакун [phantom steed] дуже корисний для подорожей і може накладатися як ритуал."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 — Чарівник 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Проєктована варта\nЧаротворство\nЗаклинання 3-го рівня:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик феї",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-fey"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик немертвого",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-undead"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Проєктована варта» дозволяє витратити реакцію, щоб поставити варту перед союзником, і прийняти на себе основний удар шкоди. Проте тут є чимала ціна, яку треба враховувати. Якщо варта приймає шкоду за когось іншого, у неї лишається менше здоровʼя, щоб захищати нас. Ми також лишимося без Щит [Shield], Поглинання стихій [Absorb Elements] і Контрчари [Counterspell] до кінця раунду. Це багато чого треба зважити. Стеження за порядком ініціативи допоможе визначити, коли безпечно використовувати той чи інший варіант Реакції.\n\nАле «Проєктована варта» зʼявляється саме вчасно, щоб ширше поговорити про заклинання, що чудово накладаються вищими слотами: заклинання виклику в стилі «Казана Таші»{{Tasha’s Cauldron of Everything}}. Усі ці заклинання мають схожий дизайн: фіксований статблок, що масштабується з рівнем заклинання. Зокрема, усі ці істоти мають Мультиатаку з кількістю атак, що дорівнює половині рівня заклинання, і зручно, що зараз у нас є слот 4-го рівня й жодного заклинання 4-го рівня, що дало б дві атаки за раунд. Інакше й гостріше кажучи: «Я накладаю викликати бійця». І Виклик феї [Summon Fey], і Виклик немертвого [Summon Undead] — пристойні заклинання, що завдаватимуть поважної шкоди в різних ситуаціях. До того ж тривалість в одну годину достатня, щоб провести 2–3 бої, особливо якщо ви в обшуку підземель, де бої можна передбачити надійніше.\n\n"
+                    },
+                    {
+                      "type": "strong",
+                      "text": "Фея"
+                    },
+                    {
+                      "type": "text",
+                      "text": ": цей виклик завдає більше шкоди, ніж більшість викликів, і може здійснювати лише атаки ближнього бою, але може телепортуватися бонусною дією, щоб уникнути досяжності після цих помахів. Раджу використовувати варіант «лукавий», щоб блокувати лінію зору до духу феї, коли вона так телепортується. Ще одне, що варто зауважити: ми завжди можемо дати Духові феї магічний короткий меч, якщо маємо запасний.\n\n"
+                    },
+                    {
+                      "type": "strong",
+                      "text": "Нежить"
+                    },
+                    {
+                      "type": "text",
+                      "text": ": для цього раджу використовувати скелетний варіант для дальніх атак некротичною шкодою, коли очікуєте противників з опором до немагічної Д/К/Р. На цьому рівні, при накладанні слотом 4-го рівня, дух феї дає більше DPR, ніж неоптимізовані бійці, але трохи менше, ніж оптимізовані. Сам по собі. Не рахуючи будь-яких заклинань чи замовлянь, які ми можемо додати. Додавши лише замовляння, ми навіть випереджаємо "
+                    },
+                    {
+                      "type": "link",
+                      "text": "мої розрахунки PAM+GWM.",
+                      "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#dpr-comparisons"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 — Чарівник 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 4-го рівня:\n– Більша невидимість\n– Нудотне сяйво\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик аберації",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-aberration"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут у нас кілька добрих варіантів. Більша невидимість [Greater Invisibility] дає нам круту підтримку. Оскільки ми такі витривалі, прибрати одного союзника як потенційну ціль під час бою — один зі способів утримати трохи уваги. Нудотне сяйво [Sickening Radiance] непогано вбиває, і шкодою, і накопиченням виснаження. Виклик аберації [Summon Aberration] з варіантом «бехолдер» — чудова літаюча альтернатива скелетному варіанту Виклик немертвого [Summon Undead]. Опір до психічної шкоди трапляється трохи рідше, ніж до некротичної, тож хоч загальна шкода та сама, це покращення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 — Чарівник 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: +2 Інтелекту (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми доводимо Інтелект до максимуму. Ми знову опиняємося зі слотом заклинання вищого рівня, ніж маємо заклинань. Можна знову накладати заклинання виклику вищим слотом, якщо хочемо, хоч приріст менш вражаючий, ніж коли ми отримуємо слот парного рівня. Заклинання на кшталт Невидимість [Invisibility] і Політ [Fly] — теж хороші вибори для накладання вищим слотом, щоб залучити до дії всю групу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 — Чарівник 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 5-го рівня:\n– Стримування монстра\n– Телепатичний звʼязок Рері\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик духу дракона",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-draconic-spirit"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Стіна енергії",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wall-spells/#wall-of-force"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Стіна з каменю",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wall-spells/#wall-of-stone"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ми отримуємо доступ до заклинань 5-го рівня, тож маємо кілька добрих варіантів на вибір. Стримування монстра [Hold Monster] — досить надійний варіант контролю натовпу. Коли воно спрацьовує, стан Паралізований — смертний вирок для більшості ворогів. Телепатичний звʼязок Рері [Rary's Telepathic Bond] чудовий для тимчасового звʼязку на великій відстані, особливо тому, що його можна накласти як ритуал. Виклик духу дракона [Summon Draconic Spirit] має найбільший КБ з усіх викликів, доступних Чарівникам, і водночас Великий розмір. Це дає йому набагато кращу живучість, ніж інші варіанти викликів, особливо якщо врахувати 10-футову досяжність його атак ближнього бою і швидкість польоту 60 футів. Його, мабуть, можна й осідлати, тож він може служити подвійним призначенням як спосіб літати. Проте якщо нам не потрібні ці варіанти живучості, Виклик феї [Summon Fey], доволі кумедно, усе ще має найбільший сирий DPR з усіх викликів. Заклинання стін чудові для"
+                    },
+                    {
+                      "type": "link",
+                      "text": " кількох видів утилітарного використання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wall-spells/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 — Чарівник 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращені захисні закляття\nЧаротворство\nЗамовляння:\n– Вогняний заряд\n– або\n– Моторошний дотик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Покращені захисні закляття»{{Improved Abjuration}} — наше головне уміння Заборонця. Тепер ми можемо набагато ефективніше користуватися Контрчари [Counterspell] і Розвіювання магії [Dispel Magic], додаючи свій Бонус Майстерності до перевірок, які можемо робити, намагаючись вплинути на заклинання вищого рівня. Додайте Покращення здібності [Enhance Ability] — і вас фактично не зупинити. Крім того, тут ми отримуємо слоти 6-го рівня. Ну, один на день. Я знаю, що я багато говорив про заклинання виклику в цій збірці, що по суті лише потурання моїм вподобанням. Як я згадував раніше, Заборонців їхні уміння не спрямовують до конкретного стилю бою. Ми отримуємо лише одне підкласове уміння, що каже "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "використовуйте ці конкретні заклинання краще за інших Чарівників"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", лишаючи нам багато свободи бути ким хочемо. Те, що я перетворив це на дивно міцного типа викликача, не означає, що ви мусите грати по-моєму.\n\nАле накладання слотами 6-го рівня — це місце, де з викликами стає дивно, бо DPR заклинання виклику — поліноміальний вираз. ((R)*(A+X))*[X/2]. R — наш шанс влучання заклинальною атакою проти цільового КБ. A — константа, що різниться для кожного виклику. X — рівень заклинання. Кожне з цих заклинань і додає рівень заклинання до шкоди кожного влучання, і дає мультиатаку, що дорівнює половині рівня заклинання, округленій вниз. Добрий універсальний виклик на кшталт бехолдерина{{Beholderkin}} із Виклик аберації [Summon Aberration] завдає поважних 27 DPR протягом години на день при такому накладанні. Якби ми були ліниві й накладали лише Вогняний заряд [Fire Bolt] разом із бехолдерином, наш підсумок — 38,55. У важкому обшуку підземель ми могли б вичавити з цього 2 чи навіть 3 зіткнення, якщо поспішати. Воїн, що користується "
+                    },
+                    {
+                      "type": "link",
+                      "text": "CBX+SS",
+                      "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#dpr-comparisons"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", завдає 37,7 протягом усього дня на цьому рівні. Але він не може носити щит чи накладати заклинання щита. Тож наш КБ вищий, а завдяки «Арканній варті» наш загальний запас здоровʼя порівнянний без урахування ХП нашої викликаної істоти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 — Чарівник 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 6-го рівня:\n– Сфера невразливості\n– Істинний зір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сфера невразливості [Globe of Invulnerability] — одне з потужніших застосувань магії Захисту: своєрідне односпрямоване силове поле, що не пускає магію всередину, але не заважає їй виходити назовні. Дуже сильне проти потрібних ворогів. Істинний зір [True Seeing] бачить правду. Насправді про нього нема що сказати. Воно нейтралізує такі речі, як невидимість та ілюзії, з додатковою можливістю бачити в Ефірний план."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 — Чарівник 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Майстер середніх обладунків"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Трохи більше КБ, а також усунення Перешкоди на кубику на будь-яких перевірках Непомітності під час носіння напівлат, які в нас уже мають бути. Наші ряткидки Концентрації мають бути нормальними, але якщо хочете трохи їх підсилити, «Бойовий заклинатель»{{War Caster}} тут, безперечно, добрий варіант. Ще одна цікава можливість, якщо вам справді подобаються виклики, — «Адепт метамагії»{{Metamagic Adept}} і «Подовжене заклинання»{{Extended Spell}}. Отримати дві години з викликів, накладених слотами 6-го й згодом 8-го рівня, дуже потужно, якщо ви стежите за часом і зберігаєте їх живими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 — Чарівник 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 7-го рівня:\n– Силова кліть\n– Телепорт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 7-го рівня містять багато добрих варіантів. Силова кліть [Forcecage] виведе когось із бою на годину без ряткидка, якщо тільки вони не спробують телепортуватися, для чого їм треба пройти ряткидок Харизми. Телепорт [Teleport] — утилітарне заклинання подорожей. Ну, знаєте: «Випадкових-зіткнень-більше-нема»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 — Чарівник 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Опір закляттям{{Spell Resistance}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це головне вінчальне уміння Заборонців: Перевага на кубику на ряткидки проти заклинань і опір до шкоди від заклинань. Ворожі заклинателі на цьому рівні гри мають бути досить поширеними. У нас також є слот заклинання 8-го рівня. Ви вже маєте знати, що означає парний рівень заклинання для всіх тих заклинань виклику, тож спробую коротко: якщо ви добре користувалися викликами слотами 6-го рівня, не обовʼязково пускатися берега з викликом 8-го рівня. Можна, якщо хочете. Можна навіть почати обшук підземель із викликом 6-го рівня й, залежно від швидкості руху та довжини обшуку, дістати й виклик 7-го рівня, перш ніж дістати великий. Але ви повинні розуміти, що замовляння не зростатимуть ще два рівні, а воїни не отримають четверту атаку до двадцятого рівня. Виклик 8-го рівня, накладений вищим слотом, — з великим відривом одне з найкращих джерел одноцільового DPR протягом години, поки він живе. Ці заклинання не виграють один бій миттєво; вони — інструмент, щоб легше вигравати кілька боїв."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 — Чарівник 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 8-го рівня:\n– Антимагічна сфера\n– Слабоумство"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Антимагічна сфера [Antimagic field] — старший і злісніший брат Сфера невразливості [Globe of Invulnerability]. Вимикач для ворожих заклинателів. Остаточна дипломна робота Школи огородження. Єдина проблема в тому, що його дальність — «на себе», а ви теж чарівник. Слабоумство [Feeblemind] — більш сфокусований вимикач для одного конкретного заклинателя. Ого, обидва ці заклинання якісь злісні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 — Чарівник 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура +2 (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП. Кращі ряткидки Статури."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 — Чарівник 17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання 9-го рівня:\n– Передбачення\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Передбачення [Foresight] — справді гарний спосіб підсилити союзника, щоб він, можливо, почувався таким же сильним, як ми. Навіть «Арканна варта» не вбереже мене від потреби радити "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " вже в сотий раз."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 — Чарівник 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстерність заклинань\n– Обладунок мага\n– або\n– Щит\n– Психічний Батіг Таші\n– або\n– Друзки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні накладання заклинання Захисту 1-го рівня щораунду протягом приблизно 2 хвилин наповнює варту з порожньої. Можна або використати Обладунок мага [Mage Armor] без жодних викрутасів, або бити себе по обличчю й раз у раз накладати Щит [Shield]. Щит [Shield] — кращий вибір загалом, але щоб використати його поза боєм як зарядку, можна лягти, зняти щит і попросити когось кілька разів копнути нас у бік, доки ми не заповнимося. Психічний Батіг Таші [Tasha's Mind Whip] і Друзки [Shatter] завдають пристойної шкоди й мають злісні ефекти для заклинання 2-го рівня, не займаючи нашої Концентрації."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 — Чарівник 19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимум ХП. Максимум ряткидків Статури. Ви також можете взяти ще один рівень Винахідника. Вливання{{Infusions}} досить чудові, і це може бути цікавішим вінчанням, ніж +2 до Статури."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-wizard-abjuration-2014-001",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Знавець захисту",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-002",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Арканна варта",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-003",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Проєктована варта",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-004",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Покращені захисні закляття",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-005",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Опір закляттям",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-006",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-ability-scores",
+      "targetBlockId": "block-section-school-of-abjuration-ability-scores-2",
+      "optionId": "section-school-of-abjuration-ability-scores-block-section-school-of-abjuration-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-school-of-abjuration-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-007",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-ability-scores",
+      "targetBlockId": "block-section-school-of-abjuration-ability-scores-3",
+      "optionId": "section-school-of-abjuration-ability-scores-block-section-school-of-abjuration-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-school-of-abjuration-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-008",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-ability-scores",
+      "targetBlockId": "block-section-school-of-abjuration-ability-scores-4",
+      "optionId": "section-school-of-abjuration-ability-scores-block-section-school-of-abjuration-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-school-of-abjuration-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-009",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-ability-scores",
+      "targetBlockId": "block-section-school-of-abjuration-ability-scores-5",
+      "optionId": "section-school-of-abjuration-ability-scores-block-section-school-of-abjuration-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-school-of-abjuration-ability-scores-5",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-010",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-ability-scores",
+      "targetBlockId": "block-section-school-of-abjuration-ability-scores-6",
+      "optionId": "section-school-of-abjuration-ability-scores-block-section-school-of-abjuration-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-school-of-abjuration-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-011",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-ability-scores",
+      "targetBlockId": "block-section-school-of-abjuration-ability-scores-7",
+      "optionId": "section-school-of-abjuration-ability-scores-block-section-school-of-abjuration-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-school-of-abjuration-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-012",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-races",
+      "targetBlockId": "block-section-school-of-abjuration-races-2",
+      "optionId": "section-school-of-abjuration-races-block-section-school-of-abjuration-races-2-item-0",
+      "context": "Дворф",
+      "explanationBlockId": "block-section-school-of-abjuration-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-013",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-races",
+      "targetBlockId": "block-section-school-of-abjuration-races-2",
+      "optionId": "section-school-of-abjuration-races-block-section-school-of-abjuration-races-2-item-1",
+      "context": "Свірфнеблін",
+      "explanationBlockId": "block-section-school-of-abjuration-races-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-014",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-feats",
+      "targetBlockId": "block-section-school-of-abjuration-feats-2",
+      "optionId": "section-school-of-abjuration-feats-block-section-school-of-abjuration-feats-2-item-0",
+      "context": "Містичний адепт",
+      "explanationBlockId": "block-section-school-of-abjuration-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-015",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-feats",
+      "targetBlockId": "block-section-school-of-abjuration-feats-2",
+      "optionId": "section-school-of-abjuration-feats-block-section-school-of-abjuration-feats-2-item-1",
+      "context": "Стійкий",
+      "explanationBlockId": "block-section-school-of-abjuration-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-016",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-feats",
+      "targetBlockId": "block-section-school-of-abjuration-feats-2",
+      "optionId": "section-school-of-abjuration-feats-block-section-school-of-abjuration-feats-2-item-2",
+      "context": "Магія свірфнебліна",
+      "explanationBlockId": "block-section-school-of-abjuration-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-017",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-multiclassing",
+      "targetBlockId": "block-section-school-of-abjuration-multiclassing-2",
+      "optionId": "section-school-of-abjuration-multiclassing-block-section-school-of-abjuration-multiclassing-2-item-0",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-school-of-abjuration-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-abjuration-2014-018",
+      "articleId": "rpgbot-wizard-abjuration-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-abjuration-2014-draft1",
+      "sectionId": "section-school-of-abjuration-multiclassing",
+      "targetBlockId": "block-section-school-of-abjuration-multiclassing-2",
+      "optionId": "section-school-of-abjuration-multiclassing-block-section-school-of-abjuration-multiclassing-2-item-1",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-school-of-abjuration-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "cleric-tempest-domain-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+    "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "TEMPEST_DOMAIN",
+  "raceKey": "GENASI_AIR_MPMM",
+  "backgroundKey": "SAGE",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "revision": 2,
+  "levels": [
+    {"level": 2},
+    {"level": 3},
+    {"level": 4, "abilityScoreIncrease": [{"ability": "CON", "amount": 1}, {"ability": "WIS", "amount": 1}], "openSpellPicks": [{"category": "cantrips", "count": 1}], "section": "section-feats-2"},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "featKey": "WAR_CASTER", "section": "section-feats-2"},
+    {"level": 9},
+    {"level": 10, "openSpellPicks": [{"category": "cantrips", "count": 1}]},
+    {"level": 11},
+    {"level": 12, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats-2"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "featKey": "METAMAGIC_ADEPT", "section": "section-feats-2"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "featKey": "RESILIENT", "featOptions": [{"optionNameEng": "Resilient (Constitution)"}], "section": "section-feats-2"},
+    {"level": 20}
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Підготовлені заклинання",
+      "reason": "Автор радить «основні кліриківські варіанти», але конкретних підготовлених заклинань 1-го рівня не називає, тож пресет їх не записує: їх можна обрати на листі персонажа.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія Адепта метамагії",
+      "reason": "На 16-му рівні автор бере Адепта метамагії з Перетвореним заклинанням і ще однією метамагією; у каталозі риса без опцій (BUG-O49-METAMAGIC-ADEPT), тож записано лише саму рису.",
+      "section": "section-feats-2"
+    },
+    {
+      "field": "Замовляння 4-го та 10-го рівнів",
+      "reason": "Автор пише «будь-яке» нове замовляння на 4-му рівні, а на 10-му не називає його взагалі, тож вибір лишено гравцеві.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/cleric-tempest-2014.webp",
+    "title": "Клірик — Домен бурі, Геназі повітря",
+    "description": "Клірик бурі в кольчузі: Сила 15, Статура 16, Мудрість 17. Геназі повітря дає Шокувальний дотик на основі Мудрості.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CON",
+      "WIS",
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "RELIGION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH",
+      "CELESTIAL"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "c",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 5,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Геназі повітря за правилами Таші: +2 до Мудрості й +1 до Статури, як у таблиці автора (Сила 15, Статура 16, Мудрість 17); це вже враховано.",
+    "skillExplanation": "Автор радить триматися основних навичок Клірика й не обирає передісторію. Аналіз поведінки та Релігію (Клірик) і передісторію Мудрець (Магія та Історія) ми обрали за вас — їх можна змінити; так само й три мови.",
+    "equipmentExplanation": "Автор радить важкий обладунок, зброю та щит зі священним символом. Кольчугу й щит взято відповідно до цього, а булаву, легкий арбалет і набір священика ми обрали за вас — їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "sacred-flame",
+        "word-of-radiance"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Настанова, Священне полумʼя й Слово сяйва — авторський рядок 1-го рівня. Шокувальний дотик дає раса, а заклинання домену ви отримаєте автоматично; підготовлені заклинання оберете на листі.",
+      "platformChoices": []
+    }
+  }
+}

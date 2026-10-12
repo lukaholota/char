@@ -1,0 +1,2373 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/2024-dnd-meta/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "ca7127dad2d8fef1cfd5b87c80c9af1be8f04747b897f57b4de041fe3ec88222",
+  "sourceRevision": {
+    "revisionId": "rpgbot-a6b29668d84abc73-ca7127dad2d8fef1",
+    "sourceId": "rpgbot-a6b29668d84abc73",
+    "fetchedAt": "2026-09-29T19:19:23.359630+00:00",
+    "sourceUpdatedAt": "2025-12-24T22:34:53-05:00",
+    "contentHash": "41b0dad5776624b209a36add8c8c9ecf98b3f430f6f7e5ebf6df6f69b0af754a",
+    "title": "State of the 2024 DnD Character Optimization Meta",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-a6b29668d84abc73-ca7127dad2d8fef1.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As new source materials are released and those materials are explored, the state of the character optimization “meta” changes over time. A basic understanding of the state of the meta will help you a great deal in understanding character optimization and articles written about character optimization, including ours."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article will be updated as the meta evolves over time and when new material is released."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article describes the 2024 DnD 5e rules. For the 2014 rules, see our article on the "
+            },
+            {
+              "type": "link",
+              "text": "2014 meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "What is the Meta?",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#what-is-the-meta"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "What Changed and When?",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#what-changed-and-when"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Fall 2025",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#fall-2025"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Current State of the Meta",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#current-state-of-the-meta"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Classes",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#classes"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Backgrounds",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#backgrounds"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Species",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#species"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Martial vs. Caster Disparity",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#martial-vs-caster-disparity"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Healing in Combat",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#healing-in-combat"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Forced Movement",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#forced-movement"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Grappling is Dead, Long Live Grappling",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#grappling-is-dead-long-live-grappling"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Damage Types and Damage Resistances",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#damage-types-and-damage-resistances"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Save or Suck Spells",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#save-or-suck-spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Spirit Guardians for Every Spellcaster",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#spirit-guardians-for-every-spellcaster"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Best of the Meta",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#best-of-the-meta"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Best Background: Scribe",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#best-background-scribe"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Best Class: Wizard",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#best-class-wizard"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Best Species: Bugbear",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#best-species-bugbear"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Best Origin Feat: Musician",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#best-origin-feat-musician"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Best General Feat: Undecided",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#best-general-feat-undecided"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Best Epic Boon: Boon of Fate",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#best-epic-boon-boon-of-fate"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Best Multiclass Dip",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#best-multiclass-dip"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Worst of the Meta",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#worst-of-the-meta"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Worst Background: Artisan",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#worst-background-artisan"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Worst Class: Ranger (Maybe)",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#worst-class-ranger-maybe"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Worst Species: Halfling",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#worst-species-halfling"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Worst Origin Feat: Crafter",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#worst-origin-feat-crafter"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Worst General Feat: Martial Weapon Training",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#worst-general-feat-martial-weapon-training"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Worst Epic Boon: Boon of Spell Recall",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#worst-epic-boon-boon-of-spell-recall"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Other Assorted Broken Things",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#other-assorted-broken-things"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Bastions",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#bastions"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Chains, Manacles, and Rope",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#chains-manacles-and-rope"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle Spells",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#circle-spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Conjure Minor Elementals",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#conjure-minor-elementals"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Enspelled Items",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#enspelled-items"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Speed Debuffs",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#speed-debuffs"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Suggestion",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/#suggestion"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-what-is-the-meta",
+      "heading": "What is the Meta?",
+      "sourceAnchor": "what-is-the-meta",
+      "blocks": [
+        {
+          "blockId": "block-section-what-is-the-meta-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The “meta” is the current state of affairs in the game with all of the given materials available today. In a practical sense, it’s the state of character optimization with all of the official published character options available."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-what-is-the-meta-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When a new source book is published, the meta changes. New options and rules changes can change the relative usefulness of pre-existing options. For example: new feats like Prodigy and Skill Expert made multiclassing into Rogue to get Expertise less appealing in the 2014 rules, causing changes in the character optimization meta."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-what-changed-and-when",
+      "heading": "What Changed and When?",
+      "sourceAnchor": "what-changed-and-when",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-fall-2025",
+      "parentSectionId": "section-what-changed-and-when",
+      "heading": "Fall 2025",
+      "sourceAnchor": "fall-2025",
+      "blocks": [
+        {
+          "blockId": "block-section-fall-2025-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In the first full year of the 2024 rules, we saw four supplements which offered expanded rules and character options (2 were digital-only, so you’ll be forgiven for forgetting them). These included a massively expanded roster of Backgrounds and Feats, the updated Artificer class, a batch of new spells, and the new Circle Casting rules."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-fall-2025-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The expanded content began to loosen the restrictions on Class/Background combinations, offering new ways to access some of the PHB’s Origin Feats and exciting new feat options. However, the new spells exacerbated issues with the martial/caster disparity, and Circle Casting made all-caster parties so disproportionately powerful that bringing a single non-caster is now actively detrimental by comparison."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-current-state-of-the-meta",
+      "heading": "Current State of the Meta",
+      "sourceAnchor": "current-state-of-the-meta",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-classes",
+      "parentSectionId": "section-current-state-of-the-meta",
+      "heading": "Classes",
+      "sourceAnchor": "classes",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Many classes saw significant improvements in the 2024 rules. The Monk, previously frustrating and weak, is now considerably more appealing. It’s arguably one of the strongest martial classes, especially with the ability to do things like run enemies hundreds of feet out of combat and to restrain enemies in rope in a single round."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-classes-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Ranger, the other poorly-rated class from the 2014 rules, has gotten some improvements, but has also regressed in a key way: their over-dependence on Hunter’s Mark for both class and subclass features means that there is really only one way to play a Ranger. That’s likely fine for now, but will constrain the design of future Ranger subclasses in a way that may leave the Ranger to fall behind other classes over time. If nothing else, folks are going to get sick of casting Hunter’s Mark."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-backgrounds",
+      "parentSectionId": "section-current-state-of-the-meta",
+      "heading": "Backgrounds",
+      "sourceAnchor": "backgrounds",
+      "blocks": [
+        {
+          "blockId": "block-section-backgrounds-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The limited number of published Backgrounds and Origin Feats creates a very narrow pool of options for any single build, which means that optimized builds generally only have one or two options per class, and they’re frequently a "
+            },
+            {
+              "type": "link",
+              "text": "weird combination",
+              "href": "https://rpgbot.net/2024-dnds-new-backgrounds-encourage-builds-with-weird-backstories/"
+            },
+            {
+              "type": "text",
+              "text": " with your class."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-backgrounds-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As of this writing, we’ve already received several supplements which introduce new backgrounds, some of which use Origin Feats from the Player’s Handbook. This already dramatically expands the viable background/class combinations. I’m still hoping for more, of course. I think having three Backgrounds for each of the Origin Feats in the PHB would be a sufficient compromise between build diversity and interesting build limitations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-species",
+      "parentSectionId": "section-current-state-of-the-meta",
+      "heading": "Species",
+      "sourceAnchor": "species",
+      "blocks": [
+        {
+          "blockId": "block-section-species-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With the rework of Species and Backgrounds in the 2024 rules, Species can be a much less impactful part of your build. While some species still offer build-defining options like spellcasting, most Species will work at least passably well for any class. Humans, in particular, no longer sit at the top of the scale now that everyone gets an Origin Feat at level 1, though that second Origin Feat remains very powerful and becomes more powerful with every new Origin Feat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-current-state-of-the-meta",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroes of Faerun reintroduced feat trees, which were the norm in 3rd and 4th editions, but didn’t enter 5th edition until Dragonlance: Shadow of the Dragon Queen. Like the feats introduced in Dragonlance, the feat trees start with a feat intended for level 1 (now called an “Origin Feat”) which allows you to take a feat at level 4 (now called a “General Feat”). However, we have yet to see feat trees with multiple options for General Feats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "These new feat trees largely lock players into a combination of Background and Feats at levels 1 and 4 in a way that some players will chafe at. Mechanically, it’s fine, but there are already frustrating feat trees like the Dragon Cultist tree, which never allows you to increase the same Ability Score twice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-martial-vs-caster-disparity",
+      "parentSectionId": "section-current-state-of-the-meta",
+      "heading": "Martial vs. Caster Disparity",
+      "sourceAnchor": "martial-vs-caster-disparity",
+      "blocks": [
+        {
+          "blockId": "block-section-martial-vs-caster-disparity-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dungeons and Dragons has long had a stubborn divide in power between martial characters and spellcasters."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-martial-vs-caster-disparity-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prior to 3"
+            },
+            {
+              "type": "superscript",
+              "text": "rd"
+            },
+            {
+              "type": "text",
+              "text": " edition, spellcasters gained power slowly compared to martial characters, but could become dramatically more powerful if they survived low levels. Starting in 3"
+            },
+            {
+              "type": "superscript",
+              "text": "rd"
+            },
+            {
+              "type": "text",
+              "text": " edition, spellcasters could dominate the game right from level 1, and only became more of a problem over time. 4"
+            },
+            {
+              "type": "superscript",
+              "text": "th"
+            },
+            {
+              "type": "text",
+              "text": " edition, regardless of your opinion of the game as a whole, managed to keep class balance roughly even."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-martial-vs-caster-disparity-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "5"
+            },
+            {
+              "type": "superscript",
+              "text": "th"
+            },
+            {
+              "type": "text",
+              "text": " edition DnD brought the martial/caster divide back, and has gradually expanded the divide over time. New spells brought incredible new power to spellcasters, often allowing spellcasters to easily step into the niches of martial characters with a single spell. The Tasha’s-era summon spells are often outright better than martial characters while also leaving the spellcaster’s turns mostly free to cast even more spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-martial-vs-caster-disparity-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The 2024 rules sought to at least offer martial characters more buttons to push by improving martial classes and by introducing Weapon Mastery. While that certainly made them more interesting to play, it didn’t close the gap in any meaningful way."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-martial-vs-caster-disparity-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To make matters worse, new and updated spells made spellcasters even more powerful. The spells Conjure Minor Elementals is so powerful that a single-class wizard can out-damage even the most heavily optimized martial builds. Two spells in the Player’s Handbook made every piece of optimization content for the 2014 rules feel paltry. Even with the spell nerfed in the first round of errata for the 2014 rules, it’s "
+            },
+            {
+              "type": "emphasis",
+              "text": "still"
+            },
+            {
+              "type": "text",
+              "text": " game-breaking."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-martial-vs-caster-disparity-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The ability to get Shillelagh using any ability score means that even gish builds can be SAD (Single Ability Dependent), making those builds easier to manage than comparable martial builds. Compare the Eldritch Knight Fighter to the Paladin. The Eldritch Knight can build around Intelligence entirely, while the Paladin needs to split resources between Strength/Dexterity and Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-martial-vs-caster-disparity-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "And so, the martial-caster divide persists."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-healing-in-combat",
+      "parentSectionId": "section-current-state-of-the-meta",
+      "heading": "Healing in Combat",
+      "sourceAnchor": "healing-in-combat",
+      "blocks": [
+        {
+          "blockId": "block-section-healing-in-combat-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The 2024 rules fully double the healing dice for Cure Wounds, Healing Word, and the mass versions of both. The hope was to combat the horrible feeling of spending a turn to heal 1d8+3 damage only to see an enemy deal 1d8+3 damage the very next turn. These improvements put healing in a slightly better position at low levels, but didn’t solve the fundamental issues around healing in combat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-healing-in-combat-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With rare exceptions, healing in combat remains an attrition fight in a game where the players’ resources must last a whole adventuring day, while enemies only need to last about 3 rounds. On top of that, enemy damage values scale at the same rate as the healing provided by even the upgraded spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-healing-in-combat-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Brown Bear at CR 1 does 13 average damage in one turn, and Healing Word will heal an average of 8 damage. A Giant Ape at CR 7 does 44 average damage, while Healing Word cast as a level 4 spell (the best slot a 7th-level caster will have) only heals an average of 28 damage. While this means the percentage of the damage healed remains roughly the same, the value of a higher-level spell slot should be substantially more impactful than just undoing ~60% of a single enemy’s turn."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-healing-in-combat-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With no penalty for falling to 0 hit points and then being healed, there’s less incentive to heal allies before they fall unconscious. They might miss a turn depending on the initiative order, but that may be unavoidable without spending an expensive resource to heal a character only to see that healing undone by the next attack. It’s usually more efficient to let an ally fall to 0, then revive them with Healing Word."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-healing-in-combat-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Healing in combat remains something to be done when someone is unconscious, rather than trying to keep the whole party conscious 100% of the time. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-forced-movement",
+      "parentSectionId": "section-current-state-of-the-meta",
+      "heading": "Forced Movement",
+      "sourceAnchor": "forced-movement",
+      "blocks": [
+        {
+          "blockId": "block-section-forced-movement-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The abundance of options for forced movement has a much more significant impact on the game’s meta than I think the DnD design team anticipated. Simple options like Weapon Mastery (Push) are available right from level 1, the Grappler feat makes it easy to drag creatures about, and numerous class and subclass features offer even more options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-forced-movement-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The abundance and accessibility of these options puts players at a massive advantage over enemies that can’t attack at range, which includes huge portions of the Monster Manual. Using forced movement to put enemies out of reach means that melee enemies may be unable to participate in combat because they don’t have enough movement to get back into melee before being batted away again."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-forced-movement-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This also makes area damage effects, even those with small areas, considerably more dangerous. In a party with a Fighter using a warhammer, that Fighter could push enemies into small groups for the party’s spellcasters to attack with small AOEs like Acid Splash, Shatter, and Moonbeam, making those spells multiplicatively more effective."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-forced-movement-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "And that doesn’t touch the issue of area damage spells like Spike Growth and Spirit Guardians, which were already a problem in the 2014 rules. In 2024, they’re outright game-breaking. It’s easy for a party to pile a series of ongoing area damage effects into an encounter and rapidly grind enemies to dust at minimal resource cost."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-forced-movement-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There is also a long-standing issue with the limitations on direction for forced movement. Most effects simply push creatures “away,” which is flexible enough that you can justify pushing enemies away at an angle, including into the air for extra falling damage. I’ve highlighted this issue on RPGBOT.net for years."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-forced-movement-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The 2024 rules have partially addressed this: many effects now say “"
+            },
+            {
+              "type": "emphasis",
+              "text": "straight"
+            },
+            {
+              "type": "text",
+              "text": " away” instead of simply “away.” This mostly removes the abuse case, though there are sneaky ways around it by using simultaneous on-hit effects like the Crusher feat, and a handful of examples still use “away,” which I have to assume is intentional since they haven’t been corrected by errata."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-grappling-is-dead-long-live-grappling",
+      "parentSectionId": "section-current-state-of-the-meta",
+      "heading": "Grappling is Dead, Long Live Grappling",
+      "sourceAnchor": "grappling-is-dead-long-live-grappling",
+      "blocks": [
+        {
+          "blockId": "block-section-grappling-is-dead-long-live-grappling-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In the 2014 rules, a tiny bit of optimization could turn grappling and shoving enemies into a functionally unstoppable win condition. It was a lot like save-or-suck casting, except that you could have Expertise and also Advantage, making even incredibly strong enemies likely to fail. You could lock enemies on the ground at 0 speed and keep them there, massively vulnerable for what remained of their lives."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-is-dead-long-live-grappling-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The updates to the Unarmed Strike rules in the 2024 rules removed the ability to optimize grappling by focusing on Athletics. Now, it’s all a save against a DC based on your Strength. You can still grapple/shove, it’s just considerably less reliable. But you can grapple as an Opportunity Attack, which is very powerful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grappling-is-dead-long-live-grappling-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The 2024 rules also include a huge number of new and exciting feats to support grappling. Tavern Brawler and Grappler (both much improved from their 2014 versions), and Street Justice are all incredibly powerful improvements to a character’s grappling capabilities. Even better, a Grappled creature can be bound in chains, manacles, and/or rope!"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-damage-types-and-damage-resistances",
+      "parentSectionId": "section-current-state-of-the-meta",
+      "heading": "Damage Types and Damage Resistances",
+      "sourceAnchor": "damage-types-and-damage-resistances",
+      "blocks": [
+        {
+          "blockId": "block-section-damage-types-and-damage-resistances-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Creatures no longer have resistance to non-magical bludgeoning/piercing/slashing damage, which was common in the 2014 rules but only served to punish martial characters for participating in games with few magic weapons available."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-damage-types-and-damage-resistances-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With the removal of that resistance, many related class/subclass features changed. The Monk’s Ki-Empowered Strikes (now just “Empowered Strikes”) previously made the Monk’s Unarmed Strikes magical. Now, it allows you to choose to deal Force damage instead of your normal damage type. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-damage-types-and-damage-resistances-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Force, Necrotic, Psychic, Radiant, and Thunder are all frequently used to get around resistances to more common damage types like Cold and Fire. Class/subclass features which allow players to change damage types, such as the Great Old One Warlock’s Psychic Spells, exist specifically for that purpose."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-damage-types-and-damage-resistances-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I’m still digging through the Monster Manual, but I suspect that higher-CR monsters will also lean into these damage types, making resistance to them valuable at high levels despite being rarely useful at low levels."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-save-or-suck-spells",
+      "parentSectionId": "section-current-state-of-the-meta",
+      "heading": "Save or Suck Spells",
+      "sourceAnchor": "save-or-suck-spells",
+      "blocks": [
+        {
+          "blockId": "block-section-save-or-suck-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A staple since at least 3.0, save-or-suck spells incapacitate or otherwise neutralize an enemy if they fail a single save. Low-level options include Sleep (inflict Incapacitated and possibly Unconscious), Hold Person (inflict Paralysis), and Suggestion (tell the enemy to go very, very far away for 8 hours)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-save-or-suck-spells-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The hardest part of focusing on save-or-suck spells is successfully targeting enemies’ vulnerable saves. As a general rule: Intelligence saves are reliable, Constitution saves are not, and everything else falls somewhere in between. You can frequently make educated guesses about enemies’ saves based on their appearance and behavior. Dexterity-based weapons? High Dexterity save. Big, muscly brute? High Strength saves. Brain monster? Probably high Intelligence and Wisdom saves. You get it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-save-or-suck-spells-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From there, collect a handful of suitable save-or-suck spells. One for each type of saving throw is often enough to handle any enemy, and there are surprisingly numerous options at low levels. This, on its own, is enough to keep the martial-cast divide firmly in place since martial characters generally can’t one-shot encounters. This does, admittedly, become more difficult as you gain levels. Higher-level enemies have gradually more save proficiencies. At very high levels, some enemies will have proficiencies in every save and good Ability Scores across the board. Not insurmountable, of course, but certainly more reliable than lower-CR monsters."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-save-or-suck-spells-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Legendary Resistances also present a very intentional countermeasure to save-or-suck casting. Having players one-shot a boss fight makes it essentially impossible to challenge them, which was a huge issue in 3rd edition. Legendary Resistances doesn’t fully stop this, but it forces players to fight through those resistances before a save-or-suck effect will stick. Players have an abundance of tools to do this, of course, but they’re forced to both bring and apply those options instead of going straight to Hold Monster against every powerful enemy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spirit-guardians-for-every-spellcaster",
+      "parentSectionId": "section-current-state-of-the-meta",
+      "heading": "Spirit Guardians for Every Spellcaster",
+      "sourceAnchor": "spirit-guardians-for-every-spellcaster",
+      "blocks": [
+        {
+          "blockId": "block-section-spirit-guardians-for-every-spellcaster-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In the 2014 rules, Spirit Guardians was a staple Cleric tactic, often solving many encounters on its own. A combination of ongoing damage and a speed penalty with an unusually long duration meant that a single casting could clear multiple encounters back-to-back, provided that the caster could maintain Concentration. Going into the 2024 rules, I expected to see Spirit Guardians nerfed so that it was less of an auto-win button for parties that included a Cleric."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spirit-guardians-for-every-spellcaster-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I was wrong. I was so very, very wrong. I’ve been wrong before, but "
+            },
+            {
+              "type": "emphasis",
+              "text": "wow"
+            },
+            {
+              "type": "text",
+              "text": " was I wrong about this one."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spirit-guardians-for-every-spellcaster-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Now "
+            },
+            {
+              "type": "emphasis",
+              "text": "everyone"
+            },
+            {
+              "type": "text",
+              "text": " gets some version of what is, functionally, Spirit Guardians: an ongoing spell that provides recurring area damage which is generally an Emanation (meaning it radiates from the caster) or is otherwise portable. The list is long and somehow continues to grow. Cacophonic Shield, Conjure Animals, Dirge, and Yolande’s Regal Presence offer at least one Spirit Guardians-style spell to every full spellcaster."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spirit-guardians-for-every-spellcaster-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An all-caster party could very easily solve every combat encounter by turning their respective versions of Spirit Guardians and racing around the room to hit every enemy in the encounter. The variety of damage types and secondary conditions ensures that this strategy is nearly unstoppable. Many of these spells have 10-minute durations, too, allowing parties to stretch a single casting across multiple back-to-back encounters."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-best-of-the-meta",
+      "heading": "Best of the Meta",
+      "sourceAnchor": "best-of-the-meta",
+      "blocks": [
+        {
+          "blockId": "block-section-best-of-the-meta-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Do not mistake “best of” for “most fun.” This is an article about optimizing characters, not about buildin engaging characters that are run to play."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-best-background-scribe",
+      "parentSectionId": "section-best-of-the-meta",
+      "heading": "Best Background: Scribe",
+      "sourceAnchor": "best-background-scribe",
+      "blocks": [
+        {
+          "blockId": "block-section-best-background-scribe-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Exceptionally versatile, a huge number of classes and builds work well with the Scribe Background. Skilled isn’t a combat feat, but it can expand your character’s capabilities significantly in a game where most characters only get 4 skills at level 1."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-best-class-wizard",
+      "parentSectionId": "section-best-of-the-meta",
+      "heading": "Best Class: Wizard",
+      "sourceAnchor": "best-class-wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-best-class-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Wizard remains the best class. "
+            },
+            {
+              "type": "emphasis",
+              "text": "Fight me."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-best-class-wizard-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I kid, of course, but the Cleric and the Wizard remain at the absolute top of the pile with the Bard, Druid, and Sorcerer not far behind. You might notice that those are all of the full spellcasters. It’s weird how that happens in a game with a notorious martial/caster divide."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-best-species-bugbear",
+      "parentSectionId": "section-best-of-the-meta",
+      "heading": "Best Species: Bugbear",
+      "sourceAnchor": "best-species-bugbear",
+      "blocks": [
+        {
+          "blockId": "block-section-best-species-bugbear-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Surprise Attack remains an absurdly powerful outlier. While our 2014 "
+            },
+            {
+              "type": "link",
+              "text": "Bugbear-y Me in Damage",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/"
+            },
+            {
+              "type": "text",
+              "text": " build is a little less impressive in the world of Conjure Minor Elementals, +2d6 damage per attack is still an insane damage boost which works with all of the same tactics that abuse Conjure Minor Elementals."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-best-species-bugbear-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Flying races also remain very powerful simply because flight is so powerful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-best-species-bugbear-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Human also remains among the best Species options. A second Origin Feat not tied to your Background offers a huge amount of build versatility, allowing you to combine the growing number of exciting build options as we get more content."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-best-origin-feat-musician",
+      "parentSectionId": "section-best-of-the-meta",
+      "heading": "Best Origin Feat: Musician",
+      "sourceAnchor": "best-origin-feat-musician",
+      "blocks": [
+        {
+          "blockId": "block-section-best-origin-feat-musician-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Heroic Inspiration for 2 to 6 creatures in the party. The ability to reroll an important save or a high-value attack is massively impactful and benefits the entire party in a way that no other Origin Feat does."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-best-origin-feat-musician-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Magic Initiate is also a big contender here. Shillelagh and True Strike using any mental ability offer fantastic options for a powerful build, but they aren’t the sort of force multiplier offered by Musician."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-best-general-feat-undecided",
+      "parentSectionId": "section-best-of-the-meta",
+      "heading": "Best General Feat: Undecided",
+      "sourceAnchor": "best-general-feat-undecided",
+      "blocks": [
+        {
+          "blockId": "block-section-best-general-feat-undecided-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While there are several notably powerful General Feats, there isn’t one that clearly stands above the others."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-best-epic-boon-boon-of-fate",
+      "parentSectionId": "section-best-of-the-meta",
+      "heading": "Best Epic Boon: Boon of Fate",
+      "sourceAnchor": "best-epic-boon-boon-of-fate",
+      "blocks": [
+        {
+          "blockId": "block-section-best-epic-boon-boon-of-fate-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Adding or subtracting 2d4 from a save, including another creature’s, is crazy. Everyone in the party can take it to make save-or-suck spells considerably more reliable. It works on literally any character, and can be used offensively or defensively. Sure, it only works once per Short or Long Rest, but an average of +/- 5 on a D20 Test is massive. You have a 25% chance on any given roll that Boon of Fate could change the outcome."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-best-multiclass-dip",
+      "parentSectionId": "section-best-of-the-meta",
+      "heading": "Best Multiclass Dip",
+      "sourceAnchor": "best-multiclass-dip",
+      "blocks": [
+        {
+          "blockId": "block-section-best-multiclass-dip-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Either Cleric, Paladin, or Fighter. Cleric can get you heavy armor, plus powerful level 1 cleric spells. Fighter can get you Con saves, heavy armor, and Weapon Mastery. Paladin strikes a nice balance between the two."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-worst-of-the-meta",
+      "heading": "Worst of the Meta",
+      "sourceAnchor": "worst-of-the-meta",
+      "blocks": [
+        {
+          "blockId": "block-section-worst-of-the-meta-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Do not mistake “worst of” for “least fun.” This is an article about optimizing characters, not about buildin engaging characters that are run to play."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-worst-background-artisan",
+      "parentSectionId": "section-worst-of-the-meta",
+      "heading": "Worst Background: Artisan",
+      "sourceAnchor": "worst-background-artisan",
+      "blocks": [
+        {
+          "blockId": "block-section-worst-background-artisan-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A very narrow set of builds can benefit from the Ability Scores, proficiency in Persuasion is utterly useless to characters who would consider this, and it’s saddled with the Crafter feat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-worst-class-ranger-maybe",
+      "parentSectionId": "section-worst-of-the-meta",
+      "heading": "Worst Class: Ranger (Maybe)",
+      "sourceAnchor": "worst-class-ranger-maybe",
+      "blocks": [
+        {
+          "blockId": "block-section-worst-class-ranger-maybe-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s actually hard to say what class is the worst in the 2024 rules. The Monk, once the butt of many jokes in the 2014 rules, has become a terrifyingly lethal class. The Sorcerer took a hit with the Twin Spell changes, but remains both powerful and flexible."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-worst-class-ranger-maybe-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Ranger is arguably the worst class. They play well, their damage output is good, and many of their subclasses are great. But their dependence on Hunter’s Mark for many of their class and subclass features is hugely limiting in a way that has made the Ranger the new comedic punching bag for DnD players. The class isn’t bad, but I do think that locking them into Hunter’s Mark was a poor design decision."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-worst-species-halfling",
+      "parentSectionId": "section-worst-of-the-meta",
+      "heading": "Worst Species: Halfling",
+      "sourceAnchor": "worst-species-halfling",
+      "blocks": [
+        {
+          "blockId": "block-section-worst-species-halfling-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Halflings are only appealing because of Lucky. Lucky is great, but it is not enough to make them an effective species choice. Naturally Stealthy is a fine feature for Rogues, but "
+            },
+            {
+              "type": "emphasis",
+              "text": "only"
+            },
+            {
+              "type": "text",
+              "text": " for Rogues, which pigeon-holes the Halfling into exactly one class."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-worst-species-halfling-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I think they should have kept the Stout Halfling’s resistance to Poison Damage. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-worst-origin-feat-crafter",
+      "parentSectionId": "section-worst-of-the-meta",
+      "heading": "Worst Origin Feat: Crafter",
+      "sourceAnchor": "worst-origin-feat-crafter",
+      "blocks": [
+        {
+          "blockId": "block-section-worst-origin-feat-crafter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The 2024 crafting rules as a whole are disappointing, but Crafter is just pitiful. The 20% discount on nonmagical items is nice, but gold still has very little value in the 2024 rules, so it will stop mattering once everyone can afford to buy full plate."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-worst-general-feat-martial-weapon-training",
+      "parentSectionId": "section-worst-of-the-meta",
+      "heading": "Worst General Feat: Martial Weapon Training",
+      "sourceAnchor": "worst-general-feat-martial-weapon-training",
+      "blocks": [
+        {
+          "blockId": "block-section-worst-general-feat-martial-weapon-training-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "They went from 4 weapons to every martial weapon, and this feat is still bad. Any character that would benefit significantly from access to Martial weapons already gets them, and the gap between Simple and Martial weapons is miniscule unless you also have Weapon Mastery."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-worst-epic-boon-boon-of-spell-recall",
+      "parentSectionId": "section-worst-of-the-meta",
+      "heading": "Worst Epic Boon: Boon of Spell Recall",
+      "sourceAnchor": "worst-epic-boon-boon-of-spell-recall",
+      "blocks": [
+        {
+          "blockId": "block-section-worst-epic-boon-boon-of-spell-recall-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unreliable and frustrating. You’ll recover an average of less than 1 spell slot of each spell level from 1 to 4, assuming 3 spell slots."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-other-assorted-broken-things",
+      "heading": "Other Assorted Broken Things",
+      "sourceAnchor": "other-assorted-broken-things",
+      "blocks": [
+        {
+          "blockId": "block-section-other-assorted-broken-things-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are a few things in the 2024 rules that are so exceptionally broken that some tables may prefer to simply omit them to avoid the game becoming unplayably easy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-bastions",
+      "parentSectionId": "section-other-assorted-broken-things",
+      "heading": "Bastions",
+      "sourceAnchor": "bastions",
+      "blocks": [
+        {
+          "blockId": "block-section-bastions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our "
+            },
+            {
+              "type": "link",
+              "text": "article on Bastions",
+              "href": "https://rpgbot.net/2024-dnd/bastions/"
+            },
+            {
+              "type": "text",
+              "text": " digs into a lot of the fun things that you can do with Bastions, but the ability to craft Uncommon magic items in huge quantities without downtime is, without question, absurdly powerful. The abundance of useful Uncommon magic items, many of which don’t require attunement, presents a massive balance problem. A clever player could churn out Wands of Missiles and make level 7 Magic Missile their go-to attack option in place of weapons or cantrips, and that’s among the least interesting options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-bastions-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The only limitations are the level 9 requirement and your DM deciding to use the Bastions sytem, which is explicitly an optional rule, but it was also one of the big selling points of the 2024 DMG."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-chains-manacles-and-rope",
+      "parentSectionId": "section-other-assorted-broken-things",
+      "heading": "Chains, Manacles, and Rope",
+      "sourceAnchor": "chains-manacles-and-rope",
+      "blocks": [
+        {
+          "blockId": "block-section-chains-manacles-and-rope-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I don’t know who thought this was a good idea, but a creature can bind another creature in chains, manacles, or rope as an Action which requires a DC 13 Strength (Athletics) or Dexterity (Sleight of Hand) check, depending on the item used. The target must have one of several conditions, but Grappled is on the list, making this easily accessible right from level 1. While this tactic doesn’t affect especially large creatures, the fact that it works so well on most of the Monster Manual makes it a huge problem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-chains-manacles-and-rope-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Creatures can escape from or break the restraints, of course, but doing so requires an ability check as an Action. Even if they succeed, they’ve burnt an Action in an encounter where the players likely outnumber them and every Action is precious. Also, nothing stops the players from binding them again on their next turn."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-chains-manacles-and-rope-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": " All of this sounds very abstract, but a Monk can bind a creature in a single turn right from level 1. Use Martial Arts to make an Unarmed Strike and choose to grapple the target instead of dealing damage, then use your Action to bind your target. A low levels, enemies will struggle to escape and are nearly always dependent on attacks in combat, so making them Restrained is basically a guaranteed victory."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-chains-manacles-and-rope-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Still worse, the rules are silent on whether or not you can bind a creature in multiple restraints. The general rule is that spells and conditions don’t stack, but it appears that you can bind a creature in chains, manacles, and rope all at the same time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-spells",
+      "parentSectionId": "section-other-assorted-broken-things",
+      "heading": "Circle Spells",
+      "sourceAnchor": "circle-spells",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This one needs "
+            },
+            {
+              "type": "link",
+              "text": "its own article",
+              "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/"
+            },
+            {
+              "type": "text",
+              "text": ". Circle Spells are crazy, and tip the balance of the game even more heavily toward spellcasters."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conjure-minor-elementals",
+      "parentSectionId": "section-other-assorted-broken-things",
+      "heading": "Conjure Minor Elementals",
+      "sourceAnchor": "conjure-minor-elementals",
+      "blocks": [
+        {
+          "blockId": "block-section-conjure-minor-elementals-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "People immediately noticed that combining "
+            },
+            {
+              "type": "link",
+              "text": "Conjure Minor Elementals",
+              "href": "https://www.dndbeyond.com/spells/2619049-conjure-minor-elementals"
+            },
+            {
+              "type": "text",
+              "text": " and "
+            },
+            {
+              "type": "link",
+              "text": "Scorching Ray",
+              "href": "https://www.dndbeyond.com/spells/2619005-scorching-ray"
+            },
+            {
+              "type": "text",
+              "text": " allowed Wizards to deal so much damage so quickly that they could solo encounters with no further effort. The damage also grows exponentially as the Wizard can cast higher-level versions of both spells, so as soon as the combination comes online it becomes the defining offensive tactic of the entire game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conjure-minor-elementals-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This issue also existed with "
+            },
+            {
+              "type": "link",
+              "text": "Spirit Shroud",
+              "href": "https://www.dndbeyond.com/spells/718581-spirit-shroud"
+            },
+            {
+              "type": "text",
+              "text": " in the 2014 rules, but it was nowhere near as powerful. Conjure Minor Elementals scales fully 4 times as fast as Spirit Shroud does, it has a 10-minute duration instead of 1 minute, and it has a 15-foot range instead of 10. We used Spirit Shroud in our "
+            },
+            {
+              "type": "link",
+              "text": "Bugbear-y Me in Damage",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/"
+            },
+            {
+              "type": "text",
+              "text": " article, and could comfortable solo CR 20 creatures in one turn by level 16. That’s too powerful for all but the most heavily-optimized games, and Conjure Minor Elementals is massively more powerful than that."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-enspelled-items",
+      "parentSectionId": "section-other-assorted-broken-things",
+      "heading": "Enspelled Items",
+      "sourceAnchor": "enspelled-items",
+      "blocks": [
+        {
+          "blockId": "block-section-enspelled-items-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Enspelled Items",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/magic-items-a-z#EnspelledArmor"
+            },
+            {
+              "type": "text",
+              "text": ", new in the 2024 rules, hold a single spell, have a maximum of 6 charges, and can cast their contained spell by spending a charge. Uncommon rarity covers both Cantrips and level 1 spells, including powerful options like Absorb Elements and Shield, giving players a deep well of low-level magic at little cost."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enspelled-items-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "These items do need to be equipped to function, so they can’t just sit in players’ pockets, but up to 6 charges per day of spells like Shield is still going to be massively impactful. These items also require Attunement, but players can simply reattune to a different Enspelled Item once their charges run low."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enspelled-items-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I suspect that long-running buffs like Mage Armor, Longstrider, and Darkvision will also be popular options. Martial characters may enjoy cantips like Blade Ward and Resistance if they can cast them before walking into an encounter. Cure Wounds may also be helpful for stretching limited healing resources. Many characters will enjoy Hex or Hunter’s Mark, both of which have extremely long durations and can be reassigned to new targets after they’re cast. Armor of Agathys and False Life are also excellent candidates."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enspelled-items-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cases like these are incredibly numerous, and requiring the player to pick up a staff to cast the spell is not nearly as limiting as the designers may have hoped. If you as a DM include these in your game, pick the spells ahead of time rather than letting players decide. Pick things that are appealing, but which won’t cause problems."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enspelled-items-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Enchantment spells, which notably include "
+            },
+            {
+              "type": "link",
+              "text": "Silvery Barbs",
+              "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+            },
+            {
+              "type": "text",
+              "text": ", only work with "
+            },
+            {
+              "type": "link",
+              "text": "Enspelled Staffs",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/magic-items-a-z#EnspelledStaff"
+            },
+            {
+              "type": "text",
+              "text": ". That’s more of an oddity than a balance issue."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-speed-debuffs",
+      "parentSectionId": "section-other-assorted-broken-things",
+      "heading": "Speed Debuffs",
+      "sourceAnchor": "speed-debuffs",
+      "blocks": [
+        {
+          "blockId": "block-section-speed-debuffs-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Most things in the game have 30 ft. speed. Speed penalties are numerous and easily accessible in the 2024 rules. Ray of Frost, the Slow Weapon Mastery, the Slasher feat, and a huge number of other spells and features can all impose speed penalties without allowing a save of any kind. This makes it easy to reduce enemies’ speeds to 0, holding them in place in combat, causing most flying enemies to fall."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-speed-debuffs-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Melee enemies that can’t move are largely helpless, but any creature trapped in place is vulnerable to ongoing area damage. Spell like Cloud of Daggers, Moonbeam, and Hunger of Hadar makes this a lethal combination, often at very little cost to the players. Even Create Bonfire may be sufficient if the player’s aren’t in a hurry."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-suggestion",
+      "parentSectionId": "section-other-assorted-broken-things",
+      "heading": "Suggestion",
+      "sourceAnchor": "suggestion",
+      "blocks": [
+        {
+          "blockId": "block-section-suggestion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The suggested course of action has almost not restrictions except hit point damage. The amount of absolute havoc that you can cause with this spell not only makes the game hard to play, it breaks any sense of plausibility in your setting. Anyone who can cast Suggestion has a good chance to tear down society."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-what-is-the-meta-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-what-is-the-meta-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-fall-2025-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-fall-2025-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-classes-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-classes-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-backgrounds-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-backgrounds-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-species-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-martial-vs-caster-disparity-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-martial-vs-caster-disparity-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-martial-vs-caster-disparity-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-martial-vs-caster-disparity-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-martial-vs-caster-disparity-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-martial-vs-caster-disparity-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-martial-vs-caster-disparity-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-healing-in-combat-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-healing-in-combat-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-healing-in-combat-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-healing-in-combat-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-healing-in-combat-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-forced-movement-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-forced-movement-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-forced-movement-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-forced-movement-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-forced-movement-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-forced-movement-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-grappling-is-dead-long-live-grappling-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-grappling-is-dead-long-live-grappling-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-grappling-is-dead-long-live-grappling-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-damage-types-and-damage-resistances-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-damage-types-and-damage-resistances-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-damage-types-and-damage-resistances-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-damage-types-and-damage-resistances-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-save-or-suck-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-save-or-suck-spells-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-save-or-suck-spells-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-save-or-suck-spells-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-spirit-guardians-for-every-spellcaster-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-spirit-guardians-for-every-spellcaster-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-spirit-guardians-for-every-spellcaster-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-spirit-guardians-for-every-spellcaster-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-best-of-the-meta-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-best-background-scribe-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-best-class-wizard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-best-class-wizard-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-best-species-bugbear-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-best-species-bugbear-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-best-species-bugbear-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[55]",
+      "detail": "block-section-best-origin-feat-musician-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[56]",
+      "detail": "block-section-best-origin-feat-musician-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[57]",
+      "detail": "block-section-best-general-feat-undecided-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[58]",
+      "detail": "block-section-best-epic-boon-boon-of-fate-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[59]",
+      "detail": "block-section-best-multiclass-dip-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[60]",
+      "detail": "block-section-worst-of-the-meta-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[61]",
+      "detail": "block-section-worst-background-artisan-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[62]",
+      "detail": "block-section-worst-class-ranger-maybe-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[63]",
+      "detail": "block-section-worst-class-ranger-maybe-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[64]",
+      "detail": "block-section-worst-species-halfling-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[65]",
+      "detail": "block-section-worst-species-halfling-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[66]",
+      "detail": "block-section-worst-origin-feat-crafter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[67]",
+      "detail": "block-section-worst-general-feat-martial-weapon-training-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[68]",
+      "detail": "block-section-worst-epic-boon-boon-of-spell-recall-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[69]",
+      "detail": "block-section-other-assorted-broken-things-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[70]",
+      "detail": "block-section-bastions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[71]",
+      "detail": "block-section-bastions-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[72]",
+      "detail": "block-section-chains-manacles-and-rope-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[73]",
+      "detail": "block-section-chains-manacles-and-rope-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[74]",
+      "detail": "block-section-chains-manacles-and-rope-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[75]",
+      "detail": "block-section-chains-manacles-and-rope-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[76]",
+      "detail": "block-section-circle-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[77]",
+      "detail": "block-section-conjure-minor-elementals-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[78]",
+      "detail": "block-section-conjure-minor-elementals-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[79]",
+      "detail": "block-section-enspelled-items-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[80]",
+      "detail": "block-section-enspelled-items-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[81]",
+      "detail": "block-section-enspelled-items-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[82]",
+      "detail": "block-section-enspelled-items-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[83]",
+      "detail": "block-section-enspelled-items-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[84]",
+      "detail": "block-section-speed-debuffs-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[85]",
+      "detail": "block-section-speed-debuffs-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[86]",
+      "detail": "block-section-suggestion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[87]",
+      "detail": "block-section-suggestion-2"
+    }
+  ],
+  "metrics": {
+    "words": 4668,
+    "sections": 40,
+    "blocks": 87,
+    "tables": 0,
+    "ratingSignals": 0
+  },
+  "status": "needs-editorial-review"
+}

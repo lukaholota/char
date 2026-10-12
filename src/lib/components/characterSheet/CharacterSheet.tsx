@@ -1,10 +1,10 @@
 "use client";
 
 import { SheetPortraitButton } from "@/lib/components/portrait/SheetPortraitButton";
-import { useCallback, useEffect, useState, useTransition } from "react";
+import { useCallback, useEffect, useMemo, useState, useTransition } from "react";
 import type { PersWithRelations, CharacterFeaturesGroupedResult } from "@/lib/actions/pers";
 import { getCharacterFeaturesGrouped, getCharacterFeaturesGroupedByShareToken, renamePers } from "@/lib/actions/pers";
-import CharacterCarousel from "./CharacterCarousel";
+import CharacterCarousel, { LAZY_SLIDE_LOADERS } from "./CharacterCarousel";
 import type { SpellSource } from "@/rules/spell-sources";
 import { Button } from "@/components/ui/button";
 import { ArrowUpCircle, Loader2, Pencil } from "lucide-react";
@@ -29,6 +29,8 @@ import OfflineStatusBadge from "./OfflineStatusBadge";
 import { useIsOnline } from "@/hooks/useIsOnline";
 import { applyQueuedOperationsToSheet } from "@/lib/offline/sheet-state";
 import { readOfflineQueue } from "@/lib/offline/queue";
+import { useOfflineReadiness } from "@/lib/offline/offline-readiness";
+import { listCatalogSpellLinks } from "./slides/sheet-spell-links";
 import { useSignInGate } from "@/components/discussion/useSignInGate";
 import type { SpellBuffCatalogEntry } from "@/lib/logic/state-labels";
 import { SheetStatesProvider } from "./states/SheetStatesContext";
@@ -64,6 +66,12 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
   const [renameOpen, setRenameOpen] = useState(false);
   const [renameValue, setRenameValue] = useState(pers.name);
   const isOnline = useIsOnline();
+  const savedPersSnapshot = useMemo(() => JSON.stringify(localPers), [localPers]);
+  const offlineReadiness = useOfflineReadiness({
+    loadChunks: Object.values(LAZY_SLIDE_LOADERS),
+    spellLinks: listCatalogSpellLinks(pers.persSpells),
+    revision: savedPersSnapshot,
+  });
   const { requireSignIn, signInDialog } = useSignInGate();
 
   const shareToken = (params as any)?.token as string | undefined;
@@ -242,7 +250,7 @@ export default function CharacterSheet({ pers, spellcastingSources, groupedFeatu
                )}
                <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-300/80">
                  <span>Рівень {localPers.level}</span>
-                 {!isReadOnly && <OfflineStatusBadge />}
+                 {!isReadOnly && <OfflineStatusBadge readiness={offlineReadiness} />}
                </div>
                <StatusChips />
                {isReadOnly && (

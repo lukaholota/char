@@ -1,0 +1,930 @@
+{
+  "buildId": "build-ranger-drakewarden-2014",
+  "revisionId": "build-ranger-drakewarden-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "Приклад персонажа — Важка драконяча кавалерія",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-ranger-drakewarden-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+      "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "RANGER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "RANGER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "RANGER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Defense"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "ensnaring-strike",
+            "longstrider"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "RANGER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "DRAKEWARDEN",
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Primal Awareness"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "absorb-elements"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "RANGER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "HEAVY_ARMOR_MASTER"
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "RANGER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "barkskin"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "RANGER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "RANGER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "RANGER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "MOUNTED_COMBATANT"
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "RANGER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "elemental-weapon"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "RANGER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Nature's Veil"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "RANGER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "RANGER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SENTINEL"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "RANGER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "guardian-of-nature"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "RANGER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "RANGER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "RANGER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "PIERCER",
+        "featOptions": [
+          {
+            "optionNameEng": "PIERCER Ability (Strength)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "RANGER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "RANGER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "RANGER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SHIELD_MASTER",
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "RANGER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-drakewarden-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+          "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "DRAKEWARDEN",
+    "raceKey": "HUMAN_2014",
+    "variantKey": "HUMAN_VARIANT",
+    "backgroundKey": "CUSTOM",
+    "featKey": "HEAVILY_ARMORED",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 14
+      },
+      {
+        "ability": "CHA",
+        "value": 10
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Мудрості 14 Слідопиту цілком вистачає, потім максимально підвищимо Силу й Харизму. Обираємо варіант Людини, тож отримуємо два підвищення +1, а потім +1 до Сили від {{Важкоозброєний|Heavily Armored}} на 1-му рівні.\n\nРедакційна примітка: оригінал називає Харизму, але наведена таблиця та подальший розвиток зосереджені на Силі й Статурі.\n\n Базові Підвищені Сил 15 17 Спр 8 8 Ста 15 16 Інт 8 8 Муд 14 14 Хар 10 10",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Варіант Людини. Потрібна риса на 1-му рівні, щоб отримати володіння важкими обладунками без мультикласування. Додаткове володіння навичкою теж приємне.\n\nЯкщо починаєте з рівня Воїна, розгляньте інші раси. Власне походження та варіант Людини завжди чудові, але Верховий боєць потрібний лише з 7-го рівня Слідопита, тож можемо зачекати до 8-го.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Охоронець{{Guard}}. Атлетика й Уважність чудово підходять.\n\nРедакційна примітка: Guard у цьому прикладі не є окремою офіційною передісторією 2014. Назву перекладено як «Охоронець»; правила однойменної передісторії 2024 сюди не перенесено.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Класові навички вкладемо у володіння Аналізом поведінки та Природою; Атлетику й Уважність отримаємо від передісторії. Кмітливий дасть експертність в Уважності.\n\nРедакційна примітка: тут оригінал пропонує експертність в Уважності, тоді як таблиця розвитку обирає Атлетику. Це різні варіанти.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси персонажа",
+        "text": "На 1-му рівні беремо Важкоозброєного, який дає +1 до Сили.\n\nНа 4-му рівні беремо {{Майстер важких обладунків|Heavy Armor Master}} й підвищуємо Силу до 18.\n\nНа 8-му рівні беремо Верхового бійця і підвищуємо Силу до 19.\n\nРедакційна примітка: у правилах 2014 Верховий боєць не підвищує Силу. Таке підвищення — помилка авторського пояснення.\n\nНа 12-му рівні беремо {{Вартовий|Sentinel}}.\n\nНа 16-му рівні беремо {{Проколювач|Piercer}} й підвищуємо Силу до 19.\n\nНа 19-му рівні беремо {{Майстер щита|Shield Master}} й нарешті досягаємо Сили 20.\n\nРедакційна примітка: у правилах 2014 Майстер щита не підвищує Силу. Для заявленого значення 20 потрібне окреме підвищення характеристики.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Риса: Важкоозброєний; {{Мічений ворог|Favored Foe}}; {{Вправний дослідник - Кмітливий|Deft Explorer - Canny}}: Атлетика та 2 мови",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "{{Оборона|Defense}}; {{Чаротворство|Spellcasting}}; відомі заклинання: Обплутуючий удар [Ensnaring Strike], Скорохід [Longstrider]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підклас: Вартовий дракона; Дарунок дракона; Компаньйон-дрейк; {{Первородне усвідомлення|Primal Awareness}}; нове відоме заклинання: Поглинання стихій [Absorb Elements]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Майстер важких обладунків (Сил 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "{{Додаткова атака|Extra Attack}}; нове відоме заклинання: Дубова шкіра [Barkskin]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "{{Вправний дослідник - Мандрівний|Deft Explorer - Roving}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Звʼязок ікла і луски; нове відоме заклинання: Підтримка [Aid]; заміна Дубової кори на Магічну зброю",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Верховий боєць; {{Стежка землі|Land's Stride}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нове відоме заклинання: Стихійна зброя [Elemental Weapon]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "{{Вуаль природи|Nature’s Veil}}; {{Вправний дослідник - Невтомний|Deft Explorer - Tireless}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Подих дрейка; нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Вартовий",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нове відоме заклинання: Вартовий природи [Guardian of Nature]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "{{Зникнення|Vanish}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Вдосконалений звʼязок; нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Проколювач (Сил 18 → 19)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "{{Дикі почуття|Feral Senses}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Майстер щита (Сила 19 → 20); нове відоме заклинання: будь-яке\n\nРедакційна примітка: Майстер щита 2014 не дає +1 до Сили; перехід 19 → 20 у джерелі помилковий.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "{{Убивця ворогів|Foe Slayer}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Передісторія «Охоронець»",
+        "reason": "Передісторії «Охоронець» (Guard) немає в 2014: це передісторія 2024 (Атлетика, Уважність, ігровий набір, риса «Пильний»). Найближча в 2014 — Міська варта (Атлетика й Аналіз поведінки), але автор називає Атлетику й Уважність, тож взято власну передісторію (правило PHB «Налаштування передісторії») з цими двома навичками. Ігровий набір і риса «Пильний» не додані.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Експертиза: Уважність чи Атлетика",
+        "reason": "Текст статті радить експертність в Уважності, а таблиця рівнів і Кмітливий дослідник на 1-му рівні обирають Атлетику. Дотримано таблицю: експертиза в Атлетиці.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Характеристики в таблиці і тексті",
+        "reason": "Редакційна примітка: оригінал називає Харизму, а таблиця й розвиток ідуть через Силу й Статуру; дотримано таблицю (Сила 17, Статура 16).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Підвищення Сили від рис 8-го і 19-го рівнів",
+        "reason": "Автор пише, що Верховий боєць (8-й) і Майстер щита (19-й) підвищують Силу, але за правилами 2014 вони цього не дають; Сила досягає лише 19 (Проколювач на 16-му), а до 20 потрібне окреме підвищення, якого таблиця не має.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Щит і найважчий обладунок",
+        "reason": "Автор радить щит і найважчий доступний обладунок, але Слідопит у стартовому спорядженні їх не має; взято стандартний набір класу (лускова броня).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Нові відомі заклинання без назви",
+        "reason": "На 11, 15, 17 і 19-му рівнях автор пише «будь-яке» заклинання; це вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Підтримка і Магічна зброя на 7-му рівні",
+        "reason": "На 7-му рівні автор бере Підтримку (Aid) і міняє Дубову шкіру на Магічну зброю (Magic Weapon), але ні Підтримки, ні Магічної зброї немає в списку заклинань Слідопита 2014 у платформи; місце лишено вільним для вибору гравця, Дубова шкіра лишається.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-drakewarden-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+            "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,1754 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-863a85633fe2219c",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-863a85633fe2219c-8a870bab3ecf6534",
+      "sourceId": "rpgbot-863a85633fe2219c",
+      "fetchedAt": "2026-09-29T19:16:37.338346+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:31:24-04:00",
+      "contentHash": "15e4c591d00c7195af5976e9a7b0bf8cb35b893599bb9c02c30d7a16276b5b27",
+      "title": "Home Run Bat: Launching Enemies to Maximum Distance: DnD 5e Multiclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-863a85633fe2219c-8a870bab3ecf6534.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-home-run-bat-2014",
+    "sourceId": "rpgbot-863a85633fe2219c",
+    "slug": "home-run-bat-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Рекордне відштовхування — Home Run Bat (2014)",
+    "titleEn": "Home Run Bat: Launching Enemies to Maximum Distance: DnD 5e Multiclass Guide",
+    "topics": [
+      "combat"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-home-run-bat-2014-draft1",
+      "articleId": "rpgbot-home-run-bat-2014",
+      "sourceRevisionId": "rpgbot-863a85633fe2219c-8a870bab3ecf6534",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "D&D 5e має багато можливостей примусово переміщати інших істот. Зазвичай вони відсувають ворогів від вас, розривають захвати або виводять із близького бою. Автор вважає, що такі ефекти можна складати, тож уже зрозуміло, про що стаття. Примітка редакції: сумісність і порядок конкретних ефектів визначають їхні тексти; наведена далі збірка має помилки передумов і заклинань, позначені окремо, тому не є готовим законним білдом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор уже писав про небажання 5e використовувати слова «безпосередньо від вас» у здібностях відштовхування. На його думку, «від вас» вимагає лише завершити рух далі від вас, не визначаючи напрям. Він трактує це як можливість переміщення під кутом, зокрема вгору, щоб дістати шкоду падіння й автоматично збити з ніг. Примітка редакції: вертикальне відштовхування — спірне трактування, яке вирішує Майстер, а не гарантований результат цих здібностей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Деякі здібності прямо кажуть «горизонтально від вас». Це ближче до ймовірного задуму, але створює кумедні ситуації: можна вдарити ворога над собою й перемістити його на кілька клітин убік. Переміщення все ще є, тому такі варіанти теж потрапляють у нашу метафоричну суміш."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Подивимося, як далеко можна перемістити істоту одним влучанням. Як у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді про шкоду Ведмебая",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/"
+                },
+                {
+                  "type": "text",
+                  "text": " та "
+                },
+                {
+                  "type": "link",
+                  "text": "пригорщі к4",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing/d4-abuse/"
+                },
+                {
+                  "type": "text",
+                  "text": ", доведемо одну механіку до повного абсурду."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Класи й підкласи",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#classes-and-subclasses"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Винахідник — Артилерист",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#artificer-artillerist"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Клірик — Домен бурі",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#cleric-tempest"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Воїн — Арканний лучник",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#fighter-arcane-archer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Воїн — Майстер бойових мистецтв",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#fighter-battle-master"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Монах — Шлях чотирьох стихій",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#monk-way-of-four-elements"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Монах — Шлях відкритої долоні",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#monk-way-of-the-open-hand"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Слідопит — Хранитель рою",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#ranger-swarmkeeper"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чародій — Магія шторму",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#sorcerer-storm-sorcery"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чорнокнижник — Джин",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#warlock-genie"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чарівник — Гравітургія",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#wizard-graviturgy-magic"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чарівник — Орден писарів",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#wizard-order-of-scribes"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Магічні предмети",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Магічні предмети",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси й підвищення характеристик",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#feats-and-ability-score-increases"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/home-run-bat/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Нападник{{Charger}}"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "TCoE"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Витрачаєте дію на Ривок, атакуєте бонусною дією й при влучанні можете відштовхнути ціль на 10 футів. Дуже обмежено, але дистанція пристойна. Примітка редакції: риса походить із PHB, а TCoE — помилка позначки джерела. Для бонусного поштовху потрібні 10 футів руху по прямій безпосередньо перед цією бонусною атакою; звичайна атака через Action Surge сама по собі цього бонусу не дає."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дробильник{{Crusher}}"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "TCoE"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Переміщення на 5 футів при дробильній шкоді. Працює з бойовим молотом, беззбройним ударом, Чарівний камінь [Magic Stone], дробильною шкодою Dao або Виверження землі [Erupting Earth]. Примітка редакції: один раз на хід, по цілі не більше ніж на одну категорію розміру більшій за вас."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дарунок хроматичного дракона{{Gift of the Chromatic Dragon}}"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "FToD"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Раз на день додає стихійну шкоду зброї й може запускати Thunderbolt Strike Клірика Домену бурі, але лише раз на день. Відновлення — після тривалого відпочинку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Військовий адепт{{Martial Adept}}"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "PHB"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Відштовхування на 15 футів маневром Pushing Attack. Лише раз після короткого чи тривалого відпочинку, але тут достатньо одного разу."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-and-subclasses",
+          "heading": "Класи й підкласи",
+          "sourceAnchor": "classes-and-subclasses",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-and-subclasses-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потрібен лише спосіб відсунути ворога. Низькі рівні бажані для легшого мультикласування, але маємо двадцять рівнів і не надто вибагливі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artificer-artillerist",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Винахідник — Артилерист",
+          "sourceAnchor": "artificer-artillerist",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-artillerist-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Винахідник дає дві можливості:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artificer-artillerist-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень 2 за текстом автора: Вливання Repulsion Shield{{Repulsion Shield}} відштовхує на 15 футів реакцією, коли по вас влучають. Примітка редакції: передумова цього Вливання — 6-й рівень Винахідника, не 2-й."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень 3: Force Ballista{{Force Ballista}} Артилериста відштовхує ціль на 5 футів від балісти при влучанні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric-tempest",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Клірик — Домен бурі",
+          "sourceAnchor": "cleric-tempest",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-tempest-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 6-му рівні Клірик Домену бурі{{Tempest Domain}} отримує Thunderbolt Strike{{Thunderbolt Strike}}: коли завдає істоті блискавкової шкоди, може відштовхнути її на 10 футів. Примітка редакції: здібність обмежена Великою або меншою істотою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cleric-tempest-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для цього потрібна блискавкова шкода. Автор пропонує Клірику Духовна плащаниця [Spirit Shroud], щоб додати її до атак по ворогах у межах 10 футів. Примітка редакції: це помилка. Spirit Shroud 2014 дає холодову, некротичну або променеву шкоду, без блискавкової, тому саме так Thunderbolt Strike не запускається."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter-arcane-archer",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Воїн — Арканний лучник",
+          "sourceAnchor": "fighter-arcane-archer",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-arcane-archer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор називає Forceful Shot способом відштовхнути ворога на 15 футів після проваленого ряткидка Сили, без обмеження розміру, але лише з лука. Примітка редакції: такої можливості немає серед офіційних Arcane Shot Арканного лучника 2014 з Посібника Занатара. Це твердження джерела не використовуємо як чинну здібність каталогу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter-battle-master",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Воїн — Майстер бойових мистецтв",
+          "sourceAnchor": "fighter-battle-master",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-battle-master-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Атака з поштовхом{{Pushing Attack}} дозволяє відштовхнути ворога на 15 футів після проваленого ряткидка Сили. Також доступна через Військовий адепт{{Martial Adept}}, але класові рівні дають більше кісток. Примітка редакції: ціль маневру має бути Великою або меншою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk-way-of-four-elements",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Монах — Шлях чотирьох стихій",
+          "sourceAnchor": "monk-way-of-four-elements",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-way-of-four-elements-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Fist of Unbroken Air{{Fist of Unbroken Air}} дозволяє відштовхнути істоту до 20 футів після проваленого ряткидка Сили. Потребує дії, тому комбінувати складно. Примітка редакції: відштовхування й падіння Ничком можливі для Великої або меншої цілі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk-way-of-the-open-hand",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Монах — Шлях відкритої долоні",
+          "sourceAnchor": "monk-way-of-the-open-hand",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-way-of-the-open-hand-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Техніка відкритої долоні{{Open Hand Technique}} дозволяє відштовхнути ворога на 15 футів, якщо влучили атакою Шквалу ударів{{Flurry of Blows}} й ціль провалила ряткидок Сили. Хороша можливість, але привʼязка до Шквалу та беззбройних ударів обмежує комбінації."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-monk-way-of-the-open-hand-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Монаха Шляху відкритої долоні",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": " автор поєднує Техніку з Дробильник{{Crusher}}, щоб відправити ворога на 20 футів. Це приємний попередник цієї статті. Примітка редакції: напрям переміщення й сумісність визначає Майстер."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger-swarmkeeper",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Слідопит — Хранитель рою",
+          "sourceAnchor": "ranger-swarmkeeper",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-swarmkeeper-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зібраний рій{{Gathered Swarm}} дозволяє перемістити істоту на 15 футів горизонтально після влучання й проваленого ряткидка Сили. Памʼятайте обмеження горизонтальним рухом, особливо якщо розраховуєте на падіння."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer-storm-sorcery",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Чародій — Магія шторму",
+          "sourceAnchor": "sorcerer-storm-sorcery",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-storm-sorcery-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Stormʼs Fury{{Stormʼs Fury}} на 14-му рівні дозволяє реакцією відштовхнути ворога на 20 футів після проваленого ряткидка Сили. На жаль, потрібен високий рівень і витрачається реакція."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock-genie",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Чорнокнижник — Джин",
+          "sourceAnchor": "warlock-genie",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-genie-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чорнокнижник Джина дає три можливості переміщення, але їх складно поєднати з рештою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-warlock-genie-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Genieʼs Wrath (Dao){{Ярість джинна|Genie's Wrath}} додає дробильну шкоду, рівну Бонусу Майстерності, до однієї атаки у свій хід і дозволяє запускати Дробаря."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Rebuke of the Talisman{{Rebuke of the Talisman}}: коли по носію вашого талісмана влучає атака, можна реакцією відштовхнути нападника на 10 футів. Реакція не дозволяє одночасно застосувати Repulsion Shield. Примітка редакції: нападник має бути видимий вам у межах 30 футів; це виклик для Магії талісмана, а не виключна здібність Джина."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Repelling Blast{{Repelling Blast}} — популярний виклик, який відштовхує на 10 футів при кожному влучанні Позамежний заряд [Eldritch Blast]. До чотирьох променів за накладання дають багато переміщення."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard-graviturgy-magic",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Чарівник — Гравітургія",
+          "sourceAnchor": "wizard-graviturgy-magic",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-graviturgy-magic-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Gravity Well{{Gravity Well}} на 6-му рівні дозволяє перемістити істоту на 5 футів, якщо вона погоджується, заклинання влучає по ній атакою або вона провалює ряткидок проти нього."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard-order-of-scribes",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Чарівник — Орден писарів",
+          "sourceAnchor": "wizard-order-of-scribes",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-order-of-scribes-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зміна типів шкоди заклинань потенційно дозволяє отримати тип, що запускає Дробаря чи Thunderbolt Strike. Примітка редакції: доступні типи залежать від потрібного рівня заклинання у вашій книзі; це не довільна заміна будь-яким типом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Магічні предмети",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Battering Shield{{Battering Shield}}"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "EGtW"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (рідкісний): коли відштовхуєте істоту у своїй досяжності щонайменше на 5 футів, витрачаєте один із трьох зарядів щита для ще 10 футів, падіння Ничком або обох ефектів. Автор підкреслює саме push, не Shove чи move: Crusher не підходить, Pushing Attack — підходить. Примітка редакції: застосування до конкретної здібності визначає її текст; заряд витрачає реакцію, тому в цей момент іншу реакцію використати не можна."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ring of the Ram{{Ring of the Ram}}"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "DMG"
+                  },
+                  {
+                    "type": "text",
+                    "text": " (рідкісний): витрачаєте один чи більше зарядів, щоб зробити атаку заклинанням із силовою шкодою та відштовхнути на 5 футів за заряд при влучанні. Не можна просто змінити шкоду на дробильну чи блискавкову, тому комбінації обмежені."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-2",
+          "heading": "Приклад збірки — чемпіон відштовхування",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Серед варіантів вище є кілька можливостей ближнього бою, які автор хоче поєднати, завдаючи одночасно дробильної та блискавкової шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик Домену бурі 6 — Thunderbolt Strike{{Thunderbolt Strike}}: 10 футів при блискавковій шкоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Воїн-Майстер бойових мистецтв 3 — Pushing Attack{{Pushing Attack}}: автор пише 10 футів після проваленого ряткидка Сили зі СК від Сили. Примітка редакції: правильна дистанція 15 футів; Pushing Strike — помилкова назва в оригіналі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Слідопит-Хранитель рою 3 — Gathered Swarm{{Gathered Swarm}}: 15 футів горизонтально після проваленого ряткидка Сили зі СК від Мудрості."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Нападник{{Charger}}: 10 футів, якщо після Ривка рухалися 10 футів по прямій до цілі й влучили належною бонусною атакою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дробильник{{Crusher}}: 5 футів один раз на хід при дробильній шкоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Духовна плащаниця [Spirit Shroud]: заклинання Клірика 3-го рівня, +1к8 шкоди обраного типу до атак по ворогах у межах 10 футів. Примітка редакції: автор помилково дозволяє блискавку; доступні холод, некротична або променева шкода."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Battering Shield{{Battering Shield}}: один заряд додає 10 футів відштовхування."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-example-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор отримує загалом 60 футів, але треба виконати кілька умов: підтримувати Spirit Shroud, яке накладається бонусною дією й триває хвилину, потім зробити Ривок і влучити атакою ближнього бою з дробильною шкодою. Зазвичай це два ходи, але є Сплеск дій{{Action Surge}}. Автор заявляє мінімум 12 рівнів, рідкісний предмет і два провалені ряткидки Сили. Примітка редакції: Spirit Shroud не дає потрібного типу шкоди; підсумок із повною дистанцією Pushing Attack 15 футів — 65, а не 60 футів; показана рівнева таблиця отримує Thunderbolt Strike лише на 19-му рівні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із заявлених 60 футів автор залишає лише 15 горизонтальними, підкидаючи ціль до 45 футів, завдаючи 4к6 шкоди падіння й автоматично кладучи Ничком. Нібито ціль опиниться настільки далеко, що потребуватиме Ривка для повернення. Ще краще — впустити її на іншого ворога й покласти обох Ничком. Примітка редакції: підкидання й падіння на істоту потребують окремої перевірки умов та рішень Майстра. Вертикальне падіння саме по собі не залишає ціль на 45 футів далі горизонтально; потреба Ривка не гарантована."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-2",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потрібні Сила й Мудрість для атак та СК, кілька рис і мультикласування, тому мало простору для помилок. Автор пише 15/15/15/8/8/8; у таблиці розподіл — Сила 15, Спритність 8, Статура 15, Інтелект 8, Мудрість 15, Харизма 8. Обране Нестандартне походження дає +2 до Сили, Дробар — ще +1, тож початкова Сила 18. На низьких рівнях це звичайний Воїн. Примітка редакції: ця таблиця не дозволяє мультиклас у Слідопита 2014, який потребує і Спритності 13, і Мудрості 13. Авторська збірка в такому вигляді незаконна."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Після підвищення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-2",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нестандартне походження{{Custom Lineage}}. Людина (варіант){{Варіант людини|Human Variant}} теж можлива, але потребує іншого розподілу підвищень характеристик нижче."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-2",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Professional Athlete чомусь немає серед варіантів, але походження не визначає збірку. Примітка редакції: офіційне походження Athlete існує в Mythic Odysseys of Theros; автор називає його іншим словосполученням."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-2",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не визначають збірку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-and-ability-score-increases",
+          "parentSectionId": "section-example-2",
+          "heading": "Риси й підвищення характеристик",
+          "sourceAnchor": "feats-and-ability-score-increases",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми мультикласуємо… Примітка редакції: в оригіналі тут незавершене речення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 1-му рівні беремо Дробильник{{Crusher}}: центральна риса підвищує Силу до 18 й переміщує ціль на 5 футів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо Нападник{{Charger}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні підвищуємо Силу до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні ділимо підвищення між Статурою й Мудрістю, отримуючи 16 в обох."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 17-му рівні підвищуємо Мудрість до 18."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-2",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 — Воїн 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дробильник{{Crusher}}; Дуель{{Dueling}}; Second Wind{{Second Wind}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Візьміть щит і бойовий молот. Звикайте. Можна взяти Superior Technique{{Superior Technique}} для додаткової кістки маневру."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 — Воїн 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Action Surge{{Action Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Завжди чудово; дає більше шансів влучити після Ривка для Charger. Примітка редакції: поштовх самої риси Charger привʼязаний до її бонусної атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 — Воїн 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер бойових мистецтв{{Battle Master}}; кістки переваги 4к8; Precision Attack{{Precision Attack}}, Pushing Attack{{Pushing Attack}}, Riposte{{Riposte}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Precision Attack допомагає влучити єдиною атакою, Pushing Attack відштовхує, а Riposte дозволяє відповідати на напад. Crusher і Pushing Attack разом, за трактуванням автора, відправляють ворога на 20 футів; потрібен провал ряткидка Сили проти вашої СК від Сили."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 — Воїн 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нападник{{Charger}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Комбінація готова, далі лише доповнення. Charger, Crusher і Pushing Attack нібито дають 30 футів: Ривок, рух на 10 футів по прямій до цілі й влучання бонусною атакою або через Action Surge. Силу не підвищуємо, бо вже 18. Примітка редакції: бонус Charger отримує лише відповідна бонусна атака; вертикальний напрям погоджує Майстер."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 — Слідопит 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Favored Enemy{{Favored Enemy}}; Natural Explorer{{Natural Explorer}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мультикласування замість Додаткової атаки складне, але автор покладається на бонусну атаку Charger. Інших переваг небагато. Примітка редакції: зі Спритністю 8 цей перехід у Слідопита за стандартними передумовами неможливий."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 — Слідопит 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дуель{{Dueling}}; Чаротворення{{Spellcasting}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Трохи шкоди й посереднє для загального рівня чаротворення. Удар Зефіра [Zephyr Strike] дозволяє уникнути провокованих атак, відійти й застосувати Charger. Примітка редакції: повторний стиль Dueling обирати не можна й його бонуси не складаються; Zephy Strike в оригіналі — помилка назви."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 — Слідопит 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хранитель рою{{Swarmkeeper}}; Gathered Swarm{{Gathered Swarm}}; Swarmkeeper Magic{{Swarmkeeper Magic}}; Primeval Awareness{{Primeval Awareness}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Gathered Swarm додає 15 футів. СК невисока через Мудрість 15; цей компонент найменш впливовий на підкидання, бо лише горизонтальний."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 — Слідопит 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення Сили: 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відповідає базовій математиці й підтримує високу СК Pushing Attack."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 — Слідопит 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті Додаткова атака для випадків без Charger. Заклинання 2-го рівня істотно не змінюють тактику."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 — Слідопит 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Favored Enemy та Natural Explorer"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 — Слідопит 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Writhing Tide{{Writhing Tide}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 — Слідопит 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення Статури 15 → 16 і Мудрості 15 → 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розділене підвищення доводить обидва модифікатори до +3. Автор вважає це найранішою ймовірною нагодою знайти рідкісний предмет і почати шукати Battering Shield: додаткові 10 футів тричі за день приємні. Примітка редакції: отримання предмета не гарантоване рівнем, а відновлення зарядів визначає його опис."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 — Слідопит 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання Слідопита 3-го рівня дають Стихійна зброя [Elemental Weapon], центральне для збірки. Додано до опціонально розширеного списку Слідопита у Казан Таші з усім. Можна взяти цей рівень після шести Клірика: в обох порядках Thunderbolt Strike + Elemental Weapon доступні з 19-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 — Клірик 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Домен бурі{{Tempest Domain}}; Wrath of the Storm{{Wrath of the Storm}}; Чаротворення{{Spellcasting}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рівні Клірика розвивають слоти, дозволяючи частіше й згодом вищим слотом накладати Elemental Weapon."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 — Клірик 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Channel Divinity{{Channel Divinity}} (1/відпочинок); Turn Undead{{Turn Undead}}; Destructive Wrath{{Destructive Wrath}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Destructive Wrath працює з блискавковою додатковою шкодою Elemental Weapon. Через малу к4 автор радить берегти для критів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 — Клірик 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання Клірика 2-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 — Клірик 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення Мудрості: 16 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Найвища доступна в цій збірці СК заклинань і Gathered Swarm. Підвищень до Мудрості 20 не вистачає через потрібний 9-й рівень Слідопита."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 — Клірик 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Destroy Undead{{Destroy Undead}} (CR 1/2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 — Клірик 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Channel Divinity{{Channel Divinity}} (2/відпочинок); Thunderbolt Strike{{Thunderbolt Strike}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Charger, Crusher, Pushing Attack, Battering Shield і Thunderbolt Strike від Elemental Weapon, за словами автора, дають 60 футів горизонтально й 45 у повітря. Потрібні Ривок, 10 футів руху по прямій до цілі й влучання бонусною атакою або через Action Surge. Примітка редакції: це авторський альтернативний опис одного комбінованого переміщення, не дві окремі гарантовані дистанції. Pushing Attack становить 15 футів; Charger потребує бонусної атаки; напрям і порядок погоджує Майстер. Помилка Спритності все ще робить наведену збірку незаконною."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Усе потрібне є, останній рівень вільний. Слідопит 10 дає Hide in Plain Sight{{Hide in Plain Sight}}, Клірик 7 — заклинання Клірика 4-го рівня."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-home-run-bat-2014-001",
+      "articleId": "rpgbot-home-run-bat-2014",
+      "translationRevisionId": "translation-rpgbot-home-run-bat-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-0",
+      "context": "Нападник",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-home-run-bat-2014-002",
+      "articleId": "rpgbot-home-run-bat-2014",
+      "translationRevisionId": "translation-rpgbot-home-run-bat-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-1",
+      "context": "Дробильник",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-home-run-bat-2014-003",
+      "articleId": "rpgbot-home-run-bat-2014",
+      "translationRevisionId": "translation-rpgbot-home-run-bat-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-2",
+      "context": "Дарунок хроматичного дракона",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-home-run-bat-2014-004",
+      "articleId": "rpgbot-home-run-bat-2014",
+      "translationRevisionId": "translation-rpgbot-home-run-bat-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-3",
+      "context": "Військовий адепт",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-home-run-bat-2014-005",
+      "articleId": "rpgbot-home-run-bat-2014",
+      "translationRevisionId": "translation-rpgbot-home-run-bat-2014-draft1",
+      "sectionId": "section-example",
+      "targetBlockId": "block-section-example-1",
+      "optionId": "section-example-block-section-example-1-item-0",
+      "context": "Battering Shield",
+      "explanationBlockId": "block-section-example-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-home-run-bat-2014-006",
+      "articleId": "rpgbot-home-run-bat-2014",
+      "translationRevisionId": "translation-rpgbot-home-run-bat-2014-draft1",
+      "sectionId": "section-example",
+      "targetBlockId": "block-section-example-1",
+      "optionId": "section-example-block-section-example-1-item-1",
+      "context": "Ring of the Ram",
+      "explanationBlockId": "block-section-example-1"
+    }
+  ]
+}

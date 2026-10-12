@@ -1,0 +1,784 @@
+{
+  "buildId": "build-fighter-psi-warrior-2014",
+  "revisionId": "build-fighter-psi-warrior-2014-v4",
+  "ruleset": "RULES_2014",
+  "title": "Псі-воїна — Гіфф-янкі",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-fighter-psi-warrior-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+      "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "FIGHTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "PSI_WARRIOR",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "PIERCER",
+        "featOptions": [
+          {
+            "optionNameEng": "PIERCER Ability (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SHARPSHOOTER"
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GIFT_OF_THE_GEM_DRAGON",
+        "featOptions": [
+          {
+            "optionNameEng": "GIFT_OF_THE_GEM_DRAGON Ability (Intelligence)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TELEKINETIC",
+        "featOptions": [
+          {
+            "optionNameEng": "TELEKINETIC Ability (Intelligence)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY",
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-psi-warrior-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+          "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "PSI_WARRIOR",
+    "raceKey": "GIFF_SPELLJAMMER",
+    "backgroundKey": "SOLDIER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 10
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 15
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Починаємо з 15 у Спритності й Інтелекті, але Статуру лишаємо на 14, бо плануємо битися здалеку, а в разі нагальної потреби є «Захисне поле». Це дозволяє мати трохи Мудрості замість типового оптимізованого 15/15/15/8/8/8. Расове +2 ставимо у Спритність, а расове +1 — в Інтелект.\n\n Базове значення Підвищене значення Сила 10 10 Спритність 15 17 Статура 14 14 Інтелект 15 16 Мудрість 8 8 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Гіфф{{Giff}}! Так, ґіт мав би тут сенс, бо ґіти — це про псіоніку, але ми додаємо до збірки рушницю, а я люблю безглуздий каламбур, тож ось. «Астральна іскра»{{Astral Spark}} і «Майстерність вогнепальної зброї»{{Firearms Mastery}} чудово працюють для того, що ми плануємо.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Солдат{{Soldier}}. Опорний вибір для воїнів, тематичний для збірки й дає володіння Атлетикою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Оберемо Аналіз Поведінки та Уважність з навичок класу, щоб компенсувати нашу жахливу Мудрість, а потім отримаємо Атлетику й Залякування від передісторії. Надзвичайно типово для воїна. Також володіємо ігровим набором і наземним транспортом, але вони рідко знадобляться.\n\nАтлетика буде для нас дуже важливою, бо ми побудовані для дальнього бою, але не братимемо «Стрільця», щоб зробити безпечним використання дальньої зброї в ближньому бою. На щастя, ми {{патріотичний|patriot (закреслено в оригіналі)}} космічний бегемот і маємо Перевагу на кубику на перевірки Сили. З цим і володінням Атлетикою ми пристойно штовхаємо ворогів, навіть якщо Сила в нас погана.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Проколювача»{{Piercer}}. Це чудова напівриса для збірок дальніх атакерів.\n\nНа 6-му рівні беремо «Влучного стрільця»{{Sharpshooter}}. Ще один опорний вибір для дальніх збірок.\n\nНа 8-му рівні беремо покращення характеристик, щоб довести Спритність до максимуму.\n\nНа 12-му рівні беремо «Дарунок самоцвітного дракона»{{Gift of the Gem Dragon}}. +1 до Інтелекту й здатність помʼякшувати елементну шкоду Реакцією.\n\nНа 14-му рівні беремо «Телекінетика»{{Telekinetic}}. +1 до Інтелекту, трохи корисності, «Телекінетичне штовхання», і це дуже добре пасує до теми.\n\nНа 16-му рівні підвищуємо Інтелект до 20.\n\nНа 19-му рівні маємо вільне місце.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бойовий Стиль{{Fighting Style}}: Стрільба з лука, Друге дихання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Сплеск дій (1)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Військовий Архетип{{Martial Archetype}}: Псі-воїн, Кубик псіонічної енергії: к6, Псі-енергія — Захисне поле, Псі-удар, Телекінетичний рух",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Проколювач (Спритність 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака, Кубик псіонічної енергії: к8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Риса: Влучний стрілець",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Телекінетичний адепт — Псі-підсилений стрибок, Телекінетичний поштовх",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Спритність 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Непохитність (1)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Захищений розум{{Guarded Mind}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Додаткова атака (2), Кубик псіонічної енергії: к10",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Дарунок самоцвітного дракона (Інтелект 16 → 17)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Непохитність (2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Риса: Телекінетик (Інтелект 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Захисний заслін{{Bulwark of Force}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: Інтелект 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Сплеск дій (2), Непохитність (3), Кубик псіонічної енергії: к12",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Майстер телекинезу{{Telekinetic Master}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Додаткова атака (3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Риса на 19-му рівнях",
+        "reason": "Автор пише «будь-яка» і не називає вибір. Пресет бере типовий (19-й: LUCKY); це вибір платформи, гравець може змінити його перед створенням.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-psi-warrior-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+            "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

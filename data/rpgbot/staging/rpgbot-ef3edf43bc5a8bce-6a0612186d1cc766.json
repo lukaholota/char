@@ -1,0 +1,1835 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/races/halfling/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "6a0612186d1cc76681fcd5554bdcdcfddb586fd1f527711ebea8952524e85045",
+  "sourceRevision": {
+    "revisionId": "rpgbot-ef3edf43bc5a8bce-6a0612186d1cc766",
+    "sourceId": "rpgbot-ef3edf43bc5a8bce",
+    "fetchedAt": "2026-09-29T19:25:15.988092+00:00",
+    "sourceUpdatedAt": "2025-10-29T13:40:41-04:00",
+    "contentHash": "23c9faa97e374e004b737c2dae2f857e6b2180456f0b1d02c94619d04b51e092",
+    "title": "Halfling: DnD 5e Race/Species Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-ef3edf43bc5a8bce-6a0612186d1cc766.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Halflings are perhaps the most iconic small race in Dungeons and Dragons,\n\tdating back to its earliest editions. Their mechanics have changed as much as\n\tany race, but they have consistently remained a staple option for players who\n\tenjoy playing thieves, rogues, or other stealthy characters."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While halflings have few subraces, they have enough variety that they can\n\teasily succeed in a broad array of classes even without the custom origin\n\trules. While their core Dexterity increase can limit them to Dexterity-based\n\tbuilds, Dexterity is a powerful ability score and almost any class can be\n\tbuilt to fight using either Dexterity or a mental ability score."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The custom origin roles do a lot to open up the Halfling’s horizons, but the\n\tLightfoot Halfling is still mostly pigeon-holed into rogue and other sneaky\n\tclasses."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fun fact: The Halfling was originally called the “Hobbit” until the Tolkien estate sent them a Cease and Desist letter early in D&D’s history. TSR was forced to hastily rename many iconic creatures which had been lifted from Middle Earth, including hobbits (halflings), balrogs (balor), and ents (treants), and those creatures have retained their replacement names since that momentus event."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-halfling-traits",
+      "heading": "Halfling Traits",
+      "sourceAnchor": "halfling-traits",
+      "blocks": [
+        {
+          "blockId": "block-section-halfling-traits-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ability Score Increases"
+              },
+              {
+                "type": "text",
+                "text": ": +2 Dexterity, plus a +1 to something else from your subrace. If you use the Custom Origin rules, you’ll get the standard +2/+1."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Age"
+              },
+              {
+                "type": "text",
+                "text": ": Rarely impactful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Size"
+              },
+              {
+                "type": "text",
+                "text": ": Small. You’ll struggle to use Heavy weapons, and you’ll be easier to swallow whole, but otherwise you’ll be fine."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Speed"
+              },
+              {
+                "type": "text",
+                "text": ": 25 feet is slower than most races, especially since later supplements have standardized to 30 feet even for small races."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lucky"
+              },
+              {
+                "type": "text",
+                "text": ": Wonderful insurance, especially for folks who tend to roll poorly. Try using thee Halfling Lucky toggle on our "
+              },
+              {
+                "type": "link",
+                "text": "DPR Calculator",
+                "href": "https://rpgbot.net/dnd5/tools/dpr-calculator/"
+              },
+              {
+                "type": "text",
+                "text": " to get an idea of how this affects the math of your rolls."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Brave"
+              },
+              {
+                "type": "text",
+                "text": ": Fear effects are common across the full level spectrum."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Halfling Nimbleness"
+              },
+              {
+                "type": "text",
+                "text": ": You’re already allowed to move through allies’ spaces, so this is for enemies. With no flanking or facing rules, this is rarely impactful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Languages"
+              },
+              {
+                "type": "text",
+                "text": ": Common+1 is standard."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ghostwise-halfling",
+      "parentSectionId": "section-halfling-traits",
+      "heading": "Ghostwise Halfling",
+      "sourceAnchor": "ghostwise-halfling",
+      "blocks": [
+        {
+          "blockId": "block-section-ghostwise-halfling-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ability Score Increases"
+              },
+              {
+                "type": "text",
+                "text": ": +1 Wisdom."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Silent Speech"
+              },
+              {
+                "type": "text",
+                "text": ": Telepathy is always helpful for adventurers who value subtlety."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-lightfoot-halfling",
+      "parentSectionId": "section-halfling-traits",
+      "heading": "Lightfoot Halfling",
+      "sourceAnchor": "lightfoot-halfling",
+      "blocks": [
+        {
+          "blockId": "block-section-lightfoot-halfling-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ability Score Increases"
+              },
+              {
+                "type": "text",
+                "text": ": +1 Charisma."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Naturally Stealthy"
+              },
+              {
+                "type": "text",
+                "text": ": Neat, but only useful if you have Cunning Action so you can hide in combat."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-mark-of-healing-halfling",
+      "parentSectionId": "section-halfling-traits",
+      "heading": "Mark of Healing Halfling",
+      "sourceAnchor": "mark-of-healing-halfling",
+      "blocks": [
+        {
+          "blockId": "block-section-mark-of-healing-halfling-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ability Score Increases"
+              },
+              {
+                "type": "text",
+                "text": ": +1 Wisdom."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medical Intuition"
+              },
+              {
+                "type": "text",
+                "text": ": Borderline useless."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Healing Touch"
+              },
+              {
+                "type": "text",
+                "text": ": Consistently useful, but Cure Wounds once per day isn’t a lot of healing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spells of the Mark"
+              },
+              {
+                "type": "text",
+                "text": ": Basically all of the Cleric’s staple healing spells up to 5th level."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-mark-of-hospitality-halfling",
+      "parentSectionId": "section-halfling-traits",
+      "heading": "Mark of Hospitality Halfling",
+      "sourceAnchor": "mark-of-hospitality-halfling",
+      "blocks": [
+        {
+          "blockId": "block-section-mark-of-hospitality-halfling-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ability Score Increases"
+              },
+              {
+                "type": "text",
+                "text": ": +1 Charisma."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ever Hospitable"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic for a Face."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Innkeeper’s Magic"
+              },
+              {
+                "type": "text",
+                "text": ": Decent spells, but not consistently useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spells of the Mark"
+              },
+              {
+                "type": "text",
+                "text": ": Some great healing, support, and utility spells."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-stout-halfling",
+      "parentSectionId": "section-halfling-traits",
+      "heading": "Stout Halfling",
+      "sourceAnchor": "stout-halfling",
+      "blocks": [
+        {
+          "blockId": "block-section-stout-halfling-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ability Score Increases"
+              },
+              {
+                "type": "text",
+                "text": ": +1 Con."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stout Resilience"
+              },
+              {
+                "type": "text",
+                "text": ": Resistance to one of the most common damage types in the game."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-lotusden-halfling",
+      "parentSectionId": "section-halfling-traits",
+      "heading": "Lotusden Halfling",
+      "sourceAnchor": "lotusden-halfling",
+      "blocks": [
+        {
+          "blockId": "block-section-lotusden-halfling-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ability Score Increases"
+              },
+              {
+                "type": "text",
+                "text": ": +1 Wisdom."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Child of the Wood"
+              },
+              {
+                "type": "text",
+                "text": ": "
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tinberwalk"
+              },
+              {
+                "type": "text",
+                "text": ": Only situationally useful."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes-custom-origin",
+      "heading": "Halfling Classes (Customizable Origins)",
+      "sourceAnchor": "classes-custom-origin",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-custom-origin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section assumes that you’re using the option “"
+            },
+            {
+              "type": "link",
+              "text": "Customizing Your Origin",
+              "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+            },
+            {
+              "type": "text",
+              "text": "” rules presented in Tasha’s Cauldron of Everything. If you’re not using those rules, scroll down to the next section."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-artificer",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Artificer",
+      "sourceAnchor": "custom-origin-artificer",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-artificer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The halfling brings very little to the Artificer beyond ability scores and\n\tLucky. None of the halfling’s subraces add meaningful new capabilities,\n\tincluding the Mark of Healing. Stout is likely your best bet for front-line\n\tbuilds, and Ghostwise or Lightfoot may be appealing for stealthy armorer\n\tbuilds."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-barbarian",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Barbarian",
+      "sourceAnchor": "custom-origin-barbarian",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-barbarian-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Being small means not using greataxes, but if you already planned to use a\n\tshield or go for Path of the Beast, that doesn’t really matter. Stout is your\n\tbest option unless you’re planning to go for Bear Totem, in which case the\n\tdamage resistance will be mostly redundant."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-bard",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Bard",
+      "sourceAnchor": "custom-origin-bard",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-bard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bards make surprisingly few rolls compared to other characters, so Lucky is\n\tless useful than you’d hope. The Halfling’s subraces don’t offer anything\n\tespecially helpful for the Bard, so as a whole there’s just not much here that\n\tmakes a halfling bard effective."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-cleric",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Cleric",
+      "sourceAnchor": "custom-origin-cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lotusden offers some Wisdom-based druid spellcasting that works well for the\n\tCleric. Other halfling subraces don’t offer anything that’s especially useful\n\tfor the Cleric."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-druid",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Druid",
+      "sourceAnchor": "custom-origin-druid",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-druid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lotusden gives you some additional spellcasting. Ghostwise gives you\n\ttelepathy that works while using Wild Shape. Otherwise there’s not a lot\n\there."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-fighter",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Fighter",
+      "sourceAnchor": "custom-origin-fighter",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-fighter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With up to four attacks (before considering TWF or Action Surge), Lucky is a\n\tgreat asset for the Fighter. Stout is your most likely choice of subrace for\n\tthe poison resistance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-monk",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Monk",
+      "sourceAnchor": "custom-origin-monk",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-monk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With up to four attacks with Flurry of Blows, Lucky is very useful. If you’re\n\tbuilding a sneaky monk, Ghostwise can be helpful, but remember that halflings\n\tdon’t get Darkvision so you may want to go Way of Shadow so that you can cast\n\tDarkvision."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-paladin",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Paladin",
+      "sourceAnchor": "custom-origin-paladin",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-paladin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lucky can be helpful on top of Aura of Protection, and the Stout Halfling’s\n\tresistance to poison is another great addition to the Paladin’s already\n\timpressive durability. Unfortunately, halfling subraces offer little that will\n\thelp the Paladin actively do anything."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-ranger",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Ranger",
+      "sourceAnchor": "custom-origin-ranger",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-ranger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Without the Rogue’s Cunning Action, the Lightfoot Halfling’s Naturally\n\tStealthy is considerably less impactful. If you want a stealthy build,\n\tGhostiwse is probably the right choice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-rogue",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Rogue",
+      "sourceAnchor": "custom-origin-rogue",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-rogue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Lightfoot halfling is built to work with the Rogue’s Cunning Action,\n\tallowing you to hide behind an ally as a Bonus Action without worrying about\n\treal cover or a decent hiding place. That utility alone is difficult to match,\n\tbut if you want to go another route, the Ghostwise Halfling’s telepathy is\n\tgreat for sneaking around."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-sorcerer",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Sorcerer",
+      "sourceAnchor": "custom-origin-sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Halfling’s traits offer basically nothing that adds to the Sorcerer’s\n\tcapabilities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-warlock",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Warlock",
+      "sourceAnchor": "custom-origin-warlock",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-warlock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The combination of Lucky and Eldritch Blast makes the Warlock a good\n\tspellcasting option, but beyond that there’s nothing uniquely effective about\n\ta halfling warlock."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-custom-origin-wizard",
+      "parentSectionId": "section-classes-custom-origin",
+      "heading": "Wizard",
+      "sourceAnchor": "custom-origin-wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-custom-origin-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Halfling’s traits offer basically nothing that adds to the Wizard’s\n\tcapabilities."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-custom-origin-wizard-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re using dragonmarks, a Mark of Healing wizard is a uniquely powerful\n\tcombination because you have the overwhelmingly powerful wizard spell list\n\tplus crucial healing options normally reserved for clerics and druids."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes-default",
+      "heading": "Halfling Classes (Default Rules)",
+      "sourceAnchor": "classes-default",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-default-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section assumes that you’re "
+            },
+            {
+              "type": "emphasis",
+              "text": "not"
+            },
+            {
+              "type": "text",
+              "text": " using the option “Customizing Your Origin” rules presented in Tasha’s Cauldron of Everything or the updated version of the race published in Mordenkainen’s Monsters of the Multiverse. If you are using those rules, scroll up to the previous section."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-artificer",
+      "parentSectionId": "section-classes-default",
+      "heading": "Artificer",
+      "sourceAnchor": "default-artificer",
+      "blocks": [
+        {
+          "blockId": "block-section-default-artificer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No Intelligence increase."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-barbarian",
+      "parentSectionId": "section-classes-default",
+      "heading": "Barbarian",
+      "sourceAnchor": "default-barbarian",
+      "blocks": [
+        {
+          "blockId": "block-section-default-barbarian-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No Strength increase. If Rage wasn’t limited to Strength-based weapon attacks\n\tthis could be doable, but currently that’s not an option."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-bard",
+      "parentSectionId": "section-classes-default",
+      "heading": "Bard",
+      "sourceAnchor": "default-bard",
+      "blocks": [
+        {
+          "blockId": "block-section-default-bard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A lightfoot halfling makes a fantastic bard, adding both Dexterity and\n\tCharisma, plus other traits like Lucky and Naturally Stealthy. With the right\n\tbackground you can pick up proficiencies to replace a rogue, easily serving\n\tyour part as a Face, a Scout, and Support Caster with a very simple build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-cleric",
+      "parentSectionId": "section-classes-default",
+      "heading": "Cleric",
+      "sourceAnchor": "default-cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-default-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Ghostwise Halfling and the Lotusden Halfling both get a Wisdom increase,\n\tmaking clerics possible. For the Ghostwise Halfling your best bet is a\n\ttrickery cleric with rogue-like skills, but you may do fine in other domains\n\tso long as you avoid using weapons. For the Lotusden Halfling, the Cleric is a\n\tgreat option and the innate spellcasting can add some interesting druid\n\toptions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-druid",
+      "parentSectionId": "section-classes-default",
+      "heading": "Druid",
+      "sourceAnchor": "default-druid",
+      "blocks": [
+        {
+          "blockId": "block-section-default-druid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ghostwise halflings make excellent moon druids. Silent Speech allows you to\n\tspeak to your allies telepathically, and it doesn’t appear to be dependent on\n\tyour physical form so it should work fine while using Wild Shape. For other\n\tdruid circles, the Lotusden Halfling is generally your best bet, providing\n\tsome additional low-level druid spellcasting that works in any druid build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-fighter",
+      "parentSectionId": "section-classes-default",
+      "heading": "Fighter",
+      "sourceAnchor": "default-fighter",
+      "blocks": [
+        {
+          "blockId": "block-section-default-fighter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any halfling will do well with a crossbow or a bow, and a stoout halfling\n\tmakes as good a Defender as any dwarf would, though you’ll want to stick to\n\trapiers or whips since they’re the best finesse options available."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-monk",
+      "parentSectionId": "section-classes-default",
+      "heading": "Monk",
+      "sourceAnchor": "default-monk",
+      "blocks": [
+        {
+          "blockId": "block-section-default-monk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Both ghostwise and stout make fine options for the Monk. Lucky is helpful on\n\ta class which depends on making numerous low-damage attacks."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-paladin",
+      "parentSectionId": "section-classes-default",
+      "heading": "Paladin",
+      "sourceAnchor": "default-paladin",
+      "blocks": [
+        {
+          "blockId": "block-section-default-paladin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lightfoot’s Charisma increase is tempting for the Paladin, but beyond the\n\tCharisma increase they have little to offer. Stout is the better option,\n\tadding poison resistance and extra Constitution to the Paladin’s already\n\texcellent durability."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-ranger",
+      "parentSectionId": "section-classes-default",
+      "heading": "Ranger",
+      "sourceAnchor": "default-ranger",
+      "blocks": [
+        {
+          "blockId": "block-section-default-ranger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any halfling subrace works for the ranger. Ghostwise, lotusden, and stout all\n\tmake excellent rangers based on their ability score increases and other\n\ttraits, and while ligthfoot’s Charisma increase is largely wasted on the\n\tRanger you might still enjoy Naturally Stealthy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-rogue",
+      "parentSectionId": "section-classes-default",
+      "heading": "Rogue",
+      "sourceAnchor": "default-rogue",
+      "blocks": [
+        {
+          "blockId": "block-section-default-rogue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The obvious choice for the Halfling, any halfling subrace works great for a\n\trogue depending on your build. Lotusden may be the least-suited to the Rogue,\n\tbut even then the Dexterity increase is enough for you to be functional. The\n\tLightfoot Halfling is an iconic rogue, and their Naturally Stealthy trait\n\tworks alongside Cunning Action to make it easy to hide in combat even when you\n\tdon’t have normal sources of cover or concealment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-sorcerer",
+      "parentSectionId": "section-classes-default",
+      "heading": "Sorcerer",
+      "sourceAnchor": "default-sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-default-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lightfoot works fine, but since you’re not as reliant on attack rolls and\n\tskills, Lucky isn’t as useful so you’re not getting much beyond ability score\n\tincreases. Other races like the half-elf will generally work better."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-warlock",
+      "parentSectionId": "section-classes-default",
+      "heading": "Warlock",
+      "sourceAnchor": "default-warlock",
+      "blocks": [
+        {
+          "blockId": "block-section-default-warlock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A better option for the Lightfoot Halfling, Lucky works great with Eldritch\n\tBlast. You’re making as many attacks as a Fighter, and Lucky still applies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-default-wizard",
+      "parentSectionId": "section-classes-default",
+      "heading": "Wizard",
+      "sourceAnchor": "default-wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-default-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No Intelligence increase."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-dragonmarks",
+      "heading": "Halfling Dragonmarks",
+      "sourceAnchor": "dragonmarks",
+      "blocks": [
+        {
+          "blockId": "block-section-dragonmarks-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmarks are detailed in Eberron: Rising from the Last War. Halflings\n\ttreat Dragonmarks like a subrace."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-mark-of-healing",
+      "parentSectionId": "section-dragonmarks",
+      "heading": "Mark of Healing",
+      "sourceAnchor": "mark-of-healing",
+      "blocks": [
+        {
+          "blockId": "block-section-mark-of-healing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mark of Healing’s spell list adds several crucial healing spells to your\n\tspell list. Unfortunately, with Dexterity and Wisdom increases the most likely\n\tclasses to pair with Mark of Healing are the Cleric and the Druid, and they\n\talready get access to the most important spells on the dragonmarks spell\n\tlist."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-mark-of-healing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With the custom origin rules, Mark of Healing becomes a spectacular option\n\tfor every full caster except the Cleric and the Druid (they already get most\n\tof these spells), offering crucial healing options to classes like the\n\tSorcerer and the Wizard without dedicating other major decision points like\n\tyour subclass."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-mark-of-hospitality",
+      "parentSectionId": "section-dragonmarks",
+      "heading": "Mark of Hospitality",
+      "sourceAnchor": "mark-of-hospitality",
+      "blocks": [
+        {
+          "blockId": "block-section-mark-of-hospitality-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mark of Hospitaly is a challenge. Dexterity and Charisma increases work\n\tappeal primarily to bards, rogues, sorcerers, and warlocks, and while the\n\tdragonmark spell list has some interesting options, most of them are only\n\tsituationally useful. Aid is really good on a warlock since your spell slots\n\tscale in level and you can take a short rest to recharge right after casting\n\tAid, but I don’t think there’s anything else here that’s going to be good\n\tenough to justify one of your limited number of spells known. The\n\tnon-spellcasting benefits definitely aren’t enough to entice rogues compared\n\tto ghostwise or lightfoot."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-mark-of-hospitality-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With the custom origin rules, non-Charisma-based spellcasters are an option.\n\tArtificers, clerics, druids, and wizards will all find that parts of the\n\tdragonmark spell list overlap with their normal spell list, but there are a\n\tfew gems for each of those classes. Artificers will find Leomund’s Tiny Hut a\n\tuseful ritual. Clerics will enjoy Goodberry and Sleep at low levels, though\n\tthe higher-level options mostly overlap with their own spell list. Druids will\n\tenjoy Sleep and Aid, especially melee builds like Circle of Spores which\n\tsuffer from the Druid’s lack of durability. Circle of the Moon might also eye\n\tAid, but it’s unlikely that the spell’s effect applies to both your natural\n\tform and to each Wild Shape form which you might take throughout the spell’s\n\tduration."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Halfling Feats",
+      "sourceAnchor": "feats",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-bountiful-luck",
+      "parentSectionId": "section-feats",
+      "heading": "Bountiful Luck",
+      "sourceAnchor": "bountiful-luck",
+      "blocks": [
+        {
+          "blockId": "block-section-bountiful-luck-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The more rolls your party is making, the better this gets. If you have a\n\tparty that makes a lot of attack rolls (fighters, summoned pets, etc.) or if\n\tyou just have a big party, you’ll get a lot of use out of this. It doesn’t\n\tbenefit you directly in any way, but sometimes being a hero to the rest of the\n\tparty is enough."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-second-chance",
+      "parentSectionId": "section-feats",
+      "heading": "Second Chance",
+      "sourceAnchor": "second-chance",
+      "blocks": [
+        {
+          "blockId": "block-section-second-chance-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A fantastic option for nearly everyone except the Rogue. The Rogue already\n\tgets Uncanny Dodge to mitigate damage from attacks directed at the Rogue, so\n\tspending a feat on Second Chance is a poor investment. If you’re at 19 in an\n\tability score that you want to increase, this is a great option if you don’t\n\twant to split your points between two abilities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-squat-nimbleness",
+      "parentSectionId": "section-feats",
+      "heading": "Squat Nimbleness",
+      "sourceAnchor": "squat-nimbleness",
+      "blocks": [
+        {
+          "blockId": "block-section-squat-nimbleness-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Interesting, but I don’t know what sort of build I would include this in. It\n\tfeels like a good, thematically-appropriate feat, I just don’t know what to do\n\twith it. It could be good if you’re at 19 Dexterity, but at that point Second\n\tChance will typically be a better option. Rogues could take it since Second\n\tChance isn’t very useful for the Rogue, but at that point Expertise in\n\tAcrobatics works fine if you’re worried about being grappled."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ability Score Increases"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Size"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Speed"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Lucky"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Brave"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Halfling Nimbleness"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Languages"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ability Score Increases"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Silent Speech"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ability Score Increases"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating- Naturally Stealthy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ability Score Increases"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Medical Intuition"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Healing Touch"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Spells of the Mark"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ability Score Increases"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ever Hospitable"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Innkeeper’s Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Spells of the Mark"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ability Score Increases"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Stout Resilience"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ability Score Increases"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Child of the Wood"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tinberwalk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Wizard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Wizard"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-halfling-traits-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-ghostwise-halfling-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-lightfoot-halfling-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-mark-of-healing-halfling-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-mark-of-hospitality-halfling-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-stout-halfling-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-lotusden-halfling-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "li/innate[1]",
+      "detail": "innate"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-classes-custom-origin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-custom-origin-artificer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-custom-origin-barbarian-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-custom-origin-bard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-custom-origin-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-custom-origin-druid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-custom-origin-fighter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-custom-origin-monk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-custom-origin-paladin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-custom-origin-ranger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-custom-origin-rogue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-custom-origin-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-custom-origin-warlock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-custom-origin-wizard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-custom-origin-wizard-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-classes-default-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-default-artificer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-default-barbarian-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-default-bard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-default-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-default-druid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-default-fighter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-default-monk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-default-paladin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-default-ranger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-default-rogue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-default-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-default-warlock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-default-wizard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-dragonmarks-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-mark-of-healing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-mark-of-healing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-mark-of-hospitality-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-mark-of-hospitality-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-bountiful-luck-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-second-chance-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-squat-nimbleness-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-squat-nimbleness-2"
+    }
+  ],
+  "metrics": {
+    "words": 2276,
+    "sections": 44,
+    "blocks": 52,
+    "tables": 0,
+    "ratingSignals": 54
+  },
+  "status": "needs-editorial-review"
+}

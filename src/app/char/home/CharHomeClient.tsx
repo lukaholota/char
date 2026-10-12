@@ -1,5 +1,6 @@
 "use client";
 
+import { InstallAppEntry } from "@/components/pwa/InstallAppEntry";
 import { PersCardBody } from "./PersCardBody";
 import React, {
   useCallback,
@@ -1788,6 +1789,7 @@ export function CharHomeClient({
         selectionMode && "pt-24",
       )}
     >
+      <InstallAppEntry placement="banner" />
       <div className="flex flex-col gap-4 mb-8">
         <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-500">
           {currentFolderId && (
@@ -1828,7 +1830,7 @@ export function CharHomeClient({
         </div>
 
         {selectionMode && (
-          <div className="fixed top-0 left-0 right-0 z-40 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
+          <div className="fixed top-safe px-safe left-0 right-0 z-40 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
             <div className="container mx-auto px-4 py-3">
               <div className="glass-card border-white/10 bg-white/5 rounded-2xl p-3 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-3 text-sm text-slate-200">

@@ -77,9 +77,9 @@ export function DiscussionCommentCard({ target, comment, onReply, onChanged }: C
   );
 }
 
-type CommentFormProps = { target: string; parentCommentId: number | null; placeholder: string; viewerName: DiscussionViewerName | null; onDone: () => void };
+type CommentFormProps = { target: string; parentCommentId: number | null; placeholder: string; viewerName: DiscussionViewerName | null; isReady?: boolean; onDone: () => void };
 
-export function DiscussionCommentForm({ target, parentCommentId, placeholder, viewerName, onDone }: CommentFormProps) {
+export function DiscussionCommentForm({ target, parentCommentId, placeholder, viewerName, isReady = true, onDone }: CommentFormProps) {
   const [body, setBody] = useState("");
   const [isAskingName, setAskingName] = useState(false);
   const [isPending, startTransition] = useTransition();
@@ -108,7 +108,7 @@ export function DiscussionCommentForm({ target, parentCommentId, placeholder, vi
         className="min-h-20 w-full rounded-lg border border-white/10 bg-slate-950/50 px-3 py-2 text-base text-slate-100 outline-none focus:ring-1 focus:ring-white/20 sm:text-sm"
       />
       <div className="flex justify-end">
-        <Button type="button" className="h-11 w-full sm:h-9 sm:w-auto" disabled={isPending || !body.trim()} onClick={submit}>
+        <Button type="button" className="h-11 w-full sm:h-9 sm:w-auto" disabled={isPending || !isReady || !body.trim()} onClick={submit}>
           {isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : "Надіслати"}
         </Button>
       </div>

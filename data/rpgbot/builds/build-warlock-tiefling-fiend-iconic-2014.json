@@ -1,0 +1,1036 @@
+{
+  "buildId": "build-warlock-tiefling-fiend-iconic-2014",
+  "revisionId": "build-warlock-tiefling-fiend-iconic-2014-v5",
+  "ruleset": "RULES_2014",
+  "title": "Чорнокнижника Почвари — «Знаковий»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-warlock-fiend-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+      "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "WARLOCK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "FIEND"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Agonizing Blast"
+          },
+          {
+            "optionNameEng": "Devil's Sight"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Chain"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "darkness"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceOptions": [
+          {
+            "drop": {
+              "optionNameEng": "Agonizing Blast"
+            },
+            "add": {
+              "optionNameEng": "Investment of the Chain Master"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FLAMES_OF_PHLEGETHOS",
+        "featOptions": [
+          {
+            "optionNameEng": "FLAMES_OF_PHLEGETHOS Ability (Charisma)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "green-flame-blade"
+          ],
+          "knownSpellKeys": [
+            "scorching-ray"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Agonizing Blast"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fireball"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "summon-undead"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Repelling Blast"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wall-of-fire"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceOptions": [
+          {
+            "drop": {
+              "optionNameEng": "Investment of the Chain Master"
+            },
+            "add": {
+              "optionNameEng": "Grasp of Hadar"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (CHA)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (INTIMIDATION)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (PERSUASION)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "shadow-of-moil"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Voice of the Chain Master"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hold-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "mind-sliver"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FEY_TOUCHED",
+        "featOptions": [
+          {
+            "optionNameEng": "FEY_TOUCHED Ability (Charisma)"
+          }
+        ],
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Eldritch Mind"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Chains of Carceri"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "METAMAGIC_ADEPT"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Shrouded in Shadow"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY",
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fiend-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "FIEND",
+    "raceKey": "TIEFLING_2014",
+    "backgroundKey": "NOBLE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 10
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Расове +2 вкладемо в Харизму, а +1 — у Спритність, щоб підняти КБ і ряткидки Спритності.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 14 14 Інтелект 10 10 Мудрість 8 8 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Тифлінг{{Tiefling}} із налаштованим походженням{{Custom Origin}}, бо ми — знакова постать, але й крокуємо в ногу з часом. Підійде майже будь-який різновид тифлінга, але для цієї збірки візьмемо класичний, бо вроджене чаротворство нам добре пасує, а правила налаштованого походження дозволяють перепризначити збільшення Інтелекту на +1. Опір до вогняної шкоди теж чудовий.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Аристократ{{Noble}}, бо ми вишукані. Це дає нам володіння Історією й Переконанням. Переконання немає в списку навичок Чорнокнижника, тож нам украй важливо отримати його від передісторії. Також отримуємо володіння одним ігровим набором і однією мовою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "З навичок класу беремо Магію й Обман, а Історію та Переконання отримуємо від передісторії. Володіння ігровим набором вкладемо в щось круте, як-от драконячі шахи{{Dragon Chess}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Полумʼя Флегетосу»{{Flames of Phlegethos}}: це піднімає Харизму до 18 й дає нам певну страховку від поганих кидків шкоди з деякими з найкращих заклинань нашого підкласу. Шкода у відповідь, коли по вас влучають, мізерна, тож не зважатимемо на неї. Ми тут заради вогневої потужності.\n\nНа 8-му рівні візьмемо «Експерта у навичках»{{Skill Expert}}, щоб підняти Харизму до 19, отримати володіння Залякуванням і Експертизу в Переконанні.\n\nНа 12-му рівні візьмемо «Доторк феї»{{Fey Touched}} заради ще +1 до Харизми й додаткового чаротворства.\n\nНа 16-му рівні візьмемо «Адепта метамагії»{{Metamagic Adept}}.\n\nНа 19-му рівні візьмемо «Удачу»{{Lucky}}. Нічого іншого нам, по суті, не потрібно, а «Удача» — ідеальна риса для таких ситуацій.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Потойбічний покровитель{{Otherworldly Patron}}: Почвара\nБлагословення пекла\nМагія пакту\nВідомі заклинання:\n– Наказ\n– Проклін\nВідомі замовляння:\n– Створення багаття\n– Позамежний заряд\n– Дивотворство (тифлінг)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Потойбічні виклики{{Eldritch Invocations}}:\n– Мучливий вибух\n– Зір диявола\nНове відоме заклинання:\n–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Дар пакту{{Pact Boon}}: Пакт ланцюга\nПеренавчання виклику:\n– Мучливий вибух → Інвестиція майстра ланцюгів\nНове відоме заклинання:\n– Темрява",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Полумʼя Флегетосу (Харизма 17 → 18)\nНове відоме замовляння:\n– Розпечений промінь\nНове відоме заклинання:\n– Клинок Зеленого Полумʼя",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Новий потойбічний виклик:\n– Мучливий вибух\nНове відоме заклинання:\n– Вогнекуля",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Власна удача бісів\nНове відоме заклинання:\n– Виклик немертвого",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Новий потойбічний виклик:\n– Відштовхувальний вибух\nПеренавчання виклику:\n– Інвестиція майстра ланцюгів → Хватка Хадара\nНове відоме заклинання:\n– Стіна вогню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Експерт у навичках\n– Харизма 18 → 19\n– Володіння: Залякування\n– Експертиза: Переконання\nНове відоме заклинання:\n– Тінь Мойла",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Новий потойбічний виклик:\n– Голос майстра ланцюгів\nНове відоме заклинання:\n– Стримування монстра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Бісівська стійкість{{Fiendish Resilience}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Містичний арканум: Проклятуще око\nНове відоме заклинання:\n– будь-яке\nНове відоме замовляння:\n– Розщеплення Розуму",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Доторк феї (Харизма 19 → 20)\nНовий потойбічний виклик:\n– будь-який",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Містичний арканум: Палець смерті\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Кидок у Пекло{{Hurl Through Hell}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Містичний арканум: Підкорення монстра\nНове відоме заклинання:\n– будь-яке\nНовий потойбічний виклик:\n– Ланцюги Каркері",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Адепт метамагії\n– Обережне заклинання\n– Пришвидшене заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Містичний арканум: Істинне перевтілення\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Новий потойбічний виклик:\n– Вкритий тінню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Удача\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Містичний майстер{{Eldritch Master}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Ігровий набір Аристократа",
+        "reason": "Автор обирає драконячі шахи як ігровий набір; пресет не записує вибір ігрового набору передісторії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Рядок 4-го рівня",
+        "reason": "Автор поставив Розпечений промінь у замовляння, а Клинок Зеленого Полумʼя у заклинання, але Розпечений промінь — заклинання 2-го рівня, а Клинок Зеленого Полумʼя — замовляння; записано за правилами: замовлення — Клинок Зеленого Полумʼя, заклинання — Розпечений промінь.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовлення 11-го рівня",
+        "reason": "Автор ставить нове замовляння (Розщеплення Розуму) на 11-му рівні, але Чорнокнижник вивчає четверте замовляння на 10-му; записано на 10-му рівні.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання «будь-які»",
+        "reason": "На 2-му й 11-му рівнях автор не називає нового відомого заклинання; це вибір гравця. Містичний арканум 11-го рівня (Проклятуще око) платформа не записує.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Містичний арканум (11–17-й рівні)",
+        "reason": "Автор називає Проклятуще око (11-й), Палець смерті (13-й), Підкорення монстра (15-й) і Істинне перевтілення (17-й); платформа не записує вибір арканума.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Потойбічний виклик «будь-який» на 12-му рівні",
+        "reason": "Автор не називає виклик. Пресет бере типовий Eldritch Mind (вибір платформи); гравець може змінити. Відомі заклинання «будь-які» на 13, 15, 17 і 19-му рівнях теж лишено на вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання риси Доторк феї (12-й рівень)",
+        "reason": "Автор бере Доторк феї (Харизма +1); платформа не записує заклинання риси на підвищенні, тож заклинання 1-го рівня Пророкування чи Чарів слід додати вручну.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія риси Адепт метамагії (16-й рівень)",
+        "reason": "Автор бере Адепта метамагії з Обережним і Пришвидшеним заклинанням; у каталозі риса не має опцій (BUG-O49-METAMAGIC-ADEPT), тому записано лише саму рису.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fiend-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

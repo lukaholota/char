@@ -5,14 +5,40 @@ import {createJSONStorage, persist} from "zustand/middleware";
 
 export type DraftRuleset = "RULES_2014" | "RULES_2024";
 
-type DraftScope = "CREATOR_2014" | "CREATOR_2024" | "LEVEL_UP" | "SHEET_FEAT";
+type FixedDraftScope = "CREATOR_2014" | "CREATOR_2024" | "PRESET_2014" | "LEVEL_UP" | "SHEET_FEAT";
+type DraftScope = FixedDraftScope | `PRESET_2014:${string}`;
 
-const DRAFT_STORAGE_KEY_BY_SCOPE: Record<DraftScope, string> = {
+const DRAFT_STORAGE_KEY_BY_SCOPE: Record<FixedDraftScope, string> = {
   CREATOR_2014: "dnd-pers-form",
   CREATOR_2024: "dnd-2024-pers-form",
+  PRESET_2014: "dnd-preset-2014-pers-form",
   LEVEL_UP: "dnd-pers-levelup",
   SHEET_FEAT: "dnd-pers-sheet-feat",
 };
+
+const DRAFT_STORAGE_VERSION = 1;
+
+// The store hydrates the 2014 draft on any page (level-up, sheet), so the notice must outlive that page.
+const DRAFT_RESET_NOTICE_KEY = "dnd-pers-form-reset-notice";
+let hydratingDraftKey = DRAFT_STORAGE_KEY_BY_SCOPE.CREATOR_2014;
+
+export function consumeDraftResetNotice(): boolean {
+  try {
+    const wasReset = localStorage.getItem(DRAFT_RESET_NOTICE_KEY) === "1";
+    localStorage.removeItem(DRAFT_RESET_NOTICE_KEY);
+    return wasReset;
+  } catch {
+    return false;
+  }
+}
+
+function rememberDraftResetNotice(): void {
+  try {
+    localStorage.setItem(DRAFT_RESET_NOTICE_KEY, "1");
+  } catch {
+    // Without storage there is no draft to lose either.
+  }
+}
 
 const createEmptyDraft = () => ({
   formData: {} as Partial<PersFormData>,
@@ -108,6 +134,8 @@ export const usePersFormStore = create<FormStore>()(
         ...createEmptyDraft(),
         ...(persistedDraft as Partial<FormStore> | undefined),
       }),
+      version: DRAFT_STORAGE_VERSION,
+      migrate: (persistedDraft, storedVersion) => migrateDraft(persistedDraft as Partial<FormStore>, storedVersion),
       onRehydrateStorage: () => (state) => {
         // Called after state is hydrated from storage
         if (state) {
@@ -118,8 +146,18 @@ export const usePersFormStore = create<FormStore>()(
   )
 )
 
+// Версія 1: конструктор 2014 починається з класу, тож чернетку зі старим порядком кроків скидаємо.
+function migrateDraft(persistedDraft: Partial<FormStore>, storedVersion: number): Partial<FormStore> {
+  const isOldCreator2014Draft = storedVersion < 1 && hydratingDraftKey === DRAFT_STORAGE_KEY_BY_SCOPE.CREATOR_2014;
+  if (!isOldCreator2014Draft) return persistedDraft;
+  const { formData, currentStep } = persistedDraft;
+  if (formData?.raceId || formData?.classId || (currentStep ?? 1) > 1) rememberDraftResetNotice();
+  return createEmptyDraft();
+}
+
 function findPersDraftStorageKey(scope: DraftScope): string {
-  return DRAFT_STORAGE_KEY_BY_SCOPE[scope];
+  if (scope.startsWith("PRESET_2014:")) return `dnd-preset-2014-${scope.slice("PRESET_2014:".length)}-pers-form`;
+  return DRAFT_STORAGE_KEY_BY_SCOPE[scope as FixedDraftScope];
 }
 
 function findCreatorDraftScope(ruleset: DraftRuleset): DraftScope {
@@ -133,7 +171,14 @@ export function activateCreatorDraftStorage(ruleset: DraftRuleset): void {
 // Перемикати ключ під час рендера не можна: при переході між редакціями стара сторінка
 // ще змонтована, перерендерюється від rehydrate і повертає свій ключ — пінг-понг на секунди.
 export function useCreatorDraftStorage(ruleset: DraftRuleset): boolean {
-  const scope = findCreatorDraftScope(ruleset);
+  return useDraftStorage(findCreatorDraftScope(ruleset));
+}
+
+export function usePresetDraftStorage(buildId: string): boolean {
+  return useDraftStorage(buildId === "build-monk-shadow-2014" ? "PRESET_2014" : `PRESET_2014:${buildId}`);
+}
+
+function useDraftStorage(scope: DraftScope): boolean {
   const isActive = useSyncExternalStore(
     usePersFormStore.subscribe,
     () => isDraftStorageActive(scope),
@@ -170,6 +215,7 @@ function activateDraftStorage(scope: DraftScope): void {
   const nextKey = findPersDraftStorageKey(scope);
   if (draftStorage.getOptions().name === nextKey) return;
 
+  hydratingDraftKey = nextKey;
   draftStorage.setOptions({ name: nextKey });
   draftStorage.rehydrate();
 }

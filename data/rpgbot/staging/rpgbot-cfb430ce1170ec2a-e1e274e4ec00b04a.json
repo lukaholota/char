@@ -1,0 +1,1620 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "e1e274e4ec00b04a5a1168ed092768863c21d03c4c2b447cc7d79251ebb85c7b",
+  "sourceRevision": {
+    "revisionId": "rpgbot-cfb430ce1170ec2a-e1e274e4ec00b04a",
+    "sourceId": "rpgbot-cfb430ce1170ec2a",
+    "fetchedAt": "2026-09-29T19:22:33.139227+00:00",
+    "sourceUpdatedAt": "2026-03-14T15:31:03-04:00",
+    "contentHash": "cc6f3d09d2626a90245040356c92dd19e493e8033fda6ccb8d19d99468171f80",
+    "title": "DnD 5.5 Circle Spells / Circle Magic Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-cfb430ce1170ec2a-e1e274e4ec00b04a.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Circle Magic / Circle Spells system introduces a powerful new way for DnD spellcasters to combine their efforts to empower spells. Broadly useful with a variety of effects, clever spellcasters can use Circle Magic to dramatically improve the effect of their spells with no cost beyond the spell slots and Actions spent to cast them."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The power of Circle Spells depends heavily on how many spellcasters are available to contribute to their effects, but most of the effects only care that there are spellcasters and sometimes spell slots of any level available to contribute. A party with a small collection of NPCs with the ability to cast level 1 spells is insanely powerful, even if those NPCs never do anything but eat, sleep, and act as a Secondary Caster a few times per day."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The in-universe implications of Circle Magic are crazy. Heroes of Faerun credits the Red Wizards of Thay with the creation of Circle Magic. That makes sense from a “how did this madness happen?” perspective, but the idea that the Red Wizards of Thay could create Circle Magic and not immediately conquer the world with it is incomprehensible. It makes absolutely no sense. They have the tools and the abundance of spellcasters to eliminate any living thing foolish enough to step outside, and yet somehow have neither annihilated themselves due to infighting nor conquered the world. I realize that this is a fantasy game, but there’s a line."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Are Circle Spells Balanced?",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#are-circle-spells-balanced"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "How Do Circle Spells Work?",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#how-do-circle-spells-work"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle Casting Options",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#circle-casting-options"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Augment",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#augment"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Range vs. Area",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#range-vs-area"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Distribute",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#distribute"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Expand",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#expand"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Prolong",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#prolong"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Safeguard",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#safeguard"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Supplant",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#supplant"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circles Spells and Metamagic",
+                "href": "https://rpgbot.net/2024-dnd/2024-dnd-circle-spells-guide/#circles-spells-and-metamagic"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice in this article is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2024 DnD Character Optimization Meta",
+              "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows. Also be sure to check for "
+            },
+            {
+              "type": "link",
+              "text": "errata",
+              "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+            },
+            {
+              "type": "text",
+              "text": " periodically."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-are-circle-spells-balanced",
+      "heading": "Are Circle Spells Balanced?",
+      "sourceAnchor": "are-circle-spells-balanced",
+      "blocks": [
+        {
+          "blockId": "block-section-are-circle-spells-balanced-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No. Next question."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-are-circle-spells-balanced-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "What, you want details? I really can’t sugar-coat this. Even a passing glance and the absolute bare minimum of effort to benefit from Circle Magic is such a game-shattering change to the game’s balance that non-casters basically shouldn’t show up to the game. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-are-circle-spells-balanced-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As a DM, limiting this system requires NPC spellcasters to be some combination of rare and unhelpful. If the party can enlist a bunch of NPCs that are the equivalent of level 1 wizards, they can maximize the effect of Circle Spells at minimal cost to the party."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-how-do-circle-spells-work",
+      "heading": "How Do Circle Spells Work?",
+      "sourceAnchor": "how-do-circle-spells-work",
+      "blocks": [
+        {
+          "blockId": "block-section-how-do-circle-spells-work-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Circle Spells have a very simple process:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-how-do-circle-spells-work-2",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "The primary caster takes the Magic action and begins casting a qualifying spell\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Casting time of one Action or one minute or longer, so no Reactions or Bonus Actions"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Until the spell takes effect or the casting fails, the primary caster must maintain Concentration on the spell"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "The primary caster selects a Circle Casting Option"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Identify secondary casters\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Secondary casters must have the Spellcasting or Pact Magic features. Spells from your species or a feat are not enough."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Please be polite about this. Don’t assume that you get to eat another party member’s Action to boost your spell."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Each secondary caster takes the Magic action on their turn to empower the spell, potentially spending spell slots to do so\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "It appears that this could take place over any amount of time. So long as the Primary Caster maintains Concentration and continues to take the Magic Action, they could wait indefinitely."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "When the final secondary caster takes the Magic action, the spell takes effect"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-casting-options",
+      "heading": "Circle Casting Options",
+      "sourceAnchor": "circle-casting-options",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-casting-options-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When you cast a Circle Spell, you choose a single Circle Casting option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-casting-options-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Note that you can combine these effects with metamagic. It’s not clear in what order you should apply the mathematical changes, like range or duration. Discuss it with your DM."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-augment",
+      "parentSectionId": "section-circle-casting-options",
+      "heading": "Augment",
+      "sourceAnchor": "augment",
+      "blocks": [
+        {
+          "blockId": "block-section-augment-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Provided that you can still select a valid target (usually, you need to see the target of a spell, though there are exceptions), adding 1,000 feet of range is enough to cover a huge area. If you can reach high ground or fly, you could pick off entire armies of enemies from a distance of up to a mile. These scenarios are generally rare in DnD, but they’re not non-existent, and players could actively seek out opportunities to capitalize on incredible range, especially once flight becomes an option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-augment-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Keep in mind that cover is still an issue. Unless you can change the origin point of your spells, creatures still have total cover against your spells. “"
+            },
+            {
+              "type": "link",
+              "text": "To target something with a spell, a caster must have a clear path to it, so it can’t be behind Total Cover",
+              "href": "https://www.dndbeyond.com/sources/dnd/phb-2024/spells#Targets"
+            },
+            {
+              "type": "text",
+              "text": ".”"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-augment-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The 1-mile maximum range is very important here. Without the cap, you could do things like use Raulothim’s Psychic Lance to pick off creatures from anywhere on the same plane of existence. 1 mile is already enough to depopulate a small city."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-augment-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In an internally consistent world, this would allow casters to assassinate enemies from incredible distances with such ease that no one of any importance would risk leaving their home. A bunch of level 1 Wizards could band together and pick off their victims from incredible distances using Magic Missile. If important people start learning Shield or wearing magic items that negate Magic Missile, our would-be Wizard assassins could simply switch to "
+            },
+            {
+              "type": "link",
+              "text": "Spellfire Flare",
+              "href": "https://www.dndbeyond.com/spells/3078521-spellfire-flare"
+            },
+            {
+              "type": "text",
+              "text": " (ignore partial cover), Witch Bolt (guaranteed damage unless the target gets into total cover), or Heat Metal."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-augment-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Some other fun combos:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-augment-6",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Arcane Gate: March a small army through the gate to travel up to a mile instead of just 500 feet"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dimension Door: Teleport straight to the boss fight (or straight back to camp)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Levitate: Levitate targets from a safe distance, lift them as high as you can before the spell’s duration ends, then drop them for 20d6 damage. Even if you only add 1,000 ft. to the range, that’s still enough to get max fall damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scatter: Teleport up to 5 creatures (potentially including yourself) to anywhere that you can see within range. Can you see the big bad through a telescope? Cool. Go get ’em."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Telekinesis: Grab things with your mind from impossibly far away and float them to yourself from a safe distance. Imagine robbing people through open windows like this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vortex Warp: The target must be within range and their destination must be within range, which makes you the center of a very interesting circle. Teleport an enemy who is a mile away from you a mile in the opposite direction. Maybe send them out to sea since you can’t place them in the air."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-range-vs-area",
+      "parentSectionId": "section-augment",
+      "heading": "Range vs. Area",
+      "sourceAnchor": "range-vs-area",
+      "blocks": [
+        {
+          "blockId": "block-section-range-vs-area-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When considering the effects of Augment on a spell, it’s important to note the way that spells’ descriptions are formatted."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-range-vs-area-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Some spells have a clear range. For example: Magic Missile has a range of 120 ft. No problem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-range-vs-area-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Other spells have a range and an area. For example: Fireball says “150 ft. (20 ft.)”. The “20 ft.” in parentheses is the area of the spell, "
+            },
+            {
+              "type": "emphasis",
+              "text": "not"
+            },
+            {
+              "type": "text",
+              "text": " the spell’s range. Still, this shouldn’t be especially confusing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-range-vs-area-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We run into problems with spells published before Tasha’s Cauldron of Everything. Spells which emanated from the caster would list their area as their range. For example: "
+            },
+            {
+              "type": "link",
+              "text": "Earth Tremor",
+              "href": "https://www.dndbeyond.com/spells/2378-earth-tremor"
+            },
+            {
+              "type": "text",
+              "text": " lists “10 ft.” as its range. Rules as written, Augment would apply to that range. If that spell were updated and republished, its range would instead be “Self (10 ft.)” because it’s a 10-foot emanation originating from the caster. While RAW you could use Augment here, I think it makes more sense to handle legacy spells like we do with more recently-published spells."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-distribute",
+      "parentSectionId": "section-circle-casting-options",
+      "heading": "Distribute",
+      "sourceAnchor": "distribute",
+      "blocks": [
+        {
+          "blockId": "block-section-distribute-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Concentration is an incredibly precious resource for spellcasters. It’s used to limit complex, powerful spells, which often shape the course of encounters. Sometimes one person in the party will need to maintain Concentration on a spell which is a win condition for the casters. In those cases, this may help to maintain Concentration on that spell so that the whole party benefits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-distribute-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Example: The party’s Cleric decides to cast Spirit Guardians because you’re in an enclosed space full of enemies and want to play “will it blend” with your DM’s carefully-tailored boss fight. But the DM knows this trick, so they’re going to repeatedly hit the Cleric with small amounts of damage to force multiple saving throws so that the Cleric will break Concentration. Seeing this coming, the party’s Wizard volunteers to be a secondary caster, the Cleric chooses Distribute, then the Wizard leaves the room and hides. The Wizard, now entirely safe in a different room, can maintain Concentration on the Cleric’s behalf."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-distribute-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Beyond that obvious use case, this can also let a single caster benefit from multiple Concentration spells. The spell remains in effect as long as a single caster maintains Concentration, which means that the primary caster can drop Concentration to switch to a different spell."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-distribute-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Example: a Divine Soul Sorcerer is in a party with three other spellcasters who have volunteered to be secondary casters for various spells. First, the Sorcerer casts Spirit Guardians with one secondary caster, then immediately drops their own Concentration. They do the same for Fly and something to improve their Stealth checks like Enhance Ability or Borrowed Knowledge. They then cast Improved Invisibility with Prolong to add 1 hour to the duration, choosing to maintain Concentration for it on their own. Now a flying, invisible, sneaky ball of trouble, the Sorcerer then floats stealthily through the nearby dungeon, all but unstoppable. In the event that they find an enemy who can stop them, they can use Dimension Door to escape to safety."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-expand",
+      "parentSectionId": "section-circle-casting-options",
+      "heading": "Expand",
+      "sourceAnchor": "expand",
+      "blocks": [
+        {
+          "blockId": "block-section-expand-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Expanding the area of a spell can dramatically improve its effectiveness. Imagine Fireball with an even bigger AOE. Many line spells have great effects, but lines are terrible to use because it’s so hard to hit more than two targets. Adding even 10 feet to the width of a line (always 5 feet wide by default) makes it considerably easier to hit additional targets. Expanding the radius of emanations like Spirit Guardians or Yolande’s Regal Presence makes those spells multiplicatively more dangerous."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-expand-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Expand option has no maximum, which becomes a problem very quickly. A sufficiently large number of secondary casters crammed into a small space could make many AOE spells into a terrifying problem. Imagine a bunch of red wizards turning Fireball into a 100-foot AOE, then burning down a city over the course of a few rounds. Imagine a Cleric who leads a cult of maniacs, dramatically expanding the radius of Spirit Guardians before marching into town, or imagine a player doing the same before walking into a dungeon. Imagine a military using Mass Cure Wounds to heal their entire army in the middle of a pitched battle."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-expand-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Note that this option requires secondary casters to expend a spell slot to use it, but that spell slot can be of any level. A group of level 1 spellcasters is enough to dramatically impact a spell."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-prolong",
+      "parentSectionId": "section-circle-casting-options",
+      "heading": "Prolong",
+      "sourceAnchor": "prolong",
+      "blocks": [
+        {
+          "blockId": "block-section-prolong-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Many powerful spells are limited to a 1-minute duration, which means that they need to be cast either right before going into combat or during combat. Extending those spells’ durations by an hour or potentially multiple hours makes them exceptionally powerful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-prolong-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An easy example: Aura of Vitality allows the caster to heal a target for 2d6 hit points as a Bonus Action. Over the course of the spell’s 1-minute duration, that’s already very efficient healing for the cost of a level 3 spell slot. Not great in combat, but very efficient outside of combat. If you extend the spell’s duration by even 1 hour, you could fully heal any party and likely have tons of time to spare. In parties which don’t rely heavily on depletable resources (many Fighters and Rogues can fight nearly forever as long as they have hp), this could remove the need to take Short Rests."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-prolong-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, many (though not all) such spells require Concentration, which does limit their utility here. However, there are some excellent exceptions:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-prolong-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Armor of Agathys: A Warlock staple, extending the duration by 1 hour means you can cast this, Short Rest to get spell slots back, then go adventuring with the remaining 1-hour duration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aid: Starts at 8 hours, and adding another 8 will get you through a long rest and a whole day of adventuring."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blink: 1-minute duration and no Concentration. If you have one friend willing to donate a spell slot, it lasts an hour."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crown of Stars: Potentially a useful way to prepare an offensive option, but I would only bother if you can get the duration up to 24 hours."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Darkvision: Starts at 8 hours, and adding another 8 will get you through a long rest and a whole day of adventuring."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Daylight: 1 hour by default, so adding another hour doubles the duration"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Death Ward: Starts at 8 hours, and adding another 8 will get you through a long rest and a whole day of adventuring."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Delayed Blast Fireball: 24 hours and 1 minute accumulating d6’s before detonating gets you 14,422d6 damage (remember the base of 12d6), for an average of 50,477 damage. That’s likely the highest damage you can do with a single spell in 5e. Who’s scary now, Meteor Swarm?"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elminster’s Effulgent Spheres: Not an amazing spell, but if you can extend the duration 8 or 24 hours, you can get through a long rest and wake up with 6 free uses of Absorb Elements."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fire Shield: Normally just a 10-minute duration. You could extend this to last all day, which is huge on your party’s front-line characters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Foresight: Starts at 8 hours, and adding another 8 will get you through a long rest and a whole day of adventuring. Foresight ends early if you cast it again, but you can use your level 9 spell slot for something else on that day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Glibness: Extending the duration is great for extended social situations."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Goodberry: If you can extend the duration by 24 hours, you can cache two days’ worth of Goodberries."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improved Invisibility: Even an hour of Improved Invisibility will allow martial characters (especially those built to fight at range) to easily overcome most combat encounters with no further assistance. Most creatures have mo means to counter invisibility."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Leomund’s Tiny Hut: Extending the duration 24 hours means that your party can sit safely inside the hut for an even longer duration, potentially doing things like Circle Casting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Longstrider: If you’re going to upcast this to affect multiple targets, using Circle Casting to extend the duration makes sense."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mage Armor: Starts at 8 hours, and adding another 8 will get you through a long rest and a whole day of adventuring."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mirror Image:  1-minute duration and no Concentration. If you have one friend willing to donate a spell slot, it lasts an hour."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Protection from Poison: If you can extend the duration by 8 hours, all-day protection against poison is fantastic."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Regenerate: If you can extend the duration by 8 hours, all-day automatic healing will save many martial characters from needing to rest between encounters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "See Invisibility: If you can extend the duration by 8 hours, you don’t need to worry about casting it just because you suspect that an invisible creature is nearby"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Simbul’s Synostodweomer: Useful on full casters who are worried about dying."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tasha’s Hideous Laughter: Imagine making someone laugh so hard they fall prone and continue laughing that hard for an entire hour. Hideous."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "True Seeing: Basically the same logic as See Invisibility."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wind Walk: Get at least another hour of travel time out of one spell slot."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-prolong-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For spells that don’t require Concentration, the ability to extend their durations by up to 24 hours means that you can cast them, take a long rest, then walk into an adventuring day with powerful buffs already running. This requires at least 7 other Secondary Casters, of course, so doing so isn’t practical unless your DM is being extremely permissive about letting NPC spellcaster tag along on adventures. Even getting 4 Secondary Casters is hard unless you’re in a large party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-prolong-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Note that this option requires secondary casters to expend a spell slot to use it, but that spell slot can be of any level."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-safeguard",
+      "parentSectionId": "section-circle-casting-options",
+      "heading": "Safeguard",
+      "sourceAnchor": "safeguard",
+      "blocks": [
+        {
+          "blockId": "block-section-safeguard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is a helpful way to protect allies from offensive spells. Imagine squishing your party into a few 5-foot squares (some of you may need to lie on the ground), casting Meteor Swarm, dropping it at your feet, and omitting the squares that contain your party so that you can obliterate everything else around you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-safeguard-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This also works with ongoing spells. Spells like Wall of Fire or Hunger of Hadar with safe spaces could allow allies to sit safely in the middle of the spell to further terrorize your enemies."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-safeguard-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Example: A Warlock casts Hunger of Hadar and asks their party’s Cleric to act as a Secondary Caster. They choose Safeguard, then omit the 5-foot square containing their party’s Fighter. The Fighter has the Sentinel feat, and is standing adjacent to one or more enemies. The Fighter spends their turns knocking enemies within reach Prone and using their Opportunity Attacks to drop their speed to 0 so that they can’t escape the spell. Sure, they can attack the Fighter, but they’re blinded by Hunger of Hadar and the Fighter’s AC is 20 thanks to full plate and a shield, so the Fighter is reasonably confident that they’ll outlast the largely helpless enemies as Hadar gradually grinds them into a paste."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-supplant",
+      "parentSectionId": "section-circle-casting-options",
+      "heading": "Supplant",
+      "sourceAnchor": "supplant",
+      "blocks": [
+        {
+          "blockId": "block-section-supplant-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The ability to reduce the gp cost of a spell is great for utility spells, which might be expensive to cast in order to prevent them from becoming a problem. Some spells have a mildly expensive component like Chromatic Orb, requiring a 50gp gem, but then there are spells that cost hundreds or even thousands of gold to cast, like Raise Dead or Heroes’ Feast. Having allies contribute can chip away at the cost of those spells, though 50gp will feel paltry at high levels when you have thousands of gp in your pocket and nowhere to spend it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-supplant-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Note that this option requires secondary casters to expend a spell slot to use it. The spell slot must be of the same or higher level than the one used to cast the spell, which means that you may struggle to find secondary casters. You could, in theory, use this to remove the material component cost for expensive spells like Greater Restoration and Raise Dead, but you’ll struggle to find enough casters of sufficiently high level to do so."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-supplant-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the benefit is fairly small and the spell slot cost is fairly high, you’re unlikely to use this often. You might use it on Revivify, as suggested in Heroes of Faerun, but timing that is difficult in and around combat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-supplant-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Arcane Lock: The cost is there to keep you from putting locks on every door you encounter. That’s suddenly not a problem."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Continual Flame: 50 gp to produce a permanent magical light. Now it’s free. Low-level wizards could mass-produce magical lights at industrial scale and revolutionize society."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Create Undead: 150 gp per undead is much less of an issue if you have some other casters in the party. Time to build an army of ghouls!"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divination: Extremely powerful, and you can make it free with just one Secondary Caster."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Find Familiar: 10 gp isn’t a lot beyond low levels, but a level 1 party short on money will enjoy being able to replace familiars at no monetary cost."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Greater Restoration: Diamond dust is an expensive component used for a lot of important healing spells, so save as much as it as you can."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Raise Dead: 500 gp is quite a bit, and you’re not likely to cast this on a day that you expect to do a lot of fighting, so spell slots should be available from other casters in the party."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circles-spells-and-metamagic",
+      "heading": "Circles Spells and Metamagic",
+      "sourceAnchor": "circles-spells-and-metamagic",
+      "blocks": [
+        {
+          "blockId": "block-section-circles-spells-and-metamagic-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The rules are silent on how to combine Metamagic and Circle Magic. This is especially frustrating for multiplicative effects like Extend Spell. DnD 5e’s rules for stacking are all but non-existent (conditions don’t stack, end of rules), so we don’t even have a comparable example to look at."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circles-spells-and-metamagic-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The most obvious issue is combining Extend Spell with Prolong. You could Prolong a spell by 24 hours, then apply Extend Spell to double its duration. But when do you multiply? Before or after applying Prolong? But you also run into issues combining Reach Spell with Augment, potentially giving a touch-range spell a 1-mile range. If you apply Circle Magic before Metamagic, you can add 48 hours to a spells duration. If you apply Circle Magic after Metamagic, you can hit people with Heal from a mile away."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circles-spells-and-metamagic-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Again: the rules are silent."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circles-spells-and-metamagic-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You’ll need to make a decision at the table. Discuss it at length with your table and decide on something that everyone is comfortable with. If you’re not sure, just don’t combine Metamagic with Circle Magic."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#augment",
+      "detail": "wp-block-heading rating-green Augment"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#distribute",
+      "detail": "wp-block-heading rating-blue Distribute"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#expand",
+      "detail": "wp-block-heading rating-blue Expand"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#prolong",
+      "detail": "wp-block-heading rating-blue Prolong"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#safeguard",
+      "detail": "wp-block-heading rating-green Safeguard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#supplant",
+      "detail": "wp-block-heading rating-orange Supplant"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-are-circle-spells-balanced-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-are-circle-spells-balanced-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-are-circle-spells-balanced-3"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[2]",
+      "detail": "<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-9-16 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\"> <div class=\"f"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-how-do-circle-spells-work-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-how-do-circle-spells-work-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-circle-casting-options-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-circle-casting-options-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-augment-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-augment-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-augment-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-augment-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-augment-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-augment-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-range-vs-area-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-range-vs-area-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-range-vs-area-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-range-vs-area-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-distribute-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-distribute-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-distribute-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-distribute-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-expand-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-expand-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-expand-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-prolong-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-prolong-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-prolong-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-prolong-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-prolong-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-prolong-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-safeguard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-safeguard-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-safeguard-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-supplant-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-supplant-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-supplant-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-supplant-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-circles-spells-and-metamagic-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-circles-spells-and-metamagic-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-circles-spells-and-metamagic-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-circles-spells-and-metamagic-4"
+    }
+  ],
+  "metrics": {
+    "words": 3623,
+    "sections": 14,
+    "blocks": 49,
+    "tables": 0,
+    "ratingSignals": 10
+  },
+  "status": "needs-editorial-review"
+}

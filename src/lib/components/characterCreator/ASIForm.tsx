@@ -31,6 +31,7 @@ import { toast } from "sonner";
 
 interface Props {
   race: RaceI
+  lockOrigin?: boolean
   raceVariant?: RaceVariant | null
   selectedClass: ClassI
   background?: { name: BackgroundCategory; abilityOptions?: string[] | null } | null
@@ -42,7 +43,7 @@ interface Props {
 }
 
 export const ASIForm = (
-  { race, raceVariant, selectedClass, background, ruleset, prevRaceId, setPrevRaceId, formId, onNextDisabledChange }: Props
+  { race, raceVariant, selectedClass, background, ruleset, prevRaceId, setPrevRaceId, formId, onNextDisabledChange, lockOrigin = false }: Props
 ) => {
   const { updateFormData, nextStep } = usePersFormStore();
 
@@ -351,13 +352,13 @@ export const ASIForm = (
             value: asi.value,
           })));
         }
-        if (!currentSimpleAsi || currentSimpleAsi.length === 0) {
+        if (!lockOrigin && (!currentSimpleAsi || currentSimpleAsi.length === 0)) {
           replaceSimpleAsi(defaultClassASI.map(asi => ({
             ability: asi.ability,
             value: asi.value,
           })));
         }
-        if (!currentCustomAsi || currentCustomAsi.length === 0) {
+        if (!lockOrigin && (!currentCustomAsi || currentCustomAsi.length === 0)) {
           replaceCustomAsi(defaultClassASI.map(asi => ({
             ability: asi.ability,
             value: String(asi.value),
@@ -365,7 +366,7 @@ export const ASIForm = (
         }
       }
     }
-  }, [selectedClass, replaceAsi, replaceSimpleAsi, replaceCustomAsi, form])
+  }, [selectedClass, replaceAsi, replaceSimpleAsi, replaceCustomAsi, form, lockOrigin])
 
   useEffect(() => {
     form.register('points')
@@ -519,26 +520,29 @@ export const ASIForm = (
             onValueChange={(value) => form.setValue('asiSystem', value)}
             className="w-full"
           >
-            <TabsList className="grid w-full grid-cols-3 bg-white/5 text-slate-300 max-md:h-12">
+            {!lockOrigin && <TabsList className="grid w-full grid-cols-3 bg-white/5 text-slate-300 max-md:h-12">
               <TabsTrigger
+                disabled={lockOrigin}
                 value={asiSystems.POINT_BUY}
                 className="data-[state=active]:bg-white/7 data-[state=active]:text-white max-md:min-h-10"
               >
                 За очками
               </TabsTrigger>
               <TabsTrigger
+                disabled={lockOrigin}
                 value={asiSystems.SIMPLE}
                 className="data-[state=active]:bg-white/7 data-[state=active]:text-white max-md:min-h-10"
               >
                 Просто
               </TabsTrigger>
               <TabsTrigger
+                disabled={lockOrigin}
                 value={asiSystems.CUSTOM}
                 className="data-[state=active]:bg-white/7 data-[state=active]:text-white max-md:min-h-10"
               >
                 Вільно
               </TabsTrigger>
-            </TabsList>
+            </TabsList>}
 
             <p className="mt-3 text-sm text-slate-400">{asiSystemCopy[asiSystem]}</p>
 
@@ -720,7 +724,7 @@ export const ASIForm = (
                         ))
                       );
 
-                    const isDisabled = (!isSelected && isMaxReached) || uniqueDisabled;
+                    const isDisabled = lockOrigin || (!isSelected && isMaxReached) || uniqueDisabled;
 
                     return (
                       <Button
@@ -781,7 +785,7 @@ export const ASIForm = (
         )}
       </Card>
 
-      {!backgroundAsi.step && (
+      {!backgroundAsi.step && !lockOrigin && (
       <div className="glass-panel border-gradient-rpg space-y-3 rounded-2xl p-4">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div>

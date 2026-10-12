@@ -1,0 +1,982 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-66a84b67e1d86f51",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-66a84b67e1d86f51-b3de2cb04ee4c5bb",
+      "sourceId": "rpgbot-66a84b67e1d86f51",
+      "fetchedAt": "2026-09-29T19:14:30.480083+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:53:42-04:00",
+      "contentHash": "503546b6ad00997838ad7ca7e07d27ffa9530e5393168d54ad567baa08253c1d",
+      "title": "DnD 5e Sorcerer Metamagic Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-66a84b67e1d86f51-b3de2cb04ee4c5bb.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-sorcerer-metamagic-2014",
+    "sourceId": "rpgbot-66a84b67e1d86f51",
+    "slug": "sorcerer-metamagic-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Метамагія Чародія — гайд (2014)",
+    "titleEn": "DnD 5e Sorcerer Metamagic Guide",
+    "topics": [
+      "Чародій",
+      "Метамагія",
+      "Очки чародійства",
+      "Адепт метамагії",
+      "рейтинг варіантів метамагії"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "sourceRevisionId": "rpgbot-66a84b67e1d86f51-b3de2cb04ee4c5bb",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Метамагія{{Metamagic}} — фірмова механіка Чародія{{Sorcerer}}: вона дозволяє змінювати й підлаштовувати ваші заклинання під потреби моменту. Це, мабуть, найкращий приклад філософії Чародія щодо чаротворства: кілька добрих інструментів, які підлаштовуються під будь-яку ситуацію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Але хоча метамагія{{Metamagic}} може бути дуже потужною, вона може бути й складною та дорогою. Метамагія — основний спосіб, яким чародії{{Sorcerer}} витрачають свої Очки чародійства{{Sorcery Points}}, а вміння розпоряджатися цим обмеженим ресурсом так, щоб отримати найбільший ефект, — важлива частина опанування Чародія."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/metamagic/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/metamagic/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Варіанти метамагії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/metamagic/#metamagic-options"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риса «Адепт метамагії»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/metamagic/#metamagic-adept"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-metamagic-options",
+          "heading": "Варіанти метамагії",
+          "sourceAnchor": "metamagic-options",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-careful-spell",
+          "parentSectionId": "section-metamagic-options",
+          "heading": "Обережне заклинання",
+          "sourceAnchor": "careful-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-careful-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зазвичай можна уникнути влучання по союзниках, ретельно позиціонуючи свої заклинання, але іноді вам потрібно жбурнути Вогнекулю [Fireball] чи якесь інше велике заклинання по області на кшталт "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Страху [Fear]"
+                },
+                {
+                  "type": "text",
+                  "text": ", і способу не зачепити союзників немає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-careful-spell-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоч «Обережне заклинання»{{Careful Spell}} безперечно спокушає, зазвичай ту саму проблему можна вирішити, просто наклавши інше заклинання. Багато заклинань діють лише на ворогів, або можна накласти баф чи заклинання контролю області. Ситуації, коли Вогнекуля [Fireball] чи подібне заклинання — єдиний варіант, украй рідкісні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-distant-spell",
+          "parentSectionId": "section-metamagic-options",
+          "heading": "Віддалене заклинання",
+          "sourceAnchor": "distant-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-distant-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зазвичай дальності заклинань достатньо, щоб упоратися із завданням у ситуаціях, де їх доречно використовувати. Є кілька заклинань на кшталт Невидимості [Invisibility] з дальністю «Дотик», яким це могло б неабияк допомогти, але таких заклинань не так багато, щоб цей варіант перестав бути «ситуативним», бо в багатьох випадках цю проблему можна вирішити, просто підійшовши ближче."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-distant-spell-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Було б чудово, якби це можна було використовувати з конусами, але конуси мають дальність «На себе» й область дії, тож не підходять. Воно, зокрема, застосовується до таких заклинань, як Гуркіт грому [Thunderclap] і Слово сяйва [Word of Radiance], але ситуації, коли ви захочете витратити Очко чародійства{{Sorcery Point}} на замовляння, винятково рідкісні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-empowered-spell",
+          "parentSectionId": "section-metamagic-options",
+          "heading": "Підсилене заклинання",
+          "sourceAnchor": "empowered-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-empowered-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо перекидати одиниці, можна отримати кілька додаткових очок шкоди. Ефективність зростає з додаванням кубиків, бо чим більше кубиків, тим імовірніше викинути одиниці. Не варто використовувати це на кожному заклинанні, але якщо заклинанням по області ви вражаєте кілька цілей, вартість в 1 очко неодмінно окупиться."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-empowered-spell-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для прикладу: якщо ваша Харизма — 20 і ви кидаєте величезну купу к6, а на 5 із них випали одиниці, ви можете перекинути їх і отримати в середньому 12,5 (5 × 3,5 – 5) додаткової шкоди. Можна перекидати будь-які кубики з початкового кидка, але перекидання одиниць дає найбільший ефект, тож це добре показує максимальну шкоду, на яку ви можете розраховувати. Додаткова шкода буде вищою для заклинань із більшими кубиками шкоди: 17,5 для к8, 22,5 для к10 і 27,5 для к12. Математика однозначно робить це вартим крихітної ціни в 1 Очко чародійства{{Sorcery Point}}, якщо ви вражаєте кілька цілей заклинанням по області, але я зазвичай не раджу використовувати це для заклинань на одну ціль, бо за своє Очко чародійства ви отримуєте менше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-empowered-spell-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щоб отримати від «Підсиленого заклинання»{{Empowered Spell}} максимум, завжди перекидайте найнижчі кубики з початкового кидка. Навіть тоді не обовʼязково перекидати від 3 до 5 найнижчих кубиків (залежно від модифікатора вашої характеристики чаротворства), бо деякі з них можуть бути близькими до середнього значення для такого кубика або вищими за нього."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-extended-spell",
+          "parentSectionId": "section-metamagic-options",
+          "heading": "Подовжене заклинання",
+          "sourceAnchor": "extended-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-extended-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Багато чудових бафів мають коротку тривалість, і подовження може позбавити вас клопоту накладати те саме заклинання двічі. Проте через те, як у 5e влаштовані тривалості заклинань, не кожне заклинання виправдовує збільшення своєї тривалості. Заклинання з тривалістю 1 хвилина можна подовжити, але вони однаково протримаються лише один бій, хіба що ви щодуху помчите до наступної сутички."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-extended-spell-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання з тривалістю 10 хвилин зазвичай можна розтягнути на 2 сутички, а може й на 3, якщо їх подовжити і ви знаєте, де знайти ще один бій. Заклинання з тривалістю в одну годину й більше можна подовжити так, щоб вони протрималися цілі дні пригод, особливо якщо вам не потрібно зупинятися на короткий відпочинок. Подовжувати кожне заклинання не потрібно, тож вам доведеться навчитися вибирати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-heightened-spell",
+          "parentSectionId": "section-metamagic-options",
+          "heading": "Підвищене заклинання",
+          "sourceAnchor": "heightened-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-heightened-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Використовуйте це майже на кожному заклинанні «пройди-ряткидок-або-страждай»{{save-or-suck}}, яке накладаєте. Порівняно з вартістю накладання ще одного заклинання наступного ходу, щоб зробити ту саму ціль недієздатною, 3 Очки чародійства{{Sorcery Points}} — дрібниця. Зауважте, що деякі заклинання «пройди-ряткидок-або-страждай»{{save-or-suck}}, як-от Стримування особи [Hold Person], дозволяють повторні ряткидки, тож ефект помітно слабшає, адже «Підвищене заклинання»{{Heightened Spell}} діє лише на початковий ряткидок однієї цілі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-quickened-spell",
+          "parentSectionId": "section-metamagic-options",
+          "heading": "Пришвидшене заклинання",
+          "sourceAnchor": "quickened-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-quickened-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Накладіть заклинання з часом накладання 1 дія й замовляння в одному ході. Це один із вельми небагатьох варіантів, що дозволяє «зламати» економіку дій, і воно безперечно варте своєї ціни. Проте спокуса використовувати його постійно може бути проблемною, бо воно здатне дуже швидко зʼїсти ваші Очки чародійства{{Sorcery Points}}. Користуйтеся ним помірковано — ідеально на початку бою, коли ваші заклинання матимуть найбільший вплив."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-seeking-spell",
+          "parentSectionId": "section-metamagic-options",
+          "heading": "Спрямоване заклинання (необовʼязкове)",
+          "sourceAnchor": "seeking-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-seeking-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чародії{{Sorcerer}} мають кілька унікальних варіантів заклинань на кшталт Кольорової кульки [Chromatic Orb] і Снаряда хаосу [Chaos Bolt], що залежать від кидків атаки, а витрачати слот заклинання лише для того, щоб схибити заклинанням із рівнем, — паскудне відчуття. Невелика ціна у два Очки чародійства{{Sorcery Points}} за перекидання атаки — дрібниця порівняно з діями та слотами заклинань, потрібними, щоб накласти заклинання з рівнем удруге."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-subtle-spell",
+          "parentSectionId": "section-metamagic-options",
+          "heading": "Приховане заклинання",
+          "sourceAnchor": "subtle-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-subtle-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ситуативне. У більшості випадків (особливо в бою) вам зазвичай байдуже, чи чує та/або бачить хтось, як ви накладаєте заклинання, але кількість ситуацій, у яких це корисно, дивно велика. У соціальних ситуаціях, де накладання заклинання може вважатися грубим або спричинити проблеми, «Приховане заклинання»{{Subtle Spell}} може вирішити багато труднощів. У багатьох заклинань на кшталт Причарування особи [Charm Person] немає очевидного візуального компонента, тож використання «Прихованого заклинання» з ними робить їх практично непомітними."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-subtle-spell-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки «Приховане заклинання»{{Subtle Spell}} також прибирає і Вербальні, і Соматичні компоненти заклинань, ворожим заклинателям може бути складно або й неможливо протидіяти вашому заклинанню просто тому, що вони не знають, що воно відбувається. Заклинання без очевидного візуального компонента (Вогнекуля [Fireball], блискавка тощо) і без компонентів, що їх надає заклинатель, практично не виявити, хіба що за допомогою чогось на кшталт Виявлення магії [Detect Magic]. Проте вороги, які вміють накладати Контрчари [Counterspell], загалом зустрічаються дуже рідко."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-subtle-spell-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Скасування потреби надавати Вербальні та Соматичні компоненти також дозволяє накладати заклинання в деяких ситуаціях, що зазвичай цього не дозволили б, наприклад в області дії заклинання Тиша [Silence] чи будучи Скованим."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-transmuted-spell",
+          "parentSectionId": "section-metamagic-options",
+          "heading": "Перетворене заклинання (необовʼязкове)",
+          "sourceAnchor": "transmuted-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-transmuted-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чародії{{Sorcerer}} знають дуже мало заклинань, тож можливість змінювати тип шкоди в улюблених заклинань на кшталт Вогнекулі [Fireball] дозволяє покладатися на улюблені заклинання, навіть коли опір і імунітет до шкоди стають проблемою. Це також полегшує користування «Адептом стихій»{{Elemental Adept}}, але намагайтеся не платити Очками чародійства{{Sorcery Points}} щоразу, як накладаєте заклинання, інакше ви виснажите ресурси вже на початку дня. Якщо це не вписується у вашу збірку, завжди лишається Кольорова кулька [Chromatic Orb]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-twinned-spell",
+          "parentSectionId": "section-metamagic-options",
+          "heading": "Спарене заклинання",
+          "sourceAnchor": "twinned-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-twinned-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Багато чудових заклинань на кшталт Прискорення [Haste] і Перевтілення [Polymorph] мають ціллю одну істоту й вимагають Концентрації. Це дозволяє вплинути на двох істот одночасно. Проте вартість в Очках чародійства{{Sorcery Points}} зростає з рівнем заклинання, через що «Спарене заклинання»{{Twinned Spell}} — найдорожчий варіант метамагії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-twinned-spell-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це можна використовувати й наступально, що на низьких рівнях може бути дуже ефективно. Спарювання таких заклинань, як Кольорова кулька [Chromatic Orb], — економний спосіб швидко завдати шкоди кільком цілям за невелику ціну і в ресурсах, і в діях."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-twinned-spell-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Просто памʼятайте, що «Спарене заклинання»{{Twinned Spell}} працює лише тоді, коли заклинання здатне мати ціллю лише одну істоту, тож не можна спарювати заклинання по області, заклинання з другорядними цілями (Клинок Зеленого Полумʼя [Green-Flame Blade], Снаряд хаосу [Chaos Bolt], Проклін [hex], Мисливська мітка [Hunter's Mark]), заклинання з ефектами, крізь які проходять інші істоти (Стіна вогню [Wall of Fire]), або заклинання, що взагалі не мають ціллю істот (Доброягода [Goodberry], Форма каменю [Stone Shape], Мала ілюзія [Minor Illusion]). Гримучий Клинок [Booming Blade] здається придатним для спарювання, але за словами Джеремі Кроуфорда в офіційному "
+                },
+                {
+                  "type": "link",
+                  "text": "подкасті Dragon Talk",
+                  "href": "https://dnd.wizards.com/articles/features/dragontalk_jeremy-crawford"
+                },
+                {
+                  "type": "text",
+                  "text": ", оновлену версію, опубліковану в «Казані Таші з усім», не можна спарити за допомогою «Спареного заклинання»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-metamagic-adept",
+          "heading": "Риса «Адепт метамагії»",
+          "sourceAnchor": "metamagic-adept",
+          "blocks": [
+            {
+              "blockId": "block-section-metamagic-adept-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Риса «Адепт метамагії»{{Metamagic Adept}}, яку запровадив «Казан Таші з усім», дає не-чародіям легкий доступ до метамагії й невеликий запас Очків чародійства{{Sorcery Points}}. Проте не-чародії, які беруть цю рису, не мають уміння «Джерело магії»{{Font of Magic}}, що дозволяє обмінювати Очки чародійства на слоти заклинань і навпаки. Це означає, що для не-чародіїв, які беруть рису, набагато суворіше обмеження щодо того, які варіанти метамагії працюють."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-metamagic-adept-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для чародіїв{{Sorcerer}}, що беруть «Адепта метамагії»{{Metamagic Adept}}, це просто ще більше того, що ви любите в Чародієві. Для всіх інших у розділі нижче є поради, як якнайкраще користуватися метамагією через рису «Адепт метамагії» без решти умінь Чародія. Памʼятайте, що ви обираєте два види метамагії, але отримуєте лише два Очки чародійства{{Sorcery Points}}, тож, імовірно, варто обрати два види метамагії, кожен з яких коштує 1 очко, якщо тільки вам не підходить вибір між двома варіантами й використання лише одного з них за день."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-metamagic-adept-careful-spell",
+          "parentSectionId": "section-metamagic-adept",
+          "heading": "Обережне заклинання",
+          "sourceAnchor": "metamagic-adept-careful-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-metamagic-adept-careful-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спокусливий варіант для заклинателів-нюкерів, але вкрай ситуативний. «Обережне заклинання»{{Careful Spell}} і для Чародія{{Sorcerer}} вже корисне лише ситуативно, бо можна просто накласти інше заклинання, а більшість заклинателів знають або можуть підготувати значно більше заклинань, ніж Чародій, тож у вас навіть більше варіантів, які не нашкодять союзникам."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-metamagic-adept-distant-spell",
+          "parentSectionId": "section-metamagic-adept",
+          "heading": "Віддалене заклинання",
+          "sourceAnchor": "metamagic-adept-distant-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-metamagic-adept-distant-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дуже ситуативне. Здебільшого проблеми з дальністю можна розвʼязати, підійшовши ближче."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-metamagic-adept-empowered-spell",
+          "parentSectionId": "section-metamagic-adept",
+          "heading": "Підсилене заклинання",
+          "sourceAnchor": "metamagic-adept-empowered-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-metamagic-adept-empowered-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Корисне лише для чародіїв{{Sorcerer}} і для чорнокнижників{{Warlock}} у ролі нюкерів, бо воно прямо залежить від вашого модифікатора Харизми, а не від модифікатора характеристики чаротворства. Використовувати це можна двічі на день."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-metamagic-adept-extended-spell",
+          "parentSectionId": "section-metamagic-adept",
+          "heading": "Подовжене заклинання",
+          "sourceAnchor": "metamagic-adept-extended-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-metamagic-adept-extended-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чудове, якщо у вас на думці є конкретні заклинання, з якими ви хочете це використовувати. Памʼятайте, що воно працюватиме для вас лише двічі на день, тож зазвичай варто заздалегідь визначити кілька основних заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-metamagic-adept-extended-spell-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Добрі приклади — заклинання з неймовірно довгою тривалістю, як-от Підтримка [Aid], Темний зір [Darkvision], Проклін [hex], Обладунок мага [Mage Armor] і Передбачення [Foresight]. Якщо тривалості достатньо, подовжені заклинання можна накласти перед тривалим відпочинком, і вони працюватимуть і під час відпочинку, і впродовж більшої частини наступного дня або й усього дня, даючи вам їхні переваги без витрати слота заклинання того дня, коли ви ними користуєтеся."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-metamagic-adept-extended-spell-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Будьте обережні, подовжуючи заклинання з Концентрацією. Що довше ви підтримуєте заклинання, то більша ймовірність, що вашу Концентрацію буде перервано, і ви втратите і слот заклинання, і очки, витрачені на його подовження. Якщо ви розглядаєте подовження заклинань 1-го рівня, подумайте, чи не кращий вибір риса для заклинателів на кшталт «Посвяченого у магію»{{Magic Initiate}}, щоб ви могли просто накласти заклинання ще раз на день."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-metamagic-adept-heightened-spell",
+          "parentSectionId": "section-metamagic-adept",
+          "heading": "Підвищене заклинання",
+          "sourceAnchor": "metamagic-adept-heightened-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-metamagic-adept-heightened-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коштує більше очок чародійства{{Sorcery Points}}, ніж у вас є."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-metamagic-adept-quickened-spell",
+          "parentSectionId": "section-metamagic-adept",
+          "heading": "Пришвидшене заклинання",
+          "sourceAnchor": "metamagic-adept-quickened-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-metamagic-adept-quickened-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для відданих заклинателів це фактично означає, що раз на день ви можете накласти заклинання з часом накладання 1 дія й замовляння з часом накладання 1 дія в одному ході. Якщо ви ще й збудовані для бою зі зброєю, можна накласти заклинання з рівнем і натомість виконати дію Атака. З правильним заклинанням це може бути дуже потужною комбінацією, але не знаю, чи варта одна комбінація на день цілої риси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-metamagic-adept-seeking-spell",
+          "parentSectionId": "section-metamagic-adept",
+          "heading": "Спрямоване заклинання (необовʼязкове)",
+          "sourceAnchor": "metamagic-adept-seeking-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-metamagic-adept-seeking-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Далеко не достатньо ефективне, щоб бути вашою єдиною метамагією, особливо з огляду на те, що через вартість в очках ви зможете використати його лише раз на день."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-metamagic-adept-subtle-spell",
+          "parentSectionId": "section-metamagic-adept",
+          "heading": "Приховане заклинання",
+          "sourceAnchor": "metamagic-adept-subtle-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-metamagic-adept-subtle-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ситуативне, але воно може виручити в ситуаціях, які могли б узагалі завадити вам накладати заклинання (докладніше я пишу в основному розділі «Варіанти метамагії» вище)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-metamagic-adept-transmuted-spell",
+          "parentSectionId": "section-metamagic-adept",
+          "heading": "Перетворене заклинання (необовʼязкове)",
+          "sourceAnchor": "metamagic-adept-transmuted-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-metamagic-adept-transmuted-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Багато класів-заклинателів надто сильно залежать від одного типу шкоди (як-от друїди{{Druid}} від вогняної шкоди), тож можливість двічі на день змінити тип шкоди може бути дуже корисною."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-metamagic-adept-twinned-spell",
+          "parentSectionId": "section-metamagic-adept",
+          "heading": "Спарене заклинання",
+          "sourceAnchor": "metamagic-adept-twinned-spell",
+          "blocks": [
+            {
+              "blockId": "block-section-metamagic-adept-twinned-spell-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки вартість в Очках чародійства{{Sorcery Points}} зростає, це можна використати або раз, або двічі на день. Є чимало чудових одноцільових заклинань низьких рівнів, які можна спарити, як-от Героїзм [Heroism]. {{За правилами як написано|RAW}}, гадаю, Проклін [hex] і Мисливська мітка [Hunter's Mark] спарити можна, але {{за задумом правил|RAI}} розробники цього не хочуть, бо ці заклинання з часом можуть мати ціллю кількох істот. Обговоріть це зі своїм Майстром."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-001",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-careful-spell",
+      "targetBlockId": "block-section-careful-spell-1",
+      "optionId": "section-careful-spell",
+      "context": "Обережне заклинання",
+      "explanationBlockId": "block-section-careful-spell-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-002",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-distant-spell",
+      "targetBlockId": "block-section-distant-spell-1",
+      "optionId": "section-distant-spell",
+      "context": "Віддалене заклинання",
+      "explanationBlockId": "block-section-distant-spell-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-003",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-empowered-spell",
+      "targetBlockId": "block-section-empowered-spell-1",
+      "optionId": "section-empowered-spell",
+      "context": "Підсилене заклинання",
+      "explanationBlockId": "block-section-empowered-spell-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-004",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-extended-spell",
+      "targetBlockId": "block-section-extended-spell-1",
+      "optionId": "section-extended-spell",
+      "context": "Подовжене заклинання",
+      "explanationBlockId": "block-section-extended-spell-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-005",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-heightened-spell",
+      "targetBlockId": "block-section-heightened-spell-1",
+      "optionId": "section-heightened-spell",
+      "context": "Підвищене заклинання",
+      "explanationBlockId": "block-section-heightened-spell-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-006",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-quickened-spell",
+      "targetBlockId": "block-section-quickened-spell-1",
+      "optionId": "section-quickened-spell",
+      "context": "Пришвидшене заклинання",
+      "explanationBlockId": "block-section-quickened-spell-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-007",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-seeking-spell",
+      "targetBlockId": "block-section-seeking-spell-1",
+      "optionId": "section-seeking-spell",
+      "context": "Спрямоване заклинання",
+      "explanationBlockId": "block-section-seeking-spell-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-008",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-subtle-spell",
+      "targetBlockId": "block-section-subtle-spell-1",
+      "optionId": "section-subtle-spell",
+      "context": "Приховане заклинання",
+      "explanationBlockId": "block-section-subtle-spell-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-009",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-transmuted-spell",
+      "targetBlockId": "block-section-transmuted-spell-1",
+      "optionId": "section-transmuted-spell",
+      "context": "Перетворене заклинання",
+      "explanationBlockId": "block-section-transmuted-spell-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-010",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-twinned-spell",
+      "targetBlockId": "block-section-twinned-spell-1",
+      "optionId": "section-twinned-spell",
+      "context": "Спарене заклинання",
+      "explanationBlockId": "block-section-twinned-spell-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-011",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-metamagic-adept-careful-spell",
+      "targetBlockId": "block-section-metamagic-adept-careful-spell-1",
+      "optionId": "section-metamagic-adept-careful-spell",
+      "context": "Обережне заклинання",
+      "explanationBlockId": "block-section-metamagic-adept-careful-spell-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-012",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-metamagic-adept-distant-spell",
+      "targetBlockId": "block-section-metamagic-adept-distant-spell-1",
+      "optionId": "section-metamagic-adept-distant-spell",
+      "context": "Віддалене заклинання",
+      "explanationBlockId": "block-section-metamagic-adept-distant-spell-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-013",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-metamagic-adept-empowered-spell",
+      "targetBlockId": "block-section-metamagic-adept-empowered-spell-1",
+      "optionId": "section-metamagic-adept-empowered-spell",
+      "context": "Підсилене заклинання",
+      "explanationBlockId": "block-section-metamagic-adept-empowered-spell-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-014",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-metamagic-adept-extended-spell",
+      "targetBlockId": "block-section-metamagic-adept-extended-spell-1",
+      "optionId": "section-metamagic-adept-extended-spell",
+      "context": "Подовжене заклинання",
+      "explanationBlockId": "block-section-metamagic-adept-extended-spell-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-015",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-metamagic-adept-heightened-spell",
+      "targetBlockId": "block-section-metamagic-adept-heightened-spell-1",
+      "optionId": "section-metamagic-adept-heightened-spell",
+      "context": "Підвищене заклинання",
+      "explanationBlockId": "block-section-metamagic-adept-heightened-spell-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-016",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-metamagic-adept-quickened-spell",
+      "targetBlockId": "block-section-metamagic-adept-quickened-spell-1",
+      "optionId": "section-metamagic-adept-quickened-spell",
+      "context": "Пришвидшене заклинання",
+      "explanationBlockId": "block-section-metamagic-adept-quickened-spell-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-017",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-metamagic-adept-seeking-spell",
+      "targetBlockId": "block-section-metamagic-adept-seeking-spell-1",
+      "optionId": "section-metamagic-adept-seeking-spell",
+      "context": "Спрямоване заклинання",
+      "explanationBlockId": "block-section-metamagic-adept-seeking-spell-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-018",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-metamagic-adept-subtle-spell",
+      "targetBlockId": "block-section-metamagic-adept-subtle-spell-1",
+      "optionId": "section-metamagic-adept-subtle-spell",
+      "context": "Приховане заклинання",
+      "explanationBlockId": "block-section-metamagic-adept-subtle-spell-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-019",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-metamagic-adept-transmuted-spell",
+      "targetBlockId": "block-section-metamagic-adept-transmuted-spell-1",
+      "optionId": "section-metamagic-adept-transmuted-spell",
+      "context": "Перетворене заклинання",
+      "explanationBlockId": "block-section-metamagic-adept-transmuted-spell-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-metamagic-2014-020",
+      "articleId": "rpgbot-sorcerer-metamagic-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-metamagic-2014-draft1",
+      "sectionId": "section-metamagic-adept-twinned-spell",
+      "targetBlockId": "block-section-metamagic-adept-twinned-spell-1",
+      "optionId": "section-metamagic-adept-twinned-spell",
+      "context": "Спарене заклинання",
+      "explanationBlockId": "block-section-metamagic-adept-twinned-spell-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

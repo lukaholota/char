@@ -1,0 +1,207 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "rogue-mastermind-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+    "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "ROGUE_2014",
+  "subclassKey": "MASTERMIND",
+  "raceKey": "HOBGOBLIN_MPMM",
+  "backgroundKey": "CRIMINAL",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 8,
+    "WIS": 12,
+    "CHA": 14
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 3,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "MASTERMIND"
+    },
+    {
+      "level": 4,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (DEX)"
+        },
+        {
+          "optionNameEng": "Skill Expert Proficiency (PERSUASION)"
+        },
+        {
+          "optionNameEng": "Skill Expert Expertise (STEALTH)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "expertise": [
+        "INSIGHT",
+        "PERCEPTION"
+      ]
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "featKey": "PIERCER",
+      "featOptions": [
+        {
+          "optionNameEng": "PIERCER Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 1
+        },
+        {
+          "ability": "CHA",
+          "amount": 1
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "INSPIRING_LEADER",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "featKey": "MOBILE",
+      "openAdvancement": true
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "LUCKY",
+      "openAdvancement": true
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Інструменти передісторії",
+      "reason": "Автор радить замінити володіння інструментами злодія іншим набором інструментів чи мовою; пресет не записує заміну інструментів, тому лишається стандартна передісторія Злочинця.",
+      "section": "section-background"
+    },
+    {
+      "field": "Ігровий набір",
+      "reason": "Автор радить гральні карти як ігровий набір Злочинця; пресет не записує вибір ігрового набору.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Риса на 16, 19-му рівнях",
+      "reason": "Автор пише «будь-яка» і не називає вибір. Пресет бере типовий (16-й: MOBILE, 19-й: LUCKY); це вибір платформи, гравець може змінити його перед створенням.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/rogue-mastermind-2014.webp",
+    "title": "Пройдисвіт — Майстер інтриг",
+    "description": "Хобгоблін-Злочинець зі змінюваним походженням: Спритність 17 і Харизма 15, Експертиза в Обмані й Залякуванні. Обличчя групи, яке допомагає союзникам.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CHA",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "INTIMIDATION",
+        "PERCEPTION",
+        "SLEIGHT_OF_HAND"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [
+      "DECEPTION",
+      "INTIMIDATION"
+    ],
+    "classOptions": [],
+    "languages": [
+      "GOBLIN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Хобгоблін із власним походженням за правилами Таші: +2 до Спритності й +1 до Харизми, як у авторській таблиці (Спритність 17, Харизма 15); це вже враховано.",
+    "skillExplanation": "Аналіз поведінки, Залякування, Уважність і Спритність рук — від Пройдисвіта, Обман і Непомітність — від Злочинця. Експертиза в Обмані й Залякуванні, як радить автор. Мову раси ми обрали за вас: автор її не називає.",
+    "equipmentExplanation": "Автор радить рапіру (або батіг) і важкий арбалет, коли можна буде його купити. Рапіру, короткий лук і набір грабіжника ми обрали за вас — їх можна змінити."
+  }
+}

@@ -1,0 +1,546 @@
+{
+  "class": [
+    {
+      "name": "Artificer",
+      "source": "TCE",
+      "page": 9,
+      "otherSources": [
+        {
+          "source": "ERLW",
+          "page": 54
+        }
+      ],
+      "reprintedAs": [
+        "Artificer|EFA"
+      ],
+      "edition": "classic",
+      "hd": {
+        "number": 1,
+        "faces": 8
+      },
+      "proficiency": [
+        "con",
+        "int"
+      ],
+      "spellcastingAbility": "int",
+      "casterProgression": "artificer",
+      "preparedSpells": "<$level$> / 2 + <$int_mod$>",
+      "preparedSpellsChange": "restLong",
+      "cantripProgression": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "optionalfeatureProgression": [
+        {
+          "name": "Infusions",
+          "featureType": [
+            "AI"
+          ],
+          "progression": [
+            0,
+            4,
+            4,
+            4,
+            4,
+            6,
+            6,
+            6,
+            6,
+            8,
+            8,
+            8,
+            8,
+            10,
+            10,
+            10,
+            10,
+            12,
+            12,
+            12
+          ]
+        }
+      ],
+      "startingProficiencies": {
+        "skills": [
+          {
+            "choose": {
+              "from": [
+                "arcana",
+                "history",
+                "investigation",
+                "medicine",
+                "nature",
+                "perception",
+                "sleight of hand"
+              ],
+              "count": 2
+            }
+          }
+        ],
+        "weapons": [
+          "simple",
+          {
+            "proficiency": "firearms",
+            "optional": true
+          }
+        ],
+        "tools": [
+          "{@item thieves' tools|PHB}",
+          "{@item tinker's tools|PHB}",
+          "one type of {@item artisan's tools|PHB} of your choice"
+        ],
+        "toolProficiencies": [
+          {
+            "thieves' tools": true,
+            "tinker's tools": true,
+            "anyArtisansTool": 1
+          }
+        ],
+        "armor": [
+          "light",
+          "medium",
+          "shield"
+        ],
+        "armorProficiencies": [
+          {
+            "light": true,
+            "medium": true,
+            "shield": true
+          }
+        ]
+      },
+      "startingEquipment": {
+        "additionalFromBackground": true,
+        "default": [
+          "any two {@filter simple weapons|items|source=phb|category=basic|type=simple weapon} of your choice",
+          "a {@item light crossbow|phb} and {@item crossbow bolts (20)|phb|20 bolts}",
+          "(a) {@item studded leather armor|phb} or (b) {@item scale mail|phb}",
+          "{@item thieves' tools|phb} and a {@item dungeoneer's pack|phb}"
+        ],
+        "goldAlternative": "{@dice 5d4 × 10|5d4 × 10|Starting Gold}",
+        "defaultData": [
+          {
+            "_": [
+              {
+                "equipmentType": "weaponSimple",
+                "quantity": 2
+              }
+            ]
+          },
+          {
+            "_": [
+              "light crossbow|phb",
+              "crossbow bolts (20)|phb"
+            ]
+          },
+          {
+            "a": [
+              "studded leather armor|phb"
+            ],
+            "b": [
+              "scale mail|phb"
+            ]
+          },
+          {
+            "_": [
+              "thieves' tools|phb",
+              "dungeoneer's pack|phb"
+            ]
+          }
+        ]
+      },
+      "multiclassing": {
+        "requirements": {
+          "int": 13
+        },
+        "proficienciesGained": {
+          "tools": [
+            "{@item thieves' tools|PHB}",
+            "{@item tinker's tools|PHB}"
+          ],
+          "toolProficiencies": [
+            {
+              "thieves' tools": true,
+              "tinker's tools": true
+            }
+          ],
+          "armor": [
+            "light",
+            "medium",
+            "shield"
+          ],
+          "armorProficiencies": [
+            {
+              "light": true,
+              "medium": true,
+              "shield": true
+            }
+          ]
+        }
+      },
+      "classTableGroups": [
+        {
+          "colLabels": [
+            "{@filter Infusions Known|optionalfeatures|feature type=ai|source=TCE}",
+            "Infused Items",
+            "{@filter Cantrips Known|spells|level=0|class=artificer}"
+          ],
+          "rows": [
+            [
+              0,
+              0,
+              2
+            ],
+            [
+              4,
+              2,
+              2
+            ],
+            [
+              4,
+              2,
+              2
+            ],
+            [
+              4,
+              2,
+              2
+            ],
+            [
+              4,
+              2,
+              2
+            ],
+            [
+              6,
+              3,
+              2
+            ],
+            [
+              6,
+              3,
+              2
+            ],
+            [
+              6,
+              3,
+              2
+            ],
+            [
+              6,
+              3,
+              2
+            ],
+            [
+              8,
+              4,
+              3
+            ],
+            [
+              8,
+              4,
+              3
+            ],
+            [
+              8,
+              4,
+              3
+            ],
+            [
+              8,
+              4,
+              3
+            ],
+            [
+              10,
+              5,
+              4
+            ],
+            [
+              10,
+              5,
+              4
+            ],
+            [
+              10,
+              5,
+              4
+            ],
+            [
+              10,
+              5,
+              4
+            ],
+            [
+              12,
+              6,
+              4
+            ],
+            [
+              12,
+              6,
+              4
+            ],
+            [
+              12,
+              6,
+              4
+            ]
+          ]
+        },
+        {
+          "title": "Spell Slots per Spell Level",
+          "colLabels": [
+            "{@filter 1st|spells|level=1|class=Artificer}",
+            "{@filter 2nd|spells|level=2|class=Artificer}",
+            "{@filter 3rd|spells|level=3|class=Artificer}",
+            "{@filter 4th|spells|level=4|class=Artificer}",
+            "{@filter 5th|spells|level=5|class=Artificer}"
+          ],
+          "rowsSpellProgression": [
+            [
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              3,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              3,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              0,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              2,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              0,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              1,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              1,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              2,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              2,
+              0
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              1
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              1
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2
+            ],
+            [
+              4,
+              3,
+              3,
+              3,
+              2
+            ]
+          ]
+        }
+      ],
+      "classFeatures": [
+        "Optional Rule: Firearm Proficiency|Artificer|TCE|1",
+        "Magical Tinkering|Artificer|TCE|1",
+        "Spellcasting|Artificer|TCE|1",
+        "Infuse Item|Artificer|TCE|2",
+        {
+          "classFeature": "Artificer Specialist|Artificer|TCE|3",
+          "gainSubclassFeature": true
+        },
+        "The Right Tool for the Job|Artificer|TCE|3",
+        "Ability Score Improvement|Artificer|TCE|4",
+        {
+          "classFeature": "Artificer Specialist Feature|Artificer|TCE|5",
+          "gainSubclassFeature": true
+        },
+        "Tool Expertise|Artificer|TCE|6",
+        "Flash of Genius|Artificer|TCE|7",
+        "Ability Score Improvement|Artificer|TCE|8",
+        {
+          "classFeature": "Artificer Specialist Feature|Artificer|TCE|9",
+          "gainSubclassFeature": true
+        },
+        "Magic Item Adept|Artificer|TCE|10",
+        "Spell-Storing Item|Artificer|TCE|11",
+        "Ability Score Improvement|Artificer|TCE|12",
+        "Magic Item Savant|Artificer|TCE|14",
+        {
+          "classFeature": "Artificer Specialist Feature|Artificer|TCE|15",
+          "gainSubclassFeature": true
+        },
+        "Ability Score Improvement|Artificer|TCE|16",
+        "Magic Item Master|Artificer|TCE|18",
+        "Ability Score Improvement|Artificer|TCE|19",
+        "Soul of Artifice|Artificer|TCE|20"
+      ],
+      "subclassTitle": "Artificer Specialist",
+      "hasFluff": true,
+      "hasFluffImages": true
+    }
+  ],
+  "classFeature": [
+    {
+      "name": "Infuse Item",
+      "source": "TCE",
+      "page": 9,
+      "otherSources": [
+        {
+          "source": "ERLW",
+          "page": 54
+        }
+      ],
+      "className": "Artificer",
+      "classSource": "TCE",
+      "level": 2,
+      "entries": [
+        "{@i 2nd-level artificer feature}",
+        "You've gained the ability to imbue mundane items with certain magical infusions, turning those objects into magic items.",
+        {
+          "type": "refClassFeature",
+          "classFeature": "Infusions Known|Artificer|TCE|2"
+        },
+        {
+          "type": "inset",
+          "name": "Artificer Infusions",
+          "entries": [
+            "Artificers have invented numerous magical infusions, extraordinary processes that rapidly create magic items. To many, artificers seem like wonderworkers, accomplishing in hours what others need weeks to complete.",
+            "The description of each of the following infusions details the type of item that can receive it, along with whether the resulting magic item requires attunement.",
+            "Some infusions specify a minimum artificer level. You can't learn such an infusion until you are at least that level.",
+            "Unless an infusion's description says otherwise, you can't learn an infusion more than once."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Infusing an Item",
+          "entries": [
+            "Whenever you finish a long rest, you can touch a nonmagical object and imbue it with one of your artificer infusions, turning it into a magic item. An infusion works on only certain kinds of objects, as specified in the infusion's description. If the item requires attunement, you can attune yourself to it the instant you infuse the item. If you decide to attune to the item later, you must do so using the normal process for attunement (see \"{@book Attunement|DMG|7|Attunement}\" in chapter 7 of the {@book Dungeon Master's Guide|DMG}).",
+            "Your infusion remains in an item indefinitely, but when you die, the infusion vanishes after a number of days have passed equal to your Intelligence modifier (minimum of 1 day). The infusion also vanishes if you give up your knowledge of the infusion for another one.",
+            "You can infuse more than one nonmagical object at the end of a long rest; the maximum number of objects appears in the Infused Items column of the Artificer table. You must touch each of the objects, and each of your infusions can be in only one object at a time. Moreover, no object can bear more than one of your infusions at a time. If you try to exceed your maximum number of infusions, the oldest infusion immediately ends, and then the new infusion applies.",
+            "If an infusion ends on an item that contains other things, like a {@item bag of holding}, its contents harmlessly appear in and around its space."
+          ]
+        }
+      ]
+    }
+  ]
+}

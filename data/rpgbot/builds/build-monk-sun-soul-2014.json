@@ -1,0 +1,806 @@
+{
+  "buildId": "build-monk-sun-soul-2014",
+  "revisionId": "build-monk-sun-soul-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Монаха Шляху сонячної душі — Принц усіх хадозі",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-monk-sun-soul-2014",
+      "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+      "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+      "sectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "MONK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "MONK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "MONK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "MONK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WAY_OF_THE_SUN_SOUL",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "MONK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GUNNER"
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "MONK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "MONK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "MONK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "MONK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (DEX)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (SURVIVAL)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (INSIGHT)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "MONK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "MONK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "MONK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "MONK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "MONK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "MONK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "MONK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "MONK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "MONK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "MONK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "MONK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "MONK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-sun-soul-2014",
+          "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "WAY_OF_THE_SUN_SOUL",
+    "raceKey": "HADOZEE_SPELLJAMMER",
+    "backgroundKey": "SOLDIER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Пріоритет віддамо Спритності, Статурі й Мудрості. Ми хадозі й обираємо варіант +1/+1/+1.\n\n Базове значення Підвищене значення 20-й рівень Сила 8 8 8 Спритність 15 16 20 Статура 15 16 16 Інтелект 8 8 8 Мудрість 15 16 20 Харизма 8 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Беремо хадозі, бо намагаємося бути Вегетою{{Vegeta}}. Планерування майже як політ, тож це круто. «Стійкість хадозі»{{Hadozee Resilience}} дасть змогу отримувати менше шкоди, тож нас можуть бити, а ми продовжуватимемо битися, доки Ґоку насправді не виграє бій. Так, я обрав расу заради посилання, але в неї є й корисні риси.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Ви могли б подумати, що в принца Вегети має бути передісторія Аристократа, але ні, він цілком Солдат, тож і ми теж. Це дає нам Атлетику, Залякування, Наземний транспорт та Ігровий набір.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Монаха оберемо Акробатику й Аналіз Поведінки. Від «Експерта в навичках» на восьмому рівні вивчимо Виживання й отримаємо Експертизу в Аналізі Поведінки. Солдат дав нам Атлетику й Залякування.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На четвертому рівні беремо «Стрільця». Це дає +1 до Спритності, трохи вогнепальної справи, яку нам не обовʼязково використовувати, і здатність робити кидки дальньої атаки (наші лазерні вибухи) у ближньому бою без Перешкоди на кубику.\n\nНа восьмому рівні беремо «Експерта в навичках», вкладаючи ще +1 у Спритність і отримуючи Володіння Виживанням та Експертизу в Аналізі Поведінки. Тепер усі можуть питати нас, що перевірка Аналізу Поведінки каже про їхній рівень сили.\n\nНа дванадцятому рівні беремо підвищення характеристик на +2 до Спритності, доходячи до 20.\n\nНа шістнадцятому рівні беремо підвищення характеристик на +2 до Мудрості, досягаючи 18.\n\nНа девʼятнадцятому рівні беремо підвищення характеристик на +2 до Мудрості, доходячи до 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Захист без броні, Бойові мистецтва, Навички: Акробатика, Атлетика, Аналіз Поведінки, Залякування",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Кі, Рух без броні, Присвячена зброя (додаткове)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Шлях сонячної душі: Промінь сонячного світла, Відхилення снарядів, Атака, посилена Кі (додатково)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Стрілець, +1 до Спритності (16 → 17), Повільне падіння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака, Приголомшливий удар, Зосереджене прицілювання (додатково)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Удари, посилені Кі, Пекучий дуговий удар",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ухилення, Спокій розуму",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Експерт у навичках, +1 до Спритності (17 → 18), Володіння Уважністю, Експертиза в Аналізі Поведінки",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Рух без броні{{Unarmored Movement}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Чистота тіла{{Purity of Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Пекучий сонячний вибух{{Searing Sunburst}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Спритність +2 (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Язик Сонця і Місяця{{Tongue of the Sun and Moon}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Алмазна душа{{Diamond Soul}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Невмируще тіло{{Timeless Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: Мудрість +2 (16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Сонячний щит{{Sun Shield}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Порожнє тіло{{Empty Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Мудрість +2 (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Досконале Я{{Perfect Self}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Навичка Акробатика",
+        "reason": "Автор бере Акробатику від Монаха, але каталог уже дає її Хадозі, тож у класовому виборі її взяти не можна; замість неї обрано іншу навичку Монаха за платформою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Додаткові класові уміння",
+        "reason": "Автор використовує додаткові класові уміння «Присвячена зброя», «Атака, посилена Кі» і «Зосереджене прицілювання»; пресет 1-го рівня їх не записує.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Володіння на 8-му рівні",
+        "reason": "Таблиця рівнів пише «Володіння Уважністю», а тексти розділів про навички й риси двічі кажуть «Виживання»; взято Виживання як явніший авторський вибір, розбіжність у джерелі лишається.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-sun-soul-2014",
+            "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "barbarian-ancestral-guardian-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+    "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346"
+  },
+  "exampleSection": "section-example-build-furious-about-mediocre-strength",
+  "levelTableSection": "section-levels",
+  "classKey": "BARBARIAN_2014",
+  "raceKey": "ELF_2014",
+  "backgroundKey": "ENTERTAINER",
+  "abilityScores": {
+    "STR": 12,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 13,
+    "WIS": 8,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Навичка Розслідування",
+      "reason": "Автор бере Природу й Розслідування, але Розслідування немає у списку навичок Варвара, а передісторія Артист дає Акробатику й Непомітність. Замість Розслідування узято Виживання зі списку Варвара: найближча за змістом навичка на спостережливість і знання.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Інструменти",
+      "reason": "Автор міняє Набір для гриму Артиста на інструменти злодія. Платформа не може прибрати фіксований інструмент передісторії, тому лишається Набір для гриму, а інструментів злодія немає.",
+      "section": "section-background"
+    },
+    {
+      "field": "Стартове спорядження",
+      "reason": "Автор бере стартове золото й купує Рапіру, щит і короткий лук. Платформа не веде купівлю за золото: узято набір Варвара з Рапірою (бойова зброя) та коротким луком (проста зброя), щита немає.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Первісне знання",
+      "reason": "Автор згадує додаткову класову навичку «Первісне знання» (додаткова навичка Варвара під час Люті); у каталозі цього вибору немає, тож навичку не записано.",
+      "section": "section-skills-and-tools"
+    }
+  ],
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "PATH_OF_THE_ANCESTRAL_GUARDIAN"
+    },
+    {
+      "level": 4,
+      "featKey": "ELVEN_ACCURACY",
+      "featOptions": [
+        {
+          "optionNameEng": "ELVEN_ACCURACY Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "cantripKeys": [
+          "booming-blade",
+          "mage-hand",
+          "shape-water"
+        ],
+        "spellbookKeys": [
+          "expeditious-retreat",
+          "feather-fall",
+          "protection-from-evil-and-good"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "classKey": "WIZARD_2014",
+      "subclassKey": "SCHOOL_OF_WAR_MAGIC",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "classKey": "FIGHTER_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Dueling"
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "classKey": "FIGHTER_2014"
+    },
+    {
+      "level": 13,
+      "subclassKey": "CHAMPION",
+      "classKey": "FIGHTER_2014"
+    },
+    {
+      "level": 14,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 1
+        },
+        {
+          "ability": "DEX",
+          "amount": 1
+        }
+      ],
+      "classKey": "FIGHTER_2014"
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18,
+      "featKey": "CHEF",
+      "featOptions": [
+        {
+          "optionNameEng": "CHEF Ability (Constitution)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 19
+    },
+    {
+      "level": 20
+    }
+  ],
+  "preset": {
+    "title": "Варвар — Предок-охоронець, Ельф (шадар-кай)",
+    "description": "Варвар Предка-охоронця з Ельфом шадар-кай за правилами Таші та Артистом: Ельфійська точність, а далі мультиклас у Чарівника (Магія війни) і Воїна (Чемпіон).",
+    "subraceKey": "ELF_SHADAR_KAI_MPMM",
+    "racialAbilities": [
+      "STR",
+      "DEX",
+      "CON"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "NATURE",
+        "SURVIVAL"
+      ],
+      "race": [],
+      "background": [
+        "ACROBATICS",
+        "STEALTH"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": [
+          "RAPIER"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "SHORTBOW"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Ельф шадар-кай за правилами Таші: по +1 до Сили, Спритності й Статури, тож Сила 13, Спритність 16, Статура 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Природа — від Варвара за автором. Розслідування автор бере, але його немає у списку Варвара, тож замість нього обрано Виживання (вибір платформи). Акробатика й Непомітність — від Артиста (Виступ автор міняє на Непомітність, правило PHB «Налаштування передісторії»), Уважність — від Ельфа.",
+    "equipmentExplanation": "Автор бере стартове золото й купує Рапіру, щит і короткий лук. Замість цього взято набір Варвара: Рапіру, короткий лук і Набір мандрівника ми обрали за вас; щита немає.",
+    "backgroundCustomization": {
+      "tools": []
+    }
+  }
+}

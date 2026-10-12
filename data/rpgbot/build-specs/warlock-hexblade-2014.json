@@ -1,0 +1,152 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "warlock-hexblade-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-warlock-hexblade-2014-draft1",
+    "sourceRevisionId": "rpgbot-628cc0d5c38c6fa7-27e9ea93edb51255"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "WARLOCK_2014",
+  "subclassKey": "HEXBLADE",
+  "raceKey": "HALF_ELF_2014",
+  "backgroundKey": "FACTION_AGENT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 3,
+  "levels": [
+    {"level":2,"classOptions":[{"optionNameEng":"Fiendish Vigor"},{"optionNameEng":"Devil's Sight"}],"spells":{"knownSpellKeys":["protection-from-evil-and-good"]}},
+    {"level":3,"classOptions":[{"optionNameEng":"Pact of the Blade"}],"spells":{"knownSpellKeys":["armor-of-agathys"]},"replaceSpell":{"drop":"protection-from-evil-and-good","add":"blur"},"replaceOptions":[{"drop":{"optionNameEng":"Fiendish Vigor"},"add":{"optionNameEng":"Improved Pact Weapon"}}]},
+    {"level":4,"featKey":"ELVEN_ACCURACY","featOptions":[{"optionNameEng":"ELVEN_ACCURACY Ability (Charisma)"}],"spells":{"cantripKeys":["mage-hand"],"knownSpellKeys":["darkness"]}},
+    {"level":5,"classOptions":[{"optionNameEng":"Thirsting Blade"}],"spells":{"knownSpellKeys":["fly"]}},
+    {"level":6,"spells":{"knownSpellKeys":["counterspell"]}},
+    {"level":7,"classOptions":[{"optionNameEng":"Eldritch Smite"}],"spells":{"knownSpellKeys":["phantasmal-killer"]}},
+    {"level":8,"featKey":"GREAT_WEAPON_MASTER","spells":{"knownSpellKeys":["shadow-of-moil"]}},
+    {"level":9,"classOptions":[{"optionNameEng":"Agonizing Blast"}],"spells":{"knownSpellKeys":["banishing-smite"]},"replaceSpell":{"drop":"wrathful-smite","add":"cone-of-cold"}},
+    {"level":10,"spells":{"cantripKeys":["green-flame-blade"]}},
+    {"level":11,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":12,"abilityScoreIncrease":[{"ability":"CHA","amount":2}],"classOptions":[{"optionNameEng":"Lifedrinker"}]},
+    {"level":13,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":14},
+    {"level":15,"classOptions":[{"optionNameEng":"Visions of Distant Realms"}],"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":16,"featKey":"WAR_CASTER"},
+    {"level":17,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":18,"classOptions":[{"optionNameEng":"Witch Sight"}]},
+    {"level":19,"abilityScoreIncrease":[{"ability":"CON","amount":2}],"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":20}
+  ],
+  "incomplete": [
+    {
+      "field": "Стартове золото замість набору",
+      "reason": "Автор радить узяти гроші замість стандартного набору й купити лускатий обладунок, довгий меч і щит; пресет бере стандартний набір Чорнокнижника.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Інструменти злодія замість мови",
+      "reason": "Автор радить залишити одну мову за кампанією, а замість другої мови Агента фракції взяти володіння інструментами злодія; пресет не записує обмін мови на інструменти, тому всі три мови обрано за платформою.",
+      "section": "section-background"
+    },
+    {
+      "field": "Містичний арканум",
+      "reason": "Автор називає Зʼяву феї (11-й), Силову клітку (13-й), Підкорення монстра (15-й) і Передбачення (17-й); платформа не записує вибір арканума, тож їх слід додати вручну.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання «будь-які»",
+      "reason": "На 11, 13, 15, 17 і 19-му рівнях автор не називає нового відомого заклинання; це вибір гравця.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/warlock-hexblade-2014.webp",
+    "title": "Чорнокнижник — Відьмацький клинок, Напівельф",
+    "description": "Напівельф зі спадком Місячного або Сонячного ельфа: Гримучий Клинок, Спалах мечів і Позамежний заряд з першого рівня, Харизма 17.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CON",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "INTIMIDATION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": [
+      "Замовляння"
+    ],
+    "languages": [
+      "DWARVISH",
+      "GOBLIN",
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": [
+          "QUARTERSTAFF"
+        ]
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля 15/15/15 і підвищення Напівельфа за правилами Таші: +1 до Спритності й Статури та +2 до Харизми, тож 16/16/17, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Обман і Залякування — від Чорнокнижника, Аналіз поведінки й Переконання — від Агента фракції, як у розділі автора. Три мови (одну від раси й дві від передісторії) ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Автор радить гроші замість набору, але пресет бере стандартний набір класу. Легкий арбалет, мішечок компонентів, набір вченого, шкіряну броню, бойовий посох і два кинджали ми обрали за вас — це вибір платформи, його можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "booming-blade",
+        "eldritch-blast"
+      ],
+      "knownSpellKeys": [
+        "wrathful-smite",
+        "hex"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [
+        "sword-burst"
+      ],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Гримучий Клинок і Позамежний заряд, заклинання Гнівна кара й Проклін, а також Спалах мечів від спадку Напівельфа названо автором. Простір заклинань 1-го рівня Відьмацького клинка бере зі свого розширеного списку.",
+      "platformChoices": []
+    }
+  }
+}

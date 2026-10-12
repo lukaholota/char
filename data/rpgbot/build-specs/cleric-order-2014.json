@@ -1,0 +1,275 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "cleric-order-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-cleric-order-2014-draft1",
+    "sourceRevisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d"
+  },
+  "exampleSection": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "ORDER_DOMAIN",
+  "raceKey": "SHIFTER_MPMM",
+  "backgroundKey": "SPY",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 10,
+    "WIS": 15,
+    "CHA": 14
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Мультиклас у Чародія",
+      "reason": "Автор бере з 2-го рівня Чародія Божественної душі (Сріблясті шпильки); цей запис описує лише старт Клірика 1-го рівня.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Продаж спорядження",
+      "reason": "Автор радить продати булаву й легкий арбалет і купити лати; пресет не записує продаж, тож лишено кольчугу, булаву й легкий арбалет.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Продаж спорядження",
+      "reason": "Автор радить продати булаву й легкий арбалет і купити лати; пресет не записує продаж, тож лишено кольчугу, булаву й легкий арбалет.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Благословення від Чародія (Божественна магія)",
+      "reason": "На 2-му рівні автор вивчає Благословення (Bless) зі списку Клірика, який відкриває Божественна душа; платформа не додає заклинань Клірика до вибору Чародія (BUG-O49-DIVINE-SOUL-SPELL-LIST), тому на цьому місці відкритий вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання риси «Доторк феї» на 5-му рівні",
+      "reason": "Автор бере Доторк феї, але не називає заклинання 1-го рівня; платформа не записує заклинання рис на підвищенні рівня, тож записано лише саму рису.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Підготовлені заклинання Клірика на рівнях 2–20",
+      "reason": "Автор називає підготовлені заклинання по рівнях (Виявлення магії, Духовна зброя, Маяк надії тощо, а на 17, 19 і 20-му «будь-яке») і заміни підготовлених; їх гравець готує на листі, тому в пресет вони не записані.",
+      "section": "section-levels"
+    }
+  ],
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "SORCERER_2014",
+      "subclassKey": "DIVINE_SOUL",
+      "spells": {
+        "cantripKeys": [
+          "prestidigitation",
+          "mage-hand",
+          "light",
+          "shape-water"
+        ],
+        "knownSpellKeys": [
+          "silvery-barbs"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ],
+      "classOptionSpellKeys": [
+        "bane"
+      ]
+    },
+    {
+      "level": 3
+    },
+    {
+      "level": 4
+    },
+    {
+      "level": 5,
+      "featKey": "FEY_TOUCHED",
+      "featOptions": [
+        {
+          "optionNameEng": "FEY_TOUCHED Ability (Wisdom)"
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "mending"
+        ]
+      },
+      "section": "section-feats"
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8
+    },
+    {
+      "level": 9,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 10
+    },
+    {
+      "level": 11,
+      "spells": {
+        "cantripKeys": [
+          "thaumaturgy"
+        ]
+      }
+    },
+    {
+      "level": 12
+    },
+    {
+      "level": 13,
+      "featKey": "INSPIRING_LEADER",
+      "section": "section-feats"
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16
+    },
+    {
+      "level": 17,
+      "featKey": "ELDRITCH_ADEPT",
+      "featOptions": [
+        {
+          "optionNameEng": "Devil's Sight"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19
+    },
+    {
+      "level": 20,
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "section": "section-feats"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/cleric-order-2014.webp",
+    "title": "Клірик — Домен порядку, Перевертень",
+    "description": "Клірик порядку з Голосом влади: Перевертень з рисою Дикого мисливця, Шпигун з Уважністю замість Непомітності, Переконання від домену.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "WIS",
+      "CON",
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "MEDICINE",
+        "INSIGHT"
+      ],
+      "race": [
+        "INTIMIDATION"
+      ],
+      "background": [
+        "DECEPTION",
+        "PERCEPTION"
+      ],
+      "subclass": [
+        "PERSUASION"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": [
+      "Дикий мисливець"
+    ],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "c",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 5,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "toll-the-dead",
+        "sacred-flame"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "healing-word",
+        "guiding-bolt",
+        "protection-from-evil-and-good",
+        "shield-of-faith"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння та підготовлені заклинання названо автором: Настанова, Дзвін небіжчика, Священне полумʼя, Цілюще слово, Спрямований заряд, Захист від зла й добра, Щит віри.",
+      "platformChoices": []
+    },
+    "abilityExplanation": "Перевертень за правилами Таші: +2 до Мудрості й +1 до Статури, тож Мудрість 17, Статура 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Медицина й Аналіз поведінки — від Клірика, Залякування — від Перевертня, Переконання — від Домену порядку. Автор бере Шпигуна й переносить Непомітність на Уважність (правило PHB «Налаштування передісторії»). Усього шість навичок, як у автора. Мову ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Кольчуга, булава й легкий арбалет — за порадою автора; набір священика та щит ми обрали за вас — вибір платформи."
+  },
+  "revision": 2
+}

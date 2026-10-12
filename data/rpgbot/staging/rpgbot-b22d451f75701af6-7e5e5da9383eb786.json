@@ -1,0 +1,3989 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "7e5e5da9383eb786ce1db33ba47eb37460b8d0051c25991fe859782f2c43358c",
+  "sourceRevision": {
+    "revisionId": "rpgbot-b22d451f75701af6-7e5e5da9383eb786",
+    "sourceId": "rpgbot-b22d451f75701af6",
+    "fetchedAt": "2026-09-29T19:20:01.263731+00:00",
+    "sourceUpdatedAt": "2025-07-22T16:23:22-04:00",
+    "contentHash": "b92add302002d803167883b7112780e105398f108fdac98b7481e7993c90ed8c",
+    "title": "2024 DnD Path of the Berserker Barbarian Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-b22d451f75701af6-7e5e5da9383eb786.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "intro",
+      "heading": "2024 DnD Path of the Berserker Barbarian Subclass Guide",
+      "blocks": [
+        {
+          "blockId": "block-intro-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Path of the Berserker Barbarian Subclass Handbook"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In the 2014 PHB, the Path of the Berserker Barbarian was an objectively terrible subclass that self-imposed the Exhaustion debuff on the Barbarian in order to gain an extra attack. WotC has learned that they shouldn’t use Exhaustion like that and the Path of the Berserker is now actually playable for the first time after ten years."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Instead of an extra attack as a Bonus Action, the Berserker deals extra damage during Rage in the form of d6s, like an angrier version of Sneak Attack. Other features of the subclass have largely remained the same as they were not the problem with the 2014 version. If you just want to activate Rage, wade into battle, and do lots of damage as a Rage monster, this is the subclass for you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "After ten long years, I would like to Frenzy. And so will you."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-3",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Berserker Features",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Berserker Species",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#species"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Berserker Ability Scores",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Berserker Feats",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Origin Feats from Suggested Backgrounds",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#origin-feats-from-suggested-backgrounds"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "General Feats",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#general-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Epic Boons",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#epic-boons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Berserker Weapons",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Masteries",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#masteries"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Berserker Armor",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Path of the Berserker Build – Everything Looks Like a Nail",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Species",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#species"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skill and Tool Proficiencies",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#skill-and-tool-proficiencies"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats and Ability Score Increases",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#feats-and-ability-score-increases"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/2024-dnd/classes/barbarian/barbarian-subclasses/berserker/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice in this article is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2024 DnD Character Optimization Meta",
+              "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows. Also be sure to check for "
+            },
+            {
+              "type": "link",
+              "text": "errata",
+              "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+            },
+            {
+              "type": "text",
+              "text": " periodically."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Path of the Berserker Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Frenzy"
+              },
+              {
+                "type": "text",
+                "text": ": While Raging, the first hit you\n\t\tland on your turn while using Reckless Attack does extra damage equal to Xd6\n\t\twhere X is your Rage Damage, so 2d6 when you get this feature and scaling to\n\t\t4d6 at level 16. Like an angriest Sneak Attack, it’s just extra d6s of\n\t\tdamage once per your turn while doing something you were going to do anyway\n\t\t(Reckless Attack). It’s straightforward and effective"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mindless Rage"
+              },
+              {
+                "type": "text",
+                "text": ": This makes you immune to\n\t\ttwo ways to take you out of combat without wearing down your huge pile of\n\t\thit points."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Retaliation"
+              },
+              {
+                "type": "text",
+                "text": ": Absolutely fantastic. We can\n\t\talso can grapple or shove the target as our Retaliation since you’re able to\n\t\tmake an Unarmed Strike."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Intimidating Presence"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent crowd\n\t\tcontrol, giving you a way to debuff big groups of enemies while you focus on\n\t\tthem one at a time. The usage limitation is tight, and the cost to recharge\n        it is high, so save this for encounters with multiple enemies. Burning this\n        on single targets is an absolute waste unless you’re trying to burn through\n        Legendary Resistances."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-species",
+      "heading": "Path of the Berserker Species",
+      "sourceAnchor": "species",
+      "blocks": [
+        {
+          "blockId": "block-section-species-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Assimar"
+            },
+            {
+              "type": "text",
+              "text": "\n\t"
+            },
+            {
+              "type": "superscript",
+              "text": "("
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "superscript",
+              "text": ")"
+            },
+            {
+              "type": "text",
+              "text": ": A little extra resistance to Necrotic and Radiant never hurts. Darkvision is convenient. Healing Hands is a small heal once per day. Limited Flight or combat buffs at 3rd level is where most of this Species’ power budget went. We won’t have the Charisma for Necrotic Shroud’s save and the Inner Radiance is unfriendly to allies, so if we’re stuck in close quarters it’s going to be used as one minute of Flight per day. Not terrible.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-species-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonborn"
+            },
+            {
+              "type": "text",
+              "text": "\n\t"
+            },
+            {
+              "type": "superscript",
+              "text": "("
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "superscript",
+              "text": ")"
+            },
+            {
+              "type": "text",
+              "text": ": Breath Attack for AoE damage, some resistance, Darkvision, and 10 minutes of Flight each day. The breath replaces one of our attacks, and we have a bonus that applies if we hit with at least one attack, so we have to weigh trading that attack away by making sure to get as many targets in the area as possible.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-species-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dwarf"
+            },
+            {
+              "type": "text",
+              "text": "\n\t"
+            },
+            {
+              "type": "superscript",
+              "text": "("
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "superscript",
+              "text": ")"
+            },
+            {
+              "type": "text",
+              "text": ": Resistance to Poison is decent, and having more HP goes great with Barbarian resistance. Stonecunning Tremorsense might occasionally be good against invisible foes.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-species-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Elf"
+            },
+            {
+              "type": "text",
+              "text": "\n\t"
+            },
+            {
+              "type": "superscript",
+              "text": "("
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "superscript",
+              "text": ")"
+            },
+            {
+              "type": "text",
+              "text": ": Maybe Wood Elf for extra speed, but the fact that a large portion of Elf’s power is in spells that are incompatible with Raging lowers the overall rating of Elves.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-species-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gnome"
+            },
+            {
+              "type": "text",
+              "text": "\n\t"
+            },
+            {
+              "type": "superscript",
+              "text": "("
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "superscript",
+              "text": ")"
+            },
+            {
+              "type": "text",
+              "text": ": Gnomes have Advantage on all Mental saves, which we are not proficient with, giving a large boost to one of our vulnerabilities. We can’t cast any of the spells Gnomes get during rage, but these spells are all out of combat utility spells so that’s not really an issue.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-species-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Goliath"
+            },
+            {
+              "type": "text",
+              "text": "\n\t"
+            },
+            {
+              "type": "superscript",
+              "text": "("
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "superscript",
+              "text": ")"
+            },
+            {
+              "type": "text",
+              "text": ": Fast, big, and has good options. I prefer the Hill Giant benefit of automatic Prone with no save, but the bonus damage of Fire and Frost are good too.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-species-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Halfling"
+            },
+            {
+              "type": "text",
+              "text": "\n\t"
+            },
+            {
+              "type": "superscript",
+              "text": "("
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "superscript",
+              "text": ")"
+            },
+            {
+              "type": "text",
+              "text": ": Bravery is a little redundant with Mindless Rage, but we’re not always Raging. Nimbleness prevents foes from body-blocking us, which is great if we really need to be over there instead of over here. Lucky actually combines really well with Advantage (such as from Reckless Attack) because even if we’ve already succeeded with one of our dice, we can reroll a 1 to fish for a 20. Naturally stealthy might seem like we can’t use it, but remember that Primal Knowledge turns Stealth into a Strength check while we’re Raging, and we have Advantage on those checks. What’s more terrifying in the middle of a fight than losing track of the small ball of Rage that hits like a truck?\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-species-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Human"
+            },
+            {
+              "type": "text",
+              "text": "\n\t"
+            },
+            {
+              "type": "superscript",
+              "text": "("
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "superscript",
+              "text": ")"
+            },
+            {
+              "type": "text",
+              "text": ":: Yeah, it’s ok. The Human’s bonus feat is no longer as powerful as it was in the 2014 rules because of the limitation to Origin feats. Free Inspiration every morning is good and a bonus skill is good too. If you do want two different Origin Feats (or one that’s incompatible with the backgrounds that fit with your stat requirements) then of course choose Human.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-species-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Orc"
+            },
+            {
+              "type": "text",
+              "text": "\n\t"
+            },
+            {
+              "type": "superscript",
+              "text": "("
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "superscript",
+              "text": ")"
+            },
+            {
+              "type": "text",
+              "text": ": Bonus action Dash and Once Per Day choose to not go down. Good options.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-species-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tiefling"
+            },
+            {
+              "type": "text",
+              "text": "\n\t"
+            },
+            {
+              "type": "superscript",
+              "text": "("
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "superscript",
+              "text": ")"
+            },
+            {
+              "type": "text",
+              "text": ": Same problem as the Elf: the Tiefling’s primary feature is spells that we can’t use while raging.\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Path of the Berserker Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Barbarians need Strength to hit things. The Path of the Berserker doesn’t change that fact. Dexterity and Constitution are also useful to increase our Armor Class and Hit Points. The only benefits we get from Mental scores are related to skills and saves, which isn’t nothing, but it shouldn’t be more important than our physical attributes. Remember to choose a background that includes at least Strength and either Dexterity or Constitution. That list includes Artisan (Dex), Entertainer (Dex), Farmer (Con), Sailor (Dex), and Soldier (All Three)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Path of the Berserker Feats",
+      "sourceAnchor": "feats",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-origin-feats-from-suggested-backgrounds",
+      "parentSectionId": "section-feats",
+      "heading": "Origin Feats from Suggested Backgrounds",
+      "sourceAnchor": "origin-feats-from-suggested-backgrounds",
+      "blocks": [
+        {
+          "blockId": "block-section-origin-feats-from-suggested-backgrounds-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Artisan (Crafter)"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Being able to have three small lists of adventuring items you sometimes need is occasionally useful. It will, however, come up far less than some other feats so it gets an Orange.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Entertainer (Musician)"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Handing out Heroic Inspiration to your allies after every rest is pretty good. Sing a little song and give everyone a little hint of Recklessness to keep in their pocket for later.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Farmer (Tough)"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": It’s just a few extra hit points, but with Resistance our hit points are worth more than most other PCs.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sailor (Tavern Brawler)"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": I mentioned above that Retaliation can be used with Unarmed Attacks, but if we’re doing that we’re not using the damage option so upgrading to 1d4 damage isn’t important and none of the rest of this feat even applies to our edge use-case.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Soldier (Savage Attacker)"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Getting to roll weapon damage twice once per turn is only a small boost for each individual turn, but it’s going to add up on every turn for our whole career. Plus you get to roll more dice, and that’s fun.\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-general-feats",
+      "parentSectionId": "section-feats",
+      "heading": "General Feats",
+      "sourceAnchor": "general-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-general-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Athlete"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": If you’ve already gotten everything you need for offense and you still need another +1 Strength, a Climb Speed and getting up from Prone at a major discount are pretty good benefits.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Charger"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Bonus 1d8 damage or push the target just by moving towards it before the attack. The hard part is judging how often we can trigger this damage without eating Opportunity Attacks. That said, if something has 15 feet of reach, we have enough room to back up and charge without leaving their reach.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crusher"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Smack a target with a Bludgeoning weapon and move it over slightly. Tell people to step away from the Sorcerer.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grappler"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": It’s not that our features don’t work if we’re fighting unarmed, it’s that we give up Mastery properties. Additionally, this also doesn’t work with Retaliation because the ability to do damage and grapple or shove at the same time is only during our own turn. We don’t need this if all we want to do with Retaliation is sweep the leg.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Great Weapon Master"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": More damage is more damage. Sometimes getting a bonus attack is nice too.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Piercer"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": It’s not as great if we already have Savage Attacker, but if you want to use a Piercing weapon, it’s still ok.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Polearm Master"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Unlike 2014 Berserker, we’re not using our Bonus Action for extra attacks, so we’re free to swing a Polearm all day. The reaction does compete with Retaliation, so keep that in mind.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sentinel"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re looking to do some kind of Defender setup with the Path of the Berserker, Sentinel can put the target into a lose-lose situation: Attack the Berserker and get hit by Retaliation. Attack the Berserker’s Ally and get hit by Sentinel. This makes us very sticky.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shield Master"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Frenzy doesn’t really care what kind of weapon we’re using, so using a one-handed weapon and wearing a shield to help offset the fact that we have to Reckless Attack to do bonus damage can get additional support from this feat.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Slasher"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": This is great for Berserkers who want to slow a target down but aren’t going all-in on defender options with Sentinel. As an added bonus when you score Critical Hits from all of your Reckless Attacks you negate the target’s Advantage against us.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Speedy"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Increased Mobility and Opportunity Attack avoidance make this feat pair well with Charger.\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-epic-boons",
+      "parentSectionId": "section-feats",
+      "heading": "Epic Boons",
+      "sourceAnchor": "epic-boons",
+      "blocks": [
+        {
+          "blockId": "block-section-epic-boons-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Boon of Combat Prowess"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Once per round, hit instead of miss. You can’t get any simpler than this. We have Advantage on command, so it’s less likely for us to miss, but it’s not impossible, especially when we use Brutal Strike.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boon of Energy Resistance"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Buffer against additional damage types to leverage our giant health bar. Not bad for a defensive option.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boon of Fortitude"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": 40 additional hit points and some additional healing once per round. With our Resistances, these numbers are essentially doubled against physical damage types.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boon of Irresistible Offence"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Ignoring resistances on our attacks is great. Doing 25+ additional damage on crits is amazing for someone that has Advantage on command.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boon of Recovery"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": We shouldn’t hit 0, but healing up to half of our hit points instead of going unconscious is pretty nutty when we’re Raging.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boon of Skill"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": It won’t help us fight better, but it could be fun to be proficient in every skill.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boon of Speed"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Going faster is useful, but doesn’t add any direct damage.\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Path of the Berserker Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our choice of weapon comes down to feat selection and Mastery properties."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-masteries",
+      "parentSectionId": "section-weapons",
+      "heading": "Masteries",
+      "sourceAnchor": "masteries",
+      "blocks": [
+        {
+          "blockId": "block-section-masteries-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cleave"
+              },
+              {
+                "type": "text",
+                "text": ": If two targets are adjacent to each other, getting an extra swing in is good because of our Rage damage, but it won’t actually increase the chances to apply Frenzy because we have to hit first to even get a Cleave."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Graze"
+              },
+              {
+                "type": "text",
+                "text": ": Because we have to be Reckless for Frenzy damage, it’s less likely we’ll miss except for when we use Brutal Strike."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Nick"
+              },
+              {
+                "type": "text",
+                "text": ": This only helps if we’re dual wielding, which is not a terrible plan for increasing our chances to apply Frenzy damage, but weapons with Nick aren’t Heavy weapons for use with Great Weapon Master. Also, we’re not saving much by not using our Bonus Action to just dual wield with another property."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Push"
+              },
+              {
+                "type": "text",
+                "text": ": There is definite utility in driving a foe backwards 10 feet when we need to."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sap"
+              },
+              {
+                "type": "text",
+                "text": ": Sap can alleviate some of the penalty for being Reckless by taking away their Advantage for at least one attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Slow"
+              },
+              {
+                "type": "text",
+                "text": ": Slowing a target is certainly useful, but the weapons that feature this property are not the greatest. That said, if you wanted to combine a Whip with Slasher you could stack up a 20 foot penalty to a target’s speeds."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Topple"
+              },
+              {
+                "type": "text",
+                "text": ":  Knocking foes down is more useful to people who don’t already have Advantage, such as your party members. Keep in mind that if you Topple someone while wielding a Reach weapon, you’ll have Disadvantage if they are outside 5 feet."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vex"
+              },
+              {
+                "type": "text",
+                "text": ": We already get Advantage. We can’t get super Advantage or anything."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Path of the Berserker Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Just use Unarmored Defense. We’re capable of starting with 15 or 16 AC without a shield."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Path of the Berserker Build – Everything Looks Like a Nail",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "I’m your sledgehammer"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "Let there be no doubt about it"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "Sledge sledge sledgehammer"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Peter Gabriel – "
+            },
+            {
+              "type": "link",
+              "text": "Sledgehammer",
+              "href": "https://www.youtube.com/watch?v=OJWJE0x7T4Q"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When all you are is a Hammer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We begin with our physical ability scores. Strength is the most important to being any Barbarian so naturally, we’ll put the +2 from our chosen background there. We’ll be using Entertainer, which means our +1 is going into Dexterity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "POINT BUY"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "BACKGROUND ADJUSTMENT"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "LEVEL 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "24"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Entertainer gives us the option of a +2 the Strength and we’ll also take +1 to Dexterity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-species-2",
+      "parentSectionId": "section-example",
+      "heading": "Species",
+      "sourceAnchor": "species",
+      "blocks": [
+        {
+          "blockId": "block-section-species-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to use Halfling because a Barbarian who can just walk through the enemy frontline and straight into the backline with Halfling Nimbleness is terrifying. I could also show off the change to the Heavy property if I wasn’t going for a Defender-like setup with a Shield."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skill-and-tool-proficiencies",
+      "parentSectionId": "section-example",
+      "heading": "Skill and Tool Proficiencies",
+      "sourceAnchor": "skill-and-tool-proficiencies",
+      "blocks": [
+        {
+          "blockId": "block-section-skill-and-tool-proficiencies-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Entertainer grants us Acrobatics and Performance while we’ll be picking up Intimidation and Perception from Barbarian. We also get 4 musical instruments of our choice from the combination of Entertainer and Musician. The individual instruments don’t matter much, so pick four you enjoy really."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-and-ability-score-increases",
+      "parentSectionId": "section-example",
+      "heading": "Feats and Ability Score Increases",
+      "sourceAnchor": "feats-and-ability-score-increases",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 1 (Background): Musician – We can hand out Inspiration to our allies after every rest. Free rerolls are pretty good."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4: Sentinel – We’ll be trying our hand at using defensive options offensively by using Halfling Nimbleness to get into the enemy backline and then Sentinel to keep them from running away. This also sets us up for Defender tricks by giving us a Reaction to attack the foe if they attack an ally. Strength +1 to 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8: Shield Master – With this we get an attempt to shove or knock the enemy prone during our attack. This mostly helps our allies to get Advantage because we’ll, more often than not, be Reckless with our attacks. Strength +1 to 19."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12: Crusher – A bit of repositioning once per turn is helpful and we have more options for making attacks as reactions than most other PCs, so we are reasonably going to get to use this twice each round since it works once per turn and we can reliably attack as a Reaction during enemies’ turns. Giving everyone Advantage for a round whenever we score a critical hit is good, too. Strength +1 to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16: Resilient (Dexterity) – Dexterity +1 to 17. We already have Advantage on Dexterity saves, but we can boost that up a bit more. This combines well with the Shield Master reaction for negating damage when succeeding on Dexterity saves. More importantly, we’re boosting our Dexterity to an odd number to line up for our Epic Boon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19: Boon of Combat Prowess – Between Brutal Strike and Sentinel, we have strong features that need us to hit to function. Dexterity +1 to 18."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "LEVEL"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "RAGES/"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "DAMAGE"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "FEATS AND"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "FEATURES"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "NOTES AND"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "TACTICS"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2/+2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unarmored Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Weapon Mastery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Halfling"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Entertainer: Musician"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Acrobatics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Intimidation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Performance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Thanks to Unarmored Defense, we have 15 AC before wearing a Shield, which would bump us to 17. This means we can wear whatever we want. We’re an Entertainer and Musician, so why not show up to the fight looking rather dapper."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As a Halfling, we get a good number of species traits, but we’re mostly concerned with Halfling Nimbleness in order to move through any creature larger than us in order to gain superior positioning."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Luck is also nice, even with the Advantage from Reckless Attack. If we hit with one roll but roll a 1 with the other, we can reroll that 1 and fish for a 20."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Getting Musician from Entertainer allows us to grant Heroic Inspiration to our allies after each rest. A reroll in the pocket is good for anyone."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I’ll be building this with a Flail for Sap and Bludgeoning damage to go with the Hammer theme, but you could instead use a Longsword for Slashing. I’ll point out where this difference matters later on."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2/+2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Danger Sense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Reckless Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Avoid danger with Advantage on Dexterity Saves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With Reckless Attack we get Advantage by giving Advantage, so we’ll be looking for ways to mitigate the part that our foes get. Likely with a Sap weapon Mastery weapon to turn the Advantage back to Neutral."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3/+2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Path of the Berserker"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Frenzy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Primal Knowledge:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Athletics"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s time to Frenzy! Now whenever we Reckless Attack, we can deal a small pile of d6s in damage to the first foe we hit on our turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also pick up Athletics from Primal Knowledge and gain the ability to substitute Strength for a selection of skills during Rage. Remember that we already have Advantage on Strength checks during Rage, so these checks all gain Advantage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3/+2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sentinel"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Strength (17=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’ll be taking Sentinel in order to increase our stickiness in combat. Keep in mind that whenever we use Reckless Attacks, the Advantage lasts until the start of our next turn, making it even harder for someone to get away."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3/+2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fast Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Swing Twice for better chances to land our bonus Frenzy damage and potentially Sap multiple targets within reach."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fast Movement increases our speed to 40 feet and helps us reach where we want to be, especially with our Halfling Nimbleness letting us take straight lines far more often."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Swinging Recklessly to activate our Frenzy damage, we’ll be doing about 27.26 DPR with our Flail. If we trigger Sentinel or an Opportunity Attack in general, we’ll add another 9.65 average damage. Give that a 50% chance and we’ll call our total this level 32.085 DPR."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4/+2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mindless Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Complete immunity to Charmed and Frightened during Rage, which now also removes those conditions when entering Rage. Halflings are already Brave enough to avoid being Frightened, but even we might fail those saves sometimes."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4/+2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feral Instinct"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Instinctive Pounce"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Advantage on Initiative is just another piece of the puzzle for getting into position and keeping a key target from hurting our friends."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4/+2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Shield Master"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Strength (18=>19)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Shield Master does two things for us. It gives us a free action trip or shove every round, forcing a Strength save to avoid the effect."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It also allows us to spend a Reaction when we succeed on a Dexterity save (remember we get to make those with Advantage) to reduce half damage to no damage. Those come up from time to time and it’s just a good bonus."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4/+3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Strike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Strike gives us even more options to control the battlefield by giving up the Advantage from one Reckless Attack each turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mathematically, even with the bonus damage, the DPR is generally lower because of the lost accuracy when we sacrifice Advantage. Luckily, we care more about the special options like Forceful Blow, which allows us to push a target up to 15 feet (with no size restrictions or anything) and then move up to half our speed directly toward the target without provoking Opportunity Attacks. Great for further isolating a target."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4/+3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Retaliation"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’ve been punishing enemies for ignoring us since level 4 thanks to Sentinel. Now we’ll be punishing enemies for attacking us, too. Just like Sentinel, remember that Reckless Attack’s Advantage continues to apply until our next turn begins."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our DPR now sits around 34.75 as we continue to swing Recklessly for Frenzy damage. If we’re choosing to make a Brutal swing the DPR is instead 34.68, a very small dip to add some useful rider effects. On top of that, with Retaliation and Sentinel, I would estimate that we can get a Reaction attack 75% of the time to account for the enemy missing and therefore failing to trigger the Reaction."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If we apply that to the raw DPR of 11.41 for the Reaction attack our total becomes 43.3075 DPR, or 43.2375 with Brutal Strike."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4/+3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Relentless Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Since we’ll be drawing in so many attacks with Advantage from foes, having a little insurance to keep us on our feet when we get to 0 is very helpful."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5/+3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Crusher"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Strength (19=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re taking Crusher because of our Hammer theme. Being able to make small adjustments to the target before they get Pushed by Forceful Blow is fun. Unfortunately this is one of the few places where being Small matters. Crusher only allows moving a target up to one size larger than us."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As an alternative, using a Longsword and taking Slasher here will allow us to Hamstring our target and lower their speed. Where this can really come in handy is on Retaliation attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sentinel causes Opportunity Attacks to set the target to 0 speed, but Retaliation is not an Opportunity Attack. Having a chance to drop their speed by a little bit can still be enough to protect our allies."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5/+3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Brutal Strike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We gain additional toys to use with Brutal Strike. Staggering Blow can help set up an enemy with Disadvantage on a save. This might be the save vs Shield Master or the save vs Intimidating Presence when we acquire it next level. Alternatively the save might be vs something one of our allies does. Plenty of possibilities."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sundering Blow can instead set one of our allies up for a solid hit on their next turn."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5/+3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Intimidating Presence"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can be really scary as a Bonus Action, forcing creatures within 30 feet to save or become Frightened. This is a pretty good debuff, imposing Disadvantage on Ability Checks and Attack rolls, one more tool for negating the Advantage from our Reckless Attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We get to do this once per day for free, and can get scary again later by spending a use of Rage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5/+3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Persistent Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Once per day we can regain all of our Rages at the start of a fight. The best time to use this is, of course, once we’ve used all of our Rages."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also stop needing to perform specific actions each round to keep Rage going anymore. A minor buff mostly for using Rage outside of combat to activate Primal Knowledge for Advantage on more skills."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5/+4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Resilient"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Dexterity (16=>17)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We need to make our Dexterity odd to line up the Epic Boon we want and becoming Proficient in Dexterity Saves is a dramatic boost when combined with our Advantage on Dexterity saves as well as the Interpose Shield feature of Shield Master. We’re likely to no longer fail any Dexterity saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6/+4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Brutal Strike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This doubles the damage from Brutal Strikes. It’s a nice little bump and helps make up for the loss of Advantage, but remember that Brutal Strikes are more useful for the extra effects than for adding damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Checking in again with DPR now that we have changes to Rage Damage and Brutal Strike, we get a DPR of 40.49 when using Reckless Attacks to activate Frenzy. With the doubling of Brutal Strike dice, Brutal is now a DPR increase, hitting 43.75 DPR."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ll continue to assume a 75% Reaction chance and apply it to the raw 12.29 DPR. This gives a new total of 49.7075 DPR or 52.9675 when we’re Brutal."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6/+4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable Might"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our Strength score is currently 20 and whenever we’re Raging, we can use Strength for Acrobatics, Intimidation, Perception, Stealth, and Survival. We’re incredibly likely to succeed on any checks we need to make with these skills."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6/+4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Boon of Combat Prowess"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Dexterity (17=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The Boon of Combat Prowess means that once per round we can decide to hit instead of miss. The hard part of using this feat is deciding whether to use it on a Brutal Strike that misses or to hold it for a potential Sentinel trigger."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I would say, swing with your Brutal Strike first. If we miss, use this on Brutal Strike to stack on the extra damage and special effects. If we hit, then save this for a Sentinel or Retaliation even if our second attack misses somehow."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you expect your campaign to continue for a while once you hit level 20 so that we might get additional Epic Boons, we might instead use Boon of Combat Prowess to increase our Strength to 19, then allowing Primal Champion to raise it to 25. If you do this, replace Resilient at level 16 with a +2 Constitution increase or a feat that increase your Constitution by 1."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6/+4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Primal Champion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+4 Strength (20=>24)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+4 Constitution (14=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "24 Strength and 18 Constitution. It’s the same capstone we’ve had since 2014 and it’s still good. 20 Unarmored AC with a Shield."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For our final DPR, now that we have 24 Strength, we do 46.18 with Reckless and Frenzy. That increases a bit to 48.07 with Brutal Strike. The raw DPR of our Reaction by itself is 14.97, which we adjust to 75% and apply to the rest for our total of 57.4075 DPR or 59.2975 when we use Brutal Strikes."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As a point of comparison, if we had instead of Shield Master and Crusher, taken Polearm Master and Piercer with a Spear and Shield, our Reckless Frenzy DPR would be 58.27 increasing to 62.18 with Brutal Strikes. Our Reaction is then 14.28 raw DPR."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Using our 75% assumption from earlier, that puts the alternative DPR totals at 68.98 DPR or 72.89 with Brutal Strikes. All while still holding the shield for 20 AC."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Path of the Berserker Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Frenzy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mindless Rage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Retaliation"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Intimidating Presence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Assimar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dragonborn"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dwarf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Gnome"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Goliath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Halfling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Human"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Orc"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Tiefling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Artisan (Crafter)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Entertainer (Musician)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Farmer (Tough)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Sailor (Tavern Brawler)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Soldier (Savage Attacker)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Athlete"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Charger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Crusher"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Grappler"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Great Weapon Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Piercer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Polearm Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sentinel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shield Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Slasher"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Speedy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Boon of Combat Prowess"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Boon of Energy Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Boon of Fortitude"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Boon of Irresistible Offence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Boon of Recovery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Boon of Skill"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Boon of Speed"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cleave"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Graze"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Nick"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Push"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Sap"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Slow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Topple"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Vex"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/figcaption[1]",
+      "detail": "block-intro-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-species-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-species-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-species-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-species-4"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-species-5"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-species-6"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-species-7"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-species-8"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-species-9"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-species-10"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-origin-feats-from-suggested-backgrounds-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-general-feats-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-epic-boons-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-masteries-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\"><em>I’m your sledgehammer</em><br><em>Let there"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#species",
+      "detail": "section-species -> section-species-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-species-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-skill-and-tool-proficiencies-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-and-ability-score-increases-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-and-ability-score-increases-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-and-ability-score-increases-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-and-ability-score-increases-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-and-ability-score-increases-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-and-ability-score-increases-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-levels-2"
+    }
+  ],
+  "metrics": {
+    "words": 4563,
+    "sections": 21,
+    "blocks": 42,
+    "tables": 3,
+    "ratingSignals": 50
+  },
+  "status": "needs-editorial-review"
+}

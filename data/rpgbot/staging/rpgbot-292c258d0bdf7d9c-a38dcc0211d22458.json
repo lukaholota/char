@@ -1,0 +1,2291 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "a38dcc0211d224582bd9050696bee542294eba3ad6505aefeba0ecd803965c42",
+  "sourceRevision": {
+    "revisionId": "rpgbot-292c258d0bdf7d9c-a38dcc0211d22458",
+    "sourceId": "rpgbot-292c258d0bdf7d9c",
+    "fetchedAt": "2026-09-29T19:10:39.498644+00:00",
+    "sourceUpdatedAt": "2026-03-14T14:50:38-04:00",
+    "contentHash": "5201b0b656f74f93ef262b62e0657f2cccef585b6e454dec8bf3f42cfa44c3e6",
+    "title": "Way of Mercy Monk 5e: DnD Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-292c258d0bdf7d9c-a38dcc0211d22458.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Way of Mercy Monk Handbook Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Coming to the game from Tasha’s as something of an unarmored DPS paladin, Way of Mercy is one of only two blue-rated Monk subclasses on the site for its incredible utility and versatility. It has some tools to improve the Monk’s core competencies as a Striker, but also gives it some battlefield control and, iconically, healing and Support capabilities. Way of Mercy does still suffer from the MADness that goes with most Monk subclasses, but what you get for being willing to invest in those abilities is pretty great."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The flavor of Way of Mercy is definitely strange. They “…[present] themselves as the faceless bringers of life and death,” which feels really out of place with what a monastic tradition is supposed to be. This I can quote more broadly because it’s from the basic rules, and I really want to because it’s a hilarious moment showing how WOTC really shot themselves in the foot:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "“Three traditions of monastic pursuit are common in the monasteries scattered across the multiverse. Most monasteries practice one tradition exclusively, but a few honor the three traditions and instruct each monk according to his or her aptitude and interest. All three traditions rely on the same basic techniques, diverging as the student grows more adept. Thus, a monk need choose a tradition only upon reaching 3rd level.”"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "So, clearly they didn’t futureproof this section. Regardless, it just feels very strange that there would be a little subsection of a typical monastery devoted to wearing a different flavor of odd clothing and channeling the forces of life and death rather than something more “normal” like elements."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Way of Mercy Monk Handbook Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of Mercy Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of Mercy Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#way-of-mercy-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of Mercy Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#way-of-mercy-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of Mercy Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#way-of-mercy-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of Mercy Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#way-of-mercy-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of Mercy Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#way-of-mercy-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Stuck Halfway",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#example-build-stuck-halfway"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Way of Mercy Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Implements of Mercy"
+              },
+              {
+                "type": "text",
+                "text": ": Insight and Medicine\n\t\tare both Wisdom-based, which makes them good skills for the Monk. Unfortunately, Medicine is borderline useless (although check out some of our \n"
+              },
+              {
+                "type": "link",
+                "text": "suggestions",
+                "href": "https://rpgbot.net/rpgbot-podcast-s2-e6/"
+              },
+              {
+                "type": "text",
+                "text": "\nto fix that), as its sole written function is made\n\t\tobsolete by the Healer’s Kit. Herbalism Kit does allow you to craft Potions\n\t\tof Healing, though, which is nice.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You also get a neat mask as a class feature. It doesn’t do anything. You\n\t\t\tdon’t need it to do anything and technically you don’t even need to wear\n\t\t\tit."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hand of Healing"
+              },
+              {
+                "type": "text",
+                "text": ": Your Martial Arts die\n\t\tplus your Wisdom modifier is roughly equivalent to a 1st-level Cure Wounds.\n\t\tThat’s not a ton of healing all at once, but you get a ton of Ki Points per\n\t\tshort rest as you gain levels, and the action economy around this is\n\t\tfantastic. This is also a great way to expend your remaining Ki Points\n\t\twhenever you reach a Short Rest.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Cure Wounds is normally a hard choice in combat because you’re spending\n\t\t\tyour Action to not damage your enemies when Healing Word is available, so\n\t\t\tthe Action Economy makes it hard to justify. But, while you\n\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "can"
+              },
+              {
+                "type": "text",
+                "text": " use Hand of Healing as an Action, there’s almost no reason to\n\t\t\tdo so in combat."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Generally you’ll use Hand of Healing during combat as part of a Flurry of\n\t\t\tBlows. When you do this, you spend the Ki Point to use Flurry of Blows,\n\t\t\tthen you can decide to replace one of the unarmed strikes with Hand of\n\t\t\tHealing. As far as I can tell, you can make this decision at any point so\n\t\t\tyou could make one attack and see the results before deciding if you want\n\t\t\tto make another attack or heal something."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Since you can move between attacks, I believe that you can also move\n\t\t\tbetween attacking and using Hand of Healing, so you could Attack, use\n\t\t\tFlurry of Blows to heal an ally, then run over to an enemy and attack\n\t\t\tthem some more."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "In many ways, this is like Healing Word, and until your Ki Pool is fairly\n\t\t\tlarge, that’s how you should consider Hand of Healing: a tiny amount of\n\t\t\thealing, but enough to bring a dying ally back into a fight. As you gain\n\t\t\tmore levels you can afford to use this more often, and Physician’s Touch\n\t\t\tallows you to quickly remove some problematic status conditions."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hand of Harm"
+              },
+              {
+                "type": "text",
+                "text": ": One Ki point to\n\t\tautomatically deal as much damage as an unarmed strike is more efficient\n\t\tthan spending a Ki Point to perform a Flurry of Blows which has a chance to\n\t\tmiss. This is also necrotic damage, which is much less-commonly resisted\n\t\tthan bludgeoning damage (or whatever type your weapon deals).\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Since the damage is “extra damage” added to the attack, the extra damage\n\t\t\tdie is multiplied, much like Divine Smite or Sneak Attack, so the most\n\t\t\teffective time to use Hand of Harm is when you score a critical hit."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "However, this only works after you hit with an unarmed strike so if\n\t\t\tyou’re using a weapon (spears are my go-to, and I recommend them for\n\t\t\tnearly every monk) there’s an incentive to fight unarmed even if your\n\t\t\tMartial Arts die would deal less damage than a weapon. Of course, Flurry\n\t\t\tof Blows and Martial Arts’ Bonus Action attack only allow unarmed strikes,\n\t\t\tso there’s always going to be some portion of your attacks where you can\n\t\t\tapply this."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Physician’s Touch later improves Hand of Harm to add the Poisoned\n\t\t\tcondition, making it an amazing way to briefly debuff martial enemies\n\t\t\twithout a save."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Physician’s Touch"
+              },
+              {
+                "type": "text",
+                "text": ": Hand of Healing adds\n\t\tthe effect of Lesser Restoration and can also remove the Stunned condition.\n\t\tIf this was an either/or it would be fantastic, but you get to both remove\n\t\tconditions "
+              },
+              {
+                "type": "emphasis",
+                "text": "and"
+              },
+              {
+                "type": "text",
+                "text": " heal the target.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Hand of Harm adds the ability to make the target Poisoned with no save.\n\t\t\tPoisoned is an absolutely fantastic debuff against most enemies (though\n\t\t\tspellcasters who don’t rely on attack rolls can largely ignore it). If you\n\t\t\thit an enemy with an unarmed strike, you can activate Hand of Harm to deal\n\t\t\tbonus damage and make the target poisoned, then, while they’re at\n\t\t\tDisadvantage on Ability Checks due to being Poisoned, you can Shove them\n\t\t\tprone and/or grapple them, then make any remaining attacks at Advantage.\n\t\t\tIf they’re Grappled, they’ll have a hard time escaping (Disadvantage\n\t\t\tthanks to Poisoned), so you’re likely to keep them on the ground until\n\t\t\tyour next turn when you can drop a full Flurry of Blows on them at\n\t\t\tAdvantage and if they don’t die you can always hit them with Hand of Harm\n\t\t\tagain to keep them Poisoned."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Flurry of Healing and Harm"
+              },
+              {
+                "type": "text",
+                "text": ": This\n\t\tdramatically reduces the rate at which you spend Ki to activate Hand of Harm\n\t\tand Hand of Healing. You still need to spend 1 Ki Point to use Flurry of\n\t\tBlows, but after that you can use Hand of Harm/Healing for free. You could\n\t\theal twice in one turn, heal once and attack (and hopefully use Hand of\n\t\tHarm), or attack once to see what happens, then decide to either heal or\n\t\tattempt another attack.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The wording around how Hand of Healing works here is somewhat clumsy. It\n\t\t\tspecifies that you can use Hand of Healing with Flurry of Blows and\n\t\t\treplace both attacks without spending Ki. You could already replace one,\n\t\t\tbut the text is trying to say that you can now replace both attacks, but\n\t\t\tyou still don’t need to spend additional Ki to do so."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Using Hand of Healing twice during a Flurry of Blows doubles your ability\n\t\t\tto output healing. Weirdly, this also means that rather than spending an\n\t\t\tAction to use Hand of Healing outside of combat it’s more efficient to\n\t\t\tpunch the air or attack the darkness, then follow with a Flurry of Blows\n\t\t\tand punch yourself and your party until everyone feels better. You get\n\t\t\ttwice as much healing per Ki Point by doing this."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hand of Ultimate Mercy"
+              },
+              {
+                "type": "text",
+                "text": ": Have a dead party\n\t\tmember? Take a Short Rest to get your Ki Points back if you need to, then\n\t\tpunch them back to life. You only need 5 Ki Points to use this and you get\n\t\t17 per Short or Long Rest at this level so if someone goes down you likely\n\t\tstill have a bunch to spend.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The fact that this only takes an Action is pretty astounding. It’s\n\t\t\tsimilar to Revivify, but lacks an expensive cost. You could absolutely use\n\t\t\tthis in combat, and in many cases that’s a good idea. This doesn’t have\n\t\t\tthe specific text around how mortal wounds or missing limbs are handled,\n\t\t\tbut I assume it works like Raise Dead in most respects. The target notably\n\t\t\tdoesn’t need to be willing to return to life, either, which raises some interesting ethical questions."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The one serious limitation on this is that you can only use it once per\n\t\t\tLong Rest. But, with a 24-hour window in which it will function after the target’s death, if you\n\t\t\tneed to raise two people you can raise one, take a long rest, and raise\n\t\t\tthe other and still have a ton of time to mess around before you get\n\t\t\tanywhere near the 24-hour timer. Of course, if you have three dead allies\n\t\t\tyou’ll want to go find a cleric."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-mercy-ability-scores",
+      "heading": "Way of Mercy Ability Scores",
+      "sourceAnchor": "way-of-mercy-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-mercy-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": A dump stat unless you plan on using some form of Grapple/Shove "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-mercy-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Controls attacks and AC since you can’t wear armor if you want most features to work."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-mercy-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": We’d love more, but we’re too MAD as it is."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-mercy-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-mercy-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": This powers some class and subclass features"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-mercy-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-mercy-ability-scores-7",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-mercy-races",
+      "heading": "Way of Mercy Races",
+      "sourceAnchor": "way-of-mercy-races",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-mercy-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "MMoM Bugbear has a fascinating interaction. Ordinarily, you would need to be adjacent to both your target and a party member at some point to be able to attack and flurry Hands of Healing in the same turn. Long Limbs will let you attack something at a short distance, flurry heal your adjacent ally, and carry on without even provoking an opportunity attack if you choose to walk away from something with 5-foot reach."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-mercy-feats",
+      "heading": "Way of Mercy Feats",
+      "sourceAnchor": "way-of-mercy-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-mercy-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re a MAD class and we already have tons of things to do with bonus actions. Nothing much different than other Monks when you finally get around to feats unless you want to do something really dumb. If you don’t plan on doing a ton of damage, you can become sort of SAD by picking up Magic Initiate, grabbing Shillelagh, and using that on your quarterstaff as the first bonus action every fight. Then, on future turns (especially once you hit level 11), you bonk something twice with your Wisdom and heal someone (eventually twice) with Flurry, also using Wisdom. It means if you do ever have to spend a turn not healing someone, your Martial Arts and Hand of Harm will suffer because your unarmed attack is always going to be Dex-based. But it’s certainly an option."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-mercy-weapons",
+      "heading": "Way of Mercy Weapons",
+      "sourceAnchor": "way-of-mercy-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-mercy-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re not a bugbear but your race gives you a weapon proficiency and you’re using the Dedicated Weapon optional class feature, having yours be a whip fixes the only problem with a whip (low damage) while also letting you do the same Reach shenanigans I described above for the Bugbear."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-mercy-armor",
+      "heading": "Way of Mercy Armor",
+      "sourceAnchor": "way-of-mercy-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-mercy-armor-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Please don’t."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A level of Druid would also let you do the Shillelagh shenanigans I talked about above while getting you nice bonus things like Absorb Elements and Healing Word in case someone’s out of reach of even your massive move speed. A second level could get you Circle of Stars which would get you some additional nice spells and the ability to go into Dragon form to get Reliable Talent on Wisdom checks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I’m going to sigh heavily here, but a level in Peace Cleric is also a fantastic choice if you wanted to be the SAD thing I discussed. Emboldening Bond will neatly make up for the fact that your Dex will be 4 points short of where it should be by giving you an average of +2.5 to hit and it scales with proficiency bonus so you’ll still get the full progression of uses per day. This would also get you Bless and Guidance, two of the best support spells in the game."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-stuck-halfway",
+      "heading": "Example Build – Stuck Halfway",
+      "sourceAnchor": "example-build-stuck-halfway",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-stuck-halfway-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Halfway between cultures and halfway between the forces of life and death, this build takes a half-wood elf and modifies it heavily with Tasha’s rules to make something capable of putting out great damage and healing using this subclass."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-stuck-halfway",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As described above."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-stuck-halfway",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Half-wood elf. We take the Elven Weapon Training replacement, then further modify that by trading the longsword proficiency for whip proficiency and trading the shortbow proficiency for Thieves’ Tools since our high Dex and Wisdom mean we’re likely the Scout for the party."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-stuck-halfway",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Acolyte makes good sense as a being trained in a monastery, so we take that and trade the skill proficiencies for Perception and Survival to take advantage of the high Wisdom. If your DM is going to give you a hard time about spending 52gp at character creation as a monk though, take Haunted One, make the same skill trades, and sell the free kit to fund your equipment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-stuck-halfway",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From the class we get Acrobatics and Stealth, Perception and Survival from the Background, and Thieves’ Tools proficiency from the race. At level 3 we’ll pick up Insight, Medicine, and the Herbalism kit, nicely rounding out the uses of our high Wisdom. For the flavor tool we get from being a monk, choose leatherworker’s tools so you can fashion yourself a mask."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-stuck-halfway",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The hybrid feat you take at 4th level is going to be very dependent on your table. If your table allows flanking or has some other way of getting easy access to advantage like a Wolf Totem Barbarian, take "
+            },
+            {
+              "type": "link",
+              "text": "Elven Accuracy",
+              "href": "https://rpgbot.net/oops-all-elves/"
+            },
+            {
+              "type": "text",
+              "text": ". If you did that, you’re going to be way ahead of the attack roll curve for the rest of the game, so then levels 8 and 12 increase Wisdom to cap, followed by Gift of the Metallic Dragon at 16 for more capacity to protect your party, and finally cap Dex at 19. If you don’t have an easy way to get advantage, take "
+            },
+            {
+              "type": "link",
+              "text": "Slasher",
+              "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+            },
+            {
+              "type": "text",
+              "text": " instead, shift the dex increase down to level 8 and everything else one step later."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This example build will assume you don’t have an easy source of advantage because flanking is an optional rule (though more of my groups have used it than not)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-stuck-halfway",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmored Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Arts"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level we’re basically just a monk, but one that can use a longbow. Seeing as longbow DPR is 5 whereas a quarterstaff bonk and martial arts bonus action is only 8, and seeing as we only have 11 hitpoints and an AC of 16, we should stay away from melee for now."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ki"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dedicated Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unarmored Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We now pick our whip as a dedicated weapon, allowing us to attack with it and trigger Flurry of Blows if we want to do a bunch of damage in a turn. We only get 2 ki per short rest at this level, so think carefully about where you want to spend them. Remember that we have reach if we’re only attacking with the whip in a turn, so we don’t need to get into range unless we want the burst damage. With this also being the level you get faster, we’ll be able to kite most enemies if you want to go that route."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Implements of Mercy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hand of Healing"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hand of Harm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Deflect Missiles"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Implements of Mercy is nice to make healing potions in downtime and give us some extra skills to use our high wisdom."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hand of Healing is the big thing here though. Getting to spend a ki point to Healing Word and punch somebody is really good. Like I said above, we should never do this as an Action and just always use it as part of Flurry."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you instead really want something to die "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "right now"
+                },
+                {
+                  "type": "text",
+                  "text": ", you could attack, flurry, and drop a Hand of Harm for an average of 22 damage. That burns through 2 of our 3 ki per rest in one turn, but it’s a lot of damage at this level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Deflect Missiles is also present."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "link",
+                  "text": "Slasher ",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+                },
+                {
+                  "type": "text",
+                  "text": "(Dex)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Slow Fall"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Slasher is the rude present we deliver when we whip something scary from 10 feet away and then run 30 more feet to something much less scary that you can Flurry down in one turn. We’re still no Defender by any means, but we can absolutely help our battlefield controller by making something less mobile."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re instead taking Elven Accuracy at this level, absolutely heal when needed, but try to save a ki point or two for when you crit. At next level we get Extra Attack which, combined with Flurry and Elven Accuracy, gives us a 46% chance to crit on a given turn. When you do, apply Hand of Harm for double damage dice."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Slow Fall is also present."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stunning Strike"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Arts die d4 -> d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is a big level for us, bigger even than most martials. Not only do we get Extra Attack, but our damage die goes up a step, which we can conceivably roll "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "five times"
+                },
+                {
+                  "type": "text",
+                  "text": " in a turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stunning Strike is incredible in a fight against something you don’t expect to have great Con saves. The fact that Stunned provides Advantage to attackers is almost good enough for me to recommend Elven Accuracy anyway, but, since Con saves are statistically the highest starting at CR 2 and continuing for the rest of the game, it’s a hard sell to base an entire build off of it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ki-Empowered Strikes"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Physician’s Touch"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our hands will enjoy being magical weapons going forward."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The real boon here is Physician’s Touch. We talked about it at length above and covered it pretty well, so I’ll just remind you that we can whip the big scary thing at range to apply the Slasher debuff, walk 30 feet, whip something once and Flurry it once for damage, then walk another 15 feet to our wounded party member and heal them and remove Stunned on them all in one turn. Physician’s Touch is notably one of the only ways in 5e to remove the Stunned condition."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Evasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stillness of Mind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Neither of these contribute to our tactics, but they’re nice defenses."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dex 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cap Dex for the best possible attack rolls and an AC matching full plate."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmored Movement Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember "
+                },
+                {
+                  "type": "link",
+                  "text": "Prince of Persia: Two Thrones",
+                  "href": "https://www.youtube.com/watch?v=CuiCkfddORU"
+                },
+                {
+                  "type": "text",
+                  "text": " where you could wall run for 20 feet before jumping off and grabbing a crossbar with your whipsword and flying forward? Yeah. We can do that now."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Purity of Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we’re immune to the disease we’ve been able to cure ourselves of with an action since 6th level anyway."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Flurry of Healing and Harm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Arts die d6 -> d8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Whew what another great level. Spend one ki point to unstun/stand up from dying two people in one turn. Or be more efficient with your Ki when you’re doing Hand of Harm for damage. We can still only do that ability once per turn, but now we can afford to be a little more liberal in our usage of Stunning Strike to aim to give ourselves advantage before we do."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wisdom 16 -> 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Up that AC. Also the DC of our Stunning Strike and our bonus for Hands of Healing and Harm."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Those put together let us stay safe and put out the hurt when we’re spoilin for a fight."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tongue of the Sun and Moon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The "
+                },
+                {
+                  "type": "link",
+                  "text": "all important question",
+                  "href": "https://www.youtube.com/watch?v=PEZWYXPvmS8"
+                },
+                {
+                  "type": "text",
+                  "text": " when we hit level 13 as a Monk."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Diamond Soul"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is one of the best defensive features in the game. Remember that both halves of the ability don’t specify what kinds of saves, which means they apply to Death Saves too. Hang out near a Paladin with a Charisma of 18 and we can’t fail on anything but a 1."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Timeless Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Similarly to level 13, this doesn’t affect a character at all except in rare cases when someone is trying to siege us all by ourselves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wisdom 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We cap our Wisdom. We now match a character in full plate with a shield and your Stunning Strike DC is as high as a full caster’s spells are without magic items. You also have 16 ki points per rest by now so you should probably just try to stun things every round."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hand of Ultimate Mercy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Arts die d8 -> d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is like that scene from Dr. Strange except in reverse where we punch the soul back into people."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Empty Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Since this isn’t the spell Invisibility but the condition, it won’t break on attacks. We can’t use this every fight with it costing 4 ki, but we can probably use it every other fight and still have all the ki we need to do the rest of our tricks. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Gift of the Metallic Dragon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally, a reaction that helps our party instead of just us. It can also help us, but that’s not really the point of the build. We also get a free Cure Wounds in case you’ve lost all your d4s but have a d8 laying around."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Perfect Self"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Say, you know what costs 4 ki? Empty Body. If a fight starts you weren’t prepared for, just go invisible and be a d10-damage and move-speed-penalty dispensing annoyance."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Way of Mercy Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Implements of Mercy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hand of Healing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hand of Harm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Physician’s Touch"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Flurry of Healing and Harm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hand of Ultimate Mercy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">“Three traditions of monastic pursuit are common in the monasteries s"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"3\"><span class=\"rating-green\">Hand of Healing</span>: Your Martial Arts die plus your Wisdom modifier is roughly equivalent to a 1st-level Cure Wounds. That’s not a ton "
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"3\"><span class=\"rating-green\">Hand of Harm</span>: One Ki point to automatically deal as much damage as an unarmed strike is more efficient than spending a Ki Point to p"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[5]",
+      "detail": "<li value=\"11\"><span class=\"rating-blue\">Flurry of Healing and Harm</span>: This dramatically reduces the rate at which you spend Ki to activate Hand of Harm and Hand of Healing. Y"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[6]",
+      "detail": "<li value=\"17\"><span class=\"rating-blue\">Hand of Ultimate Mercy</span>: Have a dead party member? Take a Short Rest to get your Ki Points back if you need to, then punch them back "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-way-of-mercy-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-way-of-mercy-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-way-of-mercy-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-way-of-mercy-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-way-of-mercy-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-way-of-mercy-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-way-of-mercy-ability-scores-7"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-way-of-mercy-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-way-of-mercy-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-way-of-mercy-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-way-of-mercy-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-way-of-mercy-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-way-of-mercy-armor-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-multiclassing-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-example-build-stuck-halfway-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3870,
+    "sections": 17,
+    "blocks": 33,
+    "tables": 3,
+    "ratingSignals": 17
+  },
+  "status": "needs-editorial-review"
+}

@@ -1,0 +1,356 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "monk-shadow-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+    "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "MONK_2014",
+  "subclassKey": "WAY_OF_SHADOW",
+  "raceKey": "HUMAN_2014",
+  "backgroundKey": "URCHIN",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "variantKey": "HUMAN_VARIANT",
+  "featKey": "ELDRITCH_ADEPT",
+  "recipeTitle": "Тіньовий боксер",
+  "levelPlans": {
+    "levels": "all",
+    "notes": true,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "WAY_OF_SHADOW"
+    },
+    {
+      "level": 4,
+      "featKey": "SENTINEL",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "featKey": "CRUSHER",
+      "featOptions": [
+        {
+          "optionNameEng": "CRUSHER Ability (Constitution)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [],
+  "preset": {
+    "title": "Монах тіні — розвідник",
+    "description": "Підкрадайтеся до ворогів, знаходьте приховане й досліджуйте небезпечні місця. Згодом ви навчитеся керувати тінями.",
+    "portraitSrc": "/images/presets/monk-shadow-2014.webp",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "STEALTH"
+      ],
+      "race": [
+        "INVESTIGATION"
+      ],
+      "background": [
+        "PERCEPTION"
+      ]
+    },
+    "featOptionName": "Devil's Sight",
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats-2",
+    "equipmentSection": "section-levels",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "WIS"
+    ],
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": [
+          "QUARTERSTAFF"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "abilityExplanation": "Спритність допомагає атакувати, а Мудрість — захищатися. Расові бонуси вже враховані.",
+    "skillExplanation": "Навички допомагають підкрадатися, помічати небезпеку, досліджувати й працювати руками. Повторну Непомітність замінено на Уважність.",
+    "equipmentExplanation": "Зброю обрано за прикладом RPGbot. Додаткову мову й набір для подорожей ми заповнили за вас; їх можна змінити."
+  },
+  "initialChoices": [
+    "race",
+    "background",
+    "feat"
+  ],
+  "choices": [
+    {
+      "choiceId": "race",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-race",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "race-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "race",
+            "entityKey": "HUMAN_2014"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-shadow-2014",
+              "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+              "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+              "sectionId": "section-race",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Варіант людини{{Variant Human}}. Нам дуже потрібна риса на 1-му рівні, щоб отримати «Містичного адепта». Ми також отримуємо додаткову навичку, що приємно.",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "background",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-background",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "background-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "background",
+            "entityKey": "URCHIN"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-shadow-2014",
+              "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+              "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+              "sectionId": "section-background",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Безпритульний{{Urchin}}. Ми отримуємо чудові навички та Інструменти злодія, що дає змогу легко замінити Пройдисвіта в групі.",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "feat",
+            "entityKey": "ELDRITCH_ADEPT"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-shadow-2014",
+              "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+              "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+              "sectionId": "section-feats-2",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "На 1-му рівні беремо «Містичного адепта» заради «Зору диявола». Темнозір — це чудово, але здатність бачити в магічній темряві абсолютно критична для Шляху тіні.",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat-level-4",
+      "stage": "progression",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-level-4-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "feat",
+            "entityKey": "SENTINEL"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-shadow-2014",
+              "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+              "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+              "sectionId": "section-levels",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Риса: Вартовий, Повільне падіння",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat-level-16",
+      "stage": "progression",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-level-16-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "feat",
+            "entityKey": "CRUSHER"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-shadow-2014",
+              "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+              "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+              "sectionId": "section-levels",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Риса: Дробильник (Статура 15 → 16)",
+          "dependsOn": []
+        }
+      ]
+    }
+  ]
+}

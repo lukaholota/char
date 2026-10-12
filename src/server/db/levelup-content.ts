@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { findCharacterCreatorOptions } from "@/lib/content/creator-content";
-import type { Ruleset } from "@prisma/client";
+import type { Prisma, PrismaClient, Ruleset } from "@prisma/client";
 
 // KR18.1: контент підвищення рівня їде з `pers.ruleset`, а не з однієї редакції на весь застосунок.
 const DEFAULT_RULESET: Ruleset = "RULES_2014";
@@ -12,8 +12,10 @@ const HIT_POINT_FEATURE_SELECT = {
   subclassFeatures: { select: { subclass: { select: { classId: true } } } },
 } as const;
 
-export async function loadLevelUpBaseContent(persId: number) {
-  const pers = await prisma.pers.findUnique({
+type DatabaseReader = PrismaClient | Prisma.TransactionClient;
+
+export async function loadLevelUpBaseContent(persId: number, reader: DatabaseReader = prisma) {
+  const pers = await reader.pers.findUnique({
     where: { persId },
     include: {
       class: true,

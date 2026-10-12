@@ -1,0 +1,920 @@
+{
+  "buildId": "build-ranger-hunter-leonin-2014",
+  "revisionId": "build-ranger-hunter-leonin-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад персонажа — Клинки Gunnhildr",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-ranger-hunter-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+      "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+      "sectionId": "section-example-hunter-build-gunnhildrs-blades",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "RANGER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "RANGER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "LIFE_DOMAIN",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "light",
+            "mending",
+            "word-of-radiance"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "RANGER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Archery"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fog-cloud",
+            "goodberry"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "RANGER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "HUNTER_CONCLAVE",
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Primeval Awareness"
+          }
+        ],
+        "subclassOptions": [
+          {
+            "optionNameEng": "Horde Breaker (Hunter)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "longstrider"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "RANGER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GUNNER"
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "RANGER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "RANGER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "RANGER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Multiattack Defense (Hunter)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "pass-without-trace"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "RANGER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SHARPSHOOTER"
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "RANGER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "elemental-weapon"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "RANGER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Hide in Plain Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "RANGER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Volley (Hunter)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "RANGER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "RANGER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "guardian-of-nature"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "RANGER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "RANGER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-class-features",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Uncanny Dodge (Hunter)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "freedom-of-movement"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "RANGER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "RANGER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "swift-quiver"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "RANGER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "RANGER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-hunter-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+          "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "HUNTER_CONCLAVE",
+    "raceKey": "LEONIN_MOOT",
+    "backgroundKey": "GLADIATOR",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Раса — Леонін. Правила власного походження дозволяють перенести +2 у Спритність, а +1 — у Мудрість.\n\n Базові Підвищені Рівень 20 Сил 8 8 8 Спр 15 17 20 Ста 15 15 18 Інт 8 8 8 Муд 15 16 16 Хар 8 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Для прикладу обрано Леоніна, але підійде будь-яка раса зі швидкістю ходи понад 30 футів. Кігті нас майже не цікавлять, зате темнозір приємний, і можна спробувати Грізний рик{{Daunting Roar}}, який викликає страх.\n\nІнші варіанти:\n\nКентавр: швидкість 40 футів перевищує потреби, що не погано, але втрата темнозору може завадити.\n\nДампір: деякі навички, швидкість лазіння, рівна швидкості ходи, та темнозір. Цілком придатний для цього персонажа.\n\nЛісовий ельф: замість кігтів має чотири володіння бойовою зброєю, які за правилами власного походження можна замінити будь-якими чотирма інструментами або скімітарами чи батогами, як запропоновано вище.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Беремо Гладіатора{{Gladiator}} або Артиста{{Entertainer}}, які, до речі, однакові: попри нібито залежність від Спритності, Слідопити не можуть обрати Акробатику. Якщо можна передісторію Стріксхейвена, Студент Прізмарі{{Prismari Student}} дає ті самі навички й додаткові заклинання. Якщо Стріксхейвен не дозволений, але Равніка дозволена, Культист Ракдосу{{Rakdos Cultist}} має ті самі навички й інший список додаткових заклинань.\n\nЯкщо обираємо Прізмарі, від Посвяченого Стріксхейвена (Прізмарі) беремо Штукарство [Prestidigitation] та Промінь холоду [Ray of Frost]. Заклинанням 1-го рівня обираємо Щит [Shield] зі списку Чародія.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Леоніна беремо Виживання. Від Слідопита — Поводження з тваринами, Уважність та Аналіз поведінки, з експертністю в Уважності від Вправного дослідника. Передісторія дає Акробатику, Кухарське начиння та Виступ.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 2-му рівні додамо рівень Клірика Домену життя, що відкладе Покращення характеристик і риси на один рівень.\n\nЯкщо доступні передісторії Стріксхейвена, Студент Прізмарі на 1-му рівні дає {{Посвячений Стріксхейвена (Прізмарі)|Strixhaven Initiate (Prismari)}}, як описано вище.\n\nНа 5-му рівні беремо Стрільця: +1 до Спритності та можливість стріляти довгим луком зблизька без перешкоди. Якщо доступна вогнепальна зброя, пістоль або мушкет добре замінять довгий лук. Але риса чудово працює і зі Стрільбою з лука.\n\nНа 9-му рівні беремо Влучного стрільця для більшої шкоди проти слабко броньованих цілей і атак на великій відстані. Стрільба з лука компенсує і штраф Влучного стрільця, і відкладене Покращення характеристик.\n\nНа 13-му рівні Покращенням характеристик максимізуємо Спритність.\n\nНа 17-му рівні беремо {{Стійкий|Resilient}} зі Статурою, округлюючи її та посилюючи ряткидки концентрації.\n\nНа 20-му рівні беремо Покращення характеристик для +2 до Статури.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-class-features",
+        "title": "Класові вміння",
+        "text": "Мисливець має вибір для кожного вміння підкласу, тож цей розділ пояснює наші вибори.\n\nНа 3-му рівні Слідопита зі Здобичі мисливця обираємо Знищувача орд — безкоштовні додаткові атаки. Вбивця колосів трохи послідовніший, бо Знищувач орд вимагає сусідніх цілей. Але будь-який бонус шкоди атаки, як-от Влучний стрілець чи магічний бонус, працює й на безкоштовну атаку.\n\nНа 7-му рівні Слідопита з Оборонної тактики беремо Захист від мультиатаки. Так, для спрацювання по нас мають спершу влучити, але це все ще корисніше за інші варіанти.\n\nНа 11-му рівні Слідопита з Мультиатаки обираємо Залп, бо бʼємо здалеку. Важливо: Залп може активувати Знищувача орд, дозволяючи двічі влучити по комусь, якщо сусідні істоти опинилися в одному Залпі.\n\nНа 15-му рівні Слідопита із Захисту вищого мисливця беремо Неймовірну спритність. Якщо знаємо Щит від передісторії з Посвяченим Стріксхейвена, натомість беремо {{Ухиляння|Evasion (Hunter)}}: Щит краще використовує реакцію, бо бонус КБ триває весь раунд.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-class-features",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Навички: Поводження з тваринами, Акробатика, Аналіз поведінки, Уважність, Виступ, Виживання; інструменти: Кухарське начиння; {{Вправний дослідник - Кмітливий|Deft Explorer - Canny}}: експертність в Уважності; Мічений ворог (1к4)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Домен життя: важкі обладунки; заклинання домену: Благословення [Bless], Лікування ран [Cure Wounds]; {{Учень життя|Disciple of Life}}; {{Чаротворство (Клірик)|Spellcasting (Cleric)}}: замовляння Світло [Light], Лагодження [Mending], Слово сяйва [Word of Radiance]; заклинання Клірика 1-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "{{Стрільба з лука|Archery}}; {{Чаротворство (Слідопит)|Spellcasting (Ranger)}}: заклинання Слідопита 1-го рівня — Туманна хмара [Fog Cloud], Доброягода",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Архетип Слідопита: Мисливець; Здобич мисливця — Знищувач орд; {{Первісне усвідомлення|Primeval Awareness}}; чаротворство: заклинання Слідопита 1-го рівня — Скорохід [Longstrider]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Риса: Стрілець; +1 Спритність (17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "{{Додаткова атака|Extra Attack (Ranger)}}; чаротворство: заклинання Слідопита 2-го рівня — Кінетичний скік [Kinetic Jaunt] або Переміщення без сліду [Pass without Trace]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Мічений ворог (1к6); {{Вправний дослідник - Мандрівний|Deft Explorer - Roving}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Оборонна тактика — Захист від мультиатаки; чаротворство: заклинання Слідопита 2-го рівня — Переміщення без сліду",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Риса: Влучний стрілець; {{Стежка землі|Land's Stride}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Чаротворство: заклинання Слідопита 3-го рівня — Стихійна зброя",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "{{Сховатися на видноті|Hide in Plain Sight}}; {{Вправний дослідник - Невтомний|Deft Explorer - Tireless}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Мультиатака — Залп; чаротворство: заклинання Слідопита 3-го рівня — Відродження",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Покращення характеристик: +2 Спритність (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Чаротворство: заклинання Слідопита 4-го рівня — Вартовий природи",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "{{Зникнення|Vanish}}; Мічений ворог (1к8)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Захист вищого мисливця — {{Ухиляння|Evasion (Hunter)}} або Неймовірна спритність; чаротворство: заклинання Слідопита 4-го рівня — Свобода рухів [Freedom of Movement]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Риса: Стійкий зі Статурою; +1 Статура (15 → 16)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Чаротворство: заклинання Слідопита 5-го рівня — Швидкий сагайдак",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "{{Дикі почуття|Feral Senses}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Покращення характеристик: +2 Статура (16 → 18); чаротворство: заклинання Слідопита 5-го рівня — Більше відновлення [Greater Restoration]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Заклинання Слідопита 5-го, 11-го і 19-го рівня Слідопита (рівні персонажа 6, 12, 20)",
+        "reason": "Автор називає Кінетичний скік (6-й рівень персонажа), Відродження (12-й) і Більше відновлення (20-й), але цих заклинань немає в списку Слідопита платформи; замість них у плані відкрите місце для вибору гравця. Для 6-го рівня автор також дозволяє Переміщення без сліду, яке вже взято на 8-му.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Передісторія Студент Прізмарі",
+        "reason": "Автор називає варіант із передісторією Студент Прізмарі та рисою Посвячений Стріксхейвена (Прізмарі); пресет не записує заклинань цієї риси, тому взято Гладіатора — він має ті самі навички.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-hunter-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+            "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

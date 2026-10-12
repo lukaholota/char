@@ -1,0 +1,1440 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-3a20e0174036ce9d",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+      "sourceId": "rpgbot-3a20e0174036ce9d",
+      "fetchedAt": "2026-09-29T19:11:48.424175+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:25:47-04:00",
+      "contentHash": "1373aeaf8f277897a1d1b62240081fefa93726e00de776479c455b31315e9722",
+      "title": "Battlerager Barbarian 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-3a20e0174036ce9d-514786c31110c8e3.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-barbarian-battlerager-2014",
+    "sourceId": "rpgbot-3a20e0174036ce9d",
+    "slug": "barbarian-battlerager-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Шлях бойового шаленця — гайд підкласу Варвара (2014)",
+    "titleEn": "Battlerager Barbarian 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Варвар",
+      "Шлях бойового шаленця",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+      "articleId": "rpgbot-barbarian-battlerager-2014",
+      "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бойовий шаленець — варіант Варвара, зосереджений на захопленні. Він спирається на любов Варвара до агресивної тактики ближнього бою, спонукаючи вас кидатися в ближній бій, учепитися у ворога й стати великою шипастою проблемою. Але з поганою живучістю й жахливим масштабуванням Бойовий шаленець дуже мучиться."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Уміння підкласу Бойового шаленця зосереджені навколо використання шипастого обладунку. Якщо ви з якоїсь причини не можете отримати шипастий обладунок або якщо його у вас якось забирають (іржаві монстри тощо), ваш Первісний Шлях раптом стає марним."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Навіть якщо ви можете отримати шипастий обладунок, ваш КБ фіксований на 16 (якщо не отримаєте магічний шипастий обладунок або не візьмете щит), і навіть з кубиками здоровʼя к12 це все одно величезна проблема. Класові уміння дають кілька непоганих варіантів шкоди, але вони не такі корисні й не такі захопливі, як в інших підкласів, а оскільки ви застрягли в шипастому обладунку, ви не можете скористатися «Захистом без обладунків» чи напівлатами, як інші Варвари.\n\nРасове обмеження теж дратує, але залежність від Статури означає, що Дворф у будь-якому разі був би добрим вибором."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загалом підклас цікавий, але за стандартами Варвара дуже вразливий, особливо коли ви не в люті. Якщо вам потрібен Варвар, що добре захоплює, це можна зробити з будь-яким Варваром. Мій основний вибір — Шлях звіра. Але я десять років казав, що висвітлю кожен шматочок контенту 5e, тож ось ми тут."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ваш Майстер дозволить вам отримати магічний шипастий обладунок або у вас є союзники, що можуть підсилити вас такими речами, як «Щит віри [Shield of Faith]», це дуже допоможе. У будь-якому разі всерйоз розгляньте такі риси, як «Витривалий»{{Durable}} і «Здоровань»{{Tough}}, щоб зробити себе живучішим."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Невеликі числові коригування багато допомогли б Бойовому шаленцю. Якщо ви хочете грати Бойового шаленця, спробуйте деякі або всі такі зміни:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-7",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Змініть шкоду від захоплення в «Обладунку лютого»{{Battlerager Armor}}, щоб вона застосовувалася щоразу, коли ви успішно захоплюєте істоту, а також щоразу, коли істота успішно захоплює вас. Змініть шкоду з 3 на шкоду, що дорівнює вашому модифікатору Сили."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищте КБ шипастого обладунку з 14 до 15. Розгляньте можливість додати це покращення як уміння на 10-му рівні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Бойового шаленця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Бойового шаленця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Бойового шаленця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Бойового шаленця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Бойового шаленця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Бойового шаленця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Бойового шаленця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Шляху бойового шаленця — Яструб-скидальник",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Бойового шаленця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Бойового шаленця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Бойового шаленця",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Обладунок лютого{{Battlerager Armor}}: безплатна атака бонусною дією — це чудово. Не забувайте, що ваш бонус до шкоди від «Люті» все одно застосовується. Здатність завдавати шкоди, коли ви захоплюєте, теж приємна, але це лише 3 шкоди, вона не масштабується, і поліпшити її ви ніяк не можете.\n\nПроте характеристики шипастого обладунку погані, а КБ 16 буде для вас постійною проблемою, особливо з «Безрозсудною атакою». Користуватися атакою бонусною дією теж може бути складно, бо багато класових умінь Варвара активуються бонусною дією, зокрема «Лють»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Безрозсудне завзяття{{Reckless Abandon}}: ви, імовірно, користуватиметеся «Безрозсудною атакою» щоходу в бою, а тимчасові ХП скидаються щоразу, коли ви це робите, що різко підвищує вашу здатність витримувати шкоду. Це буде вирішальним, бо ваш КБ 16 зробить вас величезною мішенню для будь-якого випадкового кобольда, що отримує Перевагу на кубику, щоб влучити по вас, завдяки «Безрозсудній атаці»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Натиск батлрейджера{{Battlerager Charge}}: за дією схожий на рису «Нападник»{{Charger}}. На жаль, оскільки ви хочете використати ту саму бонусну дію для атаки обладунком, це означає, що ви жертвуєте шкодою, щоб стати на позицію для атаки."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шипована відплата{{Spiked Retribution}}: на цьому рівні шкоди небагато, але до цього часу багато ворогів матимуть кілька атак, тож вона швидко складеться."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Бойового шаленця",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Бойового шаленця",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Технічно Бойовий шаленець зобовʼязаний бути якимось різновидом Дворфа, але є примітка, що пояснює: Майстер може зняти це обмеження. Якщо він це зробить, ваші варіанти рас мало відрізняються від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/races"
+                },
+                {
+                  "type": "text",
+                  "text": ". Захоплювальні придатки Симічного гібрида й здатність Локсодона захоплювати хоботом можуть бути корисними."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Бойового шаленця",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого так само, як у "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": ", з кількома винятками. Риса «Експерт у навичках»{{Skill Expert}}, щоб отримати Експертизу, по суті обовʼязкова, а риси, що дають тимчасові ХП, будуть менш корисними, бо ви можете генерувати короткочасні тимчасові ХП щоходу. «Майстер середніх обладунків»{{Medium Armor Master}} також може дати чистий приріст КБ +1, але витрати на підвищення Спритності до 16, імовірно, не варті зусиль, коли можна взяти «Посвяченого у бій»{{Fighting Initiate}} (Оборона) для легкого +1."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я дуже старався знайти якусь можливу синергію з рисою «Борець»{{Grappler}}, але вона все одно марна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Бойового шаленця",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Бойового шаленця",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більша частина підкласу не працює, якщо ви не у своєму шипастому обладунку, тож у вас рівно один вибір. Сподіваюся, ваш Майстер дозволить вам знаходити магічні версії обладунку. Якщо ні, можливо, ви знайдете магічні щити."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Бойового шаленця",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Шляху бойового шаленця — Яструб-скидальник",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підклас досить сирий, тож нам треба шукати незвичні варіанти. Задум підкласу — кинутися в ближній бій, захопити ворога й безрозсудно обмінюватися ударами, намагаючись пробитися через виснаження ХП."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки підклас задуманий лише для Дворфів, я представлю збірку з двома варіантами раси. Обидві збірки використовуватимуть схожу тактику, але також покажуть, наскільки політ покращує збірку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка припускає необмежені варіанти раси й усі Додаткові класові уміння Варвара."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Досить типово для Варвара."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розглянемо три варіанти: Пагорбовий дворф, Совин і Ааракокра."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гірський дворф заради двох підвищень +2. Нам потрібні високі модифікатори і Сили, і Статури."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Совин{{Owlin}}. Оригінальна версія Ааракокри краща завдяки вищій швидкості, але з оновленою версією Ааракокри з сильно зменшеною швидкістю Совин краще підходить завдяки Темному зору й додатковій навичці. Технічно тут підійде будь-яка літаюча раса середнього розміру."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не важливо для збірки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми отримаємо загалом 4 навички від класу й Передісторії. Якщо ви Совин, ви отримаєте володіння Непомітністю. Доки ви володієте Атлетикою, решта не має значення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Експерта в навичках»{{Skill Expert}}, щоб підвищити Силу до 18 і отримати Експертизу в Атлетиці. Ми також отримуємо володіння ще однією навичкою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні підвищуємо Статуру до 19."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо «Рухливого»{{Mobile}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні ділимо підвищення характеристики між Силою й Статурою, щоб Сила стала 19, а Статура — 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні беремо «Проколювача»{{Piercer}} і піднімаємо Силу до 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Лють, Захист без обладунків"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Типові речі Варвара на цьому рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безрозсудна атака, Відчуття небезпеки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Усе ще просто типові речі Варвара на цьому рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Первісний Шлях{{Primal Path}}: Бойовий шаленець, Обладунок лютого, Первісне знання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Цей рівень одразу перетворює нас зі звичайного Варвара «бʼю сокирою» на ентузіаста захоплення. Ознайомтеся з "
+                    },
+                    {
+                      "type": "link",
+                      "text": "комбо захоплення й штовхання",
+                      "href": "https://rpgbot.net/dnd5/characters/grapple/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Шипи обладунку дають нам надійну атаку бонусною дією, що дає ще одну нагоду застосувати наші бонуси Сили й люті до шкоди. Ми також можемо завдати 3 шкоди, успішно захопивши ціль, що допомагає компенсувати шкоду, якої ми позбулися від атаки.\n\nНа жаль, ціна в тому, що наш КБ поганий. Візьміть щит, і ми можемо сидіти на 18, цілим пунктом нижче типового для середніх обладунків. На високих рівнях ми матимемо «Шипову відплату», тож завдаватимемо шкоду у відповідь, а також за кілька рівнів отримаємо «Безрозсудне завзяття», але до того наша живучість буде жахливою.\n\nДля нашої збірки Дворфа найкраща ставка — кинутися, захопити й якнайшвидше Штовхнути ворога додолу. Користуйтеся атакою шипами обладунку щоразу, коли маєте вільну бонусну дію. Для нашої крилатої збірки час починати перевозити ворогів повітрям. Летіть, захоплюйте, злітайте. Коли ви починаєте хід із захопленим ворогом, скиньте його.\n\nЛетіть униз, атакуйте шипами бонусною дією, потім знову захопіть його й підніміть у повітря. Ви, імовірно, не можете піднятися вище ніж на 10 футів над землею, щоб лишатися в досягу для комбо, але цього достатньо, щоб гарантовано завдати шкоди й повалити ціль.\n\nПамʼятайте, що ви все ще рухаєтеся на половину швидкості, коли переміщуєте захоплення. Так, наша тактика — фактично "
+                    },
+                    {
+                      "type": "link",
+                      "text": "сейсмічний кидок",
+                      "href": "https://www.youtube.com/watch?v=-VxLh-EJAt0"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", за яким іде Совин-варвар "
+                    },
+                    {
+                      "type": "link",
+                      "text": "з верхнього канату",
+                      "href": "https://www.youtube.com/watch?v=UET0KFCrkXk"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Важко сперечатися з результатами.\n\nПамʼятайте, що тримання ворога в повітрі відбиває в нього охоту чіпати ваших союзників. Якщо він розірве захоплення, він усе одно отримає шкоду й упаде повалений. Єдиний спосіб вам програти — щоб вони вбили вас крізь ваш опір до шкоди та стіну ХП."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках – Сила 17 → 18 – Експертиза: Атлетика – Володіння: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нам треба вміти захоплювати з мінімальним ризиком. Разом із «Люттю» ми здебільшого непереможні, коли намагаємося захопити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака, Швидкий рух"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Додаткова атака» означає, що ми маємо запасну спробу захоплення або можемо справді атакувати ворога, якого захоплюємо. «Швидкий рух» дозволяє ще швидше перевозити ворогів повітрям."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безрозсудне завзяття{{Reckless Abandon}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тимчасові ХП додадуть чимало до нашої живучості, особливо якщо ми проводимо більшість часу в бою з одним ворогом. Ми отримуємо лише по 3 за раунд, але ми також маємо опір до шкоди від «Люті», тож фактично це 6. Зауважте, що для активації «Безрозсудного завзяття» треба використати «Безрозсудну атаку». «Безрозсудну атаку» ви використовуєте, коли робите першу атаку на своєму ході, а це означає, що вам треба справді здійснити атаку.\n\nЗахоплення не рахується. На щастя, у вас є до 3 можливостей атакувати між шипами обладунку й «Додатковою атакою». Що б ви не робили, переконайтеся, що тимчасові ХП у вас є. Ваш КБ поганий."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дикий інстинкт, Інстинктивний стрибок"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Інстинктивний стрибок» допомагає швидше дістатися ближнього бою, щоб ми могли витратити більше руху на перевезення когось повітрям."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик – Статура 17 → 19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наш модифікатор Статури вирішальний для «Безрозсудного завзяття»: він дає і звичайне збільшення ХП, і додаткові тимчасові ХП щоходу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит (1 кубик)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми майже не користуватимемося цим. Воно й так було майже непридатним."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Натиск батлрейджера, Первісне знання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для нашої збірки Дворфа «Натиск батлрейджера» дозволяє швидше досягти ближнього бою, якщо ми починаємо достатньо далеко, щоб «Інстинктивного стрибка» й «Швидкого руху» не вистачало.\n\nТакож його можна використати, щоб перемістити захоплення й затягти ворога кудись неприємне. Для нашої крилатої збірки «Натиск батлрейджера» дає змогу пересуватися значно далі під час перевезення повітрям, дозволяючи підняти ворогів набагато вище й потім скинути їх набагато далі.\n\nПроте він конкурує за місце з атакою шипами обладунку, тож треба бути обережним, коли ми його використовуємо, або ми опинимося надто високо над землею, щоб на наступному ході знову перевезти ворога. Додаткова шкода від скидання ворогів із більшої висоти також може бути гіршою за шкоду від наших шипів обладунку. 1к6+7 (середнє 10,5) відповідає шкоді від падіння з 30 футів.\n\nПоки ми завдаємо хоч якусь шкоду від падіння, все гаразд. Додатковий рух також дозволяє зробити ще одну цікаву річ: він полегшує захоплення й перевезення повітрям кількох ворогів, які ще не стоять поруч. Це несе чимало додаткового ризику для нас, але інколи це буде корисно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невпинна лють{{Relentless Rage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Опуститися до 1 ХП плюс 4 тимчасові ХП від «Безрозсудного завзяття» не зовсім безпечно, але все ж щось."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Рухливий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+10 футів швидкості, і ми можемо уникати Принагідних атак, якщо боїмося викликати їх надто багато, коли пролітаємо над ворогами до мʼякших цілей. Можливість рухатися далі означає, що ми потенційно можемо перевезти ворогів іще на 10 футів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит (2 кубики)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шипована відплата{{Spiked Retribution}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ого, цілих 3 шкоди! Це… це точно число! Принаймні вороги на цьому рівні майже всі матимуть мультиатаку, тож ви, імовірно, завдаватимете цю шкоду багато разів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Постійна лють{{Persistent Rage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: – Сила 18 → 19 – Статура 19 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+1 до наших перевірок захоплення не дасть великої різниці. Нам треба вижити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит (3 кубики)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Незламна міць{{Indomitable Might}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наш мінімум для перевірок захоплення був 17 на натуральній 1, а тепер це 19."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Проколювач – Сила 19 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Проколювач» працює з шипами нашого обладунку, що непогано. Нам здебільшого просто потрібна риса з підвищенням Сили на +1."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Первісний чемпіон{{Primal Champion}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила й Статура по 24 ставлять нас у справді чудове становище і для захоплення, і для «Безрозсудного завзяття»."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-barbarian-battlerager-2014-001",
+      "articleId": "rpgbot-barbarian-battlerager-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Обладунок лютого",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-battlerager-2014-002",
+      "articleId": "rpgbot-barbarian-battlerager-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Безрозсудне завзяття",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-battlerager-2014-003",
+      "articleId": "rpgbot-barbarian-battlerager-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Натиск батлрейджера",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-battlerager-2014-004",
+      "articleId": "rpgbot-barbarian-battlerager-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Шипована відплата",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

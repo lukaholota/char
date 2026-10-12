@@ -7,11 +7,11 @@ import { RULE_CATEGORIES } from "@/lib/rulesData";
 import { isBeyondSrd, isFromSrd } from "@/lib/rulesProvenance";
 
 /// 68 варіантних правил (KR20.5/KR23.1) + 10 дрібних реєстрів (KR23.5) + 9 статей глав 1 і 4
-/// PHB (KR29.1).
-const EXPECTED_ARTICLES = 87;
+/// PHB (KR29.1) + Tremorsense MM 2014 (O49).
+const EXPECTED_ARTICLES = 88;
 const EXPECTED_PER_CATEGORY = {
   combat: 12,
-  adventuring: 31,
+  adventuring: 32,
   /// 11 + девʼять статей створення персонажа PHB, які KR29.1 поклала до «Передісторій»,
   /// «Расових особливостей» і «Рис» KR20.10.
   abilities: 20,
@@ -49,7 +49,10 @@ describe("KR20.5 — правила поза SRD з дзеркала 5etools", (
       /// PHB — KR23.5: шість хвороб Додатка A й три статті глосарію чуттів, яких SRD 5.1
       /// не передруковує (сторінка «Monsters», не «Rules»). Самі варіантні правила PHB, як
       /// і раніше, не беруться — KR23.1 узяв їх зі SRD.
-      expect(["DMG", "XGE", "TCE", "PHB"]).toContain(article.provenance.book);
+      if (article.slug === "tremorsense-registry") {
+        expect(article.provenance.book).toBe("MM");
+        expect(article.provenance.page).toBe(9);
+      } else expect(["DMG", "XGE", "TCE", "PHB"]).toContain(article.provenance.book);
       expect(article.provenance.page).toBeGreaterThan(0);
       /// KR23.1 живе на variantrules.html; KR23.5 додає три інші сторінки 5etools —
       /// actions/conditionsdiseases/senses; KR29.1 — глави книжки на book.html.
@@ -66,6 +69,17 @@ describe("KR20.5 — правила поза SRD з дзеркала 5etools", (
     expect(titles).toContain("Rest Variants");
     expect(titles).toContain("Spell Points");
     expect(titles).toContain("Hero Points");
+  });
+
+  it("adds only the full MM 2014 Tremorsense rule, retaining its contact and creature limitations", () => {
+    const entries = beyondSrd.filter((article) => article.engTitle === "Tremorsense");
+    expect(entries).toHaveLength(1);
+    expect(entries[0].isTranslated).toBe(true);
+    const body = entries[0].subsections[0].content;
+    expect(body).toContain("тією самою поверхнею або речовиною");
+    expect(body).toContain("летять або є безтілесними");
+    expect(body).not.toContain("не вважається зором");
+    expect(entries[0].provenance.url).toBe("https://5e.tools/senses.html#tremorsense_mm");
   });
 
   /// KR23.5: `actions.json`/`conditionsdiseases.json`/`senses.json` здебільшого дублюють уже

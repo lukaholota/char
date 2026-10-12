@@ -1,0 +1,2444 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-5ab711f0f9b17f47",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-5ab711f0f9b17f47-8f66584055523287",
+      "sourceId": "rpgbot-5ab711f0f9b17f47",
+      "fetchedAt": "2026-09-29T19:13:39.906541+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:19:04-04:00",
+      "contentHash": "4975aaeb5a5542ef91fd5f51aa4e84fac5ad5c1c1e6b6e9c165de2381e12dc73",
+      "title": "DnD 5e Tools and Tool Proficiencies: A Practical Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-5ab711f0f9b17f47-8f66584055523287.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-tools-2014",
+    "sourceId": "rpgbot-5ab711f0f9b17f47",
+    "slug": "tools-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Інструменти — практичний гайд (2014)",
+    "titleEn": "DnD 5e Tools and Tool Proficiencies: A Practical Guide",
+    "topics": [
+      "rules"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-tools-2014-draft1",
+      "articleId": "rpgbot-tools-2014",
+      "sourceRevisionId": "rpgbot-5ab711f0f9b17f47-8f66584055523287",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У D&D 5e Володіння навичкою означає абстрактні знання, які можна застосувати до перевірок характеристик. Володіння інструментом працює схоже, але його часто оминають через нібито вузьке призначення. Цей гайд розглядає більшість інструментів і цікаві застосування, розвиваючи ідею "
+                },
+                {
+                  "type": "link",
+                  "text": "Довідника Занатара про все",
+                  "href": "https://www.dndbeyond.com/sources/xgte/dungeon-masters-tools#ToolProficiencies"
+                },
+                {
+                  "type": "text",
+                  "text": " зі сторінки 78. Зокрема, поєднання двох доречних Володінь можуть давати Перевагу. Перелік не вичерпний: використовуйте його як відправну точку для творчого поєднання інструментів. Примітка редакції: правила XGtE пропонують Майстру дозволяти такі переваги; авторські приклади нижче не створюють автоматичного права на Перевагу чи нових здібностей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо знаєте попередні редакції, особливо D&D 3.5 і PF1e, помітите, що інструменти виконують роль Ремесла, Професії та деяких навичок Знання. Перевага зміни в тому, що в 5e легко отримати ще одне-два Володіння інструментами заради образу персонажа. Раніше вони конкурували з важливими навичками на кшталт помічання й пошуку, тож стати, наприклад, теслярем потребувало значних вкладень."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти ремісника",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#artisans-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приладдя алхіміка",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#alchemists-supplies"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приладдя пивовара",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#brewers-supplies"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Каліграфічний набір",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#calligraphers-supplies"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти тесляра",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#carpenters-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти картографа",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#cartographers-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти шевця",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#cobblers-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Кухарське начиння",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#cooks-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти склодува",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#glassblowers-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти ювеліра",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#jewellers-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти чинбаря",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#leatherworkers-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти каменяра",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#masons-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приладдя маляра",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#painters-supplies"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти гончаря",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#potters-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Ковальські інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#smiths-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти лудильника",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#tinkers-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти ткача",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#weavers-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти різьбяра по дереву",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#woodcarvers-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інші інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#assorted-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Набір для гриму",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#disguise-kit"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Набір фальшивомонетника",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#forgery-kit"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Ігрові набори",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#gaming-sets"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Набір травника",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#herbalism-kit"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Музичні інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#musical-instruments"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти навігатора",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#navigators-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Набір отруйника",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#poisoners-kit"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інструменти злодія",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#thieves-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Транспорт",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#vehicles"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Наземний транспорт",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#land"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Водний транспорт",
+                    "href": "https://rpgbot.net/dnd5/characters/tools/#water"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artisans-tools",
+          "heading": "Інструменти ремісника",
+          "sourceAnchor": "artisans-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-artisans-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ці інструменти насамперед призначені для виготовлення й ремонту. Володіння інструментами ремісника означає знання самого ремесла та відповідної професії. Воно охоплює й оцінювання вартості предметів вашого фаху, яке в попередніх редакціях було окремою навичкою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artisans-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Виготовлення предметів"
+                },
+                {
+                  "type": "text",
+                  "text": " — інструментами ремісника можна створювати звичайні й магічні речі. Час залежить від ціни звичайного предмета або рідкісності магічного: для звичайних речей один робочий тиждень на 50 зм. Якщо працюють кілька ремісників, загальний час ділиться між ними. Докладніше — сторінка 128 "
+                },
+                {
+                  "type": "link",
+                  "text": "XGtE",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Зілля лікування дивіться нижче, у розділі набору травника. Примітка редакції: магічні предмети мають додаткові вимоги; одне Володіння інструментом не робить будь-яке виготовлення доступним."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artisans-tools-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Робота"
+                },
+                {
+                  "type": "text",
+                  "text": " — під час простою інструменти ремісника й музичні інструменти дозволяють заробляти. Результати наведено на сторінці 134 "
+                },
+                {
+                  "type": "link",
+                  "text": "XGtE",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-alchemists-supplies",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Приладдя алхіміка",
+          "sourceAnchor": "alchemists-supplies",
+          "blocks": [
+            {
+              "blockId": "block-section-alchemists-supplies-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Алхімія — фактично хімія; Володіння дає знання хімії й суміжних наук. Якщо в кампанії дозволена вогнепальна зброя, автор пропонує використовувати це приладдя й для пороху; доступність і виготовлення визначає Майстер."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-alchemists-supplies-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Алхімічне виготовлення"
+                },
+                {
+                  "type": "text",
+                  "text": " — це Володіння дозволяє виготовляти алхімічні предмети з матеріалів вартістю половину ціни купівлі. Примітка редакції: застосовуйте час, перелік предметів і решту обмежень відповідного правила XGtE, а не довільне миттєве виготовлення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies",
+          "parentSectionId": "section-alchemists-supplies",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інструменти ювеліра{{Jeweler's Tools}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — ці два Володіння разом утворюють основу металургії. Знання обох дисциплін допомагає глибше аналізувати метали та їхній склад."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Ковальські інструменти{{Smith's Tools}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — виготовляти боєприпаси для вогнепальної зброї легше, якщо розуміти ковальство й алхімічні процеси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-brewers-supplies",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Приладдя пивовара",
+          "sourceAnchor": "brewers-supplies",
+          "blocks": [
+            {
+              "blockId": "block-section-brewers-supplies-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основне призначення приладдя пивовара — пиво й інші алкогольні напої. Це не автоматичне глибоке знання мікробіології, але досвідчений пивовар розуміє роль дріжджів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-brewers-supplies-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Питна вода"
+                },
+                {
+                  "type": "text",
+                  "text": " — обладнання пивовара дозволяє фільтрувати й знезаражувати воду, щоб її було безпечно пити."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-2",
+          "parentSectionId": "section-brewers-supplies",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-2",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Приладдя алхіміка{{Alchemist's Supplies}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — алхімічні процеси допомагають зрозуміти перегонку й отримувати не лише міцний алкоголь, а й дуже займисті рідини."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Кухарське начиння{{Cook's Utensils}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — навмисно перетворювати алкоголь на оцет корисно для збереження їжі перед довгою подорожжю або суворою зимою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Набір травника{{Herbalism Kit}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — приготування напоїв із рослин можна розвинути до видобування й перегонки різних речовин, як лікувальних, так і рекреаційних."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-calligraphers-supplies",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Каліграфічний набір",
+          "sourceAnchor": "calligraphers-supplies",
+          "blocks": [
+            {
+              "blockId": "block-section-calligraphers-supplies-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Каліграфія перетворює слова й письмо на мистецтво. Написати повідомлення може будь-хто, але каліграф знає, як привернути погляд."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-calligraphers-supplies-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Розшифрувати карту скарбів"
+                },
+                {
+                  "type": "text",
+                  "text": " — приладдя допомагає дослідити секрети карти, зокрема її вік або приховані повідомлення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-3",
+          "parentSectionId": "section-calligraphers-supplies",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-3",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-3-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інструменти різьбяра по дереву{{Woodcarver's Tools}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — красиві літери можуть стати шаблоном для різьблення й піднести обидва мистецтва."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-carpenters-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Інструменти тесляра",
+          "sourceAnchor": "carpenters-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-carpenters-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Теслярство створює міцні деревʼяні предмети. Знання будівельних прийомів допомагає помітити незвичну конструкцію або слабке місце, незалежно від того, хочете ви її зруйнувати чи зміцнити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-carpenters-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Зміцнення"
+                },
+                {
+                  "type": "text",
+                  "text": " — трохи роботи робить двері чи вікно складнішими для виламування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-carpenters-tools-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Тимчасовий прихисток"
+                },
+                {
+                  "type": "text",
+                  "text": " — швидко спорудіть сухе й затінене місце для відпочинку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-4",
+          "parentSectionId": "section-carpenters-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-4",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-4-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інструменти каменяра{{Mason's Tools}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — деревʼяні форми потрібні для заливання бетонних сумішей у складнішому будівництві."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-4-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Транспорт"
+                },
+                {
+                  "type": "text",
+                  "text": " — Володіння транспортом охоплює обслуговування, а поєднання з теслярством допомагає виготовляти й установлювати вдосконалення поза простим ремонтом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cartographers-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Інструменти картографа",
+          "sourceAnchor": "cartographers-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-cartographers-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кожен може накидати приблизну карту, але картограф уміє створювати точну для навігації та вимірювання місцевості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cartographers-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Створити карту"
+                },
+                {
+                  "type": "text",
+                  "text": " — малюйте карту під час подорожі, не відмовляючись від інших занять."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-5",
+          "parentSectionId": "section-cartographers-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-5",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-5-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інструменти тесляра"
+                },
+                {
+                  "type": "text",
+                  "text": " — архітектурний план є особливою картою; поєднання знань допомагає уявити будівлю згори, перебуваючи всередині. Для камʼяних і цегляних споруд так само доречні "
+                },
+                {
+                  "type": "strong",
+                  "text": "інструменти каменяра"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-5-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інструменти навігатора{{Navigator's Tools}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — навігація за зорями дозволяє створювати зоряні карти, особливо корисні для подорожей Spelljammer у незнайомій Crystal Sphere. Примітка редакції: це термінологія старішого космологічного опису й творча пропозиція автора, а не окрема механіка набору."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cobblers-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Інструменти шевця",
+          "sourceAnchor": "cobblers-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-cobblers-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чоботи, туфлі й усе взуття з твердою підошвою — царина шевця."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cobblers-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Догляд за взуттям"
+                },
+                {
+                  "type": "text",
+                  "text": " — довше подорожуйте пішки без утоми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cobblers-tools-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Прихована схованка"
+                },
+                {
+                  "type": "text",
+                  "text": " — трохи роботи дозволяє додати у взуття потайне відділення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-6",
+          "parentSectionId": "section-cobblers-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-6",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-6-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Поводження з тваринами"
+                },
+                {
+                  "type": "text",
+                  "text": " — підковування коней та інших копитних досить схоже на шевство, щоб суміжна підготовка допомагала і з кріпленням, і з виявленням проблем копит. Самі підкови виготовляють "
+                },
+                {
+                  "type": "strong",
+                  "text": "ковальськими інструментами"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-6-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Ковальські інструменти"
+                },
+                {
+                  "type": "text",
+                  "text": " — уявіть незручність цілком металевих поножів. Уміння зробити міцну й зручну підошву як основу захисту ніг помітно допомагає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cooks-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Кухарське начиння",
+          "sourceAnchor": "cooks-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-cooks-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зробити їжу придатною для споживання — не те саме, що перетворити складники на страву. Шукачі пригод часто ігнорують це начиння, намагаючись узагалі позбутися потреби їсти, й забувають про різницю між відсутністю голоду та задоволенням від їжі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cooks-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Приготування страв"
+                },
+                {
+                  "type": "text",
+                  "text": " — добре приготована їжа дає додаткове лікування під час короткого відпочинку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-7",
+          "parentSectionId": "section-cooks-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-7",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-7-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Поводження з тваринами"
+                },
+                {
+                  "type": "text",
+                  "text": " — раціони тварин різняться. Звичайний корм може добре зберігатися в дорозі, а екзотичному допоможуть спеціальні способи збереження свіжості без втрати привабливості для ваших тварин."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-7-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Магія"
+                },
+                {
+                  "type": "text",
+                  "text": " — кухар із Штукарство [Prestidigitation] може створювати начебто неможливі поєднання смаків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-7-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Набір отруйника{{Poisoner's Kit}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — підступний отруйник може приховати смак отрути правильно дібраними звичайними складниками."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-7-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Водний транспорт{{Vehicles (Water)}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — у довгому плаванні їжа має залишатися придатною місяцями. Спеціальні прийоми допомагають підтримувати настрій команди за обмеженого вибору продуктів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-glassblowers-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Інструменти склодува",
+          "sourceAnchor": "glassblowers-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-glassblowers-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Склодув знає і формування скла, і виготовлення різних його видів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-glassblowers-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Виявити слабке місце"
+                },
+                {
+                  "type": "text",
+                  "text": " — знайдіть правильну точку удару, щоб розбити скляний предмет."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-8",
+          "parentSectionId": "section-glassblowers-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-8",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-8-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інструменти ювеліра"
+                },
+                {
+                  "type": "text",
+                  "text": " — прийоми огранювання й оправлення каменів із відповідним обладнанням дозволяють шліфувати й установлювати лінзи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-8-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Ковальські інструменти"
+                },
+                {
+                  "type": "text",
+                  "text": " — вітраж поєднує оброблений метал, часто свинець, і скло."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-jewellers-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Інструменти ювеліра",
+          "sourceAnchor": "jewellers-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-jewellers-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ювелір перетворює необроблені камені на ограновані коштовності й надає дорогоцінним металам форми для їхнього кріплення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jewellers-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Визначити коштовність"
+                },
+                {
+                  "type": "text",
+                  "text": " — оцініть камені з першого погляду."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-9",
+          "parentSectionId": "section-jewellers-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-9",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-9-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Набір для гриму{{Disguise Kit}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — справжні коштовності доповнюють костюм і допомагають витримати прискіпливу перевірку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-leatherworkers-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Інструменти чинбаря",
+          "sourceAnchor": "leatherworkers-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-leatherworkers-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ці інструменти дозволяють знімати шкури впольованих тварин, чинити їх і виготовляти готові шкіряні вироби."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-leatherworkers-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Визначити шкіру"
+                },
+                {
+                  "type": "text",
+                  "text": " — коротке дослідження допомагає встановити походження шкіри й шкур, а також прийоми виготовлення речі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-10",
+          "parentSectionId": "section-leatherworkers-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-10",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-10-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Поводження з тваринами"
+                },
+                {
+                  "type": "text",
+                  "text": " — індивідуально підігнані сідло й вуздечка можуть суттєво допомогти у вирішальний момент."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-10-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Наземний транспорт{{Vehicles (Land)}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — догляд і припасування вудил та вуздечок робочих тварин, як і "
+                },
+                {
+                  "type": "strong",
+                  "text": "Поводження з тваринами"
+                },
+                {
+                  "type": "text",
+                  "text": ", полегшує керування в несприятливих умовах."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-masons-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Інструменти каменяра",
+          "sourceAnchor": "masons-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-masons-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Каменярство — будівництво з каменю та цегли. Знання спорудження дає важливе розуміння того, як споруду зруйнувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-masons-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Руйнування"
+                },
+                {
+                  "type": "text",
+                  "text": " — ви завдаєте подвійну шкоду камʼяним і цегляним спорудам. Примітка редакції: відповідне правило XGtE стосується немагічних камʼяних обʼєктів, а не довільної істоти чи магічного укріплення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-11",
+          "parentSectionId": "section-masons-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-11",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-11-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Ковальські інструменти"
+                },
+                {
+                  "type": "text",
+                  "text": " — армування під час будівництва дозволяє створювати більші й міцніші камʼяні споруди."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-painters-supplies",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Приладдя маляра",
+          "sourceAnchor": "painters-supplies",
+          "blocks": [
+            {
+              "blockId": "block-section-painters-supplies-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Приладдя потрібне і для мистецтва, і для звичайного фарбування, наприклад паркану."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-painters-supplies-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Малювання"
+                },
+                {
+                  "type": "text",
+                  "text": " — створюйте картини під час відпочинку, замальовуйте побачене або копіюйте інші твори."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-12",
+          "parentSectionId": "section-painters-supplies",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-12",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-12-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інструменти лудильника{{Tinker's Tools}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — після ремонту часто видно замінені деталі, але навички малювання допомагають підібрати їхній колір."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-potters-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Інструменти гончаря",
+          "sourceAnchor": "potters-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-potters-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Знання формування й змішування глини та кераміки корисне для виготовлення посуду й визначення первісної форми розбитого глиняного предмета."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-potters-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Відновлення форми"
+                },
+                {
+                  "type": "text",
+                  "text": " — за уламками реконструюйте початкову форму керамічної речі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-13",
+          "parentSectionId": "section-potters-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-13",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-13-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інструменти склодува"
+                },
+                {
+                  "type": "text",
+                  "text": " — скляні вставки в кераміці підносять художню якість. Для схожих ефектів із каменями доречні "
+                },
+                {
+                  "type": "strong",
+                  "text": "інструменти ювеліра"
+                },
+                {
+                  "type": "text",
+                  "text": ", із металом — "
+                },
+                {
+                  "type": "strong",
+                  "text": "ковальські інструменти"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-smiths-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Ковальські інструменти",
+          "sourceAnchor": "smiths-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-smiths-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коваль знає виплавлення металу з руди та його оброблення в корисні предмети, наприклад зброю й обладунки. Суміжні знання дозволяють посилювати міцність багатьох інших виробів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-smiths-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Ремонт"
+                },
+                {
+                  "type": "text",
+                  "text": " — ремонтуйте пошкоджені металеві предмети."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-14",
+          "parentSectionId": "section-smiths-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-14",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-14-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Приладдя алхіміка"
+                },
+                {
+                  "type": "text",
+                  "text": " — розуміння металів і хімічних реакцій потрібне для міцних сплавів та видобування незвичних елементів із рідкісних руд."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-14-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інструменти тесляра"
+                },
+                {
+                  "type": "text",
+                  "text": " — знання будівництва й металу поєднуються у спорудженні будівель із металевим каркасом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-14-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Водний транспорт"
+                },
+                {
+                  "type": "text",
+                  "text": " — при виготовленні й ремонті гармат для морського бою важливо враховувати постійне хитання хвиль."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-tinkers-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Інструменти лудильника",
+          "sourceAnchor": "tinkers-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-tinkers-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інструменти лудильника незвичні: на відміну від більшості ремісничих наборів, вони насамперед призначені для швидкого різноманітного ремонту й латання, а не створення речей. Тому можуть поєднуватися майже з будь-яким інструментом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-tinkers-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Ремонт"
+                },
+                {
+                  "type": "text",
+                  "text": " — ремонтуйте різноманітні предмети."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-15",
+          "parentSectionId": "section-tinkers-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-15",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-15-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Будь-який інструмент"
+                },
+                {
+                  "type": "text",
+                  "text": " — під час поспішного латання знання інструментів лудильника й відповідного ремесла, наприклад "
+                },
+                {
+                  "type": "strong",
+                  "text": "теслярства"
+                },
+                {
+                  "type": "text",
+                  "text": " для дерева або "
+                },
+                {
+                  "type": "strong",
+                  "text": "шевства"
+                },
+                {
+                  "type": "text",
+                  "text": " для взуття, може компенсувати складність швидкого ремонту. Примітка редакції: це пропозиція автора для рішення Майстра, а не загальне правило автоматичного скасування штрафів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weavers-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Інструменти ткача",
+          "sourceAnchor": "weavers-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-weavers-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ці інструменти потрібні і для прядіння ниток, і для шиття одягу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-weavers-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Ремонт"
+                },
+                {
+                  "type": "text",
+                  "text": " — ремонтуйте тканинні речі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-weavers-tools-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Виготовити одяг"
+                },
+                {
+                  "type": "text",
+                  "text": " — зробіть комплект одягу під час тривалого відпочинку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-16",
+          "parentSectionId": "section-weavers-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-16",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-16-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Поводження з тваринами"
+                },
+                {
+                  "type": "text",
+                  "text": " — знання, які шерсть і волосся придатні для ниток, допомагає отримати добрий матеріал під час стриження."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-woodcarvers-tools",
+          "parentSectionId": "section-artisans-tools",
+          "heading": "Інструменти різьбяра по дереву",
+          "sourceAnchor": "woodcarvers-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-woodcarvers-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тесляр збирає деревʼяні конструкції, наприклад шафи; різьбяр виконує складні візерунки та точні надрізи поверхні. Різьблення також використовують для стріл і болтів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-woodcarvers-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Виготовити стріли"
+                },
+                {
+                  "type": "text",
+                  "text": " — під час відпочинку виготовляйте деревʼяні боєприпаси, зокрема стріли, болти й дротики. Примітка редакції: спеціальна можливість XGtE прямо описує стріли; болти й дротики — розширення автора, яке потребує погодження Майстра."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-17",
+          "parentSectionId": "section-woodcarvers-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-17",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-17-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інструменти тесляра"
+                },
+                {
+                  "type": "text",
+                  "text": " — додаткові прикраси й складні деталі роблять ваші вироби красивішими."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-assorted-tools",
+          "heading": "Інші інструменти",
+          "sourceAnchor": "assorted-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-assorted-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Решта інструментів не має спільної категорії на кшталт ремісничих, і це нормально. Багато з них замінює забуті навички старих редакцій. Щоб уникнути повторів, музичні інструменти й ігрові набори розглянуто спільними категоріями."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disguise-kit",
+          "parentSectionId": "section-assorted-tools",
+          "heading": "Набір для гриму",
+          "sourceAnchor": "disguise-kit",
+          "blocks": [
+            {
+              "blockId": "block-section-disguise-kit-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не дивно, що набір замінив навичку маскування. Його очевидне призначення — звичайна немагічна зміна зовнішності, але він також охоплює костюми й мистецтво гриму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disguise-kit-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Створити маскування"
+                },
+                {
+                  "type": "text",
+                  "text": " — підготуйте зміну зовнішності під час тривалого відпочинку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-18",
+          "parentSectionId": "section-disguise-kit",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-18",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-18-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Музичні інструменти"
+                },
+                {
+                  "type": "text",
+                  "text": " — відповідний стиль і костюм допомагають здобути прихильність слухачів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-forgery-kit",
+          "parentSectionId": "section-assorted-tools",
+          "heading": "Набір фальшивомонетника",
+          "sourceAnchor": "forgery-kit",
+          "blocks": [
+            {
+              "blockId": "block-section-forgery-kit-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви вже навряд чи здивуєтеся, що цей набір замінив навичку підроблення з 3.5. Йдеться про переконливі копії предметів, а не лише документів: підробити можна будь-що, що хтось здатен виготовити. Примітка редакції: офіційний набір призначений передусім для документів; ширший фах ремісничих підробок є інтерпретацією автора."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-forgery-kit-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Швидка підробка"
+                },
+                {
+                  "type": "text",
+                  "text": " — підробляйте документи різної довжини під час короткого або тривалого відпочинку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-19",
+          "parentSectionId": "section-forgery-kit",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-19",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-19-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інструменти ремісника"
+                },
+                {
+                  "type": "text",
+                  "text": " — найкращий спосіб підробити роботу майстра — "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "бути"
+                },
+                {
+                  "type": "text",
+                  "text": " майстром."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-19-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Музичні інструменти"
+                },
+                {
+                  "type": "text",
+                  "text": " — музична теорія допоможе переконливо підробити ноти, якщо раптом це знадобиться."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-gaming-sets",
+          "parentSectionId": "section-assorted-tools",
+          "heading": "Ігрові набори",
+          "sourceAnchor": "gaming-sets",
+          "blocks": [
+            {
+              "blockId": "block-section-gaming-sets-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Азартні й інтелектуальні ігри загалом дають схожі можливості, але можуть вимагати різних перевірок. Карти, наприклад, можуть спиратися на Мудрість, щоб читати суперника й не видавати себе; драконячі шахи — радше на Інтелект. Характеристику для конкретної перевірки обирає Майстер."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gaming-sets-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Азартні ігри"
+                },
+                {
+                  "type": "text",
+                  "text": " — під час простою можна витратити тиждень на гру. Докладніше — сторінка 130 "
+                },
+                {
+                  "type": "link",
+                  "text": "XGtE",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-20",
+          "parentSectionId": "section-gaming-sets",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-20",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-20-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Приладдя пивовара"
+                },
+                {
+                  "type": "text",
+                  "text": " — найміцніші напої за ігровим столом можуть змусити суперника помилитися. Примітка редакції: це сюжетна пропозиція, а не автоматичний механічний бонус."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-herbalism-kit",
+          "parentSectionId": "section-assorted-tools",
+          "heading": "Набір травника",
+          "sourceAnchor": "herbalism-kit",
+          "blocks": [
+            {
+              "blockId": "block-section-herbalism-kit-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дивно, що набір не належить до ремісничих: для багатьох шукачів пригод його основне призначення — зілля лікування. Він також допомагає визначати рослини, що можна було б вважати перевіркою Природи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-herbalism-kit-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Варіння зілля лікування"
+                },
+                {
+                  "type": "text",
+                  "text": " — це Володіння дозволяє виготовляти зілля лікування. Вони мають чотири рівні рідкісності, але автор вважає все понад звичайне зілля надто дорогим і тривалим у виготовленні. Це оцінка оптимізації, а не заборона інших зіль."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-herbalism-kit-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Визначення рослин"
+                },
+                {
+                  "type": "text",
+                  "text": " — швидко визначайте рослини."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-21",
+          "parentSectionId": "section-herbalism-kit",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-21",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-21-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Каліграфічний набір"
+                },
+                {
+                  "type": "text",
+                  "text": " — незвичайні рослинні барвники роблять письмо виразнішим."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-21-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Набір фальшивомонетника{{Forgery Kit}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — інші дивовижні рослини можуть дати звичайне зникальне чорнило, яке магія не визначатиме як магічне. Примітка редакції: це не гарантія приховати його від будь-якого заклинання дослідження."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-musical-instruments",
+          "parentSectionId": "section-assorted-tools",
+          "heading": "Музичні інструменти",
+          "sourceAnchor": "musical-instruments",
+          "blocks": [
+            {
+              "blockId": "block-section-musical-instruments-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і з ігровими наборами, можливості різних музичних інструментів схожі, але гра на Флейті{{Flute}} може вимагати Спритності, а довгий сигнал Рогом — Статури. Це приклади вибору характеристики Майстром."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-musical-instruments-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Створити мелодію"
+                },
+                {
+                  "type": "text",
+                  "text": " — напишіть нову пісню під час тривалого відпочинку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-22",
+          "parentSectionId": "section-musical-instruments",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-22",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-22-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інструменти лудильника"
+                },
+                {
+                  "type": "text",
+                  "text": " — лагодити музичний інструмент простіше, якщо вмієте зіграти й перевірити результат."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-navigators-tools",
+          "parentSectionId": "section-assorted-tools",
+          "heading": "Інструменти навігатора",
+          "sourceAnchor": "navigators-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-navigators-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Картограф створює карту, а навігатор читає її. Якщо дивитися на 3.5, цей інструмент поєднує частину знань місцевості й географії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-navigators-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Визначення положення"
+                },
+                {
+                  "type": "text",
+                  "text": " — ретельні вимірювання дозволяють визначити своє місце на карті та час доби."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-23",
+          "parentSectionId": "section-navigators-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-23",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-23-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Виступ"
+                },
+                {
+                  "type": "text",
+                  "text": " — перетворіть напрямки на запамʼятовувану пісню, щоб іншим було легше згадувати й дотримуватися маршруту."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-poisoners-kit",
+          "parentSectionId": "section-assorted-tools",
+          "heading": "Набір отруйника",
+          "sourceAnchor": "poisoners-kit",
+          "blocks": [
+            {
+              "blockId": "block-section-poisoners-kit-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ніби набір травника, але злий. Справді: знання рослин значною мірою ті самі, проте увага зосереджена на небезпечних, а не корисних."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-poisoners-kit-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Поводження з отрутою"
+                },
+                {
+                  "type": "text",
+                  "text": " — за відповідним правилом XGtE Володіння дозволяє поводитися з отрутою й наносити її без ризику випадково отруїти себе. Це не імунітет до отрути загалом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-24",
+          "parentSectionId": "section-poisoners-kit",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-24",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-24-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Каліграфічний набір"
+                },
+                {
+                  "type": "text",
+                  "text": " — домішайте смертоносну контактну отруту в чорнило й розносіть смерть поштою. Примітка редакції: спрацювання отрути визначають її власні правила й рішення Майстра."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-synergies-24-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Набір травника — для багатьох речовин різницю між отрутою й ліками визначає доза."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-thieves-tools",
+          "parentSectionId": "section-assorted-tools",
+          "heading": "Інструменти злодія",
+          "sourceAnchor": "thieves-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-thieves-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кумедно, що найуживаніший у грі інструмент майже останній за абеткою. Це наступник відкривання замків і знешкодження пристроїв із 3.5, дуже корисний у підземеллях."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-thieves-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Установити пастку"
+                },
+                {
+                  "type": "text",
+                  "text": " — спорудіть пастку під час короткого відпочинку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-synergies-25",
+          "parentSectionId": "section-thieves-tools",
+          "heading": "Поєднання Володінь",
+          "sourceAnchor": "synergies-25",
+          "blocks": [
+            {
+              "blockId": "block-section-synergies-25-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Набір отруйника"
+                },
+                {
+                  "type": "text",
+                  "text": " — зберегти отруту зі знешкодженої пастки для майбутнього використання — технічно перероблення, а отже турбота про довкілля підземелля."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-vehicles",
+          "heading": "Транспорт",
+          "sourceAnchor": "vehicles",
+          "blocks": [
+            {
+              "blockId": "block-section-vehicles-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наземний і водний транспорт віднесено до інструментів, бо він не вписується в інші категорії. Це дуже широкі Володіння, що підходять більшості кампаній із рідкісним транспортом. Для морських чи облогових кампаній автор пропонує поділити їх на спеціалізовані ролі. Примітка редакції: цей поділ — авторське домашнє правило, до офіційного каталогу його не додаємо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-vehicles-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Керування транспортом"
+                },
+                {
+                  "type": "text",
+                  "text": " — коли ви керуєте, ваш Бонус Майстерності додається до КБ і ряткидків транспортного засобу за відповідним правилом XGtE."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-land",
+          "parentSectionId": "section-vehicles",
+          "heading": "Наземний транспорт",
+          "sourceAnchor": "land",
+          "blocks": [
+            {
+              "blockId": "block-section-land-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наземний транспорт охоплює різні колісні й санні засоби, зазвичай із тягловими тваринами. Найближчими навичками 3.5 були знання архітектури й інженерії, професія облогового інженера та поводження з тваринами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-siege-warfare-subdivisions",
+          "parentSectionId": "section-land",
+          "heading": "Авторські спеціалізації облогової війни",
+          "sourceAnchor": "siege-warfare-subdivisions",
+          "blocks": [
+            {
+              "blockId": "block-section-siege-warfare-subdivisions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для кампанії з облоговою війною автор пропонує звузити це Володіння до кількох категорій. Усі наведені нижче категорії — пропозиції для Майстра, а не офіційні нові Володіння."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-siege-warfare-subdivisions-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Облогова артилерія"
+                },
+                {
+                  "type": "text",
+                  "text": " — усі захочуть стріляти з балісти й кидати кубики шкоди, але для прицілювання потрібен лише один навчений боєць. Автор пропонує два уточнення: поводитися з цим як із Володінням зброєю, крім способу отримання через інструмент, і не застосовувати Експертизу інструментів Винахідника 6-го рівня до цих атак. Обмежена точність існує не без причини."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-siege-warfare-subdivisions-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Керування облоговою технікою"
+                },
+                {
+                  "type": "text",
+                  "text": " — керуйте навченими військовими тваринами, щоб поставити облогову машину на позицію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-siege-warfare-subdivisions-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Облогова інженерія"
+                },
+                {
+                  "type": "text",
+                  "text": " — ремонт, захист машини в ближньому бою, заряджання й усе, що не є стрільбою або керуванням, автор обʼєднує тут."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-water",
+          "parentSectionId": "section-vehicles",
+          "heading": "Водний транспорт",
+          "sourceAnchor": "water",
+          "blocks": [
+            {
+              "blockId": "block-section-water-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Водний транспорт — човни, кораблі й інші судна. Менш очевидно, що Володіння поєднує професію моряка й роботу з мотузками з 3.5. За сторінкою 82 XGtE воно охоплює професійні моряцькі знання, зокрема вʼязання вузлів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-naval-warfare-subdivisions",
+          "parentSectionId": "section-water",
+          "heading": "Авторські спеціалізації морської війни",
+          "sourceAnchor": "naval-warfare-subdivisions",
+          "blocks": [
+            {
+              "blockId": "block-section-naval-warfare-subdivisions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У морській кампанії можна просто дати всім Володіння водним транспортом або поділити його на спеціалізації. За авторського поділу всі морські завдання поза конкретними спеціалізаціями доступні кожній: наприклад, робота з вітрилами чи підіймання якоря потрібні всім морякам. Це також домашнє правило автора."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-naval-warfare-subdivisions-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Морський гармаш"
+                },
+                {
+                  "type": "text",
+                  "text": " — стріляйте бортовими гарматами по ворожих суднах на середній та великій відстані."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-naval-warfare-subdivisions-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Морський стерничий"
+                },
+                {
+                  "type": "text",
+                  "text": " — керувати вітрильником складно. Штурвал зазвичай біля корми, ближче до стерна, через що вітрила перекривають видимість уперед."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-naval-warfare-subdivisions-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Морський корабельний майстер"
+                },
+                {
+                  "type": "text",
+                  "text": " — ремонт, обслуговування та інші спеціалізовані завдання, завдяки яким судно тримається на воді."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": []
+}

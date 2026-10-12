@@ -20,7 +20,7 @@ import {
 /// самі варіантні правила PHB як і раніше не беремо — `SOURCE_BOOKS` нижче лишається без PHB.
 /// `XDMG` — глави 1–3 DMG 2024 (KR23.4, `xdmg-chapters.ts`); цей файл їх не парсить і не
 /// фільтрує, тип лише спільний для обох конвеєрів.
-export type BeyondSrdSource = "DMG" | "XGE" | "TCE" | "PHB" | "XDMG";
+export type BeyondSrdSource = "DMG" | "XGE" | "TCE" | "PHB" | "MM" | "XDMG";
 
 export type ParsedBeyondSrdArticle = {
   id: string;

@@ -1,0 +1,2429 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "1d90bf7b47c0108cb88ed9fb246c33a0f77de44dae792798867e4b5c5b064180",
+  "sourceRevision": {
+    "revisionId": "rpgbot-f6c38495f5c745b1-1d90bf7b47c0108c",
+    "sourceId": "rpgbot-f6c38495f5c745b1",
+    "fetchedAt": "2026-09-29T19:25:54.051212+00:00",
+    "sourceUpdatedAt": "2025-07-23T10:16:05-04:00",
+    "contentHash": "3f30b642b0b614b868e634dbca0f5529e1df6bfa7ab68f3432cc0f0ed48b5866",
+    "title": "2024 DnD Hunter Ranger Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-f6c38495f5c745b1-1d90bf7b47c0108c.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Hunter Ranger adds almost no complexity to the core of the Ranger class, instead complementing the class’s core tactics with mostly passive features. The only part of the Hunter which requires you to take additional actions is Superior Hunter’s Defense. This makes the Hunter very accessible and easy to play. Unfortunately, most of the Hunter’s features provide very minor benefits and the rest won’t be consistently useful, so the subclass’s decision points only present the illusion of choice for the vast majority of builds. The Hunter’s best options are often at their strongest in melee."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the subclass adds so little to the Ranger in the way of new capabilities, it doesn’t change the Ranger’s role in the party. This is very much the Ranger-est Ranger that ever did range."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is for the 2024 Hunter Ranger. For help with the 2014 rules, see our "
+            },
+            {
+              "type": "link",
+              "text": "2014 Hunter Ranger Subclass Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hunter Ranger Features",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hunter Ranger Backgrounds",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#backgrounds"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hunter Ranger Species",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#species"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hunter Ranger Ability Scores",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hunter Ranger Feats",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hunter Ranger Weapons",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hunter Ranger Armor",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hunter Ranger Multiclassing",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Hunter Ranger Build – Oh, Hi (Hunter's) Mark",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Species",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#species"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skill and Tool Proficiencies",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#skill-and-tool-proficiencies"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats and Ability Score Increases",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#feats-and-ability-score-increases"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/hunter/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice in this article is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2024 DnD Character Optimization Meta",
+              "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows. Also be sure to check for "
+            },
+            {
+              "type": "link",
+              "text": "errata",
+              "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+            },
+            {
+              "type": "text",
+              "text": " periodically."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Hunter Ranger Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Hunter’s Lore"
+              },
+              {
+                "type": "text",
+                "text": ": You’re going to be running\n\t\tHunter’s Mark in nearly every encounter, so you’re going to know the\n\t\tImmunities/Resistances/Vulnerabilities of most of the creatures that you\n\t\tface. Of course, you probably can’t do anything with that information since\n\t\tyou’re going to be dealing Piercing damage almost exclusively.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "None of this specifies “damage”, so RAW it appears that you also know if\n\t\t\tthe target has any condition immunities. Unfortunately,\n\t\t\tAdvantage/Disadvantage on saves against a condition aren’t considered\n\t\t\tResistance/Vulnerability in 5e."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Hunter’s Prey"
+              },
+              {
+                "type": "text",
+                "text": ": You can change your choice on a Short or\n\t\tLong Rest, but realistically there is no reason to do so.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Colossus Slayer"
+              },
+              {
+                "type": "text",
+                "text": ": Enemies will spend\n\t\t\t\tvery little time in combat at full health, and then they’ll be probaly below\n\t\t\t\tfull health for the rest of their lives, so this damage is easy and\n\t\t\t\tconsistent. It’s not a ton of damage, but it’s very reliable and doesn’t\n\t\t\t\trequire any real effort.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Because this works once per turn, it also works on Opportunity\n\t\t\t\t\tAttacks. This is very helpful for melee builds, making you a bit\n\t\t\t\t\tscarier to move past even for enemies that aren’t the target of\n\t\t\t\t\tHunter’s Mark."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Horde Breaker"
+              },
+              {
+                "type": "text",
+                "text": ": This is basically the\n\t\t\t\tsame as the Cleave Weapon Mastery, except that you can’t have already\n\t\t\t\tattacked the secondary target. Since you’re stuck focusing on the target\n\t\t\t\tof Hunter’s Mark and can’t easily switch targets, you’re going to have a\n\t\t\t\tlot of trouble consistently attacking enemies that are within 5 feet of\n\t\t\t\teach other. Opportunities to use Horde Breaker will be vanishingly rare.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The timing of Horde Breaker alongside the Cleave mastery is slightly\n\t\t\t\t\tcomplex, but doesn’t create issues. Horde Breaker applies when you\n\t\t\t\t\tmake the attack, while Cleave doesn’t apply until after you hit. This\n\t\t\t\t\tmeans that you can hit the same secondary target with both Horde\n\t\t\t\t\tBreaker and Cleave after making a single attack against your primary\n\t\t\t\t\ttarget, but none of that actually matters because Cleave only exists\n\t\t\t\t\ton Strength-based weapons and Strength-based Rangers don’t work."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Defensive Tactics"
+              },
+              {
+                "type": "text",
+                "text": ": You can change your choice on a Short\n\t\tor Long Rest, but you’re almost certainly going to try Escape the Horde,\n\t\trealize that it’s not making an impact unless you’re deliberately drawing\n\t\tOpportunity Attack, then switch permanently to Multiattack Defense.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Escape the Horde"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re relying\n\t\t\t\ton hit-and-run tactics or if you’re built to fight at range, this is a\n\t\t\t\tgood choice. However, Multiattack Defense may still provide better\n\t\t\t\toverall protection. If enemies get into melee with you and hit you with\n\t\t\t\tMultiattack, Multiattack Defense will protect you against more attacks\n\t\t\t\tthan Escape the Horse will when you try to move away on your next\n\t\t\t\tturn."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Multiattack Defense"
+              },
+              {
+                "type": "text",
+                "text": ": Almost every\n\t\t\t\tenemy that relies on weapon attacks will have multiattack by now. This\n\t\t\t\twill provide consistent defense against those creatures. If you’re\n\t\t\t\tfighting in melee, this is a great choice. If you’re fighting at range,\nthis will rarely be useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Superior Hunter’s Prey"
+              },
+              {
+                "type": "text",
+                "text": ": 1d6 extra damage\n\t\tper turn. This is not mathematically significant. It’s nice that it works on\n\t\tevery turn so that it also applies with Opportunity Attacks, but it’s still\n\t\tnot enough damage to make a big difference and it also requires that you\n\t\thave a valid secondary target."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Superior Hunter’s Defense"
+              },
+              {
+                "type": "text",
+                "text": ": A fantastic\n\t\tdefensive option. Many enemies can only deal one damage type per turn (a\n\t\tdragon’s breath, a spell, a weapon), and the ones that deal multiple types\n\t\tare typically doing something like hitting you with a mace that does 1d6\n\t\tbludgeoning and a mountain of fire damage or something. This is going to\n\t\tmitigate a ton of damage."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-backgrounds",
+      "heading": "Hunter Ranger Backgrounds",
+      "sourceAnchor": "backgrounds",
+      "blocks": [
+        {
+          "blockId": "block-section-backgrounds-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Rangers",
+              "href": "https://rpgbot.net/2024-dnd/classes/ranger/#backgrounds"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-species",
+      "heading": "Hunter Ranger Species",
+      "sourceAnchor": "species",
+      "blocks": [
+        {
+          "blockId": "block-section-species-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Rangers",
+              "href": "https://rpgbot.net/2024-dnd/classes/ranger/#species"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Hunter Ranger Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Rangers",
+              "href": "https://rpgbot.net/2024-dnd/classes/ranger/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Hunter Ranger Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Rangers",
+              "href": "https://rpgbot.net/2024-dnd/classes/ranger/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Hunter Ranger Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Rangers",
+              "href": "https://rpgbot.net/2024-dnd/classes/ranger/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Hunter Ranger Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Rangers",
+              "href": "https://rpgbot.net/2024-dnd/classes/ranger/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Hunter Ranger Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "other Rangers",
+              "href": "https://rpgbot.net/2024-dnd/classes/ranger/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Hunter Ranger Build – Oh, Hi (Hunter’s) Mark",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The 2024 Ranger is all about Hunter’s Mark, and the Hunter is all about being the Ranger-est Ranger. Rangiest? I don’t know. Not important."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to lean into the 2024 Ranger, especially Hunter’s Mark. We’re going to push all of the class’s buttons, we’re going to lean into the new tactics, and we’re going to make our mark on the game by doing so."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The build uses two-weapon fighting and focuses on damage output and the ability to transition between melee and ranged combat with minimal difficulty. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We don’t need Strength, Intelligence, or Charisma, so mark 8’s in all three and go all-in on Dex/Con/Wis. You might choose to leave Constitution at 14 and put your +1 into Wisdom if you plan to rely more on offensive spells and if you have sturdy allies to stand in melee."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Adjusted"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "21"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Scribe. We’ll put +2 into Dexterity and +1 into Wisdom. We get Investigation and Perception automatically, plus Skilled, which we use to get proficiency in Sleight of Hand, Thieves’ Tools, and one other tool or skill."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-species-2",
+      "parentSectionId": "section-example",
+      "heading": "Species",
+      "sourceAnchor": "species",
+      "blocks": [
+        {
+          "blockId": "block-section-species-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our choice of species has minimal impact here. Human to get the Alert feat is an easy choice. Goliath to get Cloud’s Jaunt offers an easy teleportation option in case we get grappled. Orc can provide some extra mobility and durability."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skill-and-tool-proficiencies",
+      "parentSectionId": "section-example",
+      "heading": "Skill and Tool Proficiencies",
+      "sourceAnchor": "skill-and-tool-proficiencies",
+      "blocks": [
+        {
+          "blockId": "block-section-skill-and-tool-proficiencies-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take proficiency in Insight, Nature, and Stealth from our class skills. We get Investigation, Perception, Sleight of Hand, and Thieves’ Tools from our background, and we have one free proficiency that we can use to cover gaps in the party’s skill set. Alternatively, take Calligrapher’s Tools so that you can be really good at making marks on paper."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-and-ability-score-increases",
+      "parentSectionId": "section-example",
+      "heading": "Feats and Ability Score Increases",
+      "sourceAnchor": "feats-and-ability-score-increases",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re intentionally not including Dual Wielder in this build. While it’s great for many two-weapon fighting builds, it places too much strain on our Bonus Action, so the feat’s biggest benefit will go unused in many turns. We’re also using Crossbow Expert to use two hand crossbows, which directly conflicts with Dual Wielder’s Bonus Action."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 1 we take Skilled."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we take Crossbow Expert and increase Dexterity from 17 to 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we take Piercer and increase Dexterity from 18 to 19."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we take Mage Slayer and increase Dexterity from 19 to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16 we take Fey Touched and increase Wisdom to 16."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-and-ability-score-increases-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19 we take Boon of Irresistible Offense and increase Dexterity to 21."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Prepared Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Ensnaring Strike"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Jump"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored Enemy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Weapon Mastery:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dagger"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shortsword"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At level 1 we have just 2 spell slots, so Favored Enemy’s free castings of Hunter’s Mark are very important. They last up to an hour, provided that we can maintain Concentration."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At low levels we may not spend our Bonus Action every turn because we don’t always have the spell slots to throw around, but we have two free castings of Hunter’s Mark on top of our spell slots, and they last an hour each. Assuming that we don’t immediately lose Concentration, we can expect to run Hunter’s Mark almost constantly. At longer range than you can handle with a dagger, use a Longbow or whatever other weapon you like (and can afford)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For spells we take Ensnaring Strike for high-priority enemies with lots of hp and we take Jump to help us get around the battlefield quickly. You won’t need them constantly, but they’re good tools. Ensnaring Strike can take flying enecome increasingmies out of the sky, too."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level a typical turn is Hunter’s Mark as a Bonus Action, then attack with a shortsword and a dagger. If you don’t need to cast or move Hunter’s Mark, you can use two shortswords and keep the chain of Advantage attacks from the Vex Weapon Mastery, plus a slightly bigger damage die. If you need to fight at range, throw daggers."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Deft Explorer"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Archery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fog Cloud"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Perception is the most-rolled skill in the game, so Expertise will be consistently useful. Stealth is also a good choice, but you’ll eventually learn to cast Pass Without Trace."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We take Fighting Style (Archery) to prepare to use crossbows. Note that it only works with “attacks with ranged weapons,” not “ranged weapon attacks.” This means that it does not work with thrown daggers, unfortunately."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fog Cloud is helpful when your party is outnumbered, outranged, or otherwise in a bad spot. No one can see, which gives you cover to reposition or to escape. If members of your party can rely on saving throws from spells or special abilities, you’ll be at a tactical advantage. It will also be very helpful when you pick up Feral Senses, but that’s not for a very long time. Until then, you may need to mark enemies’ locations so that allies can blindly attack them."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Subclass: Hunter"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hunter’s Prey"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Goodberry"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Colossus Slayer is the right answer in almost every case. Combined with Hunter’s Mark, you can do quite a bit of damage when you focus on a single target."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Goodberry lets you turn today’s extra spell slots into tomorrow’s healing. When it’s time for a Long Rest, spend any remaining spell slots to create a bunch of goodberries."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Crossbow Expert (Dex 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Absorb Elements"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hand crossbows are expensive. Getting two of them at low levels might actually be a problem, but by level 4 you likely have more gold than you know what to do with, so it’s time to upgrade from throwing tiny knives to shooting tiny crossbow bolts."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Crossbow Expert lets you apply your ability modifier to the additional attack just like Fighting Style: Two-Weapon Fighting, which saves us the trouble of picking up a second Fighting Style feat. We can safely use them in melee, too, so we can technically fight on the front lines. The ability to ignore Loading is also crucial once we get Extra Attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Keep dagger as your second weapon mastery. Crossbow Expert makes it much easier to fight with two hand crossbows, but we still need to spend your Bonus Action to do so. If we need to use our Bonus Action on a turn to do something like move Hunter’s Mark, we can use a Nick weapon like a dagger and still make the additional attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This involves juggling weapons quite a bit, so familiarize yourself with the rules for "
+                },
+                {
+                  "type": "link",
+                  "text": "equipping/unequipping weapons",
+                  "href": "https://www.dndbeyond.com/sources/dnd/free-rules/rules-glossary#Attack[Action]"
+                },
+                {
+                  "type": "text",
+                  "text": ". Start your turn with a hand crossbow in hand. Declare the Attack action. Attack, then draw either your second hand crossbow or a dagger. If you use your dagger to attack, you can equip/unequip again because the additional attack is made as part of your Attack action, so you can stow the dagger if you didn’t throw it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Magic Weapon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack makes juggling weapons much easier since you can equip/unequip one weapon per attack. Oh, also you get another attack. That’s important. It’s a lot of extra damage. We’re now making 3 attacks on a typical turn. If we don’t use our Bonus Action, we get to make a much better attack with a hand crossbow as a Bonus Action. If we do, we still get to attack with a dagger to apply the Hunter’s Mark damage bonus."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get level 2 spells at this level, giving us access to Magic Weapon. If you don’t already have magic weapons, it’s a boring but incredibly effective boost to your damage output. You get just 2 level 2 spell slots at this level, so you’ll likely need to stretch them over a long adventuring day. Cast Magic Weapon on your primary weapon, but leave your daggers and your second hand crossbow how they are."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re using "
+                },
+                {
+                  "type": "link",
+                  "text": "Bastions",
+                  "href": "https://rpgbot.net/2024-dnd/bastions/"
+                },
+                {
+                  "type": "text",
+                  "text": ", this is where you’ll get access. If you’re fancy, maybe you get a title. Maybe marquis. You might also want to decorate your bastion with a sign declaring it as your own. That could be a marquee."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Roving"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Climb walls. Get somewhere cozy. Shoot stuff with crossbows."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Defensive Tactics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Pass Without Trace"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Escape the Horde is tempting since we’re slightly better at fighting at range, but you’ll get a lot more out of Multiattack Defense. If you’re worried about opportunity attacks, shoot your enemies point blank."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pass Without Trace trivializes stealth for the entire party."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: "
+                },
+                {
+                  "type": "link",
+                  "text": "Piercer",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+                },
+                {
+                  "type": "text",
+                  "text": " (Dex 18 -> 19)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "An easy damage boost. The Puncture benefit can apply to any of the damage dice on your attacks, which includes the bonus damage from Colossus Slayer and Hunter’s Mark. Reroll the first 1 you see on a damage die."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Expertise:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Conjure Animals"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Lightning Arrow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re really good at both Perception and Stealth, so consider marking Expertise into Sleight of Hand to handle locks and traps."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Conjure Animals is basically Spirit Guardians at a distance. The 3d10 damage isn’t amazing, especially since we haven’t maxed Wisdom, but compare it to 3d6 damage from Hunter’s Mark. We’ll hit very reliably with attacks, but, even at half damage, Conjure Animals does almost as much damage as Hunter’s Mark. If you can hit two enemies per turn once every 3 turns, Conjure Animals easily outdamages Hunter’s Mark. Of course, it’s much more expensive, so save it for use against crowds."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lightning Arrow is fine. It’s good for crowds of enemies that are too far away for Conjure Animals, and you can use it as a Bonus Action after attacking, so you can use it to finish off enemies that are at low hp even if you missed your attack. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get access to Elemental Weapon at this level, but it’s not viable. Magic Weapon won’t stack with it and doesn’t require Concentration, so we do better running Magic Weapon and Hunter’s Mark. +1 to attack and +1d4 from Elemental Weapon or +1 to attack and +1d6+1 from Magic Weapon and Hunter’s Mark. We could discuss the benefits of not being locked into one target, but we’re fine trading away our Bonus Action when necessary."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tireless"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You should now walk into every encounter with Temporary Hit Points."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Superior Hunter’s Prey"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Revivify"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6 damage once per turn isn’t going to make a big difference. It also applies on Opportunity Attacks, but that’s not a huge difference, either. Imagine being just some random bystander, then you take 1d6 Force damage from Hunter’s Mark as a side effect. It’s rude."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Revivify isn’t super fun, but it’s very important."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Mage Slayer (Dex 19 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasters become increasingly common enemies as you gain levels. While not all enemy spellcasters will rely on Concentration spells, the ones that do tend to be problems, and breaking their Concentration tips things in your favor. Guarded Mind is also a fantastic defensive option."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Relentless Hunter"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Relentless Hunter is why we didn’t look at Resilient (Con) or War Caster."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This level brings access to level 4 spells, but there aren’t many good options. Consider picking up lower-level utility spells and use your Level 4 spell slots to upcast Magic Weapon or Conjure Animals."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nature’s Veil"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra, extra sneaky. Remember that this is the Invisible condition, not the spell Invisibility, so attacking won’t end it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Superior Hunter’s Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Superior Hunter’s Defense works really well with Multiattack Defence. Going one-on-one with a single enemy puts you at a huge advantage because you can give yourself resistance to their biggest damage type, then any additional attacks have Disadvantage, and then you’re built to focus damage on a single target."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Fey Touched"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Wisdom 15 -> 16"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Command"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take Fey Touched to get some extra spells and to increase our Wisdom modifier."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Increasing Wisdom improves our offensive spells. We’re mostly built around weapons, but spells are a great way to handle crowds."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Precise Hunter"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Greater Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Steel Wind Strike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Precise Hunter feels less impactful when we’re using Vex weapons. Or do Vex weapons feel less impactful? It’s hard to say. Swap your Weapon Mastery from Hand Crossbow to something else like a heavy crossbow. You can make your first attack each round with whatever other weapon, then swap weapons and still attack with a hand crossbow to let you make the additional attack from the Light property."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Alternatively, you can stick to the hand crossbow, and lean into Swift Quiver. You’ll never have more than 2 level 5 spell slots, unfortunately, so it’s only good for one or two encounters per day. You can make 2 hand crossbow attacks as your Attack action, 2 as a Bonus Action, and you could even throw a dagger if you keep Weapon Mastery for it. But, without the damage boost from Hunter’s Mark, there’s very little point."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This raises an interesting question: Is Swift Quiver worth the spell slot for this build? Probably not. Hunter’s Mark, which is borderline free since we now get 6 free castings per day, adds +1d6 damage. We can already make 3 attacks per turn using some combination of hand crossbows and daggers. Is the 1d4+5 damage from a fourth hand crossbow attack going to outdamage +3d6 from Hunter’s Mark? No. So, unless we have some other damage boosts (such as a magic weapon), there’s very little reason for this build to use Swift Quiver."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now if we had built around longbows, muskets, or heavy crossbows, the math would be very different. A weapon with Heavy would mean that we could bring Heavy Weapon Master into the mix, and adding +PB to your damage makes those additional attacks very powerful. We might even look at Hunter’s Prey (Horde Breaker), especially if we use a heavy crossbow for the Push Weapon Mastery so that we can force enemies into position to get the additional attack. But you would be playing a build for a very long time in hopes that it pays off starting at level 17."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This level also brings level 5 spells, of which the Ranger has very few good options. Steel Wind Strike combines very well with Nature’s Veil, giving us easy Advantage on the spell attack rolls and making it a great way to deal a bunch of burst damage without endangering our allies or waiting multiple turns for Conjure Animals to gradually wear them down."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feral Senses"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feral Senses can be very powerful when paired with Fog Cloud. You have enough Blindsight that you can comfortably fight at range, while enemies need to stumble about in the fog until they find a target. This can buy your party a couple rounds to position and plan while you cause trouble, making it a great way to recover from an ambush or from an encounter that’s going badly. Just remember that your party probably can’t see in the fog, so don’t use this in every encounter unless your party is prepared for it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Epic Boon: Boon of Irresistible Offense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Prepared Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Irresistible Offense is good for builds that make a lot of attacks every turn. We’re routinely making 3 (or 4 if you pivot to Swift Quiver), and they’ll nearly always be made with Advantage. That gives you a 26% chance to roll a natural 20 every turn or 34% with Swift Quiver. You can’t expect the damage boost constantly, but +21 damage every couple turns will have an impact. If you’re not sold, Boon of Fate is also good."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Foe Slayer"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re making 3 attacks per turn every turn, so we’ll definitely benefit from the damage bonus. It adds +6 to our average damage per turn if we hit with every attack (which we should). That’s fine."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But compare that to Irresistible Offense. If we assume that it works once every 4 turns, it’s a little more than +5 damage per turn on average, and it just works rather than requiring us to babysit Hunter’s Mark. Foe Slayer isn’t a great capstone, but at least it doesn’t require you to change tactics."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Hunter Ranger Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hunter’s Lore"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Colossus Slayer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Horde Breaker"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Escape the Horde"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Multiattack Defense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Superior Hunter’s Prey"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Superior Hunter’s Defense"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-backgrounds-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-species-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-example-3"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#species",
+      "detail": "section-species -> section-species-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-species-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-skill-and-tool-proficiencies-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-and-ability-score-increases-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-and-ability-score-increases-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-and-ability-score-increases-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-and-ability-score-increases-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-and-ability-score-increases-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-and-ability-score-increases-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-and-ability-score-increases-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3783,
+    "sections": 18,
+    "blocks": 32,
+    "tables": 2,
+    "ratingSignals": 12
+  },
+  "status": "needs-editorial-review"
+}

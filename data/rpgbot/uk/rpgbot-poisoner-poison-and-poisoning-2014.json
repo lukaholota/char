@@ -1,0 +1,3054 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-cbaa9d85a5d89f51",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-cbaa9d85a5d89f51-8f1b60628c875a51",
+      "sourceId": "rpgbot-cbaa9d85a5d89f51",
+      "fetchedAt": "2026-09-29T19:22:05.823391+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:41:27-04:00",
+      "contentHash": "bbcad30f1b9a193db6230db7dd78c23cec1c5fd038287cdc1f2b9831b19a9912",
+      "title": "DnD 5e Poisoner, Poison, and Poisoning: A Practical Guide",
+      "authors": [
+        "Colby \"Bea\" Munro"
+      ],
+      "sourceFile": "source/rpgbot-cbaa9d85a5d89f51-8f1b60628c875a51.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+    "sourceId": "rpgbot-cbaa9d85a5d89f51",
+    "slug": "poisoner-poison-and-poisoning-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Отруйник, отрути й отруєння — практичний гайд (2014)",
+    "titleEn": "DnD 5e Poisoner, Poison, and Poisoning: A Practical Guide",
+    "topics": [
+      "rules"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "sourceRevisionId": "rpgbot-cbaa9d85a5d89f51-8f1b60628c875a51",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Отруйники — класичний образ фентезі: хитрі вбивці, які підливають невелику пляшечку в їжу ворога, або бійці, які покривають клинок небезпечною речовиною. D&D прагне відтворювати різні фентезійні образи, тож цей тип персонажа теж давно існує в грі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте перехід до пʼятої редакції значно зменшив увагу до отрут, і мало гравців свідомо їх використовує. До Казана Таші з усім основні правила займали близько двох сторінок Посібника Майстра. Риса Отруйник{{Poisoner}} спробувала це виправити з неоднозначним успіхом і непередбаченими наслідками."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Отруйник робить отруту доступним тактичним інструментом: дає чіткі правила виготовлення без потреби возити ящик істот. Нижче розберемо, як це працює й що можна зробити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо хочете піти далі за Basic Poison{{Basic Poison}} і цю рису, розглянемо купівлю та збір інших отрут, їхні ефекти й те, які варті зусиль."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Отруйник",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#poisoner"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Продаж власної отрути",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#selling-your-poisonnbsp"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Проблеми отрут",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#the-problems-with-poison"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Типи отрут",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#poison-types"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклади отрут",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#sample-poisonsnbsp"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Збір отрути",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#harvesting-poison"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як трактувати правила збору",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#making-sense-of-poison-harvesting"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Отрути, потенційно придатні для збору",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#possibly-harvestable-poisons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чи можна зібрати цей ефект?",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#is-this-a-harvestable-poison"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Сморід як отрута",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#stench-poisons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Хвороби як «отрути»",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#disease-poisons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Незвичні ефекти",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#weird-poisons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Поширені питання",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/poisoner-poison-and-poisoning/#frequently-asked-questions-about-poisons"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-poisoner",
+          "heading": "Отруйник",
+          "sourceAnchor": "poisoner",
+          "blocks": [
+            {
+              "blockId": "block-section-poisoner-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Риса не входить до SRD, тому автор не відтворює її повний текст і пропонує читати Казан Таші з усім, сторінка 80, розбираючи пункти по черзі. Повний український опис доступний через посилання Отруйник{{Poisoner}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-poisoner-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Пункт 1:"
+                },
+                {
+                  "type": "text",
+                  "text": " Ігнорування Опору отруйній шкоді здається хорошим, але мало допомагає з головною проблемою. Автор нараховує в Бестіарії лише пʼять монстрів з Опором і 95 з імунітетом. Риса імунітет не обходить, тож не дозволяє пошкодити багатьох ворогів і поліпшує ефективність проти небагатьох. Дворфи теж відчують різницю, але зазвичай становлять малу частину ворогів кампанії. Примітка редакції: числа описують авторський підрахунок конкретного корпусу, а не весь каталог 2014; риса ігнорує Опір саме при кидку отруйної шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-poisoner-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Пункт 2."
+                },
+                {
+                  "type": "text",
+                  "text": " Нанесення отрути бонусною дією значно поліпшує бойову ефективність. Це витратний предмет, тож щораундове використання коштує грошей. Принаймні отруту, яка після нанесення діє хвилину, можна швидко застосувати в бою, до якого не готували засідку. Примітка редакції: наносите отруту на зброю чи боєприпас, а не безпосередньо «на атаку»; подальший ефект залежить від виду отрути."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-poisoner-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Риса дає рецепт однієї отрути, але прочитайте також приклади та потенційно придатні для збору отрути: бонусною дією можна наносити й інші дозволені види."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-poisoner-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Пункт 3, рядок 1."
+                },
+                {
+                  "type": "text",
+                  "text": " Володіння набором отруйника корисне, особливо без Володіння Природою. Більшість виготовлення залежить від Майстра, але для збору є чітке правило Посібника Майстра, с. 258: перевірка зі Складністю 20. Експертизи за вже наявного Володіння риса не дає. Примітка редакції: це Інтелект (Природа); якщо володієте набором отруйника, Бонус Майстерності застосовується до цієї перевірки за відсутності Володіння Природою. Це не обовʼязково довільна перевірка іншої характеристики інструментом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-poisoner-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Пункт 3, рядки 2–4."
+                },
+                {
+                  "type": "text",
+                  "text": " Отримуєте рецепт досить ефективної отрути. За дією нагадує ранову, але текст дозволяє наносити на будь-яку зброю, зокрема дробильну. Складність достатня, щоб навіть високорівневі вороги іноді провалювали ряткидок, проте їхня Статура часто висока. Отруєний стан дає Перешкоду на кидки атаки й перевірки характеристик, що дуже подобається вашим ближнім бійцям."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-poisoner-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ціна краща за більшість прикладів Посібника Майстра; конкурент — збір із упійманої істоти. Serpent Venom{{Serpent Venom}}, Wyvern Poison{{Wyvern Poison}} і Purple Worm Poison{{Purple Worm Poison}} дають половину шкоди за успішного ряткидка, а рецепт риси — ні. Успішний ряткидок витрачає дозу без ефекту; спробуйте наступного раунду, доки не закінчаться запаси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-selling-your-poisonnbsp",
+          "heading": "Продаж власної отрути",
+          "sourceAnchor": "selling-your-poisonnbsp",
+          "blocks": [
+            {
+              "blockId": "block-section-selling-your-poisonnbsp-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найбільший потенціал зловживань автор бачить у продажі виготовленої отрути. Пляшечка Basic Poison коштує 100 зм; рецепт риси кращий майже в усьому, крім можливості базової отрути покрити три боєприпаси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-selling-your-poisonnbsp-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Припустімо ринкову ціну рецепта 100 зм. Продаж посереднику за половину дає 50 зм за дозу. За 50 зм виготовляєте кількість доз, рівну Бонусу Майстерності, тож на рівні 1 можна подвоїти гроші, якщо знайти покупця. Із зростанням бонусу прибуток партії зростає; вища ринкова ціна збільшує його ще більше. Примітка редакції: ринкова ціна цього рецепта не встановлена рисою; весь прибуток — авторська економічна модель, а не гарантована можливість."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-selling-your-poisonnbsp-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Продати запаси непросто, а наситити ринок отрутами морально сумнівно. Потрібні поселення: під час подорожей дикою місцевістю стратегія слабша. Посібник Майстра описує отрути як незаконні в багатьох суспільствах, тож покупцями можуть бути нечесні торговці й злочинці. Походження Злочинця дає контакт; автор як гравець спробував би через речника групи домовитися про прямий продаж військовим."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-selling-your-poisonnbsp-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як Майстер, автор створив би наслідки: вороги можуть починати бій зброєю з вашою ж отрутою. Підпільний бізнес цікавий для сюжету, але не кожен Майстер дозволить зловживати слабкою економікою D&D. Може не бути покупців, сировина може дорожчати, а персонажі — потрапити до вʼязниці. Це пропозиції ведення кампанії, а не зміна вартості рецепта правилами риси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-the-problems-with-poison",
+          "heading": "Проблеми отрут",
+          "sourceAnchor": "the-problems-with-poison",
+          "blocks": [
+            {
+              "blockId": "block-section-the-problems-with-poison-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Отрута має проблему витратного предмета: доза зникає, часто дорого коштує й може не спрацювати через один успішний ряткидок. Важко визначити найкращий момент, тому запаси можуть лежати всю кампанію. Більший доступний запас полегшує витрачання: збір і виготовлення через Отруйника дозволяють частіше використовувати отрути в бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-problems-with-poison-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нанесення отрути зазвичай потребує дії Використати предмет{{Use an Object}}. Щоб це окупалося, результат має виправдати втрачену дію: додати значну шкоду чи послаблення. Часто найкраще покрити зброю до бою, отримавши одне застосування. Отруйник або Пройдисвіт Злодій зі Швидкими руками{{Fast Hands}} можуть застосовувати відповідні немагічні предмети бонусною дією, що значно ефективніше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-problems-with-poison-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Головна проблема — багато істот має імунітет до отруйної шкоди та Отруєного стану. Гравець не завжди знає це наперед; Конструкти, Елементалі, Почвари й Нежить часто не зазнають ефекту. Примітка редакції: перевіряйте конкретний статблок — це правило-підказка, не універсальний імунітет кожної істоти цих типів. Риса Отруйник не обходить імунітету."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-poison-types",
+          "heading": "Типи отрут",
+          "sourceAnchor": "poison-types",
+          "blocks": [
+            {
+              "blockId": "block-section-poison-types-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є чотири категорії з різними перевагами. Розуміння способу й моменту доставки допомагає ефективніше їх використовувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-poison-types-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Контактна{{Contact}}: можна обережно покрити зброю, кинути пляшечку чи змастити дверну ручку. На відміну від ранової, автор допускає дробильну зброю. Дотик відкритою шкірою спричиняє відповідний ряткидок. Прикладів мало й Складність невисока: простота доставки обмінюється на надійність. Примітка редакції: кидок пляшечки й конкретне нанесення на зброю не є універсальними діями всіх контактних отрут; це спосіб застосування, який визначає Майстер."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-poison-types-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проковтувана{{Ingested}}: найскладніша доставка. Потрібен доступ до їжі чи пиття ворога й планування. Сильні ефекти частково це компенсують, але успішний ряткидок робить спробу ризикованою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-poison-types-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вдихувана{{Inhaled}}: зазвичай не потребує кидка атаки, хоча Майстер може попросити його для кидка контейнера. Не наноситься на зброю й потребує дії для використання; Швидкі руки Злодія можуть допомогти з відповідним немагічним предметом. Затримка дихання не захищає, а хмара в 5-футовому кубі відразу розсіюється після застосування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-poison-types-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ранова{{Injury}}: треба влучити й завдати шкоди колольною чи рубальною зброєю. Доставка складніша за контактну, але зрозуміла й надійна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sample-poisonsnbsp",
+          "heading": "Приклади отрут",
+          "sourceAnchor": "sample-poisonsnbsp",
+          "blocks": [
+            {
+              "blockId": "block-section-sample-poisonsnbsp-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нижче оцінки прикладів Посібника Майстра, Basic Poison із Книги Гравця й рецепта риси Отруйник із Казана Таші з усім."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sample-poisonsnbsp-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Контактні:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sample-poisonsnbsp-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Carrion Crawler Mucus{{Carrion Crawler Mucus}}: Нагадує Стримування особи [Hold Person], доставлене отрутою. Складність посередня й є повторні ряткидки, але Паралізована ціль втрачає дії, а влучання з меж 5 футів стають критичними. Автор пропонує готувати атаки на кінець її ходу. Можна потенційно збирати з живого Carrion Crawler; бонусне нанесення Отруйником дуже корисне. Примітка редакції: підготовлена дія витрачає реакцію й відбувається після тригера; після успішного ряткидка в кінці ходу паралічу вже немає."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Oil of Taggit{{Oil of Taggit}}: Посередня Складність, але Отруєний і Непритомний стани на 24 години. Шкода будить ціль, що змушує її союзників завдати їй шкоди, якщо хочуть допомогти. Контактна доставка може дозволити обійтися без бою; автор радить для викрадення."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-sample-poisonsnbsp-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Проковтувані:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sample-poisonsnbsp-5",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Assassin's Blood{{Assassin's Blood}}: Дуже низька Складність і шкода, яка навряд чи вбʼє когось сильнішого за простолюдина. Отруєний стан на 24 години приємний, але, на думку автора, не вартий доставки в їжу за 150 зм."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Midnight Tears{{Midnight Tears}}: Висока для отрути Складність. Відомий точний момент шкоди й гарантована половина за успішного ряткидка за відсутності імунітету — добра підготовка засідки. Автор припускає багато доз для прямого вбивства, що складно з іншими отрутами. Примітка редакції: складання однакових ефектів не гарантоване, дивіться уточнення FAQ."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Pale Tincture{{Pale Tincture}}: Хороша Складність і незвичний ефект: автор описує заборону лікування протягом семи днів, дозволяючи тиждень поступово послаблювати сильнішого ворога. Мале відновлення [Lesser Restoration] може зняти проблему. Примітка редакції: сім успішних ряткидків завершують отруту; тривалість не є фіксованими сімома днями незалежно від результатів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Torpor{{Torpor}}: Достатня Складність. Недієздатну ціль легко атакувати, а можливість говорити корисна для допиту. Примітка редакції: Недієздатність сама по собі не дає автоматичних критичних влучань і не робить кожну атаку успішною."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Truth Serum{{Truth Serum}}: Низька Складність і слабкий ефект. Автор порівнює із Зона правди [Zone of Truth]: ціль може здогадатися, що не може брехати, але ви не отримуєте автоматичного знання результату її ряткидка. Примітка редакції: отрута не відтворює всі властивості заклинання; явне усвідомлення ефекту з його тексту не переноситься автоматично."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-sample-poisonsnbsp-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Вдихувані:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sample-poisonsnbsp-7",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Burnt Othur Fumes{{Burnt Othur Fumes}}: Повторна дія до трьох успішних ряткидків цікава, але перший успіх уникає всього. Складність і шкода, на думку автора, не виправдовують 500 зм."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Essence of Ether{{Essence of Ether}}: Складність 15 — найвища серед наведених у джерелі прикладів, які роблять ціль Непритомною."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Malice{{Malice}}: Досить висока Складність і захист від здібностей, що потребують бачити ціль, корисні всім. Пройдисвіт може бонусною дією ховатися від Засліпленої істоти там, де інакше був би видимим, намагаючись приховати й звук."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-sample-poisonsnbsp-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Ранові:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sample-poisonsnbsp-9",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Basic Poison{{Basic Poison}}: Дуже погана Складність і ще гірша шкода. Через хвилину після нанесення втрачає дію; автор не розуміє ціну 100 зм."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Drow Poison{{Drow Poison}}: За 200 зм це найдешевший із наведених способів зробити ворога Непритомним. Автор називає поріг 8 і радить доплатити 100 зм за Essence of Ether. Примітка редакції: ряткидок має Складність 13; непритомність виникає при провалі на 5 або більше, тобто результаті 8 чи нижче, а не від окремого ряткидка зі Складністю 8."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Poisoner Feat Poison{{Poisoner Feat Poison}}: Незвичний рецепт: може наноситися й на дробильну зброю, тож це не стандартна ранова отрута. Посередня Складність, непогана шкода й низька ціна, але потрібні риса та виготовлення. Через хвилину після нанесення втрачає дію."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Purple Worm Poison{{Purple Worm Poison}}: Найвищі Складність і шкода серед прикладів. Половина шкоди залишається після успішного ряткидка. Потенційно збирається, але скоріше з мертвого Purple Worm: упіймати й тримати такого живим надзвичайно складно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Serpent Venom{{Serpent Venom}}: Невисока Складність, але за успішного ряткидка половина шкоди. Giant Poisonous Snake відносно легко упіймати, зробити Недієздатною й перевозити; також можлива як супутник Слідопита Конклаву звіролова."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Wyvern Poison{{Wyvern Poison}}: Хороша Складність і пристойна шкода навіть за успішного ряткидка. Якщо Майстер дозволяє збір і вдасться утримувати живого Wyvern, це потужне регулярне джерело."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-harvesting-poison",
+          "heading": "Збір отрути",
+          "sourceAnchor": "harvesting-poison",
+          "blocks": [
+            {
+              "blockId": "block-section-harvesting-poison-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Посібник Майстра дозволяє збирати отруту з мертвої чи Недієздатної отруйної істоти й наводить кілька прикладів. Автор вважає логічним дозволити й добровільну істоту. Примітка редакції: згода як окремий достатній критерій — пропозиція автора; стандартний текст вимагає мертву або Недієздатну істоту."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-harvesting-poison-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Збір триває 1к6 хвилин і потребує перевірки зі Складністю 20. За провалу більш ніж на 5 самі зазнаєте отрути. Автор розглядає Природу чи інструменти з Інтелектом, інколи пропонуючи Мудрість або Спритність. Примітка редакції: стандартна перевірка — Інтелект (Природа); Володіння набором отруйника дозволяє додати Бонус Майстерності, якщо не володієте Природою. За провалу на 5 або більше зазнаєте отрути, а доза не збирається; джерельне «більш ніж 5» неправильне."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-harvesting-poison-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо робите це часто, розвивайте Інтелект. Подвоєний Бонус Майстерності через відповідну Експертиза підвищує надійність. Винахідник, розумний Пройдисвіт чи персонаж зі Skill Expert можуть бути добрими збирачами. Настанова [Guidance], Натхнення барда й Допомога особливо корисні на низьких рівнях. Примітка редакції: Skill Expert дає Експертиза навички, не інструмента."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-making-sense-of-poison-harvesting",
+          "heading": "Як трактувати правила збору",
+          "sourceAnchor": "making-sense-of-poison-harvesting",
+          "blocks": [
+            {
+              "blockId": "block-section-making-sense-of-poison-harvesting-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автору бракує точного визначення отруйної істоти й розрізнення отрути від поїдання та отруйної атаки. У прикладах правила — змія, Wyvern і Carrion Crawler; приклади отрут включають Purple Worm."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-making-sense-of-poison-harvesting-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із прикладів автор робить висновок: ідеться принаймні про отруйну шкоду чи Отруєний стан від анатомічної властивості. Чотири очевидні види дають контактну або ранову отруту. Це висновок автора, не повний офіційний перелік."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-making-sense-of-poison-harvesting-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У пʼятій редакції ці атаки не розділені на окремі категорії природної й іншої зброї так, як очікує автор. Він допускає збір із бороди, укусу, кігтя, кулака, удару тілом, плювка, жала, хвоста, щупальця, дотику чи отруйної шкіри, якщо є отруйна шкода або стан. Майстер може вирішити інакше. Збір вдихуваних отрут прямо не визначений; його розглянемо нижче."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-making-sense-of-poison-harvesting-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Багато монстрових ефектів завдає отруйної шкоди без ряткидка Статури, наприклад Flying Snake. Автор бачить проблему: дозволити переносити такий ефект на зброю гравця може бути надто сильно. Примітка редакції: переносимість повного ефекту атаки не гарантована правилами збору."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-making-sense-of-poison-harvesting-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Авторське домашнє правило: для всіх зібраних отрут вимагати ряткидок Статури зі Складністю 8 + Бонус Майстерності істоти + її модифікатор Статури; за успіху — половина отруйної шкоди. Автор вважає формулу близькою до багатьох статблоків. Це пропозиція, не нове офіційне правило 2014."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-making-sense-of-poison-harvesting-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Примітка Майстра:"
+                },
+                {
+                  "type": "text",
+                  "text": " Автор пропонує обмеження: тіла Небожителів чи Почвар розсипаються або зникають; складніше збирати, але гравці можуть шукати інші способи. Суворіший варіант — усі зібрані речовини діють як одна з готових отрут. Можна також установити строк придатності неописаних отрут, наприклад 24 години, пояснюючи, чому продають лише стабільні. Це домашні налаштування кампанії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-possibly-harvestable-poisons",
+          "heading": "Отрути, потенційно придатні для збору",
+          "sourceAnchor": "possibly-harvestable-poisons",
+          "blocks": [
+            {
+              "blockId": "block-section-possibly-harvestable-poisons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нижче авторський перелік потенційно придатних істот за широким прочитанням тексту й задуму правил. Доступність кожної отрути остаточно визначає Майстер; це не офіційний список переносимих монстрових здібностей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-possibly-harvestable-poisons-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Отрути з фіксованою шкодою чи половиною за успішного ряткидка автор оцінює не нижче зеленого: якщо Майстер дозволяє їх збір і нанесення, можна підготувати зброю перед боєм або використати рису Отруйник у бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-possibly-harvestable-poisons-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Basilisk's Bite{{Basilisk's Bite}}: Ранова; 2к6 шкоди без ряткидка. Завжди корисно, якщо дозволено переносити цей ефект."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Bearded Devil's Poison{{Bearded Devil's Poison}}: Ранова, Складність 12. Ціль Отруєна й не може лікуватися; ефект до хвилини або успішного повторного ряткидка в кінці її ходу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Bone Devil's Sting{{Bone Devil's Sting}}: Ранова. Автор описує 5к6 без ряткидка, а потім Складність 14 проти Отруєного стану з повторними ряткидками в кінці ходів. Його головна причина вибору — шкода. Примітка редакції: перевіряйте конкретну версію статблока; ранова отрута монстра не переноситься на предмет автоматично."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Bone Naga Venom{{Bone Naga Venom}}: Ранова; 3к6 без ряткидка. Краща за вже непогану отруту Basilisk у моделі автора."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Chuul Poison{{Chuul Poison}}: Контактна, Складність 13. Отруєний стан до хвилини або успішного ряткидка, без особливої шкоди; автор радить лише за відсутності альтернатив."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Couatl's Bite{{Couatl's Bite}}: Ранова, Складність 13. Порівняно з Drow Poison вища Складність, довший сон, і шкода не будить, хоча струшування може розбудити. Сильна проти самотнього ворога після провалу. Couatl — Законно-добрий Небожитель, доступний через "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Прикликати небожителя [Conjure Celestial",
+                    "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#conjure-celestial"
+                  },
+                  {
+                    "type": "text",
+                    "text": "]; автор пропонує попросити отруту, переконавши його в добрій меті. Збір зі згодою та конкретний результат виклику узгоджуйте з Майстром."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Corpse Flower Poison{{Corpse Flower Poison}}: Контактна; 3к6 шкоди без ряткидка. Корисна в авторській моделі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Dire Troll's Bite{{Dire Troll's Bite}}: Ранова; 1к10 без ряткидка. Тримати Величезного троля в клітці важко; автор пропонує возити відрізану голову через регенерацію. Вона може відростити тіло, тож небезпечно. Примітка редакції: це домашня пропозиція, не гарантована здатність відрізаної голови жити й виробляти отруту."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Drider Venom{{Drider Venom}}: Ранова; 2к8 без ряткидка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Drow Arachnomancer's Bite{{Drow Arachnomancer's Bite}}: Ранова, Складність 15; 7к8 і половина за успіху. Якщо саме отруйна шкода знижує до 0 ХП, ціль стабільна й Паралізована на годину. Автор бачить можливість захоплення живцем дальньою зброєю з малою базовою шкодою. Примітка редакції: дротик має 1к4, а не 1 шкоди; 1 базової шкоди має духова трубка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Drow Arachnomancer's Touch{{Drow Arachnomancer's Touch}}: Контактна; 10к6 без ряткидка. Автор використовує це як аргумент за власне домашнє правило Складності для всіх зібраних отрут."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ettercap's Bite{{Ettercap's Bite}}: Ранова, Складність 11. Лише 1к8 й невисока Складність Отруєного стану: ймовірно, швидко мине. Автор цінує шкоду без ряткидка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Female Steeder's Bite{{Female Steeder's Bite}}: Ранова; 2к8 без ряткидка. Істота придатна як верхова, що додає причин брати її в подорож, якщо така можливість є."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Flying Snake Venom{{Flying Snake Venom}}: Ранова; 3к4 без ряткидка, дуже стабільна. Крихітну змію легко возити в клітці. Може бути супутником Конклаву звіролова; доступність збору все одно визначає Майстер."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Geryon's Sting{{Geryon's Sting}}: Ранова, Складність 21, очікувано висока для архідиявола; після успішного ряткидка нічого. 2к12 шкоди, Отруєний стан до відпочинку й зменшення максимуму ХП. Останнє зазвичай страшніше для гравця, ніж для ворога, з яким бій і так триватиме до смерті когось. Як і багато отрут архідияволів, автор вважає її не надто вигідною."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Giant Centipede Poison{{Giant Centipede Poison}}: Ранова, Складність 11; 3к6 і половина за успіху. Низька Складність, але стабільна шкода. Якщо отрута знижує до 0 ХП, ціль стабілізується й Паралізована годину навіть після відновлення ХП. Це допомагає брати живцем на відстані, якщо базова атака не добиває раніше. Істота також можлива як супутник Конклаву звіролова."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Giant Scorpion Poison{{Giant Scorpion Poison}}: Ранова, Складність 12; 4к10 і половина за успіху. Надійна додаткова шкода попри низьку Складність, якщо ворог не має імунітету."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Giant Spider Poison{{Giant Spider Poison}}: Ранова, Складність 11. Подібна до Giant Centipede, але 2к8 шкоди; стабілізація на 0 ХП дозволяє деякі дальні атаки без вбивства."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Giant Toad Poison{{Giant Toad Poison}}: Ранова; 1к10 без ряткидка. Корисно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Giant Wasp Poison{{Giant Wasp Poison}}: Ранова, Складність 11. Формулювання подібне до Giant Centipede; корисне для захоплення живцем на відстані."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Giant Wolf Spider Poison{{Giant Wolf Spider Poison}}: Ранова, Складність 11. Подібна до решти павуків і комах, але лише 2к6; теж корисна для дальнього захоплення живцем."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Gnoll Fang of Yeenoghu's Bite{{Gnoll Fang of Yeenoghu's Bite}}: Ранова, Складність 12. Немає половини за успіху, посередні 2к6, немає цікавих додаткових послаблень; слабкий вибір."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Green Abishai's Claw{{Green Abishai's Claw}}: Ранова, Складність 16. Немає половини за успіху, зате 3к10 і Отруєний стан до хвилини з повторним ряткидком у кінці кожного ходу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Grell Poison{{Grell Poison}}: Контактна, Складність 11. Дуже низька, але Паралізований стан навіть на раунд вартий спроби. Автор пропонує змастити предмет, якого ворог торкнеться."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Grung Poison{{Grung Poison}}: Контактна, Складність 12. Без шкоди; Отруєний стан на хвилину з повторним ряткидком у кінці ходу. Кольорові варіанти монстрів мають додаткові ефекти нижче; вони не автоматично є доступною отрутою персонажа."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Blue Grung{{Blue Grung}}: Ціль видає гучний звук на початку й наприкінці свого ходу. Корисно проти ворога, що ховається, але через низьку Складність ефект нетривалий."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Gold Grung{{Gold Grung}}: Ціль Зачарована саме тим Grung, від якого отрута, а не вами. Якщо його давно немає поруч, користі мало."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Green Grung{{Green Grung}}: Ціль може рухатися лише стрибками або лазінням; у польоті не може виконувати дії, поки не приземлиться. Незвично, але корисно проти літаючих істот."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Orange Grung{{Orange Grung}}: Ціль Налякана власними союзниками, що може заважати спільно атакувати одну істоту."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Purple Grung{{Purple Grung}}: Автор бачить користь поруч із ямою з водою чи чаном кислоти; ефект може обмежувати дії й рух. Примітка редакції: конкретну примусову поведінку треба читати в статблоці, не вважати загальною втратою всіх дій."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Red Grung{{Red Grung}}: Ціль мусить їсти доступну їжу. Автор пропонує так змусити проковтнути іншу отруту з ваших рук; застосовність залежить від умов ефекту."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Guardian Naga's Poison{{Guardian Naga's Poison}}: Контактна, Складність 15; 10к8 і половина за успіху. Guardian Naga Законно-добра, тож автор пропонує пояснити відповідальне використання й попросити згоду. Це не заміна стандартної вимоги мертвої або Недієздатної істоти без рішення Майстра."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Homunculus' Bite{{Homunculus' Bite}}: Ранова, Складність 10. Слабка: провал на 5 потребує дуже низького результату. Створення гомункулу [Create Homunculus] спрощує отримання істоти, але зусилля навряд чи варті отрути. Примітка редакції: натуральна 1 на ряткидку сама по собі не гарантує провалу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Hutijin's Bite{{Hutijin's Bite}}: Ранова, Складність 22. Шкода не головне; ціль не може лікуватися. Сильне проти регенерації й інших джерел лікування."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Imp's Sting{{Imp's Sting}}: Ранова, Складність 11; 3к6 і половина за успіху. Додаткова шкода приємна; Imp доступний як фамільяр Пакту ланцюга, хоча можливість збору й збереження його отрути потребує рішення Майстра."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Male Steeder's Bite{{Male Steeder's Bite}}: Ранова, майже як Female Steeder, але 1к8 замість 2к8."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Myconid Poison{{Myconid Poison}}: Контактна; Складність і шкода залежать від віку: Sprout 1к4, Adult 2к4, Sovereign 3к4."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Neogi's Bite{{Neogi's Bite}}: Ранова; залежить від віку. Hatchling: Складність 10, 1к6. Adult: Складність 12, 4к6."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Orcus' Poison{{Orcus' Poison}}: Контактна; 2к8. Якщо вже перемогли Orcus, настільки слабка отрута навряд чи варта збору."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Phase Spider Poison{{Phase Spider Poison}}: Ранова, Складність 11; подібна до Giant Centipede чи Giant Spider, але 4к8. Може допомогти взяти ціль живцем дальньою атакою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Pit Fiend's Bite{{Pit Fiend's Bite}}: Ранова, Складність 21. Ціль не лікується й отримує повторні 6к6 без визначеного крайнього строку, доки не зробить успішний ряткидок. Складність висока."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Poisonous Snake Venom{{Poisonous Snake Venom}}: Ранова, Складність 10; лише 2к4, але половина за успіху теж додає шкоди. Крихітну не надто розумну змію легко перевозити; часто можна знайти або купити. Змії прямо згадані як приклад джерела отрути."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Pseudodragon's Sting{{Pseudodragon's Sting}}: Ранова, Складність 11. Ціль Отруєна; провал на 5 або більше робить Непритомною. Pseudodragon доступний як фамільяр Пакту ланцюга; конкретний збір узгодьте з Майстром."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Quasit's Claw{{Quasit's Claw}}: Ранова, Складність 10. Мала шкода 2к4, немає половини за успіху. Quasit доступний як фамільяр Пакту ланцюга, але автор радше збирав би з Imp."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Scorpion Poison{{Scorpion Poison}}: Ранова, Складність 9; лише 1к8, але половина за успіху лишається корисною. Скорпіон Крихітний, тож легко перевозити кількох. Примітка редакції: половина 1к8 не буквально тотожна кидку 1к4; округлення теж впливає на середнє."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Sea Spawn's Poison Quills{{Sea Spawn's Poison Quills}}: Ранова, Складність 12. Отруєний стан до хвилини, повторний ряткидок наприкінці кожного ходу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Shoosiva's Sting{{Shoosiva's Sting}}: Ранова, Складність 14. Непогано для паралічу й критичних влучань зблизька навіть на один-два раунди. Примітка редакції: джерело має друкарську помилку Shoosiva; перевіряйте Shoosuva."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Spider Poison{{Spider Poison}}: Ранова, Складність 9; лише 1к4 за провалу й нічого за успіху. Не варта часу на збір."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Star Spawn Larva Mage's Poison{{Star Spawn Larva Mage's Poison}}: Контактна, Складність 19. Хороша Складність, але лише Отруєний стан на раунд; до цього моменту є кращі варіанти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Thri-kreen's Bite{{Thri-kreen's Bite}}: Ранова, Складність 11. Отруєний стан; провал на 5 або більше спричиняє параліч. Сильний стан, але низька Складність. Може бути доступно від дружнього НІП Thri-kreen, якщо Майстер дозволить; персонажна раса такої отрути не має."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Tlincalli's Bite{{Tlincalli's Bite}}: Ранова, Складність 14. Автор порівнює з Thri-kreen, але вища Складність виправдовує використання. Примітка редакції: джерело називає Bite; у статблоці перевіряйте відповідну отруйну атаку жала."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Yochlol's Poison{{Yochlol's Poison}}: Контактна; 21 (6к6) отруйної шкоди без ряткидка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Yuan-ti Abomination's Poison{{Yuan-ti Abomination's Poison}}: Ранова; 3к6 без ряткидка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Yuan-ti Anathema's Poison{{Yuan-ti Anathema's Poison}}: Ранова; 4к6 без ряткидка. Разом із Malison найбільша шкода серед наведених Yuan-ti."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Yuan-ti Malison's Poison{{Yuan-ti Malison's Poison}}: Ранова; 4к6 без ряткидка. За шкодою дорівнює Anathema."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Yuan-ti Mind Whisperer's Poison{{Yuan-ti Mind Whisperer's Poison}}: Ранова; 2к6 без ряткидка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Yuan-ti Pit Master's Poison{{Yuan-ti Pit Master's Poison}}: Ранова; 2к6 без ряткидка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Zuggtmoy's Poison{{Zuggtmoy's Poison}}: Контактна; 2к8 без ряткидка. Ще одна слабка порівняно з труднощами збору отрута володаря демонів."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-is-this-a-harvestable-poison",
+          "heading": "Чи можна зібрати цей ефект?",
+          "sourceAnchor": "is-this-a-harvestable-poison",
+          "blocks": [
+            {
+              "blockId": "block-section-is-this-a-harvestable-poison-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З деякими істотами питання ще нечіткіше. Автор включає багато можливостей для обговорення; Майстер вирішує, чи можна збирати конкретний вид або тип отрути. Перелік допомагає групі ухвалити рішення, а не гарантує доступ."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-is-this-a-harvestable-poison-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Збір вдихуваних отрут"
+                },
+                {
+                  "type": "text",
+                  "text": " Немає достатніх підстав автоматично забороняти чи дозволяти збір: прикладів Посібника Майстра замало. Кожен Майстер має розглянути окремо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-is-this-a-harvestable-poison-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор пропонує істот зі спорами, отруйним подихом або смородом. Варіантів небагато, але деякі належать до найсильніших монстрових атак, тому Майстер може відмовити в перенесенні їх на гравця."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-is-this-a-harvestable-poison-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Dretch's Fetid Cloud{{Dretch's Fetid Cloud}}: Вдихувана, Складність 11. Отруєний стан, не можна використати і дію, і бонусну дію в одному ході, а реакції недоступні. Заборона реакцій, мабуть, найкорисніша: монстрових бонусних дій небагато."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Green Dragon Breath{{Green Dragon Breath}}: Вдихувана; Складність і шкода залежать від віку. Автор наводить від Складності 11 та 6к6 для Wyrmling до Складності 17 та 22к6 для Ancient, з половиною за успіху. Примітка редакції: 17 для Ancient Green Dragon у джерелі неточне; не використовуйте таблицю автора як заміну статблока. Сам збір подиху є домашньою пропозицією."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Iron Golem Breath{{Iron Golem Breath}}: Вдихувана, Складність 19; 10к8 або половина за успіху — сильно. Manual of Golems дозволяє створити керованого Iron Golem за 100,000 зм і 120 днів. Автор бачить майже необмежений запас небезпечного газу. Примітка редакції: посібник створення не надає автоматичної можливості збирати, зберігати й наносити подих на предмети."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Myconid's Euphoria Spores{{Myconid's Euphoria Spores}}: Вдихувана, Складність 11 у Adult або 12 у Sovereign. Автор описує Отруєний стан і подальший рівень Виснаження, пропонуючи поєднання з Нудотне сяйво [Sickening Radiance]. Примітка редакції: перевіряйте конкретний монстровий ефект; перенесення виснаження через зібрану речовину не встановлене правилами збору."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Vegepygmy Chief's Spores{{Vegepygmy Chief's Spores}}: Вдихувана, Складність 12. Отруєний стан і повторні 2к8 отруйної шкоди з повторним ряткидком у кінці ходу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Vrock's Spores{{Vrock's Spores}}: Вдихувана, Складність 14. Отруєний стан і повторні 1к10 отруйної шкоди з повторним ряткидком у кінці ходу."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-stench-poisons",
+          "parentSectionId": "section-is-this-a-harvestable-poison",
+          "heading": "Сморід як отрута",
+          "sourceAnchor": "stench-poisons",
+          "blocks": [
+            {
+              "blockId": "block-section-stench-poisons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сморід ще спірніший: спричиняє Отруєний стан, але не кожен Майстер визнає його речовиною для збору. Без прямого прикладу в правилах це рішення кампанії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-stench-poisons-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більшість ефектів смороду схожі, відрізняючись допустимими цілями й дальністю 5 чи 10 футів. У своїй моделі збору автор замінює дальність на 5-футовий куб вдихуваної отрути. Ефект зазвичай лише до початку наступного ходу цілі, а успішний ряткидок дає імунітет до цього смороду на 24 години. За цілу дію застосування слабке. Примітка редакції: змінена область — авторська пропозиція, не властивість вихідної здібності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-stench-poisons-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Catoblepas Stench{{Catoblepas Stench}}: Вдихувана, Складність 16. Отруєний стан для істот, крім Catoblepas."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Corpse Flower Stench{{Corpse Flower Stench}}: Вдихувана, Складність 14. Отруєний стан для істот, крім Конструктів і Нежиті."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ghast Stench{{Ghast Stench}}: Вдихувана, Складність 10. Отруєний стан."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Hezrou Stench{{Hezrou Stench}}: Вдихувана, Складність 14. Отруєний стан."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Jubilex's Foul{{Jubilex's Foul}}: Вдихувана, Складність 21. Отруєний стан; на відміну від інших прикладів, успіх не дає подальшого імунітету. Примітка редакції: у назві джерела Jubilex замість Juiblex."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Leucrotta Stench{{Leucrotta Stench}}: Вдихувана, Складність 12. Отруєний стан для істот, крім Leucrotta та Gnoll."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Stench Kow Stench{{Stench Kow Stench}}: Вдихувана, Складність 12. Отруєний стан для істот, крім Stench Kow."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Troglodyte Stench{{Troglodyte Stench}}: Вдихувана, Складність 12. Отруєний стан для істот, крім Troglodyte."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disease-poisons",
+          "parentSectionId": "section-is-this-a-harvestable-poison",
+          "heading": "Хвороби як «отрути»",
+          "sourceAnchor": "disease-poisons",
+          "blocks": [
+            {
+              "blockId": "block-section-disease-poisons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і зі смородом, незрозуміло, чи хвороба з отруйною шкодою або Отруєним станом вважається отрутою для збору. Автор посилається на історичні приклади використання хвороб як зброї, але визнає, що це значно ширше трактування. Ігрові хвороби нижче не автоматично стають готовими отрутами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disease-poisons-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Bulezau's Barbs{{Bulezau's Barbs}}: Автор називає рановою отрутою, Складність 13. Зменшує максимум ХП на 1к8 кожні 24 години; мухи й гниюча шкіра створюють жахливий образ. Повільне зменшення максимуму ХП зазвичай мало корисне тактично гравцю. Примітка редакції: це хвороба зі статблока, не стандартна зібрана отрута."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Death Dog's Bite{{Death Dog's Bite}}: Автор називає рановою, Складність 13. Подібна до Bulezau без таких жахливих зовнішніх проявів: максимум ХП зменшується на 1к10 кожні 24 години."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Gas Spore's Touch{{Gas Spore's Touch}}: Автор називає контактною, Складність 10. Лише 1 отруйної шкоди, але смерть через 1к12 + значення Статури годин і виникнення 2к4 Крихітних Gas Spore. Автор бачить застосування для вбивства цілей без лікування хвороби або жахливих злочинів проти поселення, що, на його думку, відповідає Злому Світогляду. Примітка редакції: це фантастична монстрова хвороба; автоматичну придатність до збору й нових доз правила не встановлюють."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Otyug's Bite{{Otyug's Bite}}: Автор називає рановою, Складність 15. Подібна до Death Dog. Примітка редакції: назва джерела Otyug неточна; перевіряйте Otyugh."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Rutterkin's Bite{{Rutterkin's Bite}}: Автор називає рановою, Складність 13. Отруєний стан із повторним ряткидком після тривалих відпочинків; за падіння до 0 ХП — перетворення на Abyssal Wretch. Автор вважає це можливим засобом проти деяких воскресінь, але залежить від повного тексту ефекту й рішення Майстра."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weird-poisons",
+          "parentSectionId": "section-is-this-a-harvestable-poison",
+          "heading": "Незвичні ефекти",
+          "sourceAnchor": "weird-poisons",
+          "blocks": [
+            {
+              "blockId": "block-section-weird-poisons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Деякі ефекти настільки незвичні, що, ймовірно, не задумувалися для збору. Автор допускає їх лише за широкого прочитання, а іноді й відвертого домашнього правила."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-weird-poisons-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Clockwork Iron Cobra's Bite{{Clockwork Iron Cobra's Bite}}: Ранова, Складність 13. К6 визначає результат: 1–2 — сплутана поведінка, 3–4 — параліч, решта — 3к8 отруйної шкоди. Усі результати автор оцінює добре."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Flumph's Stench Spray{{Flumph's Stench Spray}}: Автор класифікує як контактну без ряткидка, хоча вихідний Stench Spray використовує ряткидок Спритності, а не Статури. У моделі автора заражена ціль отруює інших у межах 5 футів без додаткового ряткидка, до 1к4 години; незручно, але кумедно. Примітка редакції: перше застосування все одно має свій ряткидок; визначення контактної зібраної отрути — авторське."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Kraken's Ink{{Kraken's Ink}}: Найбільше потребує домашніх правил: 3к10, Складність 23, підводна дія. Незрозуміло, контактна це чи вдихувана отрута, тож запитайте Майстра після перемоги над Kraken."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Wrastilith's Foul Water{{Wrastilith's Foul Water}}: Проковтувана, Складність 18: спершу 4к6, за хвилину ще ряткидок проти 4к8 і Отруєного стану до тривалого відпочинку. Автор не вважає це звичайним збором, але пропонує набирати воду, яку істота забруднює автоматично. Може лікувати демонів, зокрема фамільяра Quasit. Примітка редакції: джерельне Wrastilith — помилка, назва Wastrilith; правила зберігання води й перенесення ефекту потребують Майстра."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-frequently-asked-questions-about-poisons",
+          "heading": "Поширені питання",
+          "sourceAnchor": "frequently-asked-questions-about-poisons",
+          "blocks": [
+            {
+              "blockId": "block-section-frequently-asked-questions-about-poisons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Через неоднозначність автор зібрав питання, на які теж не має остаточних відповідей, і сподівається на пояснення Jeremy Crawford. Обговоріть їх із Майстром. Примітка редакції: дописи розробників — поради; офіційні рішення правил публікуються в Sage Advice Compendium."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-17",
+          "parentSectionId": "section-frequently-asked-questions-about-poisons",
+          "heading": "Як часто можна збирати отруту з Недієздатної істоти?",
+          "blocks": [
+            {
+              "blockId": "block-section-17-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не визначено; вирішує Майстер. Автор не очікує більше кількох зборів на день і наводить зовнішнє твердження про змій та 60 днів між зборами, яке не відповідає очевидній ігровій частоті вироблення отрути. Примітка редакції: біологічний приклад не перевіряли як універсальну норму й він не встановлює правила D&D. Частота збору — один зі способів регулювати запаси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-18",
+          "parentSectionId": "section-frequently-asked-questions-about-poisons",
+          "heading": "Чи складаються супутні ефекти й однакові отрути?",
+          "blocks": [
+            {
+              "blockId": "block-section-18-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор порівнює зі складанням однакових тривалих заклинань і зауважує, що Отруєний стан не накладається двічі як посилена версія. Потім припускає, що це може стосуватися всіх супутніх ефектів, і жартує про пʼяних персонажів, які нібито захищені від нової отрути. Примітка редакції: повторення одного стану не подвоює його штраф, але не дає імунітету до нової шкоди чи інших ефектів. Також правила поєднання ігрових ефектів поширюються не лише на заклинання: однойменні ефекти не складають безумовно всі свої бонуси. Вживання алкоголю не створює такої захисної механіки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-19",
+          "parentSectionId": "section-frequently-asked-questions-about-poisons",
+          "heading": "Скількох істот уразить доза в спільній їжі?",
+          "blocks": [
+            {
+              "blockId": "block-section-19-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Рішення Майстра. Для проковтуваних отрут він може визначити зменшений ефект часткової дози: наприклад, Перевагу на ряткидок або меншу шкоду. Примітка редакції: джерело помилково називає це правилом вдихуваних отрут; дозування їжі не встановлює автоматичної кількості уражених."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-20",
+          "parentSectionId": "section-frequently-asked-questions-about-poisons",
+          "heading": "Чи можна збирати з перетворених або викликаних істот?",
+          "blocks": [
+            {
+              "blockId": "block-section-20-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це прямо не визначено наведеними правилами. Гравець може запропонувати, Майстер — вирішити. Автор радить, щоб зібрана отрута зникала після закінчення магії. Примітка редакції: це його рекомендація, не спільна властивість усіх заклинань перетворення чи виклику; перевіряйте конкретний ефект."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-21",
+          "parentSectionId": "section-frequently-asked-questions-about-poisons",
+          "heading": "За скільки продати зібрану отруту?",
+          "blocks": [
+            {
+              "blockId": "block-section-21-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор припускає половину ринкової ціни для посередника: 100 зм за Serpent Venom, 150 зм за Carrion Crawler Mucus, 600 зм за Wyvern Poison, 1000 зм за Purple Worm Poison. Basic Poison коштує 100 зм, і більшість потенційно збираних ефектів сильніша. Примітка редакції: гарантованого покупця й правила універсального продажу будь-якої отрути за половину ціни немає; Майстер визначає доступність ринку."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-001",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-poison-types",
+      "targetBlockId": "block-section-poison-types-2",
+      "optionId": "section-poison-types-block-section-poison-types-2",
+      "context": "Контактна",
+      "explanationBlockId": "block-section-poison-types-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-002",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-poison-types",
+      "targetBlockId": "block-section-poison-types-3",
+      "optionId": "section-poison-types-block-section-poison-types-3",
+      "context": "Проковтувана",
+      "explanationBlockId": "block-section-poison-types-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-003",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-poison-types",
+      "targetBlockId": "block-section-poison-types-4",
+      "optionId": "section-poison-types-block-section-poison-types-4",
+      "context": "Вдихувана",
+      "explanationBlockId": "block-section-poison-types-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-004",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-poison-types",
+      "targetBlockId": "block-section-poison-types-5",
+      "optionId": "section-poison-types-block-section-poison-types-5",
+      "context": "Ранова",
+      "explanationBlockId": "block-section-poison-types-5",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-005",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-3",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-3-item-0",
+      "context": "Carrion Crawler Mucus",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-006",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-3",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-3-item-1",
+      "context": "Oil of Taggit",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-007",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-5",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-5-item-0",
+      "context": "Assassin's Blood",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-008",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-5",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-5-item-1",
+      "context": "Midnight Tears",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-5",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-009",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-5",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-5-item-2",
+      "context": "Pale Tincture",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-010",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-5",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-5-item-3",
+      "context": "Torpor",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-5",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-011",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-5",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-5-item-4",
+      "context": "Truth Serum",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-012",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-7",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-7-item-0",
+      "context": "Burnt Othur Fumes",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-7",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-013",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-7",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-7-item-1",
+      "context": "Essence of Ether",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-7",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-014",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-7",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-7-item-2",
+      "context": "Malice",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-7",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-015",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-9",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-9-item-0",
+      "context": "Basic Poison",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-9",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-016",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-9",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-9-item-1",
+      "context": "Drow Poison",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-9",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-017",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-9",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-9-item-2",
+      "context": "Poisoner Feat Poison",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-9",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-018",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-9",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-9-item-3",
+      "context": "Purple Worm Poison",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-9",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-019",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-9",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-9-item-4",
+      "context": "Serpent Venom",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-9",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-020",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-sample-poisonsnbsp",
+      "targetBlockId": "block-section-sample-poisonsnbsp-9",
+      "optionId": "section-sample-poisonsnbsp-block-section-sample-poisonsnbsp-9-item-5",
+      "context": "Wyvern Poison",
+      "explanationBlockId": "block-section-sample-poisonsnbsp-9",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-021",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-0",
+      "context": "Basilisk's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-022",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-1",
+      "context": "Bearded Devil's Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-023",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-2",
+      "context": "Bone Devil's Sting",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-024",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-3",
+      "context": "Bone Naga Venom",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-025",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-4",
+      "context": "Chuul Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-026",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-5",
+      "context": "Couatl's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-027",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-6",
+      "context": "Corpse Flower Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-028",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-7",
+      "context": "Dire Troll's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-029",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-8",
+      "context": "Drider Venom",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-030",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-9",
+      "context": "Drow Arachnomancer's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-031",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-10",
+      "context": "Drow Arachnomancer's Touch",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-032",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-11",
+      "context": "Ettercap's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-033",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-12",
+      "context": "Female Steeder's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-034",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-13",
+      "context": "Flying Snake Venom",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-035",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-14",
+      "context": "Geryon's Sting",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-036",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-15",
+      "context": "Giant Centipede Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-037",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-16",
+      "context": "Giant Scorpion Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-038",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-17",
+      "context": "Giant Spider Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-039",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-18",
+      "context": "Giant Toad Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-040",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-19",
+      "context": "Giant Wasp Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-041",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-20",
+      "context": "Giant Wolf Spider Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-042",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-21",
+      "context": "Gnoll Fang of Yeenoghu's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-043",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-22",
+      "context": "Green Abishai's Claw",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-044",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-23",
+      "context": "Grell Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-045",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-24",
+      "context": "Grung Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-046",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-25",
+      "context": "Blue Grung",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-047",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-26",
+      "context": "Gold Grung",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-048",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-27",
+      "context": "Green Grung",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-049",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-28",
+      "context": "Orange Grung",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-050",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-29",
+      "context": "Purple Grung",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-051",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-30",
+      "context": "Red Grung",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-052",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-31",
+      "context": "Guardian Naga's Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-053",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-32",
+      "context": "Homunculus' Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-054",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-33",
+      "context": "Hutijin's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-055",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-34",
+      "context": "Imp's Sting",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-056",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-35",
+      "context": "Male Steeder's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-057",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-36",
+      "context": "Myconid Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-058",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-37",
+      "context": "Neogi's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-059",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-38",
+      "context": "Orcus' Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-060",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-39",
+      "context": "Phase Spider Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-061",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-40",
+      "context": "Pit Fiend's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-062",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-41",
+      "context": "Poisonous Snake Venom",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-063",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-42",
+      "context": "Pseudodragon's Sting",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-064",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-43",
+      "context": "Quasit's Claw",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-065",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-44",
+      "context": "Scorpion Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-066",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-45",
+      "context": "Sea Spawn's Poison Quills",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-067",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-46",
+      "context": "Shoosiva's Sting",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-068",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-47",
+      "context": "Spider Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-069",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-48",
+      "context": "Star Spawn Larva Mage's Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-070",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-49",
+      "context": "Thri-kreen's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-071",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-50",
+      "context": "Tlincalli's Bite",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-072",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-51",
+      "context": "Yochlol's Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-073",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-52",
+      "context": "Yuan-ti Abomination's Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-074",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-53",
+      "context": "Yuan-ti Anathema's Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-075",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-54",
+      "context": "Yuan-ti Malison's Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-076",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-55",
+      "context": "Yuan-ti Mind Whisperer's Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-077",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-56",
+      "context": "Yuan-ti Pit Master's Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-078",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-possibly-harvestable-poisons",
+      "targetBlockId": "block-section-possibly-harvestable-poisons-3",
+      "optionId": "section-possibly-harvestable-poisons-block-section-possibly-harvestable-poisons-3-item-57",
+      "context": "Zuggtmoy's Poison",
+      "explanationBlockId": "block-section-possibly-harvestable-poisons-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-079",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-is-this-a-harvestable-poison",
+      "targetBlockId": "block-section-is-this-a-harvestable-poison-4",
+      "optionId": "section-is-this-a-harvestable-poison-block-section-is-this-a-harvestable-poison-4-item-0",
+      "context": "Dretch's Fetid Cloud",
+      "explanationBlockId": "block-section-is-this-a-harvestable-poison-4",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-080",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-is-this-a-harvestable-poison",
+      "targetBlockId": "block-section-is-this-a-harvestable-poison-4",
+      "optionId": "section-is-this-a-harvestable-poison-block-section-is-this-a-harvestable-poison-4-item-1",
+      "context": "Green Dragon Breath",
+      "explanationBlockId": "block-section-is-this-a-harvestable-poison-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-081",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-is-this-a-harvestable-poison",
+      "targetBlockId": "block-section-is-this-a-harvestable-poison-4",
+      "optionId": "section-is-this-a-harvestable-poison-block-section-is-this-a-harvestable-poison-4-item-2",
+      "context": "Iron Golem Breath",
+      "explanationBlockId": "block-section-is-this-a-harvestable-poison-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-082",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-is-this-a-harvestable-poison",
+      "targetBlockId": "block-section-is-this-a-harvestable-poison-4",
+      "optionId": "section-is-this-a-harvestable-poison-block-section-is-this-a-harvestable-poison-4-item-3",
+      "context": "Myconid's Euphoria Spores",
+      "explanationBlockId": "block-section-is-this-a-harvestable-poison-4",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-083",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-is-this-a-harvestable-poison",
+      "targetBlockId": "block-section-is-this-a-harvestable-poison-4",
+      "optionId": "section-is-this-a-harvestable-poison-block-section-is-this-a-harvestable-poison-4-item-4",
+      "context": "Vegepygmy Chief's Spores",
+      "explanationBlockId": "block-section-is-this-a-harvestable-poison-4",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-084",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-is-this-a-harvestable-poison",
+      "targetBlockId": "block-section-is-this-a-harvestable-poison-4",
+      "optionId": "section-is-this-a-harvestable-poison-block-section-is-this-a-harvestable-poison-4-item-5",
+      "context": "Vrock's Spores",
+      "explanationBlockId": "block-section-is-this-a-harvestable-poison-4",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-085",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-stench-poisons",
+      "targetBlockId": "block-section-stench-poisons-3",
+      "optionId": "section-stench-poisons-block-section-stench-poisons-3-item-0",
+      "context": "Catoblepas Stench",
+      "explanationBlockId": "block-section-stench-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-086",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-stench-poisons",
+      "targetBlockId": "block-section-stench-poisons-3",
+      "optionId": "section-stench-poisons-block-section-stench-poisons-3-item-1",
+      "context": "Corpse Flower Stench",
+      "explanationBlockId": "block-section-stench-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-087",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-stench-poisons",
+      "targetBlockId": "block-section-stench-poisons-3",
+      "optionId": "section-stench-poisons-block-section-stench-poisons-3-item-2",
+      "context": "Ghast Stench",
+      "explanationBlockId": "block-section-stench-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-088",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-stench-poisons",
+      "targetBlockId": "block-section-stench-poisons-3",
+      "optionId": "section-stench-poisons-block-section-stench-poisons-3-item-3",
+      "context": "Hezrou Stench",
+      "explanationBlockId": "block-section-stench-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-089",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-stench-poisons",
+      "targetBlockId": "block-section-stench-poisons-3",
+      "optionId": "section-stench-poisons-block-section-stench-poisons-3-item-4",
+      "context": "Jubilex's Foul",
+      "explanationBlockId": "block-section-stench-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-090",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-stench-poisons",
+      "targetBlockId": "block-section-stench-poisons-3",
+      "optionId": "section-stench-poisons-block-section-stench-poisons-3-item-5",
+      "context": "Leucrotta Stench",
+      "explanationBlockId": "block-section-stench-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-091",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-stench-poisons",
+      "targetBlockId": "block-section-stench-poisons-3",
+      "optionId": "section-stench-poisons-block-section-stench-poisons-3-item-6",
+      "context": "Stench Kow Stench",
+      "explanationBlockId": "block-section-stench-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-092",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-stench-poisons",
+      "targetBlockId": "block-section-stench-poisons-3",
+      "optionId": "section-stench-poisons-block-section-stench-poisons-3-item-7",
+      "context": "Troglodyte Stench",
+      "explanationBlockId": "block-section-stench-poisons-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-093",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-disease-poisons",
+      "targetBlockId": "block-section-disease-poisons-2",
+      "optionId": "section-disease-poisons-block-section-disease-poisons-2-item-0",
+      "context": "Bulezau's Barbs",
+      "explanationBlockId": "block-section-disease-poisons-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-094",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-disease-poisons",
+      "targetBlockId": "block-section-disease-poisons-2",
+      "optionId": "section-disease-poisons-block-section-disease-poisons-2-item-1",
+      "context": "Death Dog's Bite",
+      "explanationBlockId": "block-section-disease-poisons-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-095",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-disease-poisons",
+      "targetBlockId": "block-section-disease-poisons-2",
+      "optionId": "section-disease-poisons-block-section-disease-poisons-2-item-2",
+      "context": "Gas Spore's Touch",
+      "explanationBlockId": "block-section-disease-poisons-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-096",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-disease-poisons",
+      "targetBlockId": "block-section-disease-poisons-2",
+      "optionId": "section-disease-poisons-block-section-disease-poisons-2-item-3",
+      "context": "Otyug's Bite",
+      "explanationBlockId": "block-section-disease-poisons-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-097",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-disease-poisons",
+      "targetBlockId": "block-section-disease-poisons-2",
+      "optionId": "section-disease-poisons-block-section-disease-poisons-2-item-4",
+      "context": "Rutterkin's Bite",
+      "explanationBlockId": "block-section-disease-poisons-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-098",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-weird-poisons",
+      "targetBlockId": "block-section-weird-poisons-2",
+      "optionId": "section-weird-poisons-block-section-weird-poisons-2-item-0",
+      "context": "Clockwork Iron Cobra's Bite",
+      "explanationBlockId": "block-section-weird-poisons-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-099",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-weird-poisons",
+      "targetBlockId": "block-section-weird-poisons-2",
+      "optionId": "section-weird-poisons-block-section-weird-poisons-2-item-1",
+      "context": "Flumph's Stench Spray",
+      "explanationBlockId": "block-section-weird-poisons-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-poisoner-poison-and-poisoning-2014-100",
+      "articleId": "rpgbot-poisoner-poison-and-poisoning-2014",
+      "translationRevisionId": "translation-rpgbot-poisoner-poison-and-poisoning-2014-draft1",
+      "sectionId": "section-weird-poisons",
+      "targetBlockId": "block-section-weird-poisons-2",
+      "optionId": "section-weird-poisons-block-section-weird-poisons-2-item-3",
+      "context": "Wrastilith's Foul Water",
+      "explanationBlockId": "block-section-weird-poisons-2",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "measuredAt": "2026-10-08T20:51:28.265191+00:00",
+  "scope": "Local final alias regression package; not a full release readiness verdict",
+  "checks": [
+    {
+      "command": "test:no-db hydration-catalog.test.ts --testTimeout=60000",
+      "passed": 37,
+      "failed": 0,
+      "scope": "Includes six real-article alias cases; before the final aura addition"
+    },
+    {
+      "command": "test:no-db hydration-catalog.test.ts --testNamePattern=dragon aura --testTimeout=60000",
+      "passed": 3,
+      "failed": 0,
+      "scope": "Two actual Monk articles plus section/edition negative check"
+    },
+    {
+      "command": "test:no-db draft-reader.test.ts content-hydration.test.ts hydration-catalog.test.ts --testTimeout=60000",
+      "passed": 55,
+      "failed": 1,
+      "scope": "Before final aliases; sole failure is the unchanged six-name original-marker approval gate"
+    },
+    {
+      "command": "eslint rare-reference-aliases.ts hydration-catalog.test.ts",
+      "exitCode": 0
+    },
+    {
+      "command": "tsc --noEmit",
+      "exitCode": 0,
+      "scope": "Isolated /private/tmp/o49-final-preview-20261008; latest two files copied in"
+    },
+    {
+      "command": "test:no-db --testTimeout=60000",
+      "files": 520,
+      "passedFiles": 518,
+      "failedFiles": 2,
+      "passed": 4497,
+      "failed": 2,
+      "unhandledErrors": 0,
+      "scope": "Final alias code, before shadow-dragon generated anchor synchronization",
+      "failures": [
+        "draft-reader: 23 empty original markers requiring six name approvals",
+        "bestiary-lore-groups: shadow-dragon generated anchor missing ?term=Resistance"
+      ]
+    },
+    {
+      "command": "test:no-db tests/content/bestiary-lore-groups.test.ts",
+      "passed": 13,
+      "failed": 0,
+      "scope": "After synchronizing only shadow-dragon description anchor; 2024 rows and all group members preserved"
+    }
+  ],
+  "review": {
+    "skill": "clean-code-guard",
+    "findings": [],
+    "scope": "Final aliases preserve original descriptions, reuse existing canonical targets, retain the 2014 guard and require feature section context for the dragon aura; no fallbacks or new dependencies"
+  },
+  "releaseBlockers": [
+    "23 empty original markers for six pending name approvals",
+    "Full originals for Cohort of Chaos / Chaotic Flares and Nyxborn Lynx",
+    "Unresolved/unmarked contextual reference audit still incomplete",
+    "Native DB descriptions not applied; prepared owner-applies SQL remains unapplied",
+    "Unarmed Strike term UI includes parent-section search keys under a spelling/alias label; needs scope or label clarification"
+  ]
+}

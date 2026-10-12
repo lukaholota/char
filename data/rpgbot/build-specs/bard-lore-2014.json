@@ -1,0 +1,345 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "bard-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+    "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "BARD_2014",
+  "subclassKey": "COLLEGE_OF_LORE",
+  "raceKey": "HALF_ELF_2014",
+  "backgroundKey": "NOBLE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 13,
+    "INT": 8,
+    "WIS": 12,
+    "CHA": 15
+  },
+  "recipeTitle": "Приклад збірки Барда — Напівельф, Бард Колегії знань",
+  "levelPlans": {
+    "levels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "notes": true,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "spells": {
+        "knownSpellKeys": [
+          "dissonant-whispers"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "subclassKey": "COLLEGE_OF_LORE",
+      "skillProficiencies": [
+        "NATURE",
+        "RELIGION",
+        "ACROBATICS"
+      ],
+      "expertise": [
+        "DECEPTION",
+        "PERSUASION"
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "invisibility"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "dancing-lights"
+        ],
+        "knownSpellKeys": [
+          "enhance-ability"
+        ]
+      }
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "hypnotic-pattern"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "classOptionSpellKeys": [
+        "fireball",
+        "haste"
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "tongues"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "spells": {
+        "knownSpellKeys": [
+          "polymorph"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 1
+        },
+        {
+          "ability": "DEX",
+          "amount": 1
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "greater-invisibility"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "spells": {
+        "knownSpellKeys": [
+          "hold-monster"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "expertise": [
+        "PERCEPTION",
+        "INSIGHT"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 13,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 14,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 17,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Навички й експертиза Колегії знань",
+      "reason": "Автор не називає три нові навички 3-го рівня (радить за ролями) і навички для експертизи на 3-му та 10-му рівнях; пресет бере Природу, Релігію й Акробатику, експертизу в Обмані й Переконанні (3-й), Уважності й Аналізі поведінки (10-й) — вибір платформи, можна змінити на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Нові замовляння та заклинання на рівнях 11–20",
+      "reason": "Таблиця статті закінчується на 10-му рівні, а замовлення на 10-му автор лишає «на вибір»; усі нові заклинання й замовляння з 10-го рівня обирає гравець (вибір платформи).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Рівні 11–20",
+      "reason": "Автор не описує рівні вище 10-го; підвищення характеристик на 12, 16 і 19-му пресет бере Статура +2 (вибір платформи, гравець може змінити).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Магічні таємниці на 10-му рівні",
+      "reason": "Автор бере Телекінез і Стіну енергії з чужих списків; платформа приймає лише заклинання зі списку Барда (помилка компілятора: «Обране заклинання не з вашого списку класу або зависокого рівня»), тому на 10-му рівні гравець обирає два заклинання сам (вибір платформи).",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/bard-lore-2014.webp",
+    "title": "Бард Колегії знань — Напівельф",
+    "description": "Універсальний бард-«обличчя» із сімома навичками. Колегія знань відкриється на 3-му рівні.",
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "INSIGHT",
+        "INTIMIDATION"
+      ],
+      "race": [
+        "PERCEPTION",
+        "PERFORMANCE"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "subraceKey": null,
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "abilityExplanation": "Розподіл характеристик узято з прикладу RPGbot. Напівельф дає Харизму 17 та по +1 до Спритності й Статури.",
+    "skillExplanation": "Автор не називає навичок, а радить набір за роллю. Ми взяли набір «обличчя» — Обман, Аналіз Поведінки, Залякування, Уважність і Виступ, а передісторію Аристократа автор радить, якщо в групі немає «обличчя». Це вибір платформи.",
+    "equipmentExplanation": "Рапіра, шкіряна броня й кинджал відповідають авторському прикладу. Набір артиста, лютню та дві додаткові мови ми обрали за вас — це вибір платформи.",
+    "featSection": null,
+    "featOptionName": null,
+    "racialAbilities": [
+      "DEX",
+      "CON"
+    ],
+    "languages": [
+      "SYLVAN",
+      "CELESTIAL"
+    ],
+    "skillSection": "section-skills-and-tools",
+    "equipmentSection": "section-levels",
+    "raceOptions": [
+      "Універсальність навичок"
+    ],
+    "spells": {
+      "classCantripKeys": [
+        "prestidigitation",
+        "vicious-mockery"
+      ],
+      "knownSpellKeys": [
+        "detect-magic",
+        "healing-word",
+        "heroism",
+        "sleep"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Два замовляння та чотири заклинання названі автором.",
+      "sectionId": "section-levels"
+    }
+  }
+}

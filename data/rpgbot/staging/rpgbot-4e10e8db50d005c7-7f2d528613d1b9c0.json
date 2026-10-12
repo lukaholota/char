@@ -1,0 +1,2340 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "7f2d528613d1b9c0001da2fd1887bca6c8f60c99bce75652238bffd4fbc251e5",
+  "sourceRevision": {
+    "revisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+    "sourceId": "rpgbot-4e10e8db50d005c7",
+    "fetchedAt": "2026-09-29T19:13:00.620851+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:44:41-04:00",
+    "contentHash": "bcb81cb64046dc8661420be8569ed5b6ea3711f279925ebe0f9f702ce5306ba5",
+    "title": "Undying Warlock 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Undying seeks to make the Warlock survivable, but hardly manages to do so\n\tany better than other patrons. Most of the options are situational and\n\treactionary, and grant the Warlock very few options to actively address\n\tproblems. You do get a few options to heal yourself and your allies, but\n\tthey’re underwhelming on their own and they feel laughably weak when you\n\tcompare them to the\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Celestial Warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/celestial/"
+            },
+            {
+              "type": "text",
+              "text": "‘s Healing Light feature, which already isn’t great."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undying Warlock Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undying Warlock Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undying Warlock Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undying Warlock Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undying Warlock Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undying Warlock Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Undying Warlock Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – I'm Everyone's Problem Now",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/undying/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Undying Warlock Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ": A few options are\n\t\tgood, but most of the options on the Undying patron’s spell list don’t add\n\t\tanything important to the Warlock’s existing abilities.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": False life is a\n\t\t\t\tbit silly considering you can get Armor of Agathys or Fiendish Vigor. Ray of Sickness is\n\t\t\t\tpassable, and scales with level, but it isn’t very exciting, and poison\n\t\t\t\tresistance/immunity is very common, so you’ll probably replace it very\n\t\t\t\tquickly."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Two options for\n\t\t\t\tdebilitating foes: one more martial foes, and one for spellcasters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Two situational\n\t\t\t\toptions, but Speak with Dead is extremely useful in a game where you\n\t\t\t\tfrequently kill things with useful information."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Death Ward is a\n\t\t\t\tpowerful defensive buff, and with an 8-hour duration you can use all of\n\t\t\t\tyour spell slots to cast it on multiple members of your party, then\n\t\t\t\timmediately take a Short Rest to regain your spell slots and get right\n\t\t\t\tback to adventuring."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Contagion is\n\t\t\t\tversatile and very powerful. Legend Lore is situational, but it’s\n\t\t\t\tessentially “Ask the DM About the Plot” as a spell, which makes it very\n\t\t\t\tpotent."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Among the Dead"
+              },
+              {
+                "type": "text",
+                "text": ": A free cantrip (albeit a\n\t\tbad one), and perpetual Sanctuary against a common creature type."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Defy Death"
+              },
+              {
+                "type": "text",
+                "text": ": This is really cool, but only\n\t\tworks once per Long Rest. You generally want to save this for when you are\n\t\tdying because the healing will bring you back to consciousness, but it’s not\n\t\tenough healing to use it if you just want to get back to full hp. Using it\n\t\twhen you stabilize an ally just gives you normal, boring healing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Undying Nature"
+              },
+              {
+                "type": "text",
+                "text": ": Very little in-game effect.\n\t\tHolding your breath indefinitely may mean that you can safely fight\n\t\tunderwater, but as a DM I would rule that performing Verbal spell components\n\t\twould require inhaling and exhaling for races which need to breathe."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Indestructible Life"
+              },
+              {
+                "type": "text",
+                "text": ": Not a lot of healing.\n\t\tCompare this to the Fighter’s Second Wind feature, which provides\n\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "more"
+              },
+              {
+                "type": "text",
+                "text": " healing and is available at level 1 rather than level 14 where\n\t\tmost warlocks are getting their subclass’s “capstone” feature."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Undying Warlock Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Undying Warlock Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Undying Warlock Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Undying Warlock Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Undying Warlock Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Undying Warlock Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Build – I’m Everyone’s Problem Now",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Undying attempts to make the Warlock durable, which is really not a thing that warlocks are good at. So we’re going to cobble together some odd choices and turn our Warlock into a Defender. We’ll get damage and durability from unusual places and make ourselves both difficult to escape and punishing to attack."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We normally avoid multiclassing in subclass handbooks, but when the subclass is this bad, sometimes we need to think outside the box to make the build worth reading. As such, we’ll be starting with one level of Fighter."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build assumes that we’ll be using all of the Warlock’s Optional Class\n\tFeatures."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is weird for a Warlock. Normally we’re in light armor and built around Charisma and Dexterity. But we’re basically building a Paladin, so our ability scores will look similar to a stereotypical Paladin. We’ll use our Variant Human feat to get Heavy Armor Master, which includes a +1 Strength increase, then put our two racial increases into Constitution and Charisma to start with 16 in all three."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Variant Human. We need all the help we can get, so we’re choosing a safe,\n\tpowerful option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With our racial feat we’ll take\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Heavy Armor Master",
+              "href": "https://rpgbot.net/dnd5/characters/feats/heavy-armor-master/"
+            },
+            {
+              "type": "text",
+              "text": ". The flat damage reduction is going to add a lot of durability, allowing us\n\tto serve as a better punching bag for a longer period of time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Soldier. That gets us Athletics and Intimidation, which works weirdly well\n\tfor this build. If you’re feeling fancy, you can customize the background and\n\tdrop the gaming set and vehicle proficiencies in favor of two languages."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since we’re starting with a level in Fighter, we pick our class skills from the Fighter’s list. We’ll take Insight and Intimidation. We get Athletics and Intimidation from our background. We’ll take Beguiling Influence to get Deception and Persuasion. That leaves us with one additional skill proficiency from our race, which we’ll put into Perception."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 5 we’ll take "
+            },
+            {
+              "type": "link",
+              "text": "War Caster",
+              "href": "https://rpgbot.net/dnd5/characters/feats/war-caster/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 9 we’ll take "
+            },
+            {
+              "type": "link",
+              "text": "Slasher",
+              "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+            },
+            {
+              "type": "text",
+              "text": " for the speed debuff and Strength increase."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 13 we’ll take Guile of the Cloud Giant for the Strength increase and the\n\tability to mitigate damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 17 we’ll increase Strength to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 20 we’ll increase Charisma for the first time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1 – Fighter 1"
+                }
+              ],
+              [
+                {
+                  "type": "link",
+                  "text": "Fighting Style",
+                  "href": "https://rpgbot.net/dnd5/characters/fighting-styles/"
+                },
+                {
+                  "type": "text",
+                  "text": ": Interception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Take the scale mail and get a two-handed weapon. At some points you\n\t\t\t\t\tmay want to stay in scale mail or downgrade to ring mail in order to\n\t\t\t\t\tkeep your AC low enough that enemies hit you and trigger Armor of\n\t\t\t\t\tAgathys, but doing so is very risky."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Interception allows us\n\t\t\t\t\tto mitigate damage to allies, which encourages enemies to attack us\n\t\t\t\t\tinstead. Second Wind stretches our HP a little further between\n\t\t\t\t\trests."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2 – Warlock 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Otherworldly Patron: The Undying"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Among the Dead"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact\n\t\t\t\t\tMagic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Armor of Agathys"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hex"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips\n\t\t\t\t\tKnown:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Spare the Dying (free)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Blade Ward"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Booming\n\t\t\t\t\tBlade"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Among the Dead exists. If you ever encounter undead enemies, it might even matter."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Armor of Agathys is central to our build, and it will likely be our main source of damage output. If it’s down, cast it again. Heavy Armor Master will reduce incoming damage from most weapon attacks, allowing us to stretch the effect of Armor of Agathys a bit."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Booming Blade is our go-to offensive option. Remember that its range is only 5 feet, so even if you’re using a reach weapon, you’ll still need to get in close. This encourages enemies to stay still and attack us instead of our allies."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re being swarmed or if an enemy is happy attacking just you, cast Blade Ward and let enemies flail against Armor of Agathys’s retaliatory damage. Remember that flat numeric damage reduction applies before Resistance, so Heavy Armor Master is subtracted before halving incoming damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re not taking Eldritch Blast. I can hear the Fun Police sirens outside my house."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 – Warlock 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Invocations"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Beguiling Influence"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eldritch\n\t\t\t\t\tMind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Without Eldritch Blast, most of the good low-level invocations are\n\t\t\t\t\toff the table. We’ll take Beguiling Influence for the skills and\n\t\t\t\t\tEldritch Mind to help with Concentration temporarily."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Most\n\t\t\t\t\tof the time we’ll be concentrating on Hex. The ability to cast it once\n\t\t\t\t\tand use it all day means that we can get a lot of mileage and still\n\t\t\t\t\tleave our spell slots for Armor of Agathys."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 – Warlock 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Boon: Pact of the Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eldritch\n\t\t\t\t\tMind -> Improved Pact Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hellish\n\t\t\t\t\tRebuke"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2nd-level spells improves Armor of Agathys considerably, but damage\n\t\t\t\t\tfrom enemies also scales, so it may still go down to one attack\n\t\t\t\t\tsometimes. We’ll take Hellish Rebuke, but only use it if you expect a\n\t\t\t\t\trest immediately after your current encounter."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Improved\n\t\t\t\t\tPact Weapon keeps us on the\n\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "Fundamental Math",
+                  "href": "https://rpgbot.net/p2/characters/fundamental-math/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\twith our weapon attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 – Warlock 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: "
+                },
+                {
+                  "type": "link",
+                  "text": "War Caster",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/war-caster/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Green-Flame Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "War Caster replaces Eldritch Mind’s benefits to Concentration.\n\t\t\t\t\tBetween proficiency, 16 Con, and Advantage on the save, our\n\t\t\t\t\tConcentration is nearly unbreakable."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips improve at\n\t\t\t\t\tthis level, which is great timing because we’re now using Booming\n\t\t\t\t\tBlade as an Opportunity Attack in addition to using it on our turn\n\t\t\t\t\twhen we’re not re-applying Armor of Agathys. Remember that effects\n\t\t\t\t\tdon’t stack with themselves, so if a creature already has Booming\n\t\t\t\t\tBlade’s secondary damage in place, you can’t double it by hitting them\n\t\t\t\t\tagain."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This puts enemies in a difficult position. They can\n\t\t\t\t\tstay and hit you, but they’ll take automatic damage from Armor of\n\t\t\t\t\tAgathys if they do and Heavy Armor Master will further mitigate the\n\t\t\t\t\tdamage. Or they can try to move away, and you’ll hit them and punish\n\t\t\t\t\tthem for moving. If an ally is within your enemy’s reach, you’ll\n\t\t\t\t\tmitigate the damage with Fighting Style (Interception).\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 – Warlock 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Cloak of Flies"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tAny"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3rd-level spells improve Armor of Agathys again."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I’ve\n\t\t\t\t\tnever put Cloak of Flies on an example build before because most melee\n\t\t\t\t\twarlocks take Thirsting Blade at this level. But we’re getting our\n\t\t\t\t\tdamage output from places other than our attacks, so there’s room or\n\t\t\t\t\tCloak of Flies. The automatic damage isn’t much, but it’s completely\n\t\t\t\t\tautomatic. We’re building ourselves so that it’s very hard for enemies\n\t\t\t\t\tto get out of melee with us, so we can expect this to deal damage\n\t\t\t\t\tconsistently."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 – Warlock 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Defy Death"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Defy Death is the first interesting thing that our subclass has given\n\t\t\t\t\tus. It provides an insurance policy in case our extremely annoying\n\t\t\t\t\tDefender tactics ever get us beaten down to 0 hp."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 – Warlock 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sculptor of Flesh"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tShadow of Moil"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I’ve never put Sculptor of Flesh in an example build. If things are\n\t\t\t\t\tgoing badly for you, forget about Armor of Agathys and\n\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "polymorph",
+                  "href": "https://rpgbot.net/pathfinder/characters/polymorph/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\tyourself into a t-rex."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "4th-level spells improves Armor of\n\t\t\t\t\tAgathys again. Shadow of Moil gets us consistent Advantage on our\n\t\t\t\t\tattacks, Disadvantage on attacks against us, and 2d8 retaliatory\n\t\t\t\t\tdamage which will stack with Armor of Agathys."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 – Warlock 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Slasher (Str 16 -> 17)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Slasher makes our Defender tactics even more frustrating because when\n\t\t\t\t\twe hit an enemy, we can now debuff their speed. We are slightly behind\n\t\t\t\t\tthe Fundamental Math, but we now have Shadow of Moil, so we can turn\n\t\t\t\t\tthat on to get consistent Advantage on our attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10 – Warlock 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "There are no obvious Invocation choices for us at this level.\n\t\t\t\t\tThirsting Blade is a decent choice. With consistent Advantage from\n\t\t\t\t\tShadow of Moil, we can reliably hit enemies with Booming Blade as an\n\t\t\t\t\tOpportunity Attack, so it may be less crucial to hit them with Booming\n\t\t\t\t\tBlade on our actual turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "5th-level spells bring Armor of\n\t\t\t\t\tAgathys to peak effectiveness: 25 temporary hp and 25 retaliatory\n\t\t\t\t\tdamage when we’re hit in melee."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you want to multiclass\n\t\t\t\t\tmore, this is a good level to end the Warlock portion of your build.\n\t\t\t\t\tFrom here on we’re little different from any other high-level warlock.\n\t\t\t\t\tDespite our best efforts, Armor of Agathys will inevitably lose\n\t\t\t\t\teffectiveness as enemies’ damage improves and Armor of Agathys remains\n\t\t\t\t\tstatic."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11 – Warlock 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Undying Nature"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Undying nature is neat, but has almost no effect on the game."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12 – Warlock 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Investiture of Ice"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3 spell slots! Woo! Time for even more Armor of Agathys and Shadow of\n\t\t\t\t\tMoil!"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Investiture of Ice makes it even harder for enemies\n\t\t\t\t\tto get away from us."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13 – Warlock 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Guile of the Cloud Giant (Str 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tLifedrinker"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Guile of the Cloud Giant allows us to give ourselves Resistance to\n\t\t\t\t\tdamage from an attack and then teleport. This is great for keeping\n\t\t\t\t\tArmor of Agathys running, but it also allows us to quickly get into\n\t\t\t\t\tmelee with enemies attacking us at range."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lifedrinker adds\n\t\t\t\t\teven more damage to our weapon attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14 – Warlock 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Forcecage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I’m not trapped in here with you. You’re trapped in here with me and\n\t\t\t\t\tmy cloud of murder flies."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15 – Warlock 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indestructible Life"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Oh look, it’s Second Wind but with a smaller die!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16 – Warlock 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New\n\t\t\t\t\tInvocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17 – Warlock 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Str 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally 20 Strength fully 8 levels later than expected. You might go\n\t\t\t\t\tfor Charisma instead of Strength if you’re relying more on\n\t\t\t\t\tspellcasting at this point."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18 – Warlock 17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19 – Warlock 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20 – "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Cha 16 -> 18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally better Charisma!"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Undying Warlock Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Among the Dead"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Defy Death"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Undying Nature"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Indestructible Life"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-example-3"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-2-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2413,
+    "sections": 17,
+    "blocks": 28,
+    "tables": 2,
+    "ratingSignals": 15
+  },
+  "status": "needs-editorial-review"
+}

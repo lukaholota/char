@@ -1,0 +1,801 @@
+{
+  "buildId": "build-rogue-swashbuckler-2014",
+  "revisionId": "build-rogue-swashbuckler-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Шибайголови — Громовий шукач гострих відчуттів",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-rogue-swashbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+      "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+      "sectionId": "section-example-swashbuckler-rogue-build-thundering-thrillseeker",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "ROGUE_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "ROGUE_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "ROGUE_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "ROGUE_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "SWASHBUCKLER",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "ROGUE_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (DEX)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (PERCEPTION)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (INSIGHT)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "ROGUE_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "ROGUE_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "expertise": [
+          "INTIMIDATION",
+          "PERSUASION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "ROGUE_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "ROGUE_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "ROGUE_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "ROGUE_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER"
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "ROGUE_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "ROGUE_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TOUGH"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "ROGUE_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "ROGUE_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "ROGUE_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "ROGUE_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "ROGUE_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "ROGUE_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "ROGUE_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "ROGUE_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-swashbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "SWASHBUCKLER",
+    "raceKey": "HALF_ELF_2014",
+    "backgroundKey": "GAMBLER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми використаємо Напіввисокого ельфа, щоб отримати +2/+1/+1 до наших характеристик. Ми налаштуємо своє походження, щоб +2 було в Спритності замість Харизми. Використовуючи купівлю характеристик, ми ставимо 15 у Спритність, Статуру й Харизму та розміщуємо +2, +1, +1 у цих трьох характеристиках відповідно.\n\n Базове значення Підвищене значення Рівень 20 Сила 8 8 8 Спритність 15 17 20 Статура 15 16 18 Інтелект 8 8 8 Мудрість 8 8 8 Харизма 15 16 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ми беремо Напівельфа{{Half-Elf}} заради поєднання розподілу характеристик і доступу до риси «Спадок високого ельфа»{{High-Elf Descent}}, що дозволяє вибрати замовляння Чарівника. Ми обираємо «Гримучий Клинок». Оскільки Пройдисвіти не мають «Додаткової атаки»{{Extra Attack}}, це чудовий спосіб збільшити нашу шкоду, коли інші класи отримали б це уміння.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-multiclassing",
+        "title": "Мультикласування",
+        "text": "Спочатку ми планували збірку з певним мультикласуванням у цьому гайді, але між двома збірками надто багато відмінностей, щоб простого абзацу вистачило для пояснення версії без мультикласування. Ми вирішили, що було б марнотратством просто викинути все це, тож для цього ми відділили мультикласову збірку в окрему статтю, Хлопчик, що не хотів рости. Так, це Пітер Пен.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-multiclassing",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Щодо передісторії, Азартний гравець{{Gambler}} чудовий і для особистості, і для навичок, які ми отримуємо: Обман і Аналіз Поведінки. Володіння ігровим набором на ваш вибір — чудове доповнення; вони взаємозамінні загалом.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Пройдисвіта ми обираємо Акробатику, Залякування, Переконання й Непомітність. Ми також отримуємо інструменти злодія. Від Азартного гравця ми отримуємо Обман і Аналіз Поведінки, а також ігровий набір. Пізніше ми беремо «Експерта у навичках»{{Skill Expert}} і отримуємо навичку Уважність.\n\nДля «Експертизи» на 1-му рівні ми беремо Акробатику й Обман.\n\nВід «Експерта у навичках» на 4-му рівні ми беремо Аналіз Поведінки.\n\nДля «Експертизи» знову на 6-му рівні ми беремо Залякування й Переконання.\n\nРазом ці «Експертизи» роблять нас неперевершеним «обличчям», а також взірцем акробатичних трюків.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На четвертому рівні ми беремо «Експерта у навичках» заради +1 до Спритності, володіння Уважністю й «Експертизи» в Аналізі Поведінки.\n\nНа восьмому рівні ми беремо Покращення Характеристик на +2 до Спритності. (18=>20)\n\nНа десятому рівні ми беремо рису «Надихаючий лідер»{{Inspiring Leader}}. На цьому рівні це 13 тимчасових ХП за короткий відпочинок для всієї групи, і воно зростатиме на одиницю кожного рівня. Це небагато на людину за раз, але це все одно від 52 до 78 шкоди на 4–6 людей, яку потім не доведеться зціляти.\n\nНа дванадцятому рівні ми беремо рису «Здоровань»{{Tough}}. Це одразу додасть 24 хіти, більше, ніж додавання +2 до Статури.\n\nІнший варіант, що дає менше ХП загалом, але покращує наші ряткидки й можливості підтримки, — взяти «Стійкого»{{Resilient}} (Статура) зараз, на 12-му, і «Кухаря»{{Chef}} на 19-му, що дасть ту саму загальну Статуру з вищим ряткидком і додатковим зціленням для групи під час коротких відпочинків.\n\nНа шістнадцятому рівні ми беремо Покращення Характеристик на +2 до Харизми. (16=>18)\n\nА на девʼятнадцятому рівні ми беремо Покращення Характеристик на +2 до Статури. (16=>18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "1к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "1к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "2к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "2к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "3к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "3к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "4к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "4к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "5к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "5к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "6к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "6к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "7к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "7к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "8к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "8к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "9к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "9к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "10к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "10к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Ігровий набір",
+        "reason": "Автор радить ігровий набір на вибір гравця від Азартного гравця, не називаючи його; пресет не записує вибір ігрового набору.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-swashbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

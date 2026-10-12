@@ -1,0 +1,1942 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-740e864d9997128c",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-740e864d9997128c-e70b545bcfd50c95",
+      "sourceId": "rpgbot-740e864d9997128c",
+      "fetchedAt": "2026-09-29T19:15:11.975425+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:39:53-04:00",
+      "contentHash": "44f258ab8906c688e0f5a64ed3c1a7ee6b825ff4ea2bd204afd6e9de93951081",
+      "title": "Oath of the Watchers Paladin 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-740e864d9997128c-e70b545bcfd50c95.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+    "sourceId": "rpgbot-740e864d9997128c",
+    "slug": "paladin-oath-of-the-watchers-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Паладин Клятви вартових — гайд підкласу (2014)",
+    "titleEn": "Oath of the Watchers Paladin 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Паладин",
+      "підклас",
+      "Клятва вартових",
+      "збірка"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "sourceRevisionId": "rpgbot-740e864d9997128c-e70b545bcfd50c95",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Паладин Клятви вартових — гайд підкласу (2014)",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Врятуйте нас цієї ночі, остання надія для всіх нас"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Світлові роки позаду, а ми досі тримаємося"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Врятуйте нас цієї ночі, у кожному з нас сяє зірка"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Далеко за межами наших життів наша слава все ще жива"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "«Heroes of Our Time»",
+                  "href": "https://www.youtube.com/watch?v=lRt54xjIq7w"
+                },
+                {
+                  "type": "text",
+                  "text": " – Dragonforce"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Клятва вартових|Oath of the Watchers}} покликана бути оплотом{{bulwark}} між Матеріальним планом і позавимірними{{extraplanar}} загарбниками. Вона наділяє паладина засобами, потрібними для боротьби з тим, чого не мало б існувати. Якщо ви хочете протистояти хвилі невідомого, {{Клятва вартових|Oath of the Watchers}} може вам сподобатися. А якщо вам протистоїть більш земна загроза — не журіться: у Клятви вартових є чимало засобів, які добре працюють і проти таких відносно буденних ворогів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Арсенал вартових охоплює різноманітні заклинання для різних ситуацій і послаблення ворогів, а також захист, що вбереже вашу групу від найнебезпечніших заклинань. Один із найкращих способів захистити свій світ від загроз ззовні й зсередини — діяти на випередження. А найкраще цьому сприяє можливість вашої команди ходити першою в бою — ще один важливий козир вартових."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коли ви мандруєте Астральним морем{{Astral Sea}} і досліджуєте {{Дикий космос|Wildspace}} Спелджаммера{{Spelljammer}}, важко знайти кращого союзника, ніж паладин із Клятвою вартових. У вирі такої позавимірної{{extraplanar}} пригоди всі переваги вартових проти таких ворогів залишатимуться актуальними від початку й до кінця. Подумайте, чи не варто взяти такого вправного шукача пригод у ваш наступний екіпаж Спелджаммера."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведена нижче збірка використовує часто недооцінену зброю, щоб завдавати шкоди за раунд (DPR) на конкурентному рівні, витрачаючи на риси менше, ніж схожі збірки зі звичайною зброєю. Завдяки цьому звільняються Покращення Характеристик, які можна вкласти в максимізацію Харизми: вона покращить ваші ряткидки і підвищить важливу СК заклинань, щоб відсилати жахливі загрози за межі зірок."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клятви вартових",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клятви вартових",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#oath-of-the-watchers-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Клятви вартових",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#oath-of-the-watchers-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клятви вартових",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#oath-of-the-watchers-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Клятви вартових",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#oath-of-the-watchers-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Клятви вартових",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#oath-of-the-watchers-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки паладина Клятви вартових — Закличте лазурний знак",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#example-oath-of-the-watchers-build-invoke-the-cerulean-sign"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клятви вартових",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання клятви{{Oath Spells}}: чудове поєднання заклинань для різних ситуацій і підсилень, які допоможуть вам протистояти ефектам, поширеним серед ворогів Клятви вартових. Ці заклинання (за кількома винятками) добре працюють проти будь-яких істот, але очевидно, що цей набір призначений для розвʼязання конкретного кола проблем."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: два основні заклинання. Сподіваємося, у вашій групі є ритуальний заклинач, тож вам не доведеться витрачати свої й без того небагаті слоти заклинань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Бачення невидимого [See Invisibility] вкрай важливе й чудово пасує бойовому персонажу, який не може вдатися до шкоди по області, коли не бачить ворогів. Місячний промінь [Moonbeam] дуже ситуативний, але доречний з огляду на ворогів, проти яких ви готуєтеся битися. Однак СК заклинань у вас, імовірно, невисока, тож надійності від цього заклинання чекати не варто."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Контрчари [Counterspell] — чудове заклинання, але без достатньої Харизми вам буде важко пройти перевірку характеристики, щоб протидіяти заклинанням. Невиявлення [Nondetection] здається дивним вибором для паладина, однак багато ворогів, якими опікується Клятва вартових, можуть накладати заклинання, зокрема заклинання віщування."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "13-й рівень: Аура очищення [Aura of Purity] надає чимало корисного захисту, хоча формально це ситуативне заклинання. Вигнання [Banishment] — класичне заклинання з ефектом «пройди-ряткидок-або-страждай»{{save-or-suck}}, але СК заклинань може забракнути. Єдине, що справді прикро в цих двох заклинаннях, — вони вже є у списку заклинань паладина."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "17-й рівень: Стримування монстра [Hold Monster] — чудове заклинання з ефектом «пройди-ряткидок-або-страждай»{{save-or-suck}}, але за невисокої СК заклинань вам може бути важко, якщо до цього рівня ви не підвищили Харизму до 20. Стеження [Scrying] ситуативне, тож готувати його щодня може бути прикро. Водночас його немає у списку заклинань паладина, тож добре, що воно вам доступне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Канал божественності{{Channel Divinity}}:"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Воля вартового{{Watcher’s Will}}: перевага на ментальних ряткидках на одну хвилину. Зверніть увагу: вас не враховують у кількості цілей, тож ефект поширюється на вас і ще на кількість істот, що дорівнює вашому модифікатору Харизми. Тривалість становить лише одну хвилину, але це все одно чудове підсилення в бою з ворожими заклиначами або ворогами, що можуть зачаровувати чи лякати (і те, й інше трапляється часто). Ворожі заклиначі нерідко можуть натомість застосувати заклинання зі шкодою по області або націлені на ваші фізичні ряткидки (Сили, Спритності чи Статури), але принаймні вони не контролюватимуть свідомість вашої групи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Вигнання позавимірних|Abjure the Extraplanar}}: формально це ситуативне уміння, але воно охоплює аж пʼять типів істот, тож майже напевно стане в пригоді в будь-якій кампанії, де доречний паладин із Клятвою вартових. Вигнання ворога виводить його з бою на цілу хвилину, якщо ви його не турбуватимете. У груповій сутичці, де ви застосуєте це уміння, можна значно спростити бій, тимчасово усунувши частину супротивників."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Аура вартового|Aura of the Sentinel}}: Тримайте союзників поруч під час пересування строєм. Бонус суттєвий. Якщо боїтеся потрапити під атаку по області, памʼятайте: {{Аура захисту|Aura of Protection}} має такий самий радіус — 10 футів. Зрештою радіус збільшиться одночасно з іншими вашими аурами (на 18-му рівні), і тоді шансів, що всю вашу групу одночасно накриє Вогнекулею [Fireball], стане трохи менше. Зверніть увагу на формулювання: «бонус до ініціативи, що дорівнює вашому бонусу Майстерності». Хоча бонус Майстерності не можна додавати до перевірки більше одного разу, якщо під дією цієї аури перебуває, наприклад, гаренгон{{Harengon}} із рисою «Зайчачий рефлекс»{{Hare Trigger}} або бард із умінням «Майстер на всі руки»{{Jack of All Trades}}, ці бонуси складатимуться: уміння дає не бонус Майстерності, а просто бонус, що бере своє значення з бонусу Майстерності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пильний докір{{Vigilant Rebuke}}: Ситуативне вміння. Проти ворогів, які використовують такі ефекти, воно дуже потужне, особливо разом із Волею вартового{{Watcher’s Will}}. Але проти багатьох ворогів цілковито марне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Смертний оплот{{Mortal Bulwark}}: Істинний зір — фантастичне вміння, але решта діє лише проти відповідних ворогів. Воно також не дозволяє утримувати ворогів вигнаними, а на цьому рівні багато істот із відповідних типів уміють накладати Планарний перехід [Plane Shift]."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-the-watchers-ability-scores",
+          "heading": "Характеристики Клятви вартових",
+          "sourceAnchor": "oath-of-the-watchers-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-the-watchers-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми — оплот{{bulwark}}. І під "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "оплотом{{bulwark}}"
+                },
+                {
+                  "type": "text",
+                  "text": " я маю на увазі завчасно завдавати шкоди міжвимірним порушникам."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-the-watchers-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: вона потрібна, щоб захищати тих, хто не може сам постояти за себе перед невидимими загрозами з-за зірок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-the-watchers-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: не надто пріоритетна, але випереджати ворогів завдяки кращій перевірці Ініціативи — частина нашого арсеналу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-the-watchers-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: мертвий оплот нікого не захистить."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-the-watchers-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: нехай науковими справами займається хтось інший."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-the-watchers-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: саме по ній ці позавимірні потвори хочуть вас вдарити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-the-watchers-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: вона посилює наш захист і визначає СК наших заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-the-watchers-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-the-watchers-races",
+          "heading": "Раси Клятви вартових",
+          "sourceAnchor": "oath-of-the-watchers-races",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-the-watchers-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як завжди, якщо потрібної вам раси немає нижче, перегляньте "
+                },
+                {
+                  "type": "link",
+                  "text": "огляд рас для Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/races/#races"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oath-of-the-watchers-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Гаренгон{{Harengon}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудово ходити першим, а «Зайчачий рефлекс»{{Hare Trigger}} добре поєднується з Аурою вартового{{Aura of the Sentinel}}. Навіть якщо ми, як більшість паладинів, не вкладаємося у Спритність, ці два вміння з лишком це компенсують. До того ж «Кролячий стрибок»{{Rabbit Hop}} — це майже Туманний крок [Misty Step], тільки без телепортації."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-the-watchers-feats",
+          "heading": "Риси Клятви вартових",
+          "sourceAnchor": "oath-of-the-watchers-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-the-watchers-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Посібник Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": " відповідає нашій Клятві."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-the-watchers-weapons",
+          "heading": "Зброя Клятви вартових",
+          "sourceAnchor": "oath-of-the-watchers-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-the-watchers-weapons-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{шабля з двома лезами|Double-Bladed Scimitar}}: цю зброю знають не дуже добре, бо вона схована в книзі про Еберрон, але вона має властивість «Спеціальна»{{Special}}. По суті, вона дає атаку бонусною дією, як риса «Майстер древкової зброї»{{Polearm Master}}, але не потребує вкладень у риси. Якщо вам колись з якоїсь причини хотілося грати паладином, що бʼється двома видами зброї, то бій із нею відчуватиметься саме так. Для вартових важливо, що "
+                  },
+                  {
+                    "type": "link",
+                    "text": "ця зброя лише трохи поступається збірці з «Майстром древкової зброї»{{Polearm Master}} та «Майстром важкої зброї»{{Great Weapon Master}} — і для цього не треба витрачати дві риси",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#doublebladed-scimitar"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", тож можна використати ці Покращення Характеристик на максимізацію Харизми."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Древкова зброя: списи, піки й алебарди. Будь-яка зброя, сумісна з «Майстром древкової зброї»{{Polearm Master}}, добре нам підійде, якщо не вдасться взяти шаблю з двома лезами. Зверніть увагу: спис не заважає користуватися щитом."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-the-watchers-armor",
+          "heading": "Обладунки Клятви вартових",
+          "sourceAnchor": "oath-of-the-watchers-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-the-watchers-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Нічого не змінюється",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": ": поради з посібника Паладина залишаються правильними."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign",
+          "heading": "Приклад збірки паладина Клятви вартових — Закличте лазурний знак",
+          "sourceAnchor": "example-oath-of-the-watchers-build-invoke-the-cerulean-sign",
+          "blocks": [
+            {
+              "blockId": "block-section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Лазурний знак{{cerulean sign}}"
+                },
+                {
+                  "type": "emphasis",
+                  "text": " — давній символ, що, як кажуть, уособлює чистоту природного світу, а тому є ненависним для аберацій."
+                },
+                {
+                  "type": "text",
+                  "text": " –"
+                },
+                {
+                  "type": "link",
+                  "text": "«Володарі безумства»",
+                  "href": "https://en.wikipedia.org/wiki/Lords_of_Madness"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "(D&D 3.5)"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Скласти Клятву вартових означає захищати наш світ від вторгнень з інших планів і відбивати загарбників. Тож ми піднімемо шаблю з двома лезами, щоб викорінити міжвимірний вплив під захистом світла лазурного знака{{cerulean sign}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наша раса — Гаренгон{{Harengon}}; додаємо +2 до Сили й +1 до Харизми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Расові зміни"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми беремо Гаренгона{{Harengon}}, щоб посилити Ауру вартового{{Aura of the Sentinel}}. Як пояснено вище, «Зайчачий рефлекс»{{Hare Trigger}} додає Бонус Майстерності до перевірок Ініціативи, а {{Аура вартового|Aura of the Sentinel}} додає до них бонус, "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "що дорівнює"
+                },
+                {
+                  "type": "text",
+                  "text": " Бонусу Майстерності. Крім того, «Кролячий стрибок»{{Rabbit Hop}} чудово допомагає зайняти потрібну позицію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З тематичних міркувань беремо передісторію «{{Загублений у Світі Фей|Feylost}}». Вона дає навички Обман і Виживання, а також музичний інструмент на ваш вибір."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Гаренгона{{Harengon}} ми беремо {{Аналіз Поведінки|Insight}} завдяки налаштуванню походження. Від класу паладина обираємо Атлетику й Переконання. Від «{{Загубленого у Світі Фей|Feylost}}» отримуємо Обман і Виживання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На четвертому рівні беремо «Експерта у навичках»{{Skill Expert}}, щоб додати +1 до Сили. Також отримуємо володіння Залякуванням та Експертизу в Атлетиці. Дуже корисно мати змогу штовхати істот, коли це потрібно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як альтернатива, «Рубака»{{Slasher}} теж дає +1 до Сили й може сповільнювати рух ворогів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо нам не дозволяють користуватися {{шаблею з двома лезами|Double-Bladed Scimitar}} і ми хочемо взяти «Майстра древкової зброї»{{Polearm Master}}, беремо його тут, а на дванадцятому рівні — ще одне Покращення Характеристик на +2 до Сили. Решту Покращень зсуваємо на пізніші рівні й втрачаємо останнє Покращення Харизми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На восьмому рівні беремо Покращення Характеристик: +2 до Сили, доводячи її до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На дванадцятому рівні беремо {{«Стійкого (Статура)»|Resilient (Constitution)}}: підвищуємо Статуру з 15 до 16 і отримуємо володіння ряткидками Статури. Це стане в пригоді, щоб утримувати Концентрацію на корисних заклинаннях."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На шістнадцятому й девʼятнадцятому рівнях беремо Покращення Характеристик по +2 до Харизми; зрештою доводимо її до 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-oath-of-the-watchers-build-invoke-the-cerulean-sign",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне відчуття{{Divine Sense}}; {{Цілющі руки|Lay on Hands}}; Навички: Атлетика{{Athletics}}, Обман{{Deception}}, {{Аналіз Поведінки|Insight}}, Переконання{{Persuasion}}, Виживання{{Survival}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Візьміть {{шаблю з двома лезами|Double-Bladed Scimitar}}, {{кольчугу|chain mail}} і відразу переходьте до діла. Про бойового персонажа 1-го рівня особливо й сказати нічого. Шабля з двома лезами — чудова зброя. Її спеціальна властивість дає змогу бонусною дією атакувати нею, якщо ви виконали дію Атака з цією зброєю. Це гарне застосування бонусної дії, але використовуйте цю атаку лише тоді, коли не маєте для бонусної дії важливішого заняття."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль: Бій великою зброєю{{Great Weapon Fighting}}; Чаротворство{{Spellcasting}} — заклинання 1-го рівня; Божественна кара{{Divine Smite}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Обираємо бойовий стиль «Бій великою зброєю»{{Great Weapon Fighting}}, адже шабля з двома лезами завдає 2к4 шкоди, тож часто випадатимуть 1 і 2, які можна перекидати. Як альтернатива, можна взяти стиль «Оборона»{{Defense}}, щоб отримати +1 до КБ. Якщо шаблі з двома лезами немає, використовуйте спис і щит зі стилем «Дуель»{{Dueling}}. Разом із «Майстром древкової зброї»{{Polearm Master}} така збірка завдає більше шкоди за раунд, ніж шабля з двома лезами чи важка древкова зброя ще до додавання чогось на кшталт «Майстра важкої зброї»{{Great Weapon Master}}. Оскільки в цій збірці бракує рис і Покращень Характеристик, місця для «Майстра важкої зброї» у нас немає. Слотів заклинань 1-го рівня в нас лише два, і, можливо, ми витратимо їх усі на кари. Проте на цьому рівні було б доречно підготувати Лікування ран [Cure Wounds], Щит віри [Shield of Faith] і Благословення [Bless]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне здоровʼя{{Divine Health}}; {{Клятва вартових|Oath of the Watchers}} — заклинання клятви; Канал божественності{{Channel Divinity}}: Воля вартового{{Watcher’s Will}}, {{Вигнання позавимірних|Abjure the Extraplanar}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Імунітет до хвороб — корисна річ. Складаємо Клятву вартових і отримуємо заклинання та сили Каналу божественності. Воля вартового — це майже хвилинна версія Фортеці інтелекту [Intellect Fortress], але без опору психічній шкоді. Вигнання позавимірних схоже на «Вигнання нежиті»{{Turn Undead}}, але діє на позавимірних істот. Тепер ми завжди маємо підготовленими Тривогу [Alarm] і Виявлення магії [Detect Magic]. Тривога — гарний спосіб витратити невикористаний слот перед тривалим відпочинком: накладіть її додатково до виставленої варти, і вас розбудять, якщо станеться щось лихе. Виявлення магії має вужче застосування. Зазвичай краще доручити його іншому персонажу, який може накладати ритуали, але ритуальне накладання не скасовує Концентрацію. Якщо звичний шукач магії зосереджений на чомусь важливому, а справа термінова, ви можете підмінити його."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: {{Експерт у навичках|Skill Expert}} (+1 до Сили, 17 → 18); володіння Залякуванням{{Intimidation}}; експертиза в Атлетиці{{Athletics}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми на передовій і маємо багато Сили: штовхайте чудовиськ і бийте їх з перевагою. Як альтернатива, візьміть «Рубаку»{{Slasher}}, щоб чудовиська не могли втекти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}; Чаротворство{{Spellcasting}} — заклинання 2-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Атакуйте двічі; "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "або"
+                    },
+                    {
+                      "type": "text",
+                      "text": " штовхніть ворога, атакуйте з перевагою, а тоді виконайте бонусну атаку шаблею з двома лезами також із перевагою. Серед заклинань 2-го рівня завжди корисні Пошук скакуна [Find Steed] і Магічна зброя [Magic Weapon], але надзвичайно корисним на цьому рівні може бути мати про запас Нетлінні рештки [Gentle Repose]. До Відродження [Revivify] нам ще кілька рівнів, але повні заклиначі вже можуть його накладати, тож якщо накласти Нетлінні рештки на свіжий труп, хвилинне вікно розшириться до десяти днів. Заклинання клятви додають Місячний промінь [Moonbeam] і Бачення невидимого [See Invisibility]. Невидимі вороги можуть завдати клопоту бойовим персонажам, але Бачення невидимого легко це розвʼязує. Місячний промінь застосовувати складніше, проте можна поставити його й затягнути ворога в зону захопленням."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура захисту|Aura of Protection}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додавати модифікатор Харизми до всіх своїх ряткидків — чудово. А можливість додавати його до ряткидків усіх союзників у межах 10 футів робить паладина неймовірним."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура вартового|Aura of the Sentinel}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ця аура додає до перевірок ініціативи бонус, що зростає разом із бонусом майстерності."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Сила +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стаємо сильнішими й бʼємо дужче. Як альтернатива, можна зараз узяти «Стійкого»{{Resilient}}, а це Покращення Характеристик використати на 12-му рівні. Обидва варіанти добрі. Якщо ви почуваєтеся впевнено, поки що можна покладатися на {{Ауру захисту|Aura of Protection}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство{{Spellcasting}} — заклинання 3-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер можна тримати Відродження [Revivify] про запас на випадок надзвичайної ситуації, якщо маєте діамант вартістю 300 зм. Клятва дає Контрчари [Counterspell] і Невиявлення [Nondetection]. Контрчари приємно мати, навіть якщо ви рідко боретеся із заклиначами: коли така нагода випаде, заклинання стане в пригоді. Невиявлення теж корисне, але рідше, бо чудовиська зазвичай не покладаються на магію віщування, щоб покращити чуття. Наприклад, Невиявлення й Невидимість [Invisibility] разом "
+                    },
+                    {
+                      "type": "link",
+                      "text": "дають змогу обійти заклинання Істинний зір",
+                      "href": "https://www.sageadvice.eu/does-nondetection-plus-invisibility-beat-true-seeing/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [True Seeing], але не вроджену здатність істоти до істинного зору."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура мужності|Aura of Courage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Імунітет до переляку в межах 10 футів. Приємно, адже переляк заважає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращена божественна кара{{Improved Divine Smite}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дуже приємно: +1к8 шкоди до кожної атаки. Саме тому ми хотіли шаблю з двома лезами: вона дає ще один удар і ще +1к8 шкоди. За витрату бонусної дії це завдає більше шкоди за раунд, ніж дворучний меч у такого самого паладина — з «Майстром важкої зброї»{{Great Weapon Master}} чи без нього, з перевагою чи без неї. Якщо ж порівнювати з паладином, який використовує «Майстра древкової зброї»{{Polearm Master}} і «Майстра важкої зброї» (а це обмежує його на цьому рівні модифікатором Сили +4), то з перевагою ми поступаємося на 4 шкоди за раунд; утім, йому довелося витратити дві риси. Справедливості заради, ці риси мають і додаткові переваги, тож не сприймайте це як доказ, що вони погані: наш вибір відстає лише трохи."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: {{Стійкий (Статура)|Resilient (Constitution)}} +1 (15 → 16)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Маємо кілька гарних заклинань із Концентрацією, які не хочеться втрачати після удару на передовій. Це підніме бонус на +4, тож разом із {{Аурою захисту|Aura of Protection}} матимемо +9."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство{{Spellcasting}} — заклинання 4-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Список заклинань 4-го рівня не вражає, за винятком Пошуку вищого скакуна [Find Greater Steed]. Добре, що в нас є Божественна кара{{Divine Smite}} й заклинання нижчих рівнів, які добре посилюються, як-от Наказ [Command]. Заклинання клятви дають Ауру очищення [Aura of Purity] і Вигнання [Banishment] серед заклинань 4-го рівня. Точніше, не зовсім дають: паладинам ці заклинання й так доступні, але завдяки клятві вони завжди підготовлені безплатно. Ауру очищення добре мати напоготові проти довгого переліку шкідливих станів, від яких вона захищає. Вигнання — цікаве заклинання. Зазвичай його розглядають як засіб нападу й відсилають ним позавимірних потвор додому; це цілком робочий варіант. Воно націлюється на Харизму, показник, який зазвичай легко вразити, але більшість демонів і дияволів мають володіння ряткидками Харизми й високі модифікатори Харизми. Подивімося на це з іншого боку. Ми билися з дияволами, пройшли крізь портал і тепер бʼємося в Девʼяти Пеклах, відрізані від відступу. Знаходимо місце, де можна забарикадуватися: воно має протриматися лише кілька хвилин, бо ми не на рідному плані. Так, на цьому рівні можна відправити додому лише одну істоту, але за кілька рівнів слот 5-го рівня дасть змогу відіслати двох. Добре, що маємо таку магічну евакуацію напоготові."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Очищувальний дотик{{Cleansing Touch}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бʼємо так сильно, що руйнуємо магію. Дією можна розвіяти заклинання на собі й союзниках."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пильний докір{{Vigilant Rebuke}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кумедне вміння, яке дає змогу відповісти реакцією. Спрацьовуватиме нечасто, але обмеження на використання лише одне — ваша реакція, тож застосовуйте його щоразу, коли випаде нагода."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Харизма +2 (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше волі. Чи що там Харизма таке — її сутність туманна. Важливіше те, що зростуть СК заклинань і всі ряткидки отримають +1."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство{{Spellcasting}} — заклинання 5-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Можна накладати Священну зброю [Holy Weapon]. Кожна атака завдає додатково +2к8 променевої шкоди. Добре, що ми маємо три атаки. Разом із Покращеною божественною карою{{Improved Divine Smite}} це на +3к8 більше, ніж у паладинів без шаблі з двома лезами чи «Майстра древкової зброї»{{Polearm Master}}. Оскільки всі порівнювані збірки додають ті самі +2к8 з 11-го рівня, ми й далі відстаємо на 4 шкоди за раунд від паладина з «Майстром важкої зброї»{{Great Weapon Master}} і «Майстром древкової зброї», проте нам не потрібні ці дві риси, тож два Покращення Характеристик можна вкласти в максимальну Харизму. Стримування монстра [Hold Monster], або, як його слід називати, Автоматичний роздавач критичних кар. Це заклинання — головна причина, чому ми вкладаємося в Харизму на двох останніх Покращеннях Характеристик: важливо, щоб воно спрацювало, адже безплатні критичні влучання перетворюють кару зі слотом 1-го рівня на кару зі слотом 3-го, і це ще без урахування решти групи. Стеження [Scrying] — цікаве заклинання: його використовують час від часу, а паладини зазвичай його не мають, тож приємно іноді підгледіти за кимось через нього."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Аур{{Aura Improvements}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Радіус усіх аур зростає до 30 футів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Харизма +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимальна Харизма. +5 до всіх ряткидків і максимально можливі СК заклинань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Смертний оплот{{Mortal Bulwark}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Істинний зір — це добре. Перевага на атаки проти позавимірних істот — чудово. А можливість супутньо виганяти їх влучанням — теж неабияк приємна."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-001",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання клятви",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-002",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-003",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-004",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-005",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "13-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-006",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "17-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-007",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Канал божественності",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-008",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Воля вартового",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-009",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Вигнання позавимірних",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-010",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Аура вартового",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-011",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Пильний докір",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-012",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Смертний оплот",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-013",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-oath-of-the-watchers-ability-scores",
+      "targetBlockId": "block-section-oath-of-the-watchers-ability-scores-2",
+      "optionId": "section-oath-of-the-watchers-ability-scores-block-section-oath-of-the-watchers-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-oath-of-the-watchers-ability-scores-2"
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-014",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-oath-of-the-watchers-ability-scores",
+      "targetBlockId": "block-section-oath-of-the-watchers-ability-scores-3",
+      "optionId": "section-oath-of-the-watchers-ability-scores-block-section-oath-of-the-watchers-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-oath-of-the-watchers-ability-scores-3"
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-015",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-oath-of-the-watchers-ability-scores",
+      "targetBlockId": "block-section-oath-of-the-watchers-ability-scores-4",
+      "optionId": "section-oath-of-the-watchers-ability-scores-block-section-oath-of-the-watchers-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-oath-of-the-watchers-ability-scores-4"
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-016",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-oath-of-the-watchers-ability-scores",
+      "targetBlockId": "block-section-oath-of-the-watchers-ability-scores-5",
+      "optionId": "section-oath-of-the-watchers-ability-scores-block-section-oath-of-the-watchers-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-oath-of-the-watchers-ability-scores-5"
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-017",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-oath-of-the-watchers-ability-scores",
+      "targetBlockId": "block-section-oath-of-the-watchers-ability-scores-6",
+      "optionId": "section-oath-of-the-watchers-ability-scores-block-section-oath-of-the-watchers-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-oath-of-the-watchers-ability-scores-6"
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-018",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-oath-of-the-watchers-ability-scores",
+      "targetBlockId": "block-section-oath-of-the-watchers-ability-scores-7",
+      "optionId": "section-oath-of-the-watchers-ability-scores-block-section-oath-of-the-watchers-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-oath-of-the-watchers-ability-scores-7"
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-019",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-oath-of-the-watchers-races",
+      "targetBlockId": "block-section-oath-of-the-watchers-races-2",
+      "optionId": "section-oath-of-the-watchers-races-block-section-oath-of-the-watchers-races-2-item-0",
+      "context": "Гаренгон",
+      "explanationBlockId": "block-section-oath-of-the-watchers-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-020",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-oath-of-the-watchers-weapons",
+      "targetBlockId": "block-section-oath-of-the-watchers-weapons-1",
+      "optionId": "section-oath-of-the-watchers-weapons-block-section-oath-of-the-watchers-weapons-1-item-0",
+      "context": "шабля з двома лезами",
+      "explanationBlockId": "block-section-oath-of-the-watchers-weapons-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-watchers-2014-021",
+      "articleId": "rpgbot-paladin-oath-of-the-watchers-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-watchers-2014-draft1",
+      "sectionId": "section-oath-of-the-watchers-weapons",
+      "targetBlockId": "block-section-oath-of-the-watchers-weapons-1",
+      "optionId": "section-oath-of-the-watchers-weapons-block-section-oath-of-the-watchers-weapons-1-item-1",
+      "context": "Древкова зброя",
+      "explanationBlockId": "block-section-oath-of-the-watchers-weapons-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

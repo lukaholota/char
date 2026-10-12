@@ -1,7 +1,7 @@
 "use client";
 
 import type { ArmorData } from "@/lib/armorData";
-import { sourceTranslations } from "@/lib/refs/translation";
+import { findSourceLabel } from "@/lib/refs/source-label";
 import { cn } from "@/lib/utils";
 import { Shield, ShieldAlert, ShieldCheck, Weight, Coins, Clock, Footprints } from "lucide-react";
 import { getArmorVisual } from "@/components/catalogs/catalog-visuals";
@@ -26,7 +26,7 @@ export function ArmorDetailCard({
   const visual = getArmorVisual(armor.armorType);
   const Icon = visual.icon;
   const armorTypeLabel = ARMOR_TYPE_SINGULAR[armor.armorType] || armor.armorType;
-  const sourceLabel = sourceTranslations[armor.source as keyof typeof sourceTranslations] || armor.source;
+  const sourceLabel = findSourceLabel(armor.source);
 
   return (
     <div

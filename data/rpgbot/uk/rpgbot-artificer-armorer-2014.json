@@ -1,0 +1,3210 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-ce6eb0a11556fda5",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-ce6eb0a11556fda5-b60c2edb7b98c5da",
+      "sourceId": "rpgbot-ce6eb0a11556fda5",
+      "fetchedAt": "2026-09-29T19:22:27.033090+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:24:49-04:00",
+      "contentHash": "e3d86dd6e9893d25d56c93f13afcf55499908af168bfa27f335412d88b52b0ea",
+      "title": "Armorer Artificer 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-ce6eb0a11556fda5-b60c2edb7b98c5da.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-artificer-armorer-2014",
+    "sourceId": "rpgbot-ce6eb0a11556fda5",
+    "slug": "artificer-armorer-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Зброяр — гайд підкласу Винахідника (2014)",
+    "titleEn": "Armorer Artificer 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Винахідник",
+      "Зброяр",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "sourceRevisionId": "rpgbot-ce6eb0a11556fda5-b60c2edb7b98c5da",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зброяр-Винахідник — мій улюблений підклас 5e з погляду оптимізації. Шкода не буде видатною, але може бути достатньою. Натомість ви або феноменальний захисник, або один із найкращих майстрів навичок і розвідників у грі, легко конкуруючи зі Слідопитом і Пройдисвітом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Крім чудової розвідки, Зброяр дуже гнучкий завдяки інфузіям у кількох частинах броні й додатковим можливостям інфузій для цього. Якщо подобається ця механіка Винахідника й хочете заглибитися в неї, важко помилитися."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Зброяра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#armorer-subclass-features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Зброяра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Родоводи",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#lineages"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Еберрону",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#races-of-eberron"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Драконячі мітки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#races-eberron-dragonmarks"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Равніки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#races-of-ravnica"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чаротворство",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#armorer-artificer-spellcasting"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інфузії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#armorer-artificer-infusions"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад персонажа — Ведалкен-Винахідник",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#example-build-vedalken-artificer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/armorer/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                2,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах офіційного контенту ми не враховуємо сторонні матеріали, Unearthed Arcana й хоумбрю, оскільки не можемо припустити, що ваша гра їх дозволяє."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armorer-subclass-features",
+          "heading": "Уміння Зброяра",
+          "sourceAnchor": "armorer-subclass-features",
+          "blocks": [
+            {
+              "blockId": "block-section-armorer-subclass-features-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання зброяра|Armorer Spells}}: жодне не погане; навіть найменш очевидне Створити прохід [Passwall] корисне ситуативно. Проблема лише в небагатьох слотах Винахідника й хороших стандартних атаках обох моделей броні: заклинання шкоди рідко потрібні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 1-го рівня: Магічний дротик [Magic missile], іронічно, не влучає в потребу. Витратити рідкісний слот на 3к4 + 3, коли броня завдає 2к6 + Інт чи к8 + Інт і змушує атакувати вас, здається марнотратством. На 5-му рівні з Додатковою атакою ще очевидніше. Громова хвиля [Thunderwave] натомість чудове. Ряткидок Статури частіше успішний у монстрів, але шкода добра, а провал дає перепочинок."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 2-го рівня: Віддзеркалення [Mirror Image] — одне з найкращих захисних заклинань, особливо при важких обладунках. Друзки [Shatter] слабко вражає шкодою по області, але інших варіантів проти натовпу мало."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 3-го рівня: неймовірно. Одне з найкращих заклинань контролю області, Гіпнотичний візерунок [Hypnotic Pattern], і обовʼязковий конкурент Вогнекулі, Заряд блискавки [Lightning Bolt]. Лінією важче влучати, зате легше не зачепити союзників."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 4-го рівня: ще чудовий рівень. Більша невидимість [Greater Invisibility] має безліч застосувань, обмежених уявою. Вогняний щит [Fire Shield] дає ще опір, якщо його немає вже до вогню й холоду. Додаткова шкода трохи марна: на цьому рівні через високий КБ чи дистанцію по вас рідко влучатимуть."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 5-го рівня: Створити прохід потрібне здебільшого, якщо ні в кого не лишилося слотів для телепортації. Стіна енергії [Wall of Force] — неймовірно універсальне: поділіть бій, замкніть когось у сфері й підіть. Варіантів багато."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Інструменти ремесла (Зброяр)|Tools of the Trade (Armorer)}}: безкоштовні володіння обладунками завжди хороші. Важкі потрібні одній моделі, іншій — приємний додаток. Ковальські інструменти тематичні й уможливлюють наступне вміння."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Арканна броня|Arcane Armor}}: Robert Downey Jr вам не суперник. Носите фокус на собі, вдягаєте лати із Силою 8 без штрафів і знімаєте дією перед сном. Усе чудово."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Модель броні|Armor Model}}: стає ще краще. Яку "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "під"
+                  },
+                  {
+                    "type": "text",
+                    "text": "спеціалізацію хочете? Вартовий має необмежене привертання атак до себе й тимчасові ХП, компенсуючи к8. Лазутчик дозволяє ходити в латах тихо, як церковна миша — швидка миша, що стріляє блискавками. Модель можна змінити після короткого чи тривалого відпочинку, але оптимізований персонаж усе одно матиме основну роль."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Додаткова атака (Зброяр)|Extra Attack (Armorer)}}: дуже нудно, але дуже добре."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Модифікації броні|Armor Modifications}}: важко вирішувати, куди витрачати інфузії. Можна віддавати друзям, і вони можуть цього очікувати, особливо в світі з малою кількістю магічних предметів. Тут дві додаткові інфузії лише для себе, що зменшує тиск. Окремі частини дозволяють мати найкращі варіанти й далі носити костюм."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Вдосконалена броня|Perfected Armor}}: Оцінки моделей: Вартовий — 3/4, Добре (зелений); Лазутчик — 4/4, Чудово (синій). Вартовий хороший, але змагається за реакцію зі {{Спалах геніальності|Flash of Genius}}. Ваша роль — захищати; якщо витратите реакцію на підтягування й удар, коли могли дати великий бонус ряткидку від Палець смерті [Finger of Death], рано чи пізно пошкодуєте. Лазутчик феноменальний: влучання першої атаки посилює другу. Бережіть додатковий к6 для другої: перевага збільшує ймовірність критичного влучання й подвоєння кістки."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Зброяра",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як в інших чаротворців, головна характеристика керує заклинаннями. Спершу максимізуйте Інтелект; друга залежить від основної ролі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сил: не можете мати високими чотири характеристики, а Сила недостатньо корисна."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спр: джерело дає дві оцінки — 2/4, Прийнятно (помаранчевий), і 3/4, Добре (зелений), відповідно до різних основних моделей. Вартовому майже не потрібна. Лазутчик підвищує після Інтелекту для Непомітності, Спритності рук і максимального КБ кіраси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ста: джерело дає дві оцінки — 3/4, Добре (зелений), і 2/4, Прийнятно (помаранчевий), відповідно до різних основних моделей. Вартовий підвищує після Інтелекту. Лазутчик теж хоче трохи, але володіння ряткидками сильно допомагає концентрації, а ХП не потрібно стільки, як танку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інт: ви працюєте на Інтелекті."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Муд: можна знехтувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хар: можна знехтувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 (15)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 (13)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 (14)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 (14)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Характеристики важливі, але їх легко отримати. Зазвичай шукайте Інтелект зі Спритністю чи Статурою. Далі хороші вроджені заклинання, витривалість для Вартового чи навички й володіння для Лазутчика."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Список навмисно обмежений варіантами, які ефективні або показують, що шукати в інших расах. Він не враховує опціональні правила власного походження. Це далеко не єдині хороші варіанти, особливо з опціональними правилами. Досліджуйте інші; повний огляд у розділі рас "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Винахідника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#races"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дворф{{Dwarf}}: не всюди дозволено, але Гірський дворф{{Mountain Dwarf}} має аж 7 расових володінь, які правила власного походження дозволяють замінити інструментами. Згодом Виготовлення [Fabricate] стане дуже сильним: із потрібними матеріалами виготовите майже все."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ельф{{Elf}} "
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "Книга гравця",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": ": Спритність корисна Лазутчику, Уважність — завжди. Вартовому краще раса зі Статурою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-5",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Вищий ельф{{High Elf}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга гравця",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хороші характеристики й додаткове замовляння — чудово, бо Винахідник починає з небагатьох. Володіння зброєю майже марні: якщо використовуєте щось крім броні, щось пішло дуже не так."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Геназі: розглядати варто лише один варіант."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-7",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Геназі вогню "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Elemental Evil Player’s Companion",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хороші характеристики для Вартового, але є кращі варіанти. Вроджені заклинання використовують Статуру й відстають від класових.\n\nРедакційна примітка: оцінка стосується версії EEPC; новіша версія MPMM також належить до правил 2014, але має інші расові правила. Не підміняйте їх одна одною."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ґітцерай{{Githzerai}} "
+                },
+                {
+                  "type": "link",
+                  "text": "Монстри Мультивсесвіту",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": Щит [Shield] як вроджене заклинання, яке можна повторно накладати слотами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гном{{Gnome}} "
+                },
+                {
+                  "type": "link",
+                  "text": "Книга гравця",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": Інтелект найбільший пріоритет, і Гноми мають його вдосталь."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-10",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Глибинний гном{{Deep Gnome (Svirfneblin)}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга гравця",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ідеальні характеристики Лазутчика й чудові додаткові переваги."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лісовий гном{{Forest Gnome}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга гравця",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": оцінка джерела — 3/4, Добре (зелений). характеристики все ще чудові для Лазутчика, але додаткові переваги бувають кращі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Скельний гном{{Rock Gnome}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга гравця",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": сильний претендент на найкращу расу Вартового без власного походження. Чудові характеристики й тематичні додатки."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-11",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хобгоблін{{Hobgoblin}} "
+                },
+                {
+                  "type": "link",
+                  "text": "Довідник Воло з монстрів",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": розумний вибір Вартового завдяки характеристикам і бонусу до важливої атаки, що накладає ваш штраф.\n\nРедакційна примітка: цей аналіз стосується раси VGtM; версія MPMM має інші здібності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-12",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Людина{{Human}} "
+                },
+                {
+                  "type": "link",
+                  "text": "Книга гравця",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": універсальна й чудова в усьому."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-13",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Варіантна людина{{Human Variant}}: важливий бонус Інтелекту й чудова риса на 1-му рівні."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-14",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дикий Тіфлінг "
+                },
+                {
+                  "type": "link",
+                  "text": "Путівник по Узбережжю Мечів",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": пристойні характеристики Лазутчика й бажаний опір до вогню. Крилатий не працює для Вартового у важких обладунках, але чудовий Лазутчику. Заклинання на Харизмі менш привабливі, ніж могли бути."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-lineages",
+          "parentSectionId": "section-races",
+          "heading": "Родоводи",
+          "sourceAnchor": "lineages",
+          "blocks": [
+            {
+              "blockId": "block-section-lineages-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усі родоводи сильні для Зброяра, бо дозволяють обрати бонуси характеристик незалежно від інших опціональних правил. Якщо накладаєте родовід на наявну расу, можете залишити чимало попередніх переваг, як володіння й мови.\n\nРедакційна примітка: збережені переваги визначаються конкретним родоводом; Первісна спадщина не зберігає довільно всі расові риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-lineages-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Дампір{{Dhampir}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Путівник Ван Ріхтена по Равенлофту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудовий Вартовому, який і так підвищує Статуру другою. Павуче лазіння майже таке ж корисне, як політ, у багатьох ситуаціях."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Відьмокров{{Hexblood}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Путівник Ван Ріхтена по Равенлофту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дайте {{Моторошний токен|Eerie Token}} Слузі-гомункулу, щоб зробити ще кращого фамільяра. {{Відьомська магія|Hex Magic}} теж пристойно допомагає."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Переродженець{{Reborn}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Путівник Ван Ріхтена по Равенлофту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": переваги не видовищні, але "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "дуже хороші. "
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Безсмертна природа|Deathless Nature}} додає витривалості, {{Знання з минулого життя|Knowledge from a Past Life}} допомагає важливим перевіркам замків і дверей."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-lineages-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нижче раси окремих світів. Не кожен світ дозволяє кожну расу. Більшість базових рас і рас Забутих Королівств придатні для інших світів, але специфічні раси Равніки зазвичай ні. Обговоріть дозволені раси з Майстром."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races-of-eberron",
+          "parentSectionId": "section-races",
+          "heading": "Раси Еберрону",
+          "sourceAnchor": "races-of-eberron",
+          "blocks": [
+            {
+              "blockId": "block-section-races-of-eberron-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Воєнокований{{Warforged}} "
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "Еберрон: Постання з Останньої Війни",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": ": гнучкий бонус вкладаємо в Інтелект, інші риси роблять витривалого Вартового. Також можете всю ніч чергувати самі для захисту групи."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races-eberron-dragonmarks",
+          "parentSectionId": "section-races-of-eberron",
+          "heading": "Драконячі мітки",
+          "sourceAnchor": "races-eberron-dragonmarks",
+          "blocks": [
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Драконячі мітки задумані для вродженого чаротворства будь-кому, але кожна також розширює список заклинань — часто важливіше за більшість інших расових рис. Нечаротворець втрачає величезну частину переваг, тож виправдати такого персонажа з міткою дуже складно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Винахіднику мітки особливо корисні. Будь-яке додаткове чаротворство суттєво допомагає з нашими небагатьма слотами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дворф із драконячою міткою"
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "Еберрон: Постання з Останньої Війни",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": ": риси мітки замінюють підрасу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Охорони|Dwarf (Mark of Warding)}}: нормальні характеристики й лише задовільні безкоштовні заклинання. Але додатковий список хороший, а к4 до частих перевірок Лазутчика чудовий."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ельф із драконячою міткою"
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "Еберрон: Постання з Останньої Війни",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": ": риси мітки замінюють підрасу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-6",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Тіні|Elf (Mark of Shadow)}}: привабливі заклинання Лазутчика, але погані характеристики змушують шукати інше."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гном із драконячою міткою"
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "Еберрон: Постання з Останньої Війни",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": ": риси мітки замінюють підрасу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-8",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Письма|Gnome (Mark of Scribing)}}: краща за Мітку Тіні, бо хоча б +2 Інтелект, але все ще не чудовий вибір."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Людина з драконячою міткою"
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "Еберрон: Постання з Останньої Війни",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": ": риси мітки замінюють УСІ расові риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-eberron-dragonmarks-10",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Створення|Human (Mark of Making)}}: ідеальні характеристики й чудові тематичні переваги. Заклинання частково дублюються, але безкоштовне Лагодження чудове й виправдовує невелике розширення вибору."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Переходу|Human (Mark of Passage)}}: достатні характеристики Лазутчика й хороші нові заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Мітка Вартового|Human (Mark of Sentinel)}}: Вартовому сподобаються характеристики й багато інших переваг."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races-of-ravnica",
+          "parentSectionId": "section-races",
+          "heading": "Раси Равніки",
+          "sourceAnchor": "races-of-ravnica",
+          "blocks": [
+            {
+              "blockId": "block-section-races-of-ravnica-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Симічний гібрид{{Simic Hybrid}} "
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "Путівник по Равніці",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": ": Статура допомагає Вартовому. Тваринні покращення дають чудові можливості з рівнями й економлять обмежені слоти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-of-ravnica-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ведалкен{{Vedalken}} "
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "Путівник по Равніці",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "superscript",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": ": дуже приємний Лазутчику. Перевага на ряткидки Мудрості захищає найслабший поширений ряткидок. {{Невтомна точність|Tireless Precision}} робить ваші й так неймовірні перевірки Інструментів злодія ще сильнішими."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загальні поради в "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Винахідника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": ", але нижче риси, які подобаються багатьом Зброярам."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Боєць з двома зброями|Dual Wielder}}: кожна громова рукавиця вважається зброєю, але для бою двома зброями бракує властивості Легка. Риса прибирає вимогу й дозволяє додаткову атаку рукавицею."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Доторк феї|Fey Touched}}: усі люблять телепортацію, і доступ із безкоштовним використанням корисний. Додаткове заклинання 1-го рівня добре заповнює прогалини."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Рухливий|Mobile}}: розумний Вартовому після максимуму Інтелекту. Допомагає накласти штраф рукавиць на кількох ворогів чи використати Гримучий Клинок [Booming Blade] і відійти. Але з величезним КБ провокована атака не надто страшна; роблячи Ривок, ви не захищаєте союзників. Частково дублює {{Чоботи звивистої стежки|Boots of the Winding Path}}: схожа тактика удару й відступу, але чоботи витрачають бонусну дію, зазвичай потрібну гомункулу, і не допомагають, якщо почали зблизька."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Вартовий|Sentinel}}: Вартовий оцінить утримання ворогів поруч."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Доторк тіні|Shadow Touched}}: Невидимість [Invisibility] гірше за Туманний крок [Misty Step], але дуже добре й заповнює прогалину до Більшої невидимості на високих рівнях."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Експерт у навичках|Skill Expert}}: чудово Лазутчику — від відсутності володіння Непомітністю одразу до експертності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Скритний|Skulker}}: задовільно Лазутчику після максимуму Інтелекту, особливо без гомункула для перевірок Уважності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Телекінетик|Telekinetic}}: чудова риса. Більша дальність Магічна рука [Mage Hand] дуже цікава, а бонусна дія дає хороший шанс відійти від однієї цілі — і це лише одне застосування. Також Громовий клинок і штовхання: щоб відповісти ударом, ціль мусить сама підійти й отримати шкоду."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Телепат|Telepathic}}: корисно, якщо справді потрібна тиша. Але через обмеження телепатії гірше за телекінез вище."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Бойовий заклинатель|War Caster}}: менш корисний, ніж більшості чаротворців, але все ще дуже хороший Вартовому для Громового клинка по ворогах, що намагаються пройти повз."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зброя потрібна лише до броні. Потім, можливо, ближня зброя Лазутчику, який не впевнений у КБ для відходу перед пострілом блискавкою. Вартовий використовує замовляння для далеких атак. На 1-му рівні візьміть звичайну стартову зброю й переважно покладайтеся на замовляння до 3-го."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Кольчужна сорочка{{Chain Shirt}}: стартові обладунки Лазутчика."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лускатий обладунок{{Scale Mail}}: стартові обладунки Вартового, безкоштовні від класу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кіраса{{Breastplate}}: постійні обладунки Лазутчика. Напівлати дають більше КБ, але перешкода на Непомітність скасовує головну перевагу моделі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лати{{Plate}}: постійні обладунки Вартового."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Щит{{Shield}}: завжди майте. Зброя костюма потребує одну або жодної руки, а фокус носите на собі; будь-яка інфузія теж може бути фокусом."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armorer-artificer-spellcasting",
+          "heading": "Чаротворство",
+          "sourceAnchor": "armorer-artificer-spellcasting",
+          "blocks": [
+            {
+              "blockId": "block-section-armorer-artificer-spellcasting-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Суттєвих відмінностей немає: ті самі заклинання хороші з тих самих причин."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armorer-artificer-infusions",
+          "heading": "Інфузії",
+          "sourceAnchor": "armorer-artificer-infusions",
+          "blocks": [
+            {
+              "blockId": "block-section-armorer-artificer-infusions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вартовому потрібні захисні інфузії, Лазутчику — переважно репліки магічних предметів. Деякі хороші завжди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-armorer-artificer-infusions-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Слуга-гомункул|Homunculus Servant}}: чудовий обом моделям і найперший вибір Лазутчика. Має експертність в Уважності: допомагайте йому своєю дією, коли треба дивитися, а не досліджувати інструментами. Також одна з небагатьох бонусних атак, ще й силовим полем. Якби був колір вище синього, я використав би його."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Репліка: Окуляри ночі|Replicate: Goggles of Night}}: дає темнозір, якщо раса не має, або більшу дальність, якщо має. Обовʼязково Лазутчику, добре Вартовому."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Репліка: Мотузка лазіння|Replicate: Rope of Climbing}}: найкраща альтернатива, якщо не можете літати чи лазити як павук."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Репліка: Рукавички злодія|Replicate: Gloves of Thievery}}: Лазутчику біля замків приємний бонус. На час доступу вже матимете експертність, тож трохи надмірно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Репліка: Крилаті чоботи|Replicate: Winged Boots}}: ще не літаєте? Проблему вирішено."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Репліка: Плащ захисту|Replicate: Cloak of Protection}}: один із найнудніших, але математично чудових предметів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Репліка: Сумка зберігання|Replicate: Bag of Holding}}: ви не сильні. Якщо інший сильний персонаж не носить здобич, хороший спосіб тягати її."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-vedalken-artificer",
+          "heading": "Приклад персонажа — Ведалкен-Винахідник",
+          "sourceAnchor": "example-build-vedalken-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-vedalken-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Двадцять років учився робити, двадцять — ховатися, двадцять — знаходити. Тепер готовий шукати нові знання, певний, що знайду їх за будь-яким замком чи охоронцем, хоч у якій шпарині вони сховалися."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-vedalken-artificer",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Припускаємо запропоновану вище купівлю характеристик. Власне походження переносить очко Мудрості у Спритність для результатів нижче."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базові"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищені"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-vedalken-artificer",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ведалкен. Оберіть Інструменти злодія й Непомітність для Невтомної точності.\n\nРедакційна примітка: Непомітність не входить до дозволеного переліку Невтомної точності GGTR. Можна обрати Магію, Історію, Розслідування, Медицину, Виступ чи Спритність рук. Подальші авторські бонуси к4 до Непомітності через це вміння неправомірні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-vedalken-artificer",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьміть Магію, Медицину й бажані інструменти. Ковальські скоро отримаєте безкоштовно. Для Виготовлення рекомендую інструменти роботи з деревом і Інструменти чинбаря: зможете виготовляти обладунки й різні речі з поширеної деревини."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-vedalken-artificer",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Замкнений учений{{Cloistered Scholar}} дає Історію й Природу чи Релігію залежно від божественного чаротворця групи."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example-build-vedalken-artificer",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Починаємо з Інтелектом 17: на 4-му рівні риса з +1, як Телекінетик чи Експерт у навичках; на 8-му доводимо до 20 й розширюємо можливості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-vedalken-artificer",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Магічне майстрування|Magical Tinkering}}; {{Чаротворення (Винахідник)|Spellcasting (Artificer)}}; підготовлені: Виявлення магії [Detect Magic], Лікування ран [Cure Wounds], Їдке Вариво Таші [Tasha's Caustic Brew]; замовляння: Вогняний заряд [Fire Bolt], Лагодження [Mending]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замість стартового спорядження беріть гроші, купіть кольчужну сорочку й щит. Кинджал завдає менше середньої шкоди, ніж Вогняний заряд: тримайте Інструменти злодія й щит, діставайте кинджал, лише якщо ворог підійшов і не хочете відходити. Виявлення магії — ритуал для здобичі за фальшивим дном чи замкненими дверима. Їдке Вариво Таші вчить шукати лінії ворогів до Заряду блискавки й дає інший тип шкоди. Лише два слоти, кожен має бути дуже важливим. Якщо лікування мало, зберігайте Лікування ран для непритомного союзника. Якщо можна витратити більше, ловіть 3 чи більше цілей Варивом, особливо перед відпочинком. Уважний читач помітить відсутність Розслідування й Спритності рук. Ніколи не беремо: творчий гравець майже всі важливі перевірки робить Інструментами злодія й отримує Невтомну точність, згодом експертність. Використовуйте щупи по краях каменів, дзеркала для огляду прихованих місць, шукайте двері, відсіки й плити. Це головне для персонажа.\n\nРедакційна примітка: заміна перевірок навичок перевірками з інструментами залежить від конкретної задачі й рішення Майстра; володіння Інструментами злодія не дає універсальної заміни всіх перевірок Розслідування чи Спритності рук."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інфузії: Слуга-гомункул, Репліка: Окуляри ночі, {{Покращена зброя|Enhanced Weapon}}, Репліка: Сумка зберігання; нове підготовлене: Розпізнавання [Identify]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гомункул — знахідка: постійний партнер для Допомоги на Розслідування, або сам робить Уважність, поки "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "ви"
+                    },
+                    {
+                      "type": "text",
+                      "text": " допомагаєте. Окуляри ночі дають такий самий темнозір, тож допомагаєте бачити в темряві: перевага прибирає перешкоду й лишає звичайний кидок з експертністю. Також бонусна дія на 1к4 + БМ силової шкоди, краще за нуль. Гомункул передає дотикові заклинання: підготуйте Лікування ран, коли торкнеться цілі, накажіть летіти туди, можливо з Ривком, реакцією накладіть, а він своєю реакцією передасть. Слотів не більше, тож ще ритуал — визначення властивостей здобичі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Потрібний інструмент для роботи|The Right Tool for the Job}}; Інструменти ремесла (Зброяр); Заклинання зброяра; Арканна броня; Модель броні; заміна Вогняного заряду на Настанова [Guidance]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3-й рівень — усі свята з подарунками разом. Технічно вибір один, але стаємо Пройдисвітом групи, ще й Чарівником та запасним цілителем. Кольчужна сорочка, або вже кіраса, стає бронею Лазутчика. 1к6 + 3 у середньому 6,5 проти 5,5 від 1к10 Вогняного заряду: переходимо на кристал у грудях, що стріляє без рук. Настанова — мабуть, найкраще замовляння поза боєм; використовуємо для навичок, коли є час. Автор рахує перевагу на всі кидки Непомітності й ще 2к4.\n\nРедакційна примітка: к4 Невтомної точності до Непомітності не застосовується. Лазутчик і Настанова все ще корисні, але авторський бонус 2к4 цій перевірці не відповідає правилам."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках, Інтелект 17 → 18; нові підготовлені: Тривога [Alarm], будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тривога — останній ритуал 1-го рівня до кращих слотів. Інше заклинання тут не так важливе. Риса дає +1 Інтелект, володіння Природою чи Релігією, яку не брали на 1-му рівні, й експертність у Непомітності. Бонус зростає швидше майже за все, з перевагою й авторськими 2к4. Ближче, але можна краще.\n\nРедакційна примітка: як зазначено в расі, додатковий к4 Невтомної точності до Непомітності не дозволений."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Додаткова атака (Зброяр)|Extra Attack (Armorer)}}; слоти 2-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Блискавка з грудей сильно покращується. Автор каже, що додатковий к6 лише раз на атаку, але можна до будь-якої й обирати після кидка. Якщо хоча б одна влучає, це 2к6 + 4 — як дворучний меч. Одразу замініть заклинання, підготовлені на 4-му рівні, на Бачення невидимого [See Invisibility] і Розжарення металу [Heat Metal]. Розжарення металу дуже сильне проти спорядження: не дає ряткидка від шкоди навіть для ношених предметів.\n\nРедакційна примітка: додатковий 1к6 блискавкомета дозволений раз у кожен ваш хід, а не раз на кожну атаку. «4th-level prepared spells» у джерелі означає вибір попереднього рівня персонажа: слоти 4-го рівня тут ще недоступні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Експертиза інструментів|Tool Expertise}}; нові інфузії: Репліка: Рукавички злодія, {{Кільце підживлення заклять|Spell-Refueling Ring}}; нове підготовлене: будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертність у замках і дослідженні дверей, підлог, динозаврів. Зазвичай активуйте кільце; у день із замками — рукавички. Заклинаннями вже маєте всі потрібні інструменти: обирайте під день. Мале відновлення [Lesser Restoration], Невидимість і Темний зір [Darkvision] хороші, особливо якщо хочете замінити інфузію окулярів слотом."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спалах геніальності{{Flash of Genius}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Неймовірне вміння. Не обмежує тип ряткидка, тож працює на ряткидки від смерті, але краще запобігти падінню. У соціальний день просто додайте +4 до чужого Переконання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: Інтелект 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Один із небагатьох порожніх рівнів, але час максимізувати Інтелект."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Модифікації броні; слоти 3-го рівня; нові підготовлені: Захист від енергії [Protection from Energy], Розвіювання магії [Dispel Magic]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер завжди тримайте Покращену зброю на собі й мрійте про 10-й рівень."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Адепт магічних предметів|Magic Item Adept}}; нові інфузії: Репліка: Крилаті чоботи, {{Шолом обізнаності|Helm of Awareness}}; заміна Окулярів ночі на {{Стійка броня|Resistant Armor}}; нове замовляння: Вогняний заряд або Промінь холоду [Ray of Frost]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Використовуємо нове сповна: усі чотири частини броні мають інфузії — Шолом обізнаності, Крилаті чоботи, Покращена зброя й Броня опору. Четверте налаштування дозволяє лишити кільце, за потреби міняючи на рукавички. Потрібен інший тип шкоди проти опору чи імунітету до блискавки: повертаємо Вогняний заряд. Якщо вогонь теж поганий у кампанії, Промінь холоду підійде."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Предмет-осередок заклять|Spell-Storing Item}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захисник групи має {{Майстер щита|Shield Master}}? Дайте 10 годин Покращення здібності [Enhance Ability] на день. Мало лікування? 10 додаткових Лікувань ран. Печери? Паличка Темнозору. Комусь сфера Павучого лазіння. Варіантів багато, щодня можна змінювати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Доторк феї"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+1 Мудрість, яку далі підвищимо, і Мисливська мітка [Hunter's Mark] як безкоштовне віщування. 1–2 слоти 3-го рівня підтримають увесь день. Мітка додає хорошу шкоду: бонусна дія для накладання чи перенесення, без вимоги переносити одразу після смерті. Підтримуйте між боями й переносіть за потреби. Володіння ряткидками Статури й пристойна характеристика допомагають концентрації. Якщо шкоди достатньо, беріть Сріблясті шпильки [Silvery Barbs]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слоти 4-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підготуйте Виготовлення. Купіть 50 фунтів сталі приблизно за 35 зм, за 10 хвилин зробіть лати, продайте за 750 зм. Заробляйте 2000% прибутку стільки днів, скільки хочете, фінансуючи 14-й рівень.\n\nРедакційна примітка: ціни матеріалів і гарантований покупець готових обладунків не встановлені заклинанням. Це авторська економічна схема, яку має підтримувати світ кампанії."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Знавець магічних предметів|Magic Item Savant}}; нові інфузії: {{Репліка: Самоцвіт бачення|Replicate: Gem of Seeing}}, будь-яка; нове замовляння: Магічна рука"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Цього чекали 13 рівнів. Просіть, позичайте, крадіть, підкуповуйте Майстра — отримайте два магічні предмети. {{Мантія природи|Nature’s Mantle}} незвичайна й порівняно доступна. Автор рахує Непомітність 1к20 + 13 + 2к4 з перевагою від Невтомної точності й Настанови. Ховайтеся бонусною дією за легкої заслоненості, наприклад із {{Пляшка вічного диму|Eversmoking Bottle}}, яка опціональна й не є другим предметом. Другий — рідкісний {{Посох лісів|Staff of the Woodlands}}: набагато важче дістати, але чудово. Коли немає важливішого, постійно концентруйтеся на Переміщення без сліду [Pass without Trace]. Авторський бонус уже 1к20 + 23 + 2к4, середнє майже 40. Невидимість лише формальність. Ще пробуджуйте дерева, бо можете. Доведеться відмовитися від налаштування Броні опору заради обох предметів; віддайте її комусь. Магічна рука корисна й стане ще кращою за два рівні.\n\nРедакційна примітка: Невтомна точність не додає к4 до Непомітності. Крім того, Настанова й Переміщення без сліду обидва потребують концентрації, тож один персонаж не може підтримувати їх одночасно. Авторські формули збережено для точності перекладу; вони не є підтвердженим бонусом за правилами."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Вдосконалена броня|Perfected Armor}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безкоштовне чудове покращення атак. Вище пояснив, чому Лазутчику так добре, і дотримуюся цієї думки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Телекінетик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магічна рука тепер невидима, як ви. Ще +1 Мудрості доводить її до 12. Уже була хороша бонусна дія для атак чи Допомоги гомункула, тепер є ще чудовий варіант."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слоти 5-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Жодне заклинання Винахідника 5-го рівня не варте постійної підготовки, але слоти для посиленого накладання дуже приємні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Майстер магічних предметів|Magic Item Master}}; дві будь-які нові інфузії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Варіантів достатньо для шести налаштованих предметів. Завжди підтримуйте шість."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нічого особливого, але ще непомітніші й краще відмикаєте замки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Душа винахідництва|Soul of Artifice}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ось справжнє завершальне вміння: фактично постійні +6 до всіх ряткидків, включно з ряткидками від смерті."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-artificer-armorer-2014-001",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-subclass-features",
+      "targetBlockId": "block-section-armorer-subclass-features-1",
+      "optionId": "section-armorer-subclass-features-block-section-armorer-subclass-features-1-item-0",
+      "context": "Заклинання зброяра",
+      "explanationBlockId": "block-section-armorer-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-002",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-subclass-features",
+      "targetBlockId": "block-section-armorer-subclass-features-1",
+      "optionId": "section-armorer-subclass-features-block-section-armorer-subclass-features-1-item-1",
+      "context": "Заклинання 1-го рівня",
+      "explanationBlockId": "block-section-armorer-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-003",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-subclass-features",
+      "targetBlockId": "block-section-armorer-subclass-features-1",
+      "optionId": "section-armorer-subclass-features-block-section-armorer-subclass-features-1-item-2",
+      "context": "Заклинання 2-го рівня",
+      "explanationBlockId": "block-section-armorer-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-004",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-subclass-features",
+      "targetBlockId": "block-section-armorer-subclass-features-1",
+      "optionId": "section-armorer-subclass-features-block-section-armorer-subclass-features-1-item-3",
+      "context": "Заклинання 3-го рівня",
+      "explanationBlockId": "block-section-armorer-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-005",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-subclass-features",
+      "targetBlockId": "block-section-armorer-subclass-features-1",
+      "optionId": "section-armorer-subclass-features-block-section-armorer-subclass-features-1-item-4",
+      "context": "Заклинання 4-го рівня",
+      "explanationBlockId": "block-section-armorer-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-006",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-subclass-features",
+      "targetBlockId": "block-section-armorer-subclass-features-1",
+      "optionId": "section-armorer-subclass-features-block-section-armorer-subclass-features-1-item-5",
+      "context": "Заклинання 5-го рівня",
+      "explanationBlockId": "block-section-armorer-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-007",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-subclass-features",
+      "targetBlockId": "block-section-armorer-subclass-features-1",
+      "optionId": "section-armorer-subclass-features-block-section-armorer-subclass-features-1-item-6",
+      "context": "Інструменти ремесла",
+      "explanationBlockId": "block-section-armorer-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-008",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-subclass-features",
+      "targetBlockId": "block-section-armorer-subclass-features-1",
+      "optionId": "section-armorer-subclass-features-block-section-armorer-subclass-features-1-item-7",
+      "context": "Арканна броня",
+      "explanationBlockId": "block-section-armorer-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-009",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-subclass-features",
+      "targetBlockId": "block-section-armorer-subclass-features-1",
+      "optionId": "section-armorer-subclass-features-block-section-armorer-subclass-features-1-item-8",
+      "context": "Модель броні",
+      "explanationBlockId": "block-section-armorer-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-010",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-subclass-features",
+      "targetBlockId": "block-section-armorer-subclass-features-1",
+      "optionId": "section-armorer-subclass-features-block-section-armorer-subclass-features-1-item-9",
+      "context": "Додаткова атака",
+      "explanationBlockId": "block-section-armorer-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-011",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-subclass-features",
+      "targetBlockId": "block-section-armorer-subclass-features-1",
+      "optionId": "section-armorer-subclass-features-block-section-armorer-subclass-features-1-item-10",
+      "context": "Модифікації броні",
+      "explanationBlockId": "block-section-armorer-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-012",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-subclass-features",
+      "targetBlockId": "block-section-armorer-subclass-features-1",
+      "optionId": "section-armorer-subclass-features-block-section-armorer-subclass-features-1-item-11",
+      "context": "Вдосконалена броня",
+      "explanationBlockId": "block-section-armorer-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-013",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-2",
+      "optionId": "section-ability-scores-block-section-ability-scores-2",
+      "context": "Сил",
+      "explanationBlockId": "block-section-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-014",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-3",
+      "optionId": "section-ability-scores-block-section-ability-scores-3",
+      "context": "Спр",
+      "explanationBlockId": "block-section-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-015",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-4",
+      "optionId": "section-ability-scores-block-section-ability-scores-4",
+      "context": "Ста",
+      "explanationBlockId": "block-section-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-016",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-5",
+      "optionId": "section-ability-scores-block-section-ability-scores-5",
+      "context": "Інт",
+      "explanationBlockId": "block-section-ability-scores-5",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-017",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-6",
+      "optionId": "section-ability-scores-block-section-ability-scores-6",
+      "context": "Муд",
+      "explanationBlockId": "block-section-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-018",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-7",
+      "optionId": "section-ability-scores-block-section-ability-scores-7",
+      "context": "Хар",
+      "explanationBlockId": "block-section-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-019",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-3",
+      "optionId": "section-races-block-section-races-3",
+      "context": "Дворф",
+      "explanationBlockId": "block-section-races-3"
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-020",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-4",
+      "optionId": "section-races-block-section-races-4",
+      "context": "Ельф",
+      "explanationBlockId": "block-section-races-4"
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-021",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-5",
+      "optionId": "section-races-block-section-races-5-item-0",
+      "context": "Вищий ельф",
+      "explanationBlockId": "block-section-races-5",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-022",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-6",
+      "optionId": "section-races-block-section-races-6",
+      "context": "Геназі",
+      "explanationBlockId": "block-section-races-6"
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-023",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-7",
+      "optionId": "section-races-block-section-races-7-item-0",
+      "context": "Геназі вогню Elemental Evil Player’s Companion",
+      "explanationBlockId": "block-section-races-7",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-024",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-8",
+      "optionId": "section-races-block-section-races-8",
+      "context": "Ґітцерай",
+      "explanationBlockId": "block-section-races-8",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-025",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-9",
+      "optionId": "section-races-block-section-races-9",
+      "context": "Гном",
+      "explanationBlockId": "block-section-races-9"
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-026",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-10",
+      "optionId": "section-races-block-section-races-10-item-0",
+      "context": "Глибинний гном",
+      "explanationBlockId": "block-section-races-10",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-027",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-10",
+      "optionId": "section-races-block-section-races-10-item-2",
+      "context": "Скельний гном",
+      "explanationBlockId": "block-section-races-10",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-028",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-11",
+      "optionId": "section-races-block-section-races-11",
+      "context": "Хобгоблін",
+      "explanationBlockId": "block-section-races-11",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-029",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-12",
+      "optionId": "section-races-block-section-races-12",
+      "context": "Людина",
+      "explanationBlockId": "block-section-races-12"
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-030",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-13",
+      "optionId": "section-races-block-section-races-13-item-0",
+      "context": "Варіантна людина",
+      "explanationBlockId": "block-section-races-13",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-031",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-14",
+      "optionId": "section-races-block-section-races-14",
+      "context": "Дикий Тіфлінг Путівник по Узбережжю Мечів",
+      "explanationBlockId": "block-section-races-14",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-032",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-lineages",
+      "targetBlockId": "block-section-lineages-2",
+      "optionId": "section-lineages-block-section-lineages-2-item-0",
+      "context": "Дампір",
+      "explanationBlockId": "block-section-lineages-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-033",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-lineages",
+      "targetBlockId": "block-section-lineages-2",
+      "optionId": "section-lineages-block-section-lineages-2-item-1",
+      "context": "Відьмокров",
+      "explanationBlockId": "block-section-lineages-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-034",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-lineages",
+      "targetBlockId": "block-section-lineages-2",
+      "optionId": "section-lineages-block-section-lineages-2-item-2",
+      "context": "Переродженець",
+      "explanationBlockId": "block-section-lineages-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-035",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races-of-eberron",
+      "targetBlockId": "block-section-races-of-eberron-1",
+      "optionId": "section-races-of-eberron-block-section-races-of-eberron-1",
+      "context": "Воєнокований",
+      "explanationBlockId": "block-section-races-of-eberron-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-036",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-4",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-4-item-0",
+      "context": "Мітка Охорони",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-037",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-6",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-6-item-0",
+      "context": "Мітка Тіні",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-038",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-8",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-8-item-0",
+      "context": "Мітка Письма",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-8",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-039",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-10",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-10-item-0",
+      "context": "Мітка Створення",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-10",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-040",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-10",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-10-item-1",
+      "context": "Мітка Переходу",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-10",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-041",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races-eberron-dragonmarks",
+      "targetBlockId": "block-section-races-eberron-dragonmarks-10",
+      "optionId": "section-races-eberron-dragonmarks-block-section-races-eberron-dragonmarks-10-item-2",
+      "context": "Мітка Вартового",
+      "explanationBlockId": "block-section-races-eberron-dragonmarks-10",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-042",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races-of-ravnica",
+      "targetBlockId": "block-section-races-of-ravnica-1",
+      "optionId": "section-races-of-ravnica-block-section-races-of-ravnica-1",
+      "context": "Симічний гібрид",
+      "explanationBlockId": "block-section-races-of-ravnica-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-043",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-races-of-ravnica",
+      "targetBlockId": "block-section-races-of-ravnica-2",
+      "optionId": "section-races-of-ravnica-block-section-races-of-ravnica-2",
+      "context": "Ведалкен",
+      "explanationBlockId": "block-section-races-of-ravnica-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-044",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-0",
+      "context": "Боєць з двома зброями",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-045",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-1",
+      "context": "Доторк феї",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-046",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-2",
+      "context": "Рухливий",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-047",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-3",
+      "context": "Вартовий",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-048",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-4",
+      "context": "Доторк тіні",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-049",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-5",
+      "context": "Експерт у навичках",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-050",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-6",
+      "context": "Скритний",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-051",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-7",
+      "context": "Телекінетик",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-052",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-8",
+      "context": "Телепат",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-053",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-9",
+      "context": "Бойовий заклинатель",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-054",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armor",
+      "targetBlockId": "block-section-armor-1",
+      "optionId": "section-armor-block-section-armor-1-item-0",
+      "context": "Кольчужна сорочка",
+      "explanationBlockId": "block-section-armor-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-055",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armor",
+      "targetBlockId": "block-section-armor-1",
+      "optionId": "section-armor-block-section-armor-1-item-1",
+      "context": "Лускатий обладунок",
+      "explanationBlockId": "block-section-armor-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-056",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armor",
+      "targetBlockId": "block-section-armor-1",
+      "optionId": "section-armor-block-section-armor-1-item-2",
+      "context": "Кіраса",
+      "explanationBlockId": "block-section-armor-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-057",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armor",
+      "targetBlockId": "block-section-armor-1",
+      "optionId": "section-armor-block-section-armor-1-item-3",
+      "context": "Лати",
+      "explanationBlockId": "block-section-armor-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-058",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armor",
+      "targetBlockId": "block-section-armor-1",
+      "optionId": "section-armor-block-section-armor-1-item-4",
+      "context": "Щит",
+      "explanationBlockId": "block-section-armor-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-059",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-artificer-infusions",
+      "targetBlockId": "block-section-armorer-artificer-infusions-2",
+      "optionId": "section-armorer-artificer-infusions-block-section-armorer-artificer-infusions-2-item-0",
+      "context": "Слуга-гомункул",
+      "explanationBlockId": "block-section-armorer-artificer-infusions-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-060",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-artificer-infusions",
+      "targetBlockId": "block-section-armorer-artificer-infusions-2",
+      "optionId": "section-armorer-artificer-infusions-block-section-armorer-artificer-infusions-2-item-1",
+      "context": "Репліка",
+      "explanationBlockId": "block-section-armorer-artificer-infusions-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-061",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-artificer-infusions",
+      "targetBlockId": "block-section-armorer-artificer-infusions-2",
+      "optionId": "section-armorer-artificer-infusions-block-section-armorer-artificer-infusions-2-item-2",
+      "context": "Репліка",
+      "explanationBlockId": "block-section-armorer-artificer-infusions-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-062",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-artificer-infusions",
+      "targetBlockId": "block-section-armorer-artificer-infusions-2",
+      "optionId": "section-armorer-artificer-infusions-block-section-armorer-artificer-infusions-2-item-3",
+      "context": "Репліка",
+      "explanationBlockId": "block-section-armorer-artificer-infusions-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-063",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-artificer-infusions",
+      "targetBlockId": "block-section-armorer-artificer-infusions-2",
+      "optionId": "section-armorer-artificer-infusions-block-section-armorer-artificer-infusions-2-item-4",
+      "context": "Репліка",
+      "explanationBlockId": "block-section-armorer-artificer-infusions-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-064",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-artificer-infusions",
+      "targetBlockId": "block-section-armorer-artificer-infusions-2",
+      "optionId": "section-armorer-artificer-infusions-block-section-armorer-artificer-infusions-2-item-5",
+      "context": "Репліка",
+      "explanationBlockId": "block-section-armorer-artificer-infusions-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-armorer-2014-065",
+      "articleId": "rpgbot-artificer-armorer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-armorer-2014-draft1",
+      "sectionId": "section-armorer-artificer-infusions",
+      "targetBlockId": "block-section-armorer-artificer-infusions-2",
+      "optionId": "section-armorer-artificer-infusions-block-section-armorer-artificer-infusions-2-item-6",
+      "context": "Репліка",
+      "explanationBlockId": "block-section-armorer-artificer-infusions-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

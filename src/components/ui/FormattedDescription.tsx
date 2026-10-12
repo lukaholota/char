@@ -11,6 +11,7 @@ import { findSpellLinkInHref } from "@/lib/spell-link";
 import { SpellAnchor } from "@/components/ui/SpellAnchor";
 import { RuleTermAnchor } from "@/components/ui/RuleTermAnchor";
 import { findTermLinkInHref } from "@/lib/term-link";
+import { CreatureAnchor, findCreatureReadingLink } from "@/components/ui/CreatureAnchor";
 
 const sanitizeSchema = {
   ...defaultSchema,
@@ -64,9 +65,11 @@ function preserveSingleLineBreaks(markdown?: string | null): string {
 export const FormattedDescription = React.memo(function FormattedDescription({
   content,
   className,
+  headingAnchors,
 }: {
   content?: string | null;
   className?: string;
+  headingAnchors?: Readonly<Record<string, string>>;
 }) {
   return (
     <div className={className}>
@@ -74,10 +77,23 @@ export const FormattedDescription = React.memo(function FormattedDescription({
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[[rehypeRaw], [rehypeSanitize, sanitizeSchema]]}
         components={{
-          strong: ({ children }) => <span className="accent-strong font-semibold">{children}</span>,
+          h3: ({ children }) => <h3 id={headingAnchors?.[React.Children.toArray(children).join("")]} className="scroll-mt-24">{children}</h3>,
+          em: ({ children, node }) => {
+            const hasBoldHeading = node?.children.some((child) => child.type === "element" && child.tagName === "strong");
+            const anchor = hasBoldHeading ? headingAnchors?.[readNodeText(children)] : undefined;
+            return <em id={anchor} className={anchor ? "scroll-mt-24" : undefined}>{children}</em>;
+          },
+          strong: ({ children }) => {
+            const title = readNodeText(children);
+            const anchor = title.endsWith(".") ? headingAnchors?.[title.slice(0, -1)] : undefined;
+            return <span id={anchor} className={`accent-strong font-semibold${anchor ? " scroll-mt-24" : ""}`}>{children}</span>;
+          },
           a: ({ href, children }) => {
             const spellLink = findSpellLinkInHref(href);
             const termLink = spellLink ? null : findTermLinkInHref(href);
+            const creatureLink = findCreatureReadingLink(href);
+
+            if (creatureLink) return <CreatureAnchor key={`${creatureLink.ruleset}:${creatureLink.key}`} href={href!} creatureLink={creatureLink}>{children}</CreatureAnchor>;
 
             if (termLink) {
               return (
@@ -125,3 +141,8 @@ export const FormattedDescription = React.memo(function FormattedDescription({
     </div>
   );
 });
+
+function readNodeText(children: React.ReactNode): string {
+  return React.Children.toArray(children).map((child) => React.isValidElement<{ children?: React.ReactNode }>(child)
+    ? readNodeText(child.props.children) : String(child)).join("");
+}

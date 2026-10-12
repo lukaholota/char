@@ -1,6 +1,6 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
   CATALOG_REGISTRY,
   collectMenuCatalogs,
@@ -8,6 +8,7 @@ import {
   findCatalogHref,
   findCatalogSearchTitle,
   findCatalogTitle,
+  isCatalogSearchIndexedInEdition,
 } from "@/lib/catalogs/catalog-registry";
 import { collectHomeCardRows, collectHomeCategories } from "@/components/home/homeCategories";
 import { buildOmniSearchIndex, isCatalogShortcut } from "@/lib/omniSearchData";
@@ -87,7 +88,7 @@ describe("KR36.1 — один реєстр каталогів", () => {
         const rows = buildOmniSearchIndex(toRuleset(edition)).filter(
           (item) => item.category === entry.slug && !isCatalogShortcut(item),
         );
-        const expectsRows = entry.search === "index" && entry.editions.includes(edition);
+        const expectsRows = isCatalogSearchIndexedInEdition(entry, edition);
         expect(rows.length > 0, `${entry.slug} у ${edition}: ${rows.length} рядків, режим ${entry.search}`).toBe(expectsRows);
       }
     }
@@ -158,6 +159,15 @@ describe("KR36.1 — один реєстр каталогів", () => {
     }
   });
 
+  /// Власник, 2026-10-03: «Аналітика RPGbot» — окрема плитка одразу після «Класів».
+  it("плитка RPGbot стоїть одразу після класів, а зброя — за нею, в обох редакціях", () => {
+    for (const edition of EDITIONS) {
+      const slugs = collectHomeCardRows(edition).tiles.map((tile) => tile.category.slug);
+      const classesIndex = slugs.indexOf("classes");
+      expect(slugs.slice(classesIndex, classesIndex + 3), edition).toEqual(["classes", "rpgbot", "weapons"]);
+    }
+  });
+
   it("каталог рас зветься «Раси» в обох редакціях", () => {
     expect(findCatalogTitle("races")).toBe("Раси");
     expect(findCatalogSearchTitle("characters")).toBe("Мої персонажі");
@@ -193,5 +203,17 @@ describe("KR36.3 — бастіони й інфузії існують лише 
   it("жоден рядок індексу не веде на каталог поза його редакцією", () => {
     expect(buildOmniSearchIndex("RULES_2014").filter((item) => item.href.startsWith("/bastions"))).toEqual([]);
     expect(buildOmniSearchIndex("RULES_2024").filter((item) => item.href.startsWith("/infusions"))).toEqual([]);
+  });
+});
+
+describe("RPGbot 2024 outside the dev server", () => {
+  it("shows no 2024 tile, menu item or catalog link in a production build", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.resetModules();
+    const registry = await import("@/lib/catalogs/catalog-registry");
+    vi.unstubAllEnvs();
+    expect(registry.isCatalogInEdition("rpgbot", "2024")).toBe(false);
+    expect(registry.collectMenuCatalogs("2024").map((entry) => entry.slug)).not.toContain("rpgbot");
+    expect(registry.findCatalogHref("rpgbot", "2014")).toBe("/rules/optimization");
   });
 });

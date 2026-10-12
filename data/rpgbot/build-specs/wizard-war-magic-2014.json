@@ -1,0 +1,381 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-war-magic-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-war-magic-2014-draft1",
+    "sourceRevisionId": "rpgbot-950ea05c03c70f15-dd1f140dcd2e05ff"
+  },
+  "exampleSection": "section-example-war-magic-tradition-build-trigger-discipline",
+  "levelTableSection": "section-levels",
+  "classKey": "ARTIFICER_2014",
+  "subclassKey": "ARMORER",
+  "raceKey": "HARENGON_MPMM",
+  "backgroundKey": "SHIPWRIGHT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 15,
+    "WIS": 8,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": [
+      1
+    ],
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "find-familiar",
+          "fog-cloud",
+          "sleep"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 3
+        },
+        {
+          "category": "spellbook",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "classKey": "WIZARD_2014",
+      "subclassKey": "SCHOOL_OF_WAR_MAGIC",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "blur",
+          "hold-person"
+        ]
+      }
+    },
+    {
+      "level": 5,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "spellbookKeys": [
+          "web"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "fireball",
+          "hypnotic-pattern"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "major-image",
+          "phantom-steed"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "phantasmal-killer",
+          "polymorph"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "spellbookKeys": [
+          "sickening-radiance",
+          "wall-of-fire"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "hold-monster",
+          "wall-of-force"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "wall-of-stone"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "contingency",
+          "disintegrate"
+        ]
+      }
+    },
+    {
+      "level": 13,
+      "classKey": "WIZARD_2014",
+      "featKey": "ALERT",
+      "section": "section-feats",
+      "spells": {
+        "spellbookKeys": [
+          "true-seeing"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 14,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "forcecage",
+          "reverse-gravity"
+        ]
+      }
+    },
+    {
+      "level": 15,
+      "classKey": "WIZARD_2014",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "illusory-dragon",
+          "maze"
+        ]
+      }
+    },
+    {
+      "level": 17,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "foresight",
+          "wish"
+        ]
+      }
+    },
+    {
+      "level": 19,
+      "classKey": "WIZARD_2014",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Замовляння",
+      "reason": "Автор не називає ні замовлянь Винахідника, ні замовлянь Чарівника; замовляння Винахідника обрано за вас, замовляння Чарівника лишено гравцеві.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Покращення здібності (4-й рівень)",
+      "reason": "Автор бере Покращення здібності, якої немає у списку Чарівника. Пресет бере замість неї Розмиття — близьке за ролью захисне заклинання 2-го кола Чарівника (вибір платформи); можна змінити на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання книги на рівнях 3–20",
+      "reason": "Автор групує заклинання за колом (на 6-му рівні чотири 3-го кола тощо), а Чарівник додає до книги лише два на рівень. Пресет записує названі заклинання по два на рівень у порядку автора, не раніше доступного кола; вільні місця (3-й рівень і останні рівні) та замовляння 5-го й 11-го рівнів — вибір платформи, автор не називає; можна змінити на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Майстерність заклинань",
+      "reason": "Автор радить Майстерність заклинань на 19-му рівні, не називаючи заклинань, а каталог не має вибору цих заклинань; гравець обирає їх на листі.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/wizard-war-magic-2014.webp",
+    "title": "Винахідник 1 / Чарівник — Бойова магія, Гаренгон",
+    "description": "Мультиклас Винахідник 1 / Чарівник Традиції бойової магії: Гаренгон із Зайчачим рефлексом, середні обладунки й щит, Корабельний майстер з Акробатикою й Непомітністю.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CON",
+      "INT"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INVESTIGATION",
+        "HISTORY"
+      ],
+      "race": [],
+      "background": [
+        "ACROBATICS",
+        "STEALTH"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": [
+          "DAGGER",
+          "DAGGER"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "mending"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Автор не називає замовлянь Винахідника; Настанову та Лагодження ми обрали за вас — вибір платформи.",
+      "platformChoices": [
+        "classCantrips"
+      ]
+    },
+    "abilityExplanation": "Гаренгон за правилами Таші: +1 до Спритності, Статури й Інтелекту: 16/16/16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Розслідування й Історія — від Винахідника, Уважність — від Гаренгона. Корабельний майстер дає Історію й Уважність, які вже є, тож їх замінено на Акробатику й Непомітність, як радить автор. Мову ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Лускова броня (середній обладунок) — за порадою автора; щитом Винахідник володіє, але стартового щита в наборі немає. Два кинджали, легкий арбалет, набір дослідника підземель та інструменти злодія ми обрали за вас — вибір платформи."
+  }
+}

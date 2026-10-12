@@ -1,0 +1,129 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "druid-circle-of-wildfire-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+    "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf"
+  },
+  "exampleSection": "section-example-circle-of-wildfire-druid-build-gamera",
+  "levelTableSection": "section-levels",
+  "classKey": "DRUID_2014",
+  "subclassKey": "CIRCLE_OF_WILDFIRE",
+  "raceKey": "TORTLE_MPMM",
+  "backgroundKey": "SOLDIER",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "revision": 2,
+  "levels": [
+    {"level": 2, "subclassKey": "CIRCLE_OF_WILDFIRE"},
+    {"level": 3},
+    {"level": 4, "featKey": "WAR_CASTER", "spells": {"cantripKeys": ["druidcraft"]}, "section": "section-feats"},
+    {"level": 5, "classKey": "CLERIC_2014", "subclassKey": "ARCANA_DOMAIN", "spells": {"cantripKeys": ["light", "mending", "thaumaturgy"]}, "classOptionSpellKeys": ["green-flame-blade", "booming-blade"]},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8},
+    {"level": 9, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats"},
+    {"level": 10},
+    {"level": 11, "openSpellPicks": [{"category": "cantrips", "count": 1}]},
+    {"level": 12},
+    {"level": 13, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats"},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16},
+    {"level": 17, "featKey": "POLEARM_MASTER", "section": "section-feats"},
+    {"level": 18},
+    {"level": 19},
+    {"level": 20, "featKey": "TOUGH", "section": "section-feats"}
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [],
+  "incomplete": [
+    {
+      "field": "Підготовлені заклинання 2–20 рівнів",
+      "reason": "Автор називає колові й підготовлені заклинання по рівнях, але підготовку Друїда й Клірика на вищих рівнях плану не веде жоден модуль платформи.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння Друїда 10-го рівня",
+      "reason": "На 11-му рівні персонажа (Друїд 10) автор не називає нового замовляння, тож вибір лишено гравцеві.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/druid-wildfire-tortle-2014.webp",
+    "title": "Друїд Кола дикого вогню — Черепаха",
+    "description": "Друїд-черепаха зі списом і щитом: КБ 19 без обладунків, Сила, Статура й Мудрість по 16. Починає із замовляннями Створення багаття й Терновий батіг; Коло дикого вогню відкриється на 2-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "STR",
+      "CON",
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "PERCEPTION",
+        "SURVIVAL"
+      ],
+      "race": [
+        "NATURE"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "SPEAR"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Черепаха за правилами Таші з розподілом +1/+1/+1, як радить автор: Сила, Статура й Мудрість по 16; це вже враховано.",
+    "skillExplanation": "Уважність і Виживання — від Друїда, Атлетика — від Солдата (автор радить подбати саме про Атлетику). Навичку черепахи (Природа), передісторію Солдат і мову ми обрали за вас: автор каже «оберіть будь-яку».",
+    "equipmentExplanation": "Спис і щит — за авторським прикладом. Шкіряну броню, набір мандрівника й друїдичний фокус дає стандартний набір Друїда; автор обладунків не одягає, бо природний КБ черепахи 17.",
+    "spells": {
+      "classCantripKeys": [
+        "create-bonfire",
+        "thorn-whip"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Створення багаття й Терновий батіг узято з рядка 1-го рівня авторської таблиці. Підготовлених заклинань автор не називає; Друїд обирає їх на аркуші персонажа."
+    }
+  }
+}

@@ -1,0 +1,1117 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-ce0523974368d7fb",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-ce0523974368d7fb-d38496300ed894b3",
+      "sourceId": "rpgbot-ce0523974368d7fb",
+      "fetchedAt": "2026-09-29T19:22:20.454258+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:39:30-04:00",
+      "contentHash": "795695a66b501d0681c95e36d561bc89933f1cbbab5a21066b76e2e34c4c9c53",
+      "title": "Spell Sniper: DnD 5e Feat Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-ce0523974368d7fb-d38496300ed894b3.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-spell-sniper-2014",
+    "sourceId": "rpgbot-ce0523974368d7fb",
+    "slug": "spell-sniper-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Снайпер заклять — гайд риси (2014)",
+    "titleEn": "Spell Sniper: DnD 5e Feat Guide",
+    "topics": [
+      "риси",
+      "заклинання"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "sourceRevisionId": "rpgbot-ce0523974368d7fb-d38496300ed894b3",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Снайпер заклять|Spell Sniper}} легко пропустити серед "
+                },
+                {
+                  "type": "link",
+                  "text": "чаротворчих рис",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/"
+                },
+                {
+                  "type": "text",
+                  "text": ", але він належить до них, оскільки дозволяє обрати заклинання поза класовими вміннями. Головна перевага — додати хорошу дистанційну атаку заклинанням класам, які її не мають, та прибрати незручність укриття для класів на кшталт Чорнокнижника, які сильно покладаються на атаки заклинаннями."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки доступні лише замовляння з атаками заклинаннями, вибір дуже обмежений, і небагато варіантів варті уваги. Ви використовуєте чаротворчу характеристику класу, зі списку якого берете заклинання, тож чаротворці зазвичай обмежені класами з тією самою характеристикою. Це суттєво звужує користь Снайпера заклять. Ще гірше — у кількох чаротворчих класів узагалі немає відповідних замовлянь.\n\nРедакційна примітка: буквальний критерій вибору риси — замовляння, що вимагає кидка атаки. Переваги щодо дальності й укриття мають власні умови; взяти замовляння з атакою зброєю не означає перетворити її на атаку заклинанням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дуже вузьке призначення, бідний вибір замовлянь і ситуативність інших переваг залишають небагато персонажів, яким риса суттєво допомагає. Чорнокнижникам, що сильно покладаються на Позамежний заряд [Eldritch Blast], корисне ігнорування укриття. Бардам і Чаклунам Позамежний заряд сподобається як основне замовляння шкоди, але це майже всі справді корисні переваги. Іншим персонажам краще підійде {{Посвячений у магію|Magic Initiate}}. Навіть класи, які виграють від Снайпера заклять, імовірно, отримають більше від Посвяченого у магію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше про чаротворчі риси, зокрема оцінки різних рис, дивіться у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді чаротворчих рис",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spell-sniper/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spell-sniper/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання Снайпера заклять",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spell-sniper/#spell-sniper-spell-options"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Замовляння Барда",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spell-sniper/#bard-cantrip-options"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Замовляння Клірика",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spell-sniper/#cleric-cantrip-options"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Замовляння Друїда",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spell-sniper/#druid-cantrip-options"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Замовляння Чаклуна",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spell-sniper/#sorcerer-cantrip-options"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Замовляння Чорнокнижника",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spell-sniper/#warlock-cantrip-options"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Замовляння Чарівника",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spell-sniper/#wizard-cantrip-options"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spell-sniper-spell-options",
+          "heading": "Заклинання Снайпера заклять",
+          "sourceAnchor": "spell-sniper-spell-options",
+          "blocks": [
+            {
+              "blockId": "block-section-spell-sniper-spell-options-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Повний перелік доступних заклинань та їхні описи є на "
+                },
+                {
+                  "type": "link",
+                  "text": "DnDBeyond",
+                  "href": "https://www.dndbeyond.com/spells"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard-cantrip-options",
+          "parentSectionId": "section-spell-sniper-spell-options",
+          "heading": "Замовляння Барда",
+          "sourceAnchor": "bard-cantrip-options",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-cantrip-options-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Барди не мають замовлянь, які підходять для Снайпера заклять."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric-cantrip-options",
+          "parentSectionId": "section-spell-sniper-spell-options",
+          "heading": "Замовляння Клірика",
+          "sourceAnchor": "cleric-cantrip-options",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-cantrip-options-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірики не мають замовлянь, які підходять для Снайпера заклять."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid-cantrip-options",
+          "parentSectionId": "section-spell-sniper-spell-options",
+          "heading": "Замовляння Друїда",
+          "sourceAnchor": "druid-cantrip-options",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-cantrip-options-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання Друїда можуть зацікавити Кліриків і Слідопитів зі стилем {{Друїдичний воїн|Druidic Warrior}}. Для Клірика Терновий батіг [Thorn Whip] фактично єдиний вартий уваги варіант. Слідопит уже може отримати всі ці заклинання, а ігнорування часткового укриття з ними настільки ситуативне, що майже немає причин вважати це перевагою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-druid-cantrip-options-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Чарівний камінь [Magic Stone",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "]: чесно кажучи, я не знаю, чи підходить воно, але думаю, що так: нічого цікавого не відбувається без атаки. Навіть якщо підходить, це поганий вибір."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Первісна дикість [Primal Savagery",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо ви можете додати до атак зброєю будь-яку шкоду понад модифікатор характеристики — {{Божественний удар|Divine Strike}}, Мисливська мітка [Hunter’s Mark] тощо — вони, імовірно, випереджатимуть це замовляння до високих рівнів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Створення вогню [Produce Flame]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Священне полумʼя [Sacred Flame] значно краще. Якщо воно вам доступне, я б не витрачав увагу на Створення вогню."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Терновий батіг [Thorn Whip]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": підтягування приємне."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer-cantrip-options",
+          "parentSectionId": "section-spell-sniper-spell-options",
+          "heading": "Замовляння Чаклуна",
+          "sourceAnchor": "sorcerer-cantrip-options",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-cantrip-options-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чаклун отримує Вогняний заряд [Fire Bolt] та Промінь холоду [Ray of Frost], яких немає у Барда й Чорнокнижника. Решта його варіантів перетинається зі списком Чорнокнижника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sorcerer-cantrip-options-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Гримучий Клинок [Booming Blade]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG / TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Навіщо брати Снайпера заклять заради замовляння ближнього бою?"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Моторошний дотик [Chill Touch]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Надто ситуативне, щоб виправдати вибір замість надійнішого замовляння з більшою шкодою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вогняний заряд [Fire Bolt]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": проста, надійна шкода на відстані. Єдина проблема — поширений опір до вогню. Але єдиний, хто міг би обґрунтовано взяти це, — Бард, а йому доступний Позамежний заряд, тож не приваблює буквально нікого."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клинок Зеленого Полумʼя [Green-Flame Blade]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG / TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Навіщо брати Снайпера заклять заради замовляння ближнього бою?"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Промінь холоду [Ray of Frost]: пристойна шкода й прийнятне послаблення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шокувальний дотик [Shocking Grasp]: Навіщо брати Снайпера заклять заради замовляння ближнього бою?"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock-cantrip-options",
+          "parentSectionId": "section-spell-sniper-spell-options",
+          "heading": "Замовляння Чорнокнижника",
+          "sourceAnchor": "warlock-cantrip-options",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-cantrip-options-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Позамежний заряд [Eldritch Blast]. Міг би продовжити, але, чесно кажучи, цим усе сказано. Додайте Позамежний заряд своєму Барду чи Чаклуну."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-warlock-cantrip-options-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Гримучий Клинок [Booming Blade]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG / TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Навіщо брати Снайпера заклять заради замовляння ближнього бою?"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Моторошний дотик [Chill Touch]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Надто ситуативне, щоб виправдати вибір замість надійнішого замовляння з більшою шкодою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Позамежний заряд [Eldritch Blast]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": визначальна причина обрати Снайпера заклять. Хороша дальність і шкода, кілька атак, а опір до силової шкоди майже не трапляється."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клинок Зеленого Полумʼя [Green-Flame Blade]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG / TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Навіщо брати Снайпера заклять заради замовляння ближнього бою?"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чарівний камінь [Magic Stone]: чесно кажучи, я не знаю, чи підходить воно, але думаю, що так: нічого цікавого не відбувається без атаки. Навіть якщо підходить, це поганий вибір."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard-cantrip-options",
+          "parentSectionId": "section-spell-sniper-spell-options",
+          "heading": "Замовляння Чарівника",
+          "sourceAnchor": "wizard-cantrip-options",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-cantrip-options-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Єдиний чаротворець, якого це може зацікавити, — Винахідник, а він уже отримує майже всі ці заклинання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-wizard-cantrip-options-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Гримучий Клинок [Booming Blade]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG / TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": уже є у списку заклинань Винахідника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Моторошний дотик [Chill Touch]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Надто ситуативне, щоб виправдати вибір замість надійнішого замовляння з більшою шкодою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вогняний заряд [Fire Bolt]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": уже є у списку заклинань Винахідника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клинок Зеленого Полумʼя [Green-Flame Blade]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCAG / TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": уже є у списку заклинань Винахідника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Промінь холоду [Ray of Frost]: уже є у списку заклинань Винахідника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шокувальний дотик [Shocking Grasp]: уже є у списку заклинань Винахідника."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-spell-sniper-2014-001",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-bard-cantrip-options",
+      "targetBlockId": "block-section-bard-cantrip-options-1",
+      "optionId": "section-bard-cantrip-options",
+      "context": "Замовляння Барда",
+      "explanationBlockId": "block-section-bard-cantrip-options-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-002",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-cleric-cantrip-options",
+      "targetBlockId": "block-section-cleric-cantrip-options-1",
+      "optionId": "section-cleric-cantrip-options",
+      "context": "Замовляння Клірика",
+      "explanationBlockId": "block-section-cleric-cantrip-options-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-003",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-druid-cantrip-options",
+      "targetBlockId": "block-section-druid-cantrip-options-1",
+      "optionId": "section-druid-cantrip-options",
+      "context": "Замовляння Друїда",
+      "explanationBlockId": "block-section-druid-cantrip-options-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-004",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-druid-cantrip-options",
+      "targetBlockId": "block-section-druid-cantrip-options-2",
+      "optionId": "section-druid-cantrip-options-block-section-druid-cantrip-options-2-item-0",
+      "context": "Чарівний камінь [Magic Stone]",
+      "explanationBlockId": "block-section-druid-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-005",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-druid-cantrip-options",
+      "targetBlockId": "block-section-druid-cantrip-options-2",
+      "optionId": "section-druid-cantrip-options-block-section-druid-cantrip-options-2-item-1",
+      "context": "Первісна дикість [Primal Savagery]XGtE",
+      "explanationBlockId": "block-section-druid-cantrip-options-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-006",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-druid-cantrip-options",
+      "targetBlockId": "block-section-druid-cantrip-options-2",
+      "optionId": "section-druid-cantrip-options-block-section-druid-cantrip-options-2-item-2",
+      "context": "Створення вогню [Produce Flame]PHB",
+      "explanationBlockId": "block-section-druid-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-007",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-druid-cantrip-options",
+      "targetBlockId": "block-section-druid-cantrip-options-2",
+      "optionId": "section-druid-cantrip-options-block-section-druid-cantrip-options-2-item-3",
+      "context": "Терновий батіг [Thorn Whip]PHB",
+      "explanationBlockId": "block-section-druid-cantrip-options-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-008",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-sorcerer-cantrip-options",
+      "targetBlockId": "block-section-sorcerer-cantrip-options-1",
+      "optionId": "section-sorcerer-cantrip-options",
+      "context": "Замовляння Чаклуна",
+      "explanationBlockId": "block-section-sorcerer-cantrip-options-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-009",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-sorcerer-cantrip-options",
+      "targetBlockId": "block-section-sorcerer-cantrip-options-2",
+      "optionId": "section-sorcerer-cantrip-options-block-section-sorcerer-cantrip-options-2-item-0",
+      "context": "Гримучий Клинок [Booming Blade]SCAG / TCoE",
+      "explanationBlockId": "block-section-sorcerer-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-010",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-sorcerer-cantrip-options",
+      "targetBlockId": "block-section-sorcerer-cantrip-options-2",
+      "optionId": "section-sorcerer-cantrip-options-block-section-sorcerer-cantrip-options-2-item-1",
+      "context": "Моторошний дотик [Chill Touch]PHB",
+      "explanationBlockId": "block-section-sorcerer-cantrip-options-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-011",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-sorcerer-cantrip-options",
+      "targetBlockId": "block-section-sorcerer-cantrip-options-2",
+      "optionId": "section-sorcerer-cantrip-options-block-section-sorcerer-cantrip-options-2-item-2",
+      "context": "Вогняний заряд [Fire Bolt]PHB",
+      "explanationBlockId": "block-section-sorcerer-cantrip-options-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-012",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-sorcerer-cantrip-options",
+      "targetBlockId": "block-section-sorcerer-cantrip-options-2",
+      "optionId": "section-sorcerer-cantrip-options-block-section-sorcerer-cantrip-options-2-item-3",
+      "context": "Клинок Зеленого Полумʼя [Green-Flame Blade]SCAG / TCoE",
+      "explanationBlockId": "block-section-sorcerer-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-013",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-sorcerer-cantrip-options",
+      "targetBlockId": "block-section-sorcerer-cantrip-options-2",
+      "optionId": "section-sorcerer-cantrip-options-block-section-sorcerer-cantrip-options-2-item-4",
+      "context": "Промінь холоду [Ray of Frost]",
+      "explanationBlockId": "block-section-sorcerer-cantrip-options-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-014",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-sorcerer-cantrip-options",
+      "targetBlockId": "block-section-sorcerer-cantrip-options-2",
+      "optionId": "section-sorcerer-cantrip-options-block-section-sorcerer-cantrip-options-2-item-5",
+      "context": "Шокувальний дотик [Shocking Grasp]",
+      "explanationBlockId": "block-section-sorcerer-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-015",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-warlock-cantrip-options",
+      "targetBlockId": "block-section-warlock-cantrip-options-1",
+      "optionId": "section-warlock-cantrip-options",
+      "context": "Замовляння Чорнокнижника",
+      "explanationBlockId": "block-section-warlock-cantrip-options-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-016",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-warlock-cantrip-options",
+      "targetBlockId": "block-section-warlock-cantrip-options-2",
+      "optionId": "section-warlock-cantrip-options-block-section-warlock-cantrip-options-2-item-0",
+      "context": "Гримучий Клинок [Booming Blade]SCAG / TCoE",
+      "explanationBlockId": "block-section-warlock-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-017",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-warlock-cantrip-options",
+      "targetBlockId": "block-section-warlock-cantrip-options-2",
+      "optionId": "section-warlock-cantrip-options-block-section-warlock-cantrip-options-2-item-1",
+      "context": "Моторошний дотик [Chill Touch]PHB",
+      "explanationBlockId": "block-section-warlock-cantrip-options-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-018",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-warlock-cantrip-options",
+      "targetBlockId": "block-section-warlock-cantrip-options-2",
+      "optionId": "section-warlock-cantrip-options-block-section-warlock-cantrip-options-2-item-2",
+      "context": "Позамежний заряд [Eldritch Blast]PHB",
+      "explanationBlockId": "block-section-warlock-cantrip-options-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-019",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-warlock-cantrip-options",
+      "targetBlockId": "block-section-warlock-cantrip-options-2",
+      "optionId": "section-warlock-cantrip-options-block-section-warlock-cantrip-options-2-item-3",
+      "context": "Клинок Зеленого Полумʼя [Green-Flame Blade]SCAG / TCoE",
+      "explanationBlockId": "block-section-warlock-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-020",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-warlock-cantrip-options",
+      "targetBlockId": "block-section-warlock-cantrip-options-2",
+      "optionId": "section-warlock-cantrip-options-block-section-warlock-cantrip-options-2-item-4",
+      "context": "Чарівний камінь [Magic Stone]",
+      "explanationBlockId": "block-section-warlock-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-021",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-wizard-cantrip-options",
+      "targetBlockId": "block-section-wizard-cantrip-options-1",
+      "optionId": "section-wizard-cantrip-options",
+      "context": "Замовляння Чарівника",
+      "explanationBlockId": "block-section-wizard-cantrip-options-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-022",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-wizard-cantrip-options",
+      "targetBlockId": "block-section-wizard-cantrip-options-2",
+      "optionId": "section-wizard-cantrip-options-block-section-wizard-cantrip-options-2-item-0",
+      "context": "Гримучий Клинок [Booming Blade]SCAG / TCoE",
+      "explanationBlockId": "block-section-wizard-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-023",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-wizard-cantrip-options",
+      "targetBlockId": "block-section-wizard-cantrip-options-2",
+      "optionId": "section-wizard-cantrip-options-block-section-wizard-cantrip-options-2-item-1",
+      "context": "Моторошний дотик [Chill Touch]PHB",
+      "explanationBlockId": "block-section-wizard-cantrip-options-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-024",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-wizard-cantrip-options",
+      "targetBlockId": "block-section-wizard-cantrip-options-2",
+      "optionId": "section-wizard-cantrip-options-block-section-wizard-cantrip-options-2-item-2",
+      "context": "Вогняний заряд [Fire Bolt]PHB",
+      "explanationBlockId": "block-section-wizard-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-025",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-wizard-cantrip-options",
+      "targetBlockId": "block-section-wizard-cantrip-options-2",
+      "optionId": "section-wizard-cantrip-options-block-section-wizard-cantrip-options-2-item-3",
+      "context": "Клинок Зеленого Полумʼя [Green-Flame Blade]SCAG / TCoE",
+      "explanationBlockId": "block-section-wizard-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-026",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-wizard-cantrip-options",
+      "targetBlockId": "block-section-wizard-cantrip-options-2",
+      "optionId": "section-wizard-cantrip-options-block-section-wizard-cantrip-options-2-item-4",
+      "context": "Промінь холоду [Ray of Frost]",
+      "explanationBlockId": "block-section-wizard-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-spell-sniper-2014-027",
+      "articleId": "rpgbot-spell-sniper-2014",
+      "translationRevisionId": "translation-rpgbot-spell-sniper-2014-draft1",
+      "sectionId": "section-wizard-cantrip-options",
+      "targetBlockId": "block-section-wizard-cantrip-options-2",
+      "optionId": "section-wizard-cantrip-options-block-section-wizard-cantrip-options-2-item-5",
+      "context": "Шокувальний дотик [Shocking Grasp]",
+      "explanationBlockId": "block-section-wizard-cantrip-options-2",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

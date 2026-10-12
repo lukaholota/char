@@ -1,1 +1,1 @@
-export { createCharacter, type CreateCharacterResult } from "@/server/db/character-creation";
+export { createCharacter, createCharacterFromBuild, type CreateCharacterResult } from "@/server/db/character-creation";

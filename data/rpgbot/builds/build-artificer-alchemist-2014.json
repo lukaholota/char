@@ -1,0 +1,748 @@
+{
+  "buildId": "build-artificer-alchemist-2014",
+  "revisionId": "build-artificer-alchemist-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад збірки Винахідника — Скельний гном, Винахідник-алхімік",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-artificer-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+      "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "ARTIFICER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "infusions": [
+          "Enhanced Arcane Focus",
+          "Enhanced Defense",
+          "Enhanced Weapon",
+          "Replicate: Bag of Holding"
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ALCHEMIST",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "infusions": [
+          "Resistant Armor",
+          "Replicate: Lantern of Revealing"
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ],
+        "infusions": [
+          "Replicate: Cloak of Protection",
+          "Replicate: Winged Boots"
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ],
+        "infusions": [
+          "Replicate: Amulet of Health",
+          "Replicate: Ring of Protection"
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "infusions": [
+          "Replicate: Boots of Speed",
+          "Replicate: Ring of Free Action"
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY",
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "ARTIFICER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-artificer-2014",
+          "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+          "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ALCHEMIST",
+    "raceKey": "GNOME_2014",
+    "backgroundKey": "GUILD_ARTISAN",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 14
+      },
+      {
+        "ability": "WIS",
+        "value": 12
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми припускатимемо характеристики за купівлею, запропоновані вище, але поміняємо місцями Статуру й Інтелект, щоб краще пасувало до нашої раси.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Скельний гном{{Rock Gnome}}. Підвищення Інтелекту доводить його до 16, а підвищення Статури теж доводить її до 16, що робить нас ефективними у класових уміннях і досить живучими.\n\n«Майстер-винахідник»{{Tinker}} — єдина особливо складна риса Скельного гнома{{Rock Gnome}}, але вона дає веселий спосіб підкреслити тему Винахідника.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Винахідник отримує дві навички зі свого класового списку, один вид інструментів ремісника та два фіксовані інструменти. Гільдійський ремісник{{Guild Artisan}} додасть Аналіз Поведінки, Переконання й ще один набір інструментів ремісника. Оберіть будь-які інструменти ремісника, що здаються вам цікавими.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-1",
+        "title": "Передісторія",
+        "text": "Гільдійський ремісник{{Guild Artisan}}. Володіння навичками не фантастичні для Винахідника, але передісторій, які не привʼязані до сеттингу й добре підходять, мало. {{Торговець-невдаха|Failed Merchant}} із «Корпорації пригодників»{{Acquisitions Incorporated}} працює добре й дає дуже дороге стартове спорядження.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-background-1",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Ця збірка не потребує рис. На високих рівнях, коли досягнете 20 Інтелекту, можна розглянути риси, але це не обовʼязково.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Магічне майстрування\nЧаротворство",
+        "notes": "Як стартове спорядження візьміть два кинджали, легкий арбалет із 20 болтами, лускатий обладунок, інструменти злодія й набір дослідника підземель. Арбалет корисний, коли вороги за межами дальності ваших замовлянь, але результат буде кращим, якщо продати його й на виручені гроші купити щит. На цьому рівні варіантів справді мало. Ви почуватиметеся радше дивним чарівником, ніж справжнім винахідником. Тримайте щит напоготові, готуйте заклинання, які не дадуть вам померти, і просто постарайтеся дожити до 2-го рівня. Вогняний заряд [Fire Bolt] завдасть достатньо шкоди, щоб ви були корисні в бою, а ваш довгий список володінь, «Майстер-винахідник»{{Tinker}} і «Магічне майстрування»{{Magical Tinkering}} дають багато утилітарних варіантів поза боєм. Візьміть Лікування ран [Cure Wounds], щоб допомагати союзникам у бою, але намагайтеся не користуватися ним, доки це не стане конче потрібно: у вас лише два слоти заклинань",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Вливання предмета\nПредмети з вливаннями: 2\nВідомі вливання:\n– Покращений арканний фокус\n– Покращений захист\n– Покращена зброя\n– Репліка магічного предмета (Сумка зберігання)",
+        "notes": "Саме на 2-му рівні Винахідник нарешті починає відчуватися таким, яким і має бути. Нових слотів заклинань ви не отримуєте, але 2 магічні предмети можуть різко посилити ваші можливості. Якщо вам більше нічого не потрібно, скористайтеся «Покращеним арканним фокусом»{{Enhanced Arcane Focus}} і «Покращеним захистом»{{Enhanced Defense}}, щоб підсилити заклинальні атаки й КБ. +1 до КБ підніме вас до КБ 19, тож ви матимете майже стільки ж КБ, як Воїн у латах. Якщо у вас є союзники, які вас захищають, подумайте про те, щоб поділитися «Покращеним захистом» і/або «Покращеною зброєю»{{Enhanced Weapon}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Спеціалізація Винахідника{{Artificer Specialist}}: Алхімік\nПотрібний інструмент для роботи\nВолодіння інструментами: будь-які\nЗаклинання алхіміка\nЕкспериментальний еліксир (1)",
+        "notes": "Третій рівень приносить багато добрих речей. Ви отримуєте ще один слот заклинань 1-го рівня якраз вчасно, щоб відкрити розширений список заклинань, зокрема геть незамінне Цілюще слово [healing word]. Можна перестати готувати Лікування ран [Cure Wounds] і натомість покладатися на Цілюще слово [healing word] для екстреного лікування в бою. Алхімік{{Alchemist}} отримує володіння приладдям алхіміка, але ми вже отримали його на 1-му рівні, тож можна замінити його будь-яким іншим володінням інструментами. «Потрібний інструмент для роботи»{{The Right Tool for the Job}} мало що змінює, але це, по суті, безкоштовний набір інструментів. Цей рівень також приносить «Експериментальний еліксир»{{Experimental Elixir}}. На безкоштовний еліксир не можна надійно розраховувати, але ви можете перетворювати заклинання на еліксири, щоб отримати купу корисних підсилень.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик (Статура, Інтелект 16 → 18)",
+        "notes": "Купа додаткових ХП, а ваші заклинальні атаки, СК заклинань і купа інших речей покращуються.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Алхімічний ерудит{{Alchemical Savant}}",
+        "notes": "На цьому рівні «Алхімічний ерудит»{{Alchemical Savant}} дає бонус +4 до одного кидка на заклинання. Ваші замовляння також покращуються на цьому рівні, тож з 1к10 від Вогняний заряд [Fire Bolt] ви переходите до 2к10+4, а це величезний приріст. Заклинання з рівнями теж виграють: Цілюще слово [healing word] тепер лікує 1к4+8 замість 1к4+4. 5-й рівень також приносить заклинання 2-го рівня. Список заклинань Алхіміка{{Alchemist}} пропонує два наступальні варіанти, тож обовʼязково підготуйте щось інше, що добре використає ваші слоти заклинань 2-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Експертиза інструментів\nПредмети з вливаннями: 3\nНові відомі вливання:\n– Стійка броня\n– Репліка магічного предмета (Ліхтар виявлення)\nЕкспериментальний еліксир (2)",
+        "notes": "На цьому рівні кілька речей покращуються поступово. Ви отримуєте доступ до другої групи вливань і другої групи варіантів «Репліки магічного предмета»{{Replicate Magic Item}}, а також третій предмет із вливанням на день. Варіантів вливань у вас вдосталь. «Стійка броня»{{Resistant Armor}} (вогонь) — чудовий захисний варіант, але сміливо експериментуйте. На кожному рівні (зокрема на цьому) ви можете замінити один варіант, тож якщо побачите, що не користуєтеся старішими вливаннями, міняйте вливання низьких рівнів на нові варіанти в міру отримання рівнів. Також на цьому рівні ви отримуєте «Експертизу інструментів»{{Tool Expertise}}, що подвоює ваш бонус Майстерності з усіма пʼятьма вашими володіннями інструментами.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Спалах геніальності{{Flash of Genius}}",
+        "notes": "Важко перебільшити, наскільки добрий «Спалах геніальності»{{Flash of Genius}}. +4 дуже легко перетворює провал на успіх. +4 покриває 20% діапазону, у якому може випасти к20, а коли на 8-му рівні ваш Інтелект знову зросте, стане ще краще.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Інтелект 18 → 20)",
+        "notes": "Це може здатися не надто захопливим, але воно багато в чому покращує вашого персонажа. Винахідник дуже сильно залежить від Інтелекту, тож будь-яке покращення значне.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Відновлювальні реагенти{{Restorative Reagents}}",
+        "notes": "Тепер ви отримуєте дві дози «Експериментального еліксиру»{{Experimental Elixir}} на день, але безкоштовні еліксири все ще не гарантовано корисні. Це додає до їхніх ефектів тимчасові ХП, тож навіть якщо вам не випаде корисний ефект, ви все одно отримаєте трохи тимчасових ХП із додаткових еліксирів. Також ви можете безкоштовно накладати Мале відновлення [Lesser Restoration] 5 разів на день, що дозволяє витрачати ваші обмежені слоти заклинань на щось інше.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Адепт магічних предметів\nПредмети з вливаннями: 4\nНові відомі вливання:\n– Репліка магічного предмета (Плащ захисту)\n– Репліка магічного предмета (Крилаті чоботи)",
+        "notes": "Можливість налаштувати чотири магічні предмети на цьому етапі дуже корисна. Тепер, коли ви можете створювати чотири предмети з вливаннями на день, цілком можна зробити чотири, що вимагають налаштування. Це, імовірно, не дуже добра ідея, але це можливо.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Продаж спорядження",
+        "reason": "Автор радить продати легкий арбалет і купити щит; пресет бере стандартний набір класу без покупок.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Інструменти",
+        "reason": "На 3-му рівні автор дозволяє замінити приладдя алхіміка іншими інструментами; пресет цього не записує.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Покращення характеристик на 4-му рівні",
+        "reason": "Автор пише «Статура, Інтелект 16 → 18»; пресет бере +2 до Інтелекту, бо Інтелект на 8-му рівні росте з 18 до 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння на 10-му рівні",
+        "reason": "Автор не називає нового замовляння; його обирає гравець.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Рівні 11–20",
+        "reason": "Таблиця рівнів статті закінчується на 10-му рівні. Далі вибори за вас, це вибір платформи: Статура +2 на 12-му та 16-му, риса Щасливчик на 19-му (автор радить риси після Інтелекту 20), вливання на 14-му (Репліка: Амулет здоровʼя, Репліка: Перстень захисту) і 18-му (Репліка: Чоботи швидкості, Репліка: Перстень вільної дії) та нове замовляння на 14-му. Усе це можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-artificer-2014",
+            "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+            "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

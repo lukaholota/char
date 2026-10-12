@@ -1,0 +1,174 @@
+{
+  "date": "2026-10-10",
+  "browser": "154.0.8037.58",
+  "platform": "darwin",
+  "origin": "http://127.0.0.1:3207",
+  "route": "/offline",
+  "before": {
+    "manifest": {
+      "url": "http://127.0.0.1:3207/manifest.json",
+      "errors": [],
+      "data": "{\n  \"name\": \"ДнД українською\",\n  \"short_name\": \"ДнД\",\n  \"description\": \"Персонажі, заклинання й довідник D&D українською — працює й без мережі\",\n  \"start_url\": \"/char/home\",\n  \"scope\": \"/\",\n  \"display\": \"standalone\",\n  \"orientation\": \"portrait\",\n  \"background_color\": \"#020617\",\n  \"theme_color\": \"#020617\",\n  \"lang\": \"uk\",\n  \"icons\": [\n    { \"src\": \"/images/logo.png\", \"sizes\": \"494x500\", \"type\": \"image/png\", \"purpose\": \"any\" },\n    { \"src\": \"/images/dragon.png\", \"sizes\": \"512x512\", \"type\": \"image/png\", \"purpose\": \"monochrome\" }\n  ]\n}\n",
+      "parsed": {
+        "scope": "http://127.0.0.1:3207/"
+      },
+      "manifest": {
+        "backgroundColor": "rgba(2,6,23,1)",
+        "description": "Персонажі, заклинання й довідник D&D українською — працює й без мережі",
+        "display": "kStandalone",
+        "icons": [
+          {
+            "url": "http://127.0.0.1:3207/images/logo.png",
+            "sizes": "494x500",
+            "type": "image/png"
+          },
+          {
+            "url": "http://127.0.0.1:3207/images/dragon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+          }
+        ],
+        "id": "http://127.0.0.1:3207/char/home",
+        "name": "ДнД українською",
+        "orientation": "PORTRAIT",
+        "preferRelatedApplications": false,
+        "scope": "http://127.0.0.1:3207/",
+        "startUrl": "http://127.0.0.1:3207/char/home",
+        "themeColor": "rgba(2,6,23,1)"
+      }
+    },
+    "installability": {
+      "installabilityErrors": [
+        {
+          "errorId": "no-acceptable-icon",
+          "errorArguments": [
+            {
+              "name": "minimum-icon-size-in-pixels",
+              "value": "144"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "after": {
+    "manifest": {
+      "url": "http://127.0.0.1:3207/manifest.json",
+      "errors": [],
+      "data": "{\n  \"name\": \"ДнД українською\",\n  \"short_name\": \"ДнД\",\n  \"description\": \"Персонажі, заклинання й довідник D&D українською — працює й без мережі\",\n  \"id\": \"/char/home\",\n  \"start_url\": \"/char/home\",\n  \"scope\": \"/\",\n  \"display\": \"standalone\",\n  \"display_override\": [\"standalone\"],\n  \"prefer_related_applications\": false,\n  \"categories\": [\"games\", \"entertainment\"],\n  \"orientation\": \"portrait\",\n  \"background_color\": \"#020617\",\n  \"theme_color\": \"#020617\",\n  \"lang\": \"uk\",\n  \"icons\": [\n    { \"src\": \"/icons/icon-192.png\", \"sizes\": \"192x192\", \"type\": \"image/png\", \"purpose\": \"any\" },\n    { \"src\": \"/icons/icon-512.png\", \"sizes\": \"512x512\", \"type\": \"image/png\", \"purpose\": \"any\" },\n    { \"src\": \"/icons/icon-maskable-192.png\", \"sizes\": \"192x192\", \"type\": \"image/png\", \"purpose\": \"maskable\" },\n    { \"src\": \"/icons/icon-maskable-512.png\", \"sizes\": \"512x512\", \"type\": \"image/png\", \"purpose\": \"maskable\" },\n    { \"src\": \"/icons/icon-monochrome-512.png\", \"sizes\": \"512x512\", \"type\": \"image/png\", \"purpose\": \"monochrome\" }\n  ],\n  \"screenshots\": [\n    { \"src\": \"/icons/screenshots/characters-narrow.png\", \"sizes\": \"1080x2400\", \"type\": \"image/png\", \"form_factor\": \"narrow\", \"label\": \"Мої персонажі\" },\n    { \"src\": \"/icons/screenshots/sheet-narrow.png\", \"sizes\": \"1080x2400\", \"type\": \"image/png\", \"form_factor\": \"narrow\", \"label\": \"Лист персонажа\" },\n    { \"src\": \"/icons/screenshots/spells-narrow.png\", \"sizes\": \"1080x2400\", \"type\": \"image/png\", \"form_factor\": \"narrow\", \"label\": \"Заклинання українською\" },\n    { \"src\": \"/icons/screenshots/dice-narrow.png\", \"sizes\": \"1080x2400\", \"type\": \"image/png\", \"form_factor\": \"narrow\", \"label\": \"Кубики під час гри\" },\n    { \"src\": \"/icons/screenshots/spells-wide.png\", \"sizes\": \"1280x800\", \"type\": \"image/png\", \"form_factor\": \"wide\", \"label\": \"Довідник заклинань\" }\n  ],\n  \"shortcuts\": [\n    { \"name\": \"Мої персонажі\", \"url\": \"/char/home\", \"icons\": [{ \"src\": \"/icons/icon-96.png\", \"sizes\": \"96x96\", \"type\": \"image/png\" }] },\n    { \"name\": \"Заклинання\", \"url\": \"/spells\", \"icons\": [{ \"src\": \"/icons/icon-96.png\", \"sizes\": \"96x96\", \"type\": \"image/png\" }] },\n    { \"name\": \"Бестіарій\", \"url\": \"/bestiary\", \"icons\": [{ \"src\": \"/icons/icon-96.png\", \"sizes\": \"96x96\", \"type\": \"image/png\" }] },\n    { \"name\": \"Створити персонажа\", \"url\": \"/char/create\", \"icons\": [{ \"src\": \"/icons/icon-96.png\", \"sizes\": \"96x96\", \"type\": \"image/png\" }] }\n  ]\n}\n",
+      "parsed": {
+        "scope": "http://127.0.0.1:3207/"
+      },
+      "manifest": {
+        "backgroundColor": "rgba(2,6,23,1)",
+        "description": "Персонажі, заклинання й довідник D&D українською — працює й без мережі",
+        "display": "kStandalone",
+        "displayOverrides": [
+          "kStandalone"
+        ],
+        "icons": [
+          {
+            "url": "http://127.0.0.1:3207/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          },
+          {
+            "url": "http://127.0.0.1:3207/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+          },
+          {
+            "url": "http://127.0.0.1:3207/icons/icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          },
+          {
+            "url": "http://127.0.0.1:3207/icons/icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+          },
+          {
+            "url": "http://127.0.0.1:3207/icons/icon-monochrome-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+          }
+        ],
+        "id": "http://127.0.0.1:3207/char/home",
+        "name": "ДнД українською",
+        "orientation": "PORTRAIT",
+        "preferRelatedApplications": false,
+        "scope": "http://127.0.0.1:3207/",
+        "screenshots": [
+          {
+            "image": {
+              "url": "http://127.0.0.1:3207/icons/screenshots/characters-narrow.png",
+              "sizes": "1080x2400",
+              "type": "image/png"
+            },
+            "formFactor": "kNarrow",
+            "label": "Мої персонажі"
+          },
+          {
+            "image": {
+              "url": "http://127.0.0.1:3207/icons/screenshots/sheet-narrow.png",
+              "sizes": "1080x2400",
+              "type": "image/png"
+            },
+            "formFactor": "kNarrow",
+            "label": "Лист персонажа"
+          },
+          {
+            "image": {
+              "url": "http://127.0.0.1:3207/icons/screenshots/spells-narrow.png",
+              "sizes": "1080x2400",
+              "type": "image/png"
+            },
+            "formFactor": "kNarrow",
+            "label": "Заклинання українською"
+          },
+          {
+            "image": {
+              "url": "http://127.0.0.1:3207/icons/screenshots/dice-narrow.png",
+              "sizes": "1080x2400",
+              "type": "image/png"
+            },
+            "formFactor": "kNarrow",
+            "label": "Кубики під час гри"
+          },
+          {
+            "image": {
+              "url": "http://127.0.0.1:3207/icons/screenshots/spells-wide.png",
+              "sizes": "1280x800",
+              "type": "image/png"
+            },
+            "formFactor": "kWide",
+            "label": "Довідник заклинань"
+          }
+        ],
+        "shortcuts": [
+          {
+            "name": "Мої персонажі",
+            "url": "http://127.0.0.1:3207/char/home"
+          },
+          {
+            "name": "Заклинання",
+            "url": "http://127.0.0.1:3207/spells"
+          },
+          {
+            "name": "Бестіарій",
+            "url": "http://127.0.0.1:3207/bestiary"
+          },
+          {
+            "name": "Створити персонажа",
+            "url": "http://127.0.0.1:3207/char/create"
+          }
+        ],
+        "startUrl": "http://127.0.0.1:3207/char/home",
+        "themeColor": "rgba(2,6,23,1)"
+      }
+    },
+    "installability": {
+      "installabilityErrors": []
+    }
+  }
+}

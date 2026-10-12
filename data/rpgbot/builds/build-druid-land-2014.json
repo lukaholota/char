@@ -1,0 +1,835 @@
+{
+  "buildId": "build-druid-land-2014",
+  "revisionId": "build-druid-land-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад збірки Друїда — Пагорбовий дворф, Друїд Кола землі",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-druid-2014",
+      "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+      "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "DRUID_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "DRUID_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "DRUID_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CIRCLE_OF_THE_LAND",
+      "decisions": {
+        "classOptionSpellKeys": [
+          "druidcraft"
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "DRUID_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Circle Spells — Mountain"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "DRUID_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "DRUID_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "DRUID_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "DRUID_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "DRUID_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "DRUID_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "DRUID_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "DRUID_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "DRUID_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "DRUID_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "DRUID_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "DRUID_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "DRUID_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "DRUID_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "DRUID_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "DRUID_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "DRUID_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-2014",
+          "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+          "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "CIRCLE_OF_THE_LAND",
+    "raceKey": "DWARF_2014",
+    "backgroundKey": "HERMIT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 12
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми припускатимемо характеристики за купівлею, запропоновані вище.\n\n  Базове значення Підвищене значення Сила 8 8 Спритність 14 14 Статура 14 16 Інтелект 12 12 Мудрість 15 16 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Пагорбовий дворф{{Hill Dwarf}}. Трохи Мудрості й ціла купа живучості — чудове поєднання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-1",
+        "title": "Передісторія",
+        "text": "Візьмемо Відлюдника{{Hermit}} заради цього класичного відчуття.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-background-1",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Природа — одна з найсимволічніших навичок друїдів, і в багатьох кампаніях вона буде дуже корисною. Поводження з тваринами теж тематично пасує, але навіть друїд може пройти цілу кампанію, жодного разу її не потребуючи, тож візьміть натомість Уважність.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Друїдам справді потрібна лише висока Мудрість. Інші характеристики корисні для захисту, але навіть тоді від риси часто можна отримати більше. Якщо ви достатньо сміливі, щоб вийти за межі SRD, розгляньте риси, щойно досягнете 20 Мудрості.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Друїдична мова\nЧаротворство\nВідомі замовляння:\n– Настанова\n– Створення вогню",
+        "notes": "Як стартове спорядження візьміть деревʼяний щит, палицю, шкіряний обладунок, набір мандрівника{{Explorer’s Pack}} й друїдичний фокус{{Druidic Focus}}.\n\nУ шкіряному обладунку зі щитом ваш КБ дорівнює 15, що пристойно, але не робить вас невразливим. Якнайшвидше перейдіть на {{шкуряний обладунок|Hide}} заради додаткового КБ, але навіть тоді ваш КБ лише 16, тож будьте обережні.\n\nУ бою ваш основний варіант — Створення вогню [Produce Flame]. Тримайте щит у руці заради КБ, а в іншому тримайтеся позаду й кидайте вогонь. Поза боєм накладайте Настанову [Guidance] за будь-якої можливості.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Дика форма (ПН 1/4)\nКоло землі\nДодаткове замовляння:\n– Ремесло друїдів",
+        "notes": "Дика форма{{Wild Shape}} дає вам кілька варіантів ближнього бою. Якщо потрібно кинутися в ближній бій, істота з ПН 1/4 на цьому рівні все ще становить загрозу, якщо вороги зосереджують увагу не лише на вас. Перетворіться на вовка й покусайте когось.\n\nРемесло друїдів [Druidcraft] дає вам кілька загальних магічних утилітарних варіантів, які трохи менш числові, ніж Настанова [Guidance].",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Колові закляття",
+        "notes": "На цьому рівні нічого не відбувається, крім заклинань 2-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Дикої форми (ПН 1/2)\nПокращення Характеристик (Мудрість 16 → 18)\nНове відоме замовляння:\n– Будь-яке",
+        "notes": "4-й рівень підсилює купу ваших наявних можливостей. Дика форма{{Wild Shape}} покращується, роблячи Мавпу нашим новим основним бойовим варіантом. Більше Мудрості покращує наше чаротворство, і ми отримуємо ще одне замовляння.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Колові закляття",
+        "notes": "5-й рівень зазвичай дуже веселий, але все, що отримує Друїд, — це заклинання 3-го рівня. Друїди не отримують вогнекулі, але ви отримуєте Накликання блискавки [Call Lightning]. Накликання блискавки [Call Lightning] — ваш основний бойовий варіант, коли ви перебуваєте там, де можете його накласти (зазвичай просто неба).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Стежка землі{{Land’s Stride}}",
+        "notes": "Іноді корисно, особливо якщо ви любите накладати Обплутування [Entangle] на себе.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Колові закляття",
+        "notes": "На цьому рівні нічого, крім заклинань 4-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Дика форма (ПН 1)\nПокращення Характеристик (Мудрість 18 → 20)",
+        "notes": "Дика форма{{Wild Shape}} досягає максимуму на цьому рівні, але ваше чаротворство все ще ваш основний варіант у бою. Час від часу вам може знадобитися перетворитися на звіра, щоб кинутися в ближній бій, але здебільшого слід покладатися на чаротворство.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Колові закляття",
+        "notes": "На цьому рівні нічого, крім заклинань 5-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Оборона природи\nНове відоме замовляння:\n– Будь-яке",
+        "notes": "Кілька приємних пасивних захистів і ще одне замовляння. До цього рівня ви, імовірно, вже маєте всі замовляння, які вам потрібні, але більше замовлянь — завжди приємно.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "–",
+        "notes": "На цьому рівні нічого, крім заклинань 6-го рівня, а замовляння отримують підвищення шкоди.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик (Статура 16 → 18)",
+        "notes": "У нас уже максимальна Мудрість, тож час розглянути інші характеристики. Статура — чудовий кандидат завдяки додатковим ХП, але якщо ви готові використовувати риси, можна натомість розглянути рису «Здоровань»{{Tough}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "–",
+        "notes": "На цьому рівні нічого, крім заклинань 7-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Святилище природи{{Nature’s Sanctuary}}",
+        "notes": "На цьому рівні ви здебільшого залишили звірів позаду, але є жменька звірів і рослин із високим ПН, які можуть зрідка зʼявлятися.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "–",
+        "notes": "На цьому рівні нічого, крім заклинань 8-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик (Статура 18 → 20)",
+        "notes": "Зі Статурою 20 і додатковими ХП Пагорбового дворфа{{Hill Dwarf}} у вас стільки ХП, скільки у воїна.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "–",
+        "notes": "На цьому рівні нічого, крім заклинань 9-го рівня, а замовляння отримують своє останнє підвищення шкоди.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Тіло поза часом\nЗаклинання звіра",
+        "notes": "«Заклинання звіра»{{Beast Spells}} дають вам скуштувати «Архі-друїда»{{Archdruid}}. Тепер ви можете перетворитися на щось на кшталт кажана чи маленького птаха й літати в бою з різко покращеною мобільністю, все ще накладаючи більшість своїх заклинань. Памʼятайте: навіть якщо для матеріального компонента не вказано вартості, вам усе одно доведеться повернутися до людської форми, щоб його надати. Ваш Майстер може дозволити вам тримати фокус у формі звіра, але я думаю, що задум уміння в тому, що ви не можете цього робити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик (Спритність 14 → 16)",
+        "notes": "Ваше останнє покращення характеристики, але до цього часу воно вам, по суті, не потрібне.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Архі-друїд{{Archdruid}}",
+        "notes": "Тепер, коли Дика форма{{Wild Shape}} безкоштовна, думайте про неї як про постійне підсилення. Бути твариною дає всілякі варіанти мобільності, не кажучи вже про велику «подушку» додаткових ХП. Якщо ви не у формі звіра й маєте невикористану бонусну дію, вам слід перетворюватися на звіра.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Біом Кола землі (3-й рівень)",
+        "reason": "Автор пише лише «Колові закляття» і не називає біом; пресет бере Гори (Mountain) — вибір платформи, автор не називає; після створення можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння «будь-яке» (4-й і 10-й рівні)",
+        "reason": "Автор не називає нові замовляння на 4-му й 10-му рівнях: вони лишені відкритим вибором гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-2014",
+            "translationRevisionId": "translation-rpgbot-druid-2014-draft1",
+            "sourceRevisionId": "rpgbot-5f7593d25f3ea261-a093bd129c8c7ac6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

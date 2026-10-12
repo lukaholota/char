@@ -1,0 +1,791 @@
+{
+  "buildId": "build-rogue-thief-2014",
+  "revisionId": "build-rogue-thief-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Пройдисвіта — Легконогий напіврослик, Злодій",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-rogue-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+      "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "ROGUE_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "ROGUE_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "ROGUE_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "ROGUE_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "THIEF",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "ROGUE_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "ROGUE_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "ROGUE_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "expertise": [
+          "SLEIGHT_OF_HAND",
+          "DECEPTION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "ROGUE_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "ROGUE_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "ROGUE_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "ROGUE_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "ROGUE_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "ROGUE_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "ROGUE_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "ROGUE_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "ROGUE_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "ROGUE_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "ROGUE_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "ROGUE_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "ROGUE_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "ROGUE_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+          "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "THIEF",
+    "raceKey": "HALFLING_2014",
+    "backgroundKey": "CRIMINAL",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 12
+      },
+      {
+        "ability": "WIS",
+        "value": 12
+      },
+      {
+        "ability": "CHA",
+        "value": 13
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми використаємо наведені нижче характеристики. Вони майже ідентичні запропонованим вище характеристикам для «більшості Пройдисвітів», але трохи підкориговані, щоб скористатися підвищеннями характеристик Легконогого напіврослика й вичавити з нашого білда максимум.\n\n  Базове значення Підвищене значення Сила 8 8 Спритність 14 16 Статура 14 14 Інтелект 12 12 Мудрість 12 12 Харизма 13 14",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Легконогий напіврослик{{Lightfoot Halfling}}. Спритність і Харизма, імовірно, найкращий розподіл характеристик, який ми можемо отримати для Злодія, а решта расових рис Легконогого напіврослика пропонують купу інших корисних прийомів.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Пройдисвіти отримують на першому рівні більше навичок, ніж будь-який інший клас, а ще негайно отримують «Експертизу». На додачу ви отримуєте володіння інструментами злодія.\n\nУважність Переконання Спритність рук Непомітність\n\nЯкщо ви оберете передісторію Злочинця, отримаєте надлишкове володіння Непомітністю, яке можна обміняти на Аналіз Поведінки чи Залякування. Якщо оберете передісторію Аристократа, отримаєте надлишкове володіння Переконанням, яке можна обміняти на Обман.\n\nДля «Експертизи» раджу Уважність і Непомітність. Інші навички теж привабливі, але ви радше загинете через провалену перевірку Уважності чи Непомітності, ніж через провалену перевірку Переконання. На 6-му рівні ви отримаєте «Експертизу» ще в двох навичках, тож розгляньте навички, що пасують вашій кампанії.\n\nЯкщо ви багато крадете, розгляньте Спритність рук та інструменти злодія. Якщо ви багато займаєтеся соціально прийнятними речами, розгляньте Обман і Переконання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-1",
+        "title": "Передісторія",
+        "text": "Злочинець{{Criminal}} — очевидний вибір, тож оберемо Злочинця. Проте він може бути не найкращим серед доступних нам. Пройдисвіт автоматично дає володіння інструментами злодія, тож володіння інструментами Злочинця надлишкове. За правилами передісторій надлишкове володіння можна замінити на володіння того самого типу, але який інший набір інструментів вам потрібен? Якщо ви хочете володіння, скажімо, набором цілителя чи набором травника, Злочинець чудовий. Якщо не можете придумати другий набір інструментів, шукайте інші варіанти передісторії.\n\nЯкщо Злочинець вам не підходить, розгляньте Аристократа{{Noble}}. Володіння Історією — не чудовий вибір для нашого білда з низьким Інтелектом, але ви отримуєте Переконання, ігровий набір і мову, а «Привілейоване становище»{{Position of Privilege}} — чудовий спосіб розіграти потрапляння туди, де є що красти.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-background-1",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-1",
+        "title": "Риси",
+        "text": "Пройдисвіти отримують на одне Покращення Характеристик більше, ніж більшість класів, а вам потрібно довести до 20 лише одну характеристику (Спритність), щоб бути успішним, тож у вас багато простору для рис, якщо ви готові відступити від Основних правил і SRD. Якщо ви новачок у грі, розгляньте прості риси на кшталт «Умільця»{{Skilled}} чи «Стійкого»{{Resilient}}. Якщо хочете спробувати себе в магії, розгляньте «Посвяченого у магію»{{Magic Initiate}} і погляньте на розділ про заклинання вище.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-feats-1",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Експертиза – Уважність – Непомітність\nПідступна атака 1к6\nЗлодійська мова",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Хитра дія{{Cunning Action}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підступна атака 2к6\nПройдисвітський архетип (Злодій)\nШвидкі руки",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик (Спритність 16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Підступна атака 3к6\nНадприродне ухилення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Експертиза – Спритність рук – Інструменти злодія",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Підступна атака 4к6\nУхилення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Спритність 18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Підступна атака 5к6\nНайвище крадькома",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Покращення Характеристик (Харизма 14 → 16)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Підступна атака 6к6\nНадійний талант",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик (Харизма 16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Підступна атака 7к6\nВикористання магічних пристроїв",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Сліповідчуття{{Blindsense}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Підступна атака 8к6\nСлизький розум",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик (Харизма 18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Підступна атака 9к6\nРефлекси злодія",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Невловимий{{Elusive}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Підступна атака 10к6\nПокращення Характеристик (Статура 14 → 16)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Шанс удачі{{Stroke of Luck}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Експертиза в інструментах",
+        "reason": "На 6-му рівні автор бере експертизу в Спритності рук та інструментах злодія; платформа не має експертизи в інструментах, тож пресет бере Спритність рук і Обман (вибір платформи).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+            "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

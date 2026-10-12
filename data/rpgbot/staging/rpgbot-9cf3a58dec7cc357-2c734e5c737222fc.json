@@ -1,0 +1,1341 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/strixhaven-backgrounds/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "2c734e5c737222fc76d19d536f119040a97d1380d3b49fdb553273754429647e",
+  "sourceRevision": {
+    "revisionId": "rpgbot-9cf3a58dec7cc357-2c734e5c737222fc",
+    "sourceId": "rpgbot-9cf3a58dec7cc357",
+    "fetchedAt": "2026-09-29T19:18:44.675414+00:00",
+    "sourceUpdatedAt": "2026-03-14T14:41:34-04:00",
+    "contentHash": "cc40da7f635a89149afc73b70ed1117de612c2dca0f21166cc2bf5ba8193e4ce",
+    "title": "DnD 5e Strixhaven Backgrounds Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-9cf3a58dec7cc357-2c734e5c737222fc.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-strixhaven-backgrounds-introduction",
+      "heading": "Strixhaven Backgrounds Introduction",
+      "sourceAnchor": "strixhaven-backgrounds-introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-strixhaven-backgrounds-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Strixhaven: A Curriculum of Chaos",
+              "href": "https://smile.amazon.com/Strixhaven-Curriculum-Adventure-Dungeons-Dragons/dp/0786967447?keywords=strixhaven+curriculum+of+chaos&qid=1648593914&s=books&sprefix=strixhaven+curriculum%2Cstripbooks%2C812&sr=1-1&linkCode=ll1&tag=rpgbot-20&linkId=00d0c552f04f74cc1490ec11dab30d27&language=en_US&ref_=as_li_ss_tl"
+            },
+            {
+              "type": "text",
+              "text": " ("
+            },
+            {
+              "type": "link",
+              "text": "affiliate link",
+              "href": "https://rpgbot.net/about/faq#what-are-affiliate-links-and-why-do-you-use-them"
+            },
+            {
+              "type": "text",
+              "text": ") presents 5 new backgrounds. These backgrounds grant the Strixhaven Initiate feat, which is a first for DnD 5e, and has some significant implications for character optimization."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-strixhaven-backgrounds-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To be absolutely clear: I do not think that these backgrounds are intended for use outside of a Strixhaven game, and I do not encourage you to use them outside of a Strixhaven game. They present some clear power creep, and unfairly benefit spellcasters over non-spellcasters. If you want to include the spell list expansions in non-Strixhaven games or you want to reduce how much these backgrounds favor spellcasters, consider using them in place of class/subclass features which expand a character’s spell list such as cleric domains or warlock patrons."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-strixhaven-backgrounds-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide will not go into extensive detail on spell selections for the\n\tStrixhaven Initiate feat. For help picking leveled spells, see my\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Spellcasting Feats Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/spellcasting-feats/#strixhaven-initiate"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-strixhaven-backgrounds-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide will also largely ignore any lore of theming around the schools.\n\tThe lore does not align well with optimization concerns, and you’re not\n\treading this article for my middling storytelling capabilities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-backgrounds",
+      "heading": "Backgrounds",
+      "sourceAnchor": "backgrounds",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-4",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Lorehold Student",
+      "blocks": [
+        {
+          "blockId": "block-section-4-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lorehold’s proficiencies are clearly catered to characters with good\n\tIntelligence, but the spells are all drawn from the Wizard’s spell list. You\n\tmight think “Okay, so I’ll play an artificer”, but artificers get nearly all\n\tof the Lorehold spells, too."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-4-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Considering that Intelligence is near-universally a dump stat in 5e, there’s\n\tbasically no normal character that can make Lorehold a good choice. If you\n\tplay a SAD class that can afford a bit of Intelligence you could potentially\n\tmake this all work. Casting-focused clerics and druids are likely the best\n\tcandidates."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-4-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": Good skills for\n\tIntelligence-based characters, but those characters generally don’t have the\n\tCharisma to put language proficiencies to good use."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-4-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lorehold Initiate"
+            },
+            {
+              "type": "text",
+              "text": ": Most spellcasters\n\tgenerally don’t have access to radiant damage, so Sacred Flame is great.\n\tAccess to 1st-level bard spells offers some fun options like Dissonant\n\tWhispers. Access to 1st-level cleric buffs also gives those characters access\n\tto powerful cleric buffs and staple tactical options like Healing Word."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-4-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-4-6",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Artificers and wizards can\n\t\teither already cast these or replace them with infusions. For everyone else\n\t\tthese are only situationally useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Artificers can’t cast either,\n\t\tbut they’re also very situational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Speak With Dead is only\n\t\tsituationally useful, but it’s still pretty good. Spirit Guardians is useful\n\t\tfor characters planning to fight in close quarters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Artificers and wizards can cast\n\t\tboth, but these spells are absolutely spectacular, so other classes will\n\t\tenjoy them thoroughly."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": Legend Lore is only\n\t\tsituationally useful, and Flame Strike is almost always worse than\n\t\tFireball."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-5",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Prismari Student",
+      "blocks": [
+        {
+          "blockId": "block-section-5-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prismari competes for space with Silverquill and loses. The most likely\n\tmembers of prismari are Charisma-based spellcasters, and Silverquill’s skills\n\tand spells both better."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-5-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There is some appeal here for other spellcasters who want a diverse set of spell options, but be careful that you don’t find yourself trying to do a bunch of different things and being bad at all of them."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-5-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": A good fit for bards and\n\trogues with high Charisma. Sorcerers and Warlocks might also go this route,\n\tbut almost no one is going to make use of Acrobatics."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-5-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prismari Initiate"
+            },
+            {
+              "type": "text",
+              "text": ": Prismari students are\n\tmost likely bards, sorcerers, and warlocks, and there is a lot of overlap\n\tbetween those classes and the spells offered by Prismari Initiate. Sorcerers\n\tand Warlocks will enjoy bard exclusives like Dissonant Whispers and access to\n\tHealing Word, while bards will enjoy access to damage spells like Fire Bolt\n\tand Magic Missile."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-5-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-5-6",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Some decent damage options, but\n\t\tthey’ll become obsolete after you gain a few levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Both decent spells, but they can\n\t\tbe hard to use. Warlocks will enjoying combining Flaming Sphere with\n\t\tEldritch Blast and invocations which allow you to reposition enemies to keep\n\t\tthem in range of the sphere."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Bards will enjoy Haste, but\n\t\tthere’s nothing great here for anyone else.."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Wall of Fire is excellent area\n\t\tcontrol, and it’s not on the bard or warlock spell lists."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": Sorcerers get Cone of Cold, but\n\t\totherwise these spells are both new to bards, sorcerers, and warlocks, and\n\t\tboth spells are pretty good."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-6",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Quandrix Student",
+      "blocks": [
+        {
+          "blockId": "block-section-6-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A good fit for Intelligence-based spellcasters looking to play a defensive or supportive roll, which leaves artificers and wizards. The spell list is a diverse mix from classes like the Cleric, the Druid, and the Paladin."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-6-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": Good skills for an\n\tIntelligence-based character. Artificer is a good fit, but wizards will have\n\tless use for the language and tool. I think the proficiencies are intended to\n\twork for druids, too, but druids are generally terrible with Nature due to\n\tdumping their Intelligence."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-6-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Prismari Initiate"
+            },
+            {
+              "type": "text",
+              "text": ": Great utility cantrips\n\ton any character. Quandrix students are most likely artificers and wizards\n\tbased on the skill proficiencies, and the Druid’s 1st-level spells aren’t\n\tfantastic, but they do include some good options like Entangle or Healing\n\tWord. Druids will enjoy access to wizard spells like Silvery Barbs, Mage\n\tArmor, or Shield, both of which will do a lot to address the Druid’s poor\n\tAC."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-6-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-6-5",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Both good uses for a 1st-level\n\t\tspell for basically any full caster."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Great support options for any\n\t\tfull caster."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": The most spell slot efficient\n\t\thealing in the game, and one of the absolute best buffs you can put on a\n\t\tmartial character."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Both spells are only\n\t\tsituationally useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": Circle of Power is a paladin\n\t\texclusive, so getting access to it is really exciting. Against powerful\n\t\tspellcasters and other creatures which rely on magic, it’s hard to find a\n\t\tbetter defensive option."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-7",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Silverquill Student",
+      "blocks": [
+        {
+          "blockId": "block-section-7-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Silverquill starts exceptionally strong with good Face skills and excellent\n\tearly spells, making Silverquill a spectacular choice for bards and sorcerers.\n\tWarlocks might do well, too, but spending a warlock spell slot on Silvery\n\tBarbs is hard. The school’s spells at 3rd and 4th level are disappointing, but\n\tI think everything else makes up for it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-7-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Other spellcasters may still enjoy Silverquill’s spell list, but it’s not\n\tquite as effective since the proficiencies won’t line up as well."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-7-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": Perfect for a Face\n\tcharacter."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-7-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Silverquill Initiate"
+            },
+            {
+              "type": "text",
+              "text": ": Bards, sorcerers, and\n\twarlocks are the most likely classes to take Silverquill. All three will enjoy\n\taccess to Sacred Flame, and sorcerers and warlocks will enjoy Vicious Mockery.\n\tAll three classes can benefit from staple cleric buffs like Bless and Heroism,\n\tand sorcerers and warlocks will enjoy Healing Word, while bards will enjoy\n\taccess to damage options like Chromatic Orb."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-7-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-7-6",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": You get Silvery Barbs, which is\n\t\tplenty on its own. See my article on\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "why Silvery Barbs is so powerful",
+                "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": A save-or-suck spell and a good\n\t\tarea control spell."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": Both spells are very\n\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": Both spells are very\n\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": Both good options, but they may\n\t\tbe hard to justify or classes with a limited number of spells known."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-8",
+      "parentSectionId": "section-backgrounds",
+      "heading": "Witherbloom Student",
+      "blocks": [
+        {
+          "blockId": "block-section-8-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The book says that a few necromancer wizards join Witherbloom, and those\n\twizards are clearly the smartest people in the school because Witherbloom’s\n\tspell list is a near-perfect list that you could title “spells that justify\n\thaving a divine caster in the party instead of just having two wizards”. A\n\twitherbloom wizard can easily replace a divine caster’s healing\n\tcapabilities."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Clerics and druids will find Witherbloom frustrating because they get so\n\tlittle benefit from the school’s spell list, and spellcasters that permanently\n\tlearn spells like Bards will find the need to commit known spells\n\tfrustrating."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, that just leaves wizards as effective members of Witherbloom."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Proficiencies"
+            },
+            {
+              "type": "text",
+              "text": ": The proficiencies aren’t\n\tgreat, and it’s borderline impossible to build a character who can use them\n\tall to great effect. They do match typical proficiencies for nature clerics,\n\tdruids, and rangers."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Witherbloom Initiate"
+            },
+            {
+              "type": "text",
+              "text": ": The cantrips are\n\tdifficult, but clerics, druids, and rangers will enjoy access to wizard spells\n\tlike Silvery Barbs, Mage Armor, Magic Missile, and Shield. Sorcerers,\n\tWarlocks, and Wizards can get Healing Word from the Druid’s spell list."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Spell List:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-7",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Level 1"
+              },
+              {
+                "type": "text",
+                "text": ": Cure Wounds is great spell for\n\t\tclasses that can’t cast healing spells, but you can also choose to get\n\t\tHealing Word from Strixhaven Initiate. Inflict Wounds is good single-target\n\t\tdamage at low levels, but it doesn’t scale well."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 2"
+              },
+              {
+                "type": "text",
+                "text": ": Lesser Restoration is a crucial\n\t\thealing option. You also get another spell, but Healing Word will generally\n\t\tsolve the same problem so why bother with it?"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 3"
+              },
+              {
+                "type": "text",
+                "text": ": A staple option for clerics and\n\t\tdruids, and Vampiric Touch lets you heal yourself by repeatedly slapping\n\t\tpeople."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 4"
+              },
+              {
+                "type": "text",
+                "text": ": A powerful defensive option from\n\t\tthe cleric spell list and also Blight."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 5"
+              },
+              {
+                "type": "text",
+                "text": ": You are now qualified to fully\n\t\treplace a cleric (at least in terms of healing capabilities)."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[1]",
+      "detail": "rating-orange Lorehold Student"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Lorehold Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[2]",
+      "detail": "rating-orange Prismari Student"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Prismari Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[3]",
+      "detail": "rating-blue Quandrix Student"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Prismari Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[4]",
+      "detail": "rating-blue Silverquill Student"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Silverquill Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[5]",
+      "detail": "rating-green Witherbloom Student"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Witherbloom Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 1"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Level 4"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Level 5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-strixhaven-backgrounds-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-strixhaven-backgrounds-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-strixhaven-backgrounds-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-strixhaven-backgrounds-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[1]",
+      "detail": "section-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-4-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-4-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-4-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-4-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-4-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-4-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[2]",
+      "detail": "section-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-5-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-5-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-5-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-5-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-5-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[2]",
+      "detail": "block-section-5-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[3]",
+      "detail": "section-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-6-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-6-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-6-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-6-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[3]",
+      "detail": "block-section-6-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[4]",
+      "detail": "section-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-7-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-7-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-7-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-7-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-7-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[4]",
+      "detail": "block-section-7-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[5]",
+      "detail": "section-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-8-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-8-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-8-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-8-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-8-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-8-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[5]",
+      "detail": "block-section-8-7"
+    }
+  ],
+  "metrics": {
+    "words": 1638,
+    "sections": 8,
+    "blocks": 38,
+    "tables": 0,
+    "ratingSignals": 44
+  },
+  "status": "needs-editorial-review"
+}

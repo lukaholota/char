@@ -1,0 +1,827 @@
+{
+  "buildId": "build-rogue-inquisitive-2014",
+  "revisionId": "build-rogue-inquisitive-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Допитливого — Я дуже хотів грати Слідчого з PF2",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-rogue-inquisitive-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+      "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "ROGUE_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "ROGUE_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "ROGUE_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "ROGUE_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "INQUISITIVE",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "ROGUE_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "PIERCER",
+        "featOptions": [
+          {
+            "optionNameEng": "PIERCER Ability (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "ROGUE_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "ROGUE_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "expertise": [
+          "INVESTIGATION",
+          "STEALTH"
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "ROGUE_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "ROGUE_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "ROGUE_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "ROGUE_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "OBSERVANT",
+        "featOptions": [
+          {
+            "optionNameEng": "OBSERVANT Ability (Wisdom)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "ROGUE_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "ROGUE_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ALERT"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "ROGUE_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "ROGUE_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "ROGUE_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "ROGUE_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "ROGUE_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "ROGUE_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "ROGUE_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (CON)"
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "ROGUE_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-inquisitive-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+          "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "INQUISITIVE",
+    "raceKey": "VEDALKEN_GGTR",
+    "backgroundKey": "NOBLE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 12
+      },
+      {
+        "ability": "WIS",
+        "value": 14
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Цілком стандартно із зайвими очками в Мудрості, а потім в Інтелекті.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 17 Статура 14 14 Інтелект 12 12 Мудрість 14 15 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ведалкен{{Vedalken}}. Якби існувала раса, що підходить до теми Пройдисвіта-Допитливого, це Ведалкен. Ми отримуємо одне володіння навичкою й одне володіння інструментом, і постійне +1к4, коли ними користуємося. Ми оберемо Розслідування, щоб +1к4 компенсувало наш відносно низький Інтелект порівняно з Мудрістю, і оберемо інший інструмент.\n\n«Ведалкенська безпристрасність»{{Vedalken Dispassion}} теж чудово доповнює володіння ряткидками Пройдисвіта, роблячи наші ментальні ряткидки дуже надійними, особливо щойно ми отримаємо «Слизький розум»{{Slippery Mind}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Нам не потрібно нічого конкретного від передісторії. Я б обрав щось, що дає або навички на основі Інтелекту, або на основі Харизми залежно від вашої кампанії. Аристократ — добрий компроміс між двома.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Ми використаємо наші класові навички, щоб обрати Аналіз Поведінки, Уважність, Спритність рук і Непомітність. Додамо Аналіз Поведінки від раси. Ми отримуємо володіння інструментами злодія від класу й один інший інструмент від раси.\n\nВи також отримаєте більше володінь від передісторії, але вони не вплинуть на збірку.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні ми беремо «Проколювача»{{Piercer}}, щоб підняти Спритність до 18 і отримати надійний приріст вашої шкоди.\n\nНа 8-му рівні підвищуємо Спритність до 20.\n\nНа 10-му рівні ми беремо «Спостережливого»{{Observant}} і підвищуємо Мудрість до 16.\n\nНа 12-му рівні ми беремо «Пильного»{{Alert}}.\n\nНа 16-му й 19-му рівнях у нас відкриті риси. Розгляньте «Стійкого»{{Resilient}} та «Експерта у навичках»{{Skill Expert}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Експертиза – Аналіз Поведінки – Уважність\nПідступна атака +1к6\nЗлодійська мова",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Хитра дія{{Cunning Action}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підклас:\nНюх на брехню\nОко на деталі\nПроникливий бій\nПідступна атака +2к6\nСтійке прицілювання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Проколювач (Спритність 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Надприродне ухилення\nПідступна атака +3к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Експертиза – Розслідування – Інструменти злодія",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ухилення\nПідступна атака +4к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Спритність 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Спокійне око\nПідступна атака +5к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Риса: Спостережливий (Мудрість 15 → 16)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Надійний талант\nПідступна атака +6к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Пильний",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Безпомилкове око\nПідступна атака +7к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Сліповідчуття{{Blindsense}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Слизький розум\nПідступна атака +8к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Око на слабкості\nПідступна атака +9к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Невловимий{{Elusive}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Будь-яка\nПідступна атака +10к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Шанс удачі{{Stroke of Luck}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Експертиза в інструментах злодія (6-й рівень)",
+        "reason": "На 6-му рівні автор бере Експертизу в Розслідуванні та в інструментах злодія; експертиза в інструментах не підтримана моделлю листа, тож пресет бере Розслідування й Непомітність (вибір платформи, автор не називає навичку); можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Інструмент Ведалкена",
+        "reason": "Автор каже обрати «інший інструмент» для Ведалкена; пресет не записує вибір інструментів раси.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Аналіз Поведінки від раси",
+        "reason": "У розділі про навички автор пише, що Аналіз Поведінки дає раса, але в розділі про расу бере Розслідування, а Ведалкен не може обрати Аналіз Поведінки; пресет бере Розслідування від раси, а Аналіз Поведінки — від Пройдисвіта.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Риси 16-го та 19-го рівнів («будь-яка»)",
+        "reason": "Автор пише «Риса: будь-яка» і лише радить Стійкого та Експерта у навичках; пресет бере Стійкого (Статура) на 16-му й Експерта у навичках (Статура) на 19-му (вибір платформи, автор не називає); гравець може змінити перед створенням.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-inquisitive-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+            "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

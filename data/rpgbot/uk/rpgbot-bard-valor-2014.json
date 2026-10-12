@@ -1,0 +1,2135 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-0c75c8ec98bc380b",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-0c75c8ec98bc380b-ab2076d605a4120a",
+      "sourceId": "rpgbot-0c75c8ec98bc380b",
+      "fetchedAt": "2026-09-29T19:08:38.293847+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:28:47-04:00",
+      "contentHash": "aa8aec8c877ea00fe4427139852e984abfe9282ecb69288b1e706899c6081008",
+      "title": "College of Valor Bard 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-0c75c8ec98bc380b-ab2076d605a4120a.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-bard-valor-2014",
+    "sourceId": "rpgbot-0c75c8ec98bc380b",
+    "slug": "bard-valor-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Колегія доблесті Барда — гайд підкласу D&D 5e 2014",
+    "titleEn": "College of Valor Bard 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Бард",
+      "підклас",
+      "Колегія доблесті",
+      "збірка"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "articleId": "rpgbot-bard-valor-2014",
+      "sourceRevisionId": "rpgbot-0c75c8ec98bc380b-ab2076d605a4120a",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бард Колегії доблесті подає себе як варіант на кшталт {{бойового заклинателя|gish}} і справді виконує основні вимоги: володіння обладунками середньої ваги, щитами й бойовою зброєю. Якщо лише пробігтися списком умінь підкласу, його легко відкинути як такий, що робить замало, але це трохи короткозорий висновок. Адже в Барда все ще є девʼять рівнів заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цьому й сила Барда Колегії доблесті: замість уміння класу, яке дає приріст шкоди, між списком заклинань Барда та Магічними таємницями{{Magical Secrets}} є безліч заклинань, якими можна створити власне підсилення шкоди. Тільки не забувайте: роль Барда Колегії доблесті в групі не відрізняється від ролі звичайного Барда. Хоча в нас є вміння, що дають змогу завдавати певної шкоди й користуватися кращою зброєю, ніж у базового Барда, наше головне вміння — як і раніше, давати кістки натхнення іншим істотам."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо надто покладатися на бойову майстерність, ви ризикуєте стати гіршим у своїх основних бардських здібностях. Можна зберегти здоровий баланс, а можна всупереч загальноприйнятій мудрості навмисно зробити перекіс в один бік. Основа{{chassis}} Барда достатньо гнучка, щоб обидва напрямки мали свої переваги. Наш приклад нижче, «Ще один бойовий заклинатель до купи»{{Another Gish for the Pile}}, іде досить збалансованим шляхом, щоб скористатися і довгим луком, і заклинаннями Барда."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Колегії доблесті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Барда Колегії доблесті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Барда Колегії доблесті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Барда Колегії доблесті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Магічні таємниці Барда Колегії доблесті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-magical-secrets"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Барда Колегії доблесті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Барда Колегії доблесті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Барда Колегії доблесті",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Колегії доблесті — «Ще один бойовий заклинатель до купи»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#example-college-of-valor-build-another-gish-for-the-pile"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Колегії доблесті",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткові володіння{{Bonus Proficiencies}}: середні обладунки й щит суттєво підвищать ваш КБ. Зі Спритністю 14 або більше, нагрудником{{Breastplate}} і щитом ваш КБ становитиме поважні 18 — стільки ж, як у воїна в латах{{Plate}} без щита. Напівлати{{Half-plate}} дадуть вищий КБ, але ви можете не захотіти отримувати Перешкоду на перевірки Непомітності. Якщо згодом ваша Спритність досягне 18, подумайте про повернення до легких обладунків. Ви також отримуєте володіння всією бойовою зброєю, але, мабуть, захочете користуватися рапірою, володіння якою і так мають усі Барди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойове натхнення{{Combat Inspiration}}: додавати кістку натхнення до шкоди марнотратно (хіба що ви застосуєте її після критичного влучання — тоді вона подвоїться, бо це «додаткова шкода», а не окреме джерело шкоди). Набагато краще витрачати натхнення, щоб запобігати атакам. Це не зовсім так добре, як уміння «Ріжучі слова»{{Cutting Words}} {{Колегії знань|College of Lore}}, зате ваші союзники самі вирішують, чи використати кістку, і це приємно знімає з вас розумове навантаження."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткова атака{{Extra Attack}}: значно збільшує вашу шкоду від атак зброєю. Якщо наполягаєте на використанні зброї замість заклинань, це вміння необхідне. Завдяки повному накладанню заклинань і Магічним таємницям{{Magical Secrets}} ми можемо скористатися унікальними підсиленнями замість традиційного бонусу до шкоди бойових класів («Підступна атака»{{Sneak Attack}}, «Покращена божественна кара»{{Improved Divine Smite}} тощо). Заклинання на кшталт Клинка тіні [Shadow Blade], Стихійної зброї [Elemental Weapon] та Священної зброї [Holy Weapon] чудово поєднуються з Додатковою атакою. На жаль, оскільки у вас немає бонусу до шкоди, властивого більшості бойових класів, то якщо ви можете отримати бойове замовляння на кшталт Гримучого Клинка [Booming Blade], значно ефективніше застосовувати Гримучий Клинок [Booming Blade] замість двох атак, коли користуватися згаданими заклинаннями-підсиленнями незручно (наприклад, коли ваша Концентрація вже зайнята). Гримучий Клинок [Booming Blade] усе одно може завдати більше шкоди, якщо спрацює додаткова шкода (див. мою статтю "
+                  },
+                  {
+                    "type": "link",
+                    "text": "«Замовляння ближнього бою проти Додаткової атаки»",
+                    "href": "https://rpgbot.net/dnd5/characters/melee_cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": ")."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойова магія{{Battle Magic}}: чудове застосування бонусної дії, але вона також потрібна для Бардського натхнення{{Bardic Inspiration}}, тож нерідко траплятимуться ходи, коли Бойовою магією скористатися не вдасться. Якщо вивчите Гримучий Клинок [Booming Blade] та/або Клинок Зеленого Полумʼя [Green-Flame Blade], то все одно зможете здійснити дві атаки зброєю за один хід — подібно до {{Чарівника-співця клинка|Bladesigner}} чи Потойбічного лицаря{{Eldritch Knight}}, коли вони отримують «Бойову магію»{{War Magic}}."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-valor-ability-scores",
+          "heading": "Характеристики Барда Колегії доблесті",
+          "sourceAnchor": "college-of-valor-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-valor-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бард Колегії доблесті, можливо, захоче справді влучати зброєю — тоді в гру вступають Сила або Спритність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-college-of-valor-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сил: можна битися врукопаш із Силою, але для КБ усе одно потрібна певна Спритність. Це менш привабливий варіант, ніж атакувати від Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-college-of-valor-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спр: якщо хочете користуватися фехтувальною й далекобійною зброєю, вам сюди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-college-of-valor-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стат: після Харизми та Сили або Спритності підвищуйте її заради ХП і ряткидків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-college-of-valor-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інт: важливих характеристик і так багато, тож якась мусила постраждати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-college-of-valor-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мдр: і, на жаль, однією з таких характеристик виявилася Мудрість."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-college-of-valor-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хар: вона й далі важлива для наших заклинань і кісток Бардського натхнення{{Bardic Inspiration}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-college-of-valor-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "За очками"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 (14)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 (10)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-valor-races",
+          "heading": "Раси Барда Колегії доблесті",
+          "sourceAnchor": "college-of-valor-races",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-valor-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поради з "
+                },
+                {
+                  "type": "link",
+                  "text": "огляду рас Барда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/races/"
+                },
+                {
+                  "type": "text",
+                  "text": " достатньо точні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-college-of-valor-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Ґітцерай{{Githzerai}}: це дає нам заклинання Щит [Shield]. Його немає у списку Барда, а воно значно сильніше, ніж має право бути."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Напівельф{{Half-Elf}}: оскільки ми трохи залежимо від багатьох характеристик (MAD), +2/+1/+1 у напівельфів — кращий вибір. {{Напівельф із варіантом Високого ельфа|High Half-Elf}} може дати Гримучий Клинок [Booming Blade], якщо ви хочете вступати в ближній бій, хоча я раджу битися на відстані — так безпечніше."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-valor-feats",
+          "heading": "Риси Барда Колегії доблесті",
+          "sourceAnchor": "college-of-valor-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-valor-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе, що тут не згадано, шукайте в "
+                },
+                {
+                  "type": "link",
+                  "text": "розділі про риси Посібника Барда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-college-of-valor-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "«Ельфійська точність»{{Elven Accuracy}}: кілька заклинань дають нам надійну Перевагу, тож перетворити її на надійну Суперперевагу{{Super Advantage}} — добрий задум."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "«Доторк феї»{{Fey Touched}}: якщо вам потрібне Благословення [Bless], ви можете отримати його тут. Його також можна отримати, натомість взявши один рівень {{Чародія Божественної душі|Divine Soul Sorcerer}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "«Майстер древкової зброї»{{Polearm Master}}: якщо вдасться так розподілити характеристики, щоб Сила працювала на вас, поєднання цієї риси із заклинаннями на кшталт Священної зброї [Holy Weapon] чи Стихійної зброї [Elemental Weapon] може творити дива з вашою шкодою від зброї."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "«Влучний стрілець»{{Sharpshooter}}: оскільки вбудованого приросту шкоди немає, це непоганий варіант для далекобійного Барда Колегії доблесті."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-valor-magical-secrets",
+          "heading": "Магічні таємниці Барда Колегії доблесті",
+          "sourceAnchor": "college-of-valor-magical-secrets",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-valor-magical-secrets-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоча вам варто завжди звертатися до "
+                },
+                {
+                  "type": "link",
+                  "text": "практичного посібника з Магічних таємниць",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/magical_secrets/"
+                },
+                {
+                  "type": "text",
+                  "text": ", Барди Колегії доблесті можуть використати ці варіанти, щоб стати чимось на кшталт гібридного Паладина/Слідопита з девʼятьма рівнями слотів заклинань. Цей список призначений "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "на додаток до"
+                },
+                {
+                  "type": "text",
+                  "text": " заклинань, які розглянуто в нашому практичному посібнику з Магічних таємниць{{Magical Secrets}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-college-of-valor-magical-secrets-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Стихійна зброя [Elemental Weapon]: порівняно зі Священною зброєю [Holy Weapon] це заклинання нижчого рівня, воно має переваги від підсилення слотом вищого рівня й дає бонус до кидків атаки. Проте додаткова шкода за атаку в нього менша — навіть без урахування типів шкоди й навіть при накладанні слотом вищим за 5-й слот Священної зброї [Holy Weapon]. Попри бонус до кидків атаки, DPR при накладанні слотом 5-го рівня на 3 пункти нижчий, ніж у Священної зброї [Holy Weapon]. Витрата слота 7-го рівня заради ще +1/+1к4 усе одно випереджає Священну зброю [Holy Weapon] лише на 2 пункти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Священна зброя [Holy Weapon]: шкода за замах трохи менша, ніж у Клинка тіні [Shadow Blade], якщо обидва заклинання накладено слотом 5-го рівня. Зате Священна зброя [Holy Weapon] триває годину й діє на далекобійну зброю. Вона корисна в більшій кількості ситуацій, ніж Клинок тіні [Shadow Blade], хоча за бажання можна втілити й пафосно-похмуру фантазію про Клинок тіні [Shadow Blade] — цифри доволі близькі. А головне, ми можемо накласти це заклинання на чужу зброю, якщо це доречно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Магічна зброя [Magic Weapon]: оскільки йдеться про Магічні таємниці{{Magical Secrets}}, немає жодних причин розглядати це заклинання замість Стихійної зброї [Elemental Weapon] чи Священної зброї [Holy Weapon]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клинок тіні [Shadow Blade]: за правильного освітлення безкоштовна Перевага й кілька кісток психічної шкоди за атаку — це добре. Що справді підсилює це заклинання, так це наявність і Додаткової атаки{{Extra Attack}}, і повного зростання слотів, тож ми можемо чудово ним скористатися, щойно його отримаємо. Просто подбайте про зміцнення Концентрації."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Швидкий сагайдак [Swift Quiver]: якщо порахувати за найвигідніших умов (із мушкетом, щоб більша частина шкоди йшла від зброї), це заклинання випереджає Священну зброю [Holy Weapon] лише на 3 DPR, при цьому щоходу забирає вашу бонусну дію й триває лише 1 хвилину проти години. Це заклинання просто не варто використовувати, бо замість нього можна взяти Священну зброю [Holy Weapon]."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-valor-weapons",
+          "heading": "Зброя Барда Колегії доблесті",
+          "sourceAnchor": "college-of-valor-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-valor-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На відміну від звичайного Барда, Колегія доблесті дає володіння бойовою зброєю. Проте Бард і так володіє найкращою фехтувальною зброєю — рапірою, тож, якщо ви не збираєтеся використовувати Силу чи далекобійну зброю, просто дотримуйтеся "
+                },
+                {
+                  "type": "link",
+                  "text": "Посібника Барда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-college-of-valor-weapons-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Довгий лук: завдяки Додатковій атаці{{Extra Attack}} довгий лук — ваш найкращий далекобійний варіант, причому без потреби в рисі на кшталт «Експерта з арбалетів»{{Crossbow Expert}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Глефа/алебарда: якщо хочете грати Бардом Колегії доблесті на основі Сили, дуже раджу ці варіанти з властивістю «Досяжність» і розглянути рису «Майстер древкової зброї»{{Polearm Master}}. Я оцінив ці дві зброї лише помаранчевим через додаткові складнощі з жонглюванням характеристиками для збірки на Силі."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-valor-armor",
+          "heading": "Обладунки Барда Колегії доблесті",
+          "sourceAnchor": "college-of-valor-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-valor-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Колегія доблесті дає володіння обладунками середньої ваги й щитами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-college-of-valor-armor-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Нагрудник: добрий вибір, якщо хочете бути непомітним."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Напівлати: на 1 КБ більше, ніж у нагрудника, але ціною Перешкоди на перевірки Непомітності; за потреби це можна компенсувати Покращенням здібності [Enhance Ability]."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-college-of-valor-multiclassing",
+          "heading": "Мультикласування Барда Колегії доблесті",
+          "sourceAnchor": "college-of-valor-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-college-of-valor-multiclassing-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Відьмацький клинок|Hexblade}}: один рівень Відьмацького клинка дає Барду Колегії доблесті три речі: заклинання Щит [Shield], Харизму для атак і «Прокляття Відьмацького клинка»{{Hexblade's Curse}}. Але якщо ви збираєтеся взяти один рівень Відьмацького клинка, навіщо взагалі бути Бардом Колегії доблесті, коли володіння обладунками середньої ваги від Відьмацького клинка можна використати на іншому Барді? Не секрет, що Позамежний заряд [Eldritch Blast] випередить шкоду від зброї Барда Колегії доблесті."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+          "heading": "Приклад збірки Колегії доблесті — «Ще один бойовий заклинатель до купи»",
+          "sourceAnchor": "example-college-of-valor-build-another-gish-for-the-pile",
+          "blocks": [
+            {
+              "blockId": "block-section-example-college-of-valor-build-another-gish-for-the-pile-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Єдині — розпалені — не введені в оману\nМи пройдемо крізь час до нашої єдиної справжньої долі\nЗанурені в темряву — запалені — досі сильні й нероздільні\nЦей віщий день тепер настав, щоб усі його побачили\n"
+                },
+                {
+                  "type": "link",
+                  "text": "«Захисники»",
+                  "href": "https://www.youtube.com/watch?v=1-OfAJ1oStI"
+                },
+                {
+                  "type": "text",
+                  "text": " — DragonForce"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-college-of-valor-build-another-gish-for-the-pile-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Серед усіх способів справді зіграти {{бойового заклинателя|gish}} у D&D 5e Бард Колегії доблесті, мабуть, найкраще з цим справляється, граючи одним класом. Я маю на увазі, що, звісно, є безліч способів махати зброєю й накладати заклинання, але більшість таких варіантів (Паладини, Потойбічні лицарі{{Eldritch Knights}}, {{Відьмацькі клинки|Hexblades}}) не мають повного накладання заклинань. Повне накладання заклинань обʼєктивно сильніше за майже будь-який інший варіант. А ще є чимало способів, якими мультикласування може дати майже повне накладання заклинань, наприклад Чародії-паладини{{Sorcadins}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-college-of-valor-build-another-gish-for-the-pile-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Але для персонажа з одним класом, який просто хоче махати зброєю, носити обладунок і все одно мати доступ до 9 рівнів заклинань, серед Колегії доблесті, Колегії мечів і {{Співців клинка|Bladesingers}} саме Колегія доблесті не ставить жодних перешкод, крім вибору підкласу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-college-of-valor-build-another-gish-for-the-pile-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Одразу скажу чітко: ціна за відсутність цих перешкод — ви не завдаватимете великої шкоди зброєю. Ви тут, бо не хочете метати замовляння як дії-заповнювачі, коли великі заклинання вже працюють, — ви хочете користуватися зброєю. Тож випускайте стріли в тих самих ситуаціях, коли інакше використали б замовляння як дії-заповнювачі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-college-of-valor-build-another-gish-for-the-pile-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Порівняно зі Злісним глузуванням [Vicious Mockery] — найсильнішим варіантом без залучення замовлянь звідкись іще — наш довгий лук завжди переважатиме. Різниця змінюється з часом, але найменша вона на 5-му рівні, коли замовляння вже посилюється, а Додаткової атаки{{Extra Attack}} ми ще не маємо, — лише 1,25 пункта. Щойно ми отримуємо Додаткову атаку{{Extra Attack}}, розрив зростає приблизно до 7 пунктів, а на 11-му рівні, коли замовляння посилюється вдруге, зменшується й стабілізується на 5. Ці цифри, звісно, не враховують жодних підсилень, які ми можемо накласти, щоб збільшити шкоду зброєю. Такі підсилення не можуть посилити наші замовляння, але водночас забирають нашу Концентрацію від типових справ Барда на кшталт заборони області чи жорсткого контролю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для атак використовуватимемо Спритність, щоб стріляти з довгого лука. Бій на відстані обʼєктивно безпечніший. За очками розподілимо по 15 на Спритність, Статуру й Харизму. Напівельфа беремо з багатьох причин, але тут важливе збільшення характеристик +2/+1/+1."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Збільшене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "На 20-му рівні"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стат"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мдр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо напівельфа{{Half-Elf}}, щоб отримати «Ельфійську точність»{{Elven Accuracy}}, кілька додаткових навичок і збільшення характеристик +2/+1/+1. Темнозір{{Darkvision}} теж стане в пригоді."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Передісторія Злочинця{{Criminal}} дає володіння Обманом, Непомітністю та інструментами злодія{{Thieves’ Tools}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від напівельфа{{Half-Elf}} отримуємо Магію й Уважність. Від Барда — Залякування, Аналіз Поведінки й Переконання. Від Злочинця{{Criminal}} — Обман і Непомітність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щодо інструментів: Бард дає нам три музичні інструменти на вибір, а Злочинець — Інструменти злодія{{Thieves’ Tools}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Ельфійську точність»{{Elven Accuracy}} й додаємо +1 до Харизми, щоб довести її до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо рису «Посвячений у бій»{{Fighting Initiate}} і обираємо бойовий стиль «Стрільба з лука»{{Archery}}. Тепер наші кидки атаки зрівняються з персонажами, які на цьому рівні довели свою атакувальну характеристику до 20. Так, поки шкода становитиме лише +3 від Спритності 16, зате за точністю ми не відставатимемо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні додаємо +2 до Харизми й доводимо її до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні додаємо +2 до Спритності й доводимо її до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні додаємо +2 до Спритності й доводимо її до 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бардське натхнення»{{Bardic Inspiration}} — к6\nЧаротворство{{Spellcasting}}\nЗамовляння: – "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Mage Hand] – "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Мала ілюзія",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/#minor-illusion"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Minor Illusion]\nЗаклинання 1-го рівня: – Вогники фей [Faerie fire] – Цілюще слово [healing word] – "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Silvery Barbs] – Сон [Sleep]\nНавички й інструменти: – Магія – Обман – Аналіз Поведінки – Залякування – Уважність – Переконання – Непомітність – Інструменти злодія"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Починаємо як будь-який Бард: беремо легкий обладунок і легкий арбалет, доки на 3-му рівні не отримаємо Колегію доблесті. Використовуйте заклинання на кшталт Сну [Sleep] і Вогників фей [Faerie fire], щоб дати команді перевагу в перших сутичках. Цілюще слово [healing word] і Сріблясті шпильки [Silvery Barbs] — ваші захисні інструменти. Накладайте Цілюще слово [healing word], коли хтось повалений, але має бути притомним, а Сріблясті шпильки [Silvery Barbs] — коли хтось ось-ось отримає критичне влучання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Майстер на всі руки»{{Jack of All Trades}}\n«Пісня відпочинку»{{Song of Rest}} — к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Майстер на всі руки»{{Jack of All Trades}} — приємне вміння: воно дає змогу трохи краще справлятися з перевірками характеристик, зокрема й з перевірками Ініціативи. «Пісня відпочинку»{{Song of Rest}} — невеликий бонус під час коротких відпочинків. Небагато, але приємно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Колегія доблесті|College of Valor}}\nДодаткові володіння{{Bonus Proficiencies}}\n«Бойове натхнення»{{Combat Inspiration}}\nЕкспертиза{{Expertise}}: – Аналіз Поведінки – Непомітність\nЧаротворство{{Spellcasting}}\nЗаклинання 2-го рівня: – Покращення здібності [Enhance Ability] – Друзки [Shatter]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Обираємо {{Колегію доблесті|College of Valor}} й отримуємо володіння обладунками середньої ваги, щитами та бойовою зброєю. Щойно буде зручно, переходьте на довгий лук — але зробіть це до 6-го рівня, коли зʼявиться Додаткова атака{{Extra Attack}}. «Бойове натхнення»{{Combat Inspiration}} чудово підсилює союзників. Як уже згадувалося в розділі про вміння {{Колегії доблесті|College of Valor}}, краще застосувати його для захисту й скасувати атаку, ніж трохи підвищити шкоду від одного удару. Для Експертизи{{Expertise}} беремо Аналіз Поведінки, щоб компенсувати низьку Мудрість під час переговорів та інших соціальних випробувань. Непомітність обираємо, щоб бути в ній справді добрими. Серед заклинань 2-го рівня Покращення здібності [Enhance Ability] — універсальне підсилення для найрізноманітніших випробувань навичок, а Друзки [Shatter] — надійний варіант шкоди, який варто тримати про запас до кінця карʼєри."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: «Ельфійська точність»{{Elven Accuracy}}\n+1 до Харизми"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Час від часу різні підсилення та заклинання, як-от Вогники фей [Faerie fire], дають нам Перевагу. Тож приємно натомість отримувати від цих ефектів Суперперевагу{{Super Advantage}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Джерело натхнення»{{Font of Inspiration}}\n«Бардське натхнення»{{Bardic Inspiration}} — к8\nЧаротворство{{Spellcasting}}\nЗаклинання 3-го рівня: – Розвіювання магії [Dispel Magic] – Страх [Fear] – Гіпнотичний візерунок [Hypnotic Pattern]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер кістки натхнення відновлюються після короткого відпочинку, тож можна використовувати їх частіше. Коли відкриються заклинання 3-го рівня, варто замінити Сон [Sleep] на одне з них. Розвіювання магії [Dispel Magic] допомагає розвʼязати чимало проблем. Страх [Fear] і Гіпнотичний візерунок [Hypnotic Pattern] — сильні заклинання контролю натовпу з різними формами й застосуванням."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Контрпричарування»{{Countercharm}}\nДодаткова атака{{Extra Attack}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми можемо атакувати двічі за одну дію Атака. Це ключ до того, щоб отримувати більше від певних заклинань, що додають шкоду до атак. «Контрпричарування»{{Countercharm}} не такі вже й корисні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство{{Spellcasting}}\nЗаклинання 4-го рівня: – Двері між вимірами [Dimension Door] – Більша невидимість [Greater Invisibility]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання Двері між вимірами [Dimension Door] добре підходить для переміщення й розвʼязання деяких головоломок. Проти відповідних ворогів Більша невидимість [Greater Invisibility] дає нам або союзникові Перевагу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: «Посвячений у бій»{{Fighting Initiate}}\nБойовий стиль: «Стрільба з лука»{{Archery}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "З цією рисою наші атаки з довгого лука зрівнюються з атаками персонажів, чия атакувальна характеристика на цьому рівні дорівнює 20."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Пісня відпочинку»{{Song of Rest}} — к8\nЧаротворство{{Spellcasting}}\nЗаклинання 5-го рівня: – Стримування монстра [Hold Monster] – Синаптичний розряд [Synaptic Static]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Іноді правильне рішення — накласти Стримування монстра [Hold Monster] і подарувати передовій безплатні критичні влучання, доки ворог не пройде ряткидок. А іноді правильно — величезна куля психічної шкоди з ряткидком Інтелекту. Золотої середини немає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бардське натхнення»{{Bardic Inspiration}} — к10\nЕкспертиза{{Expertise}}: – Магія – Уважність\nМагічні таємниці{{Magical Secrets}}: – Священна зброя [Holy Weapon] – Виклик небожителя [Summon Celestial]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беремо Експертизу{{Expertise}} в Магії й Уважності, щоб компенсувати Інтелект і Мудрість, які дорівнюють 8. Священна зброя [Holy Weapon] дуже сильно збільшує шкоду й підійде для нашого довгого лука. Здебільшого її варто накладати на власну зброю, але якщо у вас є союзник, який робить 3 або більше атак, розумніше накласти її на його зброю. Виклик небожителя [Summon Celestial] у слоті 5-го рівня завдає приблизно стільки само сумарної шкоди, скільки Священна зброя [Holy Weapon], накладена на себе, але ще й виводить на поле бою велику істоту. Перевага небожителя в тому, що його можна зробити ціллю для «Бойового натхнення»{{Combat Inspiration}}, а режим Захисника роздає тимчасові ХП з кожною атакою, що влучає. Крім того, виклики чудово посилюються слотами вищого рівня, тоді як Священна зброя [Holy Weapon] ніколи не стає сильнішою за ефект 5-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство{{Spellcasting}}\nЗаклинання 6-го рівня: – Масове навіювання [Mass Suggestion] – Істинний зір [True Seeing]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Масове навіювання [Mass Suggestion]: «Іди додому й будь сімʼянином». Істинний зір [True Seeing] бачить Правду. Не хотілося б потребувати цього заклинання й не мати його."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: +2 до Харизми"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вищі СК заклинань і пʼята кістка натхнення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Пісня відпочинку»{{Song of Rest}} — к10\nЧаротворство{{Spellcasting}}\nЗаклинання 7-го рівня: – Силова кліть [Forcecage] – Телепорт [Teleport]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замкніть ворогів у клітці. Телепортуйтеся геть зі скринею здобичі. Бій завершено. Макґафін у безпеці."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бойова магія»{{Battle Magic}}\nМагічні таємниці{{Magical Secrets}}: – Зцілення [Heal] – Стіна енергії [Wall of Force]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зцілення [Heal] чудове для екстреного лікування: одна дія — і комусь повертається обличчя. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Стіна енергії",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wall-spells/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Wall of Force] — для створення непроникного силового поля. «Бойова магія»{{Battle Magic}} — чудове вміння: воно дає змогу випустити стрілу бонусною дією, коли ми накладаємо заклинання дією. Чудово підходить, щоб скористатися чимось на кшталт Стримування монстра [Hold Monster] у наш власний хід."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бардське натхнення»{{Bardic Inspiration}} — к12\nЧаротворство{{Spellcasting}}\nЗаклинання 8-го рівня: – Слабоумство [Feeblemind] – Впевненість [Glibness]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слабоумство [Feeblemind] вимикає заклиначів. За допомогою Впевненості [Glibness] вигравайте кожну соціальну сутичку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: +2 до Спритності"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кращі кидки атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Пісня відпочинку»{{Song of Rest}} — к12\nЧаротворство{{Spellcasting}}\nЗаклинання 9-го рівня: – Передбачення [Foresight]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Передбачення [Foresight] — чудове підсилення. Ціль має Перевагу майже на все й дає Перешкоду на всі атаки проти себе. На вісім годин. Накладіть його на себе вранці й цілий день користуйтеся «Ельфійською точністю»{{Elven Accuracy}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магічні таємниці{{Magical Secrets}}: – Свята аура [Holy aura] – Бажання [Wish]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Wish]. Свята аура [Holy aura] — одне з найпотужніших захисних підсилень у грі: Перевага на всі ряткидки й Перешкода на всі атаки проти вас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: +2 до Спритності"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кидки атаки стають ще кращими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Вище натхнення»{{Superior Inspiration}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непогано. Якщо ви починаєте бій без жодної кістки натхнення, ви відновлюєте одну."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-bard-valor-2014-001",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Додаткові володіння",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-002",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Бойове натхнення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-003",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Додаткова атака",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-004",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Бойова магія",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-005",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-ability-scores",
+      "targetBlockId": "block-section-college-of-valor-ability-scores-2",
+      "optionId": "section-college-of-valor-ability-scores-block-section-college-of-valor-ability-scores-2",
+      "context": "Сил",
+      "explanationBlockId": "block-section-college-of-valor-ability-scores-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-006",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-ability-scores",
+      "targetBlockId": "block-section-college-of-valor-ability-scores-3",
+      "optionId": "section-college-of-valor-ability-scores-block-section-college-of-valor-ability-scores-3",
+      "context": "Спр",
+      "explanationBlockId": "block-section-college-of-valor-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-007",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-ability-scores",
+      "targetBlockId": "block-section-college-of-valor-ability-scores-4",
+      "optionId": "section-college-of-valor-ability-scores-block-section-college-of-valor-ability-scores-4",
+      "context": "Стат",
+      "explanationBlockId": "block-section-college-of-valor-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-008",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-ability-scores",
+      "targetBlockId": "block-section-college-of-valor-ability-scores-5",
+      "optionId": "section-college-of-valor-ability-scores-block-section-college-of-valor-ability-scores-5",
+      "context": "Інт",
+      "explanationBlockId": "block-section-college-of-valor-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-009",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-ability-scores",
+      "targetBlockId": "block-section-college-of-valor-ability-scores-6",
+      "optionId": "section-college-of-valor-ability-scores-block-section-college-of-valor-ability-scores-6",
+      "context": "Мдр",
+      "explanationBlockId": "block-section-college-of-valor-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-010",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-ability-scores",
+      "targetBlockId": "block-section-college-of-valor-ability-scores-7",
+      "optionId": "section-college-of-valor-ability-scores-block-section-college-of-valor-ability-scores-7",
+      "context": "Хар",
+      "explanationBlockId": "block-section-college-of-valor-ability-scores-7",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-011",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-races",
+      "targetBlockId": "block-section-college-of-valor-races-2",
+      "optionId": "section-college-of-valor-races-block-section-college-of-valor-races-2-item-0",
+      "context": "Ґітцерай",
+      "explanationBlockId": "block-section-college-of-valor-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-012",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-races",
+      "targetBlockId": "block-section-college-of-valor-races-2",
+      "optionId": "section-college-of-valor-races-block-section-college-of-valor-races-2-item-1",
+      "context": "Напівельф",
+      "explanationBlockId": "block-section-college-of-valor-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-013",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-feats",
+      "targetBlockId": "block-section-college-of-valor-feats-2",
+      "optionId": "section-college-of-valor-feats-block-section-college-of-valor-feats-2-item-0",
+      "context": "«Ельфійська точність»",
+      "explanationBlockId": "block-section-college-of-valor-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-014",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-feats",
+      "targetBlockId": "block-section-college-of-valor-feats-2",
+      "optionId": "section-college-of-valor-feats-block-section-college-of-valor-feats-2-item-1",
+      "context": "«Доторк феї»",
+      "explanationBlockId": "block-section-college-of-valor-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-015",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-feats",
+      "targetBlockId": "block-section-college-of-valor-feats-2",
+      "optionId": "section-college-of-valor-feats-block-section-college-of-valor-feats-2-item-2",
+      "context": "«Майстер древкової зброї»",
+      "explanationBlockId": "block-section-college-of-valor-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-016",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-feats",
+      "targetBlockId": "block-section-college-of-valor-feats-2",
+      "optionId": "section-college-of-valor-feats-block-section-college-of-valor-feats-2-item-3",
+      "context": "«Влучний стрілець»",
+      "explanationBlockId": "block-section-college-of-valor-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-017",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-magical-secrets",
+      "targetBlockId": "block-section-college-of-valor-magical-secrets-2",
+      "optionId": "section-college-of-valor-magical-secrets-block-section-college-of-valor-magical-secrets-2-item-0",
+      "context": "Стихійна зброя [Elemental Weapon]",
+      "explanationBlockId": "block-section-college-of-valor-magical-secrets-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-018",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-magical-secrets",
+      "targetBlockId": "block-section-college-of-valor-magical-secrets-2",
+      "optionId": "section-college-of-valor-magical-secrets-block-section-college-of-valor-magical-secrets-2-item-1",
+      "context": "Священна зброя [Holy Weapon]",
+      "explanationBlockId": "block-section-college-of-valor-magical-secrets-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-019",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-magical-secrets",
+      "targetBlockId": "block-section-college-of-valor-magical-secrets-2",
+      "optionId": "section-college-of-valor-magical-secrets-block-section-college-of-valor-magical-secrets-2-item-2",
+      "context": "Магічна зброя [Magic Weapon]",
+      "explanationBlockId": "block-section-college-of-valor-magical-secrets-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-020",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-magical-secrets",
+      "targetBlockId": "block-section-college-of-valor-magical-secrets-2",
+      "optionId": "section-college-of-valor-magical-secrets-block-section-college-of-valor-magical-secrets-2-item-3",
+      "context": "Клинок тіні [Shadow Blade]",
+      "explanationBlockId": "block-section-college-of-valor-magical-secrets-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-021",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-magical-secrets",
+      "targetBlockId": "block-section-college-of-valor-magical-secrets-2",
+      "optionId": "section-college-of-valor-magical-secrets-block-section-college-of-valor-magical-secrets-2-item-4",
+      "context": "Швидкий сагайдак [Swift Quiver]",
+      "explanationBlockId": "block-section-college-of-valor-magical-secrets-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-022",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-weapons",
+      "targetBlockId": "block-section-college-of-valor-weapons-2",
+      "optionId": "section-college-of-valor-weapons-block-section-college-of-valor-weapons-2-item-0",
+      "context": "Довгий лук",
+      "explanationBlockId": "block-section-college-of-valor-weapons-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-023",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-weapons",
+      "targetBlockId": "block-section-college-of-valor-weapons-2",
+      "optionId": "section-college-of-valor-weapons-block-section-college-of-valor-weapons-2-item-1",
+      "context": "Глефа/алебарда",
+      "explanationBlockId": "block-section-college-of-valor-weapons-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-024",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-armor",
+      "targetBlockId": "block-section-college-of-valor-armor-2",
+      "optionId": "section-college-of-valor-armor-block-section-college-of-valor-armor-2-item-0",
+      "context": "Нагрудник",
+      "explanationBlockId": "block-section-college-of-valor-armor-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-025",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-armor",
+      "targetBlockId": "block-section-college-of-valor-armor-2",
+      "optionId": "section-college-of-valor-armor-block-section-college-of-valor-armor-2-item-1",
+      "context": "Напівлати",
+      "explanationBlockId": "block-section-college-of-valor-armor-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bard-valor-2014-026",
+      "articleId": "rpgbot-bard-valor-2014",
+      "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+      "sectionId": "section-college-of-valor-multiclassing",
+      "targetBlockId": "block-section-college-of-valor-multiclassing-1",
+      "optionId": "section-college-of-valor-multiclassing-block-section-college-of-valor-multiclassing-1-item-0",
+      "context": "Відьмацький клинок",
+      "explanationBlockId": "block-section-college-of-valor-multiclassing-1",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

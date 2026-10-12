@@ -1,0 +1,61 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "monk-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+    "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "MONK_2014",
+  "subclassKey": "WAY_OF_THE_OPEN_HAND",
+  "raceKey": "HUMAN_2014",
+  "backgroundKey": "CRIMINAL",
+  "abilityScores": { "STR": 8, "DEX": 15, "CON": 15, "INT": 8, "WIS": 15, "CHA": 8 },
+  "revision": 2,
+  "levels": [
+    { "level": 2 },
+    { "level": 3, "subclassKey": "WAY_OF_THE_OPEN_HAND" },
+    { "level": 4, "abilityScoreIncrease": [{ "ability": "DEX", "amount": 2 }] },
+    { "level": 5 },
+    { "level": 6 },
+    { "level": 7 },
+    { "level": 8, "abilityScoreIncrease": [{ "ability": "DEX", "amount": 2 }] },
+    { "level": 9 },
+    { "level": 10 },
+    { "level": 11 },
+    { "level": 12, "abilityScoreIncrease": [{ "ability": "WIS", "amount": 2 }] },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15 },
+    { "level": 16, "abilityScoreIncrease": [{ "ability": "WIS", "amount": 2 }] },
+    { "level": 17 },
+    { "level": 18 },
+    { "level": 19, "abilityScoreIncrease": [{ "ability": "CON", "amount": 2 }] },
+    { "level": 20 }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/monk-human-open-hand-2014.webp",
+    "title": "Монах — людина Шляху відкритої долоні",
+    "description": "Бийтеся без обладунків і зі списом у руках. Проста збірка Монаха для тих, хто хоче впевнений старт без складних рішень.",
+    "subraceKey": null,
+    "racialAbilities": [],
+    "skills": { "selectedClass": ["INSIGHT", "STEALTH"], "race": [], "background": ["PERCEPTION"] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": ["ELVISH"],
+    "equipment": [
+      { "group": 1, "option": "b", "weapons": ["SPEAR"] },
+      { "group": 2, "option": "b", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Спритність, Статура й Мудрість — три опори Монаха. Людина додає по +1 до кожної характеристики, це вже враховано.",
+    "skillExplanation": "Автор радить Аналіз поведінки та Непомітність. Передісторія Злочинця дублює Непомітність, тож за порадою автора замість неї взято Уважність.",
+    "equipmentExplanation": "Спис і 10 дротиків взяті з авторського прикладу. Набір мандрівника й додаткову мову ми обрали за вас; їх можна змінити."
+  }
+}

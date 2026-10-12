@@ -1,5 +1,6 @@
 "use client";
 
+import { HelpCircle } from "lucide-react";
 import React from "react";
 import { MENU_PANEL } from "@/components/ui/menu-panel";
 import { cn } from "@/lib/utils";
@@ -20,11 +21,19 @@ import { cn } from "@/lib/utils";
 /// однаково, і читач не міг знати, відкриється щось чи ні. «en» називає те, що покаже
 /// підказка, і не читається як сумнів перекладача. Звідти ж і друге правило: звірка більше
 /// нічого не відкриває — модалку терміна дає лише посилання.
+///
+/// `hint` — пояснення жаргону (MAD, SAD) під оригіналом. Такий термін малюється плашкою з іконкою
+/// питання: мікроскопічного «?» читач не помічав (власник, 2026-10-01).
+const EXPLAINED_TERM_CLASSES =
+  "rounded-md border border-arcane-400/40 bg-arcane-500/10 px-1 py-px font-semibold text-arcane-200 hover:border-arcane-400/70 focus-visible:border-arcane-400/70";
+
 export function GlossaryTerm({
   original,
+  hint,
   children,
 }: {
   original: string;
+  hint?: string;
   children: React.ReactNode;
 }) {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -43,7 +52,7 @@ export function GlossaryTerm({
       <span
         role="button"
         tabIndex={0}
-        aria-label={`${readPlainText(children)} — ${original}`}
+        aria-label={`${readPlainText(children)} — ${original}${hint ? `. ${hint}` : ""}`}
         aria-expanded={isOpen}
         onPointerEnter={(event) => event.pointerType === "mouse" && setIsOpen(true)}
         onPointerLeave={(event) => event.pointerType === "mouse" && setIsOpen(false)}
@@ -65,19 +74,23 @@ export function GlossaryTerm({
           event.stopPropagation();
           setIsOpen((wasOpen) => !wasOpen);
         }}
-        className="group cursor-help no-underline outline-none"
+        className={cn("group cursor-help no-underline outline-none", hint && EXPLAINED_TERM_CLASSES)}
       >
         {children}
-        <span
-          aria-hidden
-          className={cn(
-            "select-none align-super text-[0.6em] leading-none tracking-tight",
-            isOpen ? "text-arcane-400" : "text-slate-500 group-hover:text-arcane-400",
-            "group-focus-visible:text-arcane-400"
-          )}
-        >
-          en
-        </span>
+        {hint ? (
+          <HelpCircle aria-hidden className="ml-0.5 inline h-[0.85em] w-[0.85em] align-[-0.1em] text-arcane-300" />
+        ) : (
+          <span
+            aria-hidden
+            className={cn(
+              "select-none align-super text-[0.6em] leading-none tracking-tight",
+              isOpen ? "text-arcane-400" : "text-slate-500 group-hover:text-arcane-400",
+              "group-focus-visible:text-arcane-400"
+            )}
+          >
+            en
+          </span>
+        )}
       </span>
 
       {isOpen && (
@@ -88,10 +101,12 @@ export function GlossaryTerm({
           className={cn(
             MENU_PANEL,
             "pointer-events-none absolute bottom-full left-1/2 z-50 mb-1 block w-max",
-            "max-w-[min(18rem,80vw)] px-2 py-1 text-center font-mono text-[0.85em] leading-snug text-arcane-200"
+            "max-w-[min(18rem,80vw)] px-2 py-1 text-center font-mono text-[0.85em] leading-snug text-arcane-200",
+            hint && "w-[min(18rem,80vw)] bg-slate-950 px-3 py-2"
           )}
         >
           {original}
+          {hint ? <span className="mt-1 block text-left font-sans text-slate-300">{hint}</span> : null}
         </span>
       )}
     </span>

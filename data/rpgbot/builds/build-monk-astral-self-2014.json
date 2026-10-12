@@ -1,0 +1,799 @@
+{
+  "buildId": "build-monk-astral-self-2014",
+  "revisionId": "build-monk-astral-self-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— Так, це посилання на «ДжоДжо»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-monk-astral-self-2014",
+      "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+      "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+      "sectionId": "section-example-build-nbspyes-this-is-a-jojos-reference",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "MONK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "MONK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "MONK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "MONK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WAY_OF_THE_ASTRAL_SELF",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "MONK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "MONK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "MONK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "MONK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "MONK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (WIS)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (INVESTIGATION)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (ATHLETICS)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "MONK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "MONK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "MONK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "MONK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "OBSERVANT",
+        "featOptions": [
+          {
+            "optionNameEng": "OBSERVANT Ability (Wisdom)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "MONK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "MONK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "MONK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "MONK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "MONK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "MONK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "MONK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "MONK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-astral-self-2014",
+          "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+          "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "WAY_OF_THE_ASTRAL_SELF",
+    "raceKey": "DHAMPIR_VRGTR",
+    "backgroundKey": "URCHIN",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-playstyle-and-tactics",
+        "title": "Стиль гри й тактика",
+        "text": "На нижчих рівнях ми здебільшого покладатимемося на зброю Монаха, щоб завдавати пристойної шкоди. Коли ми беремо підклас на третьому рівні, ми можемо стояти на відстані 10 футів зі шкодою 1к4 плюс модифікатор Мудрості або впритул (5 футів) зі шкодою 1к8 плюс модифікатор Спритності, якщо користуємося Палицею [Quarterstaff] чи Списом [Spear].\n\nТака гнучкість чудова. У міру підвищення рівня й пріоритету Мудрості Астральні руки ставатимуть сильнішими, на пʼятому рівні — 1к6.\n\nОсновна причина, чому в цій збірці ми віддаємо перевагу Мудрості над Спритністю, у тому, що наша Атлетика стає навичкою Мудрості, давши змогу Захоплювати. Чи слід нам входити в кожен бій і чекати, що ми почнемо валити монстрів на землю? Ні, нам слід оцінювати бій, і якщо треба схопити ціль, то в нас є така можливість, де інші підкласи Монаха навіть не можуть спробувати.\n\nКоли ми не захоплюємо, ми все одно маємо ще одну перевагу над іншими підкласами — кулаки зі шкодою силовим полем, дуже надійним типом шкоди.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-playstyle-and-tactics",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Скористаємося купівлею характеристик, щоб отримати три 15, а потім від дампіра візьмемо три +1, щоб мати на старті три 16.\n\n Купівля характеристик Підвищене значення Сила 8 8 Спритність 15 16 Статура 15 16 Інтелект 8 8 Мудрість 15 16 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ні, ми обрали дампіра не лише через меми. У дампіра є кілька приємних расових рис, які нам подобаються. По-перше, ми отримуємо базову швидкість 35 футів до додавання швидкості Монаха, і все це також додається до нашої швидкості лазіння. Але в нас не просто звичайне лазіння: дампіри мають «Павуче лазіння»{{Spider Climb}}, що дає змогу рухатися будь-якою поверхнею.\n\nКрім того, у нас дивна атака «Укус»{{Bite}}. На відміну від багатьох природних зброй, вона не може бути ударом без зброї й використовує Статуру для кидків атаки та шкоди. Вона рахується простою зброєю ближнього бою без властивостей Важка чи Дворучна, тож за замовчуванням є зброєю Монаха, хоча є дискусія, чи дозволяє це використовувати Спритність із укусом, бо «Бойові мистецтва» кажуть «використовуйте Спритність замість Сили». Ми все одно отримуватимемо збільшений кубик шкоди від Бойових мистецтв при укусі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Доповніть навички чи інструменти на ваш розсуд.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Дампір дає нам будь-які дві навички, тож беремо Аналіз Поведінки й Уважність, а Монах дає ще дві, де ми беремо Атлетику й Непомітність. Від передісторії добрим вибором були б Виживання та Спритність рук, бо наше поєднання Непомітності й швидкості лазіння чудове для завдань проникнення.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На четвертому рівні вкладемо підвищення характеристик у Мудрість, бо математика.\n\nНа восьмому беремо «Експерта в навичках», щоб мати Експертизу в Атлетиці. Це добре поєднується з тим, що наші Астральні руки дають нам Мудрість для Атлетики. Ми також отримаємо Володіння Розслідуванням для кращої розвідки. Наше гібридне очко характеристики йде в Мудрість.\n\nНа дванадцятому беремо «Спостережливого», щоб покращити пасивні Уважність і Розслідування. Гібридне очко вкладаємо в Мудрість, підвищуючи її до 20.\n\nНа шістнадцятому й девʼятнадцятому рівнях беремо підвищення Спритності, щоб довести і Спритність, і КБ до 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Захист без броні, Бойові мистецтва (1к4)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Рух без броні (10 фт), Кі",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Відхилення снарядів, Шлях астрального «я», Руки астрального «я»",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик: Мудрість +2 (16 → 18), Повільне падіння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака, Приголомшливий удар, Бойові мистецтва (1к6)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Удари, посилені Кі, Обличчя астрального «я», Рух без броні (15 фт)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ухилення, Спокій розуму",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Експерт у навичках, Володіння Розслідуванням, Експертиза в Атлетиці, +1 до Мудрості",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Рух без броні, біг по стінах",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Чистота тіла, Рух без броні (20 фт)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Тіло астрального «я», Бойові мистецтва (1к8)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: риса «Спостережливий», +1 до Мудрості",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Язик Сонця і Місяця{{Tongue of the Sun and Moon}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Алмазна душа{{Diamond Soul}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Невмируще тіло{{Timeless Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: Спритність +2 (16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Пробуджене астральне «я»",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Порожнє тіло{{Empty Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Спритність +2 (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Досконале Я{{Perfect Self}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Передісторія",
+        "reason": "Автор лишає передісторію на розсуд і радить лише Виживання та Спритність рук; жодна передісторія каталогу не дає цю пару, тож Безпритульного обрано за платформою (Спритність рук від нього, Виживання замість повторної Непомітності).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-astral-self-2014",
+            "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+            "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

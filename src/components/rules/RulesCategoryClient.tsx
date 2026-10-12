@@ -235,9 +235,9 @@ export function RulesCategoryClient({
 
 /// На телефоні зміст має бути під рукою на будь-якій глибині статті, тому кнопка живе не в шапці
 /// розділу, а в смужці, що лишається зверху при прокрутці.
-function MobileTocBar({ onOpen }: { onOpen: () => void }) {
+export function MobileTocBar({ onOpen }: { onOpen: () => void }) {
   return (
-    <div className="sticky top-0 z-30 -mx-4 -mt-6 border-b border-white/10 bg-slate-950/75 px-4 py-3 backdrop-blur-xl sm:-mx-8 sm:-mt-10 sm:px-8 lg:hidden">
+    <div className="sticky top-safe z-30 -mx-4 -mt-6 border-b border-white/10 bg-slate-950/75 px-4 py-3 backdrop-blur-xl sm:-mx-8 sm:-mt-10 sm:px-8 lg:hidden">
       <button
         type="button"
         onClick={onOpen}
@@ -250,7 +250,7 @@ function MobileTocBar({ onOpen }: { onOpen: () => void }) {
   );
 }
 
-function MobileTocCurtain({
+export function MobileTocCurtain({
   open,
   onClose,
   children,
@@ -276,18 +276,18 @@ function MobileTocCurtain({
 
           <motion.div
             key="toc-curtain"
-            className="fixed inset-x-0 top-0 z-[9001] max-h-[85dvh] overflow-y-auto overscroll-contain lg:hidden"
+            className="fixed inset-x-0 top-0 px-safe z-[9001] max-h-[85dvh] overflow-y-auto overscroll-contain lg:hidden"
             initial={{ y: "-100%" }}
             animate={{ y: 0, transition: { duration: reduceMotion ? 0 : 0.28, ease: [0.22, 1, 0.36, 1] } }}
             exit={{ y: "-100%", transition: { duration: reduceMotion ? 0 : 0.2 } }}
           >
             <div className={cn(MENU_PANEL, "rounded-t-none border-t-0")}>
-              <div className="relative space-y-4 p-4 pt-[calc(1rem+env(safe-area-inset-top,0px))]">
+              <div className="relative space-y-4 p-4 pt-[calc(1rem+var(--safe-top))]">
                 <button
                   type="button"
                   onClick={onClose}
                   aria-label="Закрити зміст"
-                  className="absolute right-3 top-[calc(0.75rem+env(safe-area-inset-top,0px))] z-10 rounded-xl border border-white/10 bg-white/5 p-1.5 text-slate-300 hover:bg-white/10 hover:text-white"
+                  className="absolute right-3 top-[calc(0.75rem+var(--safe-top))] z-10 rounded-xl border border-white/10 bg-white/5 p-1.5 text-slate-300 hover:bg-white/10 hover:text-white"
                 >
                   <X className="h-4 w-4" />
                 </button>
@@ -301,7 +301,7 @@ function MobileTocCurtain({
   );
 }
 
-type TocLinkEntry = {
+export type TocLinkEntry = {
   id: string;
   title: string;
   href: string;
@@ -508,7 +508,7 @@ function buildOtherEntries(categoryHref: string, articles: TocArticle[]): TocLin
   }));
 }
 
-function TocBranch({
+export function TocBranch({
   entries,
   onNavigate,
 }: {
@@ -553,7 +553,7 @@ function TocBranch({
 
 /// Якір у межах відкритої сторінки має лишатися звичайним `<a>`: `next/link` на самому хеші
 /// перезапускає маршрут замість того, щоб просто прокрутити.
-function TocLink({
+export function TocLink({
   href,
   samePage,
   onNavigate,

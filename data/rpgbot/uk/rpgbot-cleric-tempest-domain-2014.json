@@ -1,0 +1,1821 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-9f51eee1f5eab21f",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+      "sourceId": "rpgbot-9f51eee1f5eab21f",
+      "fetchedAt": "2026-09-29T19:18:46.157324+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:31:15-04:00",
+      "contentHash": "e1000f16b7bae2e313282eec06ce05cc334f28436c88bc25f7f84bb22d6d2659",
+      "title": "Tempest Domain Cleric 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-cleric-tempest-domain-2014",
+    "sourceId": "rpgbot-9f51eee1f5eab21f",
+    "slug": "cleric-tempest-domain-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Домен бурі — гайд підкласу Клірика (2014)",
+    "titleEn": "Tempest Domain Cleric 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Клірик",
+      "Домен бурі",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "sourceRevisionId": "rpgbot-9f51eee1f5eab21f-3adea4275c20c7bf",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірик домену бурі водночас наступальний і витривалий: він десь між живучістю Домену життя та шкодою Домену світла. Уміння й заклинання Бурі пропонують кілька цікавих варіантів контролю натовпу, контролю території й шкоди по області, завдяки чому Клірик Бурі може бути ефективною загрозою і на ближній, і на дальній дистанції. Домен бурі не дає ні утилітарних варіантів, ні варіантів підтримки, тож розраховуйте на свій список заклинань, щоб розвʼязувати проблеми, які не розвʼязати ударом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Домен бурі, як і натякає назва, сильно залежить від блискавичної та громової шкоди. Найпомітніше уміння підкласу, «Руйнівний гнів»{{Destructive Wrath}}, дозволяє максимізувати шкоду заклинань, що завдають блискавичної чи громової шкоди. Проте повна відсутність відповідних заклинань у Клірика — величезне обмеження для підкласу. Кілька заклинань підклас таки дає, але цього справді замало. Друзки [Shatter] і Руйнівна хвиля [Destructive Wave] — ваші найкращі варіанти, і залежать вони від хронічно прикрих ряткидків Статури."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щоб закрити цю прогалину, доведеться дивитися за межі Клірика. Кілька рас можуть дати вам Шокувальний дотик [Shocking Grasp] як замовляння, а кращі заклинання, можливо, вдасться отримати від іншого класу, хоча знайти чаротворство на основі Мудрості, що завдає блискавичної чи громової шкоди, буде важко."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Допомогти можуть і кілька магічних предметів: Метальний спис блискавки{{Javelin of Lightning}}, {{Посох грому і блискавки|Staff of Thunder and Lightning}} і {{Паличка зарядів блискавки|Wand of Lightning Bolts}}. На жаль, список короткий, і жоден із варіантів не чудовий."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе це не означає, що Домен бурі поганий. Він не поганий. Просто це багато шуму й люті та класових умінь, які здаються просто чудовими, коли користуєтеся ними за призначенням, а результат — лише так собі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Домену бурі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Домену бурі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Домену бурі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Домену бурі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Домену бурі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Домену бурі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Домену бурі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Клірика бурі — Розбиваємо очікування на друзки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Домену бурі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Домену бурі",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Домену бурі",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання домену{{Domain Spells}}: жменя утилітарних варіантів, але переважно заклинання шкоди. У клірика немає багато вбудованих варіантів блискавичної чи громової шкоди, тож це чудові доповнення разом з іншими уміннями Домену бурі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Туманна хмара [Fog Cloud] — чудовий механізм втечі чи контролю натовпу. Громова хвиля [Thunderwave] спокушає, коли ви опинилися в ближньому бою не за силами й вам треба вибороти трохи простору чи вирватися із захоплення, але памʼятайте, що це ряткидок Статури, а вони зазвичай високі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Порив вітру [Gust of Wind] дуже ситуативний, але Друзки [Shatter] — це по суті «полегшена» версія Вогнекулі [Fireball]; до того ж він працює з «Божественність: Руйнівний гнів»{{Channel Divinity: Destructive Wrath}}, тож можна максимізувати шкоду."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Завірюха [Sleet Storm] — посереднє заклинання контролю натовпу, а Накликання блискавки [Call Lightning] дратує й може бути дуже важким для ефективного використання. Зауважте, що «Божественність: Руйнівний гнів»{{Channel Divinity: Destructive Wrath}} діє лише на один кидок шкоди, а не на все заклинання, тож використовувати його з Накликанням блискавки [Call Lightning] здебільшого безглуздо."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Крижаний шторм [Ice Storm] — погане заклинання, а Контроль води [Control Water] корисне лише тоді, коли поруч є велика водойма, що в більшості кампаній трапляється нечасто."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Руйнівна хвиля [Destructive Wave] завдає чудової шкоди типів, до яких дуже рідко є опір, але оскільки тип шкоди розділений, «Божественність: Руйнівний гнів»{{Channel Divinity: Destructive Wrath}} максимізує лише половину кубиків шкоди. За той самий слот заклинання 5-го рівня Друзки [Shatter] завдає 6к8 шкоди (максимізується до 48), тоді як Руйнівна хвиля [Destructive Wave] завдає в середньому 47,5 (30 максимізовано плюс 17,5 у середньому) у значно більшій області дії, водночас виключаючи ваших союзників, тож Руйнівна хвиля [Destructive Wave] усе одно перемагає Друзки [Shatter] у переважній більшості ситуацій. На жаль, Руйнівна хвиля [Destructive Wave] не виграє від накладання вищим слотом, бо задумана як заклинання Паладина. Нашестя комах [Insect Plague] — фантастичний варіант контролю території, але частково дублює Духів захисників [Spirit Guardians]. Нашестя комах [Insect Plague] використовує більші кубики шкоди, але через масштабування слотом завдає приблизно стільки ж шкоди, як Духи захисники [Spirit Guardians]. Обидва заклинання мають тривалість 10 хвилин і вимагають Концентрації. Нашестя комах [Insect Plague] накладається на відстані й має більшу область дії, тож вам не треба стояти посеред області, але й перемістити її ви не можете. Ці два заклинання приблизно рівноцінні, але виграють у різних ситуаціях."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткові майстерності{{Bonus Proficiencies}}: важкі обладунки чудові для Клірика. Бойова зброя додає ще кілька бойових варіантів, але клірики погано користуються зброєю, і бойова зброя цього не змінює. Із важкими обладунками та «Гнівом бурі»{{Wrath of the Storm}} можна обрати дворучну зброю, хоч замовляння й надалі будуть ефективнішими, коли ви здобуватимете рівні й додаватимете додаткові кубики шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Гнів бурі|Wrath of the Storm}}: на низьких рівнях він прямо вбиватиме ворогів. На високих рівнях це лише легкий стримувальний чинник."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Руйнівний гнів|Channel Divinity: Destructive Wrath}}: чудово, коли вам абсолютно необхідно накласти Друзки [Shatter] на кожного ворога в кімнаті. Не спокушайтеся використовувати це з «Гнівом бурі»{{Wrath of the Storm}}; це трагічна марнота чудового уміння. На жаль, у списку заклинань Клірика дуже мало заклинань, що для цього підходять, тож найкращі варіанти — зі списку заклинань вашого домену, якщо ви не мультикласуєтеся."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Удар блискавки{{Thunderbolt Strike}}: добре поєднується з «Гнівом бурі»{{Wrath of the Storm}}, коли вам з якоїсь причини треба вийти з ближнього бою, а оскільки «Гнів бурі» й за успішного ряткидка завдає половину шкоди, ефект відштовхування вам гарантований. На жаль, у кліриків немає жодного замовляння, що завдає блискавичної шкоди. Це було б чудово, якби працювало з блискавичною "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "чи"
+                  },
+                  {
+                    "type": "text",
+                    "text": " громовою шкодою, але ні. Як і багато подібних ефектів, воно лише вказує, що ви відштовхуєте ціль «геть», а не «прямо геть». Це означає, що ви вільні відштовхнути її вгору й геть, потенційно підкидаючи ворогів на 10 футів у повітря й змушуючи їх упасти на 10 футів від місця, де вони були раніше."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественний удар{{Divine Strike}}: громова шкода — серед найкращих типів шкоди в грі, але клірики все одно погано користуються зброєю. Дивіться також: "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Божественний удар проти замовлянь",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/tempest-domain/#divine-strike-vs-cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": " вище."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Народжений бурею|Stormborn}}: майже постійний політ! Політ абсолютно вирішальний на високих рівнях, а отримати його так легко може звільнити ресурси для цікавіших речей. Ви не зможете користуватися цим усередині підземель та інших поширених місць пригод, але це все одно дуже корисно."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Домену бурі",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "інших кліриків у важких обладунках",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Домену бурі",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мало чим відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/races/"
+                },
+                {
+                  "type": "text",
+                  "text": ", але можливість отримати Шокувальний дотик [Shocking Grasp] як заклинання на основі Мудрості — величезна перевага."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Геназі повітря{{Air Genasi}} "
+                },
+                {
+                  "type": "link",
+                  "text": "MotM",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": один із небагатьох способів отримати Шокувальний дотик [Shocking Grasp] як заклинання на основі Мудрості, окрім як бути кліриком іншого різновиду. Це величезна користь для клірика на передовій, особливо коли ви отримаєте «Удар блискавки»{{Thunderbolt Strike}}. Опір до блискавки теж приємний."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кобольд{{Kobold}} "
+                },
+                {
+                  "type": "link",
+                  "text": "MotM",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": «Драконяча Магія»{{Draconic Sorcery}} дозволяє отримати Шокувальний дотик [Shocking Grasp] як заклинання на основі Мудрості. Можна взяти й Гримучий Клинок [Booming Blade], але, крім «Руйнівного гніву»{{Destructive Wrath}}, синергії там немає, а витрачати «Канал божественності»{{Channel Divinity}} на замовляння вам справді не слід."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Домену бурі",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "інших кліриків",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Посвячений у магію|Magic Initiate}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": можливий спосіб отримати трохи громової та/або блискавичної шкоди, але знайти чаротворство на основі Мудрості, що завдає потрібної нам шкоди, буде важко, а заклинання 1-го рівня ви не зможете накласти повторно, якщо не оберете Клірика, а це суперечить тому, навіщо нам ця риса."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Адепт метамагії{{Metamagic Adept}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Перетворене заклинання»{{Transmuted Spell}} двічі на день, щоб заклинання завдавало громової шкоди. На жаль, вибір заклинань украй обмежений."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Удар велетнів|Strike of the Giants}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "GotG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": варіант «Штормовий удар»{{Storm Strike}} дозволяє кілька разів на день завдавати блискавичної шкоди атакою зброєю, а це дає вам спосіб запускати «Удар блискавки»{{Thunderbolt Strike}}."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Домену бурі",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "інших кліриків",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": ", тобто зі зброєю ви погані. Майте при собі щось для Принагідних атак, а в іншому — не заморочуйтеся."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Домену бурі",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "інших кліриків",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Домену бурі",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Друїд{{Druid}}: один рівень заради Кийка [Shillelagh], Гуркоту грому [Thunderclap] і Поглинання стихій [Absorb Elements]. Поглинання стихій [Absorb Elements] може дати спосіб завдавати атаками блискавичної шкоди, але для цього спершу треба отримати блискавичну шкоду, а це трапляється не так часто, щоб «Удар блискавки»{{Thunderbolt Strike}} був стабільно корисним."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Монах{{Monk}}: підклас «Шлях висхідного дракона»{{Way of the Ascendant Dragon}} має уміння «Драконячий удар»{{Draconic Strike}}, що дозволяє завдавати блискавичної шкоди беззбройними ударами, тож «Удар блискавки»{{Thunderbolt Strike}} стає легкодоступним 2–3 рази за хід. Але для цього потрібні три рівні, а три рівні заради того, щоб трохи краще атакувати зброєю, — не така велика міць, як 3 рівні чаротворства."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Паладин{{Paladin}}: два рівні, щоб отримати доступ до Громової кари [Thunderous Smite], що працює з «Руйнівним гнівом»{{Destructive Wrath}}, і відмовитися доведеться лише від одного рівня прогресії слотів заклинань. Але Друзки [Shatter] і Руйнівна хвиля [Destructive Wave] обидва будуть кращими джерелами шкоди без витрати Концентрації, тож це не найкращий варіант."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чародій{{Sorcerer}}: «Магія шторму»{{Storm Sorcery}} — природне поєднання з Доменом бурі, але занурення в клас має йти в протилежний бік. Клірик не може добре використовувати чаротворство на Харизмі, а от чародій може скористатися «Руйнівним гнівом»{{Destructive Wrath}}. Проте два рівні заради «Джерела магії»{{Font of Magic}} і «Перетвореного заклинання»{{Transmuted Spell}} дадуть багато "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "після того, як ви зможете накласти Вогняний шторм [Fire Storm]"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", бо це єдине заклинання Клірика, яке варто перетворювати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чарівник{{Wizard}}: «Орден писарів»{{Order of Scribes}} працює лише із заклинаннями чарівника. Як і «Магія шторму»{{Storm Sorcery}}, занурення в клас має йти в протилежний бік: 2 рівні Клірика бурі й 18 рівнів чарівника."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Клірика бурі — Розбиваємо очікування на друзки",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви, мабуть, прийшли по збірку Тора. Тут не вона. Домен бурі — це не Тор. Це навіть не Шторм із «Людей Ікс»{{X-Men}}. Він намагався вбратися Тором, але в основному це клірик у косплеї Тора, що видає гучні звуки й завдає майнової шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка щосили спирається на уміння Домену бурі й намагається витиснути з них абсолютний максимум. Це дозволяє нам робити дві речі, з якими не зрівняється жоден інший клірик: запускати людей у повітря Шокувальним дотиком [Shocking Grasp], щоб контролювати одиничні цілі, і спамити Друзки [Shatter] та Руйнівну хвилю [Destructive Wave] задля шкоди по області."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У багатьох відношеннях ця збірка працює, як інші клірики. Духи захисники [Spirit Guardians] усе ще наш основний вибір у багатьох ситуаціях. Але можливість отримувати великі сплески шкоди від «Руйнівного гніву»{{Destructive Wrath}} і заклинання громової шкоди дозволяє нам упоратися з групами ворогів значно швидше, ніж якби ми виснажували їх Духами захисниками [Spirit Guardians]. Ряткидки Статури безперечно будуть проблемою, але якщо змиритися з тим, що вороги завжди проходитимуть ряткидки, ви все одно завдаватимете пристойної шкоди своїми основними заклинаннями шкоди по області. Іноді істоти таки провалюватимуть ряткидки, і ви отримаєте веселу бонусну шкоду."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка не припускає жодних додаткових класових умінь, але якщо ваш Майстер почувається щедрим, раджу взяти «Благословенні удари»{{Blessed Strikes}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми хочемо уникнути штрафу до швидкості від важкого обладунку, щоб кидатися в ближній бій, а це, на жаль, означає, що нам потрібно більше Сили, ніж зазвичай. Почнемо з 15 у Силі, Статурі та Харизмі, потім +2 до Мудрості й +1 до Статури."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Геназі повітря{{Air Genasi}}. Нам дуже потрібен Шокувальний дотик [Shocking Grasp] як заклинання на основі Мудрості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для збірки це не особливо впливає. Підійде будь-що, що працює для Клірика."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тримаємося основних навичок клірика."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні розділимо Покращення Характеристик між Статурою й Мудрістю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні візьмемо «Бойового заклинателя»{{War Caster}}. З Шокувальним дотиком [Shocking Grasp] і «Ударом блискавки»{{Thunderbolt Strike}} наші Принагідні атаки можуть підкидати ворогів у повітря й валити їх на землю. Витративши половину руху, щоб підвестися, наші вороги далеко не зайдуть."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні доведемо Мудрість до максимуму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні візьмемо «Адепта метамагії»{{Metamagic Adept}}, щоб отримати «Перетворене заклинання»{{Transmuted Spell}}. Користуватимемося ним виключно з Вогняним штормом [Fire Storm], щоб перетворити його шкоду на громову й максимізувати «Руйнівним гнівом»{{Destructive Wrath}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні візьмемо «Стійкого (Статура)»{{Resilient (Constitution)}}. Разом із «Бойовим заклинателем»{{War Caster}} наша Концентрація практично непорушна. Це також підніме нашу Статуру до 18, зробивши нас дуже витривалими."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественний домен{{Divine Domain}}: Буря\nДодаткові майстерності\nГнів бурі\nЧаротворство\nЗамовляння:\n– Шокувальний дотик (Геназі повітря)\n– Настанова\n– Священне полумʼя\n– Слово сяйва\nЗаклинання домену:\n– Туманна хмара\n– Громова хвиля"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На 1-му рівні ми здебільшого стандартний клірик. Беріть зброю, нанесіть священний символ на щит і маршируйте в ближній бій. Якщо вас вдарили, використовуйте «Гнів бурі»{{Wrath of the Storm}}, бо він завдасть більше шкоди, ніж будь-що інше, що ви можете зробити, крім ваших заклинань із рівнями. Для підготовлених заклинань тримайтеся основних кліриківських варіантів. 90% того, що ви робите, — стандартні кліриківські справи."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (1/відпочинок)\n– Руйнівний гнів\n– Вигнання нежиті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Руйнівний гнів»{{Destructive Wrath}} стає доступним, але використати його нам нема з чим, крім Громової хвилі [Thunderwave]. 12 шкоди — непогано, але крихітна область дії означає, що ви навряд чи влучите більш ніж по двох ворогах, а ряткидок Статури буде проблемою протягом усієї вашої карʼєри."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Порив вітру\n– Друзки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 2-го рівня приносять Друзки [Shatter] — наш основний варіант вибуху по області на більшу частину карʼєри. Максимізація шкоди приблизно подвоює середню шкоду заклинання, і 24 шкоди від Друзок [Shatter] 2-го рівня тепер майже дорівнюють 28 шкоди від Вогнекулі [Fireball] 3-го рівня. Коли ми зможемо накладати заклинання 3-го рівня, Друзки [Shatter] завдаватимуть 32 шкоди, а додавання 8 шкоди за рівень заклинання замість 2к6 (у середньому 7) утримає нас попереду шкоди Вогнекулі [Fireball]. Звісно, дальність і область дії в Друзок [Shatter] гірші, а ряткидки Статури стабільно менш надійні за ряткидки Спритності, але принаймні наша базова шкода трохи краща за Вогнекулю [Fireball], а Друзки [Shatter] прямо завдають шкоди предметам, тож ми також можемо завдавати майнової шкоди негорючим речам. Тож просто припустімо найгірше для шкоди Друзок [Shatter] по кожній цілі й вважатимемо, що цілі проходитимуть ряткидки. Чесно кажучи, ми мало що можемо з цим зробити. Скажімо, Друзки [Shatter] завдадуть 14 шкоди 2–3 цілям. Якщо ми влучимо по двох цілях, це потрапляє в діапазон високого DPR. Ми не {{Чарівник школи Втілення|Evoker Wizard}}, але справляємося непогано. Накладання Друзок [Shatter] разом із «Руйнівним гнівом»{{Destructive Wrath}} нашим найвищим чи другим найвищим рівнем заклинань по двох цілях, коли обидві цілі проходять ряткидок, завдає досить шкоди, щоб потрапити в діапазон високого DPR. Ми не можемо підтримувати це, бо наші ресурси обмежені, але шкода все одно хороша."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура 16 → 17, Мудрість 17 → 18\nНове відоме замовляння:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Залишаємося точно на Фундаментальній математиці."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 1/2)\nЗаклинання домену:\n– Накликання блискавки\n– Завірюха"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні стають доступними Духи захисники [Spirit Guardians], які починають конкурувати з Друзками [Shatter] за місце. Духи захисники [Spirit Guardians] завдадуть 3к8 шкоди (у середньому 13,5) проти 18 від Друзок [Shatter] 3-го рівня з «Руйнівним гнівом»{{Destructive Wrath}} (припускаючи, що цілі проходять ряткидки). Тож для короткого бою чи проти віддалених ворогів Друзки [Shatter] — вигідний варіант. Якщо ви вже в тісному бою, Духи захисники [Spirit Guardians] до кінця вашого другого ходу завдадуть більше шкоди, а також уповільнять ворогів у радіусі. Усе ж Духи захисники [Spirit Guardians] — не ваша визначальна тактика, а це відчувається як перемога в класі, де це славетно визначальна тактика. В ідеалі ви заходите в бій із діючими Духи захисники [Spirit Guardians] і витрачаєте свої дії на накладання Друзок [Shatter] чи Слова сяйва [Word of Radiance] на натовпи. На цьому рівні покращуються замовляння, тож якщо ви ще не почали користуватися замовляннями замість зброї, саме час. Тримайте молот чи що там у вас для Принагідних атак ще кілька рівнів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (2/відпочинок)\nУдар блискавки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні у вас достатньо слотів заклинань, щоб накладати Друзки [Shatter] із «Руйнівним гнівом»{{Destructive Wrath}} двічі за відпочинок, а шкода достатньо хороша, щоб виправдати витрати, за умови, що ви влучаєте по двох чи більше цілях. «Удар блискавки»{{Thunderbolt Strike}} — вся причина, чому ми обрали Геназі повітря як расу. Вдаріть ворогів Шокувальним дотиком [Shocking Grasp] — і зможете відкинути їх на 10 футів по діагоналі вгору. 2к8+1к6 шкоди, а ворог ще й стає Поваленим. Непогано для того, що можна робити без обмежень. «Удар блискавки» також спрацьовує, коли ви користуєтеся «Гнівом бурі»{{Wrath of the Storm}}, тож можна відкидати ворогів і реакцією, якщо вони по вас влучили. До цього рівня ми могли б використати Духовну плащаницю [Spirit Shroud] із «Перетвореним заклинанням»{{Transmuted Spell}} (рису можна було взяти на 4-му рівні або отримати як Варіант людини{{Variant Human}}), щоб Духовна плащаниця [Spirit Shroud] завдавала блискавичної шкоди, але це багато роботи й ресурсів, щоб відтворити те, що можна зробити замовлянням, а ще довелося б розвʼязувати проблему атаки зброєю: або покращенням Сили, або отриманням Кийка [Shillelagh]. Воно просто не вартує зусиль."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Контроль води\n– Крижаний шторм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ого, розчарівні заклинання. Шкода Крижаного шторму [Ice Storm] не може змагатися з Друзками [Shatter], а контроль території — з Духами захисниками [Spirit Guardians]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Бойовий заклинатель\nЗнищення нежиті (ПН 1)\nБожественний удар +1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бойовий заклинатель»{{War Caster}} дає нам Перевагу на кубику для Концентрації, що приємно для Духів захисників [Spirit Guardians], але ми тут заради можливості користуватися Шокувальним дотиком [Shocking Grasp] для Принагідних атак. Коли вороги намагаються відійти, ви можете вдарити їх струмом, підкинути в повітря й повалити. Підйом на ноги зʼїдає половину їхнього руху, що суттєво обмежить, наскільки далеко вони зможуть піти. Тільки пильнуйте, щоб не підкинути їх туди, куди вони й так хочуть потрапити. Ми абсолютно ніколи не користуватимемося «Божественним ударом»{{Divine Strike}}. Ніколи."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Руйнівна хвиля\n– Нашестя комах"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті щось, що може змагатися з Друзками [Shatter] приблизно на рівних умовах. «Руйнівний гнів»{{Destructive Wrath}} максимізує лише половину шкоди Руйнівної хвилі [Destructive Wave], але 30+5к6 (у середньому 47,5 загалом) приблизно дорівнює 48 шкоди Друзок [Shatter] 5-го рівня, а область дії Руйнівної хвилі [Destructive Wave] утричі більша й може також повалити ворогів. Можна очікувати, що ви зачепите кожного ворога в більшості зіткнень. Але, як і з Друзки [Shatter], імовірно, слід очікувати, що вороги пройдуть ряткидок Статури. Решта переваг Друзок [Shatter] над Руйнівною хвилею [Destructive Wave] — дальність 60 футів, яка дозволяє накладати їх, не заходячи в середину натовпу, і те, що вони виграють від накладання вищим слотом. Полумʼяний удар [Flame Strike] також стає доступним на цьому рівні, але його шкода до врахування «Руйнівного гніву» така сама, як у Руйнівної хвилі [Destructive Wave], тож розглядати його майже немає сенсу. Друзки [Shatter] із «Руйнівним гнівом» працюватимуть для нас краще."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне втручання{{Divine Intervention}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шкода [Harm] стає доступною, і попри той самий ряткидок вона все одно гірша за Друзки [Shatter] із «Руйнівним гнівом»{{Destructive Wrath}} навіть проти однієї цілі. 14к6 (у середньому 49) проти 56. Очікування розбито на друзки! Гаразд, насправді ні. Шкода [Harm] — жахливе заклинання в 5e."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знову на Фундаментальній математиці."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 3)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вогняний шторм [Fire Storm] стає доступним, і це наше перше заклинання, що працюватиме з «Перетвореним заклинанням»{{Transmuted Spell}} і варте зусиль, щоб це зробити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Адепт метамагії\n– Перетворене заклинання\n– будь-який"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Двічі на день можна перетворити Вогняний шторм [Fire Storm] із «Руйнівним гнівом»{{Destructive Wrath}} на 70 громової шкоди на ряткидку Спритності. Порівняно з абсолютним максимумом 80 громової шкоди в Друзок [Shatter] (і то заклинанням 9-го рівня), Вогняний шторм [Fire Storm] — найбільша шкода, яку ми можемо завдати. Також від 16-го рівня у нас є слоти заклинань 7-го та 8-го рівнів, тож ми справді можемо накладати Вогняний шторм [Fire Storm] двічі на день."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Народжений бурею\nЗнищення нежиті (ПН 4)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Постійний політ! Тепер ви можете робити все те саме, але в повітрі!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (3/відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "У вас достатньо слотів заклинань, щоб спамити Вогняний шторм [Fire Storm], Друзки [Shatter] та/або Руйнівну хвилю [Destructive Wave] і підсилювати їх «Руйнівним гнівом»{{Destructive Wrath}}. Можливо, вам більше нічого й не доведеться робити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура 17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Купа ХП, а ще ми справді добре тримаємо Концентрацію."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращене божественне втручання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-001",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання домену",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-002",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-003",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-004",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-005",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-006",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-007",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Додаткові майстерності",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-008",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Гнів бурі",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-009",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-010",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Удар блискавки",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-011",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Божественний удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-012",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Народжений бурею",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-013",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-2",
+      "optionId": "section-races-block-section-races-2",
+      "context": "Геназі повітря",
+      "explanationBlockId": "block-section-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-014",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-3",
+      "optionId": "section-races-block-section-races-3",
+      "context": "Кобольд",
+      "explanationBlockId": "block-section-races-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-015",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-0",
+      "context": "Посвячений у магію PHB",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-016",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-1",
+      "context": "Адепт метамагії",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-017",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-2",
+      "context": "Удар велетнів GotG",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-018",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-0",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-019",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-1",
+      "context": "Монах",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-020",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-2",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-021",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-3",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-tempest-domain-2014-022",
+      "articleId": "rpgbot-cleric-tempest-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-tempest-domain-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-4",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

@@ -1,0 +1,857 @@
+{
+  "buildId": "build-hexbuckler-swashbuckler-2014",
+  "revisionId": "build-hexbuckler-swashbuckler-2014-v4",
+  "ruleset": "RULES_2014",
+  "title": "Білд Hexbuckler — хлопчик, який не хотів дорослішати",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-hexbuckler-2014",
+      "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+      "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+      "sectionId": "section-hexbuckler-build-the-boy-who-wouldnt-grow-up",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "ROGUE_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "ROGUE_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "HEXBLADE",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "booming-blade",
+            "eldritch-blast"
+          ],
+          "knownSpellKeys": [
+            "protection-from-evil-and-good",
+            "shield"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "ROGUE_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "ROGUE_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "SWASHBUCKLER",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "ROGUE_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "WAR_CASTER"
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Armor of Shadows"
+          },
+          {
+            "optionNameEng": "Fiendish Vigor"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hellish-rebuke"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Chain"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "mirror-image"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "hellish-rebuke",
+          "add": "spider-climb"
+        },
+        "replaceOptions": [
+          {
+            "drop": {
+              "optionNameEng": "Armor of Shadows"
+            },
+            "add": {
+              "optionNameEng": "Gift of the Ever-Living Ones"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "green-flame-blade"
+          ],
+          "knownSpellKeys": [
+            "invisibility"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceOptions": [
+          {
+            "drop": {
+              "optionNameEng": "Fiendish Vigor"
+            },
+            "add": {
+              "optionNameEng": "Voice of the Chain Master"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "ROGUE_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "ROGUE_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-skills-and-tools",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "expertise": [
+          "INSIGHT",
+          "PERCEPTION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "ROGUE_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "ROGUE_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "ROGUE_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "ROGUE_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TOUGH"
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "ROGUE_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "ROGUE_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "ROGUE_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "ROGUE_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "ROGUE_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "ROGUE_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexbuckler-2014",
+          "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+          "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "SWASHBUCKLER",
+    "raceKey": "CUSTOM_LINEAGE_TCE",
+    "backgroundKey": "FEYLOST",
+    "featKey": "FEY_TOUCHED",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Для цього білда беремо Індивідуальне походження{{Custom Lineage}}: потрібна додаткова риса, а єдиний бонус +2 нам вигідніший. Без мультикласування натомість обрали б альтернативну людину, бо довелося б більше вкладати у Спритність.\n\n Купівля очками Расові зміни 20-й рівень Сила 8 8 8 Спритність 14 14 14 Статура 15 15 20 Інтелект 8 8 8 Мудрість 10 10 10 Харизма 15 18 20\n\nКупуємо характеристики очками. На відміну від типового розподілу вище, у Спритність вкладаємо лише 14: Відьмацький клинок дасть середній обладунок. Бонус +2 від Індивідуального походження йде в Харизму. Залишаються очки, тож підвищуємо Мудрість, аби не мати штрафу до перевірок на кшталт Аналізу Поведінки й Уважності.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Індивідуальне походження дає додаткову рису — Доторк феї, що підвищує Харизму на +1; як заклинання обираємо Благословення [Bless]. Расовий бонус +2 також спрямовуємо в Харизму. Як Змінну особливість беремо Темнозір: він дуже корисний.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Походження Загублений у Світі Фей якнайкраще пасує персонажу, який фактично є Пітером Пеном. Воно дає Обман і Виживання та володіння музичним інструментом на вибір. Флейта Пана більш ніж доречна. Додаткову мову я зазвичай лишаю читачеві, бо це залежить від кампанії, але тут раджу сильванську — мову фей.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Пройдисвіта беремо Акробатику, Аналіз Поведінки, Уважність, Переконання й злодійські інструменти. Від Загубленого у Світі Фей — Обман, Виживання та флейту Пана.\n\nДля Експертизи на 1-му рівні обираємо Акробатику й Переконання, а на 6-му рівні Пройдисвіта — Аналіз Поведінки і Уважність.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Завдяки ретельному порядку мультикласування лише першу рису ми отримуємо на один рівень пізніше. Загалом підвищень характеристик буде стільки ж, скільки у звичайного Пройдисвіта, хоча всі вони зміщені на кілька рівнів.\n\nІндивідуальне походження дає додаткову рису на 1-му рівні. Обираємо Доторк феї: +1 до Харизми та заклинання Благословення [Bless].\n\nНа 5-му рівні персонажа, тобто 4-му рівні Пройдисвіта, беремо Бойового заклинателя. Насамперед це дозволяє проводити принагідні атаки Гримучим Клинком [Booming Blade] і не дає Рапірі зі щитом заважати соматичним компонентам заклинань на кшталт Щита [Shield]. Ми почали з Харизмою 18, тож уже випереджаємо базову математику й можемо рано взяти захисну рису без втрати ефективності атак.\n\nНа 8-му рівні персонажа, тобто 4-му рівні Чорнокнижника, підвищуємо Харизму на +2: з 18 до 20.\n\nНа 12-му рівні персонажа, тобто 8-му рівні Пройдисвіта, беремо Стійкого (Статура): +1 до Статури й володіння відповідними ряткидками.\n\nНа 14-му рівні персонажа, тобто 10-му рівні Пройдисвіта, беремо Здорованя, щоб краще тримати удари.\n\nНа 16-му рівні персонажа, тобто 12-му рівні Пройдисвіта, підвищуємо Статуру на +2: з 16 до 18.\n\nНа 20-му рівні персонажа, тобто 16-му рівні Пройдисвіта, ще раз підвищуємо Статуру на +2: з 18 до 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Підступна атака; навички: Акробатика, Обман, Аналіз Поведінки, Уважність, Переконання, Виживання; Експертиза: Акробатика, Переконання; додаткова риса: Доторк феї; Благословення [Bless] (концентрація), Туманний крок [Misty Step]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Відьмацький клинок: Прокляття Відьмацького Клинка, Воїн Прокляття; магія пакту: замовляння Гримучий Клинок [Booming Blade], Позамежний заряд [Eldritch Blast]; заклинання 1-го рівня Захист від зла й добра [Protection from Evil and Good] (концентрація), Щит [Shield]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Хитра дія{{Cunning Action}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Шибайголова: Витончена робота ніг, Зухвала відвага",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Риса: Бойовий заклинатель",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Позамежні покликання: Обладунок тіней, Вогняна енергійність; магія пакту: заклинання 1-го рівня Пекельна відсіч [Hellish Rebuke]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Пакт ланцюга; заміна покликання: прибрати Обладунок тіней, отримати Дари вічних; магія пакту: заклинання 2-го рівня Віддзеркалення [Mirror Image], Павуче лазіння [Spider Climb] (концентрація); забути Пекельну відсіч [Hellish Rebuke] 1-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Підвищення характеристик: Харизма +2 (18 → 20); заміна покликання: прибрати Вогняну енергійність, отримати Голос майстра ланцюгів; магія пакту: замовляння Клинок Зеленого Полумʼя [Green-Flame Blade], заклинання 2-го рівня Невидимість [Invisibility] (концентрація)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Надприродне ухилення{{Uncanny Dodge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Експертиза{{Expertise}}: Аналіз Поведінки, Уважність",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Ухилення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Стійкий (Статура), 15 → 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Шик",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Риса: Здоровань",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Надійний талант{{Reliable Talent}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Підвищення характеристик: Статура +2, 16 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Елегантний маневр{{Elegant Maneuver}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Сліповідчуття{{Blindsense}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Слизький розум{{Slippery Mind}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Підвищення характеристик: Статура +2, 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Флейта Пана",
+        "reason": "Походження дає володіння музичним інструментом на вибір, автор радить флейту Пана; пресет інструменти не записує.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexbuckler-2014",
+            "translationRevisionId": "translation-rpgbot-hexbuckler-2014-draft1",
+            "sourceRevisionId": "rpgbot-3acc00e4b349f2bc-94ee58c95d0d005c",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

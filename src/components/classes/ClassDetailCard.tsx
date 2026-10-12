@@ -178,6 +178,7 @@ function toSubclassCard(subclass: SubclassData): BranchCard {
     entryCount: subclass.features.length,
     entryCountForms: FEATURE_FORMS,
     description: subclass.description,
+    imageSrc: subclass.imageSrc,
   };
 }
 

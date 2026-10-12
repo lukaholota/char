@@ -1,0 +1,244 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "artificer-alchemist-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-artificer-alchemist-2014-draft1",
+    "sourceRevisionId": "rpgbot-b5455c0664832571-83baf38b7631d4f0"
+  },
+  "exampleSection": "section-example-build-here-drink-this",
+  "levelTableSection": "section-levels",
+  "classKey": "ARTIFICER_2014",
+  "subclassKey": "ALCHEMIST",
+  "raceKey": "FAIRY_MPMM",
+  "backgroundKey": "INVESTIGATOR",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 15,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "incomplete": [
+    {
+      "field": "Передісторія Слідчий",
+      "reason": "Автор бере Слідчого з Путівника Ван Ріхтена (набір для гриму й інструменти злодія), а каталог має Слідчого зі Sword Coast: Аналіз поведінки, Розслідування й дві мови на вибір, без інструментів; пресет бере навички автора, а мови обрано за платформою.",
+      "section": "section-background"
+    },
+    {
+      "field": "Інструменти",
+      "reason": "Автор радить замінити повторні інструменти злодія набором травника й на 3-му рівні додати приладдя алхіміка; пресет не записує вибір інструментів.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Вливання «Репліка: Алхімічний глечик»",
+      "reason": "Алхімічного глечика немає в каталозі вливань 2014; на 2-му рівні пресет бере найближче з каталогу, Репліку: Сумка зберігання (вибір платформи).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Вливання на 18-му рівні",
+      "reason": "Автор пише «будь-які 2» і не називає вибір; пресет бере Репліку: Амулет здоровʼя та Репліку: Чоботи швидкості (вибір платформи, можна змінити на листі).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння на 14-му рівні",
+      "reason": "Автор пише «будь-яке» і не називає вибір; його обирає гравець (вибір платформи).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риса на 16-му та 19-му рівнях",
+      "reason": "Автор пише «будь-яка» і не називає вибір. Пресет бере типову (16-й: Щасливчик, 19-й: Здоровань); це вибір платформи, гравець може змінити її перед створенням.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/artificer-alchemist-fairy-2014-ed84a85d2d.webp",
+    "title": "Винахідник — Фея-Алхімік",
+    "description": "Ось, випий це: Фея-Алхімік з Інтелектом 17, польотом і спорядженням для підтримки групи в задній лінії.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "INT",
+      "DEX",
+      "INT"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "PERCEPTION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "SYLVAN",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": [
+          "DAGGER",
+          "DAGGER"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Фея за правилами Таші: +2 до Інтелекту й +1 до Спритності, як у авторській таблиці (Інтелект 17, Спритність 16); це вже враховано.",
+    "skillExplanation": "Магія й Уважність — класові навички за авторським вибором, Аналіз поведінки й Розслідування — від Слідчого. Три мови (від раси й передісторії) автор не називає: їх ми обрали за вас.",
+    "equipmentExplanation": "Два кинджали, легкий арбалет, клепана шкіряна броня, інструменти злодія й набір дослідника підземель — з авторського рядка 1-го рівня. Автор радить продати арбалет і купити щит; пресет цього не відтворює.",
+    "spells": {
+      "classCantripKeys": [
+        "acid-splash",
+        "guidance"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Кислотні бризки й Настанова — авторський рядок 1-го рівня. Друїдизм і заклинання Феї ви отримаєте автоматично; підготовлені заклинання автор не перелічує, їх оберете на листі.",
+      "platformChoices": []
+    }
+  },
+  "levels": [
+    {
+      "level": 2,
+      "infusions": [
+        "Enhanced Defense",
+        "Enhanced Weapon",
+        "Homunculus Servant",
+        "Replicate: Bag of Holding"
+      ]
+    },
+    {
+      "level": 3,
+      "subclassKey": "ALCHEMIST"
+    },
+    {
+      "level": 4,
+      "featKey": "FEY_TOUCHED",
+      "featOptions": [
+        {
+          "optionNameEng": "FEY_TOUCHED Ability (Intelligence)"
+        }
+      ]
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "infusions": [
+        "Resistant Armor",
+        "Spell-Refueling Ring"
+      ]
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "infusions": [
+        "Replicate: Cloak of Protection",
+        "Replicate: Winged Boots"
+      ],
+      "spells": {
+        "cantripKeys": [
+          "green-flame-blade"
+        ]
+      }
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "WAR_CASTER"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "infusions": [
+        "Replicate: Gem of Seeing",
+        "Replicate: Ring of Protection"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "featKey": "LUCKY",
+      "openAdvancement": true
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18,
+      "infusions": [
+        "Replicate: Amulet of Health",
+        "Replicate: Boots of Speed"
+      ]
+    },
+    {
+      "level": 19,
+      "featKey": "TOUGH",
+      "openAdvancement": true
+    },
+    {
+      "level": 20
+    }
+  ]
+}

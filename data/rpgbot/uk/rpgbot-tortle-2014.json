@@ -1,0 +1,1230 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-8bc52b515c8f2799",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-8bc52b515c8f2799-10cf9678441ce8fb",
+      "sourceId": "rpgbot-8bc52b515c8f2799",
+      "fetchedAt": "2026-09-29T19:17:06.937718+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:34:46-04:00",
+      "contentHash": "68a4bf8edeec68eebd867b8983632c997383f417f0a8ea1641dbfc5eb71fe481",
+      "title": "Tortle: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-8bc52b515c8f2799-10cf9678441ce8fb.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-tortle-2014",
+    "sourceId": "rpgbot-8bc52b515c8f2799",
+    "slug": "tortle-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Черепаха — гайд раси (2014)",
+    "titleEn": "Tortle: DnD 5e Race/Species Guide",
+    "topics": [
+      "races"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "articleId": "rpgbot-tortle-2014",
+      "sourceRevisionId": "rpgbot-8bc52b515c8f2799-10cf9678441ce8fb",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Черепахи|Tortle}} вперше зʼявилися в історії D&D у модулі X9: The Savage Coast від TSR, випущеному 1985 року. Потім траплялися в кількох маловідомих джерелах 2-ї та 3-ї редакцій і повернулися у 5e в "
+                },
+                {
+                  "type": "link",
+                  "text": "The Tortle Package",
+                  "href": "https://www.dmsguild.com/product/221716/Tortle-Package-5e?affiliate_id=389627"
+                },
+                {
+                  "type": "text",
+                  "text": " ("
+                },
+                {
+                  "type": "link",
+                  "text": "партнерське посилання",
+                  "href": "https://rpgbot.net/about/faq#dmsguild-affiliate-links"
+                },
+                {
+                  "type": "text",
+                  "text": "), виданому 2017 року в межах щорічної благодійної кампанії Extra Life від Wizards of the Coast. У D&D було чимало твариноподібних рас, але це, можливо, перша офіційна раса, натхненна черепахами. Як і можна було очікувати, її поява породила безліч жартів про черепашок-ніндзя."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З погляду механіки черепаха має багато переваг. Підвищення Сили й Мудрості — непогане поєднання, а фіксований КБ 17 від {{Природного обладунку|Natural Armor}} відповідає легким чи середнім обладункам без вкладень у Спритність. Є й інші приємні можливості: {{Кігті|Claws}}, {{Затримка дихання|Hold Breath (Tortle)}}, володіння Виживанням, {{Захист панцира|Shell Defense}}. Проте більшість обирає черепаху, бо любить черепах або хоче фіксований КБ. З правилами «Налаштування походження» чи версією з книги Монстри Мультивсесвіту вибір підвищень характеристик і додаткової навички стає значно гнучкішим."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нагадаю: якщо персонаж має кілька способів обчислити КБ, ви обираєте "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "лише один"
+                },
+                {
+                  "type": "text",
+                  "text": ", зазвичай той, що дає найвище значення. Окремі формули, як-от Обладунок мага [Mage Armor], виготовлені обладунки та природний обладунок, "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "ніколи не складаються"
+                },
+                {
+                  "type": "text",
+                  "text": ". Натомість щит, Щит [Shield], Щит віри [Shield of Faith] й інші джерела бонусу +щось до КБ підвищують обрану формулу, бо це бонуси, а не новий спосіб обчислення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tortle/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tortle/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "\n"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Версії черепахи",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tortle/#tortle-versions"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Черепаха у правилах D&D 2024 (сумісність)",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tortle/#tortles-in-the-2024-dnd-rules"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Черепаха: класи з налаштуванням походження та MPMM",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tortle/#classes-custom-origin"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Черепаха: класи за стандартними правилами",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tortle/#classes-default"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-tortle-versions",
+          "heading": "Версії черепахи",
+          "sourceAnchor": "tortle-versions",
+          "blocks": [
+            {
+              "blockId": "block-section-tortle-versions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Фактично існує три версії черепахи. Початкову видано в The Tortle Package, а потім перевидано в книзі Путівник дослідника по Вайлдмаунту."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-tortle-versions-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Книга Казан Таші з усім представила опціональні правила «Налаштування походження», давши другу версію з можливістю змінити підвищення характеристик і володіння навичкою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-tortle-versions-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найновіше перевидання черепахи зʼявилося в книзі Монстри Мультивсесвіту. Зміни невеликі: підвищення характеристик замінено новим стандартом із вибором +2/+1 або трьох +1. Шкоду пазурів також збільшено до 1к6, а замість фіксованої навички можна обрати одну з короткого переліку. Він вужчий за повний перелік із правил «Налаштування походження», але варіантів достатньо й вони хороші: майже кожен персонаж знайде корисний. Також можна обрати Середній або Малий розмір."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-tortles-in-the-2024-dnd-rules",
+          "heading": "Черепаха у правилах D&D 2024 (сумісність)",
+          "sourceAnchor": "tortles-in-the-2024-dnd-rules",
+          "blocks": [
+            {
+              "blockId": "block-section-tortles-in-the-2024-dnd-rules-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найновішу версію черепахи видано в Монстри Мультивсесвіту; її ще не оновлено для правил D&D 2024. Щоб грати черепахою за правилами 2024, ігноруйте підвищення характеристик із MPMM та використовуйте підвищення від передісторії за правилами 2024."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-custom-origin",
+          "heading": "Черепаха: класи з налаштуванням походження та MPMM",
+          "sourceAnchor": "classes-custom-origin",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-custom-origin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ припускає використання оновлених версій раси: правил «"
+                },
+                {
+                  "type": "link",
+                  "text": "Налаштування походження",
+                  "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+                },
+                {
+                  "type": "text",
+                  "text": "» з Казан Таші з усім та/або перевидання в "
+                },
+                {
+                  "type": "link",
+                  "text": "Монстри Мультивсесвіту",
+                  "href": "https://www.dndbeyond.com/sources/motm/fantastical-races"
+                },
+                {
+                  "type": "text",
+                  "text": ". Оскільки різниця між ними невелика, я вирішив обʼєднати два розділи. Якщо не використовуєте цих правил, прокрутіть до стандартних правил."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Черепаха майже нічого не дає Винахіднику, окрім, можливо, {{Захист панцира|Shell Defense}}, але цього замало для вдалої ідеї. Фірмова риса черепахи — її КБ, а Винахідники майже відразу зроблять її природний обладунок зайвим."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "КБ 17 відповідає напівлатам. Реалістично навіть найкращі Варвари не можуть перевищити КБ 17 без магії чи щита, якими ви також можете користуватися, приблизно до 16-го рівня, коли отримують четверте підвищення характеристик, якщо спершу доводять до максимуму Силу й Статуру, а тоді переходять до Спритності. Навіть тоді більшість гравців обирає риси. Не вкладаючись у Спритність, можна підвищити інші характеристики. Ряткидки Спритності лишаються проблемою, але {{Відчуття небезпеки|Danger Sense}} трохи допомагає, тому й це не надто страшно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Природний обладунок черепахи полегшує залежність бойових Бардів від кількох характеристик, а Бардам-заклиначам дозволяє знехтувати Спритністю заради Харизми й рис. Додаткова навичка також приємна персонажу, зосередженому на навичках."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Природний обладунок позбавляє Кліриків у легких чи середніх обладунках необхідності вкладатися у Спритність. Це дозволяє зосередитися на Статурі й Мудрості та лишає місце для рис."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найбільша проблема Друїда — брак витривалості, і природний обладунок черепахи суттєво її компенсує. Найкращі варіанти КБ Друїда дають 12+, тому зрівнятися з фіксованими 17 дуже складно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-druid-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "КБ черепахи настільки добре підходить Друїду, що я використав її в прикладі збірки для "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Кола спор",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/circle-of-spores.html"
+                },
+                {
+                  "type": "text",
+                  "text": ". Версія з Монстри Мультивсесвіту також дозволяє три підвищення +1, тож можна почати з 16 Спритності, Статури й Мудрості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Єдина цікава можливість, яку черепаха дає Воїну, — володіння навичкою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Черепаха — найкращий варіант Монаха від Сили. На жаль, фіксований КБ не встигає за іншими Монахами: ви почнете відставати на 8-му рівні, коли більшість матиме КБ 18 із {{Захист без обладунків|Unarmored Defense (Monk)}}. Ви не можете користуватися щитом без втрати класових можливостей, тож відставатимете від інших збірок і ніколи не наздоженете їх. Проте до 8-го рівня все буде добре."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Єдина можливість, яку черепаха дає Паладину, — володіння навичкою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Черепаха — чудовий варіант Слідопита від Сили, бо для максимального КБ не потрібна висока Спритність, а додаткова навичка зменшує розрив із Розбійником."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Розбійник",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "КБ 17 відповідає максимальному КБ у легких обладунках уже з 1-го рівня. Якщо плануєте додавати риси до збірки, можливо, так і не піднімете Спритність до 20. Додаткова навичка теж приємна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чаклун",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "КБ 17 із 8 Спритності для класу без володіння обладунками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чорнокнижники володіють легкими обладунками, тому менш крихкі за Чаклуна чи Чарівника. Природний обладунок черепахи все одно прибирає потребу у високій Спритності й дозволяє вкладати ресурси в інше без турбот про КБ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "КБ 17 із 8 Спритності для класу без володіння обладунками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-default",
+          "heading": "Черепаха: класи за стандартними правилами",
+          "sourceAnchor": "classes-default",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-default-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ припускає, що ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "не"
+                },
+                {
+                  "type": "text",
+                  "text": " використовуєте опціональні правила «Налаштування походження» з Казан Таші з усім або оновлену версію раси з Монстри Мультивсесвіту. Якщо використовуєте, прокрутіть до попереднього розділу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-artificer",
+          "parentSectionId": "section-classes-default",
+          "heading": "Винахідник",
+          "sourceAnchor": "classic-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Інтелекту, а природний обладунок марнується на класі, відомому неймовірно високим КБ."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-barbarian",
+          "parentSectionId": "section-classes-default",
+          "heading": "Варвар",
+          "sourceAnchor": "classic-barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "КБ 17 відповідає напівлатам. Реалістично навіть найкращі Варвари не можуть перевищити КБ 17 без магії чи щита, якими ви також можете користуватися, приблизно до 16-го рівня, коли отримують четверте підвищення характеристик, якщо спершу доводять до максимуму Силу й Статуру, а тоді переходять до Спритності. Навіть тоді більшість гравців обирає риси. Не вкладаючись у Спритність, можна підвищити інші характеристики. Ряткидки Спритності лишаються проблемою, але {{Відчуття небезпеки|Danger Sense}} трохи допомагає, тому й це не надто страшно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-bard",
+          "parentSectionId": "section-classes-default",
+          "heading": "Бард",
+          "sourceAnchor": "classic-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо якась раса підходить Барду від Сили, то це черепаха. Але без підвищення Харизми Бард — не найкращий варіант заклинача для неї."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-cleric",
+          "parentSectionId": "section-classes-default",
+          "heading": "Клірик",
+          "sourceAnchor": "classic-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила й Мудрість чудові для Кліриків передової, але більшість із них також володіє важкими обладунками. Технічно ніщо не заважає носити повні лати, але дивно ігнорувати найунікальнішу расову рису черепахи. Примітка редакції: стара TTP-версія не отримує користі від носіння обладунків. MPMM прямо забороняє черепасі носити легкі, середні й важкі обладунки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-classic-cleric-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірикам у легких або середніх обладунках природний обладунок черепахи дозволяє знехтувати КБ, як Клірику у важких обладунках, і вкласти ресурси в інше. Примітка редакції: автор, імовірно, має на увазі Спритність, а не сам КБ; природний обладунок уже дає КБ 17 без її модифікатора."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-druid",
+          "parentSectionId": "section-classes-default",
+          "heading": "Друїд",
+          "sourceAnchor": "classic-druid",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найбільша проблема Друїда — брак витривалості, і природний обладунок черепахи суттєво її компенсує. Найкращі варіанти КБ Друїда дають 12+, тому зрівнятися з фіксованими 17 дуже складно. Сила здебільшого марнується, але нехай це вас не відлякує."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-classic-druid-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "КБ черепахи настільки добре підходить Друїду, що я використав її в прикладі збірки для "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Кола спор",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/circle-of-spores.html"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-fighter",
+          "parentSectionId": "section-classes-default",
+          "heading": "Воїн",
+          "sourceAnchor": "classic-fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Технічно можна носити повні лати, але це здається марнуванням природного обладунку черепахи. Жодна збірка Воїна не використовує її риси добре. Будь-яка раса з тими самими підвищеннями характеристик — людоящір, лісовий ельф тощо — буде ефективнішим Воїном. Примітка редакції: стара TTP-черепаха не отримує користі від носіння обладунків, а MPMM забороняє їх носити. Лісовий ельф має +2 Спритності / +1 Мудрості, а не ті самі підвищення, що стара черепаха (+2 Сили / +1 Мудрості)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-monk",
+          "parentSectionId": "section-classes-default",
+          "heading": "Монах",
+          "sourceAnchor": "classic-monk",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Черепаха — найкращий варіант Монаха від Сили. На жаль, фіксований КБ не встигає за іншими Монахами: ви почнете відставати на 8-му рівні, коли більшість матиме КБ 18 із {{Захист без обладунків|Unarmored Defense (Monk)}}. Ви не можете користуватися щитом без втрати класових можливостей, тож відставатимете від інших збірок і ніколи не наздоженете їх. Проте до 8-го рівня все буде добре."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-paladin",
+          "parentSectionId": "section-classes-default",
+          "heading": "Паладин",
+          "sourceAnchor": "classic-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Характеристики не дуже добре поєднуються, а Паладину майже не потрібні расові риси черепахи."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-ranger",
+          "parentSectionId": "section-classes-default",
+          "heading": "Слідопит",
+          "sourceAnchor": "classic-ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Черепаха — чудовий варіант Слідопита від Сили, бо для максимального КБ не потрібна висока Спритність, а додаткова навичка зменшує розрив із Розбійником."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-rogue",
+          "parentSectionId": "section-classes-default",
+          "heading": "Розбійник",
+          "sourceAnchor": "classic-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Спритності, й інші можливості черепахи не приваблюють Розбійника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-sorcerer",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чаклун",
+          "sourceAnchor": "classic-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Харизми. Високий базовий КБ черепахи — цікава особливість, але цього замало. Якщо хочете черепаху-заклинача, обирайте клас від Мудрості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-warlock",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "classic-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Харизми. Високий базовий КБ черепахи — цікава особливість, але цього замало. Якщо хочете черепаху-заклинача, обирайте клас від Мудрості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-wizard",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чарівник",
+          "sourceAnchor": "classic-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Інтелекту. Високий базовий КБ черепахи — цікава особливість, але цього замало. Якщо хочете черепаху-заклинача, обирайте клас від Мудрості."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-tortle-2014-001",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tortle-2014-002",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tortle-2014-003",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tortle-2014-004",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tortle-2014-005",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tortle-2014-006",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tortle-2014-007",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-tortle-2014-008",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tortle-2014-009",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tortle-2014-010",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tortle-2014-011",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tortle-2014-012",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tortle-2014-013",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tortle-2014-014",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-artificer",
+      "targetBlockId": "block-section-classic-artificer-1",
+      "optionId": "section-classic-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-classic-artificer-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tortle-2014-015",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-barbarian",
+      "targetBlockId": "block-section-classic-barbarian-1",
+      "optionId": "section-classic-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-classic-barbarian-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tortle-2014-016",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-bard",
+      "targetBlockId": "block-section-classic-bard-1",
+      "optionId": "section-classic-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-classic-bard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-tortle-2014-017",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-cleric",
+      "targetBlockId": "block-section-classic-cleric-1",
+      "optionId": "section-classic-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-classic-cleric-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tortle-2014-018",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-druid",
+      "targetBlockId": "block-section-classic-druid-1",
+      "optionId": "section-classic-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-classic-druid-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tortle-2014-019",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-fighter",
+      "targetBlockId": "block-section-classic-fighter-1",
+      "optionId": "section-classic-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-classic-fighter-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tortle-2014-020",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-monk",
+      "targetBlockId": "block-section-classic-monk-1",
+      "optionId": "section-classic-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-classic-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-tortle-2014-021",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-paladin",
+      "targetBlockId": "block-section-classic-paladin-1",
+      "optionId": "section-classic-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-classic-paladin-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tortle-2014-022",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-ranger",
+      "targetBlockId": "block-section-classic-ranger-1",
+      "optionId": "section-classic-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-classic-ranger-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tortle-2014-023",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-rogue",
+      "targetBlockId": "block-section-classic-rogue-1",
+      "optionId": "section-classic-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-classic-rogue-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tortle-2014-024",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-sorcerer",
+      "targetBlockId": "block-section-classic-sorcerer-1",
+      "optionId": "section-classic-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-classic-sorcerer-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tortle-2014-025",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-warlock",
+      "targetBlockId": "block-section-classic-warlock-1",
+      "optionId": "section-classic-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-classic-warlock-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tortle-2014-026",
+      "articleId": "rpgbot-tortle-2014",
+      "translationRevisionId": "translation-rpgbot-tortle-2014-draft1",
+      "sectionId": "section-classic-wizard",
+      "targetBlockId": "block-section-classic-wizard-1",
+      "optionId": "section-classic-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-classic-wizard-1",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

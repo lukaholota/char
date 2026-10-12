@@ -1,0 +1,1607 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "56bf05765b93ae50f790cb111f98cf31e65ccf6875d7a60e8c8c0d059717b7a8",
+  "sourceRevision": {
+    "revisionId": "rpgbot-7baf3134528c3a86-56bf05765b93ae50",
+    "sourceId": "rpgbot-7baf3134528c3a86",
+    "fetchedAt": "2026-09-29T19:15:57.662395+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:39:59-04:00",
+    "contentHash": "941f7bc44325c9ff201d9287e8007113a4760cf587fe574abac4ad888d4d33ff",
+    "title": "Ritual Caster 5e: DnD 5e Feat Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-7baf3134528c3a86-56bf05765b93ae50.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "intro",
+      "heading": "Ritual Caster 5e: DnD 5e Feat Guide",
+      "blocks": [
+        {
+          "blockId": "block-intro-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Wizard is famously among the best ritual casters in the game due to their ability to cast any ritual spell from their spellbook. But the Ritual Caster feat makes the Wizard’s superiority with rituals available to nearly anyone and using several possible spell lists. But which do we pick? Why? And is this feat actually worth the cost?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Why do we care about rituals?",
+                "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#why-do-we-care-about-rituals"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Who Can Already Cast Rituals?",
+                "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#who-can-already-cast-rituals"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Available Ritual Spells",
+                "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#available-ritual-spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Ritual Caster Feat",
+                "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#the-ritual-caster-feat"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Good Candidates for Ritual Caster",
+                "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#good-candidates-for-ritual-caster"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Conclusion",
+                "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#conclusion"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-why-do-we-care-about-rituals",
+      "heading": "Why do we care about rituals?",
+      "sourceAnchor": "why-do-we-care-about-rituals",
+      "blocks": [
+        {
+          "blockId": "block-section-why-do-we-care-about-rituals-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ritual spells are cast without expending a spell slot, making them excellent utility options outside of combat. These spells run most of the level range, and include fantastic utility options like Alarm and Leomund’s Tiny Hut. Having these options available to the party can solve a lot of problems with little resource cost, so having ritual casters in the party can solve a lot of problems for little cost."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-who-can-already-cast-rituals",
+      "heading": "Who Can Already Cast Rituals?",
+      "sourceAnchor": "who-can-already-cast-rituals",
+      "blocks": [
+        {
+          "blockId": "block-section-who-can-already-cast-rituals-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Artificer: Similar to the wizard, but due to their reduced spellcasting progression they get new ritual spells slower than full casters or characters with the Ritual Caster feat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cleric / Druid: With access to their full spell list, any ritual on their spell list is available, "
+              },
+              {
+                "type": "emphasis",
+                "text": "provided that you prepared it"
+              },
+              {
+                "type": "text",
+                "text": ". If you didn’t bring whatever ritual you need, you’ll need to prepare it the next day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warlocks with Book of Ancient Secrets: While Book of Ancient Secrets does cost some build decisions (your pact and an invocation), it’s also the best version of Ritual Casting available. You collect spells like an artificer or wizard, but the spells aren’t restricted by spell list, so the entire world of ritual spells is available to you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wizard: The most iconic ritual caster, the Wizard can cast any ritual spell written in their spellbook, making many of the best rituals in the game available to the Wizard at a moment’s notice without the need to prepare those spells."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-available-ritual-spells",
+      "heading": "Available Ritual Spells",
+      "sourceAnchor": "available-ritual-spells",
+      "blocks": [
+        {
+          "blockId": "block-section-available-ritual-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The table below lists rituals available to spellcasting classes which can be selected with the Ritual Caster feat. Spells granted by subclasses and the Paladin and the Ranger are not reflected below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-available-ritual-spells-2",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Spell"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bard"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cleric"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Druid"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sorcerer"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warlock"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wizard"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Alarm"
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Animal Messenger"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Augury"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Beast Sense"
+                }
+              ],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Ceremony"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Commune"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Commune with Nature"
+                }
+              ],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Comprehend Languages"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Contact Other Plane"
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Detect Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Detect Poison and Disease"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Divination"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Drawmij’s Instant Summons"
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Feign Death"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Find Familiar"
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Forbiddance"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Gentle Response"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Identify"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Illusory Script"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Leomund’s Tiny Hut"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Locate Animals or Plants"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Mouth"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Meld Into Stone"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Phantom Steed"
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Purify Food and Drink"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Rary’s Telepathic Bond"
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Silence"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Skywrite"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Speak with Animals"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Tenser’s Floating Disk"
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Unseen Servant"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Water Breathing"
+                }
+              ],
+              [],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Water Walk"
+                }
+              ],
+              [],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "X"
+                }
+              ],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wristpocket (Only available to subclasses)"
+                }
+              ],
+              [],
+              [],
+              [],
+              [],
+              [],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "Total Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "22"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-ritual-caster-feat",
+      "heading": "The Ritual Caster Feat",
+      "sourceAnchor": "the-ritual-caster-feat",
+      "blocks": [
+        {
+          "blockId": "block-section-the-ritual-caster-feat-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The feat itself is actually very simple. The decision point buried in the feat’s benefits is not."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-ritual-caster-feat-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ritual Caster gives you a ritual book and the ability to write spells into it. You can use rituals of a level that a full caster of the same level could cast, so don’t get ideas of casting extremely high-level ritual spells to get around level restrictions. The benefit of the feat is to get ritual casting on a character that doesn’t already have it or of a type which you don’t already have."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-ritual-caster-feat-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When you take the feat, you must pick a spellcasting class from which to take your rituals, and you are permanently bound to that decision. As such, you need to pick a class that both matches up with your ability scores (you need 13 in that class’s casting ability) and which has the spells you want."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-ritual-caster-feat-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Bard"
+              },
+              {
+                "type": "text",
+                "text": ": The only viable option if\n\t\tCharisma is your only qualifying ability score. A weird mix of druid and\n\t\twizard rituals. Some of them are good, but I don’t think they’re worth a\n\t\tfeat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cleric"
+              },
+              {
+                "type": "text",
+                "text": ": Exclusive access to some great\n\t\tdivination rituals like Augury and Divination, as well as cool things like\n\t\tCeremony and Forbiddance. If you have cleric rituals and wizard rituals, you\n\t\thave every ritual worth having."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Druid"
+              },
+              {
+                "type": "text",
+                "text": ": Roughly half of the Druid’s\n\t\trituals overlap with the Cleric, and the remaining rituals are all related\n\t\tto interacting with beasts, which becomes much less important when they\n\t\tmostly fall out of the CR range around level 4 and then vanish entirely by\n\t\tlevel 10."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sorcerer"
+              },
+              {
+                "type": "text",
+                "text": ": Only 4 rituals, and with the\n\t\texception of Water Walk they’re all available to the Wizard. If you need\n\t\trituals but Charisma is your only stat above 13, go for the Bard."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warlock"
+              },
+              {
+                "type": "text",
+                "text": ": Only 4 rituals, and they’re all\n\t\tavailable to the Wizard. If you need rituals but Charisma is your only stat\n\t\tabove 13, go for the Bard."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wizard"
+              },
+              {
+                "type": "text",
+                "text": ": More rituals than anyone else, and\n\t\talso the best rituals. With the exception of a handful of cleric-only\n\t\trituals, you could take Wizard and never worry about ritual casting\n\t\tagain."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-good-candidates-for-ritual-caster",
+      "heading": "Good Candidates for Ritual Caster",
+      "sourceAnchor": "good-candidates-for-ritual-caster",
+      "blocks": [
+        {
+          "blockId": "block-section-good-candidates-for-ritual-caster-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While Ritual Caster doesn’t feature prominently in our example builds, it’s a great addition to many classes and subclasses which are already set up to qualify for the feat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-good-candidates-for-ritual-caster-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Arcane Trickster Rogue: You already need a bit of Intelligence for your spells, and adding wizard rituals can expand your already massive toolbox."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eldritch Knight Fighter",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/"
+              },
+              {
+                "type": "text",
+                "text": ": You already need a bit of Intelligence for your spells, and Ritual Caster adds some much-needed utility to a class that’s basically all combat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Monk: Cleric rituals will add some utility to the Monk, but since it doesn’t address any of the Monk’s fundamental challenges it’s hard to fit into a build."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Paladin: Bard rituals are decent, but may not be good enough to justify on a class that’s MAD and already struggles to fit feats into a build."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ranger: Cleric rituals (not druid rituals) add a lot to the Ranger. Druid makes more sense for flavor, but cleric rituals are generally more impactful."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conclusion",
+      "heading": "Conclusion",
+      "sourceAnchor": "conclusion",
+      "blocks": [
+        {
+          "blockId": "block-section-conclusion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I won’t say that Wizards are the best (I mean, I will, but it won’t be right here), but in terms of Ritual Caster there’s a pretty clear winner here, with the Cleric coming in a close second, and every other option lagging pretty far behind. If your party lacks ritual spellcasting, Ritual Caster is a fantastic way to get it, and knowing what’s already available within your party compared to what’s available makes it much easier to benefit from the feat."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Wizard"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-intro-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-why-do-we-care-about-rituals-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-who-can-already-cast-rituals-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-available-ritual-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-available-ritual-spells-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-the-ritual-caster-feat-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-the-ritual-caster-feat-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-the-ritual-caster-feat-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-the-ritual-caster-feat-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-good-candidates-for-ritual-caster-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-good-candidates-for-ritual-caster-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-conclusion-1"
+    }
+  ],
+  "metrics": {
+    "words": 1292,
+    "sections": 9,
+    "blocks": 17,
+    "tables": 1,
+    "ratingSignals": 10
+  },
+  "status": "needs-editorial-review"
+}

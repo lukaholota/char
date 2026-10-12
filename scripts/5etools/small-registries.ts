@@ -44,9 +44,11 @@ export function parseSmallRegistries(options: { reservedSlugs?: string[] } = {})
   const diseases = readRegistry("conditionsdiseases.json", "disease").filter(
     (record) => record.source === "PHB" && NEW_DISEASES.includes(record.name)
   );
-  const senses = readRegistry("senses.json", "sense").filter(
-    (record) => record.source === "PHB" && NEW_SENSES.includes(record.name)
-  );
+  const senseRegistry = readRegistry("senses.json", "sense");
+  const senses = [
+    ...senseRegistry.filter((record) => record.source === "PHB" && NEW_SENSES.includes(record.name)),
+    ...senseRegistry.filter((record) => record.source === "MM" && record.name === "Tremorsense"),
+  ];
 
   return [
     ...actions.map((record) =>

@@ -1,0 +1,3203 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/tools/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "8f66584055523287cda269fd1a48cff49ad2bc950fda4032f284a4acfcb9a26a",
+  "sourceRevision": {
+    "revisionId": "rpgbot-5ab711f0f9b17f47-8f66584055523287",
+    "sourceId": "rpgbot-5ab711f0f9b17f47",
+    "fetchedAt": "2026-09-29T19:13:39.906541+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:19:04-04:00",
+    "contentHash": "4975aaeb5a5542ef91fd5f51aa4e84fac5ad5c1c1e6b6e9c165de2381e12dc73",
+    "title": "DnD 5e Tools and Tool Proficiencies: A Practical Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-5ab711f0f9b17f47-8f66584055523287.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In 5e D&D, Skill Proficiencies represent an abstract set of knowledge that can be applied to ability checks. Tool Proficiencies are the same way, but tend to be overlooked and glossed over because of their supposedly narrow focus. In this guide, we’ll be going over the majority of tools to find some interesting uses, like an expansion to the idea put forth in "
+            },
+            {
+              "type": "link",
+              "text": "Xanathar’s Guide to Everything",
+              "href": "https://www.dndbeyond.com/sources/xgte/dungeon-masters-tools#ToolProficiencies"
+            },
+            {
+              "type": "text",
+              "text": " starting on page 78. Particularly, Synergies grant Advantage when two related proficiencies overlap, and this is by no means an exhaustive list of such bonuses. You should instead use this as a jumping off point for even more creative uses for combining tools."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re familiar with previous editions, particularly D&D 3.5 and PF1e, you might notice that tools serve a similar function to Craft, Profession, and some Knowledge skills. The great part about this change is that in 5e it’s easy to get an extra tool proficiency or two to round out your character for roleplay purposes. Previously, these skills had to compete with important core skills like Spot or Search and it was a major investment to be a Carpenter, for example."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artisan’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#artisans-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Alchemist’s Supplies",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#alchemists-supplies"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Brewer’s Supplies",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#brewers-supplies"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Calligrapher’s Supplies",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#calligraphers-supplies"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Carpenter’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#carpenters-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cartographer’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#cartographers-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cobbler’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#cobblers-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cook’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#cooks-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Glassblower’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#glassblowers-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Jeweller’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#jewellers-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Leatherworker’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#leatherworkers-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Mason’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#masons-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Painter’s Supplies",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#painters-supplies"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Potter’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#potters-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Smith’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#smiths-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Tinker’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#tinkers-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Weaver’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#weavers-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Woodcarver’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#woodcarvers-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Assorted Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#assorted-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Disguise Kit",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#disguise-kit"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Forgery Kit",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#forgery-kit"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gaming Sets",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#gaming-sets"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Herbalism Kit",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#herbalism-kit"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Musical Instruments",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#musical-instruments"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Navigator’s Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#navigators-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Poisoner’s Kit",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#poisoners-kit"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Thieves’ Tools",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#thieves-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Vehicles",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#vehicles"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Land",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#land"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Water",
+                "href": "https://rpgbot.net/dnd5/characters/tools/#water"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artisans-tools",
+      "heading": "Artisan’s Tools",
+      "sourceAnchor": "artisans-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-artisans-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "These tools are primarily concerned with making and repairing things. Proficiency with an Artisan’s Tool is both knowledge of the craft in question as well as the workings of the related profession. This includes the function of another skill from previous editions: Appraising the value of an object from your craft."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artisans-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Item Crafting"
+            },
+            {
+              "type": "text",
+              "text": " – Artisan’s tools can be used to craft all manner of things, mundane and magical. This takes time based on the price of the item, or the rarity of the magic item, a week per 50gp for mundane items, but the time can be shortened with multiple craftspersons working together, dividing the total time per crafter. For more detailed and specific information, consult "
+            },
+            {
+              "type": "link",
+              "text": "XGtE",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": " page 128. For healing potions, see Herbailsm Kit below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artisans-tools-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Work"
+            },
+            {
+              "type": "text",
+              "text": " – As a downtime activity, Artisans’ Tools and Musical Instruments can both be used to earn a wage during downtime. For results, check page 134 of"
+            },
+            {
+              "type": "link",
+              "text": " XGtE",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-alchemists-supplies",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Alchemist’s Supplies",
+      "sourceAnchor": "alchemists-supplies",
+      "blocks": [
+        {
+          "blockId": "block-section-alchemists-supplies-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Alchemy is just chemistry, and this proficiency gives a character knowledge of chemistry as well as other related sciences. To that end, if Firearms are allowed in your game this tool would also allow the creation of gunpowder."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-alchemists-supplies-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Alchemical Crafting"
+            },
+            {
+              "type": "text",
+              "text": " – This proficiency allows for the crafting of alchemical items by using materials worth half the price of purchasing the item. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies",
+      "parentSectionId": "section-alchemists-supplies",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Jeweller’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Together, these proficiencies are the foundation of metallurgy. Deeper analysis of metals and their composition can be performed when one understands both of these disciplines."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Smith’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Creating ammunition for firearms is much easier if one understands both Smithing and Alchemical processes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-brewers-supplies",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Brewer’s Supplies",
+      "sourceAnchor": "brewers-supplies",
+      "blocks": [
+        {
+          "blockId": "block-section-brewers-supplies-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The basic use of Brewer’s Supplies is the making of beers and other liquors. While this doesn’t automatically confer a deep understanding of microbiology, a knowledgeable Brewer will still be familiar with the concept of Yeast."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-brewers-supplies-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Potable Water"
+            },
+            {
+              "type": "text",
+              "text": " –  Brewing equipment can be used to filter and sanitize water, making it safe to drink."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-2",
+      "parentSectionId": "section-brewers-supplies",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-2",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Alchemist’s Supplies"
+            },
+            {
+              "type": "text",
+              "text": " – Alchemical processes grant better insight into concepts of distillation to create not just hard liquors but also incredible flammable liquids."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Cook’s Utensils"
+            },
+            {
+              "type": "text",
+              "text": " – Turning alcohol into vinegars on purpose is a fantastic way to prevent food spoilage before a long journey or a harsh winter."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Herbalism Kit"
+            },
+            {
+              "type": "text",
+              "text": " – Knowing how to brew plants into drinks can be taken a few steps further to extracting and distilling all manner of liquid drugs, both recreational and medicinal."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-calligraphers-supplies",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Calligrapher’s Supplies",
+      "sourceAnchor": "calligraphers-supplies",
+      "blocks": [
+        {
+          "blockId": "block-section-calligraphers-supplies-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Calligraphy is about elevating words and writing to artwork. Anyone can put pen to page to scribble down a message but a Calligrapher knows how to catch the eye."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-calligraphers-supplies-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Decipher Treasure Map"
+            },
+            {
+              "type": "text",
+              "text": " – These tools give insight into finding secrets about a map, such as the age or hidden messages."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-3",
+      "parentSectionId": "section-calligraphers-supplies",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-3",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-3-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Woodcarver’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Using the beautiful lettering as a carving stencil is one way to really elevate both arts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-carpenters-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Carpenter’s Tools",
+      "sourceAnchor": "carpenters-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-carpenters-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Carpentry is about making solid wooden objects. This familiarity with construction techniques helps in assessing when something is built in an unusual manner or where a structure might be vulnerable, whether your intent is demolition or reinforcement."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-carpenters-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Fortify"
+            },
+            {
+              "type": "text",
+              "text": " – With a little work, you can make a door or window harder to break down."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-carpenters-tools-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Temporary Shelter"
+            },
+            {
+              "type": "text",
+              "text": " – Hastily construct a dry and shady place for resting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-4",
+      "parentSectionId": "section-carpenters-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-4",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-4-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Mason’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Wooden molds are integral for pouring concrete mixtures for more improved construction tasks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-4-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Vehicles"
+            },
+            {
+              "type": "text",
+              "text": " – While Vehicle proficiencies include knowledge of maintenance, putting these skills together grant insight into making and installing improvements to the vehicles beyond simple maintenance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cartographers-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Cartographer’s Tools",
+      "sourceAnchor": "cartographers-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-cartographers-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While anyone can jot down a rough map with basic relative locations, a Cartographer knows how to draw a proper map for accurate navigation and surveying."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cartographers-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Craft a Map"
+            },
+            {
+              "type": "text",
+              "text": " – Make a map while travelling in addition to other activities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-5",
+      "parentSectionId": "section-cartographers-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-5",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-5-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Carpenter’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – An architectural draft is just a very specific kind of map and pairing up these fields of expertise will help you get a birds’ eye view of a structure from the inside. This benefit also applies with "
+            },
+            {
+              "type": "strong",
+              "text": "Mason’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " in a stone or brick structure."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-5-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Navigator’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Understanding the practices of navigation by stars will allow one to create star charts, particularly handy if Spelljamming to an unfamiliar Crystal Sphere."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cobblers-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Cobbler’s Tools",
+      "sourceAnchor": "cobblers-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-cobblers-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Boots, shoes, and all manner of hard-bottomed footwear are the domain of the Cobbler."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cobblers-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Maintain Shoes"
+            },
+            {
+              "type": "text",
+              "text": " – Travel farther on foot without fatigue."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cobblers-tools-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Craft Hidden Compartment"
+            },
+            {
+              "type": "text",
+              "text": " – With some work, add hidden storage to some shoes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-6",
+      "parentSectionId": "section-cobblers-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-6",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-6-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Animal Handling"
+            },
+            {
+              "type": "text",
+              "text": " – The shoeing of hooved animals such as horses is similar enough in principle to cobbling that cross-training such as this helps not only with the installation but also the diagnosis of any maladies that might afflict the hooves. Creating the horseshoes however is a job for "
+            },
+            {
+              "type": "strong",
+              "text": "Smith’s Tools"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-6-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Smith’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Could you imagine how painful greaves would be if they were made entirely from metal? Having the skill to assemble sturdy yet comfortable boot soles as a base for any sort of foot protection definitely makes things easier."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cooks-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Cook’s Tools",
+      "sourceAnchor": "cooks-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-cooks-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Making food edible is not the same as turning ingredients into a meal. These tools are far too often overlooked by adventurers doing everything in their power to get out of needing to eat, forgetting that there is a noticable difference between not feeling hungry and feeling satisfied."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cooks-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Prepare Meals"
+            },
+            {
+              "type": "text",
+              "text": " – Well cooked meals grant extra healing during short rests."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-7",
+      "parentSectionId": "section-cooks-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-7",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-7-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Animal Handling"
+            },
+            {
+              "type": "text",
+              "text": " – Animals have a wide range of diets and while some forms of feed are certainly trail stable, more exotic diets might benefit from preparation to preserve freshness and prevent spoilage without making the food unpalatable to your animal companions."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-7-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Arcana"
+            },
+            {
+              "type": "text",
+              "text": " – With access to Prestidigitation a magically inclined Chef can create seemingly impossible flavor combinations."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-7-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Poisoner’s Kit"
+            },
+            {
+              "type": "text",
+              "text": " – A particularly devious poisoner can mask the taste by choosing the right legitimate food ingredients."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-7-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Vehicles (Water)"
+            },
+            {
+              "type": "text",
+              "text": " – On a long voyage, the food needs to be resistant to spoilage and remain edible for months at a time, so special techniques and considerations must be made to keep morale up with the limited available ingredients."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-glassblowers-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Glassblower’s Tools",
+      "sourceAnchor": "glassblowers-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-glassblowers-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A glassblower is knowledgeable in both the art of shaping glass as well as the making of different kinds of glass."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-glassblowers-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Identify Weakness"
+            },
+            {
+              "type": "text",
+              "text": " – Find the right spot to hit a glass object when trying to break it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-8",
+      "parentSectionId": "section-glassblowers-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-8",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-8-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Jeweller’s Kit"
+            },
+            {
+              "type": "text",
+              "text": " – With the right tools, the same methods of facetting and setting jewels can be used to grind and mount lenses."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-8-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Smith’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Stained glass artwork is a combination of wrought metal (commonly lead) and glass."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-jewellers-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Jeweller’s Tools",
+      "sourceAnchor": "jewellers-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-jewellers-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Turning rough stones into beautifully faceted gems and shaping precious metals to hold said gems is the craft of Jewellers."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-jewellers-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Identify Gems"
+            },
+            {
+              "type": "text",
+              "text": " – Appraise gems at a glance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-9",
+      "parentSectionId": "section-jewellers-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-9",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-9-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Disguise Kit"
+            },
+            {
+              "type": "text",
+              "text": " – Adding some real jewels to enhance your costume will help you pass scrutiny."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-leatherworkers-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Leatherworker’s Tools",
+      "sourceAnchor": "leatherworkers-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-leatherworkers-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "These are the tools for skinning game animals, preparing hides into leather, and turning that leather into finished products."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-leatherworkers-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Identify Hides"
+            },
+            {
+              "type": "text",
+              "text": " – With some quick study, you can identify the source of leathers and hides, such as what crafting techniques were used to assemble a piece."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-10",
+      "parentSectionId": "section-leatherworkers-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-10",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-10-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Animal Handling"
+            },
+            {
+              "type": "text",
+              "text": " – Putting in a little work to custom fit a saddle and bridle to your mount can really make a difference when it counts."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-10-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Vehicles (Land)"
+            },
+            {
+              "type": "text",
+              "text": " – Similar to "
+            },
+            {
+              "type": "strong",
+              "text": "Animal Handling"
+            },
+            {
+              "type": "text",
+              "text": ", maintaining and fitting your pack animals bits and bridles can make it easier to keep control in adverse conditions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-masons-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Mason’s Tools",
+      "sourceAnchor": "masons-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-masons-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Masonry is all about brick and stone based construction. Knowing how things are built offers vital insight into how they might be demolished as well."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-masons-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Demolition"
+            },
+            {
+              "type": "text",
+              "text": " – You deal double damage to stone and brick structures."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-11",
+      "parentSectionId": "section-masons-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-11",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-11-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Smith’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Reinforcing a stone structure with rebar during construction allows for larger and more stable construction."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-painters-supplies",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Painter’s Supplies",
+      "sourceAnchor": "painters-supplies",
+      "blocks": [
+        {
+          "blockId": "block-section-painters-supplies-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Both for making artwork as well as simply painting a structure such as a fence."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-painters-supplies-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Painting and Drawing"
+            },
+            {
+              "type": "text",
+              "text": " – Make art during rests. Copy down a rough image of a scene or a copy of some art."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-12",
+      "parentSectionId": "section-painters-supplies",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-12",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-12-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Tinker’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Normally after a repair job it’s easy to identify that something has been repaired, but with some painting skill, color matching the replaced parts is much easier."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-potters-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Potter’s Tools",
+      "sourceAnchor": "potters-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-potters-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The methods of shaping and mixing clays and ceramics are invaluable for the making of pottery as well as identifying the original form of a broken clay object."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-potters-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Reconstruction"
+            },
+            {
+              "type": "text",
+              "text": " – Use forensic techniques to reconstruct the original shape of pottery from shards."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-13",
+      "parentSectionId": "section-potters-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-13",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-13-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Glassblowers Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Glass inlays on ceramics can elevate the quality of the artwork. Similar effects with gems can be done with a "
+            },
+            {
+              "type": "strong",
+              "text": "Jeweller’s Kit"
+            },
+            {
+              "type": "text",
+              "text": " or metals with "
+            },
+            {
+              "type": "strong",
+              "text": "Smith’s Tools"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-smiths-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Smith’s Tools",
+      "sourceAnchor": "smiths-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-smiths-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A smith is knowledgeable in techniques of smelting raw ores into workable metals as well as the working of said metals into useful objects, such as weapons or armor. With cross-discipline skills metalworking can improve the durability of many other crafted items."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-smiths-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Repair"
+            },
+            {
+              "type": "text",
+              "text": " – Repair damaged metal objects."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-14",
+      "parentSectionId": "section-smiths-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-14",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-14-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Alchemist’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Deeper understanding of metals and chemical reactions are the key to smelting powerful alloys and extracting more exotic elements from rare ores."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-14-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Carpenter’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Knowledge of construction and metalworking combine to build metal framed buildings."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-14-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Vehicles (Water)"
+            },
+            {
+              "type": "text",
+              "text": " – Accounting for the constant jostling of the waves is paramount when building or repairing cannons for ship to ship combat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-tinkers-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Tinker’s Tools",
+      "sourceAnchor": "tinkers-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-tinkers-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tinker’s Tools are unusual. Unlike most Artisan’s tools, they aren’t used to really craft anything but are rather an all-purpose quick repair and patch kit. As such they have a more general synergy with every tool."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-tinkers-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Repair"
+            },
+            {
+              "type": "text",
+              "text": " – Perform repairs on a multitude of objects."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-15",
+      "parentSectionId": "section-tinkers-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-15",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-15-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Any Tool"
+            },
+            {
+              "type": "text",
+              "text": " – When rushing a patch job, having knowledge of both Tinker’s Tools and a relevant proficiency, such as "
+            },
+            {
+              "type": "strong",
+              "text": "Carpenter’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " for a wooden object or "
+            },
+            {
+              "type": "strong",
+              "text": "Cobbler’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " for shoes, offsets any penalties for rushing the repairs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weavers-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Weaver’s Tools",
+      "sourceAnchor": "weavers-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-weavers-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Whether spinning thread or sewing clothes, these are the tools you’ll need to learn."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weavers-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Repair"
+            },
+            {
+              "type": "text",
+              "text": " – Repair cloth objects."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weavers-tools-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Craft Clothing"
+            },
+            {
+              "type": "text",
+              "text": " – Make an outfit during a long rest."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-16",
+      "parentSectionId": "section-weavers-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-16",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-16-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Animal Handling"
+            },
+            {
+              "type": "text",
+              "text": " – Know what fur and hair make good threads helps in getting a good yield while shearing animals."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-woodcarvers-tools",
+      "parentSectionId": "section-artisans-tools",
+      "heading": "Woodcarver’s Tools",
+      "sourceAnchor": "woodcarvers-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-woodcarvers-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While Carpentry is about assembling wood into structures like cabinets, Woodcarving is about making intricate designs or precise cuts into a wooden surface. Additionally Woodcarving is used for making arrows and bolts."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-woodcarvers-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Craft Arrows"
+            },
+            {
+              "type": "text",
+              "text": " – Craft wooden ammunition, including arrows, bolts, and javelins, as part of a rest."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-17",
+      "parentSectionId": "section-woodcarvers-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-17",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-17-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Carpenter’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – Additional flourishes and other intricate design work increase the aesthetic quality of your products."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-assorted-tools",
+      "heading": "Assorted Tools",
+      "sourceAnchor": "assorted-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-assorted-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The rest of the tools don’t have a common category like Artisans’ Tools, but that is fine. Many of these replace other forgotten skills from editions past. In the interest of removing redundancy, Instruments and Gaming Sets are going to be condensed into their categories."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disguise-kit",
+      "parentSectionId": "section-assorted-tools",
+      "heading": "Disguise Kit",
+      "sourceAnchor": "disguise-kit",
+      "blocks": [
+        {
+          "blockId": "block-section-disguise-kit-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unsurprisingly, this replaced the Disguise skill. While the obvious benefit of making a mundane disguise is the primary purpose of this tool, this kit also covers the broader idea of costuming and makeup artistry in general."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disguise-kit-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Create Disguise"
+            },
+            {
+              "type": "text",
+              "text": " – Assemble a disguise as part of a long rest."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-18",
+      "parentSectionId": "section-disguise-kit",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-18",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-18-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Musical Instruments"
+            },
+            {
+              "type": "text",
+              "text": " – Enhancing your act with appropriate style choices will help get the crowd on your side."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-forgery-kit",
+      "parentSectionId": "section-assorted-tools",
+      "heading": "Forgery Kit",
+      "sourceAnchor": "forgery-kit",
+      "blocks": [
+        {
+          "blockId": "block-section-forgery-kit-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Would you be surprised at this point if I told you that Forgery was the skill in 3.5 that this replaces? Forgery is about making convincing duplicate objects. This is not limited to documents like some might reasonably assume, but anything one could make could be forged."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-forgery-kit-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Quick Fake"
+            },
+            {
+              "type": "text",
+              "text": " – Forge documents of varying lengths as part of a short or long rest."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-19",
+      "parentSectionId": "section-forgery-kit",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-19",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-19-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Artisan’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – The best way to fake the work of a master craftsperson is to "
+            },
+            {
+              "type": "emphasis",
+              "text": "be"
+            },
+            {
+              "type": "text",
+              "text": " a master craftsperson."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-19-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Musical Instruments"
+            },
+            {
+              "type": "text",
+              "text": " – Knowing music theory would make forged sheet music far more convincing if you needed to do that for some reason."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gaming-sets",
+      "parentSectionId": "section-assorted-tools",
+      "heading": "Gaming Sets",
+      "sourceAnchor": "gaming-sets",
+      "blocks": [
+        {
+          "blockId": "block-section-gaming-sets-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Games of chance and skill are all interchangeable as far as what they can do, but the differ in what kind of ability check they work with. Playing cards for example might be Wisdom to read your opponent without giving up anything in return, while Dragonchess is instead likely played with Intelligence checks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gaming-sets-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Gambling"
+            },
+            {
+              "type": "text",
+              "text": " – As a downtime activity, you can spend a week gambling. Details are on page 130 of "
+            },
+            {
+              "type": "link",
+              "text": "XGtE",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-20",
+      "parentSectionId": "section-gaming-sets",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-20",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-20-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Brewer’s Supplies"
+            },
+            {
+              "type": "text",
+              "text": " – Bringing your strongest drinks to the game might be the edge you need to get your opponent to slip up."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-herbalism-kit",
+      "parentSectionId": "section-assorted-tools",
+      "heading": "Herbalism Kit",
+      "sourceAnchor": "herbalism-kit",
+      "blocks": [
+        {
+          "blockId": "block-section-herbalism-kit-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s strange that this isn’t considered an Artisan’s Tool because the primary use for most adventurers is to brew healing potions. It’s also used for identifying plants which some might consider a Nature skill check as well."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-herbalism-kit-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Brew Healing Potions"
+            },
+            {
+              "type": "text",
+              "text": " – This proficiency allows for crafting of healing potions. While there are four rarities of potion, anything beyond the standard potion of healing is overpriced and takes far too long to craft."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-herbalism-kit-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Identify Plants"
+            },
+            {
+              "type": "text",
+              "text": " – Quickly identify plants."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-21",
+      "parentSectionId": "section-herbalism-kit",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-21",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-21-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Calligrapher’s Supplies"
+            },
+            {
+              "type": "text",
+              "text": " – Exotic dyes made from plants add that little extra to make your writing pop."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-21-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Forgery Kit"
+            },
+            {
+              "type": "text",
+              "text": " – Other strange and wonderful plants can create wondrous yet mundane inks that vanish while remaining hidden from magical scrutiny."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-musical-instruments",
+      "parentSectionId": "section-assorted-tools",
+      "heading": "Musical Instruments",
+      "sourceAnchor": "musical-instruments",
+      "blocks": [
+        {
+          "blockId": "block-section-musical-instruments-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Similar to Gaming sets, the things that you can accomplish with instruments are roughly interchangeable, but while a Flute might call for a Dexterity check, holding a long note to sound an alarm with a Horn is likely to be a Constitution check."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-musical-instruments-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Compose a Tune"
+            },
+            {
+              "type": "text",
+              "text": " – Write a new song over a long rest."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-22",
+      "parentSectionId": "section-musical-instruments",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-22",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-22-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Tinker’s Tools"
+            },
+            {
+              "type": "text",
+              "text": " – It’s far easier to repair an instrument if you can play it to check how the repairs are going."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-navigators-tools",
+      "parentSectionId": "section-assorted-tools",
+      "heading": "Navigator’s Tools",
+      "sourceAnchor": "navigators-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-navigators-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While Cartographer’s tools are for making a map, Navigator’s tools are for reading those maps. Looking to the past, the 3.5 Knowledge skills Local and Geography have been combined into this tool."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-navigators-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Sighting"
+            },
+            {
+              "type": "text",
+              "text": " – Locate your position on a chart and determine time of day with careful measurements."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-23",
+      "parentSectionId": "section-navigators-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-23",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-23-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Performance"
+            },
+            {
+              "type": "text",
+              "text": " – By turning directions into a catchy song it will be easier for others to recall and follow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-poisoners-kit",
+      "parentSectionId": "section-assorted-tools",
+      "heading": "Poisoner’s Kit",
+      "sourceAnchor": "poisoners-kit",
+      "blocks": [
+        {
+          "blockId": "block-section-poisoners-kit-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Like the Herbalism kit except angry. No really, it covers most of the same plant knowledge as the Herbalism Kit but focuses on dangerous plants instead of helpful ones."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poisoners-kit-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Handle Poison"
+            },
+            {
+              "type": "text",
+              "text": " – Never risk poisoning yourself while using poisons."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-24",
+      "parentSectionId": "section-poisoners-kit",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-24",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-24-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Calligrapher’s Supplies"
+            },
+            {
+              "type": "text",
+              "text": " – Mix a deadly contact poison into the ink and spread death via mail."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-synergies-24-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Herbalism Kit – For many substances, the difference between poison and cure is quantity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-thieves-tools",
+      "parentSectionId": "section-assorted-tools",
+      "heading": "Thieves’ Tools",
+      "sourceAnchor": "thieves-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-thieves-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For being the most prominently used tool in the game, it’s funny that alphabetical order put it almost dead last. This tool is the new face of Open Lock and Disable Device skills from 3.5 and it’s rather useful for dungeoneering."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-thieves-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Set a Trap"
+            },
+            {
+              "type": "text",
+              "text": " –  Assemble a trap as part of a short rest."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-synergies-25",
+      "parentSectionId": "section-thieves-tools",
+      "heading": "Synergies",
+      "sourceAnchor": "synergies-25",
+      "blocks": [
+        {
+          "blockId": "block-section-synergies-25-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Poisoner’s Kit"
+            },
+            {
+              "type": "text",
+              "text": " – Salvaging the poison off of a disabled trap for later is technically recycling and therefore good for the dungeon environment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-vehicles",
+      "heading": "Vehicles",
+      "sourceAnchor": "vehicles",
+      "blocks": [
+        {
+          "blockId": "block-section-vehicles-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Classified as Tools because they don’t fit anywhere else, Land and Water Vehicles are an incredibly broad category. In the majority of campaigns, this is fine because Vehicles are an unusual thing to encounter or need. In Naval or Siege Warfare campaigns however, it might be prudent to subdivide these proficiencies into more specialized roles."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-vehicles-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Vehicle Handling"
+            },
+            {
+              "type": "text",
+              "text": " – When piloting, your Proficiency Bonus applies to the vehicle’s AC and Saves."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-land",
+      "parentSectionId": "section-vehicles",
+      "heading": "Land",
+      "sourceAnchor": "land",
+      "blocks": [
+        {
+          "blockId": "block-section-land-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Land vehicles encompass a wide array of wheeled or sledding vehicles that are usually drawn by beasts of burden. In 3.5, Knowledge Architecture and Engineering, Profession Siege Engineer, or Handle Animal were the closest relevant skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-siege-warfare-subdivisions",
+      "parentSectionId": "section-land",
+      "heading": "Siege Warfare Subdivisions",
+      "sourceAnchor": "siege-warfare-subdivisions",
+      "blocks": [
+        {
+          "blockId": "block-section-siege-warfare-subdivisions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re looking to run a game where the players are involved in this kind of warfare, I suggest narrowing this tool into a few categories."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-siege-warfare-subdivisions-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Siege Artillery"
+            },
+            {
+              "type": "text",
+              "text": " – Everybody is going to want to be this guy, the guy that fires the ballista and rolls all the damage dice but realistically you need just one guy trained to aim. Two additional bits of advice for this one. First treat this like a weapon proficiency in every way except for how it’s obtained as a tool proficiency, and second if the person using this is an Artificer don’t apply the sixth level tool expertise to these attack rolls. Accuracy is bounded for a reason."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-siege-warfare-subdivisions-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Siege Driver"
+            },
+            {
+              "type": "text",
+              "text": " – This is the ability to manage and direct trained military animals to get the siege piece into position."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-siege-warfare-subdivisions-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Siege Engineer"
+            },
+            {
+              "type": "text",
+              "text": " – Maintenance, hand-to-hand defending, loading the weapon, anything that isn’t firing the weapon or steering the vehicle can be lumped in here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-water",
+      "parentSectionId": "section-vehicles",
+      "heading": "Water",
+      "sourceAnchor": "water",
+      "blocks": [
+        {
+          "blockId": "block-section-water-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Water vehicles are all types of boats, ships and sailing vessels, which should be obvious. What is less obvious is that proficiency in this tool is a combination of the 3.5 skills Profession Sailor and Use Rope. Yes, according to XGtE on page 82, Vehicles (Water) includes anything a professional sailor would know, including tying knots."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-naval-warfare-subdivisions",
+      "parentSectionId": "section-water",
+      "heading": "Naval Warfare Subdivisions",
+      "sourceAnchor": "naval-warfare-subdivisions",
+      "blocks": [
+        {
+          "blockId": "block-section-naval-warfare-subdivisions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In an seafaring campaign, sure you can just have everyone take Water Vehicles as a proficiency and call it good. Or you can cut this up into more specialized proficiencies. If you do divide it like this, anything ship related that isn’t explicitly part of these expanded proficiencies is overlapped to all of them. For example, all of these would be proficient in any checks to adjust the sails or hoist the anchor as those are tasks that all sailors need to perform."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-naval-warfare-subdivisions-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Naval Cannoneer"
+            },
+            {
+              "type": "text",
+              "text": " – This is all about firing those broadside attacks at the enemy ships at medium to long ranges."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-naval-warfare-subdivisions-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Naval Helmsman"
+            },
+            {
+              "type": "text",
+              "text": " – Manning the helm of a sailing ship is quite difficult. Usually it’s near the rear of the ship to lower the distance from the wheel to the rudder which puts the sails exactly in the right place to block your forward vision."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-naval-warfare-subdivisions-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Naval Shipwright"
+            },
+            {
+              "type": "text",
+              "text": " – Repairs, maintenance, all manner of other specialized tasks that keep the ship upright and afloat."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-artisans-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-artisans-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-artisans-tools-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-alchemists-supplies-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-alchemists-supplies-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-synergies-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-synergies-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-brewers-supplies-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-brewers-supplies-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-synergies-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-synergies-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-synergies-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-calligraphers-supplies-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-calligraphers-supplies-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-synergies-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-carpenters-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-carpenters-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-carpenters-tools-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-synergies-4-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-synergies-4-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-cartographers-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-cartographers-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-synergies-5-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-synergies-5-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-cobblers-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-cobblers-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-cobblers-tools-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-synergies-6-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-synergies-6-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-cooks-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-cooks-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-synergies-7-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-synergies-7-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-synergies-7-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-synergies-7-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-glassblowers-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-glassblowers-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-synergies-8-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-synergies-8-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-jewellers-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-jewellers-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-synergies-9-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-leatherworkers-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-leatherworkers-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-synergies-10-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-synergies-10-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-masons-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-masons-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-synergies-11-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[55]",
+      "detail": "block-section-painters-supplies-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[56]",
+      "detail": "block-section-painters-supplies-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[57]",
+      "detail": "block-section-synergies-12-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[58]",
+      "detail": "block-section-potters-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[59]",
+      "detail": "block-section-potters-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[60]",
+      "detail": "block-section-synergies-13-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[61]",
+      "detail": "block-section-smiths-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[62]",
+      "detail": "block-section-smiths-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[63]",
+      "detail": "block-section-synergies-14-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[64]",
+      "detail": "block-section-synergies-14-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[65]",
+      "detail": "block-section-synergies-14-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[66]",
+      "detail": "block-section-tinkers-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[67]",
+      "detail": "block-section-tinkers-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[68]",
+      "detail": "block-section-synergies-15-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[69]",
+      "detail": "block-section-weavers-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[70]",
+      "detail": "block-section-weavers-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[71]",
+      "detail": "block-section-weavers-tools-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[72]",
+      "detail": "block-section-synergies-16-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[73]",
+      "detail": "block-section-woodcarvers-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[74]",
+      "detail": "block-section-woodcarvers-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[75]",
+      "detail": "block-section-synergies-17-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[76]",
+      "detail": "block-section-assorted-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[77]",
+      "detail": "block-section-disguise-kit-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[78]",
+      "detail": "block-section-disguise-kit-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[79]",
+      "detail": "block-section-synergies-18-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[80]",
+      "detail": "block-section-forgery-kit-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[81]",
+      "detail": "block-section-forgery-kit-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[82]",
+      "detail": "block-section-synergies-19-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[83]",
+      "detail": "block-section-synergies-19-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[84]",
+      "detail": "block-section-gaming-sets-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[85]",
+      "detail": "block-section-gaming-sets-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[86]",
+      "detail": "block-section-synergies-20-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[87]",
+      "detail": "block-section-herbalism-kit-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[88]",
+      "detail": "block-section-herbalism-kit-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[89]",
+      "detail": "block-section-herbalism-kit-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[90]",
+      "detail": "block-section-synergies-21-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[91]",
+      "detail": "block-section-synergies-21-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[92]",
+      "detail": "block-section-musical-instruments-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[93]",
+      "detail": "block-section-musical-instruments-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[94]",
+      "detail": "block-section-synergies-22-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[95]",
+      "detail": "block-section-navigators-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[96]",
+      "detail": "block-section-navigators-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[97]",
+      "detail": "block-section-synergies-23-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[98]",
+      "detail": "block-section-poisoners-kit-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[99]",
+      "detail": "block-section-poisoners-kit-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[100]",
+      "detail": "block-section-synergies-24-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[101]",
+      "detail": "block-section-synergies-24-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[102]",
+      "detail": "block-section-thieves-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[103]",
+      "detail": "block-section-thieves-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[104]",
+      "detail": "block-section-synergies-25-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[105]",
+      "detail": "block-section-vehicles-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[106]",
+      "detail": "block-section-vehicles-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[107]",
+      "detail": "block-section-land-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[108]",
+      "detail": "block-section-siege-warfare-subdivisions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[109]",
+      "detail": "block-section-siege-warfare-subdivisions-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[110]",
+      "detail": "block-section-siege-warfare-subdivisions-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[111]",
+      "detail": "block-section-siege-warfare-subdivisions-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[112]",
+      "detail": "block-section-water-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[113]",
+      "detail": "block-section-naval-warfare-subdivisions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[114]",
+      "detail": "block-section-naval-warfare-subdivisions-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[115]",
+      "detail": "block-section-naval-warfare-subdivisions-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[116]",
+      "detail": "block-section-naval-warfare-subdivisions-4"
+    }
+  ],
+  "metrics": {
+    "words": 3421,
+    "sections": 60,
+    "blocks": 118,
+    "tables": 0,
+    "ratingSignals": 4
+  },
+  "status": "needs-editorial-review"
+}

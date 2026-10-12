@@ -27,6 +27,8 @@ const PROVENANCE_BY_PREFIX: ReadonlyArray<readonly [string, ImageProvenance]> = 
   ["/images/home/", "ai"],
   ["/images/races/", "ai"],
   ["/images/classes/", "ai"],
+  ["/images/presets/", "ai"],
+  ["/images/subclasses/", "ai"],
   ["/images/backgrounds/", "ai"],
   ["/images/rules/", "ai"],
   ["/images/errors/", "ai"],
@@ -35,6 +37,9 @@ const PROVENANCE_BY_PREFIX: ReadonlyArray<readonly [string, ImageProvenance]> = 
   ["/images/home-", "drawn"],
   /// Сітка іконок заклинань для «що нового» — намальовані ігрові іконки, не генерація.
   ["/images/whats-new/spell-icons.webp", "drawn"],
+  /// Власник, 2026-10-03: піксельний аналітик RPGbot лишається й у режимі без ШІ — це
+  /// інтерфейсний маскот; плитка `categories/rpgbot.webp` ховається разом з рештою арту.
+  ["/images/rpgbot/", "chrome"],
 ];
 
 /// Власник, 2026-09-29: у режимі без ШІ класи й раси показують арт із книг WotC замість згенерованого.
@@ -127,9 +132,14 @@ export const MANUAL_ART_NAMES_BY_FOLDER: Record<string, readonly string[]> = {
 };
 
 const MANUAL_ART_BY_GENERATED_SRC = new Map<string, string>(
-  Object.entries(MANUAL_ART_NAMES_BY_FOLDER).flatMap(([folder, names]) =>
-    names.map((name) => [`/images/${folder}/${name}.webp`, `/images/manual/${folder}/${name}.webp`] as const),
-  ),
+  [
+    ...Object.entries(MANUAL_ART_NAMES_BY_FOLDER).flatMap(([folder, names]) =>
+      names.map((name) => [`/images/${folder}/${name}.webp`, `/images/manual/${folder}/${name}.webp`] as const),
+    ),
+    ["/images/races/hadozee-3bb34d1d2f.webp", "/images/manual/races/hadozee.webp"],
+    ["/images/races/thri_kreen-15344e36d9.webp", "/images/manual/races/thri_kreen.webp"],
+    ["/images/races/autognome-4c6d78b319.webp", "/images/manual/races/autognome.webp"],
+  ],
 );
 
 export function findManualArtSrc(src: string | null | undefined): string | null {

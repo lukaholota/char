@@ -1,0 +1,117 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "monk-sun-soul-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-monk-sun-soul-2014-draft1",
+    "sourceRevisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc"
+  },
+  "exampleSection": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+  "levelTableSection": "section-levels",
+  "classKey": "MONK_2014",
+  "subclassKey": "WAY_OF_THE_SUN_SOUL",
+  "raceKey": "HADOZEE_SPELLJAMMER",
+  "backgroundKey": "SOLDIER",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "revision": 2,
+  "levels": [
+    {"level": 2},
+    {"level": 3, "subclassKey": "WAY_OF_THE_SUN_SOUL"},
+    {"level": 4, "featKey": "GUNNER", "section": "section-feats"},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "featKey": "SKILL_EXPERT", "featOptions": [{"optionNameEng": "Skill Expert (DEX)"}, {"optionNameEng": "Skill Expert Proficiency (SURVIVAL)"}, {"optionNameEng": "Skill Expert Expertise (INSIGHT)"}], "section": "section-feats"},
+    {"level": 9},
+    {"level": 10},
+    {"level": 11},
+    {"level": 12, "abilityScoreIncrease": [{"ability": "DEX", "amount": 2}], "section": "section-feats"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats"},
+    {"level": 20}
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Навичка Акробатика",
+      "reason": "Автор бере Акробатику від Монаха, але каталог уже дає її Хадозі, тож у класовому виборі її взяти не можна; замість неї обрано іншу навичку Монаха за платформою.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Додаткові класові уміння",
+      "reason": "Автор використовує додаткові класові уміння «Присвячена зброя», «Атака, посилена Кі» і «Зосереджене прицілювання»; пресет 1-го рівня їх не записує.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Володіння на 8-му рівні",
+      "reason": "Таблиця рівнів пише «Володіння Уважністю», а тексти розділів про навички й риси двічі кажуть «Виживання»; взято Виживання як явніший авторський вибір, розбіжність у джерелі лишається.",
+      "section": "section-feats"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/monk-sun-soul-2014.webp",
+    "title": "Монах — Хадозі Шляху сонячної душі",
+    "description": "Принц усіх хадозі: Хадозі-Монах Шляху сонячної душі зі Спритністю, Статурою й Мудрістю 16, планеруванням і променями сонячного світла.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CON",
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "STEALTH"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Хадозі з варіантом +1/+1/+1 за правилами Таші до Спритності, Статури й Мудрості: на старті три шістнадцятки, як пише автор.",
+    "skillExplanation": "Атлетика й Залякування — від Солдата, Акробатика — від Хадозі (автор бере її від Монаха), Аналіз поведінки — від Монаха, як радить автор. Другу навичку Монаха (Непомітність) та мову раси ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Автор не називає стартового спорядження. Короткий меч, набір дослідника підземель і дротики ми обрали за вас — їх можна змінити."
+  }
+}

@@ -1,0 +1,284 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "ranger-drakewarden-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-ranger-drakewarden-2014-draft1",
+    "sourceRevisionId": "rpgbot-0dbf0dbf707eedab-7541d221f9bdeada"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "RANGER_2014",
+  "subclassKey": "DRAKEWARDEN",
+  "raceKey": "HUMAN_2014",
+  "variantKey": "HUMAN_VARIANT",
+  "backgroundKey": "CUSTOM",
+  "featKey": "HEAVILY_ARMORED",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 14,
+    "CHA": 10
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2,
+      "classOptions": [
+        {
+          "optionNameEng": "Defense"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "ensnaring-strike",
+          "longstrider"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "subclassKey": "DRAKEWARDEN",
+      "classOptions": [
+        {
+          "optionNameEng": "Primal Awareness"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "absorb-elements"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "HEAVY_ARMOR_MASTER",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "barkskin"
+        ]
+      }
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "featKey": "MOUNTED_COMBATANT",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 9,
+      "spells": {
+        "knownSpellKeys": [
+          "elemental-weapon"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classOptions": [
+        {
+          "optionNameEng": "Nature's Veil"
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "featKey": "SENTINEL",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "guardian-of-nature"
+        ]
+      }
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "featKey": "PIERCER",
+      "featOptions": [
+        {
+          "optionNameEng": "PIERCER Ability (Strength)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 17,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "SHIELD_MASTER",
+      "section": "section-feats-2",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Передісторія «Охоронець»",
+      "reason": "Передісторії «Охоронець» (Guard) немає в 2014: це передісторія 2024 (Атлетика, Уважність, ігровий набір, риса «Пильний»). Найближча в 2014 — Міська варта (Атлетика й Аналіз поведінки), але автор називає Атлетику й Уважність, тож взято власну передісторію (правило PHB «Налаштування передісторії») з цими двома навичками. Ігровий набір і риса «Пильний» не додані.",
+      "section": "section-background"
+    },
+    {
+      "field": "Експертиза: Уважність чи Атлетика",
+      "reason": "Текст статті радить експертність в Уважності, а таблиця рівнів і Кмітливий дослідник на 1-му рівні обирають Атлетику. Дотримано таблицю: експертиза в Атлетиці.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Характеристики в таблиці і тексті",
+      "reason": "Редакційна примітка: оригінал називає Харизму, а таблиця й розвиток ідуть через Силу й Статуру; дотримано таблицю (Сила 17, Статура 16).",
+      "section": "section-ability-scores-2"
+    },
+    {
+      "field": "Підвищення Сили від рис 8-го і 19-го рівнів",
+      "reason": "Автор пише, що Верховий боєць (8-й) і Майстер щита (19-й) підвищують Силу, але за правилами 2014 вони цього не дають; Сила досягає лише 19 (Проколювач на 16-му), а до 20 потрібне окреме підвищення, якого таблиця не має.",
+      "section": "section-feats-2"
+    },
+    {
+      "field": "Щит і найважчий обладунок",
+      "reason": "Автор радить щит і найважчий доступний обладунок, але Слідопит у стартовому спорядженні їх не має; взято стандартний набір класу (лускова броня).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Нові відомі заклинання без назви",
+      "reason": "На 11, 15, 17 і 19-му рівнях автор пише «будь-яке» заклинання; це вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Підтримка і Магічна зброя на 7-му рівні",
+      "reason": "На 7-му рівні автор бере Підтримку (Aid) і міняє Дубову шкіру на Магічну зброю (Magic Weapon), але ні Підтримки, ні Магічної зброї немає в списку заклинань Слідопита 2014 у платформи; місце лишено вільним для вибору гравця, Дубова шкіра лишається.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "title": "Слідопит Вартовий дракона — Варіант людини",
+    "description": "Слідопит на Силі: Варіант людини з Важкоозброєним, Сила 17 і Статура 16 з першого рівня, Атлетика з експертизою й Захист; Компаньйон-дрейк з 3-го рівня.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "STR",
+      "CON"
+    ],
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "NATURE",
+        "STEALTH"
+      ],
+      "race": [
+        "SURVIVAL"
+      ],
+      "background": [
+        "ATHLETICS",
+        "PERCEPTION"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [
+      "ATHLETICS"
+    ],
+    "classOptions": [
+      "Favored Foe",
+      "Deft Explorer - Canny"
+    ],
+    "languages": [
+      "ELVISH",
+      "DWARVISH",
+      "SYLVAN",
+      "GIANT",
+      "GNOMISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats-2",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Варіант людини: +1 до Сили й +1 до Статури, а Важкоозброєний ще +1 до Сили: Сила 17, Статура 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Аналіз поведінки та Природу бере Слідопит, як радить автор; Атлетику й Уважність дає власна передісторія замість «Охоронця», якого в 2014 немає (правило PHB «Налаштування передісторії»). Кмітливий дослідник дає експертизу в Атлетиці, як у таблиці автора. Третю класову навичку (Непомітність), навичку Варіанта людини (Виживання) і пʼять мов (одну расову, дві від Кмітливого дослідника й дві від власної передісторії; автор їх не називає) ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор не називає стартового спорядження, а щит і найважчий обладунок Слідопит на старті не має. Лускову броню, два короткі мечі, набір дослідника підземель і довгий лук ми обрали за вас — вибір платформи.",
+    "portraitSrc": "/images/presets/ranger-drakewarden-2014-255411b581.webp"
+  }
+}

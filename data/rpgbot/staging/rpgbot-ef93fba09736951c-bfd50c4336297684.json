@@ -1,0 +1,2454 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "bfd50c433629768463fc1453c71c4d1c219ed60887041ecde3dc12901c23a49c",
+  "sourceRevision": {
+    "revisionId": "rpgbot-ef93fba09736951c-bfd50c4336297684",
+    "sourceId": "rpgbot-ef93fba09736951c",
+    "fetchedAt": "2026-09-29T19:25:17.445011+00:00",
+    "sourceUpdatedAt": "2026-04-13T16:36:14-04:00",
+    "contentHash": "3547d631a79eeb6513b61fcf1cee11b6e59a3b7075402b191aa3d1f7704ad501",
+    "title": "Way of the Open Hand Monk 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-ef93fba09736951c-bfd50c4336297684.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The most “generic” of the Monk’s subclasses, Way of the Open Hand is perhaps the most illustrative of the Monk as a class. It relies heavily on the Monk’s core features, adding onto the effects of Flurry of Blows, but, because it’s tied into the core class’s mechanics so closely, it also carries a lot of the Monk’s existing baggage. However, it still has something to offer, even if it’s easy to overlook."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Way of the Open Hand adds little to the Monk’s damage output or durability. Instead, Open Hand Technique provides a small amount of crowd control. On top of the Monk’s roles as a Scout and Striker, Open Hand allows you to add a little bit of Controller to your capabilities. This doesn’t address any of the Monk’s core challenges, but the additional capabilities offer some opportunities."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This additional capability as a controller makes the Open Hand Monk an effective force multiplier. The ability to both knock foes prone and reposition them significant distances makes the Open Hand Monk a powerful asset in a party with Blasters who can consistently produce area damage. Evokers work especially well, but anyone with a breath weapon or something similar will still enjoy your presence."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Open Hand Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Open Hand Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#way-of-the-open-hand-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Open Hand Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#way-of-the-open-hand-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Open Hand Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#way-of-the-open-hand-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Open Hand Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#way-of-the-open-hand-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Open Hand Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#way-of-the-open-hand-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – The Launch Pad",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#example-build-the-launch-pad"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Let's Discuss Semantics",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#lets-discuss-semantics"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Let's Discuss Geometry and Physics",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#lets-discuss-geometry-and-physics"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Is this really allowed?",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#is-this-really-allowed"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Is this going to cause problems?",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#is-this-going-to-cause-problems"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Way of the Open Hand Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Open Hand Technique"
+              },
+              {
+                "type": "text",
+                "text": ": This dramatically\n\t\timproves the benefits of spending one of your few Ki points to get an extra\n\t\tattack. Since Monks typically dump Strength (which makes Shove a bad\n\t\toption), the knockdown and push effects are your best bet for making enemies\n\t\tprone or relocating them. Unfortunately you apply these effects with an\n\t\tattack from Flurry of Blows, which is made after your Attack for the turn,\n\t\tso you’re making at most one attack against a target after you knock them\n\t\tprone.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you need to get out of melee, preventing the target from taking\n\t\t\tReactions prevents them from making an Attack of Opportunity so you can\n\t\t\tusually choose to use Flurry of Blows instead of using Step of the Wind to\n\t\t\tDisengage."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you choose to knock enemies away, note that the word “away” doesn’t specify\n\t\t\tdirection. Upward at an angle is still “away”."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wholeness of Body"
+              },
+              {
+                "type": "text",
+                "text": ": A great option to use\n\t\tbetween fights, or when you’re so critically low on hit points that walking\n\t\tinto combat would be suicidal. In-combat healing is rarely a good idea, so\n\t\ttry to avoid it as much as you can.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This is somewhat redundant with the Quickened Healing Optional Class\n\t\t\tFeature, but Wholeness of Body will restore more hit points and doesn’t\n\t\t\tcost Ki."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tranquility"
+              },
+              {
+                "type": "text",
+                "text": ": Considering that Monks lack\n\t\tany social skills, a peaceful approach is rarely the best way for Monks to\n\t\tapproach problems. This will help prevent enemies from attacking you until\n\t\tyou break the Sanctuary effect, but usually this will only last until your\n\t\tturn on the first round of the first combat each day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Quivering Palm"
+              },
+              {
+                "type": "text",
+                "text": ": Save-or-die one creature\n\t\tevery other round for 3 Ki. The save is Constitution and Constitution saves\n\t\ttend to be high, but at the tiny cost of 3 Ki it’s inexpensive enough that\n\t\tyou can afford to retry several times against powerful single foes."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-open-hand-ability-scores",
+      "heading": "Way of the Open Hand Ability Scores",
+      "sourceAnchor": "way-of-the-open-hand-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-open-hand-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Open hand monks are just like every other monk, only more so. Some monks can get by with middling Wisdom, but since Open Hand Technique is your signature feature, it’s absolutely essential that you maximize both Dexterity and Wisdom."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-open-hand-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-open-hand-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Attacks, AC, Dex saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-open-hand-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": With only d8 hit dice, Constitution is\n\tvery important for the Monk."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-open-hand-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-open-hand-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": AC and Open Hand Technique."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-open-hand-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-open-hand-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-open-hand-races",
+      "heading": "Way of the Open Hand Races",
+      "sourceAnchor": "way-of-the-open-hand-races",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-open-hand-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Open Hand Monk deviates very little from the Monk’s core features, so the advice in our "
+            },
+            {
+              "type": "link",
+              "text": "Monk Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/races/"
+            },
+            {
+              "type": "text",
+              "text": " applies. You might consider races which can change the damage type of their unarmed strikes, such as the Tabaxi, but doing so isn’t strictly necessary."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-open-hand-feats",
+      "heading": "Way of the Open Hand Feats",
+      "sourceAnchor": "way-of-the-open-hand-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-open-hand-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Open Hand Monk deviates very little from the Monk’s core features, so the feat section of our "
+            },
+            {
+              "type": "link",
+              "text": "Monk Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/#feats"
+            },
+            {
+              "type": "text",
+              "text": " applies."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-open-hand-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Crusher"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Open Hand Technique relies on unarmed strikes made with Flurry of Blows, which means that you’re stuck with bludgeoning damage unless you’re playing a race which like the Tabaxi which lets you do different damage with unarmed strikes. Investing further in bludgeoning damage makes your attacks more effective, and since "
+              },
+              {
+                "type": "link",
+                "text": "Crusher is a hybrid feat",
+                "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+              },
+              {
+                "type": "text",
+                "text": " you can also boost your Constitution. This can also synergize with the ability to push people away through Open Hand Technique, moving targets a total of 20 feet in one attack."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-open-hand-weapons",
+      "heading": "Way of the Open Hand Weapons",
+      "sourceAnchor": "way-of-the-open-hand-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-open-hand-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Open Hand is very close to the Monk’s core features, so the "
+            },
+            {
+              "type": "link",
+              "text": "Monk Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "‘s section on weapons applies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-open-hand-armor",
+      "heading": "Way of the Open Hand Armor",
+      "sourceAnchor": "way-of-the-open-hand-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-open-hand-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You have Unarmored Defense."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Multiclassing is very difficult for the Monk, and tragically Way of the Open Hand gains very little from class dips. You’re also very dependent on Ki to make use of your class and subclass features, so a level dip comes at a strict and clearly-measured cost. It’s more likely that you would take a class dip into Open Hand Monk, but the strictly limited quantity of Ki from a class dip makes that a poor choice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-the-launch-pad",
+      "heading": "Example Build – The Launch Pad",
+      "sourceAnchor": "example-build-the-launch-pad",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-the-launch-pad-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Way of the Open Hand is defined almost exclusively by Open Hand Technique, so open your mind (and your hand, I suppose) to the possibilities that it gives us: We’re going to punch things into the sky."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-the-launch-pad-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Despite how amazing that possibility is, this build is not without challenges. The Monk’s MAD issues keep your save DC low for most of your career, which can make this build’s signature gimmick frustrating and unreliable. Magic items do a lot to help, but even then there is little room to change the ASI progression in this build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-the-launch-pad-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As part of this build, we’ll be making use of some of the Monk’s "
+            },
+            {
+              "type": "link",
+              "text": "Optional Class Features",
+              "href": "https://rpgbot.net/dnd5/dungeonmasters/optional-class-features/"
+            },
+            {
+              "type": "text",
+              "text": ". As we recommended in the "
+            },
+            {
+              "type": "link",
+              "text": "Monk Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/#optional-class-features"
+            },
+            {
+              "type": "text",
+              "text": ", we’ll use Dedicated Weapon (which won’t actually help us), Quickened Healing, and Focused Aim. Dedicated weapon expands out weapon options and gives us a minor damage boost. Quickened Healing is redundant with Wholeness of Body so it won’t see much use. Focused Aim is a good fallback, but not essential to the build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-the-launch-pad-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is one of our "
+            },
+            {
+              "type": "link",
+              "text": "10 favorite DnD 5e builds",
+              "href": "https://rpgbot.net/rpgbots-10-favorite-dnd-character-builds-that-arent-wizards/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-lets-discuss-semantics",
+      "parentSectionId": "section-example-build-the-launch-pad",
+      "heading": "Let’s Discuss Semantics",
+      "sourceAnchor": "lets-discuss-semantics",
+      "blocks": [
+        {
+          "blockId": "block-section-lets-discuss-semantics-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Before we dig into the actual build, let’s discuss the definition of the word “away”, specifically in the context of moving something away from something else. In this context, “away” simply means that it will be at a greater distance than it was previously. The rules text notably omits the word “directly”, as in “directly away”, which means that when you move something away from something else, you can move it at an angle so long as it ends that movement at a greater distance away."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-lets-discuss-geometry-and-physics",
+      "parentSectionId": "section-example-build-the-launch-pad",
+      "heading": "Let’s Discuss Geometry and Physics",
+      "sourceAnchor": "lets-discuss-geometry-and-physics",
+      "blocks": [
+        {
+          "blockId": "block-section-lets-discuss-geometry-and-physics-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You know a build is going to do something silly when it leads with discussions about semantics, geometry, and physics."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-lets-discuss-geometry-and-physics-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "DnD 5e, by default, does not make diagonal movement on a grid cost more than horizontal movement. If you can consider a baseball diamond, 1st, 2nd, and 3rd bases are all considered equidistant from home plate. This also means that spheres are cubes, but that’s not why we’re here. It’s important to remember this rule when creatures are moved away from other creatures. Being able to move a creature diagonally the same number of squares simplifies how movement works."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-lets-discuss-geometry-and-physics-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "DnD 5e also does not handle parabolic movement (I promise this matters) in any way, nor does it handle the concept of momentum. This is not a simulation of physics: it’s high-stakes fantasy chess with play acting. Keep this in mind when a creature is repositioned into the air: moving into the air then falling are effectively two independent movements where the target begins and ends at rest."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-is-this-really-allowed",
+      "parentSectionId": "section-example-build-the-launch-pad",
+      "heading": "Is this really allowed?",
+      "sourceAnchor": "is-this-really-allowed",
+      "blocks": [
+        {
+          "blockId": "block-section-is-this-really-allowed-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "By a RAW reading of the rules, yes. It’s not perfectly clear if the designers intended for effects like Crusher and Open Hand Technique to allow creatures to be moved vertically, or if that possibility was even considered. Your DM might very reasonably rule that “away” means “directly away”, and while that does somewhat limit our options here it simply changes our rectangular area where we can drop our enemies into a doughnut."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-is-this-going-to-cause-problems",
+      "parentSectionId": "section-example-build-the-launch-pad",
+      "heading": "Is this going to cause problems?",
+      "sourceAnchor": "is-this-going-to-cause-problems",
+      "blocks": [
+        {
+          "blockId": "block-section-is-this-going-to-cause-problems-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Maybe, but the "
+            },
+            {
+              "type": "link",
+              "text": "Grapple/Shove",
+              "href": "https://rpgbot.net/dnd5/characters/grapple/"
+            },
+            {
+              "type": "text",
+              "text": " combo is more annoying, more reliable, and more effective, especially once you start moving the grapple to drag enemies into hazards. The combo on which this build depends has a strictly limited resource cost (Ki points) and allows a Strength saving throw. Strength saves tend to be high for most creatures that are going to be targeting by this, and for everything else, grappling them would be much easier and more reliable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-is-this-going-to-cause-problems-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I have taken this build into a game. It was hilarious when the combo worked, but this is not an amazing build by any means."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-the-launch-pad",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll use the ability scores recommended above. Since we’re starting with two +1 increases and +1 to Constitution from Crusher, we effectively get three +1 increases."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-the-launch-pad",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Variant Human. Access to a feat at first level is hugely beneficial for the Monk since it’s basically the only way that you’ll get one without doing something to hurt yourself mathematically. We also get an extra skill, which is nice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We could instead go for Custom Lineage so that we can get Darkvision, then split our 4th-level Ability Score Increase between Dexterity and Wisdom. After that point, the only difference in the builds is one skill vs. Darkvision."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-the-launch-pad",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any of the backgrounds suggested in our "
+            },
+            {
+              "type": "link",
+              "text": "Monk Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/#background"
+            },
+            {
+              "type": "text",
+              "text": " will work well here. I’m partial to the Urchin background because it makes it so easy for the Monk to serve as the party’s rogue equivalent."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-the-launch-pad",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll select Insight and Stealth as our two monk skills. We get Sleight of Hand, Stealth, Disguise Kit, and Thieves’ Tools from the Urchin background. Since Stealth is duplicated, we can replace it with any other skill to get around the Monk’s limited skill options, and we’ll take Perception instead. Get one more skill of our choice from being a Variant Human which you can put into whatever you want. We already have all of the good Dexterity and Wisdom-based skills, so it’s not especially important. Acrobatics is fine."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-the-launch-pad",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take Crusher at first level. This allows us to immediately start repositioning enemies and providing a support function for our party, but it also combines well with Open Hand Technique as we’ll explore below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We won’t be able to afford additional feats until high level. We need 4 ASIs to get both Dexterity and Wisdom to 20, so you’ll only have room for an extra feat at level 19, at which point you can do basically whatever you want."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-the-launch-pad",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Unarmored Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Martial Arts"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Feat: "
+                },
+                {
+                  "type": "link",
+                  "text": "Crusher",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/#crusher"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting gear, take a short sword, either pack, and 10 darts. Sell the short sword for 12.5 gp, and you have as much gold as if you chose to start with gold, plus you get a free pack and 10 darts. You also get another 10 gp from your background plus a couple other trinkets, including clothes. Use that gold to buy yourself a quarterstaff."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We start with 16 AC and 11 hit points. Martial Arts gives us two attacks per turn, and with a quarterstaff in hand your damage output is very solid. It’s important to understand how useful a spear is, especially at this level. You can use it two-handed and perform unarmed strikes by kicking people or something, so you get one attack that deals 1d8+3 and your extra Martial Arts attack deals 1d4+3."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Crusher allows us to immediately start providing some Controller functions. Moving a creature 5 feet is often enough to break grapples, to get enemies out of melee with your ranged allies, and to edge enemies close enough together that your party can get more damage out of small AOEs like Burning Hands or the Dragonborn’s breath weapon. You also have two chances to trigger the critical hit effect, but you should consider that a fun surprise rather than something you work to trigger."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Ki"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Unarmored Movement"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Optional: Dedicated Weapon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You only have 2 points, and while they recharge on a short rest, you can’t afford to use them every round. A typical adventuring day is 6-8 encounters lasting roughly 3 rounds each on average with two short rests interspersed. That means roughly 6-9 rounds of combat between each rest. Get comfortable managing your Ki early."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Monastic Tradition: Way of the Open Hand"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Open Hand\n\t\t\t\t\tTechnique"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Deflect Missiles"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Open Hand Technique is why we’re here, and this is where this build really takes off."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The first option for Open Hand Technique allows us to move creatures up to 15 feet away when we hit them with an attack from our Flurry of Blows. This where all that talk of semantics and geometry come in. You can also trigger Crusher on the same hit, moving the creature up to 20 feet in total. The rules for simultaneous effects (see Xanathar’s) allow you to pick in which order you apply these two effects."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Crusher notably doesn’t limit which direction you can move the target. If you’d like, you can move the target straight upward. That notably then makes moving them straight into the air “away” from you. That’s right: you can uppercut (or dropkick, or whatever) a creature 20 feet straight into the air. Falling then occurs immediately, causing the creature to fall and take 2d6 damage, typically landing prone."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But it doesn’t stop there. Due to 5e’s weird simplified geometry rules, you can move the target above any space within 20 feet of its starting point with this combo, dropping it anywhere you want within that 45-foot square area. Drop them into melee with a party member. Drop them into a pit. Drop them into an ongoing spell effect. Kick them out a window. Get creative."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Open Hand Technique does have some limitations, however: You need to hit the target "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "and"
+                },
+                {
+                  "type": "text",
+                  "text": " the target needs to fail a Strength saving throw. Two points of failure means that this is by no means a guarantee. You get two chances to make this happen each time you use Flurry of Blows, but the possibility of failure is still very real. If you’re very lucky you could apply Open Hand Technique twice in one turn, though Crusher’s reposition effect only works once per turn so you can’t launch creatures quite as far the second time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re facing enemies with high Strength (of which there are many), you might instead try to knock them prone. Most enemies with high Strength have poor Dexterity saves, so this often is often safer, even if it is less impressive. If your party has melee attackers who will act before your target, easy Advantage on their attacks is always welcome."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also consider your own position in relation to your target. If you use Crusher and/or Open Hand Technique to move a creature and/or knock it prone, walking away from them can essentially rob melee creatures of a turn. If you get 35 feet away and your enemy’s speed is only 30 feet, you can put yourself far enough away that they can’t reach you without dashing. This obviously won’t work in small spaces or if your allies aren’t positioned for it to make sense, but the few times that it works will feel great. Also remember that creatures need to spend half their speed to stand, so you may not need to to move especially far away to do this."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In all my years of DnD I’ve seen Deflect Missiles happen maybe three times. It feels absolutely amazing when it happens, but it basically never happens because so few enemies use missile weapons like bows or javelins."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Ability Score Improvement (Dexterity 16 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Slow Fall"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Optional: Quickened Healing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With up to three attacks per turn, a Dexterity increase gets a lot of mileage. It also crucially keeps our odds of hitting with Flurry of Blows on track with the Fundamental Math, so we’re less likely to fail at our first point of failure with our Open Hand Technique combo."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Monks are notably the only class which gets a new class feature at 4th level, which is neat but doesn’t change much. If you find Boots of Striding and Springing (or a Ring of Jumping, but they’re objectively worse), you could leap into the air, Open Hand Technique to knock flying enemies prone, then use Slow Fall to safely return to the ground."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Stunning Strike"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Optional: Focused Aim"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack brings you to 3 attacks nearly every turn, and with 5 Ki points to spend between short rests you can afford to perform a Flurry of Blows frequently (though still not every turn). Extra Attack also means that you get to use the better damage die from your hammer more frequently, plus your unarmed strike damage increases to 1d6 so your attacks from Martials Arts and Flurry of Blows continue to improve."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stunning Strike is crucial to playing the Monk effectively. Stunning a creature robs them of their turn, they automatically fail Strength and Dexterity saving throws, and you get Advantage on attacks against them until the end of your next turn. However, since Constitution saves tend to be high, Stunning Strike can often be frustrating and unreliable."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you are fortunate enough to stun something, follow up with Open Hand Technique. The target automatically fails Strength and Dexterity saves, so you’re free to launch them wherever you please."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Ki-Empowered Strikes"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Wholeness of Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "By this level enemies with resistance to weapon damage from non-magical attacks are increasingly common, and since unarmed strikes aren’t a weapon they can’t benefit from spells like Magic Weapon. If you haven’t found a magic weapon by now (there are three magic staffs which are Common rarity, so it really shouldn’t be hard), you may need to resort to unarmed strikes for all of your attacks in some cases."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wholeness of Body isn’t terribly exciting, but it’s a big pile of healing as an action so you can use it in combat in a pinch. If you’re in a really rough spot, use Wholeness of Body and spend a Ki Point to Dodge as a bonus action."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Evasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Stillness of Mind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "As a front-line melee character you’re going to be targeted by AOE damage effects. Evasion helps to mitigate the damage, which is great since you don’t have the Fighter’s d10 hit points."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stillness of Mind is better than you might expect. A huge number of effects make a creature charmed, including many that don’t seem like charm effects, and this allows you to easily escape those effects. However, there are also many effects that are negated by immunity to charmed without using the Charmed condition, and this doesn’t help with those."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Ability Score Improvement (Dexterity 18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Maximizing your Dexterity brings your AC to 18, matching a fighter in full plate armor, and with up to four attacks per turn your damage output is considerably higher."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re not having trouble hitting with attacks (maybe your party really likes Bless or maybe you’re getting Advantage frequently), consider increasing Wisdom instead to make Open Hand Technique and Stunning Fist more reliable."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Unarmored Movement Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The improved version of Unarmored Movement allows you to move up vertical surfaces like walls, and across the surface of water. You want to end your turn on solid ground, but between the Monk’s increased speed, Step of the Wind, and Dash, you can run 135 ft. straight up a wall in one turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re clever, you can run up a wall, take a long jump off the wall to reach a flying enemy, knock them prone with Open Hand Technique, then fall safely with Slow Fall.  This technique is known as “the Magical Gravity People’s Elbow.”"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Purity of Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Poison is common across the whole level range, and immunity to it helps to stretch your d8 hit points."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Tranquility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tranquility gives you the option of being a pacifist. Your DC won’t match a spellcaster’s, but it should be good enough to protect you sometimes. Keep in mind that once you attack you’re done playing a pacifist for the day, so on some days you may need to wake up and immediately choose violence."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Ability Score Improvement (Wisdom 16 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improve your DCs and your AC. Strength saves have been scaling as you’ve gained levels, so by now you hopefully got good at picking targets for Open Hand Technique and Stunning Fist. Improving your DC makes this slightly less crucial."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Tongue of the Sun and Moon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We dumped Charisma. Avoid talking."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Diamond Soul"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Between Diamond Soul, Evasion, Still Mind, and good ability scores, you’re exceptionally difficult to hurt. Enemies’ best bet is to attack you, but with 19 AC (and possibly some magic items) you’re reasonably hard to hit. You have 14 Ki points at this level, so don’t hesitate to use Diamond Soul to re-roll a saving throw."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Timeless Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Timeless Body doesn’t matter much, but there are a handful of effects that can kill you by magically aging you."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Ability Score Improvement (Wisdom 18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With maximized Wisdom, your AC now sits at 20 before magic items, matching a character in full plate with a shield."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This also makes our save DC for Open Hand Technique and Stunning Fist decently reliable. You should still try to pick targets carefully to maximize odds of success."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Quivering Palm"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Quivering Palm is a save-or-die effect, plain and simple. 3 Ki points is a lot, but it’s well worth the cost. We’ve already capped Wisdom, too, so your save DC is as good as a full caster."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Even if the target succeeds on the save, it’s still an average of 55 damage, which is enough to be a serious problem for a creature that has already taken a lot of damage. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Empty Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember that this is invisible as the condition, not as the invisibility spell. You’re free to attack as much as you like, generally doing so with Advantage since enemies usually won’t be able to see you."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Ability Score Improvement: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You can do whatever you like at this point. More Constitution wouldn’t hurt, but a feat is likely more fun."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "– Perfect Self"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level you have 20 Ki Points, so you’re probably spending a Ki Point every turn. Perfect Self helps if you get surprised by an encounter before you’ve had a chance to rest and recharge. It’s not amazing, but it helps."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Way of the Open Hand Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Open Hand Technique"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Wholeness of Body"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tranquility"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Quivering Palm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Crusher"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[1]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Open Hand Technique</span>: This dramatically improves the benefits of spending one of your few Ki points to get an extra attack. Since Monk"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-way-of-the-open-hand-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-way-of-the-open-hand-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-way-of-the-open-hand-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-way-of-the-open-hand-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-way-of-the-open-hand-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-way-of-the-open-hand-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-way-of-the-open-hand-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-way-of-the-open-hand-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-way-of-the-open-hand-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-way-of-the-open-hand-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-way-of-the-open-hand-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-way-of-the-open-hand-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-way-of-the-open-hand-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-build-the-launch-pad-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-build-the-launch-pad-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-example-build-the-launch-pad-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-example-build-the-launch-pad-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-lets-discuss-semantics-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-lets-discuss-geometry-and-physics-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-lets-discuss-geometry-and-physics-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-lets-discuss-geometry-and-physics-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-is-this-really-allowed-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-is-this-going-to-cause-problems-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-is-this-going-to-cause-problems-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4143,
+    "sections": 21,
+    "blocks": 43,
+    "tables": 3,
+    "ratingSignals": 16
+  },
+  "status": "needs-editorial-review"
+}

@@ -1,0 +1,654 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-5cd2a12087c74f38",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-5cd2a12087c74f38-ce4b4c5d4e5e4ade",
+      "sourceId": "rpgbot-5cd2a12087c74f38",
+      "fetchedAt": "2026-09-29T19:13:54.449233+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:42:49-04:00",
+      "contentHash": "ba627cf37bd0cf63118b0ddcfdcaaad1a16cd8d7ef89ce7da752201e660f983c",
+      "title": "Water Genasi: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-5cd2a12087c74f38-ce4b4c5d4e5e4ade.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-water-genasi-2014",
+    "sourceId": "rpgbot-5cd2a12087c74f38",
+    "slug": "water-genasi-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Геназі води — гайд раси (2014)",
+    "titleEn": "Water Genasi: DnD 5e Race/Species Guide",
+    "topics": [
+      "races"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "articleId": "rpgbot-water-genasi-2014",
+      "sourceRevisionId": "rpgbot-5cd2a12087c74f38-ce4b4c5d4e5e4ade",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей гайд присвячений {{геназі води|Water Genasi}} з книги Монстри Мультивсесвіту. Щодо класичної версії геназі дивіться наш "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд геназі",
+                  "href": "https://rpgbot.net/dnd5/characters/races/genasi/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Геназі води — нащадки марідів, джинів зі Стихійного плану Води. Ця спадщина проявляється в заклинаннях, що керують водою, але чомусь також у стійкості до кислоти та Кислотні бризки [Acid Splash]. Не маю уявлення чому. Зазвичай усе повʼязане з водою отримує стійкість до холоду, але що я знаю?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Після перевидання в Монстри Мультивсесвіту геназі води змінилися напрочуд мало. Їм додали вроджене заклинання 2-го рівня, замінили Формування води [Shape Water] на Кислотні бризки [Acid Splash] — можливо, Wizards of the Coast не хотіли перевидавати Формування води [Shape Water] або прочитали про всі шалені речі, які з ним роблять, — і перевели підвищення характеристик на новий стандарт. Нічого особливо великого."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте ці зміни не зробили геназі води кращими. Ходіння по воді [Water Walk] корисне лише там, де вода небезпечна, що рідкість у більшості ігор, або у водній кампанії. Кислотні бризки [Acid Splash] — непогане атакувальне замовляння, але не настільки хороше, щоб ви не спокусилися іншими. Загалом чаротворення не надто вражає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/water-genasi/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/water-genasi/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Класи для геназі води",
+                    "href": "https://rpgbot.net/dnd5/characters/races/water-genasi/#classes"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes",
+          "heading": "Класи для геназі води",
+          "sourceAnchor": "classes",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ припускає, що ви використовуєте опціональні правила «"
+                },
+                {
+                  "type": "link",
+                  "text": "Налаштування походження",
+                  "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+                },
+                {
+                  "type": "text",
+                  "text": "» з книги Казан Таші з усім. Якщо ні, прокрутіть до наступного розділу. Примітка редакції: це типовий текст автора; іншого розділу з фіксованими підвищеннями характеристик у цьому гайді немає. Версія геназі з MPMM уже дозволяє самостійно обрати характеристики для расових підвищень."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Винахідники не можуть накладати жодне з двох рівневих заклинань геназі води, але мають Вливання для всіх інших їхніх можливостей, а самі заклинання корисні лише ситуативно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чаротворення погано підходить Варвару. Оскільки це головна риса геназі води, тут немає нічого, заради чого варто їх обирати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бард не може вивчити жодне заклинання геназі води без {{Магічних таємниць|Magical Secrets}}, тож усе, що вони пропонують, для нього нове. Бард — геназі води чудово підійшов би для водної кампанії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Єдине нове заклинання — Кислотні бризки [Acid Splash], а Клірики мають Священне полумʼя [Sacred Flame]. Стійкість до кислоти непогана, але кислотна шкода трапляється нечасто. Темнозір теж приємний, але його дають дуже багато інших рас."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кислотні бризки [Acid Splash] — єдина нова можливість, яку геназі води дають Друїду. Темнозір? Перетворіться на тварину. Стійкість до кислоти? Звісно, але кислота недостатньо поширена, щоб бути проблемою. Дихання під водою? Знову ж таки: перетворіться на тварину."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Риси геназі води недостатньо корисні для Воїнів без чаротворення, а їхні заклинання недостатньо корисні, щоб Потойбічний лицар хотів ними користуватися."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо граєте у воді, оберіть локату, морського ельфа, тритона або когось іншого, хто дихає під водою. Чаротворення тут не допомагає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можливо, найкращий бойовий клас для геназі води. Кислотні бризки [Acid Splash] дають Паладину непогану дальню атаку; стійкість до кислоти корисна не завжди, але не завадить, а Темнозір завжди бажаний. Рівневі заклинання не дають постійної користі, проте у водній кампанії можуть іноді знадобитися."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо хочете атакувати на відстані, користуйтеся луком. Рівневі заклинання корисні лише ситуативно, а Ходіння по воді [Water Walk] вже є у списку Слідопита."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes",
+          "heading": "Розбійник",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Жодне заклинання геназі води не допомагає Розбійнику. Формування води [Shape Water] було б чудовим, але Wizards of the Coast його прибрали. Якщо хочете грати Розбійником під водою, оберіть когось іншого."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes",
+          "heading": "Чаклун",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я розглянув би Чаклуна — геназі води для водної кампанії. Чаклуни й так мають доступ до всіх цих заклинань, проте кількість відомих їм заклинань суворо обмежена, тож додаткові приємні — якщо ви справді можете застосувати їх із користю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чорнокнижники не мають рівневих заклинань геназі води, і вроджене чаротворення для них завжди бажане. Але якщо самі заклинання не стають у пригоді, ви не отримуєте користі. Найкращий варіант — Чорнокнижник — геназі води у водній кампанії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе, що пропонують геназі води, можна замінити заклинанням."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-water-genasi-2014-001",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-water-genasi-2014-002",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-water-genasi-2014-003",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-water-genasi-2014-004",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-water-genasi-2014-005",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-water-genasi-2014-006",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-water-genasi-2014-007",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-water-genasi-2014-008",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-water-genasi-2014-009",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-water-genasi-2014-010",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-water-genasi-2014-011",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-water-genasi-2014-012",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-water-genasi-2014-013",
+      "articleId": "rpgbot-water-genasi-2014",
+      "translationRevisionId": "translation-rpgbot-water-genasi-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

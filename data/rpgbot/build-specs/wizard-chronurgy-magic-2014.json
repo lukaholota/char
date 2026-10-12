@@ -1,0 +1,388 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-chronurgy-magic-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-chronurgy-magic-2014-draft1",
+    "sourceRevisionId": "rpgbot-16225dc545bee3df-010beddb33e4429f"
+  },
+  "exampleSection": "section-example-chronurgy-magic-build-hare-today-gone-tomorrow",
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "TWILIGHT_DOMAIN",
+  "raceKey": "HARENGON_MPMM",
+  "backgroundKey": "SAGE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 14,
+    "INT": 15,
+    "WIS": 12,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": [
+      1
+    ],
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "cantripKeys": [
+          "chill-touch",
+          "fire-bolt",
+          "mage-hand"
+        ],
+        "spellbookKeys": [
+          "absorb-elements",
+          "find-familiar",
+          "grease",
+          "magic-missile",
+          "shield",
+          "silvery-barbs"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classKey": "WIZARD_2014",
+      "subclassKey": "SCHOOL_OF_CHRONURGY",
+      "spells": {
+        "spellbookKeys": [
+          "gift-of-alacrity"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "invisibility",
+          "knock"
+        ]
+      }
+    },
+    {
+      "level": 5,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "prestidigitation"
+        ],
+        "spellbookKeys": [
+          "shadow-blade",
+          "vortex-warp"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "web",
+          "counterspell"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "dispel-magic",
+          "fly"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "hypnotic-pattern",
+          "banishment"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "classKey": "WIZARD_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "spellbookKeys": [
+          "evards-black-tentacles",
+          "greater-invisibility"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "sickening-radiance",
+          "hold-monster"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "wall-of-force",
+          "wall-of-stone"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "contingency",
+          "eyebite"
+        ]
+      }
+    },
+    {
+      "level": 13,
+      "classKey": "WIZARD_2014",
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "section": "section-feats",
+      "spells": {
+        "spellbookKeys": [
+          "true-seeing"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 14,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "forcecage",
+          "plane-shift"
+        ]
+      }
+    },
+    {
+      "level": 15,
+      "classKey": "WIZARD_2014",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "illusory-dragon",
+          "maze"
+        ]
+      }
+    },
+    {
+      "level": 17,
+      "classKey": "WIZARD_2014",
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (CON)"
+        },
+        {
+          "optionNameEng": "Skill Expert Proficiency (INVESTIGATION)"
+        },
+        {
+          "optionNameEng": "Skill Expert Expertise (PERCEPTION)"
+        }
+      ],
+      "section": "section-feats",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "classKey": "WIZARD_2014",
+      "spells": {
+        "spellbookKeys": [
+          "wish",
+          "foresight"
+        ]
+      }
+    },
+    {
+      "level": 19,
+      "classKey": "WIZARD_2014",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "classKey": "WIZARD_2014",
+      "featKey": "TOUGH",
+      "section": "section-feats",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Сьоме заклинання книги (Дар готовності)",
+      "reason": "Автор у рядку 2-го рівня називає сім заклинань Чарівника 1-го рівня, а нова книга 1-го рівня містить шість; Дар готовності перенесено на 3-й рівень (перше підвищення Чарівника), решту названих заклинань розставлено по два на рівень, не раніше, ніж Чарівник може їх вивчити.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання книги на рівнях 3–20",
+      "reason": "Автор групує заклинання за колом (на 4-му рівні пʼять 2-го кола тощо), а Чарівник додає до книги лише два на рівень. Пресет записує названі заклинання по два на рівень у порядку автора, не раніше доступного кола; вільні місця (3-й, 11-й та останні рівні) — вибір платформи, автор не називає; можна змінити на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Майстерність заклинань",
+      "reason": "Автор називає Дар готовності та Павутиння для Майстерності заклинань (19-й рівень), але каталог не має вибору цих заклинань, тож у пресеті їх не записано; обирає гравець на листі.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/wizard-chronurgy-magic-2014.webp",
+    "title": "Клірик 1 / Чарівник — Школа хронургії, Гаренгон",
+    "description": "Мультиклас Клірик 1 (Домен сутінків) / Чарівник Школи хронургії: Гаренгон із Зайчачим рефлексом, броня й щит від Клірика, налаштований Мудрець з каліграфічним набором і набором фальшивомонетника.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "INT",
+      "WIS",
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "RELIGION"
+      ],
+      "race": [],
+      "background": [
+        "ARCANA",
+        "HISTORY"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": [
+        "CALLIGRAPHERS_SUPPLIES",
+        "FORGERY_KIT"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 5,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "mending",
+        "thaumaturgy"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "bless",
+        "healing-word"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Настанова, Лагодження й Дивотворство та підготовлені Благословення й Цілюще слово названо автором; Вогники фей і Сон дає Домен сутінків.",
+      "platformChoices": []
+    },
+    "abilityExplanation": "Гаренгон за правилами Таші: +1 до Інтелекту та +2 до Мудрості, тож Інтелект 16, Мудрість 14, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Аналіз поведінки й Релігія — від Клірика, Уважність — від Гаренгона, Магія та Історія — від Мудреця. Автор міняє дві мови Мудреця на каліграфічний набір і набір фальшивомонетника (правило PHB «Налаштування передісторії»). Мову Гаренгона ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор радить броню й щит Клірика (середню чи важку); лускову броню, щит, булаву, легкий арбалет і набір священика ми обрали за вас — вибір платформи."
+  }
+}

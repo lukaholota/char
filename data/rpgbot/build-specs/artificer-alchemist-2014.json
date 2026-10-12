@@ -1,0 +1,258 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "artificer-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-artificer-2014-draft1",
+    "sourceRevisionId": "rpgbot-c7ab7bbb3c7ff0d2-a3ddefa09a84eb51"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "ARTIFICER_2014",
+  "subclassKey": "ALCHEMIST",
+  "raceKey": "GNOME_2014",
+  "backgroundKey": "GUILD_ARTISAN",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 14,
+    "WIS": 12,
+    "CHA": 8
+  },
+  "recipeTitle": "Приклад збірки Винахідника — Скельний гном, Винахідник-алхімік",
+  "levelPlans": {
+    "levels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "notes": true,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "infusions": [
+        "Enhanced Arcane Focus",
+        "Enhanced Defense",
+        "Enhanced Weapon",
+        "Replicate: Bag of Holding"
+      ]
+    },
+    {
+      "level": 3,
+      "subclassKey": "ALCHEMIST"
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "infusions": [
+        "Resistant Armor",
+        "Replicate: Lantern of Revealing"
+      ]
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "infusions": [
+        "Replicate: Cloak of Protection",
+        "Replicate: Winged Boots"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "infusions": [
+        "Replicate: Amulet of Health",
+        "Replicate: Ring of Protection"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18,
+      "infusions": [
+        "Replicate: Boots of Speed",
+        "Replicate: Ring of Free Action"
+      ]
+    },
+    {
+      "level": 19,
+      "featKey": "LUCKY",
+      "openAdvancement": true
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Продаж спорядження",
+      "reason": "Автор радить продати легкий арбалет і купити щит; пресет бере стандартний набір класу без покупок.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Інструменти",
+      "reason": "На 3-му рівні автор дозволяє замінити приладдя алхіміка іншими інструментами; пресет цього не записує.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Покращення характеристик на 4-му рівні",
+      "reason": "Автор пише «Статура, Інтелект 16 → 18»; пресет бере +2 до Інтелекту, бо Інтелект на 8-му рівні росте з 18 до 20.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння на 10-му рівні",
+      "reason": "Автор не називає нового замовляння; його обирає гравець.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Рівні 11–20",
+      "reason": "Таблиця рівнів статті закінчується на 10-му рівні. Далі вибори за вас, це вибір платформи: Статура +2 на 12-му та 16-му, риса Щасливчик на 19-му (автор радить риси після Інтелекту 20), вливання на 14-му (Репліка: Амулет здоровʼя, Репліка: Перстень захисту) і 18-му (Репліка: Чоботи швидкості, Репліка: Перстень вільної дії) та нове замовляння на 14-му. Усе це можна змінити на листі.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/artificer-alchemist-2014-7e71d8bfaa.webp",
+    "title": "Винахідник-алхімік — Скельний гном",
+    "description": "Майстровитий винахідник у лусковій броні з двома замовленнями. Підклас відкриється на 3-му рівні, а вливання — на 2-му.",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "INVESTIGATION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "subraceKey": "GNOME_ROCK_2014",
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": [
+          "DAGGER",
+          "DAGGER"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "abilityExplanation": "Автор бере запропоновану купівлю для дальнього бою, але міняє Статуру й Інтелект місцями. Скельний гном дає Інтелект 16 та Статуру 16.",
+    "skillExplanation": "Автор дозволяє обрати будь-які дві класові навички; ми взяли Аркану й Розслідування — це вибір платформи. Аналіз Поведінки та Переконання дає Гільдійський ремісник.",
+    "equipmentExplanation": "Два кинджали, легкий арбалет, лускова броня, інструменти злодія й набір дослідника підземель взяті з авторського прикладу. Додаткову мову ми обрали за вас — це вибір платформи.",
+    "featSection": "section-feats-2",
+    "featOptionName": null,
+    "racialAbilities": [],
+    "languages": [
+      "DWARVISH"
+    ],
+    "skillSection": "section-skills-and-tools",
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "fire-bolt",
+        "guidance"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [
+        "classCantrips"
+      ],
+      "explanation": "Автор називає лише Вогняний заряд; друге замовляння, Настанову, обрала платформа. Підготовлених заклинань автор не перелічує, їх обирають на листі.",
+      "sectionId": "section-levels"
+    }
+  }
+}

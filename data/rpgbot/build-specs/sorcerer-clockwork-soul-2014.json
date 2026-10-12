@@ -1,0 +1,323 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "sorcerer-clockwork-soul-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-sorcerer-clockwork-soul-2014-draft1",
+    "sourceRevisionId": "rpgbot-116b811892b44f5c-5deae67874d2998e"
+  },
+  "exampleSection": "section-example-clockwork-soul-build-precision-engineering",
+  "levelTableSection": "section-levels",
+  "classKey": "SORCERER_2014",
+  "subclassKey": "CLOCKWORK_SOUL",
+  "raceKey": "DWARF_2014",
+  "backgroundKey": "GUILD_ARTISAN",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 14,
+    "INT": 8,
+    "WIS": 12,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Інструменти",
+      "reason": "Автор міняє володіння зброєю Дворфа на шість наборів інструментів (тесляра, склодува, ювеліра, чинбаря, каменяра, лудильника). Платформа не вміє обмінювати расові володіння; пресет має лише інструмент Гільдійського ремісника й інструмент Дворфа, а решту інструментів додайте на листі.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Стартова броня",
+      "reason": "Автор радить Лускатий обладунок за зібрані гроші; пресет бере стандартний набір Чародія без покупки.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заміни заклинань Механічної душі",
+      "reason": "Автор міняє заклинання, які дає підклас: Тривога на Щит (2-й), Розвіювання магії на Контрчари (6-й), Підтримка на Покращення здібності (7-й), Виклик конструкту на Виготовлення (8-й), необовʼязково Більше відновлення на Створити прохід (10-й). Платформа не вміє міняти заклинання, які дав підклас, тому ці заміни не записано: Щит, Контрчари, Покращення здібності й Виготовлення в пресеті немає, а Тривога, Розвіювання магії, Підтримка й Виклик конструкту лишаються.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання риси «Доторк феї»",
+      "reason": "На 4-му рівні автор бере Дисонуючий шепіт; вибір заклинань риси на підвищенні рівня пресет не записує, тож Дисонуючого шепоту немає (Туманний крок риса дає сама).",
+      "section": "section-feats"
+    },
+    {
+      "field": "Метамагія 17-го рівня",
+      "reason": "Автор пише лише «Метамагія» без назви. Пресет бере Careful Spell (вибір платформи); гравець може змінити перед створенням.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "title": "Чародій — Механічна душа, Гірський дворф",
+    "description": "Чародій Механічної душі з Гірським дворфом за правилами Таші (+2 до Статури й +2 до Харизми), Гільдійським ремісником і середніми обладунками.",
+    "subraceKey": "DWARF_MOUNTAIN_2014",
+    "racialAbilities": [
+      "CON",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "INTIMIDATION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "GNOMISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Гірський дворф: платформа за правилами Таші дозволяє +2 до двох різних характеристик, тож Статура +2 і Харизма +2: Статура 16, Харизма 17, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Магія й Залякування — від Чародія, Аналіз поведінки й Переконання — від Гільдійського ремісника, як радить автор. Мову ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор спорядження не називає: легкий арбалет, сумку з компонентами, Набір дослідника підземель і два кинджали ми обрали за вас — вибір платформи.",
+    "spells": {
+      "classCantripKeys": [
+        "fire-bolt",
+        "mage-hand",
+        "mind-sliver",
+        "prestidigitation"
+      ],
+      "knownSpellKeys": [
+        "magic-missile",
+        "sleep"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння та заклинання 1-го рівня названо автором; Тривогу й Захист від зла й добра дає Механічна душа. Рівні 2–16: заклинання, які автор додає, а не міняє з підкласу, названо за таблицею.",
+      "platformChoices": []
+    }
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "spells": {
+        "knownSpellKeys": [
+          "silvery-barbs"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classOptions": [
+        {
+          "optionNameEng": "Twinned Spell"
+        },
+        {
+          "optionNameEng": "Extended Spell"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "tashas-mind-whip"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "FEY_TOUCHED",
+      "featOptions": [
+        {
+          "optionNameEng": "FEY_TOUCHED Ability (Charisma)"
+        }
+      ],
+      "section": "section-feats",
+      "spells": {
+        "cantripKeys": [
+          "minor-illusion"
+        ],
+        "knownSpellKeys": [
+          "web"
+        ]
+      }
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "hypnotic-pattern"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "replaceSpell": {
+        "drop": "sleep",
+        "add": "fireball"
+      },
+      "spells": {
+        "knownSpellKeys": [
+          "fly"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "spells": {
+        "knownSpellKeys": [
+          "greater-invisibility"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats",
+      "spells": {
+        "knownSpellKeys": [
+          "polymorph"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "spells": {
+        "knownSpellKeys": [
+          "wall-of-stone"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classOptions": [
+        {
+          "optionNameEng": "Quickened Spell"
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "blade-ward"
+        ],
+        "knownSpellKeys": [
+          "hold-monster"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "true-seeing"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Wisdom)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "draconic-transformation"
+        ]
+      }
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15,
+      "spells": {
+        "knownSpellKeys": [
+          "sunburst"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (WIS)"
+        },
+        {
+          "optionNameEng": "Skill Expert Proficiency (PERCEPTION)"
+        },
+        {
+          "optionNameEng": "Skill Expert Expertise (ARCANA)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17,
+      "classOptions": [
+        {
+          "optionNameEng": "Careful Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "spells": {
+        "knownSpellKeys": [
+          "blade-of-disaster"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "magic-missile",
+        "add": "wish"
+      }
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ]
+}

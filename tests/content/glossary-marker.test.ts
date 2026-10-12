@@ -8,6 +8,7 @@ import rules2024 from "../../src/lib/generated/rules-2024.json";
 import {
   expandGlossaryMarkersToHtml,
   findGlossaryMarkers,
+  splitGlossaryMarkers,
   stripGlossaryMarkers,
 } from "../../src/lib/refs/glossary-marker";
 
@@ -158,6 +159,50 @@ describe("Р20 — маркер оригіналу в перекладеній �
     expect(expandGlossaryMarkersToHtml(text)).toBe(
       'ви можете занотувати <abbr title="Passive Insight">Пасивний аналіз поведінки</abbr> кожного персонажа'
     );
+  });
+
+  it("розбиває текст на сегменти: звичайні без оригіналу, маркерні з ним", () => {
+    expect(splitGlossaryMarkers("Виклик Баала{{Bhaal}} завдає 30 променевої{{radiant damage}} шкоди")).toEqual([
+      { text: "Виклик " },
+      { text: "Баала", original: "Bhaal" },
+      { text: " завдає 30 " },
+      { text: "променевої", original: "radiant damage" },
+      { text: " шкоди" },
+    ]);
+    expect(splitGlossaryMarkers("Слово {{Bhaal}}")).toEqual([{ text: "Слово " }, { text: "Bhaal", original: "Bhaal" }]);
+    expect(splitGlossaryMarkers("без маркерів")).toEqual([{ text: "без маркерів" }]);
+    expect(splitGlossaryMarkers("")).toEqual([]);
+  });
+
+  it("парна форма: термін усередині дужок стає сегментом, текст до нього лишається", () => {
+    expect(splitGlossaryMarkers("занотувати {{Пасивний аналіз поведінки|Passive Insight}} кожного")).toEqual([
+      { text: "занотувати " },
+      { text: "Пасивний аналіз поведінки", original: "Passive Insight" },
+      { text: " кожного" },
+    ]);
+  });
+
+  /// Перекладачі пишуть «Назва»{{English}} звично, і до цього правила маркер після закривної лапки
+  /// не мав слова перед собою: рендерер показував оригінал звичайним текстом поруч із назвою
+  /// («Відкритої Аркани»Unearthed Arcana).
+  it("назва в лапках перед маркером і є терміном, разом із лапками", () => {
+    expect(expandGlossaryMarkersToHtml("матеріали «Відкритої Аркани»{{Unearthed Arcana}} чи правила")).toBe(
+      'матеріали <abbr title="Unearthed Arcana">«Відкритої Аркани»</abbr> чи правила'
+    );
+    expect(findGlossaryMarkers("«Атака, посилена Кі»{{Ki-Fueled Attack}}")[0].term).toBe("«Атака, посилена Кі»");
+    expect(stripGlossaryMarkers("уміння «Щит»{{Shield}}.")).toBe("уміння «Щит».");
+  });
+
+  it("вкладені лапки в назві не обрізають термін на внутрішніх", () => {
+    expect(findGlossaryMarkers("керування «Руками астрального «я»»{{Arms of the Astral Self}}")[0].term).toBe(
+      "«Руками астрального «я»»"
+    );
+    expect(findGlossaryMarkers("Руки астрального «я»{{Arms of the Astral Self}}")[0].term).toBe("«я»");
+  });
+
+  it("закривна лапка без відкривної не ламає маркер: далі працює лік слів", () => {
+    expect(findGlossaryMarkers("слово» і Баала{{Bhaal}}")[0].term).toBe("Баала");
+    expect(expandGlossaryMarkersToHtml("кінець»{{Bhaal}}")).toBe('кінець»<abbr title="Bhaal">Bhaal</abbr>');
   });
 
   it("парна форма: працює в жирному й терпить пробіли біля риски", () => {

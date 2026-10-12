@@ -1,0 +1,536 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-2123ccf2a3d22045",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-2123ccf2a3d22045-190d4a3febbec2fc",
+      "sourceId": "rpgbot-2123ccf2a3d22045",
+      "fetchedAt": "2026-09-29T19:10:06.309926+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:39:53-04:00",
+      "contentHash": "586ba85a5ad94172c6cc63b36b03aa16e4c8ae9e7266ec3aacd99b03066d16d8",
+      "title": "Shadow Touched: DnD 5e Feat Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-2123ccf2a3d22045-190d4a3febbec2fc.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-shadow-touched-2014",
+    "sourceId": "rpgbot-2123ccf2a3d22045",
+    "slug": "shadow-touched-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Доторк тіні — гайд риси (2014)",
+    "titleEn": "Shadow Touched: DnD 5e Feat Guide",
+    "topics": [
+      "риси",
+      "заклинання"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-shadow-touched-2014-draft1",
+      "articleId": "rpgbot-shadow-touched-2014",
+      "sourceRevisionId": "rpgbot-2123ccf2a3d22045-190d4a3febbec2fc",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Доторк тіні|Shadow Touched}} підвищує одну з ментальних характеристик на 1, тож це простий вибір для будь-якого чаротворчого класу. Проте заклинання не такі універсально привабливі, як у "
+                },
+                {
+                  "type": "link",
+                  "text": "Доторку феї",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/fey-touched/"
+                },
+                {
+                  "type": "text",
+                  "text": ". По-перше, Невидимість [Invisibility] — сильне, але не всюди корисне заклинання. Будь-який шукач пригод може ефективно використовувати Туманний крок [Misty Step], тоді як Невидимість не завжди допомагає, якщо ви гримите латами. Так само варіантів заклинань 1-го рівня менш ніж половина від кількості для Доторку феї, і справді привабливих серед них небагато."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо придивляєтеся до Доторку тіні, спершу запитайте себе: чим ця риса краща, ніж грати Тифлінгом (Гласія){{Тифлінг (Гласія)|Tiefling (Glasya)}} чи Блідим ельфом{{Pallid Elf}}? Якщо не маєте хорошої відповіді, пропустіть рису й розгляньте іншу расу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше про чаротворчі риси, зокрема оцінки різних рис, дивіться у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді чаротворчих рис",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/shadow-touched/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/shadow-touched/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання Доторку тіні 1-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/shadow-touched/#shadow-touched-spells"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-shadow-touched-spells",
+          "heading": "Заклинання Доторку тіні 1-го рівня",
+          "sourceAnchor": "shadow-touched-spells",
+          "blocks": [
+            {
+              "blockId": "block-section-shadow-touched-spells-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Повний перелік доступних заклинань та їхні описи є на "
+                },
+                {
+                  "type": "link",
+                  "text": "DnDBeyond",
+                  "href": "https://www.dndbeyond.com/spells?filter-class=0&filter-search=&filter-level=1&filter-school=8&filter-school=9&filter-verbal=&filter-somatic=&filter-material=&filter-concentration=&filter-ritual=&filter-sub-class="
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shadow-touched-spells-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Виклик страху [Cause Fear]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Переляканість — хороше послаблення на будь-якому рівні, але концентрацію можна використати краще, а імунітет до страху поширений."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кольорові бризки [Color Spray]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": зі зростанням рівня втрачає актуальність."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Маскування [Disguise Self]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": розгляньте Змінника{{Changeling}} або расу, яка накладає це як вроджене заклинання, чи отримайте володіння набором для перевтілення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спотворення вартості [Distort Value]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "AI",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": кумедна, але ситуативна забавка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Удаване життя [False Life]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хороший спосіб підвищити витривалість, але якщо ви тут саме заради цього, риса {{Здоровань|Tough}} може бути кращою. Зі зростанням рівня Поглинання стихій [Absorb Elements] чи Щит [Shield] також запобігатимуть більшій сумарній шкоді: Удаване життя не зростатиме, а отримувана шкода — так.\n\nРедакційна примітка: це порівняння стосується безкоштовного накладання 1-го рівня. Доторк тіні також дозволяє накладати обране заклинання власними слотами відповідного рівня, зокрема посилювати Удаване життя."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ілюзорний напис [Illusory Script]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": натомість оберіть {{Ритуальний заклинатель|Ritual Caster}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Завдання ран [Inflict Wounds]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": шкода досить добре зростає з рівнем слота, тож за наявності слотів для повторного накладання може бути варте вибору."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Промінь хвороби [Ray of Sickness]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": загалом не надто хороше заклинання. Мало шкоди, коротка тривалість, стан, проти якого часто мають захист, і все залежить від ряткидка Статури."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мовчазний образ [Silent Image]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ілюзії дуже цікаві, але якщо Невидимість від Доторку тіні не є головною метою, спершу розглянув би {{Посвячений у магію|Magic Initiate}}, щоб також вивчити Мала ілюзія [Minor Illusion]."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-shadow-touched-2014-001",
+      "articleId": "rpgbot-shadow-touched-2014",
+      "translationRevisionId": "translation-rpgbot-shadow-touched-2014-draft1",
+      "sectionId": "section-shadow-touched-spells",
+      "targetBlockId": "block-section-shadow-touched-spells-2",
+      "optionId": "section-shadow-touched-spells-block-section-shadow-touched-spells-2-item-0",
+      "context": "Виклик страху [Cause Fear]XGtE",
+      "explanationBlockId": "block-section-shadow-touched-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-shadow-touched-2014-002",
+      "articleId": "rpgbot-shadow-touched-2014",
+      "translationRevisionId": "translation-rpgbot-shadow-touched-2014-draft1",
+      "sectionId": "section-shadow-touched-spells",
+      "targetBlockId": "block-section-shadow-touched-spells-2",
+      "optionId": "section-shadow-touched-spells-block-section-shadow-touched-spells-2-item-1",
+      "context": "Кольорові бризки [Color Spray]PHB",
+      "explanationBlockId": "block-section-shadow-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-shadow-touched-2014-003",
+      "articleId": "rpgbot-shadow-touched-2014",
+      "translationRevisionId": "translation-rpgbot-shadow-touched-2014-draft1",
+      "sectionId": "section-shadow-touched-spells",
+      "targetBlockId": "block-section-shadow-touched-spells-2",
+      "optionId": "section-shadow-touched-spells-block-section-shadow-touched-spells-2-item-2",
+      "context": "Маскування [Disguise Self]PHB",
+      "explanationBlockId": "block-section-shadow-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-shadow-touched-2014-004",
+      "articleId": "rpgbot-shadow-touched-2014",
+      "translationRevisionId": "translation-rpgbot-shadow-touched-2014-draft1",
+      "sectionId": "section-shadow-touched-spells",
+      "targetBlockId": "block-section-shadow-touched-spells-2",
+      "optionId": "section-shadow-touched-spells-block-section-shadow-touched-spells-2-item-3",
+      "context": "Спотворення вартості [Distort Value]AI",
+      "explanationBlockId": "block-section-shadow-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-shadow-touched-2014-005",
+      "articleId": "rpgbot-shadow-touched-2014",
+      "translationRevisionId": "translation-rpgbot-shadow-touched-2014-draft1",
+      "sectionId": "section-shadow-touched-spells",
+      "targetBlockId": "block-section-shadow-touched-spells-2",
+      "optionId": "section-shadow-touched-spells-block-section-shadow-touched-spells-2-item-4",
+      "context": "Удаване життя [False Life]PHB",
+      "explanationBlockId": "block-section-shadow-touched-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-shadow-touched-2014-006",
+      "articleId": "rpgbot-shadow-touched-2014",
+      "translationRevisionId": "translation-rpgbot-shadow-touched-2014-draft1",
+      "sectionId": "section-shadow-touched-spells",
+      "targetBlockId": "block-section-shadow-touched-spells-2",
+      "optionId": "section-shadow-touched-spells-block-section-shadow-touched-spells-2-item-5",
+      "context": "Ілюзорний напис [Illusory Script]PHB",
+      "explanationBlockId": "block-section-shadow-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-shadow-touched-2014-007",
+      "articleId": "rpgbot-shadow-touched-2014",
+      "translationRevisionId": "translation-rpgbot-shadow-touched-2014-draft1",
+      "sectionId": "section-shadow-touched-spells",
+      "targetBlockId": "block-section-shadow-touched-spells-2",
+      "optionId": "section-shadow-touched-spells-block-section-shadow-touched-spells-2-item-6",
+      "context": "Завдання ран [Inflict Wounds]PHB",
+      "explanationBlockId": "block-section-shadow-touched-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-shadow-touched-2014-008",
+      "articleId": "rpgbot-shadow-touched-2014",
+      "translationRevisionId": "translation-rpgbot-shadow-touched-2014-draft1",
+      "sectionId": "section-shadow-touched-spells",
+      "targetBlockId": "block-section-shadow-touched-spells-2",
+      "optionId": "section-shadow-touched-spells-block-section-shadow-touched-spells-2-item-7",
+      "context": "Промінь хвороби [Ray of Sickness]PHB",
+      "explanationBlockId": "block-section-shadow-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-shadow-touched-2014-009",
+      "articleId": "rpgbot-shadow-touched-2014",
+      "translationRevisionId": "translation-rpgbot-shadow-touched-2014-draft1",
+      "sectionId": "section-shadow-touched-spells",
+      "targetBlockId": "block-section-shadow-touched-spells-2",
+      "optionId": "section-shadow-touched-spells-block-section-shadow-touched-spells-2-item-8",
+      "context": "Мовчазний образ [Silent Image]PHB",
+      "explanationBlockId": "block-section-shadow-touched-spells-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

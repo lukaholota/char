@@ -1,0 +1,879 @@
+{
+  "buildId": "build-ranger-beast-master-2014",
+  "revisionId": "build-ranger-beast-master-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад персонажа — Знайомий задум",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-ranger-beast-master-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+      "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+      "sectionId": "section-example-build-a-novel-concept",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "RANGER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "RANGER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "RANGER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Two-Weapon Fighting"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hunters-mark",
+            "goodberry"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "RANGER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "BEAST_MASTER_CONCLAVE",
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Primeval Awareness"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "absorb-elements"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "RANGER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ELVEN_ACCURACY",
+        "featOptions": [
+          {
+            "optionNameEng": "ELVEN_ACCURACY Ability (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "RANGER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "lesser-restoration"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "hunters-mark",
+          "add": "pass-without-trace"
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "RANGER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "RANGER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "darkvision"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "RANGER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "RANGER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "water-breathing"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "RANGER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Hide in Plain Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "RANGER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "speak-with-plants"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "RANGER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FIGHTING_INITIATE",
+        "featOptions": [
+          {
+            "optionNameEng": "Blind Fighting"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "RANGER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "freedom-of-movement"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "RANGER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "RANGER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "guardian-of-nature"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "RANGER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "RANGER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "conjure-volley"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "RANGER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "RANGER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "tree-stride"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "RANGER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-beast-master-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "BEAST_MASTER_CONCLAVE",
+    "raceKey": "HALF_ELF_2014",
+    "backgroundKey": "HERMIT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 12
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 13
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Характеристики трохи відрізняються від наведених вище заради безкоштовних заклинань і бонусів +2/+1/+1 Напівельфа.\n\n Базові Підвищені Сил 8 8 Спр 15 17 Ста 12 12 Інт 8 8 Муд 15 16 Хар 13 14",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Напівельф{{Half-Elf}} дроу. Увесь колорит дроу, половина темнозору. Також прибирає згубну Чутливість до сонячного світла, що дуже цінно.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Передісторія відображає не дитинство, а десятиліття мандрів Підмороком далеко від цивілізації. Обираємо Відлюдника{{Hermit}} й замінюємо Релігію на Виживання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Відлюдник дає Медицину, Виживання й володіння Набором травника. Слідопит дає Уважність, Поводження з тваринами й Непомітність.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо {{Ельфійська точність|Elven Accuracy}}. Тварина-супутник забезпечує обхід із флангу, якщо граєте з цим опціональним правилом; інакше є Вогники фей [Faerie fire] від Магії дроу.\n\nНа 8-му рівні максимізуємо Спритність.\n\nНа 12-му рівні беремо {{Посвячений у бій|Fighting Initiate}} із {{Бій наосліп|Blind Fighting}}, щоб використовувати Темрява [Darkness] та/або Туманна хмара [Fog Cloud].\n\nРівні 16 і 19 максимізують Мудрість, щоб супутник не втрачав ефективності.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "{{Вправний дослідник - Кмітливий|Deft Explorer - Canny}}; {{Мічений ворог|Favored Foe}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Бойовий стиль: {{Бій двома зброями|Two-Weapon Fighting}}; нові заклинання: Мисливська мітка [Hunter's Mark], Доброягода [Goodberry]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "{{Первісне усвідомлення|Primeval Awareness}} / {{Первородне усвідомлення|Primal Awareness}}; Первісний супутник; нові заклинання: Поглинання стихій [Absorb Elements], Вогники фей (расове)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Ельфійська точність",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "{{Додаткова атака|Extra Attack (Ranger)}}; нові заклинання: Темрява (расове), Мале відновлення [Lesser Restoration]; заміна: Мисливська мітка → Переміщення без сліду [Pass without Trace]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "{{Вправний дослідник - Мандрівний|Deft Explorer - Roving}}; Мічений ворог: підвищення шкоди",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Виняткове дресирування; нове заклинання: Темний зір [Darkvision]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення характеристик: Спритність 18 → 20; {{Стежка землі|Land’s Stride}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нове заклинання: Дихання водою [Water Breathing]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "{{Вправний дослідник - Невтомний|Deft Explorer - Tireless}}; {{Сховатися на видноті|Hide in Plain Sight}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Звіряча лють; нове заклинання: Розмова з рослинами [Speak with Plants]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Посвячений у бій: Бій наосліп",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нове заклинання: Свобода рухів [Freedom of Movement]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Мічений ворог: підвищення шкоди; {{Зникнення|Vanish}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Розділення заклять; нове заклинання: Вартовий природи [Guardian of Nature]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення характеристик: Мудрість 16 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Нове заклинання: Виклик залпу [Conjure Volley]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "{{Дикі почуття|Feral Senses}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення характеристик: Мудрість 18 → 20; нове заклинання: Деревний шлях [Tree Stride]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "{{Убивця ворогів|Foe Slayer}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Продаж спорядження",
+        "reason": "Автор радить продати лускатий обладунок і купити клепаний шкіряний, а на перші 40 зм замінити короткі мечі скімітарами; пресет не записує продаж і купівлю, тож лишено лускатий обладунок, два короткі мечі, довгий лук і набір дослідника підземель.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-beast-master-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

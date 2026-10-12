@@ -1,0 +1,2486 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "3553a26218a903b7114119215a6b140e6f5a7fe0b32287205884902b0543c998",
+  "sourceRevision": {
+    "revisionId": "rpgbot-904b7b3e34283e86-3553a26218a903b7",
+    "sourceId": "rpgbot-904b7b3e34283e86",
+    "fetchedAt": "2026-09-29T19:17:17.357640+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:40:19-04:00",
+    "contentHash": "271aa0df922af13eb1902db1695c042d0c23b633d35b69a897b1e98070e158c1",
+    "title": "Oath of Vengeance Paladin 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-904b7b3e34283e86-3553a26218a903b7.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It may have come to your attention that I really like Charisma casters. It probably will not have come to your attention but is still very true: I often end up playing a supportive character, especially one that can be a frontline presence. You may notice this venn diagram overlaps suspiciously at Paladin. As such, I’ve played quite a few of them and enjoyed my time doing so."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While I’ve talked at length about my time spent with the "
+            },
+            {
+              "type": "link",
+              "text": "Oath of Conquest",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/oath-of-conquest/"
+            },
+            {
+              "type": "text",
+              "text": ", we had originally planned a whole article to talk about Polearm Master until half of the content got folded into the "
+            },
+            {
+              "type": "link",
+              "text": "weaponized bonus actions",
+              "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+            },
+            {
+              "type": "text",
+              "text": " article. As such, I’m going to lean into the advice presented on the subclass breakdown page and talk about how to maximize this feat on a class that gets a lot out of it. Oath of Vengeance is an incredible Striker, but, with the right tools gained through feats, it can still be a very effective Defender as well."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Vengeance Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Vengeance Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#oath-of-vengeance-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Vengeance Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#oath-of-vengeance-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Vengeance Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#oath-of-vengeance-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Vengeance Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#oath-of-vengeance-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Vengeance Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#oath-of-vengeance-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Oath of Retribution",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#example-build-oath-of-retribution"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance-2/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Oath of Vengeance Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Oath Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Most of the spells are\n\t\tabsolutely fantastic, but a lot of them require Concentration, and the list\n\t\tstarts to fall apart at high levels.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Bane is unreliable and\n\t\t\t\trarely worth the spell slot. Hunter’s Mark is a nice damage boost\n\t\t\t\tagainst a single high-priority target, but its usefulness is limited by\n\t\t\t\tthe Paladin’s low number of attacks per round. It can still yield\n\t\t\t\tconsiderably more damage than spending the same spell slot on Divine\n\t\t\t\tSmite, but only if you can maintain Concentration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Paralysis is an off-switch\n\t\t\t\tfor an enemy, but since your spell DC is low compared to a full\n\t\t\t\tspellcaster Hold Person is unrealiable. Misty Step is a great way to get\n\t\t\t\taround the battlefield, especially since it’s a Bonus Action to\n\t\t\t\tcast."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Haste and Protection From\n\t\t\t\tEnergy are two of the most important buffs in the game."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both situational\n\t\t\t\toptions, and the appeal of Dimension Door is reduced because you already\n\t\t\t\thave Misty Step."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Hold Monster makes Hold\n\t\t\t\tPerson redundant, but it’s a significant improvement. Unfortunately,\n\t\t\t\tyour spell save DC is likely still behind full spellcasters. Scrying is\n\t\t\t\tvery situational, and your full caster allies have had it for a very\n\t\t\t\tlong time by this level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Abjure Enemy"
+              },
+              {
+                "type": "text",
+                "text": ": Similar in many ways to\n\t\t\t\tthe spell Cause Feat, but the target doesn’t get additional saves and\n\t\t\t\ttheir speed is halved for the duration. This is especially useful\n\t\t\t\tagainst fiends and undead, but it works on anything that isn’t immune to\n\t\t\t\tfear."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vow of Enmity"
+              },
+              {
+                "type": "text",
+                "text": ": One minute of\n\t\t\t\tguaranteed Advantage against one target. Very helpful against powerful\n\t\t\t\tsingle foes. Use it early, use it often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Relentless Avenger"
+              },
+              {
+                "type": "text",
+                "text": ": Absolutely fantastic\n\t\tfor a Defender build, especially if you also have Polearm Master. Look for\n\t\tways to boost you speed like magic items or spells like Haste and\n\t\tLongstrider so that moving half your speed may be enough to keep the target\n\t\twithin your reach."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Soul of Vengeance"
+              },
+              {
+                "type": "text",
+                "text": ": An extra attack\n\t\tpresents a 50% boost to your damage output (provided that you’re not using\n\t\tsomething like two-weapon fighting or Polearm Master)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Avenging Angel"
+              },
+              {
+                "type": "text",
+                "text": ": For one hour a day you can\n\t\tchase your terrified foes around and murder them. The move speed is great,\n\t\tallowing you to quickly close to melee and get enemies within the aura. Most\n\t\tpaladin subclass capstone features only last one minute, so the fact that\n\t\tthis lasts for a full hour is incredible."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-vengeance-ability-scores",
+      "heading": "Oath of Vengeance Ability Scores",
+      "sourceAnchor": "oath-of-vengeance-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-vengeance-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Not only the driver for your melee attacks but powers athletics as well, the skill martials are reliably asked to use."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-vengeance-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-vengeance-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Third in importance. While you have many defensive capabilities, you are a front-line combatant and need the hitpoints to match. You also have some concentration spells and will need the help with saves until Aura of Protection comes online."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-vengeance-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-vengeance-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-vengeance-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": The Paladin’s spells and many class features are powered by Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-vengeance-ability-scores-7",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-vengeance-races",
+      "heading": "Oath of Vengeance Races",
+      "sourceAnchor": "oath-of-vengeance-races",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-vengeance-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from other Paladins, unless you’re definitely going to use Polearm Master. Then there’s shenanigans to be had."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-vengeance-feats",
+      "heading": "Oath of Vengeance Feats",
+      "sourceAnchor": "oath-of-vengeance-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-vengeance-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ve called out Polearm Master already a few times, and for good reason. Getting an additional attack to put out Improved Divine Smite is excellent, and having an additional way to trigger Opportunity Attacks does incredible things for the build. To that end, Sentinel also comes into play as the combo with Polearm Master that we haven’t really discussed much on the site yet if you can afford it. If you can’t, Slasher gets you some of that capacity while being a hybrid feat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-vengeance-weapons",
+      "heading": "Oath of Vengeance Weapons",
+      "sourceAnchor": "oath-of-vengeance-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-vengeance-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Well, polearms. If you’re not going to take Sentinel, "
+            },
+            {
+              "type": "link",
+              "text": "Slasher",
+              "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/#slasher"
+            },
+            {
+              "type": "text",
+              "text": " and a Glaive will let you apply the debuff to one target on your turn and then be much more likely to be able to apply it as a reaction some other time in the round thanks to Polearm Master. "
+            },
+            {
+              "type": "link",
+              "text": "Piercer",
+              "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/#piercer"
+            },
+            {
+              "type": "text",
+              "text": " also works if you’re going with a Pike instead, particularly because you can reroll Smite dice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-vengeance-weapons-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you don’t want to use polearms, any other Paladin weapons work fine. Greatswords are a good choice to pick up the great weapon fighting style to reroll Smite dice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-vengeance-armor",
+      "heading": "Oath of Vengeance Armor",
+      "sourceAnchor": "oath-of-vengeance-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-vengeance-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unless you’re building around Dexterity or doing a Hexblade dip, you start in chainmail and buy plate when you can."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you plan on taking advantage of the excellent expanded spell list at higher levels, taking a level or two of "
+            },
+            {
+              "type": "link",
+              "text": "Hexblade",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/"
+            },
+            {
+              "type": "text",
+              "text": " would be fantastic for removing your dependence on Strength so you can just focus on Charisma. I would go Paladin 1, Hexblade 1, Paladin X, putting in the second level of Hexblade after Paladin 8."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-oath-of-retribution",
+      "heading": "Example Build – Oath of Retribution",
+      "sourceAnchor": "example-build-oath-of-retribution",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-oath-of-retribution-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "What do you mean I only parsed in the 98th percentile?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-oath-of-retribution",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will assume the point buy abilities suggested above."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-oath-of-retribution",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bugbear. You know the only problem with Polearm Master? If you’re attacking something, it’s already in your reach so it can’t trigger the first part of Polearm Master. Unless your reach changes depending on whether or not it’s your turn. Combine that with Surprise Attack, Extra Attack, and the Bonus Action bonk and you’re going to put out a ton of damage on your first turn before settling into being the best area denial Paladin out there. Free Stealth proficiency will also help counteract clanging around in heavy armor, or even make you surprisingly hard to detect if you do the Hexblade dip and keep to a breastplate."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-oath-of-retribution",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Urban Bounty Hunter for Deception and Persuasion. It also gets you Thieves’ Tools, especially useful if you’re going the Hexblade route and will therefore have some Dex to back it up."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-oath-of-retribution",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Athletics and Intimidation from the class, rounding out the complement of skills Paladins often come with. If you’re taking the Hexblade variant, replace Athletics with Religion."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-oath-of-retribution",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 4 gets us Polearm Master."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 8 gets us Slasher to round up Strength while being Sentinel-light"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 12 caps Strength"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Levels 16 and 19 cap Charisma"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-oath-of-retribution",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine Sense"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Lay on Hands"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "For your starting equipment, take the chainmail, a glaive, javelins, and a greatsword. Sell the greatsword."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Like I called out in the "
+              },
+              {
+                "type": "link",
+                "text": "Eldritch Knight handbook",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/"
+              },
+              {
+                "type": "text",
+                "text": ", spellcasting with a two-handed weapon is actually very easy. You only have to have both hands on it to attack and can otherwise carry it around in one hand and cast with the other."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Nothing particularly exciting at low level, but have faith. Your righteous vengeance will soon bring swift retribution to your enemies."
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Stye (Defense)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Compelled Duel"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shield of Faith"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Cure Wounds"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re not going to use a shield, so picking up the fighting style to mitigate that is a good plan since we plan on standing in front a lot. If combined with Shield of Faith, we can actually have an AC higher than we would while holding said shield."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our Charisma modifier starts out as high as a full caster so we can make good use of Compelled Duel, and Cure Wounds helps round out our capabilities. With that said, you only get two slots per day so you need to use them wisely."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Health"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Abjure Enemy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Vow of Enmity"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells always prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Bane"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hunter’s Mark"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Vow of Enmity is the go-to option for Channel for your whole career. Especially if you’re in a party with another class or two that likes to short rest like warlocks, monks, or mid-level bards, this should really be used once per fight on the biggest thing."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "That being said, from next level on, you’re only going to want to do that starting on turn two because you really want that extra attack from Polearm Master to put out the bonus 2d6 damage from Surprise Attack. Having done the math in the "
+                },
+                {
+                  "type": "link",
+                  "text": "DPR Calculator",
+                  "href": "https://rpgbot.net/dnd5/tools/dpr-calculator/"
+                },
+                {
+                  "type": "text",
+                  "text": ", there is never a level when getting advantage on the Attack action is worth giving up the Bonus Action attack during the first turn because Surprise Attack is just that good."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you happen to have yet another bonus action to spare (perhaps you’re just fighting a horde of small enemies with nothing worth Vowing, or you can cast it before initiative is rolled), Hunter’s Mark can do some pretty good damage with our three attacks a round starting at level 5."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Polearm Master"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thunderous Smite"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Ceremony"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We pick up our two-handed weapon specialization and immediately get new tactics. Like I mentioned above, our arms are longer on our own turns. Combined with the fact that Polearm Master doesn’t say the bonus action has shorter reach, we can attack things from 15 feet away on our turn, and then wait for them to walk forward into our shortened reach on their turn and trigger the opportunity attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Thunderous Smite is the highest-damage spell available to us right now and, when combined with a Divine Smite, can result in a single Attack doing enormous damage. The Str save will often be resisted but that’s fine."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The problem with any of the Smite spells, as well as most of the 1st-level paladin list, is that they’re often concentration spells. While the idea behind the Smite spells being concentration is good by itself (make sure you get the effect even if you miss the first attack with it charged), it does mean you can’t use them while also running any concentration buff like Heroism, Divine Favor, Shield of Faith, etc."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We take Ceremony so we can hand out benedictions. Hopefully, our judgements are wise with regards to who we decide to perform them on."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Find Steed"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Magic Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Lesser Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hold Person"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Misty Step"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Drop Shield of Faith and Ceremony for the spells listed."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lesser Restoration is a little bit redundant with Lay on Hands but our pool of both is so limited right now that the backup is welcome."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Magic Weapon is the sheath of light you can throw on your glaive as you start running into enemies that resist non-magical damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Find Steed is a complicated spell to handle. You may want to read the "
+                },
+                {
+                  "type": "link",
+                  "text": "Practical Guide to Mounted Combat",
+                  "href": "https://rpgbot.net/dnd5/characters/mounted_combat/"
+                },
+                {
+                  "type": "text",
+                  "text": " and listen to our "
+                },
+                {
+                  "type": "link",
+                  "text": "podcast episode about mounted combat",
+                  "href": "https://rpgbot.net/rpgbot-podcast-episode-2/"
+                },
+                {
+                  "type": "text",
+                  "text": ". I don’t recommend this spell because I think you should be mounted, I recommend it because having a celestial warhorse is neat and could very well be useful in a lot of ways."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "While you don’t need to cast the spell all that often (and so should spend most days with cure Wounds prepared in that slot instead), you do need to cast it when the horse dies. Given its AC of 11 and no save proficiencies, that will be somewhat often."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Aura of Protection"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Did you want a free +3 to all your saves? Hey, so did your party. It is worth noting that it doesn’t specify what saves it applies to, meaning it applies to all of them, including Death Saves. Stay near dying friends, even if you can’t spare the action to Lay on Hands them. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Relentless Avenger"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Well, this is excellent. Now, when someone walks within 10 feet of you, crusader that you are, you get to strike them with your glaive and walk away or stand in the way of wherever they were trying to go. At next level, given the speed penalty, it’s completely plausible you can end up fully out of their reach."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Slasher (Str)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This new art of war will help you on your crusade to bring sanctified retribution to your enemies. Remember that you can apply this to one target on your turn and another target with your Opportunity Attack if you can position yourself correctly."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Revivify"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Haste"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Protection from Energy"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Every spell at this level is great and our only point of sadness is not enough slots to use all of them. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Aura of Courage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our conviction now prevents nearby allies from being afraid. I interpret the wording of “can’t be frightened” to mean that, if someone is frightened, simply walking to within 10 feet of them means that your crusader aura will remove whatever fear effect is on them instead of just suppressing it. This doesn’t jive with Jeremy Crawford’s depiction of RAI, but even he admits that "
+                },
+                {
+                  "type": "link",
+                  "text": "RAW is unclear",
+                  "href": "https://twitter.com/JeremyECrawford/status/722860204459630592"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Divine Smite"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Your fanaticism is now such that holy power infuses your every attack."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Strength 18 -> 20)"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Find Greater Steed"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Death Ward"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Banishment"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dimension Door"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Drop whatever you started preparing at level 8 for Death Ward and start using Find Greater Steed to get a celestial pegasus (charger?) instead of a warhorse. Death Ward yourself and have it apply to both of you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Banishment is an incredible way to incapacitate a demon, dragon, giant, humanoid, or undead (probably other things, too) for a minute. Your DC is two points lower than a full caster would be right now, but hardly anything will have good Charisma saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cleansing Touch"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Let the sanctity of battle purify your friends."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Soul of Vengeance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "While we already have a very reliable use for our reaction, there may be a turn where we’re just wailing on a boss with no tricks and want more damage. This provides another way to deliver our sanctified wrath."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Charisma 16 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Save aura and spell DCs get better."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Holy Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Destructive Wave"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hold Monster"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Scrying"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destructive Wave lets us inflict our holy wrath to all targets nearby, and in just a couple levels the save DC will match that of a full caster."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Finally, a reliable way to do area of effect damage and keep up with other classes on damage done to large groups."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Aura Improvements"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our aura mastery is now unquestionable."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Charisma 18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Capping Charisma shows everyone that the heart of the crusader is a very convincing thing to have."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Avenging Angel"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can now become a divine storm for an hour at a time. Put on those wings and become vengeance incarnate."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "rating- wp-block-heading Oath of Vengeance Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Oath Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Abjure Enemy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Vow of Enmity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Relentless Avenger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Soul of Vengeance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Avenging Angel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Cha"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-oath-of-vengeance-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-oath-of-vengeance-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-oath-of-vengeance-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-oath-of-vengeance-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-oath-of-vengeance-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-oath-of-vengeance-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-oath-of-vengeance-ability-scores-7"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-oath-of-vengeance-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-oath-of-vengeance-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-oath-of-vengeance-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-oath-of-vengeance-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-oath-of-vengeance-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-build-oath-of-retribution-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    }
+  ],
+  "metrics": {
+    "words": 2860,
+    "sections": 17,
+    "blocks": 33,
+    "tables": 3,
+    "ratingSignals": 23
+  },
+  "status": "needs-editorial-review"
+}

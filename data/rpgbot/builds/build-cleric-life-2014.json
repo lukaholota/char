@@ -1,0 +1,814 @@
+{
+  "buildId": "build-cleric-life-2014",
+  "revisionId": "build-cleric-life-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад збірки Клірика — Пагорбовий дворф, Клірик домену життя",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-cleric-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+      "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "LIFE_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "CLERIC_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "CLERIC_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "CLERIC_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "spare-the-dying"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "CLERIC_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "CLERIC_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "CLERIC_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "CLERIC_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "CLERIC_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "mending"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "CLERIC_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "CLERIC_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "CLERIC_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "CLERIC_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "CLERIC_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "CLERIC_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "CLERIC_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "CLERIC_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "CLERIC_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "CLERIC_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "LIFE_DOMAIN",
+    "raceKey": "DWARF_2014",
+    "backgroundKey": "ACOLYTE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 14
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 12
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми припускатимемо характеристики за купівлею, запропоновані вище для кліриків у важких обладунках. Якщо хочете наголосити на навичках знань, як-от Історія й Релігія, замість навичок «обличчя», як-от Переконання, розгляньте обмін Інтелекту й Харизми. Також можна зменшити Силу, щоб вкласти ці очки в інші характеристики. Замовляння чудово працюють замість зброї, тож фізичні характеристики здебільшого неважливі. Проте низька Сила означає, що більшість рас страждатимуть від штрафу до швидкості у важкому обладунку, хоч наш пагорбовий дворф{{hill dwarf}}, на щастя, цього не зазнає.\n\n  Базове значення Підвищене значення Сила 14 14 Спритність 8 8 Статура 14 16 Інтелект 8 8 Мудрість 15 16 Харизма 12 12",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Пагорбовий дворф{{Hill Dwarf}}. Половина причин грати клірика домену життя в тому, що він надзвичайно живучий, і хоч важкий обладунок і щит дуже допомагають, Клірик усе ще має кубик здоровʼя к8, а додаткові оборонні варіанти допоможуть вам лишатися живим, щоб лікувати й захищати союзників. Ви також отримуєте вкрай важливе підвищення Мудрості, потрібне, щоб не відставати від вашого чаротворства.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Беремо Аналіз Поведінки й Переконання. Це добре готує нас до ролі «обличчя», якщо ні в кого іншого в групі цих умінь немає. Можна відмовитися від однієї з цих навичок на користь Медицини, але Медицина вкрай обмежена, а ваші лікувальні здібності походять із магії, а не з навичок.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-1",
+        "title": "Передісторія",
+        "text": "Послушник{{Acolyte}} створений для кліриків. Дві навички зі списку навичок Клірика, безкоштовний священний символ і дещо інше. На жаль, Релігія залежить від Інтелекту, тож ви будете погані в ній попри володіння, якщо не поміняєте Інтелект і Харизму місцями.\n\nЯкщо вас влаштовує наголос на навичках «обличчя», можете натомість розглянути передісторію Аристократа{{Noble}}, але всі навички, які дають і Послушник, і Аристократ, є у списку навичок Клірика, тож жодна з цих передісторій не має значної механічної переваги над іншою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-background-1",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Клірикові домену життя потрібна висока Мудрість, але майже нічого більше. Більше Статури — приємно, але від рис на кшталт «Здоровань»{{Tough}} ви можете отримати більше користі. Щойно досягнете 20 Мудрості, розгляньте введення рис, коли будете впевненіші у своєму розумінні гри.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Чаротворство\nЗаклинання домену\nВідомі замовляння:\n– Настанова\n– Священне полумʼя\n– Дивотворство\nДомен життя\nДодаткові майстерності: важкі обладунки\nУчень життя",
+        "notes": "Як стартове спорядження виберіть бойовий молот, кольчугу, кинджал або легкий арбалет із болтами, будь-який із наборів, а також щит і священний символ{{Holy Symbol}}. Якщо ви взяли передісторію Послушника{{Acolyte}}, у вас може вийти два священні символи, але мати запасний приємно. На 1-му рівні у вас КБ 18, поки ви тримаєте щит. Можна ходити з молотом і щитом напоготові, але щоб виконувати соматичні компоненти, молот доведеться прибрати. Особисто я б тримався Священного полумʼя [Sacred Flame] і діставав молот, лише якщо можу потребувати Принагідної атаки, але якщо ви збираєтеся накласти Благословення [Bless] на групу, ви влучатимете достатньо точно, щоб молот був кращим джерелом шкоди. Більшість магічного лікування під час бою ви хочете робити за допомогою Цілющого слова [healing word]. З «Учнем життя»{{Disciple of Life}} ви лікуєте 1к4+5, чого досить, щоб повернути в бій непритомного союзника, а може, й щоб він витримав ще один удар і не впав. Використання дії для завдання шкоди швидше завершить зіткнення, що призведе до меншого сумарного навантаження на лікувальні ресурси вашої групи за день. Памʼятайте: унція профілактики вартує фунта лікування.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Канал божественності (1/відпочинок)\nБожественність: Збереження життя",
+        "notes": "«Збереження життя»{{Preserve Life}} — чудовий спосіб підняти кількох союзників, що вмирають. Навіть одного ХП досить, щоб повернути їх у бій, а якщо вони знову впадуть, то принаймні почнуть із чистого аркуша, перш ніж зіткнуться з ряткидками від смерті, поки чекатимуть на наступну спробу порятунку. Це великий запас ХП, і він добре масштабується, тож навіть на високих рівнях ви можете рятувати кількох союзників, що впали, і все одно матимете достатньо ХП, щоб значно підлікувати союзників на передовій.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Заклинання домену",
+        "notes": "3-й рівень приносить Духовну зброю [Spiritual Weapon] як заклинання домену, що чудово, бо це значне підвищення вашої шкоди. І накладання заклинання, і атака ним — бонусні дії, а отже, ви все ще вільні накладати заклинання й атакувати на своїх ходах, поки ваша духовна зброя літає й бʼє. Навіть на значно вищих рівнях Духовна зброя [Spiritual Weapon] лишається стабільним, надійним наступальним варіантом майже в кожному бою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик (Мудрість 16 → 18)\nНове відоме замовляння:\n– Милість до вмирущого",
+        "notes": "Більше Мудрості дуже багато дає клірикові. Більше підготовлених заклинань, більше лікування від Лікування ран [Cure Wounds] і від Цілющого слова [healing word], більше шкоди від Духовної зброї [Spiritual Weapon], і, звісно, вищі СК наших заклинань.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Заклинання домену\nЗнищення нежиті (ПН 1/2)",
+        "notes": "5-й рівень приносить кілька важливих віх. Шкода замовлянь зростає, і Священне полумʼя [Sacred Flame] стабільно випереджає шкоду вашої зброї. Оскільки Священне полумʼя [Sacred Flame] не вимагає кидка атаки, воно працює проти цілей поруч. Якщо ви не робите Принагідних атак, майже немає причин тримати зброю в руках.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Канал божественності (2/відпочинок)\nБлаженний цілитель",
+        "notes": "Друге використання «Каналу божественності»{{Channel Divinity}} означає, що ви можете застосувати «Збереження життя»{{Preserve Life}} двічі між короткими відпочинками, різко збільшуючи кількість лікування, яку ви можете забезпечити за день. Правила «Посібника Майстра»{{Dungeon Master’s Guide}} щодо планування дня пригод пропонують два короткі відпочинки за повний день пригод, тож можна очікувати використання «Божественність: Збереження життя»{{Channel Divinity: Preserve Life}} до 6 разів за один день, що лікує загалом стільки ХП, скільки дорівнює вашому рівню Клірика, помноженому на 30 (180 на 6-му рівні). На додачу до цього запаморочливого числа ви отримуєте ще й «Блаженного цілителя»{{Blessed Healer}}. Якби ви збиралися витрачати купу ходів на накладання лікувальних заклинань, це було б краще, бо зменшило б вашу потребу витрачати лікувальні ресурси на себе. Але більшість відновлення ХП, яке ви робитимете заклинаннями, — це або Цілюще слово [healing word], щоб швидко поставити союзників на ноги, або Зцілення [Heal], або «Божественність: Збереження життя», яке не є заклинанням. Тож від цього уміння ви, імовірно, не побачите багато лікування.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Заклинання домену",
+        "notes": "На цьому рівні нічого, крім заклинань 4-го рівня. Велике блискуче заклинання, яке ви отримуєте на цьому рівні, — Вартовий віри [Guardian of Faith].",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Мудрість 18 → 20)\nЗнищення нежиті (ПН 1)\nБожественний удар",
+        "notes": "Тепер у нас максимальна Мудрість, що чудово. «Божественний удар»{{Divine Strike}} спокушає, але не надто корисний. До цього рівня ви на 3 повні пункти відстаєте від прогресії атаки проти КБ, тож маєте лише 45% шансу влучити по типовому ворогу з відповідним ПН замість очікуваних 65%. Окрім Принагідних атак, Священне полумʼя [Sacred Flame] буде значно надійнішим і завдасть співмірної шкоди (2к8 проти 2к8+2).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Заклинання домену",
+        "notes": "На цьому рівні нічого, крім заклинань 5-го рівня. Ваші заклинання домену на цьому рівні здебільшого малоцінні, але примітно, що ви отримуєте здатність накладати Оживлення мерців [Raise Dead].",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Божественне втручання\nНове відоме замовляння:\n– Лагодження",
+        "notes": "«Божественне втручання»{{Divine Intervention}} справді круте, але також цілком ненадійне. На цьому рівні шанс отримати Божественне втручання — лише 10%. Користуйтеся ним часто, хоча б для того, щоб мати шанс справді запустити ефекти. На жаль, це також останній рівень, на якому ми отримуємо захопливе й цілком нове класове уміння. Далі все — поступові покращення й нові рівні заклинань.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Знищення нежиті (ПН 2)",
+        "notes": "Заклинання 6-го рівня, і ви можете знищувати нежить із ПН 2. Шкода замовлянь зростає, тож Священне полумʼя [Sacred Flame] знову перевершує шкоду вашої зброї (3к8, у середньому 13,5 проти 2к8+2, у середньому 11).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик (Статура 16 → 18)",
+        "notes": "Ваше перше підвищення характеристики, яке не обовʼязково вкладати в Мудрість. Статура покращить ваші ХП, але якщо ви достатньо сміливі, щоб розглядати риси, раджу придивитися до риси «Здоровань»{{Tough}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "–",
+        "notes": "На цьому рівні нічого, крім заклинань 7-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Знищення нежиті (ПН 3)",
+        "notes": "Знищуйте ще більше нежиті.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "–",
+        "notes": "На цьому рівні нічого, крім заклинань 8-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик (Статура 18 → 20)",
+        "notes": "Підвищення Статури до 20 означає, що тепер ви отримуєте 11 ХП за рівень. Для порівняння: варвар зі Статурою 20 отримує лише 12 ХП за рівень.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Знищення нежиті (ПН 4)\nНайвище лікування",
+        "notes": "Заклинання 9-го рівня, і ви більше не кидаєте кубики для лікувальних заклинань! Утім, вони й так не часто вимагають кидків. До цього рівня, якщо ви лікуєте в бою, ви накладаєте Цілюще слово [healing word] чи Зцілення [Heal] або користуєтеся «Божественність: Збереження життя». Окрім Цілющого слова [healing word], жоден із цих варіантів не вимагає кидка.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Канал божественності (3/відпочинок)",
+        "notes": "Ваш загальний обсяг лікування від «Божественність: Збереження життя»{{Channel Divinity: Preserve Life}} уже величезний, а третє використання «Каналу божественності» ще більше розширює цей масивний запас. Тепер ви можете використовувати «Канал божественності» стільки разів на день, скільки зіткнень у повному дні пригод за рекомендацією правил «Дня пригод»{{Adventuring Day}} у «Посібнику Майстра»{{DMG}}, що дозволяє вашій групі отримувати велику кількість лікування після кожного зіткнення.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик (Сила 14 → 16)",
+        "notes": "Це останнє підвищення характеристики здебільшого безглузде. Натомість розгляньте рису.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Покращене божественне втручання",
+        "notes": "«Божественне втручання»{{Divine Intervention}} стрибає з 19% ефективності до 100%. На цьому рівні ви достатньо близькі до свого божества, щоб завжди просити й отримувати пряму допомогу. Це навмисно розмите уміння, тож очікуйте певних переговорів зі своїм Майстром, щоб визначити, яку допомогу ви отримаєте.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Підготовлені заклинання",
+        "reason": "Автор називає заклинання домену, а підготовлених заклинань на інших рівнях не перелічує; їх гравець обирає на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

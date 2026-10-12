@@ -1,0 +1,776 @@
+{
+  "buildId": "build-rogue-assassin-2014",
+  "revisionId": "build-rogue-assassin-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Убивці — Кролик-убивця з Кербанога",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+      "sectionId": "section-example-assassin-build-the-killer-rabbit-of-caerbannog",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "ROGUE_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "ROGUE_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "ROGUE_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "ROGUE_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ASSASSIN",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "ROGUE_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ALERT"
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "ROGUE_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "ROGUE_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "expertise": [
+          "INSIGHT",
+          "PERCEPTION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "ROGUE_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "ROGUE_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "ROGUE_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "ROGUE_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "ROGUE_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "ROGUE_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "ROGUE_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "ROGUE_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "ROGUE_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "ROGUE_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "ROGUE_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "ROGUE_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "ROGUE_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "DURABLE"
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "ROGUE_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-assassin-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ASSASSIN",
+    "raceKey": "HARENGON_MPMM",
+    "backgroundKey": "FACELESS",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми починаємо з купівлі характеристик і ставимо 15 у Спритність, Статуру й Харизму. Потім додаємо +1 до кожної, щоб мати 16 у всьому, що нас цікавить. Правду кажучи, можна просто проігнорувати навички «обличчя», якщо ви хочете інший набір, скажімо, обрати Мудрість для підвищення Уважності й Аналізу Поведінки. Ми цього тут не робимо, але це варіант. Те, що у вас є уміння для маскування й обману, не означає, що ви мусите ними користуватися, якщо вони не пасують вашій кампанії.\n\n Базове значення Підвищене значення Рівень 20 Сила 8 8 8 Спритність 15 16 20 Статура 15 16 18 Інтелект 8 8 8 Мудрість 8 8 8 Харизма 15 16 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ми обираємо Гаренгона{{Harengon}}, як зазначено вище. Передусім, щоб ми могли майже гарантовано ходити першими в боях. Отримання Уважності й «Кролячого стрибка»{{Rabbit Hop}} — лише бонуси на додачу до «Зайчачого рефлексу»{{Hare-Trigger}}. «Кролячий стрибок» може здаватися зайвим поруч із «Хитрою дією», але це як поєднання Ривка й Відступу. Коли вам потрібен лише один із них, користуйтеся «Хитрою дією», але якщо вам справді потрібно зробити обидва за один хід, витратьте «Кролячий стрибок».",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Ми беремо передісторію Безликого{{Faceless}} заради Обману й Залякування. Оскільки ми отримаємо володіння набором для гриму від Убивці, його можна замінити на щось інше. Мій приклад збірки обрав Флейту{{Flute}} просто тому, що можу, але робіть як вам до вподоби.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Гаренгона ми отримуємо Уважність. Від Пройдисвіта — Акробатику, Аналіз Поведінки, Переконання й Непомітність. Від Безликого — Обман і Залякування.\n\nОскільки як Пройдисвіт ми обираємо «Експертизу», ми обираємо Обман і Непомітність на першому рівні й Аналіз Поведінки та Уважність на шостому.\n\nЩодо інструментів: ми отримуємо набір для гриму й набір отруйника від Убивці, а також стандартні інструменти злодія, які отримують усі Пройдисвіти.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні ми обираємо «Пильний»{{Alert}} заради +5 до Ініціативи та інших корисних переваг.\n\nНа 8-му рівні ми отримуємо Покращення Характеристик на +2 до Спритності, піднімаючи її до 18.\n\nНа 10-му рівні ми беремо друге Покращення Характеристик на ще +2 до Спритності, досягаючи максимуму 20.\n\nНа 12-му рівні ми беремо «Надихаючого лідера»{{Inspiring Leader}}, бо маємо Харизму, потрібну для нього, і він просто такий корисний.\n\nНа 16-му рівні ми беремо «Стійкого»{{Resilient}} (Статура). Так, це дивний вибір, але Пройдисвіти отримують володіння Мудрістю на 15-му рівні, і просто заради розваги й щоб схилитися до образу кролика-убивці, якого, схоже, ніхто не може подряпати в тій сцені, чому б не мати володіння трьома основними ряткидками?\n\nНа 19-му рівні ви можете обрати «Експерта у навичках»{{Skill Expert}}, щоб додати +1 до Статури й округлити її до 18, отримавши ще й навичку з «Експертизою». Також можна взяти «Аберантну мітку дракона»{{Aberrant Dragonmark}} заради того самого підвищення Статури, але з дивним чаротворством на основі Статури. Я обираю «Витривалого»{{Durable}}, бо ми вже заохочуємо команду брати більше Коротких відпочинків завдяки «Надихаючому лідеру», а це дає нам нижню межу на кидках Кубиків Здоровʼя. Це також більше пасує до образу кролика-убивці, тож неважливо, що це обʼєктивно погано, коли я вже сказав вам кращі варіанти.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "1к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "1к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "2к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "2к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "3к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "3к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "4к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "4к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "5к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "5к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "6к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "6к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "7к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "7к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "8к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "8к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "9к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "9к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "10к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "10к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Флейта замість набору для гриму",
+        "reason": "Автор радить замінити набір для гриму Безликого (його дасть Убивця) на флейту або інший інструмент; пресет не записує заміну володінь передісторії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-assassin-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

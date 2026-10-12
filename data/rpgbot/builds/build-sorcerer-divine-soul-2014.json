@@ -1,0 +1,943 @@
+{
+  "buildId": "build-sorcerer-divine-soul-2014",
+  "revisionId": "build-sorcerer-divine-soul-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— Містичний теург 5e",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-sorcerer-divine-soul-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+      "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+      "sectionId": "section-example-build-5e-mystic-theurge",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ORDER_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "DIVINE_SOUL",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "fire-bolt",
+            "mage-hand",
+            "mind-sliver",
+            "shape-water"
+          ],
+          "knownSpellKeys": [
+            "silvery-barbs"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ],
+        "classOptionSpellKeys": [
+          "bane"
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "SORCERER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "SORCERER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Heightened Spell"
+          },
+          {
+            "optionNameEng": "Twinned Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "vortex-warp"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "SORCERER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TELEKINETIC",
+        "featOptions": [
+          {
+            "optionNameEng": "TELEKINETIC Ability (Charisma)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "prestidigitation"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "SORCERER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fireball"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "SORCERER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "haste"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "SORCERER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "SORCERER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "polymorph"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "SORCERER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "SORCERER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Distant Spell"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          },
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "SORCERER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "SORCERER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER"
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "SORCERER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "SORCERER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "SORCERER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dominate-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "SORCERER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ELDRITCH_ADEPT",
+        "featOptions": [
+          {
+            "optionNameEng": "Devil's Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "SORCERER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Quickened Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wish"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "SORCERER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "SORCERER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-divine-soul-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+          "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "METAMAGIC_ADEPT"
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ORDER_DOMAIN",
+    "raceKey": "SHIFTER_MPMM",
+    "backgroundKey": "SPY",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 10
+      },
+      {
+        "ability": "WIS",
+        "value": 14
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Оскільки ми беремо рівні в різновиді Клірика, що дає володіння важкими обладунками, можемо занедбати Спритність, а вивільнені очки вкласти в Мудрість, щоб цей мультиклас став можливим. Сила насправді не потрібна, щоб носити важкі обладунки, — просто ви отримуєте штраф до швидкості, якщо не маєте стільки, скільки вони вимагають. Утім, швидкість пересування нас насправді не хвилює, і навіть є спосіб її компенсувати, якщо вас справді непокоїть цей додатковий рух у вашій грі. Але, чесно кажучи, просто візьміть {{мітлу польоту|Broom of Flying}} за першої ж нагоди — і проблему розвʼязано.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 8 8 Статура 15 16 Інтелект 10 10 Мудрість 14 14 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Перевертень{{Shifter}}. Ми отримуємо володіння Залякуванням і одним із двох варіантів. Якщо вас справді непокоїть повільна швидкість через обладунок, «Швидкий крок»{{Swiftstride}} це виправить. Проте я б, імовірно, взяв «Дикого мисливця»{{Wildhunt}} заради можливості «перевірити вайб» когось Аналізом Поведінки або під час кидків Уважності/Виживання, щоб щось знайти чи вистежити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беремо передісторію Шпигун{{Spy}}, а володіння Непомітністю переносимо на Уважність. Виявляється, шпигуни загалом корисні лише тоді, коли справді можуть щось бачити й чути.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Ми будемо «обличчям», тож поводимося відповідно. Початок із Клірика дає нам Медицину й Аналіз Поведінки, а додаткове володіння Переконанням — від домену. Разом із расою й передісторією це дає нам володіння всіма стандартними навичками «обличчя» (Обман, Аналіз Поведінки, Залякування, Переконання) і загалом 6 володінь навичками.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Ми відставатимемо на один рівень за Покращеннями Характеристик протягом усього життя персонажа, тож неодмінно хочемо взяти гібридну рису на 5-му рівні й підняти основну характеристику до 20 на 9-му. Для цього беремо «Телекінетика»{{Telekinetic}}, бо, звісно ж, куди без нього. На 13-му беремо «Надихаючого лідера»{{Inspiring Leader}} і покажемо трохи математики, чому він неймовірний на цьому рівні. На 17-му беремо «Містичного адепта»{{Eldritch Adept}} заради «Зору диявола»{{Devil's Sight}}, а на 20-му нарешті беремо «Адепта метамагії»{{Metamagic Adept}} як умовне завершальне уміння.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Замовляння:\n– Настанова\n– Світло\n– Священне полумʼя\nПідготовлені заклинання:\n– Благословення\n– Захист від зла й добра\n– Щит віри\n– Наказ\n– Героїзм\nГолос влади",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Замовляння:\n– Вогняний заряд\n– Магічна рука\n– Розщеплення Розуму\n– Формування води\nЗаклинання:\n– Цілюще слово\n– Сріблясті шпильки\n– Зурочення (Спорідненість)\nУлюбленець богів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Відоме заклинання:\n– Спрямований заряд\nОчки чародійства",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Метамагія{{Metamagic}}:\n– Підвищене заклинання\n– Спарене заклинання\nНове заклинання:\n– Вихрове переміщення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Нове замовляння:\n– Штукарство\nНове заклинання:\n– Мале відновлення\nРиса:\n– Телекінетик (+1 Харизма)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Нове заклинання:\n– Вогнекуля",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Підсилене зцілення\nНове заклинання:\n– Прискорення\nЗаміна заклинання: Зурочення → Наділити прокляттям",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Нове заклинання:\n– Захист від смерті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Харизма 18 → 20\nНове заклинання:\n– Перевтілення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Нове заклинання:\n– Масове лікування ран",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Нове замовляння:\n– Дивотворство\nНове заклинання:\n– Більше відновлення\nМетамагія:\n– Віддалене заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Нове заклинання:\n– Зцілення\nЗаміна заклинання: Спрямований заряд → Розщеплення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Риса:\n– Надихаючий лідер",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Нове заклинання:\n– Воскресіння\nЗаміна заклинання: Мале відновлення → Телепорт",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Потойбічні крила{{Otherworldly Wings}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Нове заклинання:\n– Підкорення монстра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Риса:\n– Містичний адепт (Зір диявола)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Нове заклинання: Бажання\nМетамагія:\n– будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Неземне відновлення{{Unearthly Recovery}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Риса: Адепт метамагії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Заклинання зі списку Клірика (Божественна магія)",
+        "reason": "Автор бере Цілюще слово (2-й рівень), Спрямований заряд (3-й), Мале відновлення (5-й), Захист від смерті (8-й), Масове лікування ран (10-й), Дивотворство й Більше відновлення (11-й), Зцілення (12-й), Воскресіння (14-й) зі списку Клірика, який відкриває Божественна магія; платформа не додає заклинань Клірика до вибору Чародія (BUG-O49-DIVINE-SOUL-SPELL-LIST), тому на їхніх місцях відкриті вибори гравця. Заміни заклинань на 7-му (Зурочення на Наділити прокляттям), 12-му (Спрямований заряд на Розщеплення) і 14-му (Мале відновлення на Телепорт) рівнях не записано: ті заклинання недоступні або не названі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Продаж спорядження",
+        "reason": "Автор радить продати булаву й легкий арбалет і купити лати; пресет не записує продаж, тож лишено кольчугу, булаву й легкий арбалет.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія 18-го рівня та Адепт метамагії на 20-му",
+        "reason": "На 18-му рівні автор бере Бажання й метамагію «будь-яку» без назви: пресет бере Quickened Spell (вибір платформи), гравець може змінити перед створенням. На 20-му автор бере рису «Адепт метамагії»: вона записана без вибору метамагії, бо каталог не має її опцій (BUG-O49-METAMAGIC-ADEPT).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-divine-soul-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-divine-soul-2014-draft1",
+            "sourceRevisionId": "rpgbot-11f66f9873161de9-1645ed783f6b584c",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

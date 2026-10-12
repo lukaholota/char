@@ -1,0 +1,2790 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "f203440d2bd59d9a5873f8ba09db278dc64a08edfe8c4f2f9f0d951bb5fdbf33",
+  "sourceRevision": {
+    "revisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+    "sourceId": "rpgbot-d49823d102e68ed2",
+    "fetchedAt": "2026-09-29T19:22:47.550693+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:31:25-04:00",
+    "contentHash": "d46cb2c2caa18fb0db4bb3cdcce19b026d5416931acfb50272ee1b198823f1b3",
+    "title": "Trickery Domain Cleric 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-d49823d102e68ed2-f203440d2bd59d9a.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Do you want to worship a god of mischief like Loki? Want to be a thief who found religion? How about a charlatan with a deity’s blessing? Do you want a divine mandate to mess around? Then the Trickery Domain Cleric may be the character for you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "DnD 5e’s Trickery Domain is the closest that the Cleric ever gets to being a rogue, and it may be the cleric’s best excuse for considering light armor. With options like Blessing of the Trickster and Pass Without Trace, a trickery cleric is both an effective sneak and a welcome member of any party which needs to rely on stealth to get by. Trickery clerics also get access to some illusion and enchantment spells which are normally unavailable to clerics."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Despite these capabilities, few characters benefit so readily from multiclassing. Trickery clerics get a lot of things that can make them feel a bit like a rogue, but they’re wholly unable to replicate the Rogue’s crucial skill proficiencies. Starting your build with a level of rogue takes the trickery cleric from a supporting role in a party of tricky characters to a uniquely capable character, combining the Rogue’s excellent skill proficiencies with the divine might of a cleric."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, this class dip isn’t necessary by any means. Many problems that the Rogue solves by mundane means can be solved using spells on the Trickery Domain’s spell list, such as Disguise Self (replacing disguise kits), Charm Person (replacing Face Skills), and Pass Without Trace (replacing or at least augmenting Stealth). This is one of those class dips where you can easily take as much or as little as you like and still have an effective character either way."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trickery Domain Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Stealth Build",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#stealth-build"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Subterfuge Build",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#subterfuge-build"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Half-Elf Trickery Cleric / Rogue",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#example-build-halfelf-trickery-cleric-rogue"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#feats-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Trickery Domain Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Domain Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Lots of really fun\n\t\t\toptions, many of which aren’t normally available to Clerics.\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st Level"
+              },
+              {
+                "type": "text",
+                "text": ": Disguise Self and Charm\n\t\t\t\t\tPerson can diffuse quite a few social situations. Charm Person can’t\n\t\t\t\t\tcompletely replace a real Face, but it gets pretty close."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd Level"
+              },
+              {
+                "type": "text",
+                "text": ": Mirror Image is arguably\n\t\t\t\t\tbetter than having a decent AC, and Pass Without a Trace turns a party\n\t\t\t\t\tof stompy Fighters into a roaming ball of quiet murder."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Blink gives you a 50%\n\t\t\t\t\tchance to be untargetable between turns, which is great since you’re\n\t\t\t\t\tprobably your party’s healer, so it costs you very little to be\n\t\t\t\t\tuntargetable by allies and prevents you from drawing unwanted\n\t\t\t\t\tattention. Dispel Magic is technically situational, but it’s so useful\n\t\t\t\t\tand important that not preparing it can often be a lethal mistake."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Dimension Door is good\n\t\t\t\t\tshort-distance teleportation that the vast majority of clerics simply\n\t\t\t\t\tcan’t replicate. Polymorph is one of the most versatile effects in the\n\t\t\t\t\tgame, and can allow you to solve a wide variety of problems with the\n\t\t\t\t\tright beast form. Remember that you don’t need to cast it on yourself,\n\t\t\t\t\tso turning an ally into a dinosaur and riding them around is\n\t\t\t\t\tabsolutely an option,"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Modify Memory is very\n\t\t\t\t\tsituational, but Dominate Person is a great way to turn a powerful\n\t\t\t\t\thumanoid enemy into a fun pet for up to a minute."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blessing of the Trickster"
+              },
+              {
+                "type": "text",
+                "text": ": You can’t\n\t\t\tuse this on yourself, so either use it on whoever in your party is making\n\t\t\ta ton of noise stomping around in heavy armor or put it on your party’s\n\t\t\tScout and send them off on their own. Between this and Pass Without Trace,\n\t\t\tstealth checks are nearly guaranteed to be successful for your party."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity: Invoke Duplicity"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t\tThis can be difficult to use effectively, but once you get your head\n\t\t\taround it, it’s very potent. Keep in mind that it requires Concentration,\n\t\t\tso you can’t combine it with staple cleric options like Spirit Guardians,\n\t\t\tand since it uses your Bonus Action to move it, you may struggle to use this at\n\t\t\tthe same time as Spiritual Weapon.\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The best use case is to put the illusion somewhere visible while you’re\n\t\t\t\thidden nearby and use the illusion as the origin point of your\n\t\t\t\tshort-range spells. Options like Word of Radiance are much safer when\n\t\t\t\tyou can walk your illusion into a crowd of enemies to cast it, and since\n\t\t\t\tthe illusion isn’t a creature it’s not worried about things like\n\t\t\t\tOpportunity Attacks, area control effects, or even enemy creatures\n\t\t\t\tblocking spaces."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You can use the illusion to get yourself Advantage in melee, but I’m\n\t\t\t\tnervous to recommend capitalizing on that as a go-to tactic. In only\n\t\t\t\tmedium armor you’re not as durable as other front-line clerics, and weapon\n\t\t\t\tattacks aren’t a great option for clerics most of the time. Easy access\n\t\t\t\tto Advantage may make weapons viable compared to cantrips (which is very\n\t\t\t\thard for most clerics to do), especially once you get Divine Strike, but\n\t\t\t\tdon’t let that compel you to build around melee. This notably applies to\n\t\t\t\tall attacks, so the Advantage offsets disadvantage for making ranged\n\t\t\t\tattacks, and it also applies to spell attacks so you can deliver spells\n\t\t\t\tlike Inflict Wounds and Spiritual Weapon with Advantage."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you’re happy using your illusory double as a distraction and as a\n\t\t\t\tcourier for your spells, you can totally ignore the Advantage part of\n\t\t\t\tInvoke Duplicity and you’ll still do just fine."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Strangely, Invoke Duplicity doesn’t offer details on how to handle\n\t\t\t\tinteraction with the illusory double. What happens if the illusion is\n\t\t\t\tattacked? Can creatures disbelieve it, and if they do so, how do they\n\t\t\t\tthen perceive the illusion? If creatures are aware that the double is an\n\t\t\t\tillusion, do you still get Advantage on attacks when you and your double\n\t\t\t\tare adjacent to a creature? Jeremy Crawford has confirmed that the\n\t\t\t\tduplicate is\n\t\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "immune to damage and that weapons pass right through it",
+                "href": "https://twitter.com/JeremyECrawford/status/775482420497756161"
+              },
+              {
+                "type": "text",
+                "text": ", but that’s the only useful rules answer that I’ve found on the\n\t\t\t\tsubject."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity: Cloak of Shadows"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t\tInvisibility is great, but one round just isn’t enough. It’s immensely\n\t\t\tfrustrating that this is the Trickey Domain’s only option for\n\t\t\tinvisibility."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine Strike"
+              },
+              {
+                "type": "text",
+                "text": ": Poison is among the\n\t\t\tmost commonly-resisted damage types in the game, and immunity is common\n\t\t\ttoo. Bring damage cantrips for foes like undead and constructs. See also:\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Divine Strike vs. Cantrips",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#divine-strike-vs-cantrips"
+              },
+              {
+                "type": "text",
+                "text": ",\n\t\t\tabove."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improved Duplicity"
+              },
+              {
+                "type": "text",
+                "text": ": This allows you to\n\t\t\tkeep duplicates near all of your allies to buff or heal them with touch\n\t\t\trange spells, to keep your enemies confused about your position and\n\t\t\tideally to trick them into wasting attacks/spells on your duplicates, to\n\t\t\tdeliver short-range spells like Harm from a safe distance, and to move\n\t\t\tbetween targets and get Advantage on melee attacks against them."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Trickery clerics are somewhat unique among clerics. They are expected to engage in an unusual amount of stealth and trickery. This may mean that you want more Dexterity and/or Charisma than a typical cleric. By making some sacrifices with our other ability scores we can support the skills we intend to use. You may also want more Dexterity than a typical cleric if you intend to use a weapon. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, it’s hard to be good at everything, so I recommend focusing on either stealth (Dexterity-heavy) or subterfuge (Charisma-heavy). It’s entirely possible to find a happy median between the two, but since you only get so many skill proficiencies it’s often easier to focus on one set of capabilities and leave the rest to your party."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-stealth-build",
+      "parentSectionId": "section-ability-scores",
+      "heading": "Stealth Build",
+      "sourceAnchor": "stealth-build",
+      "blocks": [
+        {
+          "blockId": "block-section-stealth-build-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build emphasizes Dexterity to support Stealth and Thieves’ Tools, which are crucial proficiencies if you intend to replace a rogue in your party. If you intend to use a weapon, this is your best bet. If you want to use a weapon in melee, a few levels in rogue will do a lot to make you more effective, and your unusually high Dexterity will support your attempts to use a weapon. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stealth-build-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stealth-build-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": This is why you’re here."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stealth-build-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": HP, Con saves, Concentration."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stealth-build-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump unless you care about Investigation."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stealth-build-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Spellcasting is still your go-to option in combat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stealth-build-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": You can likely afford 10 at 1st level, but likely won’t go any further."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stealth-build-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-subterfuge-build",
+      "parentSectionId": "section-ability-scores",
+      "heading": "Subterfuge Build",
+      "sourceAnchor": "subterfuge-build",
+      "blocks": [
+        {
+          "blockId": "block-section-subterfuge-build-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A little bit more Charisma than the Stealth build gives us better bonuses to social skills. If you’re going into a lot of social situations (maybe you’re your party’s Face, or you’re in a campaign with lots of intrigue), improving your Charisma will make a big difference."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-subterfuge-build-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-subterfuge-build-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": 14 is plenty."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-subterfuge-build-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": HP, Con saves, Concentration."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-subterfuge-build-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-subterfuge-build-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Spellcasting is still your go-to option in combat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-subterfuge-build-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": A little bit will go a long way."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-subterfuge-build-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ability increases to Dexterity and Wisdom or Wisdom and Charisma are crucial, depending on whether you want a stealth built or a subterfuge build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you can get three ability score increases, that’s ideal if you want to pursue both stealth and subterfuge. Races like the Half-Elf and anything published after Tasha’s Cauldron of Everything make that possible. You may also want additional skill proficiencies, especially if you want to use both sneaky skills and Face skills. Races like the Half-Elf, the Kenku, and the Tabaxi are all excellent candidates. The Variant Human can also fit the bill, especially if you take a feat like Skill Expert. The variant High Half-Elf can get Booming Blade without 3 levels of rogue or Magic Initiate."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re fine focusing solely on one aspect of the trickery cleric, you only need two ability score increases. Mountain dwarves with the custom origin rules offer two +2 increases, which is tempting if you want to start with 17 in both Dexterity and Wisdom. Variant human is always great choice, especially if you take a feat which lets you add another +1 on top of one of your racial ability score increases."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Trickery domain doesn’t strictly need a feat, and in fact feats can be very difficult to fit into the build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Magic Initiate"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Access to weapon attack cantrips like Booming Blade can make weapons much more effective. Minor Illusion also provides a great utility option. For your leveled spell, consider options like Hex and Mage Armor."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skill Expert"
+              },
+              {
+                "type": "text",
+                "text": " "
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": A broadly useful option to improve your skill capabilities."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unless you take a dip into rogue, there is no reason to use a weapon. Learn Sacred Flame and Toll the Dead instead and rely on spells. This section assumes a rogue dip."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Crossbow, Light"
+              },
+              {
+                "type": "text",
+                "text": ": Your go-to ranged weapon. Unless you pick up Booming Blade to make your melee attacks meaningful, this is almost certainly your weapon of choice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dagger"
+              },
+              {
+                "type": "text",
+                "text": ": Your go-to melee option unless you dip into rogue to get proficiency in rapiers. You can also throw it, which makes it easy to leave your hand free to cast spells."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rapier"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re going to use a weapon, you likely want all the\ndamage you can get."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you start with a level in rogue, you’ll start with leather armor. Once you have a level of cleric you’ll have proficiency in medium armor and shields. Grab a shield and upgrade to breastplate as soon as possible. If you ever get to 20 Dexterity, Studded Leather will be more effective, but that’s unlikely."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-armor-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you start with a level in cleric, you’ll likely start in scale mail. Upgrade to a breastplate as soon as possible. If you can get mithral half-plate, that’s even better."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+      "heading": "Example Build – Half-Elf Trickery Cleric / Rogue",
+      "sourceAnchor": "example-build-halfelf-trickery-cleric-rogue",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-halfelf-trickery-cleric-rogue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Let’s try to do all of the things. It’s going to be somewhat hard, and there will be some gaps where our effectiveness dips a bit, but the results are fun. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-halfelf-trickery-cleric-rogue-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There’s also plenty of room to customize this build to your taste and your party’s needs, which is always nice in an example build. For example: If your party already has a Face, you need fewer skills, so you can explore races that don’t offer skill proficiencies and put Expertise into something other than Deception."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll use a slightly modified version of the Subterfuge ability scores from above to take advantage of the PHB Half-Elf’s unique ability score increases. If you use the custom origin rules, you could rearrange these to start with 17 in Dex or Wis, but it’s not significantly better unless you’re looking at feats which offer a +1 ability score increase."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Half-elf. We can use the default rules for half-elves in this case. Two extra skills will make it easier for us to cover both stealth and subterfuge."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You could instead choose the variant High Half-Elf and get Booming Blade, offering a useful boost to our weapon attacks on turns when you’re not casting a spell, but costing the half-elf’s two skill proficiencies. I recommend dropping Intimidation and Sleight of Hand if you go this route. Sleight of Hand comes from our background, but the PHB specifies that you can replace the proficiencies in a background, so RAW that’s totally allowed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Between our race, class, and background, we get 8 skill proficiencies and three tools."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Skills:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Deception"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Insight"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Intimidation"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Investigation"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Perception"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Persuasion"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sleight of Hand"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stealth"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tools:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-5",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Disguise Kit"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Forgery Kit"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thieves’ Tools"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll also get Expertise in two things. It’s hard to pick which things to select, but since Charisma is our weak point it may be a good idea to pick Deception and one other thing. You can almost certainly skip Stealth since you’ll be able to cast Pass Without Trace, which is massively better than Expertise."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Charlatan. It’s a great idea of a character who might worship a god of trickery, and combination of skills and tools makes you well equipped to accomplish your goals by a variety of deceptive means. The False Identity feature is great, too. Consider having your false identity be a cleric of a different deity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+      "heading": "Feats",
+      "sourceAnchor": "feats-2",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We won’t plan to take feats in this build. We’re already building a MAD character, so we want all the ASIs we can get."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1 – Rogue 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Expertise (Deception, Thieves’ Tools)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sneak Attack 1d6"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Thieves’ Cant"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level you’re basically just a rogue with weirdly high Wisdom. Your skills are your go-to option outside of combat, and even as we add spellcasting, they’ll remain your go-to option much of the time."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2 – Cleric 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Proficiency in light/medium amor and shields"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips: Guidance, Sacred Flame, one other"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Domain (Trickery)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blessing of the Trickster"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Trickery Domain Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With 16 Dexterity and Sneak Attack, you’re effective with weapons, provided that you can trigger Sneak Attack. Grab a shield and a breastplate, and your AC can be as high as 18 before spells, making you reasonably durable. Charm Person and Disguise Self can make social situations and infiltration much easier, easily offsetting your relatively low Charisma compared to most Face characters."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Decent damage output, decent durability, good skills, and staple cleric spells like Bless and Healing Word. Pretty great for level 2, and you can already get up to all kinds of trickery."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 – Cleric 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (1/rest)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity: Invoke Duplicity"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity: Turn Undead"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Invoke Duplicity provides an easy way to get Advantage on attacks in melee, thereby triggering Sneak Attack. However, it does create competition for your Bonus Action. You have good Bonus Action spells like Healing Word, Sanctuary, and Shield of Faith."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 – Cleric 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2nd-level spells "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This level gives us access to Pass Without Trace, suddenly making Stealth checks very easy for your whole party. If you’re nervous, you can cast Guidance, too, but you have +15 to Stealth checks already, so you’re in good shape."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You might attempt to use Spiritual Weapon in conjunction with Invoke Duplicity, but be mindful of your Bonus Action. Most clerics lean on their Bonus Action for Spiritual Weapon, and while Spiritual Weapon is still an option, you’ll also need your Bonus Action to move your illusory double."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "There will be turns where you need to cast a spell as an Action and turns where you’re happy to keep your double where it is. On those turns, Spiritual weapon is often great choice for your Bonus Action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You also get Mirror Image at this level. It’s a 1-minute defensive buff that doesn’t require Concentration, so it’s pretty great. But you may need to save it for higher levels when you have more spell slots."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 – Cleric 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Cantrip: Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Wis 16 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrip Damage Increases"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "While we’ve enjoyed using weapons to this point, cantrips will now become a more reliable source of damage output. We’ll increase Wisdom at this level, but don’t worry: We’ll go back to stabbing things in a few levels."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 – Cleric 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3rd-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 1/2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3rd-level spells bring powerful options like Spirit Guardians. Sadly, Invoke Duplicity requires Concentration, but in fights where your illusion isn’t working, when you’re out of Channel Divinity, or when you’ve lost Concentration on Invoke Duplicity, Spirit Guardians is still a terrifying magical blender."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This level also gives us useful options like Clairvoyance/Clairaudience and Tongues. If your DM allows spells from the Acquisitions Incorporated source book, consider Fast Friends. It’s like a super-charged version of Charm Person."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 – Cleric 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (2/rest)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity: Cloak of Shadows"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity twice per rest means that you can use it in nearly every encounter. That’s excellent since it’s a consistent source of Advantage on melee attacks once we go back to doing that, but until then it’s a great way to walk into crowds to cast short-range spells like Word of Radiance."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cloak of Shadows is disappointing. Ignore it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 – Cleric 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th-level spells "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th-level spells include wonderful options like Polymorph (from the Trickery spell list) and Stone Shape, and those two spells alone offer such a fantastic toolbox of options for mischief that you can probably solve most of your problems with just those two things."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 – Cleric 8 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Dex 16 -> 18) "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 1)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blessed Strikes"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level we look back to our weapon. The Optional Class Feature Blessed Strikes is a much-needed replacement for Divine Strike, both because poison damage is weak and because our build can use both weapon attacks and cantrips."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10 – Rogue 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cunning Action"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level we look back to the Rogue. Cunning Action generally won’t do much for us since we’re frequently working through Invoke Duplicity, but if Invoke Duplicity goes down, Cunning Action is a great way to get ourselves out of trouble. You can also use Invoke Duplicity to cast spells from your illusion’s space, then us Cunning Action to hide after you give away your position by performing Verbal components for spells."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11 – Rogue 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sneak Attack 2d6"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rogueish Archetype (Arcane Trickster)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrip: Booming Blade, Mage Hand, and Minor Illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st-level spells known: Mage Armor, any 2 enchantment/illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrip damage increases"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Booming Blade is very exciting at this level. We can now add up the damage of our rapier (1d8+4), Sneak Attack (2d6), Blessed Strikes (1d8), and the initial damage from Booming Blade (2d8) for an impressive total of 4d8+2d6+4. Not bad for something you can do functionally every round. Complement that with Spiritual Weapon (especially if you upcast it) and you’ve got a big pile of damage to throw around every turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I picked Arcane Trickster here exclusively for the spellcasting. We dumped Intelligence, so avoid anything that strays anywhere near a save DC, but you can get a ton of utility from Mage Hand and Minor Illusions, and for your leveled spells, Mage Armor (assuming you haven’t found decent magic armor by now), Silent Image, and Silvery Barbs will offer a ton of options. If your DM disallows Silvery Barbs (I can’t blame them), you don’t have any great options, so go with Illusory Script and use it for mischief and passing notes in class."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12+"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this stage, we have more than enough tools do accomplish all sorts of trickery. In combat, you have a brutally effective and repeatable attack option complement by 8 levels of cleric spellcasting. Outside of combat, you have a bunch of great utility spells and excellent skills."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Where to go from here is really up to you and your personal tastes. Another level of rogue gets you an ASI, and two will get you Uncanny Dodge. Weigh that against cleric spellcasting; level 5 spells are one level away. You could go back and forth, of course. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Or you could stick to cleric and look forward to the upgrade to Invoke Duplicity when you hit cleric 17 at level 20. Then you not only have enough capabilities to be a whole party, you can illusion enough copies of yourself to play an entire party!"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Trickery Domain Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Domain Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 1st Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 3rd Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 7th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 9th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Blessing of the Trickster"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Channel Divinity: Invoke Duplicity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Channel Divinity: Cloak of Shadows"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Divine Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Improved Duplicity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Magic Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Skill Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Crossbow, Light"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Dagger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Rapier"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"2\"><span class=\"rating-green\">Channel Divinity: Invoke Duplicity</span>: This can be difficult to use effectively, but once you get your head around it, it’s very potent"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-stealth-build-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-stealth-build-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-stealth-build-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-stealth-build-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-stealth-build-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-stealth-build-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-stealth-build-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-stealth-build-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-subterfuge-build-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-subterfuge-build-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-subterfuge-build-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-subterfuge-build-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-subterfuge-build-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-subterfuge-build-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-subterfuge-build-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-subterfuge-build-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-races-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-armor-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-example-build-halfelf-trickery-cleric-rogue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-example-build-halfelf-trickery-cleric-rogue-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-skills-and-tools-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-skills-and-tools-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-skills-and-tools-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-skills-and-tools-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3707,
+    "sections": 18,
+    "blocks": 52,
+    "tables": 4,
+    "ratingSignals": 33
+  },
+  "status": "needs-editorial-review"
+}

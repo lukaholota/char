@@ -1,0 +1,327 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "bard-swords-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+    "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "BARD_2014",
+  "subclassKey": "COLLEGE_OF_SWORDS",
+  "raceKey": "LIZARDFOLK_MPMM",
+  "backgroundKey": "KNIGHT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "spells": {
+        "knownSpellKeys": [
+          "longstrider"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "subclassKey": "COLLEGE_OF_SWORDS",
+      "subclassOptions": [
+        {
+          "optionNameEng": "Dueling (Swords)"
+        }
+      ],
+      "expertise": [
+        "PERCEPTION",
+        "PERSUASION"
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "warding-wind"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "WAR_CASTER",
+      "section": "section-feats-2",
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "hypnotic-pattern"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "spells": {
+        "knownSpellKeys": [
+          "catnap"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "spells": {
+        "knownSpellKeys": [
+          "greater-invisibility"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2",
+      "spells": {
+        "knownSpellKeys": [
+          "polymorph"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "spells": {
+        "knownSpellKeys": [
+          "synaptic-static"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "expertise": [
+        "INTIMIDATION",
+        "INSIGHT"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "ottos-irresistible-dance"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "forcecage"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "spells": {
+        "knownSpellKeys": [
+          "mind-blank"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "featKey": "METAMAGIC_ADEPT",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 17,
+      "spells": {
+        "knownSpellKeys": [
+          "foresight"
+        ]
+      }
+    },
+    {
+      "level": 18,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Дротики за золото передісторії",
+      "reason": "Автор радить витратити золото Лицаря на дешеві дротики для метання; пресет не записує купівлю за золото.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Набір для гри Лицаря",
+      "reason": "Автор називає набір для гри від Лицаря (або Злодійські інструменти, якщо в групі немає Пройдисвіта); пресет не записує вибір ігрового набору й заміну володіння.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Замовляння на 4-му рівні",
+      "reason": "Автор бере «будь-яке» нове замовляння; його обирає гравець.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання «Підтримка» на 4-му рівні",
+      "reason": "Автор бере Підтримку (Aid), але вона не входить до списку заклинань Барда в каталозі, тож платформа її не приймає; нове заклинання 4-го рівня лишено гравцеві (openSpellPicks).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Експертиза на 10-му рівні",
+      "reason": "Автор пише «будь-які 2 навички» і не називає їх; пресет бере Залякування й Аналіз поведінки (вибір платформи, можна змінити на листі).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Магічні таємниці на 10, 14 та 18-му рівнях",
+      "reason": "Автор бере Пошук вищого скакуна й Клинок тіні (10-й), Обачливість і Тензерову трансформацію (14-й), Стихійну зброю й Бажання (18-й); платформа відхиляє заклинання поза списком Барда (помилка компілятора: «Обране заклинання не з вашого списку класу або зависокого рівня»), тому їх обирає гравець (вибір платформи, автор їх називає). Замовляння на 10-му рівні в таблиці не вказане, його теж обирає гравець.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Адепт метамагії",
+      "reason": "Автор бере «Подовжене заклинання» й «Пришвидшене заклинання»; риса в каталозі не має опцій (BUG-O49-METAMAGIC-ADEPT), тож записано лише саму рису.",
+      "section": "section-feats-2"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/bard-swords-2014.webp",
+    "title": "Бард — Колегія мечів, Ящеролюд",
+    "description": "Ящеролюд-Лицар із КБ 16 на старті: Спритність, Статура й Харизма по 16, рапіра й шкіряна броня. Колегія мечів відкриється на 3-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CON",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INTIMIDATION",
+        "INSIGHT",
+        "SLEIGHT_OF_HAND"
+      ],
+      "race": [
+        "PERCEPTION",
+        "STEALTH"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "thunderclap",
+        "vicious-mockery"
+      ],
+      "knownSpellKeys": [
+        "dissonant-whispers",
+        "faerie-fire",
+        "healing-word",
+        "heroism"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Два замовляння й чотири заклинання названі автором."
+    },
+    "abilityExplanation": "Ящеролюд із власним походженням за правилами Таші: по +1 до Спритності, Статури й Харизми, як у авторській таблиці (усі три — 16); це вже враховано.",
+    "skillExplanation": "Уважність і Непомітність — від Ящеролюда, Історія й Переконання — від Лицаря, а Бард додає Залякування, Аналіз Поведінки й Спритність рук, як у авторському розділі. Дві мови (одну від раси, одну від передісторії) ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Автор радить рапіру, шкіряний обладунок, кинджал і «будь-який набір»: рапіру, шкіряну броню й кинджал узято за ним, а набір дипломата й лютню ми обрали за вас — це вибір платформи, його можна змінити."
+  }
+}

@@ -1,0 +1,2753 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "7ec8691593bfc7383dd0b597236f1a3c1166e64c0e3a239f31cc86a7bed62c4f",
+  "sourceRevision": {
+    "revisionId": "rpgbot-07aa684b655a93fe-7ec8691593bfc738",
+    "sourceId": "rpgbot-07aa684b655a93fe",
+    "fetchedAt": "2026-09-29T19:08:20.517082+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:30:01-04:00",
+    "contentHash": "fae3a4bafde668a3da97cd319e3793221b0879638c5fdbf9683ed6b075c0b047",
+    "title": "Grave Domain Cleric 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-07aa684b655a93fe-7ec8691593bfc738.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Grave Domain Cleric is intended to be a healthy mix of supportive damage and supportive healing, preventing the ones you care about from stepping into an early grave while showing your enemies the fastest way there. Unlike many domains, the main power comes not from a feature, but from your Channel Divinity option. Path to the Grave is a powerhouse, providing an enormous boost to damage for a single attack for anyone in your party. This can feel like a class pigeon-holed into being a backline, somewhat mechanically boring upport Cleric whose main job is making everyone else feel safe and powerful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You absolutely can play it that way and have a lot of fun. Ideally, that’s actually what all casters "
+            },
+            {
+              "type": "emphasis",
+              "text": "should "
+            },
+            {
+              "type": "text",
+              "text": "do because otherwise you’d just be stunting on your martials from level 5 onward. But eventually you’ll have played that type of character a few times, or perhaps that’s just not the kind of character you’re interested in. If that’s the case, and you don’t mind being the edgy character that loves hanging out in graveyards because their god asked them to, I have a whole different path to show you."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Grave Domain Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Grave Domain Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#grave-domain-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Grave Domain Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#grave-domain-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Grave Domain Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#grave-domain-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Grave Domain Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#grave-domain-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Grave Domain Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#grave-domain-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Grave Cleric Build – One Punch",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#example-grave-cleric-build-one-punch"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/grave/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Grave Domain Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Domain Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Excellent, with a\n\t\t\thandful of spells that won’t be especially useful on a regular basis.\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st Level"
+              },
+              {
+                "type": "text",
+                "text": ": False Life provides\n\t\t\t\t\ttemporary hit points for an hour. As a 1st-level spell it will\n\t\t\t\t\teventually become a trivial expenditure of your daily spellcasting.\n\t\t\t\t\tWhen you get to high levels, casting this before your first and after every fight\n\t\t\t\t\tis a great use of a spell slot. Oh, and you get some other spell\n\t\t\t\t\tthat’s already on your spell list that I don’t care for."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both spells are\n\t\t\t\t\tsituational, and neither is particularly good."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Revivify is a cleric tax,\n\t\t\t\t\tand every cleric should take it because it’s too good to not do so.\n\t\t\t\t\tVampiric Touch is a great option if you get dragged into melee, but\n\t\t\t\t\ttry to avoid needing it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7th Level"
+              },
+              {
+                "type": "text",
+                "text": ": A decent damage option\n\t\t\t\t\tthat’s not on the Cleric spell list, and a crucial buff with a nice,\n\t\t\t\t\tlong duration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Antilife Shell is a\n\t\t\t\t\tfantastic defensive option which will keep melee enemies at bay while\n\t\t\t\t\tyou kill them with ranged spells. Saddling you with Raise Dead every\n\t\t\t\t\tday is pointless."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Circle of Mortality"
+              },
+              {
+                "type": "text",
+                "text": ": This makes Cure\n\t\t\tWounds considerably more appealing when an ally hits 0 hit points. The\n\t\t\tdifference in the amount healed between Cure Wounds and Healing Word can\n\t\t\tbe significant, especially if you up-cast the spells. This on its own is\n\t\t\tgreat, but it only marginally improves the tactical benefit of in-combat\n\t\t\thealing. The ability to use Spare the Dying at range as a Bonus Action is\n\t\t\tintended to fill in for Healing Word so that Cure Wounds is more\n\t\t\tappealing, but personally I still think that Healing Word is a better\n\t\t\ttactical option in most cases.\n"
+              },
+              {
+                "type": "text",
+                "text": "You can notably choose to cast Spare the\n\t\t\tDying as either an Action or a Bonus Action, which is neat if you want to\n\t\t\tdo something like cast Sacred Flame (an Action) in the same turn. Just\nremember that if you cast any spell as a Bonus Action, including a cantrip, you can’t cast leveled\nspells that turn."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Circle of Mortality can be abused by taking allies who are at very few\n\t\t\t\thit points and beating them unconscious to get extra free healing, which\n\t\t\t\tcan be cathartic, but your allies may be nervous about allowing you to\n\t\t\t\tdo so and your DM might get ideas about imposing a drawback of some\n\t\t\t\tkind."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Eyes of the Grave"
+              },
+              {
+                "type": "text",
+                "text": ": Detect Evil is on the\n\t\t\tCleric spell list, and does the same thing, but detects more creatures.\n\t\t\tSure, the area is smaller, but that doesn’t seem like enough to make this\n\t\t\tmeaningful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity: Path to the Grave"
+              },
+              {
+                "type": "text",
+                "text": ": Use\n\t\t\tthis with a rogue or with a spellcaster with a high-damage spell that\n\t\t\trequires an attack like Inflict Wounds."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sentinel at Death’s Door"
+              },
+              {
+                "type": "text",
+                "text": ": Critical hits\n\t\t\ton your allies can turn a tough fight into a crushing defeat in a single\n\t\t\troll. Abilities which mitigate critical hits are few and far between,\n\t\t\tmaking this a rare and potent defensive option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Potent Spellcasting"
+              },
+              {
+                "type": "text",
+                "text": ": By this level you\n\t\t\tcan easily have 20 Wisdom, giving an excellent boost to your damage\n\t\t\toutput. Note that this only applies to Cleric cantrips, so you can’t use\n\t\t\tit in conjunction with Magic Initiate or cantrips gained by\n\t\t\tmulticlassing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Keeper of Souls"
+              },
+              {
+                "type": "text",
+                "text": ": This probably won’t\n\t\t\tprovide a significant amount of healing, but it’s a fun passive ability\n\t\t\tand it might even allow you to rescue an ally at 0 hit points without\n\t\t\tcutting into your actions on your turn."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-grave-domain-ability-scores",
+      "heading": "Grave Domain Ability Scores",
+      "sourceAnchor": "grave-domain-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-grave-domain-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from other medium-armored Clerics."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grave-domain-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grave-domain-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Take it to 14, ignore it forever"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grave-domain-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Protects against the most important status effect – death."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grave-domain-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grave-domain-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": The Cleric’s spells and class features are powered by Wisdom."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grave-domain-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-grave-domain-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-grave-domain-races",
+      "heading": "Grave Domain Races",
+      "sourceAnchor": "grave-domain-races",
+      "blocks": [
+        {
+          "blockId": "block-section-grave-domain-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from other Clerics."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-grave-domain-feats",
+      "heading": "Grave Domain Feats",
+      "sourceAnchor": "grave-domain-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-grave-domain-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Depending on party composition, there’s one feat that shines for Grave clerics more than others: Metamagic Adept. While your Channel will last until the end of your next turn, getting to follow it up with a quickened big damage spell can be the difference between an enemy living long enough to do an entire extra turn’s worth of damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-grave-domain-weapons",
+      "heading": "Grave Domain Weapons",
+      "sourceAnchor": "grave-domain-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-grave-domain-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from most other "
+            },
+            {
+              "type": "link",
+              "text": "Clerics",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#weapons"
+            },
+            {
+              "type": "text",
+              "text": ". Weapons are largely for show and you’ll nearly always be holding a shield and a spellcasting hand."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-grave-domain-armor",
+      "heading": "Grave Domain Armor",
+      "sourceAnchor": "grave-domain-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-grave-domain-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from other medium-armored "
+            },
+            {
+              "type": "link",
+              "text": "Clerics",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#armor"
+            },
+            {
+              "type": "text",
+              "text": ". Walk out in scale, buy half plate when you can."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Say, remember the Quicken trick I mentioned above? That works a lot better if you get more than 2 sorcery points a day. Specifically, it works great if you take two levels of Sorcerer (you don’t need more Metamagic styles, just the ability to burn slots into points). What flavor of Sorcerer? Ironically, Divine Soul really is the best, because Favored by the Gods can turn a low attack roll into a success and help you land a crucial pile of damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-grave-cleric-build-one-punch",
+      "heading": "Example Grave Cleric Build – One Punch",
+      "sourceAnchor": "example-grave-cleric-build-one-punch",
+      "blocks": [
+        {
+          "blockId": "block-section-example-grave-cleric-build-one-punch-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "I wanna be the strongest hero."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-grave-cleric-build-one-punch-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "–"
+            },
+            {
+              "type": "link",
+              "text": "Jam Project",
+              "href": "https://www.youtube.com/watch?v=QImBolnTVH8"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-grave-cleric-build-one-punch-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is going to focus on combining the Channel Divinity with the highest-damage-scaling spell requiring an attack roll in the game: Inflict Wounds. Our goal is to one-hit KO anything we set our sights on, because the best way to prevent damage to your party is to remove the source before it gets to act. To do this, we’ll be multiclassing as described above."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-grave-cleric-build-one-punch-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you don’t want to multiclass, the build can be played as a much more supportive character who only gets to Falcon Punch things once a day rather than (eventually) the majority of rounds. If that’s the case, you spend a lot more time coordinating your uses of Channel with your allies, particularly those with huge single attacks like Rogues. Consider investing in improvements to your initiative rolls (the Alert feat, a Sentinel Shield, etc.) so that you can act early to get Path to the Grave up before your allies get their first turn."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-grave-cleric-build-one-punch",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We only get a +2 increase from Custom Linease, and we’re putting it into Wisdom."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-grave-cleric-build-one-punch",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom Lineage. Walking out with Metamagic Adept means we can start doing our shenanigans as early as level 2 and still stay on track with the "
+            },
+            {
+              "type": "link",
+              "text": "fundamental math",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": ". Take Darkvision because we don’t need extra skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-grave-cleric-build-one-punch",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Hermit and trade out the skills for Perception and Persuasion. We mostly just want everyone to leave us alone so we can focus on getting good deals on meat at the market."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-grave-cleric-build-one-punch",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Insight and Medicine from the class to round out the useful Wisdom skills, and the Herbalism Kit from the background will come in handy to make potions while you wander."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-grave-cleric-build-one-punch",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We start at level 1 with Metamagic Adept thanks to Custom Lineage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 4 gets us Fey Touched."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cleric 8, total level 10, we take an ASI and cap Wisdom."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cleric 12, total lerel 14, gets us Resilient (Con)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cleric 16, total level 18, gets us Inspiring Leader."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-grave-cleric-build-one-punch",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) & Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1 – Cleric 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sacred Flame"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Toll the Dead"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Domain Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Bane"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": " False Life"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Circle of Mortality"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Eyes of the Grave"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Metamagic Adept:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Quicken Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Extend Spell"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level, you’re not much different than most other Clerics except that you can do a neat trick once per day where you Quicken an Inflict Wounds and then follow it up with Toll the Dead on your freshly wounded target, dealing an average of 23 damage if both parts connect. If you’d rather have this be two combat tricks, you can instead Extend the casting of Command to be two rounds. Using the Flee option on something for two rounds instead of one is nearly a kill spell because it will be gone from the fight for longer than an average fight (remember that they need to run back to the fight, which takes just as long). "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Circle of Mortality means you can prepare Cure Wounds instead of Healing Word and get more healing out of standing someone up after a fight. At this level, with your 17 Wisdom, 11 hp will put all but the beefiest characters back to full and you can do that on a turn when you’re not trying to set something on fire or remind it for whom the bell tolls."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Eyes of the Grave means we don’t- just kidding, no one would ever prepare this Detect spell anyway."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We walk out with Scale Mail and a Shield for a total 18 AC, putting us on par with a standard frontliner and therefore unafraid to wade in and deliver these touch-range Inflicts."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2- Cleric 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity: Path to the Grave"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now it really comes down to finding the biggest thing on the battlefield and telling it the Path to the Grave is your fist full of necrotic damage. The 33 average damage dealt by a Channel -> Quickened Inflict combo is enough to oneshot fully 75% of monsters CR2 or lower; if you only count CR 2 monsters we still murder over a third of the published monsters in one turn. We can only do this once a day right now, but we’ll work on fixing that in a few levels. In the meantime, when our Channel recharges during the rather-likely short rest that happens in the day, use it for a big attack from your martial friends."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Because the main feature of this build is your Channel, strongly advocate for short rests between fights. Things will start to break down pretty hard for your numbers if you don’t have your Channels. This is also required for recharging your Sorcery Points later on since you will never be able to hold more than 4 at once throughout your career and the math later on assumes you use all 4 every fight."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember that while your Channel Divinity is on cooldown, you’re still a cleric. You can still rely on cleric staples like Bless, Spiritual Weapon, and Spirit Guardians."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 – Cleric 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Domain Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Gentle Repose"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Ray of Enfeeblement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You may start encountering things that resist Necrotic damage. They’re basically all undead, but regardless, the number of things that resist that "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "and"
+                },
+                {
+                  "type": "text",
+                  "text": " Radiant damage is almost exclusively Aasimar NPCs. If you run into something that you think might be so profoundly shadowy as to resist your Inflict, hit it with Guiding Bolt instead."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Speaking of spells, you get second-level slots. You also get second-level spells, but, astonishingly, there are no spells above first level that require an attack roll and deal all of their damage at once. Acid Arrow does the largest amount of upfront damage and Scorching Ray does more total damage, but the wording on Path to the Grave is that it applies for a single Attack, not a single triggering event. What this means is that we can prepare staples like Lesser Restoration and Spiritual Weapon, but we’re always going to want to save that highest-level slot for an upcast Inflict."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I’m going to start using DPR (meaning accuracy is included) now instead of just average damage, because low-levels are pretty dependent on dice but we need to measure ourselves against real strikers here and see how we’re doing. One-round DPR for a Channel into Quickened Inflict goes from 23 to 30 at this level with a 2nd-level Inflict Wounds."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 – Cleric 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fey-Touched (+1 Wis):"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember how we need to take one attack and make it huge? Hex is the way to do it right now. Turn one, Hex something and Sacred Flame something else (since Sacred Flame won’t apply the Hex damage anyway and we’re honor-bound to only attack something once), next turn big punch it. That takes the one-turn DPR up to 35.5."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 – Cleric 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Domain Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Revivify"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Vampiric touch"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I can’t physically stop you from preparing Spirit Guardians and turning a fight into a slowed blender, but I would like to try."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "One neat trick is that, thanks to the wording on Vampiric Touch, if you quicken it, you can use your action on the turn you cast it to attack with it again, getting 6d6 of possible damage (average 21) and therefore 10 points of healing back."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 – Cleric 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR ½)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (2/rest)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sentinel at Death’s Door"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sentinel at Death’s Door is an incredible feature until "
+                },
+                {
+                  "type": "link",
+                  "text": "OneD&D",
+                  "href": "https://rpgbot.net/one-dd-playtest-unearthed-arcana-character-origins/"
+                },
+                {
+                  "type": "text",
+                  "text": " happens and maybe makes it do literally nothing. At least for now, you can protect your party from stray crits. The fact that you get a scaling number of these per day is going to be almost irrelevant, but it can certainly feel good to shut down your DM when they’re on a hot streak or when the Assassin NPC comes a-knockin."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The bigger deal here is that we get a second Channel per short rest. This means that we can apply vulnerability twice in a fight, potentially vastly increasing the damage we can deal. We can still only Quicken once per day, though. How do we fix that?"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 – Sorcerer 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Prestidigitation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– True Strike"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Shape Water",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Bless"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Cure Wounds (Affinity)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored by the Gods"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Did I really just write True Strike into a serious optimization guide? Yes, I did. The turn before we want to do our big punch, action True Strike and bonus action Hex (either casting or moving) sets us up. Then we follow up with a Channel -> Quickened 4th-level Inflict for a staggering 62 average damage (which is only barely over the actual DPR of 61.38 thanks to the advantage massively increasing the hit and crit chance)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It was pointed out to me by a member of our "
+                },
+                {
+                  "type": "link",
+                  "text": "Patron Discord",
+                  "href": "https://www.patreon.com/rpgbot"
+                },
+                {
+                  "type": "text",
+                  "text": " that this doesn’t actually work because True Strike is, for some reason, a Concentration spell, as if it wasn’t already bad enough. On the one hand, since Hex only accounts for 2d6 damage across the 3-turn fight, you probably get more damage out of the True Strike because advantage on a huge number is much more impactful. On the other hand, you might be able to convince your DM to just let you have both because it’s not like this is going to be game-breaking, especially when you’re doing this instead of being a bugbear shooting a "
+                },
+                {
+                  "type": "link",
+                  "text": "million lasers",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#example-build-1-ambush-caster"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You may rightly call out that this only averages out to 30 DPR over the first two rounds, and we can "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "still"
+                },
+                {
+                  "type": "text",
+                  "text": " only do it once per day. You’re right, but bear with me. Favored by the Gods is going to mean it basically never misses (the DPR is actually higher than the average damage if we assume we’ll use it when needed), and even 30 DPR gets us into “High DPR” range at this level. That then leaves us a turn to be supportive at the end of the average fight, using our bonus action to stabilize someone and Toll the Dead to finish off something wounded (not by us, we killed our target)."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 – Sorcerer 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Absorb Elements"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Font of Magic"
+                }
+              ],
+              [
+                {
+                  "type": "emphasis",
+                  "text": "Oh boy."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "So, we now have 4 Sorcery points per day natively and can convert spell slots into more of them. Like I talked about in the "
+                },
+                {
+                  "type": "link",
+                  "text": "Sorcadin Handbook",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/"
+                },
+                {
+                  "type": "text",
+                  "text": ", we’re going to assume there are nine rounds of combat a day. Burning all but one 1st-level slot and one 2nd-level slot for points gets us up to 13, allowing us to quicken 6 times a day with a point left over in case something needs to be Extended. We, conveniently, have 8 slots of various levels left over. Spend a 3rd-level for an all-day Hex and then use the rest as follows."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rounds one and two look like I described above. Round three is now Channel at a different target, followed up with another Quickened Inflict, this time backed by Favored by the Gods since you don’t have advantage from True Strike. The slots we have for that are two 4th-level, two 3rd-level, and two 2nd-level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The math works out to just shy of 40 DPR in the first two fights (taking into account the 0-damage setup turn) and a bit over 32 in the last fight, for a total over 37. Why is that number important? Because it means we’re 20% ahead of “High DPR” according to the chart in the "
+                },
+                {
+                  "type": "link",
+                  "text": "Fundamental Math",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": " page while both behind on our fundamental math and doing it to a single target, something that’s much more valuable since it means we can do boring Spirit Guardians "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "or"
+                },
+                {
+                  "type": "text",
+                  "text": " murder things like a Rogue."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I do unfortunately have to point out that casting Spirit Guardians and then using subsequent turns to Channel for a real Rogue is substantially more DPR than this if that Rogue is even remotely optimized, but that’s not what we’re here for. We’re here for a five-finger death punch."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Special callout: If you can use your remaining slot in the last fight on a Silvery Barbs between your second and third turn, you can up the DPR a bit by giving yourself a higher crit chance."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 – Cleric 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Domain Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Blight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Death Ward"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If only Blight was an attack roll. Anyway, we get an extra 4th-level and a 5th-level slot. That increases our total DPR by 27%, bringing us over the baseline. Also, as a reminder, we do it by doing an average of over 80 damage on turn two. Sadly, this is an exponential game and you’re trying to compete with linear progression. Fortunately, we just learned last level that we can do consecutive normal punches."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "There are still 5 entries in the DnDBeyond monster search which you can kill in one shot with that average damage at CR 9, but one of them is immune to necrotic (although conveniently already vulnerable to Radiant, removing the need to Channel since it can’t be vulnerable twice), and the other three you’d actually fight are all NPC wizards."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10 – Cleric 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wis 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 1)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Potent Spellcasting"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The 4.3% DPR increase from capping Wisdom and the 8.7% DPR increase from spell slots combine to slightly more than 13% (because math), enough to keep us over baseline for the next 3 levels. We also have more low-level slots to throw into Silvery Barbs, helping ourselves or a party member to crit more."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If instead you have a friendly commoner who doesn’t mind hucking vials of acid at you, Absorb Elements does trigger on any melee attack (including spells), so you can pump as many slots as you have left over into beefing up your punches. Alternatively, you can pour alchemist’s fire on yourself, spend combat on fire, then extinguish yourself when everything is dead (except hopefully you). The only issue with that is that Fire is a very commonly resisted damage type while Acid is much less so. Just something to keep in mind."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I didn’t call this out earlier because of spell slot constrictions. This level is where you’re going to start to have room to have this feel like a great use of resources rather than leaving you out of gas."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11 – Cleric 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Domain Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Antilife Shell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Raise Dead"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "DPR goes up another 8%, 58.5."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12 – Cleric 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thaumaturgy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Intervention"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13 – Cleric 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "DPR without abusing Absorb Elements goes up to 65, roughly 40% above “high”. We’ll hover within 5-10% of that for the rest of our career under these conditions."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This is, however, conveniently the level where you have 6 additional slots to spend, a 1st, two 2nd, a 3rd, and two 4th. All dumped into upcasting Absorb Elements, that’s an additional 15d6 (doubled) acid damage per day, totaling 10 more DPR for 75. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As a reminder, upcasting Absorb elements doesn’t increase the effectiveness of Resistance, but does increase the number of bonus elemental damage dice of the next melee attack you make. In general, this is not a good trade as you’re using it for its defensive benefit. In this build, with these spell slots, that’s 1d6, 2d6, 2d6, 3d6, 4d6, and 4d6, totaling the previously mentioned 15d6 bonus damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Average Best One Punch (ABOP): 134. Notable CR 13 things this oneshots: Rakshasas, Narzugons, "
+                },
+                {
+                  "type": "link",
+                  "text": "the current Blackstaff",
+                  "href": "https://forgottenrealms.fandom.com/wiki/Blackstaff"
+                },
+                {
+                  "type": "text",
+                  "text": ", and the Jabberwock."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14 – Cleric 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Resilient (Con)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bump that Constitution save way up and stop worrying about dropping Hex."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15 – Cleric 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The spell slot shuffle nets us an additional d10 and d6 for our ABOP, bringing it up to 152."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16 – Cleric 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17 – Cleric 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Once again the spell slot shuffle nets us an additional d10 and d6 for our ABOP; now it’s 170. Unfortunately, this is only capable of one-shotting a single CR 17 entry: some poor boss fight in an adventure path."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18 – Cleric 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Inspiring Leader"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Give out bunches of temp hp on those short rests you demand. I see you calling for Warcaster, but since we’re using our reaction every turn to transform gold into damage, and given that we have no need to hold anything except our shield which has a holy symbol attached and is therefore a focus, all that would do is give us advantage on Concentration saves. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19 – Cleric 17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Keeper of Souls"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I don’t know that I could ever justify upcasting Inflict Wounds to a 9th-level slot, but, if you did, your ABOP including a 4th-level Absorb Elements would hit 188."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fun, level-appropriate things you can oneshot: a Sibriex."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now, when you punch something so hard it dies, you get to capture its soul and heal a friend with it. There’s no limit on this, and rats have a hit die. Crush them in your hand one at a time to very slowly heal your party costing no resources except your bag of rats."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20 – Cleric 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (3/rest)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our capstone is the ability to roll with a fight that goes slightly longer than average or turn it into a bonus spell slot if your DM lets you use the optional class feature."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Grave Domain Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Domain Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 1st Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 3rd Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 7th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Circle of Mortality"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Eyes of the Grave"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Channel Divinity: Path to the Grave"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Sentinel at Death’s Door"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Potent Spellcasting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Keeper of Souls"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"1\"><span class=\"rating-green\">Circle of Mortality</span>: This makes Cure Wounds considerably more appealing when an ally hits 0 hit points. The difference in the amount"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-grave-domain-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-grave-domain-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-grave-domain-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-grave-domain-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-grave-domain-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-grave-domain-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-grave-domain-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-grave-domain-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-grave-domain-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-grave-domain-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-grave-domain-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-grave-domain-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-grave-cleric-build-one-punch-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-grave-cleric-build-one-punch-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-example-grave-cleric-build-one-punch-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-example-grave-cleric-build-one-punch-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4192,
+    "sections": 17,
+    "blocks": 37,
+    "tables": 3,
+    "ratingSignals": 23
+  },
+  "status": "needs-editorial-review"
+}

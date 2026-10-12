@@ -1,0 +1,783 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-484aa612e57ffb6f",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-484aa612e57ffb6f-01e1f150f5f90298",
+      "sourceId": "rpgbot-484aa612e57ffb6f",
+      "fetchedAt": "2026-09-29T19:12:45.100079+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:43:19-04:00",
+      "contentHash": "0b5c440dd11a49a35753ca4ba9413c4a094bf7dbffa07a9b52cebf7173480b08",
+      "title": "Harengon: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-484aa612e57ffb6f-01e1f150f5f90298.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-harengon-2014",
+    "sourceId": "rpgbot-484aa612e57ffb6f",
+    "slug": "harengon-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Гаренгон — гайд раси (2014)",
+    "titleEn": "Harengon: DnD 5e Race/Species Guide",
+    "topics": [
+      "races"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "articleId": "rpgbot-harengon-2014",
+      "sourceRevisionId": "rpgbot-484aa612e57ffb6f-01e1f150f5f90298",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гаренгон — людиноподібний кролик із "
+                },
+                {
+                  "type": "link",
+                  "text": "Дикі межі Відьомського Світла",
+                  "href": "https://smile.amazon.com/Wild-Beyond-Witchlight-Adventure-Dungeons/dp/0786967277?crid=3A66YTXGS12WB&dchild=1&keywords=wild+beyond+the+witchlight&qid=1632230684&sprefix=wild+beyond+t%2Caps%2C241&sr=8-1&linkCode=ll1&tag=rpgbot-20&linkId=44acba98f0656472e8e1178b80e27eab&language=en_US&ref_=as_li_ss_tl"
+                },
+                {
+                  "type": "text",
+                  "text": " ("
+                },
+                {
+                  "type": "link",
+                  "text": "партнерське посилання",
+                  "href": "https://rpgbot.net/about/faq/#what-are-affiliate-links-and-why-do-you-use-them"
+                },
+                {
+                  "type": "text",
+                  "text": "). Попри походження з Фейвайлду{{Feywild}}, він залишається гуманоїдом. Риси весело поєднують корисні можливості; вся раса написана з гумором, тому навіть читати її опис приємно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ще не здогадалися, «harengon» обігрує «here and gone» — був тут і зник; «hare-trigger» — «hair trigger», надзвичайно чутливий спуск; «lucky footwork» відсилає до кролячої лапки як талісмана. Пояснення жартів робить їх менш смішними, тому на цьому зупинюся."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Механічно Гаренгон універсальний і підходить різним збіркам. Характеристики й мови мають правила рас після книги Таші: +2/+1 або три +1 і дві мови. Інші риси підходять практично всім. {{Зайчачий рефлекс|Hare-Trigger}} найчастіше приваблює гравців, бо бонуси Ініціативи важко знайти. {{Заячий стрибок|Lucky Footwork}} страхує від шкоди на поширених ряткидках Спритності. {{Кролячий стрибок|Rabbit Hop}} кілька разів на день виводить із ближнього бою або долає невеликі перешкоди, як ями й складну місцевість. Стрибок не провокує атак при нагоді, тому певною мірою нагадує зменшену {{Хитра дія|Cunning Action}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гаренгон підходить будь-якому класу, але не є винятково добрим у чомусь конкретному. {{Зайчачий рефлекс|Hare-Trigger}} чудова, щоб ходити першим, але крім цього — доступного й з інших джерел, хоча тут найпростіше — немає нічого для шалено оптимізованого персонажа. Раса хороша, і успішно грати не складно, але для більшості задумів є механічно ефективніша альтернатива."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гаренгон також володіє Уважністю. Можливо, цей вибір не можна змінити: раса не має прямо названої риси підвищення характеристик, необхідної для налаштування походження ("
+                },
+                {
+                  "type": "link",
+                  "text": "дивіться виправлення до книги Таші",
+                  "href": "https://media.wizards.com/2021/dnd/downloads/TCE-Errata.pdf"
+                },
+                {
+                  "type": "text",
+                  "text": ")."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rabbit-hop",
+          "heading": "Rabbit Hop: як працює стрибок",
+          "sourceAnchor": "rabbit-hop",
+          "blocks": [
+            {
+              "blockId": "block-section-rabbit-hop-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Кролячий стрибок|Rabbit Hop}} спричинила плутанину, особливо щодо звичайного пересування. За звичайними правилами стрибок — частина пересування за хід: людина, яка пробігла 10 футів і стрибнула на 5, витратила 15 із 30 футів швидкості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-rabbit-hop-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Кролячий стрибок|Rabbit Hop}} — самостійна здібність і переважно не взаємодіє зі швидкістю: вона не витрачає пересування за хід. Швидкість має бути більшою за 0, тому стрибок недоступний у станах захоплений чи стриманий. За будь-якого іншого зниження до додатного значення доступна повна відстань. Збільшення швидкості, наприклад у Монаха чи від Прискорення [Haste], також не змінює відстані."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-rabbit-hop-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це все ще стрибок, хоча й без звичайних правил довгого або високого стрибка. Тому Стрибок [Jump] впливає на нього — можливо, вперше я серйозно задумався про це заклинання. Потроїти відстань {{Кролячий стрибок|Rabbit Hop}} дуже привабливо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-rabbit-hop-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напрямок не визначений: можна стрибати вертикально, на високих рівнях до 30 футів угору. Проте, як і звичайний стрибок, риса не захищає від падіння, тож прямий стрибок угору — чудовий спосіб нашкодити собі. Можна підстрибнути, збити літального ворога з ніг і впасти разом, продовживши бій після приземлення й шкоди від падіння. Примітка редакції: істота з зависанням або магічною підтримкою польоту не обовʼязково падає від стану лежачий."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-rabbit-hop-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Значну частину цього підтверджено у "
+                },
+                {
+                  "type": "link",
+                  "text": "блозі Sage Advice про Creature Evolutions",
+                  "href": "https://dnd.wizards.com/articles/sage-advice/creature-evolutions"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/harengon/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Rabbit Hop: як працює стрибок",
+                    "href": "https://rpgbot.net/dnd5/characters/races/harengon/#rabbit-hop"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/harengon/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Версії: Гаренгон",
+                    "href": "https://rpgbot.net/dnd5/characters/races/harengon/#harengon-versions"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Гаренгон: вибір класу",
+                    "href": "https://rpgbot.net/dnd5/characters/races/harengon/#classes"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-harengon-versions",
+          "heading": "Версії: Гаренгон",
+          "sourceAnchor": "harengon-versions",
+          "blocks": [
+            {
+              "blockId": "block-section-harengon-versions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гаренгон уперше зʼявився у Дикі межі Відьомського Світла, а потім був перевиданий без змін у Монстри Мультивсесвіту."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes",
+          "heading": "Гаренгон: вибір класу",
+          "sourceAnchor": "classes",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Риси Гаренгона частково відтворюються Винахідником, наприклад {{Чоботи звивистої стежки|Boots of the Winding Path}} замість {{Кролячий стрибок|Rabbit Hop}}, але расові можливості зменшують або прибирають потребу вивчати й використовувати відповідні Вливання. Я обрав би Алхіміка{{Alchemist}} або Артилериста{{Artillerist}}, хоча майже будь-яка збірка працює. Денний ліміт Rabbit Hop не дозволяє повністю замінити чоботи для тактики «вдарив і втік» із Гримучий Клинок [Booming Blade]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варвар мало виграє від рис Гаренгона. Додаткова навичка приємна, але багато рас дають дві, а опційна {{Первісне знання|Primal Knowledge}} додає володіння для груп із нестачею навичок. {{Зайчачий рефлекс|Hare-Trigger}} приємна, проте ходити першим більшості бойових персонажів не критично. {{Заячий стрибок|Lucky Footwork}} може бути найвпливовішою, але {{Відчуття небезпеки|Danger Sense}} уже захищає від подібного, тому вона здається зайвою. Варвар працює, але користі понад характеристики мало. Примітка редакції: к4 сумується з Перевагою, тож захист не повністю дублюється."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Заячий стрибок|Lucky Footwork}} додатково захищає на ряткидках Спритності, які часто повʼязані з величезною шкодою. {{Кролячий стрибок|Rabbit Hop}} виводить із небажаного ближнього бою. Бонус Ініціативи дозволяє рано накласти підсилення й контроль місцевості. Через {{Майстер на всі руки|Jack of All Trades}} Бард отримує менший приріст за інших чаротворців, але раса все одно заслуговує високої оцінки. Примітка редакції: половина Бонусу Майстерності від Jack of All Trades не додається до повного бонусу Hare-Trigger."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бонус Ініціативи чудовий для чаротворця: можна рано накласти підсилення й контроль місцевості. {{Заячий стрибок|Lucky Footwork}} додатково захищає на ряткидках Спритності, які часто повʼязані з величезною шкодою. {{Кролячий стрибок|Rabbit Hop}} допомагає вийти з небажаного ближнього бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cleric-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для Клірика-Гаренгона я обрав би домен чаротворення й дальній бій, але передова теж працює. {{Кролячий стрибок|Rabbit Hop}} вводить у ближній бій і виводить із нього без атак при нагоді, тому дозволяє швидко й безпечно дістатися союзників, яким потрібна допомога."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бонус Ініціативи чудовий для чаротворця: можна рано накласти підсилення й контроль місцевості. {{Заячий стрибок|Lucky Footwork}} додатково захищає на ряткидках Спритності, які часто повʼязані з величезною шкодою. {{Кролячий стрибок|Rabbit Hop}} допомагає вийти з небажаного ближнього бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-druid-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Неясно, які расові риси працюють у {{Дика форма|Wild Shape}}. Я дозволив би {{Зайчачий рефлекс|Hare-Trigger}}, але не {{Кролячий стрибок|Rabbit Hop}}, бо стрибок залежить від кролячої анатомії. Щодо {{Заячий стрибок|Lucky Footwork}} не впевнений, але як Майстер дозволив би. Друїдам-чаротворцям варто зосередитися на контролі місцевості заради раннього ходу. Примітка редакції: це авторське рішення Майстра, а правила Дикої форми вимагають фізичної спроможності нової форми використовувати рису."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Воїн мало виграє, хоча дублювання менше, ніж у Варвара. {{Зайчачий рефлекс|Hare-Trigger}} допомагає зайняти позицію для захисту союзників, тому {{Вартовий|Sentinel}} може бути доцільною. {{Кролячий стрибок|Rabbit Hop}} корисна для дальнього бою й швидкої зміни позиції. {{Заячий стрибок|Lucky Footwork}} захищає від шкоди по області, якою вороги обходять високий КБ Воїна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монах — складний вибір: багато дублювання, і раса не вирішує його проблем. {{Зайчачий рефлекс|Hare-Trigger}} прийнятна, але не поспішайте в ближній бій самі. {{Заячий стрибок|Lucky Footwork}} хороша, хоча ряткидки Спритності вже сильні. {{Кролячий стрибок|Rabbit Hop}} економить кілька очок Кі на день, замінюючи витрату Кі на Відступ бонусною дією."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Паладин мало виграє, хоча дублювання менше, ніж у Варвара. {{Зайчачий рефлекс|Hare-Trigger}} допомагає зайняти позицію для захисту союзників, тому {{Вартовий|Sentinel}} може бути доцільною. {{Кролячий стрибок|Rabbit Hop}} корисна для дальнього бою або порятунку союзника: можна і ввійти в ближній бій, і вийти. {{Заячий стрибок|Lucky Footwork}} захищає від шкоди по області, якою обходять високий КБ Паладина."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Риси Гаренгона наближають Слідопита до Розбійника. Додаткове володіння скорочує розрив у навичках, {{Заячий стрибок|Lucky Footwork}} наближає до {{Ухилення|Evasion}}, а {{Кролячий стрибок|Rabbit Hop}} частково замінює {{Хитра дія|Cunning Action}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes",
+          "heading": "Розбійник",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Зайчачий рефлекс|Hare-Trigger}} чудова для Розбійника, який намагається застати ворогів зненацька, особливо Вбивці{{Assassin}}, якому для {{Вбивство|Assassinate}} потрібно діяти раніше за ворога. Вона також дозволяє застосовувати {{Надійний талант|Reliable Talent}} до Ініціативи: це перевірка Спритності з Бонусом Майстерності. На високих рівнях мінімальний результат стає вищим за середній у більшості істот."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes",
+          "heading": "Чаклун",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бонус Ініціативи чудовий для чаротворця: можна рано накласти підсилення й контроль місцевості. {{Заячий стрибок|Lucky Footwork}} додатково захищає на ряткидках Спритності, які часто повʼязані з величезною шкодою. {{Кролячий стрибок|Rabbit Hop}} допомагає вийти з небажаного ближнього бою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бонус Ініціативи чудовий для чаротворця: можна рано накласти підсилення й контроль місцевості. {{Заячий стрибок|Lucky Footwork}} додатково захищає на ряткидках Спритності, які часто повʼязані з величезною шкодою. {{Кролячий стрибок|Rabbit Hop}} допомагає вийти з небажаного ближнього бою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бонус Ініціативи чудовий для чаротворця: можна рано накласти підсилення й контроль місцевості. {{Заячий стрибок|Lucky Footwork}} додатково захищає на ряткидках Спритності, які часто повʼязані з величезною шкодою. {{Кролячий стрибок|Rabbit Hop}} допомагає вийти з небажаного ближнього бою."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-harengon-2014-001",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-harengon-2014-002",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-harengon-2014-003",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-harengon-2014-004",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-harengon-2014-005",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-harengon-2014-006",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-harengon-2014-007",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-harengon-2014-008",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-harengon-2014-009",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-harengon-2014-010",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-harengon-2014-011",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-harengon-2014-012",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-harengon-2014-013",
+      "articleId": "rpgbot-harengon-2014",
+      "translationRevisionId": "translation-rpgbot-harengon-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

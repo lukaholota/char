@@ -1,0 +1,1328 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-186215c65d6f60dc",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-186215c65d6f60dc-69e15dc240e5c10c",
+      "sourceId": "rpgbot-186215c65d6f60dc",
+      "fetchedAt": "2026-09-29T19:09:32.726991+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:42:30-04:00",
+      "contentHash": "99df6dca810af93b2dbef81f8b3c15f0b6f1ecee2e866352510102c72fe6b444",
+      "title": "Elf: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-186215c65d6f60dc-69e15dc240e5c10c.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-elf-2014",
+    "sourceId": "rpgbot-186215c65d6f60dc",
+    "slug": "elf-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Ельф — гайд раси (2014)",
+    "titleEn": "Elf: DnD 5e Race/Species Guide",
+    "topics": [
+      "race"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "articleId": "rpgbot-elf-2014",
+      "sourceRevisionId": "rpgbot-186215c65d6f60dc-69e15dc240e5c10c",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Звичні для фентезі й фольклору Ельфи — проста, але дієва базова раса. Численні й різноманітні підраси дозволяють втілити багато збірок і задумів персонажа. На жаль, їхні риси настільки відрізняються, що для одного класу рідко придатна більше ніж одна підраса, якщо не використовувати необовʼязкові правила налаштовуваного походження з Казан Таші з усім."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від виходу пʼятої редакції розвиток гри не раз змінював місце Ельфа в оптимізації. Спочатку Лісовий ельф був єдиною расою з підвищеннями Спритності й Мудрості, якщо не рахувати Людей і Напівельфів із гнучкими підвищеннями. Ельфи також були серед небагатьох рас із додатковою навичкою, причому Уважністю. Тому вони приваблювали багато збірок, зокрема Друїда й Монаха. Коли зʼявилися нові доповнення, Гримучий Клинок [Booming Blade] зробило Високого ельфа сильним вибором для Пройдисвіта й персонажа, що поєднує зброю та магію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Налаштовуване походження сильно послабило відносну перевагу Ельфа: Лісовий ельф майже втратив свою колишню особливість, зате інші підраси стали привабливішими. Високий ельф особливо виграв для збірок зі зброєю й магією: підвищення Інтелекту можна перенести на іншу характеристику. Це цікаво бойовим Бардам, Клірикам, Друїдам, Пройдисвітам і деяким мультикласам. Вроджена магія Дроу підтримує чаротворців на Харизмі. Морський ельф теж існує. Еладрін і Шадар-Кай додають телепортацію бойовим класам, особливо без чаротворення. Для кожної збірки знайдеться свій Ельф. У цьому старому гайді Еладрін{{Elf (Eladrin, MTF)}} і Шадар-Кай{{Elf (Shadar-kai, MTF)}} використовують Фейський крок{{Fey Step (MTF)}} та Благословення воронячої королеви{{Blessing of the Raven Queen (MTF)}} відповідно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ельфи — одна з небагатьох опублікованих рас із водним варіантом. Морський ельф цікавий концептуально, але поза здатністю добре діяти під водою отримує небагато, тому автор зазвичай пропускає його в матеріалах про оптимізацію. Тут він робить так само; однак у водній кампанії памʼятайте про цей варіант."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/elf/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/elf/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Класи — налаштовуване походження",
+                    "href": "https://rpgbot.net/dnd5/characters/races/elf/#classes-custom-origin"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Класи — стандартне походження",
+                    "href": "https://rpgbot.net/dnd5/characters/races/elf/#classes-default"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Расові риси",
+                    "href": "https://rpgbot.net/dnd5/characters/races/elf/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Ельфійська точність",
+                    "href": "https://rpgbot.net/dnd5/characters/races/elf/#elven-accuracy"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Revenant Blade",
+                    "href": "https://rpgbot.net/dnd5/characters/races/elf/#revenant-blade"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мітки драконів",
+                    "href": "https://rpgbot.net/dnd5/characters/races/elf/#dragonmarks"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мітка Тіні",
+                    "href": "https://rpgbot.net/dnd5/characters/races/elf/#mark-of-shadow"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-custom-origin",
+          "heading": "Класи — налаштовуване походження",
+          "sourceAnchor": "classes-custom-origin",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-custom-origin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ припускає, що ви використовуєте необовʼязкові правила «"
+                },
+                {
+                  "type": "link",
+                  "text": "Налаштовуване походження",
+                  "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+                },
+                {
+                  "type": "text",
+                  "text": "» з Казан Таші з усім. Якщо ні, перейдіть до наступного розділу. Примітка редакції: цей гайд оцінює старі підраси 2014, зокрема MTF; перенесення підвищень характеристик не замінює їх здібностями MPMM."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-artificer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Винахідник",
+          "sourceAnchor": "custom-origin-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Високий ельф — очевидний вибір для Винахідника. Додаткове замовляння доповнює його дещо обмежену магію. Проте Винахідник уже бере більшість замовлянь зі списку Чарівника: очевидні варіанти, як Гримучий Клинок [Booming Blade] чи Вогняний заряд [Fire Bolt], уже доступні. Ви отримуєте більше того самого, а не нові можливості; це також корисно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-custom-origin-artificer-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо обмеженої кількості замовлянь вистачає, розгляньте Еладріна будь-якої старої версії або Шадар-Кая. Телепортація зʼявиться задовго до відповідних заклинань Винахідника й зекономить цінні слоти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-barbarian",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Варвар",
+          "sourceAnchor": "custom-origin-barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Еладрін із Том ворогів Морденкайнена і Шадар-Кай дають телепортацію, потужну для класу, привʼязаного до ближнього бою. Автор радить уникати Дроу, Блідого й Високого ельфа, бо під час Люті{{Rage}} не можна накладати заклинання або концентруватися на них. Примітка редакції: Fey Step Еладріна MTF — здібність, а версія DMG накладає Misty Step, тому під час Люті ці варіанти працюють по-різному."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-bard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Бард",
+          "sourceAnchor": "custom-origin-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доступ до Booming Blade може бути найпростішим способом зробити Барда дієвим у першій лінії, навіть попри Колегії мечів і доблесті, створені для цього. Тому Високий ельф чудовий. Для чаротворчого Барда сильна вроджена магія Дроу, а обидва старі Еладріни дають телепортацію. Шадар-Кай також можливий, але стара версія MTF телепортується лише раз між тривалими відпочинками. Тому чаротворцю, що не хоче опинятися в гущі ближнього бою, Еладрін привабливіший."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-cleric",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Клірик",
+          "sourceAnchor": "custom-origin-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірикам зі зброєю складно наздогнати тих, що покладаються на замовляння. Навіть із Divine Strike{{Divine Strike}} "
+                },
+                {
+                  "type": "link",
+                  "text": "замовляння залишаються ефективнішими",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/#divine-strike-vs-cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": ". Booming Blade робить удари зброєю в ближньому бою придатними, тому Високий ельф знову чудовий."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-custom-origin-cleric-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для чаротворчого Клірика магія Блідого ельфа приваблива, але схожі можливості дає Домен підступності{{Trickery Domain}}. Еладрін будь-якої старої версії теж цікавий: у звичайному списку Клірика немає короткої бойової телепортації на кшталт Misty Step."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-druid",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Друїд",
+          "sourceAnchor": "custom-origin-druid",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Booming Blade — добрий вибір Колу спор{{Circle of Spores}}. Телепортація Еладріна корисна класу без звичайного раннього короткого телепорту. Шадар-Кай теж працює, але його версія MTF телепортується лише раз між тривалими відпочинками, тому Еладрін привабливіший для класу, що зазвичай не хоче йти в ближній бій. Лісовий ельф існує, але Mask of the Wild{{Mask of the Wild}} не особливо сильна. Примітка редакції: твердження джерела, що Друїд зовсім не має телепортації, неточне: на вищих рівнях є Transport via Plants та інші засоби переміщення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-fighter",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Воїн",
+          "sourceAnchor": "custom-origin-fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Еладрін і Шадар-Кай приваблюють збірки ближнього бою телепортацією. Високий ельф цікавий Містичному лицарю, але іншим Воїнам краще покладатися на звичайні атаки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-monk",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Монах",
+          "sourceAnchor": "custom-origin-monk",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Еладрін обох старих версій і Шадар-Кай — найкращі варіанти, проте коротка телепортація менш потрібна через Step of the Wind{{Step of the Wind}} та винятково високу швидкість Монаха. Ельф працює, але його риси мало доповнюють клас."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-paladin",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Паладин",
+          "sourceAnchor": "custom-origin-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Еладрін і Шадар-Кай приваблюють Паладина телепортацією. Високий ельф із Booming Blade може працювати, але більшість Паладинів хоче Додаткової атаки заради більшої кількості шансів критичного удару з карою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-ranger",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Слідопит",
+          "sourceAnchor": "custom-origin-ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і для інших бойових класів, Еладрін і Шадар-Кай привабливі: додають телепортацію, якої зазвичай бракує. Поєднання з Конклавом мандрівника горизонту{{Horizon Walker Conclave}} може бути дуже приємним."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-custom-origin-ranger-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопит зазвичай покладається на бонуси шкоди при влучанні, як Favored Foe{{Favored Foe}} або Мисливська мітка [Hunter's Mark]. Проте Високий ельф із Booming Blade теж можливий, особливо якщо інша здібність робить Мітку мисливця менш привабливою. Автор наводить Dreadful Strikes{{Dreadful Strikes}} Фейського мандрівника{{Fey Wanderer}}. Примітка редакції: ці удари не витрачають бонусну дію, всупереч джерелу; їхній бонус застосовується при влучанні й обмежений одним разом на ціль за хід."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-rogue",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Пройдисвіт",
+          "sourceAnchor": "custom-origin-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пройдисвіт має багато добрих варіантів. Магія Дроу допомагає отримати Перевагу й розвʼязувати інші проблеми. Booming Blade Високого ельфа підтримує тактику «вдарив і втік» із Cunning Action{{Cunning Action}}. Еладрін і Шадар-Кай телепортуються, хоча Хитра дія зменшує потребу в цьому. Здатність Блідого ельфа накладати Невидимість [Invisibility] приваблива для будь-якого Пройдисвіта."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-sorcerer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чародій",
+          "sourceAnchor": "custom-origin-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дроу й Блідий ельф мають вроджену магію. Додаткові заклинання, навіть раз на день, дуже цінні для Чародія. Еладрін так само дає телепортацію, зазвичай доступну через Туманний крок [Misty Step]: можна не вивчати цей важливий тактичний засіб і витратити вкрай обмежене число відомих заклинань на інше."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-warlock",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "custom-origin-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доступ Дроу до Вогники фей [Faerie Fire] — потужний засіб для Чорнокнижника з Позамежний заряд [Eldritch Blast]. Будь-яка вроджена магія корисна класу з такою малою кількістю слотів. Еладрін і Шадар-Кай дають телепортацію без ціни слота. Додаткове замовляння Високого ельфа приємне, але Чорнокнижник і так має достатньо, тож це мало змінює."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-wizard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чарівник",
+          "sourceAnchor": "custom-origin-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ельф-Чарівник — класичний образ DnD із найперших редакцій. Високий ельф був типовим вибором Чарівника в базових правилах. Але коли Інтелект може підвищити будь-яка раса, він уже не просто «раса для Чарівника» й, дивно, імовірно навіть не найкращий Ельф для цього класу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-custom-origin-wizard-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Додаткове замовляння приємне, проте Чарівник уже має достатньо. Якщо воно вам не особливо потрібне, Еладрін кращий. Витрачати слот 2-го рівня на Misty Step, ще й готувати його, буває дорого; вроджена телепортація сильна. Блідий ельф так само зменшує потребу готувати Invisibility через Благословення Ткалі Місяця{{Blessing of the Moon Weaver}}; Проникливе чуття{{Incisive Sense}} підтримує дві перевірки навичок."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-default",
+          "heading": "Класи — стандартне походження",
+          "sourceAnchor": "classes-default",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-default-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ припускає, що ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "не"
+                },
+                {
+                  "type": "text",
+                  "text": " використовуєте необовʼязкове Налаштовуване походження з Казан Таші з усім або оновлені версії рас із Монстри Мультивсесвіту. Якщо використовуєте, перейдіть до попереднього розділу. Примітка редакції: оцінки нижче стосуються старих підрас із фіксованими підвищеннями; описи й кількість застосувань телепортації залежать від конкретної книжки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes-default",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Високий ельф ідеальний Винахідник: підвищує Спритність та Інтелект, а замовляння Чарівника доповнює класову магію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes-default",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Один із небагатьох класів, для якого Ельф справді слабкий вибір. Морський ельф і Шадар-Кай, імовірно, найкращі, бо серед старих підрас саме вони підвищують Статуру; Силу тут не підвищено. Варвар настільки залежить від Сили, що без її підвищення складно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes-default",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дроу, Еладрін і Мітка Тіні підвищують Харизму. Базове Володіння Уважністю й підвищення Спритності добре доповнюють будь-якого Барда."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes-default",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірик — складний, але цілком можливий варіант. Лісовий і Блідий ельфи підвищують Мудрість, а Спритність із Мудрістю підтримують легкі обладунки. Уникайте доменів із важкими обладунками й шукайте ті, що доповнюють риси підраси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes-default",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загалом кращий вибір за Клірика. Прихильність Друїда до легших обладунків полегшує ставку на Спритність. Mask of the Wild Лісового ельфа може працювати під час Дикої форми{{Wild Shape}}, а магія Блідого ельфа дає цікаві можливості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes-default",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Один із небагатьох класів, де може сяяти багато ельфійських підрас. Воїну потрібне підвищення Сили або Спритності, тож будь-який Ельф підтримує збірку на Спритності. Підраса дозволяє посилити магію, прихованість або навички переговорника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes-default",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Лісовий ельф — одна з найкращих рас Монаха. Спритність і Мудрість саме те, що потрібно класу, настільки залежному від характеристик. Блідий ельф має ті самі підвищення, але його магія може бути менш привабливою за риси Лісового. Обидва працюють чудово; обирайте до смаку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes-default",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і для Барда, підраси з Харизмою підтримують Паладина, але не ігноруйте підвищення Статури. Висока Харизма добра, проте почати з 14 або 15 цілком можна, якщо улюблена підраса її не підвищує. Очевидні Дроу й Еладрін, але Морський ельф і Шадар-Кай теж добрі. Високий ельф можливий, якщо час від часу вдало використовувати атакувальне замовляння Booming Blade. Мітка Тіні здається незвичною для Паладина, але механічно працює дуже добре."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes-default",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Лісовий ельф майже створений для Слідопита. Проте головна характеристика класу — Спритність, тому будь-яка ельфійська підраса придатна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes-default",
+          "heading": "Пройдисвіт",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пройдисвіту потрібна Спритність і майже нічого більше, а безплатне Володіння Уважністю доповнює його вже чудові навички. Майже кожна підраса дає корисні особливості. Високому ельфу варто розглянути Booming Blade для тактики «вдарив і втік» із Cunning Action. Формування тіней{{Shape Shadows}} Мітки Тіні дає чудові можливості, навіть якщо не обирати Містичного спритника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-rogue-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На думку автора, Пройдисвіт найкраще використовує Ельфійську точність. Якщо постійно отримувати Перевагу для Підступної атаки{{Sneak Attack}}, додатковий кубик підвищує шанс натуральної 20, а отже критичного влучання, з 9.75% до 14.26%. Якщо вже кидали критичну Підступну атаку, розумієте захват від усіх цих кубиків. Необовʼязкова Steady Aim{{Steady Aim}} разом із рисою дозволяє робити це майже щохід — автору воно здається мало не шахрайством. Примітка редакції: Steady Aim витрачає бонусну дію, вимагає, щоб ви ще не рухалися цього ходу, й обнуляє швидкість до його кінця."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чародій",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дроу, Еладрін і Мітка Тіні підвищують Харизму — головну потребу Чародія. Проте вони не додають можливостей, яких клас не міг би забезпечити сам."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дроу, Еладрін і Мітка Тіні — чудові Чорнокнижники. Харизма є головною потребою, а Спритність підвищує КБ у легких обладунках. Вроджена магія Дроу доповнює малі запаси слотів; Диявольський зір{{Devil's Sight}} допоможе використати Темрява [Darkness]. Еладрін телепортується й зменшує потребу в Misty Step. Мітка Тіні дає трохи вродженої магії та розширює список заклинань класу. Примітка редакції: згадка джерела, що легкі обладунки особливо важливі Hexblade, неповна — цей підклас володіє також середніми обладунками й щитами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Високий ельф-Чарівник — очевидна й знакова збірка. Головне потрібне підвищення Інтелекту, а Спритність і Уважність базового Ельфа допомагають вижити. Додаткове замовляння здається дрібницею, бо ви вже починаєте з трьох, але вони сильні й можуть значно розширити можливості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Расові риси",
+          "sourceAnchor": "feats",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-elven-accuracy",
+          "parentSectionId": "section-feats",
+          "heading": "Ельфійська точність",
+          "sourceAnchor": "elven-accuracy",
+          "blocks": [
+            {
+              "blockId": "block-section-elven-accuracy-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо можете надійно отримувати Перевагу, Ельфійська точність{{Elven Accuracy}} — чудова риса. Підвищення характеристики на +1 приємне, але головна принада — перекидання. Потрібна Перевага, а тоді можна перекинути один кубик: це практично три кубики з вибором найбільшого. Примітка редакції: джерело помилково включає перевірки й ряткидки. Насправді риса працює лише для кидка атаки зі Спритністю, Інтелектом, Мудрістю або Харизмою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-elven-accuracy-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Незвично настільки будувати гру навколо Ельфійської точності, але авторський допис «"
+                },
+                {
+                  "type": "link",
+                  "text": "Oops All Elves",
+                  "href": "https://rpgbot.net/oops-all-elves/"
+                },
+                {
+                  "type": "text",
+                  "text": "» розглядає, як далеко можна зайти, побудувавши всю групу навколо однієї риси."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-revenant-blade",
+          "parentSectionId": "section-feats",
+          "heading": "Revenant Blade",
+          "sourceAnchor": "revenant-blade",
+          "blocks": [
+            {
+              "blockId": "block-section-revenant-blade-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо володієте військовою зброєю та хочете додаткову атаку бонусною дією, Double-Bladed Scimitar{{Double-Bladed Scimitar}} привабливий, якщо доступний у кампанії. Основна атака завдає 2к4, тому з Додатковою атакою{{Extra Attack}} її середня шкода вища за типову легку зброю. Більшість подібних збірок спираються на Спритність, тому без Revenant Blade{{Revenant Blade}} цей вибір складний. Примітка редакції: це одна дворучна зброя зі спеціальною бонусною атакою, а не правило бою двома зброями; без риси вона не має властивості Фехтувальна."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-revenant-blade-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Revenant Blade поліпшує таку збірку, але не завжди є найкращим вибором. Це альтернатива Боєць з двома зброями{{Dual Wielder}}, причому не безумовно сильніша. Обидві риси можуть дати +1 КБ, тож відкладемо цю перевагу й порівняймо решту. Примітка редакції: бонус Revenant Blade до КБ вимагає тримати дворучну зброю двома руками, а сама риса доступна лише Ельфу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-revenant-blade-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Revenant Blade додає Double-Bladed Scimitar властивість Спритність. Автор порівнює його з рапірою й кинджалом та стилем бою двома зброями. Dual Wielder дозволяє використовувати нелегку зброю: дві рапіри, два довгі мечі чи іншу подібну пару. Дві рапіри дають більше шкоди за одну основну й одну бонусну атаку, якщо не враховувати магічної зброї, але Revenant Blade ще дає +1 Сили або Спритності — імовірно Спритності — та не потребує стилю бою. Примітка редакції: порівняння з рапірою й кинджалом приблизне: 2к4 + 1к4 у середньому 7,5, тоді як 1к8 + 1к4 — 7, ще до модифікаторів. Результат залежить і від кількості основних атак."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-revenant-blade-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коли Спритність досягає 20, автор віддає перевагу шкоді Dual Wielder зі стилем бою двома зброями, бо дві рапіри сильніші в його порівнянні. Проте магічні предмети можуть схилити вибір до Revenant Blade: знайти одну магічну зброю простіше, ніж дві, а витрата стилю бою відчутна. Тому автор зазвичай вважає стиль Захисту з Revenant Blade ефективнішим поєднанням. Примітка редакції: підсумкова шкода залежить від числа атак, характеристик і предметів, тож це рекомендація автора, а не загальна математична перевага."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-revenant-blade-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше це розглянуто в "
+                },
+                {
+                  "type": "link",
+                  "text": "Практичному гайді бонусних атак",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dragonmarks",
+          "heading": "Мітки драконів",
+          "sourceAnchor": "dragonmarks",
+          "blocks": [
+            {
+              "blockId": "block-section-dragonmarks-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мітки драконів описано в Еберрон: Постання з Останньої Війни. Для Ельфів мітка є підрасою: базові расові риси залишаються, а до них додаються риси мітки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-mark-of-shadow",
+          "parentSectionId": "section-dragonmarks",
+          "heading": "Мітка Тіні",
+          "sourceAnchor": "mark-of-shadow",
+          "blocks": [
+            {
+              "blockId": "block-section-mark-of-shadow-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ельф (Мітка Тіні){{Ельф (Мітка Тіні)|Elf (Mark of Shadow)}} отримує підвищення Харизми, ілюзії та бонуси до Виступу й Непомітності. Чудовий вибір майже для будь-якого Пройдисвіта. Містичний спритник{{Arcane Trickster}} здається очевидним вигодонабувачем, але єдине нове для його списку заклинання мітки — Переміщення без сліду [Pass without Trace]. Воно чудове, проте саме по собі може не переконати змінити підклас. Примітка редакції: розширений список доступний лише за наявності Чаротворення або Магії угоди й не означає автоматичного знання чи підготовки цих заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-mark-of-shadow-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За налаштовуваного походження Мітка Тіні легко перетворює будь-якого персонажа на розвідника, особливо якщо він накладає заклинання. Винахідники, Клірики, Друїди й Воїни Містичного лицаря{{Eldritch Knight}} можуть отримати значну користь."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-elf-2014-001",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-artificer",
+      "targetBlockId": "block-section-custom-origin-artificer-1",
+      "optionId": "section-custom-origin-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-custom-origin-artificer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-002",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-barbarian",
+      "targetBlockId": "block-section-custom-origin-barbarian-1",
+      "optionId": "section-custom-origin-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-custom-origin-barbarian-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-003",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-bard",
+      "targetBlockId": "block-section-custom-origin-bard-1",
+      "optionId": "section-custom-origin-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-custom-origin-bard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-004",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-cleric",
+      "targetBlockId": "block-section-custom-origin-cleric-1",
+      "optionId": "section-custom-origin-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-custom-origin-cleric-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-005",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-druid",
+      "targetBlockId": "block-section-custom-origin-druid-1",
+      "optionId": "section-custom-origin-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-custom-origin-druid-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-006",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-fighter",
+      "targetBlockId": "block-section-custom-origin-fighter-1",
+      "optionId": "section-custom-origin-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-custom-origin-fighter-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-007",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-monk",
+      "targetBlockId": "block-section-custom-origin-monk-1",
+      "optionId": "section-custom-origin-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-custom-origin-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-elf-2014-008",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-paladin",
+      "targetBlockId": "block-section-custom-origin-paladin-1",
+      "optionId": "section-custom-origin-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-custom-origin-paladin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-009",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-ranger",
+      "targetBlockId": "block-section-custom-origin-ranger-1",
+      "optionId": "section-custom-origin-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-custom-origin-ranger-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-010",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-rogue",
+      "targetBlockId": "block-section-custom-origin-rogue-1",
+      "optionId": "section-custom-origin-rogue",
+      "context": "Пройдисвіт",
+      "explanationBlockId": "block-section-custom-origin-rogue-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-elf-2014-011",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-sorcerer",
+      "targetBlockId": "block-section-custom-origin-sorcerer-1",
+      "optionId": "section-custom-origin-sorcerer",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-custom-origin-sorcerer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-012",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-warlock",
+      "targetBlockId": "block-section-custom-origin-warlock-1",
+      "optionId": "section-custom-origin-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-custom-origin-warlock-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-013",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-custom-origin-wizard",
+      "targetBlockId": "block-section-custom-origin-wizard-1",
+      "optionId": "section-custom-origin-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-custom-origin-wizard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-014",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-elf-2014-015",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-elf-2014-016",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-017",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-elf-2014-018",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-019",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-elf-2014-020",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-elf-2014-021",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-022",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-elf-2014-023",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Пройдисвіт",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-elf-2014-024",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-elf-2014-025",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-elf-2014-026",
+      "articleId": "rpgbot-elf-2014",
+      "translationRevisionId": "translation-rpgbot-elf-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

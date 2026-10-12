@@ -1,0 +1,81 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "paladin-oathbreaker-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+    "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037"
+  },
+  "exampleSection": "section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
+  "levelTableSection": "section-levels",
+  "classKey": "PALADIN_2014",
+  "subclassKey": "OATHBREAKER",
+  "raceKey": "KOBOLD_MPMM",
+  "backgroundKey": "CUSTOM",
+  "abilityScores": { "STR": 15, "DEX": 8, "CON": 15, "INT": 8, "WIS": 8, "CHA": 15 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "levels": [
+    {"level": 2, "classOptions": [{"optionNameEng": "Blind Fighting"}]},
+    {"level": 3, "subclassKey": "OATHBREAKER"},
+    {"level": 4, "featKey": "WAR_CASTER", "section": "section-feats"},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "abilityScoreIncrease": [{"ability": "CHA", "amount": 2}], "section": "section-feats"},
+    {"level": 9},
+    {"level": 10},
+    {"level": 11},
+    {"level": 12, "abilityScoreIncrease": [{"ability": "STR", "amount": 2}], "section": "section-feats"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "abilityScoreIncrease": [{"ability": "CHA", "amount": 2}], "section": "section-feats"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "abilityScoreIncrease": [{"ability": "STR", "amount": 2}], "section": "section-feats"},
+    {"level": 20}
+  ],
+  "incomplete": [
+    {
+      "field": "Водний транспорт",
+      "reason": "Автор бере ріжок і водний транспорт, але радить замість водного транспорту набір для маскування; записано ріжок і водний транспорт.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Підвищення 8-го і 12-го рівнів",
+      "reason": "Текст статті каже, що вибір Харизми чи Сили на 8-му і 12-му рівнях залежить від групи; ми дотримуємося таблиці рівнів (Харизма на 8-му, Сила на 12-му).",
+      "section": "section-feats"
+    },
+    {
+      "field": "Спорядження без назви",
+      "reason": "Автор називає лише бойову сокиру і щит; решту стартового спорядження обрала платформа.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "title": "Паладин Клятвопорушник — Кобольд",
+    "description": "Паладин Клятвопорушник-кобольд за правилами Таші: Сила, Статура й Харизма по 16, власна передісторія з Обманом і Виступом, ріжок і водний транспорт, бойова сокира і щит.",
+    "subraceKey": null,
+    "racialAbilities": ["STR", "CON", "CHA"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["ATHLETICS", "INTIMIDATION"], "race": ["ARCANA"], "background": ["DECEPTION", "PERFORMANCE"] },
+    "backgroundCustomization": { "tools": ["HORN", "VEHICLES_WATER"] },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": ["Драконяча винахідливість"],
+    "languages": ["DWARVISH"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": ["BATTLEAXE"] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Кобольд за правилами Таші: +1 до Сили, Статури й Харизми (по 16 кожна), як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Атлетику й Залякування бере Паладин, Магію — Драконяча винахідливість кобольда, Обман і Виступ — власна передісторія (правило PHB «Налаштування передісторії»), а також ріжок і водний транспорт, як радить автор. Расову мову ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор радить бойову сокиру і щит; їх узято. Пʼять списів, набір священика й кольчугу зі святим символом ми обрали за вас."
+  }
+}

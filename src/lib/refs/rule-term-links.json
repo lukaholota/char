@@ -1,48 +1,599 @@
 [
-  { "original": "Blinded", "RULES_2014": "/rules/conditions#condition-blinded", "RULES_2024": "/2024/rules/conditions#condition-blinded" },
-  { "original": "Charmed", "RULES_2014": "/rules/conditions#condition-charmed", "RULES_2024": "/2024/rules/conditions#condition-charmed" },
-  { "original": "Deafened", "RULES_2014": "/rules/conditions#condition-deafened", "RULES_2024": "/2024/rules/conditions#condition-deafened" },
-  { "original": "Exhaustion", "RULES_2014": "/rules/conditions#condition-exhaustion", "RULES_2024": "/2024/rules/conditions#condition-exhaustion" },
-  { "original": "Frightened", "RULES_2014": "/rules/conditions#condition-frightened", "RULES_2024": "/2024/rules/conditions#condition-frightened" },
-  { "original": "Grappled", "RULES_2014": "/rules/conditions#condition-grappled", "RULES_2024": "/2024/rules/conditions#condition-grappled" },
-  { "original": "Incapacitated", "RULES_2014": "/rules/conditions#condition-incapacitated", "RULES_2024": "/2024/rules/conditions#condition-incapacitated" },
-  { "original": "Invisible", "RULES_2014": "/rules/conditions#condition-invisible", "RULES_2024": "/2024/rules/conditions#condition-invisible" },
-  { "original": "Paralyzed", "RULES_2014": "/rules/conditions#condition-paralyzed", "RULES_2024": "/2024/rules/conditions#condition-paralyzed" },
-  { "original": "Petrified", "RULES_2014": "/rules/conditions#condition-petrified", "RULES_2024": "/2024/rules/conditions#condition-petrified" },
-  { "original": "Poisoned", "RULES_2014": "/rules/conditions#condition-poisoned", "RULES_2024": "/2024/rules/conditions#condition-poisoned" },
-  { "original": "Prone", "RULES_2014": "/rules/conditions#condition-prone", "RULES_2024": "/2024/rules/conditions#condition-prone" },
-  { "original": "Restrained", "RULES_2014": "/rules/conditions#condition-restrained", "RULES_2024": "/2024/rules/conditions#condition-restrained" },
-  { "original": "Stunned", "RULES_2014": "/rules/conditions#condition-stunned", "RULES_2024": "/2024/rules/conditions#condition-stunned" },
-  { "original": "Unconscious", "RULES_2014": "/rules/conditions#condition-unconscious", "RULES_2024": "/2024/rules/conditions#condition-unconscious" },
-  { "original": "Bloodied", "RULES_2024": "/2024/rules/conditions#condition-bloodied" },
-
-  { "original": "Action", "RULES_2014": "/rules/combat#actions-in-combat--actions-in-combat", "RULES_2024": "/2024/rules/combat#action--action" },
-  { "original": "Bonus Action", "RULES_2014": "/rules/combat#order-of-combat--bonus-actions", "RULES_2024": "/2024/rules/combat#bonus-action--bonus-action" },
-  { "original": "Reaction", "RULES_2014": "/rules/combat#reactions--reactions", "RULES_2024": "/2024/rules/combat#reaction--reaction" },
-  { "original": "Attack", "RULES_2014": "/rules/combat#actions-in-combat--attack", "RULES_2024": "/2024/rules/combat#attack--attack" },
-  { "original": "Dash", "RULES_2014": "/rules/combat#actions-in-combat--dash", "RULES_2024": "/2024/rules/combat#dash--dash" },
-  { "original": "Disengage", "RULES_2014": "/rules/combat#actions-in-combat--disengage", "RULES_2024": "/2024/rules/combat#disengage--disengage" },
-  { "original": "Dodge", "RULES_2014": "/rules/combat#actions-in-combat--dodge", "RULES_2024": "/2024/rules/combat#dodge--dodge" },
-  { "original": "Help", "RULES_2014": "/rules/combat#actions-in-combat--help", "RULES_2024": "/2024/rules/combat#help--help" },
-  { "original": "Hide", "RULES_2014": "/rules/combat#actions-in-combat--hide", "RULES_2024": "/2024/rules/combat#hide--hide" },
-  { "original": "Ready", "RULES_2014": "/rules/combat#actions-in-combat--ready", "RULES_2024": "/2024/rules/combat#ready--ready" },
-  { "original": "Search", "RULES_2014": "/rules/combat#actions-in-combat--search", "RULES_2024": "/2024/rules/combat#search--search" },
-  { "original": "Use an Object", "RULES_2014": "/rules/combat#actions-in-combat--use-an-object" },
-  { "original": "Utilize", "RULES_2024": "/2024/rules/combat#utilize--utilize" },
-  { "original": "Magic", "RULES_2024": "/2024/rules/combat#magic--magic" },
-  { "original": "Influence", "RULES_2024": "/2024/rules/combat#influence--influence" },
-  { "original": "Study", "RULES_2024": "/2024/rules/combat#study--study" },
-
-  { "original": "Opportunity Attack", "RULES_2014": "/rules/combat#making-an-attack--melee-attacks", "RULES_2024": "/2024/rules/combat#opportunity-attacks--opportunity-attacks" },
-  { "original": "Concentration", "RULES_2014": "/rules/spellcasting#concentration-rules", "RULES_2024": "/2024/rules/spellcasting#concentration--concentration" },
-  { "original": "Advantage", "RULES_2014": "/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage", "RULES_2024": "/2024/rules/abilities#advantage--advantage" },
-  { "original": "Disadvantage", "RULES_2014": "/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage", "RULES_2024": "/2024/rules/abilities#disadvantage--disadvantage" },
-  { "original": "Cover", "RULES_2014": "/rules/combat#making-an-attack--cover", "RULES_2024": "/2024/rules/combat#cover-term--cover" },
-  { "original": "Difficult Terrain", "RULES_2014": "/rules/combat#movement-and-position--difficult-terrain", "RULES_2024": "/2024/rules/adventuring#difficult-terrain--difficult-terrain" },
-  { "original": "Surprise", "RULES_2014": "/rules/combat#order-of-combat--surprise", "RULES_2024": "/2024/rules/combat#surprise--surprise" },
-  { "original": "Temporary Hit Points", "RULES_2014": "/rules/combat#making-an-attack--temporary-hit-points", "RULES_2024": "/2024/rules/combat#temporary-hit-points-term--temporary-hit-points" },
-  { "original": "Critical Hit", "RULES_2024": "/2024/rules/combat#critical-hit--critical-hit" },
-  { "original": "Resistance", "RULES_2024": "/2024/rules/combat#resistance--resistance" },
-  { "original": "Vulnerability", "RULES_2024": "/2024/rules/combat#vulnerability--vulnerability" },
-  { "original": "Unarmed Strike", "RULES_2024": "/2024/rules/combat#unarmed-strike--unarmed-strike" }
+  {
+    "original": "Blinded",
+    "RULES_2014": "/rules/conditions#condition-blinded",
+    "RULES_2024": "/2024/rules/conditions#condition-blinded"
+  },
+  {
+    "original": "Charmed",
+    "RULES_2014": "/rules/conditions#condition-charmed",
+    "RULES_2024": "/2024/rules/conditions#condition-charmed"
+  },
+  {
+    "original": "Deafened",
+    "RULES_2014": "/rules/conditions#condition-deafened",
+    "RULES_2024": "/2024/rules/conditions#condition-deafened"
+  },
+  {
+    "original": "Exhaustion",
+    "RULES_2014": "/rules/conditions#condition-exhaustion",
+    "RULES_2024": "/2024/rules/conditions#condition-exhaustion"
+  },
+  {
+    "original": "Frightened",
+    "RULES_2014": "/rules/conditions#condition-frightened",
+    "RULES_2024": "/2024/rules/conditions#condition-frightened"
+  },
+  {
+    "original": "Grappled",
+    "RULES_2014": "/rules/conditions#condition-grappled",
+    "RULES_2024": "/2024/rules/conditions#condition-grappled"
+  },
+  {
+    "original": "Incapacitated",
+    "RULES_2014": "/rules/conditions#condition-incapacitated",
+    "RULES_2024": "/2024/rules/conditions#condition-incapacitated"
+  },
+  {
+    "original": "Invisible",
+    "RULES_2014": "/rules/conditions#condition-invisible",
+    "RULES_2024": "/2024/rules/conditions#condition-invisible"
+  },
+  {
+    "original": "Paralyzed",
+    "RULES_2014": "/rules/conditions#condition-paralyzed",
+    "RULES_2024": "/2024/rules/conditions#condition-paralyzed"
+  },
+  {
+    "original": "Petrified",
+    "RULES_2014": "/rules/conditions#condition-petrified",
+    "RULES_2024": "/2024/rules/conditions#condition-petrified"
+  },
+  {
+    "original": "Poisoned",
+    "RULES_2014": "/rules/conditions#condition-poisoned",
+    "RULES_2024": "/2024/rules/conditions#condition-poisoned"
+  },
+  {
+    "original": "Prone",
+    "RULES_2014": "/rules/conditions#condition-prone",
+    "RULES_2024": "/2024/rules/conditions#condition-prone"
+  },
+  {
+    "original": "Restrained",
+    "RULES_2014": "/rules/conditions#condition-restrained",
+    "RULES_2024": "/2024/rules/conditions#condition-restrained"
+  },
+  {
+    "original": "Stunned",
+    "RULES_2014": "/rules/conditions#condition-stunned",
+    "RULES_2024": "/2024/rules/conditions#condition-stunned"
+  },
+  {
+    "original": "Unconscious",
+    "RULES_2014": "/rules/conditions#condition-unconscious",
+    "RULES_2024": "/2024/rules/conditions#condition-unconscious"
+  },
+  {
+    "original": "Bloodied",
+    "RULES_2024": "/2024/rules/conditions#condition-bloodied"
+  },
+  {
+    "original": "Action",
+    "RULES_2014": "/rules/combat#actions-in-combat--actions-in-combat",
+    "RULES_2024": "/2024/rules/combat#action--action"
+  },
+  {
+    "original": "Bonus Action",
+    "RULES_2014": "/rules/combat#order-of-combat--bonus-actions",
+    "RULES_2024": "/2024/rules/combat#bonus-action--bonus-action"
+  },
+  {
+    "original": "Reaction",
+    "RULES_2014": "/rules/combat#reactions--reactions",
+    "RULES_2024": "/2024/rules/combat#reaction--reaction"
+  },
+  {
+    "original": "Attack",
+    "RULES_2014": "/rules/combat#actions-in-combat--attack",
+    "RULES_2024": "/2024/rules/combat#attack--attack"
+  },
+  {
+    "original": "Dash",
+    "RULES_2014": "/rules/combat#actions-in-combat--dash",
+    "RULES_2024": "/2024/rules/combat#dash--dash"
+  },
+  {
+    "original": "Disengage",
+    "RULES_2014": "/rules/combat#actions-in-combat--disengage",
+    "RULES_2024": "/2024/rules/combat#disengage--disengage"
+  },
+  {
+    "original": "Dodge",
+    "RULES_2014": "/rules/combat#actions-in-combat--dodge",
+    "RULES_2024": "/2024/rules/combat#dodge--dodge"
+  },
+  {
+    "original": "Help",
+    "RULES_2014": "/rules/combat#actions-in-combat--help",
+    "RULES_2024": "/2024/rules/combat#help--help"
+  },
+  {
+    "original": "Hide",
+    "RULES_2014": "/rules/combat#actions-in-combat--hide",
+    "RULES_2024": "/2024/rules/combat#hide--hide"
+  },
+  {
+    "original": "Ready",
+    "RULES_2014": "/rules/combat#actions-in-combat--ready",
+    "RULES_2024": "/2024/rules/combat#ready--ready"
+  },
+  {
+    "original": "Search",
+    "RULES_2014": "/rules/combat#actions-in-combat--search",
+    "RULES_2024": "/2024/rules/combat#search--search"
+  },
+  {
+    "original": "Use an Object",
+    "RULES_2014": "/rules/combat#actions-in-combat--use-an-object"
+  },
+  {
+    "original": "Utilize",
+    "RULES_2024": "/2024/rules/combat#utilize--utilize"
+  },
+  {
+    "original": "Magic",
+    "RULES_2024": "/2024/rules/combat#magic--magic"
+  },
+  {
+    "original": "Influence",
+    "RULES_2024": "/2024/rules/combat#influence--influence"
+  },
+  {
+    "original": "Study",
+    "RULES_2024": "/2024/rules/combat#study--study"
+  },
+  {
+    "original": "Opportunity Attack",
+    "RULES_2014": "/rules/combat#making-an-attack--melee-attacks--opportunity-attacks",
+    "RULES_2024": "/2024/rules/combat#opportunity-attacks--opportunity-attacks"
+  },
+  {
+    "original": "Concentration",
+    "RULES_2014": "/rules/spellcasting#concentration-rules",
+    "RULES_2024": "/2024/rules/spellcasting#concentration--concentration"
+  },
+  {
+    "original": "Advantage",
+    "RULES_2014": "/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage",
+    "RULES_2024": "/2024/rules/abilities#advantage--advantage"
+  },
+  {
+    "original": "Disadvantage",
+    "RULES_2014": "/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage",
+    "RULES_2024": "/2024/rules/abilities#disadvantage--disadvantage"
+  },
+  {
+    "original": "Cover",
+    "RULES_2014": "/rules/combat#making-an-attack--cover",
+    "RULES_2024": "/2024/rules/combat#cover-term--cover"
+  },
+  {
+    "original": "Difficult Terrain",
+    "RULES_2014": "/rules/combat#movement-and-position--difficult-terrain",
+    "RULES_2024": "/2024/rules/adventuring#difficult-terrain--difficult-terrain"
+  },
+  {
+    "original": "Surprise",
+    "RULES_2014": "/rules/combat#order-of-combat--surprise",
+    "RULES_2024": "/2024/rules/combat#surprise--surprise"
+  },
+  {
+    "original": "Temporary Hit Points",
+    "RULES_2014": "/rules/combat#making-an-attack--temporary-hit-points",
+    "RULES_2024": "/2024/rules/combat#temporary-hit-points-term--temporary-hit-points"
+  },
+  {
+    "original": "Critical Hit",
+    "RULES_2014": "/rules/combat#making-an-attack--damage-and-healing--critical-hits",
+    "RULES_2024": "/2024/rules/combat#critical-hit--critical-hit"
+  },
+  {
+    "original": "Resistance",
+    "RULES_2014": "/rules/combat?term=Resistance#making-an-attack--damage-and-healing--resistance-and-vulnerability",
+    "RULES_2024": "/2024/rules/combat#resistance--resistance"
+  },
+  {
+    "original": "Vulnerability",
+    "RULES_2014": "/rules/combat#making-an-attack--damage-and-healing--resistance-and-vulnerability",
+    "RULES_2024": "/2024/rules/combat#vulnerability--vulnerability"
+  },
+  {
+    "original": "Unarmed Strike",
+    "RULES_2014": "/rules/combat#making-an-attack--melee-attacks",
+    "RULES_2024": "/2024/rules/combat#unarmed-strike--unarmed-strike"
+  },
+  {
+    "original": "Grapple",
+    "RULES_2014": "/rules/combat#making-an-attack--melee-attacks--grapple"
+  },
+  {
+    "original": "Shove",
+    "RULES_2014": "/rules/combat#making-an-attack--melee-attacks--shove"
+  },
+  {
+    "original": "Acrobatics",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--acrobatics"
+  },
+  {
+    "original": "Animal Handling",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--animal-handling"
+  },
+  {
+    "original": "Arcana",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--arcana"
+  },
+  {
+    "original": "Athletics",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--athletics"
+  },
+  {
+    "original": "Deception",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--deception"
+  },
+  {
+    "original": "History",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--history"
+  },
+  {
+    "original": "Insight",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--insight"
+  },
+  {
+    "original": "Intimidation",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--intimidation"
+  },
+  {
+    "original": "Investigation",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--investigation"
+  },
+  {
+    "original": "Medicine",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--medicine"
+  },
+  {
+    "original": "Nature",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--nature"
+  },
+  {
+    "original": "Perception",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--perception"
+  },
+  {
+    "original": "Performance",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--performance"
+  },
+  {
+    "original": "Persuasion",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--persuasion"
+  },
+  {
+    "original": "Religion",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--religion"
+  },
+  {
+    "original": "Sleight of Hand",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--sleight-of-hand"
+  },
+  {
+    "original": "Stealth",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--stealth"
+  },
+  {
+    "original": "Survival",
+    "RULES_2014": "/rules/abilities#ability-checks--using-each-ability--survival"
+  },
+  {
+    "original": "Alchemist's Supplies",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--alchemist-s-supplies"
+  },
+  {
+    "original": "Brewer's Supplies",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--brewer-s-supplies"
+  },
+  {
+    "original": "Calligrapher's Supplies",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--calligrapher-s-supplies"
+  },
+  {
+    "original": "Carpenter's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--carpenter-s-tools"
+  },
+  {
+    "original": "Cartographer's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--cartographer-s-tools"
+  },
+  {
+    "original": "Cobbler's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--cobbler-s-tools"
+  },
+  {
+    "original": "Cook's Utensils",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--cook-s-utensils"
+  },
+  {
+    "original": "Disguise Kit",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--disguise-kit"
+  },
+  {
+    "original": "Forgery Kit",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--forgery-kit"
+  },
+  {
+    "original": "Gaming Set",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--gaming-set"
+  },
+  {
+    "original": "Glassblower's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--glassblower-s-tools"
+  },
+  {
+    "original": "Herbalism Kit",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--herbalism-kit"
+  },
+  {
+    "original": "Jeweler's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--jeweler-s-tools"
+  },
+  {
+    "original": "Vehicles (Land and Water)",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--vehicles-land-and-water"
+  },
+  {
+    "original": "Leatherworker's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--leatherworker-s-tools"
+  },
+  {
+    "original": "Mason's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--mason-s-tools"
+  },
+  {
+    "original": "Musical Instrument",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--musical-instrument"
+  },
+  {
+    "original": "Navigator's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--navigator-s-tools"
+  },
+  {
+    "original": "Painter's Supplies",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--painter-s-supplies"
+  },
+  {
+    "original": "Poisoner's Kit",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--poisoner-s-kit"
+  },
+  {
+    "original": "Potter's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--potter-s-tools"
+  },
+  {
+    "original": "Smith's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--smith-s-tools"
+  },
+  {
+    "original": "Thieves' Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--thieves-tools"
+  },
+  {
+    "original": "Tinker's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--tinker-s-tools"
+  },
+  {
+    "original": "Weaver's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--weaver-s-tools"
+  },
+  {
+    "original": "Woodcarver's Tools",
+    "RULES_2014": "/rules/adventuring#tool-proficiencies--tool-descriptions--woodcarver-s-tools"
+  },
+  {
+    "original": "Ammunition",
+    "RULES_2014": "/rules/equipment#weapons--weapon-properties--ammunition",
+    "markerOnly": true
+  },
+  {
+    "original": "Finesse",
+    "RULES_2014": "/rules/equipment#weapons--weapon-properties--finesse",
+    "markerOnly": true
+  },
+  {
+    "original": "Heavy",
+    "RULES_2014": "/rules/equipment#weapons--weapon-properties--heavy",
+    "markerOnly": true
+  },
+  {
+    "original": "Light (weapon property)",
+    "RULES_2014": "/rules/equipment#weapons--weapon-properties--light",
+    "markerOnly": true
+  },
+  {
+    "original": "Loading",
+    "RULES_2014": "/rules/equipment#weapons--weapon-properties--loading",
+    "markerOnly": true
+  },
+  {
+    "original": "Reach",
+    "RULES_2014": "/rules/equipment#weapons--weapon-properties--reach",
+    "markerOnly": true
+  },
+  {
+    "original": "Thrown",
+    "RULES_2014": "/rules/equipment#weapons--weapon-properties--thrown",
+    "markerOnly": true
+  },
+  {
+    "original": "Two-Handed",
+    "RULES_2014": "/rules/equipment#weapons--weapon-properties--two-handed",
+    "markerOnly": true
+  },
+  {
+    "original": "Versatile",
+    "RULES_2014": "/rules/equipment#weapons--weapon-properties--versatile",
+    "markerOnly": true
+  },
+  {
+    "original": "Heavily Obscured",
+    "RULES_2014": "/rules/adventuring#the-environment--vision-and-light"
+  },
+  {
+    "original": "Range",
+    "RULES_2014": "/rules/equipment#weapons--weapon-properties--range",
+    "markerOnly": true
+  },
+  {
+    "original": "Special",
+    "RULES_2014": "/rules/equipment#weapons--weapon-properties--special",
+    "markerOnly": true
+  },
+  {
+    "original": "Basic Poison",
+    "RULES_2014": "/rules/equipment#adventuring-gear--adventuring-gear--basic-poison",
+    "markerOnly": true
+  },
+  {
+    "original": "Alchemist's Fire",
+    "RULES_2014": "/rules/equipment#adventuring-gear--adventuring-gear--alchemists-fire",
+    "markerOnly": true
+  },
+  {
+    "original": "heavily obscured",
+    "RULES_2014": "/rules/adventuring#the-environment--vision-and-light",
+    "markerOnly": true
+  },
+  {
+    "original": "lightly obscured",
+    "RULES_2014": "/rules/adventuring#the-environment--vision-and-light",
+    "markerOnly": true
+  },
+  {
+    "original": "Assassin's Blood",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--assassin-s-blood",
+    "markerOnly": true
+  },
+  {
+    "original": "Burnt Othur Fumes",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--burnt-othur-fumes",
+    "markerOnly": true
+  },
+  {
+    "original": "Crawler Mucus",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--crawler-mucus",
+    "markerOnly": true
+  },
+  {
+    "original": "Drow Poison",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--drow-poison",
+    "markerOnly": true
+  },
+  {
+    "original": "Essence of Ether",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--essence-of-ether",
+    "markerOnly": true
+  },
+  {
+    "original": "Malice",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--malice",
+    "markerOnly": true
+  },
+  {
+    "original": "Midnight Tears",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--midnight-tears",
+    "markerOnly": true
+  },
+  {
+    "original": "Oil of Taggit",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--oil-of-taggit",
+    "markerOnly": true
+  },
+  {
+    "original": "Pale Tincture",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--pale-tincture",
+    "markerOnly": true
+  },
+  {
+    "original": "Purple Worm Poison",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--purple-worm-poison",
+    "markerOnly": true
+  },
+  {
+    "original": "Serpent Venom",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--serpent-venom",
+    "markerOnly": true
+  },
+  {
+    "original": "Torpor",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--torpor",
+    "markerOnly": true
+  },
+  {
+    "original": "Truth Serum",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--truth-serum",
+    "markerOnly": true
+  },
+  {
+    "original": "Wyvern Poison",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--wyvern-poison",
+    "markerOnly": true
+  },
+  {
+    "original": "Contact",
+    "RULES_2014": "/rules/gamemaster#poisons--poisons--contact",
+    "markerOnly": true
+  },
+  {
+    "original": "Ingested",
+    "RULES_2014": "/rules/gamemaster#poisons--poisons--ingested",
+    "markerOnly": true
+  },
+  {
+    "original": "Inhaled",
+    "RULES_2014": "/rules/gamemaster#poisons--poisons--inhaled",
+    "markerOnly": true
+  },
+  {
+    "original": "Injury",
+    "RULES_2014": "/rules/gamemaster#poisons--poisons--injury",
+    "markerOnly": true
+  },
+  {
+    "original": "Carrion Crawler Mucus",
+    "RULES_2014": "/rules/gamemaster#poisons--sample-poisons--crawler-mucus",
+    "markerOnly": true
+  },
+  {
+    "original": "Hit Points",
+    "RULES_2014": "/rules/combat#making-an-attack--damage-and-healing--hit-points",
+    "markerOnly": true
+  },
+  {
+    "original": "Rolling 1 or 20",
+    "RULES_2014": "/rules/combat#making-an-attack--attack-rolls--rolling-1-or-20",
+    "markerOnly": true
+  },
+  {
+    "original": "Downtime Activities",
+    "RULES_2014": "/rules/adventuring#between-adventures--downtime-activities",
+    "markerOnly": true
+  },
+  {
+    "original": "Artisan's Tools",
+    "RULES_2014": "/rules/equipment#tools--tools--artisans-tools",
+    "markerOnly": true
+  },
+  {
+    "original": "Material (M)",
+    "RULES_2014": "/rules/spellcasting#casting-a-spell--components--material",
+    "markerOnly": true
+  }
 ]

@@ -1,0 +1,995 @@
+{
+  "buildId": "build-monk-open-hand-2024",
+  "revisionId": "build-monk-open-hand-2024-v1",
+  "ruleset": "RULES_2024",
+  "title": "Атакувальне табаксі-таксі",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-monk-open-hand-2024",
+      "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+      "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "MONK_2024",
+  "supportedLevels": [
+    1
+  ],
+  "initialChoices": [
+    "background"
+  ],
+  "choices": [
+    {
+      "choiceId": "background",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-background",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "background-default",
+          "entity": {
+            "ruleset": "RULES_2024",
+            "kind": "background",
+            "entityKey": "SAILOR_2024"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-open-hand-2024",
+              "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+              "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+              "sectionId": "section-background",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Моряк{{Sailor}}. Нам потрібен «Забіяка з таверни»{{Tavern Brawler}}, а ще збільшення характеристик нам підходять.",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat-level-4",
+      "stage": "progression",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-level-4-default",
+          "entity": {
+            "ruleset": "RULES_2024",
+            "kind": "feat",
+            "entityKey": "GRAPPLER"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-open-hand-2024",
+              "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+              "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+              "sectionId": "section-levels",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Риса: Борець\nСпритність 17 → 18\nПовільне падіння",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat-level-12",
+      "stage": "progression",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-level-12-default",
+          "entity": {
+            "ruleset": "RULES_2024",
+            "kind": "feat",
+            "entityKey": "SPEEDY"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-open-hand-2024",
+              "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+              "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+              "sectionId": "section-levels",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Риса: Швидкий\nСтатура 15 → 16",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat-level-19",
+      "stage": "progression",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-level-19-default",
+          "entity": {
+            "ruleset": "RULES_2024",
+            "kind": "feat",
+            "entityKey": "BOON_OF_SPEED"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-open-hand-2024",
+              "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+              "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+              "sectionId": "section-levels",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Епічний Дар: Дар Швидкості\nСпритність 20 → 21",
+          "dependsOn": []
+        }
+      ]
+    }
+  ],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "MONK_2024",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "MONK_2024",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "MONK_2024",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "MONK_2024",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [
+        "feat-level-4"
+      ],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "MONK_2024",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "MONK_2024",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "MONK_2024",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "MONK_2024",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "MONK_2024",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "MONK_2024",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "MONK_2024",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "MONK_2024",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [
+        "feat-level-12"
+      ],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "MONK_2024",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "MONK_2024",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "MONK_2024",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "MONK_2024",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "MONK_2024",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "MONK_2024",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "MONK_2024",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [
+        "feat-level-19"
+      ],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "MONK_2024",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-open-hand-2024",
+          "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+          "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WARRIOR_OF_THE_OPEN_HAND"
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "WARRIOR_OF_THE_OPEN_HAND",
+    "raceKey": null,
+    "backgroundKey": "SAILOR_2024",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-example",
+        "title": "Приклад збірки — Атакувальне табаксі-таксі",
+        "text": "«Тайлере, чому ти завжди знаходиш спосіб стати автобусом?» —Рендом Павелл, близько 2022 року\n\nНаш гайд із Шляху відкритої долоні (2014) ґрунтувався на семантичній суперечці: «від себе» — це не те саме, що «безпосередньо від себе». Приблизно через 6 місяців після публікації того гайда ті самі поради почали зʼявлятися в ТікТоці, на Ютубі та інших платформах, де творці D&D-контенту обговорюють оптимізацію персонажів. Невдовзі після цього WotC помітили це й почали експериментувати з «горизонтально від себе» в плейтесті «Відкритої Аркани»{{Unearthed Arcana}} для правил 2024 року, зрештою зупинившись на «безпосередньо від себе», що краще передає задуманий ефект. Переважна більшість ефектів відштовхування в правилах 2024 року тепер використовують «безпосередньо від себе».\n\nДивно, але WotC залишили варіант відштовхування в «Техніці відкритої долоні»{{Open Hand Technique}} без змін. У формулюванні досі просто сказано «від себе». Незрозуміло, чи WotC просто пропустили одне місце, чи побачили, що я зробив із правилами 2014 року, і сказали: «Знаєте що? Це найбільш монаше, що ми бачили. Лишаємо». Так чи інакше, це означає, що наші витівки з правилами 2014 року працюють майже без жодних змін.\n\nАле я не збираюся повторно використовувати ті самі тактики. Це нудно.\n\nЯ збираюся вчинити набагато гірше.\n\nЦя збірка — дуже мобільний контролер ближнього бою, що покладається на відштовхування й захоплення, щоб переміщувати ворогів. Як і наша збірка Монаха Відкритої долоні{{Open Hand}} за правилами 2014 року, вона розквітає в парі з дружнім нюкером. Але, на відміну від збірки 2014 року, ця значно краще пристосована до розумного використання місцевості. Велика частина гри за цю збірку залежатиме від вашої власної уважності до навколишнього світу, що часто сягає значно далі",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-example",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Цілком стандартно для Монаха. На жаль, ми не встигнемо довести Спритність і Мудрість до 20, поки не дійдемо до 20-го рівня.\n\nСила · 8 · 8 · 8\nСпритність · 15 · 17 · 25\nСтатура · 15 · 15 · 16\nІнтелект · 8 · 8 · 8\nМудрість · 15 · 16 · 22\nХаризма · 8 · 8 · 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Моряк{{Sailor}}. Нам потрібен «Забіяка з таверни»{{Tavern Brawler}}, а ще збільшення характеристик нам підходять.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-species-2",
+        "title": "Раса",
+        "text": "Табаксі{{Tabaxi}}. Навички чудові, але ми тут заради «Котячої спритності»{{Feline Agility}}. Памʼятайте, що за правилами 2024 року ми ігноруємо збільшення характеристик від старих рас.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-species-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skill-and-tool-proficiencies",
+        "title": "Володіння навичками й інструментами",
+        "text": "Від Моряка{{Sailor}} ми отримуємо Акробатику й Уважність. Від Табаксі{{Tabaxi}} — Уважність і Непомітність. Із класових навичок Монаха беремо будь-які 2. Для цієї збірки це не має значення. Історія й Аналіз Поведінки — непогані варіанти.\n\nНа жаль, у правилах 2024 року немає правила про дубльовані володіння, як було в правилах 2014 року, тож, схоже, ми справді втрачаємо одне володіння.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-skill-and-tool-proficiencies",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-and-ability-score-increases",
+        "title": "Риси та покращення характеристик",
+        "text": "На 1-му рівні ми отримуємо «Забіяку з таверни»{{Tavern Brawler}} від нашого походження. Перекидання одиниць на кубиках шкоди беззбройного удару — приємна дрібниця, але ми тут заради здатності «Поштовх»{{Push}}: раз за хід, коли ми влучаємо беззбройним ударом, можна відштовхнути ворога на 5 футів від себе. Зверніть увагу: саме «раз за хід», а не «раз у кожен ваш хід».\n\nНа 4-му рівні беремо «Борця»{{Grappler}} і +1 до Спритності.\n\nНа 8-му рівні беремо +2 до Спритності.\n\nНа 12-му рівні беремо «Швидкого»{{Speedy}} і +1 до Статури.\n\nНа 16-му рівні беремо +2 до Мудрості.\n\nНа 19-му рівні беремо «Дар Швидкості»{{Boon of Speed}} і +1 до Спритності.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-feats-and-ability-score-increases",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-starting-equipment",
+        "title": "Стартове спорядження й тактика",
+        "text": "На цьому рівні ми — цілком стандартний Монах. Колійте ворогів списом, лупцюйте їх бонусною атакою й намагайтеся не померти з 10 ХП і КБ 16.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бойові мистецтва\nЗахист без броні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "На цьому рівні ми — цілком стандартний Монах. Колійте ворогів списом, лупцюйте їх бонусною атакою й намагайтеся не померти з 10 ХП і КБ 16."
+      },
+      {
+        "level": 2,
+        "text": "Зосередження Монаха\nРух без броні + 10 фт\nНадприродний метаболізм",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "«Зосередження Монаха»{{Monk’s Focus}} дає нам невеликий смак майбутнього. «Шквал ударів»{{Flurry of Blows}} зʼїдатиме більшість наших очок Зосередження, але можна також поєднати «Крок вітру»{{Step of the Wind}} із «Котячою спритністю»{{Feline Agility}}, щоб ненадовго рухатися неймовірно швидко.\n\n«Надприродний метаболізм»{{Uncanny Metabolism}} — на випадок, коли вас втягують у бій дорогою до наступного короткого відпочинку. Не використовуйте його як відмовку, щоб не відпочивати."
+      },
+      {
+        "level": 3,
+        "text": "Відхилення атак\nПідклас: Воїн Відкритої Долоні\nТехніка відкритої долоні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "«Відхилення атак»{{Deflect Attacks}} дуже ускладнює вбивство Монаха в двобої один на один. Скористайтеся цим, щоб зчепитися в ближньому бою з великими ворогами й тримати їх зайнятими, поки ваша група вирішує інші проблеми й не зможе прийти вам на допомогу.\n\n«Техніка відкритої долоні»{{Open Hand Technique}} — ось де ми починаємо почуватися круто. Вона спрацьовує лише тоді, коли ми використовуємо «Шквал ударів»{{Flurry of Blows}}, тож обовʼязково бережіть очки Зосередження для шквалів.\n\nДля нас особливо важлива «Техніка відкритої долоні» (Поштовх). Вона дозволяє відштовхнути ворога на відстань до 15 футів, зокрема вгору, у повітря. У поєднанні з відштовхуванням раз за хід від «Забіяки з таверни»{{Tavern Brawler}} ми можемо підкинути ворога на 20 футів угору, унаслідок чого він упаде, отримає 2к6 шкоди й приземлиться повалений."
+      },
+      {
+        "level": 4,
+        "text": "Риса: Борець\nСпритність 17 → 18\nПовільне падіння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "«Борець»{{Grappler}} — фантастична риса для Монаха. Влучіть у ворога беззбройним ударом і схопіть його (памʼятайте, що для Складності ряткидка можна використовувати Спритність), а решту ходу атакуйте його з Перевагою.\n\nЯкою б крутою не була Перевага, справжня причина, чому ми тут, — це «Швидкий борець»{{Fast Wrestler}} від «Борця». Здатність переміщувати схопленого дозволяє точно переставляти схоплених ворогів, а обмежує нас лише те, як далеко ми можемо рухатися за хід. «Крок вітру»{{Step of the Wind}} дає змогу використати Ривок бонусною дією без витрат очок Зосередження, і, поєднавши це з «Рухом без броні»{{Unarmored Movement}} та «Котячою спритністю»{{Feline Agility}}, ми отримуємо 160 футів руху, не витрачаючи дію. Цього досить, щоб поставити схопленого ворога куди завгодно, навіть далеко в окрему кімнату, звідки йому знадобиться два ходи Ривку, щоб повернутися в бій.\n\nЯкщо у вас є союзник, що вміє накладати Проростання шипів [Spike Growth], вся гра переходить у легкий режим. Пропускайте свої проблеми крізь сирну тертку на надшвидкості.\n\nПамʼятайте, що «Котяча спритність» відновлюється лише тоді, коли ви проводите хід без руху, тож назад вам, можливо, доведеться добиратися зі звичайною швидкістю. Або ж ви з вашим невільним пасажиром можете витратити хід на двобій один на один (що часто виграшне рішення завдяки «Відхиленню атак»{{Deflect Attacks}}), перш ніж надшвидко повернутися до групи.",
+        "abilityChanges": [
+          {
+            "ability": "DEX",
+            "increase": 1
+          }
+        ],
+        "featKeys": [
+          "GRAPPLER"
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака\nПриголомшливий удар",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "«Додаткова атака»{{Extra Attack}} — фантастика. Хоч ми й не можемо використати «Борця»{{Grappler}}, щоб завдати шкоди й схопити більше ніж однією атакою, ми все одно можемо схопити по одній істоті на кожну порожню руку, а отже, силоміць вивезти двох ворогів із сутички на {{табаксі-таксі|Tabaxi taxi}}, залишивши решту групи розбиратися з тим, що лишилося, поки ми мчимо назад на допомогу.\n\nБудьте обережні з цим. Залишитися наодинці з двома ворогами — означає стати дуже вразливим до ефектів контролю або несподіваних критичних влучань. Також це може дозволити ворогам піти й приєднатися до інших груп ворогів, ускладнивши подальші зіткнення. Якщо ви збираєтеся вивести ворогів із бою, робіть це десь, де їм це незручно, а вам — відносно безпечно.\n\nЯкщо вороги надто великі, щоб їх схопити, запустіть їх на 20 футів у повітря. «Техніці відкритої долоні»{{Open Hand Technique}} байдуже, наскільки вони великі.\n\nТакож памʼятайте, що ці тактики схоплення не обовʼязково застосовувати суто в нападі. Істоти можуть добровільно провалити ряткидок, тож ви можете схопити союзників, щоб переставити їх. У вас швидкість більша, ніж у будь-кого в групі, тож у сутичці з великим простором перетягування союзників може схилити шальки терезів на вашу користь так, що вороги нічого не зможуть протиставити.\n\nНа цьому ж рівні стає доступне заклинання Прискорення [Haste]. Якщо союзник накладе на вас Прискорення [Haste], усе це стає вдвічі ефективнішим."
+      },
+      {
+        "level": 6,
+        "text": "Рух без броні + 15 фт\nПідсилені удари\nЦілісність тіла",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "«Підсилені удари»{{Empowered Strikes}} дозволяють обійти майже всі опори до шкоди.\n\n«Цілісність тіла»{{Wholeness of Body}} дає краплю лікування. Цього замало, щоб це було захопливо."
+      },
+      {
+        "level": 7,
+        "text": "Ухилення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Завжди чудово."
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Спритність 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Нам справді хочеться більше рис, але Спритність також украй потрібна, щоб підтримувати всі наші витівки.",
+        "abilityChanges": [
+          {
+            "ability": "DEX",
+            "increase": 2
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Акробатичний рух",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Задум цього уміння — дозволити Монахам виконувати неймовірні подвиги фізичної майстерності й без магії долати будь-яку місцевість. Саме це ми й збираємося робити. Ну, майже.\n\n«Акробатичному руху»{{Acrobatic Movement}} байдуже, що ми тримаємо когось у захопленні. Тепер ми можемо використати «Акробатичний рух», щоб тягти ворогів по рідких поверхнях або вгору по вертикальних. Так, ми можемо схопити ворогів і вибігти з ними прямо по стіні.\n\nЗ 45 футами руху, Ривком бонусною дією та «Котячою спритністю»{{Feline Agility}} ми маємо 180 футів руху. Схопіть ворога, затягніть його на найвищу вертикальну споруду, яку знайдете, і скиньте. Якщо вам не вистачає руху, щоб збігти по стіні назад, то нічого страшного. У вас є «Повільне падіння»{{Slow Fall}}, і на цьому рівні воно гасить 45 одиниць шкоди від падіння. Максимальна шкода від падіння — 20к6 (у середньому 70), тож ви мчите до здатності гасити середню шкоду від падіння з кінцевою швидкістю."
+      },
+      {
+        "level": 10,
+        "text": "Рух без броні + 20 фт\nПідвищене зосередження\nСамовідновлення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "«Підвищене зосередження»{{Heightened Focus}} ще більше розширює наші можливості табаксі-таксі. Якщо ви витрачаєте очко Зосередження, застосовуючи «Крок вітру»{{Step of the Wind}}, тепер можна взяти із собою охочу істоту. Можна схопити по одному союзнику в кожну руку й потягти третього за собою «Кроком вітру», перевозячи групу з чотирьох зі швидкістю табаксі-таксі. Якщо в той самий хід виконати Ривок дією й скористатися «Котячою спритністю»{{Feline Agility}}, можна пронести всю групу 300 футів за 6 секунд — це приблизно 34 милі на годину. Ви — табаксі-таксі, що їде зі швидкістю справжнього таксі (хай і недовго).\n\n«Підвищене зосередження» також збільшує «Шквал ударів»{{Flurry of Blows}} із 2 до 3 атак, роблячи «Техніку відкритої долоні»{{Open Hand Technique}} ще крутішою."
+      },
+      {
+        "level": 11,
+        "text": "Прудка хода",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "До цього моменту ми часто користувалися «Кроком вітру»{{Step of the Wind}}. Тепер можна повернутися до того, щоб завжди бити бонусною дією, бо безкоштовний Ривок ми й так отримуємо.\n\nНа цей момент у нас достатньо швидкості й атак, щоб почати возити ворогів на табаксі-таксі партіями. У нас усього 5 атак, тож теоретично можна схопити й перемістити 5 ворогів, скидаючи їх по дорозі, щоб тут же бігти по нових. Можна стягнути всіх ворогів в охайну акуратну кульку, а тоді примчати назад у безпеку, перш ніж ваша група накриє їх усіх Вогнекулею [Fireball]."
+      },
+      {
+        "level": 12,
+        "text": "Риса: Швидкий\nСтатура 15 → 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "+10 футів швидкості доводять нас до 60 футів, піднімають наш модифікатор Статури до +3, і тепер ми почуваємося значно безпечніше, пробігаючи крізь досяжність ворогів, коли працюємо табаксі-таксі.",
+        "abilityChanges": [
+          {
+            "ability": "CON",
+            "increase": 1
+          }
+        ],
+        "featKeys": [
+          "SPEEDY"
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Відхилення енергії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Так, тепер ви можете відхиляти Позамежний заряд [Eldritch Blast]."
+      },
+      {
+        "level": 14,
+        "text": "Рух без броні + 25 фт\nЗагартований дисципліною",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Володіння всіма ряткидками, зокрема ряткидками від смерті. До того ж ми стаємо ще швидшими."
+      },
+      {
+        "level": 15,
+        "text": "Досконале зосередження",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "«Техніка відкритої долоні»{{Open Hand Technique}} вимагає використовувати «Шквал ударів»{{Flurry of Blows}}, тож починати бій без очок Зосередження дуже обмежувально."
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: Мудрість 16 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Нудно, зате вагомо.",
+        "abilityChanges": [
+          {
+            "ability": "WIS",
+            "increase": 2
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Тремтяча долоня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "65 шкоди в обмін на 2 атаки й 4 очки Зосередження, із ряткидком Статури на половину шкоди. Якщо витратити ці очки на «Шквал ударів»{{Flurry of Blows}} і «Приголомшливий удар»{{Stunning Strike}}, у тривалому бою користі буде більше.\n\nПривабливість «Тремтячої долоні»{{Quivering Palm}} — у швидкості. Використовуйте її, щоб швидко прибрати пріоритетні цілі, коли треба швидко щось знищити «нюком». Це не основна тактика, але це інструмент у вашому ящику з інструментами."
+      },
+      {
+        "level": 18,
+        "text": "Рух без броні + 30 фт\nВищий захист",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Наша швидкість тепер 70 футів.\n\n«Вищий захист»{{Superior Defense}} буде потрібен нечасто. Берегти його варто для справді важких боїв."
+      },
+      {
+        "level": 19,
+        "text": "Епічний Дар: Дар Швидкості\nСпритність 20 → 21",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Ще 30 футів швидкості різко розширюють радіус, у якому ми можемо витворяти наші витівки з табаксі-таксі.\n\nЗі швидкістю 100 футів (до врахування підсилень на кшталт Скорохода [Longstrider] і Прискорення [Haste]) і гарантованим Ривком щоходу ми можемо отримати 400 футів руху, не витрачаючи дію, а отже, легко пронести двох ворогів 200 футів угору по стіні, скинути їх, завдавши по 20к6 шкоди кожному, спуститися вниз, гасячи шкоду від падіння, потім, можливо, знову схопити їх і ще раз затягти по стіні вгору. Якщо вам це вдасться, раджу збігти назад до висоти 5 футів від землі, щоб не отримати шкоди від падіння й не впасти повалені.\n\nПодумати лишень. Інші Монахи просто бʼють людей, а ви завдаєте 20к6 двом цілям і ще й бʼєте людей.\n\nЗвісно, для цього потрібна вертикальна поверхня заввишки 200 футів, а такі трапляються зникомо рідко. Але будь-що заввишки 30 футів чи більше вже виправдовує те, щоб возити ворога на табаксі-таксі вгору по стіні замість того, щоб просто його бити. Якщо поблизу є водойма, можна пронести їх 200 футів від берега й змусити пливти назад із половинною швидкістю.\n\nА якщо цих варіантів немає, ми все одно можемо смішно далеко відтягти ворогів у незручні місця й або розібратися з ними наодинці, або кинути їх там.",
+        "abilityChanges": [
+          {
+            "ability": "DEX",
+            "increase": 1
+          }
+        ],
+        "featKeys": [
+          "BOON_OF_SPEED"
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Тіло і розум",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ],
+        "notes": "Ця математика така приємна. Ми не довели Мудрість до 20, тож у нас не 25 Спритності й 24 Мудрості, але 25/22 — теж цілком круто.",
+        "abilityChanges": [
+          {
+            "ability": "DEX",
+            "increase": 4
+          },
+          {
+            "ability": "WIS",
+            "increase": 4
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Раса: Табаксі",
+        "reason": "Табаксі відсутні в каталозі рас 2024. Оберіть власну расу в конструкторі; авторський приклад лишається незавершеним.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-species-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Навички й мови",
+        "reason": "Підтвердьте джерела володінь і кількість виборів у чинному конструкторі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-example",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Спорядження",
+        "reason": "Підтвердьте стартове спорядження; майбутні покупки не видаються на 1-му рівні.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-open-hand-2024",
+            "translationRevisionId": "translation-rpgbot-monk-open-hand-2024-draft1",
+            "sourceRevisionId": "rpgbot-ea40be98cdd52810-e0fc5303b1d18c7b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

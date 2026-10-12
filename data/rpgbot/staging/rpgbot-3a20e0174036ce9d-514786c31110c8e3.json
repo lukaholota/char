@@ -1,0 +1,1969 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "514786c31110c8e3e136e40d5135010eb25915981a4f685c0f34db1776166279",
+  "sourceRevision": {
+    "revisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3",
+    "sourceId": "rpgbot-3a20e0174036ce9d",
+    "fetchedAt": "2026-09-29T19:11:48.424175+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:25:47-04:00",
+    "contentHash": "1373aeaf8f277897a1d1b62240081fefa93726e00de776479c455b31315e9722",
+    "title": "Battlerager Barbarian 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-3a20e0174036ce9d-514786c31110c8e3.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Battlerager is a grappling-focused option for the Barbarian. It leans into the Barbarian’s love of aggressive melee tactics, encouraging you to dive into melee, grab onto an enemy, and make yourself a big, spiky problem. But, with poor durability and terrible scaling, the Battlerager really struggles."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Battlerager’s subclass features center around the use of Spiked Armor. If you can’t get spiked armor for whatever reason, or if your armor is taken from you somehow (rust monsters, etc.), your Primal Path suddenly becomes worthless."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Even if you can get spiked armor, your AC is fixed at 16 (unless you get magic spiked armor or use a shield) and even with d12 hit dice that’s still a huge problem. The class features give you some nice damage options, but the features aren’t as useful or as exciting as other subclasses, and, since you’re stuck in Spiked Armor, you don’t get to enjoy Unarmored Defense or half-plate like other Barbarians. The racial restriction is also frustrating, but the dependency on Constitution means that a Dwarf would be a good choice anyway."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As a whole, the subclass is interesting, but, by Barbarian standards, it’s very vulnerable, especially if you’re not Raging. If you want a Barbarian who is good at grappling, you can do it with any Barbarian. Path of the Beast is my go-to. But I’ve been saying for a decade that I would cover every bit of 5e content, so here we go."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If your DM is going to let you get magic Spiked Armor or if you have allies who can buff you with things like Shield of Faith, that will make a huge difference. Either way, strongly consider feats like Durable and Tough to make yourself more survivable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Some minor numerical adjustments would do a lot to improve the Battlerager. If you want to play a Battlerager, try some or all of these changes:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-7",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Change Battlerage Armor’s grapple damage to apply whenever you succeed on a check to Grapple a creature and also whenever a creature successfully grapples you. Change the damage from 3 to damage equal to your Strength modifier."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increase the AC of Spiked Armor from 14 to 15. Consider adding this improvement as a feature at level 10."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Battlerager Barbarian Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Battlerager Barbarian Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Battlerager Barbarian Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Battlerager Barbarian Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Battlerager Barbarian Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Battlerager Barbarian Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Battlerager Barbarian Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Path of the Battlerager Barbarian Build – The Drop Hawk",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/battlerager/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Path of the Battlerager Barbarian Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Battlerager Armor"
+              },
+              {
+                "type": "text",
+                "text": ": A free attack as a\n\t\tBonus Action is great. Don’t forget that your Rage bonus to damage still\n\t\tapplies. The ability to deal damage when you grapple is also nice, but it’s only 3 damage, it doesn’t scale, and there’s no\n\t\tway for you to improve it further.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "However, spiked armor’s stats are bad and the 16 AC will be a constant\n\t\t\tproblem for you, especially with Reckless Attack. Using the Bonus Action\n\t\t\tattack can be hard, too, because many Barbarian class features are\n\t\t\tactivated as a Bonus Action, including Rage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reckless Abandon"
+              },
+              {
+                "type": "text",
+                "text": ": You’re likely going to\n\t\tuse Reckless Attack every turn in combat, and the temporary hit points reset\n\t\tevery time you do so, dramatically improving your ability to endure damage.\n\t\tThis will be crucial since your 16 AC is going to make you a huge target for\n\t\tany random kobold that’s getting Advantage to hit you thanks to Reckless\n\t\tAttack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Battlerager Charge"
+              },
+              {
+                "type": "text",
+                "text": ": Functionally similar\n\t\tto the Charger feat. Unfortunately, since you want to use the same Bonus\n\t\tAction to attack with your armor, it means that you give up damage output to\n\t\tget into position to attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spiked Retribution"
+              },
+              {
+                "type": "text",
+                "text": ": Not a lot of damage\n\t\tat this level, but, by now, many enemies will have multiple attacks, so it will\n\t\tadd up quickly."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Path of the Battlerager Barbarian Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical Barbarian",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Path of the Battlerager Barbarian Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Technically the Battlerager is locked into being some variety of Dwarf, but there is a sidebar explaining that the DM might lift that restriction. If they do, your race options are little different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical Barbarian",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/races"
+            },
+            {
+              "type": "text",
+              "text": ". The Simic Hybrid’s grappling appendages and the Loxadon’s ability to grapple with their trunk could both be useful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Path of the Battlerager Barbarian Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Largely the same as a "
+            },
+            {
+              "type": "link",
+              "text": "typical Barbarian",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#feats"
+            },
+            {
+              "type": "text",
+              "text": ", with a few exceptions. The Skill Expert feat to get Expertise is basically required, and feats which provide Temporary Hit Points will be less useful since you can generate short-term THP every turn. Medium Armor Master can also provide a +1 net AC increase, but the cost to get your Dexterity to 16 likely isn’t worth the effort when you could take Fighting Initiate (Defense) for an easy +1."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I tried really hard to find some possible synergy with the Grappler feat, but it’s still useless."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Path of the Battlerager Barbarian Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical Barbarian",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Path of the Battlerager Barbarian Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Most of the subclass doesn’t function if you’re not in your spiked armor, so\n\tyou have exactly one choice. Hopefully your DM lets you find magic versions of\n\tthe armor. If not, maybe you’ll find magic shields."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Path of the Battlerager Barbarian Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical Barbarian",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Path of the Battlerager Barbarian Build – The Drop Hawk",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The subclass is pretty rough, so we need to look for some unusual options. The intent of the subclass is to rush into melee, grapple and enemy, and recklessly trade blows and try to rush through hit point attrition."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the subclass is intended to be Dwarf-only, I’m going to present the build with two race options. The two builds will use similar tactics, but will also highlight how much flight improves the build. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build will assume unrestricted race options and all of the Barbarian’s Optional Class Features."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pretty typical for the Barbarian."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll consider three options: Hill Dwarf, Owlin, and Aarakocra."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mountain Dwarf for the two +2 increases. We need high mods in both Strength and Constitution."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Owlin. The original version of Aarakocra is better thanks to its higher speed, but with the updated version of Aarakocra’s speed greatly reduced, the Owlin is a better fit here thanks to Darkvision and an extra skill. Technically any medium-sized flying race will suffice here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not important to the build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll get a total of 4 skills from our class and Background. If you’re an Owlin, you’ll get proficiency in Stealth. As long as you get proficiency in Athletics, the rest doesn’t matter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we take Skill Expert to increase Strength to 18 and gain Expertise in Athletics. We also get proficiency in yet another skill."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we increase Constitution to 19"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we take Mobile."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16 we split an ASI between Strength and Constitution to get Str to 19 and Con to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19 we take Piercer and raise Strength to 20."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unarmored Defense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Typical Barbarian stuff at this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reckless Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Danger Sense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Still just typical Barbarian stuff at this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Primal Path: Battlerager"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Battlerager Armor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Primal Knowledge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This level immediately changes us from normal “hit them with an axe” Barbarian into a grapple enthusiast. Familiarize yourself with the "
+                },
+                {
+                  "type": "link",
+                  "text": "Grapple+Shove Combo",
+                  "href": "https://rpgbot.net/dnd5/characters/grapple/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The armor’s spikes give us a reliable Bonus Action attack, giving us another opportunity to apply our Strength and Rage bonuses to damage. We can also deal 3 damage by successfully grappling a target, which helps make up for the damage that we gave up from an attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfortunately, the cost is that our AC is bad. Grab a shield and we can sit at 18, a full point below typical for medium armor. At high levels we’ll have Spiked Retribution so we’ll deal retaliatory damage, plus we get Reckless Abandon in a few levels, but our durability is going to suck until then."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For our dwarf build, your best bet is to rush in, grapple, and Shove your enemy prone as soon as possible. Use the armor spikes attack whenever you have a free Bonus Action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For our winged build, it’s time to start airlifting enemies. Fly in, grapple, fly up. When you begin your turn with a grappled enemy, drop them. Fly down, spike attack as a Bonus Action, then grapple them again and lift them into the air. You probably can’t go more than 10 feet off the ground to stay in range for the combo, but that’s enough to deal guaranteed damage and knock your target prone. Remember that you still move at half speed when moving a grapple."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Yes, our tactics are effectively "
+                },
+                {
+                  "type": "link",
+                  "text": "seismic toss",
+                  "href": "https://www.youtube.com/watch?v=-VxLh-EJAt0"
+                },
+                {
+                  "type": "text",
+                  "text": " followed by Owlin-barian "
+                },
+                {
+                  "type": "link",
+                  "text": "from the top rope",
+                  "href": "https://www.youtube.com/watch?v=UET0KFCrkXk"
+                },
+                {
+                  "type": "text",
+                  "text": ". It’s hard to argue with results."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember that keeping your enemy airborne discourages them from bothering your allies. If they break the grapple, they take the damage and fall prone anyway. The only way for you to lose is for them to kill you through your damage resistance and wall of hp."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Skill Expert"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Str 17 -> 18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Expertise: Athletics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Proficiency: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We need to be able to grapple at minimal risk. Between this and Rage, we’re largely unstoppable when we attempt to grapple."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fast Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack means that we have a backup grapple attempt, or we could actually attack an enemy that we’re grappling. Fast Movement lets us airlift enemies even faster."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reckless Abandon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The Temporary Hit Points will add quite a bit to our durability, especially if we’re spending most of our time engaging a single foe. We only get 3 per round, but we also have damage resistance from Rage, so it’s effectively 6."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Note that, to activate Reckless Abandon, you need to use Reckless Attack. You use Reckless Attack when you make your first attack on your turn, which means that you need to actually make an attack. Grappling doesn’t count. Fortunately, you have up to 3 opportunities to make an attack between the armor spikes and Extra Attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Whatever you do, make sure that you have the THP. Your AC is bad."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feral Instinct"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Instinctive Pounce"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Instinctive Pounce helps us to get into melee faster so that we can use more movement to airlift something."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Con 17 -> 19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our Con modifier is crucial for Reckless Abandon, giving us both our normal increased hp and also an additional THP every turn."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical (1 Die)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We will barely use this. It was barely usable anyway."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Battlerager Charge"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Primal Knowledge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For our Dwarf build, Battlerager Charge lets us close to melee faster if we start far enough away that Instinctive Pounce and Fast Movement don’t do the job. You could also use it to move a grapple in order to drag your enemy somewhere unpleasant."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For our winged build, Battlerager Charge gives us the ability to move considerably further with our airlift, allowing us to get enemies much higher and then drop them much further. However, it competes for space with the armor spikes attack, so we need to be cautious about when we use it or we’ll find ourselves too high off the ground to airlift on our next turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The additional damage from dropping enemies from greater height also might be worse than the damage from our armor spikes. 1d6+7 (avg. 10.5) matches 30 feet of fall damage. As long as we’re doing any amount of fall damage, we’re doing okay."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The additional movement does let us do one other interesting thing: it makes it easier to grapple and airlift multiple enemies that aren’t already adjacent to each other. This comes with a lot of additional risk to ourselves, but sometimes it’s going to be useful."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Relentless Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dropping to 1 hit point plus the 4 THP from Reckless Abandon isn’t exactly safe, but it’s something."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Mobile"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "+10 feet of speed and we can avoid Opportunity Attacks if we’re worried about drawing too many as we fly over our enemies to reach softer targets. The ability to move further means that we can potentially airlift enemies another 10 feet."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical (2 Dice)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spiked Retribution"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Oh wow, 3 whole damage! That’s… that’s definitely a number! At the very least enemies will nearly all have multiattack at this level, so you’re likely to deal the damage repeatedly."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Persistent Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Str 18 -> 19"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Con 19 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "+1 to our grapple checks won’t be a huge difference. We need to stay alive."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical (3 Dice)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable Might"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our minimum for grapple checks was 17 on a natural 1, but now it’s 19."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Piercer"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Str 19 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Piercer works with our armor spikes, which is kinda nice. We mostly just want a feat with a +1 Strength increase."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Primal Champion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Strength and Constitution of 24 each puts us in a really great place for both grappling and for Reckless Abandon."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Path of the Battlerager Barbarian Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Battlerager Armor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Reckless Abandon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Battlerager Charge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Spiked Retribution"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-introduction-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-introduction-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-3"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-race-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-2-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2404,
+    "sections": 17,
+    "blocks": 36,
+    "tables": 2,
+    "ratingSignals": 9
+  },
+  "status": "needs-editorial-review"
+}

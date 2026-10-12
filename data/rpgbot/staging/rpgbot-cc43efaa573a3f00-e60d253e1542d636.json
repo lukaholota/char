@@ -1,0 +1,4212 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/weapons/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "e60d253e1542d6367c75a48fb950404988e58e70e90552345ae3a0ee1919b369",
+  "sourceRevision": {
+    "revisionId": "rpgbot-cc43efaa573a3f00-e60d253e1542d636",
+    "sourceId": "rpgbot-cc43efaa573a3f00",
+    "fetchedAt": "2026-09-29T19:22:08.818407+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:18:57-04:00",
+    "contentHash": "e5e342aad69ea3aef5881f578f14040e8fec1278f69420a786a77ed7e591515d",
+    "title": "DnD 5e Weapons: A Practical Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-cc43efaa573a3f00-e60d253e1542d636.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A martial character’s choice of weapons can be a major decision point when building your character. The impact of specific "
+            },
+            {
+              "type": "link",
+              "text": "feats",
+              "href": "https://rpgbot.net/dnd5/characters/feats/"
+            },
+            {
+              "type": "text",
+              "text": " and weapon properties can make a big difference in your tactics, so understanding your weapon options can help you make informed decisions."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article is similar to our "
+            },
+            {
+              "type": "link",
+              "text": "How to Play page on Weapons",
+              "href": "https://rpgbot.net/dnd5/how-to-play/weapons/"
+            },
+            {
+              "type": "text",
+              "text": ", but expands on that advice to give more detailed advice appropriate to character optimization."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/weapons/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/weapons/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Legalese",
+                "href": "https://rpgbot.net/dnd5/characters/weapons/#legalese"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Weapons Tables",
+                "href": "https://rpgbot.net/dnd5/characters/weapons/#weapons-tables"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Weapon Properties",
+                "href": "https://rpgbot.net/dnd5/characters/weapons/#weapon-properties"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/weapons/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Special Materials",
+                "href": "https://rpgbot.net/dnd5/characters/weapons/#special-materials"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Firearms",
+                "href": "https://rpgbot.net/dnd5/characters/weapons/#firearms"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-4",
+      "heading": "Legalese",
+      "blocks": [
+        {
+          "blockId": "block-section-4-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and available at "
+            },
+            {
+              "type": "link",
+              "text": "https://dnd.wizards.com/resources/systems-reference-document",
+              "href": "https://dnd.wizards.com/resources/systems-reference-document"
+            },
+            {
+              "type": "text",
+              "text": ". The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at "
+            },
+            {
+              "type": "link",
+              "text": "https://creativecommons.org/licenses/by/4.0/legalcode",
+              "href": "https://creativecommons.org/licenses/by/4.0/legalcode"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons-tables",
+      "heading": "Weapons Tables",
+      "sourceAnchor": "weapons-tables",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-simple-weapons",
+      "parentSectionId": "section-weapons-tables",
+      "heading": "Simple Weapons",
+      "sourceAnchor": "simple-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-simple-weapons-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Weapon Name"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cost"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Damage"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Weight"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Properties"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "emphasis",
+                  "text": "Simple Melee Weapons"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Club"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1 sp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d4 bludgeoning"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Light"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dagger"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d4 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finesse, light, thrown (range 20/60)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Greatclub"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 sp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8 bludgeoning"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Two-handed"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Handaxe"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6 slashing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Light, thrown (range 20/60)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Javelin"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5 sp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Thrown (range 30/120)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Light Hammer"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d4 bludgeoning"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Light, thrown (range 20/60)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Mace"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6 bludgeoning"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Quarterstaff"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 sp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6 bludgeoning"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Versatile (1d8)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Sickle"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d4 slashing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Light"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Spear"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Thrown (range 20/60), versatile (1d8)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "emphasis",
+                  "text": "Simple Ranged Weapons"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Crossbow, Light"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "25 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "5 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ammunition (range 80/320), loading, two-handed"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dart"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5 cp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d4 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1/4 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finesse, thrown (range 20/60)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Shortbow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "25 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ammunition (range 80/320), two-handed"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Sling"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1 sp "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d4 bludgeoning"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ammunition (range 30/120)"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-martial-weapons",
+      "parentSectionId": "section-weapons-tables",
+      "heading": "Martial Weapons",
+      "sourceAnchor": "martial-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-martial-weapons-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Weapon Name"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cost"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Damage"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Weight"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Properties"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "emphasis",
+                  "text": "Martial Melee Weapons"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Battleaxe"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8 slashing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Versatile (1d10)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Flail"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8 bludgeoning"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Glaive"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d10 slashing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Heavy, reach, two-handed"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Greataxe"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "30 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d12 slashing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Heavy, two-handed"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Greatsword"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "50 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d6 slashing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Heavy, two-handed"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Halberd"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d10 slashing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Heavy, reach, two-handed"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Lance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d12 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reach, special"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Longsword"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8 slashing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Versatile (1d10)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Maul"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d6 bludgeoning"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Heavy, two-handed"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Morningstar"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Pike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d10 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Heavy, reach, two-handed"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Rapier"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "25 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finesse"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Scimitar"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "25 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6 slashing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finesse, light"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Shortsword"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finesse, light"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Trident"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Thrown (range 20/60), versatile (1d8)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "War pick"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Warhammer"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8 bludgeoning"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Versatile (1d10)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Whip"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d4 slashing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finesse, reach"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "emphasis",
+                  "text": "Martial Ranged Weapons"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Blowgun"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ammunition (range 25/100), loading"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Crossbow, hand"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "75 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ammunition (range 30/120), light, loading"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Crossbow, heavy"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "50 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d10 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ammunition (range 100/400), heavy, loading, two-handed"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Longbow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "50 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8 piercing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ammunition (range 150/600), heavy, two-handed"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Net"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1 gp"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3 lb."
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Special, thrown (range 5/15)"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-other-weapons",
+      "parentSectionId": "section-weapons-tables",
+      "heading": "Other Weapons",
+      "sourceAnchor": "other-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-other-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Other weapons exist, but because their stats are not included in the SRD, I legally can’t reproduce their stats. Check the Dungeon Master’s Guide for stuff like firearms, check Eberron: Rising from the Last War for the double-bladed scimitar, and check Dragonlance: Shadow of the Dragon Queen for the Hoopak."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapon-properties",
+      "heading": "Weapon Properties",
+      "sourceAnchor": "weapon-properties",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-properties-ammunition",
+      "parentSectionId": "section-weapon-properties",
+      "heading": "Ammunition",
+      "sourceAnchor": "properties-ammunition",
+      "blocks": [
+        {
+          "blockId": "block-section-properties-ammunition-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "You can use a weapon that has the ammunition property to make a ranged attack only if you have ammunition to fire from it, such as a bolt for a crossbow or an arrow for a bow. Each time you attack with the weapon, you expend one piece of ammunition. Drawing the ammunition from a quiver, case, or other container is part of the attack. At the end of the battle, you can recover half your expended ammunition by taking a minute to search the battlefield."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-ammunition-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Almost no one tracks ammunition anymore, but you do still need a free hand to reload weapons with the Ammunition property. This prevents you from using a shield with a hand crossbow despite only needing one hand to fire it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-properties-finesse",
+      "parentSectionId": "section-weapon-properties",
+      "heading": "Finesse",
+      "sourceAnchor": "properties-finesse",
+      "blocks": [
+        {
+          "blockId": "block-section-properties-finesse-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "When making an attack with a finesse weapon, you use your choice of your Strength or Dexterity modifier for the attack and damage rolls. You must use the same modifier for both rolls."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-finesse-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Finesse weapons are important for high-dexterity characters who plan to fight in melee. Rogues need to use finesse weapons to use Sneak Attack in melee, and finesse weapons are popular with Rangers and with some Fighters. They also make great backup for characters who primarily use ranged weapons, so those characters frequently carry a dagger or another finesse weapon to use when enemies get too close for a bow."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-finesse-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Examples with the Finesse property include daggers, short swords, and rapiers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-properties-heavy",
+      "parentSectionId": "section-weapon-properties",
+      "heading": "Heavy",
+      "sourceAnchor": "properties-heavy",
+      "blocks": [
+        {
+          "blockId": "block-section-properties-heavy-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Small creatures have Disadvantage on attack rolls with heavy weapons. A heavy weapon’s size and bulk make it too large for a Small creature to use effectively."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-heavy-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All Heavy weapons also have the Two-Handed property. Heavy is one of the few things that makes being Small sized worse than being Medium sized."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-properties-light",
+      "parentSectionId": "section-weapon-properties",
+      "heading": "Light",
+      "sourceAnchor": "properties-light",
+      "blocks": [
+        {
+          "blockId": "block-section-properties-light-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "A light weapon is small and easy to handle, making it ideal for use when fighting with two weapons."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-light-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Light weapons exist exclusively to support two-weapon fighting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-properties-loading",
+      "parentSectionId": "section-weapon-properties",
+      "heading": "Loading",
+      "sourceAnchor": "properties-loading",
+      "blocks": [
+        {
+          "blockId": "block-section-properties-loading-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Because of the time required to load this weapon, you can fire only one piece of ammunition from it when you use an Action, Bonus Action, or Reaction to fire it, regardless of the number of attacks you can normally make."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-loading-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Loading property generally doesn’t matter from levels 1 to 4, but if you have the Extra Attack feature it becomes a problematic limitation. This means that black powder firearms and crossbows are fine for classes like the Rogue, but they’re less useful for the Barbarians, Fighters, Paladins, and Rangers."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-loading-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you plan to use crossbows, the "
+            },
+            {
+              "type": "link",
+              "text": "Crossbow Expert",
+              "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+            },
+            {
+              "type": "text",
+              "text": " feat allows you to ignore the Loading Property. If you plan to use firearms, the Gunner feat allows you to ignore the Loading property. If there is an Artificer in the party, the Repeating Shot allows any weapon to ignore the Loading property."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-properties-range",
+      "parentSectionId": "section-weapon-properties",
+      "heading": "Range",
+      "sourceAnchor": "properties-range",
+      "blocks": [
+        {
+          "blockId": "block-section-properties-range-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "A weapon that can be used to make a ranged attack has a range shown in parentheses after the ammunition or thrown property. The range lists two numbers. The first is the weapon’s normal range in feet, and the second indicates the weapon’s long range. When attacking a target beyond normal range, you have disadvantage on the attack roll. You can’t attack a target beyond the weapon’s long range."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-range-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Straightforward."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-range-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If your weapon’s range is too short, consider the Sharpshooter feat, which removes Disadvantage imposed by attacking at long range."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-properties-reach",
+      "parentSectionId": "section-weapon-properties",
+      "heading": "Reach",
+      "sourceAnchor": "properties-reach",
+      "blocks": [
+        {
+          "blockId": "block-section-properties-reach-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "This weapon adds 5 feet to your reach when you attack with it."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-reach-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reach weapons allow you to reach enemies from further away, ideally from where they can’t reach you in return. However, 5e’s permissive movement rules mean that characters rarely have a way to keep enemies from walking into their reach to cause trouble."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-reach-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reach weapons work especially well with the Polearm Master and Sentinel feats, allowing you to make an Opportunity Attack when an enemy enters your reach, then reduce their speed to 0 upon hitting them. This prevents your enemy from approaching you, though you’ll need to reposition to repeat the combo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-properties-special",
+      "parentSectionId": "section-weapon-properties",
+      "heading": "Special",
+      "sourceAnchor": "properties-special",
+      "blocks": [
+        {
+          "blockId": "block-section-properties-special-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "A weapon with the special property has unusual rules governing its use, explained in the weapon’s description."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-special-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The only special weapons currently published are the Double-bladed Scimitar, the Lance, and the Net, each of which is addressed below."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-properties-thrown",
+      "parentSectionId": "section-weapon-properties",
+      "heading": "Thrown",
+      "sourceAnchor": "properties-thrown",
+      "blocks": [
+        {
+          "blockId": "block-section-properties-thrown-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "If a weapon has the thrown property, you can throw the weapon to make a ranged attack. If the weapon is a melee weapon, you use the same ability modifier for that attack roll and damage roll that you would use for a melee attack with the weapon."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-thrown-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Thrown weapons are almost exclusively melee weapons, though the Dart is an exception. For Strength-based characters, throwing a melee weapon with the Thrown property is often your best ranged attack option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-thrown-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because throwing a weapon puts it decisively out of your reach, throwing magic weapons is often a difficult prospect. With the exception of the "
+            },
+            {
+              "type": "link",
+              "text": "Arcane Propulsion Arm",
+              "href": "https://www.dndbeyond.com/magic-items/976932-arcane-propulsion-arm"
+            },
+            {
+              "type": "text",
+              "text": ", the "
+            },
+            {
+              "type": "link",
+              "text": "Boomerang Shield",
+              "href": "https://www.dndbeyond.com/magic-items/7526627-boomerang-shield"
+            },
+            {
+              "type": "text",
+              "text": ", the "
+            },
+            {
+              "type": "link",
+              "text": "Elven Thrower",
+              "href": "https://www.dndbeyond.com/magic-items/7102420-elven-thrower"
+            },
+            {
+              "type": "text",
+              "text": ", and the "
+            },
+            {
+              "type": "link",
+              "text": "Dwarven Thrower",
+              "href": "https://www.dndbeyond.com/magic-items/4627-dwarven-thrower"
+            },
+            {
+              "type": "text",
+              "text": ", there are no magic weapons which return to your hand after hitting, so characters wielding a magic ranged weapon nearly always have an advantage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-thrown-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The "
+            },
+            {
+              "type": "link",
+              "text": "Thrown Weapon Fighting",
+              "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#thrown-weapon-fighting"
+            },
+            {
+              "type": "text",
+              "text": " style is intended to support the use of thrown weapons, and it does so, but with a series of large asterisks."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-properties-two-handed",
+      "parentSectionId": "section-weapon-properties",
+      "heading": "Two-Handed",
+      "sourceAnchor": "properties-two-handed",
+      "blocks": [
+        {
+          "blockId": "block-section-properties-two-handed-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "This weapon requires two hands to use."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-two-handed-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s important to note that the phrase is “to "
+            },
+            {
+              "type": "emphasis",
+              "text": "use"
+            },
+            {
+              "type": "text",
+              "text": "“, not “to "
+            },
+            {
+              "type": "emphasis",
+              "text": "hold"
+            },
+            {
+              "type": "text",
+              "text": "“. You are free to hold a two-handed weapon in one hand, allowing you to do things like walk around with a torch in one hand and a greataxe in the other, but you still need two hands to attack with the weapon. This allows you to Grapple, Shove, cast spells, and use items in one hand without dropping your weapon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-properties-versatile",
+      "parentSectionId": "section-weapon-properties",
+      "heading": "Versatile",
+      "sourceAnchor": "properties-versatile",
+      "blocks": [
+        {
+          "blockId": "block-section-properties-versatile-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "This weapon can be used with one or two hands. A damage value in parentheses appears with the property: the damage when the weapon is used with two hands to make a melee attack."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-properties-versatile-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Versatile weapons deal less damage than similar two-handed weapons, so you’ll likely only use them two-handed if you find a magic weapon or if you’re Small sized."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-SpecialWeapons",
+      "parentSectionId": "section-weapon-properties",
+      "heading": "Special Weapons",
+      "sourceAnchor": "SpecialWeapons",
+      "blocks": [
+        {
+          "blockId": "block-section-SpecialWeapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Special weapons are addressed by name below."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-battleaxe",
+      "parentSectionId": "section-weapons",
+      "heading": "Battleaxe",
+      "sourceAnchor": "battleaxe",
+      "blocks": [
+        {
+          "blockId": "block-section-battleaxe-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Pepsi to the Longsword’s Coke. Yes, they’re essentially identical."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-blowgun",
+      "parentSectionId": "section-weapons",
+      "heading": "Blowgun",
+      "sourceAnchor": "blowgun",
+      "blocks": [
+        {
+          "blockId": "block-section-blowgun-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An amusing novelty, but the Blowgun has no mechanical appeal. It’s not better at delivering poisons than any other weapon, so anyone proficient with a blowgun is better served by a longbow."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-club",
+      "parentSectionId": "section-weapons",
+      "heading": "Club",
+      "sourceAnchor": "club",
+      "blocks": [
+        {
+          "blockId": "block-section-club-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Clubs basically only exist to be inexpensive, and if you’re using one it’s because you don’t have a better option."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-crossbow-hand",
+      "parentSectionId": "section-weapons",
+      "heading": "Crossbow, Hand",
+      "sourceAnchor": "crossbow-hand",
+      "blocks": [
+        {
+          "blockId": "block-section-crossbow-hand-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Crossbow Expert",
+              "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+            },
+            {
+              "type": "text",
+              "text": " turns hand crossbows into an extremely lethal weapon, and it’s the basis of many high-damage ranged weapon builds. However, without Crossbow Expert, there is essentially no reason to use one."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-crossbow-hand-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Remember that you still need a free hand to reload your hand crossbow, which means no shields. You also can’t use two-weapon fighting with hand crossbows because the TWF rules only apply to melee weapons."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-crossbow-heavy",
+      "parentSectionId": "section-weapons",
+      "heading": "Crossbow, Heavy",
+      "sourceAnchor": "crossbow-heavy",
+      "blocks": [
+        {
+          "blockId": "block-section-crossbow-heavy-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With the largest damage die on any ranged weapon, the Heavy Crossbow is martial characters’ go-to ranged weapon before level 5 when most of those characters get Extra Attack, at which point you should switch to a longbow. For Rogues who can get proficiency, this is your best ranged weapon option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-crossbow-heavy-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Crossbow Expert allows you to ignore the Loading property, which makes it tempting to use a heavy crossbow instead of a longbow. However, the additional attack if you use a hand crossbow is a better source of damage output because applying your ability modifier an additional time is more impactful than the difference in damage die."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-crossbow-light",
+      "parentSectionId": "section-weapons",
+      "heading": "Crossbow, Light",
+      "sourceAnchor": "crossbow-light",
+      "blocks": [
+        {
+          "blockId": "block-section-crossbow-light-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The go-to ranged weapon for classes limited to simple weapons, light crossbows have a larger damage die than shortbows at the cost of the Loading property. For classes that don’t get Extra Attack, that’s not a problem. Rogues fighting at range and relying on Cunning Action to hide may spend their entire careers using a light crossbow."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-crossbow-light-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Low-level spellcasters should strongly consider a light crossbow as their go-to attack option. A druid or wizard with 16 Dexterity will have better DPR with a light crossbow than with any attack cantrip simply because you add your Dexterity modifier to damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-dagger",
+      "parentSectionId": "section-weapons",
+      "heading": "Dagger",
+      "sourceAnchor": "dagger",
+      "blocks": [
+        {
+          "blockId": "block-section-dagger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With the Light, Finesse, and Thrown properties, the Dagger is extremely versatile. It’s a great backup weapon, especially if you’re tracking weight, but most of the time it’s a go-to option for rogues who are relying on two-weapon fighting. The ability to cleanly move from melee to ranged combat without changing weapons is very useful for rogues, often allowing them to avoid spending a Bonus Action to Disengage after rushing into melee to stab something. The Dagger’s biggest limitation is its 1d4 damage, so dagger users typically get their damage from other sources, such as Sneak Attack."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-dart",
+      "parentSectionId": "section-weapons",
+      "heading": "Dart",
+      "sourceAnchor": "dart",
+      "blocks": [
+        {
+          "blockId": "block-section-dart-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The only ranged weapon with the Thrown property. Yes, really. Every other thrown weapon (javelins, etc.) is technically a melee weapon. This means that the Dart is the only thrown weapon with which you can attack with Dexterity instead of Strength, and the only thrown weapon which works with Sharpshooter."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-dart-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Most ranged builds will rely on other ranged weapons, such as bows."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-doublebladed-scimitar",
+      "parentSectionId": "section-weapons",
+      "heading": "Double-Bladed Scimitar",
+      "sourceAnchor": "doublebladed-scimitar",
+      "blocks": [
+        {
+          "blockId": "block-section-doublebladed-scimitar-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Intended to be exceptionally rare, the double-bladed scimitar is a weird weapon introduced in Eberron: Rising from the Last War. It’s a two-handed weapon, but does about as much damage as a one-handed weapon. The selling point is the built-in ability to make an additional (albeit weaker) attack as a Bonus Action. This gives you the action economy of two-weapon fighting with considerably fewer headaches. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-doublebladed-scimitar-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Revenant Blade feat can further improve the Double-Bladed Scimitar, as explained in our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Weaponized Bonus Actions",
+              "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+            },
+            {
+              "type": "text",
+              "text": ". "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-flail",
+      "parentSectionId": "section-weapons",
+      "heading": "Flail",
+      "sourceAnchor": "flail",
+      "blocks": [
+        {
+          "blockId": "block-section-flail-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The same damage as the Warhammer, but without the Versatile property and 5 gold cheaper. Unless you’re specifically setting out to use Versatile, a flail is essentially identical."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-glaive",
+      "parentSectionId": "section-weapons",
+      "heading": "Glaive",
+      "sourceAnchor": "glaive",
+      "blocks": [
+        {
+          "blockId": "block-section-glaive-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Big damage die, Reach, works with Polearm Master. This is the go-to for two-handed Polearm Master users if only because it occurs earlier in the alphabet than “Halberd.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-greataxe",
+      "parentSectionId": "section-weapons",
+      "heading": "Greataxe",
+      "sourceAnchor": "greataxe",
+      "blocks": [
+        {
+          "blockId": "block-section-greataxe-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Pepsi to the Greatsword’s Coke (yes, I’m using that joke twice in the same article), the Greataxe’s 1d12 damage die is appealing for Half-Orc’s thanks to Savage Attacks and to Barbarians thanks to Brutal Critical. For anyone else, the Greatsword’s reliable average damage is more appealing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-greatclub",
+      "parentSectionId": "section-weapons",
+      "heading": "Greatclub",
+      "sourceAnchor": "greatclub",
+      "blocks": [
+        {
+          "blockId": "block-section-greatclub-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Literally no reason to exist. Using a quarterstaff two-handed does just as much damage and weighs considerably less. In previous editions greatclubs were a passable two-handed weapon for characters limited to Simple Weapons, but with 1d8 damage in 5e this thing doesn’t have a reason to exist."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-greatsword",
+      "parentSectionId": "section-weapons",
+      "heading": "Greatsword",
+      "sourceAnchor": "greatsword",
+      "blocks": [
+        {
+          "blockId": "block-section-greatsword-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The standard against which all two-handed weapons are measured."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-halberd",
+      "parentSectionId": "section-weapons",
+      "heading": "Halberd",
+      "sourceAnchor": "halberd",
+      "blocks": [
+        {
+          "blockId": "block-section-halberd-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mechanically identical to the Glaive. 5e cleaned up previous editions’ library of specific polearms because there wasn’t a way to distinguish them in 5e’s relatively simple mechanics when compared to previous editions, so it’s weird that WotC created two perfectly identical weapons that amount to “choppy blade on a long stick.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-handaxe",
+      "parentSectionId": "section-weapons",
+      "heading": "Handaxe",
+      "sourceAnchor": "handaxe",
+      "blocks": [
+        {
+          "blockId": "block-section-handaxe-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "More damage than a dagger, the same throw range, no Finesse property. For Strength-based characters this is a good replacement for a dagger."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-hoopak",
+      "parentSectionId": "section-weapons",
+      "heading": "Hoopak",
+      "sourceAnchor": "hoopak",
+      "blocks": [
+        {
+          "blockId": "block-section-hoopak-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While the Hoopak cosmetically resembles a spear with a slingshot on back end, mechanically it’s a shortsword with a built-in sling. If you want a ranged weapon, almost anything will be more effective. The sole appeal of the Hoopak is that a magic version will apply to both melee and ranged attacks without needing a second magic weapon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-javelin",
+      "parentSectionId": "section-weapons",
+      "heading": "Javelin",
+      "sourceAnchor": "javelin",
+      "blocks": [
+        {
+          "blockId": "block-section-javelin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The go-to ranged option for Strength-based characters, every Strength-based melee character should have a few of these handy so that they’re not totally useless against flying enemies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-lance",
+      "parentSectionId": "section-weapons",
+      "heading": "Lance",
+      "sourceAnchor": "lance",
+      "blocks": [
+        {
+          "blockId": "block-section-lance-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "You have "
+            },
+            {
+              "type": "link",
+              "text": "disadvantage",
+              "href": "https://www.dndbeyond.com/sources/basic-rules/using-ability-scores#AdvantageandDisadvantage"
+            },
+            {
+              "type": "text",
+              "text": " when you use a lance to attack a target within 5 feet of you. Also, a lance requires two hands to wield when you aren’t mounted."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-lance-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Lance is an oddity. Its intended use is while engaging in mounted combat. Reach allows you to charge, attack, then have your mount move away to safety. However, "
+            },
+            {
+              "type": "link",
+              "text": "Mounted Combat",
+              "href": "https://rpgbot.net/dnd5/how-to-play/mounted-combat/"
+            },
+            {
+              "type": "text",
+              "text": " is nowhere near that simple or functional in 5e, so you’ll frequently find yourself attacking enemies adjacent to your mount and discussing where exactly your 5×5 character resides on your 10×10 horse."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-lance-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "On the ground, the Lance is functionally similar to the Glaive except for the Disadvantage mechanic. While the Lance is notably the only Reach weapon with a d12 damage die, that’s not enough to offset the Disadvantage from using it while adjacent to an enemy."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-lance-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the Lance is one-handed while mounted, characters with the Dual Wielder feat can wield two of them and engage in two-weapon fighting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-light-hammer",
+      "parentSectionId": "section-weapons",
+      "heading": "Light Hammer",
+      "sourceAnchor": "light-hammer",
+      "blocks": [
+        {
+          "blockId": "block-section-light-hammer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Functionally a dagger without the Finesse property. Bludgeoning damage has some appeal if you’re worried about skeletons, but otherwise a dagger does the job just fine."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-longbow",
+      "parentSectionId": "section-weapons",
+      "heading": "Longbow",
+      "sourceAnchor": "longbow",
+      "blocks": [
+        {
+          "blockId": "block-section-longbow-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The go-to ranged weapon for ranged martial characters who can’t fit Crossbow Expert into their tactics. Unfortunately, it has the Heavy property, so it’s not a good option for small characters. You’ll need to use a shortbow instead."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-longsword",
+      "parentSectionId": "section-weapons",
+      "heading": "Longsword",
+      "sourceAnchor": "longsword",
+      "blocks": [
+        {
+          "blockId": "block-section-longsword-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The standard against which all one-handed weapons are measure, the Longsword is iconic, but mechanically not very interesting. It does have one huge advantage in that there are a dizzying number of magic longswords compared to literally every other type of weapon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-mace",
+      "parentSectionId": "section-weapons",
+      "heading": "Mace",
+      "sourceAnchor": "mace",
+      "blocks": [
+        {
+          "blockId": "block-section-mace-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The go-to weapon for clerics, but purely for the sake of tradition. The Mace is actually a terrible weapon. A quarterstaff does the same damage, costs 1/25th as much, has Versatile, and can double as a long stick for poking suspicious objects. There is no actual reason to use a mace unless you find a magic one."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-maul",
+      "parentSectionId": "section-weapons",
+      "heading": "Maul",
+      "sourceAnchor": "maul",
+      "blocks": [
+        {
+          "blockId": "block-section-maul-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Equivalent to the Greatsword, but it deals bludgeoning damage. I like Mauls over greatswords because skeletons exist, but you might also want a maul for the "
+            },
+            {
+              "type": "link",
+              "text": "Crusher feat",
+              "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-morningstar",
+      "parentSectionId": "section-weapons",
+      "heading": "Morningstar",
+      "sourceAnchor": "morningstar",
+      "blocks": [
+        {
+          "blockId": "block-section-morningstar-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Basically the same as the War pick, but twice the weight and triple the cost for no apparent reason."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-net",
+      "parentSectionId": "section-weapons",
+      "heading": "Net",
+      "sourceAnchor": "net",
+      "blocks": [
+        {
+          "blockId": "block-section-net-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "A Large or smaller creature hit by a net is "
+            },
+            {
+              "type": "link",
+              "text": "restrained",
+              "href": "https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-a-conditions#Restrained"
+            },
+            {
+              "type": "text",
+              "text": " until it is freed. A net has no effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success. Dealing 5 slashing damage to the net (AC 10) also frees the creature without harming it, ending the effect and destroying the net."
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "text",
+              "text": "When you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless of the number of attacks you can normally make."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-net-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Perpetually frustrating, the Net is an exercise in frustration. With a range of just 5/15 feet, all attacks made with the net are made at Disadvantage. If you’re within short range, you’re in reach of an enemy. Otherwise, you’re attacking at long range."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-net-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you can get over that limitation, nets are pretty great. Making your target Restrained is incredibly powerful. Yes, your target can easily remove the net by attacking it, but that’s one attack not aimed at you and your allies unless your target is fine with Disadvantage on their own attacks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-net-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Removing Disadvantage with your Net is absolutely doable. Sharpshooter removes Disadvantage when attacking at long range, and either Crossbow Expert or Gunner can remove it while attacking in melee. It’s a little silly to walk up to someone with a crossbow in one hand and a net in the other, but I didn’t write the rules."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-pike",
+      "parentSectionId": "section-weapons",
+      "heading": "Pike",
+      "sourceAnchor": "pike",
+      "blocks": [
+        {
+          "blockId": "block-section-pike-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You’ve got reach, and you’ve got sharp. What else do you need? A pike is the generic martial reach weapon. For some reason it doesn’t work with Polearm Master despite being the polearmy-ist polearm that ever armed poles."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-pike-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The pike is also tied for the heaviest weapon at 18 pounds. Why does a pike weigh 18 pounds? It is an extremely long stick, and wood is heavy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-quarterstaff",
+      "parentSectionId": "section-weapons",
+      "heading": "Quarterstaff",
+      "sourceAnchor": "quarterstaff",
+      "blocks": [
+        {
+          "blockId": "block-section-quarterstaff-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dirt cheap, Versatile, and works with Polearm Master. A Staff Arcane Focus also qualifies as a quarterstaff, so many wizards default to carrying a quarterstaff with absolutely no intent to use it as such."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-quarterstaff-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Despite being a Simple Weapon, quarterstaff and shield is a popular and effective setup for Polearm Master users who don’t care for reach."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-rapier",
+      "parentSectionId": "section-weapons",
+      "heading": "Rapier",
+      "sourceAnchor": "rapier",
+      "blocks": [
+        {
+          "blockId": "block-section-rapier-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The go-to weapon for many Dexterity-based melee builds, the Rapier’s 1d8 damage is solid and still provides the Finesse property."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-scimitar",
+      "parentSectionId": "section-weapons",
+      "heading": "Scimitar",
+      "sourceAnchor": "scimitar",
+      "blocks": [
+        {
+          "blockId": "block-section-scimitar-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I know you have dreams of wielding two scimitars and having a pet panther. I get it. Maybe you’re even planning to play a "
+            },
+            {
+              "type": "link",
+              "text": "drow",
+              "href": "https://en.wikipedia.org/wiki/Drizzt_Do%27Urden"
+            },
+            {
+              "type": "text",
+              "text": ". That happens to literally every DnD player once in their lives and I cannot explain the phenomenon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-scimitar-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Scimitar is identical to the Shortsword except that it costs considerably more and weighs more. Aside from cool factor and magic items, there’s no reason to use a scimitar over a shortsword."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-shortbow",
+      "parentSectionId": "section-weapons",
+      "heading": "Shortbow",
+      "sourceAnchor": "shortbow",
+      "blocks": [
+        {
+          "blockId": "block-section-shortbow-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Less damage than a light crossbow, but not saddled with the Loading property. Unfortunately, characters with Extra Attack also get proficiency in martial weapons, so there is only a tiny niche where the Shortbow is more appealing than a light crossbow. Shortbows would have an advantage over light crossbows on characters with Extra Attack, but every class that gets Extra Attack also gets proficiency with Martial Weapons. But because the Longbow has the Heavy property, it’s unappealing for small characters, limiting small characters with Extra Attack to using Shortbows."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-shortsword",
+      "parentSectionId": "section-weapons",
+      "heading": "Shortsword",
+      "sourceAnchor": "shortsword",
+      "blocks": [
+        {
+          "blockId": "block-section-shortsword-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Generally the go-to option for two-weapon fighting builds because so many of them are Dexterity-based."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sickle",
+      "parentSectionId": "section-weapons",
+      "heading": "Sickle",
+      "sourceAnchor": "sickle",
+      "blocks": [
+        {
+          "blockId": "block-section-sickle-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Beyond the cost difference, there is no reason to use a sickle instead of a handaxe."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sling",
+      "parentSectionId": "section-weapons",
+      "heading": "Sling",
+      "sourceAnchor": "sling",
+      "blocks": [
+        {
+          "blockId": "block-section-sling-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The only ranged weapon that deals bludgeoning damage. On its own, the only reason to use a sling is because it’s cheap and weightless. But the "
+            },
+            {
+              "type": "link",
+              "text": "Crusher feat",
+              "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+            },
+            {
+              "type": "text",
+              "text": " allows you to forcibly reposition enemies at range."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spear",
+      "parentSectionId": "section-weapons",
+      "heading": "Spear",
+      "sourceAnchor": "spear",
+      "blocks": [
+        {
+          "blockId": "block-section-spear-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One-handed, Versatile, throwable, and works with Polearm Master. Doubles as a long stick for poking suspicious objects."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spear-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monks should pay special attention to spears. Using a spear two-handed is the Monk’s best weapon option at low levels until their Martial Arts die scales to d8. Since monks are usually locked into bludgeoning damage with their unarmed strikes, having a weapon which deals piercing damage lets them get around extremely rare resistance to bludgeoning damage if it’s ever a problem."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-trident",
+      "parentSectionId": "section-weapons",
+      "heading": "Trident",
+      "sourceAnchor": "trident",
+      "blocks": [
+        {
+          "blockId": "block-section-trident-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An oddity in the 2014 Player’s Handbook, the Trident is outright worse than the Spear, which is the Simple Weapon equivalent. Short of magic weapons, there is no reason to use a trident."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-war-pick",
+      "parentSectionId": "section-weapons",
+      "heading": "War Pick",
+      "sourceAnchor": "war-pick",
+      "blocks": [
+        {
+          "blockId": "block-section-war-pick-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The largest damage on a one-handed piercing weapon. The Morningstar matches the damage, but it’s more expensive and heavier."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-warhammer",
+      "parentSectionId": "section-weapons",
+      "heading": "Warhammer",
+      "sourceAnchor": "warhammer",
+      "blocks": [
+        {
+          "blockId": "block-section-warhammer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Equivalent to the Battleaxe and the Longsword, but it deals bludgeoning damage. I like Warhammers over the other two because skeletons exist, but you might also want a warhammer for the "
+            },
+            {
+              "type": "link",
+              "text": "Crusher feat",
+              "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-whip",
+      "parentSectionId": "section-weapons",
+      "heading": "Whip",
+      "sourceAnchor": "whip",
+      "blocks": [
+        {
+          "blockId": "block-section-whip-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The only one-handed weapon with Reach, and it also has Finesse. Unfortunately, that comes at the cost of a d4 damage. It’s an interesting choice for Sentinel users and for characters with Fighting Style (Protection) or Fighting Style (Interception), as well as for characters relying on hit-and-run tactics without Cunning Action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-special-materials",
+      "heading": "Special Materials",
+      "sourceAnchor": "special-materials",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-adamantine",
+      "parentSectionId": "section-special-materials",
+      "heading": "Adamantine Weapons",
+      "sourceAnchor": "adamantine",
+      "blocks": [
+        {
+          "blockId": "block-section-adamantine-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, the rules for adamantine weapons are omitted from the core rules and from the SRD, so I’m not allowed to reproduce them. Instead, see page 78 of "
+            },
+            {
+              "type": "link",
+              "text": "Xanathar’s Guide to Everything",
+              "href": "https://www.dndbeyond.com/sources/xgte/dungeon-masters-tools#AdamantineWeapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-adamantine-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Creatures that care about adamantine weapons are rare, and their damage resistances can also be bypassed by magic weapons, so there is little reason to acquire an adamantine weapon if magic items are an option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-adamantine-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You may find some value in an adamantine weapon for the sole purpose of breaking stuff. Automatic critical hits will mean that you can quickly break through doors, locks, walls, etc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-silvered",
+      "parentSectionId": "section-special-materials",
+      "heading": "Silvered Weapons",
+      "sourceAnchor": "silvered",
+      "blocks": [
+        {
+          "blockId": "block-section-silvered-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Some monsters that have immunity or resistance to nonmagical weapons are susceptible to silver weapons, so cautious adventurers invest extra coin to plate their weapons with silver. You can silver a single weapon or ten pieces of ammunition for 100 gp. This cost represents not only the price of the silver, but the time and expertise needed to add silver to the weapon without making it less effective."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-silvered-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Creatures whose resistances can be bypassed by silvered weapons include devils, lycanthropes, and some types of undead. 100gp is a paltry sum of gold beyond low levels, but you can also bypass the same creatures’ damage resistances with magic weapons, so if a magic weapon is available, there’s little reason to get a silver weapon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-firearms",
+      "heading": "Firearms",
+      "sourceAnchor": "firearms",
+      "blocks": [
+        {
+          "blockId": "block-section-firearms-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Firearms aren’t available in all games. Eberron and Faerun canonically dont have firearms, but those certainly aren’t the only settings. As a player, check with your DM to see if they’ll allow firearms in their game. If so, take a look at "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Gunner",
+              "href": "https://rpgbot.net/dnd5/characters/feats/gunner/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-musket",
+      "parentSectionId": "section-firearms",
+      "heading": "Musket",
+      "sourceAnchor": "musket",
+      "blocks": [
+        {
+          "blockId": "block-section-musket-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Considerably worse range than a longbow or a heavy crossbow, but it does 1d12 damage and doesn’t have the Heavy property, so small characters can use them unimpeded."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-musket-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For ranged DPS builds, using a musket with Gunner and Sharpshooter is comparable to Crossbow Expert and Sharpshooter, but since you’re not attacking as a Bonus Action, your Bonus Action is free for other things. For builds that depend on their Bonus Action for things like Hunter’s Mark, that can be a big advantage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-pistol",
+      "parentSectionId": "section-firearms",
+      "heading": "Pistol",
+      "sourceAnchor": "pistol",
+      "blocks": [
+        {
+          "blockId": "block-section-pistol-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Technically shorter range than a hand crossbow, but a considerably better damage die. Still, the Gunner feat doesn’t give you an extra attack like Crossbow Expert does, so there is almost no reason to use a pistol when you could instead use a musket."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-pistol-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The one case where a pistol is useful is if there is an artificer in your party. The Reloading Infusion allows you to ignore the Loading property, allowing you to use a pistol and a shield at the same time."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#battleaxe",
+      "detail": "wp-block-heading rating-green Battleaxe"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#blowgun",
+      "detail": "wp-block-heading rating-red Blowgun"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#club",
+      "detail": "wp-block-heading rating-red Club"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#crossbow-hand",
+      "detail": "wp-block-heading rating-blue Crossbow, Hand"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#crossbow-heavy",
+      "detail": "wp-block-heading rating-green Crossbow, Heavy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#crossbow-light",
+      "detail": "wp-block-heading rating-green Crossbow, Light"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#dagger",
+      "detail": "wp-block-heading rating-blue Dagger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#dart",
+      "detail": "wp-block-heading rating-orange Dart"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#doublebladed-scimitar",
+      "detail": "wp-block-heading rating-blue Double-Bladed Scimitar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#flail",
+      "detail": "wp-block-heading rating-red Flail"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#glaive",
+      "detail": "wp-block-heading rating-green Glaive"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#greataxe",
+      "detail": "wp-block-heading rating-green Greataxe"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#greatclub",
+      "detail": "wp-block-heading rating-red Greatclub"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#greatsword",
+      "detail": "wp-block-heading rating-green Greatsword"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#halberd",
+      "detail": "wp-block-heading rating-green Halberd"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#handaxe",
+      "detail": "wp-block-heading rating-green Handaxe"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#hoopak",
+      "detail": "wp-block-heading rating-red Hoopak"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#javelin",
+      "detail": "wp-block-heading rating-green Javelin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#lance",
+      "detail": "wp-block-heading rating-orange Lance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#light-hammer",
+      "detail": "wp-block-heading rating-green Light Hammer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#longbow",
+      "detail": "wp-block-heading rating-blue Longbow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#longsword",
+      "detail": "wp-block-heading rating-green Longsword"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#mace",
+      "detail": "wp-block-heading rating-red Mace"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#maul",
+      "detail": "wp-block-heading rating-blue Maul"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#morningstar",
+      "detail": "wp-block-heading rating-red Morningstar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#net",
+      "detail": "wp-block-heading rating-orange Net"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#pike",
+      "detail": "wp-block-heading rating-orange Pike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#quarterstaff",
+      "detail": "wp-block-heading rating-green Quarterstaff"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#rapier",
+      "detail": "wp-block-heading rating-blue Rapier"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#scimitar",
+      "detail": "wp-block-heading rating-red Scimitar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#shortbow",
+      "detail": "wp-block-heading rating-orange Shortbow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#shortsword",
+      "detail": "wp-block-heading rating-blue Shortsword"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#sickle",
+      "detail": "wp-block-heading rating-red Sickle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#sling",
+      "detail": "wp-block-heading rating-orange Sling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#spear",
+      "detail": "wp-block-heading rating-green Spear"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#trident",
+      "detail": "wp-block-heading rating-red Trident"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#war-pick",
+      "detail": "wp-block-heading rating-green War Pick"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#warhammer",
+      "detail": "wp-block-heading rating-green Warhammer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#whip",
+      "detail": "wp-block-heading rating-green Whip"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#musket",
+      "detail": "wp-block-heading rating-blue Musket"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[3]",
+      "detail": "section-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-4-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-simple-weapons-1"
+    },
+    {
+      "code": "table-span-review",
+      "location": "tr/td[1]",
+      "detail": "<td colspan=\"5\"><em>Simple Melee Weapons</em></td>"
+    },
+    {
+      "code": "table-span-review",
+      "location": "tr/td[1]",
+      "detail": "<td colspan=\"5\"><em>Simple Ranged Weapons</em></td>"
+    },
+    {
+      "code": "ragged-table-review",
+      "location": "figure/table[1]",
+      "detail": "Cell counts: 5,1,5,5,5,5,5,5,5,5,5,5,1,5,5,5,5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-martial-weapons-1"
+    },
+    {
+      "code": "table-span-review",
+      "location": "tr/td[1]",
+      "detail": "<td colspan=\"5\"><em>Martial Melee Weapons</em></td>"
+    },
+    {
+      "code": "table-span-review",
+      "location": "tr/td[1]",
+      "detail": "<td colspan=\"5\"><em>Martial Ranged Weapons</em></td>"
+    },
+    {
+      "code": "ragged-table-review",
+      "location": "figure/table[1]",
+      "detail": "Cell counts: 5,1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,1,5,5,5,5,5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-other-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-properties-ammunition-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">You can use a weapon that has the ammunition property to make a range"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-properties-ammunition-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[2]",
+      "detail": "block-section-properties-finesse-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[2]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">When making an attack with a finesse weapon, you use your choice of y"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-properties-finesse-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-properties-finesse-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[3]",
+      "detail": "block-section-properties-heavy-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[3]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">Small creatures have Disadvantage on attack rolls with heavy weapons."
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-properties-heavy-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[4]",
+      "detail": "block-section-properties-light-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[4]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">A light weapon is small and easy to handle, making it ideal for use w"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-properties-light-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[5]",
+      "detail": "block-section-properties-loading-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[5]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">Because of the time required to load this weapon, you can fire only o"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-properties-loading-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-properties-loading-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[6]",
+      "detail": "block-section-properties-range-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[6]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">A weapon that can be used to make a ranged attack has a range shown i"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-properties-range-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-properties-range-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[7]",
+      "detail": "block-section-properties-reach-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[7]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">This weapon adds 5 feet to your reach when you attack with it.</p> </"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-properties-reach-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-properties-reach-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[8]",
+      "detail": "block-section-properties-special-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[8]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">A weapon with the special property has unusual rules governing its us"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-properties-special-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[9]",
+      "detail": "block-section-properties-thrown-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[9]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">If a weapon has the thrown property, you can throw the weapon to make"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-properties-thrown-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-properties-thrown-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-properties-thrown-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[10]",
+      "detail": "block-section-properties-two-handed-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[10]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">This weapon requires two hands to use.</p> </blockquote>"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-properties-two-handed-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[11]",
+      "detail": "block-section-properties-versatile-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[11]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">This weapon can be used with one or two hands. A damage value in pare"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-properties-versatile-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-SpecialWeapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-battleaxe-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-blowgun-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-club-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-crossbow-hand-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-crossbow-hand-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-crossbow-heavy-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-crossbow-heavy-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-crossbow-light-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-crossbow-light-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-dagger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-dart-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-dart-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-doublebladed-scimitar-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-doublebladed-scimitar-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-flail-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-glaive-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-greataxe-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-greatclub-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-greatsword-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-halberd-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-handaxe-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-hoopak-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-javelin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[12]",
+      "detail": "block-section-lance-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[12]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">You have&nbsp;<a href=\"https://www.dndbeyond.com/sources/basic-rules/"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-lance-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-lance-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-lance-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-light-hammer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-longbow-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-longsword-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[55]",
+      "detail": "block-section-mace-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[56]",
+      "detail": "block-section-maul-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[57]",
+      "detail": "block-section-morningstar-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[13]",
+      "detail": "block-section-net-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[13]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">A Large or smaller creature hit by a net is&nbsp;<a href=\"https://www"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[58]",
+      "detail": "block-section-net-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[59]",
+      "detail": "block-section-net-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[60]",
+      "detail": "block-section-net-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[61]",
+      "detail": "block-section-pike-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[62]",
+      "detail": "block-section-pike-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[63]",
+      "detail": "block-section-quarterstaff-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[64]",
+      "detail": "block-section-quarterstaff-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[65]",
+      "detail": "block-section-rapier-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[66]",
+      "detail": "block-section-scimitar-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[67]",
+      "detail": "block-section-scimitar-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[68]",
+      "detail": "block-section-shortbow-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[69]",
+      "detail": "block-section-shortsword-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[70]",
+      "detail": "block-section-sickle-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[71]",
+      "detail": "block-section-sling-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[72]",
+      "detail": "block-section-spear-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[73]",
+      "detail": "block-section-spear-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[74]",
+      "detail": "block-section-trident-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[75]",
+      "detail": "block-section-war-pick-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[76]",
+      "detail": "block-section-warhammer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[77]",
+      "detail": "block-section-whip-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[78]",
+      "detail": "block-section-adamantine-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[79]",
+      "detail": "block-section-adamantine-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[80]",
+      "detail": "block-section-adamantine-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[14]",
+      "detail": "block-section-silvered-1"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[14]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">Some monsters that have immunity or resistance to nonmagical weapons "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[81]",
+      "detail": "block-section-silvered-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[82]",
+      "detail": "block-section-firearms-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[83]",
+      "detail": "block-section-musket-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[84]",
+      "detail": "block-section-musket-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[85]",
+      "detail": "block-section-pistol-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[86]",
+      "detail": "block-section-pistol-2"
+    }
+  ],
+  "metrics": {
+    "words": 4364,
+    "sections": 67,
+    "blocks": 104,
+    "tables": 2,
+    "ratingSignals": 44
+  },
+  "status": "needs-editorial-review"
+}

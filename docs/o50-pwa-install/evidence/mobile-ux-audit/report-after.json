@@ -1,0 +1,195 @@
+{
+  "label": "after",
+  "at": "2026-10-11T08:59:31.741Z",
+  "cpuThrottle": 4,
+  "device": "Pixel 7 emulation (Chromium)",
+  "navigation": {
+    "home card → characters": [
+      {
+        "feedbackMs": 1041,
+        "urlMs": null,
+        "contentMs": 2328,
+        "fullReload": false
+      },
+      {
+        "feedbackMs": 135,
+        "urlMs": 192,
+        "contentMs": 642,
+        "fullReload": false
+      },
+      {
+        "feedbackMs": 149,
+        "urlMs": 173,
+        "contentMs": 526,
+        "fullReload": false
+      }
+    ],
+    "characters list → sheet": [
+      {
+        "feedbackMs": 81,
+        "urlMs": 78,
+        "contentMs": 737,
+        "fullReload": false
+      },
+      {
+        "feedbackMs": 134,
+        "urlMs": 136,
+        "contentMs": 961,
+        "fullReload": false
+      },
+      {
+        "feedbackMs": 77,
+        "urlMs": 72,
+        "contentMs": 860,
+        "fullReload": false
+      }
+    ],
+    "bottom nav → home": [
+      {
+        "feedbackMs": 165,
+        "urlMs": 231,
+        "contentMs": 320,
+        "fullReload": false
+      },
+      {
+        "feedbackMs": 178,
+        "urlMs": 311,
+        "contentMs": 454,
+        "fullReload": false
+      },
+      {
+        "feedbackMs": 54,
+        "urlMs": 109,
+        "contentMs": 186,
+        "fullReload": false
+      }
+    ],
+    "bottom nav → characters": [
+      {
+        "feedbackMs": 75,
+        "urlMs": 102,
+        "contentMs": 424,
+        "fullReload": false
+      },
+      {
+        "feedbackMs": 99,
+        "urlMs": 183,
+        "contentMs": 980,
+        "fullReload": false
+      },
+      {
+        "feedbackMs": 53,
+        "urlMs": 109,
+        "contentMs": 149,
+        "fullReload": false
+      }
+    ],
+    "dice button → tray": [
+      {
+        "feedbackMs": 316,
+        "urlMs": null,
+        "contentMs": 387,
+        "fullReload": false
+      },
+      {
+        "feedbackMs": 240,
+        "urlMs": null,
+        "contentMs": 302,
+        "fullReload": false
+      },
+      {
+        "feedbackMs": 65,
+        "urlMs": null,
+        "contentMs": 97,
+        "fullReload": false
+      }
+    ]
+  },
+  "offlineFirstVisit3s": {
+    "waitMs": 3000,
+    "readiness": {
+      "state": "ready",
+      "waitedMs": 6,
+      "ready": false
+    },
+    "slides": {
+      "Спорядження": "ok",
+      "Магія": "ok",
+      "Фічі": "ok",
+      "Навички": "ok"
+    },
+    "reload": "ok",
+    "afterReload": {
+      "Спорядження": "ok",
+      "Магія": "ok",
+      "Фічі": "ok",
+      "Навички": "ok"
+    },
+    "charListOffline": "fail: locator.waitFor: Timeout 10000ms exceeded."
+  },
+  "offlineFirstVisit15s": {
+    "waitMs": 15000,
+    "readiness": {
+      "state": "ready",
+      "waitedMs": 5,
+      "ready": false
+    },
+    "slides": {
+      "Спорядження": "ok",
+      "Магія": "ok",
+      "Фічі": "ok",
+      "Навички": "ok"
+    },
+    "reload": "ok",
+    "afterReload": {
+      "Спорядження": "ok",
+      "Магія": "ok",
+      "Фічі": "ok",
+      "Навички": "ok"
+    },
+    "charListOffline": "fail: locator.waitFor: Timeout 10000ms exceeded."
+  },
+  "offlineAfterReady": {
+    "waitMs": "ready",
+    "readiness": {
+      "state": "ready",
+      "waitedMs": 1159,
+      "ready": true
+    },
+    "slides": {
+      "Спорядження": "ok",
+      "Магія": "ok",
+      "Фічі": "ok",
+      "Навички": "ok"
+    },
+    "reload": "ok",
+    "afterReload": {
+      "Спорядження": "ok",
+      "Магія": "ok",
+      "Фічі": "ok",
+      "Навички": "ok"
+    },
+    "charListOffline": "fail: locator.waitFor: Timeout 10000ms exceeded."
+  },
+  "offlineViaClientNavigation": {
+    "readiness": {
+      "state": "ready",
+      "waitedMs": 4,
+      "ready": true
+    },
+    "slides": {
+      "Спорядження": "ok",
+      "Магія": "ok",
+      "Фічі": "ok",
+      "Навички": "ok"
+    },
+    "reload": "ok",
+    "afterReload": {
+      "Спорядження": "ok",
+      "Магія": "ok",
+      "Фічі": "ok",
+      "Навички": "ok"
+    },
+    "charListOffline": "ok"
+  }
+}

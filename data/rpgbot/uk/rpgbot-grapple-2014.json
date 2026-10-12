@@ -1,0 +1,2490 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-3032d8ff2cc73dcf",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-3032d8ff2cc73dcf-76a53e42f8ea457a",
+      "sourceId": "rpgbot-3032d8ff2cc73dcf",
+      "fetchedAt": "2026-09-29T19:11:21.668828+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:43:50-04:00",
+      "contentHash": "46c0bfd6c5281d437e3295c24e27001d8407f62ad576dba4f425568c3c34f82d",
+      "title": "DnD 5e Grapple Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-3032d8ff2cc73dcf-76a53e42f8ea457a.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-grapple-2014",
+    "sourceId": "rpgbot-3032d8ff2cc73dcf",
+    "slug": "grapple-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Захоплення — практичний гайд (2014)",
+    "titleEn": "DnD 5e Grapple Guide",
+    "topics": [
+      "rules"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "articleId": "rpgbot-grapple-2014",
+      "sourceRevisionId": "rpgbot-3032d8ff2cc73dcf-76a53e42f8ea457a",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Захоплення{{Grapple}} — звична тактика винахідливих гравців із виходу пʼятої редакції й існує в Dungeons & Dragons уже десятиліттями. Утримання ворога на місці, особливо Поваленого, дає потужну перевагу; вправний борець дуже корисний групі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розглянемо правила, трохи математики та способи і використовувати Захоплення, і діяти, коли ворог схопив вас."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Правила 2014",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#rules"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Захоплення",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#grappling"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як вирватися",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#escaping-a-grapple"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Стан Схоплений",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#the-grappled-condition"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Переміщення Схопленої істоти",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#moving-a-grappled-creature"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Штовхання",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#shove"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бій двома зброями",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#twoweapon-fighting"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Видирання на істоту",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#climbing-a-creature"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Оптимізація Захоплення",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#optimizing-for-grapples"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Основи",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#the-fundamentals"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Варіанти персонажа",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#character-options"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Класи",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#classes"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#spells"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Магічні предмети",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#magic-items"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклади збірок",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#example-builds"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Протидія Захопленню",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#countering-grapples"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як уникнути",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#prevention"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як припинити Захоплення",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#breaking-a-grapple"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Висновок",
+                    "href": "https://rpgbot.net/dnd5/characters/grapple/#conclusion"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                0,
+                1,
+                1,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rules",
+          "heading": "Правила 2014",
+          "sourceAnchor": "rules",
+          "blocks": [
+            {
+              "blockId": "block-section-rules-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для ефективного застосування правил потрібно добре їх розуміти. Прочитаємо текст SRD 2014 й розберемо точне значення кожної частини."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-rules-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Доведеться розглянути й суміжні правила. Після цього, сподіваємося, не треба буде перечитувати розділ, але час вартий витрат. Якщо Майстер скаже «невже це так працює?», можете показати цей розбір. Примітка редакції: авторські трактування нижче відділені від правил, а остаточне рішення залишається за Майстром."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-grappling",
+          "parentSectionId": "section-rules",
+          "heading": "Захоплення",
+          "sourceAnchor": "grappling",
+          "blocks": [
+            {
+              "blockId": "block-section-grappling-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коли хочете схопити істоту чи боротися з нею, можете використати дію Атака{{Attack}}, щоб зробити особливу ближню атаку — Захоплення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Звідси кілька важливих висновків:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Захоплення використовує дію Атака, а не є окремою дією."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Це «особлива ближня атака»: виконується зблизька, тому стандартно не можна схопити когось за 30 футів. Оскільки це атака, вона взаємодіє з правилами, які враховують атаки, зокрема Люттю{{Rage}} Варвара та Невидимість [Invisibility]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартне Захоплення потребує дії Атака, тому ним не можна замінити атаку при нагоді{{Opportunity Attack}}."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо дією Атака можете зробити кілька атак, Захоплення замінює одну з них."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це особливо важливо для бойових персонажів: із Додатковою атакою{{Extra Attack}} можна схопити ворога й зробити інші атаки тією самою дією."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ціль Захоплення може бути щонайбільше на одну категорію розміру більша за вас…"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це легко пропустити, але дуже важливо. Мала істота схопить лише Середню чи меншу; гномові Варвару буде складно з багатьма істотами Бестіарію. Тому автор радить Середню расу для таких збірок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "…і має перебувати в межах вашої досяжності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Йдеться про досяжність персонажа, а не Досяг його зброї. Батіг чи глефа самі по собі не дозволяють схопити ворога здалеку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Використовуючи щонайменше одну вільну руку…"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-11",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Надзвичайно важлива умова. Зі зброєю та щитом Захоплення незручне. Для беззбройного бійця або користувача Дворучної зброї рука вільна між атаками, тож почати Захоплення простіше. Примітка редакції: Дворучна зброя потребує двох рук саме під час атаки нею."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-12",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор помічає, що після початку Захоплення правило прямо не повторює вимогу вільної руки, й робить висновок про можливість знову атакувати Дворучною зброєю або схопити іншу істоту. Примітка редакції: це спірне авторське трактування, а не надана правилом можливість утримувати необмежену кількість цілей без зайнятих рук. Обговоріть із Майстром, чим фізично підтримується кожне Захоплення; стандартне утримання займає руку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-13",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Істота без рук не може почати стандартне Захоплення, якщо не має іншого способу. Наприклад, у Giant Toad немає рук, але влучання укусом схоплює ціль. Це не потребує перевірки й використовує окремі правила конкретної атаки. Примітка редакції: її обмеження все одно читають у статблоці; це не універсальний дозвіл схоплювати будь-що будь-якою атакою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-14",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "…намагаєтеся схопити ціль, роблячи замість кидка атаки перевірку Захоплення — Силу (Атлетика)…"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-15",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для стандартного Захоплення робите перевірку характеристики, а не кидок атаки. Потрібні пристойна Сила й Володіння Атлетикою: Чарівники рідко цим займатимуться, а Варвари, Воїни й Паладини підходять добре."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-16",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "…у протиставленні перевірці Сили (Атлетика) або Спритності (Акробатика) цілі; ціль обирає, яку використати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-17",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не кожна істота дуже сильна, але спритність і рухливість теж допомагають протистояти Захопленню та вирватися з нього."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-18",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для нападу обирайте цілі, слабкі і в Атлетиці, і в Акробатиці. Ogre чи Quickling схопити важко, Чарівника зазвичай простіше. Для захисту ближнім бійцям корисне Володіння однією з цих навичок залежно від того, яка характеристика вища — Сила чи Спритність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-19",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За успіху ціль стає Схопленою. Опис стану визначає умови його завершення…"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-20",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Саме стан Схоплений є метою Захоплення. Його нюанси розглянемо нижче."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-21",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "…і ви можете відпустити ціль коли завгодно; дія не потрібна."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-grappling-22",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Коли завгодно» автор розуміє як дозвіл відпустити й поза своїм ходом, особливо оскільки дія не потрібна. Якщо якась причина забороняє дії, але сама не завершує Захоплення, за таким прочитанням усе ще можете добровільно відпустити ціль."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-escaping-a-grapple",
+          "parentSectionId": "section-grappling",
+          "heading": "Як вирватися",
+          "sourceAnchor": "escaping-a-grapple",
+          "blocks": [
+            {
+              "blockId": "block-section-escaping-a-grapple-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Схоплена істота часто хоче вирватися. У ближньому бою все ще можна битися, але не всім подобається стояти на місці й обмінюватися ударами до 0 ХП."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-escaping-a-grapple-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Схоплена істота може використати свою дію, щоб вирватися."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-escaping-a-grapple-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Втеча потребує цілої дії, тоді як початок Захоплення витрачає лише одну з доступних атак або виникає як додатковий ефект влучання. Економіка дій значно вигідніша нападнику."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-escaping-a-grapple-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тому гравці люблять схоплювати ворогів і водночас шукають інші способи вирватися. Дивіться нижче розділ протидії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-escaping-a-grapple-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для цього істота має успішно зробити перевірку Сили (Атлетика) або Спритності (Акробатика), протиставлену вашій Силі (Атлетика)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-escaping-a-grapple-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це ті самі перевірки, що й для початку Захоплення та опору йому: послідовне правило легко запамʼятати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-the-grappled-condition",
+          "parentSectionId": "section-rules",
+          "heading": "Стан Схоплений",
+          "sourceAnchor": "the-grappled-condition",
+          "blocks": [
+            {
+              "blockId": "block-section-the-grappled-condition-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви когось схопили — або схопили вас; я не ваш Майстер і не знаю. У будь-якому разі треба зрозуміти наслідки стану."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-grappled-condition-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Швидкість Схопленої істоти стає 0, і вона не може отримувати користь від жодних бонусів до швидкості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-grappled-condition-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це й є сенс Захоплення. Ціль не може втекти й не може робити "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "нічого"
+                },
+                {
+                  "type": "text",
+                  "text": ", що потребує витрачати частину переміщення. Наприклад, не може підвестися з Поваленого стану, сісти на коня чи злізти з нього."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-grappled-condition-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бонуси швидкості від Скорохід [Longstrider] чи Прискорення [Haste] не дозволяють просто вийти із Захоплення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-grappled-condition-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Навіть сам нуль швидкості корисний. Союзники можуть поставити тривалі ефекти шкоди на кшталт Створення багаття [Create Bonfire] чи Хмара кинджалів [Cloud of Daggers], роблячи групу ефективнішою за невелику витрату ресурсів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-grappled-condition-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стан закінчується, якщо той, хто утримує ціль, стає Недієздатним."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-grappled-condition-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Недієздатність виникає і самостійно, і як частина інших станів, зокрема Паралізований та Непритомний. Тому параліч, сон та інші подібні ефекти можуть завершити Захоплення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-grappled-condition-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стан також закінчується, якщо ефект перемістив Схоплену істоту за межі досяжності того, хто її утримує, або ефекту Захоплення, наприклад відкинув її заклинанням "
+                },
+                {
+                  "type": "link",
+                  "text": "Громова хвиля [Thunderwave",
+                  "href": "https://www.dndbeyond.com/spells/thunderwave"
+                },
+                {
+                  "type": "text",
+                  "text": "]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-grappled-condition-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розділити ціль і того, хто її тримає, зазвичай найпростіше. Громова хвиля — зрозумілий приклад; також допоможуть телепортація або Штовхання{{Shove}} нападника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-grappled-condition-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У Ведмебая є нюанс: Довгі кінцівки{{Long-Limbed}} додають 5 футів до досяжності ближньої атаки у ваш хід. Захоплення — ближня атака, але якщо після неї ціль опиняється поза вашою нормальною досяжністю, Захоплення відразу закінчується."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-moving-a-grappled-creature",
+          "parentSectionId": "section-the-grappled-condition",
+          "heading": "Переміщення Схопленої істоти",
+          "sourceAnchor": "moving-a-grappled-creature",
+          "blocks": [
+            {
+              "blockId": "block-section-moving-a-grappled-creature-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Швидкість цілі стає 0, але ваша — ні. Можна хотіти перетягнути ворога у вогняну стіну чи до ями. Для зміни позиції це нерідко ефективніше за Штовхання; навіть бійцю, який рідко схоплює ворогів, варто розуміти правила."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-moving-a-grappled-creature-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коли рухаєтеся, можете тягнути або нести Схоплену істоту із собою, але ваша швидкість зменшується вдвічі…"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-moving-a-grappled-creature-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Корисно, але нечітко."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-moving-a-grappled-creature-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Точний зміст «тягнути» не пояснено, тому автор використовує звичайне значення слова: підтягувати, а не штовхати від себе; перенесення може бути іншим випадком. Розташування істоти теж не визначено докладно, тож узгоджуйте його з Майстром."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-moving-a-grappled-creature-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перенесення ще менш зрозуміле. Як людині нести схопленого Ogre? Чи можна підняти його, донести до вікна й викинути? Автор не має однозначної відповіді."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-moving-a-grappled-creature-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як Майстер, автор обирає просте трактування: при русі утримувані істоти зберігають положення щодо вашого простору, наче «пливуть» поряд. Це його спосіб вести гру, а не додаткове офіційне правило."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-moving-a-grappled-creature-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Текст окремо не визначає кількості істот для перетягування; автор допускає одночасний рух із кількома цілями, зокрема союзниками. Примітка редакції: кожну ціль усе одно треба законно схопити й утримувати; попередня примітка про зайняті руки залишається чинною."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-moving-a-grappled-creature-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Правило не обмежує вид руху; Jeremy Crawford також писав, що "
+                },
+                {
+                  "type": "link",
+                  "text": "підходять різні види переміщення",
+                  "href": "https://twitter.com/JeremyECrawford/status/756195224855072768"
+                },
+                {
+                  "type": "text",
+                  "text": ". За таким прочитанням можна схопити ціль і злетіти, підтягти її по стіні зі швидкістю лазіння або Павуче лазіння [Spider Climb]; Монах інколи може бігти вгору стіною. Це ускладнює втечу й створює можливість шкоди від падіння, коли вирішите відпустити ціль. Примітка редакції: допис розробника — порада, а не окреме офіційне рішення Sage Advice; перевіряйте конкретні умови руху."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-moving-a-grappled-creature-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор часто отримує це питання й посилається на пояснення, що правила Захоплення "
+                },
+                {
+                  "type": "link",
+                  "text": "не враховують фактичної ваги істоти",
+                  "href": "https://twitter.com/JeremyECrawford/status/907788091267543040"
+                },
+                {
+                  "type": "text",
+                  "text": ". Він не застосовує до перетягування вантажопідйомність: Бестіарій не вказує ваги істот, і успіх не має залежати від ситного обіду цілі. Примітка редакції: це авторське трактування суміжних правил; фізичне піднімання, перенесення й особливі ситуації узгодьте з Майстром."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-moving-a-grappled-creature-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "…якщо лише істота не менша за вас на дві або більше категорії розміру."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-moving-a-grappled-creature-11",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Середня істота може тягнути Крихітну, наприклад Pixie або домашню кішку, без зменшення швидкості. Ставши Великою, так само тягнутиме Малих істот, наприклад Напівросликів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-shove",
+          "parentSectionId": "section-rules",
+          "heading": "Штовхання",
+          "sourceAnchor": "shove",
+          "blocks": [
+            {
+              "blockId": "block-section-shove-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Правила Штовхання окремі, але їх часто поєднують із Захопленням. Можна зробити ціль Поваленою; зі швидкістю 0 вона не підведеться, бо підйом потребує переміщення в розмірі половини швидкості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shove-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Комбінація «схопити й повалити» сильна для бойових персонажів. Утримування Поваленої цілі полегшує отримання Переваги, а вправний борець уже має все потрібне для Штовхання. Це зазвичай найкорисніше стабільне застосування Захоплення в бою, тому до нього неодноразово повернемося."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-shove-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Союзники теж відчують наслідки: ближні бійці зазвичай отримують Перевагу, дальні атакери — Перешкоду. Якщо лучник чи Чорнокнижник скаржиться, можна змінити ціль або застосувати ефект із ряткидком, наприклад Створення багаття. Примітка редакції: точний критерій Переваги проти Поваленої цілі — нападник у межах 5 футів; далі атака має Перешкоду, незалежно від назви її виду."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-twoweapon-fighting",
+          "parentSectionId": "section-rules",
+          "heading": "Бій двома зброями",
+          "sourceAnchor": "twoweapon-fighting",
+          "blocks": [
+            {
+              "blockId": "block-section-twoweapon-fighting-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "можете"
+                },
+                {
+                  "type": "text",
+                  "text": " схопити або штовхнути ціль у хід, коли використовуєте бій двома зброями, якщо маєте Додаткову атаку. Для бонусної атаки треба дією Атака атакувати відповідною зброєю, але достатньо однієї такої атаки; інші можна витратити на особливі ближні атаки Захоплення та Штовхання. Для Захоплення потрібна вільна рука, тож одну зброю доведеться кинути або впустити."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-climbing-a-creature",
+          "parentSectionId": "section-rules",
+          "heading": "Видирання на істоту",
+          "sourceAnchor": "climbing-a-creature",
+          "blocks": [
+            {
+              "blockId": "block-section-climbing-a-creature-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Опційне правило Посібника Майстра 2014 дозволяє видиратися на більшу істоту за перевірками, подібними до Захоплення, й отримувати Перевагу на атаки проти неї. Воно не ідеальне, але допомагає борцям проти надто великих цілей, зокрема Малим расам. Примітка редакції: це опція Майстра, а не стандартна можливість утримати таку ціль на місці."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-optimizing-for-grapples",
+          "heading": "Оптимізація Захоплення",
+          "sourceAnchor": "optimizing-for-grapples",
+          "blocks": [
+            {
+              "blockId": "block-section-optimizing-for-grapples-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оптимізувати Захоплення, зокрема комбінацію зі Штовханням, нескладно, але є багато нюансів: що більше уваги, то вища ефективність."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-the-fundamentals",
+          "parentSectionId": "section-optimizing-for-grapples",
+          "heading": "Основи",
+          "sourceAnchor": "the-fundamentals",
+          "blocks": [
+            {
+              "blockId": "block-section-the-fundamentals-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Раджу працювати з такими пунктами саме в цьому порядку:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-fundamentals-2",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Сила."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Важлива частина формули, особливо на низьких рівнях, доки Бонус Майстерності ще малий. Оптимізований борець зазвичай починає з модифікатора Сили +3."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Володіння."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Володіння й Експертиза{{Expertise}} в Атлетиці мають найбільший математичний вплив. Рівень Пройдисвіта чи Експерт у навичках{{Skill Expert}} дають Експертиза, яка особливо цінна зі зростанням Бонусу Майстерності."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Додаткова атака."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Кілька атак дозволяють схопити й повалити в один хід замість двох, значно підвищуючи ефективність."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Розмір."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Можете схопити істоту щонайбільше на одну категорію більшу, тож що більші ви, то ширший вибір. Опційне видирання послаблює це обмеження, якщо не проти того, що ціль продовжує рухатися, поки ви на ній."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Перевага."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Автор оцінює її ефект як трохи більше +3; ваш модифікатор Сили може майже дорівнювати цьому вже на рівні 1, а Бонус Майстерності зростає, особливо з Експертизою. Тому попередні пункти важливіші. Примітка редакції: точний вплив Переваги залежить від розподілу протиставлених перевірок, це не сталий додатковий бонус."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Перешкода цілі."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Зазвичай її складніше забезпечити, ніж свою Перевагу, але ефект подібний. Проклін [hex] — простий і стабільний спосіб."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Інше."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Додаткові бонуси й штрафи трапляються рідше та часто тимчасові, але корисні: Настанова [Guidance], Борець{{Grappler}}, стиль Беззбройний бій{{Unarmed Fighting}}."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            },
+            {
+              "blockId": "block-section-the-fundamentals-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На думку автора, пункти 1–4 необхідні, хоча хтось може не погодитися. Це зазвичай постійні властивості персонажа; Перевага й Перешкода часто залежать від обставин, тривалості або обмежених ресурсів, як використання Люті чи слоти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-character-options",
+          "parentSectionId": "section-optimizing-for-grapples",
+          "heading": "Варіанти персонажа",
+          "sourceAnchor": "character-options",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-races",
+          "parentSectionId": "section-character-options",
+          "heading": "Раси",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вибір раси відносно простий: принаймні потрібна Середня раса з бонусом Сили… Примітка редакції: речення в джерелі обривається; оригінального продовження немає. Правила походження Таші й пізні раси 2014 дозволяють гнучкі підвищення характеристик."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Ведмебай / Голіаф / Орк: Могутня статура{{Powerful Build}} сама по собі не збільшує ваш розмір для Захоплення. Правило враховує категорію розміру, а не вантажопідйомність."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Своя раса{{Custom Lineage}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Казан Таші з усім",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +2 Сили й риса. Експерт у навичках{{Skill Expert}} дає ще +1 Сили, Володіння й Експертиза в Атлетиці. Із базовою Силою 15 отримуєте +8 Атлетики вже на рівні 1 незалежно від класу. Це дуже сильний початок; перевага зникає, коли інші збірки теж мають Силу 20."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дуергар{{Duergar}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга Гравця (2014)",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Може накладати Збільшення/Зменшення [Enlarge/Reduce], стаючи Великим, але стару расову версію не можна повторювати слотами. Примітка редакції: Duergar не з PHB, попри джерельне посилання: це варіант SCAG/старих книг. MPMM має інші правила, зокрема можливість повторного накладання слотами."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Фея{{Fairy}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Дикі межі Відьомського Світла",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Політ і Збільшення/Зменшення [Enlarge/Reduce]. Проте Фея Мала: Збільшення підвищує лише на одну категорію, до Середньої, а не Великої. Для великих цілей магія буде постійною витратою ресурсів і дій. Примітка редакції: джерело помилково обіцяє Великого персонажа після одного такого збільшення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Відьмокров{{Hexblood}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Путівник Ван Ріхтена по Равенлофту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Добре для збірки з магією: отримуєте Проклін [hex] й можете повторювати його слотами."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Переродженець{{Reborn}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Путівник Ван Ріхтена по Равенлофту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Знання минулого життя{{Knowledge from a Past Life}} може врятувати перевірку Атлетики, коли бракує одного-двох пунктів, але саме по собі не створює сильної збірки. Це пункт «Інше»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Людина з варіантними рисами{{Variant Human}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга Гравця (2014)",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Якщо берете Skill Expert, Своя раса дає сильніший старт Сили. Якщо Експертиза отримуєте інакше, варіантна Людина може краще відповідати збірці."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes",
+          "parentSectionId": "section-character-options",
+          "heading": "Класи",
+          "sourceAnchor": "classes",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клас визначає Додаткову атаку й тому дуже важливий. Різні поєднання раси та класу можуть дати подібний результат; якщо раса добре підтримує збірку, класи можна обирати гнучкіше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-classes-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Винахідник: Зброяр і Бойовий коваль мають Додаткову атаку, а клас — Настанова [Guidance] та Покращення здібності [Enhance Ability]. Збірка на Силі незвична, але з Skill Expert, особливо у Своєї раси чи варіантної Людини, може працювати. Володіння ряткидками Статури допомагає з Концентрацією. Примітка редакції: важкі обладунки отримує Зброяр; Бойовий коваль автоматично їх не отримує, всупереч джерелу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Варвар: Лють легко дає Перевагу на перевірки Сили й Атлетики. Своя раса чи варіантна Людина беруть Skill Expert, або один рівень Пройдисвіта дасть Експертиза. На рівні 20 Сила може досягти 24 без магічних речей. Міцні Шлях предків-охоронців і Шлях тотемного воїна дозволяють тримати ворога, поки союзники його добивають; пустельна аура Шляху вісника шторму завдає повторної шкоди утримуваним цілям. Під час Люті не можна підтримувати Концентрацію заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бард: має Позичене знання [Borrowed Knowledge], Покращення здібності [Enhance Ability] і Експертиза; Колегія доблесті дає Додаткову атаку. На Силі його складно будувати, але важкі обладунки через рису чи інший клас можуть допомогти. Примітка редакції: Настанова [Guidance] не є стандартним заклинанням Барда 2014, на відміну від твердження автора; потрібне окреме джерело."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Друїд: автор радить Коло місяця та форми, атака яких автоматично схоплює ціль. У багатьох форм немає рук, тож стандартне Захоплення недоступне. Hex можна накласти перед Дикою формою, але через КБ і характеристики форми зберігати Концентрацію буває складно; союзна Перешкода цілі корисна. Примітка редакції: Дика форма 2014 зберігає ваші Володіння навичками й ряткидками, отримує Володіння форми та використовує вищий бонус у спільному Володінні. Авторське твердження, що власні модифікатори навичок не застосовуються, неправильне; враховуйте характеристики й анатомію форми."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Монах: зазвичай розвиває Спритність і слабкий у Захопленні. Шлях астрального «я» — виняток: дозволяє перевірки Сили через Мудрість. Додаткова атака теж є."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Воїн: найкраща Додаткова атака, до чотирьох атак дією, ще до Сплеск дій{{Action Surge}}. Стиль Беззбройний бій додає к4 шкоди схопленій цілі. Потойбічний лицар може накладати Збільшення для Великого розміру й Переваги; Лицар рун через Міць велетня{{Giant's Might}} отримує Перевагу на Атлетику й згодом Величезний розмір, дозволяючи схопити навіть Гігантських. Примітка редакції: к4 стилю завдається на початку вашого ходу одній утримуваній істоті, а не кожній."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Паладин: має Додаткову атаку; якщо Експертиза в Атлетиці отримати інакше, основа готова. Клятва слави через Божественність: Незрівнянний атлет{{Channel Divinity: Peerless Athlete}} дає Перевагу без Концентрації."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Слідопит: опційне Canny{{Canny}} на рівні 1 дає Експертиза в одній навичці, а клас має Додаткову атаку. Також має бойовий стиль, хоча Беззбройний бій доступний через Воїна або Посвячений у бій{{Fighting Initiate}}. Для одного рівня заради Експертизи Пройдисвіт кращий, але Слідопит на Силі може бути вправним борцем. Примітка редакції: «лише Бард і Слідопит» у джерелі надто категорично — інші класи й опції теж можуть комбінувати ці можливості."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пройдисвіт: Експертиза із рівня 1 — зручне мультикласування, якщо не отримуєте її рисою. Проте немає Додаткової атаки, тому однокласовий борець менш ефективний."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чорнокнижник: має Hex, але небагато іншого. Два рівні дають додатковий пактовий слот, три — Пакт ланцюга{{Pact of the Chain}} з фамільяром, який може Допомогою давати Перевагу. Корисно після основи збірки. Спрагле лезо{{Thirsting Blade}} не є загальною Додатковою атакою: дозволяє дві атаки саме пактовою зброєю, тому не дає двох стандартних Захоплень."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-character-options",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Посвячений у бій{{Fighting Initiate}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Казан Таші з усім",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Дає стиль Беззбройний бій. Не обовʼязкова риса; к4 не зростає. Примітка редакції: шкода на початку ходу завдається лише одній утримуваній істоті, а не кільком, всупереч авторському твердженню."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Борець{{Grappler}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга Гравця (2014)",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Перевага проти схопленої цілі приваблива без Штовхання, але Повалений стан також погіршує її атаки, тому часто кращий. Друга можливість сковує вас обох і зазвичай допомагає переважно союзникам; автор вважає рису поганою й радить не брати. Примітка редакції: Скований стан не універсально «скасовує Перевагу й Перешкоду»: вони визначаються для кожного кидка з урахуванням усіх чинників."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Експерт у навичках{{Skill Expert}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Казан Таші з усім",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +1 характеристики, Володіння однією навичкою та Експертиза в одній навичці, якою володієте. Майже необхідна для майстерності Захоплення, якщо не берете Пройдисвіта."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Забіяка з таверни{{Tavern Brawler}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга Гравця (2014)",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Захоплення бонусною дією привабливе, але спершу треба влучити відповідною атакою, створюючи ще точку невдачі. Автор радше спочатку схопить і повалить, а атакуватиме потім із Перевагою. Примітка редакції: тригер — влучання беззбройним ударом або імпровізованою зброєю у ваш хід."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spells",
+          "parentSectionId": "section-character-options",
+          "heading": "Заклинання",
+          "sourceAnchor": "spells",
+          "blocks": [
+            {
+              "blockId": "block-section-spells-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Позичене знання [Borrowed Knowledge] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Стріксгейвен: Курс хаосу",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Постійне Володіння Атлетикою краще за залежність від магії. Але якщо групі раптово треба когось схопити без підготовки, це може врятувати. Дальність — На себе, тому борцем стане сам заклинатель."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Покращення здібності [Enhance Ability] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга Гравця (2014)",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Перевага на перевірки Сили, або іншої обраної характеристики, та можливість вищим слотом посилити кількох союзників."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Збільшення/Зменшення [Enlarge/Reduce] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга Гравця (2014)",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Для Захоплення сильніше за Поліпшення здібностей, але менш універсальне. Великий розмір дозволяє схоплювати Величезних, а Перевага на Силу чудова. Хвилинна тривалість дорожча й ускладнює накладання перед боєм. Примітка редакції: заклинання збільшує лише на одну категорію — Мала істота стає Середньою, не Великою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пошук фамільяра [Find Familiar] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга Гравця (2014)",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Фамільяр може дати Перевагу через Допомогу, але більшості борців складно отримати це заклинання й повторювати його після загибелі фамільяра."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Настанова [Guidance] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга Гравця (2014)",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Зазвичай незручне в бою, але додаткові +1к4 завжди приємні. Чудове замовляння загалом, хоча не основа Захоплення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Проклін [Hex] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга Гравця (2014)",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Простий спосіб дати Перешкоду на перевірки характеристики. Концентрація щонайменше годину, а після падіння цілі до 0 ХП можна перенести на наступну. Союзник може накласти замість вас. Обирайте Силу або Спритність з огляду на те, якою навичкою ціль захищається; Hex не погіршує одночасно обидві."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Посилення навички [Skill Empowerment] "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "Довідник Занатара про все",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Експертиза через заклинання: високий рівень і Концентрація роблять його дорогим. У більшості випадків автор радше вибере Поліпшення здібностей."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-magic-items",
+          "parentSectionId": "section-character-options",
+          "heading": "Магічні предмети",
+          "sourceAnchor": "magic-items",
+          "blocks": [
+            {
+              "blockId": "block-section-magic-items-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Coiling Grasp Tattoo{{Coiling Grasp Tattoo}}: Працює подібно до монстрового ефекту: застосовуєте здібність, і ціль стає Схопленою. Звичайна оптимізація Атлетики не поліпшує її, зате будь-який персонаж отримує придатний спосіб схоплювати. Примітка редакції: конкретно тут ціль робить ряткидок Сили, а не отримує автоматичний ефект будь-якого влучання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Gauntlets of Ogre Power{{Gauntlets of Ogre Power}} / Belt of Giant Strength{{Belt of Giant Strength}}: Предмет може встановити Силу вище за звичайні 20. Якщо пояс очікується в кампанії, можна витрачати підвищення на риси. Примітка редакції: рукавиці встановлюють Силу 19; перевищення 20 стосується відповідних поясів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ioun Stone (Mastery){{Камінь Йун (Майстерність)|Ioun Stone (Mastery)}}: +1 Бонусу Майстерності корисний багатьом. Експертиза означає +2 Атлетики, а Володіння ряткидками Статури — ще +1 до них для Концентрації. Проте за Легендарної рідкості можна порівняти з Belt of Storm Giant Strength."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Manual of Gainful Exercise{{Manual of Gainful Exercise}}: Пояс тієї самої рідкості може дати Силу 23. Якщо не плануєте однокласового Варвара до рівня 20, автор віддає перевагу поясу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ring of Spell Storing{{Ring of Spell Storing}}: Союзники можуть надати корисну магію без власного навчання чаротворенню. Hex — зручне заклинання 1-го рівня; союзний Чорнокнижник також може допомогти з Поліпшенням здібностей або Збільшенням/зменшенням."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Stone of Good Luck{{Stone of Good Luck}}: +1 до перевірок характеристик і ряткидків; чисельно хороший майже для будь-якого персонажа."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-builds",
+          "parentSectionId": "section-character-options",
+          "heading": "Приклади збірок",
+          "sourceAnchor": "example-builds",
+          "blocks": [
+            {
+              "blockId": "block-section-example-builds-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Варвар Своєї раси."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Візьміть Skill Expert для Атлетики й почніть із Сили 18. Разом із Перевагою від Люті це дає дуже сильне Захоплення без значних подальших витрат."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Бард Колегії знань із Відьмокровом."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Якщо хочете Барда-борця, Hex раси дуже допомагає, але Експертиза буде лише на рівні 3. Почніть із Сили 14, Спритності 14, Статури 14 й Харизми 16 після бонусів. Зосередьтеся на Харизмі й компенсуйте слабшу Силу магією; просіть пояс сили велетня. Примітка редакції: заголовок джерела каже Lore, а текст — Valor. Це різні підкласи: Колегія знань не дає Додаткової атаки, Колегія доблесті дає її на рівні 6."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Воїн Лицар рун із Відьмокровом."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Одне безслотове накладання Hex дає годину Концентрації; добра КБ й ряткидки Статури допомагають утримати. Потойбічний лицар дозволить повторити слотами, Лицар рун може зберігати Hex для найважчих ворогів. Одне з підвищень витратьте на Skill Expert. На рівні 20 маєте Експертиза, чотири атаки дією, Величезний розмір, Перевагу собі, Перешкоду цілі та шкоду Беззбройного бою. Це близько до найсильнішого Захоплення без магічних предметів, хоча інші збірки можуть бути зручнішими на низьких рівнях."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Винахідник — варіантна Людина."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Візьміть Skill Expert для Атлетики, розподіліть расові бонуси та +1 риси між Силою, Статурою й Інтелектом, щоб почати з трьох 16. Спершу Сила 20, потім Інтелект. Рівні 1–2 небезпечні; зі Зброярем на рівні 3 важкі обладунки полегшують захист. Бойовий коваль теж може працювати, але без автоматичних важких обладунків. Із магією 2-го рівня основа — Збільшення/зменшення чи Поліпшення здібностей. Утримуючи кількох ворогів, подумайте про Спалах Мечів [Sword Burst] замість атаки зброєю."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Монах — варіантна Людина."
+                  },
+                  {
+                    "type": "text",
+                    "text": " Skill Expert для Атлетики, расові бонуси у Спритність і Мудрість. Спершу Мудрість 20, потім Спритність. Автор пропонує тримати ворогів за 10 футів через Руки астрального \"я\"{{Руки астрального \"я\"|Arms of the Astral Self}}. Примітка редакції: збільшення досяжності астральних рук застосовується до беззбройних ударів ними, а не до стандартного Захоплення; застосування Мудрості до перевірок Сили цього не змінює."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-countering-grapples",
+          "heading": "Протидія Захопленню",
+          "sourceAnchor": "countering-grapples",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-prevention",
+          "parentSectionId": "section-countering-grapples",
+          "heading": "Як уникнути",
+          "sourceAnchor": "prevention",
+          "blocks": [
+            {
+              "blockId": "block-section-prevention-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більшість монстрів схоплює персонажів додатковим ефектом влучання атаки, тож насамперед уникайте влучань: підвищуйте КБ та інші захисні можливості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-prevention-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гуманоїдні вороги можуть застосовувати стандартні перевірки Захоплення. Проти них допоможе Володіння Атлетикою чи Акробатикою, більший розмір або імунітет до Схопленого стану."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-breaking-a-grapple",
+          "parentSectionId": "section-countering-grapples",
+          "heading": "Як припинити Захоплення",
+          "sourceAnchor": "breaking-a-grapple",
+          "blocks": [
+            {
+              "blockId": "block-section-breaking-a-grapple-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Три способи припинити Захоплення:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-a-grapple-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Вирватися стандартною дією."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Отримати імунітет до стану Схоплений."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розвести нападника й ціль за межі досяжності."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-a-grapple-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для втечі робите Силу (Атлетика) або Спритність (Акробатика) проти Атлетики нападника, а в багатьох монстрових атаках — проти сталої Складності зі статблока. Ворог часто не настільки оптимізований, як персонаж-борець, тож навіть відповідного Володіння може вистачити. Проблема: витрачаєте цілу дію лише на "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "спробу"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-a-grapple-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Імунітет до Схопленого стану отримати складно, але він припиняє його вплив. Автор пропонує Перевтілення [Polymorph]. Примітка редакції: саме заклинання імунітету не дає; потрібна конкретна дозволена форма з таким імунітетом або інша причина завершення Захоплення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-a-grapple-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найпростіше зазвичай розвести нападника й ціль. Часто досить зрушити когось на 5 чи 10 футів, залежно від досяжності того, хто тримає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-a-grapple-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бойовим персонажам добре підходить Штовхання, особливо з Додатковою атакою: спроба витратить одну атаку, решту можна використати для повторення чи шкоди. Дробильник{{Crusher}} та Техніка відкритої долоні{{Open Hand Technique}} переміщують ворога після влучання, допомагаючи звільнити себе чи союзника без окремої дії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-a-grapple-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Іншим персонажам допоможуть Телекінетик{{Telekinetic}}, телепортація на кшталт Туманний крок [Misty Step] або інше примусове переміщення, іноді без жодної перевірки. Примітка редакції: Telekinetic має власний ряткидок; відсутність протиставленої перевірки Захоплення не означає безумовного успіху."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-breaking-a-grapple-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Союзника можна звільнити подібним способом: відштовхніть нападника чи саму ціль. Перемістити свого Чарівника може бути простіше, ніж сильного ворога, якщо ви не оптимізований борець, який схопив би навіть Tarrasque заради демонстрації. Двері між вимірами [Dimension Door] і Вихрове переміщення [Vortex Warp] теж можуть витягти союзника. Примітка редакції: Штовхання зберігає обмеження розміру й свою перевірку навіть щодо союзника; сам жарт не дозволяє обійти їх."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-conclusion",
+          "heading": "Висновок",
+          "sourceAnchor": "conclusion",
+          "blocks": [
+            {
+              "blockId": "block-section-conclusion-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За замовчуванням монстрові Захоплення часто вигідніші за персонажні. Проте невелика оптимізація робить цю тактику сильним інструментом, а докладніша — дозволяє утримувати навіть дуже потужних ворогів і схиляти бій на користь групи."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-grapple-2014-001",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-2",
+      "optionId": "section-races-block-section-races-2-item-0",
+      "context": "Ведмебай / Голіаф / Орк",
+      "explanationBlockId": "block-section-races-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-grapple-2014-002",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-2",
+      "optionId": "section-races-block-section-races-2-item-1",
+      "context": "Своя раса",
+      "explanationBlockId": "block-section-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-grapple-2014-003",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-2",
+      "optionId": "section-races-block-section-races-2-item-2",
+      "context": "Дуергар",
+      "explanationBlockId": "block-section-races-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-grapple-2014-004",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-2",
+      "optionId": "section-races-block-section-races-2-item-3",
+      "context": "Фея",
+      "explanationBlockId": "block-section-races-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-grapple-2014-005",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-2",
+      "optionId": "section-races-block-section-races-2-item-4",
+      "context": "Відьмокров",
+      "explanationBlockId": "block-section-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-grapple-2014-006",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-2",
+      "optionId": "section-races-block-section-races-2-item-5",
+      "context": "Переродженець",
+      "explanationBlockId": "block-section-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-grapple-2014-007",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-2",
+      "optionId": "section-races-block-section-races-2-item-6",
+      "context": "Людина з варіантними рисами",
+      "explanationBlockId": "block-section-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-grapple-2014-008",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-classes",
+      "targetBlockId": "block-section-classes-2",
+      "optionId": "section-classes-block-section-classes-2-item-0",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-classes-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-grapple-2014-009",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-classes",
+      "targetBlockId": "block-section-classes-2",
+      "optionId": "section-classes-block-section-classes-2-item-1",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-classes-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-grapple-2014-010",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-classes",
+      "targetBlockId": "block-section-classes-2",
+      "optionId": "section-classes-block-section-classes-2-item-2",
+      "context": "Бард",
+      "explanationBlockId": "block-section-classes-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-grapple-2014-011",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-classes",
+      "targetBlockId": "block-section-classes-2",
+      "optionId": "section-classes-block-section-classes-2-item-3",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-classes-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-grapple-2014-012",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-classes",
+      "targetBlockId": "block-section-classes-2",
+      "optionId": "section-classes-block-section-classes-2-item-4",
+      "context": "Монах",
+      "explanationBlockId": "block-section-classes-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-grapple-2014-013",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-classes",
+      "targetBlockId": "block-section-classes-2",
+      "optionId": "section-classes-block-section-classes-2-item-5",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-classes-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-grapple-2014-014",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-classes",
+      "targetBlockId": "block-section-classes-2",
+      "optionId": "section-classes-block-section-classes-2-item-6",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-classes-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-grapple-2014-015",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-classes",
+      "targetBlockId": "block-section-classes-2",
+      "optionId": "section-classes-block-section-classes-2-item-7",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-classes-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-grapple-2014-016",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-classes",
+      "targetBlockId": "block-section-classes-2",
+      "optionId": "section-classes-block-section-classes-2-item-8",
+      "context": "Пройдисвіт",
+      "explanationBlockId": "block-section-classes-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-grapple-2014-017",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-classes",
+      "targetBlockId": "block-section-classes-2",
+      "optionId": "section-classes-block-section-classes-2-item-9",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-classes-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-grapple-2014-018",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-0",
+      "context": "Посвячений у бій",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-grapple-2014-019",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-1",
+      "context": "Борець",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-grapple-2014-020",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-2",
+      "context": "Експерт у навичках",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-grapple-2014-021",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-3",
+      "context": "Забіяка з таверни",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-grapple-2014-022",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-spells",
+      "targetBlockId": "block-section-spells-1",
+      "optionId": "section-spells-block-section-spells-1-item-0",
+      "context": "Позичене знання [Borrowed Knowledge]",
+      "explanationBlockId": "block-section-spells-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-grapple-2014-023",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-spells",
+      "targetBlockId": "block-section-spells-1",
+      "optionId": "section-spells-block-section-spells-1-item-1",
+      "context": "Покращення здібності [Enhance Ability]",
+      "explanationBlockId": "block-section-spells-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-grapple-2014-024",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-spells",
+      "targetBlockId": "block-section-spells-1",
+      "optionId": "section-spells-block-section-spells-1-item-2",
+      "context": "Збільшення/Зменшення [Enlarge/Reduce]",
+      "explanationBlockId": "block-section-spells-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-grapple-2014-025",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-spells",
+      "targetBlockId": "block-section-spells-1",
+      "optionId": "section-spells-block-section-spells-1-item-3",
+      "context": "Пошук фамільяра [Find Familiar]",
+      "explanationBlockId": "block-section-spells-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-grapple-2014-026",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-spells",
+      "targetBlockId": "block-section-spells-1",
+      "optionId": "section-spells-block-section-spells-1-item-4",
+      "context": "Настанова [Guidance]",
+      "explanationBlockId": "block-section-spells-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-grapple-2014-027",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-spells",
+      "targetBlockId": "block-section-spells-1",
+      "optionId": "section-spells-block-section-spells-1-item-5",
+      "context": "Проклін [Hex]",
+      "explanationBlockId": "block-section-spells-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-grapple-2014-028",
+      "articleId": "rpgbot-grapple-2014",
+      "translationRevisionId": "translation-rpgbot-grapple-2014-draft1",
+      "sectionId": "section-spells",
+      "targetBlockId": "block-section-spells-1",
+      "optionId": "section-spells-block-section-spells-1-item-6",
+      "context": "Посилення навички [Skill Empowerment]",
+      "explanationBlockId": "block-section-spells-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

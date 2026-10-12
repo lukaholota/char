@@ -178,6 +178,8 @@ export function ContentListPage<TItem, TRow = TItem>({
               isModalChromeHidden ? "pt-3" : "pt-12",
             )}
             aria-describedby={undefined}
+            // The first focusable field is often the comment box; focusing it pops the phone keyboard over the card.
+            onOpenAutoFocus={(event) => event.preventDefault()}
           >
             <DialogTitle className="sr-only">
               {modalTitle || "Деталі елемента"}

@@ -1,0 +1,815 @@
+{
+  "buildId": "build-fighter-battle-master-2014",
+  "revisionId": "build-fighter-battle-master-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Майстра бойових мистецтв — Мисливець на комах",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-fighter-battle-master-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+      "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+      "sectionId": "section-example-battle-master-build-bug-game-hunter",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "FIGHTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "BATTLE_MASTER",
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Menacing Attack (Maneuver)"
+          },
+          {
+            "optionNameEng": "Pushing Attack (Maneuver)"
+          },
+          {
+            "optionNameEng": "Quick Toss (Maneuver)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SHARPSHOOTER"
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "CROSSBOW_EXPERT"
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Commanding Presence (Maneuver)"
+          },
+          {
+            "optionNameEng": "Rally (Maneuver)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "PIERCER",
+        "featOptions": [
+          {
+            "optionNameEng": "PIERCER Ability (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Commander's Strike (Maneuver)"
+          },
+          {
+            "optionNameEng": "Distracting Strike (Maneuver)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "MARTIAL_ADEPT",
+        "featOptions": [
+          {
+            "optionNameEng": "Bait and Switch (Maneuver)"
+          },
+          {
+            "optionNameEng": "Maneuvering Attack (Maneuver)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Disarming Attack (Maneuver)"
+          },
+          {
+            "optionNameEng": "Tactical Assessment (Maneuver)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TOUGH"
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-battle-master-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+          "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "BATTLE_MASTER",
+    "raceKey": "THRI_KREEN_SPELLJAMMER",
+    "backgroundKey": "COURTIER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 10
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 14
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми робимо збірку на Спритності з дальніми атаками зброєю, тож Спритність — наш пріоритет. Статура — другий пріоритет, щоб ми не загинули, далі Харизма, щоб додати збірці навички «обличчя».\n\nЗа бажання, якщо у вашій групі вистачає Харизми й вам не треба допомагати, Мудрість для перевірок Уважності послужить краще.\n\n Базове значення Підвищене значення 20-й рівень Сила 10 10 10 Спритність 15 17 20 Статура 15 16 16 Інтелект 8 8 8 Мудрість 8 8 8 Харизма 14 14 14",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ми беремо Три-кріна, щоб тримати щит і водночас користуватися ручним арбалетом, а ще безкоштовно мати кращий КБ, ніж від Проклепаного шкіряного обладунку. Темний зір корисний, а Телепатія теж приємна.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беремо Придворного заради Переконання. Зазвичай передісторія дає й Аналіз Поведінки, але ми візьмемо Аналіз Поведінки від Воїна, що дозволяє замінити Аналіз Поведінки від Придворного будь-якою навичкою. У цьому разі — Обманом. Оберіть будь-які мови, що годяться у вашій кампанії.\n\nЗа бажання, взявши передісторію Злочинця/Шпигуна, ми отримаємо Обман, Непомітність та інструменти злодія. З нашою високою Спритністю й Перевагою на кубику від Три-кріна на Непомітність можна скористатися цими володіннями. Якщо йти цим більш прихованим шляхом, корисно якось уписати в збірку Маневр «Засідка».\n\nЯкщо ви не виконуєте обовʼязки «обличчя», то передісторії Морського піхотинця й Пірата/Моряка — чудові варіанти заради Атлетики та Виживання чи Уважності.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Воїна беремо Залякування й Аналіз Поведінки. Від Придворного — Переконання й Обман.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Ми любимо риси, а Воїни отримують їх багато.\n\nНа четвертому рівні беремо «Влучного стрільця»{{Sharpshooter}}. У звичайних збірках ми брали б «Експерта з арбалетів» якомога раніше, бо атака бонусною дією така хороша, але «Влучний стрілець» дозволяє кидати сітки без Перешкоди на кубику. Це створює проблему на пʼятому рівні, яку розглянуто нижче в таблиці рівнів.\n\nНа шостому рівні беремо «Експерта з арбалетів»{{Crossbow Expert}}. Тепер маємо атаку бонусною дією й можемо ігнорувати властивість заряджання арбалетів. Ура.\n\nНа восьмому рівні беремо «Проколювача»{{Piercer}}, додаючи +1 до Спритності, і тепер можемо перекидати кубик шкоди, коли атакуємо. Це стосується й кубика переваги, коли ми застосовуємо Маневр.\n\nНа дванадцятому рівні беремо покращення характеристик на +2 до Спритності, доходячи до 20.\n\nНа чотирнадцятому рівні беремо «Військового адепта»{{Martial Adept}} заради додаткового кубика переваги. Наш вибір Маневрів для цієї риси буде розглянуто нижче в таблиці.\n\nНа шістнадцятому рівні беремо «Надихаючого лідера»{{Inspiring Leader}}. Це пристойний буфер тимчасових ХП після кожного Короткого відпочинку для всієї групи, а різниця між Харизмою 14 і 20 мала порівняно з тим, що він додає до загальної суми ще й наш рівень.\n\nНа девʼятнадцятому рівні беремо «Здоровань»{{Tough}}. Більше ХП завжди приємно.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бойовий Стиль{{Fighting Style}}: Стрільба з лука, Друге дихання, Навички: Обман, Аналіз Поведінки, Залякування, Переконання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Сплеск дій{{Action Surge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Військовий Архетип{{Martial Archetype}}: Майстер бойових мистецтв, Бойова перевага — к8, Учень війни — Кухарське начиння, Маневри: Лякаючий удар, Відштовхувальний удар, Швидкий кидок",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Влучний стрілець",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака (2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Риса: Експерт з арбалетів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Знай свого ворога, Маневри: Владна присутність, Підбадьорення, +1 кубик переваги",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Проколювач, +1 до Спритності (17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Непохитність (1)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Посилена бойова перевага — к10, Маневри: Наказ атакувати, Відволікаючий удар",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Додаткова атака (3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Спритність +2 (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Непохитність (2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Риса: Військовий адепт, Маневри: Пастка й обмін, Маневровий удар",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Невпинність, Маневри: Роззброювальний удар, Тактична оцінка, +1 кубик переваги",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Надихаючий лідер",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Сплеск дій (2), Непохитність (3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Посилена бойова перевага — к12",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Здоровань",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Додаткова атака (4)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Продаж спорядження",
+        "reason": "Автор радить за потреби взяти легкий арбалет із болтами й продати арбалет заради боєприпасів; пресет не записує продаж, тож у групі 3 лишено вибір платформи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-battle-master-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-battle-master-2014-draft1",
+            "sourceRevisionId": "rpgbot-e86d241bdc3f1395-88bfdb0caf043d78",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

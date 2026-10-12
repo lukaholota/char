@@ -1,0 +1,4744 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "a1822213ad1d0452f720606e48edf416614dba37dfe055dba3d902fda38ef171",
+  "sourceRevision": {
+    "revisionId": "rpgbot-9f65a2ced3ed6b53-a1822213ad1d0452",
+    "sourceId": "rpgbot-9f65a2ced3ed6b53",
+    "fetchedAt": "2026-09-29T19:18:47.648316+00:00",
+    "sourceUpdatedAt": "2026-07-24T22:24:32-04:00",
+    "contentHash": "1ea90e9b3bb45bcaca47704027a2eb6b7a406f2fe71ee656f9f1de4134255861",
+    "title": "DnD 5e Ranger Subclasses Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-9f65a2ced3ed6b53-a1822213ad1d0452.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Few classes have benefited more from the evolution in subclass design than\n\tthe Ranger. In the core rules, the Ranger was widely considered the weakest\n\tclass, especially due to the eye-catching yet ineffective Beast Master. Over\n\ttime, new supplements have introduced new ranger subclasses which have made\n\tthe Ranger an iconic, diverse, and interesting class that can hold is a lot of\n\tfun to play."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article is for the 2014 DnD 5e rules. For help with the 2024 rules, see our "
+            },
+            {
+              "type": "link",
+              "text": "2024 DnD 5e Ranger Subclasses Guid",
+              "href": "https://rpgbot.net/dnd5/characters/classes/2024-ranger/ranger-subclasses/"
+            },
+            {
+              "type": "link",
+              "text": "e",
+              "href": "https://rpgbot.net/dnd5/characters/classes/2024-monk/monk-subclasses/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ranger Subclasses – Ranger Archetypes",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/#subclasses"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Beast Master (PHB)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/#beast-master"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Drakewarden (FToD)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/#drakewarden"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Fey Wanderer (TCoE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/#fey-wanderer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gloom Stalker (XGtE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/#gloom-stalker"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Horizon Walker (XGtE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/#horizon-walker"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Hunter (PHB)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/#hunter"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Monster Slayer (XGtE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/#monster-slayer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Swarmkeeper (TCoE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/#swarm-keeper"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-subclasses",
+      "heading": "Ranger Subclasses – Ranger Archetypes",
+      "sourceAnchor": "subclasses",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-beast-master",
+      "parentSectionId": "section-subclasses",
+      "heading": "Beast Master (PHB)",
+      "sourceAnchor": "beast-master",
+      "blocks": [
+        {
+          "blockId": "block-section-beast-master-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Beast Master redefines the ranger by giving them a cool pet who fights\n\talongside them in combat. The image of a rough-hewn explorer braving a\n\tdangerous world with a loyal beast at their side is a classic fantasy trope,\n\tand the Beast Master executes on that trope very well."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One word of caution: If you think a drow ranger who fights with two swords\n\tand has a panther as their beast companion, "
+            },
+            {
+              "type": "emphasis",
+              "text": "it has been done"
+            },
+            {
+              "type": "text",
+              "text": ". By some\n\tbizzarre feat of group think, every new player at one point in their career\n\twill arrive at this character concept independently. The idea may have\n\toriginated from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Drizzt Do’Urden",
+              "href": "https://en.wikipedia.org/wiki/Drizzt_Do%27Urden"
+            },
+            {
+              "type": "text",
+              "text": ",\n\tliterally the most iconic ranger in DnD’s history, but I’m not confident in\n\tthat assertion because I’ve met numerous new players experiencing this\n\tphenomena who have never heard of Drizzt, the Forgotten Realms, or any other\n\testablished proper nouns, real or imagined. I’m starting to believe that R. A.\n\tSalvatore may have been an early victim of this phenomenon rather than the\n\toriginator of the idea. But none of that will help you mechanically optimize\n\tyour character, so let’s move on."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Player’s Handbook presents the Ranger’s Companion feature, and Tasha’s Cauldron of Everything presents a replacement feature called Primal Companion. Primal Companion is both easier and more effective than Ranger’s Companion, and I recommend using it instead of Ranger’s Companion in every case, but I’m not you and I try to encourage people to make their own decisions, so advice for both version of the subclass is presented below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Beast Master Ranger Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/dnd-5e-beast-master-ranger-handbook/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beast-master-v2",
+      "parentSectionId": "section-beast-master",
+      "heading": "Beast Master with Primal Companion",
+      "sourceAnchor": "beast-master-v2",
+      "blocks": [
+        {
+          "blockId": "block-section-beast-master-v2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While not officially a “version 2” of the subclass, the\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Primal Companion",
+              "href": "https://www.dndbeyond.com/sources/tcoe/ranger#PrimalCompanion"
+            },
+            {
+              "type": "text",
+              "text": "\n\treplacement feature completely alters the way the the beast Master functions.\n\tThe simple correction to the action economy around managing your beast frees\n\tthe Ranger to do other things with their Action, and while that will typically\n\tmean attacking for most rangers don’t feel the need to limit yourself to\n\tmartial attacks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-v2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Casting spells which take an Action feel like much less of a commitment than\n\tfor most rangers, and you should strongly consider Fighting Style (Druidic\n\tWarrior) and pursue cantrips as your go-to combat option since your companion\n\tuses your Spellcasting Attack Modifier for its attack bonus."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-v2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since you’re not attacking using your Bonus Action (TWF and Crossbow Expert\n\tbuilds are staple ranger options), Hunter’s Mark and Favored Foe become less\n\tof a crucial part of your tactics so you can explore other combat options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-v2-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Primal Companion"
+              },
+              {
+                "type": "text",
+                "text": ": Your defining feature,\n\t\tyour companion is equal parts pet and weapon. Unlike summoned pets which\n\t\tother classes might use (Dancing Item, Wildfire Spirit, etc.), your pet\n\t\tsticks around all the time. You don’t need to summon it or whatever.\n\t\tHowever, like any other member of your party it needs food, healing,\n\t\tetc."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Exceptional Training"
+              },
+              {
+                "type": "text",
+                "text": ": Making your\n\t\tcompanion’s attacks magical is the only thing you actually benefit from\n\t\there, but it’s crucial. Resistance to non-magic weapon attacks is common and\n\t\tbecomes more common as you gain levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bestial Fury"
+              },
+              {
+                "type": "text",
+                "text": ": Your beast gets two attacks\n\t\tand it still only costs you a Bonus Action (or half of an Attack action) to command them."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Share Spells"
+              },
+              {
+                "type": "text",
+                "text": ": This is a fantastic way to\n\t\tshare buff spells, especially those which require Concentration."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beast-master-primal-companion",
+      "parentSectionId": "section-beast-master-v2",
+      "heading": "Primal Companion Options",
+      "sourceAnchor": "beast-master-primal-companion",
+      "blocks": [
+        {
+          "blockId": "block-section-beast-master-primal-companion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tasha’s Cauldron of Everything presents a replacement mechanic for the Beast Master’s Companion feature. Rather than selecting an animal with a published stat block, you pick from one of three generic beasts and you can describe it however you like. If you want a sabretooth tiger, a dinosaur, a komodo dragon, or just a dog, you’re using the same stat block."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-primal-companion-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "More important than simplifying the challenges of picking a companion, the\n\tnew Companion feature also corrects the action economy issues which were the\n\tfundamental problem which made the Beast Master such a poor option. Commanding\n\tyour companion is now done as a Bonus Action, allowing you to do interesting\n\tthings on your turn like attacking or casting spells without leaving your pet\n\tto stand adjacent to your enemies and Dodge."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-primal-companion-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Raising your companion from the dead now takes a spell slot (so long as you\n\tdo so within an hour of its death), allowing you throw your companion into\n\tcombat with little regard for its safey confident in the knowledge that you\n\tcan bring it right back to life good as new. Obviously that’s a horrible way\n\tto treat an animal that you’re supposed to be emotionally bonded with, but\n\tthis is a game, your companion is a class feature, and as a DM I wouldn’t make\n\ta fighter spend 8 hours feeding a wild longsword table scraps until they were\n\tfriends, so no one should hold rangers to the same standard."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-primal-companion-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Changing your companion is also much easier now. If you suddenly find\n\tyourself on a boat trip and want a suitable aquatic companion, you can change\n\tyour companion after a Long Rest. This may be hard for players who want to\n\tbond with a single animal, but you might choose to think of your ranger as\n\tmaster of "
+            },
+            {
+              "type": "emphasis",
+              "text": "all"
+            },
+            {
+              "type": "text",
+              "text": " beasts rather than a master of just one beast that you\n\tdrag around everywhere."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-primal-companion-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The only shortcoming of the Primal Companion feature is the limited set of\n\tcompanion choices. None of them appear to work as mounts (though your DM might\n\tstill allow it), and no matter how you dress up the stats any two beast\n\tmasters are going to feel very similar to one another."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-primal-companion-6",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Beast of the Land"
+              },
+              {
+                "type": "text",
+                "text": ": Simple and iconic.\n\t\tWith 40 ft. land and climb speed, this thing can get around very quickly.\n\t\tThe damage will match or exceed a weapon, and Charge allows your companion\n\t\tto knock foes prone if they can get a running start. Unfortunately, since\n\t\tyour beast only gets one attack until you get Bestial Fury at level 11, it\n\t\tcan’t capitalize on knocking enemies prone on its own for half of the level\n\t\trange."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Beast of the Sea"
+              },
+              {
+                "type": "text",
+                "text": ": Only viable in aquatic\n\t\tcampaigns. 5-foot land speed is not enough for your sharktopus to hobble\n\t\taround on land and be effective in combat. If you can somehow get its speed\n\t\tup to reasonable amount (look for spells like Longstrider with long\n\t\tdurations which don’t require Concentration), you may be able to make this\n\t\twork on land. If you can do it, the Beast of the Sea’s attacks grapple when\n\t\tthey hit, which is a powerful option not normally available to players."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Beast of the Sky"
+              },
+              {
+                "type": "text",
+                "text": ": 60-foot fly speed and\n\t\tFlyby. Less hit points than the other options, but with the ability to\n\t\tremain perpetually out of melee reach that’s less of a problem. The damage\n\t\tis also slightly lower than Beast of the Land, but Beast of the Land deals\n\t\t6.5+PB on average and the Beast of the Sky’s 5.5+PB isn’t noticably lower.\n\t\tHaving a flying companion discourages you from using your companion as a\n\t\tDefender by interposing itself between you and your enemies, but Beast of\n\t\tthe Sky’s AC is just as good as the other options and if your companion’s\n\t\thit points are looking problematic it can use Flyby to withdraw to\n\t\tsafety."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beast-master-v1",
+      "parentSectionId": "section-beast-master",
+      "heading": "Beast Master with Ranger’s Companion",
+      "sourceAnchor": "beast-master-v1",
+      "blocks": [
+        {
+          "blockId": "block-section-beast-master-v1-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The original version of the Beast Master faces several mechanical issues, the\n\tlargest of which are the lack of viable companion options and the frankly\n\tawful action economy. Commanding your companion to attack consumes one of your\n\tattacks when you take the Attack action, so rather than pointing your\n\tcompanion at an enemy then doing your own thing you spend your Action every\n\tturn commanding your companion while you run around in the background largely\n\tuseless except as a target for ranged attacks. Staple options like Hunter’s\n\tMark and Favored Foe are largely worthless for the Beast Master, so you give\n\tup staple class options and get back what amounts to a disappointing set of\n\tremote control teeth."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-v1-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you do choose to play the original Beast Master, the biggest decision to\n\tmake is your type of companion, and while there is an abundance of options the\n\tvast majority of them are absolute garbage. Assuming you’re fine with one of\n\tthe handful of truly effective options, your companion can be an effective\n\taddition to the party. However, remember that your companion gets just 4 hit\n\tpoints per ranger level and will have a fairly low AC compared to yours, so\n\tyour companion will require frequent healing and protection which can make it\n\ta frustrating tax on your party’s limited resources."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-v1-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ranger’s Companion"
+              },
+              {
+                "type": "text",
+                "text": ": Your choice of\n\t\tcompanion is as defining as your choice of Fighting Style. When selecting\n\t\tyour companion, consider what you want it to do: Do you want a Scout, a\n\t\tStriker, or a Mount? Different options work better for different roles.\n\t\tMounts are somewhat difficult since you’re limited to Medium size beasts.\n\t\tSince your companion is a buffed version of the base creature, you may\n\t\tnotice that the better options tend to be CR 1/4, and CR 0 creatures are\n\t\trarely worth of consideration despite the conceptually small gap between 0\n\t\tand 1/4.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Companion options are discussed below."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Exceptional Training"
+              },
+              {
+                "type": "text",
+                "text": ": Sometimes it will\n\t\tbe better for you to attack twice than to have you companion attack. On\n\t\tthose occasions, giving your companion some extra movement might set them up\n\t\tto attack on the following round, or you can always have them Dodge while\n\t\tthey draw fire.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Also note that errata updated this ability to make your companion’s\n\t\t\tattacks magical so that they can bypass resistances to non-magical weapon\n\t\t\tdamage types."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bestial Fury"
+              },
+              {
+                "type": "text",
+                "text": ": This doesn’t invalidate your\n\t\tability to make a single weapon attack, so your beast gets two and you get\n\t\tone. If your beast has multiattack, they can now use multiattack instead of\n\t\tmaking two attacks, effectively doubling their damage output."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Share Spells"
+              },
+              {
+                "type": "text",
+                "text": ": This is a fantastic way to\n\t\tshare buff spells, especially those which require Concentration."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beast-master-rangers-companion",
+      "parentSectionId": "section-beast-master-v1",
+      "heading": "Ranger’s Companion Options",
+      "sourceAnchor": "beast-master-rangers-companion",
+      "blocks": [
+        {
+          "blockId": "block-section-beast-master-rangers-companion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Using the default companion ruleas means that you’re typically shopping\n\tthrough the Monster Manual to find a decent companion, and while CR is used to\n\tlimit your selections to companions which won’t be too powerful, CR isn’t a\n\tperfect indicator of how good a companion will be. However, creatures with CR\n\t0 are so weak that they can typically be disregarded on that point alone."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-rangers-companion-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your choice of companion is as defining as your choice of Fighting Style.\n\tWhen selecting your companion, consider what you want it to do: Do you want a\n\tScout, a Striker, or a Mount? Different options work better for different\n\troles. Mounts are somewhat difficult since you’re limited to Medium size.\n\tSince your companion is a buffed version of the base creature, you may notice\n\tthat the better options tend to be CR 1/4."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-rangers-companion-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s also important to note that many options are outright wasted because the\n\tRanger’s proficiency bonus doesn’t add to the DC of the companion’s abilities.\n\tThis considerably limits the number of viable options, and excludes iconic and\n\tpopular choices like the Mastiff and the Wolf. If your DM is nice, you may be\n\table to convince them to let you add your proficiency bonus to ability DC’s in\n\taddition to the other stats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-rangers-companion-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are some rulings on how ranger companions work addressed in the "
+            },
+            {
+              "type": "link",
+              "text": "Beast Master FAQ",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/#beast-master-faq"
+            },
+            {
+              "type": "text",
+              "text": ", below. Be sure to check the FAQ before selecting a companion."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-rangers-companion-5",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Baboon"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0. Baboons notably have human-like hands, and could in theory use\n\t\ttools and possibly even magic items. However, with 4 Intelligence and no\n\t\tability to understand language, it may be difficult to convince your baboon\n\t\tto do so. Even if you use magic, your DM likely won’t allow your baboon to\n\t\tdo anything which is beyond its limited intellectual capacity."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Badger"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bat"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blood Hawk"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The damage isn’t great, but good flight, Keen Sight, and Pack Tactics all\n\t\tmake the Blood Hawk a viable option. Proficiency in Perception makes the\n\t\tBlood Hawk a fantastic aerial Scout."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boar"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Passable at low levels, especially thanks to Charge, but won’t scale\n\t\twell."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cat"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crab"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cranium Rat"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Deer"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dimetrodon"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Great bite damage and a swim speed, but that’s all."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Eagle"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Blood Hawk and Pteranodon are strictly better."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Flying Snake"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Multiple movement types including good flight, Flyby, Blindsight, and\n\t\timpressive poison damage which doesn’t allow a save. Continues to be amazing\n\t\tonce you get Bestial Fury at 11th level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Frog"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Badger"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Burrow speed, Darkvision, Keen Smell. According to the errata, giant\n\t\tbadgers don’t get multiattack until you get Bestial Fury at 11th level,\n\t\twhich unfortunately means that the giant badger is limited to a single\n\t\tattack. They’re still a decent option and they’ll probably do more damage\n\t\tone a single attack than you will."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Centipede"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Blindsight, a Climb speed, and poison with very solid damage, but the\n\t\tpoison allows a save and the DC won’t scale so you’ll be less effective\n\t\tagainst creatures with good Constitution saves."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Crab"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Giant Crab’s big scary mechanic is grappling with its claws, but\n\t\tsince it doesn’t have proficiency in Athletics and your companion’s ability\n\t\tscores never increase the DC to resist the grapple never scales. Still,\n\t\tgrappling a target on a hit means that you can reliably restrict the targets\n\t\tmovement at least until they escape. While this won’t matter for a great\n\t\tmany creatures who are fine standing still and murdering your pet crab, it\n\t\tcan be problematic for highly mobile creatures or creatures who don’t like\n\t\tto be in melee. It still costs the target their action to escape the\n\t\tgrapple, so if they want to get away from your crab you’re still getting\n\t\tsome of the benefits of your crab grappling. The Crab’s AC is also\n\t\timpressively high, starting at a base of 15 before you add your Proficiency\n\t\tBonus, so if you leave your crab to Dodge while it has a creature grappled,\n\t\tthe grappled creature may find itself flailing against the Giant Crab’s\n\t\tfrustratingly high AC with little effect."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Fire Beetle"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Frog"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This is an easy option to overlook. Bite not only grapples but\n\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "restrains"
+              },
+              {
+                "type": "text",
+                "text": " the target. Grappled is a great way to restrict enemies’\n\t\tmovements, but Restrained also provides advantage on melee attacks against\n\t\tthe target. Swallow adds an additional way to inhibit (and often kill) small\n\t\tcreatures, many of which are bad at escaping grapples. Despite the low DC to\n\t\tescape the frog’s grapple, it still costs the target their action to do so,\n\t\twhich means that the target is wasting the bulk of their turn just\n\t\toffsetting the effects of your pet. In many encounters, that could be a\n\t\tfight-winning advantage. Once you get Bestial Fury at 11th level, remember\n\t\tthat Swallow is a specific action, not a type of attack, so your frog can’t\n\t\tbite something and swallow it on the same turn."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Poisonous Snake"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Blindsight (though the range is tiny), poison with very solid damage, and\n\t\ta swim speed, but the poison allows a save and the DC won’t scale so you’ll\n\t\tbe less effective against creatures with good Constitution saves."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Rat"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Darkvision, Keen Smell, and Pack Tactics. Unfortunately the Giant Rat has\n\t\tno special movement types and its damage is bad."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Weasel"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Fast, Darkvision, and Keen Hearing and Smell. No special movement types\n\t\tand bad damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Wolf Spider"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Very similar to the giant poisonous snake, but the giant wolf spider\n\t\tgains better speed and Spider Climb in exchange for 1d6 poison damage. I\n\t\tthink it’s a good trade, but it further compounds the issue of unreliable\n\t\tpoison damage due to the saving throw."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Goat"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hawk"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Blood Hawk and Pteranodon are strictly better."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hyena"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0, but pretty good for its CR thanks to Pack Tactics."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Jackal"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0. Very similar to the Hyena, but it trades damage for Keen Hearing\n\t\tand Smell."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lizard"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mastiff"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Perception, Keen Hearing and Smell, and decent damage with a knockdown\n\t\teffect. Unfortunately the DC of the knockdown effect won’t scale. It’s a\n\t\tdecent option on its own, but Wolf gets all of the same things with better\n\t\tnumbers. If you really want a dog instead of a wolf, use the wolf stat block\n\t\tand call it a “wolf hound” or something."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mule"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Pony is better unless you want your companion to pull a wagon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Octopus"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Owl"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Cr 0. The abilities are tempting, especially since it’s one of few flying\n\t\toptions with Stealth proficiency, but Blood Hawk and Pteranodon are both so\n\t\tmuch more effective in combat that it will be hard to justify the Owl."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Panther"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Perception, Stealth, a Climb speed, and Keen Smell. The Panther’s damage\n\t\tis decent, but Pounce’s knockdown DC won’t scale."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Poisonous Snake"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The giant version is strictly better."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pony"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The best option for a mount, but at medium size it only works for\n\t\tHalflings."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pteranodon"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Flight with good flight speed, 2d4+1 damage, and flyby allows your\n\t\tpteranodon to hit and run, allowing it to stay at a safe distance while\n\t\tstill dealing considerable damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Quipper"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Raven"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0. Ravens have the ability to repeat sounds that they’ve heard, but\n\t\tyour beast companion is no more intelligent than a normal animal, so unless\n\t\tyou can give it specific instructions using magic of some sort it’s\n\t\tdifficult to bring this ability to bear. It’s also hard to justify comitting\n\t\tyour signature subclass feature to amounts to a poorly-designed flying audio\n\t\trecorder."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scorpion"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sea Horse"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spider"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stirge"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Darkvision and flight, and surprisingly good AC. Blood Drain looks very\n\t\ttempting, but since the Stirge detaches after dealing 10 damage it will\n\t\tbecome less and less effective as your proficiency bonus increases."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Velociraptor"
+              },
+              {
+                "type": "link",
+                "text": "VGtM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Tiny with decent damage and Pack Tactics. Unless you need a companion\n\t\twhich will fit into small spaces, Wolf is considerably better."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vulture"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Surprisingly good for CR 0, the Vulture offers Perception, Keen Sight and\n\t\tSmell, and Pack Tactics. Its damage won’t match that of the Blood Hawk or\n\t\tPteranodon, but it’s not completely awful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Weasel"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": CR 0."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wolf"
+              },
+              {
+                "type": "link",
+                "text": "MM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Perception, Stealth, Keen Hearing and Smell, Pack Tactics, and really\n\t\tdecent damage. Even though the knockdown effect won’t scale, the Wolf is\n\t\tstill a decent Scout and Striker, and once you get Bestial Fury at 11th\n\t\tlevel it can bite twice and hope to get lucky with the knockdown effect."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beast-master-faq",
+      "parentSectionId": "section-beast-master",
+      "heading": "DnD 5e Beast Master FAQ",
+      "sourceAnchor": "beast-master-faq",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-11",
+      "parentSectionId": "section-beast-master-faq",
+      "heading": "Can the Beast Master Ranger’s Companion use Multiattack?",
+      "blocks": [
+        {
+          "blockId": "block-section-11-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Only once they get Bestial Fury. That means that companions like the Giant Badger don’t get multiattack until 11th level."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-12",
+      "parentSectionId": "section-beast-master-faq",
+      "heading": "Does the Beast Master Ranger’s Companion add the ranger’s proficiency bonus to poison damage?",
+      "blocks": [
+        {
+          "blockId": "block-section-12-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The damage bonus applies to the initial damage dealt by the attack and eals the same type of damage. If your companion deals poison damage which requires a saving throw, that’s treated as a separate source of damage and doesn’t gain the bonus. If the poison damage is dealt immediately upon the attack hitting, you could choose to make the damage bonus be poison damage since that’s part of the attack’s damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-drakewarden",
+      "parentSectionId": "section-subclasses",
+      "heading": "Drakewarden (FToD)",
+      "sourceAnchor": "drakewarden",
+      "blocks": [
+        {
+          "blockId": "block-section-drakewarden-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Drakewarden pairs the Ranger with a draconic spirit which they can summon into physical form as a Drake Companion. This companion is a durable fighting companion with some minor supportive abilities, and over time the drake grows in size and gains the ability to fly and serve as a mount. With the ability to serve as an essentially disposable front-line martial character, the drake is a powerful and effective pet welcome in practically any party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-drakewarden-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Drakewarden and the Beast Master share many similarities, so see “Beast Master vs. Drakewarden”, below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-drakewarden-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Drakewarden Ranger Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/drakewarden/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-drakewarden-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Draconic Gift"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thaumaturgy"
+              },
+              {
+                "type": "text",
+                "text": ": Fun flavor, but rarely\n\t\t\t\tuseful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tongue of the Dragons"
+              },
+              {
+                "type": "text",
+                "text": ": Not especially\n\t\t\t\tuseful for the Ranger since they’re not a good Face, but your drake\n\t\t\t\tspeaks draconic so it’s nice to be able to talk to it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Drake Companion"
+              },
+              {
+                "type": "text",
+                "text": ": The central feature of\n\t\tthe Drakewarden. Drake Companion is modeled very similarly to the Primal\n\t\tCompanions introduced in Tasha’s Cauldron of Everything, and follows very\n\t\tsimilar rules for commanding it, summoning it, what happens if it “dies”\n\t\t(it’s a spirit that you summon back into physical form).\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The drake is a decent tank with a starting AC of 16 and a decent pool of\n\t\t\thit points, and since you can replace with for the cost a spell slot of\n\t\t\tany spell level, you can afford to throw your drake in front of you to\n\t\t\tdefend you while you do things like archery."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While the drake is already a decent combat pet, it also improves as you\n\t\t\tgain levels, adding additional damage, the ability to fly, and the ability\n\t\t\tto be used as a mount."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Infused Stikes notably uses the phrase “extra damage”, which means that\n\t\t\tthe additional die is multiplied on a critical hit."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bond of Fang and Scale"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Drake Mount"
+              },
+              {
+                "type": "text",
+                "text": ": This is the first class\n\t\t\t\tfeature we’ve gotten which provides a mount with scaling hit points. 5th\n\t\t\t\tedition has been out for 6+ years.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While this is obviously an amazing benefit, it has some serious\n\t\t\t\t\tchallenges if you’re eyeing a mounted combat build. The drake is\n\t\t\t\t\tintelligent, which means that it’s an uncontrolled mount. That means\n\t\t\t\t\tthat it acts on its own turn, which the Drake Companion feature\n\t\t\t\t\tspecifies is immediately after yours. Taking your full turn (or taking\n\t\t\t\t\tthe Ready action) then waiting for your drake to move somewhere\n\t\t\t\t\tconvenient for you isn’t helpful for melee builds, and even for ranged\n\t\t\t\t\tbuilds it’s often frustating because you can’t reposition to deal with\n\t\t\t\t\tcover or enemies who are slightly out of range. If you can make it\n\t\t\t\t\twork it’s great, but expect to spend many turns in a bad location to\n\t\t\t\t\tattack."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Because your can ride your drake, try to find a Saddle of the\n\t\t\t\t\tCavalier. It will dramatically improve your drake’s durability.\n\t\t\t\t\tMounted Combatant is also an option, but I wouldn’t bother getting\n\t\t\t\t\tboth since it’s so easy to re-summon your drake."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magic Fang"
+              },
+              {
+                "type": "text",
+                "text": ": Confusingly, this doesn’t make\n\t\t\t\t\tyour drake’s attacks magical. Instead, you add a d6 damage of the\n\t\t\t\t\ttype chosen when you summon the drake. That d6 will get around\n\t\t\t\t\tresistance and immunity to non-magical weapon damage types, but\n\t\t\t\t\tthe flat damage bonus is still piercing damage so anything with\n\t\t\t\t\tresistance/immunity is a huge problem for your drake."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resistance"
+              },
+              {
+                "type": "text",
+                "text": ": Persistent damage\n\t\t\t\tresistance for you, and since you can resummon your drake for the cost\n\t\t\t\tof a spell slot you can change the damage type whenever necessary."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Drake’s Breath"
+              },
+              {
+                "type": "text",
+                "text": ": The damage matches\n\t\tFireball. It’s a good AOE damage option, but it doesn’t magically make you a\n\t\tBlaster. Still, the Ranger is generally ill-equipped to handle crowds, so\n\t\tthis is a welcome addition."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Perfected Bond"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Empowered Bite"
+              },
+              {
+                "type": "text",
+                "text": ": Another d6 damage,\n\t\t\t\tbringing the total to 3d6+5 at this level (3d6+6 very soon). That’s\n\t\t\t\tnot a ton on a single attack, but it’s much more than most characters\n\t\t\t\tcan do with a Bonus Action."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Large Drake"
+              },
+              {
+                "type": "text",
+                "text": ": Aside from making it hard\n\t\t\t\tto fit your drake through doors, this is excellent. The ability to ride\n\t\t\t\tyour drake while flying makes flight easily accessible and puts archery\n\t\t\t\tbuilds safely out of enemy reach."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reflexive Resistance"
+              },
+              {
+                "type": "text",
+                "text": ": This is great\n\t\t\t\tif you or your dragon take a big hit from a single source of damage like\n\t\t\t\ta spell or a critical hit. Don’t burn your limited uses on every random\n\t\t\t\tattack; you’ll only get 5 or 6 per long rest."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-14",
+      "parentSectionId": "section-drakewarden",
+      "heading": "Beast Master vs. Drakewarden",
+      "sourceAnchor": "Beast Master-vs-drakewarden",
+      "blocks": [
+        {
+          "blockId": "block-section-14-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the Drake Companion feature and the Primal Companion features are so similar, it’s natural to compare the Beast Master (with the Tasha’s Cauldron of Everything updates, of course) to the Drakewarden. There is a lot of overlap, but Drakewarden isn’t just “Beast Master but better”; there are actually some interesting trades to consider."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The first notable difference is when they take their turns: primal companions take their turn at the same time as the player, so you can interweave actions so that you and your companion can very precisely coordinate your attacks. The Drake Companion is simpler, but less flexible: it takes its turn immediately after yours and acts on whatever orders you gave it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Beast of the Land is the closest to the Drake Companion when you first\n\treach level 3, so we’ll start by comparing the two. The base stats between the\n\tDrake Companion and the Beast of the Land are fairly similar, but there are\n\tsome noteworthy differences. The drake has +1 better AC than the beast and has\n\td10 hit dice (which only matters when you spend hit dice to heal). Both share\n\ta 40 ft. land speed, but the beast also has a 40 ft. climb speed. The drake is\n\tstronger, but the beast has better Dexterity and Charisma. The drake adds your\n\tProficiency Bonus in Dexterity and Wisdom saves, while the beast adds it to\n\t"
+            },
+            {
+              "type": "emphasis",
+              "text": "all"
+            },
+            {
+              "type": "text",
+              "text": " saves. The Drake can speak Draconic, but the beast can only\n\tunderstand languages. The beast and the drake get additional features\n\t(Draconic Essence and Infused Strikes vs. Charge), but it’s hard to make a\n\tdirect comparison between the two. They’re both good, but they’re obviously\n\tvery different."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The attacks for Primal Companions and the Drake Companion are notably\n\tdifferent in several ways. Primal Companions use your Spellcasting attack\n\tbonus for their attack bonus, compelling you to build your ranger around\n\tWisdom and potentially to look for magic items which improve your spell attack\n\tmodifier (and spell DC if you want to use Beast of the Land’s Charge ability).\n\tThe Drake Companion uses its own Strength bonus for attack rolls, but adds\n\tyour Proficiency Bonus. This allows more flexibility in your choice of\n\tFighting Style, but also means that your drake’s attack bonus is likely lower\n\tthan that of a comparable Primal Companion."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The damage progression on attacks is also different. The drake’s bite damage\n\tis 1d6 + Proficiency Bonus, while the beast’s is 1d8 + 2 Proficiency bonus,\n\tgiving the Beast of the Land +3 damage on average (other Primal Companions are\n\tonly +2 ahead on average). Both companions get magical attacks at level 7, but\n\tthe drake also improves their damage by 1d6, closing the gap in their attack\n\tdamage. At level 11, Primal Companions get to make two attacks, effectively\n\tdoubling their damage and putting them well ahead of the Drake Companion. The\n\tdrake adds another d6 at 17th level, but that won’t match the 1d8+8 dealt by\n\tthe Beast of the Land at that level by their second attack."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But the Drake Companion isn’t just a scaly bite attack, so a one-to-one\n\tcomparison isn’t a perfect comparison. If you’re just comparing the two for\n\tdamage output on their attacks, Beast Master comes out ahead. But the\n\tDrakewarden still has some important selling points."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Drake Companion advances beyond just damage, which is perhaps both the\n\tmost fun and most impactful part of the companion. You can explicitly use it\n\tas a mount, an option which is frustratingly omitted from the rules for Primal\n\tCompanions. The Drake Companion gains the ability to fly, and you can\n\teventually ride it while flying, a capability not matched by the Beast of the\n\tAir."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Drakewarden also allows you to build your character differently since your\n\tcompanion’s attacks aren’t dependent on your spellcasting ability. You also\n\tget Drake’s Breath, rather than just adding more features to your companion\n\tlike the Beast Master does. The Beast Master is still good, but there is one\n\tclearly optimal way to build them, so diverging from a Druidic Warrior build\n\ttrades raw mechanical effectiveness for what might be a more interesting and\n\tdiverse build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To summarize all of the above quickly: The Drakewarden is a ranger who has a drake companion who fights alongside them in combat, but the companion is a complement to their own capabilities. The Beast Master is a ranger whose fighting style revolves around their companion. In many ways, the companion "
+            },
+            {
+              "type": "emphasis",
+              "text": "is"
+            },
+            {
+              "type": "text",
+              "text": " their fighting style."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fey-wanderer",
+      "parentSectionId": "section-subclasses",
+      "heading": "Fey Wanderer (TCoE)",
+      "sourceAnchor": "fey-wanderer",
+      "blocks": [
+        {
+          "blockId": "block-section-fey-wanderer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tricky and challenging, yet very effective, the Fey Wanderer is an excellent subclass with a lot to offer to players who know how to use it to its fullest. You can play this subclass like a typical ranger like you would play a Hunter or a Monster Slayer, but you’re going to miss out on a lot of what really makes the Fey Wanderer shine. Instead, it’s built to lean into a Wisdom-based ranger with more emphasis on spellcasting and Face skills than your typical bow-wielding damage monster."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-fey-wanderer-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Fey Wanderer Ranger Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/fey-wanderer/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-fey-wanderer-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Dreadful Strikes"
+              },
+              {
+                "type": "text",
+                "text": ": This roughly matches\n\t\tHunter’s Mark, but with a lot of advantages. The most obvious benefit is\n\t\tthat it’s free, but it doesn’t stop there. There’s no action costs. It\n\t\tstacks with Hunter’s Mark’s damage bonus. The damage is psychic, which is\n\t\trarely resisted. It only applies once per target per turn, but if you can\n\t\thit multiple targets they’ll all take the bonus damage. It also applies on\n\t\tOpportunity Attacks (Hunter’s Mark does, too, but it’s still really nice).\n\t\tThe one drawback is that it doesn’t work quite as well as Hunter’s Mark does\n\t\twhen focusing on a single target, so Hunter’s Mark may still be worth the\n\t\tspell slot.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Because this applies once per target per turn, you’re motivated to attack\n\t\t\tmultiple targets if that’s an option. Ranged weapons work best for this,\n\t\t\tthough they may be difficult for the high-Wisdom build expected of the Fey\n\t\t\tWanderer. More likely you’ll want to use spells like Zephyr Strike to\n\t\t\tquickly move between and attack multiple targets."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fey Wanderer Magic"
+              },
+              {
+                "type": "text",
+                "text": ": The vast majority of\n\t\tthe options are only situationally useful, but you do get Misty Step, which\n\t\tis good on exactly 100% of characters.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": A strange choice\n\t\t\t\tmechanically, but the theme makes sense. Your save DC won’t match a full\n\t\t\t\tspellcaster unless you’re using Druidic Warrior to build around Wisdom,\n\t\t\t\tand Charm Person doesn’t give you any indication that it worked, so you\n\t\t\t\tneed to be extremely cautious when using it. You don’t get enough spell\n\t\t\t\tslots to cast it repeatedly just to be absolutely sure that it\n\t\t\t\tworked."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": The best teleportation\n\t\t\t\toption in combat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Essential in any party. A\n\t\t\t\ttypical ranger should not be the one casting this, but the Fey Wanderer\n\t\t\t\tis an exception. You don’t get the high-level spell slots to make this\n\t\t\t\tautomatically dispel stuff, and most rangers don’t have the Wisdom to\n\t\t\t\tback up the ability check, but the Fey Wanderer is all about Wisdom, so\nyou have a passable chance to succeed on the abilty check.\n\t\t\t\tStill, look for buffs like Enhance Ability if you can get\n\t\t\t\tthem to maximize your odds of success."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Less of a go-to combat\n\t\t\t\tteleportation option than Misty Step, but it has better range and\n\t\t\t\tdoesn’t require line of sight, so it’s more powerful outside of combat\n\t\t\t\tor if you need to completely escape an encounter. You’ll still get more\n\t\t\t\tfrequent use out of Misty Step thanks to its Bonus Action casting time\n\t\t\t\tand lower-level spell slot requirement, but Dimension Door can get you\n\t\t\t\tthrough walls and locked doors."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Situational. Not a great\n\t\t\t\toption in combat, but out of combat this provides a passably safe way to\n\t\t\t\tscout an area or to trick other creatures if mundane stealth won’t do\n\t\t\t\tthe trick for some reason."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Otherworldly Glamour"
+              },
+              {
+                "type": "text",
+                "text": ": One Face skill and\n\t\tyou add your Wisdom modifier to all Charisma checks on top of any Charisma\n\t\tmodifier. This is enough to make you an effective Face without high\n\t\tCharisma, but a little bit is still a great idea. You don’t want 8 Charisma\n\t\tdragging you down."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Beguiling Twist"
+              },
+              {
+                "type": "text",
+                "text": ": Hilarious and very\n\t\teffective, but likely difficult to use to its greatest potential.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The obvious use case is to take charm/fear effects from your enemies and\n\t\t\tessentially redirect them back at your enemies. That works great, and can\n\t\t\tlead to scenarios like dragons being frightened by their own Frightful\n\t\t\tPresence. To make this as effective as possible, you want allies in your\n\t\t\tparty who can reliably pass saving throws against charm/fear effects.\n\t\t\tThese are nearly always Wisdom or Charisma saves, so high scores in those\n\t\t\tability scores and proficiency in the saves both help, but also look for\n\t\t\tracial traits like Brave and class features which help like Aura of\n\t\t\tProtection."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The less-obvious use case is using this offensively. If you have allies\n\t\t\twho can produce charm/fear effects (often spellcasters, but there are\n\t\t\tnon-spell options too), you can capitalize on any creatures who pass saves\n\t\t\tagainst your allies’ abilities and force another creature to save against\n\t\t\tBeguiling Twist."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fey Reinforcements"
+              },
+              {
+                "type": "text",
+                "text": ": Summon Fey once per\n\t\tday for free without the 300gp material component. The spirit’s attack bonus\n\t\tis based on your Spellcasting Modifier and the spell is heavily dependent on\n\t\tspell level, both of which are hard prospects for many rangers. But even if\n\t\tit’s not quite as effective offensively as something summoned by a full\n\t\tspellcaster, it’s still an effective pet for up to an hour per casting.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The second benefit allows you to cast a shorter version of the spell\n\t\t\twithout the Concentration requirement, but that’s a really hard prospect\n\t\t\twith the Ranger’s limited pool of spell slots."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Misty Wanderer"
+              },
+              {
+                "type": "text",
+                "text": ": Misty Step for free\n\t\tseveral times per day, and you can even bring a friend along! This makes it\n\t\teasy to rescue your friends from grapples or restraints, and you become very\n\t\thard to keep in one place during combat."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gloom-stalker",
+      "parentSectionId": "section-subclasses",
+      "heading": "Gloom Stalker (XGtE)",
+      "sourceAnchor": "gloom-stalker",
+      "blocks": [
+        {
+          "blockId": "block-section-gloom-stalker-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gloom Stalker is "
+            },
+            {
+              "type": "emphasis",
+              "text": "considerably"
+            },
+            {
+              "type": "text",
+              "text": " more powerful than many other ranger archetypes if they’re played in campaigns which frequently enter dungeons, caves, the Underdark, or other dark places. Umbral Sight alone makes the Gloom Stalker a terrifying threat in a game where most of the Monster Manual is utterly incapable of combating invisibility."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gloom-stalker-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Gloom Stalker Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gloom-stalker-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Gloom Stalker Magic"
+              },
+              {
+                "type": "text",
+                "text": ": 4 of these spells are pretty good and one of those is a wiz/artificer exclusive. Now you too can decide that you need an extra-dimensional pocket to short rest in. This only isn’t rated higher because Disguise Self and Fear care about your spell save DC which won’t be as good as a dedicated caster.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Situational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": A fantastic way to rest\n\t\t\t\tsafely, and normally exclusive to artificers and wizards. But rangers get very few\n\t\t\t\tspell slots, and spending one to take a Short Rest safely is a high cost\n\t\t\t\tfor the Ranger. Do your best to avoid needing this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": It’s unlikely that you\n\t\t\t\thave sufficient Wisdom to make any spell which allows a saving throw\n\t\t\t\treliable, so you’ll want to save this for encounters with numerous weak\n\t\t\t\tfoes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Amazing on any stealthy\n\t\t\t\tcharacter. Ideally you’ll never need this because you can rely on Umbral\n\t\t\t\tSight, but if your enemies pull out a torch you can cast Greater\n\t\t\t\tInvisibility and remain unseen."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Situational, but very\n\t\t\t\thelpful when your party needs to go somewhere where the locals are\n\t\t\t\tunfriendly."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dread Ambusher"
+              },
+              {
+                "type": "text",
+                "text": ": The first round of combat\n\t\tis the most important. As a reminder, "
+              },
+              {
+                "type": "link",
+                "text": "combat is only expected to last 3 rounds on average",
+                "href": "https://www.dndbeyond.com/sources/dmg/dungeon-masters-workshop#Step11Damage"
+              },
+              {
+                "type": "text",
+                "text": ". This means that, roughly 1/3rd of the time, you get extra extra attack and an additional d8 damage on top. That’s already very good, but you also get a substantial bonus to initiative to try and take that bonus damage and remove something from the fight before it gets to act.\n"
+              },
+              {
+                "type": "text",
+                "text": "The bonus speed will help you get into position,\n\t\tespecially if you’re built for melee, but the real bonus is the extra\n\t\tattack. If you can get Hunter’s Mark running before initiative is rolled,\n\t\tyou absolutely should so that your first turn can be a big pile of\n\t\tdamage."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Umbral Sight"
+              },
+              {
+                "type": "text",
+                "text": ": Getting free Darkvision is\n\t\tfantastic on its own, but invisibility to Darkvision is absolutely crazy.\n\t\tMost creatures that will ambush you using Darkvision won’t have a light\n\t\tsource in their possession, so you functionally have Improved Invisibility.\n\t\tEven if an enemy finds a light source, if you extinguish it you’re right\n\t\tback to invisibly murdering them.\n"
+              },
+              {
+                "type": "text",
+                "text": "Invisibility at this level normally comes at great cost: a highest-level spell slot, Concentration, and a prohibition against doing nearly anything aggressive with it. This has none of those costs, it just only applies when something is only able to see you because of its Darkvision. This means that we should be trying to be in darkness in combat as much as is physically possible. Work to make sure that everyone else in your party can function without light as well so that enemies are relying on Darkvision wherever possible."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "While it is incredible, it does have its limitations. The feature specifies that it only works in darkness. That means that it doesn’t work if there’s dim light (candles, etc.). It must be actual darkness. It also doesn’t work on things that can perceive you because of truesight, tremorsense, blindsight, etc. Only Darkvision. With that said, in the right conditions, this is one of the best class features in the game."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Iron Mind"
+              },
+              {
+                "type": "text",
+                "text": ": Additional saving throw\n\t\tproficiencies are always welcome, especially when they’re for a commonly targeted save."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stalker’s Flurry"
+              },
+              {
+                "type": "text",
+                "text": ": Not quite as powerful as\n\t\tan additional attack, but still extremely helpful. The fundamental math of\n\t\t5e assumes that a player following the attack vs. AC progression will hit\n\t\twith attacks roughly 65% of the time against CR-appropriate foes. If you’re\n\t\tmaking two attacks per turn, you have a roughly 58% chance to miss with at\n\t\tleast one attack, so you’ll benefit from Stalker’s Flurry consistently.\n"
+              },
+              {
+                "type": "text",
+                "text": "Unfortunately, the wording on Dread Ambusher means that, if the extra attack from the feature misses you do miss out on the d8 damage bump even if the attack Flurry grants you off of it connects, but even so we’re not going to sneeze at free attacks."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shadowy Dodge"
+              },
+              {
+                "type": "text",
+                "text": ": It only works once per\n\t\tround because it consumes your Reaction, but that’s often plenty. The\n\t\tGloom Stalker thrives on being unseen, so this is powerful insurance if your\n\t\tenemies manage to attack while you’re not in total darkness and also not\n\t\trunning Improved Invisibility."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-horizon-walker",
+      "parentSectionId": "section-subclasses",
+      "heading": "Horizon Walker (XGtE)",
+      "sourceAnchor": "horizon-walker",
+      "blocks": [
+        {
+          "blockId": "block-section-horizon-walker-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not quite so stealthy as the Gloom Stalker, but no less effective. The Horizon walker gets a handful of abilities which help them travel between planes, but their main gimmick is teleporting around in combat and hitting stuff."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-horizon-walker-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Horizon Walker Ranger Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/horizon-walker/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-horizon-walker-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "does provide other benefits that you might want."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-horizon-walker-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Horizon Walker Magic"
+              },
+              {
+                "type": "text",
+                "text": ": Almost all excellent\n\t\toptions.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": An absolutely fantastic\n\t\t\t\tbuff."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic, especially if\n\t\t\t\tyou’re built for melee."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": One of the best buffs in\n\t\t\t\tthe game, and it gets better the more allies you have. The extra attack\n\t\t\t\talso gives you another chance to apply the bonus damage from Planar\n\t\t\t\tWarrior. You might look at Haste’s additional action alongside Distant\nStrike and think that you can trigger Distant Strike’s additional attack twice. You do get the teleportation,\nbut since you only make one attack there’s no way to attack two creatures to get the extra attack.\nIt’s often more efficient to cast Elemental Weapon if all you care about is damage output, but Haste also provides movement and defensive buffs which you might want."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": A wonderful spell, but\n\t\t\t\tyou likely don’t have the Wisdom to back it up with a decent spell DC\n\t\t\t\tunless you’re built around Druidic Warrior, which is a poor choice for the Horizon Walker."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": One of the safest and\n\t\t\t\teasiest ways to transport your entire party long distances, but full casters\nhave been casting this since level 9."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Detect Portal"
+              },
+              {
+                "type": "text",
+                "text": ": Situational. In most\n\t\tgames this won’t matter much, but in a plane-hopping campaign it could be\n\t\textremely useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Planar Warrior"
+              },
+              {
+                "type": "text",
+                "text": ": Since this consumes your\n\t\tBonus Action, two-weapon fighting and other sources of bonus action attacks\n\t\tlike Crossbow Expert generally won’t work well for you, and the damage boost from Hunter’s Mark is rarely worth the spell slot and action cost to cast or re-target it. Despite shaking up much of the typical ranger build strategy, the benefits are excellent.\n\t\tBonus damage, and weapon damage on the affected attack all becomes force\n\t\tdamage (which is resisted by almost nothing). It only works once per turn,\n\t\tso you may be able to do more total damage by investing heavily in two-weapon fighting or\n\t\ttaking Crossbow Expert, but this is free, it scales on its own at level 11,\n\t\tand without the need for two-weapon fighting, melee rangers can easily\n\t\tjustify using a shield."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ethereal Step"
+              },
+              {
+                "type": "text",
+                "text": ": One round is frequently all\n\t\tyou need. Walk through walls or doors or slip past enemies (including those\n\t\twhich have Blindsight or can see invisibility). Etherealness even lets you\n\t\tmove upward or downward, allowing you to move through floors and ceilings\n\t\t(albeit at half the rate as moving horizontally)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Distant Strike"
+              },
+              {
+                "type": "text",
+                "text": ": The teleportation is on\n\t\ttop of your normal movement. If you have two enemies to attack in a small\n\t\tenough area, you could teleport back and forth between the two while\n\t\tattacking in order to trigger the additional attack from Distant Strike.\n\t\tThis isn’t limited to melee, so this gets much easier with ranged weapons,\n\t\tallowing you to teleport out of melee before attacking multiple targets, and then easily\n\t\ttriggering the additional attack.\n"
+              },
+              {
+                "type": "text",
+                "text": "You\n\t\tdon’t need to hit both targets, so think of the additional attack from Distant\n\t\tStrike as a free attack against a different enemy while you’re busy\n\t\tfocusing on your primary target.Consider casting Haste before you jump into combat. The additional attack\n\t\t\tprovided by Haste is an Attack action, so it qualifies for triggering Distant\n\t\t\tStrike’s teleportation (though not another free attack since the Haste action\nonly gets you one attack), allowing you to teleport and attack four times (2 from Extra\n\t\t\tAttack, one from Haste, one from Distant Strike) in a turn without using\n\t\t\tyour bonus action. You can still use your Bonus Action to engage in\n\t\t\ttwo-weapon fighting, but it won’t trigger the teleportation because it’s\n\t\t\tnot part of the Attack action."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spectral Defense"
+              },
+              {
+                "type": "text",
+                "text": ": You don’t need to use\n\t\tthis until you get hit, so if your AC is decent and you manage to avoid\n\t\tdrawing too many attacks, this can prevent a ton of damage. Spectral Defense\n\t\tworks against all forms of attacks, including spell attacks, but since it\n\t\tgives you resistance to the damage it won’t stack with any other\n\t\tresistances. This isn’t quite as good as Uncanny Dodge (which halves the\n\t\tdamage rather than granting Resistance to it), but it’s close."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-hunter",
+      "parentSectionId": "section-subclasses",
+      "heading": "Hunter (PHB)",
+      "sourceAnchor": "hunter",
+      "blocks": [
+        {
+          "blockId": "block-section-hunter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Simple, unpretentious, and lacking any of the fancy magic nonsense common to\n\tmany ranger subclasses, the Hunter is a simple yet effective martial option.\n\tThe Hunter also notably has the most decision points of any ranger subclass,\n\tallowing you to tailor your build to your play style and your role in the\n\tparty."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-hunter-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Despite mostly focusing on offensive options, the Hunter is arguably the most\n\tdurable ranger archetype, as it has the most options to directly prevent the\n\tRanger from taking damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-hunter-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While still perfectly viable, Hunters can’t compete with the capabilities of the new subclasses presented in Xanathar’s Guide to Everything. Unfortunately it can’t compete with the Gloom Stalker’s capacity for stealth, or with the Horizon Walker’s damage output."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-hunter-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Hunter Ranger Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-hunter-5",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Hunter’s Prey"
+              },
+              {
+                "type": "text",
+                "text": ": Much like your choice of\n\t\tFighting Style, this is a definitive part of how your Ranger fights.\n\t\tTargeting foes which optimize your choice of Hunter’s Prey will is a central\n\t\tpart of the Hunter’s tactics, so choose targets carefully rather than\n\t\trushing the closest enemy.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Colossus Slayer"
+              },
+              {
+                "type": "text",
+                "text": ": Always reliable and\n\t\t\t\talways effective, 1d8 damage for free each round is a nice boost that\n\t\t\t\troughly matches similar damage from other ranger subclasses. Most\n\t\t\t\tcreatures will take some amount of damage early in a fight, so it’s easy\n\t\t\t\tto trigger this damage bonus and you don’t need to spend a Bonus Action\n\t\t\t\tto activate it like some other subclass damage boosts, so options like\n\t\t\t\tTwo-Weapon Fighting and Crossbow Expert are still viable."
+              },
+              {
+                "type": "text",
+                "text": "Generally this is the best Hunter’s Prey option for melee builds\n\t\t\t\t\tbecause melee builds are usually forced to focus on a single enemy at\n\t\t\t\t\ta time since switching targets typically involves getting hit with an\n\t\t\t\t\tOpportunity Attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Giant Killer"
+              },
+              {
+                "type": "text",
+                "text": ": A lot of enemies are\n\t\t\t\tLarge or larger, especially big martial enemies like beasts, dragons,\n\t\t\t\tfiends, etc. This requires that the subject attack you, but if your AC\n\t\t\t\tis decent and you can handle being attacked a few times this can be an\n\t\t\t\texcellent source of damage output. Unfortunately, since this doesn’t\n\t\t\t\tapply to every enemy, you may find that numerous encounters don’t\n\t\t\t\tbenefit from Giant Killer. If you know that your campaign will involve\n\t\t\t\tnumerous oversized enemies (Storm King’s Thunder is a great example if\n\t\t\t\tyou’re looking at published campaigns), this is a good choice.\n\t\t\t\tOtherwise, you might just decide to be happy only using this some of the\n\t\t\t\ttime."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Horde Breaker"
+              },
+              {
+                "type": "text",
+                "text": ": In encounters with\n\t\t\t\tnumerous foes, this is a significant damage boost, but the extra attack\n\t\t\t\thas strict requirements and doesn’t cooperate with staple ranger options\n\t\t\t\tlike Hunter’s Mark/Favored Foe which encourage you to focus on bringing\n\t\t\t\tdown one target at a time rather than spreading damage to multiple foes.\nConsider instead buffs that boost your weapon on all attacks like Elemental Weapon or Guardian of Nature.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Melee builds will have trouble using this unless you have reach,\n\t\t\t\t\tespecially if enemies are attacking your allies rather than swarming\n\t\t\t\t\tyou. Ranged builds will have less trouble because you can easily\n\t\t\t\t\tswitch targets to any enemies who happen to be close enough\n\t\t\t\t\ttogether."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Defensive Tactics"
+              },
+              {
+                "type": "text",
+                "text": ": All of the options\n\t\tare technically situational, but I would pick Multiattack Defense nine times\n\t\tout of ten.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Escape the Horde"
+              },
+              {
+                "type": "text",
+                "text": ": Rangers are more\n\t\t\t\tdurable than Rogues, so running away from enemies isn’t something you\n\t\t\t\ttypically need to do. If you do need to run away, consider taking the\n\t\t\t\tDisengage action. If you need to run away a lot, consider the Mobile\n\t\t\t\tfeat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Multiattack Defense"
+              },
+              {
+                "type": "text",
+                "text": ": Large single\n\t\t\t\tenemies frequently have multiple attacks, especially as you gain levels,\n\t\t\t\tso this boost to AC will occur frequently and will prevent a lot of\n\t\t\t\tdamage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Steel Will"
+              },
+              {
+                "type": "text",
+                "text": ": Fear effects are common,\n\t\t\t\tbut generally won’t get you killed. You can also get this resistance\n\t\t\t\tfrom numerous sources, such as the Halfling’s Brave trait."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Multiattack"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are fantastic. To get the most out of this feature, look for effects that add damage to every attack, such as Magic Weapon or Great Weapon Master.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Volley"
+              },
+              {
+                "type": "text",
+                "text": ": The obvious choice for ranged\n\t\t\t\tbuilds. This won’t benefit much from Hunter’s Mark/Favored Foe, but\n\t\t\t\thitting three or more foes will typically deal more damage than focusing\n\t\t\t\ton a single marked target."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Whirlwind Attack"
+              },
+              {
+                "type": "text",
+                "text": ": Melee builds not\n\t\t\t\tbuilt around two-weapon fighting will get the most out of this ability\n\t\t\t\tsince their normal attacks deal higher damage than TWF builds, and since\n\t\t\t\tyou’re not taking the Attack action you can’t spend your Bonus Action to\n\t\t\t\tmake an additional attack. Unfortunately, it’s limited to creatures\n\t\t\t\twithin 5 feet of you, so you can’t abuse reach to get additional\n\t\t\t\ttargets.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "However, even TWF builds may find this ability helpful since they may\n\t\t\t\t\tstill get the same number of attacks without consuming their Bonus\n\t\t\t\t\tAction, allowing you to use it for something like casting a spell."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Superior Hunter’s Defense"
+              },
+              {
+                "type": "text",
+                "text": ": Uncanny Dodge\n\t\tis clearly the best option here, but Evasion is good, too.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Evasion"
+              },
+              {
+                "type": "text",
+                "text": ": With high Dexterity and\n\t\t\t\tproficiency in Dexterity saves, this makes you practically immune to AOE\n\t\t\t\tdamage effects like Fireball and breath weapons."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stand Against the Tide"
+              },
+              {
+                "type": "text",
+                "text": ": The\n\t\t\t\tpositioning to make this work is very difficult in most situations, and\n\t\t\t\tas soon as enemies see you do this they’re reasonably going to space\n\t\t\t\tthemselves out to prevent you from doing it again."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Uncanny Dodge"
+              },
+              {
+                "type": "text",
+                "text": ": The majority of damage\n\t\t\t\tyou will take in the game will come from attacks. Combined with\n\t\t\t\tMultiattack Defense, you can reduce the damage of the first hit, then\n\t\t\t\tdramatically reduce the likelihood of suffering further hits."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-monster-slayer",
+      "parentSectionId": "section-subclasses",
+      "heading": "Monster Slayer (XGtE)",
+      "sourceAnchor": "monster-slayer",
+      "blocks": [
+        {
+          "blockId": "block-section-monster-slayer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In many ways, the Monster Slayer is a simplified version of the Hunter. It functions very similarly, though it lacks the customization options, and, due to the subclass features, there’s much less build flexibility. That said, it’s still a very functional and effective subclass, striking a good balance between damage output and durability without the stress of additional decision points. If you’re looking for a relatively simple ranger, the Monster Slayer is a great choice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-monster-slayer-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Monster Slayer Ranger Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/monster-hunter/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-monster-slayer-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Monster Slayer Magic"
+              },
+              {
+                "type": "text",
+                "text": ": Most of the\n\t\toptions are situational or difficult for you to use.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": An excellent defensive\n\t\t\t\tbuff."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Situational, and your\n\t\t\t\tsave DC likely won’t be good enough to make this work well."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Situational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": A wonderful spell, but\n\t\t\t\tyou likely don’t have the Wisdom to back it up with a decent spell\n\t\t\t\tDC."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Great, but your spell DC\n\t\t\t\tis probably still mediocre."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hunter’s Sense"
+              },
+              {
+                "type": "text",
+                "text": ": Great if you have time to\n\t\tobserve the creature from hiding, but I would rarely spend an Action to do\n\t\tthis during combat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Slayer’s Prey"
+              },
+              {
+                "type": "text",
+                "text": ": As far as I can tell this\n\t\tstacks with Hunter’s Mark/Favored Foe. Both Hunter’s Mark and Slayer’s Prey\n\t\trequire Bonus Actions, so use this first since it’s free, but against tough\n\t\tfoes definitely consider using both.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While Slayer’s Prey provides a damage bonus as large as Hunter’s Mark, it\n\t\t\tonly works once per turn. This means that tactics like Two-Weapon Fighting\n\t\t\tand Crossbow Expert are less important, and the Bonus Action cost to\n\t\t\tactivate Slayer’s Prey and cast or re-target Hunter’s Mark means that your\n\t\t\tBonus Action on most turns is already committed, so Two-Weapon Fighting\n\t\t\tand Crossbow Expert are hard choices."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Supernatural Defense"
+              },
+              {
+                "type": "text",
+                "text": ": A bit unreliable\n\t\tsince multiple foes might force you to make saving throws in quick\n\t\tsuccession, but this is still fantastic. Be sure to keep Slayer’s Prey\n\t\trunning and keep it focused on the foe most likely to force you to make a\n\t\tsaving throw. Remember that you can use Slayer’s Prey an unlimited number of\n\t\ttimes, so you can easily change targets whenever you need."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magic-User’s Nemesis"
+              },
+              {
+                "type": "text",
+                "text": ": Not quite as good\n\t\tas being able to cast Counterspell, but it still might prevent an enemy from\n\t\tescaping or prevent them from casting a spell which would really ruin your\n\t\tday."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Slayer’s Counter"
+              },
+              {
+                "type": "text",
+                "text": ": This is absurdly good.\n\t\tThere’s no limitation on its usage, so if you’re fighting a spellcaster\n\t\t(most spells force saving throws) you might be able to get free attacks\n\t\tagainst them every round. However, you’ll need to be able to reach the\n\t\tcreature that created the effect, so stick to ranged weapons.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You can repeatedly trigger this by running a Concentration spell like\n\t\t\tHunter’s Mark. The save to maintain Concentration qualifies, and if you\n\t\t\thave good enough Constitution saves (consider the Resilient feat) you can\n\t\t\treliably maintain Concentration while fishing for free attacks with\n\t\t\tSlayer’s Counter."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-swarm-keeper",
+      "parentSectionId": "section-subclasses",
+      "heading": "Swarmkeeper (TCoE)",
+      "sourceAnchor": "swarm-keeper",
+      "blocks": [
+        {
+          "blockId": "block-section-swarm-keeper-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Swarmkeeper is most obviously associated with bugs, since those are what you generally think of when someone says “swarm”. But don’t let that limit your thinking. The subclass entry suggests a swarm of pixies as an example, and I’ve seen some very imaginative of swarmkeeper rangers with swarms of opossums and raccoons. You might have a swarm of birds, fish, lizards, or any number of other miniscule critters. Their appearance is purely cosmetic and has about as much mechanical impact as your character’s hair color, but it’s a fantastic character detail."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarm-keeper-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Swarmkeeper is simple to play, but a lot of fun. Gathered Swarm adds a small but meaningful tactical consideration to every turn, encouraging the player to apply their attacks strategically rather than simply piling damage onto the first things in need of stabbing. The subclass has no decision points, so it’s an easy option for new players but also has enough mechanical hooks that veterans will some room to push the subclass beyond its expected capabilities. It’s a welcome addition in a party that can effectively capitalize upon area control effects like Wall of Fire provided by allies, but even without those options the Swarmkeeper still works well."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarm-keeper-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Swarmkeeper Ranger Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarm-keeper-4",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Gathered Swarm"
+              },
+              {
+                "type": "text",
+                "text": ": Using this will add some\n\t\ttactical complexity to every one of your turns. Keep in mind that this only\n\t\tworks once per turn so it’s no replacement for something like Hunter’s\n\t\tMark/Favored Foe in terms of sheer damage output, and you’ll want to have a\n\t\tplan at the start of your turn before you start attacking. This will be more\n\t\treliable if you’re making multiple attacks, so consider two-weapon fighting\n\t\tuntil you get Extra Attack.  One more subtle note: The trigger is any attack, so it’s not restricted to weapon attacks and can include spell attacks.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While each of the options below are rated as\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "orange"
+              },
+              {
+                "type": "text",
+                "text": " to indicate that they are only\n\t\t\tsituationally useful, their combined capabilities are excellent. It’s like\n\t\t\thaving a toolbox with three tools in it: any one tool can only do a couple\n\t\t\tthings, but between the three of them you can do a lot."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Damage"
+              },
+              {
+                "type": "text",
+                "text": ": Your go-to option in most\n\t\t\t\tcases, but also your option of last resort. Use the other options if\n\t\t\t\tthey’re going to have any significant impact. Otherwise, the 1d6 damage\n\t\t\t\tis a small but satisfying bonus. Unfortunately, since this is from a\n\t\t\t\tseparate source rather than “extra damage” added to your attack, the\n\t\t\t\tdamage isn’t multiplied on a critical hit. Creatures which resist piercing damage typically have resistance to piercing damage\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "from non-magical attacks"
+              },
+              {
+                "type": "text",
+                "text": ". This isn’t an attack, so those\n\t\t\t\tresistances don’t apply."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Move Target"
+              },
+              {
+                "type": "text",
+                "text": ": Moving enemies can\n\t\t\t\tforce them to break grapples with your allies, and can put them into bad\n\t\t\t\tplaces like ongoing area damage, open pits, etc."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Move Self"
+              },
+              {
+                "type": "text",
+                "text": ": This is the option you\n\t\t\t\tare least likely to use, but it’s still helpful. Moving yourself 5 feet\n\t\t\t\tcan get you out of melee reach, out of grapples, out of area effects,\n\t\t\t\tand generally out of trouble."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swarmkeeper Magic"
+              },
+              {
+                "type": "text",
+                "text": ": Some really good\n\t\tutility options, but the offensive options will be hard to rely upon.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Mage hand is a good\n\t\t\t\tcantrip, and rangers generally don’t get cantrips. Even if you take\n\t\t\t\tDruidic Warrior, Mage Hand isn’t an option. Faerie Fire is a great\n\t\t\t\tcombat option, but your save DC will likely be low, so save it for when\n\t\t\t\tyou’re facing a crowd (statistically some of your enemies will still\n\t\t\t\tfail their save) or when you’re facing enemies which have poor Dexterity\n\t\t\t\tlike ogres or the Tarrasque."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Web is one of the best area shutdown spells in the game.a hard choice. It’s like a persistent version of Entangle, where creatures can be subjected to the spell over and over just for being in the area. Thrown over a group of foes, statistically some of them will fail their saves and even if they all make the strength check, not save, to escape, we’ve made them all lose an action. And we have a great forced movement ability so we can just shove people back inside when they escape. Now, they might burn their way out of the webs if they happen to have a way to do fire damage but then just don’t web the Red Dragon and you can avoid that one issue."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": A great way to infiltrate\n\t\t\t\tplaces, to escape, to scout, and generally to go somewhere without other\n\t\t\t\tcreatures causing you trouble. The move speed is very limited, so\n\t\t\t\tcombine this with buffs like Longstrider to boost your speed and get\n\t\t\t\tmore done in the 1-hour duration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Even though you get it\n\t\t\t\tmuch later than dedicated spellcasters, Arcane Eye is still one of my\n\t\t\t\tabsolute favorite divination options for scouting from a safe\n\t\t\t\tdistance."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Constitution saves tend\n\t\t\t\tto be high and ranger’s save DCs tend to be low, which is a hard\n\t\t\t\tcombination. But with a 10-minute duration and half damage on a\n\t\t\t\tsuccessful save, with a particularly good damage type, if you can trap enemies in an enclosed space or\n\t\t\t\trepeatedly knock them into the area with Gathered Swarm, you can still\n\t\t\t\tdeal huge amounts of damage even if enemies consistently pass the saving\n\t\t\t\tthrow. If nothing else, you can plug a choke point while the full casters concentrate on other impressive effects."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Writhing Tide"
+              },
+              {
+                "type": "text",
+                "text": ": Flight of any kind is\n\t\tgreat, but 10 ft. speed definitely isn’t much. You can get off the ground\n\t\tand over small obstacles, but don’t expect to travel like this. Remember\n\t\tthat you can Dash if necessary, so if you have nothing else to do you can\n\t\tfly up to 200 feet on one usage. You can also boost your speed with buffs\n\t\tlike Longstrider and Haste, which will go a long way to make this more\n\t\tuseful both in and out of combat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mighty Swarm"
+              },
+              {
+                "type": "text",
+                "text": ": Huge improvements to the\n\t\tmovement options. The damage option improves so little I’m confused why they\n\t\tbother to improve it at all."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Damage"
+              },
+              {
+                "type": "text",
+                "text": ": 1d6 to 1d8 is not a meaningful\n\t\t\t\tdifference."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Move Target"
+              },
+              {
+                "type": "text",
+                "text": ": Knocking the target prone\n\t\t\t\tis great if you have melee allies who will benefit from them being prone\n\t\t\t\tor if you need to cut the target’s movement. However, if you’re\n\t\t\t\tattacking at range you’ll make your own life harder by knocking your\n\t\t\t\ttarget prone."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Move Self"
+              },
+              {
+                "type": "text",
+                "text": ": +2 AC for one round. If\n\t\t\t\tyou’re fighting in melee that’s a huge benefit and you should consider\n\t\t\t\tusing this every turn."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swarming Dispersal"
+              },
+              {
+                "type": "text",
+                "text": ": By this level you\n\t\thave plenty of daily uses for this. Use it to gain Resistance against\n\t\thigh-damage attacks like critical hits or high-level spells, and also to get\n\t\tyourself out of melee combat if you don’t want to be there. You can\n\t\ttechnically use this by willingly taking damage in order to trigger the\n\t\tteleportation, but it’s probably not a significant abuse case because the\n\t\tuses per day are limited and the range is so short. Still, if you need to\n\t\tget out of somewhere nasty (a grapple, a pool of acid, an ongoing spell\n\t\teffect, etc.) you can always slap yourself for 1+Str damage to trigger the\n\t\tteleportation."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Beast Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Primal Companion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Exceptional Training"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bestial Fury"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Share Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Beast of the Land"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Beast of the Sea"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Beast of the Sky"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Ranger’s Companion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Exceptional Training"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bestial Fury"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Share Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Baboon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Badger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Bat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Blood Hawk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Boar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Cat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Crab"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Cranium Rat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Deer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Dimetrodon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Eagle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Flying Snake"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Frog"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Badger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Giant Centipede"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Crab"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Giant Fire Beetle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Frog"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Poisonous Snake"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Giant Rat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Giant Weasel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Giant Wolf Spider"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Goat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Hawk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Hyena"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Jackal"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Lizard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Mastiff"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Mule"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Octopus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Owl"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Panther"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Poisonous Snake"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Pony"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Pteranodon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Quipper"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Raven"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Scorpion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Sea Horse"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Spider"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Stirge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Velociraptor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Vulture"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Weasel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Wolf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Drakewarden"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Draconic Gift"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Thaumaturgy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Tongue of the Dragons"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Drake Companion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Bond of Fang and Scale"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Drake Mount"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Magic Fang"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Drake’s Breath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating- Perfected Bond"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Empowered Bite"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Large Drake"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Reflexive Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Fey Wanderer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dreadful Strikes"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fey Wanderer Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Otherworldly Glamour"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Beguiling Twist"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fey Reinforcements"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Misty Wanderer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Gloom Stalker"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Gloom Stalker Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dread Ambusher"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Umbral Sight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Iron Mind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Stalker’s Flurry"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Shadowy Dodge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Horizon Walker"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Horizon Walker Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Detect Portal"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Planar Warrior"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ethereal Step"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Distant Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Spectral Defense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Hunter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hunter’s Prey"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Colossus Slayer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Giant Killer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Horde Breaker"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Defensive Tactics"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Escape the Horde"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Multiattack Defense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Steel Will"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Multiattack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Volley"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Whirlwind Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Superior Hunter’s Defense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Evasion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Stand Against the Tide"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Uncanny Dodge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Monster Slayer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Monster Slayer Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hunter’s Sense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Slayer’s Prey"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Supernatural Defense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Magic-User’s Nemesis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Slayer’s Counter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Swarmkeeper"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Gathered Swarm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Damage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Move Target"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Move Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Swarmkeeper Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Writhing Tide"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mighty Swarm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Damage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Move Target"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Move Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Swarming Dispersal"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-beast-master-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-beast-master-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-beast-master-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-beast-master-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-beast-master-v2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-beast-master-v2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-beast-master-v2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-beast-master-v2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-beast-master-primal-companion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-beast-master-primal-companion-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-beast-master-primal-companion-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-beast-master-primal-companion-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-beast-master-primal-companion-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-beast-master-primal-companion-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-beast-master-v1-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-beast-master-v1-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[2]",
+      "detail": "block-section-beast-master-v1-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-beast-master-rangers-companion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-beast-master-rangers-companion-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-beast-master-rangers-companion-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-beast-master-rangers-companion-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-beast-master-rangers-companion-5"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[1]",
+      "detail": "section-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-11-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[1]",
+      "detail": "section-12"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-12-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-drakewarden-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-drakewarden-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-drakewarden-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[3]",
+      "detail": "block-section-drakewarden-4"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Drake Companion</span>: The central feature of the Drakewarden. Drake Companion is modeled very similarly to the Primal Companions introduce"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[1]",
+      "detail": "<li><span class=\"rating-blue\">Drake Mount</span>: This is the first class feature we’ve gotten which provides a mount with scaling hit points. 5th edition has been out for 6+ years"
+    },
+    {
+      "code": "invalid-anchor-review",
+      "location": "#Beast Master-vs-drakewarden",
+      "detail": "Beast Master-vs-drakewarden"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-14-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-14-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-14-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-14-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-14-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-14-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-14-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-14-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-14-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-fey-wanderer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-fey-wanderer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[4]",
+      "detail": "block-section-fey-wanderer-3"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[4]",
+      "detail": "<li value=\"7\"><span class=\"rating-green\">Beguiling Twist</span>: Hilarious and very effective, but likely difficult to use to its greatest potential. <p>The obvious use case is to "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-gloom-stalker-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-gloom-stalker-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[5]",
+      "detail": "block-section-gloom-stalker-3"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Umbral Sight</span>: Getting free Darkvision is fantastic on its own, but invisibility to Darkvision is absolutely crazy. Most creatures tha"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-horizon-walker-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-horizon-walker-2"
+    },
+    {
+      "code": "loose-text-review",
+      "location": "div/div[2]",
+      "detail": "does provide other benefits that you might want."
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[6]",
+      "detail": "block-section-horizon-walker-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-hunter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-hunter-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-hunter-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-hunter-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[7]",
+      "detail": "block-section-hunter-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-monster-slayer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-monster-slayer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[8]",
+      "detail": "block-section-monster-slayer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-swarm-keeper-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-swarm-keeper-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-swarm-keeper-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[9]",
+      "detail": "block-section-swarm-keeper-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-swarm-keeper-5"
+    }
+  ],
+  "metrics": {
+    "words": 9923,
+    "sections": 20,
+    "blocks": 66,
+    "tables": 0,
+    "ratingSignals": 157
+  },
+  "status": "needs-editorial-review"
+}

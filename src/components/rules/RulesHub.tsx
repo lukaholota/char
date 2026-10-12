@@ -3,6 +3,7 @@
 import { ModeLink as Link } from "@/components/no-ai/ModeLink";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
+import { TAPPABLE_HIDDEN_OPACITY, useEntranceLayers } from "@/lib/tappable-entrance";
 import { Ruleset } from "@/lib/prisma-enums";
 import {
   RuleCategory,
@@ -14,24 +15,18 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { FramedIllustration } from "@/components/ui/FramedIllustration";
 import { useNoAiMode } from "@/components/no-ai/NoAiModeProvider";
-import { getRuleCategoryVisual } from "@/components/catalogs/catalog-visuals";
+import { buildRulesHubCards } from "@/components/rules/rules-hub-cards";
+import { buildRpgbotCtaProps } from "@/lib/monitoring/rpgbot-analytics-model";
 import { findAccentVariant } from "@/styles/edition-accent";
 
 const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
-  },
+  hidden: { opacity: TAPPABLE_HIDDEN_OPACITY },
+  show: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 } as const;
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-  },
+  hidden: { opacity: TAPPABLE_HIDDEN_OPACITY, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
 } as const;
 
 type Props = {
@@ -49,19 +44,21 @@ export function RulesHub({
   const is2024 = ruleset === "RULES_2024";
   const { enabled: noAi } = useNoAiMode();
   const [searchQuery, setSearchQuery] = useState("");
+  const entranceLayers = useEntranceLayers();
 
   const basePath = is2024 ? "/2024/rules" : "/rules";
 
   const filteredCategories = useMemo(() => {
+    const cards = buildRulesHubCards(categories, basePath, is2024);
     const q = searchQuery.trim().toLowerCase();
-    if (!q) return categories;
+    if (!q) return cards;
 
-    return categories.filter((cat) => {
+    return cards.filter((cat) => {
       if (cat.title.toLowerCase().includes(q) || cat.description.toLowerCase().includes(q)) {
         return true;
       }
       // Also match if any article in this category matches
-      const catArticles = featuredArticles.filter((a) => a.category === cat.key);
+      const catArticles = featuredArticles.filter((a) => a.category === cat.categoryKey);
       return catArticles.some(
         (a) =>
           a.title.toLowerCase().includes(q) ||
@@ -69,7 +66,7 @@ export function RulesHub({
           a.tags.some((t) => t.toLowerCase().includes(q))
       );
     });
-  }, [searchQuery, categories, featuredArticles]);
+  }, [searchQuery, categories, featuredArticles, basePath, is2024]);
 
   return (
     <motion.div
@@ -77,9 +74,10 @@ export function RulesHub({
       variants={containerVariants}
       initial="hidden"
       animate="show"
+      {...entranceLayers}
     >
       {/* Clean Header section without top pill */}
-      <motion.div variants={cardVariants} className="text-center mb-8 max-w-2xl">
+      <motion.div variants={cardVariants} data-entrance-layer className="text-center mb-8 max-w-2xl">
         <h1 className="font-rpg-display text-4xl sm:text-6xl uppercase tracking-[0.15em] text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-slate-200 to-arcane-200">
           Довідник Правил
         </h1>
@@ -102,17 +100,16 @@ export function RulesHub({
       {/* 6 Clean Category Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
         {filteredCategories.map((cat) => {
-          const href = `${basePath}/${cat.key}`;
-          const visual = getRuleCategoryVisual(cat.key);
-
           return (
             <Link
               key={cat.key}
-              href={href}
+              href={cat.href}
+              {...(cat.key === "rpgbot" ? buildRpgbotCtaProps("open_index", "rules_hub") : {})}
               className="group relative block transition-transform duration-300 hover:-translate-y-1"
             >
               <motion.div
                 variants={cardVariants}
+                data-entrance-layer
                 className={cn("w-full", noAi ? "h-48 sm:h-52" : "h-64 sm:h-72")}
               >
                 <FramedIllustration

@@ -1,0 +1,164 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "warlock-fiend-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+    "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "WARLOCK_2014",
+  "subclassKey": "FIEND",
+  "raceKey": "TIEFLING_2014",
+  "backgroundKey": "NOBLE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 10,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 5,
+  "levels": [
+    {"level":2,"classOptions":[{"optionNameEng":"Agonizing Blast"},{"optionNameEng":"Devil's Sight"}],"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":3,"classOptions":[{"optionNameEng":"Pact of the Chain"}],"spells":{"knownSpellKeys":["darkness"]},"replaceOptions":[{"drop":{"optionNameEng":"Agonizing Blast"},"add":{"optionNameEng":"Investment of the Chain Master"}}]},
+    {"level":4,"featKey":"FLAMES_OF_PHLEGETHOS","featOptions":[{"optionNameEng":"FLAMES_OF_PHLEGETHOS Ability (Charisma)"}],"spells":{"cantripKeys":["green-flame-blade"],"knownSpellKeys":["scorching-ray"]}},
+    {"level":5,"classOptions":[{"optionNameEng":"Agonizing Blast"}],"spells":{"knownSpellKeys":["fireball"]}},
+    {"level":6,"spells":{"knownSpellKeys":["summon-undead"]}},
+    {"level":7,"classOptions":[{"optionNameEng":"Repelling Blast"}],"spells":{"knownSpellKeys":["wall-of-fire"]},"replaceOptions":[{"drop":{"optionNameEng":"Investment of the Chain Master"},"add":{"optionNameEng":"Grasp of Hadar"}}]},
+    {"level":8,"featKey":"SKILL_EXPERT","featOptions":[{"optionNameEng":"Skill Expert (CHA)"},{"optionNameEng":"Skill Expert Proficiency (INTIMIDATION)"},{"optionNameEng":"Skill Expert Expertise (PERSUASION)"}],"spells":{"knownSpellKeys":["shadow-of-moil"]}},
+    {"level":9,"classOptions":[{"optionNameEng":"Voice of the Chain Master"}],"spells":{"knownSpellKeys":["hold-monster"]}},
+    {"level":10,"spells":{"cantripKeys":["mind-sliver"]}},
+    {"level":11,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":12,"featKey":"FEY_TOUCHED","featOptions":[{"optionNameEng":"FEY_TOUCHED Ability (Charisma)"}],"classOptions":[{"optionNameEng":"Eldritch Mind"}],"openClassOptions":true},
+    {"level":13,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":14},
+    {"level":15,"classOptions":[{"optionNameEng":"Chains of Carceri"}],"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":16,"featKey":"METAMAGIC_ADEPT"},
+    {"level":17,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":18,"classOptions":[{"optionNameEng":"Shrouded in Shadow"}]},
+    {"level":19,"featKey":"LUCKY","openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":20}
+  ],
+  "incomplete": [
+    {
+      "field": "Ігровий набір Аристократа",
+      "reason": "Автор обирає драконячі шахи як ігровий набір; пресет не записує вибір ігрового набору передісторії.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Рядок 4-го рівня",
+      "reason": "Автор поставив Розпечений промінь у замовляння, а Клинок Зеленого Полумʼя у заклинання, але Розпечений промінь — заклинання 2-го рівня, а Клинок Зеленого Полумʼя — замовляння; записано за правилами: замовлення — Клинок Зеленого Полумʼя, заклинання — Розпечений промінь.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовлення 11-го рівня",
+      "reason": "Автор ставить нове замовляння (Розщеплення Розуму) на 11-му рівні, але Чорнокнижник вивчає четверте замовляння на 10-му; записано на 10-му рівні.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання «будь-які»",
+      "reason": "На 2-му й 11-му рівнях автор не називає нового відомого заклинання; це вибір гравця. Містичний арканум 11-го рівня (Проклятуще око) платформа не записує.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Містичний арканум (11–17-й рівні)",
+      "reason": "Автор називає Проклятуще око (11-й), Палець смерті (13-й), Підкорення монстра (15-й) і Істинне перевтілення (17-й); платформа не записує вибір арканума.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Потойбічний виклик «будь-який» на 12-му рівні",
+      "reason": "Автор не називає виклик. Пресет бере типовий Eldritch Mind (вибір платформи); гравець може змінити. Відомі заклинання «будь-які» на 13, 15, 17 і 19-му рівнях теж лишено на вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання риси Доторк феї (12-й рівень)",
+      "reason": "Автор бере Доторк феї (Харизма +1); платформа не записує заклинання риси на підвищенні, тож заклинання 1-го рівня Пророкування чи Чарів слід додати вручну.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія риси Адепт метамагії (16-й рівень)",
+      "reason": "Автор бере Адепта метамагії з Обережним і Пришвидшеним заклинанням; у каталозі риса не має опцій (BUG-O49-METAMAGIC-ADEPT), тому записано лише саму рису.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/warlock-tiefling-fiend-iconic-2014.webp",
+    "title": "Чорнокнижник Почвари — Тифлінг («Знаковий»)",
+    "description": "Знаковий чорнокнижник Почвари: Харизма 17, Спритність 16, вогняний опір тифлінга. Основа — Позамежний заряд і Проклін.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "DECEPTION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": [
+          "CLUB"
+        ]
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Тифлінг за правилами налаштованого походження: +2 до Харизми й +1 до Спритності замість Інтелекту, як у авторській таблиці (Харизма 17, Спритність 16); це вже враховано.",
+    "skillExplanation": "Магія й Обман — від Чорнокнижника, Історія й Переконання — від Аристократа, як радить автор. Мову ми обрали за вас: автор її не називає.",
+    "equipmentExplanation": "Автор радить будь-яке спорядження з легким обладунком і чаротворчим фокусом. Окультний фокус, легкий арбалет, набір вченого та кийок як просту зброю ми обрали за вас — їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "create-bonfire",
+        "eldritch-blast"
+      ],
+      "knownSpellKeys": [
+        "command",
+        "hex"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Замовляння й заклинання названі автором. Дивотворство тифлінг отримує від раси автоматично.",
+      "sectionId": "section-levels"
+    }
+  }
+}

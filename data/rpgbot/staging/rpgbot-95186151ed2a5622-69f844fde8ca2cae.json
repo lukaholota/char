@@ -1,0 +1,2502 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "69f844fde8ca2caec9f153787eedb519d436a2c81060c690bcb9c8edd357396d",
+  "sourceRevision": {
+    "revisionId": "rpgbot-95186151ed2a5622-69f844fde8ca2cae",
+    "sourceId": "rpgbot-95186151ed2a5622",
+    "fetchedAt": "2026-09-29T19:17:57.753447+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:38:27-04:00",
+    "contentHash": "2195f4df12628b6ffaace87a5a27dad40414ab353a82c94789e9c0d07c170625",
+    "title": "Keith Baker’s Oath of Veneration Paladin: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-95186151ed2a5622-69f844fde8ca2cae.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Oath of Veneration Paladin subclass comes from Keith Baker’s "
+            },
+            {
+              "type": "link",
+              "text": "Chronicles of Eberron",
+              "href": "https://www.dmsguild.com/product/415474/Chronicles-of-Eberron?affiliate_id=389627"
+            },
+            {
+              "type": "text",
+              "text": ", representing an Oath to one’s ancestors, gaining strength and conviction from following in their footsteps. While we already have an "
+            },
+            {
+              "type": "link",
+              "text": "ancestor spirit based Barbarian Path",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/"
+            },
+            {
+              "type": "text",
+              "text": ", this Oath has its own place in exploring this kind of character archetype. In order to accommodate a wide variety of possible ancestors, this subclass does something special (almost unique except that the Maverick Artificer from "
+            },
+            {
+              "type": "link",
+              "text": "Exploring Eberron",
+              "href": "https://www.dmsguild.com/product/315887/Exploring-Eberron?affiliate_id=389627"
+            },
+            {
+              "type": "text",
+              "text": " works in a similar fashion) with their subclass spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In exchange for mostly getting one spell per level from the subclass, the player chooses a specific class and freely picks one spell of each level from that class for the list. I say mostly because it does grant Enhance Ability, Find Steed, and Find Greater Steed as well but those were already Paladin spells. On top of the spell flexibility, this subclass brings a bit of skill versatility with Channel Divinity, gaining temporary expertise when you need a key skill. Together these features make for a highly customizable Paladin subclass that can be tailored to your needs."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The other half of the Channel Divinity feeds into the Ancestor Spirit theme of the subclass, buffing an ally or casting Find Steed. On its own, this is a fairly useful feature, but it becomes much stronger thanks to the Aura of the Paragon and Exemplar Companion features. The Aura of the Paragon is a damage boost that allies can take advantage of whenever the Paladin uses Divine Smite, framed as an echo of the Ancestor’s power."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Exemplar Companion feature boosts this aura even further by designating certain creatures and allies as the titular Exemplar Companion, extending the Aura in a radius from the Exemplar as well as granting a larger damage boost to the Exemplar when the Paladin Divine Smites."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re on the fence about allowing this third-party subclass into your game, I find that, while the versatility in bonus spells is strong, we’re still looking at a Paladin with half-casting slot progression. Sure, the Paladin might decide that they have Fireball for their 3rd-level bonus spell. That sounds cool, but it’s not available until ninth level, so it’s not ridiculous, and the Eldritch Knight has been doing this since the PHB released in 2014 and no one’s complained about it. I don’t think this subclass unbalances anything, but it definitely adds something not already expressed in the existing Paladin Oaths."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Veneration Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Veneration Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#oath-of-veneration-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Veneration Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#oath-of-veneration-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Veneration Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#oath-of-veneration-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oath of Veneration Weapons and Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#oath-of-veneration-weapons-and-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Oath of Veneration Build – Grey Knight",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#example-oath-of-veneration-build-grey-knight"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/keith-bakers-oath-of-veneration/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Oath of Veneration Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Oath Spells"
+              },
+              {
+                "type": "text",
+                "text": ": The Oath of Veneration’s Oath Spells feature does not work the same as other Paladin Oaths. Instead of a list of spells, the Paladin chooses a casting class to represent their ancestor and then chooses a single spell for each level of 1st to 5th from that class’s list in addition to a few fixed spells. This results in having fewer bonus spells than any other Oath in exchange for being able to pick nearly any spell. So we’ll be ranking the Ancestor classes in terms of how good that particular list is."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "ordered"
+          ]
+        },
+        {
+          "blockId": "block-section-features-2",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity"
+              },
+              {
+                "type": "text",
+                "text": ":"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aura of the Paragon"
+              },
+              {
+                "type": "text",
+                "text": ": Whenever we smite, allies who happen to be close enough can get some extra damage on their next attack, but it costs their Reaction to get the damage and the damage isn’t much. It’s a nice benefit, but the positioning and the Reaction cost from our allies does hinder it a bit until we hit fifteenth level and get Exemplar Companion, and at that point the 1d4 damage is negligible."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Exemplar Companion"
+              },
+              {
+                "type": "text",
+                "text": ": This does a few complicated things. Our Aura of the Paragon radiates from anything we have summoned with magic (or anyone we have cast Enhance Ability on). This includes obvious things like if we pick up a spell like Summon Fey Spirit through the Oath Spells feature, but it also includes anything summoned with Find (Greater) Steed or if we acquired the Find Familiar spell. As an example, this means that if we have a familiar in the Fighter’s pocket while the Ranger is riding our flying steed, we could be 100 feet away, use Divine Smite, and both the Fighter and the Ranger could accept the bonus damage.\n"
+              },
+              {
+                "type": "text",
+                "text": "\nIn addition, our summoned creatures and anyone who we affected with Enhance Ability get more damage from Aura of the Paragon, which makes Aura of the Paragon’s impact more meaningful at such high levels. However, it’s unlikely that you’ll be concentrating on Enhance Ability in combat, so this ability likely only applies to your summoned creatures."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Perfect Avatar"
+              },
+              {
+                "type": "text",
+                "text": ": This is a typical Paladin capstone that does things to enhance your combat prowess for a minute. Except it has one special caveat that makes it far stronger: All of the benefits apply to any creatures that count as Exemplar Companions. This is good enough that you might cast Enhance Ability on an ally before walking into combat."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-veneration-ability-scores",
+      "heading": "Oath of Veneration Ability Scores",
+      "sourceAnchor": "oath-of-veneration-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-veneration-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We can follow the same scores as the Paladin Handbook"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-veneration-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": We need this for using our weapons."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-veneration-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Unless we want to use Finesse weapons, this is a dump stat. You could get Mage Armor from your oath spells, of course, but there are much more exciting options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-veneration-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Concentration, HP, dangerous saves that kill us."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-veneration-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": We don’t need this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-veneration-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Resists some dangerous saves. Powers insight and perception."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-veneration-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Boost Spell DCs and all Saving Throws."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-veneration-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-veneration-races",
+      "heading": "Oath of Veneration Races",
+      "sourceAnchor": "oath-of-veneration-races",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-veneration-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There isn’t anything that stands out as changing our racial options so refer to the "
+            },
+            {
+              "type": "link",
+              "text": "Paladin Race Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-veneration-feats",
+      "heading": "Oath of Veneration Feats",
+      "sourceAnchor": "oath-of-veneration-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-veneration-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As always check the "
+            },
+            {
+              "type": "link",
+              "text": "Paladin Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#feats"
+            },
+            {
+              "type": "text",
+              "text": " for feat options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-oath-of-veneration-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Resilient (Constitution)"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Depending on our Ancestor spell choices, it might be prudent to pick this up so that you can reliably maintain the cool Concentration spells that you selected for your oath spells."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "War Caster"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Similar to Resilient above, depending on spell choice, this may help us hold Concentration, and since the paladin is built for melee you’re more likely to benefit from the ability to use spells in place of Opportunity Attacks."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oath-of-veneration-weapons-and-armor",
+      "heading": "Oath of Veneration Weapons and Armor",
+      "sourceAnchor": "oath-of-veneration-weapons-and-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-oath-of-veneration-weapons-and-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not different from the "
+            },
+            {
+              "type": "link",
+              "text": "Paladin Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-oath-of-veneration-build-grey-knight",
+      "heading": "Example Oath of Veneration Build – Grey Knight",
+      "sourceAnchor": "example-oath-of-veneration-build-grey-knight",
+      "blocks": [
+        {
+          "blockId": "block-section-example-oath-of-veneration-build-grey-knight-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll be taking advantage of the unique spell options to improve our damage and provide defensive support to the team. This example will be using Wizard as our Ancestor’s class for access to some powerful spell combinations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-oath-of-veneration-build-grey-knight",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll be putting 15s in Dexterity, Constitution, and Charisma. Because we’re not multiclassing, there’s nothing stopping us from playing a medium armor wearing Dexterity-based Paladin. We’re choosing custom origin Half-Elf as our race with the +2 into Dexterity and the +1s into Constitution and Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-oath-of-veneration-build-grey-knight",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Half-Elf gives us access to the Elven Accuracy feat, which is why we’re using Dexterity and Finesse weapons. For our Skill Versatility feature, we’ll take Sleight of Hand and Acrobatics."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-oath-of-veneration-build-grey-knight",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re taking the Criminal/Spy background, which gives us the Deception and Stealth skills. On top of that we’ll also get Thieves’ Tools proficiency."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-oath-of-veneration-build-grey-knight",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Paladin, we take Persuasion and Intimidation. This completes our set of Charisma and Dexterity skills when combined with our choices from Background and Race. This gives us the option of filling the Expert role while still being a Paladin."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-oath-of-veneration-build-grey-knight",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourth level, we take Elven Accuracy and put the +1 into Dexterity, raising our score to 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At eighth level we take +2 Dexterity, raising our score to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At twelfth level, we pick up War Caster to help safeguard our Concentration saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixteenth level, we take +2 Charisma, raising our score to 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At nineteenth level, we take another +2 Charisma, raising our score to 20."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-oath-of-veneration-build-grey-knight",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Sense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lay on Hands"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Acrobatics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Deception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Intimidation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Persuasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Sleight of Hand"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Stealth"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At first level, we can pick up a Rapier and Longbow as our two free martial weapons and trade out that Chain Mail for Scale Mail. Then use some starting money to buy a shield for 10 gold."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We fight like any other Paladin at this level. There’s no AC difference between medium and heavy armor until someone has enough money for plate."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Because we don’t even have Divine Smite yet, we could even use the Longbow and fight from range if we want."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Smite"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Dueling"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-1st-level spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get spells and Divine Smite. Keep the Longbow for situations where we can’t reach our foes, but switch to using the Rapier primarily. We’ll be using the Dueling Style to get some extra damage out of it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We could probably cast Bless or Heroism or Cure Wounds with these slots."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Oath of Veneration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Wizard Ancestor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-1st-level Wizard Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Ancestral Recall"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Ancestral Companion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Harness Divine Power"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take the Oath of Veneration and choose Wizard as our Ancestor’s Class."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With this choice we select the 1st-level Wizard spell, Silvery Barbs. We’ll use this to support our allied spellcasters in getting key spells to stick while also giving ourselves the Advantage half of the spell."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With Ancestral Recall we can have Expertise in various skills when we need it. We have plenty of Social skills, but we don’t have Insight, so if we’re heading into Negotiations it would be prudent to use this channel to compensate for our lower Wisdom score."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Ancestral Companion is interesting because it gives us access to Find Steed two levels early, which is mostly just convenient to have. Might as well summon up a horse."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Harness Divine Power is actually fairly useful for getting an extra spell slot per day so long as we short rest a few times."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Elven Accuracy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Dexterity (17=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elven Accuracy is the main reason we chose to be a Dexterity Paladin. It works fine with our Rapier and our Longbow, but it will pair even better with the Wizard 2nd-level spell we pick next level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-2nd-level Wizard spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Shadow Blade"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Not only do we attack twice now, we take the Shadow Blade spell from the Wizard list."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can’t use it in "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "every"
+                },
+                {
+                  "type": "text",
+                  "text": " fight, but if we cast it in round 1 and then swing it six times over 3 rounds, that’s the same extra damage as two 2nd-level or three 1st-level Smites. As a bonus, if the fight is in dim light or darkness, then we have Elven Accuracy Advantage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can also prepare other 2nd-level spells like Aid or Lesser Restoration."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Aura of Protection"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This comes online just in time to help us keep our Concentration on those Shadow Blade casts."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Aura of the Paragon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A little extra damage our allies can tap into whenever we Smite. Because we’re using Shadow Blade to save on spending slots to Smite, we’ll use Smites proactively when allies are in position to take advantage of the extra damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Dexterity +2"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(18=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Dexterity than the average Paladin."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-3rd-level Wizard spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Counterspell"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With 3rd-level spells we choose Counterspell so we can counter spells and protect our team. Now, Counterspell does require a Somatic Component and we would likely have our hands full, but we can just drop the Shadow Blade and as a bonus action it returns to our hand."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Additionally, Shadow Blade can be upcast to 3rd-level for even more damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our DPR with a 3rd-level Shadow Blade is 28.00 if we don’t have Advantage, and 43.09 with our Elven Accuracy. Thanks to Shadow Blade getting Advantage in any dim light, we’re incredibly likely to have it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Aura of Courage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Immune to Fear is pretty good."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Divine Smite"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "An extra 1d8 Radiant damage on every attack. A good boost, especially with our consistent Elven Accuracy."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: War Caster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "War Caster helps us maintain that Concentration, and stops us from having to juggle the Shadow Blade in case of Counterspell."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-4th-level Wizard spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Dimension Door"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-or-"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Secret Chest"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get our 4th-level spell choice here. If it wasn’t obvious, I’ve been avoiding Concentration spells so that we don’t interfere with Shadow Blade."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dimension Door is great for quick escapes with a passenger along for the ride."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Secret Chest, on the other hand, is good for stashing things we don’t want found."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cleansing Touch"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remove a spell on us or someone else. It’s useful, but there’s not much to say here."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Exemplar Companion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This turns our Find Greater Steed into our Exemplar Companion. It would also boost other creatures created with our magic, but we haven’t made anything else in this particular build."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "That doesn’t mean we can’t. In fact, if we replaced Counterspell with Animate Dead, every skeleton and zombie we animate would radiate our aura. There is no actual limit to this feature. Make yourself a bag of rat skeletons and have your friends carry skeleton rats around in their pockets."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Charisma +2"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(16=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Better spell DCs. Better saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-5th-level Wizard spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Wall of Force",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wall-spells/#wall-of-force"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get 5th-level spells now and we have an interesting option. Holy Weapon adds 2d8 damage to a weapon, which would match the 3rd-level numbers from Shadow Blade if we applied it to our rapier. The main advantage to this is that Holy Weapon lasts an hour instead of a minute."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Additionally, we’ll pick Wall of Force for our 5th-level Wizard Spell. A strong spell for emergencies. Like a giant shield of holy shadow or something. We have been using Shadow Blade for 12 levels or so."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Aura Improvements"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "30-foot radius for our auras."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Charisma +2 (18=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Better spell DCs. Better saves. Again."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Perfect Avatar"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This feature is actually pretty strong. If nothing else, we can make free shove attempts alongside our normal attacks for the duration."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "And remember, this buff is mirrored on all Exemplar Companions. Yes, this does mean if we took that detour and built an Animate Dead platoon, every zombie and skeleton would have this same boost."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "rating- wp-block-heading Oath of Veneration Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Oath Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Wizard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Channel Divinity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ancestral Recall"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ancestral Companion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Aura of the Paragon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Exemplar Companion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Perfect Avatar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Resilient (Constitution)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green War Caster"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[2]",
+      "detail": "block-section-features-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-oath-of-veneration-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-oath-of-veneration-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-oath-of-veneration-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-oath-of-veneration-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-oath-of-veneration-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-oath-of-veneration-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-oath-of-veneration-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-oath-of-veneration-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-oath-of-veneration-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-oath-of-veneration-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-oath-of-veneration-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-oath-of-veneration-weapons-and-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-oath-of-veneration-build-grey-knight-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "text-coverage-review",
+      "location": "root",
+      "detail": "Extracted text differs from source content"
+    }
+  ],
+  "metrics": {
+    "words": 2587,
+    "sections": 15,
+    "blocks": 36,
+    "tables": 3,
+    "ratingSignals": 28
+  },
+  "status": "needs-editorial-review"
+}

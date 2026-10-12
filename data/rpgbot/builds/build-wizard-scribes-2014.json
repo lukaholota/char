@@ -1,0 +1,972 @@
+{
+  "buildId": "build-wizard-scribes-2014",
+  "revisionId": "build-wizard-scribes-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "— самовставка RPGbot",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-wizard-scribes-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+      "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+      "sectionId": "section-example-build-rpgbot-selfinsert",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "WIZARD_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "WIZARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WIZARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ORDER_OF_SCRIBES",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "absorb-elements",
+            "shield"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WIZARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "maximilians-earthen-grasp",
+            "phantasmal-force"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WIZARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TELEKINETIC",
+        "featOptions": [
+          {
+            "optionNameEng": "TELEKINETIC Ability (Intelligence)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "minor-illusion"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "invisibility",
+            "web"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WIZARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "erupting-earth",
+            "fireball"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WIZARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "enemies-abound",
+            "summon-undead"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WIZARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "banishment",
+            "polymorph"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WIZARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "INT",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "evards-black-tentacles",
+            "wall-of-fire"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WIZARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "summon-draconic-spirit",
+            "synaptic-static"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WIZARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "shape-water"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "telekinesis",
+            "wall-of-force"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WIZARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "contingency",
+            "eyebite"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WIZARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "chain-lightning",
+            "disintegrate"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WIZARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "crown-of-stars",
+            "reverse-gravity"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WIZARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "forcecage",
+            "teleport"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WIZARD_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "illusory-dragon",
+            "clone"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WIZARD_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "maze",
+            "simulacrum"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WIZARD_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "meteor-swarm",
+            "wish"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WIZARD_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "psychic-scream",
+            "true-polymorph"
+          ]
+        }
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WIZARD_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WIZARD_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-wizard-scribes-2014",
+          "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+          "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ORDER_OF_SCRIBES",
+    "raceKey": "WARFORGED_EBERRON",
+    "backgroundKey": "CLOISTERED_SCHOLAR",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 15
+      },
+      {
+        "ability": "WIS",
+        "value": 12
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Використаємо розподіл характеристик, запропонований у довіднику Чарівника. Ми навмисно лишаємо Інтелект і Статуру на непарних значеннях, щоб наші модифікатори зростали, коли ми візьмемо гібридні риси на 4-му й 12-му рівнях.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 14 14 Статура 14 15 Інтелект 15 17 Мудрість 12 12 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Воєнокований{{Warforged}} із налаштованим походженням{{Custom Origin}}. Він додає нашому чарівнику багато живучості, але не допомагає нам активно робити чарівницькі речі, тож у цьому ми покладаємося на себе. Ми скористаємося правилами налаштованого походження, щоб перенести +2 на Інтелект і вкласти +1 у Статуру.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Замкнений учений{{Cloistered Scholar}} із «Путівника по Узбережжю Мечів»{{Sword Coast Adventurer’s Guide}} працює чудово, але Послушник{{Acolyte}} теж підійде. Якщо хочете чогось вишуканішого, можна обміняти мови на якісь інструменти, але для цієї збірки це насправді не має значення.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від раси, класу й передісторії ми отримуємо загалом 5 навичок. Оберемо Магію, Історію, Розслідування, Природу й Релігію, тобто кожну навичку на основі Інтелекту. Ми також отримуємо один інструмент, тож оберіть щось круте, як-от каліграфічний набір{{calligraphy tools}} чи щось таке.\n\nЯкщо хочете більше навичок, вивчіть Позичене знання [Borrowed Knowledge].",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні ми візьмемо гібридну рису. «Телекінетик»{{Telekinetic}}, «Доторк феї»{{Fey Touched}} і «Доторк тіні»{{Shadow Touched}} — усе добрі варіанти. «Експерт у навичках»{{Skill Expert}} теж варіант, але дивний вибір.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Магічне відновлення\nЧаротворство\nЗамовляння:\n– Вогняний заряд\n– Розщеплення Розуму\n– Штукарство\nЗаклинання 1-го рівня:\n– Кольорова кулька\n– Розуміння мов (Р)\n– Пошук фамільяра (Р)\n– Обладунок мага\n– Магічний дротик\n– Сон",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Арканна традиція{{Arcane Tradition}}: Орден писарів\nЧарописне перо\nПробуджена книга заклять\nНові заклинання:\n– Поглинання стихій\n– Щит",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Нові заклинання:\n– Земляна хватка Максиміліана\n– Уявна сила",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Телекінетик (Інтелект 17 → 18)\nНове відоме замовляння:\n– Мала ілюзія\nНові заклинання:\n– Невидимість\n– Павутиння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Нові заклинання:\n– Виверження землі\n– Вогнекуля",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Утілений розум\nНові заклинання:\n– Достаток ворогів\n– Виклик немертвого",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Нові заклинання:\n– Вигнання\n– Перевтілення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Інтелект 18 → 20)\nНові заклинання:\n– Чорні щупальця Еварда\n– Стіна вогню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нові заклинання:\n– Виклик духу дракона\n– Синаптичний розряд",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Майстер-переписувач\nНове відоме замовляння:\n– Формування води\nНові заклинання:\n– Телекінез\n– Стіна енергії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Нові заклинання:\n– Обачливість\n– Проклятуще око",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Стійкий (Статура) (Статура 15 → 16)\nНові заклинання:\n– Ланцюгова блискавка\n– Розщеплення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нові заклинання:\n– Корона зірок\n– Обернена гравітація",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Єдиний зі Словом\nНові заклинання:\n– Силова кліть\n– Телепорт",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Нові заклинання:\n– Ілюзорний дракон\n– Клон",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик / риса: будь-яка\nНові заклинання:\n– Лабіринт\n– Симулякр",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Нові заклинання:\n– Рій метеорів\n– Бажання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Майстерність заклинань:\n– Сріблясті шпильки\n– Павутиння\nНові заклинання:\n– Психічний крик\n– Істинне перевтілення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик / риса: будь-яка\nНові заклинання:\n– будь-яке\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Підписні заклинання{{Signature Spells}}:\n– Вогнекуля\n– Мови\nНові заклинання:\n– будь-яке\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Інструмент Воєнокованого",
+        "reason": "Воєнокований дає володіння одним інструментом на вибір; автор радить щось на кшталт каліграфічного набору, але пресет не записує вибір інструментів.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Риси 16 і 19-го рівнів",
+        "reason": "На 16-му й 19-му рівнях автор не називає ні підвищення характеристик, ні риси («будь-яка»), тож їх не записано.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання «будь-які»",
+        "reason": "На 19 і 20-му рівнях автор не називає нових заклинань книги; це вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Майстерність заклинань і Підписні заклинання",
+        "reason": "На 18-му рівні автор обирає Сріблясті шпильки й Павутиння, на 20-му — Вогнекулю й Мови; платформа не записує ці вибори.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-wizard-scribes-2014",
+            "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+            "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,680 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-be52b7f752c6f1b7",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-be52b7f752c6f1b7-026ffec634b5c7e3",
+      "sourceId": "rpgbot-be52b7f752c6f1b7",
+      "fetchedAt": "2026-09-29T19:21:04.139883+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:43:19-04:00",
+      "contentHash": "09ab37770131f4242e6233b3ecbd75c1072abe12c94889ff766082bf46976d02",
+      "title": "Kender: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-be52b7f752c6f1b7-026ffec634b5c7e3.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-kender-2014",
+    "sourceId": "rpgbot-be52b7f752c6f1b7",
+    "slug": "kender-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Кендер — гайд раси (2014)",
+    "titleEn": "Kender: DnD 5e Race/Species Guide",
+    "topics": [
+      "races"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "articleId": "rpgbot-kender-2014",
+      "sourceRevisionId": "rpgbot-be52b7f752c6f1b7-026ffec634b5c7e3",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Представлені в "
+                },
+                {
+                  "type": "link",
+                  "text": "Спис Дракона: Тінь Королеви Драконів",
+                  "href": "https://www.amazon.com/Dragonlance-Shadow-Dungeons-Dragons-Adventure/dp/0786968281?crid=L748UULXKMQN&keywords=shadow+of+the+dragon+queen&qid=1669671951&sprefix=shadow+of+the+dragon%2Caps%2C418&sr=8-1&linkCode=ll1&tag=rpgbot-20&linkId=aeea11fa20cb55ac9953fbcafe0b78d7&language=en_US&ref_=as_li_ss_tl"
+                },
+                {
+                  "type": "text",
+                  "text": " ("
+                },
+                {
+                  "type": "link",
+                  "text": "партнерське посилання",
+                  "href": "https://rpgbot.net/about/faq#what-are-affiliate-links-and-why-do-you-use-them"
+                },
+                {
+                  "type": "text",
+                  "text": "), {{кендери|Kender}} — раса, унікальна для {{Крінну|Krynn}}, світу Dragonlance. Вони мають багату історію в багаторічній серії романів Dragonlance та суперечливе місце в спільноті D&D: їх люблять шанувальники романів, але часто не люблять інші гравці, знайомі з їхнім лором лише побіжно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Історично кендерів зображали негативно через їхнє вільне розуміння приватної власності. У групі це могло заохочувати найгірші розбійницькі звички, зокрема крадіжки в товаришів із виправданням «мій персонаж так вчинив би». У версії 5e це прибрали: тепер кендери — допитливі дослідники й колекціонери, а не спритнорукі шкідники."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Механічно кендер дуже нагадує напіврослика: Малий розмір і природний захист від страху, подібний до його {{Хоробрість|Brave}}. Фірмова расова риса кендера — {{Дражніння|Taunt}}, яка бонусною дією послаблює істоту, ускладнюючи їй атаки проти інших."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Дражніння|Taunt}} приємна в кількох сенсах, але спрямовує кендера до вищих ментальних характеристик, а не суто бойових збірок. Шкода, бо механіка провокації часто полегшує роль ефективного танка. Збіркам, що вже активно використовують бонусну дію, буде складно вписати її в тактику; решта отримають чудове доповнення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/kender/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/kender/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Кендер: вибір класу",
+                    "href": "https://rpgbot.net/dnd5/characters/races/kender/#classes"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes",
+          "heading": "Кендер: вибір класу",
+          "sourceAnchor": "classes",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Винахідники мають багато застосувань бонусної дії, тому {{Дражніння|Taunt}} використовувати складно. Міцний напіврослик часто буде кращим вибором зі схожим відчуттям."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варвари майже завжди зменшують ментальні характеристики, тому {{Дражніння|Taunt}} зазвичай ненадійна. Багато Варварів також активно використовують бонусну дію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоча Барди мають багато способів використати бонусну дію, усі вони обмежені кількістю застосувань: {{Бардське натхнення|Bardic Inspiration}}, заклинання тощо. Тому вільні бонусні дії трапляються достатньо часто, щоб {{Дражніння|Taunt}} приваблювала."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-bard-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кендер Бард Колегії знань може повністю використати економіку дій: Злісне глузування [Vicious Mockery] дією, {{Дражніння|Taunt}} бонусною дією та {{Ріжучі слова|Cutting Words}} реакцією. Так він витрачає всі дії раунду виключно на образи. Це не надмірно потужно, але весело й може суттєво пригальмувати атаки однієї істоти на хід."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірики мають багато чудових бонусних дій, зокрема Цілюще слово [Healing Word], Щит віри [Shield of Faith] та Духовна зброя [Spiritual Weapon]. Проте всі вони коштують цінних обмежених слотів і часто несумісні з іншим заклинанням того самого ходу. Тому вільна бонусна дія іноді буде, але після низьких рівнів нечасто. Примітка редакції: обмеження стосується накладання заклинання бонусною дією; атака вже створеною Духовною зброєю не є новим накладанням."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більшість Друїдів мало використовує бонусну дію постійно, тому {{Дражніння|Taunt}} легко вписати в тактику. На жаль, вона потребує мовлення й не працюватиме у {{Дика форма|Wild Shape}}. Особливо добре підійдуть Коло землі та "
+                },
+                {
+                  "type": "link",
+                  "text": "Коло спор",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Примітка редакції: звичайна тваринна форма не дозволяє говорити; винятки залежать від здатності конкретної форми до мовлення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більшість Воїнів не надто залежить від бонусної дії, але зазвичай не має ментальних характеристик для надійної {{Дражніння|Taunt}}. Якщо можете дозволити трохи Мудрості — Харизми для Лицарів пурпурного дракона чи Інтелекту для Потойбічних лицарів — може вийти непогано."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бонусна дія Монаха має надто багато конкурентів, щоб легко вписати {{Дражніння|Taunt}}, хоча серед бойових класів він один із найімовірніших кандидатів на достатні ментальні характеристики."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма Паладина часто близька до повних заклиначів або навіть така сама. Крім кількох заклинань, більшість Паладинів мало використовує бонусну дію, тому {{Дражніння|Taunt}} легко додати. Вона конкурує з Виклик на дуель [Compelled Duel], але не потребує Концентрації чи слота, доповнюючи ресурси без прямої конкуренції. На жаль, імунітет до переляку на 10-му рівні робить {{Безстрашність|Fearless}} непотрібною. Примітка редакції: {{Аура мужності|Aura of Courage}} надає імунітет, лише поки Паладин притомний; расовий захист має власні умови."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопитам потрібна певна Мудрість для чаротворення, тож {{Дражніння|Taunt}} може працювати. Але бонусна дія часто потрібна для заклинань, команд супутникам, бою двома зброями чи підсилень шкоди багатьох підкласів. Конкуренція велика."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes",
+          "heading": "Розбійник",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бонусна дія Розбійника має надто багато конкурентів, щоб легко вписати {{Дражніння|Taunt}} у тактику."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes",
+          "heading": "Чаклун",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання бонусною дією існують, але їх меншість, тому багато ходів дозволять використати {{Дражніння|Taunt}}. Привертати увагу до заклинача може здаватися нелогічним, але з безпечної відстані це чудовий спосіб захистити передову групи з мінімальними наслідками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання бонусною дією існують, але їх меншість, тому багато ходів дозволять використати {{Дражніння|Taunt}}. Привертати увагу до себе може здаватися нелогічним, але з безпечної відстані — досить легкої з {{Відштовхувальний вибух|Repelling Blast}} та {{Спис млявості|Lance of Lethargy}} — це чудовий спосіб захистити передову з мінімальними наслідками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Заклинання бонусною дією існують, але їх меншість, тому багато ходів дозволять використати {{Дражніння|Taunt}}. Привертати увагу до себе може здаватися нелогічним, але з безпечної відстані або надзвичайно витривалою збіркою, наприклад "
+                },
+                {
+                  "type": "link",
+                  "text": "Бойовою магією",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/war-magic/"
+                },
+                {
+                  "type": "text",
+                  "text": " чи "
+                },
+                {
+                  "type": "link",
+                  "text": "Огородженням",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/"
+                },
+                {
+                  "type": "text",
+                  "text": ", це чудовий спосіб захистити передову з мінімальними наслідками."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-kender-2014-001",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-kender-2014-002",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-kender-2014-003",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-kender-2014-004",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-kender-2014-005",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-kender-2014-006",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-kender-2014-007",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-kender-2014-008",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-kender-2014-009",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-kender-2014-010",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-kender-2014-011",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-kender-2014-012",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-kender-2014-013",
+      "articleId": "rpgbot-kender-2014",
+      "translationRevisionId": "translation-rpgbot-kender-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

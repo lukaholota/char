@@ -22,14 +22,11 @@ import { toast } from "sonner";
 import { isEmbeddedWebView } from "@/lib/utils/isEmbeddedWebView";
 import { CreationCard } from "@/components/characterCreator/CreationCard";
 import { getRaceVisual } from "@/components/characterCreator/creation-visuals";
+import { Ruleset } from "@/lib/prisma-enums";
+import { findAliasVariants } from "@/lib/search/searchAliases";
+import { buildQueryMatcher, buildSearchableText, matchesQuery } from "@/lib/search/searchQuery";
+import { toEntitySlug } from "@/lib/slug-utils";
 import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
-
-const normalizeText = (value?: string) =>
-  (value || "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim();
 
 interface Props {
   races: RaceI[];
@@ -102,7 +99,6 @@ export const RacesForm = (
 
   const chosenRaceId = form.watch('raceId') || 0;
   const raceSearch = form.watch('raceSearch') || '';
-  const normalizedRaceSearch = useMemo(() => normalizeText(raceSearch), [raceSearch]);
 
   useEffect(() => {
     if (!chosenRaceId) {
@@ -112,12 +108,15 @@ export const RacesForm = (
     onNextDisabledChange?.(false);
   }, [onNextDisabledChange, chosenRaceId]);
 
-  const matchesSearch = useCallback((raceName: string) => {
-    if (!normalizedRaceSearch) return true;
-    const ua = normalizeText(raceTranslations[raceName]);
-    const eng = normalizeText(raceTranslationsEng[raceName]);
-    return ua.includes(normalizedRaceSearch) || eng.includes(normalizedRaceSearch);
-  }, [normalizedRaceSearch]);
+  const raceQueryMatcher = useMemo(() => buildQueryMatcher(raceSearch), [raceSearch]);
+
+  const matchesSearch = useCallback((raceName: string, ruleset: Ruleset) => {
+    if (!raceQueryMatcher) return true;
+    const ua = raceTranslations[raceName];
+    const eng = raceTranslationsEng[raceName];
+    const aliases = findAliasVariants(ruleset, ["race", "species"], [toEntitySlug(eng ?? ""), ua]);
+    return matchesQuery(raceQueryMatcher, buildSearchableText([ua, eng, ...aliases]));
+  }, [raceQueryMatcher]);
 
   const is2024 = useMemo(() => races.some((r) => r.ruleset === "RULES_2024" || r.name.endsWith("2024")), [races]);
   useNextStepHint(chosenRaceId ? null : "Оберіть расу персонажа.");
@@ -125,14 +124,14 @@ export const RacesForm = (
   const coreRaces = useMemo(
     () => races
       .filter(r => is2024 ? (r.ruleset === "RULES_2024" || r.name.endsWith("2024")) : r.name.endsWith('2014'))
-      .filter(r => matchesSearch(r.name))
+      .filter(r => matchesSearch(r.name, r.ruleset))
       .sort((a, b) => (a.sortOrder - b.sortOrder) || (a.raceId - b.raceId)),
     [races, is2024, matchesSearch]
   );
   const otherRaces = useMemo(
     () => is2024 ? [] : races
       .filter(r => !r.name.endsWith('2014'))
-      .filter(r => matchesSearch(r.name))
+      .filter(r => matchesSearch(r.name, r.ruleset))
       .sort((a, b) => {
         const orderDiff = a.sortOrder - b.sortOrder;
         if (orderDiff !== 0) return orderDiff;

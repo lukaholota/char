@@ -28,7 +28,7 @@ const renderGrid = (ruleset: "RULES_2014" | "RULES_2024") =>
 describe("картка вибору заклинання — та сама, що в каталозі", () => {
   it("назва з оригіналом, рівень, час накладання, школа, ритуал і концентрація", () => {
     renderGrid("RULES_2014");
-    const card = screen.getByRole("button", { name: "Сон" });
+    const card = screen.getByRole("button", { name: "Сон" }).parentElement!;
 
     expect(card.textContent).toContain("Сон [Sleep]");
     for (const fact of ["Рівень 1", "Причарування", "Ритуал", "Концентрація"]) expect(card.textContent).toContain(fact);
@@ -46,7 +46,7 @@ describe("картка вибору заклинання — та сама, що
       />,
     );
 
-    expect(screen.getByRole("button", { name: "Героїзм [Heroism]" }).textContent).toMatch(/^Героїзм \[Heroism\] ?Рівень 1/);
+    expect(screen.getByRole("button", { name: "Героїзм [Heroism]" }).parentElement!.textContent).toMatch(/^Героїзм \[Heroism\] ?Рівень 1/);
   });
 });
 

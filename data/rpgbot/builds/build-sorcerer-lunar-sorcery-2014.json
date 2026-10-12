@@ -1,0 +1,920 @@
+{
+  "buildId": "build-sorcerer-lunar-sorcery-2014",
+  "revisionId": "build-sorcerer-lunar-sorcery-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Місячної магії — Чародій-вовкулака",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "SORCERER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "LUNAR_SORCERY"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "SORCERER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "silent-image"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "SORCERER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Quickened Spell"
+          },
+          {
+            "optionNameEng": "Extended Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "invisibility"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "magic-missile",
+          "add": "scorching-ray"
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "SORCERER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RUNE_SHAPER",
+        "spells": {
+          "cantripKeys": [
+            "minor-illusion"
+          ],
+          "knownSpellKeys": [
+            "phantasmal-force"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "sleep",
+          "add": "web"
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "SORCERER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fireball"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "SORCERER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "silvery-barbs"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "SORCERER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "polymorph"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "SORCERER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TELEPATHIC",
+        "featOptions": [
+          {
+            "optionNameEng": "TELEPATHIC Ability (Charisma)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fly"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "SORCERER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "cloudkill"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "SORCERER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Twinned Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "ray-of-frost"
+          ],
+          "knownSpellKeys": [
+            "enhance-ability"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "SORCERER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "disintegrate"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "SORCERER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "SORCERER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "delayed-blast-fireball"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "SORCERER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "SORCERER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dominate-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "SORCERER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "SORCERER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Subtle Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wish"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "SORCERER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "SORCERER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER"
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "SORCERER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "LUNAR_SORCERY",
+    "raceKey": "SHIFTER_MPMM",
+    "backgroundKey": "HERMIT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": " Базове значення Підвищене значення Сила 8 8 Спритність 14 14 Статура 15 16 Інтелект 8 8 Мудрість 10 10 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ви, мабуть, помітили, що ми тут свідомо граємо на штампі, тож — Перевертень{{Shifter}}. Ми отримуємо володіння Залякуванням і обираємо {{Звірошу шкіру|Beasthide}}, щоб виправити частину традиційних проблем Чародіїв із живучістю.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "{{Переслідуваний|Haunted One}} був би кумедним — натяк на те жахливе, що сталося й зробило нас такими, але, гадаю, я б радше наголосив на тому, що ми відгородилися від суспільства, щоб його захистити, і обрав Відлюдника{{Hermit}}. З іншого боку, навички Відлюдника для нас доволі кепські, тож замінімо їх на Уважність (вона завжди корисна) й Аналіз Поведінки (щоб закрити роль «обличчя», до якої Чародії від природи здібні).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від класу беремо Обман і Переконання та додаємо їх до Залякування, Уважності й Аналізу Поведінки, які вже маємо. Також нас тішить володіння набором травника{{Herbalism Kit}}: він дає змогу виготовляти зілля й закривати підтримувальні можливості, яких підклас не покриває.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Перевертання{{Shifting}} — це бонусна дія, а згодом ми зможемо пришвидшувати деякі важливі заклинання за одне очко чародійства{{Sorcery Points}}, тож узяття «Телекінетика»{{Telekinetic}}, на щастя, не здається обовʼязковим. З огляду на це:\n\nНа 4-му рівні беремо «Формувальника рун»{{Rune Shaper}}, щоб ще сильніше спертися на величезну гнучкість підкласу.\n\nНа 8-му рівні беремо «Телепата»{{Telepathic}}, бо проводитимемо багато часу поза власним тілом.\n\nНа 12-му рівні доводимо Харизму до максимуму.\n\nНа 16-му рівні беремо «Картоманта»{{Cartomancer}}, щоб і далі робити ставку на гнучкість.\n\nНа 19-му рівні беремо «Надихаючого лідера»{{Inspiring Leader}}, бо з цим слотом риси більше нічого особливо робити, а ця риса роздає абсурдну кількість тимчасових ХП.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Втілення місяця\nМісячне полумʼя\nЗамовляння:\n– Створення багаття\n– Вогняний заряд\n– Магічна рука\n– Священне полумʼя\n– Формування води\nНові відомі заклинання:\n– Кольорова кулька\n– Сон",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Нове відоме заклинання:\n– Мовчазний образ\nДжерело магії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Перенавчання заклинання: Кольорова кулька → Розпечений промінь\nНове відоме заклинання:\n– Невидимість\nМетамагія:\n– Пришвидшене заклинання\n– Подовжене заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Формувальник рун\nПеренавчання заклинання: Сон → Павутиння\nНове замовляння:\n– Мала ілюзія\nНове відоме заклинання:\n– Уявна сила",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Нове відоме заклинання:\n– Вогнекуля",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Нове відоме заклинання:\n– Сріблясті шпильки\nМісячні дари\nЗростання і спад",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Нове відоме заклинання:\n– Перевтілення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Телепат\n– підвищення Харизми\nНове відоме заклинання:\n– Політ",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нове відоме заклинання:\n– Вбивча хмара",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Метамагія{{Metamagic}}:\n– Спарене заклинання\nНове замовляння:\n– Промінь холоду\nНове відоме заклинання:\n– Посилення навички",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Нове відоме заклинання:\n– Розщеплення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Харизма 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нове відоме заклинання:\n– Вогнекуля відкладеної дії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Місячне посилення{{Lunar Empowerment}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Нове відоме заклинання:\n– Підкорення монстра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Картомант",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Нове відоме заклинання:\n– Бажання\nМетамагія: Приховане заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Місячне явище{{Lunar Phenomenon}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Надихаючий лідер",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Відновлення чарівництва{{Sorcerous Restoration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Кольорові бризки",
+        "reason": "Автор називає Кольорові бризки серед нових відомих заклинань, але їх безкоштовно дає Повний місяць Місячної магії; друге відоме заклинання автор не називає, його обрано за вас.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Риса 16-го рівня: Картомант",
+        "reason": "Автор бере на 16-му рівні рису «Картомант» (Cartomancer), якої немає в каталозі платформи; 16-й рівень додано без риси й підвищення, їх можна обрати на листі. Рівні 17–20 додані за планом автора.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Перенавчання Кольорової кульки",
+        "reason": "На 3-му рівні автор міняє Кольорову кульку на Розпечений промінь, але ця кулька вже безкоштовна від Повного місяця й не є відомим заклинанням, яке можна замінити; замість неї замінено Магічний дротик (вибір платформи 1-го рівня), тож Розпечений промінь у персонажа є.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

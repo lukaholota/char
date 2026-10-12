@@ -2,6 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+}
+
+@media (min-width: 768px) and (max-height: 600px) {
+    nav[data-safe-navigation].fixed {
+        padding-top: calc(0.25rem + var(--safe-top));
+        padding-bottom: 0.25rem;
+    }
+
+    nav[data-safe-navigation] > div {
+        gap: 0;
+    }
+
+    nav[data-safe-navigation] .safe-nav-label,
+    nav[data-safe-navigation] [data-safe-nav-decoration] {
+        display: none;
+    }
+
+    nav[data-safe-navigation] .safe-nav-item {
+        min-height: 40px;
+        flex-shrink: 0;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+    }
+}
+
+.pt-safe {
+    padding-top: var(--safe-top);
+}
+
+.px-safe {
+    padding-left: var(--safe-left);
+    padding-right: var(--safe-right);
+}
+
+.top-safe {
+    top: var(--safe-top);
+}
+
+[data-safe-dialog] {
+    top: calc(50% + (var(--safe-top) - var(--safe-bottom)) / 2);
+    left: calc(50% + (var(--safe-left) - var(--safe-right)) / 2);
+    max-height: min(90dvh, calc(100dvh - var(--safe-top) - var(--safe-bottom) - 2rem));
+    width: calc(100vw - var(--safe-left) - var(--safe-right) - 1rem);
+}
+
+nav[data-safe-navigation], [data-safe-sheet-tabs].fixed {
+    padding-left: calc(0.5rem + var(--safe-left));
+    padding-right: calc(0.5rem + var(--safe-right));
+}
+
+[data-safe-menu] {
+    max-height: min(80dvh, calc(100dvh - var(--safe-top) - var(--safe-bottom) - 5.5rem));
+}
+
+@media (min-width: 768px) {
+    .safe-root-grid.grid {
+        grid-template-columns: calc(88px + var(--safe-left)) 1fr;
+    }
+
+    .app-safe-area.pt-safe {
+        padding-left: 0;
+    }
+
+    nav[data-safe-navigation] {
+        width: calc(88px + var(--safe-left));
+        padding-top: calc(1.5rem + var(--safe-top));
+        padding-left: var(--safe-left);
+        padding-right: 0;
+    }
+
+    [data-safe-sheet-tabs].fixed {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
 
 @layer utilities {
     @keyframes fadeIn {
@@ -264,4 +345,59 @@
 #dice-box canvas {
   width: 100% !important;
   height: 100% !important;
+}
+
+@property --rpgbot-highlight-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.rpgbot-highlight {
+  position: relative;
+}
+
+.rpgbot-highlight::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: conic-gradient(from var(--rpgbot-highlight-angle), transparent 0%, rgba(56, 189, 248, 0.35) 45%, rgba(56, 189, 248, 0.95) 78%, rgba(167, 139, 250, 0.95) 96%, transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation: rpgbot-highlight-spin 0.9s linear 2, rpgbot-highlight-fade 1.8s linear forwards;
+}
+
+@keyframes rpgbot-highlight-spin {
+  to {
+    --rpgbot-highlight-angle: 360deg;
+  }
+}
+
+@keyframes rpgbot-highlight-fade {
+  0% {
+    opacity: 0;
+  }
+  10%,
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rpgbot-highlight::before {
+    animation: rpgbot-highlight-fade 1.8s linear forwards;
+  }
+}
+
+/* useEntranceLayers: one layer per block while the staggered entrance fades in. */
+[data-entering],
+[data-entering] [data-entrance-layer] {
+  will-change: opacity, transform;
 }

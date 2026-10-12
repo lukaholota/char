@@ -14,7 +14,7 @@ import { collectProseParts, mapLiteralOffsets, readQuote, type ProsePart } from 
 
 /// `statblock` — масив істот, де проза лежить у `description` і в `text` кожної здібності, а
 /// посилання на термін ставиться раз на всю істоту: у п'яти діях вовка «перевага» підкреслена одна.
-export type RuleTermCarrier = { path: string; edition: Edition; format: "json" | "ts"; kind?: "prose" | "statblock" };
+export type RuleTermCarrier = { path: string; edition: Edition; format: "json" | "ts"; kind?: "prose" | "statblock" | "entity-supplements" };
 
 /// Те, що читають за столом: заклинання, риси, предмети. Довідника тут немає — стан посилався б
 /// сам на себе. Предмети 2014 правляться в робочій зоні перекладу (aidedd, 5etools) і в
@@ -31,6 +31,8 @@ export const RULE_TERM_CARRIERS: ReadonlyArray<RuleTermCarrier> = [
   { path: "data/2024/normalized/metamagic.json", edition: "RULES_2024", format: "json" },
   { path: "data/2024/normalized/magic-items.json", edition: "RULES_2024", format: "json" },
   { path: "data/2014/spells.json", edition: "RULES_2014", format: "json" },
+  { path: "data/2014/optimization-entity-supplements.json", edition: "RULES_2014", format: "json", kind: "entity-supplements" },
+  { path: "data/rpgbot/feature-descriptions-2014.json", edition: "RULES_2014", format: "json" },
   { path: "data/2014/bestiary-lore/groups.json", edition: "RULES_2014", format: "json" },
   { path: "data/2024/bestiary-lore/groups.json", edition: "RULES_2024", format: "json" },
   { path: "data/aidedd/magic-items-2014.json", edition: "RULES_2014", format: "json" },
@@ -86,6 +88,7 @@ function listStatblockCarriers(): RuleTermCarrier[] {
 /// короткі описи малюються звичайним текстом — сирий `<a>` там був би видно.
 const PROSE_KEY = "description";
 const STATBLOCK_PROSE_KEYS = new Set([PROSE_KEY, "text"]);
+const SUPPLEMENT_PROSE_KEYS = new Set([PROSE_KEY, "specialAbilities", "actions", "bonusActions", "reactions", "legendaryActions"]);
 
 const FORMS_PATH = "data/rule-term-links/forms.json";
 const EXCEPTIONS_PATH = "data/rule-term-links/not-a-rule-term.json";
@@ -202,7 +205,9 @@ function linkJsonCarrier(source: string, carrier: RuleTermCarrier, forms: TermFo
 
   const visit = (value: unknown, key: string, linkedInRecord: Set<string> | null): unknown => {
     if (typeof value === "string") {
-      if (!(isStatblock ? STATBLOCK_PROSE_KEYS.has(key) : key === PROSE_KEY)) return value;
+      const isProse = carrier.kind === "entity-supplements" ? SUPPLEMENT_PROSE_KEYS.has(key)
+        : isStatblock ? STATBLOCK_PROSE_KEYS.has(key) : key === PROSE_KEY;
+      if (!isProse) return value;
       const linked = linkRuleTermsInText(value, edition, forms, { keepAsText, linkedElsewhere: linkedInRecord ?? undefined });
       for (const mention of linked.wrapped) linkedInRecord?.add(mention.original);
       wrapped.push(...linked.wrapped.map((mention) => describeMention(value, mention)));

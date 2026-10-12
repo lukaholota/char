@@ -1,0 +1,210 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "cleric-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-cleric-2014-draft1",
+    "sourceRevisionId": "rpgbot-7e591b8a8c0f351e-f8bd5b009e3f683d"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "LIFE_DOMAIN",
+  "raceKey": "DWARF_2014",
+  "backgroundKey": "ACOLYTE",
+  "abilityScores": {
+    "STR": 14,
+    "DEX": 8,
+    "CON": 14,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 12
+  },
+  "recipeTitle": "Приклад збірки Клірика — Пагорбовий дворф, Клірик домену життя",
+  "levelPlans": {
+    "levels": "all",
+    "notes": true,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "spare-the-dying"
+        ]
+      }
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "spells": {
+        "cantripKeys": [
+          "mending"
+        ]
+      }
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "STR",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Підготовлені заклинання",
+      "reason": "Автор називає заклинання домену, а підготовлених заклинань на інших рівнях не перелічує; їх гравець обирає на листі.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/cleric-life-2014.webp",
+    "title": "Клірик домену життя — Пагорбовий дворф",
+    "description": "Міцний цілитель у важкому обладунку: лікує союзників і витримує удари. Домен життя обрано вже на 1-му рівні.",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "PERSUASION"
+      ],
+      "race": [],
+      "background": [
+        "PERCEPTION"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "subraceKey": "DWARF_HILL_2014",
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "c",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "b",
+        "weapons": [
+          "DAGGER"
+        ]
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 5,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "abilityExplanation": "Розподіл характеристик узято з прикладу RPGbot. Бонуси пагорбового дворфа дають Статуру 16 та Мудрість 16.",
+    "skillExplanation": "Автор радить Аналіз Поведінки й Переконання. Послушник теж дає Аналіз Поведінки, а Релігію — передісторія; повторну навичку ми замінили на Уважність, і це вибір платформи.",
+    "equipmentExplanation": "Бойовий молот, кольчуга, кинджал, щит і священний символ взяті з авторського прикладу. Набір священика та дві додаткові мови ми обрали за вас — це вибір платформи, його можна змінити.",
+    "featSection": "section-feats-2",
+    "featOptionName": null,
+    "racialAbilities": [],
+    "languages": [
+      "CELESTIAL",
+      "ELVISH"
+    ],
+    "skillSection": "section-skills-and-tools",
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "sacred-flame",
+        "thaumaturgy"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Три замовляння взято з авторського рядка 1-го рівня. Заклинання домену життя ви отримаєте автоматично. Підготовлених заклинань автор не називає.",
+      "sectionId": "section-levels"
+    }
+  }
+}

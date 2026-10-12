@@ -3,7 +3,10 @@ import { describe, expect, it } from "vitest";
 import { buildTermCard, hasTermCardMoreThanOriginal, listDictionaryFormsUnlikeTerm, type TermSources } from "@/lib/term-card";
 import type { RuleArticle } from "@/lib/rulesData";
 import dictionary from "@/lib/refs/dictionary.json";
+import nestedSections from "@/lib/refs/nested-rule-sections.json";
+import termLinks from "@/lib/refs/rule-term-links.json";
 import { collectTermSources } from "@/lib/term-sources";
+import { findTermLinkInHref } from "@/lib/term-link";
 
 /// KR30.3 — картка терміна за маркером `{{Original}}`: словник, аліаси, стаття довідника,
 /// стан, каталог. Спершу на справжніх джерелах (те, що приїде в модалку), потім на
@@ -15,6 +18,49 @@ const statblockFeatures = (dictionary.DND_DICTIONARY as { statblockFeatures: Rec
   .statblockFeatures;
 
 describe("KR30.3 — картка терміна на справжніх джерелах", () => {
+  it("спільні розділи зберігають особистість кожного бойового терміна в адресі", () => {
+    const originals = ["Opportunity Attack", "Unarmed Strike", "Resistance", "Vulnerability"];
+    const hrefs = originals.map((original) => {
+      const card = buildTermCard({ original, ruleset: "RULES_2014" }, realSources);
+      expect(card.article).not.toBeNull();
+      expect(findTermLinkInHref(card.article!.href)).toEqual({ original, ruleset: "RULES_2014" });
+      return card.article!.href;
+    });
+    expect(new Set(hrefs).size).toBe(originals.length);
+  });
+  it.each(["Resistance", "Vulnerability"])("%s відкриває правила шкоди 2014", (original) => {
+    const card = buildTermCard({ original, ruleset: "RULES_2014" }, realSources);
+    expect(card.article?.ruleset).toBe("RULES_2014");
+    expect(card.article?.subsection?.content).toContain("зменшується для них удвічі");
+    expect(card.article?.subsection?.content).toContain("шкода цього типу подвоюється");
+    expect(card.article?.subsection?.content).toContain("рахуються як один");
+    expect(card.article?.subsection?.content).not.toContain("### Зцілення");
+  });
+  it("Удар без зброї відкриває повні правила 2014 без запозичення редакції 2024", () => {
+    const card = buildTermCard({ original: "Unarmed Strike", ruleset: "RULES_2014" }, realSources);
+    expect(card.article?.ruleset).toBe("RULES_2014");
+    expect(findTermLinkInHref(card.article!.href)).toEqual({ original: "Unarmed Strike", ruleset: "RULES_2014" });
+    expect(card.article?.subsection?.content).toContain("1 + ваш модифікатор Сили");
+    expect(card.article?.subsection?.content).toContain("Беззбройними ударами ви володієте");
+    expect(card.otherEdition).toBeNull();
+  });
+  it("Unarmed Strike does not inherit unrelated aliases from the melee-attacks article", () => {
+    const card = buildTermCard({ original: "Unarmed Strike", ruleset: "RULES_2014" }, {
+      ...realSources,
+      findAliases: (_ruleset, _types, keys) => keys.includes("making-an-attack--melee-attacks") || keys.includes("Бій")
+        ? ["захоплення", "греплінг", "боротьба"] : keys.includes("unarmed-strike") ? ["беззбройний удар"] : [],
+    });
+    expect(card.aliases).toEqual(["беззбройний удар"]);
+  });
+
+  it("критичне влучання 2014 показує подвоєні кубики, а не весь розділ зцілення", () => {
+    const card = buildTermCard({ original: "Critical Hit", ruleset: "RULES_2014" }, realSources);
+    expect(card.article?.ruleset).toBe("RULES_2014");
+    expect(card.article?.subsection?.title).toBe("Критичні влучання");
+    expect(card.article?.subsection?.content).toContain("двічі");
+    expect(card.article?.subsection?.content).not.toContain("### Зцілення");
+    expect(card.otherEdition).toBeNull();
+  });
   it("навичку з camelCase-ключа словника знаходить за назвою з книги", () => {
     const card = buildTermCard({ original: "Animal Handling", ruleset: "RULES_2014" }, realSources);
     expect(card.dictionary).toContainEqual({ term: skills.animalHandling, section: "навички" });
@@ -112,10 +158,12 @@ describe("KR34.1 — текст правила іншої редакції в к
     }
   });
 
-  it("критичний удар на 2014 — без тексту 2024, лише посилання туди", () => {
-    const card = buildTermCard({ original: "Critical Hit", ruleset: "RULES_2014" }, realSources);
-    expect(card.article).toBeNull();
-    expect(card.otherEdition).toEqual({ ruleset: "RULES_2024", href: "/2024/rules/combat#critical-hit--critical-hit" });
+  it("критичне влучання кожної редакції відкриває її власну статтю", () => {
+    for (const ruleset of ["RULES_2014", "RULES_2024"] as const) {
+      const card = buildTermCard({ original: "Critical Hit", ruleset }, realSources);
+      expect(card.article?.ruleset).toBe(ruleset);
+      expect(card.otherEdition).toBeNull();
+    }
   });
 
   it("перевага й концентрація на 2014 беруть підрозділ 2014 з реєстру, хоч назва статті інша", () => {
@@ -185,4 +233,74 @@ describe("картка, варта модалки", () => {
     const card = buildTermCard({ original: "Greatsword", ruleset: "RULES_2014" }, realSources);
     expect(hasTermCardMoreThanOriginal(card, "дворучний меч")).toBe(true);
   });
+});
+
+
+it("opens separate 2014 Grapple and Shove rules from nested combat headings", () => {
+  const grapple = buildTermCard({ original: "Grapple", ruleset: "RULES_2014" }, realSources);
+  const shove = buildTermCard({ original: "Shove", ruleset: "RULES_2014" }, realSources);
+  expect(grapple.article?.subsection?.title).toBe("Захоплення");
+  expect(grapple.article?.subsection?.content).toContain("Пересування схопленої істоти");
+  expect(grapple.article?.subsection?.content).not.toContain("Штовхання істоти");
+  expect(shove.article?.subsection?.title).toBe("Штовхання істоти");
+  expect(shove.article?.subsection?.content).toContain("на 5 футів");
+  expect(shove.article?.href).not.toBe(grapple.article?.href);
+});
+
+
+describe("complete nested skill and tool rule cards", () => {
+  it("Athletics retains climbing, jumping and swimming without adjacent skills", () => {
+    const body = buildTermCard({ original: "Athletics", ruleset: "RULES_2014" }, realSources).article?.subsection?.content;
+    expect(body).toContain("лазіння, стрибків і плавання");
+    expect(body).toContain("затягнути вас під воду");
+    expect(body).not.toContain("Акробатика");
+    expect(body).not.toContain("Інші перевірки Сили");
+  });
+
+  it("Alchemist supplies retain components, crafting and every DC row", () => {
+    const body = buildTermCard({ original: "Alchemist's Supplies", ruleset: "RULES_2014" }, realSources).article?.subsection?.content;
+    expect(body).toContain("дві скляні мензурки");
+    expect(body).toContain("**Алхімічне ремесло.**");
+    expect(body).toContain("| Пустити клуб густого диму | 10 |");
+    expect(body).toContain("| Знешкодити кислоту | 20 |");
+    expect(body).not.toContain("Пивоваріння");
+    expect(body).not.toContain("**Приладдя пивовара");
+  });
+
+  it("Thieves tools retain trap construction and both variable DC rows", () => {
+    const body = buildTermCard({ original: "Thieves' Tools", ruleset: "RULES_2014" }, realSources).article?.subsection?.content;
+    expect(body).toContain("набір відмичок");
+    expect(body).toContain("**Встановлення пастки.**");
+    expect(body).toContain("половини підсумку вашої перевірки");
+    expect(body).toContain("| Зламати замок | Різна |");
+    expect(body).toContain("| Знешкодити пастку | Різна |");
+    expect(body).not.toContain("**Інструменти лудильника");
+  });
+
+  for (const [group, minimum] of [["ability-checks--using-each-ability", 18], ["tool-proficiencies--tool-descriptions", 26]] as const) {
+    it(`${group} exposes every complete individual section`, () => {
+      expect(nestedSections[group]).toHaveLength(minimum);
+      for (const entry of nestedSections[group]) {
+        const link = termLinks.find((candidate) => candidate.RULES_2014?.endsWith(`#${group}--${entry.anchor}`));
+        expect(link, entry.heading).toBeDefined();
+        const article = buildTermCard({ original: link!.original, ruleset: "RULES_2014" }, realSources).article;
+        expect(article?.subsection?.title, entry.heading).toBe(entry.heading);
+        expect(article?.subsection?.content.length, entry.heading).toBeGreaterThan(100);
+        expect(article?.ruleset).toBe("RULES_2014");
+        for (const other of nestedSections[group]) {
+          if (other.heading !== entry.heading) expect(article?.subsection?.content, entry.heading).not.toContain(`**${other.heading}.**`);
+        }
+        if (group === "tool-proficiencies--tool-descriptions") {
+          if (entry.anchor === "vehicles-land-and-water") {
+            expect(article?.subsection?.content).toContain("керувати засобами цього різновиду");
+          } else if (entry.anchor === "musical-instrument") {
+            expect(article?.subsection?.content).toContain("**Складання мелодії.**");
+          } else {
+            expect(article?.subsection?.content, entry.heading).toContain("**Складники.**");
+          }
+          expect(article?.subsection?.content, entry.heading).toContain("| Справа | СК |");
+        }
+      }
+    });
+  }
 });

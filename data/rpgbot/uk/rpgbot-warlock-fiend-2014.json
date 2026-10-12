@@ -1,0 +1,1465 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-8b363750bc57a71d",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+      "sourceId": "rpgbot-8b363750bc57a71d",
+      "fetchedAt": "2026-09-29T19:17:01.136711+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:43:45-04:00",
+      "contentHash": "58a6ea7b4a646ae84b74681b2ff1d2840340dc2fcce60c1606b6f06f289a96a2",
+      "title": "Fiend Warlock 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-8b363750bc57a71d-db54a4278881ca45.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-warlock-fiend-2014",
+    "sourceId": "rpgbot-8b363750bc57a71d",
+    "slug": "warlock-fiend-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Почвара — гайд підкласу Чорнокнижника (2014)",
+    "titleEn": "Fiend Warlock 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Чорнокнижник",
+      "Почвара",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+      "articleId": "rpgbot-warlock-fiend-2014",
+      "sourceRevisionId": "rpgbot-8b363750bc57a71d-db54a4278881ca45",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Простий і ефективний, Чорнокнижник Почвари{{Fiend}} пропонує переважно наступальні варіанти, що покращують здатність Чорнокнижника вбивати, але також дає кілька надзвичайно потужних захисних умінь. Почвара — передусім нюкер, і сильно залежить від вогняної шкоди, тож розгляньте можливість узяти рису «Адепт стихій»{{Elemental Adept}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Знаковий підклас Чорнокнижника, Почвара робить ставку на основні можливості Чорнокнижника, доповнюючи їх без додаткової складності. Це робить її дуже доступним підкласом, і, імовірно, саме тому її обрали для включення до SRD замість {{Прадавнього|Great Old One}}. До того ж укладання пактів із Дияволом заради магічної сили — класичний фентезійний мотив."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Чорнокнижника Почвари",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Чорнокнижника Почвари",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Чорнокнижника Почвари",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Чорнокнижника Почвари",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Чорнокнижника Почвари",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Чорнокнижника Почвари",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Чорнокнижника Почвари",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Чорнокнижника Почвари — «Знаковий»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Чорнокнижника Почвари",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Чорнокнижника Почвари",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fiend/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Чорнокнижника Почвари",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання покровителя|Expanded Spell List}}: Чорнокнижники не мають жодних заклинань шкоди по області, тож їм часто важко проти натовпів ворогів. Список заклинань Почвари пропонує кілька чудових варіантів, щоб це виправити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 1-го рівня: Палючі долоні [Burning Hands] — пристойна шкода по області, особливо на низьких рівнях, а оскільки Чорнокнижники отримують обладунки й більше ХП, ніж Чародії та Чарівники, ви можете вижити, стоячи достатньо близько до ворога, щоб ними скористатися, проте я б не користувався ними далі за дуже низькі рівні. З Прокліну [hex] чи інших варіантів ви отримаєте більше загальної шкоди попри масштабування Палючих долонь [Burning Hands]. Наказ [Command] — чудовий ефект контролю/дебафу, що дуже добре масштабується зі слотами заклинань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 2-го рівня: Сліпота/глухота [Blindness/Deafness] — потужний дебаф, але повторні ряткидки можуть зробити його ненадійним. Розпечений промінь [Scorching Ray] трохи дублює Позамежний заряд [Eldritch Blast], але дуже добре масштабується й виграє від тієї самої тактики."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 3-го рівня: Добра шкода по області й добрий ефект контролю зони. Вогнекуля [Fireball] лишається найкращим заклинанням миттєвої шкоди по області на кожному рівні заклинань приблизно до 8-го, і хоч Чорнокнижник не може накладати Вогнекулю [Fireball] вище 5-го рівня, вона все одно лишається ідеальним основним варіантом шкоди по області. Проте памʼятайте, що кращих результатів часто можна досягти із заклинаннями з тривалим ефектом, як-от Голод Хадара [Hunger of Hadar], а за такої малої кількості слотів заклинань треба вичавити з них максимум. Смердюча хмара [Stinking Cloud] — тривалий ефект «пройди-ряткидок-або-страждай»{{save-or-suck}} по області, але істоти в зоні сильно затемнені{{Heavily Obscured}}, тож по них важко атакувати. Голод Хадара [Hunger of Hadar], імовірно, здебільшого кращий вибір."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 4-го рівня: Вогняний щит [Fire Shield] нормальний для збірок «гіша»{{gish}}, але якщо ви орієнтуєтеся на гіша-Чорнокнижника, то, імовірно, гратимете за "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Відьмацького клинка",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Вогняний щит [Fire Shield] також здається надлишковим поруч з Обладунком Агатіса [Armor of Agathys], що помітно триває довше, дає тимчасові ХП, завдає атакувальникам більше шкоди й масштабується від рівня заклинання. Стіна вогню [Wall of Fire] — одне з найкращих заклинань контролю зони в грі, і з правильними потойбічними викликами{{Eldritch Invocations}} ви можете штовхати й тягнути ворогів крізь неї, щоб раз по раз користуватися гарантованою шкодою, яку отримує істота, що проходить крізь стіну."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 5-го рівня: Полумʼяний удар [Flame Strike] — це Вогнекуля [Fireball], але з меншою областю й гіршою шкодою. Так, частина шкоди променева, але якщо проблема в опорі шкоді, слід користуватися Позамежним зарядом [Eldritch Blast], бо шкоді силовим полем майже ніщо не опирається. Освячення [Hallow] дуже ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Благословення пекла|Dark One’s Blessing}}: Це робить «Вогняну енергійність»{{Fiendish Vigor}} значно менш важливою. Також через це важливо час від часу добивати слабких ворогів, щоб ваші тимчасові ХП були на місці, перш ніж ви зосередитеся на важливіших ворогах. {{За правилами як написано|RAW}} істота лише має бути ворожою, тож поблажливий Майстер може дозволити вам носити мішок розлючених щурів і вбивати одного щоразу, коли вам потрібні тимчасові ХП."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Власна удача бісів|Dark One’s Own Luck}}: Додає в середньому 5,5 до вашого кидка, що математично значно краще, ніж дає Перевага (Перевага вартує трохи більше за +3). Бережіть це для вирішальних ряткидків або якщо вам відчайдушно треба вирватися із захоплення, а телепортуватися ви не можете чи щось таке."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бісівська стійкість{{Fiendish Resilience}}: Тут не вказано обмежень щодо типу шкоди, тож якщо ви хочете певний час мати опір до рублячої шкоди, а потім перемкнутися на променеву, ви можете це зробити. Це один із дуже небагатьох способів отримати опір до шкоди силовим полем, але все одно варто використовувати це для поширених типів шкоди, як-от вогняна, отруйна й рубляча."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кидок у Пекло{{Hurl Through Hell}}: Працює лише раз на день, але 10к10 шкоди — це дуже добре на додачу до того, чим би не була ваша атака (будьмо чесні: це був Позамежний заряд [Eldritch Blast]). Істота також прибирається з гри до кінця вашого "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "наступного"
+                  },
+                  {
+                    "type": "text",
+                    "text": " ходу, що дозволяє тимчасово вигнати її й потенційно розмістити небезпеки в її просторі та довкола нього, як-от Голод Хадара [Hunger of Hadar], Стіна вогню [Wall of Fire] чи решту вашої групи."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Чорнокнижника Почвари",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Чорнокнижника Почвари",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Чорнокнижника Почвари",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Чорнокнижника Почвари",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Чорнокнижника Почвари",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Чорнокнижника Почвари",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Чорнокнижника Почвари — «Знаковий»",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Почвара — знаковий Чорнокнижник, тож ми збудуємо знакового Чорнокнижника Почвари. Ми робитимемо захопливі, ефектні й вагомі речі. А ще часто накладатимемо Вогнекулю [Fireball]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Расове +2 вкладемо в Харизму, а +1 — у Спритність, щоб підняти КБ і ряткидки Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тифлінг{{Tiefling}} із налаштованим походженням{{Custom Origin}}, бо ми — знакова постать, але й крокуємо в ногу з часом. Підійде майже будь-який різновид тифлінга, але для цієї збірки візьмемо класичний, бо вроджене чаротворство нам добре пасує, а правила налаштованого походження дозволяють перепризначити збільшення Інтелекту на +1. Опір до вогняної шкоди теж чудовий."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Аристократ{{Noble}}, бо ми вишукані. Це дає нам володіння Історією й Переконанням. Переконання немає в списку навичок Чорнокнижника, тож нам украй важливо отримати його від передісторії. Також отримуємо володіння одним ігровим набором і однією мовою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З навичок класу беремо Магію й Обман, а Історію та Переконання отримуємо від передісторії. Володіння ігровим набором вкладемо в щось круте, як-от драконячі шахи{{Dragon Chess}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Полумʼя Флегетосу»{{Flames of Phlegethos}}: це піднімає Харизму до 18 й дає нам певну страховку від поганих кидків шкоди з деякими з найкращих заклинань нашого підкласу. Шкода у відповідь, коли по вас влучають, мізерна, тож не зважатимемо на неї. Ми тут заради вогневої потужності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні візьмемо «Експерта у навичках»{{Skill Expert}}, щоб підняти Харизму до 19, отримати володіння Залякуванням і Експертизу в Переконанні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні візьмемо «Доторк феї»{{Fey Touched}} заради ще +1 до Харизми й додаткового чаротворства."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні візьмемо «Адепта метамагії»{{Metamagic Adept}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні візьмемо «Удачу»{{Lucky}}. Нічого іншого нам, по суті, не потрібно, а «Удача» — ідеальна риса для таких ситуацій."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічний покровитель{{Otherworldly Patron}}: Почвара\nБлагословення пекла\nМагія пакту\nВідомі заклинання:\n– Наказ\n– Проклін\nВідомі замовляння:\n– Створення багаття\n– Позамежний заряд\n– Дивотворство (тифлінг)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беріть як стартове спорядження все, що забажаєте. Доки у вас є якийсь легкий обладунок і чаротворчий фокус, усе гаразд. Позамежний заряд [Eldritch Blast] + Проклін [hex] — ваш основний варіант у бою, але шукайте нагоди, щоб Створення багаття [Create Bonfire] стало корисним для контролю поля бою. «Благословення пекла»{{Dark One’s Blessing}} робить важливим, щоб ми завдавали останній удар по ворогах, якщо в нас іще немає тимчасових ХП. Шукайте слабких ворогів, яких можна добити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічні виклики{{Eldritch Invocations}}:\n– Мучливий вибух\n– Зір диявола\nНове відоме заклинання:\n–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут ми йдемо на знакову класику: «Мучливий вибух»{{Agonizing Blast}} і «Зір диявола»{{Devil’s Sight}}. Щойно зможемо накласти Темряву [Darkness], будемо у чудовій формі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дар пакту{{Pact Boon}}: Пакт ланцюга\nПеренавчання виклику:\n– Мучливий вибух → Інвестиція майстра ланцюгів\nНове відоме заклинання:\n– Темрява"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Пакт ланцюга»{{Pact of the Chain}} дозволяє отримати фамільяра-імпа, а раз ми Чорнокнижник Почвари{{Fiend}}, то беремо якомога більше всього, що пасує до теми почвар. Квазіт теж міг би згодитися, але квазіти не бачать у магічній темряві, що значно ускладнює вашу тактику. Ми тимчасово перенавчимо «Мучливий вибух»{{Agonizing Blast}} на «Інвестицію майстра ланцюгів»{{Investment of the Chain Master}} і зробимо фамільяра основним варіантом атаки на кілька рівнів — доки бонус атаки імпа +5 не перестане бути ефективним навіть із Перевагою. У бою наша основна тактика — накласти Темряву [Darkness], підвести її до ворога й змусити імпа атакувати знову і знову. Ми можемо використати дію Атака, щоб імп атакував один раз реакцією, а ще бонусною дією наказати йому виконати дію Атака на його ході — разом дві атаки. В ідеалі обидві з Перевагою. Завдяки «Інвестиції майстра ланцюгів» Складність ряткидка від отруйної шкоди імпа зростає з 11 до 13. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Ряткидки Статури прикро високі",
+                      "href": "https://rpgbot.net/dnd5/characters/srd-monster-stats-analysis/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " на всьому діапазоні рівнів, на жаль, але дві атаки імпа за хід, що завдають 1к4+3+3к6, потенційно набагато ефективніші за наш одиничний Позамежний заряд [Eldritch Blast] з 1к10+3. Якщо припустити 50% успіху отрути, це все одно в середньому 10,75 шкоди за влучання проти лише 8,5 з «Мучливим вибухом», і ми можемо робити це двічі за раунд. Якщо ваш фамільяр помре (а він, імовірно, помре), повертайтеся до атак замовляннями. На цьому рівні ми також можемо накладати Пекельну відсіч [Hellish Rebuke] як вроджене заклинання, якщо хтось зуміє вас розгледіти, щоб "
+                    },
+                    {
+                      "type": "link",
+                      "text": "атакувати темряву",
+                      "href": "https://www.youtube.com/watch?v=-leYc4oC83E"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Полумʼя Флегетосу (Харизма 17 → 18)\nНове відоме замовляння:\n– Розпечений промінь\nНове відоме заклинання:\n– Клинок Зеленого Полумʼя"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Полумʼя Флегетосу»{{Flames of Phlegethos}} і покращує нашу Харизму, і дозволяє перекидати 1 на кубиках вогняної шкоди. Ми сильно покладатимемося на вогняну шкоду, тож це гарна страховка від поганих кидків. Зараз у нас немає «Мучливого вибуху»{{Agonizing Blast}}, тож Розпечений промінь [Scorching Ray] — пристойна заміна звичній тактиці з Позамежним зарядом [Eldritch Blast], особливо якщо вже діє Проклін [hex]. Розпечений промінь [Scorching Ray] приваблює лише тоді, коли ми зручно розташовані, щоб бити по одній великій цілі. Позамежний заряд [Eldritch Blast] схожий і не витрачає слот заклинання, але в деяких випадках ви захочете завдати купу шкоди одній цілі одразу. Це добре поєднується з Прокліном [hex], але оскільки накласти обидва заклинання за один хід не можна, вам доведеться повторно накладати Проклін [hex], щоб воно спрацювало. Також воно приємно поєднується з «Полумʼям Флегетосу», бо ми кидаємо на свої проблеми купу кубиків вогняної шкоди. Не очікую, що Клинок Зеленого Полумʼя [Green-Flame Blade] часто знадобиться, але ми робимо ставку на вогняну шкоду, а іноді треба «підпалити» ворога ударом, коли він підійшов надто близько. У нас Спритність 16 і кинджал, тож ми цілком ефективні, але нікого не вразимо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– Мучливий вибух\nНове відоме заклинання:\n– Вогнекуля"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "І ми знову повертаємося до «Мучливого вибуху»{{Agonizing Blast}} якраз тоді, коли зʼявляється наш другий промінь. Атаки нашого імпа, мабуть, усе ще завдають більше шкоди, але їхній бонус атаки на 2 нижчий за наш, тож без Переваги їм може бути важко влучити. А головне — тепер у нас є Вогнекуля [Fireball]. З «Полумʼям Флегетосу» шкода буде трохи кращою: середня шкода на кубик зросте з 3,5 до 3,92. Із шкодою 8к6 це піднімає наше середнє з 28 до 31,36. Тож трохи краще, але з ніг це вас не зібʼє. На цьому рівні ми також можемо накладати Темряву [Darkness] як вроджене заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Власна удача бісів\nНове відоме заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик немертвого",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-creature-spells"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "З «Власною удачею бісів»{{Dark One’s Own Luck}} ми маємо певну страховку від поганих кидків. Це дозволяє зробити щось веселе, але ризиковане: кинути Вогнекулю [Fireball] собі під ноги. Ми маємо опір до вогняної шкоди й легкі тимчасові ХП від «Благословення пекла»{{Dark One’s Blessing}}. Якщо ви опинилися в оточенні, киньте Вогнекулю [Fireball] на землю. Із середніми 31,36 шкоди ми ділимо її навпіл — приблизно 16. Від «Благословення пекла» ми можемо мати 10 тимчасових ХП, що дозволяє накрити вогнекулею натовп ворогів довкола нас ціною приблизно 6 ХП. Ми навряд чи пройдемо власний ряткидок, але якщо були близькі й усе ж провалили, можемо скористатися «Власною удачею бісів», щоб спробувати пройти й ще більше зменшити шкоду. На жаль, тимчасові ХП від «Благословення пекла» не зростають так швидко, як шкода від Вогнекулі [Fireball], але ніщо не волає «круто» так, як вогнекуля в замкненому приміщенні й вихід звідти лише трохи обсмаленим. Саме через цей трюк я не додаю «Адепта стихій»{{Elemental Adept}} до збірки. Ви не хочете ігнорувати власний опір і підривати самого себе. Залиште це Чародіям Дикої магії{{Wild Magic}}. Беремо Виклик немертвого [Summon Undead] на випадок, коли групі потрібне ще одне тіло."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– Відштовхувальний вибух\nПеренавчання виклику:\n– Інвестиція майстра ланцюгів → Хватка Хадара\nНове відоме заклинання:\n– Стіна вогню"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "До цього рівня атаки вашого фамільяра, ймовірно, здаються менш ефективними, бо його бонус атаки поступово відстає. Тактична потреба «чіпляти» Темряву [Darkness] на фамільяра, щоб він бився замість вас, імовірно, теж спричинила проблеми, а ваш фамільяр, мабуть, уже кілька разів гинув. Але зараз також чудовий час змінити тактику, бо тепер у нас є Стіна вогню [Wall of Fire]. Щоб отримати максимум користі, штовхайте ворогів крізь стіну якомога частіше, змушуючи їх або знову проходити крізь стіну, щоб повернутися до бою, або марнувати кілька ходів в очікуванні, поки вона зникне, поки ви вбиваєте їхніх друзів. Поєднання «Відштовхувального вибуху»{{Repelling Blast}} і «Хватки Хадара»{{Grasp of Hadar}} дозволяє нам штовхати та/або тягнути ворогів крізь стіну, коли ми влучаємо по них Позамежним зарядом [Eldritch Blast]. У нас два постріли, тож можна двічі змістити одного ворога або по разу змістити двох. Памʼятайте: коли хтось створює одночасні ефекти, той, хто їх створив, обирає порядок, у якому вони відбуваються, тож можна штовхнути ціль крізь стіну, а тоді одразу затягнути назад, щоб тримати її там, де ви її бачите й можете атакувати. Це не дозволяє повторно спричинити шкоду від Стіни вогню [Wall of Fire] на тому самому ході, але ваші союзники, можливо, все одно захочуть мати шанс по ній влучити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках\n– Харизма 18 → 19\n– Володіння: Залякування\n– Експертиза: Переконання\nНове відоме заклинання:\n– Тінь Мойла"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Щоб ще більше підвищити свої можливості як «обличчя» групи, візьмемо «Експерта у навичках»{{Skill Expert}}. Це тимчасово відсуває нас від «Фундаментальної математики»{{Fundamental Math}}, але ми часто атакуємо з Перевагою й використовуємо дуже мало заклинань «пройди-ряткидок-або-страждай»{{save-or-suck}}, тож усе буде гаразд. Коли ви не можете розвʼязати проблеми Вогнекулею [Fireball] і немає доброго способу залучити Стіну вогню [Wall of Fire], вмикайте Тінь Мойла [Shadow of Moil] й починайте палити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– Голос майстра ланцюгів\nНове відоме заклинання:\n– Стримування монстра"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Голос майстра ланцюгів»{{Voice of the Chain Master}} перетворює нашого фамільяра-імпа на ще кращого розвідника. З невидимістю й польотом він і так чудово розвідував для нас, але можливість сприймати його почуттями означає, що ми можемо керувати ним безпосередніше. Говорити через нього також дозволяє робити хитрі речі, як-от дошкуляти ворогам, які впізнають наш голос, або передавати повідомлення, коли нам ліньки йти шукати того, з ким хочемо поговорити. Можна розглянути перенавчання «Зору диявола»{{Devil’s Sight}}, бо ваш фамільяр бачить у магічній темряві, але памʼятайте, що у фамільяра 10 ХП, а його смерть означатиме, що ви раптом перестанете бачити в магічній темряві. На цьому етапі це може бути нормально, але добре подумайте."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бісівська стійкість{{Fiendish Resilience}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "У нас уже є опір до вогняної шкоди, тож тут ваші основні варіанти — отруйна чи рублена шкода."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум: Проклятуще око\nНове відоме заклинання:\n– будь-яке\nНове відоме замовляння:\n– Розщеплення Розуму"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Проклятуще око [Eyebite] — автопілот на весь бій. Якщо у вас діє Виклик немертвого [Summon Undead], можна керувати своїм немертвим бонусною дією, поки ви раз по раз присипляєте ворогів або сієте в них паніку. Розщеплення Розуму [Mind Sliver] тут, щоб накласти штраф до ряткидка перед тим, як ми вдаримо по ворогах заклинанням «пройди-ряткидок-або-страждай»{{save-or-suck}}. На цьому рівні ми отримуємо третій промінь Позамежного заряду [Eldritch Blast]. Тінь Мойла [Shadow of Moil] і Позамежний заряд [Eldritch Blast] лишаються стабільно ефективним поєднанням. Нарешті ми отримуємо третій слот заклинання. Час кинути три Вогнекулі [Fireball], а тоді подрімати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Доторк феї (Харизма 19 → 20)\nНовий потойбічний виклик:\n– будь-який"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Доторк феї»{{Fey Touched}} піднімає нашу Харизму до 20, дозволяє раз на день накласти Туманний крок [Misty Step] і обрати одне заклинання 1-го рівня. Сріблясті шпильки [Silvery Barbs] — гарний вибір, але Героїзм [Heroism] теж може бути крутим, бо його можна накласти знову, витративши слоти заклинань, тож ви автоматично накладаєте його на 5-му рівні й можете обрати ціллю всю групу. Чи дивно мати патрона-почвару, але позичати магію в якихось фей? Так, безперечно дивно. Але в нас Харизма 20, і вони не переконають нас зупинитися. Тут у нас є вільне місце під виклик. Оберіть що завгодно цікаве. «Туманні видіння»{{Misty Visions}} — мій особистий улюбленець, бо ілюзії дуже веселі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум: Палець смерті\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Палець смерті [Finger of Death] — не найкраще заклинання 7-го рівня для Чорнокнижника. Але приберегти заклинання 7-го рівня, щоб добити ворога й отримати і постійного зомбі, і тимчасові ХП від «Благословення пекла»{{Dark One’s Blessing}}, — це неймовірно ефектний хід."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кидок у Пекло{{Hurl Through Hell}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "По суті, короткострокове вигнання, коли ви влучаєте атакою. У вас три постріли Позамежним зарядом [Eldritch Blast], тож оберіть того, кому справді потрібен «тайм-аут» на 1 раунд, відправте його на нижні плани, а тоді поставте кільцеву Стіну вогню [Wall of Fire], спрямовану всередину, навколо його простору — і дивіться, як він повертається в найстрашнішу у світі сауну."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум: Підкорення монстра\nНове відоме заклинання:\n– будь-яке\nНовий потойбічний виклик:\n– Ланцюги Каркері"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Ланцюги Каркері»{{Chains of Carceri}} діють лише на три типи істот, але на цьому рівні вони трапляються доволі часто, бо звірі, гуманоїди й більшість чудовиськ уже випали зі шкали ПН. Для всього, по чому не вдасться влучити «Ланцюгами Каркері», є Підкорення монстра [Dominate Monster]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Адепт метамагії\n– Обережне заклинання\n– Пришвидшене заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "У нас рівно два Очки чародійства{{Sorcery Points}}, тож витрачайте їх з розумом. Ми тут здебільшого заради «Пришвидшеного заклинання»{{Quickened Spell}}, щоб накласти Розщеплення Розуму [Mind Sliver], а тоді вдарити ослаблену ціль Пальцем смерті [Finger of Death] чи Підкоренням монстра [Dominate Monster]. «Обережне заклинання»{{Careful Spell}} — для випадку, коли ви кидаєте вогнекулю собі під ноги. Пройдіть ряткидок на половину шкоди, а потім ще раз поділіть навпіл через опір до вогню. Ваші вогнекулі 5-го рівня завдають 12к6 (у середньому 42 звичайно, але 47,04 з «Полумʼям Флегетосу»), що знижує середню шкоду, яку ви завдаєте собі, до лише 11,75. Цього навіть не вистачить, щоб прорватися крізь тимчасові ХП від «Благословення пекла». Якщо вам вдасться вбити Вогнекулею [Fireball] когось, ви отримаєте свіжі тимчасові ХП. Достатньо гаряче, щоб убивати, а брови навіть не підсмажилися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум: Істинне перевтілення\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мені подобається накладати Істинне перевтілення [True Polymorph], щоб перетворити себе на величезну проблему."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Новий потойбічний виклик:\n– Вкритий тінню"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Входьте в кожну ситуацію невидимими. Виявляйте свою присутність якомога драматичнішим способом. Можливо, за допомогою Істинного перевтілення [True Polymorph]. Сюрприз, дракон! Багато істот із високим ПН теж заклинателі, і часто серед їхніх заклинань є деякі з наших найкращих. Сині абішаї{{Blue Abishai}} можуть накладати Підкорення монстра [Dominate Monster] 3 рази на день. Балори{{Balor}} можуть накладати Вогнекулю [Fireball] за бажанням. Дракони не можуть накладати заклинання, але їхня дихальна зброя цілком може бути вогнекулями. Це чудове місце для мультикласування, якщо ви ще цього не зробили. Два рівні Чародія{{Sorcerer}} заради «Джерела магії»{{Font of Magic}} або два рівні Воїна{{Fighter}} заради «Сплеску дій»{{Action Surge}} багато вам дадуть."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Удача\nНове відоме заклинання:\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Удача»{{Lucky}} ідеальна, коли у вас є все потрібне, але хочеться стати ще крутішим."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний майстер{{Eldritch Master}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Буквально завжди розчаровуюче завершальне уміння."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-warlock-fiend-2014-001",
+      "articleId": "rpgbot-warlock-fiend-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання покровителя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-fiend-2014-002",
+      "articleId": "rpgbot-warlock-fiend-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Заклинання 1-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-fiend-2014-003",
+      "articleId": "rpgbot-warlock-fiend-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Заклинання 2-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-fiend-2014-004",
+      "articleId": "rpgbot-warlock-fiend-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Заклинання 3-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-fiend-2014-005",
+      "articleId": "rpgbot-warlock-fiend-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Заклинання 4-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-fiend-2014-006",
+      "articleId": "rpgbot-warlock-fiend-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Заклинання 5-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-fiend-2014-007",
+      "articleId": "rpgbot-warlock-fiend-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Благословення пекла",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-fiend-2014-008",
+      "articleId": "rpgbot-warlock-fiend-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Власна удача бісів",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-fiend-2014-009",
+      "articleId": "rpgbot-warlock-fiend-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Бісівська стійкість",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-fiend-2014-010",
+      "articleId": "rpgbot-warlock-fiend-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fiend-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Кидок у Пекло",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

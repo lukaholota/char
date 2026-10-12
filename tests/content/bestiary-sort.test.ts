@@ -10,7 +10,7 @@ import { getCreatureIndex } from "@/lib/bestiaryData";
 
 function buildEntry(overrides: Partial<CreatureIndexEntry>): CreatureIndexEntry {
   return {
-    key: "x",
+    key: `creature-${overrides.creatureId ?? 1}`,
     creatureId: 1,
     name: "Істота",
     nameEng: "Creature",
@@ -92,6 +92,15 @@ describe("сортування бестіарію", () => {
     expect(again).toEqual(first);
     expect(first).not.toEqual(readNames(SAMPLE));
     expect(other).not.toEqual(first);
+  });
+
+  it("фільтр або дозавантажене хоумбрю не тасують список заново — порядок решти той самий", () => {
+    const full = readNames(sortCreatureIndex(SAMPLE, "random", 12345));
+    const subset = SAMPLE.filter((entry) => entry.type !== "Звір");
+
+    expect(readNames(sortCreatureIndex(subset, "random", 12345))).toEqual(
+      full.filter((name) => subset.some((entry) => entry.name === name))
+    );
   });
 
   it("перемішування нікого не губить і не дублює", () => {

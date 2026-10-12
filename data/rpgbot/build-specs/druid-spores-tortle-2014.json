@@ -1,0 +1,125 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "druid-circle-of-spores-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+    "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "DRUID_2014",
+  "subclassKey": "CIRCLE_OF_SPORES",
+  "raceKey": "TORTLE_MPMM",
+  "backgroundKey": "HERMIT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 12,
+    "CON": 15,
+    "INT": 12,
+    "WIS": 15,
+    "CHA": 9
+  },
+  "revision": 2,
+  "levels": [
+    {"level": 2, "subclassKey": "CIRCLE_OF_SPORES"},
+    {"level": 3},
+    {"level": 4, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "spells": {"cantripKeys": ["thunderclap"]}},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}]},
+    {"level": 9},
+    {"level": 10, "openSpellPicks": [{"category": "cantrips", "count": 1}]},
+    {"level": 11},
+    {"level": 12, "featKey": "RESILIENT", "featOptions": [{"optionNameEng": "Resilient (Constitution)"}], "section": "section-feats-2"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}]},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}]},
+    {"level": 20}
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [],
+  "incomplete": [
+    {
+      "field": "Замовляння 10-го рівня",
+      "reason": "На 10-му рівні автор пише «будь-яке» нове замовляння, тож вибір лишено гравцеві.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/druid-spores-tortle-2014.webp",
+    "title": "Друїд Кола спор — Черепаха",
+    "description": "Друїд-черепаха з природним КБ 17: з деревʼяним щитом його КБ дорівнює 19. Бʼється палицею з Кийком; Коло спор відкриється на 2-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "STR",
+      "WIS",
+      "STR"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "NATURE",
+        "PERCEPTION"
+      ],
+      "race": [
+        "SURVIVAL"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "QUARTERSTAFF"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Черепаха зі змінюваним походженням за правилами Таші: +2 до Сили й +1 до Мудрості, як у авторській таблиці (Сила 10, Мудрість 16); це вже враховано.",
+    "skillExplanation": "Природа й Уважність — від Друїда, як радить автор. Автор не називає передісторії, навички черепахи й мов, тому Відлюдника (Медицина, Релігія), Виживання від раси та дві мови ми обрали за вас; їх можна змінити.",
+    "equipmentExplanation": "Деревʼяний щит, палиця, шкіряна броня, набір мандрівника й друїдичний фокус — за авторським прикладом.",
+    "spells": {
+      "classCantripKeys": [
+        "shillelagh",
+        "thorn-whip"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Кийок і Терновий батіг узято з рядка 1-го рівня авторської таблиці. Підготовлених заклинань автор не називає; Підготовлені заклинання Друїд обирає на аркуші персонажа."
+    }
+  }
+}

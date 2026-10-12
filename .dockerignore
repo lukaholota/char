@@ -1,5 +1,4 @@
-# Увага: src/lib/generated/spells.json тут НЕ виключається, хоч і лежить у .gitignore.
-# Він потрібен збірці — без нього образ не збереться (перевірка стоїть у Dockerfile).
+# src/lib/generated/*.json тут НЕ виключаються: вони в git і потрібні збірці (перевірка стоїть у Dockerfile).
 
 node_modules
 .next
@@ -23,3 +22,25 @@ tests
 .agent
 *.md
 !README.md
+
+# Робочі матеріали RPGbot (сирий HTML, чернетки, рев'ю): сервер читає лише uk/, builds/, ready-builds/
+# і кілька json у корені, а без цього трасування Next тягнуло в образ ~400 МБ.
+data/rpgbot/workbench
+data/rpgbot/source
+data/rpgbot/sources
+data/rpgbot/source-supplements
+data/rpgbot/rule-source-supplements
+data/rpgbot/staging
+data/rpgbot/staging-corrections
+data/rpgbot/authoring
+data/rpgbot/reviews
+data/rpgbot/build-specs
+data/rpgbot/builds.json
+data/rpgbot/build-ledger-2014.json
+data/rpgbot/manifest.coverage.*
+data/rpgbot/manifest.diff.json
+data/rpgbot/source-crawl.json
+data/rpgbot/source-pagination.json
+data/rpgbot/feature-descriptions-2014.json
+data/subclass-art
+**/__pycache__

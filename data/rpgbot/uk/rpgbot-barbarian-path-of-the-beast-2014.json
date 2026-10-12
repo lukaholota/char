@@ -1,0 +1,2280 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-9c86efebfbb0fa13",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-9c86efebfbb0fa13-4f009477b81c0030",
+      "sourceId": "rpgbot-9c86efebfbb0fa13",
+      "fetchedAt": "2026-09-29T19:18:43.249641+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:26:06-04:00",
+      "contentHash": "a5e999e4d5d826ef1e59d9fab92ffd5e50ae1caef7524eaac6284226bf5a311f",
+      "title": "Path of the Beast Barbarian 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-9c86efebfbb0fa13-4f009477b81c0030.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+    "sourceId": "rpgbot-9c86efebfbb0fa13",
+    "slug": "barbarian-path-of-the-beast-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Шлях звіра — гайд підкласу Варвара (2014)",
+    "titleEn": "Path of the Beast Barbarian 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Варвар",
+      "Шлях звіра",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "sourceRevisionId": "rpgbot-9c86efebfbb0fa13-4f009477b81c0030",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Шлях звіра — найближче, до чого 5e дійшла в ліканторопії як класовому умінні (не рахую "
+                },
+                {
+                  "type": "link",
+                  "text": "Кривавого мисливця",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-blood-hunter/v2/"
+                },
+                {
+                  "type": "text",
+                  "text": ", бо він неофіційний). На додачу до звичайних умінь люті Варвара ви також отримуєте здатність відрощувати природну зброю й зрештою здобувати пасивні пристосування, як-от здатність дихати під водою й стрибати на жахливі відстані."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Шлях звіра — ідеальний баланс живучості й шкоди, що дозволяє Варвару бути танком першої лінії, не потрапляючи в «хибу танка»{{Tank Fallacy}}, яка мучить багато інших підкласів Варвара.\n\nЯк і Шлях тотемного воїна, Шлях звіра має кілька точок вибору для налаштування збірки, але на відміну від тотемних Варварів, Шлях звіра може змінювати ці вибори або щоразу, коли впадає в лють, або щоразу, коли відпочиває, що дозволяє Варвару швидко пристосовуватися до ситуацій, а не просто стискати зуби й нестямно рубатися через усе, що трапляється на шляху."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки Шлях звіра сильно покладається на природну зброю, яку він створює під час люті, майже немає причин користуватися дворучною зброєю. Очікуйте, що проводитимете багато часу зі щитом, і візьміть зброю ближнього бою на кшталт довгого меча, щоб користуватися нею поза люттю.\n\nПроте оскільки ви проводитимете більшість часу, атакуючи природною зброєю, зазвичай немає великої мотивації шукати магічну зброю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Попри цю гнучкість, Шлях звіра не особливо складний, і складність між варіантами в межах підкласу майже не коливається. Завдяки незвичайній придатності щитів без втрат шкоди такі Варвари матимуть добру шкоду, багато ХП і високий КБ. Загалом підклас водночас простий і ефективний, що робить його привабливим і для новачків, і для ветеранів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Шляху звіра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Шляху звіра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#path-of-the-beast-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Шляху звіра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#path-of-the-beast-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Шляху звіра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#path-of-the-beast-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Шляху звіра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#path-of-the-beast-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Шляху звіра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#path-of-the-beast-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Гнівні стрибки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#example-build-wrathful-leaps"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Стрибайте навколо",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#jump-around"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Стрибки, тепер зі шкодою",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#jumping-now-with-damage-output"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                2,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Шляху звіра",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Форма звіра|Form of the Beast}}: щоразу, коли ви впадаєте в лють, ви обираєте один із трьох варіантів. Усі вони хороші, але хороші для різного в різний час, тож важливо знати, який використати в конкретній ситуації."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Укус{{Bite}}: «Укус» технічно найменш важливий із трьох варіантів, але якщо хтось і триматиме менше половини ХП, то це Варвар. Ви можете користуватися ним, коли обидві руки зайняті, тож його легко використовувати зі щитом.\n\nВтім, якщо ви не впевнені, що отримаєте користь від зцілення в поточному бою, обирайте інший варіант. Памʼятайте, що зцілення працює лише раз за кожен ваш хід, тож якщо ви хочете перейти на зброю для другої атаки (коли отримаєте «Додаткову атаку»), це може бути добра ідея, якщо у вас є класна магічна зброя."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пазурі{{Claws}}: ваш основний варіант для шкоди. Формулювання тут легко пропустити, тож поясню: якщо ви робите дію Атака й атакуєте пазурами один раз, ви отримуєте додаткову атаку пазурами в межах тієї ж дії. Для цього не потрібно витрачати бонусну дію, тож додаткову атаку можна здійснити в той самий хід, коли ви впадаєте в лють. Усі атаки пазурами можна робити однією рукою, тож немає причин відмовлятися від щита."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Хвіст{{Tail}}: шкода як у довгого меча, досяг і збільшення КБ реакцією. Бонус до КБ у середньому становить 4,5, чого достатньо, щоб звести нанівець чимало атак. На жаль, нападники мають бути в межах 10 футів, тож зазвичай ви не зможете блокувати дальні атаки. Як і інші варіанти, його можна використовувати зі щитом."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Звіряча душа{{Bestial Soul}}: якщо ви збираєтеся покладатися на природну зброю, вона має вважатися магічною, інакше вам буде дуже важко завдавати шкоди. Цей рівень також дозволяє перейняти деякі тваринні риси, що дають змогу діяти в незвичних сценаріях, які зазвичай потребують магії. Ці переваги, що примітно, працюють поза вашою люттю, тож не треба злитися, щоб дихати під водою чи лазити по стелі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Швидкість плавання{{Swim Speed}}: ситуативно, але те, що ви ще й дихаєте під водою, дуже корисне. Подрімайте й посни про акул-перевертнів, і прокинетеся з зябрами й перетинчастими пальцями ніг (у правилах цього насправді не сказано, але здається, що так мало б статися)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Швидкість лазіння{{Climb Speed}}: швидкості лазіння — найкраще після швидкостей польоту, і це по суті «Павуче лазіння [Spider Climb]», золотий стандарт швидкостей лазіння. Лазьте по стелі й бийте людей хвостом або кидайте в них списи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стрибок{{Jump}}: стрибки дуже рідко корисні, а ситуації, що вимагають стрибків, зазвичай краще вирішувати лазінням чи польотом. Усе ж серед усіх умінь, повʼязаних зі стрибками, у 5e це одне з найкращих. Воно працює і по вертикалі, і по горизонталі, тож можна стрибати неймовірно високо.\n\nПроте воно, що примітно, не стосується падіння, тож якщо ви стрибнули на 30 футів угору, ви пошкодуєте про це рішення, якщо не вхопитеся за щось перед падінням, бо 5e не скасовує шкоду від падіння лише тому, що ви стрибнули."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заразна лють{{Infectious Fury}}: привʼязка СК до Статури — це чудово. Навіть якщо ви почали зі Статурою 16 і не мали змоги її підвищити, ваш СК буде пристойним. Використання цього стільки разів на день, скільки становить ваш Бонус Майстерності, достатнє, щоб мати тактичний вплив, але це не те, що можна дозволити собі використовувати щоходу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примусова атака{{Forced Attack}}: змушувати ворогів атакувати своїх союзників — чудово, але переваги цим не обмежуються. Оскільки ціль змушена витратити свою реакцію, вона не може виконати Принагідну атаку й не може робити дратівливих речей на кшталт «Контрчарів [Counterspell]», тож якщо ближні атаки цілі жалюгідні, ви можете змусити її атакувати вас, хоч яку мізерну шкоду вона може завдати, щоб завадити заклиначам витворяти свої фокуси."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Психічна шкода{{Psychic Damage}}: 2к12 шкоди достатньо, щоб зрівнятися з однією атакою багатьох істот, але на вищих рівнях ви зустрінете багатьох ворогів, що можуть завдати значно більше, тож ви більше виграєте від примусової атаки.\n\nПроте примусова атака не допомагає в зіткненнях з одним ворогом, і навіть у зіткненнях із кількома ворогами не завжди поруч буде інший ворог, якого можна обрати ціллю примусової атаки. Шкода психічна, а дуже мало істот мають опір чи імунітет до психічної шкоди, тож це безпечне й надійне підвищення шкоди, але памʼятайте, що воно має денний ліміт використань, тож не витрачайте його надто швидко. Шкода також походить із окремого джерела від вашої атаки, тож не множиться на критичному влучанні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Поклик полювання|Call of the Hunt}}: переваги для вас масштабуються залежно від кількості істот, що приймають перевагу. Ефект не має недоліків, тож припускайте, що ваша група погодиться. Максимальна кількість істот дорівнює вашому модифікатору Статури, який на 20-му рівні може сягати +7, тож вам потрібно якось змусити 7 істот прийняти ефект.\n\nТипова група з 4 осіб цього не зможе, якщо не додати фамільярів, улюбленців, прикликаних істот або мішок, повний злих щурів. Купа тимчасових ХП на додачу до опору до шкоди від «Люті» зробить вас неймовірно витривалим, а бонусна шкода к6 для союзників стане приємним підсиленням шкоди для всіх, хто покладається на кидки атаки (ідеально — Воїни, Монахи й Чорнокнижники).\n\nФормулювання бонусу до шкоди дивне, але ефект насправді дуже простий. Уражені істоти завдають +1к6 шкоди, коли влучають атакою. Тип не вказано, тож вони додають бонусну шкоду того ж типу, що завдає їхня атака. Якщо їхня атака завдає кількох типів, атака зазвичай може вирішити, який тип додати, але Майстер може вирішити розділити порівну між кількома типами шкоди.\n\nДивне формулювання бонусу до шкоди, схоже, означає, що к6 не множиться на критичному влучанні, бо вони отримують бонус, рівний результату кидка к6, а не додають 1к6 як «додаткову шкоду», як-от «Мисливська мітка [Hunter’s Mark]» чи «Божественна кара»{{Divine Smite}}. Ви можете використовувати це лише стільки разів на день, скільки становить ваш Бонус Майстерності, але до того часу, як ви це отримаєте, ваш Бонус Майстерності й кількість люті на день збігаються, тож не треба відстежувати це окремо, хіба що ви якось отримаєте додаткову лють на день."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-beast-ability-scores",
+          "heading": "Характеристики Шляху звіра",
+          "sourceAnchor": "path-of-the-beast-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-beast-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потреби Шляху звіра в характеристиках збігаються з потребами інших Варварів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-beast-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: бити речі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-beast-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: не дозволяти речам бити вас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-beast-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: пережити удари речей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-beast-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-beast-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: ряткидки Мудрості поширені, тож не занедбуйте її, але й не докладайте великих зусиль до її підвищення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-beast-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: Харизма має значення лише для кількох навичок Варвара, але її теж можна занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-beast-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-beast-races",
+          "heading": "Раси Шляху звіра",
+          "sourceAnchor": "path-of-the-beast-races",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-beast-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Расові потреби Шляху звіра досить типові для Варвара, тож порад із "
+                },
+                {
+                  "type": "link",
+                  "text": "розбору рас для Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/races/"
+                },
+                {
+                  "type": "text",
+                  "text": " має вистачити. Тут перелічено раси, що мають особливі взаємодії з підкласом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-path-of-the-beast-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Хадозі{{Hadozee}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "SaiS",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Планерування»{{Glide}} дуже добре поєднується зі здатністю Варвара-Звіра стрибати: можна високо стрибнути в повітря й планерувати, фактично збільшуючи впʼятеро (це в 5 разів проти звичайного) вашу швидкість під час горизонтального пересування."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гаренгон{{Harengon}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "WBtW / MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Кролячий стрибок»{{Rabbit Hop}} окремий від стрибків, які ви могли б робити своїм рухом, тож тут він додає мало."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Сатир{{Satyr}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MOoT / MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Веселі стрибки»{{Mirthful Leaps}} складаються зі здатністю Шляху звіра стрибати на абсурдні відстані. Вони також отримують «Опір магії»{{Magic Resistance}}, що непогано. На жаль, володіння в оновленій версії не надто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Симічний гібрид{{Simic Hybrid}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MOoT / MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": пристосування «Планерування манти»{{Manta Glide}} дуже добре поєднується зі здатністю Варвара-Звіра стрибати: можна високо стрибнути в повітря й планерувати, фактично подвоюючи вашу швидкість під час горизонтального пересування. Повторення цього на своєму ході іноді називають «вейв-дашингом»{{wave dashing}}.\n\nХадозі роблять це значно краще, але інші риси Симічного гібрида (особливо захоплювальні придатки), імовірно, варті цього компромісу."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-beast-feats",
+          "heading": "Риси Шляху звіра",
+          "sourceAnchor": "path-of-the-beast-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-beast-feats-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер важкої зброї{{Great Weapon Master}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": зазвичай чудова риса для Варварів, але для Шляху звіра марна, бо ми покладаємося на природну зброю, а не на дворучну на кшталт великої сокири."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Експерт у навичках|Skill Expert}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Експертиза в Атлетиці для захоплення ворогів — уже добрий варіант для Варварів, що люблять захоплювати, але для Шляху звіра це ще й більша висота стрибка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер щита{{Shield Master}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Варвари-Звірі частіше за інших Варварів користуються щитом, а оскільки після початку люті ви не маєте способу витратити бонусну дію, «Майстер щита» стає привабливим варіантом.\n\nЯкщо у вас є інші союзники в ближньому бою, яким було б корисно, щоб ви валили ворогів, розгляньте це."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рубака{{Slasher}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": підвищення Сили, штраф до швидкості, а на критичному влучанні ви накладаєте дебаф на ціль. Пазурі Шляху звіра дуже добре з цим працюють і тому, що у вас є додаткова атака (а отже, ще одна нагода завдати критичного влучання), і тому, що «Безрозсудна атака» легко дає Перевагу на кубику.\n\nПоєднайте їх із «Додатковою атакою», і ви матимете 6 кидків к20 за хід, щоб викинути одну 20. Це буде не кожного ходу, але вистачить, щоб щось змінити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Здоровань{{Tough}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Форма звіра (Зуби)» дозволяє вам зцілюватися до половини здоровʼя, кусаючи речі, тож дуже високий максимум ХП робить це зручнішим.\n\nЗвісно, це означає урізати інші підвищення характеристик, що зашкодить СК «Заразної люті» й межі «Поклику полювання», тож треба ретельно зважити цю втрачену можливість. Раджу натомість довести Статуру до максимуму."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-beast-weapons",
+          "heading": "Зброя Шляху звіра",
+          "sourceAnchor": "path-of-the-beast-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-beast-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Плануйте покладатися насамперед на природну зброю, але майте при собі добру одноручну зброю на кшталт бойового молота й дальню зброю на Силі, як-от списи."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-path-of-the-beast-armor",
+          "heading": "Обладунки Шляху звіра",
+          "sourceAnchor": "path-of-the-beast-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-path-of-the-beast-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Див. "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Монах{{Monk}}: Шлях звіра не використовує бонусну дію ні для чого, окрім запуску люті, тож «Бойові мистецтва» привабливі. Проте ви не можете користуватися щитом і обмежені зброєю Монаха, тож найкращий варіант — тримати спис двома руками (можливо, довгий меч, якщо ви користуєтеся додатковими класовими уміннями). Ви жертвуєте КБ щита заради додаткової атаки, що не обовʼязково погана угода.\n\nДругий рівень дає ще +10 футів руху, якщо ви без обладунків, але тепер ви відмовляєтеся і від напівлатів, "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "і"
+                  },
+                  {
+                    "type": "text",
+                    "text": " від щита, тож ваша живучість падає, а підвищення характеристик також відкладаються, тож складніше покладатися на «Захист без обладунків».\n\nТри рівні дають підклас (найкращі варіанти — Довга смерть або Милосердя), а 4 рівні дають підвищення характеристик і «Повільне падіння», щоб ви могли стрибати шалено далеко вгору й менше постраждати. На кожному з цих рівнів ви отримуєте щось добре, але 1-й рівень — безперечно найвпливовіший."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-wrathful-leaps",
+          "heading": "Приклад збірки — Гнівні стрибки",
+          "sourceAnchor": "example-build-wrathful-leaps",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-wrathful-leaps-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка буде дещо безглуздою. Варвар Шляху звіра — найкращий стрибун у 5e із жахливо величезним відривом, і ми зробимо на це ставку та побудуємо найкращого стрибуна, якого гра витримає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-wrathful-leaps-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Але не хвилюйтеся: це все одно дуже робоча збірка. Здатність стрибати божевільно далеко — забавна перевага, але ми тут передусім, щоб зірватися, розлютитись, відростити пазурі й спрямувати агресію на щось, що нам не подобається."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-wrathful-leaps-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка — одна з наших "
+                },
+                {
+                  "type": "link",
+                  "text": "10 улюблених збірок D&D 5e",
+                  "href": "https://rpgbot.net/rpgbots-10-favorite-dnd-character-builds-that-arent-wizards/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-wrathful-leaps",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого ми використаємо характеристики, рекомендовані вище, але знизимо Харизму до 8, щоб підняти Статуру до 15 на 1-му рівні, беручи від раси +2 до Сили й +1 до Статури. Ми матимемо кілька володінь навичками, щоб компенсувати занедбану Харизму, тож ви не будете геть марними в соціальних ситуаціях."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-wrathful-leaps",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сатир{{Satyr}}. «Опір магії» — чудовий захист для Варвара, а оскільки Шлях звіра полегшує користування щитом, ми вже менше хвилюємося через фізичні атаки, ніж більшість Варварів. До того ж ми отримуємо «Веселі стрибки». Якщо вас не цікавлять стрибки, можна поставити в цю збірку Юань-ті, і вона чудово працюватиме."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми використаємо версію Сатира з «Монстрів Мультивсесвіту»{{Monsters of the Multiverse}}, бо це офіційна версія. Вона змушує нас взяти деякі володіння, що нас мало цікавлять, але це нормально."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-wrathful-leaps",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут підійде будь-що, тож оберемо Чужинця{{Outlander}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-wrathful-leaps",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від раси ми отримуємо Виступ і Переконання, від передісторії — Атлетику й Виживання, а двома класовими навичками оберемо Залякування й Уважність, що разом дає 6 навичок, три з яких на Харизмі. Дивно.\n\nЩе дві ми можемо отримати від додаткового класового уміння «Первісне знання» і ще одну, коли візьмемо «Експерта в навичках», що дає загалом 7 навичок (9 з додатковими класовими уміннями)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми також отримуємо володіння двома музичними інструментами й мовою. Це дивна збірка для Варвара."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-wrathful-leaps",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо «Експерта в навичках», щоб отримати Експертизу в Атлетиці й володіння Аналізом Поведінки. Якщо ви не плануєте захоплювати й не отримуєте задоволення від усієї цієї стрибкової дурниці, вам допоможуть поради щодо рис у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Варвара",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": ".\n\nЦе також дає +1 до характеристики, дозволяючи нам лишатися на "
+                },
+                {
+                  "type": "link",
+                  "text": "Фундаментальній математиці",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": ", піднімаючи непарне значення Сили."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також можна взяти рису «Здоровань»{{Tough}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-jump-around",
+          "parentSectionId": "section-example-build-wrathful-leaps",
+          "heading": "Стрибайте навколо",
+          "sourceAnchor": "jump-around",
+          "blocks": [
+            {
+              "blockId": "block-section-jump-around-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Прискорений курс про "
+                },
+                {
+                  "type": "link",
+                  "text": "стрибки",
+                  "href": "https://www.dndbeyond.com/sources/phb/adventuring#Jumping"
+                },
+                {
+                  "type": "text",
+                  "text": ": наскільки високо чи далеко ви можете стрибнути, залежить виключно від вашої Сили. Ніякої Атлетики, ніякого зросту, нічого. Якщо ви рухаєтеся на 10 футів безпосередньо перед стрибком, можна стрибнути далі чи вище, але це, по суті, все.\n\nТехнічно ваш зріст може збільшити, наскільки високо ви дістаєте, але це рідко важливо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jump-around-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для більшості персонажів єдине, що покращить вашу здатність стрибати, — магічні предмети й заклинання. Заклинання «Стрибок [Jump]» (потенційно накладене з «Персня стрибків» [Ring of Jumping]) і «Черевики кроку й стрибка» [Boots of Striding and Springing] — ваші найімовірніші варіанти. Будь-який із них утричі збільшить дальність стрибка.\n\nОбидва разом помножать дальність стрибка в 9 разів, бо вони походять із різних джерел, а 5e не має правил про мультиплікативне складання, як попередні редакції."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jump-around-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Два магічні предмети, що потребують налаштування («Перстень стрибків» і «Черевики кроку й стрибка»), — велике вкладення ресурсів у фішку, тож ви, імовірно, використаєте лише один. Якщо є вибір, беріть черевики, бо вам не доведеться постійно витрачати бонусну дію на накладання заклинання (чого ви все одно не могли б робити під час люті)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jump-around-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потім додаємо те, що робить Шлях звіра таким добрим у стрибках: «Звіряча душа (Стрибки)»{{Bestial Soul (Jumping)}} дозволяє додати результат перевірки Атлетики до дальності чи висоти стрибка. Зазвичай висота вашого стрибка — 3+модифікатор Сили (максимум 8 для більшості персонажів) зі стрибком із розбігу. Додайте результат перевірки Атлетики у футах, і ви можете піднятися досить високо.\n\nТак високо, що шкода від падіння стає проблемою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jump-around-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "А тоді, щоб зробити все ще шаленішим, додайте «Веселі стрибки» Сатира. Це дає нам ще один к8. Потім утричі все це від нашого магічного предмета. Чудово."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jump-around-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Але це заводить нас у дивну ситуацію, де нам може справді не вистачити руху. Стрибнути можна лише настільки далеко, наскільки у вас є руху, тож якщо ваша швидкість 30 футів, за один хід ви можете стрибнути лише на 30 футів, перш ніж приземлитися чи впасти.\n\nЯкщо ви робите Ривок, можна подвоїти свій запас руху й отже дальність стрибка. Збільшення вашої швидкості (як-от «Швидкий рух» Варвара) також покращить, наскільки далеко ви можете стрибати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jump-around-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тож поставимо мету: ми хочемо вміти стрибнути на всю свою дистанцію руху по вертикалі стрибком із місця за найгірших можливих кидків кубиків. Це дозволяє нашому Варвару-Сатиру стрибнути на всі свої 40 футів руху вертикально, потенційно дозволяючи нам витворяти дурниці на кшталт хапання ворогів із повітря, стрибків на стіни замків, переоформлення стель тощо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jump-around-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Почнімо зі стрибка у висоту з місця. З Силою 18 це дає нам 3,5 фута від землі як основу. Додайте мінімум 1 від «Веселих стрибків». Додайте +1 за к20 і +7 за наш модифікатор Атлетики (на 6-му рівні в нас буде +4 Сили, +3 Майстерності), і це дає нам мінімум 12,5 фута вертикального стрибка.\n\nДодавання Експертизи додає ще +3, що дає мінімальну дистанцію стрибка у висоту з місця 15,5 фута. З магічним предметом, що втричі збільшує це, ми одразу досягаємо нашої межі, але навіть без предмета на середніх кидках ми досягнемо 30,5 фута."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jump-around-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "І це на 6-му рівні. Нам, імовірно, навіть цей предмет не потрібен, тож можна натомість пошукати «Перстень плавного падіння» [Ring of Feather Falling]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jump-around-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо взяти ті самі припущення, стрибок у довжину з місця із Силою 18 дає 9 футів. Додайте мінімум 1 від «Веселих стрибків» і 1 за к20 на вашій перевірці Атлетики, потім додайте +10 за наш модифікатор Атлетики завдяки Експертизі, і ми маємо 21 фут.\n\nЦього легко достатньо, щоб подолати більшість ям і складну місцевість. З середніми кидками кубиків це 34 фути, що вже майже вичерпує нашу межу дальності стрибка."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jump-around-11",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо нам пощастить дожити до 20-го рівня, ми матимемо Бонус Майстерності +6 і модифікатор Сили +7. З Експертизою в Атлетиці наша мінімальна висота стрибка — 26 футів, що більш ніж удвічі перевищує нашу мінімальну висоту стрибка з місця на 6-му рівні. Середні кидки дають нам 39 футів, що майже точно вичерпує нашу дальність стрибка без Ривка."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jump-around-12",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підсумуймо: якщо ви берете «Експерта в навичках», щоб отримати Експертизу в Атлетиці, Варвар-Звір-Сатир може майже вичерпати свої межі стрибка у висоту й довжину на середніх кидках кубиків ще до застосування магічного предмета. Якщо ви знайдете предмет, вам не потрібно кидати, хіба що ви збираєтеся робити Ривок, бо потроєння вашого мінімального кидка вичерпає ваш рух."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-jumping-now-with-damage-output",
+          "parentSectionId": "section-jump-around",
+          "heading": "Стрибки, тепер зі шкодою",
+          "sourceAnchor": "jumping-now-with-damage-output",
+          "blocks": [
+            {
+              "blockId": "block-section-jumping-now-with-damage-output-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Правила "
+                },
+                {
+                  "type": "link",
+                  "text": "переміщення захоплення",
+                  "href": "https://www.dndbeyond.com/sources/phb/combat#Grappling"
+                },
+                {
+                  "type": "text",
+                  "text": " стверджують, що «коли ви рухаєтеся, ви можете тягти чи нести захоплену істоту з собою, але ваша швидкість зменшується вдвічі». Це, безперечно, стосується ходьби, польоту, плавання й лазіння, тож я не бачу причин, чому цього не можна робити зі стрибками. Якщо ви зменшуєте швидкість удвічі, я достатньо впевнений, що можна стрибнути, утримуючи захоплення, скинути ціль у повітрі, а потім обом упасти на землю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jumping-now-with-damage-output-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З вдвічі зменшеною швидкістю це дає вам 20 футів у повітрі й дозволяє скинути ціль із шкодою 2к6. Вони отримають шкоду й упадуть повалені, але ви відпустите захоплення, щоб це зробити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-jumping-now-with-damage-output-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви також отримуєте від цього шкоду, а істоти, що отримують шкоду від падіння, падають повалені. Ви зменшите цю шкоду вдвічі завдяки «Люті», але якщо ви викинете 2к6 шкоди від падіння, ви все одно отримуєте щонайменше 1 шкоди.\n\nЯкщо ви знайдете «Перстень плавного падіння», це раптом перестає бути проблемою. Заклинання «Покращення здібності [Enhance Ability]» (Спритність) запобігає шкоді від падіння до 20 футів, що достатньо для наших цілей, але може бути складним проханням до заклинателів вашої групи.\n\nМожна взяти 4 рівні Монаха заради «Повільного падіння», але якщо ви займаєтеся мультикласуванням у Монаха заради «Повільного падіння», ваше життя зʼїхало з рейок "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "далеко"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-wrathful-leaps",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Лють, Захист без обладунків"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Як стартове спорядження візьміть бойовий молот (поки що тримайте двома руками), дві ручні сокири, набір мандрівника{{Explorer’s Pack}} й метальні списи. Обладунків у вас немає, але зі Спритністю 14 і Статурою 16 «Захист без обладунків» дає КБ 15. Можна купити щит, але для цього доведеться відкласти молот, а ХП у вас 15 недарма, до того ж «Лють» дасть опір до шкоди.\n\nНа цьому рівні ви такі самі, як будь-який інший Варвар."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безрозсудна атака, Відчуття небезпеки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому етапі у вас може вистачати золота на лускатий обладунок і, сподіваюся, щит, що дасть +3 до КБ, але після цього заощаджуйте золото, доки не зможете купити напівлати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Первісний Шлях{{Primal Path}}: Шлях звіра, Форма звіра"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні все зривається. Атаки пазурами подвоюють нашу шкоду, а в скруті можна використати «Хвіст», щоб парирувати речі. «Укус» — складний вибір, бо треба очікувати, що ви опуститеся нижче половини ХП, щоб він окупився.\n\nЦе один із найважливіших виборів, які ви робите щоразу, коли впадаєте в лють, тож звикайте зважувати це рішення й ухвалювати його нашвидкуруч."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках\n– Володіння: Аналіз Поведінки\n– Експертиза: Атлетика\n– Сила 19 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза в Атлетиці разом із Перевагою на кубику на перевірки Сили робить нас надзвичайно ефективними в захопленні. Ми нічого не можемо вдіяти з істотами більшими за Великих, але ваш Майстер може дозволити скористатися варіантними правилами лазіння по більших істотах.\n\nНа цьому рівні можна натомість узяти «Рубаку». Він може дати те саме підвищення Сили на +1 і разом із «Формою звіра (Пазурі)» дуже добрий. Ви не будете такими добрими в захопленні чи стрибках, але краще вбиватимете, що залежно від вашої групи може бути краще."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака, Швидкий рух"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Між «Пазурями» й «Додатковою атакою» ви тепер можете зробити три атаки, якщо обираєте пазурі, і вам усе ще не треба відкладати щит, щоб користуватися будь-чим із цього. До цього часу у вас має бути напівлати, тож ваш КБ — 19. «Швидкий рух» також дає нам +10 футів швидкості, що чудово для наших стрибкових витівок."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звіряча душа{{Bestial Soul}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Звіряча душа» — пасивне уміння, і його легко не помітити. На деякій місцевості «Лазіння» дозволить швидко долати перешкоди. У водних кампаніях «Плавання», імовірно, ввімкнеться і ніколи не зміниться. Але ми тут заради «Стрибків».\n\nДив. «Стрибайте навколо» вище — докладне пояснення, як високо й далеко можна стрибати. Коротко: «справді високо й справді далеко». Здатність стрибати на величезні відстані означає, що ви можете долати багато перешкод, які зазвичай вимагають польоту, лазіння тощо. Це також означає, що можна захопити істоту, підскочити в повітря й скинути її."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дикий інстинкт{{Feral Instinct}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ходити першим — чудове відчуття."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Сила 18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше Сили — більше влучань і шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит (1 кубик), Бонус до шкоди від люті +3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Брутальний крит» для нас — не велике підвищення шкоди. Шлях звіра покладається на менші кубики шкоди, ніж більшість Варварів, але масштабований бонус від «Люті» застосовується до всіх трьох наших атак пазурами, тож це все одно невелике, але приємне підсилення шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заразна лють{{Infectious Fury}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Варіант бонусної шкоди тут дуже спокусливий, але памʼятайте, що вона не множиться на критичному влучанні (вона за ряткидком, тож вважається окремим джерелом шкоди), це ряткидок «пройшов/не пройшов», і це лише 13 шкоди в середньому.\n\nЯкщо можна змусити ворога атакувати одного з його союзників, це набагато кращий вибір."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невпинна лють{{Relentless Rage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це робить вас надзвичайно важким для вбивства під час люті."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Статура 16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "ХП, ряткидки Статури, СК «Заразної люті» покращується, а коли ми отримаємо «Поклик полювання», можна застосувати його до чотирьох істот."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит (2 кубики)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Трохи більше шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Поклик полювання{{Call the Hunt}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дивне уміння підтримки, але досить добре. Ви отримуєте запас тимчасових ХП (наразі максимум 20 через наш модифікатор Статури), а купа ваших союзників отримує невеликий бонус до шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Постійна лють, Бонус до шкоди від люті +4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вас важче вивести з бою, а ще ви завдаєте трохи більше шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Статура 18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще один слот у «Поклику полювання» плюс інші числові бонуси. 5 істот зазвичай вимагатимуть від вас мати улюбленців у групі (групи з 6 — незвичні), але ніщо не каже, що ваш мішок щурів не може брати участь."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Брутальний крит (3 кубики)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зовсім трохи більше шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Незламна міць{{Indomitable Might}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Час від часу вам потрібно щось схопити, підняти, зламати тощо, а на цьому рівні у вас уже 20 Сили, тож мінімальний результат — 20. Цього легко вистачає для звичайних СК перевірок характеристик, але ви можете дуже рідко програти перевірку захоплення,"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Здоровань"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Велика купа додаткових ХП, що піднімає межу «Форми звіра (Укус)», тож можна пірнати в ближній бій із висунутими зубами й поступово відновлювати ХП, щоб тримати себе на ногах. Можна натомість узяти «Рубаку», якщо ви волієте покладатися на пазурі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Первісний чемпіон{{Primal Champion}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+2 до влучання, +2 до шкоди, мінімум 24 на всіх перевірках Сили та +40 ХП понад ті, що ви отримали просто за здобуття рівня. Також ми можемо додати ще двох істот до «Поклику полювання», але в більшості груп вам однозначно знадобляться улюбленці чи щось таке.\n\nПодружіться з мініатюрними гігантськими космічними хомʼяками й носіть їх у кишенях, якщо вам потрібні додаткові голови. СК «Заразної люті» також зростає до 21, що вище, ніж можуть отримати заклинателі без магічних предметів. Ось тобі, чарівнику!"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-001",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Форма звіра",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-002",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Укус",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-003",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Пазурі",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-004",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Хвіст",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-005",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Звіряча душа",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-006",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Швидкість плавання",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-007",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Швидкість лазіння",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-008",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Стрибок",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-009",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Заразна лють",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-010",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Примусова атака",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-011",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Психічна шкода",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-012",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Поклик полювання",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-013",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-ability-scores",
+      "targetBlockId": "block-section-path-of-the-beast-ability-scores-2",
+      "optionId": "section-path-of-the-beast-ability-scores-block-section-path-of-the-beast-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-path-of-the-beast-ability-scores-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-014",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-ability-scores",
+      "targetBlockId": "block-section-path-of-the-beast-ability-scores-3",
+      "optionId": "section-path-of-the-beast-ability-scores-block-section-path-of-the-beast-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-path-of-the-beast-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-015",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-ability-scores",
+      "targetBlockId": "block-section-path-of-the-beast-ability-scores-4",
+      "optionId": "section-path-of-the-beast-ability-scores-block-section-path-of-the-beast-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-path-of-the-beast-ability-scores-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-016",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-ability-scores",
+      "targetBlockId": "block-section-path-of-the-beast-ability-scores-5",
+      "optionId": "section-path-of-the-beast-ability-scores-block-section-path-of-the-beast-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-path-of-the-beast-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-017",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-ability-scores",
+      "targetBlockId": "block-section-path-of-the-beast-ability-scores-6",
+      "optionId": "section-path-of-the-beast-ability-scores-block-section-path-of-the-beast-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-path-of-the-beast-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-018",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-ability-scores",
+      "targetBlockId": "block-section-path-of-the-beast-ability-scores-7",
+      "optionId": "section-path-of-the-beast-ability-scores-block-section-path-of-the-beast-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-path-of-the-beast-ability-scores-7",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-019",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-races",
+      "targetBlockId": "block-section-path-of-the-beast-races-2",
+      "optionId": "section-path-of-the-beast-races-block-section-path-of-the-beast-races-2-item-0",
+      "context": "Хадозі",
+      "explanationBlockId": "block-section-path-of-the-beast-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-020",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-races",
+      "targetBlockId": "block-section-path-of-the-beast-races-2",
+      "optionId": "section-path-of-the-beast-races-block-section-path-of-the-beast-races-2-item-1",
+      "context": "Гаренгон",
+      "explanationBlockId": "block-section-path-of-the-beast-races-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-021",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-races",
+      "targetBlockId": "block-section-path-of-the-beast-races-2",
+      "optionId": "section-path-of-the-beast-races-block-section-path-of-the-beast-races-2-item-2",
+      "context": "Сатир",
+      "explanationBlockId": "block-section-path-of-the-beast-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-022",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-races",
+      "targetBlockId": "block-section-path-of-the-beast-races-2",
+      "optionId": "section-path-of-the-beast-races-block-section-path-of-the-beast-races-2-item-3",
+      "context": "Симічний гібрид",
+      "explanationBlockId": "block-section-path-of-the-beast-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-023",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-feats",
+      "targetBlockId": "block-section-path-of-the-beast-feats-1",
+      "optionId": "section-path-of-the-beast-feats-block-section-path-of-the-beast-feats-1-item-0",
+      "context": "Майстер важкої зброї",
+      "explanationBlockId": "block-section-path-of-the-beast-feats-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-024",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-feats",
+      "targetBlockId": "block-section-path-of-the-beast-feats-1",
+      "optionId": "section-path-of-the-beast-feats-block-section-path-of-the-beast-feats-1-item-1",
+      "context": "Експерт у навичках TCoE",
+      "explanationBlockId": "block-section-path-of-the-beast-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-025",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-feats",
+      "targetBlockId": "block-section-path-of-the-beast-feats-1",
+      "optionId": "section-path-of-the-beast-feats-block-section-path-of-the-beast-feats-1-item-2",
+      "context": "Майстер щита",
+      "explanationBlockId": "block-section-path-of-the-beast-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-026",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-feats",
+      "targetBlockId": "block-section-path-of-the-beast-feats-1",
+      "optionId": "section-path-of-the-beast-feats-block-section-path-of-the-beast-feats-1-item-3",
+      "context": "Рубака",
+      "explanationBlockId": "block-section-path-of-the-beast-feats-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-027",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-path-of-the-beast-feats",
+      "targetBlockId": "block-section-path-of-the-beast-feats-1",
+      "optionId": "section-path-of-the-beast-feats-block-section-path-of-the-beast-feats-1-item-4",
+      "context": "Здоровань",
+      "explanationBlockId": "block-section-path-of-the-beast-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-barbarian-path-of-the-beast-2014-028",
+      "articleId": "rpgbot-barbarian-path-of-the-beast-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-path-of-the-beast-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-1",
+      "optionId": "section-multiclassing-block-section-multiclassing-1-item-0",
+      "context": "Монах",
+      "explanationBlockId": "block-section-multiclassing-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

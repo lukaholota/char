@@ -1,0 +1,2880 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "73a3e321e4c8f67da2f6fb4fc2dc148974467a087d86ff224354e0189566b601",
+  "sourceRevision": {
+    "revisionId": "rpgbot-a3b86389033dc30b-73a3e321e4c8f67d",
+    "sourceId": "rpgbot-a3b86389033dc30b",
+    "fetchedAt": "2026-09-29T19:19:13.275934+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:30:42-04:00",
+    "contentHash": "b822cdeefc5461f14f5ebce5f09c81d95ebc54d91faedade442460f18e61f855",
+    "title": "Order Domain Cleric 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-a3b86389033dc30b-73a3e321e4c8f67d.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Originally designed as the depiction of the Azorius guild from one of the Magic the Gathering crossover books, the Order Domain Cleric provides an incredibly powerful feature that immediately drew the attention of optimizers everywhere. Once it was then added to a non-setting-specific sourcebook, it promptly became a valuable choice in the field of powerful Clerics."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With a strong focus on “motivation” in the form of making their allies attack out of turn and empowering their enchantment spells, this subclass provides many tools to be an incredibly effective Cleric. With that said, as you’ll see below, it actually provides you even better tools to do something else entirely."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Order Domain Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Order Domain Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#order-domain-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Order Domain Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#order-domain-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Order Domain Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#order-domain-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Order Domain Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#order-domain-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Order Domain Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#order-domain-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Order Cleric Build – I heard a rumor this was originally UA content",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Order Domain Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Domain Spells"
+              },
+              {
+                "type": "text",
+                "text": ": The spell list oscilates\n\t\t\tbetween pairs of fantastic options and pairs of situational options.\n\t\t\tOverally it’s fairly good, and you’ll get a lot of use out of many of the\n\t\t\tspells, especially the enchantments.\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both excellent options\n\t\t\t\t\twith a wide variety of uses, and they remain useful well into high\n\t\t\t\t\tlevels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd Level"
+              },
+              {
+                "type": "text",
+                "text": ": Hold Person is\n\t\t\t\t\tsituational, but can be very handy in a campaign with a lot of\n\t\t\t\t\thumanoid enemies. Zone of Truth is rarely important in any\n\t\t\t\t\tcampaign."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th Level"
+              },
+              {
+                "type": "text",
+                "text": ": A staple cleric spell,\n\t\t\t\t\tand a good crowd control option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both spells are\n\t\t\t\t\tsituational at best."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Commune is one of my\n\t\t\t\t\tabsolute favorite divinations because it’s so versatile and reliable.\n\t\t\t\t\tDominate Person is technically situational, but if there’s a humanoid\n\t\t\t\t\tenemy in an encounter it’s hard to think of a better spell to\n\t\t\t\t\tcast."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bonus Proficiencies"
+              },
+              {
+                "type": "text",
+                "text": ": Heavy armor is\n\t\t\talways a fantastic option for clerics, and an additional skill is always\n\t\t\twelcome."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Voice of Authority"
+              },
+              {
+                "type": "text",
+                "text": ": Despite many valiant\n\t\t\tattempts, clerics are nearly never as good at weapon attacks as their more\n\t\t\tmartially-minded allies. Use this to give your rogue a chance to deliver a\n\t\t\tSneak Attack during your turn (Sneak Attack is once per turn, not once per\n\t\t\tround), or if there isn’t a rogue in the party give it to whoever will\n\t\t\tdeal the most damage.\n"
+              },
+              {
+                "type": "text",
+                "text": "The spell you cast only needs to be a leveled spell,\n\t\t\tso when you’re high enough level that your low-level spells won’t make a\n\t\t\tbig direct impact in combat, you can use bonus action spells like Healing\n\t\t\tword to trigger this effect and spend your action casting a cantrip. Once\n\t\t\tyou get Embodiment of Law you can cast enchantment spells as bonus actions\n\t\t\ta few times per day, which gives you even more ways to do this."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "It can also be used to do neat things if your friends happen to have \n"
+              },
+              {
+                "type": "link",
+                "text": "one of a few feats",
+                "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity: Order’s Demand"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t\tDisarm every target within 30 feet on failed Wisdom saves. Excellent against\n\t\t\thumanoid enemies, but less useful against monsters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Embodiment of Law"
+              },
+              {
+                "type": "text",
+                "text": ": 3-5 times per day\n\t\t\tdoesn’t seem like a lot, but with the Order domain’s emphasis on\n\t\t\tenchantment spells that’s probably enough to cover most situations where\n\t\t\tyou want to cast an enchantment and do some other action on the same\n\t\t\tturn."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine Strike"
+              },
+              {
+                "type": "text",
+                "text": ": Psychic damage is among\n\t\t\tthe most reliable damage types in the game, but unintelligent creatures\n\t\t\tlike zombies and constructs are frequently immune so you’ll want to bring\n\t\t\tother offensive options to handle those enemies. See also:\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Divine Strike vs. Cantrips",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/#divine-strike-vs-cantrips"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Order’s Wrath"
+              },
+              {
+                "type": "text",
+                "text": ": This is very weak for\n\t\t\tsuch a high-level feature, and it simply doesn’t match the capabilities\n\t\t\tprovided by most other subdomains at this level. Life gets to maximize\n\t\t\thealing dice. Nature gets to command an army of beasts. Trickery gets to\n\t\t\tpretend to be in five places at once and cast spells from any of them.\n\t\t\tOrder gets to "
+              },
+              {
+                "type": "emphasis",
+                "text": "maybe"
+              },
+              {
+                "type": "text",
+                "text": " deal 2d8 damage, provided that you hit with\n\t\t\tyour one attack per turn and have an ally handy to hit the same creature.\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Your ideal use case for this is to hit an enemy with your weapon and\n\t\t\t\tdeal Divine Strike damage, then cast a leveled spell as a bonus action\n\t\t\t\tto trigger Voice of Authority and have your ally hit the same target to\n\t\t\t\ttrigger the bonus damage."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "That means you’re dealing 4d8 psychic damage\n\t\t\t\t(2d8 from Divine Strike, 2d8 from Order’s Wrath) plus whatever your\n\t\t\t\tweapon does plus whatever your ally’s attack does. That’s pretty good,\n\t\t\t\tbut by this level you’re dealing 4d8 damage with Sacred Flame (more with\n\t\t\t\tother options like Word of Radiance or Toll the Dead), and your\n\t\t\t\tspellcasting DC will be probably be more reliable than your attack\n\t\t\t\tbonus, so casting a cantrip is a much more consistent source of damage\n\t\t\t\toutput."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-order-domain-ability-scores",
+      "heading": "Order Domain Ability Scores",
+      "sourceAnchor": "order-domain-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-order-domain-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No change from standard cleric, with the caveat that you’re one of the domains that gets free heavy armor. If you can get your str up to 15 to wear full plate without sacrificing too much, you should. With that said, all you really lose for wearing it anyway is 10 feet of movement speed which is way less important as a support caster than you might imagine. Especially if you spend early resources on a broom of flying which has its own speed and doesn’t give a lick about what yours is."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-order-domain-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In standard array, charisma gets the bump over intelligence because Clerics sometimes end up as de facto Faces, what with people generally imagining them to be helpful people. Also, Int saves suck to fail, but Charisma saves "
+            },
+            {
+              "type": "emphasis",
+              "text": "suck "
+            },
+            {
+              "type": "text",
+              "text": "to fail."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-order-domain-ability-scores-3",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-order-domain-races",
+      "heading": "Order Domain Races",
+      "sourceAnchor": "order-domain-races",
+      "blocks": [
+        {
+          "blockId": "block-section-order-domain-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You might be tempted to pick up a race with innate spellcasting like the Fairy or Yuan-ti, but the wording on both Voice of Authority and Embodiment of Law require you to spend spell slots to trigger them, which means they don’t interact. That doesn’t make them bad choices, although fairy is a hard sell because it means we have to choose between using our flight and our heavy armor proficiency."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-order-domain-feats",
+      "heading": "Order Domain Feats",
+      "sourceAnchor": "order-domain-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-order-domain-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fey Touched: Sleep and Tasha’s Hideous Laughter are both staple powerhouse spells that this class can turn into a bonus action thanks to Embodiment of Law, assuming you actually cast them via a spell slot and not just the free casting from the feat itself. Note that the feat says you "
+            },
+            {
+              "type": "emphasis",
+              "text": "can"
+            },
+            {
+              "type": "text",
+              "text": " do so, not that you "
+            },
+            {
+              "type": "emphasis",
+              "text": "must"
+            },
+            {
+              "type": "text",
+              "text": " do so, so you can save your free casting for a time when you don’t want it to be faster anyway. I would call out Heroism here, but the domain already gives it to you."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-order-domain-weapons",
+      "heading": "Order Domain Weapons",
+      "sourceAnchor": "order-domain-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-order-domain-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different than any other cleric."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-order-domain-armor",
+      "heading": "Order Domain Armor",
+      "sourceAnchor": "order-domain-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-order-domain-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One of the flavors of cleric that can wear heavy armor, and therefore should if they can afford the strength and money to."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Sorcerer"
+              },
+              {
+                "type": "text",
+                "text": ": I am so strongly of the opinion that the best way to play an Order Cleric is by taking one level in it and then promptly fleeing for Divine Soul Sorcerer that I did so in a oneshot. You just take cantrips and spells that don’t rely on a spell attack or DC (meaning mostly support spells like Bless), leave your Wisdom at 13, and then get into the subclass with the best spell selection in the game, allowing you the flexibility to pick up many different options to trigger Voice of Authority with while still letting you hinder your enemies like a controller.\n"
+              },
+              {
+                "type": "text",
+                "text": "I actually wrote this and the "
+              },
+              {
+                "type": "link",
+                "text": "Divine Soul Sorcerer Handbook",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/divine-soul/"
+              },
+              {
+                "type": "text",
+                "text": " at the same time because they initially started as the same article. Check out what happens if the thing you really want to optimize is Voice of Authority rather than the whole subclass."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wizard"
+              },
+              {
+                "type": "text",
+                "text": ": There’s a gimmicky thing you could do with a deep dive as an Enchanter Wizard where you get to now use your Embodiment of Law to turn something into a bonus action and combine it with Split Enchantment to target two people at once. I would recommend against this as you’re severely handicapping your spell progression in both classes, but it’s an amusing interaction."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+      "heading": "Example Order Cleric Build – I heard a rumor this was originally UA content",
+      "sourceAnchor": "example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+      "blocks": [
+        {
+          "blockId": "block-section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build takes a small dip in sorcerer to get access to Silvery Barbs because it’s just that good, especially in conjunction with Voice of Authority. To avoid making it too similar to the Divine Soul handbook, that’s all we’re going to take, even though I can’t stress enough that, given the option, I would play the Divine Soul build over this 10 out of 10 times."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Charisma needs to be at least 13 to multiclass, and, since we don’t need Dex or Strength for anything, we make Con as high as possible and put Charisma up to 14 with the spare points."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shifter. We get proficiency in Intimidation and one of two options. If you’re really worried about that slow speed because of armor, using Swiftstride will fix that. That said, I would probably use Wildhunt for the ability to vibe check someone with Insight or when rolling Perception/Survival for finding or tracking things."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We take Spy, and move the Stealth proficiency over to Perception. It turns out that spies are generally only useful if they can actually see and hear things."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to be a Face (although slightly less good than the Cleric 1/Sorcerer X version), so we act like it. Starting with Cleric gives us Medicine and Insight, while the bonus proficiency in Persuasion comes from the domain. These, combined with our race and background gives us proficiency in every standard Face skill (Deception, Insight, Intimidation, Persuasion) and a total of 6 skill proficiencies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll be a level behind on ASI’s for the entirety of the character, so we definitely want to hybrid feat at 5 and ASI our main stat up to 20 at 9. We use Fey Touched as discussed above. At 13, we take Inspiring Leader and show you a bit of the math for why it’s incredible at this level. At 17, we take Eldritch Adept for Devil’s Sight, before finally taking Resilient (Con) at 20 for a pretend capstone."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "strong",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1- Cleric 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Toll the Dead"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sacred Flame"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Healing Word"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guiding Bolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Protection from Evil and Good"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shield of Faith"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Domain Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Command"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Heroism"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Voice of Authority"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We start like any other Cleric, but with a focus on triggering Voice of Authority because it’s already an incredible ability. To that end, Healing Word will do a lot of work for you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Speaking of bonus action spells, man Shield of Faith is good. Wait for your martial friend to walk into melee, throw a +2 AC on them as a bonus action and enjoy as they get to slap whatever poor sap is next to them. The fact that you only get two spell slots at this level means that you need to be very careful about when you use them and what you use them on. Don’t use one unless it’s life and death or it can trigger Voice of Authority."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For starting equipment, take chain mail, a mace, and a light crossbow. Immediately sell both of those weapons and use it to buy full plate when you can."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2- Sorcerer 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Prestidigitation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Light"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Shape Water",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Bless"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Silvery Barbs"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Bane (Affinity)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored by the Gods"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I really did mean immediately switching to sorcerer. The cantrips are all utility since our Charisma will never increase"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bane is a nice touch here since it targets a Charisma save and, according to Tyler, is probably the single best tool to frustrate important monsters out of a Legendary Resistance. Your Charisma won’t ever scale but your proficiency does, and hardly anything has good Charisma saves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Then there’s Silvery Barbs. Tyler was so salty when this came out that he spent "
+                },
+                {
+                  "type": "link",
+                  "text": "a whole article",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": " saying why you shouldn’t use it. It turns out that the true enlightenment of this spell is on an Order Cleric, though. You cast a cantrip (or anything with a save, really, but cantrips are free). The target succeeds on its save. You cast Silvery Barbs as a reaction, forcing it to reroll its save. Pass or fail, you now target your ally with the second half, granting it advantage on its next attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This triggers Voice of Authority. The target can now immediately make an attack, with the advantage you just gave it. Target failed its save against your cantrip? Just wait for it to roll something successful on its turn. Target didn’t manage to roll anything successfully? Congratulations, you saved a spell slot because your foe was completely ineffectual."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Do note that the only limitation on Voice of Authority is spell slots. If you Healing Word one person and Silvery Barbs someone else in the same round, they can both take the reaction attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3- Cleric 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Detect Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity: Order’s Demand"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s a ritual, so it won’t compete for a precious spell slot."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Do also note that, thanks to the magic of multiclassing, we have 2nd-level spell slots right now and no 2nd-level spells to cast in them. This means you’re free to upcast Healing Word (or Guiding Bolt if your team’s doing "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "really"
+                },
+                {
+                  "type": "text",
+                  "text": " well) without guilt."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We discussed Order’s Demand above, but I’ll call out a few things here. Perhaps the single best use of this I can think of is to use it when your party is fighting enemies that are carrying shields. Channel to get them to drop their equipment, then use a bonus action spell like Shield of Faith or Healing Word on someone to let them attack into the lowered AC."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "By itself, Charmed isn’t a hugely useful status condition. It can also save you though if you’ve gotten yourself surrounded. Creatures that are charmed by you can’t attack you or target you with hostile magic, so it can buy you a turn for your friends to focus down an enemy or two in a pinch."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "One alternative here would be to take another level or two in Sorcerer at this point instead of continuing as a Cleric. It would get you access to Font of Magic and possibly Metamagic and Vortex Warp like I talked about in the Divine Soul Handbook, while still letting you get 9th-level Cleric spells. The more you do, though, the more tempted you’re going to be to just keep going and get Wish instead of Mass Heal."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4- Cleric 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Spiritual Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Swap Prepared: Guiding Bolt -> Lesser Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Domain Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hold Person"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Zone of Truth"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Maybe no one’s in position yet. Maybe everyone’s dead except for you. Maybe you just desperately need some Force damage. Enjoy using Spiritual Weapon and a cantrip in the same turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Since you now have a different way of doing damage, trade in Guiding Bolt for the Cleric support staple."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hold Person is a great save-or-suck if you’re running into hostile humanoids frequently, which you probably still are at this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5- Cleric 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mending"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Calm Emotions"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Aid"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Feat:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fey Touched (+1 Wis)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Calm Emotions will be a valid target for embodiment of Law when it comes online and can be a very useful trick if you’re trying to end a fight without bloodshed, especially since it targets a Charisma save."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Fey Touched, we learn Sleep since Hold Person is basically just a better Tasha’s Hideous Laughter."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6- Cleric 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Beacon of Hope"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Domain Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mass Healing Word"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Slow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "While Beacon of Hope may seem like a tempting combat buff due to its granting advantage on Wisdom saves, it’s actually far better to use this during a Short Rest. It doesn’t specify that it only maximizes magical healing, so it will absolutely work on hit dice spent as part of one."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With that said, if what you’re going for is out of combat healing and your DM allows you the optional class features, take Aura of Vitality instead. 20d6 healing is a ludicrous amount that shouldn’t be available at this level and it shows."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mass Healing word is rarely worth the spell slot (use Aid instead since it raises creatures’ current hit points, too), but Slow is a fantastic debuff and can make a fight with a large number of enemies significantly more survivable."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7- Cleric 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dispel Magic/Protection from Energy/Remove Curse"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Embodiment of the Law"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR ½)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (2/rest)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pick whichever of these defensive spells is going to be the best fit for your campaign. Maybe you’re fighting a Wizard brigade who all prep Fireball. Maybe you’re descending into Avernus and need to fix things caused by insanity. Maybe someone’s casting Hold Person on "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Embodiment of the Law is fantastic as discussed above. Heroism, Sleep, and Hold Person are all excellent choices which will still let you cast a cantrip."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8- Cleric 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Banishment"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Domain Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Compulsion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Locate Creature"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Banishment is a fantastic save-or-suck that, once again, targets Charisma."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you feel like making your enemies wander into harm’s way, however, Compulsion is a valid target for Embodiment of Law."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9- Cleric 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wis 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Death Ward"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Divination"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 1)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blessed Strikes"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Death Ward is a spectacular spell at any level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divination is a ritual, and there aren’t all that many great 4th-level options to pick from. Use this any time you’re making plans and have 25gp to spare."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re going to pick one optional class feature to pester your DM for, this is the one. Both of your weapon attack stats are garbage, and this feature would never see play if you have to leave it as Divine Strike instead."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10- Cleric 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mass Cure Wounds"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Domain Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Commune"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dominate Person"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The counter to being Fireballed. You can also use it to trigger Voice of Authority on one of the people you heal."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We trade up our capacity to ask our deity questions, going from one to three and removing the requirement to hand them money every time we do. You have to be a little more precise because it’s yes/no instead of open ended, but if that’s important, just cast one first and then the other. They’re both rituals, and the prohibition against multiple castings only applies to the spell itself, not to the category of them."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dominate Person is an incredible spell if there’s a humanoid you need to mind control. Other than that, it’s nice to have for free."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11- Cleric 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thaumaturgy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Greater Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Intervention"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Geas might look tempting, but remember that Embodiment of Law only works on 1-action spells, and Geas has a minute casting time. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12- Cleric 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Heal"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Swap Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lesser Restoration -> Heroes’ Feast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Heal is the only combat healing spell that’s efficient enough to really be worthwhile on a single target that’s not at 0 hit points."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With that said, we only have one spell slot at this level and Heroes’ Feast is an incredible buff for the whole party. We don’t really mind the cost of all the diamond dust we spend on Greater Restoration at this level and so we lose Lesser to prepare both."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13- Cleric 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Inspiring Leader"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Planar Ally "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Every rest (short or long) lets you put 14 temp HP on each party member. That may not seem like a lot at this level, but on an average party of 4 members, in a day where you wake up, have a fight, short rest, have another fight, short rest again, fight one last time, and then sleep, that’s nearly 170 points of possible healing you don’t have to do."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also, maybe you’re not adventuring on a given day but really need an angel to come do something for you. Summon one and get to haggling."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14- Cleric 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Divine Word"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With this new level of spell slot, mostly what we’re going to do in a day is still Heroes’ Feast and have a 7th-level slot available for a Heal. With that said, if you run into lots of small enemies in an encounter, Divine Word can literally just outright kill all of them on a failed Charisma save."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Even if you get them below 40 first, 10 minutes of blinded in combat is often effectively dead."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15- Cleric 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Plane Shift"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Save your Sorcerer/Bard from having to spend a spell known on this."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16- Cleric 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Holy Aura"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For a minute, as long as you keep up Concentration (which this spell gives you advantage on), your party wins fights."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17- Cleric 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Feat:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eldritch Adept (Devil’s Sight)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "There are "
+                },
+                {
+                  "type": "link",
+                  "text": "only four 8th-level Cleric spells",
+                  "href": "https://www.dndbeyond.com/spells/class/cleric?filter-search=&filter-level=8&filter-verbal=&filter-somatic=&filter-material=&filter-concentration=&filter-ritual=&filter-sub-class=&filter-partnered-content=f"
+                },
+                {
+                  "type": "text",
+                  "text": ", and none of the rest of them are good enough to always prepare."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pick up Devil’s Sight and Hallow your room in the permanent base you probably have by this point, choosing to fill it with magical darkness. While this is an amusing choice to take now over the Resilient (Con) we take later, you can really take either."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This is here because, as a high-level Cleric, it seems likely that your deity will be asking you to fight high-level devils and we would like to be immune to one of their most common tricks. If your campaign isn’t about that, feel free to swap them, or even disregard this entirely in favor of something else with a Con bump. Just not Chef, because we already distribute tons of temp HP from Inspiring Leader."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18- Cleric 17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mass Heal"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 4)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Order’s Wrath"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s not Wish, but it’s the best spell a Cleric can cast in combat."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you did manage to pick up Blessed Strikes, now the turn of “throw a cantrip at someone, Silvery Barbs their successful save so they fail, make your ally stab them” does an extra 2d8 psychic damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19- Cleric 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (3/rest)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20- Cleric 19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Resilient (Con)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spell Prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Your score is already even, but this is still a +6 on saves. "
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Order Domain Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Domain Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 1st Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 7th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bonus Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Voice of Authority"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Channel Divinity: Order’s Demand"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Embodiment of Law"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Divine Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Order’s Wrath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Wizard"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"1\"><span class=\"rating-blue\">Voice of Authority</span>: Despite many valiant attempts, clerics are nearly never as good at weapon attacks as their more martially-minded "
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[7]",
+      "detail": "<li value=\"17\"><span class=\"rating-orange\">Order’s Wrath</span>: This is very weak for such a high-level feature, and it simply doesn’t match the capabilities provided by most othe"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-order-domain-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-order-domain-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-order-domain-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-order-domain-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-order-domain-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-order-domain-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-order-domain-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-example-order-cleric-build-i-heard-a-rumor-this-was-originally-ua-content-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4014,
+    "sections": 17,
+    "blocks": 25,
+    "tables": 3,
+    "ratingSignals": 19
+  },
+  "status": "needs-editorial-review"
+}

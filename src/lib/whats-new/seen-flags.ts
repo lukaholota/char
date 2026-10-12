@@ -4,6 +4,8 @@ const SEEN_FLAG_PREFIX = "char:seen:";
 /// людина тут не вперше, — і саме цим «що нового» відрізняє свого від новачка, якому
 /// розповідати про зміни нема сенсу.
 const RETURNING_VISITOR_PREFIXES = ["char:", "catalog-homebrew:", "pers_details_open"] as const;
+/// Лічильник банера встановлення пишеться вже на першому візиті — ознакою повернення він не є.
+const FIRST_VISIT_PREFIXES = ["char:install-"] as const;
 
 export type FlagStorage = Pick<Storage, "getItem" | "setItem" | "key" | "length">;
 
@@ -38,7 +40,8 @@ export function hasReturningVisitorSignal(storage: FlagStorage | null): boolean 
   try {
     for (let index = 0; index < storage.length; index += 1) {
       const key = storage.key(index);
-      if (key && RETURNING_VISITOR_PREFIXES.some((prefix) => key.startsWith(prefix))) return true;
+      if (!key || FIRST_VISIT_PREFIXES.some((prefix) => key.startsWith(prefix))) continue;
+      if (RETURNING_VISITOR_PREFIXES.some((prefix) => key.startsWith(prefix))) return true;
     }
     return false;
   } catch {

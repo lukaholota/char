@@ -281,3 +281,35 @@ describe("картки заклинань", () => {
     expect(worker.caches.stores.get("char-spell-cards-v1")?.size ?? 0).toBe(0);
   });
 });
+
+describe("офлайн-готовність — сторінка, відкрита повз воркер, зберігається на прохання", () => {
+  async function askToSave(worker: ReturnType<typeof startServiceWorker>, data: Record<string, unknown>) {
+    const replies: unknown[] = [];
+    await worker.dispatch("message", { data: { type: "save-for-offline", ...data }, ports: [{ postMessage: (reply: unknown) => replies.push(reply) }] });
+    return replies;
+  }
+
+  it("кладе HTML сторінки й уже завантажені чанки та відповідає, що збережено", async () => {
+    const requested: string[] = [];
+    const worker = startServiceWorker(async (request) => {
+      requested.push(String(request));
+      return new Response("свіжий лист");
+    });
+
+    const replies = await askToSave(worker, { pages: [`${ORIGIN}/char/42`], assets: ["/_next/static/chunks/a.js"] });
+
+    expect(replies).toEqual([{ saved: true }]);
+    expect(worker.caches.stores.get("char-pages-v1")?.has(`${ORIGIN}/char/42`)).toBe(true);
+    expect(worker.caches.stores.get("char-shell-v1")?.has(`${ORIGIN}/_next/static/chunks/a.js`)).toBe(true);
+    expect(requested).toEqual([`${ORIGIN}/char/42`]);
+  });
+
+  it("помилку сервера не кладе замість сторінки й чесно відповідає, що не збережено", async () => {
+    const worker = startServiceWorker(async () => new Response("впало", { status: 500 }));
+
+    const replies = await askToSave(worker, { pages: [`${ORIGIN}/char/42`] });
+
+    expect(replies).toEqual([{ saved: false }]);
+    expect(worker.caches.stores.get("char-pages-v1")?.has(`${ORIGIN}/char/42`)).toBeFalsy();
+  });
+});

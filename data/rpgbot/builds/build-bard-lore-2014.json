@@ -1,0 +1,825 @@
+{
+  "buildId": "build-bard-lore-2014",
+  "revisionId": "build-bard-lore-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад збірки Барда — Напівельф, Бард Колегії знань",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-bard-2014",
+      "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+      "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "BARD_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "BARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "BARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dissonant-whispers"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "BARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "COLLEGE_OF_LORE",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "invisibility"
+          ],
+          "spellbookKeys": []
+        },
+        "expertise": [
+          "DECEPTION",
+          "PERSUASION"
+        ],
+        "skillProficiencies": [
+          "NATURE",
+          "RELIGION",
+          "ACROBATICS"
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "BARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "dancing-lights"
+          ],
+          "knownSpellKeys": [
+            "enhance-ability"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "BARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hypnotic-pattern"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "BARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "tongues"
+          ],
+          "spellbookKeys": []
+        },
+        "classOptionSpellKeys": [
+          "fireball",
+          "haste"
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "BARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "polymorph"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "BARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 1
+          },
+          {
+            "ability": "DEX",
+            "amount": 1
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "greater-invisibility"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "BARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hold-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "BARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ],
+        "expertise": [
+          "PERCEPTION",
+          "INSIGHT"
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "BARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "BARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "BARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "BARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "BARD_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "BARD_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "BARD_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "BARD_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "BARD_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "BARD_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-2014",
+          "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+          "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "COLLEGE_OF_LORE",
+    "raceKey": "HALF_ELF_2014",
+    "backgroundKey": "NOBLE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 13
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 12
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Припустімо, що ми використали 25-бальну купівлю балів, близьку до наведених вище рекомендацій, але скоригували розподіл, щоб скористатися трьома Покращеннями Характеристик.\n\n  Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 13 14 Інтелект 8 8 Мудрість 12 12 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Напівельф{{Half-Elf}} — надійний і міцний вибір для будь-якого Барда. Два гнучкі Покращення Характеристик вкладемо у Спритність і Статуру.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Завдяки расовим рисам Напівельфа й навичкам Барда ми можемо обрати будь-які пʼять навичок. У 5-й редакції є 18 навичок, тож, звісно, ми не зможемо взяти їх усі. На щастя, ще дві отримаємо від передісторії, а ще три — на 3-му рівні завдяки {{Додатковим володінням|Bonus Proficiencies}} {{Колегії знань|College of Lore}}. Разом це десять навичок — чималий вибір. На 1-му рівні потрібно обрати лише пʼять, але памʼятайте, що дві отримаєте від передісторії; навмисно брати дубльовані володіння не має сенсу, адже ви й так можете обрати будь-яку навичку.\n\nРаджу підбирати навички під роль у групі:\n\nРоль «Обличчя» Знавець Розвідник Навички Обман, Аналіз Поведінки, Залякування, Уважність, Виступ Природа, Уважність, Виступ, Переконання, Релігія Акробатика, Аналіз Поведінки, Уважність, Виступ, Спритність рук\n\nБарди також отримують володіння трьома музичними інструментами. Вони використовують інструменти як магічний фокус для чаротворства, тож зазвичай варто обрати щось портативне, як-от флейту{{Flute}}, лютню чи ручну арфу. Конкретний вибір інструментів майже не впливає на механіку.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-1",
+        "title": "Передісторія",
+        "text": "Якщо у вашій групі немає розвідника (того, хто володіє Непомітністю й інструментами злодія), оберіть передісторію Злочинця{{Criminal}}. Вона дає володіння інструментами злодія й кілька корисних навичок.\n\nЯкщо у вашій групі немає знавця (наприклад, чарівника), оберіть передісторію Мудреця{{Sage}}. Дві навички знань багато важать, а завдяки іншим вільним виборам навичок у вас залишиться чимало можливостей узяти й решту.\n\nЯкщо у вашій групі немає «обличчя», ніхто не впорається з цією роллю краще за вас. Оберіть передісторію Аристократа{{Noble}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-background-1",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "{{Чаротворство|Spellcasting}}\nБардське натхнення{{Bardic Inspiration}} (к6)\nВідомі замовляння:\n— Штукарство [Prestidigitation]\n— Злісне глузування [Vicious Mockery]\nВідомі заклинання:\n— Виявлення магії [Detect Magic]\n— Цілюще слово [healing word]\n— Героїзм [Heroism]\n— Сон [Sleep]",
+        "notes": "Навіть на 1-му рівні ви надзвичайно ефективні. Сім навичок, у яких маєте володіння, збалансований список заклинань і достатньо вправності зі зброєю, щоб за потреби перейти на лук чи рапіру. У шкіряному обладунку й зі Спритністю 16 ваш КБ лише 14, а 10 ХП роблять вас дуже вразливими, тож тримайтеся на відстані й покладайтеся на Злісне глузування [Vicious Mockery]. Воно завдає значно менше шкоди, ніж зброя, але накладений ним штраф може вберегти групу від великої шкоди.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "{{Майстер на всі руки|Jack of All Trades}}\n{{Пісня відпочинку|Song of Rest}} (к6)\nНові відомі заклинання:\n— Дисонуючий шепіт [Dissonant Whispers]",
+        "notes": "2-й рівень розширює ваші можливості. Майстер на всі руки{{Jack of All Trades}} дає бонус до всіх перевірок характеристик, зокрема до ініціативи й перевірок навичок, у яких ви не маєте володіння. {{Пісня відпочинку|Song of Rest}} трохи, але відчутно збільшує запас лікування групи. На низьких рівнях к6 може стати різницею між життям і смертю. Союзники мають витратити кубики здоровʼя{{Hit Dice}}, щоб отримати додаткове лікування, але вже на 2-му рівні ви можете зробити це двічі за день. Треба лише переконати союзників залишити другий кубик здоровʼя на наступний відпочинок, навіть якщо після першого Короткого відпочинку вони ще не відновили всі ХП.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Колегія Бардів{{Bard College}} ({{Колегія знань|College of Lore}})\nДодаткові володіння{{Bonus Proficiencies}}\nРіжучі слова{{Cutting Words}}\nЕкспертиза{{Expertise}}\nНові відомі заклинання:\n— Невидимість [Invisibility]",
+        "notes": "Це цікавий рівень. Оберіть ще три навички, а тоді — дві, у яких отримаєте Експертизу{{Expertise}}. Раджу взяти Уважність і ще дві навички з тих, що я радив вище для вашої ролі. Ріжучі слова{{Cutting Words}} додають новий спосіб використати Бардське натхнення{{Bardic Inspiration}}. На цьому рівні ви й далі маєте лише три використання за день, тож витрачайте їх обачно. Раджу залишати принаймні одне використання спеціально для Ріжучих слів, щоб в останню мить урятувати себе чи союзника. На 3-му рівні також зʼявляються заклинання 2-го рівня — відкривається безліч нових варіантів. Якщо якесь заклинання 1-го рівня вже не потрібне, можете замінити його на заклинання 2-го рівня, але памʼятайте: у вас лише два слоти заклинань 2-го рівня, тож від двох відомих заклинань цього рівня користі може бути небагато.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "{{Покращення Характеристик|Ability Score Improvement}} (Харизма 17 → 19)\nНове відоме замовляння:\n— Мерехтливі вогники [Dancing Lights]\nНове відоме заклинання:\n— Покращення здібності [Enhance Ability]",
+        "notes": "На 4-му рівні вибір невеликий, але підвищення Харизми суттєво посилює Барда. Атаки зброєю починають відставати від темпу зростання КБ супротивників на один пункт, проте ймовірність влучити 55% — цілком прийнятна. У деяких ситуаціях зброя буде кориснішою за Злісне глузування [Vicious Mockery].",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Бардське натхнення{{Bardic Inspiration}} (к8)\n{{Джерело натхнення|Font of Inspiration}}\nНове відоме заклинання:\n— Гіпнотичний візерунок [Hypnotic Pattern]",
+        "notes": "5-й рівень для Барда так само сильний, як і для решти класів. Кістка Бардського натхнення{{Bardic Inspiration}} стає більшою, а {{Джерело натхнення|Font of Inspiration}} дає змогу значно вільніше витрачати кістки натхнення. На 5-му рівні зростає шкода замовлянь, тож Злісне глузування [Vicious Mockery] тепер завдає 2к4 шкоди (у середньому 5). Атаки зброєю завдаватимуть трохи більше шкоди, але, на мою думку, додаткова користь від Злісного глузування [Vicious Mockery] усе ще переважує.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Контрпричарування{{Countercharm}}\nДодаткові магічні таємниці{{Additional Magical Secrets}}:\n— Вогнекуля [Fireball]\n— Прискорення [Haste]\nНове відоме заклинання:\n— Мови [Tongues]",
+        "notes": "Контрпричарування{{Countercharm}} ситуативні, але чимало ефектів, що спираються на стан Причарований, виходять далеко за межі простого причарування істоти. Назва «Додаткові магічні таємниці»{{Additional Magical Secrets}} збиває з пантелику: це вміння ви отримуєте на чотири рівні раніше за Магічні таємниці{{Magical Secrets}}. Обрати заклинання може бути складно через величезну кількість варіантів. Добирайте їх так, щоб вони доповнювали вашу групу. Наприклад, якщо у вашій групі немає нюкера, розгляньте Вогнекулю [Fireball]. Якщо потрібна надійна дистанційна шкода, сильніша за Злісне глузування [Vicious Mockery], підійдуть Позамежний заряд [Eldritch Blast], Вогняний заряд [Fire Bolt] або Дзвін небіжчика [Toll the Dead]. Якщо у групі є сильні бойові персонажі, подумайте про Прискорення [Haste]. Якщо бракує кращого цілителя, наприклад Клірика чи Друїда, оберіть Масове цілюще слово [Mass Healing Word].",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Нове відоме заклинання:\n— Перевтілення",
+        "notes": "На цьому рівні нічого нового, крім заклинань 4-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "{{Покращення Характеристик|Ability Score Improvement}} (Харизма 19 → 20, Спритність 16 → 17)\nНове відоме заклинання:\n— Більша невидимість [Greater Invisibility]",
+        "notes": "Атаки зброєю й далі відстають на один пункт від темпу зростання КБ супротивників, але до цього рівня у вас уже достатньо заклинань, тож атакувати зброєю варто лише зрідка. Тепер Харизма максимальна — 20, отже, у вас є пʼять кісток Бардського натхнення{{Bardic Inspiration}}, і всі вони відновлюються після Короткого відпочинку.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "{{Пісня відпочинку|Song of Rest}} (к8)\nНове відоме заклинання:\n— Стримування монстра [Hold Monster]",
+        "notes": "Збільшення кістки Пісні відпочинку{{Song of Rest}} майже нічого не змінює: різниця між 1к6 і 1к8 — у середньому 1 ХП.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Бардське натхнення{{Bardic Inspiration}} (к10)\nЕкспертиза{{Expertise}} (ще 2 навички)\nМагічні таємниці:\n— Телекінез [Telekinesis]\n— Стіна енергії [Wall of Force]\nНове відоме замовляння:\n— на вибір",
+        "notes": "Бардське натхнення{{Bardic Inspiration}} і далі посилюється. Тепер у вас пʼять кісток, тож навіть невелике покращення має вагу. Ще два вибори Експертизи{{Expertise}} — чудово; до цього рівня ви вже розумітимете, які навички найчастіше використовують у вашій кампанії. Тепер ви вперше отримуєте звичайні Магічні таємниці{{Magical Secrets}}. Памʼятайте, що ці заклинання враховуються у звичайній кількості відомих заклинань, тож на цьому рівні ви вивчите лише два нові; найімовірніше, обидва варто обрати зі списків інших класів. Якщо все ж хочете взяти заклинання зі списку Барда, подумайте про заміну заклинання нижчого рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Навички й експертиза Колегії знань",
+        "reason": "Автор не називає три нові навички 3-го рівня (радить за ролями) і навички для експертизи на 3-му та 10-му рівнях; пресет бере Природу, Релігію й Акробатику, експертизу в Обмані й Переконанні (3-й), Уважності й Аналізі поведінки (10-й) — вибір платформи, можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Нові замовляння та заклинання на рівнях 11–20",
+        "reason": "Таблиця статті закінчується на 10-му рівні, а замовлення на 10-му автор лишає «на вибір»; усі нові заклинання й замовляння з 10-го рівня обирає гравець (вибір платформи).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Рівні 11–20",
+        "reason": "Автор не описує рівні вище 10-го; підвищення характеристик на 12, 16 і 19-му пресет бере Статура +2 (вибір платформи, гравець може змінити).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Магічні таємниці на 10-му рівні",
+        "reason": "Автор бере Телекінез і Стіну енергії з чужих списків; платформа приймає лише заклинання зі списку Барда (помилка компілятора: «Обране заклинання не з вашого списку класу або зависокого рівня»), тому на 10-му рівні гравець обирає два заклинання сам (вибір платформи).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-2014",
+            "translationRevisionId": "translation-rpgbot-bard-2014-draft1",
+            "sourceRevisionId": "rpgbot-8b1cb0e702540eb8-508984f1c71de889",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

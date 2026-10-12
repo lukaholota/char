@@ -7,6 +7,7 @@
 import { Ruleset, WeaponType, DamageType, WeaponProperty, WeaponMastery } from "@/lib/prisma-enums";
 import weapons2014Json from "./generated/weapons.json";
 import weapons2024Json from "../../data/2024/normalized/weapons.json";
+import optimizationSupplements from "./generated/optimization-entity-supplements-2014.json";
 import { weaponTranslations } from "./refs/translation";
 import { toEntitySlug } from "./slug-utils";
 import { formatDiceUkr } from "./logic/equipment-stats";
@@ -33,6 +34,7 @@ export type WeaponData = {
   cost?: string | null;
   ruleset: Ruleset;
   source: string;
+  description?: string;
 };
 
 const weapons2014: WeaponData[] = (weapons2014Json as Array<{
@@ -73,6 +75,10 @@ const weapons2014: WeaponData[] = (weapons2014Json as Array<{
   ruleset: "RULES_2014" as Ruleset,
   source: w.source || "PHB_2014",
 }));
+const weaponNames2014 = new Set(weapons2014.map((weapon) => weapon.engName));
+const maxWeaponId2014 = Math.max(...weapons2014.map((weapon) => weapon.id));
+weapons2014.push(...optimizationSupplements.weapons.filter((weapon) => !weaponNames2014.has(weapon.engName))
+  .map((weapon, index) => ({ ...weapon, id: maxWeaponId2014 + index + 1, ruleset: "RULES_2014" as const })));
 
 function parsePropertiesString(raw: string): WeaponProperty[] {
   const props: WeaponProperty[] = [];

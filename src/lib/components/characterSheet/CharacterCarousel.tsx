@@ -18,11 +18,20 @@ import { useWildshapeState } from "./useWildshapeState";
 import { applyActiveStates } from "@/lib/logic/active-states";
 import type { SpellSource } from "@/rules/spell-sources";
 import { runWhenIdle } from "@/lib/run-when-idle";
+import { ChunkLoadBoundary } from "@/components/errors/ChunkLoadBoundary";
+import { SlideNotSavedNotice } from "./SlideNotSavedNotice";
 
-const SkillsSlide = dynamic(() => import("./slides/SkillsSlide"));
-const CombatSlide = dynamic(() => import("./slides/CombatSlide"));
-const MagicSlide = dynamic(() => import("./slides/MagicSlide"));
-const FeaturesSlide = dynamic(() => import("./slides/FeaturesSlide"));
+export const LAZY_SLIDE_LOADERS = {
+  skills: () => import("./slides/SkillsSlide"),
+  equipment: () => import("./slides/CombatSlide"),
+  magic: () => import("./slides/MagicSlide"),
+  features: () => import("./slides/FeaturesSlide"),
+};
+
+const SkillsSlide = dynamic(LAZY_SLIDE_LOADERS.skills);
+const CombatSlide = dynamic(LAZY_SLIDE_LOADERS.equipment);
+const MagicSlide = dynamic(LAZY_SLIDE_LOADERS.magic);
+const FeaturesSlide = dynamic(LAZY_SLIDE_LOADERS.features);
 
 const FIRST_SLIDE_INDEX = 0;
 
@@ -192,7 +201,11 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
                     {/* Своя межа на слайд: підвантаження чанка, що підвісило б карусель, змусило б
                         React перезапустити її layout-ефекти, а swiper/react — створити Swiper
                         заново на першому слайді. */}
-                    <Suspense fallback={null}>{mountedSlides.has(index) ? renderSlide(slide.id) : null}</Suspense>
+                    <Suspense fallback={null}>
+                      <ChunkLoadBoundary fallback={<SlideNotSavedNotice />}>
+                        {mountedSlides.has(index) ? renderSlide(slide.id) : null}
+                      </ChunkLoadBoundary>
+                    </Suspense>
                   </div>
                 </div>
               </SwiperSlide>
@@ -222,7 +235,7 @@ export default function CharacterCarousel({ pers, spellcastingSources, onPersUpd
         </div>
       </div>
 
-      <div className="fixed bottom-[calc(75px+env(safe-area-inset-bottom,0px))] left-0 w-full md:sticky md:bottom-0 z-20 border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-2 py-2 shadow-xl shadow-black/30">
+      <div data-safe-sheet-tabs className="fixed bottom-[calc(75px+env(safe-area-inset-bottom,0px))] left-0 w-full md:sticky md:bottom-0 z-20 border-t border-white/10 bg-slate-900/95 backdrop-blur-xl px-2 py-2 shadow-xl shadow-black/30">
         <div className="mx-auto max-w-5xl flex items-center justify-center gap-1">
           {allSlides.map((s, idx) => {
             const active = idx === currentIndex;

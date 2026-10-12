@@ -1,0 +1,4346 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "4c791eca8567b25624160224a36918ce3b4f43f83041c1fdf9b75ba488867d22",
+  "sourceRevision": {
+    "revisionId": "rpgbot-81184a7bc27f87b5-4c791eca8567b256",
+    "sourceId": "rpgbot-81184a7bc27f87b5",
+    "fetchedAt": "2026-09-29T19:16:19.038884+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:33:32-04:00",
+    "contentHash": "5888fe57764f501df81aa5a53fcb68db3a84faba5665c9799b6619c49ace6337",
+    "title": "Steinhardt’s Circle of Symbiosis Druid: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-81184a7bc27f87b5-4c791eca8567b256.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Circle of the Symbiosis, introduced by Evan Mascaro (MonkeyDM) in Steinhardt’s Guide to the Eldritch Hunt, is a novel take on the druid which turns them into a durable front-line melee threat while still preserving the Druid’s spellcasting capabilities. The signature feature, Wickerbone Behemoth, neatly addresses the Druid’s problematic lack of durability while also giving you an effective weapon attack option that’s good enough to carry you through many encounters. The subclass also brings in several Osteomancy spells (also introduced in Steinhardt’s), offering some really exciting bone-themed magic with novel, powerful effects."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The closest official option to Circle of Symbiosis is "
+            },
+            {
+              "type": "link",
+              "text": "Circle of Spores",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/"
+            },
+            {
+              "type": "text",
+              "text": ": both subclasses use Wild Shape to turn the Druid into a martial form which makes them more of a martial threat while still maintaining the ability to cast spells. Compared to Circle of Spores, Circle of Symbiosis monopolizes your action economy considerably less, but benefits from similar tactics and build choices. In many ways, Circle of Symbiosis is simpler to build and play than Circle of Spores, but also leaves much more flexibility in what you can do while still building an effective character. That said, Circle of Symbiosis works best with a good understanding of the mechanics of temporary hit points and of the spell Barkskin."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because Barkskin features so heavily in the subclass’s features, it’s important to understand how it works. Barkskin sets a "
+            },
+            {
+              "type": "emphasis",
+              "text": "minimum"
+            },
+            {
+              "type": "text",
+              "text": " AC, not a base AC like armor does. Bonuses like a shield don’t add on top of Barkskin’s 16, and you can’t activate Wickerbone Behemoth while wearing armor, so you might as well forgo armor entirely."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article covers third-party content published by "
+            },
+            {
+              "type": "link",
+              "text": "MonkeyDM",
+              "href": "https://www.monkeydm.com/"
+            },
+            {
+              "type": "text",
+              "text": ". Review materials were provided for this article. This article references other options included in Steinhardt’s Guide to the Eldritch Hunt, by MonkeyDM. Wherever it makes sense, the article will include (Steinhardt’s) following the item to indicate its origins. See the "
+            },
+            {
+              "type": "link",
+              "text": "Kickstarter page",
+              "href": "https://www.kickstarter.com/projects/monkey-dm/eldritch-hunt?ref=epxhhw"
+            },
+            {
+              "type": "text",
+              "text": " for more information about Steinhardt’s."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Symbiosis Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Symbiosis Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#circle-of-symbiosis-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Symbiosis Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#circle-of-symbiosis-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Symbiosis Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#circle-of-symbiosis-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Symbiosis Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#circle-of-symbiosis-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Symbiosis Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#circle-of-symbiosis-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Eldritch Slap Fight World Champion",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#example-build-eldritch-slap-fight-world-champion"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/steinhardts-circle-of-symbiosis/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Circle of Symbiosis Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "strong",
+                "text": "Spells"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2"
+              },
+              {
+                "type": "text",
+                "text": ":Shillelagh is normally a good\n\t\t\t\tspell, but it’s mostly redundant for Circle of Symbiosis. Use Wickerbone\n\t\t\t\tBehemoth instead."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3"
+              },
+              {
+                "type": "text",
+                "text": ": Barkskin feels redundant since you\n\t\t\t\talready get the effect from Wickerbone Behemoth. Skeletal Tail\n\t\t\t\t(Steinhardt’s) is a good area control buff, making it difficult for\n\t\t\t\tenemies to move around while you’re nearby. The 1-minute duration is\n\t\t\t\tenough to get through a fight, but try to pre-cast it before you jump\n\t\t\t\tinto combat if you can."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              },
+              {
+                "type": "text",
+                "text": ": Osseus Cage (Steinhardt’s) is like\n\t\t\t\ta low-budget Forcecage, allowing you to trap enemies inside the cage\n\t\t\t\twith you or to trap enemies outside. Plant Growth is great area control."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7"
+              },
+              {
+                "type": "text",
+                "text": ": Maiden of Bones (Steinhardt’s)\n\t\t\t\tcompletely removes an enemy from a fight for up to a minute, and\n\t\t\t\tamazingly doesn’t require Concentration. For creatures not built around\n\t\t\t\tStrength, this is a death sentence. Stoneskin is an excellent defensive\n\t\t\t\toption. It does require Concentration, but halving most attacking damage\n\t\t\t\tmakes it much easier to pass Concentration saves."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9"
+              },
+              {
+                "type": "text",
+                "text": ": Forest of Dread (Steinhardt’s) is\n\t\t\t\tpassable area control, but since the damage only applies when creatures\n\t\t\t\tmove, it’s entirely possible that enemies will simply remain still while\n\t\t\t\tfighting or flee the area of effect on round 1. Tree Stride is at best\n\t\t\t\tmediocre, and even then only when you’re consistently in forests with\n\t\t\t\tqualifying trees."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wickerbone Behemoth"
+              },
+              {
+                "type": "text",
+                "text": ": Circle of Symbiosis’s\n\t\tsignature feature, Wickerbone Behemoth turns you into a melee threat.\n\t\tOffensively, you’re relying on your club hands. Wickerbone Behemoth allows\n\t\tyour hands to function as clubs affected by Shillelagh. Clubs notably have\n\t\tthe Light property, which means that they qualify for Two-Weapon Fighting.\n\t\tIf you’re not using your Bonus Action for a spell, you’ll frequently be in\n\t\tmelee attacking with both hands.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "But what about the Druid’s famously poor defenses? d8 hit dice and poor\n\t\t\tarmor options make melee a scary place. Barkskin helps a bit, but AC 16\n\t\t\tdoesn’t make you bulletproof. If you can handle the damage, baiting\n\t\t\tattacks to trigger the 1d4 damage when you’re hit can be very effective,\n\t\t\tespecially if you’re in a crowd."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You’re expected to survive based on the third bullet of the feature.\n\t\t\tRecovering half of the damage you take up to 3x Wisdom means that you can\n\t\t\teasily handle small amounts of damage, even from multiple sources, but\n\t\t\tsince you only recover half you need to end fights quickly. Consider the\n\t\t\tTough feat so that you can handle more damage."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Grafted Power"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bear Back"
+              },
+              {
+                "type": "text",
+                "text": ": Adding Wisdom to your\n\t\t\t\tStrength checks is most often useful for grappling and shoving. With\n\t\t\t\tExtra Attack, that’s actually a useful option for you so that you can\n\t\t\t\tuse the\n\t\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Grapple+Shove combo",
+                "href": "https://rpgbot.net/dnd5/characters/grapple/"
+              },
+              {
+                "type": "text",
+                "text": ". However, if you plan to do this you’ll need to invest in Strength or\n\t\t\t\tspend a feat to get Expertise in order to offset a poor Strength score.\n\t\t\t\tIt’s more effort than Deer Head, but it may be worth the expense."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Deer Head"
+              },
+              {
+                "type": "text",
+                "text": ": Most Perception checks rely\n\t\t\t\ton Sight, so this will be consistently useful. This is effectively the\n\t\t\t\tdefault option; take this unless you plan to use Bear Back to\n\t\t\t\tgrapple."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Goat Hooves"
+              },
+              {
+                "type": "text",
+                "text": ": Climb speeds are nice,\n\t\t\t\tbut you can also Wild Shape into a spider if you need to climb or into a\n\t\t\t\tbird and avoid climbing altogether. Advantage on saves against things\n\t\t\t\twhich knock you prone is neat, but only situationally useful. Most\n\t\t\t\tthings that knock creatures prone come from players."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Extra Attack"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re going to bother\n\t\tmaking weapon attacks, you either need on-hit damage boosts (the druid gets\n\t\tnone) or you need Extra Attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Nature’s Wrath"
+              },
+              {
+                "type": "text",
+                "text": ": Permanent Barkskin is\n\t\tgreat, but not a huge improvement since you already get it from Wickerbone\n\t\tBehemoth when you’re in combat. Large size is fine, but not very exciting\n\t\twithout expanded reach. The ability to get temporary hit points every turn\n\t\tis excellent, especially since you can make three attacks if you’re\n\t\ttwo-weapon fighting. The extra temporary hp can easily make up for the\n\t\trelatively low AC and might even make up for dropping a shield.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Also keep in mind how this interacts with the regeneration from\n\t\t\tWickerbone Behemoth. If you take damage that’s applied to your temporary\n\t\t\thit points, you’re still taking that damage, so you still regenerate real\n\t\t\thit points. This is great for when you’re taking real hit point damage\n\t\t\tthat’s not consistently getting through your temporary hit points."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Briarheart"
+              },
+              {
+                "type": "text",
+                "text": ": The damage bonus \n\t\tstacks with Shillelagh, so at this level you’re likely dealing 1d8+10 damage\n\t\ton 2 or 3 attacks per turn. At this level, that damage boost is crucial to\n\t\tkeep your damage output meaningful when you’re relying on attacks.\n"
+              },
+              {
+                "type": "text",
+                "text": "The effect when you drop to 0 hit points provides so insurance in case all of your temporary\nhit points, your regeneration, and your ability to cast Heal don’t keep you up. Your allies get\nthe benefits of Wickerbone Behemoth (probably not with the Nature’s Wrath size change), so they\nget Shillelagh hands, Barkskin, and regeneration. It’s not clear from the text, but I think your\nallies are intended to use your spellcasting modifier, so you don’t need to worry abour barbarian\nhaving 8 Wisdom and not getting regeneration."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "I confirmed with the author: When you target allies with this, they are allowed to wear armor\neven though you are not allowed to do so."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-symbiosis-ability-scores",
+      "heading": "Circle of Symbiosis Ability Scores",
+      "sourceAnchor": "circle-of-symbiosis-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-symbiosis-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Max Wisdom, then max Constitution, then figure out how much you want of\n\tStrength and Dexterity. In combat you’ll be running Barkskin most of the time,\n\tso your need for Dexterity is smaller than for most druids. At the same time,\n\tyou only need enough Strength to make grappling worthwhile, and even then only\n\tif you plan to take Bear Back."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-symbiosis-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Grafted Power (Bear Back) can make\n\tGrapple and Shove viable. If you don’t plan to take Bear Back, dump\n\tStrength."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-symbiosis-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Wickerbone Behemoth gives you\n\tBarkskin’s minimum 16 AC. It would take 20 Dexterity and a shield to get\nto just 17, so over-investing in Dexterity really isn’t worth it. Still, a but for\ninitiative, Dex saves, AC before you use Wickerbone Behemoth is helpful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-symbiosis-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": You’re building for melee with d8 hit\n\tdice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-symbiosis-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-symbiosis-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Spells and your club hands."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-symbiosis-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-symbiosis-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array (Bear Back)"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array (Other)"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-symbiosis-races",
+      "heading": "Circle of Symbiosis Races",
+      "sourceAnchor": "circle-of-symbiosis-races",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-symbiosis-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because Circle of Symbiosis depends so heavily on Wisdom for attacks and on\n\tConstitution to compensate for the Druid’s poor durability, you want a race\n\tthat provides increases to both. Other defenses like extra hit points, damage\n\tresistances, condition resistances/immunities, and additional spells are also\n\twelcome."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-symbiosis-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Below I’ll address new race options presented in Steinhardt’s Guide to the\n\tEldritch Hunt. The book uses the pre-Tasha’s method for ability score\n\tincreases (the legal conversation around using the Customized Origin rules in\n\tOGL products is complicated), but I’ll include assessments based on both the\n\tdefault ability score increases and the Custom Origin versions."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-symbiosis-races-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re looking beyond Steinhardt’s for your race, easy options include the\n\tHill Dwarf for poison resistance and bonus hit points, the Variant Human for\n\tthe feat, and the custom origin Tortle for the AC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-7",
+      "parentSectionId": "section-circle-of-symbiosis-races",
+      "heading": "Accursed Tiefling",
+      "blocks": [
+        {
+          "blockId": "block-section-7-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": Climb speed, Darkvision,\n\t\tresistance to necrotic damage (which is hard to find), and a bit of innate\n\t\tspellcasting. You might look at False Life and think “Nature’s Wrath solves\n\t\tthat problem for me”, but Nature’s Wrath doesn’t kick in until you activate\n\t\tWickerbone Behemoth, so having some temporary hit points to start the day is\n\t\tvery helpful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-7-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": Bad ability spread."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-8",
+      "parentSectionId": "section-circle-of-symbiosis-races",
+      "heading": "Cursed-Blood",
+      "blocks": [
+        {
+          "blockId": "block-section-8-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Cursed-Blood’s ability score increases allow you to get three +1\n\t\tincreases: +1 Dexterity, +1 to another ability score of your choice, then\n\t\tfinally +1 from your subrace. It appears that you can stack your subrace’s\n\t\tability score increase with those from the base race. If you’re using the\n\t\tCustom Origin rules from Tasha’s, this means your choice of +2/+1 or three\n\t\t+1s."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-8-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Cursed-Blood’s traits are fun, but not super powerful. Your speed\n\t\tmatches small races in the PHB like halflings, plus a climb speed. Conjoined\n\t\tTwin offers some utility options which may see some use, but aren’t\n\t\tstunningly powerful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-9",
+      "parentSectionId": "section-8",
+      "heading": "Doused Cursed-Blood",
+      "blocks": [
+        {
+          "blockId": "block-section-9-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": +1 Dex/+2 Wis or +1\n\t\tDex/Con/Wis, but the advice under the default rules still applies."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-9-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": +1 Wisdom (you can do +1\n\t\tDex/+2 Wis or +1 Dex/Con/Wis) and you can reduce damage taken of two damage\n\t\ttypes. I recommend fire and poison. If you’re starting close to or above\n\t\tlevel 10, take cold instead of poison and rely on the Druid’s immunity to\n\t\tpoison. This reduction notably isn’t “resistance”, so you can have both this\n\t\tand resistance to a damage type. If you do, remember that\n\t\t"
+            },
+            {
+              "type": "link",
+              "text": "resistance is applied after all other modifiers to damage",
+              "href": "https://www.dndbeyond.com/sources/basic-rules/combat#DamageResistanceandVulnerability"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-10",
+      "parentSectionId": "section-8",
+      "heading": "Hulking Cursed-Blood",
+      "blocks": [
+        {
+          "blockId": "block-section-10-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": A modest improvement\n\t\tto your ability score options, but the core issue with Hulking Cursed-Blood\n\t\tis Stone Skin."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-10-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": Stone Skin’s limitation\n\t\tto piercing damage makes it very situational. You might go huge lengths of\n\t\ttime without this applying."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-11",
+      "parentSectionId": "section-8",
+      "heading": "Mirage Cursed-Blood",
+      "blocks": [
+        {
+          "blockId": "block-section-11-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": With perfect ability\n\t\tscore increases on the table, the choice comes down to Shadowveil Skin. In\n\t\tthe Steinhardt’s setting, this may be very good, but because it’s so limited\n\t\tit’s only situationally useful. If it worked while lightly obscured by\n\t\tanything, it would be more tempting, but Circle of Symbiosis also isn’t a\n\t\tstealth build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-11-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": You can use the base\n\t\trace’s ability score increases to get the crucial +1 to Wisdom, but\n\t\tShadowveil Skin doesn’t fit with the subclass well enough to make it a great\n\t\tchoice."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-12",
+      "parentSectionId": "section-circle-of-symbiosis-races",
+      "heading": "Demidritch",
+      "blocks": [
+        {
+          "blockId": "block-section-12-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Superior Darkvision and cold resistance are great, but the +2 Charisma\n\t\tincrease is useless for Circle of Symbiosis unless you’re using the Custom\n\t\tOrigin rules from Tasha’s."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-13",
+      "parentSectionId": "section-12",
+      "heading": "Oculare",
+      "blocks": [
+        {
+          "blockId": "block-section-13-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": All-seeing Eyes is\n\t\tinteresting, but if you encounter invisible foes you can cast Faerie Fire.\n\t\tThe ability to grow wings at level 12 with All-Seeing Eyes is similarly\n\t\texciting, but you have both spells and Wild Shape when you need to fly.\n\t\tProfiency in Perception is always welcome."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-13-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": Bad ability spread."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-14",
+      "parentSectionId": "section-12",
+      "heading": "Nebulare",
+      "blocks": [
+        {
+          "blockId": "block-section-14-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": Astral Attraction\n\t\tdeals damage with no damge, and the area of difficult terrain will make it\n\t\tharder for enemies to get away from or around you in melee. The only problem\n\t\tis that it only functions once per day."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-14-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": Bad ability spread."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-15",
+      "parentSectionId": "section-circle-of-symbiosis-races",
+      "heading": "Dwarf",
+      "blocks": [
+        {
+          "blockId": "block-section-15-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Steinhardt’s does not include unique traits for dwarves (with the exception\n\t\tof the Deep One Dwarf, addressed below), but does list them with\n\t\trace-specific lore within the setting. See the SRD or other 1st-party\n\t\tmaterials for dwarf racial traits."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-16",
+      "parentSectionId": "section-circle-of-symbiosis-races",
+      "heading": "Deep One Dwarf",
+      "blocks": [
+        {
+          "blockId": "block-section-16-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Deep One Dwark shares the Darkvision and poison resistance common to\n\t\tdwarves in the Player’s Handbook."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-16-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": A great combination if\n\t\tyou to take Grafted Power (Bear Back). Coiling Arm allows you to attack and\n\t\tgrapple with one hand, achieving two-weapon fighting action economy with\n\t\tonly one hand, leaving you free to use a shield and potentially exceed\n\t\tBarkskin’s 16 AC. It also means that you can both attack and grapple in the\n\t\tsame turn before you get Extra Attack, which is a major improvement to your\n\t\taction economy at low levels. Use the custom origin rules to get +2 Wis/+1\n\t\tCon, take a splash of Strength so that you’re not actively hurting your\n\t\tAthletics checks, and once your have Greated Power you’re ready to\n\t\tgrapple."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-16-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": Bad ability spread. Having\n\t\texciting racial trait options that rely on Strength but not getting a\n\t\tStrength increase is frustrating."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-17",
+      "parentSectionId": "section-circle-of-symbiosis-races",
+      "heading": "Elf",
+      "blocks": [
+        {
+          "blockId": "block-section-17-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Steinhardt’s does not include unique traits for elves, but does list them\n\t\twith race-specific lore within the setting. See the SRD or other 1st-party\n\t\tmaterials for elf racial traits."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-18",
+      "parentSectionId": "section-circle-of-symbiosis-races",
+      "heading": "Half-Elf",
+      "blocks": [
+        {
+          "blockId": "block-section-18-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Steinhardt’s does not include unique traits for elves, but does list them\n\t\twith race-specific lore within the setting. See the SRD or other 1st-party\n\t\tmaterials for half-elf racial traits."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-19",
+      "parentSectionId": "section-circle-of-symbiosis-races",
+      "heading": "Human",
+      "blocks": [
+        {
+          "blockId": "block-section-19-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Steinhardt’s does not include unique traits for elves, but does list them\n\t\twith race-specific lore within the setting. See the SRD or other 1st-party\n\t\tmaterials for human racial traits."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-20",
+      "parentSectionId": "section-circle-of-symbiosis-races",
+      "heading": "Orc",
+      "blocks": [
+        {
+          "blockId": "block-section-20-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Steinhardt’s does not include unique traits for elves, but does list them\n\t\twith race-specific lore within the setting. See 1st-party materials for orc\n\t\tracial traits. The most recent official version of the Orc can be found in\n\t\tMordenkainen Presents: Monsters of the Multiverse."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-21",
+      "parentSectionId": "section-circle-of-symbiosis-races",
+      "heading": "Manikin",
+      "blocks": [
+        {
+          "blockId": "block-section-21-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Constitution increase, one damage resistance, and Modular Gold Plating.\n\t\tBorn to Serve can be a problem if you’re ever alone in a social situation,\n\t\tso either have a wiser friend on hand or take proficiency Insight."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-21-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Manikin’s Modular Gold Plating is a unique AC option. With the\n\t\texception of the heavy option, your maximum AC is lower than it would be\n\t\twith comparable manufactured armor (see the table below). However, since the\n\t\tarmor doesn’t require proficiency and doesn’t interfere with class features\n\t\tlike Wickerbone Behemoth, it’s very appealing for classes which otherwise struggle\n\t\twith AC. The Druid is one such class, so Gold Plating is very exciting. It\n\t\tfeels similar to the Tortle’s fixed 17 AC, but since Gold Plating requires\n\t\tsome amount of ability score involvement, it’s not such an easy solution to\n\t\tthe problem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-21-3",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Type"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Max AC"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Manufactured Armor Max AC"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmored"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Medium (Dex)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Medium (Str)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Heavy"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-22",
+      "parentSectionId": "section-21",
+      "heading": "Custodian",
+      "blocks": [
+        {
+          "blockId": "block-section-22-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": Increase Constitution\n\t\tand Wisdom, raise Strength to 14, grab the heavy option from Gold Plating,\n\t\tgrab Grafted Power (Bear Back), and you’ve got yourself a build. 18 AC,\n\t\tyou’re well suited to grappling, and with Careful Defender you get an\n\t\tadditional way to play Defender."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-22-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": Lacking a Wisdom increase\n\t\tis the only thing keeping this from being\n\t\t"
+            },
+            {
+              "type": "text",
+              "text": "blue"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-23",
+      "parentSectionId": "section-21",
+      "heading": "Handler",
+      "blocks": [
+        {
+          "blockId": "block-section-23-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": The ony benefit we\n\t\tcare about if proficiency in Stealth, and even that it’s especially useful\n\t\tfor Circle of Symbiosis."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-23-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": Bad ability spread."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-24",
+      "parentSectionId": "section-21",
+      "heading": "Thespian",
+      "blocks": [
+        {
+          "blockId": "block-section-24-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": The movement gimick\n\t\tis interesting, but not good enough to be impactful for one minute a day."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-24-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": Bad ability spread."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-25",
+      "parentSectionId": "section-circle-of-symbiosis-races",
+      "heading": "Scourgeborne",
+      "blocks": [
+        {
+          "blockId": "block-section-25-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Eldritch Curse notably only specifies that you’re immune to\n\t\t"
+            },
+            {
+              "type": "emphasis",
+              "text": "spells"
+            },
+            {
+              "type": "text",
+              "text": " which alter your form. If it said “spells and effect”, you\n\t\twould be immune to Wild Shape and arguably to Wickerbone Behemoth."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-26",
+      "parentSectionId": "section-25",
+      "heading": "Aranea",
+      "blocks": [
+        {
+          "blockId": "block-section-26-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": Passable ability\n\t\tscores, but you can already get a climb speed from multiple sources, and Web\n\t\tSpit isn’t good enough to only work once per day."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-26-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": Workable, but barely."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-27",
+      "parentSectionId": "section-25",
+      "heading": "Belua",
+      "blocks": [
+        {
+          "blockId": "block-section-27-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": Not much better than\n\t\tthe default rules."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-27-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": Workable, but Deer Head\n\t\tmakes Keen Senses mostly redundant, and Hungry Jaws will be less effective\n\t\tthan casting Healing Word."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-28",
+      "parentSectionId": "section-25",
+      "heading": "Cervus",
+      "blocks": [
+        {
+          "blockId": "block-section-28-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": The pre-existing\n\t\tability score increases already work for the druid, to Custom Origin isn’t\n\t\tan improvement."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-28-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": Great ability score\n\t\tincreases, and Goring Charge is a fantastic addition to your tactics."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-29",
+      "parentSectionId": "section-25",
+      "heading": "Vespertilio",
+      "blocks": [
+        {
+          "blockId": "block-section-29-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Customized Origin"
+            },
+            {
+              "type": "text",
+              "text": ": A minor improvement\n\t\tover the default rules."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-29-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Default Rules"
+            },
+            {
+              "type": "text",
+              "text": ": The ability scores are\n\t\tworkable, but not ideal. Blindsight is excellent, but you’ll need to rely on\n\t\tallies with better vision to alert you to threats beyond 30 feet. Flight is\n\t\texcellent, even with the limitations, but it’s not a huge addition to the\n\t\tdruid since you can already turn into a bird or a bat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-symbiosis-feats",
+      "heading": "Circle of Symbiosis Feats",
+      "sourceAnchor": "circle-of-symbiosis-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-symbiosis-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cosmos Touched"
+              },
+              {
+                "type": "text",
+                "text": " (Steinhardt’s): +1 Wisdom,\n\t\tand you can learn an abjuration spell like Armor of Agathys or Shield (though\nif you just want Shield, see Bone Shield, also from Steinhardt’s)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Osteomantic Adept"
+              },
+              {
+                "type": "text",
+                "text": ": +1 Wisdom, and\n\t\tyou can raise the spell level of osteomancy spells, a few of which are on\n\t\tyour subclass spell list. If you’re running Wickerbone Behemoth, you’ll\n\t\tregenerate part of the damage you take, reducing the cost to use this. At\n\t\thigh levels when you can easily generate temporary hit points with Nature’s\n\t\tWrath this gets even easier to use because it will eat the temporary hit\n\t\tpoints first."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tough"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Not very exciting, but Tough makes it much safer to rely on the\n\t\tregeneration from Wickerbone Behemoth."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warcaster"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Fighting in melee means that you’ll take damage more often than a typical\n\t\tdruid, but your best spells still require Concentration. Warcaster’s\n\t\tAdvantage on Concentration is excellent, and the ability to use cantrips on\n\t\tan Opportunity Attack means that you can use options like Primal Savagery to\n\t\tdiscourage enemies from fleeing."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-symbiosis-weapons",
+      "heading": "Circle of Symbiosis Weapons",
+      "sourceAnchor": "circle-of-symbiosis-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-symbiosis-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your arms are clubs and you’re still a full caster. You don’t need more\n\tweapons."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-symbiosis-armor",
+      "heading": "Circle of Symbiosis Armor",
+      "sourceAnchor": "circle-of-symbiosis-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-symbiosis-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can’t activate Wickerbone Behemoth while wearing armor, so don’t. A shield works, but it’s basically only useful until you activate Wickerbone Behemeoth."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Barbarian"
+              },
+              {
+                "type": "text",
+                "text": ": Unarmored Defense and Rage’s\n\t\tdamage resistance are both great, but the Rage damage bonus and Reckless\n\t\tAttack won’t help your Shillelagh-based attacks."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cleric"
+              },
+              {
+                "type": "text",
+                "text": ": Overlap in Wisdom-based\n\t\tspellcasting, plus you can get powerful 1st-level subclass features."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fighter"
+              },
+              {
+                "type": "text",
+                "text": ": A fighting style is a great\n\t\taddition, but skip Two-Weapon Fighting because mathematically the damage\nboost isn’t worthwhile. Two\n\t\tlevels for Action Surge is always tempting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Monk"
+              },
+              {
+                "type": "text",
+                "text": ": Unarmored Defense could greatly\n\t\timprove your AC, but I wouldn’t go further than level 1, and the Barbarian’s\n\t\tversion of unarmored defense is a better fit for the subclass."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ranger"
+              },
+              {
+                "type": "text",
+                "text": ": Two levels for a fighting style\n\t\tand Hunter’s Mark is tempting, but likely not worth the levels compared to\n\t\ttwo more levels of druid spellcasting.\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-eldritch-slap-fight-world-champion",
+      "heading": "Example Build – Eldritch Slap Fight World Champion",
+      "sourceAnchor": "example-build-eldritch-slap-fight-world-champion",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-eldritch-slap-fight-world-champion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "“Why?” –Evan (Steinhardt’s, Page 176)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-eldritch-slap-fight-world-champion-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to lean hard into being a front-line Defender. Between Shilellagh on both hands and the Druid’s area control spells, there’s a lot that we can do to make ourselves a big problem on the battlefield. With the addition of Wickerbone Behemoth, we’re also surprisingly durable for a druid, allowing us to comfortably withstand what would be lethal amounts of damage for most druids."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-eldritch-slap-fight-world-champion-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s easy to add a bunch of retaliatory damage to this build. Wickerbone Behemoth already gives you 1d4 (2d4 at 10th level) that hits anything you want within 5 feet, and effects like Bone Shield, Fire Shield, and Armor of Agathys can all add to that. Be cautious with this. It can both quickly eat your limited resources and also put you into the "
+            },
+            {
+              "type": "link",
+              "text": "Tank Fallacy",
+              "href": "https://rpgbot.net/the-tank-fallacy/"
+            },
+            {
+              "type": "text",
+              "text": ". If you find that enemies are hesitating to attack you, adjust your tactics in future fights. Of course, once the build takes off you’ll be scary enough that enemies will struggle to escape you once they’re stuck in melee with you thanks to grappling and/or spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-eldritch-slap-fight-world-champion-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The build below includes numerous sources of temporary hit points. Remember that when you have temporary hit points and would get more, you choose which set you want rather than adding them. This is especially important for Armor of Agathys, which ends when the temporary hit points do."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-eldritch-slap-fight-world-champion-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I’ll omit any Optional Class Features except for the extra spells added to spell lists in Tasha’s Cauldron of Everything, but I will lean into the content presented in Steinhardt’s Guide to the Eldritch Hunt."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "parentSectionId": "section-example-build-eldritch-slap-fight-world-champion",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With +1 Con and +1 Wis, we can get 16 in both. We’ll split remaining points\n\tbetween Dexterity and Constituton."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-eldritch-slap-fight-world-champion",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cervus Scourgeborne. We’ll get +1 Constitution and +1 Wisdom, which is\n\tenough. The extra move speed is nice, and Goring Charge gives us a great way\n\tto initiate combat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I initially planned a Custodian Manikin build, but I think Cervus\n\tScourgeborne is a better example of a baseline optimized build where we’re not\n\tmaking unusual sacrifices (in this case, low Wisdom in exchange for 18 AC)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-eldritch-slap-fight-world-champion",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Beast Hunter. We’ll take proficiency in Athletics, Survival, and Herbalism\n\tKit. Herbalism Kit is redundant with our druid proficiencies, so you can trade\n\tit for another tool like Chef’s Tools for the extra healing when you take a\n\tshort rest."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-background-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Worthless Husk would also work well here, but it intentionally provides fewer\n\tproficiencies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-eldritch-slap-fight-world-champion",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take Nature and Perception from our class, plus Athletics and Survival\n\tfrom our background. We’ll also get Herbalism Kit from druid and Chef’s Tools\n\tfrom our background."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-eldritch-slap-fight-world-champion",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to take some hybrid feats, but not until level 8 and above when we have more spell slots and hit points to throw around."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we’ll take Cosmos Touched. This lets us increase Wisdom by 1 and learn a 1st-level Abjuration spell of our choice. We’re going to take Armor of Agathys, throw it on top of Wickerbone Behemoth, Bone Shield, and Fire Shield, and dare anything to be dumb enough to attack us and our 16 AC."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we’ll take Osteomantic Adept. This lets us increase our Wisdom by 1 again, getting us to 20. By now we have enough hit points that we can afford to spend a few on the feat, especially if we have Wickerbone Behemoth running so that we’ll regenerate half of the damage we take. Using this with Bone Shield is especially fun to use with Osteomantic Adept because we can take 1d6 damage to add another 1d12 of damage prevention, then apply the reduced damage to our attacker."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16 we take Warcaster. We’ve been limping long without it while making Concentration saves most of the time (see Guardian of Nature), and we also want to use Primal Savagery for Opportunity Attacks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19 we take Tough or increase our Constitution by 2. Either option will greatly improve our durability."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You might drop one of the above feats for Skill Expert. A +1 ability score increase and Expertise in Athletics so that our grapples are more reliable could be very impactful. The easiest swap is Cosmos Touched. As much fun as Armor of Agathys is, it’s not crucial to the build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-eldritch-slap-fight-world-champion",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Druidic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Produce Flame"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Level 1 is rough because we’re not built to be a regular druid, but we don’t have Wickerbone Behemoth yet. Grab a shield and just try not to die. Sell your armor when you hit level 2 and get Wickerbone Behemoth."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If your DM will let you retrain cantrips (see the Optional Class Features in Tasha’s Cauldron of Everything), take Shillelagh instead of Produce Flame."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For prepared spells, go for staples like Healing Word and Faerie Fire. If you have space, grab Absorb Elements and Bone Shield (Steinhardt’s) to mitigate big sources of damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wild Shape"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Druidic Circle: Circle of Symbiosis"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wickerbone Behemoth"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Grafted Powers (Bear Back)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrips Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shillelagh"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we’re up and running! Wickerbone Behemoth is immediately our go-to combat tactic. However, we don’t have a huge pool of hit points, so one or two big hits can bring us down despite regenerating half of the damage we take each round. Be cautious."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We have enough Wisdom that we can regenerate up to 9 hit points, which is a generous page. 18 damage is likely to knock us unconscious (average of 19 hp at this level)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our AC in Wickerbone Behemoth is as good as our AC would be with studded leather armor and a shield, so sell your armor and your shield. Activate Wickerbone Behemoth before you jump into combat if you can, otherwise your first turn is spent activating it in most encounters."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can use two-weapon fighting with our shillelagh hands, and since we don’t need a shield, there’s no reason not to do so unless we’re doing something involving a spell. Keep in mind that Shillelagh doesn’t ovverride the rule about not applying your ability modifier to the attack with your second weapon, so our second attack is just doing 1d8 damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The damage which trigger when we get hit is likely to happen every turn that we’re in melee. We’ll assume that it affects one creature and add that to our DPR."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with TWF Shilellagh, Wickerbone Behemoth 1d4 on-hit retaliatory damage: 10.75"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Grafted Powers (Bear Back increases our Athletics modifier to +6, which is great for this level without Expertise, but it’s certainly not a guarantee."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Skeletal Tail (Steinhardt’s, Circle of Symbiosis spell list) is a cool area control option, but it’s also an Action to cast, so it may be hard to fit into your tactics. If your feeling extra spicy, you can cast this before Wild Shaping into something that flies (starting at level 8, of course), then fly around and drag enemies into the air whenever they try to move around below you and then drop them for falling damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lightning Charged (Steinhardt’s) may be a good addition to your tactics. With a 10-minute duration and no Concentration, it’ll add 1d6 extra damage to your melee attacks with minimal effort. It’s exactly the sort of on-hit damage boost that two-weapon fighting needs to be effective, and the 6 charges are easily enough to get through your typical 3-round encounter."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with TWF Shilellagh, Wickerbone Behemoth 1d4 on-hit retaliatory damage: 10.75"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with TWF Shilellagh, Lightning Charged, Wickerbone Behemoth 1d4 on-hit retaliatory damage: 13.15"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Enlarge/Reduce can make you a bigger melee threat both by increasing your reach, adding some extra damage, and giving you Advantage on Strength checks. Great all around, though the 1-minute duration an Action casting time can be difficult. If you wan Advantage on Strength checks, Enhance Ability’s 1-hour duration is likely a better choice."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spike Growth is a popular crowd control spell, and with your reasonably good ability to grapple you can grapple enemies and drag them back and forth through the area to inflict damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Warding Wind creates an area of difficult terraind around that will make it hard for enemies to move away."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wild Shape (CR 1/2)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "ASI: Wis 16 -> 18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrips Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thunderclap"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Wisdom isn’t super exciting, but we’re heavily dependent on it and we don’t have the spell slots or hit points to throw around for the feats we want to take yet. +4 Wisdom means that we can now regenerate up to 12 damage per round."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with TWF Shilellagh, Wickerbone Behemoth 1d4 on-hit retaliatory damage: 11.4"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with TWF Shilellagh, Lightning Charged, Wickerbone Behemoth 1d4 on-hit retaliatory damage: 13.80"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ll learn Thunderclap for a cheap way to handle crowds of enemies in melee."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Astral Barrage (Steinhardt’s) monopolizes your actions for an encounter, but it does a decent pile of single-target damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Osseus Cage (Steinhardt’s, Circle of Symbiosis spell list) is like"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "a low-budget Forcecage, allowing you to trap enemies inside the cage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "with you or to trap enemies outside. You can let creatures in or out with a Reaction, which means only one per round, but that’s likely still enough for allies to run in and out if they need cover. Note that the cage is only 3/4 cover, so you can see through it enough to cast spells, but you get a comfortable bonus to AC and Dexterity saves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Aura of Vitality isn’t normally a spell I use, but I recommend that you consider it. You’re expecting to take a lot of damage, and hit dice can only get you so far."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Elemental Weapon comes online at this level and it’s worth a look. Your shillelagh hands count as weapons, but not magic weapons, so they’re valid targets for Elemental Weapon. The attack and damage bonuses can go a long way, and with a 1-hour duration it’s an easy use of a spell slot. Unfortunately, it can only affect one hand, so save it for when you have Extra Attack if you use it at all."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack does a lot of things for us, the least interesting of which is boosting our DPR. Attacking 3 times in one turn does mean going through Lightning Charged faster, but 2 turns of attacking is still enough to justify the spell, and we’ll likely spen at least some turns casting spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Extra Attack+TWF Shilellagh, Lightning Charged, Elemental Weapon on primary attacks, Wickerbone Behemoth 1d4 on-hit retaliatory damage: 29.45"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With Extra Attack in hand, we can now engage in the "
+                },
+                {
+                  "type": "link",
+                  "text": "Grapple+Shove combo",
+                  "href": "https://rpgbot.net/dnd5/characters/grapple/"
+                },
+                {
+                  "type": "text",
+                  "text": " in a single turn. Even better, we can use Goring Charge to knock our targets prone if we think the save will work better than an opposed check. Rush into melee, hit once with an attack, use Goring Charge as a Bonus Action, then use your second attack to Grapple. If everything goes well, your target is stuck prone."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Erupting Lightning (Steinhardt’s) is decent damage that you can splut to avoid allies, but 7 cubes means that the range is very short."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Maiden of Bones (Steinhardt’s, Circle of Symbiosis spell list) is a Strength-based save-or-suck spell. Throw an enemy into it, deal with their friends, then wait to see if your target escapes before the ongoing damage kills them."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fire Shield adds yet source of damage when enemies hit you, and with a 10-minute duration and no Concentration it’s easy to pre-cast alongside Wickerbone Behemoth and Lightning Charged. Just be careful that you’re not making it so scary to attack your that enemies ignore you to go beat up your friends. That’s the "
+                },
+                {
+                  "type": "link",
+                  "text": "Tank Fallacy",
+                  "href": "https://rpgbot.net/the-tank-fallacy/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Guardian of Nature is arguably the perfect buff for us. A Bonus Action casting time means that can activate it and still attack or activate Wickerbone Behemoth. Advantage on Constitution saves includes Concentration to maintain the spell. Advantage on Wisdom-based attacks covers our Shillelagh hands. 10 temporary hit points helps keep us alive. Another 1d6 Force damage on hit with weapon attacks adds a big pile of additional DPR."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It does mean no Elemental Weapon, but Guardian of Nature will have a considerably larger impact, both in terms of DPR and in terms of tactical benefits."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Extra Attack+TWF Shilellagh, Lightning Charged, Guardian of Nature, Wickerbone Behemoth 1d4 on-hit retaliatory damage: 43.16"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/pathfinder/characters/polymorph/"
+                },
+                {
+                  "type": "text",
+                  "text": " raises the horrifying possibility that you can combine it with Wickerbone Behemoth. Turn yourself into a giant ape and use shillelagh with your gorilla hand, or turn yourself into tyranosaurus and enjoy a considerably higher AC plus retributive damage on top of your 136 hit points. This may actually be more effective than bothering with Shillelagh."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stoneskin looks extremely tempting, and the improved durability certainly is, especially with a 1-hour duration. But beware the Tank Fallacy. Without Guardian of Nature or Elemental Weapon, our damage will lag considerably unless you’re relying on leveled spells."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wild Shape (CR 1, flight)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Feat: Cosmos Touched (Wis 18 -> 19, Armor of Agathys)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cosmos Touched gets us Armor of Agathys. We could also get it by multiclassing, but we try to stick to single-class builds for subclass handbooks because it does a better job highlighting the subclass."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Armor of Agathys gets us a pool of temporary hit points, and when enemies hit us, they take cold damage. With a 1-hour duration, we can get a lot of mileage out of one casting of the spell, provided that the temporary hit points last with our dismal 16 AC."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You’re free to cast it at whatever spell level you think you can afford. Right now, 2nd-level spell slots seem like a reasonable choice, but as you gain levels you can consider upcasting it further. To stretch the effects of the spell, consider using Bone Shield to mitigate damage. Armor of Agathys only cares that you were hit with a melee attack; it doesn’t care if you took damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Forest of Dread (Steinhardt’s, Circle of Symbiosis spell list) is fine, but given the choice I would rather cast Spike Growth in most cases."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Starfall (Steinhardt’s) is really neat and fantastic against crowds, but the damage is far too slow to have a meaningful impact."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "There aren’t many spells at this level that work uniquely well with our build. Malestrom can combo very nicely with Osseus Cage: run up to your enemies, put them in the cage on turn one. If you have movement left, run out of the cage. Turn 2, drop Maelstrom inside the cage. Watch as your enemies try to eat through he cage’s 100hp before Maelstrom grinds them down. Maelstrom notably only damage creatures, so your targets won’t get any help with the cage. Even if they do, you’re good at grappling and shoving, so you can simply force enemies back into the Maelstrom."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nature’s Wrath"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A massive improvement to our durability. Permanent Barkskin means that we’re no longer vulnerable outside of Wickerbone Behemoth. The temporary hit points trigger on any source of B/P/S damage, which includes spells like Magic Stone or Maelstrom."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our retaliatory damage from Wickerbone Behemoth also improves at this level. We’ll continue to assume that we’ll affect an average of one target each round while calculating DPR."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Extra Attack+TWF Shilellagh, Lightning Charged, Guardian of Nature, Wickerbone Behemoth 2d4 on-hit retaliatory damage: 45.56"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Cantrips Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Primal Savagery"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We likely won’t use Primal Savagery very much for now, but once we pick up Warcaser it becomes our Opportunity Attack. We’re taking it now because this is the last time we learn a cantrip."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Prepare Heal. You’re a tank with d8 hit dice. "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Prepare Heal."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Few other spells really appeal to our build at this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Osteomantic Adept (Wis 19 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Osteomantic Magic is almost always worth the cost. The benefits of upcasting nearly every Osteomancy spell on the Druid’s spell list dramatically outweight the small amount of damage which you’ll take from Osteomantic Adept, and that’s without considering our deep well of temporary and healing resources or the reeneration from Wickerbone Benehemoth."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Amputate looks really cool, but starting a fight with “I rip off the arm that my opponent attacks with” is going to cause all sorts of table arguements. It’s also the highest-level Osteomancy spell which we get access to as a druid. Still, I would be happy with the alternate damage. 15d8 (avg. 67.5) is a decent amount of damage, and we can power it up with Osteomantic Adept at the cost of 3d6 (avg. 10.5) damage to inflict another 6d8 (avg. 27) damage. If you’re running Guardian of Nature, you get Advantage on the attack because it’s Wisdom-based, making you very likely to hit."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Briarheart"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "+5 more damage to each of our Shillelagh attacks. Guardian of Nature is still our best melee bufff."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR with Extra Attack+TWF Shilellagh, Lightning Charged, Guardian of Nature, Briarheart, Wickerbone Behemoth 2d4 on-hit retaliatory damage: 60.8"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "That keeps us in High DPR range all the way through level 19."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nothing relevent to our build, but Sunburst is neat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Warcaster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Advantage on Concentration saves when you’re not running Guardian of Nature is a a huge improvement."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "After realizing that you can carry Wickerbone Behemoth into Polymorph, it’s not surprise to find that it also works with Shapechange. Even better, since your new form is capable of using it, you can activate Wickerbone Behemoth while polymorphed into a dragon."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Timeless Body"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Beast Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re never in Wild Shape, so Beast Spells doesn’t do much for us."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Tough"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More hit points! You might also take +2 Constitution if you prefer."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Archdruid"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wickerbone Behemoth whenever you want! Especially while you’re in Shapechange!"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Circle of Symbiosis Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 2"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 7"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 9"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Wickerbone Behemoth"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bear Back"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Deer Head"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Goat Hooves"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Extra Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Nature’s Wrath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Briarheart"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating- Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[2]",
+      "detail": "rating-blue blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Customized Origin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Default Rules"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cosmos Touched"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Osteomantic Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Tough"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Warcaster"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ranger"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"2\"><span class=\"rating-blue\">Wickerbone Behemoth</span>: Circle of Symbiosis’s signature feature, Wickerbone Behemoth turns you into a melee threat. Offensively, you’re "
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[6]",
+      "detail": "<li value=\"14\"><span class=\"rating-green\">Briarheart</span>: The damage bonus stacks with Shillelagh, so at this level you’re likely dealing 1d8+10 damage on 2 or 3 attacks per tur"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-circle-of-symbiosis-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-circle-of-symbiosis-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-circle-of-symbiosis-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-circle-of-symbiosis-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-circle-of-symbiosis-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-circle-of-symbiosis-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-circle-of-symbiosis-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-circle-of-symbiosis-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-circle-of-symbiosis-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-circle-of-symbiosis-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-circle-of-symbiosis-races-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h4[1]",
+      "detail": "section-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-7-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-7-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h4[1]",
+      "detail": "section-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-8-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-8-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[1]",
+      "detail": "section-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-9-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-9-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[2]",
+      "detail": "section-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-10-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-10-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[3]",
+      "detail": "section-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-11-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-11-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h4[1]",
+      "detail": "section-12"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-12-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[1]",
+      "detail": "section-13"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-13-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-13-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[2]",
+      "detail": "section-14"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-14-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-14-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h4[1]",
+      "detail": "section-15"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-15-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h4[1]",
+      "detail": "section-16"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-16-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-16-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-16-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h4[1]",
+      "detail": "section-17"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-17-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h4[1]",
+      "detail": "section-18"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-18-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h4[1]",
+      "detail": "section-19"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-19-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h4[1]",
+      "detail": "section-20"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-20-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h4[1]",
+      "detail": "section-21"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-21-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-21-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/table[1]",
+      "detail": "block-section-21-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[1]",
+      "detail": "section-22"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-22-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-22-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[2]",
+      "detail": "section-23"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-23-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-23-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[3]",
+      "detail": "section-24"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-24-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-24-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h4[1]",
+      "detail": "section-25"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-25-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[1]",
+      "detail": "section-26"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-26-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-26-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[2]",
+      "detail": "section-27"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-27-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-27-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[3]",
+      "detail": "section-28"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-28-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-28-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h5[4]",
+      "detail": "section-29"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-29-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-29-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-circle-of-symbiosis-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-circle-of-symbiosis-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-circle-of-symbiosis-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-circle-of-symbiosis-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-example-build-eldritch-slap-fight-world-champion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-example-build-eldritch-slap-fight-world-champion-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-example-build-eldritch-slap-fight-world-champion-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-example-build-eldritch-slap-fight-world-champion-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-example-build-eldritch-slap-fight-world-champion-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-background-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 6443,
+    "sections": 40,
+    "blocks": 86,
+    "tables": 4,
+    "ratingSignals": 61
+  },
+  "status": "needs-editorial-review"
+}

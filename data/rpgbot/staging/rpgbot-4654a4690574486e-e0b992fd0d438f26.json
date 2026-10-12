@@ -1,0 +1,3678 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "e0b992fd0d438f26372b22f17b74a21648445a3e2bb846eeb6170a63a3eedc00",
+  "sourceRevision": {
+    "revisionId": "rpgbot-4654a4690574486e-e0b992fd0d438f26",
+    "sourceId": "rpgbot-4654a4690574486e",
+    "fetchedAt": "2026-09-29T19:12:39.326465+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:25:03-04:00",
+    "contentHash": "8720f551b32e21c3b00fa11869b7ed6ba0c1497beef33f57a73cb83ff0435d28",
+    "title": "Battle Smith Artificer 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-4654a4690574486e-e0b992fd0d438f26.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "intro",
+      "heading": "Battle Smith Artificer 5e: DnD 5e Subclass Guide",
+      "blocks": [
+        {
+          "blockId": "block-intro-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Can’t touch me sheriff. I brought my attack dog, with a built-in Forcefield!"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "One-Eyed Bart (Mr. Potatohead) – "
+            },
+            {
+              "type": "link",
+              "text": "Toy Story",
+              "href": "https://www.youtube.com/watch?v=id1tfW6aRqc&t=53s"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Battle Smith is the offensively weapon-focused Artificer. This puts it in an interesting position, standing with the Paladin and Ranger as a weapon-using half-caster. Lacking damage ramping features like Hunter’s Mark or Divine Smite, the Battle Smith must instead leverage the Artificer’s spell list and Infusions to turn up the heat. Oh and I guess the super fighting robot, Steel Defender. They leverage that too."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Part of what makes Artificers in general a good candidate for this gish-like combat style is Tools Required. This is a part of their spellcasting feature that adds a Material component to every spell as well as counting any Infused item as a valid spell focus, bypassing the need for a feat like Warcaster. The Battle Smith takes this and adds the additional synergy of using Intelligence for attacks with Magical Weapons, something Infusions are very capable of doing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This together means the Battle Smith is easily capable of wading into the fray with a weapon in one hand, a shield in the other equally ready to make attacks and sling spells without sacrificing Attack rolls or Spell Save DCs. Or maybe stand back and fire a magically-reloading pistol while still holding a shield. Who’s going to stop you?"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For our example build, we’ve gone with a mounted combat style by riding our Steel Defender as a small race. The openness of weapon choice is also on display here, as we explain the small changes needed to fit any weapon you want to use. If you’re looking for a versatile and flexible mixture of weapon damage and control magic, give Super Fighting Robot a read."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-3",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Smith Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Steel Defender as a Mount",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#steel-defender-as-a-mount"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Smith Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#battle-smith-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Smith Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#battle-smith-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Smith Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#battle-smith-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Smith Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#battle-smith-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Battle Smith Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#battle-smith-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Battle Smith Build – Super Fighting Robot",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#example-battle-smith-build-super-fighting-robot"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Infusions",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#infusions"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Battle Smith Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Tool Proficiency"
+              },
+              {
+                "type": "text",
+                "text": ": Most interesting and\n\t\texpensive non-magical adventuring gear is made of metal."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Battle Smith Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Most of the spells\n\t\tare from the Paladin spell list, which is exciting for a subclass built to\n\t\tbe a durable melee character similar to the Paladin. Many of the options are\n\t\texcellent, and the smite spells from the Paladin’s spell list work on ranged\n\t\tweapons so you’re not locked into melee if that’s not where you want to be.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd Level"
+              },
+              {
+                "type": "text",
+                "text": ": Spectacular defensive\n\t\t\t\tbuffs. Shield easily makes up the durability gap between the Battle\n\t\t\t\tSmith and the Armorer in heavy armor."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\t\t\tsituational. Warding Bond is hard due to the Artificer’s d8 hit die."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both spells are fine, but\n\t\t\t\tnot especially good for a 3rd-level spell."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th Level"
+              },
+              {
+                "type": "text",
+                "text": ": More great defensive\n\t\t\t\tbuffs."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\t\t\tsituational, but you don’t have another good way to deal with\n\t\t\t\textraplanar creatures and your best group healing is Aura of Vitality,\n\t\t\t\twhich can’t get a whole party back on their feat in one turn.."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Battle Ready"
+              },
+              {
+                "type": "text",
+                "text": ": Finally a way to use\n\t\tIntelligence for your weapon attacks! You also get martial weapons, which\n\t\toffers a small improvement to your existing weapon options. Be sure to take\n\t\t14 Dexterity to max out medium armor, but otherwise go all-in on\n\t\tIntelligence.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You have a variety of good options for how to jump into combat with a\n\t\t\tweapon. Grab a longsword (or an equivalent weapon) and a shield, and\n\t\t\tyou’re nearly as durable as a fighter (arguably more durable if you have\n\t\t\tthe right infusions), especially with your Steel Defender’s Deflect\n\t\t\tAttack. Deflect Attack may even be enough to justify using a two-handed\n\t\t\tmelee weapon so that you can focus on offense, but if you’re going to use\n\t\t\tBooming Blade or Green-Flame Blade, the bigger damage dice will be less\n\t\t\timpactful than the AC bonus from a shield."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "If you want to be extra\n\t\t\tdefensive but still in melee, grab a whip and keep your Steel Defender\n\t\t\tbetween you and your enemies. If that’s still not safe enough, grab a\n\t\t\tranged weapon and send your Steel Defender into melee on its own."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Steel Defender"
+              },
+              {
+                "type": "text",
+                "text": ": The Steel Defender is\n\t\tprimarily a Defender, rather than a Striker. It has a decent pile of hit\n\t\tpoints and what amounts to Fighting Style (Protection). It deals damage\n\t\tequivalent to a longsword and since it’s force damage almost nothing will\n\t\tresist it, but its primary function is to protect you while you do the real\n\t\tdamage. It has a poor AC at just 15, so expect to spend a lot of time\n\t\trepairing it between fights. The Steel Defender’s Repair action allows it to\n\t\trepair itself, but at 3 uses per day you’ll get a lot more healing out of\n\t\tMending.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The Steel Defender notably doesn’t gain any ability to fly, which is a\n\t\t\tproblematic limitation once you reach high enough level that flying\n\t\t\tenemies become common. You’ll need a way to either get enemies down into\n\t\t\trange of your Steel Defender or you’ll need to find a way to make your\n\t\t\tSteel Defender fly. Infusing a pair of Winged Boots is probably your best\n\t\t\toption."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Extra Attack"
+              },
+              {
+                "type": "text",
+                "text": ": Helpful since the Battle\n\t\tSmith typically relies on weapons for damage output, but without an on-hit\n\t\tdamage boost you’ll get considerably more damage output out of cantrips like\n\t\tBooming Blade and Sword Burst, so Extra Attack may only be consistently\n\t\tuseful if you’re using a reach weapon or a ranged weapon. See my article on\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Melee Cantrips vs. Extra Attack",
+                "href": "https://rpgbot.net/dnd5/characters/melee_cantrips"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\tfor a breakdown of the math comparing melee cantrip spells to normal martial\n\t\tattacks."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane Jolt"
+              },
+              {
+                "type": "text",
+                "text": ": 2d6 damage/healing up to 5\n\t\ttimes per day isn’t much, but fortunately it doubles at 15th level, and the\n\t\thealing is as useful as Healing Word, allowing you to heal dying allies and\n\t\tget them back into the fight. Personally I would reserve this exclusively\n\t\tfor healing and critical hits. The damage isn’t enough to make a big difference\n\t\tnormally unless you know that it’ll kill the target, but the damage is\n\t\t“extra damage” rather than a separate damage source, so it’s multiplied on a\n\t\tcritical hit like Divine Smite or Hex."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improved Defender"
+              },
+              {
+                "type": "text",
+                "text": ": 2d6 more damage/healing\n\t\ton Arcane Jolt makes it a little more impactful, but still not significant.\n\t\tThe AC boost is significant, especially since your pet has been sitting at\n\t\t15 AC for 11 levels while attack bonuses gradually increase. The tiny bit of\n\t\tdamage on Deflect Attack is nice, too. At this level 1d4+5 (I’m assuming\n\t\tthat you have 20 Intelligence by now) isn’t much at this level, but it’s\n\t\tstill a nice little buff to something which you were going to do anyway, and\n\t\tif you’re using it every round (which you really should) it will add up\n\t\tquickly."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-steel-defender-as-a-mount",
+      "parentSectionId": "section-features",
+      "heading": "Steel Defender as a Mount",
+      "sourceAnchor": "steel-defender-as-a-mount",
+      "blocks": [
+        {
+          "blockId": "block-section-steel-defender-as-a-mount-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As a medium sized creature, the Steel Defender can serve as a mount for small Battle Smiths, which can be fun but also introduces rules complications. The first thing to understand is that yes, even though the Steel Defender does follow the Battle Smith in Initiative, when ridden as a Controlled Mount it just moves on the Battle Smith’s turn like any other mount."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-steel-defender-as-a-mount-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Second, when ridden in this controlled manner, we must obey two sets of restrictions on our Steel Defender’s actions. As a controlled mount, the only Actions it may take are Dodge, Dash, and Disengage. As a Steel Defender, unless we spend a Bonus Action, the only Action it may take is Dodge."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-steel-defender-as-a-mount-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In simpler terms this means that in exchange for our mount having actual scaling hit points, we can Dash and Disengage at the cost of Bonus Actions. Fair trade in my opinion. Riding in this way does prevent it from making Attacks, but the increased mobility in combat is well worth that."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-steel-defender-as-a-mount-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For more on mounted combat, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Mounted Combat",
+              "href": "https://rpgbot.net/dnd5/characters/mounted_combat/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-battle-smith-ability-scores",
+      "heading": "Battle Smith Ability Scores",
+      "sourceAnchor": "battle-smith-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-battle-smith-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Battle Smith wants a high Intelligence for attacks and Spell DCs, high Constitution for Concentration and at least 14 Dexterity for Medium Armor."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-smith-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": We can leave this low, even if we want to use a Greatsword with Great Weapon Master, we can use Intelligence for that kind of stuff."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-smith-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Just get 14 for the Medium Armor cap. If you happen to be rolling for stats and get enough for a 3rd 16 after Con and Int, then Medium Armor Master is nice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-smith-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": More HP, better Saving Throws."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-smith-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": It’s our “Do Everything” ability score. Pump it up."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-smith-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": If we have any points leftover, Wisdom checks and Wisdom saves are important, so maybe get rid of the -1 penalty."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-smith-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Let someone else handle these kinds of Checks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-smith-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-battle-smith-races",
+      "heading": "Battle Smith Races",
+      "sourceAnchor": "battle-smith-races",
+      "blocks": [
+        {
+          "blockId": "block-section-battle-smith-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For anything not listed below, refer to the "
+            },
+            {
+              "type": "link",
+              "text": "Artificer Races Breakdown.",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/races/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-smith-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Autognome"
+              },
+              {
+                "type": "link",
+                "text": "SJ:AiS",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The Autognome has access to additional synergies with the Steel Defender. Firstly, the Mending Cantrip can be used for healing both the Autognome and the Steel Defender. Secondly, as a Construct, the Autognome is a valid target for the Steel Defender’s Repair action. In combat this means that if the Battle Smith is Incapacitated, the Steel Defender can just heal its master."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hexblood"
+              },
+              {
+                "type": "link",
+                "text": "VR:GtR",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A Hexblood has access to the Hex spell as racial trait which can be useful to a Battle Smith looking to increase their own weapon damage. The downside is that we can’t inherently bypass the Somatic Component the way we can with Artificer spells."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-battle-smith-feats",
+      "heading": "Battle Smith Feats",
+      "sourceAnchor": "battle-smith-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-battle-smith-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Also refer to the "
+            },
+            {
+              "type": "link",
+              "text": "Artificer Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#feats"
+            },
+            {
+              "type": "text",
+              "text": " for Feats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-smith-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mounted Combatant"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": It’s pretty good if you’re a small race and want to ride around on the Steel Defender. Less useful for Medium races or Battle Smiths who are less inclined to feel like a Mecha Pilot."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-battle-smith-weapons",
+      "heading": "Battle Smith Weapons",
+      "sourceAnchor": "battle-smith-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-battle-smith-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Battle Smith has good options thanks to getting Martial Weapon Proficiency."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-battle-smith-weapons-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Crossbows and Firearms"
+              },
+              {
+                "type": "text",
+                "text": ":  Because we need to make our weapon magic through an Infusion anyway, the Repeating Shot infusion pairs nicely with these weapons by removing the Loading property. Even better is that the Infusion allows the use of a Pistol or Hand Crossbow while the opposite hand is holding a Shield."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lance"
+              },
+              {
+                "type": "text",
+                "text": ": For those small Battle Smiths looking to mount up on their Steel Defender, a Lance and Shield combo can be pretty fun. Notably, the Lance is the largest damage die size a Small creature can get without the penalty of the Heavy property."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thrown Weapons"
+              },
+              {
+                "type": "text",
+                "text": ": Thanks to the Returning Weapon Infusion, this allows a Battle Smith to engage in both Melee and Ranged combat with the same weapon without needing any extra feat Investment."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-battle-smith-armor",
+      "heading": "Battle Smith Armor",
+      "sourceAnchor": "battle-smith-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-battle-smith-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Medium armor with 14 Dexterity is good enough, especially with Infusions. An additional +2 (or more with even more Infusions) is also great, depending on what kind of weapon you might prefer to use."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-battle-smith-build-super-fighting-robot",
+      "heading": "Example Battle Smith Build – Super Fighting Robot",
+      "sourceAnchor": "example-battle-smith-build-super-fighting-robot",
+      "blocks": [
+        {
+          "blockId": "block-section-example-battle-smith-build-super-fighting-robot-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Mounted combat",
+              "href": "https://rpgbot.net/dnd5/characters/mounted_combat/"
+            },
+            {
+              "type": "text",
+              "text": " is a tricky thing to do right. By being a small race, this build will work with the limitations of using the Steel Defender as a mount to great effect. This gives us some durability advantages over using something like a mule, but at the cost of using our bonus action for some things a standard mount does for free. In exchange we gain increased mobility that we think is worth the hassle and our mount’s scaling hit points will keep it usable through our whole career."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll be going with Autognome for the size of small as well as the additional benefit of being a valid target for the Steel Defender’s Repair action. We prioritized Intelligence and Constitution while only needing 14 in Dexterity. This gives us a couple extra points with point buy so we make Wisdom a 10."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We choose Autognome, which gives us a small size and Construct creature type. We do have the choice of two tool proficiencies. One can be anything you want, the other should be a wind instrument. I usually pick bagpipes but the specific instrument doesn’t matter; it’s for an infusion later: The Pipes of Haunting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ve taken Investigator for Insight and Perception, Disguise Kit, and because Artificer already grants Thieves’ tools, a free choice of any tool. We don’t need anything specific so I chose Vehicles (Space), but you do you."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Artificer we choose the Arcana and Investigation skills. Arcana allows us to actually do crafting, including scribing scrolls. Investigation, along with Insight and Perception, allow us to be ever vigilant against acts of subterfuge."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We also acquire any one artisans’ tool proficiency of our choice as well as Tinker’s Tools and Thieves’ Tools. Investigator gives us Disguise Kit as well as previously mentioned getting to replace the Thieves’ Tools with any tool. This is rounded out by Autognome getting a choice of two tools, one of which we have used to acquire a wind instrument of our choice as explained above."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourth level, we take Skill Expert, adding +1 to our Intelligence for a score of 18, gaining Proficiency in the Stealth skill and Expertise in the Arcana skill."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At eighth level, we take the Mounted Combatant feat to really lean into the benefits of riding the Steel Defender. Our AC can be much higher than the Defender’s thanks to things like half-plate, a shield, and the Shield spell, so redirecting attacks to our better AC is smart and free advantage vs. small or smaller targets is nice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At twelfth level, we take +2 Intelligence to cap it at 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixteenth level, we take +2 Constitution for a score of 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At nineteenth level, we take +2 Constitution to cap our score at 20."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-infusions",
+      "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+      "heading": "Infusions",
+      "sourceAnchor": "infusions",
+      "blocks": [
+        {
+          "blockId": "block-section-infusions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll actually have a lot of leeway for preferences with a lot of these Infusions."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In our first batch of Infusions at 2nd level, we have our choice of weapon Infusions. For a standard melee option such as a Battleaxe or a Lance, "
+            },
+            {
+              "type": "strong",
+              "text": "Enhanced Weapon"
+            },
+            {
+              "type": "text",
+              "text": " works great. If we’re looking to ride around with a ranged weapon, "
+            },
+            {
+              "type": "strong",
+              "text": "Repeating Shot"
+            },
+            {
+              "type": "text",
+              "text": " is the way to go just for simplifying ammunition. For a great hybrid of the two options, "
+            },
+            {
+              "type": "strong",
+              "text": "Returning Weapon"
+            },
+            {
+              "type": "text",
+              "text": " on a thrown weapon like a Spear or Handaxe will work for both melee and ranged attacks, albeit at shorter ranges than the other Ranged options. Maybe take two of these so that we can share with a party member."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Aside from a magical weapon, "
+            },
+            {
+              "type": "strong",
+              "text": "Enhanced Defense"
+            },
+            {
+              "type": "text",
+              "text": " for better AC is always welcome. I suggest taking the "
+            },
+            {
+              "type": "strong",
+              "text": "Mind Sharpener"
+            },
+            {
+              "type": "text",
+              "text": " as well to have on our list for something later when we have the Spell Storing item."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll gain more options at 6th, 10th, 14th, and 18th levels, getting two more options each time, but only getting one more active Infusion each time as well, capping out at 6 simultaneously."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixth level, we’ll take the "
+            },
+            {
+              "type": "strong",
+              "text": "Pipes of Haunting"
+            },
+            {
+              "type": "text",
+              "text": " with the "
+            },
+            {
+              "type": "strong",
+              "text": "Replicate Magic Item"
+            },
+            {
+              "type": "text",
+              "text": " Infusion for three uses of Concentration-free Frightened per day. This is why we need at least one wind instrument proficiency. More importantly, instead of rolling to recharge it every day, we can just Replicate a brand new one with full charge. Especially compare this to the "
+            },
+            {
+              "type": "strong",
+              "text": "Spell-Refueling Ring"
+            },
+            {
+              "type": "text",
+              "text": " which would only give one extra spell per day instead of the three haunting melodies."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In some parties, putting that ring on a full caster at this level is really strong, such as one more Spirit Guardians every day from the Cleric. Another good option is to take the "
+            },
+            {
+              "type": "strong",
+              "text": "Repulsion Shield"
+            },
+            {
+              "type": "text",
+              "text": ", because that’s additional AC on top of the "
+            },
+            {
+              "type": "strong",
+              "text": "Enhanced Defense"
+            },
+            {
+              "type": "text",
+              "text": " on our body armor from earlier."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At tenth level it’s the "
+            },
+            {
+              "type": "strong",
+              "text": "Winged Boots"
+            },
+            {
+              "type": "text",
+              "text": " with another use of "
+            },
+            {
+              "type": "strong",
+              "text": "Replicate Magic Item"
+            },
+            {
+              "type": "text",
+              "text": ". These can be put on the Steel Defender we’re riding. Another good choice for now is the "
+            },
+            {
+              "type": "strong",
+              "text": "Cloak of Protection"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We have four Infusion slots at this level, so a good setup with no sharing would be the weapon Infusion of your choice (keeping in mind that "
+            },
+            {
+              "type": "strong",
+              "text": "Repeating"
+            },
+            {
+              "type": "text",
+              "text": " and "
+            },
+            {
+              "type": "strong",
+              "text": "Returning"
+            },
+            {
+              "type": "text",
+              "text": " stay +1s while "
+            },
+            {
+              "type": "strong",
+              "text": "Enhanced Weapon"
+            },
+            {
+              "type": "text",
+              "text": " grows to +2 at this level), "
+            },
+            {
+              "type": "strong",
+              "text": "Enhanced Defense"
+            },
+            {
+              "type": "text",
+              "text": " which becomes a +2, "
+            },
+            {
+              "type": "strong",
+              "text": "Pipes of Haunting"
+            },
+            {
+              "type": "text",
+              "text": ", and "
+            },
+            {
+              "type": "strong",
+              "text": "Cloak of Protection"
+            },
+            {
+              "type": "text",
+              "text": ". If we find the "
+            },
+            {
+              "type": "strong",
+              "text": "Pipes"
+            },
+            {
+              "type": "text",
+              "text": " not being useful, "
+            },
+            {
+              "type": "strong",
+              "text": "Winged Boots"
+            },
+            {
+              "type": "text",
+              "text": " or "
+            },
+            {
+              "type": "strong",
+              "text": "Repulsion Shield"
+            },
+            {
+              "type": "text",
+              "text": " are fine alternatives."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An important aside here is that tenth level Artificers gain the ability to craft Uncommon or lower Magic Items in ¼ the time for half the gold. Winged Boots and Cloak of Protection are both Uncommon. That means in a single week you can make two at a cost of 100 GP each, not only freeing up your Infusion slots but also producing extra copies for the whole gang. (As per "
+            },
+            {
+              "type": "link",
+              "text": "Xanathar’s Guide",
+              "href": "https://www.dndbeyond.com/sources/xgte/downtime-revisited#MagicItemCraftingTimeAndCost"
+            },
+            {
+              "type": "text",
+              "text": " page 129.)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You might then ask why we’re taking them as Infusions if we can make them? "
+            },
+            {
+              "type": "link",
+              "text": "5e’s crafting rules",
+              "href": "https://rpgbot.net/crafting-rpgbot-podcast-s2e66/"
+            },
+            {
+              "type": "text",
+              "text": " are frustrating. Magic Items require both a formula and special ingredients. Knowing the Infusion should in theory bypass the formula part, leaving you with just having to take down a CR 4-8 challenge for each craft. Also depending on the time crunch of the game, you might not have time to hunt down the materials so having at least the Infusion version for personal use is great."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-infusions-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourteenth level, we’re eyeing that "
+            },
+            {
+              "type": "strong",
+              "text": "Ring of Protection"
+            },
+            {
+              "type": "text",
+              "text": " from "
+            },
+            {
+              "type": "strong",
+              "text": "Replicate"
+            },
+            {
+              "type": "text",
+              "text": ". Yeah I know we’re kinda stacking AC hard but really we enjoy the additional +1 to all saves on top of the cloak. There is one more cool thing at this level, "
+            },
+            {
+              "type": "strong",
+              "text": "Arcane Propulsion Armor"
+            },
+            {
+              "type": "text",
+              "text": ". This is an alternative to the weapon Infusions that grants force damage attacks. It might be worth using if you’re using the "
+            },
+            {
+              "type": "strong",
+              "text": "Returning Weapon"
+            },
+            {
+              "type": "text",
+              "text": " infusion as it becomes a straight upgrade to the other thrown weapons."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magical Tinkering"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mending"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Firebolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st-level spells: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Absorb Elements"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Cure Wounds"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Faerie Fire"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Grease"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Arcana"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Investigation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Perception"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We don’t have much at first level. Grab some medium armor and a shield and sling some cantrips."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For cantrips we’ve chosen Mending to heal with our Autognome trait and Firebolt. We’ll be using Firebolt for at least a couple levels before we get our Battle Smith subclass."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For spells, we’ll prepare a small handful of useful options."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Absorb Elements is a good way to avoid elemental damage in a pinch."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cure Wounds is great to have in your pocket in an emergency. Artificers don’t get Healing Word by default."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Faerie Fire will help contribute to combat by granting Advantage to the party."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Grease is a decent way to drop some difficult terrain on the field, and it doesn’t even require Concentration."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Infuse Item"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Enhanced Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Mind Sharpener"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Weapon Infusions to Preference"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get one feature here and it’s really good so that’s fine."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Infusions, I’ve talked at length just above this chart because walls of text get really squished in these boxes."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But I will touch on Mind Sharpener. It’s good to take if we intend to later hand a Concentration spell to a non-caster with the Spell-Storing Item, especially a class without Constitution proficiency like a Rogue."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Battle Smith"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Battle Ready"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Steel Defender"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Smith’s Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cantrip"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Maybe Switch Firebolt for Sword Burst"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We finally get to be a Battle Smith."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now we can use that nice Intelligence score for weapon attacks. With this change we might switch one of our Cantrips around, dropping Firebolt for Sword Burst, depending on our weapon of choice."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If we’re going for a Lance or a Crossbow, then yes, switch it up to give us something to use against foes within 5 feet. If we’re going for another melee option or the Returning weapon, then we may be better off keeping Firebolt for foes at longer ranges to avoid firing a weapon at long range."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get a robot pet, the Steel Defender, which can be whatever general shape we want as long as it’s medium. One of the classical shapes is a dog for example, as seen in "
+                },
+                {
+                  "type": "link",
+                  "text": "Dungeons and Dragons: Online",
+                  "href": "https://ddowiki.com/page/Iron_Defender_race"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can ride the Steel Defender into battle as well now which is almost mandatory to use a Lance, but useful for every other option as well."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Heroism and Shield are now always prepared for us, too. These are great for keeping us alive."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Skill Expert"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Intelligence"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Acrobatics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Arcana Expertise"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re taking Skill Expert to round out our odd Intelligence score."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Acrobatics is a great investment to avoid getting grabbed off the Steel Defender, but we could choose other things if we’re confident that won’t happen. Perhaps another knowledge skill, or maybe Sleight of Hand to go with our slightly above average Dexterity."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Taking expertise in Arcana to be the most magically knowledgeable person is on brand for an Artificer."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-2nd-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Vortex Warp"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Web"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Warding Bond"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Shoot or stab twice now."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We get 2nd-level spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Vortex Warp is a good tool for moving an ally around or trying to move a foe out of position."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Web is one of the strongest spells in the game and just that fun to throw at people. Also fun is putting Grease under the Web since Grease doesn’t use Concentration. Restrained and Prone is hilarious."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Warding Bond can let us absorb some of the damage for an ally. It’s ok for now, but the really important trick comes later."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tool Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infusions"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Repulsion Shield"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Pipes of Haunting"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tool Expertise is nice, especially with all these extra Tool Proficiencies we have access to."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The Repulsion Shield is an additional +1 to AC that can be Infused alongside Enhanced Defense."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pipes of Haunting are very strong, providing some AoE Frightened without using your Concentration. Handy to have if we’re not fighting anything immune to Fear."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Flash of Genius"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Add your Intelligence to someone’s failed check or save as a Reaction. It’s like backseat gaming except fun and appreciated."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Mounted Combatant"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With this we can do more to keep the Steel Defender alive while mounted, and in return we get Advantage on attacks against small or smaller foes."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Jolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-3rd-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Dispel Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Fly"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Haste"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra damage or healing is nice, but especially as a rider effect on attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For 3rd-level spells, we get nice things on our list like Fly and Haste. Plenty of good spells."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Item Adept"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infusions"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Winged Boots"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cloak of Protection"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cantrip"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Item Adept does two things. First, it gives an extra Attunement slot, which is nice. But also it increases the speed of crafting Uncommon and Common magical items. The speed boost is enough to finish an Uncommon item in about 3 days."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Infusions, we pickup Winged Boots and Cloak of Protection. These fine options are better explained above."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get a 3rd cantrip, and Mage Hand offers some great utility."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell-Storing Item"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The Spell-Storing Item is one of the strongest features in the game. We can stuff a 1st or 2nd-level spell into a weapon to get extra casts out the other end."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We have some good options for this. The first option is to hand a Concentration spell to a non-caster to get an extra Concentration on the field. For this I recommend Web so that your Fighter-Man can be Spider-Man."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Another option is to put some normally self-targeting spell or other utility into the item. For Battle Smiths, the real trick here is to stuff Warding Bond into a Barbarian’s axe or a Fighter’s greatsword or something."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As an example, if the Barbarian targets the Fighter and then Rages, damage taken by the Fighter is halved, and then that halved damage is shared with the Barbarian. If the shared damage is a type ("
+                },
+                {
+                  "type": "link",
+                  "text": "all damage has a type in 5e",
+                  "href": "https://www.sageadvice.eu/is-the-damage-type-of-hunters-mark-the-same-as-the-damage-type-of-the-weapon/"
+                },
+                {
+                  "type": "text",
+                  "text": ") and the Barbarian is resistant to that type via Rage, then the shared half would be "
+                },
+                {
+                  "type": "link",
+                  "text": "halved again because it is a new instance of damage",
+                  "href": "https://www.sageadvice.eu/warding-bond/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also keep in mind that, while the damage inherits the type from the original attack or spell, it also inherits being magical as the new damage is done by the Warding Bond spell. This means it bypasses resistance to non-magical BPS but it also gets universally halved if you hand this to an Oath of the Ancients Paladin because of their Aura of Warding."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If everyone else already has Concentration spells or is a Barbarian with Rage instead, then just stick Web in here and use it yourself as 10 extra casts of Web per day. That’s just really good in most situations."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Intelligence +2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Get smarter, improve DCs, Attacks, and other features."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-4th-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Freedom of Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th-level spell options are ok, but not as big as the nice things we got from 3rd-level spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Freedom of Movement is a pretty nice spell though, even if we’re getting it later than full casters."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Item Savant"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infusions"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Ring of Protection"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Arcane Propulsion Armor"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Attunement slots for more magic items and we ignore all restrictions on attuning to magic items."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As explained above, Ring of Protection is a great choice for an Infusion at this level. Arcane Propulsion Armor, on the other hand, might be good depending on what kind of weapon you were already using, as explained above."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Defender"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Buffs to all our Subclass features:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Arcane Jolt doubles in potency."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Steel Defender gets more AC and its Reaction ability does damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: +2 Constitution"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More HP. Better saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-5th-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Animate Object"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Greater Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Mass Cure Wounds"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Animate Object is one of the most obnoxious spells to throw into a fight. Just carry a bag of tiny rocks and animate ten at a time to start swinging in for a total of 10d4+40 damage if they all connect."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Greater Restoration and Mass Cure Wounds are more nice emergency spells to know. We don’t really want to cast these, but not having them when needed can be catastrophic."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Item Master"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infusions"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Six Attunement slots."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As explained above, we don’t get access to anything new that we didn’t have as options at 14, and we’ve already picked up all of our required daily Infusions. Therefore, pick what seems fun."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: +2 Constitution"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More HP. Better save."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Soul of Artifice"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More saves. Hoard all the items."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Battle Smith Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Tool Proficiency"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Battle Smith Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 3rd Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 5th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 9th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 13th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 17th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Battle Ready"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Steel Defender"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Extra Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Arcane Jolt"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Improved Defender"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Autognome"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Hexblood"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mounted Combatant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Crossbows and Firearms"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Lance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Thrown Weapons"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-intro-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center is-style-default has-small-font-size is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">Can’t touc"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Battle Ready</span>: Finally a way to use Intelligence for your weapon attacks! You also get martial weapons, which offers a small improveme"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-steel-defender-as-a-mount-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-steel-defender-as-a-mount-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-steel-defender-as-a-mount-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-steel-defender-as-a-mount-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-battle-smith-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-battle-smith-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-battle-smith-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-battle-smith-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-battle-smith-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-battle-smith-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-battle-smith-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-battle-smith-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-battle-smith-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-battle-smith-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-battle-smith-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-battle-smith-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-battle-smith-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-battle-smith-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-battle-smith-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-example-battle-smith-build-super-fighting-robot-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-infusions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-infusions-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-infusions-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-infusions-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-infusions-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-infusions-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-infusions-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-infusions-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-infusions-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-infusions-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-infusions-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4605,
+    "sections": 19,
+    "blocks": 54,
+    "tables": 3,
+    "ratingSignals": 29
+  },
+  "status": "needs-editorial-review"
+}

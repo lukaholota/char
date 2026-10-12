@@ -1,0 +1,2085 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "2252e9533c457358cdd9a7d33cedd7eabebe954a5582644ebf1cc19f9e37cd79",
+  "sourceRevision": {
+    "revisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+    "sourceId": "rpgbot-221c1fd52ae09448",
+    "fetchedAt": "2026-09-29T19:10:13.355236+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:29:36-04:00",
+    "contentHash": "6ff8540d9f9678d11f266778a0cf46711799d349f869464cf7e7b210a4be857c",
+    "title": "Death Domain Cleric 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-221c1fd52ae09448-2252e9533c457358.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nominally intended for use by evil cleric NPCs, the Death Domain Cleric is hidden away in the Dungeon Master’s Guide. Playing a death cleric typically means worshipping an evil deity, which in most campaigns can quickly turn into a problem since the players are typically intended to be the “heroes” of the story. That said, there’s no mechanical reason to deny access to the Death Domain."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A highly offense-focused subclass, the Death Domain Cleric adds martial weapon proficiency and several options for dealing necrotic damage. However, the domain lacks almost any support or utility options, so you’ll need to fall back on the Cleric’s normal spells and core features to provide those capabilities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Death Domain Cleric Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Death Domain Cleric Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Death Domain Cleric Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Death Domain Cleric Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Death Domain Cleric Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Death Domain Cleric Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Death Domain Cleric Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Death Domain Cleric Build – Stabby, Murdery Death",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Death Domain Cleric Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Domain Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A lot of very good\n\t\toptions, some of which aren’t on the Cleric spell list. The 3rd-level\n\t\toptions are the worst part of the domain, but the rest of the spell list is\n\t\tgreat.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st Level"
+              },
+              {
+                "type": "text",
+                "text": ": False Life is a fantastic\n\t\t\t\tbuff at any level. The hit points aren’t big, but with an hour duration\n\t\t\t\tyou can afford to spend a 1st-level spell slot several times a day to\n\t\t\t\treduce your need to heal your allies. Ray of Sickness is mediocre at\n\t\t\t\tbest."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd Level"
+              },
+              {
+                "type": "text",
+                "text": ": Both of the effects last\n\t\t\t\tonly a minute, and allow repeated saves. Unless you can almost guarantee\n\t\t\t\tthat the target will fail their save, these aren’t reliable debuffs."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Animate Dead requires\n\t\t\t\tfrequent re-casting in 5e, so having it prepared every day for free is\n\t\t\t\tnice. Vampiric Touch is a great way to combine healing and damage\n\t\t\t\toutput, and isn’t normally available to Clerics."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Blight deals decent\n\t\t\t\tdamage, especially against plants, but doesn’t scale particularly well\n\t\t\t\tand doesn’t have a fun secondary effect. Death Ward seems horribly out\n\t\t\t\tof place on the Death domain, but it’s a great buff."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Antilife Shell is a great\n\t\t\t\tway to protect yourself, but Cloudkill is very hard to use since you\n\t\t\t\tcan’t redirect its path, and the damage isn’t justifiable if it only\n\t\t\t\thits enemies once."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bonus Proficiency"
+              },
+              {
+                "type": "text",
+                "text": ": Martial weapons are\n\t\tnice, but the difference between a mace and a longsword isn’t significant\n\t\tsince Clerics never get Extra Attack. You probably don’t want to use reach\n\t\tweapons, either, since you don’t have heavy armor to keep your AC high when\n\t\tyou forgo a shield, though the Whip may be a worthwhile exception."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Reaper"
+              },
+              {
+                "type": "text",
+                "text": ": There aren’t many Necromancy\n\t\tcantrips, and many of them are already on the Cleric’s spell list, like Toll\n\t\tthe Dead. Chill Touch is also a good choice: it has better range than\n\t\toffensive cleric cantrips (Sacred Flame and Toll the Dead have a range of\n\t\tjust 60 ft.) and the damage is good. You’ll want to use Toll the Dead if you\n\t\tcan get within range, but having expanded range makes it more likely that\n\t\tyou can reach two enemies within 5 feet of each other.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The biggest problem with Reaper is that it’s difficult to control when\n\t\t\tenemies will be adjacent to each other. You can use the Telekinetic Feat\n\t\t\tto help, but it’s not a perfect solution. This will be much more impactful\n\t\t\tif you have allies with forced movement options or who like to grapple."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While the obvious use is offensive, Reaper also works with Spare the\n\t\t\tDying. Of course, if you’re casting Spare the Dying on two creatures, you\n\t\t\tshould probably cast Aid or Mass Healing Word."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity: Touch of Death"
+              },
+              {
+                "type": "text",
+                "text": ": This\n\t\treally isn’t a lot of damage. It’s a nice damage boost, but you want Channel\n\t\tDivinity to be more impactful than this. If your group uses the Optional\n\t\tClass Features, you’ll almost certainly get better results from using\n\t\tHarness Divine Power to get another spell slot. It does work on any melee\n\t\tattack, though, so you can use it with Inflict Wounds, Vampiric Touch, and\n\t\tSpiritual Weapon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Inescapable Destruction"
+              },
+              {
+                "type": "text",
+                "text": ": Considering that\n\t\tyou probably took Chill Touch and/or Toll the Dead, and that some of the\n\t\tcleric’s go-to single-target damage spells will deal Necrotic damage,\n\t\tresistance to Necrotic damage can be a problem. Immunity is still an issue,\n\t\tbut complete immunity to necrotic damage is rare, and generally limited to\n\t\tvery high-level creatures (Liches, etc.). Still, the Cleric’s biggest\n\t\tsources of damage typically deal radiant damage, so on the rare occasions\n\t\tthat you do encounter resistance or immunity to necrotic damage it’s easy to\n\t\tswitch to radiant."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Divine Strike"
+              },
+              {
+                "type": "text",
+                "text": ": Necrotic damage is among\n\t\tthe most reliable damage types, so, as far as Divine Strike goes it’s hard\n\t\tto find a better option. See also:\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Divine Strike vs. Cantrips",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/death/#divine-strike-vs-cantrips"
+              },
+              {
+                "type": "text",
+                "text": ",\n\t\tabove."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improved Reaper"
+              },
+              {
+                "type": "text",
+                "text": ": Many Necromancy spells\n\t\tlike Inflict Wounds and Blight are single-target. The ability to affect two\n\t\ttargets with one casting doubles their effectiveness, though requiring the\n\t\ttargets to be adjacent does severely limit how often you can apply this.\n\t\tKeep in mind that this isn’t purely offensive: it also works with False\n\t\tLife!"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Death Domain Cleric Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical Cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Death Domain Cleric Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical Cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/races"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Death Domain Cleric Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical Cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Death Domain Cleric Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical Cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#weapons"
+            },
+            {
+              "type": "text",
+              "text": " with martial weapons, though most clerics with martial weapons also get heavy armor, so you’re more likely to use Dexterity-based weapons."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Death Domain Cleric Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical Cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#armor"
+            },
+            {
+              "type": "text",
+              "text": ". If you lean into weapons, you should build around Dexterity, but don’t let that push you into light armor. You’ll need 20 Dexterity to match half plate armor, which is hard to justify. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Death Domain Cleric Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical Cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Death Domain Cleric Build – Stabby, Murdery Death",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is an offence-focused build that leans into putting out damage in melee. It’s still a Cleric at heart, and can still thrive on typical Cleric tactics (turn on Spirit Guardians and wait), but it primarily leans into the Death Domain’s focus on Necrotic damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build will assume no Optional Class Features except for the expanded spell list. Blessed Strike would be a great improvement here, but we recommend it for red-rated and orange-rated subclasses, and I try to follow the advice that we publish."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Go all in on Dex/Con/Wis. We’re planning to be in melee in medium armor, so we want the durability. We’re rearranging the Half-Elf’s +2/+1/+1, which gives us a great starting point."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custom Origin Half-Elf with the High Elf variant. This allows us to rearrange the +2/+1/+1 as we please, and we trade the Half-Elf’s extra skills for a Wizard Cantrip, which we’ll use for Booming Blade."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Faction Agent. What faction? Probably something nefarious. Get proficiency in Insight, Perception, and two languages."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll use our two Cleric class skills to get proficiency in History and Religion, plus Insight and Perception from our Background."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we take Telekinetic and raise our Wisdom to 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we raise Wisdom to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we take War Caster."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16 we take Lucky."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19 we take Metamagic Adept to get Seeking Spell."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Domain: Death"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Death Domain Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bonus Proficiency"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Reaper"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Chill Touch"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Word of Radiance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Booming Blade*"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Toll the Dead*"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting equipment, choose gold instead of picking from the suggested starting items. You’ll get an average of 125 gp, which is plenty for a rapier, a crossbow (maybe even a heavy crossbow), a shield, armor, and whatever other gear you might need. Be sure to put a holy symbol on your shield, and remember that medium armor will likely mean better AC since you’re not going to advance Dexterity past 16."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Death Domain grants proficiency in Martial weapons, which encourages us to use weapons. Resist the urge to use a scythe. We’re still in medium armor, so plan for Dexterity-based weapons like rapiers and crossbows. In melee, plan for a rapier and a shield. At range, use a Heavy Crossbow until you hit level 5 and Cantrip damage improves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We get Booming Blade from our race, which we’ll use when we’re in melee. Once we have Divine Strike, it becomes a pretty good combo."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ll use the free Necromancy Cantrip from Reaper to pick up Toll the Dead since we’re locked into that choice forever. We’ll also learn Chill Touch, so you have both of the allowed offensive cantrips. Use Chill Touch if you need the range or want to use Channel Divinity (Touch of Death), otherwise use Toll the Dead."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Reaper also works with Spare the Dying, but the odds of that being useful are laughably small."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our leveled spells are pretty typical. Bring staples like Healing Word and Bless. Consider using False Life if you’re going to fight in melee, but you may need to reserve that for when you have more spell slots to throw around."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (1/rest)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Touch of Death"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Turn Undead"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Turn Undead on a Cleric that’s intended to be evil feels weird. In older editions you could instead get “Rebuke Undead” which let you pacify and potentially dominate undead creatures. I miss that sometimes."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Touch of Death is a boost to your damage output with other necrotic damage, but doesn’t function on its own. It works with any melee attack, so spells and weapon attacks all work. Our rapier with Booming Blade and Touch of Death is a decent attack. You don’t multiply Touch of Death on a crit, so don’t bother reserving it for when you get lucky."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Blindness/Deafness is a great debuff, but it targets Constitution saves, which are consistently high across the level spectrum. It will never be more reliable than it is now, so try to enjoy it as much as you can."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Beyond that, stick to Cleric staples. Spiritual Weapon can apply Channel Divinity (Touch of Death) so that you’re not forced to attack with a weapon if you don’t want to."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Telekinetic (Wisdom 17 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We want Telekinetic Shove so that we can shove enemies adjacent to each other and then hit them with Reaper. At high levels, this gets even better when we can use Improved Reaper with bigger spells."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 1/2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This level brings Vampiric Touch, which combines very well with Channel Divinity (Touch of Death). Since it adds more necrotic damage, you’ll heal more!"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also you can get Spirit Guardians at this level. Use Vampiric Touch for single enemies and Spirit Guardians for crowds. Typical Cleric stuff."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our subclass list gives us Animate Dead at this level. Considering getting some pet skeletons. Having them perform tasks for you or stand at the back of combat and attack enemies with bows can be reasonably impactful while putting them at minimal risk. You don’t need to care about their safety, but the material component cost to animate new skeletons can get annoying."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Inescapable Destruction"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (2/rest)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Some creatures (especially Undead) have Resistance to Necrotic damage, but immunity is nearly non-existent. Inescapable Destruction will make your offensive spells like Toll the Dead, Inflict Wounds, and Spirit Guardians, as well as Channel Divinity (Touch of Death) even more reliable."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th-level spells. Our subclass spells give us Blight (horrible) and Death Ward. Death Ward is great, but you may not want to use your highest-level spell slot on it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Wisdom 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Strike +1d8"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 1)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Max Wisdom!"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Strike makes our melee attacks just a little better. Between Booming Blade, Divine Strike, and Channel Divinity (Touch of Death) we can make an attack do a decent amount of damage. But your spell attacks will be more reliable, so lean toward Inflict Wounds and Spiritual Weapon if you can justify the spell slots."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our subclass spells at this level aren’t great, so not much deviation from typical Cleric tactics. Consider casting Summon Celestial. Maybe it’s not on brand for a Cleric of an evil deity, but the 5e rules don’t seem to mind."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Intervention"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If you’re a Death Cleric, what do you ask your deity for? “Dear god, could you please kill this guy on my behalf?”"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "No interesting combos at this level, sadly. Upcasting Inflict Wounds with Channel Divinity (Touch of Death) is both more reliable and more damaging than Harm."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: War Caster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A pretty typical choice for the Cleric. Improving Concentration is great, and we can hit enemies with Booming Blade or something else nasty in place of an Opportunity Attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfortunately, I don’t think you can use Reaper with War Caster. If you target a second creature with a Necromancy Cantrip using Reaper, it no longer qualifies to be used with War Caster."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Strike +2d8"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our Booming Blade attack is now pretty great. 1d6 + 3 + 2d8 necrotic + 2d6 Thunder for an average of 22.5 damage, plus we can use Touch of Death to add another 16, and we might get Booming Blade’s secondary damage, too."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Lucky"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Lucky is for use with Improved Reaper. Getting all set up to hit two enemies with a single 5th-level Inflict Wounds and Improved Reaper and then missing feels awful. You can also use Lucky for saves if you need it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Reaper"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 4)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unfortunately, your spell options here are very limited: it needs to be a Necromancy spell which targets only one creature when the spell is cast, which rules out Vampiric Touch. Even so, you have a few good options:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Blindness/Deafness: You could upcast it to get more targets, but you can also use Improved Reaper to get 2 targets with a 2nd-level spell slot."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Blight: About as much damage as Inflict Wounds, but it’s on a Con save, so it’s less reliable."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Contagion: Inflict a horrifying debuff of your choice. I like Slimy Doom because your party can stun-lock the affected creature as long as the spell lasts."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Inflict Wounds: Upcasting this to 5th level yields average damage just below 40, and you can add Channel Divinity (Touch of Death)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– False Life: Share the buff with a friend!"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Animate Dead / Raise Dead: I think you can also use these, but technically a dead body is an object, so I’m not totally certain. It feels like it’s intended to work, but RAW it shouldn’t."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfortunately, I don’t think you can use Improved Reaper with War Caster. If you target a second creature with a spell, it no longer qualifies to be used with War Caster. It would be a great combo, but I don’t think it’s allowed. But as far as i can tell you can still use Touch of Death on each target (this still uses two uses of Channel Divinity as normal)."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (3/rest)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Touch of Death between each rest! It’s 20 damage per use, which is a decent boost."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Metamagic Adept"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Empower Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Seeking Spell"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Seeking Spell is more insurance in case a Spell Attack goes poorly. Use it before Lucky."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Intervention Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You: “God, grant me the power to end this fool.”"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Your god: "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "“…then lobbest thou thy Holy Hand Grenade of Antioch towards thy foe, who, being naughty in My sight, shall snuff it.”"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Death Domain Cleric Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Domain Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 1st Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red 3rd Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 7th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 9th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bonus Proficiency"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Reaper"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Channel Divinity: Touch of Death"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Inescapable Destruction"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Divine Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Improved Reaper"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"1\"><span class=\"rating-green\">Reaper</span>: There aren’t many Necromancy cantrips, and many of them are already on the Cleric’s spell list, like Toll the Dead. Chill To"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-2-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2816,
+    "sections": 17,
+    "blocks": 27,
+    "tables": 2,
+    "ratingSignals": 17
+  },
+  "status": "needs-editorial-review"
+}

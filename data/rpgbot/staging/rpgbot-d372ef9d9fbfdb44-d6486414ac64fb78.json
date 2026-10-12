@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/feats/touch-of-death/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "d6486414ac64fb78624ea84825f6a3163b5ebbdb79c8cc09e90f00fa51be4de5",
+  "sourceRevision": {
+    "revisionId": "rpgbot-d372ef9d9fbfdb44-d6486414ac64fb78",
+    "sourceId": "rpgbot-d372ef9d9fbfdb44",
+    "fetchedAt": "2026-09-29T19:22:43.552125+00:00",
+    "sourceUpdatedAt": "2026-07-04T08:12:21-04:00",
+    "contentHash": "73bc20df74aee89726e9c5270845732be03bfd173fdd4957a55f2785010ce719",
+    "title": "DnD 5.5 Touch of Death Feat Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-d372ef9d9fbfdb44-d6486414ac64fb78.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Touch of Death, a Dark Gift feat, lets you cast a fancy version of Chill Touch in exchange for Disadvantage on Death Saves. That’s an extremely risky proposition, and the upgraded Cantrip really isn’t impactful enough to make this appealing. You may find Touch of Death useful if you can get a damage bonus to it, as many spellcasting classes and subclasses do at level 5, but those bonuses usually apply to more than just Cantrips dealing Necrotic Damage, so there’s little reason to build around Chill Touch."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-deathly-touch",
+      "heading": "Deathly Touch",
+      "sourceAnchor": "deathly-touch",
+      "blocks": [
+        {
+          "blockId": "block-section-deathly-touch-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A reliable attack Cantrip and you get to ignore both spell components and Resistance to Necrotic damage. It’s nice, but unless you have other features that improve Chill Touch, it’s really not worth the feat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-pull-of-the-grave",
+      "heading": "Pull of the Grave",
+      "sourceAnchor": "pull-of-the-grave",
+      "blocks": [
+        {
+          "blockId": "block-section-pull-of-the-grave-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Being unconscious is relatively save in DnD 5.5, but Disadvantage on Death Saves means that falling unconscious means certain death without intervention by an ally. This isn’t  random and dangerous like most Dark Gift feats are, but it’s still dangerous."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "#deathly-touch",
+      "detail": "wp-block-heading rating-orange Deathly Touch"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#pull-of-the-grave",
+      "detail": "wp-block-heading rating-red Pull of the Grave"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-deathly-touch-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-pull-of-the-grave-1"
+    }
+  ],
+  "metrics": {
+    "words": 170,
+    "sections": 3,
+    "blocks": 3,
+    "tables": 0,
+    "ratingSignals": 2
+  },
+  "status": "needs-editorial-review"
+}

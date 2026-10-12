@@ -75,6 +75,22 @@ describe("KR34.3 — що проставляч звʼязує", () => {
 });
 
 describe("KR34.3 — підстановка в JSON", () => {
+  it("links supplement action prose without putting HTML in stats or immunity fields", () => {
+    const root = mkdtempSync(join(tmpdir(), "rule-term-supplement-"));
+    const entry = { description: "Опис.", actions: "Атака з перевагою.", bonusActions: "Ціль отримує стан Наляканий.",
+      ac: "11 + рівень заклинання", conditionImmunity: "Наляканий", shortDescription: "Атака з перевагою." };
+    writeFileSync(join(root, "supplements.json"), `${JSON.stringify({ creatures: [{ entry }] }, null, 2)}\n`);
+    const carrier = { path: "supplements.json", edition: "RULES_2014", format: "json", kind: "entity-supplements" } as const;
+    const report = linkRuleTermCarrier(carrier, forms, {}, root, true);
+    const linked = JSON.parse(readFileSync(join(root, "supplements.json"), "utf8")).creatures[0].entry;
+    expect(report.wrapped).toHaveLength(2);
+    expect(linked.actions).toContain("<a href=");
+    expect(linked.bonusActions).toContain("condition-frightened");
+    expect(linked.ac).toBe(entry.ac);
+    expect(linked.conditionImmunity).toBe(entry.conditionImmunity);
+    expect(linked.shortDescription).toBe(entry.shortDescription);
+    expect(linkRuleTermCarrier(carrier, forms, {}, root).wrapped).toEqual([]);
+  });
   it("опис, що є підрядком довшого опису, не ламає запис файлу", () => {
     const short = "виконуєте дію Атака.";
     const long = "виконуєте дію Атака. Крім того, ще щось.";

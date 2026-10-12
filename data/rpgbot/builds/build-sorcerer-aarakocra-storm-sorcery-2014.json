@@ -1,0 +1,955 @@
+{
+  "buildId": "build-sorcerer-aarakocra-storm-sorcery-2014",
+  "revisionId": "build-sorcerer-aarakocra-storm-sorcery-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— Ааракокра, Чародій шторму",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+      "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+      "sectionId": "section-example-build-aarakocra-storm-sorcerer",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "SORCERER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "STORM_SORCERY"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "SORCERER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "chromatic-orb"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "SORCERER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Transmuted Spell"
+          },
+          {
+            "optionNameEng": "Twinned Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "shatter"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "SORCERER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "fire-bolt"
+          ],
+          "knownSpellKeys": [
+            "enhance-ability"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "SORCERER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fireball"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "SORCERER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "SORCERER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wall-of-fire"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "SORCERER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 1
+          },
+          {
+            "ability": "DEX",
+            "amount": 1
+          }
+        ],
+        "openAdvancement": true,
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "SORCERER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "SORCERER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Empowered Spell"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "SORCERER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "chain-lightning"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "SORCERER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "METAMAGIC_ADEPT"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "SORCERER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "draconic-transformation"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "SORCERER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "SORCERER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "SORCERER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "SORCERER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Careful Spell"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "SORCERER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "SORCERER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "SORCERER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+          "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "STORM_SORCERY",
+    "raceKey": "AARAKOCRA_MPMM",
+    "backgroundKey": "ENTERTAINER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Беремо розподіл за очками, рекомендований вище, і вкладаємо +2/+1 у Харизму та Спритність.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 14 14 Інтелект 8 8 Мудрість 10 10 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Для збірки з одним класом расовий політ — найлегший спосіб змусити збірку працювати, тож будувати її навколо ааракокри{{Aarakocra}} — добрий вибір. Тут я використаю правила налаштованого походження{{Custom Origin}}, але якщо ви ними не користуєтеся, цілком упораєтеся й із крилатим тифлінгом{{Winged Tiefling}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Усе, що годиться Чародієві, годиться й тут.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Усе, що годиться Чародієві, годиться й тут.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "20 Харизми ми можемо мати вже на 8-му рівні, тож для рис тут повно місця. «Адепт метамагії»{{Metamagic Adept}} корисний, але крім нього важко знайти легкий вибір.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Чаротворство\nВідомі замовляння:\n– Створення багаття\n– Розщеплення Розуму\n– Мала ілюзія\n– Штукарство\nВідомі заклинання:\n– Магічний дротик\n– Їдке Вариво Таші\nБурхлива магія\nМова вітру",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Джерело магії\nНове відоме заклинання:\n– Кольорова кулька",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Метамагія\n– Перетворене заклинання\n– Спарене заклинання\nНове відоме заклинання:\n– Друзки",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик (Харизма 16 → 18)\nНові відомі замовляння:\n– Вогняний заряд\nНове відоме заклинання:\n– Покращення здібності",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Нове відоме заклинання:\n– Вогнекуля",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Серце бурі\nНове відоме заклинання:\n– Будь-яке\nПорадник бурі",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Нове відоме заклинання:\n– Стіна вогню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Харизма 18 → 20)\nНове відоме заклинання:\n– Будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нове відоме заклинання:\n– Будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Метамагія\n– Будь-яка\nНові відомі замовляння:\n– Будь-яке\nНове відоме заклинання:\n– Будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Нове відоме заклинання:\n– Ланцюгова блискавка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Адепт метамагії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нове відоме заклинання:\n– Драконяче перетворення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Лють бурі{{Storm's Fury}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Нове відоме заклинання:\n– Будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик або риса",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Метамагія\n– Будь-яка\nНове відоме заклинання:\n– Будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Душа вітру{{Wind Soul}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик або риса",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Відновлення чарівництва{{Sorcerous Restoration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Підвищення Харизми на 8-му рівні",
+        "reason": "Автор пише Харизму 16→18 на 4-му і 18→20 на 8-му, але його таблиця стартує з Харизми 17 (15 + 2 раси): після +2 на 4-му це 19, а друге +2 на 8-му дало б 21, понад межу 20. Автор мав на увазі Харизму 20 до 8-го рівня, тому на 4-му лишено +2 до Харизми (19), а на 8-му пресет бере +1 до Харизми й +1 до Спритності (вибір платформи, прапор відкритого підвищення); гравець може змінити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Нове заклинання на 6-му рівні",
+        "reason": "Автор пише «будь-яке» заклинання на 6-му рівні, тому це відкритий вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Версія Ааракокри",
+        "reason": "Автор бере Ааракокру з правилами налаштованого походження; у каталозі є лише версія з «Монстрів Мультивсесвіту» з підвищеннями за правилами Таші.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "«Будь-які» вибори на 8–20 рівнях",
+        "reason": "Автор пише «будь-яке» для заклинань (8, 9, 10, 15, 17-й), замовляння (10-й), метамагії (10-й, 17-й) і «Підвищення Харизми або риса» (16-й, 19-й). Заклинання й замовлення — відкриті вибори гравця; метамагія: пресет бере Empowered Spell (10-й) і Careful Spell (17-й); підвищення: Спритність +2 (16-й) і Статура +2 (19-й). Усе це вибір платформи, гравець може змінити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Адепт метамагії на 12-му рівні",
+        "reason": "Риса «Адепт метамагії» записана без вибору метамагії: каталог не має її опцій (BUG-O49-METAMAGIC-ADEPT).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-storm-sorcery-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-storm-sorcery-2014-draft1",
+            "sourceRevisionId": "rpgbot-6582d5bddc223fb7-d1c38a869a40df31",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

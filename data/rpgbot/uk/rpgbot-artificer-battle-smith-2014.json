@@ -1,0 +1,2414 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-4654a4690574486e",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-4654a4690574486e-e0b992fd0d438f26",
+      "sourceId": "rpgbot-4654a4690574486e",
+      "fetchedAt": "2026-09-29T19:12:39.326465+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:25:03-04:00",
+      "contentHash": "8720f551b32e21c3b00fa11869b7ed6ba0c1497beef33f57a73cb83ff0435d28",
+      "title": "Battle Smith Artificer 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-4654a4690574486e-e0b992fd0d438f26.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-artificer-battle-smith-2014",
+    "sourceId": "rpgbot-4654a4690574486e",
+    "slug": "artificer-battle-smith-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Бойовий коваль — гайд підкласу Винахідника (2014)",
+    "titleEn": "Battle Smith Artificer 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Винахідник",
+      "Бойовий коваль",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "sourceRevisionId": "rpgbot-4654a4690574486e-e0b992fd0d438f26",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Бойовий коваль — гайд підкласу Винахідника (2014)",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не дістанеш мене, шерифе. Я привів бойового пса із вбудованим силовим полем! One-Eyed Bart (Mr. Potatohead) — "
+                },
+                {
+                  "type": "link",
+                  "text": "Toy Story",
+                  "href": "https://www.youtube.com/watch?v=id1tfW6aRqc&t=53s"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бойовий коваль — Винахідник, зосереджений на наступі зброєю. Цікава роль поруч із Паладином і Слідопитом: напівчаротворець із бойовою зброєю. Без підсилень на кшталт Мисливська мітка [Hunter's Mark] чи {{Божественна кара|Divine Smite}} мусить використовувати заклинання й інфузії для більшої шкоди. А ще надбойового робота, {{Сталевий захисник|Steel Defender}}. Його теж використовує."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Винахідник загалом добре підходить для поєднання зброї й магії через вимогу інструментів. Ця частина чаротворства додає матеріальний компонент кожному заклинанню, а будь-який предмет з інфузією вважає фокусом: не потрібен {{Бойовий заклинатель|War Caster}} лише заради зайнятих рук. Бойовий коваль додає Інтелект для атак магічною зброєю, яку легко роблять інфузії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна йти в бій зі зброєю в одній руці й щитом в іншій, однаково готовим атакувати й чаклувати без втрати бонусу атаки чи СК. Або стояти позаду й стріляти магічно самозарядним пістолем зі щитом. Хто вам завадить?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У прикладі Малий персонаж їздить на Сталевому захиснику. Також показуємо вільний вибір зброї й невеликі зміни під будь-яку бажану. Якщо хочете гнучке поєднання шкоди зброї та магії контролю, прочитайте «Надбойового робота»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Бойового коваля",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Сталевий захисник як верхова істота",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#steel-defender-as-a-mount"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Бойового коваля",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#battle-smith-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#battle-smith-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#battle-smith-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#battle-smith-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#battle-smith-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад персонажа — Надбойовий робот",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#example-battle-smith-build-super-fighting-robot"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Інфузії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#infusions"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах офіційного контенту ми не враховуємо сторонні матеріали, Unearthed Arcana й хоумбрю, оскільки не можемо припустити, що ваша гра їх дозволяє."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Бойового коваля",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Володіння інструментами|Tool Proficiency (Battle Smith)}}: більшість цікавого й дорогого немагічного спорядження зроблено з металу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання бойового коваля|Battle Smith Spells}}: більшість зі списку Паладина — чудово для витривалого підкласу ближнього бою. Чимало варіантів хороші, а заклинання ударів Паладина працюють і з далекобійною зброєю, тож ближній бій не обовʼязковий."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: чудові захисні підсилення. Щит [Shield] легко компенсує різницю витривалості зі Зброярем у важких обладунках."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: обидва варіанти ситуативні. Охоронний звʼязок [Warding Bond] складно використовувати з Хітовою кісткою к8."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: обидва заклинання нормальні, але не особливо хороші для 3-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "13-й рівень: ще чудові захисні підсилення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "17-й рівень: обидва ситуативні. Але іншого хорошого засобу проти позапланових істот немає, а найкраще групове лікування — Аура живучості [Aura of Vitality], яке не підніме всю групу за один хід."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Готовність до бою|Battle Ready}}: нарешті атаки зброєю через Інтелект! Також володіння бойовою зброєю трохи покращує вибір. Майте Спритність 14 для середніх обладунків, решту — в Інтелект. Довгий меч{{Longsword}} чи аналог зі щитом дає витривалість майже Воїна, а з правильними інфузіями, можливо, більшу. Особливо з Відхилити атаку{{Steel Defender}} захисника. Це може навіть виправдати дворучну зброю для наступу. Але з Гримучий Клинок [Booming Blade] чи Клинок Зеленого Полумʼя [Green-Flame Blade] більша кістка менш важлива за КБ щита. Для ще кращого захисту зблизька — Батіг{{Whip}}, а захисник між вами й ворогами. Якщо замало, беріть далекобійну зброю й відправляйте робота в ближній бій самого."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Сталевий захисник{{Steel Defender}}: насамперед захищає, а не завдає шкоди. Пристойні ХП й фактично бойовий стиль Захист. Шкода як у довгого меча, силовим полем, майже без опору; головне — захищати вас, поки ви завдаєте справжньої шкоди. КБ лише 15, тож між боями часто лагодитимете. Його Ремонт відновлює ХП, але лише 3 рази на день; Лагодження [Mending] лікує більше. На високих рівнях проблема — не вміє літати. Треба спускати ворогів або навчити літати захисника; {{Крилаті чоботи|Winged Boots}} через інфузію, мабуть, найкращий шлях."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Додаткова атака (Бойовий коваль)|Extra Attack (Battle Smith)}}: корисно для шкоди зброєю, але без додаткової шкоди влучання замовляння на кшталт Громового клинка чи Спалах Мечів [Sword Burst] можуть завдавати значно більше. Тому постійно корисна насамперед зі зброєю з досяжністю чи далекобійною. Математика — у "
+                  },
+                  {
+                    "type": "link",
+                    "text": "порівнянні замовлянь ближнього бою з Додатковою атакою",
+                    "href": "https://rpgbot.net/dnd5/characters/melee_cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Арканний поштовх|Arcane Jolt}}: 2к6 шкоди чи лікування до 5 разів на день небагато, але на 15-му рівні подвоюється. Лікування корисне як Цілюще слово [healing word]: піднімає помираючих союзників і повертає в бій. Я беріг би для лікування й критичних влучань. Шкода зазвичай мало змінює, хіба знаєте, що вбʼє ціль. Це додаткова шкода атаки, а не окреме джерело, тож критичне влучання множить її, як Божественна кара чи Проклін [hex]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Покращений захисник|Improved Defender}}: ще 2к6 Арканного поштовху трохи допомагають, але не надто суттєво. Бонус КБ важливий: робот 11 рівнів мав КБ 15, поки бонуси атак зростали. Невелика шкода Відхилити атаку теж приємна: 1к4 + 5 при Інтелекті 20 мало для цього рівня, але це бонус до того, що й так робите кожного раунду, і швидко накопичується."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-steel-defender-as-a-mount",
+          "parentSectionId": "section-features",
+          "heading": "Сталевий захисник як верхова істота",
+          "sourceAnchor": "steel-defender-as-a-mount",
+          "blocks": [
+            {
+              "blockId": "block-section-steel-defender-as-a-mount-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сталевий захисник Середнього розміру може бути верховою істотою для Малого Бойового коваля. Весело, але є складнощі. По-перше, хоч захисник зазвичай діє після коваля в ініціативі, як керована верхова істота він переміщується на ході коваля, як інші верхові істоти.\n\nРедакційна примітка: це авторський спосіб узгодити правила керованої верхової істоти з окремим ходом Сталевого захисника. Правила 2014 прямо не розбирають цю комбінацію; порядок ходів слід узгодити з Майстром."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-steel-defender-as-a-mount-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "По-друге, діють два обмеження. Керована верхова істота виконує лише Ухилення, Ривок і Відступ. Сталевий захисник без вашої бонусної дії виконує лише Ухилення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-steel-defender-as-a-mount-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Простіше: за верхову істоту зі зростаючими ХП отримуємо Ривок і Відступ ціною бонусної дії. На мою думку, чесний обмін. Так він не атакує, але мобільність у бою варта цього."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-steel-defender-as-a-mount-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше — "
+                },
+                {
+                  "type": "link",
+                  "text": "практичний гайд верхового бою",
+                  "href": "https://rpgbot.net/dnd5/characters/mounted_combat/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-battle-smith-ability-scores",
+          "heading": "Характеристики Бойового коваля",
+          "sourceAnchor": "battle-smith-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-battle-smith-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потрібен високий Інтелект для атак і СК, висока Статура для концентрації та Спритність хоча б 14 для середніх обладунків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-battle-smith-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сил: можна залишити низькою навіть із дворучним мечем і {{Майстер важкої зброї|Great Weapon Master}}: усе це використовує Інтелект."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-battle-smith-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спр: 14 для середніх обладунків. Якщо кидаєте характеристики й після Інтелекту та Статури є ще 16, {{Майстер середніх обладунків|Medium Armor Master}} приємний."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-battle-smith-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ста: більше ХП, кращі ряткидки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-battle-smith-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інт: характеристика «для всього». Підвищуйте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-battle-smith-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Муд: якщо є зайві очки, перевірки й ряткидки Мудрості важливі — приберіть штраф −1."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-battle-smith-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хар: нехай такими перевірками займається хтось інший."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-battle-smith-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-battle-smith-races",
+          "heading": "Раси",
+          "sourceAnchor": "battle-smith-races",
+          "blocks": [
+            {
+              "blockId": "block-section-battle-smith-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для всього іншого дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "аналіз рас Винахідника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-battle-smith-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Автогном{{Autognome}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Спелджаммер: Пригоди в космосі",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": додаткові взаємодії зі Сталевим захисником. Лагодження лікує обох. Як Конструкт, Автогном підходить для Ремонту захисника: якщо коваль недієздатний, робот може просто вилікувати господаря."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Відьмокров{{Hexblood}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Путівник Ван Ріхтена по Равенлофту",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": расовий Проклін може збільшити власну шкоду зброї. Але не можемо автоматично обійти соматичний компонент, як із заклинаннями Винахідника."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-battle-smith-feats",
+          "heading": "Риси",
+          "sourceAnchor": "battle-smith-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-battle-smith-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щодо рис також дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд Винахідника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-battle-smith-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Верховий боєць|Mounted Combatant}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Книга гравця",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": добре для Малого персонажа на Сталевому захиснику. Менш корисний Середнім чи тим, хто не хоче відчувати себе пілотом меха."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-battle-smith-weapons",
+          "heading": "Зброя",
+          "sourceAnchor": "battle-smith-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-battle-smith-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Володіння бойовою зброєю дає хороші варіанти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-battle-smith-weapons-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Арбалети й вогнепальна зброя: усе одно робимо зброю магічною через інфузію, тож {{Повторний постріл|Repeating Shot}} чудово прибирає Заряджання. Ще краще — дозволяє використовувати Пістоль{{Pistol (Renaissance)}} чи Ручний арбалет{{Hand Crossbow}}, тримаючи щит іншою рукою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кавалерійський спис{{Lance}}: для Малого коваля верхи на захиснику спис і щит веселі. Найбільша кістка шкоди для Малої істоти без штрафу властивості Важка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Метальна зброя: {{Повертальна зброя|Returning Weapon}} дозволяє тією самою зброєю битися зблизька й здалеку без додаткових рис."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-battle-smith-armor",
+          "heading": "Обладунки",
+          "sourceAnchor": "battle-smith-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-battle-smith-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Середніх обладунків зі Спритністю 14 достатньо, особливо з інфузіями. Ще +2 чи більше КБ теж чудово, залежно від обраної зброї."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-battle-smith-build-super-fighting-robot",
+          "heading": "Приклад персонажа — Надбойовий робот",
+          "sourceAnchor": "example-battle-smith-build-super-fighting-robot",
+          "blocks": [
+            {
+              "blockId": "block-section-example-battle-smith-build-super-fighting-robot-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Верховий бій",
+                  "href": "https://rpgbot.net/dnd5/characters/mounted_combat/"
+                },
+                {
+                  "type": "text",
+                  "text": " непросто зробити правильно. Малий персонаж ефективно використовує захисника як верхову істоту. Він витриваліший за мула, але деякі звичні безкоштовні можливості потребують бонусної дії. Натомість мобільність варта клопоту, а зростаючі ХП дозволяють використовувати його всю карʼєру."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автогном Малий і може бути ціллю Ремонту захисника. Пріоритет Інтелекту й Статурі, Спритності достатньо 14. Зайві очки купівлі доводять Мудрість до 10."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базові"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищені"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 20"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автогном дає Малий розмір і тип Конструкт. Обираємо два володіння інструментами: одне будь-яке, друге — духовий інструмент. Я зазвичай беру Волинку, але конкретний не важливий: потрібен для майбутньої інфузії Сопілки жаху."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідчий{{Investigator}} дає Аналіз поведінки, Уважність й Набір для гриму. Інструменти злодія вже є від Винахідника, тож їх замінюємо будь-яким інструментом. Нічого конкретного не потрібно, я обрав Vehicles (Space), але обирайте самі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Винахідника — Магія й Розслідування. Магія дозволяє виготовляти речі, зокрема сувої. Розслідування з Аналізом поведінки й Уважністю допомагає помічати підступи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також будь-які ремісничі інструменти, Інструменти лудильника й Інструменти злодія. Слідчий дає Набір для гриму й заміну Інструментів злодія будь-якими. Автогном додає ще два; одне використали для духового інструмента."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні {{Експерт у навичках|Skill Expert}} додає +1 Інтелекту до 18, володіння Непомітністю й експертність у Магії.\n\nРедакційна примітка: у таблиці рівнів автор натомість обирає Акробатику. Обидва авторські варіанти збережено; це альтернативи, а не дві навички від однієї риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні Верховий боєць посилює користь захисника як верхової істоти. Наш КБ із напівлатами, щитом і Щитом може бути значно вищим за його, тож переспрямовувати атаки розумно. Безкоштовна перевага проти Малих чи менших цілей теж приємна."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні +2 Інтелекту максимізує його до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні +2 Статури доводить її до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні +2 Статури максимізує її до 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-infusions",
+          "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+          "heading": "Інфузії",
+          "sourceAnchor": "infusions",
+          "blocks": [
+            {
+              "blockId": "block-section-infusions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У багатьох інфузіях є простір для особистих уподобань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 2-му рівні обираємо інфузії зброї. Для бойової сокири чи кавалерійського списа чудова "
+                },
+                {
+                  "type": "strong",
+                  "text": "{{Покращена зброя|Enhanced Weapon}}"
+                },
+                {
+                  "type": "text",
+                  "text": ". Для верхового стрільця — "
+                },
+                {
+                  "type": "strong",
+                  "text": "Повторний постріл"
+                },
+                {
+                  "type": "text",
+                  "text": ", що спрощує боєприпаси. Поєднання двох підходів — "
+                },
+                {
+                  "type": "strong",
+                  "text": "Повертальна зброя"
+                },
+                {
+                  "type": "text",
+                  "text": " на списі чи ручній сокирі для ближніх і далекобійних атак, хоча дальність менша. Можна взяти дві й поділитися із союзником."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Крім магічної зброї, "
+                },
+                {
+                  "type": "strong",
+                  "text": "{{Покращений захист|Enhanced Defense}}"
+                },
+                {
+                  "type": "text",
+                  "text": " для КБ завжди доречний. Також рекомендую знати "
+                },
+                {
+                  "type": "strong",
+                  "text": "{{Загострювач розуму|Mind Sharpener}}"
+                },
+                {
+                  "type": "text",
+                  "text": " на майбутнє для предмета зі збереженим заклинанням."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На рівнях 6, 10, 14 і 18 вивчаємо по дві нові, але активуємо лише одну додаткову щоразу: максимум 6 водночас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 6-му рівні беремо "
+                },
+                {
+                  "type": "strong",
+                  "text": "{{Сопілка жаху|Pipes of Haunting}}"
+                },
+                {
+                  "type": "text",
+                  "text": " через "
+                },
+                {
+                  "type": "strong",
+                  "text": "Репліку магічного предмета"
+                },
+                {
+                  "type": "text",
+                  "text": ": три застосування Переляканості на день без концентрації. Саме для цього духовий інструмент. Замість кидати відновлення зарядів щодня можна відтворити новий предмет із повними зарядами. Порівняйте з "
+                },
+                {
+                  "type": "strong",
+                  "text": "{{Кільце підживлення заклять|Spell-Refueling Ring}}"
+                },
+                {
+                  "type": "text",
+                  "text": ": лише одне заклинання на день замість трьох моторошних мелодій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У деяких групах кільце повному чаротворцю дуже сильне: наприклад, додаткові Духи захисники [Spirit Guardians] Клірику щодня. Також "
+                },
+                {
+                  "type": "strong",
+                  "text": "{{Відштовхувальний щит|Repulsion Shield}}"
+                },
+                {
+                  "type": "text",
+                  "text": " додає КБ поверх "
+                },
+                {
+                  "type": "strong",
+                  "text": "Покращеного захисту"
+                },
+                {
+                  "type": "text",
+                  "text": " на обладунках."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 10-му рівні "
+                },
+                {
+                  "type": "strong",
+                  "text": "Крилаті чоботи"
+                },
+                {
+                  "type": "text",
+                  "text": " через ще одну "
+                },
+                {
+                  "type": "strong",
+                  "text": "Репліку магічного предмета"
+                },
+                {
+                  "type": "text",
+                  "text": " можна вдягти захиснику, на якому їздимо. Інший хороший вибір — "
+                },
+                {
+                  "type": "strong",
+                  "text": "{{Плащ захисту|Cloak of Protection}}"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чотири активні інфузії без роздачі: зброя на вибір — "
+                },
+                {
+                  "type": "strong",
+                  "text": "Повторний постріл"
+                },
+                {
+                  "type": "text",
+                  "text": " і "
+                },
+                {
+                  "type": "strong",
+                  "text": "Повертальна зброя"
+                },
+                {
+                  "type": "text",
+                  "text": " лишаються +1, а "
+                },
+                {
+                  "type": "strong",
+                  "text": "Покращена зброя"
+                },
+                {
+                  "type": "text",
+                  "text": " стає +2; "
+                },
+                {
+                  "type": "strong",
+                  "text": "Покращений захист"
+                },
+                {
+                  "type": "text",
+                  "text": " +2; "
+                },
+                {
+                  "type": "strong",
+                  "text": "Сопілка жаху"
+                },
+                {
+                  "type": "text",
+                  "text": "; "
+                },
+                {
+                  "type": "strong",
+                  "text": "Плащ захисту"
+                },
+                {
+                  "type": "text",
+                  "text": ". Якщо "
+                },
+                {
+                  "type": "strong",
+                  "text": "Сопілка"
+                },
+                {
+                  "type": "text",
+                  "text": " не потрібна, "
+                },
+                {
+                  "type": "strong",
+                  "text": "Крилаті чоботи"
+                },
+                {
+                  "type": "text",
+                  "text": " чи "
+                },
+                {
+                  "type": "strong",
+                  "text": "Відштовхувальний щит"
+                },
+                {
+                  "type": "text",
+                  "text": " — хороші заміни."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Важливо: Винахідник 10-го рівня виготовляє незвичайні чи нижчої рідкості предмети за ¼ часу й половину золота. Крилаті чоботи й Плащ захисту незвичайні, тож за тиждень можна зробити два, по 100 зм кожен. Це звільняє інфузії й дає копії групі за "
+                },
+                {
+                  "type": "link",
+                  "text": "«Гайдом Занатара»",
+                  "href": "https://www.dndbeyond.com/sources/xgte/downtime-revisited#MagicItemCraftingTimeAndCost"
+                },
+                {
+                  "type": "text",
+                  "text": ", с. 129."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чому тоді беремо їх інфузіями? "
+                },
+                {
+                  "type": "link",
+                  "text": "Правила виготовлення 5e",
+                  "href": "https://rpgbot.net/crafting-rpgbot-podcast-s2e66/"
+                },
+                {
+                  "type": "text",
+                  "text": " дратують. Магічні предмети потребують формули й спеціальних матеріалів. Знання інфузії, теоретично, має замінити формулу, залишивши випробування з ПО 4–8 на кожен предмет. А якщо часу на матеріали немає, інфузія для себе все одно добра.\n\nРедакційна примітка: автоматична заміна формули знанням інфузії прямо не встановлена правилами; це авторська пропозиція для рішення Майстра."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-infusions-11",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 14-му рівні дивимося на "
+                },
+                {
+                  "type": "strong",
+                  "text": "{{Перстень захисту|Ring of Protection}}"
+                },
+                {
+                  "type": "text",
+                  "text": " із "
+                },
+                {
+                  "type": "strong",
+                  "text": "Репліки"
+                },
+                {
+                  "type": "text",
+                  "text": ". Так, нагромаджуємо КБ, але ще +1 усіх ряткидків поверх плаща приємне. Також "
+                },
+                {
+                  "type": "strong",
+                  "text": "{{Арканний бронепривід|Arcane Propulsion Armor}}"
+                },
+                {
+                  "type": "text",
+                  "text": " — альтернатива інфузії зброї із силовими атаками. Може бути прямим покращенням "
+                },
+                {
+                  "type": "strong",
+                  "text": "Повертальної зброї"
+                },
+                {
+                  "type": "text",
+                  "text": " для метальних атак."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-battle-smith-build-super-fighting-robot",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Магічне майстрування|Magical Tinkering}}; {{Чаротворення (Винахідник)|Spellcasting (Artificer)}}: замовляння Лагодження, Вогняний заряд [Fire Bolt]; заклинання 1-го рівня: Поглинання стихій [Absorb Elements], Лікування ран [Cure Wounds], Вогники фей [Faerie fire], Смалець [Grease]; навички: Магія, Аналіз поведінки, Розслідування, Уважність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На 1-му рівні небагато. Візьміть середні обладунки й щит, використовуйте замовляння. Лагодження лікує Автогнома, Вогняний заряд використовуємо кілька рівнів до підкласу. Готуємо кілька корисних заклинань: Поглинання стихій рятує від стихій, Лікування ран для надзвичайних випадків — Винахідник зазвичай не має Цілющого слова. Вогники фей дають перевагу групі. Мастило — хороша важкопрохідна місцевість навіть без концентрації."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Вливання предмета|Infuse Item}}; Покращений захист, Загострювач розуму, інфузії зброї на вибір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Одне вміння, зате чудове. Інфузії описані над таблицею, бо тут довгі абзаци тісні. Загострювач розуму хороший, якщо потім дамо заклинання з концентрацією нечаротворцю через збережений предмет, особливо без володіння ряткидками Статури, як Пройдисвіту."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий коваль: Готовність до бою, Сталевий захисник, Заклинання бойового коваля, Ковальські інструменти; можлива заміна Вогняного заряду на Спалах Мечів [Sword Burst]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті підклас і атаки зброєю через Інтелект. Можна замінити Вогняний заряд на Спалах мечів залежно від зброї: зі списом чи арбалетом — для цілей у межах 5 футів. З іншою ближньою чи Повертальною зброєю краще залишити заряд для далеких цілей без штрафу великої дальності. Робот-супутник може виглядати як завгодно, якщо Середній: класична форма собаки, як у "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Dungeons and Dragons: Online",
+                      "href": "https://ddowiki.com/page/Iron_Defender_race"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Тепер можемо їздити на ньому — майже обовʼязково для кавалерійського списа, корисно для всіх. Героїзм [Heroism] і Щит завжди підготовлені й допомагають вижити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експерт у навичках: +1 Інтелект; Акробатика; експертність у Магії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Округлюємо Інтелект. Акробатика допомагає уникати стягування із захисника, але можна інше, якщо не боїтеся: навичку знань чи Спритність рук для трохи вищої за середню Спритності. Експертність у Магії тематична."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака; заклинання 2-го рівня: Вихрове переміщення [Vortex Warp], Павутиння [Web], Охоронний звʼязок"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер двічі стріляємо чи колемо. Вихрове переміщення рухає союзника чи ворога. Павутиння — одне з найсильніших заклинань; весело додати під нього Мастило без концентрації. Знерухомлений і Збитий з ніг — смішно. Охоронний звʼязок дозволяє отримувати частину шкоди союзника. Поки нормально, головна хитрість пізніше."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Експертиза інструментів|Tool Expertise}}; інфузії: Відштовхувальний щит, Сопілка жаху"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза хороша з нашими численними інструментами. Щит +1 КБ працює разом із Покращеним захистом. Сопілка жаху дуже сильна: Переляканість по області без концентрації, якщо ворог не має імунітету."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Спалах геніальності|Flash of Genius}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Реакцією додаємо Інтелект до чужої невдалої перевірки чи ряткидка. Наче підказки з-за спини, тільки веселі й доречні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Верховий боєць"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше захищаємо захисника верхи й отримуємо перевагу атак проти Малих чи менших ворогів.\n\nРедакційна примітка: Верховий боєць дає перевагу лише на атаки ближнього бою проти істот, менших за вашу верхову істоту; далекобійні атаки цього бонусу не отримують."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканний поштовх; заклинання 3-го рівня: Розвіювання магії [Dispel Magic], Політ [Fly], Прискорення [Haste]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова шкода чи лікування при влучанні приємні. Заклинання 3-го рівня дають хороші варіанти, зокрема Політ і Прискорення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Адепт магічних предметів|Magic Item Adept}}; інфузії: Крилаті чоботи, Плащ захисту; нове замовляння: "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Адепт магічних предметів дає ще налаштування й прискорює створення звичайних та незвичайних предметів. Незвичайний можна закінчити приблизно за 3 дні. Чоботи й плащ пояснені вище. Третє замовляння — Магічна рука — корисне."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Предмет-осередок заклять|Spell-Storing Item}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Одне з найсильніших умінь гри: заклинання 1-го чи 2-го рівня в зброї дає більше використань. Можна передати концентрацію нечаротворцю: Павутиння, щоб Воїн став Людиною-павуком. Або звичайно особисте чи допоміжне заклинання. Для коваля хитрість — Охоронний звʼязок у сокирі Варвара чи дворучному мечі Воїна. Варвар обирає Воїна й Лютує: шкода Воїна наполовину, ця половина передається Варвару. Якщо тип — "
+                    },
+                    {
+                      "type": "link",
+                      "text": "уся шкода в 5e має тип",
+                      "href": "https://www.sageadvice.eu/is-the-damage-type-of-hunters-mark-the-same-as-the-damage-type-of-the-weapon/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " — відповідає його опору, передана половина "
+                    },
+                    {
+                      "type": "link",
+                      "text": "знову ділиться як нове отримання шкоди",
+                      "href": "https://www.sageadvice.eu/warding-bond/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Вона успадковує тип, але також стає магічною від заклинання: обходить опір до немагічної дробильної, колючої та рубальної шкоди, а Паладин Клятви древніх із Аурою оберегу ділить її всю. Якщо всі вже концентруються або Варвар Лютує, покладіть Павутиння й використовуйте самі: 10 додаткових накладань на день дуже добре.\n\nРедакційна примітка: трактування переданої шкоди Охоронного звʼязку як магічної й застосування Аури оберегу є авторським висновком. Заклинання прямо не визначає всі ці взаємодії; потрібне рішення Майстра."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: +2 Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стаємо розумнішими, покращуємо СК, атаки й інші вміння."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня: Свобода рухів [Freedom of Movement]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Варіанти нормальні, але не так вражають, як 3-й рівень. Свобода рухів приємна, хоч отримуємо пізніше за повних чаротворців."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Знавець магічних предметів|Magic Item Savant}}; інфузії: Перстень захисту, Арканний бронепривід"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше налаштувань та ігнорування обмежень предметів. Перстень захисту чудовий, бронепривід може бути хорошим залежно від попередньої зброї, як пояснено вище."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращений захисник{{Improved Defender}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканний поштовх удвічі сильніший; захисник має більше КБ, його реакція завдає шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: +2 Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП, кращі ряткидки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 5-го рівня: Оживлення предметів [Animate objects], Більше відновлення [Greater Restoration], Масове лікування ран [Mass Cure Wounds]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оживлення предметів — одне з найнадокучливіших заклинань бою. Носіть мішок дрібних камінців, оживляйте десять: 10к4 + 40 шкоди, якщо всі влучать. Більше відновлення й Масове лікування ран теж хороші для надзвичайних випадків. Не хочемо накладати, але їхня відсутність за потреби катастрофічна."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Майстер магічних предметів|Magic Item Master}}; інфузії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шість налаштувань. Нових варіантів після 14-го немає, а все потрібне вже взяли: обирайте цікаве."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: +2 Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП, кращі ряткидки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Душа винахідництва|Soul of Artifice}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще кращі ряткидки. Збирайте всі предмети."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-001",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Володіння інструментами",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-002",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Заклинання бойового коваля",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-003",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-004",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-005",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-006",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "13-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-007",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "17-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-008",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Готовність до бою",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-009",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Сталевий захисник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-010",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Додаткова атака",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-011",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Арканний поштовх",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-012",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Покращений захисник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-013",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-battle-smith-ability-scores",
+      "targetBlockId": "block-section-battle-smith-ability-scores-2",
+      "optionId": "section-battle-smith-ability-scores-block-section-battle-smith-ability-scores-2",
+      "context": "Сил",
+      "explanationBlockId": "block-section-battle-smith-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-014",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-battle-smith-ability-scores",
+      "targetBlockId": "block-section-battle-smith-ability-scores-3",
+      "optionId": "section-battle-smith-ability-scores-block-section-battle-smith-ability-scores-3",
+      "context": "Спр",
+      "explanationBlockId": "block-section-battle-smith-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-015",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-battle-smith-ability-scores",
+      "targetBlockId": "block-section-battle-smith-ability-scores-4",
+      "optionId": "section-battle-smith-ability-scores-block-section-battle-smith-ability-scores-4",
+      "context": "Ста",
+      "explanationBlockId": "block-section-battle-smith-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-016",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-battle-smith-ability-scores",
+      "targetBlockId": "block-section-battle-smith-ability-scores-5",
+      "optionId": "section-battle-smith-ability-scores-block-section-battle-smith-ability-scores-5",
+      "context": "Інт",
+      "explanationBlockId": "block-section-battle-smith-ability-scores-5",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-017",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-battle-smith-ability-scores",
+      "targetBlockId": "block-section-battle-smith-ability-scores-6",
+      "optionId": "section-battle-smith-ability-scores-block-section-battle-smith-ability-scores-6",
+      "context": "Муд",
+      "explanationBlockId": "block-section-battle-smith-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-018",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-battle-smith-ability-scores",
+      "targetBlockId": "block-section-battle-smith-ability-scores-7",
+      "optionId": "section-battle-smith-ability-scores-block-section-battle-smith-ability-scores-7",
+      "context": "Хар",
+      "explanationBlockId": "block-section-battle-smith-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-019",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-battle-smith-races",
+      "targetBlockId": "block-section-battle-smith-races-2",
+      "optionId": "section-battle-smith-races-block-section-battle-smith-races-2-item-0",
+      "context": "Автогном",
+      "explanationBlockId": "block-section-battle-smith-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-020",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-battle-smith-races",
+      "targetBlockId": "block-section-battle-smith-races-2",
+      "optionId": "section-battle-smith-races-block-section-battle-smith-races-2-item-1",
+      "context": "Відьмокров",
+      "explanationBlockId": "block-section-battle-smith-races-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-021",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-battle-smith-feats",
+      "targetBlockId": "block-section-battle-smith-feats-2",
+      "optionId": "section-battle-smith-feats-block-section-battle-smith-feats-2-item-0",
+      "context": "Верховий боєць Книга гравця",
+      "explanationBlockId": "block-section-battle-smith-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-022",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-battle-smith-weapons",
+      "targetBlockId": "block-section-battle-smith-weapons-2",
+      "optionId": "section-battle-smith-weapons-block-section-battle-smith-weapons-2-item-0",
+      "context": "Арбалети й вогнепальна зброя",
+      "explanationBlockId": "block-section-battle-smith-weapons-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-023",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-battle-smith-weapons",
+      "targetBlockId": "block-section-battle-smith-weapons-2",
+      "optionId": "section-battle-smith-weapons-block-section-battle-smith-weapons-2-item-1",
+      "context": "Кавалерійський спис",
+      "explanationBlockId": "block-section-battle-smith-weapons-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-artificer-battle-smith-2014-024",
+      "articleId": "rpgbot-artificer-battle-smith-2014",
+      "translationRevisionId": "translation-rpgbot-artificer-battle-smith-2014-draft1",
+      "sectionId": "section-battle-smith-weapons",
+      "targetBlockId": "block-section-battle-smith-weapons-2",
+      "optionId": "section-battle-smith-weapons-block-section-battle-smith-weapons-2-item-2",
+      "context": "Метальна зброя",
+      "explanationBlockId": "block-section-battle-smith-weapons-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

@@ -1,0 +1,2033 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-65ec4de5c0243c5e",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+      "sourceId": "rpgbot-65ec4de5c0243c5e",
+      "fetchedAt": "2026-09-29T19:14:28.980106+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:32:43-04:00",
+      "contentHash": "736763054d0beebce113145bc09065a6458853fa1faa1a5ad197693c7097dac5",
+      "title": "Circle of Stars Druid 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-druid-circle-of-stars-2014",
+    "sourceId": "rpgbot-65ec4de5c0243c5e",
+    "slug": "druid-circle-of-stars-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Коло зірок — гайд підкласу Друїда (2014)",
+    "titleEn": "Circle of Stars Druid 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Друїд",
+      "Коло зірок",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Друїд Кола зірок 5e: гайд підкласу D&D 5e",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Коли Місяць у Сьомому домі"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "А Юпітер стає в ряд із Марсом"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Тоді мир поведе планети"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "А любов керуватиме зірками"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "{{Ера Водолія|Age of Aquarius}}",
+                  "href": "https://www.youtube.com/watch?v=VlrQ-bOzpkQ"
+                },
+                {
+                  "type": "text",
+                  "text": " – The 5th Dimension"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друїд {{Кола зірок|Circle of Stars}} — доволі гнучкий підклас: залежно від ситуації він може бути і наступальним, і захисним, і підтримувальним. Наприклад, уміння «Зоряна форма»{{Starry Form}} перетворює використання «Дикої форми»{{Wild Shape}} на одну з трьох стійок, що або полегшують підтримку концентрації, або збільшують лікувальний ефект магії лікування, або дозволяють стріляти лазерами. А можна дозволити зіркам коригувати долю впродовж дня завдяки умінню «Космічне знамення»{{Cosmic Omen}}, що дає змогу реакцією додавати чи віднімати значення від кидків к20 поблизу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Уся ця універсальність коштує нам часу. Ми можемо робити всі ці чудові речі, але не всі одночасно. Друїд Кола зірок — це вправа в балансуванні й передбаченні того, що треба зробити. Ми дамо кілька порад із цього приводу, але зрештою кожен бій унікальний, і тут потрібна практика."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На нашій прикладній збірці ми покажемо расовий вибір, що дає нам свободу розподілити характеристики й стати ученим{{Scholar}} групи, не жертвуючи рештою збірки. Це відкриває додаткові способи використати Дракона{{Dragon}} зі «Зоряної форми»{{Starry Form}} поза боєм — із перевірками навичок. Якщо хочете спробувати себе в ролі друїда з великим мозком, який до того ж "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "стріляє лазерами"
+                },
+                {
+                  "type": "text",
+                  "text": ", придивіться до цієї збірки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Кола зірок",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Кола зірок",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#circle-of-stars-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Кола зірок",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#circle-of-stars-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Кола зірок",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#circle-of-stars-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя й обладунки Кола зірок",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#circle-of-stars-weapons-and-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Кола зірок",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#circle-of-stars-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Друїда Кола зірок — «Енергія слонячого мозку»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#example-circle-of-stars-druid-build-elephant-brain-energy"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-stars/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Кола зірок",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Зоряна мапа{{Star Map}}: у цьому умінні заховано загалом чотири переваги, і всі вони фантастичні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Фокус зоряної мапи{{Star Map Focus}}: хоч механічно це не має впливу, це чудова дрібка колориту. Я роками сподівався на більше унікальних чаротворчих фокусів, і це перший раз, коли ми його отримали (звичайні фокуси-магічні предмети у «Довіднику Занатара про все»{{Xanathar’s Guide to Everything}} ледве враховуються, бо це все ті самі універсальні фокуси з додатками). Мені також подобається ідея друїда, що бігає з великою важкою камʼяною плитою або тендітною колекцією скляних дисків, особливо зважаючи на те, що навіть крихітна шкода будь-чому з цього поставила б під загрозу роки делікатної роботи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Настанова [Guidance]: найкраще замовляння підтримки, і ви отримуєте його безкоштовно, тож можете насолоджуватися іншими замовляннями, не відчуваючи, що Настанова [Guidance] — це «податок на замовлення», бо вона надто хороша, щоб її пропустити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спрямований заряд [Guiding Bolt]: дуже надійний на низьких рівнях і як варіант підтримки, і для шкоди, а променева шкода — рідкість для Друїда."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Безкоштовні Спрямовані заряди [Guiding Bolt]: ви не лише можете накладати Спрямований заряд [Guiding Bolt] за допомогою слотів заклинань, а й накладати його безкоштовно кількість разів на день, що дорівнює вашому Бонусу Майстерності. Це робиться як заклинання 1-го рівня, але 4к6 шкоди й Перевага на наступну атаку проти цієї істоти краще за будь-яке замовляння шкоди, навіть на 17-му рівні. (Позамежний заряд [Eldritch Blast] з «Потойбічними викликами»{{Eldritch Invocations}} не враховується.) Безкоштовних використань Спрямованого заряду [Guiding Bolt], на жаль, не вистачить, щоб повністю замінити атакувальні замовляння."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зоряна форма{{Starry Form}}: перетворення «Дикої форми»{{Wild Shape}} на підсилення, а не утилітарний варіант, вперше зробили в {{Колі спор|Circle of Spores}}, і на {{Колі зірок|Circle of Stars}} це так само круто. «Зоряна форма» — можливо, навіть крутіша, бо замість того, щоб замикати вас в одному бойовому режимі, має режим атаки, режим лікування й режим утиліт/чаротворства. Як і {{Коло місяця|Circle of the Moon}} та Коло спор, очікуйте використовувати «Зоряну форму» в будь-якому помітному бою, але памʼятайте, що ви маєте лише два використання за короткий відпочинок, тож іноді вам усе одно доведеться бути дієздатним і без неї. Вибір сузірʼя — одне з найважливіших тактичних рішень, які ви можете ухвалити в зіткненні. Якщо ви в тісноті й вам треба підтримувати заклинання, обирайте Дракона{{Dragon}}. Якщо групі бракує ХП на початку зіткнення або є якась проблема виснаження ХП (ворог завдає великої шкоди по області, або ви бʼєтеся в палаючій будівлі), обирайте Кубок{{Chalice}}. В іншому разі обирайте Стрільця{{Archer}} і завдавайте шкоди так швидко, як можете. Це тактичне рішення зникає на 10-му рівні, коли ви отримуєте «Блискучі сузірʼя»{{Twinkling Constellations}} (певною мірою. Читайте далі.), але до того часу це буде одним із найважчих і найвпливовіших виборів, які ви робите в бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стрілець{{Archer}}: 1к8+Мудрість променевої шкоди Бонусною дією. Це атака заклинанням, тож атака використовує ваш модифікатор Мудрості й не виграє від таких речей, як риса «Влучний стрілець»{{Sharpshooter}}. Це чудовий наступальний варіант, а те, що він не заважає накласти заклинання з рівнем у тому самому ході, — просто видатне. Імовірно, це ваш основний вибір у бою, бо він буде корисним у кожному бою, кожного ходу й на будь-якому рівні. Шкода зростає на 10-му рівні, але, чесно кажучи, навіть якби не зростала, це все одно було б чудово."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кубок{{Chalice}}: більш ніж подвоює загальну кількість лікування від Цілющого слова [healing word], і ви можете націлитися на істоту, яка не є ціллю вашого заклинання, тож можете вилікувати двох істот одночасно. Проте це також заохочує лікування в бою, чого слід дуже старатися уникати. Найкращий випадок використання — застосувати це безпосередньо перед Коротким відпочинком, якщо у вас лишилося використання «Дикої форми»{{Wild Shape}}. Лікування зростає на 10-му рівні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дракон{{Dragon}}: у друїдів багато заклинань з Концентрацією, тож гарантований мінімальний результат 10 на цих перевірках дуже корисний. Гарантований мінімальний результат 10 на перевірках Інтелекту й Мудрості дозволяє використовувати це поза боєм, а це чудовий утилітарний варіант, якщо ви маєте навички знань на кшталт Магії чи Природи. На 10-му рівні додається швидкість польоту 20 футів, що дозволяє літати, зберігаючи Концентрацію на заклинанні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Космічне знамення{{Cosmic Omen}}: тактично схоже на уміння Барда «Бардське натхнення»{{Bardic Inspiration}} і «Ріжучі слова»{{Cutting Words}}. Ви не зможете користуватися цим так часто, як бард користується «Бардським натхненням», але від 3 до 6 разів на день усе одно надзвичайно впливово, особливо бо це можна робити Реакцією. Варіанти Благовість{{Weal}} / Лиховість{{Woe}} приблизно рівноцінні, тож, коли ви кидаєте кубик, щоб дізнатися, який вам випав, ви по суті вирішуєте, чи будете того дня використовувати це наступально (благовість), чи захисно (лиховість)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Блискучі сузірʼя{{Twinkling Constellations}}: більше шкоди від Стрільця{{Archer}}, більше лікування від Кубка{{Chalice}} і політ від Дракона{{Dragon}} (навіть лише зі швидкістю 20 фт.) — усе це великі покращення. Можливість змінювати сузірʼя щоходу "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "без витрати дії"
+                  },
+                  {
+                    "type": "text",
+                    "text": " означає, що складне тактичне рішення, яке ви зазвичай ухвалюєте, коли активуєте «Зоряну форму»{{Starry Form}}, зникає, і ваше життя значно легшає. Натомість тепер вам доведеться ухвалювати це рішення щоходу. Ви страждаєте на параліч аналізу? Це або значно покращить, або значно погіршить ситуацію. Союзник лежить на 0 ХП? Перемкніться на кубок і вилікуйте його. Треба підтримувати заклинання з Концентрацією? Увімкніть дракона, злетіть поза досяжність і робіть свою справу. Решту часу? Стрілець."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Сповнені зірок|Full of Stars}}: трохи пізно й дивно для підкласу, що так явно призначений для ролі в задній лінії, але зважте, що в Друїда сумнозвісно поганий КБ і лише к8 ХП, тож це фантастичне покращення вашої живучості."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-stars-ability-scores",
+          "heading": "Характеристики Кола зірок",
+          "sourceAnchor": "circle-of-stars-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-stars-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підкласи Друїда зазвичай дуже близько повторюють "
+                },
+                {
+                  "type": "link",
+                  "text": "базового Друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": " за розподілом характеристик, але оскільки використання «Дикої форми»{{Wild Shape}} живить нашу «Зоряну форму»{{Starry Form}}, ми не можемо розраховувати на фізичні характеристики звіриної форми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-stars-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: нам не треба бути в ближньому бою. У нас є лазери, дальність і заклинання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-stars-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: обладунки для Друїда так собі, тож, окрім жменьки расових рис, вона потрібна нам для КБ."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-stars-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: більше ХП. Кращі ряткидки Концентрації, хоча з Драконом{{Dragon}} іноді можна обійтися й слабкою Концентрацією."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-stars-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: зазвичай низький пріоритет, але якщо вдасться отримати одну з тих рис, що прибирають Спритність із розрахунку КБ, ми можемо вкласти його разом із Драконом{{Dragon}} і стати ученим{{Scholar}} групи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-stars-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: потрібна для заклинань, лазерів Стрільця{{Archer}} і лікування Кубка{{Chalice}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-stars-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: нехай «обличчям» буде хтось інший."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-stars-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-stars-races",
+          "heading": "Раси Кола зірок",
+          "sourceAnchor": "circle-of-stars-races",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-stars-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Про все, чого тут немає, дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "розбір рас Друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-stars-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Астральний ельф{{Astral Elf}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "SJAiS",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Астральний ельф дуже пасує до тематики зірок, а доступ до замовляння Священне полумʼя [Sacred Flame] дає ще одне джерело променевої шкоди, якщо вже дуже захочеться перестаратися."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Локсодон{{Loxodon}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "GGR",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": риса «Природна броня локсодонів»{{Loxodon Natural Armor}} дозволяє занедбати Спритність на користь Інтелекту, що чудово поєднується з Драконом{{Dragon}} і дає змогу стати чудовим ученим{{Scholar}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Черепаха{{Tortle}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Tortle",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": як і в локсодона, уміння «Природна броня»{{Natural Armor}} дозволяє так само занедбати Спритність заради Інтелекту, що живить навички знань."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-stars-feats",
+          "heading": "Риси Кола зірок",
+          "sourceAnchor": "circle-of-stars-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-stars-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мало чим відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-circle-of-stars-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "«Стійкий (Статура)»{{Resilient (Constitution)}}: оскільки Дракон{{Dragon}} зі «Зоряної форми»{{Starry Form}} гарантує мінімальний результат 10 на кубику, то чим вищий наш модифікатор ряткидка Статури, тим більшу шкоду можна отримати, перш ніж нам справді доведеться хвилюватися про втрату Концентрації. Наприклад, якщо ми маємо Статуру 20 і Бонус Майстерності +6, шкода менш ніж 42 не зможе зламати нашу Концентрацію у формі Дракона."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Здоровань{{Tough}}: оскільки ми витрачатимемо «Дику форму»{{Wild Shape}} на «Зоряну форму»{{Starry Form}}, ця риса принесе нам більше користі, ніж, скажімо, Друїду {{Кола місяця|Circle of the Moon}}, який ніколи не лишається у звичайній формі."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-stars-weapons-and-armor",
+          "heading": "Зброя й обладунки Кола зірок",
+          "sourceAnchor": "circle-of-stars-weapons-and-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-stars-weapons-and-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як сказано в "
+                },
+                {
+                  "type": "link",
+                  "text": "довіднику Друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": ", друїдам зброя майже не потрібна завдяки замовлянням чи «Дикій формі»{{Wild Shape}}. А от обладунки для друїда дещо обмежені "
+                },
+                {
+                  "type": "link",
+                  "text": "нібито забороною на метал",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-circle-of-stars-multiclassing",
+          "heading": "Мультикласування Кола зірок",
+          "sourceAnchor": "circle-of-stars-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-circle-of-stars-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Довідник Друїда достатньо розповідає про "
+                },
+                {
+                  "type": "link",
+                  "text": "добрі варіанти",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": " мультикласування, але нам, імовірно, краще обійтися без нього. Якщо вдасться взяти 20 рівнів Друїда, «Зоряна форма»{{Starry Form}} у нас буде завжди."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-circle-of-stars-druid-build-elephant-brain-energy",
+          "heading": "Приклад збірки Друїда Кола зірок — «Енергія слонячого мозку»",
+          "sourceAnchor": "example-circle-of-stars-druid-build-elephant-brain-energy",
+          "blocks": [
+            {
+              "blockId": "block-section-example-circle-of-stars-druid-build-elephant-brain-energy-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка зосереджена на добрих варіантах заклинань, що дозволяють нам задіяти всі три аспекти уміння «Зоряна форма»{{Starry Form}}. Зокрема, прибравши Спритність із розрахунку КБ, ми можемо вивільнити очки, щоб підвищити Інтелект для кращих перевірок знань під дією Дракона{{Dragon}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-circle-of-stars-druid-build-elephant-brain-energy",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У друїда зірок є кілька цікавих прийомів. Ми візьмемо локсодона{{Loxodon}}, щоб КБ залежав від Статури й можна було перекинути частину очок в Інтелект заради навичок знань, які добре поєднуються з Драконом{{Dragon}} зі «Зоряної форми»{{Starry Form}}. Хоч це можна зробити й за допомогою черепахи{{Tortle}}, у локсодонів є расова риса «Могутня статура»{{Powerful Build}}, тож ми не відчуватимемо обмежень за вагою через Силу 8."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми взагалі не збираємося підвищувати Інтелект, можна лишити його на 14, а Спритність підняти до 10, щоб прибрати -1 від кидків ініціативи. Оскільки ми хочемо взяти «Стійкого (Статура)»{{Resilient (Constitution)}}, нам підходить віддати +2 Статурі замість Мудрості; Мудрість ми підвищуватимемо на +2 через Покращення Характеристик, тож вона й так буде парною."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-circle-of-stars-druid-build-elephant-brain-energy",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми обрали локсодона{{Loxodon}}, щоб КБ дорівнював 12+модифікатор Статури, і можна було занедбати Спритність на користь Інтелекту."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-circle-of-stars-druid-build-elephant-brain-energy",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Передісторія «Мудрець»{{Sage}} дає нам володіння Магією та Історією, що дозволяє бути ученим{{Scholar}} групи."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-circle-of-stars-druid-build-elephant-brain-energy",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від локсодона{{Loxodon}} ми не отримуємо ні навичок, ні інструментів. Друїд дає нам Природу й Релігію, а також Набір травника{{Herbalism Kit}}. Передісторія «Мудрець»{{Sage}} дає нам Магію та Історію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-circle-of-stars-druid-build-elephant-brain-energy",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цього разу без мультикласування, тож усі Покращення Характеристик ми отримаємо вчасно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо Покращення Характеристик на +2 Мудрості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо рису «Стійкий (Статура)»{{Resilient (Constitution)}}, що дає володіння ряткидками Статури й підіймає нашу Статуру до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні отримуємо ще одне Покращення Характеристик на +2 Мудрості, що доводить її до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо ще одне Покращення Характеристик, цього разу на +2 Статури, доводячи її до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні беремо «Здоровань»{{Tough}}, щоб зміцнити наші ХП."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-circle-of-stars-druid-build-elephant-brain-energy",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Друїдична мова|Druidic}}\nЧаротворство{{Spellcasting}}\nВідомі замовляння:\n– Первісна дикість\n– Створення вогню\nЗаклинання 1-го рівня:\n– Поглинання стихій\n– Вогники фей\n– Доброягода\n– Цілюще слово"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Візьміть щит, атакуйте за допомогою Первісної дикості [Primal Savagery] чи Створення вогню [Produce Flame] і намагайтеся не померти, поки не доберемося до 2-го рівня й не оберемо {{Коло зірок|Circle of Stars}}. Якщо ви дивитеся на список замовлянь і питаєте, чому ми не беремо високооцінене замовляння Настанова [Guidance], то Коло зірок дає це замовляння на 2-му рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Коло друїдів{{Druid Circle}}: Коло зірок\nЗоряна мапа:\n– Настанова\n– Спрямований заряд\nЗоряна форма:\n– Стрілець\n– Кубок\n– Дракон\nДика форма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Друїди 2-го рівня отримують усі класичні друїдські сили, як-от перетворення на тварин. Але ми ще й отримуємо силу перетворюватися на зірки. Або вкриватися зірками. Щось там про зірки. Бонусною дією ми можемо витратити використання «Дикої форми»{{Wild Shape}}, щоб активувати одну з трьох форм «Зоряної форми»{{Starry Form}}: для нападу (Стрілець{{Archer}}), лікування (Кубок{{Chalice}}) чи захисту (Дракон{{Dragon}}). Ніщо не заважає витратити два використання «Дикої форми», щоб стати твариною і водночас мати «Зоряну форму». Втілюйте мрію бути мишею, що стріляє лазерами. Разом із цими силами ми завжди маємо Спрямований заряд [Guiding Bolt] підготовленим і можемо безкоштовно накладати його стільки разів на день, скільки дорівнює наш Бонус Майстерності. Також ми отримуємо замовляння Настанова [Guidance]. Щодо бою на цих рівнях, то зазвичай ми захочемо перейти у форму Стрільця, стріляти лазерами й накладати Створення вогню [Produce Flame] здалеку, час від часу кидаючи безкоштовний Спрямований заряд [Guiding Bolt] замість вогню."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 2-го рівня:\n– Темний зір\n– Покращення здібності\n– Переміщення без сліду\n– Проростання шипів"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 2-го рівня. Тут є добрі варіанти, зокрема Темний зір [Darkvision]. У локсодонів немає темнозору, тож ми можемо накладати це заклинання на себе, коли треба. Ще одна чудова перлина — Переміщення без сліду [Pass without Trace], що дає групі чудові варіанти для Непомітності."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Мудрість 16 → 18)\nПокращення Дикої форми\nНове відоме замовляння:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Формування води",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість зростає, Складність ряткидка заклинань зростає. «Дика форма»{{Wild Shape}} трохи покращується."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 3-го рівня:\n– Розвіювання магії\n– Стихійна зброя\n– Відродження"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більшість варіантів заклинань 3-го рівня в Друїда — необовʼязкові утилітарні заклинання та Відродження [Revivify]. На жаль, нам просто доведеться платити податок на Відродження [Revivify]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Космічне знамення{{Cosmic Omen}}:\n– Благовість\n– Лиховість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Космічне знамення»{{Cosmic Omen}} — доволі круте. Подібно до «Провіщення»{{Portent}} Чарівника-провидця, ми щоранку кидаємо к20. На відміну від «Провіщення», ми лише дивимося, парне чи непарне випало, і від цього залежить, чи матимемо ми того дня Благовість{{Weal}} або Лиховість{{Woe}}, що дозволяє кілька разів за день додавати чи віднімати значення від кидків к20, зроблених поблизу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Форма каменю\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Стіна вогню",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wall-spells/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На відміну від 3-го рівня, заклинання 4-го рівня включають чудові варіанти на кшталт Перевтілення [Polymorph] і Стіна вогню [Wall of Fire]. Перевтілення [Polymorph] — чудовий спосіб підлікувати того, хто вже ледь тримається, замінивши його ХП на 157 ХП гігантської мавпи{{Giant Ape}}. А Стіна вогню [Wall of Fire], зі свого боку, ділить поле бою навпіл, ну, стіною вогню."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура 17 → 18)\nПокращення Дикої форми"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення ряткидків Статури підсилює наші ряткидки Концентрації й піднімає нижню межу результату, коли ми у формі Дракона{{Dragon}}. Беремо це зараз, а не останні два очки Мудрості, бо ми концентруватимемося на важливих заклинаннях, як-от Перевтілення [Polymorph] чи Стіна вогню [Wall of Fire], які не хочемо втрачати. «Дика форма»{{Wild Shape}} трохи покращується, і тепер ми можемо літати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 5-го рівня:\n– Більше відновлення\n– Вир\n– Стіна з каменю"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще більше добрих заклинань. Більше відновлення [Greater Restoration] знімає чимало поганого. Накладати його на цьому рівні дещо дорого, але "
+                    },
+                    {
+                      "type": "link",
+                      "text": "ви можете собі це дозволити",
+                      "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#character-wealth-by-level"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Вир [Maelstrom] — жахливе заклинання. Тобто жахливо опинитися всередині й чудово накласти на ворогів. Стіна з каменю [Wall of Stone] — просто чудовий спосіб по-справжньому розділити поле бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Блискучі сузірʼя\nНове відоме замовляння:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Ремесло друїдів",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/prestidigitation/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Блискучі сузірʼя»{{Twinkling Constellations}} — фантастичне покращення нашої «Зоряної форми»{{Starry Form}}. Ми отримуємо додатковий кубик і для Стрільця{{Archer}}, і для Кубка{{Chalice}}, а Дракон{{Dragon}} дає нам трохи польоту. До того ж ми можемо змінювати форми без витрати дії на початку кожного ходу. Це означає, що тепер ми можемо міняти тактику на льоту. Якщо ми в складній ситуації й нам треба втримати Концентрацію, цього ходу лишимося Драконом, але наступного раунду, можливо, доведеться роздати додаткове лікування Кубком. Або, можливо, хтось звільнив трохи простору, зменшивши тиск і давши змогу безпечно використати Стрільця для додаткової шкоди. Ми беремо Ремесло друїдів [Druidcraft], бо це весело, а все інше потрібне нам уже є."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 6-го рівня:\n– Зцілення\n– Бенкет героїв\n– Вбрання льоду\n– Перехід крізь рослини"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зцілення [Heal] — єдиний виняток для лікування в бою, тож його приємно мати. Бенкет героїв [Heroes' Feast] збільшує максимум ХП усіх на день і дає інші чудові захисні переваги."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість знову зростає, Складність ряткидка заклинань знову зростає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 7-го рівня:\n– Драконяче перетворення\n– Планарний перехід\n– Обернена гравітація"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тут зʼявляється кілька добрих утилітарних заклинань, як-от Планарний перехід [Plane Shift]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сповнені зірок{{Full of Stars}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Опір до дроблячої, колючої й рублячої шкоди у зоряних формах. Зручно. Ми майже постійно перебуваємо в зоряній формі в бою, тож це стабільно корисно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 8-го рівня:\n– Цунамі"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Цунамі [Tsunami] — чудовий спосіб штовхнути все поле бою в одному напрямку зі швидкістю 50 футів за раунд, заодно топлячи наших ворогів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура на максимумі — це максимальні ряткидки й ХП, а також найвищий КБ завдяки «Природній броні локсодонів»{{Loxodon Natural Armor}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 9-го рівня:\n– Передбачення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На жаль для друїдів, список 9-го рівня короткий і непоказний, окрім Передбачення [Foresight]. Тож відтепер ми щоранку просто накладатимемо Передбачення [Foresight] на нашого найкращого атакера."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання звіра{{Beast Spells}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми можемо накладати заклинання у «Дикій формі»{{Wild Shape}}, що дуже зручно, якщо нам треба перетворитися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Здоровань"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше здоровʼя, менше смертей."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Архі-друїд{{Archdruid}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Необмежена «Дика форма»{{Wild Shape}} означає необмежені «Зоряні форми»{{Starry Form}}. У поєднанні із «Заклинаннями звіра»{{Beast Spells}} ми можемо просто завжди бути в тій чи іншій звіриній формі, вкриті зоряними формами, що зменшують шкоду, і до того ж стріляти лазерами за допомогою Стрільця{{Archer}}."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-001",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Зоряна мапа",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-002",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Фокус зоряної мапи",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-003",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Настанова [Guidance]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-004",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Спрямований заряд [Guiding Bolt]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-005",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Безкоштовні Спрямовані заряди [Guiding Bolt]",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-006",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Зоряна форма",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-007",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Стрілець",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-008",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Кубок",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-009",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Дракон",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-010",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Космічне знамення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-011",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Блискучі сузірʼя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-012",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Сповнені зірок",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-013",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-circle-of-stars-ability-scores",
+      "targetBlockId": "block-section-circle-of-stars-ability-scores-2",
+      "optionId": "section-circle-of-stars-ability-scores-block-section-circle-of-stars-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-circle-of-stars-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-014",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-circle-of-stars-ability-scores",
+      "targetBlockId": "block-section-circle-of-stars-ability-scores-3",
+      "optionId": "section-circle-of-stars-ability-scores-block-section-circle-of-stars-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-circle-of-stars-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-015",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-circle-of-stars-ability-scores",
+      "targetBlockId": "block-section-circle-of-stars-ability-scores-4",
+      "optionId": "section-circle-of-stars-ability-scores-block-section-circle-of-stars-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-circle-of-stars-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-016",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-circle-of-stars-ability-scores",
+      "targetBlockId": "block-section-circle-of-stars-ability-scores-5",
+      "optionId": "section-circle-of-stars-ability-scores-block-section-circle-of-stars-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-circle-of-stars-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-017",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-circle-of-stars-ability-scores",
+      "targetBlockId": "block-section-circle-of-stars-ability-scores-6",
+      "optionId": "section-circle-of-stars-ability-scores-block-section-circle-of-stars-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-circle-of-stars-ability-scores-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-018",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-circle-of-stars-ability-scores",
+      "targetBlockId": "block-section-circle-of-stars-ability-scores-7",
+      "optionId": "section-circle-of-stars-ability-scores-block-section-circle-of-stars-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-circle-of-stars-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-019",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-circle-of-stars-races",
+      "targetBlockId": "block-section-circle-of-stars-races-2",
+      "optionId": "section-circle-of-stars-races-block-section-circle-of-stars-races-2-item-0",
+      "context": "Астральний ельф",
+      "explanationBlockId": "block-section-circle-of-stars-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-020",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-circle-of-stars-races",
+      "targetBlockId": "block-section-circle-of-stars-races-2",
+      "optionId": "section-circle-of-stars-races-block-section-circle-of-stars-races-2-item-1",
+      "context": "Локсодон",
+      "explanationBlockId": "block-section-circle-of-stars-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-021",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-circle-of-stars-races",
+      "targetBlockId": "block-section-circle-of-stars-races-2",
+      "optionId": "section-circle-of-stars-races-block-section-circle-of-stars-races-2-item-2",
+      "context": "Черепаха",
+      "explanationBlockId": "block-section-circle-of-stars-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-022",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-circle-of-stars-feats",
+      "targetBlockId": "block-section-circle-of-stars-feats-2",
+      "optionId": "section-circle-of-stars-feats-block-section-circle-of-stars-feats-2-item-0",
+      "context": "«Стійкий",
+      "explanationBlockId": "block-section-circle-of-stars-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-circle-of-stars-2014-023",
+      "articleId": "rpgbot-druid-circle-of-stars-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+      "sectionId": "section-circle-of-stars-feats",
+      "targetBlockId": "block-section-circle-of-stars-feats-2",
+      "optionId": "section-circle-of-stars-feats-block-section-circle-of-stars-feats-2-item-1",
+      "context": "Здоровань",
+      "explanationBlockId": "block-section-circle-of-stars-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

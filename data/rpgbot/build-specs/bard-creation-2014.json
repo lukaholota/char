@@ -1,0 +1,331 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "bard-creation-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+    "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74"
+  },
+  "exampleSection": "section-example-college-of-creation-build-autognomes-roll-out",
+  "levelTableSection": "section-levels",
+  "classKey": "BARD_2014",
+  "subclassKey": "COLLEGE_OF_CREATION",
+  "raceKey": "AUTOGNOME_SPELLJAMMER",
+  "backgroundKey": "INVESTIGATOR",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "subclassKey": "COLLEGE_OF_CREATION",
+      "expertise": [
+        "INSIGHT",
+        "INVESTIGATION"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "featKey": "FEY_TOUCHED",
+      "featOptions": [
+        {
+          "optionNameEng": "FEY_TOUCHED Ability (Charisma)"
+        }
+      ],
+      "section": "section-feats",
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "section": "section-feats",
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 9,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "expertise": [
+        "DECEPTION",
+        "INTIMIDATION"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 14,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Навичка Уважність від передісторії",
+      "reason": "Автор вважає, що Слідчий дає Аналіз Поведінки й Уважність; у каталозі платформи Слідчий дає Аналіз Поведінки й Розслідування, тож Уважності на 1-му рівні немає (Експертиза в ній — лише на 3-му рівні).",
+      "section": "section-background"
+    },
+    {
+      "field": "Інструменти раси й музичні інструменти",
+      "reason": "Автор називає Інструменти картографа й навігатора для Автогнома та три музичні інструменти до смаку; пресет не записує вибір інструментів.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Експертиза на 3-му рівні",
+      "reason": "Автор бере Аналіз поведінки й Уважність, але Слідчий у каталозі не дає Уважності; пресет бере Аналіз поведінки й Розслідування (вибір платформи, автор називає Уважність).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання на рівнях 2–20",
+      "reason": "Автор не називає нових заклинань і замовлень, тож їх обирає гравець (відкриті вибори, вибір платформи).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання Доторку феї",
+      "reason": "Автор радить Благословення; заклинання риси на підвищенні платформа не записує, поіменно видається лише Туманний крок.",
+      "section": "section-feats"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/bard-creation-2014.webp",
+    "title": "Бард — Колегія творення, Автогном",
+    "description": "Автогном-Слідчий із Харизмою 17 і Спритністю 16: «обличчя» групи з Обманом, Залякуванням і Переконанням. Колегія творення відкриється на 3-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CHA",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "INTIMIDATION",
+        "PERSUASION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH",
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "mending",
+        "vicious-mockery"
+      ],
+      "knownSpellKeys": [
+        "detect-magic",
+        "healing-word",
+        "silvery-barbs",
+        "sleep"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Два замовляння й чотири заклинання названі автором."
+    },
+    "abilityExplanation": "Автогном із власним походженням за правилами Таші: +2 до Харизми й +1 до Спритності, як у авторській таблиці (Харизма 17, Спритність 16); це вже враховано.",
+    "skillExplanation": "Обман, Залякування й Переконання автор бере від Барда; Аналіз Поведінки дає Слідчий. Автор пише, що Слідчий дає ще й Уважність, але в каталозі платформи він дає Розслідування — тож Розслідування ми лишили як є. Експертиза з 3-го рівня. Три мови (одну від раси, дві від передісторії) ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Автор не називає спорядження 1-го рівня. Рапіру, набір дипломата, лютню, шкіряну броню й кинджал ми обрали за вас — це вибір платформи, його можна змінити."
+  }
+}

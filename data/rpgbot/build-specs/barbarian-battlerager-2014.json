@@ -1,0 +1,98 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "barbarian-battlerager-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-barbarian-battlerager-2014-draft1",
+    "sourceRevisionId": "rpgbot-3a20e0174036ce9d-514786c31110c8e3"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "BARBARIAN_2014",
+  "subclassKey": "PATH_OF_THE_BATTLERAGER",
+  "raceKey": "DWARF_2014",
+  "backgroundKey": "OUTLANDER",
+  "abilityScores": { "STR": 15, "DEX": 14, "CON": 15, "INT": 8, "WIS": 10, "CHA": 8 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "revision": 2,
+  "levels": [
+    { "level": 2 },
+    { "level": 3, "subclassKey": "PATH_OF_THE_BATTLERAGER" },
+    {
+      "level": 4,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [{ "optionNameEng": "Skill Expert (STR)" }, { "optionNameEng": "Skill Expert Expertise (ATHLETICS)" }],
+      "section": "section-feats-2"
+    },
+    { "level": 5 },
+    { "level": 6 },
+    { "level": 7 },
+    { "level": 8, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}], "section": "section-feats-2" },
+    { "level": 9 },
+    { "level": 10 },
+    { "level": 11 },
+    { "level": 12, "featKey": "MOBILE", "section": "section-feats-2" },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15 },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [{ "ability": "STR", "amount": 1 }, { "ability": "CON", "amount": 1 }],
+      "section": "section-feats-2"
+    },
+    { "level": 17 },
+    { "level": 18 },
+    {
+      "level": 19,
+      "featKey": "PIERCER",
+      "featOptions": [{ "optionNameEng": "PIERCER Ability (Strength)" }],
+      "section": "section-feats-2"
+    },
+    { "level": 20 }
+  ],
+  "incomplete": [
+    {
+      "field": "Крилата збірка",
+      "reason": "Автор показує дві збірки: Гірського дворфа та літаючу (Совин чи Ааракокра). Таблиця характеристик (Сила 17, Статура 17) збігається лише з Гірським дворфом, тож пресет виконує його; літаючу збірку пресет не відтворює.",
+      "section": "section-race"
+    },
+    {
+      "field": "Передісторія",
+      "reason": "Автор каже, що передісторія не важлива для збірки, і не називає її; Чужинця обрано за платформою.",
+      "section": "section-background"
+    },
+    {
+      "field": "Додаткові класові уміння",
+      "reason": "Автор припускає всі додаткові класові уміння (наприклад, «Первісне знання»); пресет 1-го рівня їх не записує.",
+      "section": "section-example"
+    },
+    {
+      "field": "Володіння від «Експерта в навичках»",
+      "reason": "На 4-му рівні автор бере володіння «будь-яким» навиком і не називає його; `levels` записує лише Силу й Експертизу в Атлетиці, а навичку гравець обирає сам.",
+      "section": "section-feats-2"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/barbarian-battlerager-2014.webp",
+    "title": "Варвар — Гірський дворф Шляху бойового шаленця",
+    "description": "Гірський дворф-Варвар: Сила 17 і Статура 17 на старті, щоб кинутися в ближній бій, схопити ворога й обмінюватися ударами.",
+    "subraceKey": "DWARF_MOUNTAIN_2014",
+    "racialAbilities": [],
+    "skills": { "selectedClass": ["INTIMIDATION", "PERCEPTION"], "race": [], "background": [] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": ["ELVISH"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": [] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Гірський дворф дає +2 до Сили й +2 до Статури, як у авторській таблиці (Сила 17, Статура 17); це вже враховано.",
+    "skillExplanation": "Автор радить лише Атлетику: вона є в передісторії Чужинця, яку ми обрали за вас разом з Виживанням. Залякування й Уважність (класові навички) та мову передісторії ми теж обрали за вас; їх можна змінити.",
+    "equipmentExplanation": "Автор не називає стартового спорядження. Велику сокиру, дві ручні сокири й набір мандрівника ми обрали за вас — їх можна змінити."
+  }
+}

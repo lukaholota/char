@@ -19,6 +19,7 @@
 | [Хоумбрю](https://eu.posthog.com/project/245714/dashboard/977949) | Вкладки заклинань/істот і перемикання, окремі funnels створення, етапи виходу, помилки публікації, збереження |
 | [Пошук і функції листа](https://eu.posthog.com/project/245714/dashboard/977950) | Пошук, категорії вибраних результатів, порожні результати, Дика форма, Лють/Пісня клинка й інші активні риси, виснаження, бафи, концентрація, редагування описів |
 | [Онбординг](https://eu.posthog.com/project/245714/dashboard/977951) | Відкриття/закриття «Що нового», охоплення слайдів, послідовний funnel та досягнення останнього слайда |
+| [Char · RPGbot](https://eu.posthog.com/project/245714/dashboard/999834) | Охоплення й залучення, читання статей, аналіз підкласів, готові персонажі, рекомендації заклинань. Типово 30 днів; критерії успіху — [launch-success-metrics](o49-rpgbot-analysis/launch-success-metrics.md). Створено 2026-10-06; події з’являться після деплою |
 
 ## Визначення метрик
 
@@ -84,10 +85,10 @@ Persistence лишається `memory`: анонімний користувач
 
 Клієнтський `capturePostHogEvent` повертає `void` та тільки додає невелику подію до черги.
 SDK завантажується й черга обробляється у `requestIdleCallback` (з наявним fallback).
-Усі явні captures використовують `{ transport: "sendBeacon", send_instantly: true }`;
+SDK шле події через `fetch` з `keepalive` (`api_transport: "fetch"`), а не `sendBeacon`:
+ендпоінт `/i/v0/e/` відповідає 400 на beacon-тіло, а `keepalive` так само переживає закриття вкладки.
+Явні captures ідуть із `send_instantly: true`.
 gzip, autocapture, session recording, heatmaps, dead clicks і web vitals вимкнені.
-При `pagehide` готова черга відправляється beacon. Внутрішні операції SDK, як identify,
-можуть використовувати його асинхронний fetch-транспорт.
 
 Серверні captures повертають `void`; авторизація й мережевий fetch виконуються у
 Next.js `after()` після відповіді, з таймаутом 1,5 с. Події завершення плануються після
@@ -133,3 +134,19 @@ bun scripts/setup-posthog-dashboards.ts verify
   captures для спільних копій повторено pers-copy-completeness: 6/6 пройшли.
 - Тестові capture-події в бойовий PostHog не відправлялися; перевірка beacon використовує
   фальшивий host і spy. API-зміни профілів стосуються лише внутрішніх прапорців власника/QA.
+
+## PWA — локально реалізовано 2026-10-10
+
+[KR50.3](o50-pwa-install/kr50.3-install-entry.md) додає клієнтські події:
+`app_install_offered` (`path`, `placement`), `app_install_prompt_result` (`accepted`/`dismissed` у `outcome`),
+`app_installed` (Chromium), `app_ios_instructions_opened`. Accepted — відповідь на prompt;
+підтвердження встановлення — окремий `appinstalled`. Інструкція iOS не підтверджує встановлення.
+
+Клієнтські події мають `display_mode: browser | standalone`: значення фіксується в черзі,
+реєструється як superproperty й додається SDK-подіям через `before_send`. Серверні події
+без контексту браузера не отримують вигаданого режиму.
+
+Локальні визначення плиток у `posthog-dashboard-queries.ts` підготовлені; `pendingInsights`
+у [реєстрі](posthog-dashboards.json) позначає, що API-застосування ще не виконано.
+Плитка режимів рахує унікальні сесії з pageview, а не завантаження чи встановлення.
+Production-доставку цих подій і плиток ще не перевірено; тестові captures у бойовий PostHog не надсилались.

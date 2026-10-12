@@ -1,0 +1,262 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "ranger-gloom-stalker-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+    "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e"
+  },
+  "exampleSection": "section-example-build-hitman-with-fur",
+  "levelTableSection": "section-levels",
+  "classKey": "RANGER_2014",
+  "subclassKey": "GLOOM_STALKER_CONCLAVE",
+  "raceKey": "BUGBEAR_MPMM",
+  "backgroundKey": "HAUNTED_ONE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 13,
+    "INT": 10,
+    "WIS": 15,
+    "CHA": 10
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2,
+      "classOptions": [
+        {
+          "optionNameEng": "Archery"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "hunters-mark",
+          "goodberry"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "subclassKey": "GLOOM_STALKER_CONCLAVE",
+      "classOptions": [
+        {
+          "optionNameEng": "Primal Awareness"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "absorb-elements"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "CROSSBOW_EXPERT",
+      "section": "section-feats"
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "lesser-restoration"
+        ]
+      }
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7,
+      "spells": {
+        "knownSpellKeys": [
+          "pass-without-trace"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "featKey": "SHARPSHOOTER",
+      "section": "section-feats"
+    },
+    {
+      "level": 9,
+      "spells": {
+        "knownSpellKeys": [
+          "water-breathing"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classOptions": [
+        {
+          "optionNameEng": "Hide in Plain Sight"
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "speak-with-plants"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "featKey": "PIERCER",
+      "featOptions": [
+        {
+          "optionNameEng": "PIERCER Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "freedom-of-movement"
+        ]
+      }
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15,
+      "spells": {
+        "knownSpellKeys": [
+          "guardian-of-nature"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "spells": {
+        "knownSpellKeys": [
+          "conjure-volley"
+        ]
+      }
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "tree-stride"
+        ]
+      },
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Продаж спорядження",
+      "reason": "Автор радить продати лускатий обладунок і мечі та придбати проклепаний шкіряний обладунок, зберігши 50 зм для ручного арбалета; пресет не записує продаж і купівлю, тож лишено лускатий обладунок, два короткі мечі, довгий лук і набір дослідника підземель.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Кмітливий дослідник: Мандрівний (6-й) і Невтомний (10-й)",
+      "reason": "Автор на 6-му й 10-му рівнях називає уміння «Вправний дослідник - Мандрівний» і «Вправний дослідник - Невтомний»; у каталозі Слідопита для них немає виборів на цих рівнях, тому вони в плані не записані.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/ranger-gloom-stalker-2014.webp",
+    "title": "Слідопит — Страж із темряви, Ведмебай",
+    "description": "Слідопит Сутінкового мисливця (Страж із темряви) у лускатому обладунку: Ведмебай за правилами Таші, Переслідуваний з Виживанням і Спритністю рук та злодійськими інструментами замість мови, Кмітливий дослідник.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "WIS",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "PERCEPTION",
+        "INSIGHT",
+        "INVESTIGATION"
+      ],
+      "race": [],
+      "background": [
+        "SURVIVAL",
+        "SLEIGHT_OF_HAND"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": [
+        "THIEVES_TOOLS"
+      ]
+    },
+    "expertise": [
+      "STEALTH"
+    ],
+    "classOptions": [
+      "Favored Foe",
+      "Deft Explorer - Canny"
+    ],
+    "languages": [
+      "UNDERCOMMON",
+      "ELVISH",
+      "DWARVISH",
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Ведмебай за правилами Таші: +2 до Спритності й +1 до Мудрості, тож Спритність 17, Мудрість 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Уважність, Аналіз поведінки й Розслідування — від Слідопита, Непомітність — від Ведмебая. Автор бере Переслідуваного й замінює навички на Виживання та Спритність рук, а другу мову — на інструменти злодія (правило PHB «Налаштування передісторії»). Експертизу Кмітливого дослідника автор радить вкласти в Непомітність — її взято; Підземну мову автор називає, решту мов ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Лускатий обладунок, два короткі мечі, Підземний набір (набір дослідника підземель) і довгий лук — за порадою автора."
+  }
+}

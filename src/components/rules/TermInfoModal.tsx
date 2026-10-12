@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { ModeLink } from "@/components/no-ai/ModeLink";
 import { findTermCard } from "@/lib/term-catalog-chunk";
+import { useReadingDialogFocus } from "@/hooks/useReadingDialogFocus";
 import { listDictionaryFormsUnlikeTerm, type TermCard } from "@/lib/term-card";
 import {
   closeTermLink,
@@ -22,8 +23,9 @@ import type { Ruleset } from "@prisma/client";
 /// лише коли статті немає й вона відрізняється від натиснутого слова (у 97 % випадків вона
 /// повторювала заголовок, виміряно 2026-09-18); далі інші написання й запис каталогу.
 export function TermInfoModal() {
+  const focus = useReadingDialogFocus();
   const [termLink, setTermLink] = useState<TermLink | null>(() => findTermLinkInLocation());
-  const [clickedTerm, setClickedTerm] = useState("");
+  const [clickedLabel, setClickedLabel] = useState<{ link: TermLink; term: string } | null>(null);
   const [card, setCard] = useState<TermCard | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -32,8 +34,9 @@ export function TermInfoModal() {
     const onTermOpen = (event: Event) => {
       const detail = (event as CustomEvent).detail as TermOpenDetail | undefined;
       if (typeof detail?.original !== "string" || detail.original === "") return;
-      setClickedTerm(typeof detail.term === "string" ? detail.term : "");
-      applyTermLink({ original: detail.original, ruleset: findRulesetInDetail(detail) });
+      const link = { original: detail.original, ruleset: findRulesetInDetail(detail) };
+      setClickedLabel({ link, term: typeof detail.term === "string" ? detail.term : "" });
+      applyTermLink(link);
     };
 
     window.addEventListener("popstate", syncFromUrl);
@@ -71,22 +74,25 @@ export function TermInfoModal() {
 
   const onClose = () => {
     setTermLink(null);
-    setClickedTerm("");
+    setClickedLabel(null);
     closeTermLink();
   };
 
-  const title = clickedTerm || card?.dictionary[0]?.term || card?.condition?.name || termLink?.original || "Термін";
+  const clickedTerm = isSameTermLink(clickedLabel?.link ?? null, termLink) ? clickedLabel?.term : "";
+  const title = clickedTerm || card?.dictionary[0]?.term || card?.condition?.name
+    || card?.article?.subsection?.title || card?.article?.title || termLink?.original || "Термін";
   const dictionaryForms = card ? listDictionaryFormsUnlikeTerm(card, title) : [];
   const hasNothing = card !== null && dictionaryForms.length === 0 && !card.article && !card.condition && !card.catalog;
 
   return (
     <Dialog
+      enableBackButtonClose={false}
       open={Boolean(termLink)}
       onOpenChange={(nextOpen) => {
         if (!nextOpen) onClose();
       }}
     >
-      <DialogContent className="max-h-[90vh] w-[95vw] max-w-2xl overflow-y-auto p-0 bg-gradient-to-b from-slate-950/18 to-slate-950/12">
+      <DialogContent {...focus.dialogProps} className="max-h-[90vh] w-[95vw] max-w-2xl overflow-y-auto p-0 bg-gradient-to-b from-slate-950/18 to-slate-950/12">
         <div className="min-w-0 px-4 py-5 sm:p-6">
           <DialogTitle className="min-w-0 bg-gradient-to-r from-arcane-400 to-violet-400 bg-clip-text font-sans text-lg font-semibold uppercase tracking-wider text-transparent sm:text-xl">
             {title}

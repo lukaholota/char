@@ -1,0 +1,3266 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "a36423abd8b0912a06dfdaf9ceb88d5a9a167d582b1eb9826bb8a54c0328772a",
+  "sourceRevision": {
+    "revisionId": "rpgbot-73de9be653fc80f7-a36423abd8b0912a",
+    "sourceId": "rpgbot-73de9be653fc80f7",
+    "fetchedAt": "2026-09-29T19:15:10.483256+00:00",
+    "sourceUpdatedAt": "2026-09-11T22:27:26-04:00",
+    "contentHash": "ecf9f6354cf5e239a056da730140e69cecd5ef1e41fe41411743addeffb7e495",
+    "title": "DnD 5e Monk Subclasses Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-73de9be653fc80f7-a36423abd8b0912a.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Monk Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your choice of subclass will offer a combination of powerful abilities which\n\tcomplement the core Monk features, adding new and exciting capabilities which\n\tmake it easy to distinguish yourself from other monks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article is for the 2014 DnD 5e rules. For help with the 2024 rules, see our "
+            },
+            {
+              "type": "link",
+              "text": "2024 DnD 5.5 Monk Subclasses Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/2024-monk/monk-subclasses/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Monk Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Monk Subclasses",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#subclasses"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of Mercy (TCoE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#mercy"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of Shadow (PHB)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#shadow"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of The Ascendant Dragon (FToD)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#ascendant-dragon"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Astral Self (TCoE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#astral-self"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Drunken Master (XGtE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#drunken-master"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Four Elements (PHB)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#four-elements"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Kensei (XGtE)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#kensei"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Long Death (SCAG)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#long-death"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Open Hand (PHB)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#open-hand"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Sun Soul (SCAG)",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#sun-soul"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "3rd-Party Publishers",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/#beyond-the-pale"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-subclasses",
+      "heading": "Monk Subclasses",
+      "sourceAnchor": "subclasses",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-mercy",
+      "parentSectionId": "section-subclasses",
+      "heading": "Way of Mercy (TCoE)",
+      "sourceAnchor": "mercy",
+      "blocks": [
+        {
+          "blockId": "block-section-mercy-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Themed as a “plague doctor”, the Way of Mercy has nearly nothing to do with\n\tplagues and only a tangential association with anything that I would consider\n\ta doctor. Rather, they use Ki to heal and harm creatures, and gain proficiency\n\tin the Medicine skill (which roughly amounts to know how to stop lethal\n\tbleeding and almost nothing else since Medicine in 5e is almost completely\n\tuseless). Despite the dubious relationship between the theme and the\n\tmechanics, it’s an excellent subclass."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-mercy-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Way of Mercy adds the ability to heal creatures (yourself or others) by spending Ki. While you lack the full range of healing capabilities available to spellcasters, the rate at which you can convert Ki into hit points is impressive, and Way of Mercy eventually gains the ability to remove status conditions and even raise the dead at very high levels. This allows the Monk to add Healer to their staple roles as a Scout and Striker, though you can’t compete with classes like the Cleric."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-mercy-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hand of Healing’s action economy makes it easy to repeatedly heal yourself in\n\tcombat, which can easily compensate for the Monk’s relatively poor hit points\n\tand slowly-scaling AC, allowing you to serve as a Defender so long as your\n\tpool of Ki Points can keep you healed. Just remember that this healing comes\n\tat the cost of a point which you could spend on Flurry of Blows or Stunning\n\tFist, and hit point restoration alone won’t win a fight for you. The\n\tadditional healing can offset the gap in maximum hp between the Monk and more\n\tdurable martial characters like the fighter or the paladin, but don’t pour\n\tevery but of Ki into keep your hit points high or you’ll find that you’re on\n\tthe losing side of a war of attrition."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-mercy-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hand of Harm, the conceptual opposite of Hand of Healing, allows you to deal\n\tnecrotic damage and poison enemies. It’s nothing mind-blowing or game\n\tbreaking, but it’s a simple and efficient way to turn Ki into damage output\n\tand a tactical advantage thanks to the Poisoned condition. Better still, the\n\tadditional damage die is multiplied on a critical hit, so you can use it with\n\tthe same tactics that you might use Divine Smite or Eldritch Smite."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-mercy-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Way of Mercy’s biggest challenge is managing your Ki Pool. Hand of Harm and Hand of Healing encourage you to use Ki quickly, which is exciting and often helpful, but can quickly cause you to run out of resources. Be cautious about spending Ki, especially at low levels."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-mercy-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Way of Mercy Monk Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-mercy/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-mercy-7",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Implements of Mercy"
+              },
+              {
+                "type": "text",
+                "text": ": Insight and Medicine\n\t\tare both Wisdom-based, which makes them good skills for the Monk. Unfortunately, Medicine is borderline useless (although check out some of our \n"
+              },
+              {
+                "type": "link",
+                "text": "suggestions",
+                "href": "https://rpgbot.net/rpgbot-podcast-s2-e6/"
+              },
+              {
+                "type": "text",
+                "text": "\nto fix that), as its sole written function is made\n\t\tobsolete by the Healer’s Kit. Herbalism Kit does allow you to craft Potions\n\t\tof Healing, though, which is nice.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You also get a neat mask as a class feature. It doesn’t do anything. You\n\t\t\tdon’t need it to do anything and technically you don’t even need to wear\n\t\t\tit."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hand of Healing"
+              },
+              {
+                "type": "text",
+                "text": ": Your Martial Arts die\n\t\tplus your Wisdom modifier is roughly equivalent to a 1st-level Cure Wounds.\n\t\tThat’s not a ton of healing all at once, but you get a ton of Ki Points per\n\t\tshort rest as you gain levels, and the action economy around this is\n\t\tfantastic. This is also a great way to expend your remaining Ki Points\n\t\twhenever you reach a Short Rest.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Cure Wounds is normally a hard choice in combat because you’re spending\n\t\t\tyour Action to not damage your enemies when Healing Word is available, so\n\t\t\tthe Action Economy makes it hard to justify. But, while you\n\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "can"
+              },
+              {
+                "type": "text",
+                "text": " use Hand of Healing as an Action, there’s almost no reason to\n\t\t\tdo so in combat."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Generally you’ll use Hand of Healing during combat as part of a Flurry of\n\t\t\tBlows. When you do this, you spend the Ki Point to use Flurry of Blows,\n\t\t\tthen you can decide to replace one of the unarmed strikes with Hand of\n\t\t\tHealing. As far as I can tell, you can make this decision at any point so\n\t\t\tyou could make one attack and see the results before deciding if you want\n\t\t\tto make another attack or heal something."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Since you can move between attacks, I believe that you can also move\n\t\t\tbetween attacking and using Hand of Healing, so you could Attack, use\n\t\t\tFlurry of Blows to heal an ally, then run over to an enemy and attack\n\t\t\tthem some more."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "In many ways, this is like Healing Word, and until your Ki Pool is fairly\n\t\t\tlarge, that’s how you should consider Hand of Healing: a tiny amount of\n\t\t\thealing, but enough to bring a dying ally back into a fight. As you gain\n\t\t\tmore levels you can afford to use this more often, and Physician’s Touch\n\t\t\tallows you to quickly remove some problematic status conditions."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hand of Harm"
+              },
+              {
+                "type": "text",
+                "text": ": One Ki point to\n\t\tautomatically deal as much damage as an unarmed strike is more efficient\n\t\tthan spending a Ki Point to perform a Flurry of Blows which has a chance to\n\t\tmiss. This is also necrotic damage, which is much less-commonly resisted\n\t\tthan bludgeoning damage (or whatever type your weapon deals).\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Since the damage is “extra damage” added to the attack, the extra damage\n\t\t\tdie is multiplied, much like Divine Smite or Sneak Attack, so the most\n\t\t\teffective time to use Hand of Harm is when you score a critical hit."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "However, this only works after you hit with an unarmed strike so if\n\t\t\tyou’re using a weapon (spears are my go-to, and I recommend them for\n\t\t\tnearly every monk) there’s an incentive to fight unarmed even if your\n\t\t\tMartial Arts die would deal less damage than a weapon. Of course, Flurry\n\t\t\tof Blows and Martial Arts’ Bonus Action attack only allow unarmed strikes,\n\t\t\tso there’s always going to be some portion of your attacks where you can\n\t\t\tapply this."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Physician’s Touch later improves Hand of Harm to add the Poisoned\n\t\t\tcondition, making it an amazing way to briefly debuff martial enemies\n\t\t\twithout a save."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Physician’s Touch"
+              },
+              {
+                "type": "text",
+                "text": ": Hand of Healing adds\n\t\tthe effect of Lesser Restoration and can also remove the Stunned condition.\n\t\tIf this was an either/or it would be fantastic, but you get to both remove\n\t\tconditions "
+              },
+              {
+                "type": "emphasis",
+                "text": "and"
+              },
+              {
+                "type": "text",
+                "text": " heal the target.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Hand of Harm adds the ability to make the target Poisoned with no save.\n\t\t\tPoisoned is an absolutely fantastic debuff against most enemies (though\n\t\t\tspellcasters who don’t rely on attack rolls can largely ignore it). If you\n\t\t\thit an enemy with an unarmed strike, you can activate Hand of Harm to deal\n\t\t\tbonus damage and make the target poisoned, then, while they’re at\n\t\t\tDisadvantage on Ability Checks due to being Poisoned, you can Shove them\n\t\t\tprone and/or grapple them, then make any remaining attacks at Advantage.\n\t\t\tIf they’re Grappled, they’ll have a hard time escaping (Disadvantage\n\t\t\tthanks to Poisoned), so you’re likely to keep them on the ground until\n\t\t\tyour next turn when you can drop a full Flurry of Blows on them at\n\t\t\tAdvantage and if they don’t die you can always hit them with Hand of Harm\n\t\t\tagain to keep them Poisoned."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Flurry of Healing and Harm"
+              },
+              {
+                "type": "text",
+                "text": ": This\n\t\tdramatically reduces the rate at which you spend Ki to activate Hand of Harm\n\t\tand Hand of Healing. You still need to spend 1 Ki Point to use Flurry of\n\t\tBlows, but after that you can use Hand of Harm/Healing for free. You could\n\t\theal twice in one turn, heal once and attack (and hopefully use Hand of\n\t\tHarm), or attack once to see what happens, then decide to either heal or\n\t\tattempt another attack.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The wording around how Hand of Healing works here is somewhat clumsy. It\n\t\t\tspecifies that you can use Hand of Healing with Flurry of Blows and\n\t\t\treplace both attacks without spending Ki. You could already replace one,\n\t\t\tbut the text is trying to say that you can now replace both attacks, but\n\t\t\tyou still don’t need to spend additional Ki to do so."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Using Hand of Healing twice during a Flurry of Blows doubles your ability\n\t\t\tto output healing. Weirdly, this also means that rather than spending an\n\t\t\tAction to use Hand of Healing outside of combat it’s more efficient to\n\t\t\tpunch the air or attack the darkness, then follow with a Flurry of Blows\n\t\t\tand punch yourself and your party until everyone feels better. You get\n\t\t\ttwice as much healing per Ki Point by doing this."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hand of Ultimate Mercy"
+              },
+              {
+                "type": "text",
+                "text": ": Have a dead party\n\t\tmember? Take a Short Rest to get your Ki Points back if you need to, then\n\t\tpunch them back to life. You only need 5 Ki Points to use this and you get\n\t\t17 per Short or Long Rest at this level so if someone goes down you likely\n\t\tstill have a bunch to spend.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The fact that this only takes an Action is pretty astounding. It’s\n\t\t\tsimilar to Revivify, but lacks an expensive cost. You could absolutely use\n\t\t\tthis in combat, and in many cases that’s a good idea. This doesn’t have\n\t\t\tthe specific text around how mortal wounds or missing limbs are handled,\n\t\t\tbut I assume it works like Raise Dead in most respects. The target notably\n\t\t\tdoesn’t need to be willing to return to life, either, which raises some interesting ethical questions."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The one serious limitation on this is that you can only use it once per\n\t\t\tLong Rest. But, with a 24-hour window in which it will function after the target’s death, if you\n\t\t\tneed to raise two people you can raise one, take a long rest, and raise\n\t\t\tthe other and still have a ton of time to mess around before you get\n\t\t\tanywhere near the 24-hour timer. Of course, if you have three dead allies\n\t\t\tyou’ll want to go find a cleric."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-shadow",
+      "parentSectionId": "section-subclasses",
+      "heading": "Way of Shadow (PHB)",
+      "sourceAnchor": "shadow",
+      "blocks": [
+        {
+          "blockId": "block-section-shadow-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Way of Shadow offers some magical capabilities which allow the monk to do stuff far more impressive than just punching things really fast, allowing them to thrive in the dark and move like a magical ambush predator."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Way of Shadow Monk Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/shadow/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Shadow Arts"
+              },
+              {
+                "type": "text",
+                "text": ": Minor Illusion is great for\n\t\tdistractions. Shadow Arts is Way of Shadow’s only Ki-consuming ability,\n\t\twhich is exciting because you can do so much by spending so little.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Darkness"
+              },
+              {
+                "type": "text",
+                "text": ": Darkvision doesn’t allow\n\t\t\t\tyou to see inside Darkness, so be cautious about using this during\n\t\t\t\tcombat. However, it can be nice to escape, to confuse your enemies, and\n\t\t\t\tto teleport into when you need to escape.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you want to abuse magical darkness, strongly consider taking the\n\t\t\t\t\tFighting Initiate feat to get Fighting Style (Blindfighting). This\n\t\t\t\t\twill allow you to fight normally in melee when you can’t see, but most\n\t\t\t\t\tof your enemies will make attacks at Disadvantage and won’t be able to\n\t\t\t\t\ttarget you with many spells and special abilities."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Darkvision"
+              },
+              {
+                "type": "text",
+                "text": ": With an 8-hour duration,\n\t\t\t\tyou can afford to have this running all the time. If you don’t have\n\t\t\t\tDarkvision from your race, this is absolutely essential."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pass Without Trace"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re\n\t\t\t\tsneaking, there is no reason to skip casting this. The bonus is just too\n\t\t\t\tgood."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Silence"
+              },
+              {
+                "type": "text",
+                "text": ": While Silence isn’t mobile\n\t\t\t\tlike Darkness, it’s still very useful. Most spells include Verbal\n\t\t\t\tComponents, so disallowing sound can often cripple a spellcaster. It\n\t\t\t\talso helps when you need to silently kill a foe. Drop Silence, Shadow\n\t\t\t\tStep to them, grapple them, and punch them until they fall over. Repeat\n\t\t\t\tas necessary until the local population is sufficiently reduced."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shadow Step"
+              },
+              {
+                "type": "text",
+                "text": ": Teleportation is great, and\n\t\tAdvantage is great, but Monks get by on a large number of low-damage\n\t\tattacks, so Advantage on one attack isn’t particularly useful. Giving up\n\t\tyour Bonus Action also means less attacks that round. Advantage on one\n\t\tattack helps a bit, but it doesn’t make up the damage output lost by a third\n\t\tattack, so you want to avoid using this if regular movement would\n\t\tsuffice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cloak of Shadows"
+              },
+              {
+                "type": "text",
+                "text": ": Invisibility is great,\n\t\tespecially considering this costs nothing to use. Spend as much time as\n\t\tpossible invisible.."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Opportunist"
+              },
+              {
+                "type": "text",
+                "text": ": Free attacks are always nice.\n\t\tBe sure to encourage your allies to attack the same targets that you’re\n\t\tfighting in order to capitalize on this."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ascendant-dragon",
+      "parentSectionId": "section-subclasses",
+      "heading": "Way of The Ascendant Dragon (FToD)",
+      "sourceAnchor": "ascendant-dragon",
+      "blocks": [
+        {
+          "blockId": "block-section-ascendant-dragon-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ascendant Dragon answers the issue of multiple foes very nicely, and the limited access to flight and crowd control offer some very helpful tools that most monks can’t match. Even so, it’s not phenomenally powerful due to the low damage on Breath of the Dragon and the intentional limitations on Wings Unfurled and Frightful Presence. I think this is an immensely satisfying subclass to play, and it’s very well designed, but it’s not going to produce a stunningly powerful monk or upset the balance of your game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ascendant-dragon-2",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Draconic Disciple"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Draconic Presence"
+              },
+              {
+                "type": "text",
+                "text": ": Monks rarely make\n\t\t\t\tCharisma checks. This might help compensate for dumped Charisma, but it\n\t\t\t\tdoesn’t make the Monk a Face."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Draconic Strike"
+              },
+              {
+                "type": "text",
+                "text": ": This allows you to\n\t\t\t\teasily get around resistance to bludgeoning damage and resistance to\n\t\t\t\tnon-magic weapon damage types several levels before you get Ki-Empowered\n\t\t\t\tStrikes at level 6. You can also use it capitalize on damage\n\t\t\t\tvulnerabilities on those rare creatures that have them."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tongue of the Dragon"
+              },
+              {
+                "type": "text",
+                "text": ": Makes a lot of\n\t\t\t\tsense thematically, but not particularly useful on a class that dumps\n\t\t\t\tCharisma."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Breath of the Dragon"
+              },
+              {
+                "type": "text",
+                "text": ": The damage starts\n\t\tlow, but the ability to damage groups of\n\t\tenemies becomes very powerful as your Martial Arts die improves. You get a pool of uses per day equal to your\n\t\tProficiency Bonus before you can instead spend Ki, which is a generous pool of\n\t\tresources, but doesn’t allow you to use Ki right before a Short Rest to save\n\t\tthe free daily uses.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "When spending Ki to use Breath of the Dragon, consider the opportunity\n\t\t\tcost presented by that decision. Could you have more impact with those two\n\t\t\tKi Points by using Flurry of Blows or Stunning Fist than if you use those\n\t\t\tpoints for a breath weapon? In my opinion, the breath weapon is always worth the Ki cost\nif you can hit three targets. Once you hit level 11 and add a third damage die, two targets is sufficient. Otherwise, punching is probably\n\t\t\tbest."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wings Unfurled"
+              },
+              {
+                "type": "text",
+                "text": ": Step of the Wind is\n\t\tactivated as a Bonus Action (it’s the one that lets you Dash as a Bonus\n\t\tAction), so your movement for the turn (assuming that you don’t Dash with\n\t\tyour Action) is double your walking speed. That’s a whole lot of flight,\n\t\tand it should be enough to get wherever you need to go. If you’re fighting\n\t\tflying enemies, try to ground them somehow, such as by hitting them with Stunning Strike.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Unfortunately you can’t remain in the air since the wings disappear at\n\t\t\tthe end of your turn, but that might mean that Slow Fall is finally\n\t\t\tconsistently useful."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you know a bit of geometry, you might remember that the bottom of a cone\n\t\t\tis a circle, so by combining Wings Unfurled and Breath of the Dragon\n\t\t\tyou can take to the air, drop a circle of breath onto foes below,\n\t\t\tand potentially hit more enemies than you could with a cone-shaped\n\t\t\tAOE from the ground."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Aspect of the Wyrm"
+              },
+              {
+                "type": "text",
+                "text": ": this consumes your Bonus Action so\n\t\t\t\tyou’re not spending it using Martial Arts, Flurry of Blows, or Wings Unfurled.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Frightful Presence"
+              },
+              {
+                "type": "text",
+                "text": ": You can only make\n\t\t\t\tone target Frightened per turn as a Bonus Action, but\n\t\t\t\tFrightened is a great debuff that can benefit your whole party. Targets\n\t\t\t\tthat pass the save don’t get immunity to the effect, so you’re free to\n\t\t\t\tre-frighten them later. In single-enemy encounters, or even in\n\t\t\t\tencounters with one big enemy and a bunch of smaller ones, targeting\n\t\t\t\tpowerful foes will dramatically tip the odds in your favor. Resistance\n\t\t\t\tand immunity to fear are common, but not ubiquitous, so this will work in\n\t\t\t\tmost encounters in most games."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resistance"
+              },
+              {
+                "type": "text",
+                "text": ": Generally only\n\t\t\t\tspellcasters can change their energy damage type, so against many\n\t\t\t\tmonsters that rely on the affected damage types (dragons are a great\n\t\t\t\texample) this is a great defense. Unfortunately, the 10-foot radius on\n\t\t\t\tthe aura won’t protect your whole party unless you’re in tight\n\t\t\t\tquarters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ascendant Aspect"
+              },
+              {
+                "type": "text",
+                "text": ":\n\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Augment Breath"
+              },
+              {
+                "type": "text",
+                "text": ": You don’t want to use\n\t\t\t\tthis every time you use your breath weapon, but this is absolutely worth the additional\n\t\t\t\tKi if the added range can\n\t\t\t\thit one additional target."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blindsight"
+              },
+              {
+                "type": "text",
+                "text": ": Blindsight is great. By\n\t\t\t\tthis level there are numerous options available for blocking sight, such\n\t\t\t\tas spells like Fog Cloud or items like an Eversmoking Bottle, putting\n\t\t\t\tyou at a massive tactical advantage in combat. You do still need to find\n\t\t\t\tyour enemies to get within 10 feet, but you can still hear through fog,\n\t\t\t\tsmoke, and magical darkness so that shouldn’t be hard. Of course, this\n\t\t\t\tis also available as a Fighting Style at level 1, so it’s not amazing\n\t\t\t\tas a 17th-level feature."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Explosive Fury"
+              },
+              {
+                "type": "text",
+                "text": ": This adds to Aspect\n\t\t\t\tof the Wyrm, so in addition to choosing either Frightful Presence or\n\t\t\t\tResistance, you also get the initial burst of damage so that you’re no longer\n\t\t\t\tgiving up the damage output which you might get from Martial Arts or\n\t\t\t\tFlurry of Blows. This isn’t a huge amount of damage, and the 10-foot\n\t\t\t\trange is still tiny, but you get to pick the type and it doesn’t have\n\t\t\t\tany additional cost. I recommend jumping into a group of enemies to\n\t\t\t\tactivate this, then get to punching."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-astral-self",
+      "parentSectionId": "section-subclasses",
+      "heading": "Way of the Astral Self (TCoE)",
+      "sourceAnchor": "astral-self",
+      "blocks": [
+        {
+          "blockId": "block-section-astral-self-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Way of the Astral Self allows the Monk to activate a 10-minute combat buff\n\twhich I can best describe as a “punch ghost”. That doesn’t quite do it\n\tjustice, and the official term is “astral self”, but “punch ghost” accurately\n\tencapsulates the idea that the visual representation of the effect is a\n\tghostly representation of your monk’s ki, and the primary function of this\n\tghost is to punch. Therefore: punch ghost."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-astral-self-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mechanically, Way of the Astral Self allows the Monk to emphasize Wisdom more\n\theavily without sacrificing the martial aspects of the class. It also solves\n\tsome specific pain points which most monks face: grappling, reach, and\n\tdarkness. The class features are mechanically simple and there’s nearly no new\n\ttracking or micro-management to be done, so the whole subclass is very simple\n\tto play, which is welcome considering that the core features of the Monk are\n\tsomewhat complex."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-astral-self-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are some shortcomings in the subclass, however. Since Arms of the\n\tAstral Self is expected to be at the core of your combat tactics, you give up\n\tthe damage boost from using a weapon until your Martial Arts die scales a bit.\n\tThis is a fairly minor loss, and getting Reach in exchange is certainly worth\n\tthe cost. Despite the emphasis on Wisdom to fuel your Astral Self abilities,\n\tyou still need high Dexterity for your AC."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-astral-self-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The whole of the subclass is entirely dependent on spending Ki Points to turn\n\ton the subclass features (though obviously Way of the Astral Self is not alone\n\tin this regard), and while the features all last a very generous 10 minutes\n\tonce activated, you need to be careful about spending Ki because if you’re out\n\tof points you’re back to being a basic, Dexterity-based monk."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-astral-self-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The “Forms of your Astral Self” sidebar in Tasha’s Cauldron of Everything\n\tencourages you to put some thought into the appearance of your monk’s astral\n\tself, and I want to encourage players to follow that advice. Deciding how your\n\tastral self appears is almost as important a detail as what your character\n\tlooks like. Try to think of something reflective of your character that’s more\n\tinteresting than “my guy, but blue, translucent, and spooky”."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-astral-self-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Way of the Astral Self Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-astral-self-7",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Arms of the Astral Self"
+              },
+              {
+                "type": "text",
+                "text": ": The subclass’s\n\t\tsignature feature, managing Arms of the Astral Self is the core of Way of\n\t\tthe Astral Self’s combat tactics. Turning this on puts you into your\n\t\tpreferred combat mode, and while it does consume a precious Ki Point the\n\t\t10-minute duration can easily carry you through one or two combats if you’re\n\t\tquick. The ability is complex despite a fairly small amount of rules text,\n\t\tso bear with me through the following pile of text.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "When and where to activate Arms of the Astral Self is an important\n\t\t\tchoice. When you activate it, you get an AOE damage effect against targets\n\t\t\tof your choice within 10 feet. The damage is roughly equivalent to one\n\t\t\tunarmed strike (double your martial arts die is roughly equal to one die\n\t\t\tplus your modifier), and with a 10-foot radius you should be able to hit\n\t\t\tseveral foes if you move between them."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "It may be worthwhile to spend your Action to Disengage so that you can\n\t\t\tmove without provoking Opportunity Attacks so that you can position\n\t\t\tyourself in the middle of a group of enemies. But there’s a risk/reward\n\t\t\tconsideration here: your AC and hit points need to be able to hold up to\n\t\t\tbeing surrounded by enemies and since you’re using your Bonus Action to\n\t\t\tactivate Arms of the Astral Self you can’t also use it for Patient\n\t\t\tDefense. You might also try spending your Action to Dodge since\n\t\t\tDisadvantage on attacks against you will apply to both Opportunity Attacks\n\t\t\tagainst you and any other attacks made against you until the start of your\n\t\t\tnext turn."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Once active, Arms of the Astral Self provides several benefits which\n\t\t\tshould be discussed individually."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Using Wisdom in place of Strength for Athletics checks helps with\n\t\t\tgrapples, both ones that you start and ones that are forced upon you. You\n\t\t\tcan always use Dexterity (Acrobatics) to escape a grapple (typically the\n\t\t\tbest way for the Monk to do so), but this reduces the need for Acrobatics.\n\t\t\tMaking Athletics viable in combat means that you can use the Grapple+Shove\n\t\t\tcombo to force enemies prone and hold them there without investing\n\t\t\tStrength."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The second benefit allows you to make unarmed strikes. Like I said above:\n\t\t\t“punch ghost”. While this isn’t flashy, it’s arguably the primary reason\n\t\t\tfor this ability to exist. You can’t use weapons with your astral arms,\n\t\t\tunfortunately, so using your arms during your Attack action will mean\n\t\t\tslightly less damage than other monks until your Martial Arts die\n\t\t\tscales."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The third benefit adds reach for your unarmed strikes. Reach is a huge\n\t\t\tbenefit for the monk because you can fight from outside the reach of many\n\t\t\tenemies then use your high movement speed to move out of range of their\n\t\t\tmovement. It also helps with targeting multiple foes who might not be\n\t\t\tconveniently adjacent to you. However, this only applies to your Unarmed\n\t\t\tStrikes, so you can’t use this reach to Grapple or Shove."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The final benefit allows you to use Wisdom in place of Strength/Dexterity\n\t\t\tfor your Unarmed Strikes and makes them deal Force damage so you’re no\n\t\t\tlonger crippled by resistance/immunity to bludgeoning damage. If you forgo\n\t\t\tweapons, raising Wisdom to 20 before switching to Dexterity can be a great\n\t\t\tidea for the Way of the Astral Self Monk. This also helps to capitalize on\n\t\t\tStunning Strike because the DC is Wisdom-based. However, when you run out\n\t\t\tof Ki and can’t summon your astral arms, you’re going to be in trouble.\n\t\t\tManage your Ki very carefully and try to keep a point in reserve in case\n\t\t\tyou’re surprised by combat before your next rest."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Visage of the Astral Self"
+              },
+              {
+                "type": "text",
+                "text": ": Situational\n\t\tby design, Visage of the Astral Self costs a Ki Point to activate and can be\n\t\tused separately or in conjunction with Arms of the Astral Self. You won’t\n\t\tneed this in every combat, but when you need it you can turn it on without\n\t\tcutting into your action economy any further than you would by activating\n\t\tArms of the Astral Self.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Astral Sight"
+              },
+              {
+                "type": "text",
+                "text": ": Darkvision by any means\n\t\t\t\tis great, and though the 10-minute duration won’t match permanent\n\t\t\t\tDarkvision or the Darkvision spell, neither of those allow you see in\n\t\t\t\tmagical darkness and neither allow you to see 120 ft. (Superior\n\t\t\t\tDarkvision gives 120 ft. range but it’s not a common racial trait). This\n\t\t\t\talone is the most likely reason to activate Visage of the Astral\n\t\t\t\tSelf."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wisdom of the Spirit"
+              },
+              {
+                "type": "text",
+                "text": ": Time to take\n\t\t\t\tyour magical punch ghost into a social situation? Here you go. Insight\n\t\t\t\tis likely the only contribution you’ll be making to conversations since\n\t\t\t\tnearly every monk dumps Charisma. Monks are too MAD to invest any\n\t\t\t\tserious resources outside of Dex/Con/Wis."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Word of the Spirit"
+              },
+              {
+                "type": "text",
+                "text": ": Roughly mimics\n\t\t\t\tthe effects of Message for whispering and Thaumaturgy for shouting.\n\t\t\t\tNeat, but not very impactful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Body of the Astral Self"
+              },
+              {
+                "type": "text",
+                "text": ": One good\n\t\tdefensive option and one good offensive option. You need to summon both your\n\t\tarms and your visage, so you’ll need to adjust to spending two Ki Points\n\t\teach time you get ready for combat, but the benefits are frequently worth\n\t\tthe expense.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Deflect Energy"
+              },
+              {
+                "type": "text",
+                "text": ": Damage of these types\n\t\t\t\tcomes up all the time, and the list of affected damage types includes\n\t\t\t\tthunder, which is a rarity. The damage reduction won’t match Resistance\n\t\t\t\tin most cases, but the amount of damage you prevent will add up quickly.\n\t\t\t\tFor comparison: The average damage you’ll prevent (1d10+Wis) will exceed\n\t\t\t\tthe amount of hit points you gain when you gain a level (1d8+Con) unless\n\t\t\t\tyour Constitution is really high compared to your Wisdom, and retaining\n\t\t\t\ta level’s worth of hit points at the cost of Reaction is a great trade.\n\t\t\t\tPlus, if you need this once in an encounter you’re going to need it\n\t\t\t\tseveral times."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Empowered Arms"
+              },
+              {
+                "type": "text",
+                "text": ": A small damage boost,\n\t\t\t\tbut it will add up reliably, and after applying twice (once on each of\n\t\t\t\tyour turns, so two turns worth of attacks) it will offset the action\n\t\t\t\tcost of activating Arms of the Astral Self instead of using Martial Arts\n\t\t\t\tfor one turn."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Awakened Astral Self"
+              },
+              {
+                "type": "text",
+                "text": ": This is expensive,\n\t\tbut remember that it’s 5 Ki Points instead of the 2 which you’ve become\n\t\taccustomed to spending normally thanks to Body of the Astral Self. The\n\t\teffects are excellent, providing both the additional attack and the AC bonus\n\t\tprovided by Haste, which are the most important parts of the spell in most\n\t\tcases. With a 10-minute duration and your Ki Points recharging on a Short\n\t\tRest you could use your Ki for this and literally nothing else and do very\n\t\twell in combat.\n"
+              },
+              {
+                "type": "text",
+                "text": "When considering the cost, remember that for 1 Ki point, we can attack twice as a Bonus Action with Flurry of Blows, so for 3 Ki points above our previous cost of 2, we could have made 6 attacks. Instead, we can make an extra attack on every round for ten minutes, and we can still use our Bonus Action for a single standard Martial Arts attack. When looking at it that way, this is basically the same as removing the Ki cost of using Flurry for ten minutes."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This also stacks with Haste, so if you have somone in your party who can\n\t\t\tcast Haste on you, you can get up to 6 attacks per turn with Flurry of\n\t\t\tBlows and enjoy an AC of 24 (+5 Dex, +5 Wis, +2 Awakened Astral Self, +2\n\t\t\tHaste) without magic items."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-drunken-master",
+      "parentSectionId": "section-subclasses",
+      "heading": "Way of the Drunken Master (XGtE)",
+      "sourceAnchor": "drunken-master",
+      "blocks": [
+        {
+          "blockId": "block-section-drunken-master-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Way of the Drunken Master Monk is a mildly silly hit-and-run striker, making it even easier for you to get in, deal damage, and get back out. The subclass’s features aren’t amazing, and it’s very much a one-trick pony, but it’s a pretty good trick."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-drunken-master-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Way of the Drunken Master Monk Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/drunken-master/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-drunken-master-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Bonus Proficiencies"
+              },
+              {
+                "type": "text",
+                "text": ": Two proficiencies,\n\t\tbut neither of them are especially useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Drunken Technique"
+              },
+              {
+                "type": "text",
+                "text": ": Combine Flurry of Blows\n\t\tand Disengage for just one Ki point. Excellent for hit-and-run tactics which\n\t\tmonks often need to rely upon because their AC is relatively poor and they\n\t\thave few hit points compared to other front-line martial characters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tipsy Sway"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Leap to Your Feet"
+              },
+              {
+                "type": "text",
+                "text": ": With the Monk’s\n\t\t\t\tspeed bonus you can typically afford to spend the movement and still\n\t\t\t\tmove around as much as you need. However, movement is an important part\n\t\t\t\tof the Drunken Master’s play style, and tripping you could be a good way\n\t\t\t\tto inhibit your movements without this ability."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Redirect Attack"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re fighting\n\t\t\t\tmultiple enemies, it’s possible that one of their attacks will do more\n\t\t\t\tdamage than one of yours. If that’s the case, spending a Ki point here\n\t\t\t\twill do more than spending that Ki point on Flurry of Blows. To make\n\t\t\t\tthis work reliably, you’ll need to position yourself so that you’re\n\t\t\t\twithing 5 feet of two enemies, which can be a dangerous prospect for the\n\t\t\t\tMonk and isn’t always possible because enemies may want to fight other\n\t\t\t\tcreatures instead."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Drunkard’s Luck"
+              },
+              {
+                "type": "text",
+                "text": ": Disadvantage on a\n\t\tsaving throw can kill you. If it’s your life on the line, 2 Ki points is a\n\t\tlow price to pay. However, Disadvantage isn’t always a problem, so this is\n\t\tsituational by design."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Intoxicated Frenzy"
+              },
+              {
+                "type": "text",
+                "text": ": Remember that Drunken\n\t\tTechnique allows you to Disengage as part of Flurry of Blows, so you can use\n\t\tyour ridiculous speed (+30 ft. above your race’s base speed at this level)\n\t\tto run around the entire encounter and hit everything (5 things at most)\n\t\tonce with your Flurry of Blows bonus attacks, plus your two regular attacks.\n\t\tThis is great for handle multiple enemies, but it’s only meaningful in\n\t\tencounters with three or more foes, which isn’t every encounter."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-four-elements",
+      "parentSectionId": "section-subclasses",
+      "heading": "Way of the Four Elements (PHB)",
+      "sourceAnchor": "four-elements",
+      "blocks": [
+        {
+          "blockId": "block-section-four-elements-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Highly customizable, and many of the options are good, but there are a lot of traps and challenges here. Way of Four Elements tries to address a lot of the Monk’s capability gaps, but the subclass features are too limited, too costly, and have far too many trap options for the subclass to be viable. Way of Four Elements has been considered among the worst 5e subclasses since the PHB released, and for good reason."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-four-elements-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Way of the Four Elements Monk Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/four-elements/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-four-elements-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Disciple of the Elements"
+              },
+              {
+                "type": "text",
+                "text": ": This is\n\t\teffectively the whole subclass, and it defines your not-quite-spellcasting.\n\t\tThe actual interesting parts are your choices of Elemental Discipline."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elemental Disciplines:\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elemental Attunement"
+              },
+              {
+                "type": "text",
+                "text": ": This is mostly\n\t\t\t\tflavor and minor trickery. But hey, it’s free!"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fangs of the Fire Snake"
+              },
+              {
+                "type": "text",
+                "text": ": Really only\n\t\t\t\thelpful if you need fire damage or can’t stand adjacent to your target.\n\t\t\t\tSpending extra Ki for 1d10 damage is a poor investment beyond very low\n\t\t\t\tlevel, but, since it’s extra damage it’s multiplied on a critical hit\n\t\t\t\tsimilar to divine smite. Unfortunately, you need to activate Fangs of\n\t\t\t\tthe Fire Snake at the beginning of your Action rather than waiting until\n\t\t\t\tyou roll a critical hit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fist of the Four Thunders"
+              },
+              {
+                "type": "text",
+                "text": ": Knocking\n\t\t\t\tenemies away from you doesn’t help you much since you can spend Ki to\n\t\t\t\tDisengage, and Thunderwave’s tiny AOE can rarely hit more than one\n\t\t\t\tcreature. The damage scaling is decent compared to many other Elemental\n\t\t\t\tDisciplines, but it’s still effectively a first-level spell."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fist of Unbroken Air"
+              },
+              {
+                "type": "text",
+                "text": ": Decent range\n\t\t\t\tand damage, and it both knocks the target away and knocks them prone.\n\t\t\t\tThe damage is slightly better than the damage output from two unarmed\n\t\t\t\tstrikes from a high-level monk (2d10+10*65% hit chance vs. 3d10, avg:\n\t\t\t\t13.65 vs 16.5), and knocking flying targets prone also causes them to\n\t\t\t\tfall, allowing you to counter flying enemies without flying yourself.\n\t\t\t\tUsing Ki-Fueled Attack to follow this is especially helpful because you\n\t\t\t\tcan likely attack the now-prone target."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rush of the Gale Spirits"
+              },
+              {
+                "type": "text",
+                "text": ": Very\n\t\t\t\tsituational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shape of the Flowing River"
+              },
+              {
+                "type": "text",
+                "text": ": This\n\t\t\t\tworks similarly to Shape Water, which is one of my absolute favorite\n\t\t\t\tcantrips, but it’s only situationally usefully because you can only use\n\t\t\t\tShape of the Flowing River meaningfully when you have a large amount of\n\t\t\t\tice or water nearby. If you have a lake or something handy you can\n\t\t\t\tcompletely reshape the battlefield, but how often do you fight on or\n\t\t\t\tbeside a lake or atop a glacier?"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sweeping Cinder Strike"
+              },
+              {
+                "type": "text",
+                "text": ": A good AOE\n\t\t\t\twith solid damage and decent scaling. The cone is small, but you should\n\t\t\t\tstill be able to consistently hit two creatures while running around in\n\t\t\t\tmelee. At low levels this is a great use of Ki compared to Flurry of\n\t\t\t\tBlows, but expect to retrain this as you gain levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Water Whip"
+              },
+              {
+                "type": "text",
+                "text": ": Similar to Fist of\n\t\t\t\tUnbroken Air, but you can either knock the target prone or bring it into\n\t\t\t\tpunching distance."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elemental Disciplines:\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Clench of the North"
+              },
+              {
+                "type": "text",
+                "text": ": Paralysis is an\n\t\t\t\toff button for a single enemy. Turn them off, then go punch them a whole\n\t\t\t\tbunch. Unfortunately, it’s just Hold Person, so it’s only situationally\n\t\t\t\tuseful due to the creature type limitations."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gong of the Summit"
+              },
+              {
+                "type": "text",
+                "text": ": The next best\n\t\t\t\tthing to Fireball, and the best AOE damage you can get until you can get\n\t\t\t\tFlames of the Phoenix at 11th level. If you can hit two targets, this is\n\t\t\t\tlikely worth the Ki. If you can hit three, it’s absolutely worth the Ki.\n\t\t\t\tHowever, it works on a Constitution save, and those tend to be high."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elemental Disciplines:\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Flames of the Phoenix"
+              },
+              {
+                "type": "text",
+                "text": ": Great damage at\n\t\t\t\tlong range. Fireball is the best instantaneous AOE damage in the game\n\t\t\t\tuntil 9th-level spells come online. The Ki cost is high, and you get\n\t\t\t\tthis 6 levels after the Wizard, but it’s often still worth the cost if\n\t\t\t\tyou can hit a group of enemies. The damage scales linearly and 1d6 extra\n\t\t\t\tdamage feels small, but compare 1d6 damage to 3+ targets to the extra\n\t\t\t\tdamage from one additional attack with Flurry of Blows. If you can hit a\n\t\t\t\tbig group of enemies, it may be worth putting as much Ki into this as\n\t\t\t\tyou’re allowed to spend."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mist Stance"
+              },
+              {
+                "type": "text",
+                "text": ": Good escape and\n\t\t\t\tinfiltration option, and with a 1-hour duration you can do a lot for the\n\t\t\t\tKi cost."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ride the Wind"
+              },
+              {
+                "type": "text",
+                "text": ": Flight is a defining\n\t\t\t\tpart of high-level combat. If you’re stuck on the ground, you’re missing\n\t\t\t\thalf of the fighting unless Fist of Unbroken Air or Water Whip can knock\n\t\t\t\tsome foes down to your level. At higher levels you can even use this to\n\t\t\t\tupcast Fly and affect your allies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Elemental Disciplines:\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Breath of Winter"
+              },
+              {
+                "type": "text",
+                "text": ": Just slightly more\n\t\t\t\tdamage than Flames of the Phoenix, but without the appeal of fantastic\n\t\t\t\trange. Cones can work for the Monk, especially since your high speed\n\t\t\t\tallows you to easily position yourself to use them, but Flames of the\n\t\t\t\tPhoenix is less expensive and easier to use, so it’s hard to justify\n\t\t\t\tlearning this when you get so few disciplines."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Eternal Mountain Defense"
+              },
+              {
+                "type": "text",
+                "text": ": 1-hour\n\t\t\t\tduration for a fantastic defensive option, and you get to omit the\n\t\t\t\tmaterial component. "
+              },
+              {
+                "type": "emphasis",
+                "text": "BUT"
+              },
+              {
+                "type": "text",
+                "text": " you’re one level away from Empty Body, which will make this completely obsolete. Also note that the required level was changed in Errata\n\t\t\t\tfrom 12th level to 17th level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "River of Hungry Flame"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic area\n\t\t\t\tcontrol at any level, but maintaining Concentration may be difficult,\n\t\t\t\tfire resistance is common, and, at this level, the damage may not be\n\t\t\t\tespecially effective. Wave of Rolling Earth may be a better choice\n\t\t\t\tsimply because the wall can’t be walked through without first breaking\n\t\t\t\tit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wave of Rolling Earth"
+              },
+              {
+                "type": "text",
+                "text": ": The name\n\t\t\t\tdoesn’t quite make sense, but Wall of Stone is fantastic both as area\n\t\t\t\tcontrol and for utility."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-kensei",
+      "parentSectionId": "section-subclasses",
+      "heading": "Way of the Kensei (XGtE)",
+      "sourceAnchor": "kensei",
+      "blocks": [
+        {
+          "blockId": "block-section-kensei-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The biggest draw of the Kensei is that it opens up some martial weapons to\n\tthe Monk. While that offers a minor damage boost and access to reach via\n\twhips, the wording of Agile Parry (maybe accidentally) invalidates the\n\tKensei’s most notable feature. A smart Kensei will typically forgo one weapon\n\tattack in order to benefit from Agile Parry’s AC bonus. That means that your\n\tweapon is most meaningful from levels 6 through 10, but even then it’s average\n\tboost of 1 damage per round over what a spear would offer. Even worse, the\n\tDedicated Weapon Optional Class Feature steal’s the Kensei’s signature gimick\n\tand lets every monk use martial weapons effectively."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-kensei-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At higher levels where your AC will generally be better after several Ability\n\tScore Increases, the damage difference between your martial weapons and the\n\tnormal Monk damage die isn’t enough to matter, so the AC from Agile Parry is\n\ttypically more useful. If you use magic items in your game, the Kensei may be\n\tsalvageable if you can find a sufficiently appealing magic weapon, but unless\n\tyour DM guarantees access to magic weapons that’s a dangerous gamble. On top\n\tof that, other monks will actually benefit more from magic weapons because\n\tthey don’t need to give up one of the attacks made during their Action to get\n\tan AC boost."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-kensei-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Kensei benefits greatly from the Optional Class Features introduced in\n\tTasha’s Cauldron of Everything. Decicated Weapon admittedly robs the Kensei of\n\ttheir monopoly on martial weapons and weapons with the Two-Handed property\n\tlike bows, but the other Optional Class Features solve some key problems which\n\tthe Kensei has faced since they were published."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-kensei-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While fighting in melee, the Kensei typically needs to make one Unarmed\n\tStrike during in order to benefit from Agile Parry. Thanks to the new\n\tKi-Fueled Attack feature, you can spend one Ki point during your Action using\n\teither the Kensei’s Deft Strike feature or the Focused Aim Optional Class\n\tFeature to trigger Ki-Fueled Attack. That then allows you to make an attack\n\twith your weapon as a Bonus Action rather than using an Unarmed Strike. While\n\tfighting at range it will often be cheaper to stick to Kensei’s Shot, but at\n\thigh levels your damage output from a third attack may be large enough\n\tcompared to the 2d4 total bonus damage (1d4 on two attacks) that you might\n\tspend the Ki occasionally to trigger Ki-Fueled Attack."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-kensei-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Kensei is conceptually interesting, but the specific wording of the features makes it frustrating to play. Try allowing all of the Optional Class Features for the Kensei, and see if that helps. Alternatively, allow the Kensei to use Agile Parry any time that they take the Attack action and make any melee attack so that the Kensei can actually justify using a weapon more than once per turn."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-kensei-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Way of the Kensei Monk Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-kensei-7",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Path of the Kensei"
+              },
+              {
+                "type": "text",
+                "text": ": These are the\n\t\tfundamental features which will define how your character functions.\n\t\tFeatures granted at higher levels generally build on top of these features.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Kensei Weapons"
+              },
+              {
+                "type": "text",
+                "text": ": This opens up a lot\n\t\t\t\tof possibilities for monks. With only simple weapons and short swords,\n\t\t\t\tthe monk’s best weapon is a spear. Opening up most martial weapons means\n\t\t\t\taccess to weapon properties that are normally out of the Monk’s reach.\n\t\t\t\tI’ll address some interesting possibilities, but I won’t list every\n\t\t\t\tmartial weapon because that would take a ton of space without offering\n\t\t\t\tanything useful, but I’ll cover good options and options which look good\n\t\t\t\tbut aren’t. Unfortunately, there are only a handful of actually good\n\t\t\t\toptions, so expect every Kensei to end up using the same set of weapons.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "It’s easy to look at this feature alongside the Dedicated Weapon Optional\n\t\t\t\t\tClass Feature and feel like it’s not very useful. In truth, if you can\n\t\t\t\t\tget proficiencies elsewhere (you race, most likely), Dedicated Weapon makes Kensei Weapons\n\t\t\t\t\tmostly redundant. The only advantages of Kensei Weapons are that you’re\n\t\t\t\t\tnot limited to one weapon chosen at the end of a long rest so you can\n\t\t\t\t\tchange weapons to fit your situation (not that that happens much)\nand that you gain proficiency."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Agile Parry"
+              },
+              {
+                "type": "text",
+                "text": ": The precise wording of\n\t\t\t\tthis ability is critical. You need to make an unarmed strike\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "as part of the Attack action"
+              },
+              {
+                "type": "text",
+                "text": ". So the Bonus Action attack(s)\n\t\t\t\tfrom Martial Arts or Flurry of Blows doesn’t count. Until you get Extra\n\t\t\t\tAttack you’ll want to forgo your weapon in favor of the AC bonus, and\n\t\t\t\tonce you get Extra Attack you’ll typically make just one attack with\n\t\t\t\tyour weapon.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While that’s an annoying reduction to your damage output for the\n\t\t\t\t\tturn, a +2 bonus to AC is excellent for a class notorious for having\n\t\t\t\t\tpoor durability. Unfortunately, that means that a smart Kensei will\n\t\t\t\t\tfrequently make at most one attack per turn with their weapon. At low\n\t\t\t\t\tlevels you need the AC, and at high levels the additional damage from\n\t\t\t\t\tyour weapon won’t be a big enough difference to justify struggling to\n\t\t\t\t\tuse your weapon."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The Ki-Fueled Attack Optional Class Feature can address this issue to\n\t\t\t\t\tsome degree. If you spend Ki to use Deft Strike or the Focused Aim\n\t\t\t\t\tOptional Class Feature, that triggers Ki-Fueled Attack, allowing you\n\t\t\t\t\tto use your weapon to attack as a Bonus Action."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Kensei’s Shot"
+              },
+              {
+                "type": "text",
+                "text": ": Not a ton of damage,\n\t\t\t\tbut it makes ranged attacks competitive with your melee attacks and\n\t\t\t\tdoesn’t cost Ki. Normally monks fighting at range totally sacrifice the\n\t\t\t\tpotential damage from their Bonus Actions, so it’s nice to have an easy\n\t\t\t\tway to turn that action into something useful. Since it’s extra damage,\n\t\t\t\tit’s multiplied on a critical hit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Way of the Brush"
+              },
+              {
+                "type": "text",
+                "text": ": One proficiency in a\n\t\t\t\ttool which will probably never get used."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "One with the Blade"
+              },
+              {
+                "type": "text",
+                "text": ": Two mostly independent\n\t\tbenefits.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magic Kensei Weapons"
+              },
+              {
+                "type": "text",
+                "text": ": Normally the\n\t\t\t\tMonk needs to rely solely on their unarmed strikes to overcome damage\n\t\t\t\tresistance to non-magical attacks unless you can guarantee access to\n\t\t\t\tmagic weapons. This allows you to continue using your favorite weapons\n\t\t\t\twithout issue, even if they’re not magic."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Deft Strike"
+              },
+              {
+                "type": "text",
+                "text": ": It’s rare that this will\n\t\t\t\tdo more damage than spending that Ki point to perform a Flurry of Blows,\n\t\t\t\tbut if you’re having a lot of trouble hitting you might need damage\n\t\t\t\twherever you can get it. The wording also says “extra damage”, which\n\t\t\t\tmeans that the damage is part of the attacks normal damage and is\n\t\t\t\ttherefore multiplied on a critical hit the same way Eldritch Smite and\n\t\t\t\tDivine Smite are, and much like those features you can decide to use it\n\t\t\t\tafter rolling your attack so it’s an easy damage boost if you roll a\n\t\t\t\tnatural 20."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sharpen the Blade"
+              },
+              {
+                "type": "text",
+                "text": ": Extremely tempting,\n\t\tbut that’s a lot of Ki to spend on one attack per turn\n\t\t(Possibly 2 with Ki-Fueled Attack. Remember that you need to make one unarmed attack to trigger Agile Parry).\n\t\tThe additional attacks from Flurry of Blows will likely be\n\t\ta more useful way to spend Ki.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Your best use case for this is when fighting at range where Agile Parry\n\t\t\tis less crucial. Grab a longbow, put 3 Ki points into it, and start\n\t\t\tshooting. Consider using Deft Strike and/or the Focused Aim Optional Class\n\t\t\tFeature so that you can trigger Ki-Fueled Attack and attack as a Bonus\n\t\t\tAction, but you’ll want to make that decision early since you want to use\n\t\t\tKensei’s Shot before you start attacking if you’re going to use it at\n\t\t\tall."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Unerring Accuracy"
+              },
+              {
+                "type": "text",
+                "text": ": You’re only going to\n\t\tbe making one attack with a weapon each turn unless you use the Ki-Fuelled\n\t\tAttack Optional Class Feature, so you might as well make it reliable."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-long-death",
+      "parentSectionId": "section-subclasses",
+      "heading": "Way of the Long Death (SCAG)",
+      "sourceAnchor": "long-death",
+      "blocks": [
+        {
+          "blockId": "block-section-long-death-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Exceptionally tanky, Way of the Long Death makes the Monk very difficult to kill, but lacks useful offensive or utility options. This allows the Monk to serve as a Defender more easily than they can typically manage with their d8 hit dice and slowly scaling AC (typically 15 or 16 at level 1, up to 20 eventually compared to a fighter who can start at 19)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-long-death-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Way of the Long Death Monk Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/way-of-the-long-death/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-long-death-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Touch of Death"
+              },
+              {
+                "type": "text",
+                "text": ": If you can bring this into\n\t\tplay even once or twice a day, it’s potentially a huge boost to your\n\t\tdurability. When combat starts, look for weak enemies to pick off before\n\t\tengaging enemies who are going to eat through your hit points.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This ability can be abused by reducing innocent creatures to 0 hit\n\t\t\tpoints, so carry around a bag of rats and knock one unconscious between\n\t\t\tcombats to keep your temporary hit points running."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hour of Reaping"
+              },
+              {
+                "type": "text",
+                "text": ": Great when you’re\n\t\toutnumbered, or just when your party is facing enemies with poor Wisdom\n\t\tsaves. Prevent your enemies from approaching and hinder their attacks while\n\t\tyour party kills them at range. The duration is only until the end of your\n\t\tnext turn, but this can be used as often as you like so you can just stand\n\t\tthere menacingly and win the fight for your party without spending any\n\t\tlimited resources."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mastery of Death"
+              },
+              {
+                "type": "text",
+                "text": ": As long as you have Ki,\n\t\tyou have hit points."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Touch of the Long Death"
+              },
+              {
+                "type": "text",
+                "text": ": Very expensive\n\t\tfor how much damage you deal. Punching things won’t be as fast, but it’s\n\t\tcheaper and much more reliable. Save this for single enemies right before\n\t\tyou rest, and expect enemies to pass the Constitution save since\n\t\tConstitution saves tend to be high."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-open-hand",
+      "parentSectionId": "section-subclasses",
+      "heading": "Way of the Open Hand (PHB)",
+      "sourceAnchor": "open-hand",
+      "blocks": [
+        {
+          "blockId": "block-section-open-hand-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The “generic” option for the Monk. Open Hand offers some excellent, well-rounded options that really help to squeeze the most utility out of the Monk’s core abilities."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-open-hand-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Way of the Open Hand Monk Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/open-hand/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-open-hand-3",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Open Hand Technique"
+              },
+              {
+                "type": "text",
+                "text": ": This dramatically\n\t\timproves the benefits of spending one of your few Ki points to get an extra\n\t\tattack. Since Monks typically dump Strength (which makes Shove a bad\n\t\toption), the knockdown and push effects are your best bet for making enemies\n\t\tprone or relocating them. Unfortunately you apply these effects with an\n\t\tattack from Flurry of Blows, which is made after your Attack for the turn,\n\t\tso you’re making at most one attack against a target after you knock them\n\t\tprone.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you need to get out of melee, preventing the target from taking\n\t\t\tReactions prevents them from making an Attack of Opportunity so you can\n\t\t\tusually choose to use Flurry of Blows instead of using Step of the Wind to\n\t\t\tDisengage."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you choose to knock enemies away, note that the word “away” doesn’t specify\n\t\t\tdirection. Upward at an angle is still “away”."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wholeness of Body"
+              },
+              {
+                "type": "text",
+                "text": ": A great option to use\n\t\tbetween fights, or when you’re so critically low on hit points that walking\n\t\tinto combat would be suicidal. In-combat healing is rarely a good idea, so\n\t\ttry to avoid it as much as you can.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This is somewhat redundant with the Quickened Healing Optional Class\n\t\t\tFeature, but Wholeness of Body will restore more hit points and doesn’t\n\t\t\tcost Ki."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tranquility"
+              },
+              {
+                "type": "text",
+                "text": ": Considering that Monks lack\n\t\tany social skills, a peaceful approach is rarely the best way for Monks to\n\t\tapproach problems. This will help prevent enemies from attacking you until\n\t\tyou break the Sanctuary effect, but usually this will only last until your\n\t\tturn on the first round of the first combat each day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Quivering Palm"
+              },
+              {
+                "type": "text",
+                "text": ": Save-or-die one creature\n\t\tevery other round for 3 Ki. The save is Constitution and Constitution saves\n\t\ttend to be high, but at the tiny cost of 3 Ki it’s inexpensive enough that\n\t\tyou can afford to retry several times against powerful single foes."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sun-soul",
+      "parentSectionId": "section-subclasses",
+      "heading": "Way of the Sun Soul (SCAG)",
+      "sourceAnchor": "sun-soul",
+      "blocks": [
+        {
+          "blockId": "block-section-sun-soul-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Sun Soul Monk tries to bridge the gap between the Monk’s melee capacity\n\tand the ranged capacity of a Blaster or ranged Striker. The features are very\n\tsustainable since most of them don’t require Ki to use, but without spending\n\tKi their damage is pitiful, so you will frequently find yourself burning\n\tthrough your Ki pool early, then resorting to punching things or shooting at\n\tthem with Radiant Sun Bolt. Way of the Four Elements (possibly with Magic\n\tInitiate to pick up a ranged cantrip if you’re desperate for a ranged attack\n\toption) does essentially the same thing to much greater effect, and has the\n\tadditional ability to pick different spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sun-soul-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Way of Sun Soul has some really good ideas, but the execution of those ideas simply isn’t effective. Radiant Sun Bolt gives the monk a meaningful ranged option, but the only real improvement is that the Monk can attack from 30 feet away. It’s no more damaging or efficient than just walking up and punching something, and you actually "
+            },
+            {
+              "type": "emphasis",
+              "text": "lose"
+            },
+            {
+              "type": "text",
+              "text": " potential damage compared to using a spear at low levels. Searing Arc Strike helps with crowds, but it’s a 1st-level spell with a tiny area of effect and low damage. Searing Sunburst is basically Fireball, but less damage and a worse save, and even though it’s free you’ll typically get better results from punching things, which is also free."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sun-soul-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sun Soul needs a lot of changes to make it work. Adding the Optional Class\n\tFeatures helps, but it is nowhere near enough. The core issue with the\n\tsubclass is that the features are usually "
+            },
+            {
+              "type": "emphasis",
+              "text": "at best"
+            },
+            {
+              "type": "text",
+              "text": " equivalent to just\n\tattacking and using Flurry of Blows. Here are some suggested fixes:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sun-soul-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "strong",
+                "text": "Radiant Sun Bolt"
+              },
+              {
+                "type": "text",
+                "text": ": You may replace any unarmed strike with a Radiant Sun Bolt attack, allow the monk to use either Dexterity or Wisdom for attack and damage rather than locking them into Dexterity, and increase the range by 10 feet every time the Martial Arts die increases, up to a maximum of of 60 feet at level 17. This allows the Monk to attack with their Bonus Action without spending Ki, allows them to build around Wisdom to focus on special features instead of just punching, and to function at range greater than the movement speed of nearly everything in the Monster Manual."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Searing Arc Strike"
+              },
+              {
+                "type": "text",
+                "text": ": Instead of using Burning Hands, this is a 15-foot cone which deals 1d8+Wisdom Modifier damage, and activating it costs no Ki. The Monk may spend Ki to enhance the effects, adding 1d8 damage and +5 feet to the size of the cone, up to a maximum number of Ki points equal to half their monk level. This gives the monk an inexpensive way to handle multiple foes, and the ability to expand the cone keeps the feature meaningful at high levels once Searing Sunburst comes online. Adding the Monk’s Wisdom modifier as a flat damage bonus helps keep the damage roughly consistent if you don’t spend Ki to improve the effects."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Searing Sunburst"
+              },
+              {
+                "type": "text",
+                "text": ": Change the base damage to 2d6+Wisdom Modifier."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-sun-soul-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Way of the Sun Soul Monk Guide",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sun-soul-6",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Radiant Sun Bolt"
+              },
+              {
+                "type": "text",
+                "text": ": Finally, a meaningful\n\t\tranged option for the Monk! The damage die is admittedly small compared to\n\t\tusing a spear in melee, but you can replace any of your attacks during the\n\t\tAttack action (not the one from Martial Arts), and the damage die will scale\n\t\tas you gain levels. What really makes this shine however, is the second half of the feature, solving the Flurry of Blows problem for ranged Monk builds.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You don’t need free hands to make these attacks, so you can switch\n\t\t\tbetween your spear and Radiant Sun Bolt at will. If you spend the Ki Point\n\t\t\tto make two attacks as a bonus action, you can keep up with or even outdo\n\t\t\treal spellcasters in terms of ranged damage output. Even the Warlock with\n\t\t\tEldritch Blast+Agonizing Blast may struggle to match Radiant Sun Bolt when\n\t\t\tyou spend Ki to make additional attacks as a Bonus Action since you still\n\t\t\tadd your Dexterity bonus to the attacks. The Warlock won’t catch up until\n\t\t\t17th level when Eldritch Blast adds a fourth ray. Of course, Eldritch\n\t\t\tBlast doesn’t cost Ki to make all of those attacks, so by level 11\n\t\t\tEldritch Blast+Agonizing Blast will be more effective if you’re not\n\t\t\twilling to spend Ki."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "This attack does present a weird situation to explore. Certain magic items grant a bonus to spell attack rolls and they have various attunement requirements. Most require levels as a specific spellcaster and so only function when multiclassing, and only for that class’s spells. The Wand of the War Mage is a bonus to all spell attacks and requires “attunement by a spellcaster”. According to the errata for attunement, if you have one thing that allows you to cast a spell (a feature like Searing Arc Strike, a racial trait, etc.) you qualify as a spellcaster for the purposes of attunement. It won’t help your save DC’s, but that’s what the Dragonhide Belt is for."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Searing Arc Strike"
+              },
+              {
+                "type": "text",
+                "text": ": A great option when\n\t\tyou’re facing crowds of enemies in close quarters, but it can be hard to hit\n\t\tmore than two creatures with such a small cone, and the damage isn’t great\n\t\tunless you spend a bunch of Ki. This also does fire damage, which is weird\n\t\tbecause everything else in the subclass deals radiant damage.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you can hit three creatures, this is a more efficient use of both your\n\t\t\tBonus Action and your Ki than spending the same Ki to use either\n\t\t\tFlurry of Blows or the Bonus Action attack with Radiant Sun Bolt.\n\t\t\tEven with a d10 damage die and 20 Dexterity, hitting three creatures\n\t\t\twith 3d6 damage will deal more damage on average than two attacks.\n\t\t\tEven better, Stunned creatures automatically fail Dexterity saves,\n\t\t\tso if you can stun your targets before using Searing Arc Strike,\n\t\t\tyou can drop a bunch of damage on them."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Getting this feature at 6th level can feel frustrating. Cones work fine on\n\t\t\tmartial characters who can survive in melee, but it’s a 1st-level spell\n\t\t\tthat you get at level 6, and it has 15-foot range on a subclass that’s\n\t\t\tthat’s all about allowing the Monk to function at long range."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Once you get Searing Sunburst, this may feel obsolete.\n\t\t\tFor the same two Ki points, Searing Sunburst deals 6d6 damage (avg. 21\n\t\t\tcompared to Searing Arc Strike’s 13.5) in a significantly larger AOE and\n\t\t\tat 150-foot range, though it does consume an Action. Adding more Ki widens the gap even further."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Searing Sunburst"
+              },
+              {
+                "type": "text",
+                "text": ": The base damage isn’t\n\t\tgreat, but it scales reasonably well and doesn’t cost any Ki Points to use\n\t\tat the base damage. Unfortunately, because the base damage is so low that you\n\t\tneed to spend a ton of Ki to do any serious damage, and, since this is on a\n\t\tConstitution save your enemies are likely to pass the save, which means they take no damage, not half damage.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The best part of this is that you can use it for free. 2d6 damage still\n\t\t\tisn’t a ton of damage, but the range is great at 150 feet (compared to\n\t\t\tjust 30 feet for Radiant Sun Bolt), so if you’re fighting at long range\n\t\t\tyou can shell your enemies with this at the base damage until they either\n\t\t\tdie or get tired of your shenanigans and move closer."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sun Shield"
+              },
+              {
+                "type": "text",
+                "text": ": A nice deterrent. The damage\n\t\tisn’t huge (probably 10 damage at this level), but the effect is constant\n\t\tunless you turn it off, which you might do when you need to be stealthy. The\n\t\tbiggest frustration is that this consumes your Reaction so you can’t use it\n\t\tfor Opportunity Attacks or something like that."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beyond-the-pale",
+      "heading": "3rd-Party Publishers",
+      "sourceAnchor": "beyond-the-pale",
+      "blocks": [
+        {
+          "blockId": "block-section-beyond-the-pale-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT has covered some 3rd-party content from our favorite creators. This content is published under the Open Gaming License, under Creative Commons, or through DMsGuild, and is not considered official content. As such, it is not available in Adventurer’s League organized play, and your group may not allow it in your game. If your group wants to explore 3rd-party content, we hope that these articles will help you make them work for you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beyond-the-pale-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Matt Mercer’s Way of the Cobalt Soul Monk",
+                "href": "https://rpgbot.net/dnd5/characters/classes/matt-mercers-cobalt-soul/"
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Way of Mercy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Implements of Mercy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hand of Healing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hand of Harm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Physician’s Touch"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Flurry of Healing and Harm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hand of Ultimate Mercy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Way of Shadow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shadow Arts"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Darkness"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Darkvision"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Pass Without Trace"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Silence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shadow Step"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cloak of Shadows"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Opportunist"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Way of The Ascendant Dragon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Draconic Disciple"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Draconic Presence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Draconic Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tongue of the Dragon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Breath of the Dragon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Wings Unfurled"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Aspect of the Wyrm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Frightful Presence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Ascendant Aspect"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Augment Breath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Blindsight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Explosive Fury"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Way of the Astral Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Arms of the Astral Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Visage of the Astral Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Astral Sight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Wisdom of the Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Word of the Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Body of the Astral Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Deflect Energy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Empowered Arms"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Awakened Astral Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Way of the Drunken Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bonus Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Drunken Technique"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Tipsy Sway"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Leap to Your Feet"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Redirect Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Drunkard’s Luck"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Intoxicated Frenzy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Way of the Four Elements"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Disciple of the Elements"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Elemental Attunement"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fangs of the Fire Snake"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fist of the Four Thunders"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fist of Unbroken Air"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Rush of the Gale Spirits"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Shape of the Flowing River"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sweeping Cinder Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Water Whip"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Clench of the North"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Gong of the Summit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Flames of the Phoenix"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mist Stance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ride the Wind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Breath of Winter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Eternal Mountain Defense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green River of Hungry Flame"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Wave of Rolling Earth"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Way of the Kensei"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Path of the Kensei"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Kensei Weapons"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Agile Parry"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Kensei’s Shot"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Way of the Brush"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none One with the Blade"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Magic Kensei Weapons"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Deft Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sharpen the Blade"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Unerring Accuracy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Way of the Long Death"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Touch of Death"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hour of Reaping"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mastery of Death"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Touch of the Long Death"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Way of the Open Hand"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Open Hand Technique"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Wholeness of Body"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tranquility"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Quivering Palm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Way of the Sun Soul"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Radiant Sun Bolt"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Searing Arc Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Searing Sunburst"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sun Shield"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-mercy-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-mercy-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-mercy-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-mercy-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-mercy-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-mercy-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-mercy-7"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"3\"><span class=\"rating-green\">Hand of Healing</span>: Your Martial Arts die plus your Wisdom modifier is roughly equivalent to a 1st-level Cure Wounds. That’s not a ton "
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"3\"><span class=\"rating-green\">Hand of Harm</span>: One Ki point to automatically deal as much damage as an unarmed strike is more efficient than spending a Ki Point to p"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[5]",
+      "detail": "<li value=\"11\"><span class=\"rating-blue\">Flurry of Healing and Harm</span>: This dramatically reduces the rate at which you spend Ki to activate Hand of Harm and Hand of Healing. Y"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[6]",
+      "detail": "<li value=\"17\"><span class=\"rating-blue\">Hand of Ultimate Mercy</span>: Have a dead party member? Take a Short Rest to get your Ki Points back if you need to, then punch them back "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-shadow-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-shadow-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[2]",
+      "detail": "block-section-shadow-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-ascendant-dragon-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[3]",
+      "detail": "block-section-ascendant-dragon-2"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"6\"><span class=\"rating-green\">Wings Unfurled</span>: Step of the Wind is activated as a Bonus Action (it’s the one that lets you Dash as a Bonus Action), so your movemen"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-astral-self-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-astral-self-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-astral-self-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-astral-self-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-astral-self-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-astral-self-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[4]",
+      "detail": "block-section-astral-self-7"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[1]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Arms of the Astral Self</span>: The subclass’s signature feature, managing Arms of the Astral Self is the core of Way of the Astral Self’s c"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[4]",
+      "detail": "<li value=\"17\"><span class=\"rating-blue\">Awakened Astral Self</span>: This is expensive, but remember that it’s 5 Ki Points instead of the 2 which you’ve become accustomed to spend"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-drunken-master-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-drunken-master-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[5]",
+      "detail": "block-section-drunken-master-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-four-elements-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-four-elements-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[6]",
+      "detail": "block-section-four-elements-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-kensei-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-kensei-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-kensei-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-kensei-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-kensei-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-kensei-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[7]",
+      "detail": "block-section-kensei-7"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[2]",
+      "detail": "<li><span class=\"rating-blue\">Agile Parry</span>: The precise wording of this ability is critical. You need to make an unarmed strike <em>as part of the Attack action</em>. So the "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-long-death-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-long-death-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[8]",
+      "detail": "block-section-long-death-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-open-hand-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-open-hand-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[9]",
+      "detail": "block-section-open-hand-3"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[1]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Open Hand Technique</span>: This dramatically improves the benefits of spending one of your few Ki points to get an extra attack. Since Monk"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-sun-soul-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-sun-soul-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-sun-soul-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-sun-soul-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-sun-soul-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[10]",
+      "detail": "block-section-sun-soul-6"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[1]",
+      "detail": "<li value=\"3\"><span class=\"rating-green\">Radiant Sun Bolt</span>: Finally, a meaningful ranged option for the Monk! The damage die is admittedly small compared to using a spear in "
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"6\"><span class=\"rating-green\">Searing Arc Strike</span>: A great option when you’re facing crowds of enemies in close quarters, but it can be hard to hit more than two c"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-beyond-the-pale-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-beyond-the-pale-2"
+    }
+  ],
+  "metrics": {
+    "words": 9480,
+    "sections": 15,
+    "blocks": 53,
+    "tables": 0,
+    "ratingSignals": 97
+  },
+  "status": "needs-editorial-review"
+}

@@ -1,0 +1,2745 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "babeb18f838950752171728ea87a95921aed4bbfeeac69883f0257d3ebe34978",
+  "sourceRevision": {
+    "revisionId": "rpgbot-51ef21035189f705-babeb18f83895075",
+    "sourceId": "rpgbot-51ef21035189f705",
+    "fetchedAt": "2026-09-29T19:13:18.573527+00:00",
+    "sourceUpdatedAt": "2026-03-14T14:52:33-04:00",
+    "contentHash": "9ee6455b6490e68ee0233b8ce221b52e06adeaaf7e28e764b77902cfaabe9ae5",
+    "title": "Phantom Rogue 5e: DnD Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-51ef21035189f705-babeb18f83895075.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "intro",
+      "heading": "Phantom Rogue 5e: DnD Subclass Guide",
+      "blocks": [
+        {
+          "blockId": "block-intro-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "“What are you?”"
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "“Half-faded souls of the dead. Isn’t it painfully obvious?”"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "-FFXIV: Endwalker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Phantom Rogue has a very distinct flavor of death and the reaping of souls. While you can play a character however you like, these undertones are built into the class mechanics, with a resource that refuels when anything around the Phantom dies. Managing this resource properly, the Phantom can do plenty of extra damage very consistently. The only unfortunate part of this is that Phantoms do not get this kill recharging ability until ninth level. Until then, we’re still a Rogue, trying to get our Sneak Attacks in when we can."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In terms of party roles, Phantom doesn’t alter the Rogue’s primary purpose. The features of Phantom instead amplify the damage output role of the Rogue as long as combats involve more than one foe. Out of combat, the Phantom is an interesting mirror to the "
+            },
+            {
+              "type": "link",
+              "text": "Soulknife",
+              "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/soulknife/"
+            },
+            {
+              "type": "text",
+              "text": ". Where the Soulknife is able to push the upper limits of the skills it knows, the Phantom instead can alter the skills it knows with a little preparation."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because Rogues can feel a bit similar as far as builds, our example explores flavor and style without sacrificing our damage. The build is designed to be one who reaps souls in the name of the Raven Queen, enforcing mortality on those who would dare run from death. Yes it’s kinda super edgy and on the nose."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-3",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Phantom Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Phantom Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#phantom-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Phantom Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#phantom-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Phantom Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#phantom-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Phantom Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#phantom-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Phantom Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#phantom-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Phantom Build – Can’t defeat Her, so instead I’ll have to be Her",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Phantom Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Whispers of the Dead"
+              },
+              {
+                "type": "text",
+                "text": ": The ability to pick\n\t\tup a proficiency on short notice is incredibly useful. If you can combine\n\t\tthis with other buffs like Enhance Ability and Guidance, you can get around\n\t\tnearly any skill-based or tool-based challenge if you have time to prepare.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Most of the time you can leave this on a low-importance skill\n\t\t\tproficiency, but most tools won’t come up unless you’ve got time for a\n\t\t\tshort rest. No one is going to ambush you and ask you to break out the\n\t\t\tBrewer’s Tools and make them some beer (I’ve made beer. It takes a few\n\t\t\thours, and spending one hour to take a nap first isn’t a big ask. I’ve\n\t\t\tdone that, too.)."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wails from the Grave"
+              },
+              {
+                "type": "text",
+                "text": ": Starts very slow\n\t\t(1d6 twice a day), but ramps up exponentially as your Sneak Attack damage\n\t\tand your Proficiency Bonus increase. The damage is necrotic, which is rarely\n\t\tresisted, and it’s automatic provided that you made a successful Sneak\n\t\tAttack so it’s great for enemies that may be difficult to hit. Even as it\n\t\tgains in power, you don’t want to throw this around needlessly. You’ll never\n\t\tget more than 6 uses (not counting Tokens of the Departed) and they’ll never\n\t\tdeal more than 5d6 damage, so you need to be strategic."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tokens of the Departed"
+              },
+              {
+                "type": "text",
+                "text": ": I love everything\n\t\tabout this feature. The theme is cool, the mechanic is fun, the resource\n\t\tpool is appropriately limited but easy to restore, and the benefits are fun,\n\t\tthematically appropriate, and really good. You get three benefits at level\n\t\t9, but at level 13 you can recharge Ghost Walk with a trinket and at level\n\t\t17 you wake up from longs rests with a free soul tinket.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The first benefit is without doubt the best of the three, and it’s good\n\t\t\tenough that you should nearly always keep a Soul Trinket handy. Advantage\n\t\t\ton Constitution saves isn’t quite as good as proficiency, but it’s close.\n\t\t\tUnfortunately, the Phantom doesn’t need to worry about Concentration\n\t\t\tunless you take Magic Initiate or Multiclass, so you don’t get to wave\n\t\t\tyour token around every time you cast a Concentration spell."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The second benefit helps with Wails of the Grave, and it’s easily your\n\t\t\tmost frequent way to spend trinkets. Wails from the Grave is a decent bit\n\t\t\tof damage by this level, matching what a spellcaster can do with many\n\t\t\tcantrips. However, the Proficiency Bonus usage limit won’t get you far, so\n\t\t\tyou can destroy a trinket to get a free bit of damage. Every time you\n\t\t\tthink “is a new trinket worth my Reaction right now?”, remember that it’s\n\t\t\ta small pile of easy necrotic damage when you need it later."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The third benefit is basically Speak with Dead, but you only get one\n\t\t\tquestion. Otherwise, it has all the same problems where the subject can be\n\t\t\tvague, misleading, or otherwise unhelpful. Very situational, but if you\n\t\t\tcan somehow make it work it’s excellent. This also has a curious edge case\n\t\t\twhere the creature which allowed you to produce the token might be alive\n\t\t\tagain, especially in cases where your allies die and a raised from the\n\t\t\tdead. You might use this to ask a question of a creature who is currently\n\t\t\talive, leading to hilarious situations where the ghostly apparition of a\n\t\t\tliving creature appears in the same room as that creature only to say\n\t\t\tsomething totally unhelpful before disappearing."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The one flaw in the whole thing is that it falls prey to the classic “Bag\n\t\t\tof Rats” trick. You can kill any creature to generate a new Soul Trinket,\n\t\t\tso if you have a bag of rats or access to other easily-expendable\n\t\t\tcreatures, you can kill them out of combat to recharge. Your DM might\n\t\t\tjustifiably make some adjustments to disallow that (requiring a CR above 0\n\t\t\tmay be sufficient, especially at 9th level), so try not to lean on the\n\t\t\tabuse case too much. This generally won’t work with summoned creatures\n\t\t\t(they need to die, not just be reduced to 0 hit points), and since death\n\t\t\tand being reduced to 0 hp suddenly mean different things, I encourage DMs\n\t\t\tto start tracking death saves for enemies."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ghost Walk"
+              },
+              {
+                "type": "text",
+                "text": ": A 1-minute duration on this\n\t\twould be good. A 10-minute duration on this is fantastic. 10 minutes is\n\t\tobviously plenty if you’re using this in combat, but it’s more important\n\t\toutside of combat where you might need to move through walls, floors, or\n\t\tceilings while scouting. The 10 ft. move speed is tiny, but remember that\n\t\tyou have Cunning Action so you can Dash as a Bonus Action. If you can get\n\t\tbuffs like Longstrider, they’ll do a lot to help both because any flat\n\t\tnumeric increase is relatively large compared to 10 ft. and because you can\n\t\tessentially double the effect by dashing without spending your Action."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Death’s Friend"
+              },
+              {
+                "type": "text",
+                "text": ": At this level Wails of\n\t\tthe Grave deals 4d6 damage, just short of its maximum at 6d6. Adding that\n\t\tdamage to your primary target when you use Wails of the Grave means that\n\t\tyour Sneak Attack deals 50% more damage, though it’s not clear if you can\n\t\tmultiply the damage on a critical hit. I believe that you can’t because the\n\t\tdamage is applied to the target from a separate source rather than added to\n\t\tthe damage of original attack like effects like Divine Smite.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The second benefit of this feature ensures that you have at least one\n\t\t\tSoul Trinket at the end of a Long Rest. This is a crucial benefit so that\n\t\t\tyou can benefit from Advantage on your Constitution saves, so try not to\n\t\t\tburn your trinket the first time you want to use Wail of Souls. But since\n\t\t\tyou get the trinket for free, this also makes it easier to spend your last\n\t\t\ttrinket right before you take a long rest. Of course, you could just use\n\t\t\tthe bag of rats trick to get free Soul Trinkets, so this benefit isn’t as\n\t\t\timpactful as WotC wanted it to be when they wrote it."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-phantom-ability-scores",
+      "heading": "Phantom Ability Scores",
+      "sourceAnchor": "phantom-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-phantom-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Phantom is a typical Rogue and wants typical Rogue stats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-phantom-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": While there is technically a case for Athletics and possibly some tools, those are very niche options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-phantom-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": AC, Attack Rolls, Stealth, Other stuff."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-phantom-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Don’t die please."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-phantom-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": For Scholarly skills."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-phantom-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": For Explorer skills."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-phantom-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": For Face skills."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-phantom-ability-scores-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because Phantoms have a floating skill proficiency and we’re not in urgent need of any of the mental stats, when using point buy we can bump two to 10 and the third to 13 to remove any penalties and open up potential multiclassing minimums."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-phantom-ability-scores-9",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 (13)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13 (10)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 (13)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-phantom-races",
+      "heading": "Phantom Races",
+      "sourceAnchor": "phantom-races",
+      "blocks": [
+        {
+          "blockId": "block-section-phantom-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Consult the "
+            },
+            {
+              "type": "link",
+              "text": "Rogue Race Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/rogue/races/"
+            },
+            {
+              "type": "text",
+              "text": ", nothing changes in what we need."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-phantom-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Wood Elf"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The standard Elf traits and access to Elven Accuracy combine well with a set of weapon proficiencies that can be traded in to expand Rogue options and an extra 5 feet of walking speed."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-phantom-feats",
+      "heading": "Phantom Feats",
+      "sourceAnchor": "phantom-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-phantom-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Phantom’s subclass features don’t change what we want from the "
+            },
+            {
+              "type": "link",
+              "text": "Rogue Handbook Feats.",
+              "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#feats"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-phantom-weapons",
+      "heading": "Phantom Weapons",
+      "sourceAnchor": "phantom-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-phantom-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use a Finesse weapon or a Ranged weapon to "
+            },
+            {
+              "type": "link",
+              "text": "your preference",
+              "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#weapons"
+            },
+            {
+              "type": "text",
+              "text": ", but remember that while Wails from the Grave only cares about the distance between your targets,Tokens of the Departed does care about you being within 30 feet."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-phantom-weapons-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If your race has weapon proficiencies that can be switched out, you might want to choose one of the following options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-phantom-weapons-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Whip"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A one-handed finesse slashing weapon with reach. Sure it only does 1d4 damage, but that’s what Sneak Attack dice are for."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scimitar"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The only other slashing damage finesse weapon, which might matter if you want to use Slasher so the targets can’t escape your Token range. More damage, 1d6, but no reach."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-phantom-armor",
+      "heading": "Phantom Armor",
+      "sourceAnchor": "phantom-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-phantom-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Like "
+            },
+            {
+              "type": "link",
+              "text": "any other Rogue",
+              "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#armor"
+            },
+            {
+              "type": "text",
+              "text": ", it’s Leather and Studded leather unless you"
+            },
+            {
+              "type": "link",
+              "text": " multiclass",
+              "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+      "heading": "Example Phantom Build – Can’t defeat Her, so instead I’ll have to be Her",
+      "sourceAnchor": "example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+      "blocks": [
+        {
+          "blockId": "block-section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "Staring at death, I take a breath, there’s nothing left"
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "Now close my eyes, for one last time, and say goodbye"
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "Lying naked while the snow falls all around me"
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "Drifting closer to the edge but She won’t have me"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "–"
+            },
+            {
+              "type": "link",
+              "text": "Oblivion",
+              "href": "https://www.youtube.com/watch?v=Bb_-bGLLhn0"
+            },
+            {
+              "type": "emphasis",
+              "text": " (FFXIV: Heavensward)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rogue builds are somewhat interesting. Most of the archetypes just give alternate conditions to apply Sneak Attack damage, and Phantom is no exception. Well, half-exception. Phantom doesn’t give a different way to make a target susceptible to Sneak Attack but instead allows the Rogue to apply some damage to a second target. That being said, beyond a few feats that are good to have, most of the Roguish Archetypes still build the same, so this build explores choices made to enhance the flavor of the character."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "That flavor is one who harvests the souls of the living in service to some deity of death. We’ll choose the Raven Queen for the example, but any god or goddess of death works. Our primary weapon is mechanically a whip, and would serve fine as-is, but because flavor is free, and we’re going all-in on theme and flavor, we can just say it’s more of a "
+            },
+            {
+              "type": "link",
+              "text": "kusarigama",
+              "href": "https://en.wikipedia.org/wiki/Kusarigama"
+            },
+            {
+              "type": "text",
+              "text": ", which is sort of like a small scythe on a chain."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The great part of all this flavor and style is that we’re not sacrificing any core competency of being a Rogue to do it; we’re still a Sneak Attack dispenser with a bunch of skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re using Wood Elf as our race and the default stat spread works fine as-is: +2 Dexterity +1 Wisdom."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We spread out our mental stats like that to remove penalties to synergize more with Phantom’s floating skill proficiency from Whispers of the Dead."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re using Wood Elf for a couple of reasons. Primarily, we needed a race with at least one martial weapon proficiency that we can trade out for Whip proficiency using the custom origin rules. Wood Elves come with four proficiencies, so we can trade the other three out for useful tools: Brewer’s Supplies, Cartographer’s Tools, and Cook’s Utensils."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re also keeping the Perception proficiency because it’s useful to us. On top of all that, Fleet of Foot increases our Walking speed to 35 and Mask of the Wild allows hiding while only lightly obscured by natural phenomena."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re taking the Marine background which would grant us Athletics and Survival, except if we choose Athletics as one of our Rogue options, we can replace it with any skill. We’re choosing Religion to add a little flavor to the build in the form of Faith. Because that choice is entirely for flavor, anything else you prefer to be good at is an option. Marine also gives both Vehicle proficiencies, Land and Water."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Wood Elf, we get Brewer’s Supplies, Cartographer’s Tools, Cook’s Utensils, and Perception. From Rogue, we get Athletics, Insight, Investigation, Stealth, and Thieves’ Tools. From the Marine background, we get Religion, Survival, and Vehicles (Land and Water)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This Phantom becomes extra useful to the party due to tool synergies. Brewer’s Supplies can turn any water into clean drinkable water. Cartographer’s Tools allow recording a proper map while on the move. Cook’s Utensils have two great benefits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Combined with Survival, Utensils grant Advantage on checks to forage for food, and then if food is cooked and eaten during a short rest, everyone adds an extra +1 per hit die rolled for recovery."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For our first level Expertise, we’re choosing Athletics to compensate for our 8 Strength and Survival to double down on our tertiary investment in Wisdom. For our sixth level Expertise, we’re choosing Religion, to really bring out the flavor of being a reaper, and Stealth, which works well with our Mask of the Wild hiding."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourth level, we pick up Elven Accuracy, adding +1 to Dexterity. This is great for situations where we can get Advantage, such as if we have access to Steady Aim or if we successfully hide before attacking."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At eighth level, we take Slasher, adding another +1 to Dexterity. While this puts us a little behind the "
+            },
+            {
+              "type": "link",
+              "text": "fundamental math",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": ", Rogues have an ASI at tenth level, which will allow us to catch up."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At tenth level, we take Athlete, adding the last +1 to Dexterity. This gives us a small boost to mobility while also being a hybrid feat. Alternatively, if you really want more Expertise, Skill Expert is never a poor choice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At twelfth level, Resilient (Constitution) gives us +1 Constitution, rounding us up to 16 and making us proficient in Constitution saves. We already get Advantage on these saves from Tokens of the Departed, but now we’re just being rude to anything asking for a Con save."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixteenth level, we pick up Mobile. Increasing our move speed from 35 to 45 is great, but the synergy with Cunning Action means we can ignore difficult terrain as a bonus action."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At nineteenth level, we take an ASI for +2 Wisdom."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sneak Attack"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Light Armor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Whip (from Wood Elf)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Saves"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Dexterity"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Intelligence"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Investigation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Religion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Stealth"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Athletics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Survival"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Brewer’s Supplies"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cartographer’s Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cook’s Utensils"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Thieves’ Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Vehicles (Land)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Vehicles (Water)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Thieves’ Cant"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can take average starting gold (2.5*4*10=100g) to buy Studded Leather (45g), a Whip (2g), Cook’s Utensils (1g), Thieves’ Tools (25g), and either Brewer’s Supplies (20g) or Cartographer’s Tools (15g)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re mostly a standard Rogue at this point, except that we’ve done what we need to to get a reach weapon, so stand 10 feet from our foes while our allies hold the line."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cunning Action"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bonus Acton for Dash, Disengage or Hide. Great for our action economy."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Phantom Archetype"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Whispers of the Dead"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Wails from the Grave"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Steady Aim"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Whispers of the Dead lets us have a floating skill or tool proficiency that can be swapped on a rest. Nice for many situations if you have time to prepare."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wails from the Grave let us slap an extra target when we Sneak Attack. The usage limit is rather small right now, but it will expand with time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If we’re allowed to have Steady Aim, it’s a great boost, especially with the reach of our whip."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Elven Accuracy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Dexterity (17=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "And this is the most likely reason we’re not allowed to have Steady Aim. Rolling an extra die on attacks with Advantage is "
+                },
+                {
+                  "type": "link",
+                  "text": "just that strong",
+                  "href": "https://rpgbot.net/oops-all-elves/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Uncanny Dodge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Take less damage. This eats our reaction, so we have to weigh other options we’ll be getting later."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Religion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Stealth"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A boost to Stealth to make us an extra sneaky soul reaper, and a boost to Religion as we study extra hard as a result of our fanatic zeal."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Evasion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "How to dodge Fireball."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Slasher"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Dexterity (18=>19)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Death is inevitable, and our foes will never escape Her icy grip."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tokens of the Departed"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "As reward for all our service, we may now borrow the souls we reap before sending them on their way."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can use these soul trinkets in a few ways, but most importantly, they are extra uses of Wails from the Grave. The only cost is having to spend a Reaction when something dies, which leaves us unable to Uncanny Dodge."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Athlete"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Dexterity (19=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Climbing won’t help our foes evade Her. Not now, not ever."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reliable Talent"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reliable Talent is a pretty ridiculous ability already, but with Whispers of the Dead, prep time to switch the skill around gives us such a ridiculous boost to doing anything."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As an example, at this level, with 8 Strength and Athletics Expertise, we can’t roll under a 17 total. Great for climbing or for knocking someone on the floor. And that’s one of our worst examples."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Resilient (Constitution)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Constitution (15=>16)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Boosting up that Constitution save. Sure we already get Advantage on these saves, but this is just great insurance on top of that against a lot of terrible effects."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ghost Walk"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fade away from the realm of the living. We can fly (it’s only 10ft speed, but flying is flying), can walk through creatures and objects, and attacks have Disadvantage against us."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The use is technically once per long rest, but we can also spend our soul trinkets to use this form again."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Blindsense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can tell if anything unseen is too close to us."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Slippery Mind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Proficiency in Wisdom Saves. It’s amazing, just kind of bland. "
+                },
+                {
+                  "type": "link",
+                  "text": "Boring, but Practical.",
+                  "href": "https://tvtropes.org/pmwiki/pmwiki.php/Main/BoringButPractical"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Mobile"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "One of the caveats of Ghost Walk is that going through people counts as Difficult Terrain. If only there was some way to ignore that. Like Dashing as a Bonus Action with Cunning Action and the Mobile feat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Death’s Friend"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "50% More Sneak Attack damage to your primary target when you use Wails of the Grave. Unfortunately, this damage isn’t multiplied on a critical hit."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elusive"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If Elusive prevents anything from gaining Advantage to hit us, and Ghost Walk makes anything have Disadvantage to hit us, that Disadvantage can never be cancelled out."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Wisdom +2(14=>16)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Get a little bump to skills we like to use and Wisdom saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Stroke of Luck"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Instead of losing, just win instead."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Phantom Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Whispers of the Dead"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Wails from the Grave"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Tokens of the Departed"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ghost Walk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Death’s Friend"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Wood Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Whip"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Scimitar"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-intro-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\"><em>“What are you?”</em></p> <p class=\"wp-block"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"9\"><span class=\"rating-blue\">Tokens of the Departed</span>: I love everything about this feature. The theme is cool, the mechanic is fun, the resource pool is appropriat"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-phantom-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-phantom-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-phantom-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-phantom-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-phantom-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-phantom-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-phantom-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-phantom-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-phantom-ability-scores-9"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-phantom-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-phantom-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-phantom-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-phantom-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-phantom-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-phantom-weapons-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-phantom-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[2]",
+      "detail": "block-section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[2]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center has-small-font-size is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\"><em>Staring at death, I tak"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-abilities-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-skills-and-tools-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-skills-and-tools-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3373,
+    "sections": 17,
+    "blocks": 47,
+    "tables": 3,
+    "ratingSignals": 19
+  },
+  "status": "needs-editorial-review"
+}

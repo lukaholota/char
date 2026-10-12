@@ -1,0 +1,805 @@
+{
+  "buildId": "build-barbarian-storm-herald-2014",
+  "revisionId": "build-barbarian-storm-herald-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "Шляху вісника шторму — «Вогнекулею мені в обличчя»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-barbarian-storm-herald-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+      "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "BARBARIAN_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "PATH_OF_THE_STORM_HERALD",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SLASHER",
+        "featOptions": [
+          {
+            "optionNameEng": "SLASHER Ability (Strength)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-storm-herald-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+          "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "PATH_OF_THE_STORM_HERALD",
+    "raceKey": "DRAGONBORN_CHROMATIC",
+    "backgroundKey": "ACOLYTE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 12
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Беремо характеристики, рекомендовані в нашому гайді Варвара, а потім вкладаємо +2 у Силу. Про Статуру нам не доведеться турбуватися так само, як більшості Варварів, бо ми покладаємося на тимчасові ХП від Тундри.\n\n Базове значення Підвищене значення Сила 15 17 Спритність 14 15 Статура 14 14 Інтелект 8 8 Мудрість 12 12 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Підійде будь-яка раса, що дає нам опір до шкоди, відмінної від вогню. Ми хочемо дати членам групи варіанти типів шкоди. Холод і вогонь — найпоширеніші типи шкоди для наступальних заклинань по області, тож я наполегливо раджу опір до холоду. Дракононароджений — простий основний вибір, тож ми використаємо версію Хроматичного дракононародженого зі «Скарбниці драконів Фізбана»{{Fizban’s Treasury of Dragons}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Наша передісторія дуже мало впливає на збірку, але я раджу щось, що не перетинається зі списком класових навичок Варвара, бо ми вже отримаємо 4 з них. Отримання Аналізу Поведінки допоможе вам вносити вклад у соціальні ситуації, а Непомітність непогана для Варвара.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Беремо Атлетику й Уважність класовими навичками. Додаємо Природу на 3-му рівні й Залякування на 10-му рівні з «Первісним знанням». Ще дві ми отримаємо від того, що ви оберете передісторією.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Рубаку» й підвищуємо Силу до 18.\n\nНа 8-му рівні беремо «Стійкого» (Спритність) і підвищуємо Спритність до 16.\n\nНа 12-му рівні підвищуємо Силу до 20.\n\nНа 16-му рівні підвищуємо Статуру до 16.\n\nНа 19-му рівні підвищуємо Статуру до 18.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Лють, Захист без обладунків",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Безрозсудна атака, Відчуття небезпеки",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Первісний Шлях{{Primal Path}}: Шлях вісника шторму, Буревісна аура",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Рубака (Сила 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака, Швидкий рух",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Душа бурі{{Storm Soul}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Дикий інстинкт{{Feral Instinct}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Стійкий (Спритність 15 → 16)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Брутальний крит (1 кубик)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Захисна буря{{Shielding Storm}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Невпинна лють{{Relentless Rage}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Сила 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Брутальний крит (2 кубики)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Лють бурі{{Raging Storm}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Постійна лють{{Persistent Rage}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: Статура 14 → 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Брутальний крит (3 кубики)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Незламна міць{{Indomitable Might}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Статура 16 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Первісний чемпіон{{Primal Champion}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Передісторія",
+        "reason": "Автор не називає передісторію: радить таку, що не перетинається з класовими навичками, а Аналіз поведінки й Непомітність лише згадує як приклад. Жодна передісторія каталогу не дає саме цю пару, тож Послушника обрано за платформою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Додаткові класові уміння",
+        "reason": "Автор використовує додаткове класове уміння «Первісне знання» (Природа на 3-му рівні, Залякування на 10-му); ні пресет, ні `levels` його не записують.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Довкілля Вісника шторму",
+        "reason": "Автор спирається на тимчасові ХП від Тундри; у каталозі підклас не має вибору довкілля, тож його гравець обирає в грі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-storm-herald-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-storm-herald-2014-draft1",
+            "sourceRevisionId": "rpgbot-b55d3b239673a9cf-c74cb42950dbee5e",
+            "sectionId": "section-example",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

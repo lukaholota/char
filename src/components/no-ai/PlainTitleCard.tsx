@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 type PlainTitleCardProps = {
   title: string;
+  titleClassName?: string;
   englishTitle?: string | null;
   meta?: ReactNode;
   isSelected?: boolean;
@@ -25,6 +26,7 @@ type PlainTitleCardProps = {
  */
 export function PlainTitleCard({
   title,
+  titleClassName,
   englishTitle,
   meta,
   isSelected = false,
@@ -46,7 +48,8 @@ export function PlainTitleCard({
         <div className="min-w-0 flex-1">
           <h3
             className={cn(
-              "font-rpg-display text-lg uppercase leading-tight tracking-[0.08em] transition-colors duration-200 sm:text-xl",
+              "font-rpg-display leading-tight transition-colors duration-200",
+              titleClassName ?? "text-lg uppercase tracking-[0.08em] sm:text-xl",
               isSelected ? selectedTitleClassName : cn("text-slate-100", hoverTitleClassName),
             )}
           >

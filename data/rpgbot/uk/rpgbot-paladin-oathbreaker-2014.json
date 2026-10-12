@@ -1,0 +1,2260 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-f3da47cbc033624a",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+      "sourceId": "rpgbot-f3da47cbc033624a",
+      "fetchedAt": "2026-09-29T19:25:37.680827+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:40:30-04:00",
+      "contentHash": "b574cdea17cec6a1659aa8abdcc9d97721be274f1a4a4e2fd1f4f20816a5060f",
+      "title": "Oathbreaker Paladin 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-f3da47cbc033624a-1160aec98a454037.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-paladin-oathbreaker-2014",
+    "sourceId": "rpgbot-f3da47cbc033624a",
+    "slug": "paladin-oathbreaker-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Паладин Клятвопорушника — гайд підкласу (2014)",
+    "titleEn": "Oathbreaker Paladin 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Паладин",
+      "підклас",
+      "Клятвопорушник",
+      "збірка"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "sourceRevisionId": "rpgbot-f3da47cbc033624a-1160aec98a454037",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я служив великому правителю, незмірно могутньому, і весь світ був його володінням. Та навіть йому й його величезній імперії судилося впасти — зникнути в небутті. Наприкінці життєвого шляху… лежить лише смерть. — {{Амон|Amon}}, {{Фінальна фантазія 14: Ендвокер|FFXIV: Endwalker}}"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клятвопорушник{{Oathbreaker}} — Паладин{{Paladin}} особливого типу, і він підходить не кожному, але в належній групі чудово себе покаже. Особливо якщо ваша група хоче скористатися прислужниками-мерцями: цей підклас дає змогу грати за Пекельного лицаря{{Hellish Knight}} зі скелетними зброєносцями{{Skeletal Squires}}. Майте на увазі, що Клятвопорушники мусять бути Злими{{Evil}}, і це "
+                },
+                {
+                  "type": "link",
+                  "text": "не надто заважає",
+                  "href": "https://rpgbot.net/dnd5/players/alignment/"
+                },
+                {
+                  "type": "text",
+                  "text": ", хоча дехто вважатиме інакше. Тож якщо ви не проти використовувати сили Зла{{Evil}} й армію скелетів, щоб урятувати світ, спробуйте Клятвопорушника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для багатьох гравців і Майстрів підземель Зло{{Evil}} — камінь спотикання, але це не обовʼязково має бути проблемою. Зло з погляду світогляду{{Alignment}} можна виразити як надмірну жадібність і брак емпатії, як пояснюють "
+                },
+                {
+                  "type": "link",
+                  "text": "у цьому відео «Рольова філософія»{{RPG Philosophy}}",
+                  "href": "https://www.youtube.com/watch?v=MRgTu6FTHgI"
+                },
+                {
+                  "type": "text",
+                  "text": ". Перефразовуючи пояснення Сета Скорковського{{Seth Skorkowsky}} з відео, герой Злого світогляду дбає про те, що належить йому, і не зважає на те, що йому не належить."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цьому дусі цілком звично мислити так: «Це "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "мої"
+                },
+                {
+                  "type": "text",
+                  "text": " друзі. Це "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "моє"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "місто"
+                },
+                {
+                  "type": "text",
+                  "text": ". Ніхто не скривдить "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "моїх"
+                },
+                {
+                  "type": "text",
+                  "text": " друзів. Ніхто не нападе на "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "моє"
+                },
+                {
+                  "type": "text",
+                  "text": " місто». Такий підхід допоможе мотивувати і Добрих{{Good}}, і Злих{{Evil}} героїв. Якщо грати так, Злі персонажі гравців цілком доречні, а Клятвопорушник — цілком слушний спосіб бути Злим. Більше роздумів про світогляди в рольових іграх шукайте "
+                },
+                {
+                  "type": "link",
+                  "text": "у цьому епізоді",
+                  "href": "https://rpgbot.net/rpgbot-podcast-s2e9-part-1/"
+                },
+                {
+                  "type": "text",
+                  "text": " з доктором Террі Макмалліном{{Dr. Terry MacMullin}}, завідувачем кафедри філософії Університету Східного Вашингтону."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як уже згадувалося, щоб стати найкращим Клятвопорушником, варто мати союзників-персонажів гравців, які користуються прислужниками-мерцями. Це може бути будь-який Чарівник{{Wizard}} чи Клірик{{Cleric}}, а також кілька інших класів із підкласами, що дають доступ до заклинання "
+                },
+                {
+                  "type": "link",
+                  "text": "Підіймання мерців",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/animating-the-dead/"
+                },
+                {
+                  "type": "text",
+                  "text": " [Animate Dead], наприклад "
+                },
+                {
+                  "type": "link",
+                  "text": "Коло спор Друїда",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Circle of Spores Druid}} або "
+                },
+                {
+                  "type": "link",
+                  "text": "Божественна душа Чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/divine-soul/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Divine Soul Sorcerer}}, які можуть обирати заклинання Клірика. У прикладі збірки нижче, {{Бонс Малоун і моторошні хлопці|Bones Malone and the Spooky Boys}}, ми припускаємо, що ви граєте саме в такій команді."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клятвопорушника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клятвопорушника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#oathbreaker-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси для Клятвопорушника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#oathbreaker-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси для Клятвопорушника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#oathbreaker-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя й обладунки Клятвопорушника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#oathbreaker-weapons-and-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Клятвопорушника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#oathbreaker-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Паладина Клятвопорушника — {{Бонс Малоун і моторошні хлопці|Bones Malone and the Spooky Boys}}",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Моя група не складається з некромантів",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#my-party-isnt-made-of-necromancers"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клятвопорушника",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання клятви{{Oath Spells}}: Деякі варіанти просто жахливі, але хороших достатньо, щоб список заклинань був придатним."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{3-й рівень|3rd-Level}}: Пекельна відсіч [Hellish Rebuke] — фантастичне заклинання для танка, який часто відволікає атаки на себе; за той самий слот воно завдає більше шкоди, ніж Божественна кара{{Divine Smite}} (якщо ціль провалить ряткидок: порівняйте 2к8 від Божественної кари з 2к10 від Пекельної відсічі [Hellish Rebuke]). Завдання ран [Inflict Wounds] ви майже ніколи не застосовуватимете: зброя разом із Божественною карою за той самий слот завдасть не меншої шкоди (порівняйте 1к8+3+2к8 із 3к10)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{5-й рівень|5th-Level}}: Корона шаленства [Crown of Madness] складно застосувати: заклинання витрачає вашу дію й нічого не робить, якщо на початку ходу цілі поруч немає істоти, на яку вона має напасти. Темрява [Darkness] теж мало допомагає, бо ви не бачите крізь його зону."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{9-й рівень|9th-Level}}: Підіймання мерців [Animate Dead] завжди стане в пригоді, а Наділити прокляттям [Bestow Curse] має кілька чудових варіантів. Спробуйте поєднати ці заклинання: прокляніть ворога, щоб він мав перешкоду на перевірки й ряткидки Сили, а тоді нехай ваші прислужники-мерці схоплять його й повалять."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{13-й рівень|13th-Level}}: Усихання [Blight] завдає пристойної шкоди одній цілі, особливо рослинам, але ваша складність ряткидків проти заклинань не зрівняється зі складністю повного заклинача, а на цьому рівні шкода може здаватися невеликою. За той самий слот Божественна кара{{Divine Smite}} завдає 5к8 шкоди, а Усихання [Blight] — 8к8; шкоду від Божественної кари можна подвоїти критичним ударом, і ціль не може ряткидком зменшити її вдвічі. Спантеличення [Confusion] мені ніколи не подобалося через його непередбачуваність, хоча воно й діє по площі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{17-й рівень|17th-Level}}: Зараження [Contagion] — чудове, але складне заклинання: спершу треба влучити атакою заклинанням. «Слизька загибель»{{Slimy Doom}} фактично завершує сутичку, особливо якщо накласти на ціль ефект шкоди з часом, щоб вона безперервно була приголомшена. Підкорення особистості [Dominate Person] — потужний спосіб тимчасово отримати ще одного члена групи, але ваша складність ряткидків проти заклинань може бути недостатньо високою, щоб заклинання спрацьовувало надійно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Канал божественності{{Channel Divinity}}:"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Контроль нежиті{{Control Undead}}: Накладіть на нежить ефект за принципом «пройди-ряткидок-або-страждай»{{save-or-suck}} на термін до 24 годин. Перетворюйте могутню нежить на рабів: вона мусить виконувати ваші накази, не отримує додаткових ряткидків і не може припинити дію ефекту жодним зі способів, зазначених в описі вміння. Нежить — не єдиний тип істот, тож формально це ситуативне вміння, але в багатьох пригодах нежить трапляється дуже часто. Якщо непокоїтеся, що наприкінці дії ефекту істота поводитиметься непередбачувано або пройде ряткидок, коли ви спробуєте поновити ефект, можете наказати їй знищити себе просто перед завершенням дії. Якщо ж маєте час, стримуйте істоту під час відпочинку, а тоді ви й союзники можете вразити її ефектами, які погіршують ряткидки (Зурочення [Bane], Пронизання розуму [Mind Spike], уміння Барда «Ріжучі слова»{{Cutting Words}} тощо), і повторно застосувати Контроль нежиті, щоб поновити тривалість."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Жахливий вигляд{{Dreadful Aspect}}: Значно краще за вміння «Вигнання чого завгодно»{{Turn Whatever}}, які отримують інші клятви, адже діє на всіх істот. Багато в чому схоже на заклинання Страх [Fear], але Жахливий вигляд утворює сферу, а не конус, і істоти отримують нові ряткидки лише тоді, коли віддаляються від вас. Зручно, що це вміння не змушує ворогів тікати: вони можуть лишитися в межах 30 футів і потерпати, сподіваючись, що страх мине."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Аура ненависті|Aura of Hate}}: У пригодницькій групі це не надто корисно, якщо тільки у вас немає багато прислужників-мерців. Але навіть якщо бонус діє лише на вас, атаки зброєю ближнього бою завдаватимуть чимало додаткової шкоди. На цьому рівні Сила й Харизма разом легко дають +7 шкоди, а за вдалого підвищення характеристик можна довести бонус до +10. Якщо ви оживили багато мерців, найкраще підійдуть скелети. На відміну від зомбі, вони володіють зброєю, зокрема короткими мечами, і можуть битися двома зброями, подвоюючи бонус аури. Щоправда, зброю для скелетів-прислужників доведеться знайти самостійно. Скелети також можуть носити обладунок, тож, якщо маєте зайві гроші, лускатий обладунок підвищить їхній КБ до 16."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Надприродна стійкість{{Supernatural Resistance}}: Постійна Камʼяна шкіра [Stoneskin]. Вас дуже складно вбити, особливо в пригодах без магічних предметів. Однак у світі, де магічні предмети поширені або панують заклиначі, це вміння може бути цілковито марним."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Жахливий лорд{{Dread Lord}}: Завдає багато шкоди, добре використовує бонусну дію, а ще через нього ворогам складно вас бачити. Переконайтеся, що маєте темнозір, аби не стати жертвою власного ефекту, і серйозно подумайте про застосування {{«Каналу божественності: Жахливий вигляд»|Channel Divinity: Dreadful Aspect}}, щоб завдавати шкоди з часом."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oathbreaker-ability-scores",
+          "heading": "Характеристики Клятвопорушника",
+          "sourceAnchor": "oathbreaker-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-oathbreaker-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо збираємо навколо себе загін прислужників, варто більше зосередитися на Харизмі. Якщо ні — розподіляймо характеристики, як більшість інших Паладинів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oathbreaker-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: потрібна для кидків атаки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oathbreaker-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: збірка на фехтувальній зброї теж можлива, але вона обмежить мультикласування через вимогу до Сили."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oathbreaker-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: допомагає вижити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oathbreaker-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: майже ні на що не впливає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oathbreaker-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: ряткидки Мудрості небезпечні, тож ця характеристика може стати в пригоді."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oathbreaker-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: підвищує складність усіх наших заклинань, бонуси до ряткидків і шкоду в ближньому бою. Її варто підвищувати якнайбільше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oathbreaker-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Розподіл за очками"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 (15)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 (14)"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oathbreaker-races",
+          "heading": "Раси для Клятвопорушника",
+          "sourceAnchor": "oathbreaker-races",
+          "blocks": [
+            {
+              "blockId": "block-section-oathbreaker-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для рас, не згаданих нижче, зазирніть до "
+                },
+                {
+                  "type": "link",
+                  "text": "огляду рас для Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oathbreaker-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Кобольд{{Kobold}} ("
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "): Головна проблема армії скелетів — атаки погано масштабуються. Якщо надати їм усім перевагу для спільного наскоку, це частково розвʼяже проблему. Також можна вибрати навичку або замовляння Чародія. Гримучий Клинок [Booming Blade] — добре замовляння, доки ми не отримаємо {{Ауру ненависті|Aura of Hate}}; потім шкода від двох ударів з аурою може його перевершити, а з Покращеною божественною карою{{Improved Divine Smite}} ви легко завдаватимете більше шкоди двома атаками, ніж Гримучим Клинком [Booming Blade]. Володіння навичкою Магія дасть змогу створювати сувої під час простою — хороший спосіб розширити обмежений запас слотів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шадар-Кай{{Shadar-Kai}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": тематично пасує похмурому Паладину Темряви, що збирає нежить. Телепортація теж дуже корисна, а опір некротичній шкоді стане в пригоді, коли ворожа нежить прийде скористатися {{Аурою ненависті|Aura of Hate}}."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oathbreaker-feats",
+          "heading": "Риси для Клятвопорушника",
+          "sourceAnchor": "oathbreaker-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-oathbreaker-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не забудьте також зазирнути до "
+                },
+                {
+                  "type": "link",
+                  "text": "посібника Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oathbreaker-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Боєць з двома зброями|Dual Wielder}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +1 до КБ — це добре, а можливість використовувати одноручну зброю замість легкої — приємне покращення. Але якщо не битися верхи з двома довгими списами (це цілком законно), ця риса лише замінить к6 на к8. Не варта витрачених зусиль, коли основну шкоду тактики дають {{Аура ненависті|Aura of Hate}} й Покращена божественна кара{{Improved Divine Smite}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Посвячений у бій|Fighting Initiate}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": {{Аура ненависті|Aura of Hate}} додає шкоду до всіх атак, тож бій двома зброями справді хороший варіант. Але це не означає, що для цього треба брати рису й обирати цей стиль. Навіть без бонусу Сили чи Спритності до атаки Аура ненависті й Покращена божественна кара{{Improved Divine Smite}} завдають достатньо шкоди, щоб виправдати ще одну зброю в бонусній атаці."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер важкої зброї{{Great Weapon Master}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": зазвичай штраф −5 до атаки заради +10 до шкоди цілком прийнятний, але з Аурою ненависті{{Aura of Hate}} й Покращеною божественною карою{{Improved Divine Smite}} розрахунок шкоди за раунд підказує не використовувати силову атаку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Майстер древкової зброї|Polearm Master}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у поєднанні зі списом і бойовим стилем «Дуель»{{Dueling}} дає більше шкоди, ніж стиль «Бій двома зброями»{{Two-Weapon Fighting}} з рисою «Посвячений у бій»{{Fighting Initiate}}. Але ми могли б просто бити зброєю в другій руці без цього стилю й усе одно отримувати шкоду від Аури та Покращеної божественної кари."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойовий заклинатель{{War Caster}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": можливість накладати заклинання, коли обидві руки зайняті, надто корисна, щоб від неї відмовлятися. Інші властивості теж чудові, якщо беремо замовляння на кшталт Гримучого Клинка [Booming Blade] або починаємо підтримувати заклинання Концентрацією."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oathbreaker-weapons-and-armor",
+          "heading": "Зброя й обладунки Клятвопорушника",
+          "sourceAnchor": "oathbreaker-weapons-and-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-oathbreaker-weapons-and-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для захисту просто вдягніть важкі обладунки, як-от лати чи кольчугу. Можете взяти щит або битися двома зброями."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-oathbreaker-weapons-and-armor-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьміть типову для Паладина зброю з "
+                },
+                {
+                  "type": "link",
+                  "text": "посібника Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": " або озбройтеся парою коротких мечів і загубіться в армії скелетів. Ніхто нічого не запідозрить."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oathbreaker-multiclassing",
+          "heading": "Мультикласування Клятвопорушника",
+          "sourceAnchor": "oathbreaker-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-oathbreaker-multiclassing-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Чорнокнижник Відьмацького клинка|Hexblade Warlock}}: не можна заперечити переваги атак Харизмою, а потім додати Харизму до шкоди двічі (чи тричі, якщо взяти 12 рівнів Чорнокнижника й 8 рівнів Клятвопорушника, щоб отримати і Ауру ненависті, і «Життєпийцю»{{Lifedrinker}}). Єдиний мінус — зброя Відьмацького клинка не дає змоги битися двома зброями."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
+          "heading": "Приклад збірки Паладина Клятвопорушника — {{Бонс Малоун і моторошні хлопці|Bones Malone and the Spooky Boys}}",
+          "sourceAnchor": "example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
+          "blocks": [
+            {
+              "blockId": "block-section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Торохтіть, хлопці!"
+                },
+                {
+                  "type": "link",
+                  "text": "{{Бонс Малоун|Bones Malone}}",
+                  "href": "https://www.youtube.com/watch?v=CyfiEInKbUM"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У Клятвопорушника{{Oathbreaker}} чимало цікавих умінь, і деякі з них ми використаємо, щоб підтримати "
+                },
+                {
+                  "type": "link",
+                  "text": "групу з прислужниками-мерцями",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/animating-the-dead/"
+                },
+                {
+                  "type": "text",
+                  "text": ", водночас завдаючи шкоди самотужки. Це не означає, що Клятвопорушника не можна грати без такої взаємодії з групою, але ця збірка передусім розрахована на неї."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розподілимо очки між Силою, Статурою та Харизмою. Як кобольд{{Kobold}} з {{«Морденкайнен представляє: Монстри Мультивсесвіту»|Mordenkainen Presents: Monsters of the Multiverse}}, ми можемо вибрати варіант +1/+1/+1 для характеристик."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми беремо кобольда{{Kobold}} з {{«Морденкайнен представляє: Монстри Мультивсесвіту»|Mordenkainen Presents: Monsters of the Multiverse}}, бо підтримуємо загін скелетів. Якщо треба гуртом накинутися на істоту з високим КБ, перевага для всіх скелетів дуже корисна. Також можна вибрати замовляння Чародія або володіння навичкою. Ми беремо Магію, щоб створювати сувої. Так, Паладини теж можуть це робити. Будь-який заклинач може, якщо володіє навичкою Магія."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Створюємо власну передісторію, щоб узяти Обман і Виступ. Технічно потрібні нам навички є в передісторії Усміхнений{{Grinner}} з Вайлдмаунта, але в статтях ми не використовуємо передісторії, привʼязані до конкретної кампанії. Також беремо володіння ріжком (ду-ду-ду) й водним транспортом, щоб зібрати моторошну піратську команду зі скелетів. Якщо плануємо вийти в море."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наші навички: Магія, Атлетика, Обман, Залякування й Виступ. Інструменти: ріжок і водний транспорт. Завдяки Обману й Виступу можна загубитися серед команди скелетів. Водний транспорт беремо заради розваги, але замість нього легко вибрати набір для маскування, щоб краще злитися з моторошними хлопцями."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Бойового заклинателя»{{War Caster}}. Це дасть змогу накладати заклинання з повними руками, а це важливо. Також риса дає перевагу на наші ряткидки Концентрації, що добре вже зараз і буде ще краще, коли ми почнемо додавати Харизму до кожного ряткидка."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні підвищуємо характеристики. Що саме обрати, залежить від групи. Якщо інші гравці приводять скелетів і застосовують Виклик немертвого [Summon Undead], тут підвищуємо Харизму, а на 12-му — Силу. Якщо сумісних прислужників ніхто не приводить, підвищуємо Силу зараз, а Харизму — наступного разу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні підвищуємо Силу або Харизму — ту характеристику, яку не підвищували на 8-му."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні підвищуємо Харизму на 2."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні підвищуємо Силу на 2."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-my-party-isnt-made-of-necromancers",
+          "parentSectionId": "section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
+          "heading": "Моя група не складається з некромантів",
+          "sourceAnchor": "my-party-isnt-made-of-necromancers",
+          "blocks": [
+            {
+              "blockId": "block-section-my-party-isnt-made-of-necromancers-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічого страшного, але тоді доведеться змінити збірку. Ми обрали кобольда, щоб давати перевагу скелетам, але натомість можна взяти істоту середнього розміру — наприклад, шадара-кая{{Shadar-Kai}}, Варіант людини{{Variant Human}} чи расу «Своя раса»{{Custom Lineage}} — і скористатися важкою зброєю та рисою «Майстер древкової зброї»{{Polearm Master}}. Так, тоді замість «Бойового заклинателя»{{War Caster}} беремо «Майстра древкової зброї»{{Polearm Master}} у парі з алебардою чи глефою. Спершу підвищуємо Силу, а Харизму — пізніше, щоб зосередитися на власних атаках."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-oathbreaker-paladin-build-bones-malone-and-the-spooky-boys",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне відчуття{{Divine Sense}}\n{{Цілющі руки|Lay on Hands}}\nНавички: Магія, Атлетика, Обман, Залякування, Виступ\nІнструменти: ріжок, водний транспорт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Починаємо як будь-який Паладин, але ми "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "злі"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Evil}}. Тож замість {{довгого меча|Longsword}}, як у звичайного Паладина, візьмімо "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "злу"
+                    },
+                    {
+                      "type": "text",
+                      "text": " зброю, наприклад {{бойову сокиру|Battleaxe}}. Поки що найкраще користуватися щитом{{Shield}}. Пізніше, коли отримаємо ауру, перейдемо на {{стиль бою двома зброями|Two-Weapon Fighting}}, а поки залишимося з цим."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественна кара{{Divine Smite}}\nЧаротворство{{Spellcasting}} — заклинання 1-го рівня\nБойовий стиль{{Fighting Style}}: Бій наосліп{{Blind Fighting}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественна кара{{Divine Smite}} чудово підходить для потужної шкоди за один раз. Із заклинань добре підійдуть Божа милість [Divine Favor] і Благословення [Bless]. Нам також доступна Пекельна відсіч [Hellish Rebuke], але її можна застосувати лише після того, як ми зазнали шкоди. Оскільки Паладини не мають доступу до бойового стилю «Бій двома зброями»{{Two-Weapon Fighting}} (якщо тільки дуже чемно не попросити Майстра), найуніверсальніший вибір — «Бій наосліп»{{Blind Fighting}}. Альтернативно, «Оборона»{{Defense}} дасть нам +1 до КБ. Якщо непокоїмося про ворогів на відстані, «Благословенний воїн»{{Blessed Warrior}} дасть замовляння на кшталт Священного полумʼя [Sacred Flame], але воно не посилюється {{Аурою ненависті|Aura of Hate}} й нам усе одно треба бути поблизу, щоб підсилювати прислужників."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне здоровʼя{{Divine Health}}\nСвященна клятва{{Sacred Oath}}: Клятвопорушник{{Oathbreaker}}\nКанал божественності{{Channel Divinity}}\n– Контроль нежиті{{Control Undead}}\n– Жахливий вигляд{{Dreadful Aspect}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Імунітет до хвороб — це добре. Гниль мумії{{Mummy Rot}} — справжня проблема в нашій професії. Щоправда, колись давно вона нею й була, але в 5e це прокляття, а не хвороба. Та ми все одно маємо імунітет до інших хвороб. Ми стаємо Клятвопорушником, порушивши клятву, якої ніколи не давали. Бо ми "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "злі"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Evil}}, мабуть. Контроль нежиті{{Control Undead}} — добрий спосіб підкорити собі істоту. На цьому рівні можемо натрапити на скелетів або зомбі. Жахливий вигляд{{Dreadful Aspect}} дає змогу накласти стан "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Наляканий",
+                      "href": "https://rpgbot.net/dnd5/characters/status-conditions/#frightened"
+                    },
+                    {
+                      "type": "text",
+                      "text": " на багатьох ворогів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Бойовий заклинатель{{War Caster}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бойовий заклинатель»{{War Caster}} дасть змогу накладати заклинання, коли зайняті обидві руки. А руки в нас завжди будуть зайняті: або двома зброями, або однією зброєю й щитом. Також риса допоможе утримувати Концентрацію, адже ми не маємо володіння ряткидками Статури."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}\nЧаротворство — заклинання 2-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Атакуємо двічі. Чудово. Ми можемо накладати Темряву [Darkness] і маємо «Бій наосліп»{{Blind Fighting}}, тож у скруті це може стати в пригоді, але не засліплюйте союзників. Витрачайте ці слоти на кари, Пошук скакуна [Find Steed] або посилення заклинань. Це також найраніший рівень, на якому повні заклиначі групи можуть накладати "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Підіймання мерців",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/animating-the-dead/#animate-dead-3rdlevel"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Animate Dead], щоб почати збирати нашу банду. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Підіймання мерців",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/animating-the-dead/#animate-dead-3rdlevel"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Animate Dead] дає заклиначу змогу контролювати обмежену кількість нежиті, але він може створити нежить і передати її під ваш контроль за допомогою {{Каналу божественності (Контроль нежиті)|Channel Divinity (Control Undead)}}, збільшуючи кількість скелетів, яких група може водити із собою. Це можуть робити Клерики, "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Чарівники",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Друїди Кола спор",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " і "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Чародії Божественної душі",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/divine-soul/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура захисту|Aura of Protection}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми й союзники в межах 10 футів (зокрема наші скелети) додаємо модифікатор Харизми до ряткидків."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура ненависті|Aura of Hate}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми додаємо модифікатор Харизми до шкоди атаками зброєю ближнього бою. Те саме отримують нежить і почвари в межах 10 футів. Тепер за бажання можемо перейти на пару {{ручних сокир|Handaxes}} й битися двома зброями, щоб двічі скористатися бонусом шкоди від аури. Союзники, які застосовують "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Підіймання мерців",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/animating-the-dead/#animate-dead-3rdlevel"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Animate Dead], теж посилять своїх прислужників на цьому рівні. Нижче я докладно розпишу шкоду, коли ми також отримаємо це заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}}: Харизма +2 (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ряткидків, вищі СК, більше шкоди й кращі навички. Найкраща характеристика."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство — заклинання 3-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер і ми можемо накладати Підіймання мерців [Animate Dead]. Створення взводу скелетів{{Skelemen}} має кілька "
+                    },
+                    {
+                      "type": "link",
+                      "text": "важливих нюансів",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/animating-the-dead/#animate-dead-3rdlevel"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". У бою керування оживленою нежиттю витрачає бонусну дію, але лише для зміни її наказів. Наприклад, на початку бою можна наказати їй битися з ворогами, а в наступні ходи витрачати бонусні дії на бій двома зброями або заклинання з бонусною дією. Крім того, у статблоці скелета сказано: «Скелет може битися зі зброєю й носити обладунок» (Бестіарій (2014), с. 272). Тож ми можемо дати скелетам будь-яку зброю й обладунок, але найкраще вручити кожному {{два короткі мечі|Shortswords}}: вони легкі, фехтувальні й дешеві; з обладунків підійде {{шкуряний обладунок|Hide}} (дешевий) або {{лускатий обладунок|Scale Mail}} (міцніший). Скелет у лускатому обладунку з двома короткими мечами матиме КБ 16 і здійснюватиме дві атаки: 1к6+6 основною рукою та 1к6+4 другою — завдяки нашій аурі. А якщо цього замало, можна накласти Мантію хрестоносця [Crusader's Mantle], щоб атаки зброєю союзників завдавали додатково +1к4 променевої шкоди. Памʼятайте: ми "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "можемо"
+                    },
+                    {
+                      "type": "text",
+                      "text": " створити кількох скелетів, але нашим союзникам — повним заклиначам — значно ефективніше зібрати цих кістяних друзів{{Bone Buddies}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура мужності|Aura of Courage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми маємо імунітет до страху. Ми самі лякаємо, тож нас не налякати. Те саме стосується й наших скелетів, які раніше не мали імунітету до стану Наляканий."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращена божественна кара{{Improved Divine Smite}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+1к8 шкоди до кожної вашої атаки зброєю ближнього бою. Це просто додаткова шкода й ще одна чудова причина битися двома зброями."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}}: Сила +2 (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Досі скелети виконували за нас чимало роботи, але нам теж час від часу треба влучати атаками."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство — заклинання 4-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пошук вищого скакуна [Find Greater Steed] — імовірно, найкраще заклинання Паладина 4-го рівня. Захист від смерті [Death Ward] може врятувати нас у критичній ситуації, і його можна поширити також на нашого вищого скакуна."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Очищувальний дотик{{Cleansing Touch}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Досить добре вміння, хоча й дещо обмежене: воно припиняє лише «заклинання», а не стани чи негативні ефекти загалом."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надприродна стійкість{{Supernatural Resistance}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Багато джерел завдають немагічної дробляччої, колючої чи рубляччої шкоди — наприклад, пастки й більшість монстрів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}}: Харизма +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще один пункт шкоди за кожного з усіх наших моторошних хлопців{{Spooky Boys}} (удвічі більше, якщо всі вони бʼються двома зброями)."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство — заклинання 5-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більшість Паладинів захоче застосовувати Священну зброю [Holy Weapon], але нам усе ще вигідніше накласти Мантію хрестоносця [Crusader's Mantle] на нашу Кістяну зону{{Bone Zone}}. Натомість Руйнівна хвиля [Destructive Wave] для нас просто неймовірна. Вона не зачіпає союзників, тож можна не вражати наших скелетиків, а ще збиває цілі з ніг і дає тим самим скелетикам перевагу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Аур{{Aura Improvements}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура ненависті|Aura of Hate}} матиме більший радіус дії, тож її бонус до шкоди скелетів{{Bone-us damage}}, бонуси до ряткидків тощо охоплять більше цілей."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}}: Сила +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Трохи більше Сили. Так, це значно пізніше, ніж у більшості Паладинів, але більшість Паладинів не додає Харизму до шкоди від абсурдної кількості скелетних зброєносців{{Skeletal Squires}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Жахливий лорд{{Dread Lord}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ця аура має кілька ефектів. По-перше, вона перетворює яскраве світло на тьмяне, що трохи заважає всім без темнозору. Далі, вона дає змогу накладати перешкоду на атаки, спрямовані проти нас, групи й усього нашого моторошного загону. Нарешті, вона надає особливу атаку бонусною дією, яка завдаватиме більше шкоди, ніж зброя в другій руці. Тож варто розглянути щит на ту хвилину, доки діє аура."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-001",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання клятви",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-002",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-003",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-004",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-005",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "13-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-006",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "17-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-007",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Канал божественності",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-008",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Контроль нежиті",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-009",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Жахливий вигляд",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-010",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Аура ненависті",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-011",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Надприродна стійкість",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-012",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Жахливий лорд",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-013",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-ability-scores",
+      "targetBlockId": "block-section-oathbreaker-ability-scores-2",
+      "optionId": "section-oathbreaker-ability-scores-block-section-oathbreaker-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-oathbreaker-ability-scores-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-014",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-ability-scores",
+      "targetBlockId": "block-section-oathbreaker-ability-scores-3",
+      "optionId": "section-oathbreaker-ability-scores-block-section-oathbreaker-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-oathbreaker-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-015",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-ability-scores",
+      "targetBlockId": "block-section-oathbreaker-ability-scores-4",
+      "optionId": "section-oathbreaker-ability-scores-block-section-oathbreaker-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-oathbreaker-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-016",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-ability-scores",
+      "targetBlockId": "block-section-oathbreaker-ability-scores-5",
+      "optionId": "section-oathbreaker-ability-scores-block-section-oathbreaker-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-oathbreaker-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-017",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-ability-scores",
+      "targetBlockId": "block-section-oathbreaker-ability-scores-6",
+      "optionId": "section-oathbreaker-ability-scores-block-section-oathbreaker-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-oathbreaker-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-018",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-ability-scores",
+      "targetBlockId": "block-section-oathbreaker-ability-scores-7",
+      "optionId": "section-oathbreaker-ability-scores-block-section-oathbreaker-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-oathbreaker-ability-scores-7",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-019",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-races",
+      "targetBlockId": "block-section-oathbreaker-races-2",
+      "optionId": "section-oathbreaker-races-block-section-oathbreaker-races-2-item-0",
+      "context": "Кобольд",
+      "explanationBlockId": "block-section-oathbreaker-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-020",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-races",
+      "targetBlockId": "block-section-oathbreaker-races-2",
+      "optionId": "section-oathbreaker-races-block-section-oathbreaker-races-2-item-1",
+      "context": "Шадар-Кай",
+      "explanationBlockId": "block-section-oathbreaker-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-021",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-feats",
+      "targetBlockId": "block-section-oathbreaker-feats-2",
+      "optionId": "section-oathbreaker-feats-block-section-oathbreaker-feats-2-item-0",
+      "context": "Боєць з двома зброямиPHB",
+      "explanationBlockId": "block-section-oathbreaker-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-022",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-feats",
+      "targetBlockId": "block-section-oathbreaker-feats-2",
+      "optionId": "section-oathbreaker-feats-block-section-oathbreaker-feats-2-item-1",
+      "context": "Посвячений у бійTCoE",
+      "explanationBlockId": "block-section-oathbreaker-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-023",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-feats",
+      "targetBlockId": "block-section-oathbreaker-feats-2",
+      "optionId": "section-oathbreaker-feats-block-section-oathbreaker-feats-2-item-2",
+      "context": "Майстер важкої зброї",
+      "explanationBlockId": "block-section-oathbreaker-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-024",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-feats",
+      "targetBlockId": "block-section-oathbreaker-feats-2",
+      "optionId": "section-oathbreaker-feats-block-section-oathbreaker-feats-2-item-3",
+      "context": "Майстер древкової зброїPHB",
+      "explanationBlockId": "block-section-oathbreaker-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-025",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-feats",
+      "targetBlockId": "block-section-oathbreaker-feats-2",
+      "optionId": "section-oathbreaker-feats-block-section-oathbreaker-feats-2-item-4",
+      "context": "Бойовий заклинатель",
+      "explanationBlockId": "block-section-oathbreaker-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oathbreaker-2014-026",
+      "articleId": "rpgbot-paladin-oathbreaker-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oathbreaker-2014-draft1",
+      "sectionId": "section-oathbreaker-multiclassing",
+      "targetBlockId": "block-section-oathbreaker-multiclassing-1",
+      "optionId": "section-oathbreaker-multiclassing-block-section-oathbreaker-multiclassing-1-item-0",
+      "context": "Чорнокнижник Відьмацького клинка",
+      "explanationBlockId": "block-section-oathbreaker-multiclassing-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "bard-whispers-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-bard-whispers-2014-draft1",
+    "sourceRevisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "BARD_2014",
+  "subclassKey": "COLLEGE_OF_WHISPERS",
+  "raceKey": "CHANGELING_MPMM",
+  "backgroundKey": "CHARLATAN",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 13,
+    "INT": 8,
+    "WIS": 12,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 4,
+  "levels": [
+    {
+      "level": 2,
+      "spells": {
+        "knownSpellKeys": [
+          "charm-person"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "subclassKey": "COLLEGE_OF_WHISPERS",
+      "expertise": [
+        "DECEPTION",
+        "INSIGHT"
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "calm-emotions"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "ACTOR",
+      "section": "section-feats-2",
+      "spells": {
+        "cantripKeys": [
+          "message"
+        ],
+        "knownSpellKeys": [
+          "invisibility"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "charm-person",
+        "add": "enhance-ability"
+      }
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "tongues"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "spells": {
+        "knownSpellKeys": [
+          "clairvoyance"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "spells": {
+        "knownSpellKeys": [
+          "dimension-door"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (CHA)"
+        },
+        {
+          "optionNameEng": "Skill Expert Proficiency (STEALTH)"
+        },
+        {
+          "optionNameEng": "Skill Expert Expertise (PERSUASION)"
+        }
+      ],
+      "section": "section-feats-2",
+      "spells": {
+        "knownSpellKeys": [
+          "raulothims-psychic-lance"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "spells": {
+        "knownSpellKeys": [
+          "modify-memory"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "expertise": [
+        "INVESTIGATION",
+        "PERCEPTION"
+      ],
+      "spells": {
+        "cantripKeys": [
+          "vicious-mockery"
+        ],
+        "knownSpellKeys": [
+          "rarys-telepathic-bond"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "mass-suggestion"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 1
+        },
+        {
+          "ability": "CHA",
+          "amount": 1
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "mirage-arcane"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "spells": {
+        "knownSpellKeys": [
+          "glibness"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "featKey": "METAMAGIC_ADEPT",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 17,
+      "spells": {
+        "knownSpellKeys": [
+          "foresight"
+        ]
+      }
+    },
+    {
+      "level": 18,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "featKey": "LUCKY",
+      "openAdvancement": true
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Набір для гриму замість інструментів злодія",
+      "reason": "Автор радить обміняти набір для гриму Шарлатана на володіння інструментами злодія; пресет не записує заміну інструментів передісторії, тож лишається стандартний Шарлатан (набір для гриму й набір фальшивомонетника).",
+      "section": "section-background"
+    },
+    {
+      "field": "Замовляння на 11-му рівні",
+      "reason": "Автор бере ще одне «будь-яке» замовляння на 11-му рівні, але Бард не отримує замовлянь на цьому рівні, тож його не записано.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Адепт метамагії",
+      "reason": "Автор бере «Подовжене заклинання» й «Приховане заклинання»; риса в каталозі не має опцій (BUG-O49-METAMAGIC-ADEPT), тож записано лише саму рису.",
+      "section": "section-feats-2"
+    },
+    {
+      "field": "Магічні таємниці (10, 14 і 18 рівні)",
+      "reason": "Автор бере заклинання з чужих списків (Арканне око; Обачливість, Планарний перехід; Перекидання, Бажання); платформа приймає в плані лише заклинання зі списку Барда, тому на 10-му рівні записано лише Телепатичний звʼязок Рері, а решту вибору лишено гравцеві (openSpellPicks).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риса на 19-му рівнях",
+      "reason": "Автор пише «будь-яка» і не називає вибір. Пресет бере типовий (19-й: LUCKY); це вибір платформи, гравець може змінити його перед створенням.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/bard-whispers-2014.webp",
+    "title": "Бард — Колегія шепотів, Змінник",
+    "description": "Змінник-Шарлатан з Харизмою 17 і Спритністю 16: майстер-шпигун з навичками «обличчя» й розвідника. Колегія шепотів відкриється на 3-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA",
+      "DEX",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INTIMIDATION",
+        "INVESTIGATION",
+        "PERCEPTION"
+      ],
+      "race": [
+        "INSIGHT",
+        "PERSUASION"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "friends",
+        "minor-illusion"
+      ],
+      "knownSpellKeys": [
+        "comprehend-languages",
+        "silent-image",
+        "sleep",
+        "unseen-servant"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Два замовляння й чотири заклинання названі автором."
+    },
+    "abilityExplanation": "Змінник із власним походженням за правилами Таші: +2 до Харизми й +1 до Спритності, як у авторській таблиці (Харизма 17, Спритність 16); це вже враховано.",
+    "skillExplanation": "Аналіз Поведінки й Переконання — від Змінника, Обман і Спритність рук — від Шарлатана, а Бард додає Залякування, Розслідування й Уважність, як у розділі автора. Мову раси ми обрали за вас: автор її не називає.",
+    "equipmentExplanation": "Автор лише каже, що ви непогано володієте рапірою чи легким арбалетом. Рапіру, набір дипломата, лютню, шкіряну броню й кинджал ми обрали за вас — це вибір платформи, його можна змінити."
+  }
+}

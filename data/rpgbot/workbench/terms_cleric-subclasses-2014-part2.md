@@ -1,0 +1,9 @@
+Cleric Tax → «податок Клірика»{{Cleric Tax}} | block-section-grave-domain-3/item/3, block-section-life-domain-4/item/3 | slang for the spell every cleric takes; plainest calque, marker keeps the original
+The Healbot Olympics → [[1|Олімпіади хілботів]] | block-section-life-domain-1 | title of the author's article, link text; "хілбот" is the gaming slang for a pure healer
+Preserve Life (short for Channel Divinity: Preserve Life) → «Збереження життя»{{Preserve Life}} | block-section-life-domain-4/item/5 | source uses the short name; same Ukrainian as the catalog feature minus the prefix
+Channel Divinity (generic mention) → «Канал божественності»{{Channel Divinity}} | block-section-death-domain-4/item/8, life-domain-4/item/8, nature-domain-1, nature-domain-3/item/11 | classes.json feature name for the class feature; the feature descriptions in the catalog still say «Виклик божественності», the sub-feature names use «Божественність: …»
+Bonus Proficiency / Bonus Proficiencies → Додаткові майстерності | death-4/item/6, forge-3/item/6, life-4/item/6, nature-3/item/7 | classes.json rendering of the domain feature (plural also for the singular name); other sibling pages use «Бонусні/Додаткові володіння»
+Domain Spells → Заклинання домену | all domain sections | classes.json «Заклинання домену (…)» without the domain suffix
+Divine Strike → Божественний удар; Potent Spellcasting → Потужне заклинання; Bonus Cantrip → Бонусне замовляння | domain sections | classes.json names without the domain suffix
+Divine Strike vs. Cantrips (link text) → [[1|Божественний удар проти замовлянь]] | death-4/item/10, forge-3/item/10, life-4/item/10, nature-3/item/10 | must match the heading rendering chosen in part 1 (section-divine-strike-vs-cantrips)
+TPK → повна загибель групи (TPK) | block-section-life-domain-4/item/8 | abbreviation kept in brackets after a plain explanation

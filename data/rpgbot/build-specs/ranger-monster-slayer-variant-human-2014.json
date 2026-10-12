@@ -1,0 +1,124 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "ranger-monster-slayer-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-ranger-monster-slayer-2014-draft1",
+    "sourceRevisionId": "rpgbot-901b69330af23455-36a8f3e732b70dc0"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "RANGER_2014",
+  "subclassKey": "MONSTER_SLAYER_CONCLAVE",
+  "raceKey": "HUMAN_2014",
+  "variantKey": "HUMAN_VARIANT",
+  "backgroundKey": "HERMIT",
+  "featKey": "PIERCER",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    { "level": 2, "classOptions": [{ "optionNameEng": "Archery" }], "spells": { "knownSpellKeys": ["ensnaring-strike"] }, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 3, "subclassKey": "MONSTER_SLAYER_CONCLAVE", "classOptions": [{ "optionNameEng": "Primal Awareness" }], "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 4, "featKey": "GUNNER", "section": "section-feats-2" },
+    { "level": 5, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 6 },
+    { "level": 7, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 8, "abilityScoreIncrease": [{ "ability": "DEX", "amount": 2 }], "section": "section-feats-2" },
+    { "level": 9, "spells": { "knownSpellKeys": ["elemental-weapon"] } },
+    { "level": 10, "classOptions": [{ "optionNameEng": "Nature's Veil" }] },
+    { "level": 11, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 12, "abilityScoreIncrease": [{ "ability": "WIS", "amount": 2 }], "section": "section-feats-2" },
+    { "level": 13, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 14 },
+    { "level": 15, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 16, "featKey": "LUCKY", "section": "section-feats-2" },
+    { "level": 17, "spells": { "knownSpellKeys": ["swift-quiver"] } },
+    { "level": 18 },
+    { "level": 19, "abilityScoreIncrease": [{ "ability": "WIS", "amount": 2 }], "openSpellPicks": [{ "category": "knownSpells", "count": 1 }], "section": "section-feats-2" },
+    { "level": 20 }
+  ],
+  "incomplete": [],
+  "incomplete": [
+    {
+      "field": "Заклинання Слідопита: Обплутування й Магічна зброя",
+      "reason": "На 2-му рівні автор називає Обплутування, а на 5-му Магічну зброю, але цих заклинань немає в списку Слідопита платформи; замість них у плані відкриті місця для вибору гравця. На 3-му, 7-му, 11-му, 13-му, 15-му й 19-му рівнях автор радить «будь-яке» заклинання, тому там теж відкриті місця. Заклинання Конклаву (Захист від зла й добра, Зона правди, Магічне коло, Вигнання, Стримування монстра) видає сам підклас.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/ranger-monster-slayer-variant-human-2014.webp",
+    "title": "Слідопит Убивця монстрів — Варіант людини",
+    "description": "Слідопит-стрілець із рисою Проколювач на 1-му рівні: Спритність 17, Мудрість 16. Починає з Міченим ворогом і Кмітливим дослідником; Конклав убивці монстрів відкриється на 3-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "WIS"
+    ],
+    "skills": {
+      "selectedClass": [
+        "PERCEPTION",
+        "STEALTH",
+        "SURVIVAL"
+      ],
+      "race": [
+        "ATHLETICS"
+      ],
+      "background": []
+    },
+    "expertise": [
+      "PERCEPTION"
+    ],
+    "classOptions": [
+      "Favored Foe",
+      "Deft Explorer - Canny"
+    ],
+    "languages": [
+      "ELVISH",
+      "DWARVISH",
+      "GIANT",
+      "GNOMISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": "PIERCER Ability (Dexterity)",
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats-2",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Варіант людини дає +1 до Спритності й до Мудрості, Проколювач додає ще +1 до Спритності: Спритність 17, Мудрість 16, як пише автор.",
+    "skillExplanation": "Автор не називає конкретних навичок, лише раджить Уважність або Непомітність. Ми обрали за вас Уважність, Непомітність і Виживання від Слідопита, Атлетику від Варіанта людини, Відлюдника та дві мови (від Варіанта людини й передісторії). Кмітливий дослідник дає експертизу в одній навичці: автор називає Уважність або Непомітність, тож Уважність ми обрали за вас, а його дві додаткові мови автор не називає — їх теж обрали ми.",
+    "equipmentExplanation": "Автор радить дістати довгий лук. Решту — шкіряний обладунок, два короткі мечі й набір дослідника підземель — ми обрали за вас."
+  }
+}

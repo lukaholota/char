@@ -1,0 +1,585 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-5b5bae7b173b4646",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-5b5bae7b173b4646-5a095b001f0fee16",
+      "sourceId": "rpgbot-5b5bae7b173b4646",
+      "fetchedAt": "2026-09-29T19:13:45.286486+00:00",
+      "sourceUpdatedAt": "2025-02-11T12:45:07-05:00",
+      "contentHash": "ad4de6bed5edffd0f02b75f0a41fd543b0f03bca25f67b0443b6364b78a5dda8",
+      "title": "State of the 2014 DnD 5e Character Optimization Meta",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-5b5bae7b173b4646-5a095b001f0fee16.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-state-of-the-meta-2014",
+    "sourceId": "rpgbot-5b5bae7b173b4646",
+    "slug": "state-of-the-meta-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Стан метагри оптимізації персонажів D&D 5e (2014)",
+    "titleEn": "State of the 2014 DnD 5e Character Optimization Meta",
+    "topics": [
+      "optimization"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-state-of-the-meta-2014-draft1",
+      "articleId": "rpgbot-state-of-the-meta-2014",
+      "sourceRevisionId": "rpgbot-5b5bae7b173b4646-5a095b001f0fee16",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "ПРИМІТКА:"
+                },
+                {
+                  "type": "text",
+                  "text": " автор ще не оновив цей текст під 2024 й у джерелі очікує новий Бестіарій для оцінки метагри. Це історична примітка джерела, не твердження про сьогоднішній стан видань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із новими джерелами та їхнім дослідженням «метагра» оптимізації персонажів змінюється. Базове розуміння її стану допоможе розібратися в оптимізації й статтях про неї, зокрема моїх."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця стаття описує D&D 5e 2014. Для правил 2024 автор відсилає до окремої статті про ту метагру."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Що таке метагра?",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#what-is-it"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Стан метагри 2014 за оцінкою автора",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#current"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Класи",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#classes"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Найкращі варіанти",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#best-of"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Найкраща раса",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#best-race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Найкращий клас",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#best-class"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Найкраща риса",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#best-feat"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Найгірші варіанти",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#worst-of"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Найгірша раса",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#worst-race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Найгірший клас",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#worst-class"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Найгірша риса",
+                    "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/#worst-feat"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                2,
+                2,
+                2,
+                1,
+                2,
+                2,
+                2
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-what-is-it",
+          "heading": "Що таке метагра?",
+          "sourceAnchor": "what-is-it",
+          "blocks": [
+            {
+              "blockId": "block-section-what-is-it-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Метагра» — поточний стан гри з усіма доступними матеріалами. Практично це стан ігрового світу з усіма офіційно опублікованими варіантами персонажа."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-what-is-it-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нова книга змінює метагру. Нові варіанти й правила змінюють відносну користь старих. Наприклад, Вундеркінд{{Prodigy}} й Експерт у навичках{{Skill Expert}} зробили мультикласування в Пройдисвіта заради Експертизи{{Expertise}} менш привабливим."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-current",
+          "heading": "Стан метагри 2014 за оцінкою автора",
+          "sourceAnchor": "current",
+          "blocks": [
+            {
+              "blockId": "block-section-current-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За оцінкою автора, метагру визначає Казан Таші з усім. Окрім підкласів, рис і заклинань, вона дала опційні правила налаштування рас та класів, що сильно змінили оптимізацію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-current-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Книга також оновлює Винахідника та заклинання, вперше видані у Путівник по Узбережжю Мечів, зокрема Клинок Зеленого Полумʼя [Green-Flame Blade] й Гримучий Клинок [Booming Blade], які сильно вплинули на оптимізацію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-current-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Опційність дратує автора: потрібно враховувати ігри з початковими расовими правилами та ігри з новими правилами Таші. На момент написання йому також неясно, як проектуватимуть майбутні раси, бо книга не містить нових ігрових рас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-current-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоч правила опційні, автор очікує, що групи приймуть їх як новий стандарт. Він зазначає, що D&D Beyond показує можливість заміни расових підвищень без згадки опційності. Організована гра Adventurers League вже прийняла їх — дивіться документ "
+                },
+                {
+                  "type": "link",
+                  "text": "Рекомендації щодо Казана Таші з усім",
+                  "href": "https://media.wizards.com/2020/dnd/downloads/dnd_tcoe_alguidance.pdf"
+                },
+                {
+                  "type": "text",
+                  "text": ". Автор очікує цього й від домашніх груп; час покаже. Примітка редакції: це прогноз та спостереження автора на момент джерела, не актуальна перевірка чинного інтерфейсу чи правил організованої гри."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "parentSectionId": "section-current",
+          "heading": "Раси",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Книга Таші принесла дві великі зміни расам."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "По-перше, расові підвищення гнучкі: їх можна перенести на будь-яку характеристику, не підвищуючи ту саму більше одного разу. Раси виходять із ніш, заданих характеристиками; інші здібності стають цікавішими, бо потрібний +1 до головної характеристики завжди доступний."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "По-друге, расові Володіння можна обмінювати на рівноцінні чи менш сильні. Це повністю розвʼязує вибір навичок і сильно підвищує гнучкість зброї та інструментів. З расовими Володіннями бойовою зброєю менше потрібні відповідні класові Володіння; перевага бойових класів над обмеженими простою зброєю менша. Примітка редакції: кількість Володінь не збільшується; заміни виконуються лише за офіційною таблицею, а не дають усю бойову зброю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перерозподіл характеристик і навичок створив базовий стандарт раси: +2/+1, Темнозір{{Darkvision}}, дві навички й одна-дві особливі здібності. Багато рас відповідають моделі, зокрема Кенку{{Kenku}}, Орк{{Orc}} й Табаксі{{Tabaxi}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes",
+          "parentSectionId": "section-current",
+          "heading": "Класи",
+          "sourceAnchor": "classes",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Опційні класові здібності дозволяють покращити базовий дизайн кожного класу, крім Винахідника. Вони вирішили багато болючих місць, але автор ще не знає, як спільнота їх застосовуватиме."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-classes-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо хочете їх використати, покажіть Майстру й групі "
+                },
+                {
+                  "type": "link",
+                  "text": "Практичний гайд опційних класових здібностей",
+                  "href": "https://rpgbot.net/dnd5/dungeonmasters/optional-class-features/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-best-of",
+          "parentSectionId": "section-current",
+          "heading": "Найкращі варіанти",
+          "sourceAnchor": "best-of",
+          "blocks": [
+            {
+              "blockId": "block-section-best-of-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Далі автор називає «найкращі» варіанти головних категорій персонажа."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-best-race",
+          "parentSectionId": "section-best-of",
+          "heading": "Найкраща раса",
+          "sourceAnchor": "best-race",
+          "blocks": [
+            {
+              "blockId": "block-section-best-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Конкуренція сильна, але є очевидні фаворити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-best-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варіант людини{{Variant Human}} від початку був найкращою расою. Риса 1-го рівня й гнучкі підвищення визначали метагру. Створюючи персонажа, треба було питати: «Чим це краще за Варіант людини?» Надто часто відповідь — «нічим», і менш оптимальну расу обирали заради веселішої гри, а не ще одного варіантного Людини."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-best-race-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Таша дала іншим расам гнучкі характеристики. Тепер конкурують риса й навичка Людини проти переваг іншої раси. Своя раса{{Custom Lineage}} дає рису й єдине +2, ще більше підриваючи першість Варіанта людини, особливо для класів з однією головною характеристикою, як Чарівник."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-best-race-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ведмебай{{Bugbear}} з Монстри Мультивсесвіту дуже сильний за шкодою. Деякі збірки завдають величезні обсяги, на певних рівнях майже достатні для вбивства відповідного за небезпекою ворога одним ходом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-best-race-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для чаротворців автор вважає Фею{{Fairy}} ймовірно найсильнішою: політ та два хороші вроджені заклинання, які можна повторювати комірками, працюють майже з будь-яким таким класом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-best-class",
+          "parentSectionId": "section-best-of",
+          "heading": "Найкращий клас",
+          "sourceAnchor": "best-class",
+          "blocks": [
+            {
+              "blockId": "block-section-best-class-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор ще не визначився, але обирає між Винахідником і Бардом. Обидва доречні буквально в будь-якій групі, успішні в усіх типових ситуаціях Dungeons & Dragons і запозичують багато найважливіших можливостей інших класів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-best-feat",
+          "parentSectionId": "section-best-of",
+          "heading": "Найкраща риса",
+          "sourceAnchor": "best-feat",
+          "blocks": [
+            {
+              "blockId": "block-section-best-feat-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Майстер древкової зброї{{Polearm Master}} або Експерт з арбалетів{{Crossbow Expert}}: вони центральні для численних сильних збірок різних класів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-worst-of",
+          "parentSectionId": "section-current",
+          "heading": "Найгірші варіанти",
+          "sourceAnchor": "worst-of",
+          "blocks": [
+            {
+              "blockId": "block-section-worst-of-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Далі автор називає «найгірші» варіанти кожної категорії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-worst-race",
+          "parentSectionId": "section-worst-of",
+          "heading": "Найгірша раса",
+          "sourceAnchor": "worst-race",
+          "blocks": [
+            {
+              "blockId": "block-section-worst-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стандартна Людина{{Human}}. Прісна від виходу Книги Гравця, вона лишається нецікавою й, за різкою оцінкою автора, майже непридатною для гри без ознак змін."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-worst-class",
+          "parentSectionId": "section-worst-of",
+          "heading": "Найгірший клас",
+          "sourceAnchor": "worst-class",
+          "blocks": [
+            {
+              "blockId": "block-section-worst-class-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор ще не визначився. Раніше тут був Слідопит, але заміни класових здібностей і покращення Конклаву звіролова{{Beast Master Conclave}} змінили його місце та зробили гру значно приємнішою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-worst-class-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найгіршим часто називають Монаха. Є проблеми, зокрема слабкі підкласи й складність ефективної гри, але автор не цілком переконаний, що клас справді найгірший."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-worst-feat",
+          "parentSectionId": "section-worst-of",
+          "heading": "Найгірша риса",
+          "sourceAnchor": "worst-feat",
+          "blocks": [
+            {
+              "blockId": "block-section-worst-feat-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Борець{{Grappler}}. Риса й так була поганою, але рання errata видалила частину, що посилалася на правила, які не потрапили у фінальну гру. Для автора це показує, як мало Wizards of the Coast вклали в неї зусиль. Дивно, що це єдина риса в SRD. Примітка редакції: йдеться про SRD редакції 2014; це не твердження про пізніші SRD."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": []
+}

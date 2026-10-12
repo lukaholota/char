@@ -1,0 +1,1487 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-afc53f3ce14d50fb",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-afc53f3ce14d50fb-e733c69e8f441681",
+      "sourceId": "rpgbot-afc53f3ce14d50fb",
+      "fetchedAt": "2026-09-29T19:19:48.977441+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:37:28-04:00",
+      "contentHash": "33c42a8a1fb244e21f040e55eda31157c283901d965a53f13a355a63b2edfadf",
+      "title": "DnD 5e Impractical Skill Checks: A Practical Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-afc53f3ce14d50fb-e733c69e8f441681.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-impractical-skill-checks-2014",
+    "sourceId": "rpgbot-afc53f3ce14d50fb",
+    "slug": "impractical-skill-checks-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Незвичні перевірки навичок (2014)",
+    "titleEn": "DnD 5e Impractical Skill Checks: A Practical Guide",
+    "topics": [
+      "rules"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-impractical-skill-checks-2014-draft1",
+      "articleId": "rpgbot-impractical-skill-checks-2014",
+      "sourceRevisionId": "rpgbot-afc53f3ce14d50fb-e733c69e8f441681",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У D&D 5e навички представляють абстрактні знання й знайомство з темою чи діяльністю. У D&D 3.5e та Pathfinder 1 вони вимірювалися пунктами, які зростали з рівнем, але від D&D 4e це переважно двійковий вибір: навчені чи ні. Перевага — обʼєднання багатьох навичок, як приховування й тихого пересування в Непомітність. Натомість не можна бути частково навченим, вклавши кілька рангів; більшість персонажів після 1-го рівня не отримує нових навичок без мультикласування чи риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Через ці зміни в 5e все обертається навколо Володіння, на краще чи на гірше. Навички самі по собі не є перевірками: це перелік ситуацій, у яких Бонус Майстерності застосовується до перевірки характеристики."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Привʼязка навичок до певних характеристик — невдалий спадок старої системи: часто забувають про інші способи використання. Посібник Майстра (2014), с. 239, дозволяє Майстру за певних обставин застосувати Володіння навичкою до перевірки іншої характеристики. Розглянемо такі ситуації для всіх навичок D&D 5e. Примітка редакції: наведені далі незвичні поєднання — пропозиції автора для рішення Майстра, а не автоматичне право замінити характеристику."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Перевірки та ряткидки",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#checks-vs-saves"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#skills"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Акробатика",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#acrobatics"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Поводження з тваринами",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#animal-handling"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Магія",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#arcana"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Атлетика",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#athletics"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обман",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#deception"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Історія",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#history"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Аналіз поведінки",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#insight"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Залякування",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#intimidation"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Розслідування",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#investigation"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Медицина",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#medicine"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Природа",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#nature"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уважність",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#perception"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Виступ",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#performance"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Переконання",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#persuasion"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Релігія",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#religion"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Спритність рук",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#sleight-of-hand"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Непомітність",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#stealth"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Виживання",
+                    "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#survival"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-checks-vs-saves",
+          "heading": "Перевірки та ряткидки",
+          "sourceAnchor": "checks-vs-saves",
+          "blocks": [
+            {
+              "blockId": "block-section-checks-vs-saves-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Перевірка",
+                  "href": "https://www.dndbeyond.com/sources/phb/introduction#TheD20"
+                },
+                {
+                  "type": "text",
+                  "text": " відбувається, коли персонаж активно щось робить, а ряткидок — коли щось трапляється з ним. Свідоме затримання дихання заради нерухомості й тиші для Статури (Непомітність) відрізняється від ряткидка Статури через утоплення. Примітка редакції: це загальна модель автора; правила окремих ефектів визначають точний кидок, а утоплення 2014 не передбачає універсального ряткидка Статури."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills",
+          "heading": "Навички",
+          "sourceAnchor": "skills",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-acrobatics",
+          "parentSectionId": "section-skills",
+          "heading": "Акробатика",
+          "sourceAnchor": "acrobatics",
+          "blocks": [
+            {
+              "blockId": "block-section-acrobatics-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Спритність"
+                },
+                {
+                  "type": "text",
+                  "text": ". Зазвичай це спроби встояти на ненадійній поверхні або виконати акробатичні трюки, як пірнання, перекати й сальто."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-acrobatics-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Сила"
+                },
+                {
+                  "type": "text",
+                  "text": ": стрибки зазвичай належать Атлетиці, але можна обґрунтувати Силу (Акробатика), якщо найскладніше — правильно приземлитися. Сила забезпечує потрібну відстань: без неї майстерність приземлення не допоможе."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-acrobatics-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Статура"
+                },
+                {
+                  "type": "text",
+                  "text": ": акробатичне викривлення тіла змушує згинатися у вузли. Якщо тримати позу довго, важливіша витривалість, ніж Спритність. Статура (Акробатика) тут представляє знання, як скрутитися у найменш незручне положення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-acrobatics-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ": за знанням і досвідом акробатики можна здалеку визначити, чи поміститься істота певного розміру в меншу коробку. Інтелект (Акробатика) також може допомогти впізнати школу навчання за стилем сальто, перекатів та інших трюків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-acrobatics-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Мудрість"
+                },
+                {
+                  "type": "text",
+                  "text": ": де Мудрість (Уважність) бачить дерево й ліани, Мудрість (Акробатика) бачить стрибок і трапецію. У паркурі схоже явище називають «потоком»: навчені люди починають мимоволі бачити навколо обʼєкти для трюків."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-animal-handling",
+          "parentSectionId": "section-skills",
+          "heading": "Поводження з тваринами",
+          "sourceAnchor": "animal-handling",
+          "blocks": [
+            {
+              "blockId": "block-section-animal-handling-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Мудрість"
+                },
+                {
+                  "type": "text",
+                  "text": ". Взаємодія зі звірами, переважно свійськими, але також дикими: заспокоїти тварину, не дати злякатися або керувати верховою твариною."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-handling-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Сила"
+                },
+                {
+                  "type": "text",
+                  "text": ": відбитися від дикого звіра — одне, а безпечно втримати тварину для догляду — інше. Це може бути особливий різновид перевірки захвату. Також Сила (Поводження з тваринами) може дозволити втриматися в сідлі лише ногами, коли увага зайнята іншим. Примітка редакції: звичайний бойовий Захват має власні правила Атлетики; цей приклад — альтернативне рішення Майстра для конкретної задачі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-handling-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Спритність"
+                },
+                {
+                  "type": "text",
+                  "text": ": стрижка вівці чи доїння корови цілком можуть бути Спритністю (Поводження з тваринами)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-handling-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ": хоча є перетин з Інтелектом (Природа), Інтелект (Поводження з тваринами) представляє вужчі знання про свійських тварин і тваринництво."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-animal-handling-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Харизма"
+                },
+                {
+                  "type": "text",
+                  "text": ": передавати волю й наміри командами та сигналами, зрозумілими звірам, — приклад Харизми (Поводження з тваринами)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-arcana",
+          "parentSectionId": "section-skills",
+          "heading": "Магія",
+          "sourceAnchor": "arcana",
+          "blocks": [
+            {
+              "blockId": "block-section-arcana-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ". Навички знань охоплюють широкий набір інформації. Магія стосується магічних явищ, зокрема предметів, заклинань і багатьох чудовиськ."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-arcana-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Сила"
+                },
+                {
+                  "type": "text",
+                  "text": ": зламати потужний магічний предмет мʼязами дуже небезпечно, але розуміння магії зменшує ризик. Сила (Магія) представляє потрібні запобіжні заходи під час руйнування. Примітка редакції: це не універсальний спосіб знищити будь-який предмет; його власні правила зберігаються."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-arcana-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Спритність"
+                },
+                {
+                  "type": "text",
+                  "text": ": точне копіювання магічних рун вимагає дрібної моторики й може використовувати Спритність (Магія)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-arcana-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Харизма"
+                },
+                {
+                  "type": "text",
+                  "text": ": у 3.5e була навичка Use Magic Device, де сила волі змушувала предмет робити бажане, зазвичай активуватися. Аналог автора — Харизма (Магія). Примітка редакції: це пропозиція перевірки, яка не скасовує налаштування, класових передумов чи інших обмежень магічного предмета."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-athletics",
+          "parentSectionId": "section-skills",
+          "heading": "Атлетика",
+          "sourceAnchor": "athletics",
+          "blocks": [
+            {
+              "blockId": "block-section-athletics-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Сила"
+                },
+                {
+                  "type": "text",
+                  "text": ". Лазіння, стрибки, біг, плавання й спортивні змагання належать Атлетиці."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-athletics-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Спритність"
+                },
+                {
+                  "type": "text",
+                  "text": ": автор пропонує дозволяти Спритність (Атлетика) для відштовхування дією Атака, якщо персонаж користується вправною зброєю чи атакує через Спритність. Примітка редакції: це домашня зміна. Відштовхування 2014 використовує Силу (Атлетика), а властивість Finesse цього не замінює."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-athletics-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Статура"
+                },
+                {
+                  "type": "text",
+                  "text": ": вправи на витривалість, як марафон чи тривале плавання — останнє є прикладом у Посібнику Майстра — можуть використовувати Статуру (Атлетика)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-athletics-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ": спортивний суддя використовує Інтелект (Атлетика), щоб знати правила професійного спорту, навіть без фізичної форми для виступу на цьому рівні. Сюди ж належать загальні знання про професійний чи аматорський спорт."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-deception",
+          "parentSectionId": "section-skills",
+          "heading": "Обман",
+          "sourceAnchor": "deception",
+          "blocks": [
+            {
+              "blockId": "block-section-deception-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Харизма"
+                },
+                {
+                  "type": "text",
+                  "text": ". Брехня, обман і приховування намірів із незворушним обличчям."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-deception-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Сила"
+                },
+                {
+                  "type": "text",
+                  "text": ": імітувати бій і переконливо показувати удари — Сила (Обман). Це ближче до постановочного професійного реслінгу, ніж до навмисного програшу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-deception-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Статура"
+                },
+                {
+                  "type": "text",
+                  "text": ": витримувати удари й показувати їх сильнішими, ніж є, — Статура (Обман). Так можна зіграти програш у підлаштованому боксерському поєдинку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-deception-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ": шахрайство, особливо з документами, більше залежить від знання того, як має виглядати правильна інформація. Подібне можна робити набором для підробки{{Forgery Kit}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-history",
+          "parentSectionId": "section-skills",
+          "heading": "Історія",
+          "sourceAnchor": "history",
+          "blocks": [
+            {
+              "blockId": "block-section-history-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ". Знання історичних подій, легендарних людей, давніх королівств, війн і цивілізацій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-history-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Харизма"
+                },
+                {
+                  "type": "text",
+                  "text": ": переконати когось знанням історії, а не риторикою. Наприклад, спадкоємці певного роду мають особливу родиму пляму. Щоб довести двору, що ви знайшли справжнього спадкоємця, можна використати Харизму (Історія) замість Харизми (Переконання)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-insight",
+          "parentSectionId": "section-skills",
+          "heading": "Аналіз поведінки",
+          "sourceAnchor": "insight",
+          "blocks": [
+            {
+              "blockId": "block-section-insight-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Мудрість"
+                },
+                {
+                  "type": "text",
+                  "text": ". Тлумачення намірів іншої істоти, як виявлення брехні чи визначення наступного кроку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-insight-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Спритність"
+                },
+                {
+                  "type": "text",
+                  "text": ": прочитати супротивника в бою й помітити, що він стримується, приховуючи справжню силу, може бути Спритністю (Аналіз поведінки)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-intimidation",
+          "parentSectionId": "section-skills",
+          "heading": "Залякування",
+          "sourceAnchor": "intimidation",
+          "blocks": [
+            {
+              "blockId": "block-section-intimidation-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Харизма"
+                },
+                {
+                  "type": "text",
+                  "text": ". Ствердити свою перевагу: навичка впливає погрозами й примусом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-intimidation-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Сила"
+                },
+                {
+                  "type": "text",
+                  "text": ": один зі справжніх прикладів альтернативних характеристик у Посібнику гравця. Сила (Залякування) використовує міць, щоб налякати ворога й домогтися покори. Розчавити камінь голими руками чи підняти валун — чудові способи уникнути справжнього бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-intimidation-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Спритність"
+                },
+                {
+                  "type": "text",
+                  "text": ": неприродно зігнути рухливий суглоб, щоб злякати когось, може бути Спритністю (Залякування). Інший приклад — трюк із ножем між пальцями: ціль тримають, встромлюють ніж у стіл і наказують не рухатися, інакше поранення буде її провиною."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-intimidation-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Статура"
+                },
+                {
+                  "type": "text",
+                  "text": ": самобичування може бути Статурою (Залякування), як і витримування суворого увʼязнення чи катувань, щоб психологічно збентежити викрадачів. Автор радить не зловживати цим прикладом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-intimidation-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ": Інтелект (Залякування) наближається до перевірки знань агресивних методів допиту чи катувань і допомагає впізнати відповідні знаряддя."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-investigation",
+          "parentSectionId": "section-skills",
+          "heading": "Розслідування",
+          "sourceAnchor": "investigation",
+          "blocks": [
+            {
+              "blockId": "block-section-investigation-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ". Як наступник старої навички Search, Розслідування відповідає за поглиблений збір інформації."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-investigation-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Спритність"
+                },
+                {
+                  "type": "text",
+                  "text": ": на дотик знайти приховану панель, перемикач чи кнопку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-investigation-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Харизма"
+                },
+                {
+                  "type": "text",
+                  "text": ": збір інформації іноді вважають Харизмою (Переконання), але систематичне опитування автор вважає радше Харизмою (Розслідування)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-medicine",
+          "parentSectionId": "section-skills",
+          "heading": "Медицина",
+          "sourceAnchor": "medicine",
+          "blocks": [
+            {
+              "blockId": "block-section-medicine-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Мудрість"
+                },
+                {
+                  "type": "text",
+                  "text": ". Діагностика й надання медичної допомоги."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-medicine-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Статура"
+                },
+                {
+                  "type": "text",
+                  "text": ": самостійна перша допомога, наприклад вправлення вивихнутого плеча, може бути Статурою (Медицина)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-medicine-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ": академічне вивчення фізіології й анатомії найкраще описує Інтелект (Медицина)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-nature",
+          "parentSectionId": "section-skills",
+          "heading": "Природа",
+          "sourceAnchor": "nature",
+          "blocks": [
+            {
+              "blockId": "block-section-nature-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ". Вивчення природних явищ, геології, рослин, тварин і фей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-nature-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Харизма"
+                },
+                {
+                  "type": "text",
+                  "text": ": подібні ситуації, як у прикладі Історії, можна застосувати й тут."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-perception",
+          "parentSectionId": "section-skills",
+          "heading": "Уважність",
+          "sourceAnchor": "perception",
+          "blocks": [
+            {
+              "blockId": "block-section-perception-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Мудрість"
+                },
+                {
+                  "type": "text",
+                  "text": ". Помічати, чути й загалом усвідомлювати оточення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-perception-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Спритність"
+                },
+                {
+                  "type": "text",
+                  "text": ": істота з чуттям вібрацій{{Tremorsense}} може щось виявити через Спритність (Уважність). Також така перевірка може помітити слабкий поштовх землі, як від величезної істоти поблизу, який інакше лишився б непоміченим. Примітка редакції: власні правила конкретного чуття визначають його роботу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-perception-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ": автор припускає, що телепатична істота може використати Інтелект (Уважність), щоб знайти приховану істоту. Примітка редакції: сама телепатія не дає виявлення прихованих цілей; потрібен відповідний ефект або окреме рішення Майстра."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-performance",
+          "parentSectionId": "section-skills",
+          "heading": "Виступ",
+          "sourceAnchor": "performance",
+          "blocks": [
+            {
+              "blockId": "block-section-performance-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Харизма"
+                },
+                {
+                  "type": "text",
+                  "text": ". Розважати публіку музикою, танцями, грою, оповідями тощо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-performance-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Спритність"
+                },
+                {
+                  "type": "text",
+                  "text": ": салонні трюки й розваги, що потребують фізичної гнучкості, як деякі танці."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-performance-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ": передавання інформації, наприклад презентація, може використовувати Інтелект (Виступ), щоб визначити ефективність пояснення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-persuasion",
+          "parentSectionId": "section-skills",
+          "heading": "Переконання",
+          "sourceAnchor": "persuasion",
+          "blocks": [
+            {
+              "blockId": "block-section-persuasion-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Харизма"
+                },
+                {
+                  "type": "text",
+                  "text": ". На відміну від Залякування, це виклад погляду чи аргументів і здатність обґрунтувати позицію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-persuasion-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Сила"
+                },
+                {
+                  "type": "text",
+                  "text": ": доблесний захисник може заспокоїти налякане загрозою село демонстрацією Сили (Переконання)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-persuasion-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Статура"
+                },
+                {
+                  "type": "text",
+                  "text": ": інший персонаж може зробити те саме, непохитно витримавши випробування на витривалість через Статуру (Переконання)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-persuasion-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ": апеляція до логіки й розуму — Інтелект (Переконання)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-religion",
+          "parentSectionId": "section-skills",
+          "heading": "Релігія",
+          "sourceAnchor": "religion",
+          "blocks": [
+            {
+              "blockId": "block-section-religion-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ". Знання божеств, обрядів, молитов та іншої інформації різних релігій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-religion-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Мудрість"
+                },
+                {
+                  "type": "text",
+                  "text": ": утішити й порадити істоті під час кризи віри можна через Мудрість (Релігія)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-religion-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Харизма"
+                },
+                {
+                  "type": "text",
+                  "text": ": навернення у віру більше нагадує Харизму (Релігія), ніж Харизму (Переконання)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sleight-of-hand",
+          "parentSectionId": "section-skills",
+          "heading": "Спритність рук",
+          "sourceAnchor": "sleight-of-hand",
+          "blocks": [
+            {
+              "blockId": "block-section-sleight-of-hand-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Спритність"
+                },
+                {
+                  "type": "text",
+                  "text": ". Ручні трюки, кишенькові крадіжки й злодійство. Автор також згадує звʼязування істоти мотузкою. Примітка редакції: це не універсальна бойова дія з автоматичним звʼязуванням; конкретну процедуру визначають правила використаного предмета або Майстер."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sleight-of-hand-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ": обстежити заклад для майбутньої крадіжки може бути Інтелектом (Спритність рук)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sleight-of-hand-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Мудрість"
+                },
+                {
+                  "type": "text",
+                  "text": ": визначити в натовпі придатну ціль для кишенькової крадіжки може бути Мудрістю (Спритність рук)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-stealth",
+          "parentSectionId": "section-skills",
+          "heading": "Непомітність",
+          "sourceAnchor": "stealth",
+          "blocks": [
+            {
+              "blockId": "block-section-stealth-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Спритність"
+                },
+                {
+                  "type": "text",
+                  "text": ". Приховуватися, прокрадатися повз охорону, непомітно вислизати чи підкрадатися."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-stealth-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Статура"
+                },
+                {
+                  "type": "text",
+                  "text": ": затримання дихання заради нерухомості й тиші може використовувати Статуру (Непомітність)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-stealth-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ": приховати секретну інформацію шифром у письмовому документі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-stealth-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Мудрість"
+                },
+                {
+                  "type": "text",
+                  "text": ": спорожнити поверхневі думки як свідомий захист від підозрюваного читання думок. Примітка редакції: звичайна перевірка не дає імунітету до Detect Thoughts або іншої магії; її застосування й результат визначає Майстер з урахуванням правил ефекту."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-survival",
+          "parentSectionId": "section-skills",
+          "heading": "Виживання",
+          "sourceAnchor": "survival",
+          "blocks": [
+            {
+              "blockId": "block-section-survival-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основна характеристика: "
+                },
+                {
+                  "type": "strong",
+                  "text": "Мудрість"
+                },
+                {
+                  "type": "text",
+                  "text": ". Стеження, полювання, орієнтування й виявлення чи уникання природних небезпек."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-survival-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Інтелект"
+                },
+                {
+                  "type": "text",
+                  "text": ": Інтелект (Природа) зазвичай впізнає рослину чи тварину, а Інтелект (Виживання) може визначити розібрані частини тих самих істот і рослин."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": []
+}

@@ -1,0 +1,2166 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "592cb65c2daf5436e0056030bbe29802a7d0fe5389b2c8726dc0465198b891e1",
+  "sourceRevision": {
+    "revisionId": "rpgbot-ba30875f8dd91031-592cb65c2daf5436",
+    "sourceId": "rpgbot-ba30875f8dd91031",
+    "fetchedAt": "2026-09-29T19:20:31.556139+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:29:00-04:00",
+    "contentHash": "bc22083db053bc6882df6df42f1ad112b9934235e6867ab0af7ba52d3d9db356",
+    "title": "Tal’Dorei College of Tragedy Bard: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-ba30875f8dd91031-592cb65c2daf5436.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Tal’Dorei: Campaign Setting Reborn",
+              "href": "https://www.dndbeyond.com/sources/tcsr"
+            },
+            {
+              "type": "text",
+              "text": " includes the College of Tragedy subclass for the Bard. It’s a great theme with some interesting mechanical ideas, adding new Support options to a class that’s already famously good at supporting the party. The subclass is very powerful, and requires basically no help to make it work, making it easy to hand to any player and say “here, make everyone sad.”"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "College of Tragedy is almost entirely reactive, which is unusual and usually a bad thing. Characters which can only react to circumstances typically struggle to solve problems, instead providing ways to endure those problems a bit longer. College of Tragedy seems to be an exception to that rule. While the subclass’s features almost all trigger in response to something, they don’t conflict with resources or action economy which you could use proactively, leaving the Bard’s skills and spellcasting totally free to go on the offensive. Poetry of Misery makes regaining Bardic Inspiration trivial, so you can spend your Bonus Action essentially every turn to gant Bardic Inspiration."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With your reactions heavily spoken for, but your other options wide open, the rest of your build can be entirely focused on proactive solutions. Offensive spells, feats, skills, etc."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "That said, there are some balance issues. Poetry in Misery is extremely abusable, allowing the Bard a functionally bottomless pool of Bardic Inspiration which they can then use to trivialize any non-combat situation and then walk into encounters with enough inspiration that their party is at a huge mathematical advantage. Sorrowful Fate similarly allows the party to trivialize a single powerful enemy per rest, making it difficult to challenge the party in combat. I’ve suggested fixes in the subclass features assessments which would make me comfortable using College of Tragedy at my table."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Tragedy Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Tragedy Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#college-of-tragedy-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Tragedy Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#college-of-tragedy-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Tragedy Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#college-of-tragedy-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Tragedy Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#college-of-tragedy-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Tragedy Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#college-of-tragedy-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Stand up Tragedian",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#example-build-stand-up-tragedian"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/taldorei-college-of-tragedy/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "College of Tragedy Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Poetry in Misery"
+              },
+              {
+                "type": "text",
+                "text": ": Extremely abusable. Find\n\t\tany random absurd reason to attempt an ability check and repeat it until you\n\t\tget back all of your expended uses of Bardic Inspiration. This is clearly\n\t\tintended to be used in combat or in high-stakes situations or at least with\n\t\ta DM that’s going to tell you when and when not to roll, but RAW it’s\n\t\textremely abusable.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This feature needs some guard rails to be safe at the table. If everyone\n\t\t\tin your party can collectively agree not to abuse it, it might be powerful\n\t\t\tbut not problematic. If you still feel a need for guard rails, limit\n\t\t\tPoetry of Misery to working a number of times per day equal to your\n\t\t\tProficiency Bonus."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sorrowful Fate"
+              },
+              {
+                "type": "text",
+                "text": ": Most creatures are\n\t\tterrible at Charisma saves, so this can make many save-or-suck spells nearly\n\t\tunstoppable. This only affects one creature and you can only use it once per\n\t\trest, but it’s still amazing and can easily define the outcome of entire\n\t\tencounters.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The target does take a tiny bit of psychic damage and may need to say\n\t\t\tsome cool last words, but that’s not mechanically impactful and it really\n\t\t\tdoesn’t need to be."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This is probably too powerful to allow without some adjustments. If this\n\t\t\tconsumed the Bard’s Reaction and merely imposed Disadvantage on the save,\n\t\t\tI would still rate it "
+              },
+              {
+                "type": "text",
+                "text": "blue"
+              },
+              {
+                "type": "text",
+                "text": ", but it\n\t\t\twouldn’t make me nervous about allowing the subclass."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tale of Hubris"
+              },
+              {
+                "type": "text",
+                "text": ": Very cool, but\n\t\tinconsistent and unpredictable. The enemy might drop before this has any\n\t\timpact."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Impending Misfortune"
+              },
+              {
+                "type": "text",
+                "text": ": A bard is not going\n\t\tto do anything interesting with a single attack roll, so save this for\n\t\tsaving throws. Once you use the +10 bonus, ask an ally to hit you with a\n\t\tsaving throw cantrip so that you can burn off the -10 penalty."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Nimbus of Pathos"
+              },
+              {
+                "type": "text",
+                "text": ": Better than most paladn\n\t\tcapstone features. This is an awesome buff. I love that you can’t end it\n\t\tearly, so after combat your recipient might spend most of a minute standing\n\t\taround while tragic music plays which they can’t escape from."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-tragedy-ability-scores",
+      "heading": "College of Tragedy Ability Scores",
+      "sourceAnchor": "college-of-tragedy-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-tragedy-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-tragedy-races",
+      "heading": "College of Tragedy Races",
+      "sourceAnchor": "college-of-tragedy-races",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-tragedy-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-tragedy-feats",
+      "heading": "College of Tragedy Feats",
+      "sourceAnchor": "college-of-tragedy-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-tragedy-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/"
+            },
+            {
+              "type": "text",
+              "text": ", but you should likely avoid options which consume your Bonus Action since you’ll be able to use Bardic Inspiration so frequently."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-tragedy-weapons",
+      "heading": "College of Tragedy Weapons",
+      "sourceAnchor": "college-of-tragedy-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-tragedy-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-tragedy-armor",
+      "heading": "College of Tragedy Armor",
+      "sourceAnchor": "college-of-tragedy-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-tragedy-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any option which works well for a "
+            },
+            {
+              "type": "link",
+              "text": "typical bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/"
+            },
+            {
+              "type": "text",
+              "text": " should work well for College of Tragedy, with a few caveats: Avoid things that use your Bonus Action or your Reaction because you need those free for Poetry in Misery and Tale of Hubris."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-stand-up-tragedian",
+      "heading": "Example Build – Stand up Tragedian",
+      "sourceAnchor": "example-build-stand-up-tragedian",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-stand-up-tragedian-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There’s really not much optimization to be done here. The subclass is very powerful on its own, so all you need to do is pick spells and feats and you’re done. Since most of the hard work is done for us by the subclass, we’ll lean hard into the theme and pick spells that spread the misery. I’m not going to pick anything worthless, but check out the "
+            },
+            {
+              "type": "link",
+              "text": "Bard Spell List Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/spells/"
+            },
+            {
+              "type": "text",
+              "text": " if you don’t want all of your spells to be tragedy-themed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "parentSectionId": "section-example-build-stand-up-tragedian",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll arrange our ability scores to maximize the benefits of the Half-elf’s unique ability score increases. We’ll be left with 17 Charisma, which is great for hybrid feats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-stand-up-tragedian",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Half-elf. There’s no real synergies with the subclass, so half-elf is a good go-to. You could also look at the half-drow variant half-elf or something like the Dhampir."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-stand-up-tragedian",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Grinner (Explorer’s Guide to Wildemount). Proficiency in Deception, Performance, an instrument, and a language. The theme of the background is that we go around spreading hope, and the contrast with the subclass feels fun."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-stand-up-tragedian",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get Deception and Performance from our background plus a total of 5 skills of our choice from our race and class. We’ll grab Intimidation, Insight, Perception, Persuasion, and Stealth."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We also get a total of 4 instruments. We could be our own string quartet! Or we could alter the background and trade the extra instrument proficiency for proficiency with thieves’ tools."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-stand-up-tragedian",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 4th level we’re ready for a hybrid feat to boost our Charisma to 18. We need to be careful about anything which would try to monopolize our reactions or bonus actions, so Telekinetic is out. If we eliminate the race-specific feats, that leaves us Fey Touched, Gift of the Gem Dragon, and Shadow Touched. Fey Touched is the obvious choice here, as boring as it seems to pick it on yet another build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 12th level, we’ll take Inspiring Leader. The tone feels absolutely wrong, but it’s an objectively great option for many bards."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-stand-up-tragedian",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d6)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Minor Illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Vicious Mockery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Bane"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dissonant Whispers"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Silent Image"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Unseen Servant"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We are an extremely straightforward bard."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Jack of All Trades"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d6)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Well, we lasted exactly one level without picking Silvery Barbs again. Time to make everyone miserable by stealing success at the last possible moment."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Persuasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Stealth"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bard College: College of Tragedy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Poetry in Mistery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sorrowful Fate"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Blindness/Deafness"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Poetry in Misery means that Bardic Inspiration is functionally bottomless if we have a few minutes outside of time for our party to stand around and attempt pointless ability checks or attack rolls."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sorrowful Fate lets us make one save-or-suck spell a huge problem once per rest. Now our build becomes a game of finding the right spells. We want spells that only allow a single save (or at least only one within the 3-round span of a typicaly combat) and only target a single creature. Bards don’t get many suitable spells, unfortunately."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blindness/Deafness is a great example. If it didn’t target Con saves, it would be amazing. We solve the single problem with the spell using Sorrowful Fate, so Blindness/Deafness trivializes one big enemy each time we rest."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Fey Touched (Charisma 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Message"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Phantasmal Force"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Select whatever you want for the 1st-level spell frin Fey Touched. Bless is a great choice, even if it’s off theme."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For cantrips we’ll learn Message so that we can whisper sad facts to people at a distance. We’ll also pick up Phantasmal Force so that they can see stuff that’s sad and makes you want to lay down and feel deep emotions."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d8)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Font of Inspiration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enemies Abound"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Font of Inspiration feels silly since we have Poetry in Misery."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ll take enemies abound so that we can remind enemies that everyone is alone in the world, and that they should respond to this revelation with violence."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tale of Hubris"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Impending Misfortune"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Bestow Curse"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tale of Hubris and Impending Misfortune both work defensively with very little nuance."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bestow Curse is great because it’s both really unpleasant and near permanent."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Phantasmal Killer"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Kill people with their worst fear: being forced to remember something awkward from their childhood."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (Cha 18 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/pathfinder/characters/polymorph/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Polymorph yourself into something cool like a T-Rex and pretty much only a T-Rex. Polymorph enemies into an animal whose life would be much simpler, then end the spell right when they get comfortable."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d8)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Synaptic Static"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Make everyone in a room feel bad and suffer penalties to attack rolls for a full minute."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d10)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Magical Secrets"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Otiluke’s Resilient Sphere"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Summon Aberration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Otiluke’s Resilient Sphere is a single-target “time out” for one creature so that you can leave them alone with their thoughts. If your target could pass the Dexterity save, change it to Charisma."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Summon Aberration lets us summon something gross and unpleasant."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eyebite"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Put people to sleep every turn."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Inspiring Leader"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Give everyone a depressing speech and some temporary hit points."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d10)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Etherealness"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Use Etherealness to sneak into places and whisper sad things to them in their sleep."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magical Secrets"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Plane Shift"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Simulacrum"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Nimbus of Pathos"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Grab your boom box and play Duel of the Fates in a minor key, because it’s time for sad battle music. Throw Nimbus of Pathos on your party’s biggest weapon user and sit back to provide depressing color commentary."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In other fights, Plane Shift enemies to the Shadowfell. It’s the most depressing plane. Use Simulacrum to get yourself a backup singer. They’ll notably be able to recover Bardic Inspiration at the same rate and the same time, so not only do you have twice as much Bardic Inspiration available, you can also share it twice as fast."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d12)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Feeblemind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hit stuff with Feeblemind and use Sorrowful Fate if it happens to be good at Intelligence saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d12)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Psychic Scream"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Psychic Scream has the power to permanently stun creatures, and it really feels like the capstone of this entire build. Think of something tragic and silently scream so hard that creature’s heads explode."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magical Secrets"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "True Polymorph",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/true-polymorph-and-shapechange/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "True Polymorph your friends into better things like pit fiends and ancient dragons. Consider remaining a sad bard since polymorphing would mean giving up your ability to make other people sad."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wish is here because it’s basically mandatory. Use it to do things like wishing for Find Greater Steed or to clone yourself so that you’re tragic sensibilities will live on forever."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Superior Inspiration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I don’t know how we would even get ourselves into a situation where we have no Bardic Inspiration uses."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating-blue College of Tragedy Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Poetry in Misery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Sorrowful Fate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tale of Hubris"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Impending Misfortune"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Nimbus of Pathos"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Sorrowful Fate</span>: Most creatures are terrible at Charisma saves, so this can make many save-or-suck spells nearly unstoppable. This onl"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-college-of-tragedy-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-college-of-tragedy-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-college-of-tragedy-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-college-of-tragedy-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-college-of-tragedy-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-build-stand-up-tragedian-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2226,
+    "sections": 17,
+    "blocks": 26,
+    "tables": 2,
+    "ratingSignals": 11
+  },
+  "status": "needs-editorial-review"
+}

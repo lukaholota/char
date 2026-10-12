@@ -1,0 +1,1906 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-154f7af4779cafb6",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-154f7af4779cafb6-73299f1aef26bdd8",
+      "sourceId": "rpgbot-154f7af4779cafb6",
+      "fetchedAt": "2026-09-29T19:09:24.509340+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:39:44-04:00",
+      "contentHash": "147397c08f87a743a263b8d56d4ad710846a5fa5671f0e61c051e11117014471",
+      "title": "Oath of the Crown Paladin 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-154f7af4779cafb6-73299f1aef26bdd8.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+    "sourceId": "rpgbot-154f7af4779cafb6",
+    "slug": "paladin-oath-of-the-crown-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Паладин Клятви корони — гайд підкласу (2014)",
+    "titleEn": "Oath of the Crown Paladin 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Паладин",
+      "підклас",
+      "Клятва корони",
+      "збірка"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "sourceRevisionId": "rpgbot-154f7af4779cafb6-73299f1aef26bdd8",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клятва корони перетворює Паладина на ідеального охоронця: він може примусово втягувати ворогів у бій, зцілювати союзників у зоні дії та зазнавати шкоди замість них. Це чудова збірка танка; хоча атакувальних варіантів небагато, серед них є Духи захисники [Spirit Guardians], що дає Паладину змогу стати центром магічної мʼясорубки, як це робить Клірик. Водночас вона не скасовує звичних атакувальних можливостей Паладина, тож ви й далі можете бігати й карати ворогів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Божественна вірність{{Divine Allegiance}} — надзвичайно потужний захисний варіант і, мабуть, найпривабливіша частина підкласу. Ви можете безпомилково поглинати шкоду за союзника й тримати вразливих товаришів живими, доки маєте Реакцію та достатньо ХП. Це очевидно корисно для групи, але також дає Паладинам Клятви корони особливу змогу зберігати життя скакуна в грі, де "
+                },
+                {
+                  "type": "link",
+                  "text": "кінний бій",
+                  "href": "https://rpgbot.net/dnd5/characters/mounted_combat/"
+                },
+                {
+                  "type": "text",
+                  "text": " надзвичайно складний, зокрема через крихкість скакунів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клятви корони",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клятви корони",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Клятви корони",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клятви корони",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Клятви корони",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Клятви корони",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Паладина Клятви корони — Охоронець",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клятви корони",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клятви корони",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-crown/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клятви корони",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання клятви{{Oath Spells}}: Дуже різний набір: деякі заклинання Паладину фактично необхідні, у списку є кілька перлин з інших списків, але чимало варіантів ситуативні або просто погані."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{3-й рівень|3rd-Level}}: Виклик на дуель [Compelled Duel] майже обовʼязковий для Паладина, а Наказ [Command] може бути дуже ефективним, якщо діяти винахідливо. Виклик на дуель [Compelled Duel] дещо дублює {{Виклик чемпіона|Champion Challenge}}, однак перше діє лише на одну ціль, тоді як друге охоплює зону. Також памʼятайте, що складність ваших заклинань нижча, ніж у повного заклинача (якщо тільки ви не зосередилися на Благословенному воїні{{Blessed Warrior}}), тож обидва заклинання можуть бути ненадійними."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{5-й рівень|5th-Level}}: Охоронний звʼязок [Warding Bond] стане в пригоді, якщо інший союзник отримує багато шкоди й вам набридло витрачати ходи на лікування. Зона правди [Zone of Truth] — ситуативне заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{9-й рівень|9th-Level}}: Аура живучості [Aura of Vitality] — надзвичайно ефективне заклинання для магічного лікування, але його не варто накладати в бою: воно потребує Концентрації й монополізує бонусну дію, яка може знадобитися для заклинань кари. Поза боєм краще покладатися на короткі відпочинки, щоб відновлювати ХП. У бою заклинання Духи захисники [Spirit Guardians] значно краще: воно перетворює вас на центр магічної мʼясорубки, що завдає променевої шкоди. Вам усе одно доведеться наздоганяти ворогів, щоб вони зазнавали шкоди, бо Виклик чемпіона{{Champion Challenge}} дозволяє їм залишатися на відстані до 30 футів; у тісному просторі це заклинання надзвичайно потужне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{13-й рівень|13th-Level}}: Вигнання [Banishment] ситуативне й може бути складним через порівняно низький показник складності заклинань Паладина, але у багатьох позапланарних істот слабкі ряткидки Харизми, тож на деяких ворогів воно подіє. Заклинання Вартовий віри [Guardian of Faith] примітне майже винятково своєю 8-годинною тривалістю."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{17-й рівень|17th-Level}}: Коло сили [Circle of Power] — чудове підсилення проти ворожих заклиначів, особливо разом з {{Аурою захисту|Aura of Protection}}, що покращує всі ваші ряткидки. Обітниця [Geas] — ситуативне заклинання: більшість істот, на яких його можна накласти, легше просто вбити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Канал божественності{{Channel Divinity}}:"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виклик чемпіона{{Champion Challenge}}: Чудовий спосіб утримувати ворогів там, де вам потрібно, особливо на відкритій місцевості, поза підземеллями. Тридцять футів достатньо, щоб більшість персонажів дісталася до ближнього бою без Ривка (напівросликам і дворфам може знадобитися зброя з досяжністю), тож навіть вороги, які тікають, не відійдуть так далеко, щоб довелося їх довго наздоганяти. За вдалого розташування можна відділити ворогів від союзників: ті атакуватимуть здалеку, а вороги або марно тупцюватимуть на межі 30-футового радіуса, або погодяться битися з вами. Вороги можуть вирватися, вдавшись до безглуздих дій на кшталт штовхання чи перетягування одне одного з зони, але якщо Майстер так зробить, це або серйозні {{метагеймові хитрощі|metagame shenanigans}}, або істоти вже мали час вивчити дію ефекту. Уміння не дає повторювати ряткидок після першого і не вказує тривалості, тож технічно ви можете назавжди замкнути ворогів у межах 30 футів, якщо самі не припините ефект (наприклад, відійдете) й ніхто не втрутиться."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Обернути хвилю|Turn the Tide}}: По суті, це Масове цілюще слово [Mass Healing Word]. Воно діє й на непритомних союзників, адже, за словами Джеремі Крофорда, "
+                  },
+                  {
+                    "type": "link",
+                    "text": "стан «Непритомність» не мав позбавляти істот слуху",
+                    "href": "https://youtu.be/u67o2kE6InA?t=1352"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественна вірність{{Divine Allegiance}}: Значно краще за стиль бою «Захист», бо спрацьовує гарантовано. Як Паладин, ви — танк групи, і часом роль танка означає прийняти на себе шкоду, призначену вразливішим союзникам. Це схоже на Охоронний звʼязок [Warding Bond], бо діє проти будь-якого джерела шкоди, але обмеження Реакцією може стати проблемою, якщо союзників уразили кілька разів. Якщо плануєте часто цим користуватися, вам потрібен якомога більший запас ХП, а понад те — надійне джерело тимчасових ХП. Можна також захистити скакуна — це вкрай потрібний варіант для прихильників кінного бою. Звичайні скакуни й ті, яких можна отримати завдяки Пошуку скакуна [Find Steed] і Пошуку вищого скакуна [Find Greater Steed], легко гинуть, якщо вороги надумають їх атакувати; навіть риса «Верховий боєць»{{Mounted Combatant}} — слабкий захист. Божественна вірність може бути найкращим доступним варіантом."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Непохитний дух{{Unyielding Spirit}}: Разом з {{Аурою захисту|Aura of Protection}} ви майже не піддаєтеся паралічу й приголомшенню. Але ці стани трапляються нечасто, тож користь ситуативна."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Екзальтований чемпіон{{Exalted Champion}}: Протягом години на день вас і союзників надзвичайно важко вбити. Більшість найвищих умінь Паладина діють лише одну хвилину, тож тривалість у 60 разів довша — величезне покращення."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Клятви корони",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Клятви корони",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Майже нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#races"
+                },
+                {
+                  "type": "text",
+                  "text": ", але деякі раси мають особливості, що тут особливо добре працюють."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ведмебай{{Bugbear}}"
+                },
+                {
+                  "type": "link",
+                  "text": "MotM",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": Особливість «Довгі кінцівки»{{Long-Limbed}} у поєднанні зі зброєю з досяжністю дає змогу атакувати у свій хід із відстані до 15 футів, тож вам значно легше триматися поруч із тим, кого ви захищаєте. На жаль, інші расові особливості Ведмебая вам майже не знадобляться."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пагорбовий дворф{{Hill Dwarf}}"
+                },
+                {
+                  "type": "link",
+                  "text": "PHB",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": додаткові ХП приємні, але Варіант людини{{Variant Human}} може взяти «Здоровань»{{Tough}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Орк{{Orc}}"
+                },
+                {
+                  "type": "link",
+                  "text": "MotM",
+                  "href": "https://rpgbot.net/dnd5/abbreviations/"
+                },
+                {
+                  "type": "text",
+                  "text": ": «Прилив адреналіну»{{Adrenaline Rush}} дає простий спосіб отримати тимчасові ХП."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Клятви корони",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого Клятва корони мало чим відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": ", але «Божественна вірність»{{Divine Allegiance}} обмежує вашу мобільність у бою, робить великий запас ХП незвично важливим і може постійно забирати вашу Реакцію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "«Дворфська стійкість»{{Dwarven Fortitude}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": зазвичай це не надто сильна риса, але можливість швидко зцілитися без Короткого відпочинку допоможе оговтатися після «Божественної вірності»{{Divine Allegiance}}, не благаючи групу прилягти перепочити. Навряд чи часто застосовуватимете її в бою, але така можливість є."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "«Містичний адепт»{{Eldritch Adept}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Вогняна енергійність»{{Fiendish Vigor}} дає безкоштовне джерело тимчасових ХП, полегшуючи використання «Божественної вірності»{{Divine Allegiance}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "«Майстер важких обладунків»{{Heavy Armor Master}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ви не можете зменшити шкоду від «Божественної вірності»{{Divine Allegiance}}, тож ця риса не настільки ефективна, як нам потрібно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "«Надихаючий лідер»{{Inspiring Leader}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Паладинам Клятви корони тимчасові ХП потрібні, як рибі вода, а ця риса дає простий запас тимчасових ХП раз на відпочинок. До того ж ви надаєте їх союзникам, за що всі будуть вдячні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "«Майстер древкової зброї»{{Polearm Master}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": зазвичай це чудовий вибір для Паладина, але зважте, як часто ви готові витрачати Реакцію на принагідну атаку, коли вороги входять у вашу досяжність: тоді ви не зможете застосувати «Божественну вірність»{{Divine Allegiance}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "«Вартовий»{{Sentinel}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": третій пункт цієї риси конкурує за Реакцію з «Божественною вірністю»{{Divine Allegiance}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "«Здоровань»{{Tough}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": навіть із кубиками здоровʼя к10 і {{«Цілющими руками»|Lay on Hands}} додаткові ХП можуть зробити застосування «Божественної вірності»{{Divine Allegiance}} безпечнішим."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Клятви корони",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого Клятва корони нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": ". Однак «Божественна вірність»{{Divine Allegiance}} спонукає триматися поруч із союзниками й обмежує вашу мобільність, тому зброя з досяжністю стає привабливішою, якщо ви не обрали бойовий стиль «Благословенний воїн»{{Blessed Warrior}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Клятви корони",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Друїд{{Druid}}: заклинання Кийок [Shillelagh] привабливе, але не обовʼязкове."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Воїн{{Fighter}}: один початковий рівень дасть володіння ряткидками Статури, ще один бойовий стиль і «Друге дихання»{{Second Wind}} — усе це корисно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чародій{{Sorcerer}}: один рівень дає чаклування на Харизмі, зокрема кращі бойові замовляння й захисні заклинання на кшталт Щит [Shield] та Поглинання стихій [Absorb Elements]. Божественна душа{{Divine Soul}} отримує замовляння Клірика, що теж спираються на Харизму, тож ви зможете обрати бойовий стиль, відмінний від «Благословенного воїна»{{Blessed Warrior}}. Якщо почати з рівня Чародія, отримаєте володіння ряткидками Статури — це чудово допомагає підтримувати Концентрацію."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чорнокнижник{{Warlock}}: два рівні Відьмацького клинка{{Hexblade}} дають змогу розвивати Харизму замість Сили. А ще завдяки потойбічним викликам можна взяти «Вогняну енергійність»{{Fiendish Vigor}} і безкоштовно відновлювати тимчасові ХП."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Паладина Клятви корони — Охоронець",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка зосереджена на захисті союзника й власному виживанні, тож ми серйозно вкладемося в Харизму та Статуру. Для атаки покладатимемося на замовляння. Це аж ніяк не збірка з високою шкодою, але в парі із союзником — «скляною гарматою»{{glass cannon}} — вона утворює дуже дієве поєднання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо роль охоронця вам не до душі, зосередьтеся на кінному бої. Оберіть Варіант людини{{Variant Human}} з рисою «Верховий боєць»{{Mounted Combatant}}, розвивайте Силу перед Харизмою й застосовуйте «Божественну вірність»{{Divine Allegiance}}, щоб скакун вижив. Плануйте накладати на скакуна Підтримку [Aid], аби збільшити його ХП, бо однієї Реакції не завжди вистачатиме, щоб урятувати його."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьмемо розподіл характеристик для збірки Паладина, що покладається на Харизму, з "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Паладина",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": ", а потім додамо +2 до Харизми й +1 до Статури. Сили вистачить, щоб не втрачати швидкість у важких обладунках і бодай якось протриматися на 1-му рівні, поки ми не здобудемо бойовий стиль «Благословенний воїн»{{Blessed Warrior}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Початкове"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Після покращення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Орк із «Монстрів мультивсесвіту»{{Monsters of the Multiverse Orc}}. «Прилив адреналіну»{{Adrenaline Rush}} допоможе швидко прийти на допомогу союзникам, а тимчасові ХП дадуть змогу безпечніше приймати шкоду замість них. «Невгамовна витривалість»{{Relentless Endurance}} підстрахує, якщо ми отримаємо сильний удар; сподіваємося, що зможемо протриматися до кінця бою або швидко відновитися завдяки {{«Цілющим рукам»|Lay on Hands}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Солдат{{Soldier}}. Атлетика й Залякування — чудовий вибір, та й за тематикою Солдат пасує ідеально."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Серед класових навичок беремо Аналіз поведінки й Переконання, а від передісторії — Атлетику й Залякування. Солдат також дає набір для гри й володіння наземним транспортом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні розподілимо підвищення характеристик."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо {{«Стійкий (Статура)»|Resilient (Con)}}, щоб повернути парне значення Статури й краще підтримувати Концентрацію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні доводимо Харизму до максимуму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му й 19-му рівнях можна обирати вільно, тож є простір для експериментів. Очевидний варіант — «Надихаючий лідер»{{Inspiring Leader}}, який робить витривалішими нас, скакуна й усю групу. «Здоровань»{{Tough}} дає нам чимало додаткових ХП, щоб частіше захищати союзників «Божественною вірністю»{{Divine Allegiance}} й не боятися, що ХП закінчаться."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне відчуття{{Divine Sense}}\n{{Цілющі руки|Lay on Hands}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні — звичні для Паладина вміння."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий стиль: Благословенний воїн{{Blessed Warrior}}\nВідомі замовляння:\n— Дзвін небіжчика\n— Слово сяйва\nБожественна кара{{Divine Smite}}\nЧаротворство"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "У ближньому бою тримайте зброю напоготові для рідкісної принагідної атаки, але загалом розраховуйте на замовляння. Якщо вдасться зблизитися з кількома ворогами, застосовуйте Слово сяйва [Word of Radiance]; інакше переважно використовуйте Дзвін небіжчика [Toll the Dead]. Для підготовлених заклинань обирайте звичні підсилення. Благословення [Bless] чудово допомагає союзникам, які покладаються на атаки, а ще підсилює ряткидки, зменшуючи ймовірність зазнати шкоди. Виклик на дуель [Compelled Duel] дає змогу відвернути ворогів від союзників, але наступного рівня це заклинання буде підготовлене безкоштовно, тож тоді замініть його на Героїзм [Heroism]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне здоровʼя{{Divine Health}}\nСвященна клятва{{Sacred Oath}}: {{Клятва корони|Oath of the Crown}}\nКанал божественності{{Channel Divinity}}:\n— {{Виклик чемпіона|Champion Challenge}}\n— {{Обернути хвилю|Turn the Tide}}\nЗаклинання клятви:\n— Наказ\n— Виклик на дуель"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Виклик чемпіона»{{Champion Challenge}} — це Виклик на дуель [Compelled Duel] по зоні. Намагайтеся виманити ворогів якнайдалі від союзників і сплануйте, щоб вони зійшлися на вас. Коли це станеться, вразьте їх Словом сяйва [Word of Radiance]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}}: Статура 16 → 17, Харизма 17 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні розподілимо підвищення характеристик між Харизмою та Статурою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}\nЗаклинання клятви:\n— Охоронний звʼязок\n— Зона правди"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зʼявляється Додаткова атака{{Extra Attack}}, а шкода замовлянь зростає. Охоронний звʼязок [Warding Bond] — чудовий спосіб захистити союзників, які не хочуть триматися поруч із вами, де ви могли б оберігати їх «Божественною вірністю»{{Divine Allegiance}}. Також отримуємо заклинання 2-го рівня. Підтримка [Aid] збільшує максимальний запас ХП, а завдяки {{«Каналу божественності: Обернути хвилю»|Channel Divinity: Turn the Tide}} її не потрібно берегти для масового лікування. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Пошук скакуна",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#find-steed"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Find Steed] — необхідне заклинання для будь-якого Паладина, навіть якщо використовувати скакуна лише як бойового улюбленця. Памʼятайте: після отримання Божественної вірності ви зможете застосовувати її і до свого скакуна."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура захисту|Aura of Protection}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надзвичайне вміння. Союзники в аурі значно частіше успішно проходять ряткидки, а отже, коли ви приймаєте на себе шкоду замість них за допомогою «Божественної вірності»{{Divine Allegiance}}, чимало ефектів завдають вам лише половину шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Божественна вірність|Divine Allegiance}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Саме тому наша збірка покладається на замовляння. Навіть зі зброєю з досяжністю можливість дістати ворогів, залишаючись поруч із союзником, непередбачувана. Натомість дальність Дзвону небіжчика [Toll the Dead] — 60 футів, тож можна захищати союзників, не змушуючи їх бігти за нами в ближній бій чи видиратися нам на спину."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: {{Стійкий (Статура)|Resilient (Constitution)}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нам дуже важливо добре зосереджуватися на заклинаннях, адже ми плануємо зазнавати ударів і від ворогів, що атакують нас, і від тих, що бʼють наших союзників. З бонусом майстерності, модифікаторами Статури й Харизми наш бонус становить +12 — цього достатньо, щоб гарантовано пройти ряткидок зосередження, навіть якщо випаде 1, коли ми зазнаємо не більш ніж 26 шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання клятви{{Oath Spells}}:\n— Аура живучості\n— Духи захисники"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті заклинання 3-го рівня. Для нас тут небагато чудових варіантів, але Мантія хрестоносця [Crusader's Mantle] чи Духовна плащаниця [Spirit Shroud] можуть посилити атаки союзників. Імовірніше, ви берегтимете слоти для заклинання Духи захисники [Spirit Guardians]. Клірики отримують його значно раніше, тож у нашій збірці воно завдаватиме відносно невеликої шкоди, але все одно чудово контролює зону. Коли вороги кинуться на вас і того, кого ви охороняєте, активуйте Духів захисників [Spirit Guardians] — нехай пошкодують про свої рішення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура мужності|Aura of Courage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Важко захищати людей, коли страх заважає вам вільно рухатися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращена божественна кара{{Improved Divine Smite}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для нас Покращена божественна кара{{Improved Divine Smite}} майже марна, якщо тільки ви не здійснюєте принагідну атаку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}}: Харизма 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимально посилюємо заклинання й уміння та доводимо {{Ауру захисту|Aura of Protection}} до максимуму."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання клятви{{Oath Spells}}:\n— Вигнання\n— Вартовий віри"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня відкривають чудові можливості, зокрема Захист від смерті [Death Ward] і "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Пошук вищого скакуна",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#find-greater-steed"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Find Greater Steed]. Накладіть Захист від смерті [Death Ward] на себе, щоб не загинути, прийнявши потужний удар замість союзника завдяки «Божественній вірності»{{Divine Allegiance}}. За допомогою Пошуку вищого скакуна [Find Greater Steed] отримайте пегаса й їздіть верхи на ньому разом із підопічним."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Очищувальний дотик{{Cleansing Touch}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Приємне вміння, але тактика не змінюється."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Непохитний дух|Unyielding Spirit}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гарний захист. Наші ряткидки проти цих ефектів мають бути чудовими, але успіх не гарантований."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Надихаючий лідер{{Inspiring Leader}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ціла гора тимчасових ХП для вашої групи."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання клятви:\n— Коло сили\n— Обітниця"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство 5-го рівня, але чудових варіантів небагато. Найкраще, мабуть, посилити Підтримку [Aid], щоб отримати по 20 додаткових ХП кожній із трьох істот. Оберіть себе, свого скакуна й улюбленого підопічного."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Аур{{Aura Improvements}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так вам буде значно легше охопити аурами всю групу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Здоровань{{Tough}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ціла гора справжніх ХП для вас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Екзальтований чемпіон|Exalted Champion}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Опір шкоді не діє, коли ви застосовуєте «Божественну вірність»{{Divine Allegiance}}, адже цю шкоду не можна зменшити, але вміння все одно чудове. Активуйте його, застосуйте «Виклик чемпіона»{{Champion's Challenge}} й змусьте ворогів обирати: метатися полем бою, залишаючись мішенню, чи кинутися на ваших Духів захисників [Spirit Guardians]."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-001",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання клятви",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-002",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-003",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-004",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-005",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "13-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-006",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "17-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-007",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Канал божественності",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-008",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Виклик чемпіона",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-009",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Обернути хвилю",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-010",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Божественна вірність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-011",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Непохитний дух",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-012",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Екзальтований чемпіон",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-013",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-2",
+      "optionId": "section-races-block-section-races-2",
+      "context": "Ведмебай",
+      "explanationBlockId": "block-section-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-014",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-3",
+      "optionId": "section-races-block-section-races-3",
+      "context": "Пагорбовий дворф",
+      "explanationBlockId": "block-section-races-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-015",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-races",
+      "targetBlockId": "block-section-races-4",
+      "optionId": "section-races-block-section-races-4",
+      "context": "Орк",
+      "explanationBlockId": "block-section-races-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-016",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-0",
+      "context": "«Дворфська стійкість»",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-017",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-1",
+      "context": "«Містичний адепт»",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-018",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-2",
+      "context": "«Майстер важких обладунків»",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-019",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-3",
+      "context": "«Надихаючий лідер»",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-020",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-4",
+      "context": "«Майстер древкової зброї»",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-021",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-5",
+      "context": "«Вартовий»",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-022",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-6",
+      "context": "«Здоровань»",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-023",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-0",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-024",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-1",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-025",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-2",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-crown-2014-026",
+      "articleId": "rpgbot-paladin-oath-of-the-crown-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-crown-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-3",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

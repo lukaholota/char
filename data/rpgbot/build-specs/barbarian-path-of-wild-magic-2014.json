@@ -1,0 +1,193 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "barbarian-path-of-wild-magic-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-barbarian-path-of-wild-magic-2014-draft1",
+    "sourceRevisionId": "rpgbot-e1e4407e85088ee0-7a9ecac31b9ad359"
+  },
+  "exampleSection": "section-example-build-did-he-just-slap-me-with-a-giant-spork",
+  "levelTableSection": "section-levels",
+  "classKey": "BARBARIAN_2014",
+  "subclassKey": "PATH_OF_WILD_MAGIC",
+  "raceKey": "TIEFLING_2014",
+  "variantKey": "TIEFLING_VARIANT_WINGED_SCAG",
+  "backgroundKey": "HAUNTED_ONE",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "PATH_OF_WILD_MAGIC"
+    },
+    {
+      "level": 4,
+      "featKey": "CRUSHER",
+      "featOptions": [
+        {
+          "optionNameEng": "CRUSHER Ability (Strength)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "featKey": "HEAVY_ARMOR_MASTER",
+      "section": "section-feats"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "STR",
+          "amount": 1
+        },
+        {
+          "ability": "DEX",
+          "amount": 1
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Продаж спорядження",
+      "reason": "Автор радить продати велику сокиру та набір мисливця на монстрів з передісторії і купити дворучний молот, кольчужну сорочку та ручні сокири; пресет не записує продаж і купівлю, тож лишено велику сокиру, ручні сокири та набір мандрівника зі стартових груп.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Покращення характеристик на 12-му рівні",
+      "reason": "Автор пише «Сила 18 → 20» (+2), але не враховує +1 до Сили від Майстра важкої зброї на 8-му: Сила вже 19, а +2 перевищує 20. Платформа вимагає рівно 2 очки, тому пресет бере Силу +1 (до 20) і Спритність +1 (вибір платформи, можна змінити на листі). Статура 16 → 18 на 16-му й → 20 на 19-му збігається з автором.",
+      "section": "section-feats"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/barbarian-path-of-wild-magic-2014.webp",
+    "title": "Варвар — Шлях дикої магії, Крилатий тифлінг",
+    "description": "Варвар Шляху дикої магії з крилами: Крилатий тифлінг за правилами Таші, Переслідуваний з Непомітністю й Виживанням та злодійськими інструментами замість мови, Дробильник на 4-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "STR",
+      "CON"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ATHLETICS",
+        "PERCEPTION"
+      ],
+      "race": [],
+      "background": [
+        "STEALTH",
+        "SURVIVAL"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": [
+        "THIEVES_TOOLS"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Крилатий тифлінг за правилами Таші: +2 до Сили й +1 до Статури, тож Сила 17, Статура 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Атлетика й Уважність — від Варвара, Непомітність і Виживання — від налаштованого Переслідуваного (правило PHB «Налаштування передісторії»): одну мову автор міняє на інструменти злодія. Решту мови ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Велика сокира, ручні сокири й набір мандрівника — зі стартових груп класу; автор радить інші покупки (див. нотатки) — це вибір платформи."
+  },
+  "revision": 2
+}

@@ -1,0 +1,963 @@
+{
+  "buildId": "build-bard-spirits-2014",
+  "revisionId": "build-bard-spirits-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— моторошні мінорні гами",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-bard-spirits-2014",
+      "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+      "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+      "sectionId": "section-example-build-minor-scales-are-creepy",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "BARD_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "BARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "BARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dissonant-whispers"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "BARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "COLLEGE_OF_SPIRITS",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "shatter"
+          ],
+          "spellbookKeys": []
+        },
+        "expertise": [
+          "INTIMIDATION",
+          "PERSUASION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "BARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "DRAGON_FEAR",
+        "spells": {
+          "cantripKeys": [
+            "mage-hand"
+          ],
+          "knownSpellKeys": [
+            "phantasmal-force"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "BARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "enemies-abound"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "BARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hypnotic-pattern"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "BARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "BARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TELEKINETIC",
+        "featOptions": [
+          {
+            "optionNameEng": "TELEKINETIC Ability (Charisma)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "raulothims-psychic-lance"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "BARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hold-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "BARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "synaptic-static"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ],
+        "expertise": [
+          "DECEPTION",
+          "ARCANA"
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "BARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "eyebite"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "BARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FEY_TOUCHED",
+        "featOptions": [
+          {
+            "optionNameEng": "FEY_TOUCHED Ability (Charisma)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "BARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "forcecage"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "BARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "BARD_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dominate-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "BARD_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "BARD_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "psychic-scream"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "BARD_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "BARD_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "BARD_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-spirits-2014",
+          "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+          "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "COLLEGE_OF_SPIRITS",
+    "raceKey": "DRAGONBORN_GEM",
+    "backgroundKey": "HAUNTED_ONE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores",
+        "title": "Характеристики",
+        "text": "Для Барда це цілком звичайний розподіл. Додаємо +2 до Харизми й +1 до Спритності, щоб підняти її до 16.\n\n Базове значення Збільшене значення Сил 8 8 Спр 15 16 Ста 14 14 Інт 8 8 Муд 10 10 Хар 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-ability-scores",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Самоцвітний дракононароджений{{Gem Dragonborn}}. Зброя дихання{{Breath Weapon}} непогана, але ми не будемо нею часто користуватися. Ми тут заради доступу до «Драконячого страху»{{Dragon Fear}}, але опір до шкоди й політ самоцвітного дракона теж приємні.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "{{Переслідуваний|Haunted One}}. Зробімо ставку на моторошне: вивчимо Магію{{Arcana}}, Релігію{{Religion}}, {{мову безодні|Abyssal}} та глибинну мову{{Deep Speech}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від класу беремо Обман{{Deception}}, Залякування{{Intimidation}} й Переконання{{Persuasion}}. Від передісторії отримуємо Магію{{Arcana}} й Релігію{{Religion}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Драконячий страх»{{Dragon Fear}}. Він дає +1 до Харизми й перетворює нашу зброю дихання{{Breath Weapon}} на засіб контролю натовпу, СК якого збігається з СК наших заклинань, бо вона залежить від Харизми. Багато в чому це схоже на Виклик страху [Cause Fear].\n\nНа 8-му рівні беремо «Телекінетика»{{Telekinetic}}. Він дає +1 до Харизми, а оскільки нам рідше потрібно берегти бонусну дію для «Бардського натхнення»{{Bardic Inspiration}}, «Телекінетичне штовхання»{{Telekinetic Shove}} легко вписати в нашу тактику.\n\nНа 12-му рівні беремо «Доторк феї»{{Fey Touched}}. Туманний крок [Misty Step] чудово працює разом з «Історіями з потойбіччя»{{Tales from Beyond}}, адже «Історії» — це не заклинання. Також отримуємо +1 до Харизми й вивчаємо Героїзм [Heroism] як заклинання 1-го рівня для синергії з «Історіями з потойбіччя» («Історія месника»{{Avenger}}).\n\nУ нас є вільне місце на 16-му й 19-му рівнях. Подумайте про підвищення Статури або про «Стійкого»{{Resilient}} (Статура).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "«Бардське натхнення»{{Bardic Inspiration}} 1к6\nЧаротворство{{Spellcasting}}\nЗамовляння: – Мала ілюзія [Minor Illusion] – Злісне глузування [Vicious Mockery]\nВідомі заклинання: – Зурочення [Bane] – Цілюще слово [healing word] – Огидний сміх Таші [Tasha's Hideous Laughter] – Сон [Sleep]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "«Майстер на всі руки»{{Jack of All Trades}}\n«Пісня відпочинку»{{Song of Rest}} (к6)\nВідомі заклинання: – Дисонуючий шепіт [Dissonant Whispers]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Колегія Бардів{{Bard College}}: {{Колегія духів|College of Spirits}}\n«Направляючі шепоти»{{Guiding Whispers}}\n«Спіритичний фокус»{{Spiritual Focus}}\n«Історії з потойбіччя»{{Tales from Beyond}}\nЕкспертиза{{Expertise}}: – Залякування – Переконання\nВідомі заклинання: – Друзки [Shatter]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: «Драконячий страх»{{Dragon Fear}} (Харизма 17 → 18)\nЗамовляння: – Магічна рука [Mage Hand]\nВідомі заклинання: – Уявна сила [Phantasmal Force]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "«Бардське натхнення»{{Bardic Inspiration}} (1к8)\n«Джерело натхнення»{{Font of Inspiration}}\nВідомі заклинання: – Достаток ворогів [Enemies Abound]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "«Контрпричарування»{{Countercharm}}\n«Спіритичний сеанс»{{Spirit Session}}\nВідомі заклинання: – Гіпнотичний візерунок [Hypnotic Pattern]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Відомі заклинання: – Фантомний вбивця [Phantasmal Killer]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "«Телекінетик»{{Telekinetic}} (Хар 18 → 19)\nВідомі заклинання: – Психічний спис Раулотіма [Raulothim's Psychic Lance]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "«Пісня відпочинку»{{Song of Rest}} (к8)\nВідомі заклинання: – Стримування монстра [Hold Monster]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "«Бардське натхнення»{{Bardic Inspiration}} (1к10)\nЕкспертиза{{Expertise}}: – будь-які 2\n«Магічні таємниці»{{Magical Secrets}}\nЗамовляння: – будь-яке 1\nВідомі заклинання: – Розщеплення Розуму [Mind Sliver] – Синаптичний розряд [Synaptic Static]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Відомі заклинання: – Проклятуще око [Eyebite]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "«Доторк феї»{{Fey Touched}} (Героїзм [Heroism], Хар 19 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "«Пісня відпочинку»{{Song of Rest}} (к10)\nВідомі заклинання: – Силова кліть [Forcecage]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "«Містичний звʼязок»{{Mystical Connection}}\n«Магічні таємниці»{{Magical Secrets}}\nВідомі заклинання: – Обачливість [Contingency] – Планарний перехід [Plane Shift]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "«Бардське натхнення»{{Bardic Inspiration}} (1к12)\nВідомі заклинання: – Підкорення монстра [Dominate Monster]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик / риса: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "«Пісня відпочинку»{{Song of Rest}} (к12)\nВідомі заклинання: – Психічний крик [Psychic Scream]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Магічні таємниці{{Magical Secrets}}: – Масове зцілення [Mass Heal] – Бажання [Wish]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик / риса: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "«Вище натхнення»{{Superior Inspiration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Заклинання, яких немає у списку Барда",
+        "reason": "Автор називає Фантомного вбивцю (7-й), Розщеплення розуму (10-й), Обачливість і Планарний перехід (14-й), Масове зцілення і Бажання (18-й); платформа відхиляє їх (помилка компілятора: «Обране заклинання не з вашого списку класу або зависокого рівня»), бо їх немає у списку Барда в каталозі. Гравець обирає ці заклинання сам (вибір платформи, автор їх називає).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Експертиза на 10-му рівні",
+        "reason": "Автор пише «будь-які 2» і не називає навички; пресет бере Обман та Аркану (вибір платформи, можна змінити на листі).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння на 10-му рівні",
+        "reason": "Автор пише «будь-яке 1»; його обирає гравець (вибір платформи).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Підвищення характеристик на 16-му та 19-му рівнях",
+        "reason": "Автор пише «будь-яка» і радить Статуру або Стійкого; пресет бере Статура +2 на обох рівнях (вибір платформи, можна змінити перед створенням).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання Доторку феї",
+        "reason": "Автор бере Героїзм на 12-му рівні; заклинання риси на підвищенні платформа не записує, поіменно видається лише Туманний крок.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-spirits-2014",
+            "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+            "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

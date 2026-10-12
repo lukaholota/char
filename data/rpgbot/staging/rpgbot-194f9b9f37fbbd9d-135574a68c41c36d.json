@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/feats/cold-caster/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "135574a68c41c36dc1da38809014f2a4a46d95e7276276555e0e29ca38134385",
+  "sourceRevision": {
+    "revisionId": "rpgbot-194f9b9f37fbbd9d-135574a68c41c36d",
+    "sourceId": "rpgbot-194f9b9f37fbbd9d",
+    "fetchedAt": "2026-09-29T19:09:38.075663+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:55:02-04:00",
+    "contentHash": "a471c529f828f469209f8f768139b5cd1a6d41b048866b1f4f4bfe02255e963d",
+    "title": "DnD 5.5 Cold Caster Feat Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-194f9b9f37fbbd9d-135574a68c41c36d.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cold Caster offers a powerful, repeatable debuff attached to attacks dealing cold damage including both weapon and spell attacks. It’s a decent choice for any spellcaster, but anyone with access to Mind Sliver should look there first."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n\tThe biggest problem is the limited number of options for applying cold damage\n\twith an attack. While those options certainly exist, they’re few in number.\n\tThis feat is clearly intended for spellcasters (it’s literally in the name),\n\tbut spells which include spell attacks are all but non-existent past level 2\n\tspells.\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-score-increase",
+      "heading": "Ability Score Increase",
+      "sourceAnchor": "ability-score-increase",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-score-increase-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any mental stat. Easy for casters."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cantrip",
+      "heading": "Cantrip",
+      "sourceAnchor": "cantrip",
+      "blocks": [
+        {
+          "blockId": "block-section-cantrip-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n\tA good ranged attack cantrip, and it guarantees that you have a way to trigger\n\tFrostbite.\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-frostbite",
+      "heading": "Frostbite",
+      "sourceAnchor": "frostbite",
+      "blocks": [
+        {
+          "blockId": "block-section-frostbite-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n\tA save debuff similar to Mind Sliver. The only difficulty is triggering it\n\tsince it only triggers on attacks which deal cold damage.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-frostbite-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ray of Frost is the obvious choice, but a handful of class features offer other options, such as the Warrior of the Elements Monk, the Winter Walker Ranger, and the Genie Warlock. Chromatic Orb works reasonably well, and Transmuted Spell combined with Scorching Ray can give you multiple attacks which deal cold damage, allowing multiple attempts to apply the debuff."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-frostbite-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n\tRemember that conditions in the 2024 rules don’t stack with themselves, so you\n\tcan’t use this to stack the save debuff on the same target. You can still\n\tstack this with Mind Sliver, Bane, and similar effects, though.\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "#ability-score-increase",
+      "detail": "wp-block-heading rating-blue Ability Score Increase"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#cantrip",
+      "detail": "wp-block-heading rating-green Cantrip"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#frostbite",
+      "detail": "wp-block-heading rating-blue Frostbite"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-ability-score-increase-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-cantrip-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-frostbite-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-frostbite-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-frostbite-3"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[2]",
+      "detail": "<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-9-16 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\"> <div class=\"f"
+    }
+  ],
+  "metrics": {
+    "words": 237,
+    "sections": 4,
+    "blocks": 7,
+    "tables": 0,
+    "ratingSignals": 3
+  },
+  "status": "needs-editorial-review"
+}

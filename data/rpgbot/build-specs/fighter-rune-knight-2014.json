@@ -1,0 +1,249 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "fighter-rune-knight-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+    "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69"
+  },
+  "exampleSection": "section-example-rune-knight-build-attaxi-of-the-giant-tabaxi",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "subclassKey": "RUNE_KNIGHT",
+  "raceKey": "TABAXI_MPMM",
+  "backgroundKey": "CUSTOM",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 12,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 13,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "RUNE_KNIGHT",
+      "subclassOptions": [
+        {
+          "optionNameEng": "Stone Rune (Rune)"
+        },
+        {
+          "optionNameEng": "Fire Rune (Rune)"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (STR)"
+        },
+        {
+          "optionNameEng": "Skill Expert Proficiency (SLEIGHT_OF_HAND)"
+        },
+        {
+          "optionNameEng": "Skill Expert Expertise (ATHLETICS)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "featKey": "TAVERN_BRAWLER",
+      "featOptions": [
+        {
+          "optionNameEng": "TAVERN_BRAWLER Ability (Strength)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 7,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Hill Rune (Rune)"
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "featKey": "CRUSHER",
+      "featOptions": [
+        {
+          "optionNameEng": "CRUSHER Ability (Strength)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Storm Rune (Rune)"
+        }
+      ]
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Wisdom)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "featKey": "HEALER",
+      "section": "section-feats"
+    },
+    {
+      "level": 15,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Cloud Rune (Rune)"
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Інструменти",
+      "reason": "Автор бере приладдя пивовара та інструменти злодія від власної передісторії; платформа їх записує як інструменти замість мов. Інструменти коваля та велетенську мову Рунічного лицаря на 3-му рівні платформа видає сама.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Стартове спорядження",
+      "reason": "Автор не називає спорядження для стартового набору Воїна: кольчугу, бойову зброю зі щитом, легкий арбалет і набір дослідника підземель обрала платформа.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Табаксі: Спритність і Мудрість у таблиці",
+      "reason": "У таблиці характеристик стоять значення в дужках (Спритність 12 або 13, Мудрість 13 або 12); взято Спритність 12 і Мудрість 13.",
+      "section": "section-abilities"
+    }
+  ],
+  "preset": {
+    "title": "Воїн Рунічний лицар — Табаксі",
+    "description": "Воїн Рунічний лицар-табаксі за правилами Таші: Сила 17 і Статура 16, бій без зброї, власна передісторія з Аналізом поведінки й Виживанням, а расові навички замінені на Медицину й Поводження з тваринами.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "STR",
+      "CON",
+      "STR"
+    ],
+    "racialAbilityRules": "tasha",
+    "freeRaceSkills": true,
+    "skills": {
+      "selectedClass": [
+        "ATHLETICS",
+        "PERCEPTION"
+      ],
+      "race": [
+        "MEDICINE",
+        "ANIMAL_HANDLING"
+      ],
+      "background": [
+        "INSIGHT",
+        "SURVIVAL"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": [
+        "BREWERS_SUPPLIES",
+        "THIEVES_TOOLS"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [
+      "Unarmed Fighting"
+    ],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": [
+          "LONGSWORD"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Табаксі за правилами Таші: +2 до Сили й +1 до Статури, як у таблиці автора (Сила 17, Статура 16). Це вже враховано.",
+    "skillExplanation": "Атлетику й Уважність бере Воїн; Медицину й Поводження з тваринами автор вибирає замість расових Уважності й Непомітності (правило «Налаштування походження»); Аналіз поведінки, Виживання, приладдя пивовара й інструменти злодія дає власна передісторія (правило PHB «Налаштування передісторії»). Разом це володіння всіма навичками Мудрості. Расову мову ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор не називає стартового спорядження. Кольчугу, довгий меч зі щитом, легкий арбалет і набір дослідника підземель ми обрали за вас — вибір платформи."
+  }
+}

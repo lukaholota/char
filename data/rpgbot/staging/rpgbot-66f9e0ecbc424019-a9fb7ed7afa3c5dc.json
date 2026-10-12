@@ -1,0 +1,2549 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "a9fb7ed7afa3c5dc988e40f7db34ccd292753719c6c222f7b8f94da496302051",
+  "sourceRevision": {
+    "revisionId": "rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc",
+    "sourceId": "rpgbot-66f9e0ecbc424019",
+    "fetchedAt": "2026-09-29T19:14:36.298667+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:37:58-04:00",
+    "contentHash": "1e22f060a309b5853e7b97a62a41c1c4357fbe731f3774700fad2505fe175fc2",
+    "title": "Way of the Sun Soul Monk 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-66f9e0ecbc424019-a9fb7ed7afa3c5dc.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Monks always get the short end of the stick. Even when they get cool powers that sound real neat on paper, like "
+            },
+            {
+              "type": "link",
+              "text": "ghost arms that punch people",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/astral-self/"
+            },
+            {
+              "type": "text",
+              "text": ", they usually don’t stack up against the rest of the classes. But that’s fine. You didn’t pick The Way of the Sun Soul because it was a good idea. You pick it because you want to be Goku. I’ll do my best to make sure we can get the most out of this rather fun subclass."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "So what do we get from the Way of the Sun Soul? Well we get some consistent radiant damage from one of the stranger attacks in the game, Radiant Sun Bolt. It replaces attacks during the Attack Action with ranged spell attacks, and that’s very bizarre. We also get burning hands for some reason and a spammable AoE. These are all nifty features, they just have trouble with how they are all used."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our example build below, The Prince of All Hadozee, leans into the joke a bit, while still making good choices for actually playing this subclass. We take advantage of some of the optional class features from Tasha’s to help smooth out some of the trouble that comes with using all the features of a Sun Soul. If you like it, give it a try and let us know what you think."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Sun Soul Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Sun Soul Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#way-of-the-sun-soul-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Sun Soul Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#way-of-the-sun-soul-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Sun Soul Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#way-of-the-sun-soul-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Way of the Sun Soul Weapons and Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#way-of-the-sun-soul-weapons-and-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Way of the Sun Soul Build – The Prince of All Hadozee",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#example-way-of-the-sun-soul-build-the-prince-of-all-hadozee"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/sun-soul/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Way of the Sun Soul Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Radiant Sun Bolt"
+              },
+              {
+                "type": "text",
+                "text": ": Finally, a meaningful\n\t\tranged option for the Monk! The damage die is admittedly small compared to\n\t\tusing a spear in melee, but you can replace any of your attacks during the\n\t\tAttack action (not the one from Martial Arts), and the damage die will scale\n\t\tas you gain levels. What really makes this shine however, is the second half of the feature, solving the Flurry of Blows problem for ranged Monk builds.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You don’t need free hands to make these attacks, so you can switch\n\t\t\tbetween your spear and Radiant Sun Bolt at will. If you spend the Ki Point\n\t\t\tto make two attacks as a bonus action, you can keep up with or even outdo\n\t\t\treal spellcasters in terms of ranged damage output. Even the Warlock with\n\t\t\tEldritch Blast+Agonizing Blast may struggle to match Radiant Sun Bolt when\n\t\t\tyou spend Ki to make additional attacks as a Bonus Action since you still\n\t\t\tadd your Dexterity bonus to the attacks. The Warlock won’t catch up until\n\t\t\t17th level when Eldritch Blast adds a fourth ray. Of course, Eldritch\n\t\t\tBlast doesn’t cost Ki to make all of those attacks, so by level 11\n\t\t\tEldritch Blast+Agonizing Blast will be more effective if you’re not\n\t\t\twilling to spend Ki."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "This attack does present a weird situation to explore. Certain magic items grant a bonus to spell attack rolls and they have various attunement requirements. Most require levels as a specific spellcaster and so only function when multiclassing, and only for that class’s spells. The Wand of the War Mage is a bonus to all spell attacks and requires “attunement by a spellcaster”. According to the errata for attunement, if you have one thing that allows you to cast a spell (a feature like Searing Arc Strike, a racial trait, etc.) you qualify as a spellcaster for the purposes of attunement. It won’t help your save DC’s, but that’s what the Dragonhide Belt is for."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Searing Arc Strike"
+              },
+              {
+                "type": "text",
+                "text": ": A great option when\n\t\tyou’re facing crowds of enemies in close quarters, but it can be hard to hit\n\t\tmore than two creatures with such a small cone, and the damage isn’t great\n\t\tunless you spend a bunch of Ki. This also does fire damage, which is weird\n\t\tbecause everything else in the subclass deals radiant damage.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you can hit three creatures, this is a more efficient use of both your\n\t\t\tBonus Action and your Ki than spending the same Ki to use either\n\t\t\tFlurry of Blows or the Bonus Action attack with Radiant Sun Bolt.\n\t\t\tEven with a d10 damage die and 20 Dexterity, hitting three creatures\n\t\t\twith 3d6 damage will deal more damage on average than two attacks.\n\t\t\tEven better, Stunned creatures automatically fail Dexterity saves,\n\t\t\tso if you can stun your targets before using Searing Arc Strike,\n\t\t\tyou can drop a bunch of damage on them."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Getting this feature at 6th level can feel frustrating. Cones work fine on\n\t\t\tmartial characters who can survive in melee, but it’s a 1st-level spell\n\t\t\tthat you get at level 6, and it has 15-foot range on a subclass that’s\n\t\t\tthat’s all about allowing the Monk to function at long range."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Once you get Searing Sunburst, this may feel obsolete.\n\t\t\tFor the same two Ki points, Searing Sunburst deals 6d6 damage (avg. 21\n\t\t\tcompared to Searing Arc Strike’s 13.5) in a significantly larger AOE and\n\t\t\tat 150-foot range, though it does consume an Action. Adding more Ki widens the gap even further."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Searing Sunburst"
+              },
+              {
+                "type": "text",
+                "text": ": The base damage isn’t\n\t\tgreat, but it scales reasonably well and doesn’t cost any Ki Points to use\n\t\tat the base damage. Unfortunately, because the base damage is so low that you\n\t\tneed to spend a ton of Ki to do any serious damage, and, since this is on a\n\t\tConstitution save your enemies are likely to pass the save, which means they take no damage, not half damage.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The best part of this is that you can use it for free. 2d6 damage still\n\t\t\tisn’t a ton of damage, but the range is great at 150 feet (compared to\n\t\t\tjust 30 feet for Radiant Sun Bolt), so if you’re fighting at long range\n\t\t\tyou can shell your enemies with this at the base damage until they either\n\t\t\tdie or get tired of your shenanigans and move closer."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sun Shield"
+              },
+              {
+                "type": "text",
+                "text": ": A nice deterrent. The damage\n\t\tisn’t huge (probably 10 damage at this level), but the effect is constant\n\t\tunless you turn it off, which you might do when you need to be stealthy. The\n\t\tbiggest frustration is that this consumes your Reaction so you can’t use it\n\t\tfor Opportunity Attacks or something like that."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-sun-soul-ability-scores",
+      "heading": "Way of the Sun Soul Ability Scores",
+      "sourceAnchor": "way-of-the-sun-soul-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-sun-soul-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Like most Monks, we need too many good scores because our features are all over the place."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-sun-soul-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Thanks to the ranged attacks, We get less out of this than most Monks who might want to leave Grappling open as an option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-sun-soul-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Martial arts, AC, and anime laser spell attacks. Neat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-sun-soul-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Even if we stick to ranged fighting, don’t dump this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-sun-soul-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": We need other ability scores too much."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-sun-soul-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": This fuels AC as well as the Save DCs of Arc and Sunburst."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-sun-soul-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": We need other ability scores too much."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-sun-soul-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-sun-soul-races",
+      "heading": "Way of the Sun Soul Races",
+      "sourceAnchor": "way-of-the-sun-soul-races",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-sun-soul-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sun Souls mostly want the "
+            },
+            {
+              "type": "link",
+              "text": "same things from race",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/races/"
+            },
+            {
+              "type": "text",
+              "text": " as other Monks. The ability to attack at range does make flying monks much more appealing, especially with the ability to use Searing Arc Strike from above, effectively turning the AOE from a cone into a circle for enemies on the ground. And one other exception."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-sun-soul-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Hadozee"
+              },
+              {
+                "type": "link",
+                "text": "SJ:AiS",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": I’m just sayin’ that Hadozee make excellent kung fu anime laser Monks from space. Just sayin’. Not supa’ sayin’."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-sun-soul-feats",
+      "heading": "Way of the Sun Soul Feats",
+      "sourceAnchor": "way-of-the-sun-soul-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-sun-soul-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For anything not listed below refer to the "
+            },
+            {
+              "type": "link",
+              "text": "Monk Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/monk/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-sun-soul-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Gunner"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": But not for using guns, though Monks can make great use of those as well. The real reason is that, as a half feat that grants +1 Dexterity while also negating the Disadvantage to ranged attack rolls from being within 5 feet of a target, this is a great feat for us."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-way-of-the-sun-soul-weapons-and-armor",
+      "heading": "Way of the Sun Soul Weapons and Armor",
+      "sourceAnchor": "way-of-the-sun-soul-weapons-and-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-way-of-the-sun-soul-weapons-and-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We can use any Monk weapons we want as they don’t interfere with our lasers, but if you take the Gunner feat, I do suggest having a Musket for shooting outside of the 30 feet range of lasers."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-way-of-the-sun-soul-weapons-and-armor-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As for Armor, while I don’t suggest wearing any, technically it doesn’t interfere with any of the subclass features. I mean it’d be really weird if you wore armor, but I won’t stop you."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+      "heading": "Example Way of the Sun Soul Build – The Prince of All Hadozee",
+      "sourceAnchor": "example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+      "blocks": [
+        {
+          "blockId": "block-section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shooting lasers is fun. This is not a great way to go about it but we’re not here to make good decisions. We’re here to be cocky and arrogant while making bad decisions. This build is totally optimized… For fun!"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build used the optional class features Dedicated Weapon, Ki-Fueled Attack, and Focused Aim, though the build is fine without those. They really just give a way to get some extra attacks when using certain features. In particular, the lasers can only be fired as a bonus action if the attack action was already used to fire at least one laser. These features keep us from wasting that bonus action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll put priority on Dexterity, Constitution and Wisdom. We’re Hadozee and choose the +1/+1/+1 option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re taking Hadozee because we’re trying to be Vegeta. The glide is almost like flying so that’s cool. Hadozee Resilience will let us take less damage so we can get punched and keep fighting till Goku actually wins the fight. Yeah, I chose the race for the reference, but it also has useful features."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You might think "
+            },
+            {
+              "type": "emphasis",
+              "text": "Prince"
+            },
+            {
+              "type": "text",
+              "text": " Vegeta would have a Noble background, but no he’s very much a Soldier, so we are too. This gives us Athletics, Intimidation, Land Vehicles, and a Gaming set."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Monk, we’ll take Acrobatics and Insight. From Skill Expert at eighth level we’ll learn Survival and get Insight Expertise. Soldier gave us Athletics and Intimidation."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourth level, we take Gunner. This gives us +1 Dexterity, some gun stuff we don’t really need to use, and the ability to make ranged attack rolls (our laser blasts) in melee without Disadvantage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At eighth level, we take Skill Expert, putting another +1 into Dexterity and gaining Survival proficiency and Insight Expertise. Now everyone can ask us what the Insight check says about their power level."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At twelfth level, we take an ASI for +2 Dexterity, capping at 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixteenth level, we take an ASI for +2 Wisdom, reaching 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At nineteenth level, we take an ASI for +2 Wisdom, capping at 20."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Martial Arts Laser Die"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmored Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Martial Arts"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Acrobatics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Athletics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Intimidation"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Punch and kick your way through these first few levels. And by punch and kick I mean grab a spear because it does more damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’ll get lasers soon enough."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ki"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unarmored Movement"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dedicated Weapon (Optional)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get Ki now. We always have Ki points equal to our Monk Level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also move a little faster now."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dedicated Weapon lets us make (almost) anything into a Monk weapon, which is really handy when we take Gunner later."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Way of the Sun Soul"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Radiant Sun Bolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Deflect Missiles"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Ki-Fueled Attack (Optional)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Alright, Radiant Sun Bolt. Now we can make laser attacks when we take the attack action.That’s pretty cool by itself, but we can spend the same Ki we would have spent using Flurry of Blows to get two laser attacks on our Bonus Action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfortunately we can’t make a free bonus laser like standard Martial Arts."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Ki-Fueled Attack will help later when we start spending Ki during our action and also have a gun."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Gunner+1 Dexterity (16=>17)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Slow Fall"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Gunner opens up two nice things for us:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now we can laser even when foes are up in our face and we can also use guns if we want. For example, we can fire a musket as a bonus action if we trigger a Ki-Fueled attack, especially good because we can’t fire lasers as a bonus action unless we both took the attack action and spent Ki to use the Bonus Action."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Musket is a great option, so definitely get one if you can."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stunning Strike"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Focused Aim (Optional)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Double Laser. Daka daka daka."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stunning strike is nice, but it won’t work with lasers, unfortunately. We’ll have to actually hit people for that."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Focused Aim can help us turn a near miss into a hit, and using it during your Action will trigger Ki-Fueled Attack."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ki-Empowered Strikes"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Searing Arc Strike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our lasers were already magical damage, but now everything else can be too."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Searing Arc Strike is Burning Hands as a Bonus Action at the cost of 2 Ki. It’s good if we can catch a few enemies."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Evasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stillness of Mind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Evasion is a really nice feature to have for negating otherwise halved damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Stillness of Mind is ok. Some charm and fear effects either already require an action (Wrathful Smite) or require certain conditions (Fear) to retry a save to end the effect, so spending an Action to just end the effect is sometimes great. Other sources just have the target save again after each turn, so gauge how bad the DC was before using this for those kinds of effects."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Skill Expert"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Dexterity (17=>18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Perception Proficiency"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight Expertise"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Skill Expert is mostly chosen to have a half feat with Dexterity as an option."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Perception is a nice skill to have, we don’t want to be caught off guard."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Insight Expertise is also great, and we’ll have good Wisdom to use it even better. We could probably even get a good read on how powerful someone is. Maybe even put a numerical value on it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmored Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Move even faster. Zoom."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Purity of Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Immune to Disease. Immune to Poison."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Disease isn’t super common in 5e, but tends to be debilitating."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Poison on the other hand is both a common damage type and an awful condition to suffer. Good feature."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Searing Sunburst"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "An AoE blast. It’s good, but it suffers two problems. The first is that it’s not save for half but instead save to negate. This wouldn’t be too bad if it wasn’t also a Constitution save."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It also keys the DC off of our Wisdom, and that’s still low right now unless you’ve picked up a Dragonhide Belt."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The upside, however, is that if we spend even one Ki to try for extra damage on it, we do activate Ki-Fueled Attack."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Dexterity +2 (18=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Better attack rolls and damage for lasers."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Oh, and also for punching, but really who would punch when they could laser?"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tongue of the Sun and Moon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Weird built-in universal translator."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Diamond Soul"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Better saves all around and a reroll option. Actually a nice feature."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Timeless Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Can’t age and don’t need food or water."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It’s neat, but a lot of races already get this. Not our race, but plenty of other races. Nice for us, though."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Wisdom +2 (16=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Better AC, Better DCs. We’ll take it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sun Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You’re not dealing with the average Hadozee Monk anymore."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Ok jokes aside, we light up the area around us and have a reaction to do minor radiant damage to anything that hits us with a melee attack. It’s nice to have."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Empty Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Empty body lets us be invisible for a minute for 4 Ki. Fun fact, this doesn’t prevent us from lighting up the area with Sun Shield. So we can be both invisible and coat the area in bright light."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It’s good invisibility too, letting us make attacks and such without ending it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Oh and technically, this also procs Ki-Fueled Attack. Cloak and fire your Musket with Advantage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Wisdom +2 (18=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More AC/DC."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Perfect Self"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4 Ki for free when we start a fight with no Ki. It’s fine."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "rating- wp-block-heading Way of the Sun Soul Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Radiant Sun Bolt"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Searing Arc Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Searing Sunburst"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sun Shield"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hadozee"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Gunner"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[1]",
+      "detail": "<li value=\"3\"><span class=\"rating-green\">Radiant Sun Bolt</span>: Finally, a meaningful ranged option for the Monk! The damage die is admittedly small compared to using a spear in "
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"6\"><span class=\"rating-green\">Searing Arc Strike</span>: A great option when you’re facing crowds of enemies in close quarters, but it can be hard to hit more than two c"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-way-of-the-sun-soul-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-way-of-the-sun-soul-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-way-of-the-sun-soul-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-way-of-the-sun-soul-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-way-of-the-sun-soul-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-way-of-the-sun-soul-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-way-of-the-sun-soul-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-way-of-the-sun-soul-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-way-of-the-sun-soul-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-way-of-the-sun-soul-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-way-of-the-sun-soul-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-way-of-the-sun-soul-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-way-of-the-sun-soul-weapons-and-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-way-of-the-sun-soul-weapons-and-armor-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-way-of-the-sun-soul-build-the-prince-of-all-hadozee-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2902,
+    "sections": 15,
+    "blocks": 36,
+    "tables": 3,
+    "ratingSignals": 17
+  },
+  "status": "needs-editorial-review"
+}

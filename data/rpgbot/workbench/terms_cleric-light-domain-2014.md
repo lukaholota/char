@@ -1,0 +1,1 @@
+Radiance of the Dawn → «Проміння світанку»{{Radiance of the Dawn}} | block-section-levels-1/row/1/2 (also rows 4, 5, 16, 17) | short form of the catalog Channel Divinity option «Божественність: Проміння світанку», used by the author without the "Channel Divinity:" prefix

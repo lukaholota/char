@@ -1,0 +1,150 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "cleric-light-domain-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-cleric-light-domain-2014-draft1",
+    "sourceRevisionId": "rpgbot-6dd9431be91b32ca-1b68e83e1381f121"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "LIGHT_DOMAIN",
+  "raceKey": "HUMAN_2014",
+  "variantKey": "HUMAN_VARIANT",
+  "backgroundKey": "ACOLYTE",
+  "featKey": "LUCKY",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 13,
+    "INT": 12,
+    "WIS": 15,
+    "CHA": 10
+  },
+  "revision": 2,
+  "levels": [
+    {"level": 2},
+    {"level": 3},
+    {"level": 4, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "openSpellPicks": [{"category": "cantrips", "count": 1}]},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}]},
+    {"level": 9},
+    {"level": 10, "openSpellPicks": [{"category": "cantrips", "count": 1}]},
+    {"level": 11},
+    {"level": 12, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}]},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}]},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}]},
+    {"level": 20}
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [],
+  "incomplete": [
+    {
+      "field": "Підготовлені заклинання 2–20 рівнів",
+      "reason": "Підготовку Клірика на вищих рівнях плану не веде жоден модуль платформи; підготовлені заклинання вибираються на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння 4-го та 10-го рівнів",
+      "reason": "Автор пише «будь-яке» нове замовляння на 4-му та 10-му рівнях (на 10-му не називає взагалі), тож вибір лишено гравцеві.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/cleric-light-2014.webp",
+    "title": "Клірик — Домен світла, Варіант людини",
+    "description": "Вогняний і променевий заклинач у середньому обладунку зі щитом: Священне полумʼя, Слово сяйва й Спалах захисника. Риса «Удача» — запасний вибір автора.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CON",
+      "WIS"
+    ],
+    "skills": {
+      "selectedClass": [
+        "RELIGION",
+        "HISTORY"
+      ],
+      "race": [
+        "PERCEPTION"
+      ],
+      "background": [
+        "PERSUASION"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "CELESTIAL",
+      "DWARVISH",
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "b",
+        "weapons": [
+          "DAGGER"
+        ]
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 5,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats-2",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Варіант людини додає по +1 до Статури й Мудрості, як у таблиці автора (Статура 14, Мудрість 16); це вже враховано.",
+    "skillExplanation": "Уважність — від Варіанта людини, Релігія — від Клірика, Аналіз поведінки — від Послушника. Історію автор називає запасним варіантом, тож її обрано за вас; повторну Релігію Послушника замінено на Переконання, яке автор також згадує. Мови: Небесну автор радить для расового вибору, дві інші ми обрали за вас — їх можна змінити.",
+    "equipmentExplanation": "Булава, лускатий обладунок, кинджал, щит і священний символ взяті з авторського прикладу. Набір священика ми обрали за вас — автор каже «будь-який із наборів»; його можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "sacred-flame",
+        "word-of-radiance"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "featSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Настанова, Священне полумʼя й Слово сяйва — авторський рядок 1-го рівня. Підготовлені заклинання Благословення, Щит віри й Цілюще слово названо автором; Палючі долоні автор теж радить, але їх дає домен світла автоматично.",
+      "platformChoices": [],
+      "preparedSpellKeys": [
+        "bless",
+        "shield-of-faith",
+        "healing-word"
+      ]
+    }
+  }
+}

@@ -26,13 +26,15 @@ const extractErrorMessage = (err: unknown): string | null => {
 
 export function useStepForm<TShape extends ZodRawShape>(
     schema: ZodObject<TShape>,
-    onSuccess?: (data: z.output<typeof schema>) => void
+    onSuccess?: (data: z.output<typeof schema>) => void,
+    initialValues?: Partial<z.input<ZodObject<TShape>>>
 ) {
     type Input = z.input<typeof schema>
     type Output = z.output<typeof schema>
 
     const { formData, updateFormData, nextStep, isHydrated, resetNonce } = usePersFormStore();
 
+    const initialValuesAtMount = useRef(initialValues).current;
     const resetNonceAtMountRef = useRef(resetNonce);
 
     const schemaDefaults = useMemo(() => {
@@ -52,7 +54,8 @@ export function useStepForm<TShape extends ZodRawShape>(
     const mergedDefaults = useMemo(() => ({
         ...schemaDefaults,
         ...relevantFormData,
-    }), [schemaDefaults, relevantFormData])
+        ...initialValuesAtMount,
+    }), [schemaDefaults, relevantFormData, initialValuesAtMount])
 
     const form = useForm<Input, unknown, Output>({
         resolver: zodResolver(schema),

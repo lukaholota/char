@@ -23,7 +23,7 @@ export interface LevelUpFormData {
   /** KR18.6: повний набір майстерності зброї після цього рівня. Немає ключа — набір не чіпають. */
   weaponMasteryWeaponIds?: number[];
   /** KR31.5: замовляння, книга й підготовлені, які клас дає обрати на цьому рівні. */
-  classSpells?: { cantripIds: number[]; preparedIds: number[]; spellbookIds: number[] };
+  classSpells?: { cantripIds: number[]; preparedIds: number[]; spellbookIds: number[]; preparedSwap?: { dropId: number; addId: number } };
   /** KR31.5: заклинання, які риса дає обрати (Доторк феї, Посвячений у магію). */
   featSpellIds?: number[];
   /** KR31.5: ще заклинання вже взятої риси, коли росте бонус майстерності (Ritual Caster). */

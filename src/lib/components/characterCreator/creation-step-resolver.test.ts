@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  findCreationStepOrder,
   resolveCreationSteps,
   type CreationStepConditions,
 } from "./creation-step-resolver";
@@ -60,3 +61,32 @@ describe("KR4.2 — creation step resolver", () => {
     expect(withoutMastery).not.toContain("weaponMastery");
   });
 });
+
+describe("порядок кроків: клас перед расою", () => {
+  const resolveClassFirstIds = (conditions: Partial<CreationStepConditions>) =>
+    resolveCreationSteps({ ...noOptionalSteps, ...conditions }, "CLASS_FIRST").map((step) => step.id);
+
+  it("ставить клас із його кроками перед расою з її кроками, решта порядку не змінюється", () => {
+    expect(resolveClassFirstIds({ hasSubclasses: true, hasLevelOneChoices: true, hasSubraces: true, hasRaceChoiceOptions: true })).toEqual(
+      ["class", "subclass", "classChoices", "race", "raceDetails", "raceChoices", "background", "asi", "skills", "equipment", "name"],
+    );
+  });
+
+  it("ставить заклинання класу після навичок, а заклинання раси лишає після них", () => {
+    expect(resolveClassFirstIds({ hasWeaponMastery: true, hasSpellChoice: true, hasRaceSpellChoice: true, hasSubraces: true })).toEqual(
+      ["class", "weaponMastery", "race", "raceDetails", "background", "asi", "skills", "spells", "raceSpells", "equipment", "name"],
+    );
+  });
+
+  it("має ті самі кроки, що й старий порядок", () => {
+    const conditions = { hasSubraces: true, hasSubclasses: true, hasFeatChoice: true, hasExpertiseChoice: true };
+    expect(resolveClassFirstIds(conditions).sort()).toEqual(resolveIds(conditions).sort());
+  });
+
+  it("лишає «раса → клас» за замовчуванням і для 2024", () => {
+    expect(resolveIds({})[0]).toBe("race");
+    expect(findCreationStepOrder("RULES_2024")).toBe("RACE_FIRST");
+    expect(findCreationStepOrder("RULES_2014")).toBe("CLASS_FIRST");
+  });
+});
+

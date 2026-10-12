@@ -1,0 +1,3957 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "31e8aca4457edc95106d2362d5707fb236305648ae67115df34114194b429e42",
+  "sourceRevision": {
+    "revisionId": "rpgbot-73d8e9e6abfc398f-31e8aca4457edc95",
+    "sourceId": "rpgbot-73d8e9e6abfc398f",
+    "fetchedAt": "2026-09-29T19:15:09.010029+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:46:17-04:00",
+    "contentHash": "951fbc286464c66af289ad2f65b8aaed8e73ff138bb914d357237b6db0545ba7",
+    "title": "School of Abjuration Wizard 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-73d8e9e6abfc398f-31e8aca4457edc95.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The School of Abjuration is about protection and defending. The school boasts many of the most notable defensive spells including Shield, Absorb Elements, and Counterspell. The School of Abjuration Wizard gains additional features that provide enhanced protection and defense. This allows an Abjurer to be incredibly sturdy, even beyond the already above-average sturdiness of other optimized Wizards."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Yes, Wizards are in fact quite sturdy when assembled correctly because of the interaction of "
+            },
+            {
+              "type": "link",
+              "text": "dice probability",
+              "href": "https://rpgbot.net/dice-math-rpgbot-podcast-s2e92/"
+            },
+            {
+              "type": "text",
+              "text": " and AC scaling in a system of bounded accuracy. There is quite a bit of math that is outside the scope of this article that breaks down the whole relationship, but the short version is that optimized full casters with an armor dip can wear a shield in one hand while casting spells with the other, have Shield and other spells ready when needed, and still contribute meaningfully to combat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optimized martials on the other hand need both hands dedicated to their weapon(s) of choice, leaving no room for a shield, and as non-casters, lack Shield and other defensive spells. The gap in hit dice matters less when the allegedly squishy casters are getting hit less often. And all of this is before we discuss the additional protective features of the School of Abjuration Wizard."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Building an Abjurer Wizard is interesting in that the features are either passive defenses or boosts to specific reactive spells. This really leaves the core of what any particular Abjurer does quite open to personal choice. Contrast with "
+            },
+            {
+              "type": "link",
+              "text": "Evokers",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/evoker/"
+            },
+            {
+              "type": "text",
+              "text": ", for example, whose core feature is being better at blowing things up with magic and have features all about that or "
+            },
+            {
+              "type": "link",
+              "text": "Necromancers",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/"
+            },
+            {
+              "type": "text",
+              "text": " who have features designed to "
+            },
+            {
+              "type": "text",
+              "text": "completely disrupt the play experience"
+            },
+            {
+              "type": "text",
+              "text": " command a small pile of undead minions. Abjurers simply have a magical force field that keeps them alive longer without being nudged towards any particular Wizarding ways."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With such freedom of style and sturdiness of body, we could be whatever we wanted. So that’s why the example build below is not strictly an "
+            },
+            {
+              "type": "emphasis",
+              "text": "Abjurer"
+            },
+            {
+              "type": "text",
+              "text": " build, but still makes decisions that benefit from the additional protections of "
+            },
+            {
+              "type": "emphasis",
+              "text": "being"
+            },
+            {
+              "type": "text",
+              "text": " an Abjurer. We’ll be making something tough that doesn’t need to stand in the back but instead ignores those tired stereotypes of the frail wizard. That’s right folks, you too can Krump Your Pointy Hat Pajama Man fallacies by bringing this thing to your next campaign."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Abjuration Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Abjuration Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#school-of-abjuration-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Abjuration Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#school-of-abjuration-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Abjuration Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#school-of-abjuration-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Abjuration Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#school-of-abjuration-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Abjuration Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#school-of-abjuration-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Abjuration Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#school-of-abjuration-multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example School of Abjuration Build – Krump Your Pointy Hat Pajama Man",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassin'? In my subclass guide?",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#multiclassin-in-my-subclass-guide"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "What is this Power Creep Malarky? WotC has gone too far!",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#what-is-this-power-creep-malarky-wotc-has-gone-too-far"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/abjuration/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "School of Abjuration Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Abjuration Savant"
+              },
+              {
+                "type": "text",
+                "text": ": Standard for PHB wizard\n\t\tsubclasses. Strangely, this feature incentivizes you to use your two free\n\t\tspells learned per level to learn literally anything except spells from your\n\t\tfavorite school."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane Ward"
+              },
+              {
+                "type": "text",
+                "text": ": A great source of what\n\t\tessentially amounts to temporary hit points, but since they aren’t\n\t\ttechnically temporary hit points the two effects stack. The Ward itself begins at full HP the first time you cast an Abjuration spell each day, even if all you do is spend eleven minutes to Ritual cast Alarm on nothing important. It then lasts until you finish your next Long Rest.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Since the ward can take damage in your place, you may even be able to avoid saves to maintain Concentration when you take damage. This additional overshield is a resource and resources are meant to be spent, but don’t be reckless and overextend. Be sure to take all the normal defensive precautions and the Ward will help mitigate when the dice just don’t go in your favor."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If you’re looking for an easy way to charge the ward, consider the\n\t\t\tEldritch Initiate feat to get Armor of Shadows. Armor of Shadows allows\n\t\t\tyou to cast Mage Armor on yourself at will, allowing you to fully charge\n\t\t\tthe ward whenever you have a few minutes to repeatedly cast Mage Armor in\n\t\t\torder to charge it."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Projected Ward"
+              },
+              {
+                "type": "text",
+                "text": ": Your party’s Defender\n\t\tlikely takes a lot more damage than you, so soaking some of it with your\n\t\tward can really cut down on how many resources your party must devote to\n\t\thealing. Just be aware that you’ll be unable to cast Shield, Absorb Elements, and Counterspell in response to future triggering events should you block some damage to an ally."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improved Abjuration"
+              },
+              {
+                "type": "text",
+                "text": ": Situational by\n\t\tdesign, but very powerful in games which feature enemy spellcasters.\n\t\tCounterspell is an off-switch for those enemy spellcasters. Adding your\n\t\tproficiency bonus dramatically improves its effectiveness, making you able\n\t\tto easily prevent enemy spellcasters from doing anything at all without the\n\t\tneed to burn your highest-level spell slots. If you can also cast Enhance\n\t\tAbility (Intelligence) on yourself before walking into a fight with enemy\n\t\tspellcasters, you can counter spells with very little risk of failure."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spell Resistance"
+              },
+              {
+                "type": "text",
+                "text": ": Resistance to spells is\n\t\tgreat for resisting dangerous save or suck spells, and resistance to spell\n\t\tdamage makes you greatly resistant to direct damage spells which typically\n\t\tdon’t require saves (Eldritch Blast, Fire Bolt, etc.). Both halves of the\n\t\tfeature apply at the same time, so against spells which allow you to save\n\t\tfor reduced damage (Fireball, etc.), this is extremely effective because on\n\t\ta successful save you’ll often take just a quarter of the game. However,\n\t\tyou’re expected to counter spells rather than try to resist them, so this is\n\t\tmostly a redundant defense for when you’re outnumbered or surprised."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-abjuration-ability-scores",
+      "heading": "School of Abjuration Ability Scores",
+      "sourceAnchor": "school-of-abjuration-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-abjuration-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not different from the advice in the "
+            },
+            {
+              "type": "link",
+              "text": "Wizard handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": ". Intelligence is your number one ability score followed by Constitution and Dexterity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-abjuration-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump it. Even these saves tend to not be that bad."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-abjuration-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Get some for AC."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-abjuration-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Get some for HP and Concentration saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-abjuration-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Need this for spell attacks and spell save DCs."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-abjuration-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Common save that sucks to fail."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-abjuration-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Uncommon save that also sucks to fail."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-abjuration-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-abjuration-races",
+      "heading": "School of Abjuration Races",
+      "sourceAnchor": "school-of-abjuration-races",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-abjuration-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Aside from the rankings in the "
+            },
+            {
+              "type": "link",
+              "text": "Wizard Races Breakdown,",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/races/"
+            },
+            {
+              "type": "text",
+              "text": " there is one notable difference."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-abjuration-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Warding Dwarf"
+              },
+              {
+                "type": "link",
+                "text": "E:RtLW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The free spells cast through the Wards and Seals feature are a decent way to activate the Arcane Ward at the start of each day. Additionally, having access to Armor of Agathys allows for a fun interaction: If you get hit but the Arcane Ward absorbs all of the damage, the cold damage of Agathys still affects the creature that hit you without using up any of the temporary hit points."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Svirfneblin"
+              },
+              {
+                "type": "link",
+                "text": "EEPC",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": There is one neat trick with Deep Gnomes and that is access to the Svirfneblin Magic feat. This feat allows the Deep Gnome to self-cast Nondetection at will with no material components. Normally this doesn’t mean anything, but as Nondetection is a 3rd-level Abjuration spell, every cast would refill 6 hit points to the Arcane Ward. Compared to any other race spending a feat on Eldritch Adept for Armor of Shadows at-will Mage Armor spam, the minute difference in out of combat time to refill the ward from zero to the potential maximum is negligible."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-abjuration-feats",
+      "heading": "School of Abjuration Feats",
+      "sourceAnchor": "school-of-abjuration-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-abjuration-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For anything not mentioned here you can follow the advice found in the "
+            },
+            {
+              "type": "link",
+              "text": "Wizard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-abjuration-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Eldritch Adept"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Getting this to use Armor of Shadows to refill the ward between fights can be incredibly useful, especially if you’re not armor dipping."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resilient (Constitution)"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": No need for Con saves, my Arcane Ward will protect my Concentration. Oh, this medusa is turning me to stone because I forgot to have a good Con save and my Arcane Ward doesn’t do anything to stop that? Oops."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Svirfneblin Magic"
+              },
+              {
+                "type": "link",
+                "text": "EEPC",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Explained above, if you’re a deep gnome this feat allows you to do the Armor of Shadows trick, but faster. The difference is negligible outside of combat, but if you’re already a Deep Gnome because you want to be a Deep Gnome, sure why not. Using the Monsters of the Multiverse version of the Deep Gnome/Svirfneblin with this feat isn’t intended, but it’s still allowed."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-abjuration-weapons",
+      "heading": "School of Abjuration Weapons",
+      "sourceAnchor": "school-of-abjuration-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-abjuration-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cast spells, Wizard."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-abjuration-armor",
+      "heading": "School of Abjuration Armor",
+      "sourceAnchor": "school-of-abjuration-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-abjuration-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wizards don’t come with armor proficiency built in, but several multiclass dips come with medium armor and shields."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-abjuration-armor-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Half-plate, a shield, and the Shield spell on top of Arcane Ward while Dodging and Concentrating on the current win spell of choice will make anyone jealous."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-abjuration-multiclassing",
+      "heading": "School of Abjuration Multiclassing",
+      "sourceAnchor": "school-of-abjuration-multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-abjuration-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The "
+            },
+            {
+              "type": "link",
+              "text": "Wizard Handbook ",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "has a few things to say about this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-school-of-abjuration-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Artificer"
+              },
+              {
+                "type": "text",
+                "text": ": Yeah, it’s the same rating as the Wizard Handbook, but it’s even better because of the Arcane Ward. Let me put it this way, half round up on a d6 is 4. Half round up on a d10 is 6. Arcane Ward is twice your Wizard level. Arcane Ward is like having the same hit points as a Fighter. With an Artificer dip you suddenly also have better AC than the Fighter and full spellcasting too. Take this at first level for that all-important Constitution save proficiency."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cleric"
+              },
+              {
+                "type": "text",
+                "text": ": This can do the same Armor things as the Artificer dip, but needs 13 Wisdom and lacks the free Constitution proficiency. For your trouble and investment you could choose the Order Domain if you’re looking to add a bit of offensive support, or you could choose the Peace Domain (I’m not apologizing for suggesting a broken good option, Tyler.), for even more defensive support."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+      "heading": "Example School of Abjuration Build – Krump Your Pointy Hat Pajama Man",
+      "sourceAnchor": "example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+      "blocks": [
+        {
+          "blockId": "block-section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "The beauty of a magic spell is not the threads that go into it. But the way those threads weave together."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Adapted from: "
+            },
+            {
+              "type": "link",
+              "text": "Cosmos",
+              "href": "https://www.youtube.com/watch?v=XGK84Poeynk"
+            },
+            {
+              "type": "text",
+              "text": " – Carl Sagan"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As alluded to above, an Abjurer Wizard isn’t bolted down to a specific style of play by the School of Abjuration features. Because the features we do get are more passive defenses or enhancements to spells like Counterspell that are cast as reactions, what we actually do on our turns is entirely up to personal choice. To that end, I am making build choices that synergize with our features, but doing my own thing in terms of offensive spell choice. Those build choices include starting with Artificer 1 before taking 19 levels in Wizard."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassin-in-my-subclass-guide",
+      "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+      "heading": "Multiclassin’? In my subclass guide?",
+      "sourceAnchor": "multiclassin-in-my-subclass-guide",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassin-in-my-subclass-guide-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Yeah, one level of Artificer. We need the armor and the Constitution save proficiency without investing too many feats to make it worth doing. Can you play an Abjurer without that dip? Sure. But I’m trying to actually put Martials out of a job with this build. Just absolutely obliterate the concept of party roles that give Martials anything at all to do."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassin-in-my-subclass-guide-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We do typically avoid multiclassing in subclass handbooks because multiclass builds can feel like a bait and switch when people are expecting help with a specific subclass. But as I explain in the levels table below, School of Abjuration doesn’t affect your play style very much beyond managing Arcane Ward, so in the interest of making this build more interesting than “here’s a standard wizard”, I opted to spice it up with a class dip."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassin-in-my-subclass-guide-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want to play this build without the multiclass dip, mountain dwarves get medium armor or tortles get a flat 17 AC. That won’t get you proficiency with shields and it won’t get you proficiency in Constitution saves, but it’s a SAD build so you can fit Resilient (Con) into it without much trouble."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-what-is-this-power-creep-malarky-wotc-has-gone-too-far",
+      "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+      "heading": "What is this Power Creep Malarky? WotC has gone too far!",
+      "sourceAnchor": "what-is-this-power-creep-malarky-wotc-has-gone-too-far",
+      "blocks": [
+        {
+          "blockId": "block-section-what-is-this-power-creep-malarky-wotc-has-gone-too-far-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To do almost the exact same build, using only 2016 PHB options, put the 15 Dexterity into Strength instead, change the race to V Human, and take the Tough feat. Be a Fighter 1 with the Defense fighting style instead of Artificer and wear heavy armor instead of medium. Then be 19 levels of Wizard just like below, swapping out Medium Armor Master for War Caster or something. This has been possible in the game since day one."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re following my point buy suggestions from above, getting 15s in Dex, Con, and Int before adding racial +1s to all three."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our chosen race is Orc (Monsters of the Multiverse’s version). Not for any mechanical reason, although the ability to Dash and gain some Temporary HP as a bonus action a few times per day is pretty handy and saying no to dropping to 0 once per day might save the day once or twice. No, we’re an Orc because the build name came before anything else in this guide. Not that any other race would change too much about the build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For our background, we’re customizing our background in order to get both Acrobatics and Stealth. We’ve got a decent Dexterity score and it can be good to make use of it. Part of our goal is to not appear to be a Wizard when we don’t have to."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From our first level, in Artificer, we take the Arcana and Investigation skills, and are also granted Thieves’ Tools letting us handle the occasional trap or lock with more discretion. By which I mean the fact that the Knock spell causes “a loud knock, audible from as far away as 300 feet.” Combined with the skills from our customized background, we’ve got all those traditional skills of a scoundrel. A Wizard scoundrel. For flavor, we’re also Proficient with Cook’s Utensils, but we can take any artisans’ tool from our level in Artificer and it all works out the same. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As we dip one level into Artificer, we do get our Feats/ASIs delayed by one level. Not the end of the world."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Wizard fourth, fifth overall, we take an ASI for +2 Intelligence, reaching 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Wizard eighth, ninth overall, we take another ASI for +2 Intelligence, reaching 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Wizard twelfth, thirteenth overall, we take Medium Armor Master. Yeah I know it’s a little weird, but we’ve got the Dexterity to support it and the Stealth proficiency. This really gives us some additional sturdiness and the potential for espionage and intrigue that’s way more fun than Scrying or something. Alternatively, Tough can provide a different layer of sturdiness, but that isn’t as synergistic with the Arcane Ward as another +1 AC."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Wizard sixteenth, seventeenth overall, we take an ASI for +2 Constitution, reaching 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At Wizard nineteenth, twentieth overall, we take an ASI for +2 Constitution, reaching 20."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "strong",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1-Artificer 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Medium Armor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Shield"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Magical Tinkering"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Acrobatics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Arcana"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Investigation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Stealth"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cook’s Utensils"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Thieves’ Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Tinker’s Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-1st-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Alarm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Detect Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Longstrider"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This first level is our ticket to Constitution proficiency and good AC. By starting with one level in Artificer, we’ll be able to make the most out of our Abjurer features."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With our array of skills, we handle most of the typical scouting tasks like finding traps while still having the Arcana needed to deal with scrolls and other magical item creations."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For spellcasting, we’re taking utility options that we don’t want to use in combat because as Artificer spells, they must always be cast through a focus. This complicates things later when we need empty hands for Wizard spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "To avoid this collision we only take out-of-combat utility options so we can pull out a tool and cast when necessary."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Alarm in particular will be useful. Having it in our spell book means we can ritual cast it to prime our Arcane Ward when we receive it at third level without taking up precious Wizard spell preparation slots."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2-Wizard 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Recovery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Minor Illusion",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Toll the Dead"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-1st-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Absorb Elements"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Fog Cloud"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Grease"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With our 16 Dexterity, we can use a light crossbow if we choose, or we can wear a shield and fire cantrips for a bit."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Arcane Recovery is very useful, allowing us to stretch out our spell slots. It won’t be much at first, but in time half of our Wizard level will be enough to recover several lower level slots that have been spent on things like Shield and Absorb Elements to keep us going through the day."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With as many spells as there are to choose from, also make sure to check the "
+                },
+                {
+                  "type": "link",
+                  "text": "Wizard Spell Breakdown",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/spells/"
+                },
+                {
+                  "type": "text",
+                  "text": " because as I explained above, our subclass features don’t force us into specific combat options and you’re free to mix it up as you choose."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For spells, we have our defensive toys, Absorb Elements and Shield. Both require Somatic components, so having an empty hand is crucial, which is why we’re not getting them from our Artificer spellcasting, as I explained above."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fog Cloud and Grease are both decent spells for area denial and control."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you have some good range to setup, you can duck in and out of Fog Cloud to be hard to target when it’s not your turn."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3-Wizard 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Tradition"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Abjuration Savant"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Arcane Ward"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We finally become an Abjurer at the same level most classes get their subclass, so it’s not that far behind."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Arcane Ward is the big star feature of this subclass. The two points per Wizard level is about equal to having a d10 hit die if we’re just taking the average rounded up for hit points each level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In order to power it up every morning, we can just take 11 minutes to ritual cast Alarm and it always starts at full health."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this point it will have 7 hit points while we will have 25 hit points, a total of 32."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "A d10 class like the Fighter with the same 16 Con would have a total of 35 right now."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Assuming we’re still rocking our starting armors, 16 AC before adding a shield is where most people will be, 18 with, but we can cast Shield a few times per day if needed. Tell me again what those allegedly more durable Martials can do that we can’t?"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4-Wizard 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-2nd-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Invisibility"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Shatter"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Tasha’s Mind Whip"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Web"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Other people are getting ASIs while we get our 2nd-level spells. That’s fine."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Invisibility is a handy utility spell for all sorts of things, only made better by our Stealth proficiency."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Shatter hurts people. Shatter kills people."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tasha’s Mind Whip is one of those “single target damage with a strong rider effect” spells. Hitting the usually weak Intelligence save is just cake on top of it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Web is just strong. It can really tie down foes and make them far easier to hit and make it harder for them to get to our powerful defenses."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5-Wizard 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: +2 Intelligence (16=>18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Prestidigitation"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our cantrips scale now, which is convenient."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get our first ASI, increasing Intelligence."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But something else important happens here that I haven’t discussed yet: We have two 3rd-level slots and no 3rd-level spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This will happen for our entire career and we’ll be doing plenty of upcasting to make use of those additional slots."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Speaking of upcasting, let’s talk about the refilling the Ward. Whenever we cast an Abjuration spell, we recover twice the spell’s level to the Ward. If the ward is damaged, it can occasionally be the right call to upcast Shield. If you cast with a 3rd-level slot, it would become a 3rd-level spell and then restore 6 hit points to the Ward."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level, that’s half the Ward, which has a maximum of 12 hit points. 8 from levels and 4 from Intelligence modifier. We’ll have 39 hit points at this level, together totalling 51."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "A d10 class with the same 16 Constitution will have a total of 49. I think we’re winning, folks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6-Wizard 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-3rd-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Counterspell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Dispel Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Fireball"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Lighting Bolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Phantom Steed"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Counterspell and Dispel Magic are important spells for any Wizard, but doubly important for Abjurers because we’ll be getting a feature later on that boosts the effectiveness of these spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fireball and Lighting Bolt are fairly standard area damage dealing spells that are at home in every Wizard’s repertoire. We don’t strictly "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "need"
+                },
+                {
+                  "type": "text",
+                  "text": " them but they’re great for all sorts of situations."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Phantom Steed is very useful for travel and can be cast as a ritual."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7-Wizard 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Projected Ward"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-3rd-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Fey",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-fey"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Undead",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-undead"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Projected Ward allows us to spend a reaction to put the Ward in front of an ally to take the brunt of some damage. There’s a lot of cost to consider there, however. If the Ward takes damage for someone else, it has less health to protect us. We’ll also be left without Shield, Absorb Elements, or Counterspell for the rest of the round. It’s a lot to consider. Keeping an eye on the initiative order can help you determine when it’s safe to use any given Reaction option."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But Projected Ward comes online for us at exactly the right time to talk more about spells that upcast really well: Tasha’s-style summoning spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "These spells all follow a similar design of having a fixed stat block that scales with spell level. Specifically, all of these creatures have the ability to Multiattack a number of times equal to half the level of the spell and conveniently, we have a 4th-level slot and no 4th-level spells right now, which would be two attacks per round."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Put another, spicier, way: “I cast summon martial.”"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Both Summon Fey and Summon Undead are decent spells that would do respectable damage in different situations. On top of that, lasting an hour is enough to get 2 or 3 fights in, especially if you’re in a dungeon crawl where you can more reliably predict fights."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "strong",
+                  "text": "Fey"
+                },
+                {
+                  "type": "text",
+                  "text": ": This summon does more damage than most summons and can only make melee attacks, but it can teleport as a bonus action to escape from reach after making those swings. I suggest using the Tricksy option to block line of sight to the Fey spirit when teleporting away this way. One more thing to note: We can always hand the Fey Spirit a magical shortsword if we have a spare."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "strong",
+                  "text": "Undead"
+                },
+                {
+                  "type": "text",
+                  "text": ": For this one I suggest using the skeletal option for Necrotic ranged attacks when you expect opponents with resistance to non-magical B/P/S."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level, cast as a 4th-level slot, the Fey spirit is putting out more DPR than unoptimized martials, but a bit less than optimized ones. By itself. Not counting whatever spells or cantrips we can throw into the mix. Adding just cantrips to the mix, we’re even outpacing "
+                },
+                {
+                  "type": "link",
+                  "text": "my PAM+GWM calculations.",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#dpr-comparisons"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8-Wizard 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-4th-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Greater Invisibility"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Sickening Radiance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Aberration",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-aberration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have a few good options for things to do here."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Greater Invisibility gives us a cool support option. Because we’re so durable, removing one ally as a potential target during combat is one way to hold some attention."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sickening Radiance kills things pretty well, both with damage and with exhaustion stacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Summon Aberration with the Beholder option is a great flying alternative to the Skeletal option on Undead. Psychic damage is resisted slightly less often than Necrotic damage so despite being the same total damage this is an upgrade."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9-Wizard 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: +2 Intelligence (18=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We max out our Intelligence."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We once again find ourselves with a spell slot of a higher level than we have spells for. We can upcast the summon spells again if we want, though the increase is less impressive than when we hit an even-numbered spell slot."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells like Invisibility and Fly are also good upcasting choices to get the whole party in on the action."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10-Wizard 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-5th-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Hold Monster"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Telepathic Bond"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Draconic Spirit",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-draconic-spirit"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Wall of Force",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wall-spells/#wall-of-force"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Wall of Stone",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wall-spells/#wall-of-stone"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Getting access to 5th-level spells this level, we get some good options to choose from."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hold Monster is a fairly reliable crowd control option. When it sticks, the Paralysis is a death sentence to most foes."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Telepathic bond is great for temporary long distance communication, especially because it can be Ritual cast."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Summon Draconic Spirit has the most AC of all the summons available to Wizards while also being Large sized. This gives it far better durability than other summon options, especially when we also factor in the 10-foot reach of its melee attacks and 60 ft flying speed. You can probably also ride it, allowing it to serve double duty as a way to fly."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "However, if we don’t need any of these durability options, Summon Fey, rather humorously, still has the most raw DPR of all the summons."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wall Spells are great for"
+                },
+                {
+                  "type": "link",
+                  "text": " several kinds of utility uses",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wall-spells/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11-Wizard 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Abjuration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cantrip"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Firebolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-or-"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Chill Touch"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Abjuration is our big feature for being an Abjurer. Now we can use Counterspell and Dispel Magic far more efficiently by adding our PB to the checks we might make when trying to affect a higher level spell. Add on Enhance Ability and you’re basically unstoppable."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Additionally, we gain 6th-level slots here. Well, we get one per day anyway. I know I’ve been going on about Summon spells for much of this build, which is really just a self-indulgent preference. As I brought up earlier, Abjurers aren’t steered towards a particular style of combat by their features."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We only get the one feature of the subclass that says "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "use these specific spells better than other Wizards"
+                },
+                {
+                  "type": "text",
+                  "text": ", leaving us with plenty of freedom to choose however we want to be."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Just because I’ve turned this into a weirdly sturdy Summoner type doesn’t mean you have to play my way."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But 6th-level upcasting is where things get weird with summons because the DPR of a Summon spell is a polynomial expression."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "((R)*(A+X))*[X/2]"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "R is our Spell Attack Hit Rate against a target AC. A is a constant that differs for each summon. X is the level of the spell. Each of the spells both adds the level of the spell to the damage of each hit and gains multiattack equal to half the spell level round down."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "A good all-rounder summon like the Beholderkin from Summon Aberration does a respectable 27 DPR for an hour a day cast this way. If we were being lazy and only casting Firebolt alongside the Beholderkin, our total is 38.55. In a heavy dungeon crawl we could squeeze 2 or even 3 encounters out of this if we push it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "A Fighter using a "
+                },
+                {
+                  "type": "link",
+                  "text": "CBX+SS",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#dpr-comparisons"
+                },
+                {
+                  "type": "text",
+                  "text": " does 37.7 all day long at this level. But they can’t wear a shield or cast the shield spell. So our AC is higher and, thanks to Arcane Ward, our total health pool is comparable without considering our summoned creature’s hit points."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12-Wizard 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-6th-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Globe of Invulnerability"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–True Seeing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Globe of Invulnerability is one of the more powerful uses of Abjuration magic: a kind of one-way forcefield that stops magic from coming in but not from getting out. Very strong against the right foes."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "True Seeing sees the truth. Not much to say about it really. It negates things like invisibility and  illusions with the bonus ability to see into the ethereal plane."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13-Wizard 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Medium Armor Master"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A bit more AC as well as removing the Disadvantage on any Stealth checks while wearing the half plate we should have by now."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our Concentration saves should be fine, but if you’d rather boost those up a bit more, War Caster is certainly a fine option here."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "One other fun possibility, if you really like the Summons, is Metamagic Adept and Extended Spell. Getting two hours out of 6th- and eventually 8th-level upcast summons is very strong if you’re mindful of time and keeping them alive."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14-Wizard 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-7th-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Force Cage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Teleport"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7th-level spells include lots of good options."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Force Cage will take something out of the fight for an hour with no save unless they attempt to teleport, which they must beat a charisma save to do."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Teleport is a utility travel spell. You know, “Random-Encounter-B-Gone”."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15-Wizard 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Resistance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is the big capstone ability for Abjurers."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Advantage on saves vs spells and resistance to damage from spells. Spellcasting foes should be somewhat common at this level of play."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also have an 8th-level spell slot. You should know by now what an even spell level means for all of those summon spells so I’ll try to be brief: if you’ve been getting good mileage out of the 6th-level upcasts, you don’t need to go so ham with an 8th-level summon."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You can, if you want. You can even start a dungeon crawl with a 6th-level one and, depending how quickly you’re moving and how long the crawl is, pull out a 7th-level one as well before pulling out the big one."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But you have to understand, cantrips won’t scale for two more levels and fighters won’t get their 4th attack until level twenty. An upcast 8th-level summon is far and away one of the best sources of single-target DPR for the hour it lives. These spells don’t instantly win one fight; they are the tool to win multiple fights more easily."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16-Wizard 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-8th-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Antimagic Field"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Feeblemind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Antimagic Field is Globe of Invulnerability’s bigger, meaner brother. The on/off switch for enemy spellcasters. The ultimate graduate thesis of the School of Abjuration. The only problem is that its range is “self” and you’re also a wizard."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Feeblemind is the more focused off switch for one spellcaster in particular."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wow these spells are both kinda mean."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17-Wizard 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Constitution +2 (16=>18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More HP. Better Con saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18-Wizard 17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-9th-level spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Foresight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Foresight is a really nice way to boost an ally to maybe feel as strong as we are."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Even Arcane Ward won’t protect me from having to recommend "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                },
+                {
+                  "type": "text",
+                  "text": " for the 100th time."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19-Wizard 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Mastery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Mage Armor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-or-"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Shield"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Tasha’s Mind Whip"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-or-"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Shatter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level, casting a 1st-level Abjuration spell every round for about 2 minutes fills the ward from empty. We can either use Mage Armor with no shenanigans or punch ourselves in the face and repeatedly cast Shield."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Shield is a better choice overall, but to use it out of combat as a charge up, we can lie down, take off our shield, and have someone kick us in the side a few times till we’re full."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mind Whip and Shatter both do decent damage and have mean effects for a 2nd-level spell without taking up our Concentration."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20-Wizard 19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Constitution +2 (18=>20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Maximum HP. Maximum Con saves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You might also take another level of Artificer. Infusions are pretty great and that might be a more interesting capstone than +2 to Con."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- School of Abjuration Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Abjuration Savant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Arcane Ward"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Projected Ward"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Improved Abjuration"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Spell Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mark of Warding Dwarf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Svirfneblin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Eldritch Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Resilient (Constitution)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Svirfneblin Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Cleric"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "p/s[1]",
+      "detail": "s"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"2\"><span class=\"rating-green\">Arcane Ward</span>: A great source of what essentially amounts to temporary hit points, but since they aren’t technically temporary hit poi"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-school-of-abjuration-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-school-of-abjuration-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-school-of-abjuration-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-school-of-abjuration-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-school-of-abjuration-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-school-of-abjuration-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-school-of-abjuration-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-school-of-abjuration-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-school-of-abjuration-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-school-of-abjuration-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-school-of-abjuration-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-school-of-abjuration-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-school-of-abjuration-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-school-of-abjuration-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-school-of-abjuration-armor-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-school-of-abjuration-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-school-of-abjuration-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\"><em>The beauty of a magic spell is not the thre"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-example-school-of-abjuration-build-krump-your-pointy-hat-pajama-man-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-multiclassin-in-my-subclass-guide-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-multiclassin-in-my-subclass-guide-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-multiclassin-in-my-subclass-guide-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-what-is-this-power-creep-malarky-wotc-has-gone-too-far-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 5328,
+    "sections": 19,
+    "blocks": 46,
+    "tables": 3,
+    "ratingSignals": 23
+  },
+  "status": "needs-editorial-review"
+}

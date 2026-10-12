@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { TAPPABLE_HIDDEN_OPACITY } from "@/lib/tappable-entrance";
 
 import { cn } from "@/lib/utils";
 import { SRD_2024_ATTRIBUTION } from "@/lib/refs/srd-attribution";
@@ -12,7 +13,7 @@ const ARTIST_URL = "https://t.me/tremblingsea";
 const LINK = "text-slate-100 underline underline-offset-4 hover:text-slate-50";
 
 const blockMotion = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: TAPPABLE_HIDDEN_OPACITY, y: 12 },
   show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] } },
 } as const;
 

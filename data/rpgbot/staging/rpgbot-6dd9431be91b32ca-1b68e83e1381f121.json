@@ -1,0 +1,2153 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "1b68e83e1381f1215ef2f82f2aaac422bd76b0fa824373968231adca7fc6f0fa",
+  "sourceRevision": {
+    "revisionId": "rpgbot-6dd9431be91b32ca-1b68e83e1381f121",
+    "sourceId": "rpgbot-6dd9431be91b32ca",
+    "fetchedAt": "2026-09-29T19:14:53.048145+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:30:34-04:00",
+    "contentHash": "8ffb70612c908bc22a61e4ebef7e16272fcf712a6b81a32ccdb0ad51074b5b2b",
+    "title": "Light Domain Cleric 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-6dd9431be91b32ca-1b68e83e1381f121.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Light Domain Cleric is the best Blaster option available to the Cleric, offering expanded damage options borrowed from other spell lists. With powerful options like Fireball, you can easily match the damage output of classes like the Wizard."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Clerics have more access to radiant damage than any other class in the game,\n\tand after writing our\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Cleric Spell List Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/spells/"
+            },
+            {
+              "type": "text",
+              "text": ", I really wanted to see how far I could get on a build centered mostly on\n\tradiant damage. Because the Light Domain does that plus fire damage, I figured\n\tthat restricting the build to those two damage types would be an interesting\n\tcharacter both mechanically and conceptually, and I wanted to share the\n\tresults."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Light Domain Cleric Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#subclass-features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Light Domain Cleric Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Light Domain Cleric Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Light Domain Cleric Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Light Domain Cleric Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Light Domain Cleric Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Light Domain Cleric Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Light Cleric Build – Variant Human Light Domain Cleric",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/light-domain/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-subclass-features",
+      "heading": "Light Domain Cleric Features",
+      "sourceAnchor": "subclass-features",
+      "blocks": [
+        {
+          "blockId": "block-section-subclass-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Domain Spells"
+              },
+              {
+                "type": "text",
+                "text": ": A fantastic set of\n\t\toffensive spells which close the gap between Clerics and Wizards.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Faerie\n\t\t\t\tFire is a great way to handle invisible creatures, but it’s\n\t\t\t\talso helpful support option for allies that rely on attacks\n\t\t\t\tbecause it’s an easy source of Advantage against multiple\n\t\t\t\ttargets. Burning Hands is a great low-level\n\t\t\t\tAOE damage spell, but resist the urge to burn all of your\n\t\t\t\tspell slots casting it or you won’t have any slots to heal\n\t\t\t\twith. At high levels, Faerie Fire remains incredibly potent,\n\t\t\t\tbut Burning Hands will be obsolete after a few levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Scorching\n\t\t\t\tRay is a great option, especially if you have Bless or Faerie Fire running to boost\n\t\t\t\tthe attack rolls. Flaming Sphere is strictly worse than Spiritual\n\t\t\t\tWeapon, but it’s good enough that you could consider not preparing\n\t\t\t\tspiritual weapon if you’re short on space for prepared spells."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Daylight\n\t\t\t\tis situational, but Fireball is the sledgehammer of offensive\n\t\t\t\tspells: sometimes you just need to hit your problems until\n\t\t\t\tthey fall down. In terms of instantaneous area damage, there\n\t\t\t\tisn’t another spell that can compete with Fireball until 9th-level\n\t\t\t\tspells introduce stuff like Meteor Swarm."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Wall\n\t\t\t\tof Fire is among the best area control spells in the game."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Flame\n\t\t\t\tStrike is considerably less important since you get Fireball,\n\t\t\t\tand Scrying is only situationally useful so it’s frustrating\n\t\t\t\tto have it prepared every day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bonus Cantrip"
+              },
+              {
+                "type": "text",
+                "text": ": Not spectacular, but\n\t\ta Light Cleric really should have Light, and someone\n\t\tshould be able to cast it in most parties (unless every has Darkvision)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warding Flare"
+              },
+              {
+                "type": "text",
+                "text": ": You won’t get a ton of\n\t\tuses, so save this for enemies which can do a lot of damage on a single\n\t\tattack. This needs to be activated “before an attack hits or misses”, which\n\t\tis frustratingly vague, but I assume it means “before the result of the\n\t\tattack is determined”. So your DM could roll, ask “Does a 25 hit?” knowing\n\t\tfull well that it does, and you could scream “Warding Flare!” before the DM\n\t\tsays “you are hit” and the DM would then roll with Disadvantage (meaning\n\t\tthat they roll a second die and choose the lower of the two results, not\n\t\tthat they need to dump whatever they’ve already rolled).\n"
+              },
+              {
+                "type": "text",
+                "text": "Of course,\n\t\tyour DM might read that differently and take my portrayal of that interaction\n\t\tpoorly, so check with your DM before you assume how this works.\n\t\tTragically, Jeremy Crawford’s only response on the subject\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "doesn’t\n\t\tactually clarify the answer",
+                "href": "https://twitter.com/JeremyECrawford/status/839263164936003584"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Channel Divinity: Radiance of the Dawn"
+              },
+              {
+                "type": "text",
+                "text": ":\n\t\tThe damage isn’t great beyond low levels. Magical darkness can\n\t\treally cause problems, and a guranteed way to remove it is very convenient,\n\t\tbut you can also negate magical darkness with the spell Daylight, which you\n\t\tget prepared for free once you hit level 5. So there’s a small level window\n\t\twhere this might be impactful, but once you get through low levels you’ll frequently get\n\t\tbetter results from the Harness Divine Power Optional Class Feature if your DM allows it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Improved Flare"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic if you have\n\t\tallies who are squishier than you (like a Wizard) or if you need to buy\n\t\ttime until you can heal someone."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Potent Spellcasting"
+              },
+              {
+                "type": "text",
+                "text": ": By this level you\n\t\talmost certainly have 20 Wisdom, giving an impressive boost to your damage\n\t\toutput. Note that this only applies to Cleric cantrips, so you can’t\n\t\tuse it in conjunction with Magic Initiate to turn things like Eldritch\n\t\tBlast into a problem, but adding Wisdom to staples like Sacred Flame, Word\n\t\tof Radiance, and Toll the Dead is still great."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Corona of Light"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re anything like\n\t\tme, you want to make a joke about light beer whenever you see this\n\t\tability. But unlike light beer, this is fun. It’s essentially an\n\t\toverdrive button for your fire and radiant damage spells, which is\n\t\tespecially nice with the Light domain’s Domain Spells and with Cleric\n\t\tstaples like Spirit Guardians."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Light Domain Cleric Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "standard cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Light Domain Cleric Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "standard cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#races"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Light Domain Cleric Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from a "
+            },
+            {
+              "type": "link",
+              "text": "standard cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Elemental Adept"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tWith so much reliance on fire damage, Elemental Adept can make your best subclass options more reliable. Of course, you can also switch to other damage options when you run into resistance."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Light Domain Cleric Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "standard cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#weapons"
+            },
+            {
+              "type": "text",
+              "text": ". Light Domain is a casting-focused domain, so it’s entirely likely that you’ll never use weapons."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Light Domain Cleric Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "standard cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#armor"
+            },
+            {
+              "type": "text",
+              "text": ". Light Domain doesn’t get heavy armor, so grab half plate and a shield."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Light Domain Cleric Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "standard cleric",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Light Cleric Build – Variant Human Light Domain Cleric",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "If only I could be so… grossly incandescent."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is fairly simple. Limiting our damage options to fire damage and radiant damage is extremely limiting, but those still include many of the best damage spells in the game. In the party, this is primarily a ranged spellcaster, but with medium armor and a shield, we can still interpose ourselves between weaker allies and things with spears and teeth if they slip past our more melee-oriented allies."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build recieved on honorable mention in "
+            },
+            {
+              "type": "link",
+              "text": "our 10 favorite 5e builds",
+              "href": "https://rpgbot.net/rpgbots-10-favorite-dnd-character-builds-that-arent-wizards/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This includes the two flexible +1 ability score increases from Variant Human.\n\tYou can easily make adjustments based on your role in the party. If you pick\n\tup some Face skills, switch Intelligence and Charisma.."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": " "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Variant Human. We’ll put the two ability score increases into Constitution\n\tand Wisdom. We’ll spend the free skill on Perception because it’s the most\n\timport skill in the game and it’s not on the Cleric’s class list. We can put\n\tthe extra language into anything, and Celestial seems appropriate. We’ll\n\tdiscuss feats below."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get Perception from our race, and two skills from the Cleric list.\n\tReligion is almost guaranteed, so let’s assume that as our first choice. If\n\tyou’re your party’s Face, take Persuasion. If you’re not, take History."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our choice of background doesn’t matter much to the build, so pick something\n\tthat appeals to you or that helps support your role in the party. If you can’t\n\tdecide, Acolyte is a great option. Take Insight, Persuasion, and two languages\n\tthat are common in the setting where your campaign takes place."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your choice of racial feat is complicated. Elemental Adept seems appealing,\n\tbut we get a total of just 6 spells that deal fire damage so it won’t get much\n\tuse. We don’t even get the Fire Bolt cantrip. Heavily Armored is tempting, but\n\tit’s only a total of +1 AC, and the Strength increase isn’t helpful. Medium\n\tArmor Master could work, but we’ll still need more Dexterity to fill it out\n\tand I don’t see our glowing cleric doing a lot of sneaking."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spell Sniper or Magic Initiate both look tempting for extra cantrips, but we\n\thave Sacred Flame and Word of Radiance, so we don’t need much else. If\n\tsomething is resistant or immune to radiant damage, we can use leveled spells\n\tinstead. Clerics have almost no offensive spells that require spell attacks,\n\tso Spell Sniper does very little, and I can’t think of any specific spell\n\toptions that we would want from other classes available via Magic Initiate."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our best options are like Lucky, Observant, and Resilient. Lucky is just a\n\tgenerally great feat, so it’s a great fallback if you don’t know what to pick.\n\tObservant gets us +1 to Wisdom or Intelligence, so if you’re using Point Buy\n\tfor ability scores you can drop your base Wisdom to 14 and spend the extra\n\tpoints elsewhere and still have 16 Wisdom at level 1. Or, you could rearrange\n\tmy suggested ability scores to end up with two odd-numbered scores (after\n\tapplying racial increases and the bonus from Observant or Resilient) so that\n\tyour first ability increase can increase two of your ability modifiers."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Resilient won’t work well to raise your Wisdom at 1st level since clerics are\n\talready proficient in Wisdom saving throws, but you could use it on\n\tConstitution and you would still get some extra Point Buy points to spend."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You could plan to take two feats which give +1 to an ability score, start\n\twith 17 Wisdom, then end up with 18 at 4th level. Unfortunately I don’t know\n\tof a feat combination that supports that except Observant and Resilient, and\n\tyou can’t do anything with the redundant saving throw proficiency so that\n\tseems wasteful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For this build let’s assume Lucky as the default feat choice, but I encourage\n\tyou to experiment. If you don’t have other people in the party with high\n\tPerception, I strongly encourage you to explore Observant instead."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Domain Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sacred Flame"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Word of Radiance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Light Domain"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bonus Cantrip: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Light"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Warding Flare"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting equipment, select a mace, scale mail, a dagger,\n\t\t\t\t\teither pack, and a shield and holy symbol. If you took the Acolyte\n\t\t\t\t\tbackground you may end up with two holy symbols, but it’s nice to have\n\t\t\t\t\ta spare."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At level 1 you have 18 AC while you’re holding a\n\t\t\t\t\tshield. You can walk around with your dagger and shield out, but\n\t\t\t\t\tyou’ll need to stow your weapon to perform somatic components and the\n\t\t\t\t\tonly reason to carry the dagger is for opportunity attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Your\n\t\t\t\t\tgo-to offensive options are your cantrips. Sacred Flame for single\n\t\t\t\t\ttargets and Word of Radiance if you can target more than one by\n\t\t\t\t\tgetting into melee range, but don’t be afraid to break out Burning\n\t\t\t\t\tHands if you want more damage or can hit a bunch of targets."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expect\n\t\t\t\t\tto rely primarily on resting for healing, but bring Healing Word for\n\t\t\t\t\temergencies. Consider Bless or Shield of Faith to buff your allies,\n\t\t\t\t\tbut remember that your spell slots are very limited at this level. If\n\t\t\t\t\tyou just need to protect yourself, skip Shield of Faith and rely on\n\t\t\t\t\tWarding Flare instead."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (1/day)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity: Radiance of the Dawn"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At low levels, Radiance of the Dawn is a decent AOE damage spell with\n\t\t\t\t\ta fantastic radius. As you gain levels the damage falls behind very\n\t\t\t\t\tquickly, but it remains an unstoppable way to handle magical darkness\n\t\t\t\t\twhich is otherwise a huge problem."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Domain Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3rd level brings 2nd-level spells, and our domain spells have two fun\n\t\t\t\t\tnew ways to deal fire damage. Spiritual Weapon is typically a better\n\t\t\t\t\tspell than Flaming Sphere, but we’re limiting ourselves to fire and\n\t\t\t\t\tradiant damage, so get ready to summon a very small sun and ram it\n\t\t\t\t\tinto people."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "2nd-levels spells include Continual Flame, and\n\t\t\t\t\thonestly if your holy symbol isn’t perpetually glowing are you even a\n\t\t\t\t\tlight cleric?"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement: Wis 16 -> 18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Wisdom does a lot for the cleric. More spells prepared, more\n\t\t\t\t\thealing from Cure Wounds and from Healing Word, higher DCs for our\n\t\t\t\t\tspells, and an extra use of Warding Flare."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We already have\n\t\t\t\t\tthe cantrips that I care about, so consider something fun like\n\t\t\t\t\tThaumaturgy or Spare the Dying."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Domain Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 1/2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5th level brings some important milestones. Cantrip damage increases,\n\t\t\t\t\tand you add Daylight and Fireball. Fireball is one of the best damage\n\t\t\t\t\tspells in the game for its level, and I encourage you to use it\n\t\t\t\t\twhenever the situation even remotely justifies it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Be sure\n\t\t\t\t\tto pick up Spirit Guardians. Turn yourself into a radiant damage-based\n\t\t\t\t\tblender and wade into melee. You still get your Action, so you can\n\t\t\t\t\tpile on more radiant damage with Word of Radiance or Radiance of the\n\t\t\t\t\tDawn if you need more damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (2/rest)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Improved Flare"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "An extra use of Radiance of the Dawn isn’t spectacular, but it’s a\n\t\t\t\t\tcheap AOE with a big radius, so use it whenever you can catch a bunch\n\t\t\t\t\tof enemies in the effect."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Improved Flare is a great\n\t\t\t\t\timprovement to Warding Flare. Forcing Disadvantage on attack rolls\n\t\t\t\t\tagainst any of your allies means that you have an easy way to protect\n\t\t\t\t\tyour weak or wounded allies without cutting into your blasting time.\n\t\t\t\t\tYou still only get a few uses per day, so save this for attacks that\n\t\t\t\t\twill be really problematic rather than burning through your Warding\n\t\t\t\t\tFlare pool as soon as weapons come out."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Domain Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nothing at this level except 4th-level spells. Wall of Fire is great\n\t\t\t\t\tarea control, which makes Guardian of Faith feel silly by comparison\n\t\t\t\t\tbecause it’s a less-useful area control spell. Guardian of Faith\n\t\t\t\t\tadmittedly has an 8-hour duration which offers some fun options, but\n\t\t\t\t\tgenerally you’ll go for Wall of Fire."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Get really\n\t\t\t\t\tcomfortable with Wall of Fire. The damage scales by 1d8 per spell\n\t\t\t\t\tlevel just like Spirit Guardians, and the fact that the damage can be\n\t\t\t\t\tapplied multiple times makes it a great option for your higher-level\n\t\t\t\t\tspell slots."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement: Wis 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 1)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Potent Spellcasting"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re now at maximum Wisdom, which is great. More damage, better\n\t\t\t\t\tDC’s, and more Warding Flare!"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Potent Spellcasting is a big\n\t\t\t\t\tboost, especially for Word of Radiance. If you can catch two enemies\n\t\t\t\t\tin the effect, 2d6+5 damage is really great, and it gets even better\n\t\t\t\t\tas enemies crowd in around you. I don’t know why they would do that,\n\t\t\t\t\tconsider Spirit Guardians is a thing, but something enemies are dumb\n\t\t\t\t\tat just rush the nearest player."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Domain Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nothing at this level except 5th-level spells, and Light Domain\n\t\t\t\t\tdoesn’t get anything of interest. You won’t use Scry most days (though\n\t\t\t\t\tyou should absolutely buy the materal cimponent for it), and Flame\n\t\t\t\t\tStrike is just a more expensive fireball so you should probably never\n\t\t\t\t\tuse it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Still, we get access to Dawn and Holy Weapon, and\n\t\t\t\t\twhile they’re not massively important they’re still great sources of\n\t\t\t\t\tradiant damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Intervention"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Intervention is really cool, but also totally unreliable. At\n\t\t\t\t\tthis level you have just a 10% chance to receive Divine Intervention.\n\t\t\t\t\tUse this frequently, if only so that you’ll have a chance to actually\n\t\t\t\t\ttrigger the effects."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfortunately, this is also the last\n\t\t\t\t\tlevel for a long time where we get an exciting and wholly new class\n\t\t\t\t\tfeature. From here on it’s all incremental improvements and new spell\n\t\t\t\t\tlevels."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 2)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6th-level spells, and you can destroy undead of CR 2. Cantrip damage\n\t\t\t\t\tincreases, too."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tragically, there are no 6th-level cleric\n\t\t\t\t\tspells that deal radiant or fire damage, but our favorite spells like\n\t\t\t\t\tSpirit Guardians and Wall of Fire are still fantastic options. You do\n\t\t\t\t\tget great things like Heal, but none of them are divine sunlight-based\n\t\t\t\t\texplosions so they’re not very exciting for our purposes."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement: Con 14 -> 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Your first ability score increase that doesn’t need to go into\n\t\t\t\t\tWisdom. Constitution will improve your hit points, but if you’re not\n\t\t\t\t\tbeing targeted frequently consider feats. If you din’t take it at\n\t\t\t\t\tfirst level, Resilient is a great option."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Nothing at this level except 7th-level spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 3)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Destroy even more undead."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Nothing at this level except 8th-level spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Constitution 16 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "Another ASI or feat."
+                },
+                {
+                  "type": "text",
+                  "text": "\n\t\t\t\t"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Destroy Undead (CR 4)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Corona of Light"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9th-level spells and Corona of Light. Corona of Light only lasts one\n\t\t\t\t\tminute, but cast Spirits Guardians as a 9th-level spell and activate\n\t\t\t\t\tCorona of Light and you’re an unstoppable tornado of radiant damage,\n\t\t\t\t\tdealing out 9d8 damage per round, with reflex saves for half made at\n\t\t\t\t\tdisadvantage. All you need to do is keep enemies in the area and not\n\t\t\t\t\tdie, and after a full minute if you haven’t manage to kill everything\n\t\t\t\t\tin the room with a total of 90d8 damage (avg. 405; a little less than\n\t\t\t\t\t2/3 of the Tarrasque’s hit points), hopefully spamming Radiance of the\n\t\t\t\t\tDawn and Word of Radiance were enough to make up the difference."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Channel Divinity (3/rest)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "No change at this level, but the extra use of Darn of Radiance\n\t\t\t\t\tcombines nicely with Corona of Light."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Constitution 18 -> 20) "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Another ASI or feat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Divine Intervention"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Divine Intervention jumps from 19% effective to 100% effective. At\n\t\t\t\t\tthis level you’re close enough to your deity that you can always\n\t\t\t\t\trequest and recieve direct aid. This is an intentionally vague\n\t\t\t\t\tability, so expect to do some amount of negotiating with your DM to\n\t\t\t\t\tdetermine what sort of aid you recieve."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Domain Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 1st-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 7th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bonus Cantrip"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Warding Flare"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Channel Divinity: Radiance of the Dawn"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Improved Flare"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Potent Spellcasting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Corona of Light"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Elemental Adept"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-subclass-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-example-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-2-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-2-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3161,
+    "sections": 17,
+    "blocks": 31,
+    "tables": 2,
+    "ratingSignals": 17
+  },
+  "status": "needs-editorial-review"
+}

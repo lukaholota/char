@@ -1,0 +1,793 @@
+{
+  "buildId": "build-druid-spores-tortle-2014",
+  "revisionId": "build-druid-spores-tortle-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Друїда Кола спор — Друїд-черепаха",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-druid-circle-of-spores-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+      "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "DRUID_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "DRUID_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "DRUID_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CIRCLE_OF_SPORES",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "DRUID_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "DRUID_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "thunderclap"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "DRUID_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "DRUID_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "DRUID_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "DRUID_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "DRUID_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "DRUID_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "DRUID_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "DRUID_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "DRUID_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "DRUID_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "DRUID_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "DRUID_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "DRUID_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "DRUID_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "DRUID_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "DRUID_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-spores-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+          "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "CIRCLE_OF_SPORES",
+    "raceKey": "TORTLE_MPMM",
+    "backgroundKey": "HERMIT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 12
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 12
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 9
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми припускатимемо характеристики за купівлею, запропоновані вище.\n\n  Базове значення Підвищене значення Сила 8 10 Спритність 12 12 Статура 15 15 Інтелект 12 12 Мудрість 15 16 Харизма 9 9",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Черепаха{{Tortle}}. Як ми обговорювали вище, Черепаха разюче спрощує і ваші характеристики, і ваш КБ — два з найбільших викликів для друїда {{Кола спор|Circle of Spores}}.\n\nМожна без особливих проблем замінити Черепаху{{Tortle}} на Локсодона{{Loxodon}}. Ви почнете з вищою Статурою, але з трохи меншим КБ. Імовірно, ви не зможете знайти місце для підвищення Статури, доки не доведете Мудрість до максимуму, але 12-й і 16-й рівні дадуть дуже приємні підвищення характеристик.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Почніть із Природи й Уважності — чудових навичок для друїда. Ще дві ви отримаєте від передісторії, але для того, щоб Коло спор працювало, це не особливо важливо.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Ваш вибір передісторії мало важить поза звичайними друїдськими справами.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Ми почнемо з Мудрістю 16, тож два підвищення характеристик підуть у Мудрість, але ще три ми зможемо витратити. Старт зі Статурою 15 означає, що ми можемо взяти «Стійкого»{{Resilient}}, щоб довести її до 16 і водночас отримати володіння ряткидками Статури. Також можна розглянути інші риси на кшталт «Бойовий заклинатель»{{War Caster}}, але нічого, що було б нам конче потрібне, немає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "{{Друїдична мова|Druidic}}\nЧаротворство{{Spellcasting}}\nВідомі замовляння:\n– Кийок\n– Терновий батіг",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Дика форма{{Wild Shape}}\nКоло друїдів{{Druidic Circle}}: {{Коло спор|Circle of Spores}}\nКолові закляття{{Circle Spells}}\nКолове закляття:\n– Моторошний дотик\n{{Аура спор|Halo of Spores}}\nСимбіотична сутність{{Symbiotic Entity}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик (Мудрість 16 → 18)\nПокращення Дикої форми\nНове замовляння:\n– Гуркіт грому",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Грибне зараження{{Fungal Infestation}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Мудрість 18 → 20)\nПокращення Дикої форми",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "{{Спори, що розповсюджуються|Spreading Spores}}\nНове відоме замовляння:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Стійкий (Статура 15 → 16)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Грибне тіло{{Fungal Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик (Статура 16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Тіло поза часом{{Timeless Body}}\nЗаклинання звіра{{Beast Spells}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик (Статура 18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Архі-друїд{{Archdruid}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Замовляння 10-го рівня",
+        "reason": "На 10-му рівні автор пише «будь-яке» нове замовляння, тож вибір лишено гравцеві.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-spores-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-spores-2014-draft1",
+            "sourceRevisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

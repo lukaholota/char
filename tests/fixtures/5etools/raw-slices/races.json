@@ -1,0 +1,553 @@
+{
+  "race": [
+    {
+      "name": "Tortle",
+      "source": "MPMM",
+      "page": 34,
+      "lineage": "VRGR",
+      "size": [
+        "S",
+        "M"
+      ],
+      "speed": 30,
+      "traitTags": [
+        "Natural Armor",
+        "Natural Weapon"
+      ],
+      "skillProficiencies": [
+        {
+          "choose": {
+            "from": [
+              "animal handling",
+              "medicine",
+              "nature",
+              "perception",
+              "stealth",
+              "survival"
+            ]
+          }
+        }
+      ],
+      "soundClip": {
+        "type": "internal",
+        "path": "races/tortle.opus"
+      },
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Size",
+          "entries": [
+            "You are Medium or Small. You choose the size when you select this race."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Claws",
+          "entries": [
+            "You have claws that you can use to make unarmed strikes. When you hit with them, the strike deals {@damage 1d6} + your Strength modifier slashing damage, instead of the bludgeoning damage normal for an unarmed strike."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Hold Breath",
+          "entries": [
+            "You can hold your breath for up to 1 hour."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Natural Armor",
+          "entries": [
+            "Your shell provides you a base AC of 17 (your Dexterity modifier doesn't affect this number). You can't wear light, medium, or heavy armor, but if you are using a shield, you can apply the shield's bonus as normal."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Nature's Intuition",
+          "entries": [
+            "Thanks to your mystical connection to nature, you gain proficiency with one of the following skills of your choice: {@skill Animal Handling}, {@skill Medicine}, {@skill Nature}, {@skill Perception}, {@skill Stealth}, or {@skill Survival}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Shell Defense",
+          "entries": [
+            "You can withdraw into your shell as an action. Until you emerge, you gain a +4 bonus to your AC, and you have advantage on Strength and Constitution saving throws. While in your shell, you are {@condition prone}, your speed is 0 and can't increase, you have disadvantage on Dexterity saving throws, you can't take reactions, and the only action you can take is a bonus action to emerge from your shell."
+          ]
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    }
+  ],
+  "subrace": [
+    {
+      "name": "Wood",
+      "source": "PHB",
+      "raceName": "Elf",
+      "raceSource": "PHB",
+      "page": 24,
+      "basicRules": true,
+      "reprintedAs": [
+        "Elf|XPHB"
+      ],
+      "speed": 35,
+      "ability": [
+        {
+          "wis": 1
+        }
+      ],
+      "heightAndWeight": {
+        "baseHeight": 54,
+        "heightMod": "2d10",
+        "baseWeight": 100,
+        "weightMod": "1d4"
+      },
+      "weaponProficiencies": [
+        {
+          "longsword|phb": true,
+          "shortsword|phb": true,
+          "shortbow|phb": true,
+          "longbow|phb": true
+        }
+      ],
+      "entries": [
+        {
+          "name": "Elf Weapon Training",
+          "entries": [
+            "You have proficiency with the {@item longsword|phb}, {@item shortsword|phb}, {@item shortbow|phb}, and {@item longbow|phb}."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Fleet of Foot",
+          "entries": [
+            "Your base walking speed increases to 35 feet."
+          ],
+          "type": "entries"
+        },
+        {
+          "name": "Mask of the Wild",
+          "entries": [
+            "You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
+          ],
+          "type": "entries"
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Air",
+      "source": "MPMM",
+      "raceName": "Genasi",
+      "raceSource": "MPMM",
+      "page": 16,
+      "speed": 35,
+      "resist": [
+        "lightning"
+      ],
+      "additionalSpells": [
+        {
+          "innate": {
+            "3": {
+              "daily": {
+                "1": [
+                  "feather fall"
+                ]
+              }
+            },
+            "5": {
+              "daily": {
+                "1": [
+                  "levitate"
+                ]
+              }
+            }
+          },
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "known": {
+            "1": [
+              "shocking grasp#c"
+            ]
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Unending Breath",
+          "entries": [
+            "You can hold your breath indefinitely while you're not {@condition incapacitated}."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Lightning Resistance",
+          "entries": [
+            "You have resistance to lightning damage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Mingle with the Wind",
+          "entries": [
+            "You know the {@spell shocking grasp} cantrip. Starting at 3rd level, you can cast the {@spell feather fall} spell with this trait, without requiring a material component. Starting 5th level, you can also cast the {@spell levitate} spell with this trait, without requiring a material component. Once you cast {@spell feather fall} or {@spell levitate} with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast either of those spells using any spell slots you have of the appropriate level.",
+            "Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
+          ]
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Earth",
+      "source": "MPMM",
+      "raceName": "Genasi",
+      "raceSource": "MPMM",
+      "page": 17,
+      "additionalSpells": [
+        {
+          "innate": {
+            "5": [
+              "pass without trace"
+            ]
+          },
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "known": {
+            "1": [
+              "blade ward#c"
+            ]
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Earth Walk",
+          "entries": [
+            "You can move across {@quickref difficult terrain||3} without expending extra movement if you are using your walking speed on the ground or a floor."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Merge with Stone",
+          "entries": [
+            "You know the {@spell blade ward} cantrip. You can cast it as normal, and you can also cast it as a bonus action a number of times equal to your proficiency bonus, regaining all expended uses when you finish a long rest.",
+            "Starting at 5th level, you can cast the {@spell pass without trace} spell with this trait, without requiring a material component. Once you cast that spell with this trait, you can't do so again until you finish a long rest. You can also cast it using any spell slots you have of 2nd level or higher.",
+            "Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
+          ]
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Fire",
+      "source": "MPMM",
+      "raceName": "Genasi",
+      "raceSource": "MPMM",
+      "page": 17,
+      "resist": [
+        "fire"
+      ],
+      "additionalSpells": [
+        {
+          "innate": {
+            "3": {
+              "daily": {
+                "1": [
+                  "burning hands"
+                ]
+              }
+            },
+            "5": {
+              "daily": {
+                "1": [
+                  "flame blade"
+                ]
+              }
+            }
+          },
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "known": {
+            "1": [
+              "produce flame#c"
+            ]
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Fire Resistance",
+          "entries": [
+            "You have resistance to fire damage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Reach to the Blaze",
+          "entries": [
+            "You know the {@spell produce flame} cantrip. Starting at 3rd level, you can cast the {@spell burning hands} spell with this trait. Starting at 5th level, you can also cast the {@spell flame blade} spell with this trait, without a material component. Once you cast {@spell burning hands} or {@spell flame blade} with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast either of those spells using any spell slots you have of the appropriate level.",
+            "Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
+          ]
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Water",
+      "source": "MPMM",
+      "raceName": "Genasi",
+      "raceSource": "MPMM",
+      "page": 17,
+      "speed": {
+        "walk": 30,
+        "swim": true
+      },
+      "traitTags": [
+        "Amphibious"
+      ],
+      "resist": [
+        "acid"
+      ],
+      "additionalSpells": [
+        {
+          "innate": {
+            "3": {
+              "daily": {
+                "1": [
+                  "create or destroy water"
+                ]
+              }
+            },
+            "5": {
+              "daily": {
+                "1": [
+                  "water walk"
+                ]
+              }
+            }
+          },
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "known": {
+            "1": [
+              "acid splash#c"
+            ]
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Speed",
+          "entries": [
+            "Your walking speed is 30 feet, and you have a swimming speed equal to your walking speed."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Acid Resistance",
+          "entries": [
+            "You have resistance to acid damage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Amphibious",
+          "entries": [
+            "You breathe air and water."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Call to the Wave",
+          "entries": [
+            "You know the {@spell acid splash} cantrip. Starting at 3rd level, you can cast the {@spell create or destroy water} spell with this trait. Starting at 5th level, you can also cast the {@spell water walk} spell with this trait, without requiring a material component. Once you cast {@spell create or destroy water} or {@spell water walk} with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast either of those spells using any spell slots you have of the appropriate level.",
+            "Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
+          ]
+        }
+      ],
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Variant; Mark of Finding",
+      "source": "ERLW",
+      "raceName": "Half-Orc",
+      "raceSource": "PHB",
+      "page": 41,
+      "reprintedAs": [
+        {
+          "uid": "Mark of Finding|EFA",
+          "tag": "feat"
+        }
+      ],
+      "traitTags": [
+        "Dragonmark",
+        "Skill Bonus Dice"
+      ],
+      "skillProficiencies": null,
+      "languageProficiencies": [
+        {
+          "common": true,
+          "goblin": true
+        }
+      ],
+      "soundClip": {
+        "type": "internal",
+        "path": "races/half-orc.opus"
+      },
+      "additionalSpells": [
+        {
+          "innate": {
+            "1": [
+              "hunter's mark"
+            ],
+            "3": {
+              "daily": {
+                "1": [
+                  "locate object"
+                ]
+              }
+            }
+          },
+          "expanded": {
+            "s1": [
+              "faerie fire",
+              "longstrider"
+            ],
+            "s2": [
+              "locate animals or plants",
+              "locate object"
+            ],
+            "s3": [
+              "clairvoyance",
+              "speak with plants"
+            ],
+            "s4": [
+              "divination",
+              "locate creature"
+            ],
+            "s5": [
+              "commune with nature"
+            ]
+          },
+          "ability": "wis"
+        }
+      ],
+      "entries": [
+        {
+          "type": "entries",
+          "name": "Darkvision",
+          "entries": [
+            "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+          ],
+          "data": {
+            "overwrite": "Darkvision"
+          }
+        },
+        {
+          "type": "entries",
+          "name": "Hunter's Intuition",
+          "entries": [
+            "When you make a Wisdom ({@skill Perception}) or Wisdom ({@skill Survival}) check, you can roll a {@dice d4} and add the number rolled to the ability check."
+          ],
+          "data": {
+            "overwrite": "Menacing"
+          }
+        },
+        {
+          "type": "entries",
+          "name": "Finder's Magic",
+          "entries": [
+            "You can cast the {@spell hunter's mark} spell with this trait. Starting at 3rd level, you can also cast the {@spell locate object} spell with it. Once you cast either spell with this trait, you can't cast that spell with it again until you finish a long rest. Wisdom is your spellcasting ability for these spells."
+          ],
+          "data": {
+            "overwrite": "Relentless Endurance"
+          }
+        },
+        {
+          "type": "entries",
+          "name": "Languages",
+          "entries": [
+            "You can speak, read, and write Common and Goblin."
+          ],
+          "data": {
+            "overwrite": "Languages"
+          }
+        },
+        {
+          "type": "entries",
+          "name": "Spells of the Mark",
+          "entries": [
+            "If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Finding Spells table are added to the spell list of your spellcasting class.",
+            {
+              "type": "table",
+              "caption": "Mark of Finding Spells",
+              "colLabels": [
+                "Spell Level",
+                "Spells"
+              ],
+              "colStyles": [
+                "col-2 text-center",
+                "col-10"
+              ],
+              "rows": [
+                [
+                  "1st",
+                  "{@spell faerie fire}, {@spell longstrider}"
+                ],
+                [
+                  "2nd",
+                  "{@spell locate animals or plants}, {@spell locate object}"
+                ],
+                [
+                  "3rd",
+                  "{@spell clairvoyance}, {@spell speak with plants}"
+                ],
+                [
+                  "4th",
+                  "{@spell divination}, {@spell locate creature}"
+                ],
+                [
+                  "5th",
+                  "{@spell commune with nature}"
+                ]
+              ]
+            }
+          ],
+          "data": {
+            "overwrite": "Savage Attacks"
+          }
+        }
+      ]
+    }
+  ]
+}

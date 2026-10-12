@@ -1,0 +1,932 @@
+{
+  "buildId": "build-rogue-arcane-trickster-2014",
+  "revisionId": "build-rogue-arcane-trickster-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "— Маленький і хитрий",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-rogue-arcane-trickster-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+      "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+      "sectionId": "section-example-build-small-and-tricksy",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "ROGUE_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "ROGUE_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "ROGUE_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "ROGUE_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ARCANE_TRICKSTER",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "booming-blade",
+            "light"
+          ],
+          "knownSpellKeys": [
+            "silvery-barbs",
+            "silent-image",
+            "find-familiar"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "ROGUE_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (DEX)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (PERSUASION)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (PERSUASION)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "illusory-script"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "ROGUE_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "ROGUE_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "expertise": [
+          "INVESTIGATION",
+          "SLEIGHT_OF_HAND"
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "ROGUE_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "phantasmal-force"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "ROGUE_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "ROGUE_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "ROGUE_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FEY_TOUCHED",
+        "featOptions": [
+          {
+            "optionNameEng": "FEY_TOUCHED Ability (Intelligence)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "prestidigitation"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "ROGUE_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "invisibility"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "ROGUE_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "ROGUE_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "major-image"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "ROGUE_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "haste"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "ROGUE_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "ROGUE_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SHADOW_TOUCHED",
+        "featOptions": [
+          {
+            "optionNameEng": "SHADOW_TOUCHED Ability (Intelligence)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hypnotic-pattern"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "invisibility",
+          "add": "mirror-image"
+        }
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "ROGUE_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "ROGUE_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "ROGUE_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "CHEF",
+        "featOptions": [
+          {
+            "optionNameEng": "CHEF Ability (Constitution)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "greater-invisibility"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "ROGUE_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-arcane-trickster-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+          "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ARCANE_TRICKSTER",
+    "raceKey": "FAIRY_MPMM",
+    "backgroundKey": "HAUNTED_ONE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 15
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Оскільки в гайдах немає витівок із мультикласуванням, характеристики відповідають рекомендаціям вище.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 17 Статура 14 14 Інтелект 15 16 Мудрість 10 10 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Фея{{Fairy}}. Вона хороша з усіх причин, описаних вище, і ми доводимо тактику «вдарив і втік», у якій Пройдисвіти чудові завдяки «Хитрій дії», на нові висоти.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Оскільки ми й так дуже добре робимо пройдисвітські речі й хочемо схилитися до високого Інтелекту, ми беремо Переслідуваного{{Haunted One}} заради Магії та Історії, а також безкоштовного набору мисливця на монстрів{{Monster Hunter’s Pack}}. Ми залишаємо одну мову (Драконячу) і міняємо іншу на володіння набором фальшивомонетника.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Будучи Пройдисвітом, ми отримуємо їх багато. Беремо володіння Уважністю, Непомітністю, Розслідуванням і Спритністю рук на першому рівні (а також безкоштовні інструменти злодія). Магія, Історія й набір фальшивомонетника походять із Переслідуваного, як зазначено вище, а на 4-му рівні ми візьмемо «Експерта у навичках»{{Skill Expert}}, щоб доповнити те, чого, на вашу думку, потребує ваша група.\n\nЦе може бути і володіння, і «Експертиза» в Переконанні, якщо вам бракує «обличчя», або розподіл володіння на іншу навичку Інтелекту, якщо вам бракує Друїда, Слідопита, Клірика чи Паладина, але все одно вкласти «Експертизу» в те, що вам важливіше, тощо.\n\nДля «Експертизи» від класу ми почнемо з інструментів злодія й Непомітності, а потім риса на 4-му рівні гнучка (Спритність рук — ще один чудовий вибір, зважаючи на те, що ми щойно отримаємо «Спритність Руки Мага»). На 6-му рівні, якщо ми ще не взяли Спритність рук, зробіть це. У будь-якому разі, візьміть Розслідування.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "«Експерт у навичках»{{Skill Expert}} на 4-му рівні й Покращення Характеристик Спритності на 8-му — не сюрприз. Оскільки Пройдисвіти отримують додаткове Покращення Характеристик порівняно з більшістю класів, 10-й — «Доторк феї»{{Fey Touched}}, іронію якого ми повністю ігноруємо. 12-й — «Стійкий»{{Resilient}} (Статура), тепер, коли у нас є заклинання Концентрації, які ми хочемо підтримувати. 16-й — «Доторк тіні»{{Shadow Touched}} заради ще більшої кількості заклинань і підтягування Інтелекту до 18, і нарешті 19-й бачить, як ми беремо «Кухаря»{{Chef}}, щоб доповнити Статуру й водночас дати груповий інструмент (обовʼязково їжте їжу, приготовану Феями, це чудова ідея).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 2,
+        "text": "Хитра дія{{Cunning Action}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Замовляння:\n– Магічна рука [Mage Hand]\n– Гримучий Клинок [Booming Blade]\n– Світло [Light]/Штукарство [Prestidigitation]\nЗаклинання:\n– Сріблясті шпильки [Silvery Barbs]\n– Мовчазний образ [Silent Image]\n– Пошук фамільяра [Find Familiar]\nСпритність Руки Мага",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Експерт у навичках (Спритність)\nЗаклинання:\n– Ілюзорний напис [Illusory Script]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Надприродне ухилення{{Uncanny Dodge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Експертиза{{Expertise}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ухилення\nЗаклинання:\n– Уявна сила [Phantasmal Force]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Спритність 18 → 20\nЗаклинання:\n– Див. текст",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Магічна засідка{{Magical Ambush}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Доторк феї (Інтелект)\nЗамовляння:\n– Штукарство [Prestidigitation]/Розщеплення Розуму [Mind Sliver]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Надійний талант\nЗаклинання:\n– Невидимість [Invisibility]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Стійкий (Статура)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Заклинання:\n– Оживлений образ [Major Image]\nУніверсальний шахрай",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Сліповідчуття\nЗаклинання:\n– Прискорення [Haste]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Слизький розум{{Slippery Mind}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Доторк тіні (Інтелект)\nПерепідготувати заклинання: Невидимість [Invisibility] → Віддзеркалення [Mirror Image]\nЗаклинання:\n– Гіпнотичний візерунок [Hypnotic Pattern]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Крадій заклинань{{Spell Thief}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Невловимий{{Elusive}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Кухар (Статура)\nЗаклинання:\n– Більша невидимість [Greater Invisibility]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Шанс удачі\nЗаклинання:\n– Див. текст",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Експертиза в інструментах",
+        "reason": "На 1-му рівні автор бере Експертизу в інструментах злодія й Непомітності; експертиза в інструментах платформою не підтримана, тому замість інструментів злодія взято Уважність — вибір платформи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Рівень 4: Експерт у навичках",
+        "reason": "Автор лишає навичку риси гнучкою; взято перший названий приклад: володіння й експертиза в Переконанні.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання риси «Доторк феї» та «Доторк тіні»",
+        "reason": "Автор бере обидві риси на 10-му й 16-му рівнях і не називає заклинання 1-го рівня; платформа не має вибору заклинань риси на підвищенні, тож вони на рівнях не записані.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання 8-го й 20-го рівня",
+        "reason": "Автор на 8-му та 20-му рівнях пише «див. текст» і не називає заклинань; їх обирає гравець.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Набір мисливця на монстрів",
+        "reason": "Безкоштовний набір мисливця на монстрів від Переслідуваного платформа не відтворює як спорядження.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-arcane-trickster-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-arcane-trickster-2014-draft1",
+            "sourceRevisionId": "rpgbot-3cce29c35783f388-c465300616def7db",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

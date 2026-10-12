@@ -1,0 +1,133 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "druid-moon-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-druid-moon-2014-draft1",
+    "sourceRevisionId": "rpgbot-622700c08fc484f6-8af42bd9cb3b43ea"
+  },
+  "exampleSection": "section-example-circle-of-the-moon-druid-build-moon-sailor",
+  "levelTableSection": "section-levels",
+  "classKey": "DRUID_2014",
+  "subclassKey": "CIRCLE_OF_THE_MOON",
+  "raceKey": "HALFLING_2014",
+  "backgroundKey": "SAILOR",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 14,
+    "INT": 12,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "revision": 2,
+  "levels": [
+    {"level": 2, "subclassKey": "CIRCLE_OF_THE_MOON"},
+    {"level": 3},
+    {"level": 4, "featKey": "TELEKINETIC", "featOptions": [{"optionNameEng": "TELEKINETIC Ability (Wisdom)"}], "spells": {"cantripKeys": ["shape-water"]}, "section": "section-feats"},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats"},
+    {"level": 9},
+    {"level": 10, "openSpellPicks": [{"category": "cantrips", "count": 1}]},
+    {"level": 11},
+    {"level": 12, "featKey": "BOUNTIFUL_LUCK", "section": "section-feats"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "featKey": "RESILIENT", "featOptions": [{"optionNameEng": "Resilient (Constitution)"}], "section": "section-feats"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "featKey": "MOBILE", "section": "section-feats"},
+    {"level": 20}
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Варіантне уміння передісторії",
+      "reason": "Автор бере варіантне уміння Моряка «Погана репутація»; пресет не записує вибір варіантного уміння передісторії.",
+      "section": "section-background"
+    },
+    {
+      "field": "Підготовлені заклинання 2–20 рівнів",
+      "reason": "Автор називає підготовлені заклинання по рівнях (і заміну Крижаного кинджала на Палючу сферу на 3-му), але підготовку Друїда на вищих рівнях плану не веде жоден модуль платформи; їх готують на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння 10-го рівня",
+      "reason": "Друїд 10-го рівня обирає ще одне замовляння, а автор його не називає, тож вибір лишено гравцеві.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/druid-moon-stout-halfling-2014.webp",
+    "title": "Друїд Кола місяця — Кремезний напіврослик",
+    "description": "Друїд-напіврослик, що перетворюється на звірів із расовими рисами: Мудрість 17, Статура 15. Починає із замовляннями Настанова й Створення вогню; Коло місяця відкриється на 2-му рівні.",
+    "subraceKey": "HALFLING_STOUT_2014",
+    "racialAbilities": [
+      "WIS",
+      "CON"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "NATURE",
+        "SURVIVAL"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "QUARTERSTAFF"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Кремезний напіврослик зі змінюваним походженням за правилами Таші: +2 до Мудрості й +1 до Статури, як в авторській таблиці (Статура 15, Мудрість 17); це вже враховано.",
+    "skillExplanation": "Природа й Виживання — від Друїда, Атлетика й Уважність — від Моряка, як у прикладі автора. Мов вибирати не треба.",
+    "equipmentExplanation": "Автор радить щит і палицю, а шкіряну броню, набір мандрівника й друїдичний фокус дає клас; усе це взято за авторським прикладом.",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "produce-flame"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "detect-magic",
+        "entangle",
+        "healing-word",
+        "ice-knife"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Настанова й Створення вогню взято з рядка 1-го рівня авторської таблиці. Підготовлені заклинання Виявлення магії, Обплутування, Цілюще слово й Крижаний кинджал названо автором."
+    }
+  }
+}

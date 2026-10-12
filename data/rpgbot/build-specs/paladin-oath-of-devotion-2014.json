@@ -1,0 +1,226 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "paladin-oath-of-devotion-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-paladin-oath-of-devotion-2014-draft1",
+    "sourceRevisionId": "rpgbot-e07e0329a207ef54-c1c0eef0503ce00c"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "PALADIN_2014",
+  "subclassKey": "OATH_OF_DEVOTION",
+  "raceKey": "ASTRAL_ELF_SPELLJAMMER",
+  "backgroundKey": "HAUNTED_ONE",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Продаж спорядження",
+      "reason": "Автор радить продати зайвий дворучний меч і метальні списи; пресет не записує продаж, тож лишено два дворучні мечі й спис-метальні зі стартових груп.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння Благословенного воїна",
+      "reason": "Автор бере на 2-му рівні Настанову й Слово сяйва як замовляння Благословенного воїна; платформа не записує замовлення цього бойового стилю, тому їх треба додати на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Адепт метамагії: Пришвидшене й Подовжене заклинання",
+      "reason": "На 6-му рівні автор бере «Адепта метамагії» з метамагіями Пришвидшене та Подовжене заклинання; у каталозі риса не має опцій (BUG-O49-METAMAGIC-ADEPT), тому метамагії не записані.",
+      "section": "section-feats-2"
+    }
+  ],
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "classOptions": [
+        {
+          "optionNameEng": "Blessed Warrior"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "subclassKey": "OATH_OF_DEVOTION"
+    },
+    {
+      "level": 4,
+      "classKey": "SORCERER_2014",
+      "subclassKey": "WILD_MAGIC",
+      "spells": {
+        "cantripKeys": [
+          "booming-blade",
+          "fire-bolt",
+          "prestidigitation",
+          "shape-water"
+        ],
+        "knownSpellKeys": [
+          "silvery-barbs",
+          "shield"
+        ]
+      }
+    },
+    {
+      "level": 5,
+      "classKey": "SORCERER_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "absorb-elements"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "featKey": "METAMAGIC_ADEPT",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "featKey": "GREAT_WEAPON_MASTER",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "featKey": "ELVEN_ACCURACY",
+      "featOptions": [
+        {
+          "optionNameEng": "ELVEN_ACCURACY Ability (Charisma)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 19
+    },
+    {
+      "level": 20
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/paladin-oath-of-devotion-2014.webp",
+    "title": "Паладин — Клятва відданості, Астральний ельф",
+    "description": "Паладин у кольчузі з двома дворучними мечами: Астральний ельф із Священним полумʼям, Переслідуваний з Обманом і Залякуванням.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA",
+      "CON",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ATHLETICS",
+        "PERSUASION"
+      ],
+      "race": [],
+      "background": [
+        "DECEPTION",
+        "INTIMIDATION"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH",
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": [
+          "GREATSWORD",
+          "GREATSWORD"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [
+        "sacred-flame"
+      ],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння «Священне полумʼя» з Астрального вогню обрано автором."
+    },
+    "abilityExplanation": "Астральний ельф за правилами Таші: +2 до Харизми й +1 до Статури, як у таблиці автора (Харизма 17, Статура 16). Це вже враховано.",
+    "skillExplanation": "Атлетика й Переконання — від Паладина, Уважність — від Астрального ельфа. Автор налаштовує Переслідуваного: замість Магії й Розслідування бере Обман і Залякування (правило PHB «Налаштування передісторії»). Три мови ми обрали за вас: автор радить обирати за кампанією.",
+    "equipmentExplanation": "Кольчуга, два дворучні мечі й метальні списи — за порадою автора. Набір священика ми обрали за вас — вибір платформи."
+  }
+}

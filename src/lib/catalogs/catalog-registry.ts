@@ -1,6 +1,6 @@
 import type { Ruleset } from "@prisma/client";
 import type { LucideIcon } from "lucide-react";
-import { Award, BookOpen, Castle, Eye, FlaskConical, ScrollText, Shield, Sparkles, Sword, Swords, Users, Wand2, Wrench } from "lucide-react";
+import { Award, BookOpen, Castle, Eye, FlaskConical, ScanSearch, ScrollText, Shield, Sparkles, Sword, Swords, Users, Wand2, Wrench } from "lucide-react";
 import { getTargetEditionPath, type Edition } from "@/rules/route-helpers";
 import type { HomeAccentName } from "@/components/home/homeTokens";
 
@@ -22,6 +22,7 @@ export type CatalogSlug =
   | "invocations"
   | "metamagic"
   | "rules"
+  | "rpgbot"
   | "homebrew"
   | "infusions"
   | "bastions";
@@ -34,8 +35,9 @@ export type HomeCardPlacement = "hero" | "tile" | "heroOnDesktop";
 export type HomeCardTier = "hero" | "tile";
 
 /// «index» — рядки каталогу лежать у статичному омні-індексі; «server» — каталог живе в базі й
-/// шукається серверною дією (персонажі, хоумбрю), в індексі його рядків бути не може.
-export type CatalogSearchMode = "index" | "server";
+/// шукається серверною дією (персонажі, хоумбрю), в індексі його рядків бути не може; «none» —
+/// рядків у пошуку ще немає, лише рядок «Каталог».
+export type CatalogSearchMode = "index" | "server" | "none";
 
 export type CatalogEntry = {
   slug: CatalogSlug;
@@ -51,6 +53,7 @@ export type CatalogEntry = {
   /// null — каталог у головній панелі навігації, а не в додатковому меню.
   menuIcon: LucideIcon | null;
   search: CatalogSearchMode;
+  indexedEditions?: readonly Edition[];
   searchOrder: number;
   /// Публічний статичний каталог, який має бути в sitemap. Персонажі й хоумбрю — ні.
   isPublic: boolean;
@@ -133,6 +136,22 @@ export const CATALOG_REGISTRY: readonly CatalogEntry[] = [
     search: "index",
     searchOrder: 13,
     isPublic: true,
+  },
+  /// Власник, 2026-10-03: окрема плитка одразу після «Класів», хоча адреса — розділ довідника
+  /// правил. Власник, 2026-10-05: читач 2014 відкритий для всіх; читач 2024 лишається закритим (O49).
+  /// Поза sitemap до приймання; пошук індексує тільки публічний корпус 2014.
+  /// Власник, 2026-10-11: 2024 не готова — у продакшені входи в неї не показуємо.
+  {
+    slug: "rpgbot",
+    title: "Аналітика RPGbot",
+    path: "/rules/optimization",
+    editions: process.env.NODE_ENV === "production" ? ONLY_2014 : BOTH_EDITIONS,
+    home: { placement: "tile", accent: "runicCyan" },
+    menuIcon: ScanSearch,
+    search: "index",
+    indexedEditions: ONLY_2014,
+    searchOrder: 16,
+    isPublic: false,
   },
   {
     slug: "bestiary",
@@ -262,6 +281,10 @@ export function collectCatalogsOfEdition(edition: Edition): CatalogEntry[] {
 
 export function collectSearchCatalogs(edition: Edition): CatalogEntry[] {
   return collectCatalogsOfEdition(edition).sort((a, b) => a.searchOrder - b.searchOrder);
+}
+
+export function isCatalogSearchIndexedInEdition(entry: CatalogEntry, edition: Edition): boolean {
+  return entry.search === "index" && entry.editions.includes(edition) && (entry.indexedEditions ?? entry.editions).includes(edition);
 }
 
 export function collectMenuCatalogs(edition: Edition): Array<CatalogEntry & { menuIcon: LucideIcon }> {

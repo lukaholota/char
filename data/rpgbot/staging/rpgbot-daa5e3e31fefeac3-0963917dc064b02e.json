@@ -1,0 +1,2496 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "0963917dc064b02ee22e983817c616a4e5ac100fc7de951fd48ebdf2fcd17165",
+  "sourceRevision": {
+    "revisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+    "sourceId": "rpgbot-daa5e3e31fefeac3",
+    "fetchedAt": "2026-09-29T19:23:13.558611+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:41:15-04:00",
+    "contentHash": "45f9547d7b19c99d44a5b3b353d3ab722dcc90440a29a0838c19ff7290eb3732",
+    "title": "Gloom Stalker Ranger 5e: DnD Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-daa5e3e31fefeac3-0963917dc064b02e.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Gloom Stalker (not “gloomstalker”) is a very popular subclass as it provides several incredible features without leaving you feeling like anything is just taking up space in your arsenal of tricks. It takes the existing skill set of the ranger and expands it into a terrifying damage monster while also improving on some of the core components such as stealth and utility. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While it can be easy to assume that the subclass is only good for playing in\n\tits intended home underground, most of the features work well in broad\n\tdaylight, meaning that if you actually "
+            },
+            {
+              "type": "emphasis",
+              "text": "do"
+            },
+            {
+              "type": "text",
+              "text": " get to do your thing in the\n\tabsence of light, the subclass is very powerful indeed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gloom Stalker Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#gloom-stalker-features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gloom Stalker Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#gloom-stalker-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gloom Stalker Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#gloom-stalker-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gloom Stalker Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#gloom-stalker-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gloom Stalker Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#gloom-stalker-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gloom Stalker Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#gloom-stalker-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Hitman with Fur",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#example-build-hitman-with-fur"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gloom-stalker-features",
+      "heading": "Gloom Stalker Features",
+      "sourceAnchor": "gloom-stalker-features",
+      "blocks": [
+        {
+          "blockId": "block-section-gloom-stalker-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Gloom Stalker Magic"
+              },
+              {
+                "type": "text",
+                "text": ": 4 of these spells are pretty good and one of those is a wiz/artificer exclusive. Now you too can decide that you need an extra-dimensional pocket to short rest in. This only isn’t rated higher because Disguise Self and Fear care about your spell save DC which won’t be as good as a dedicated caster.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Situational."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": A fantastic way to rest\n\t\t\t\tsafely, and normally exclusive to artificers and wizards. But rangers get very few\n\t\t\t\tspell slots, and spending one to take a Short Rest safely is a high cost\n\t\t\t\tfor the Ranger. Do your best to avoid needing this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": It’s unlikely that you\n\t\t\t\thave sufficient Wisdom to make any spell which allows a saving throw\n\t\t\t\treliable, so you’ll want to save this for encounters with numerous weak\n\t\t\t\tfoes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Amazing on any stealthy\n\t\t\t\tcharacter. Ideally you’ll never need this because you can rely on Umbral\n\t\t\t\tSight, but if your enemies pull out a torch you can cast Greater\n\t\t\t\tInvisibility and remain unseen."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Situational, but very\n\t\t\t\thelpful when your party needs to go somewhere where the locals are\n\t\t\t\tunfriendly."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dread Ambusher"
+              },
+              {
+                "type": "text",
+                "text": ": The first round of combat\n\t\tis the most important. As a reminder, "
+              },
+              {
+                "type": "link",
+                "text": "combat is only expected to last 3 rounds on average",
+                "href": "https://www.dndbeyond.com/sources/dmg/dungeon-masters-workshop#Step11Damage"
+              },
+              {
+                "type": "text",
+                "text": ". This means that, roughly 1/3rd of the time, you get extra extra attack and an additional d8 damage on top. That’s already very good, but you also get a substantial bonus to initiative to try and take that bonus damage and remove something from the fight before it gets to act.\n"
+              },
+              {
+                "type": "text",
+                "text": "The bonus speed will help you get into position,\n\t\tespecially if you’re built for melee, but the real bonus is the extra\n\t\tattack. If you can get Hunter’s Mark running before initiative is rolled,\n\t\tyou absolutely should so that your first turn can be a big pile of\n\t\tdamage."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Umbral Sight"
+              },
+              {
+                "type": "text",
+                "text": ": Getting free Darkvision is\n\t\tfantastic on its own, but invisibility to Darkvision is absolutely crazy.\n\t\tMost creatures that will ambush you using Darkvision won’t have a light\n\t\tsource in their possession, so you functionally have Improved Invisibility.\n\t\tEven if an enemy finds a light source, if you extinguish it you’re right\n\t\tback to invisibly murdering them.\n"
+              },
+              {
+                "type": "text",
+                "text": "Invisibility at this level normally comes at great cost: a highest-level spell slot, Concentration, and a prohibition against doing nearly anything aggressive with it. This has none of those costs, it just only applies when something is only able to see you because of its Darkvision. This means that we should be trying to be in darkness in combat as much as is physically possible. Work to make sure that everyone else in your party can function without light as well so that enemies are relying on Darkvision wherever possible."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "While it is incredible, it does have its limitations. The feature specifies that it only works in darkness. That means that it doesn’t work if there’s dim light (candles, etc.). It must be actual darkness. It also doesn’t work on things that can perceive you because of truesight, tremorsense, blindsight, etc. Only Darkvision. With that said, in the right conditions, this is one of the best class features in the game."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Iron Mind"
+              },
+              {
+                "type": "text",
+                "text": ": Additional saving throw\n\t\tproficiencies are always welcome, especially when they’re for a commonly targeted save."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stalker’s Flurry"
+              },
+              {
+                "type": "text",
+                "text": ": Not quite as powerful as\n\t\tan additional attack, but still extremely helpful. The fundamental math of\n\t\t5e assumes that a player following the attack vs. AC progression will hit\n\t\twith attacks roughly 65% of the time against CR-appropriate foes. If you’re\n\t\tmaking two attacks per turn, you have a roughly 58% chance to miss with at\n\t\tleast one attack, so you’ll benefit from Stalker’s Flurry consistently.\n"
+              },
+              {
+                "type": "text",
+                "text": "Unfortunately, the wording on Dread Ambusher means that, if the extra attack from the feature misses you do miss out on the d8 damage bump even if the attack Flurry grants you off of it connects, but even so we’re not going to sneeze at free attacks."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shadowy Dodge"
+              },
+              {
+                "type": "text",
+                "text": ": It only works once per\n\t\tround because it consumes your Reaction, but that’s often plenty. The\n\t\tGloom Stalker thrives on being unseen, so this is powerful insurance if your\n\t\tenemies manage to attack while you’re not in total darkness and also not\n\t\trunning Improved Invisibility."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gloom-stalker-ability-scores",
+      "heading": "Gloom Stalker Ability Scores",
+      "sourceAnchor": "gloom-stalker-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-gloom-stalker-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gloom Stalkers have similar ability score needs to other rangers."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gloom-stalker-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Unless you’re trying to dual wield and\n\tunwilling to use finesse weapons, dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gloom-stalker-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": This is the primary stat for the class\n\tas it powers our attacks and main skills."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gloom-stalker-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": More hit points are good on\n\teverything, but this build works well at range so don’t feel the need to pump\n\tit too high."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gloom-stalker-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gloom-stalker-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": This not only powers our spells but a\n\tclass feature or two and other good Scout skills. It should be raised second,\n\tbut isn’t as much of a requirement to cap as Dex is."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gloom-stalker-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": I’m going to mention an edge case\n\twhere you could choose to apply the expertise gained from the Canny section of\n\tthe optional class feature Deft Explorer to a Face skill if no one else in\n\tyour party can take the role. If you’re not doing that though, dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gloom-stalker-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "strong",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "strong",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "strong",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "strong",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "strong",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "strong",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "strong",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "strong",
+                  "text": "11"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "strong",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "strong",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "strong",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "strong",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "strong",
+                  "text": "12"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gloom-stalker-races",
+      "heading": "Gloom Stalker Races",
+      "sourceAnchor": "gloom-stalker-races",
+      "blocks": [
+        {
+          "blockId": "block-section-gloom-stalker-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Races which work for a typical ranger work well for the Gloom Stalker. I’ve\n\tincluded a few favorites here, but for more, see our\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Ranger Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/races"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-gloom-stalker-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "MotM Bugbear"
+              },
+              {
+                "type": "text",
+                "text": ": The change to the way\n\t\tSurprise Attack works in this edition of the Bugbear is phenomenally good\n\t\twith this subclass. You also get racial Darkvision for Umbral Sight to\n\t\texpand and proficiency in Stealth so you can spend yours elsewhere.\n\t\tEverything about this is mouthwatering."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Variant Human/Custom Lineage"
+              },
+              {
+                "type": "text",
+                "text": ": Getting to\n\t\twalk out with Crossbow Expert or Sharpshooter to take advantage of the\n\t\tinvisibility granted by Umbral Sight are incredible options."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gloom-stalker-feats",
+      "heading": "Gloom Stalker Feats",
+      "sourceAnchor": "gloom-stalker-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-gloom-stalker-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gloom Stalkers don’t really want different feats than any other Ranger. With\n\tthat said, you’re going to see the interaction of a couple feats in the\n\texample build, below."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gloom-stalker-weapons",
+      "heading": "Gloom Stalker Weapons",
+      "sourceAnchor": "gloom-stalker-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-gloom-stalker-weapons-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Hand Crossbow"
+              },
+              {
+                "type": "text",
+                "text": ": If you follow this example\n\t\tbuild, you’re going to see how Agent 47 has nothing on you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Longbow"
+              },
+              {
+                "type": "text",
+                "text": ": If you don’t want to worry about\n\t\tpicking up the feats and want a build with less buttons, this is the weapon\n\t\tof choice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Short Sword"
+              },
+              {
+                "type": "text",
+                "text": ": If you really don’t want to\n\t\tattack at range for some reason (maybe your party has no primary defender\n\t\tand you’re the only thing with hit points) you can take this into melee,\n\t\tperhaps even dual wielding them."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-gloom-stalker-armor",
+      "heading": "Gloom Stalker Armor",
+      "sourceAnchor": "gloom-stalker-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-gloom-stalker-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No differences here, but it is worth noting that, since you do have shield\n\tproficiency, if you’re trying to fill in the bizarre melee position I\n\tdescribed above when talking about short swords, you can technically sword and\n\tboard as a Ranger."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build originally started as a thought experiment to see how hard I could\n\tbreak the new bugbear. It turns out the answer is “"
+            },
+            {
+              "type": "emphasis",
+              "text": "really"
+            },
+            {
+              "type": "text",
+              "text": " hard.” If\n\tyou dip into rogue, fighter, and monk, you can end up with a character that\n\tdeals over 400 expected damage in the first turn, accounting for accuracy. If\n\tyou can get someone to Haste you, that number goes up to over 450. This costs\n\tyou just 1 ki point and your Action Surge. I have been informed that this is\n\tenough to kill a monster of a CR appropriate to the character before it gets a\n\tchance to act."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A two-level dip in Fighter gets us Action Surge. The wording on Dread Ambusher means that it will trigger again if you happen to take the Attack action again on your first turn. This means that you should always use Action Surge on the first turn. If you choose to keep going in Fighter, many flavors will add nice benefits. Battle Master’s Precise Strike can help you land shots which you take the Sharpshooter penalty on, while Ambush can potentially turn a disastrous initiative roll into something that beats out your target."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unsurprisingly, if your build is centered around doing a bunch of damage in the first round of combat, Gloom Stalker synergizes very well with Assassin Rogue. Taking all of those many dice and turning them into guaranteed crits is pretty great."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want to do this in melee rather than with a crossbow, adding in Monk\n\t(and specifically Way of Shadow monk) is also a really good synergy. Spending\n\t2 ki for the Darkness spell is an awesome way to make it so things can’t see\n\tyou."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Now… if you’re paying attention, you’ll notice that the Darkness I just\n\ttalked about is magical and doesn’t let your darkvision shine. So what if we\n\talso increased our Charisma to 13 and multiclass into Warlock too for Devil’s\n\tSight?"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I’m not going to do a whole separate build guide for this theoretical\n\tmonstrosity of a character, but I sure will post\n\t"
+            },
+            {
+              "type": "link",
+              "text": "a link to it",
+              "href": "https://www.dndbeyond.com/characters/67124144"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-hitman-with-fur",
+      "heading": "Example Build – Hitman with Fur",
+      "sourceAnchor": "example-build-hitman-with-fur",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-hitman-with-fur",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One noteworthy part of being a Ranger is that we get early access to Fighting\n\tStyle (Archery). This lets us ignore some of the fundamental math progression\n\tto pick up neat abilities without falling behind on our capacity to hit things\n\tas expected."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-hitman-with-fur",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The MotM Bugbear is amazing as described above. We take that and put it to\n\tgood use."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-hitman-with-fur",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since most of a background is freely exchangeable, we want to pick something\n\twith a good unique ability that’s flavorful. Haunted One is a fantastic choice\n\tas it gets us access to Undercommon, Survival, and a free Monster Hunter’s\n\tPack by default, which all feel thematically very appropriate. As this\n\tcharacter is intended to be a Scout and rogue replacement, trade in the other\n\tlanguage for Thieves tools proficiency and the second skill for Sleight of\n\tHand."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-hitman-with-fur",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Perception, Insight, and Investigation with your three class skills.\n\tHaunted One also gets us Survival and Sleight of Hand."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-hitman-with-fur",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We want to get Crossbow Expert and Sharpshooter as quickly as possible, in that order. As referenced above, we’re going to get a +2 to hit with our ranged attacks at level 2, which gives us 8 levels to play with until we have to increase our Dexterity to keep up with the fundamental math. Conveniently, that’s what we need for those feats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 12 we take Piercer since the sheer volume of attacks combined with our penchant for attacking with advantage means that we’re going to crit pretty frequently. Also, all our damage is piercing so getting to reroll low numbers is nice. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "16 caps Dexterity, which leaves 19 free to take Resilient (Constitution) and become probably the only thing in the game with proficiency on all 3 common saves."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-hitman-with-fur",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Deft Explorer (Canny)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored Foe"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Natural Explorer is outright terrible, and Favored Enemy needed work.\n\t\t\t\t\tConveniently, Tasha’s gave us replacements for both of them and we\n\t\t\t\t\tvery much want that."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Use Canny for Expertise in really\n\t\t\t\t\tanything. Stealth is an obvious choice, but Perception is another good\n\t\t\t\t\tone. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For starting equipment, take the scale mail, two\n\t\t\t\t\tshort swords, a dungeoneer’s pack, and the longbow. Sell the scale\n\t\t\t\t\tmail and short swords and buy studded leather instead. Save up 50gp\n\t\t\t\t\tover the next 3 levels to buy a hand crossbow."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style (Archery)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells known (Hunter’s Mark,\n\t\t\t\t\tGoodberry)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style (Archery) gives us an immediate large boost to damage\n\t\t\t\t\t(because hitting things on a 6 or higher instead of an 8 or higher is\n\t\t\t\t\t15% more damage)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hunter’s Mark is already good, and it’s\n\t\t\t\t\tgoing to get better next level when we start having extra attacks.\n\t\t\t\t\tThen it’s going to get even better at level 4 when we get more\n\t\t\t\t\tattacks. Then it’s going to get "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "even better"
+                },
+                {
+                  "type": "text",
+                  "text": " at level 5 when\n\t\t\t\t\twe get more attacks. Since Favored Foe also takes concentration, we’ll\n\t\t\t\t\tbe using Hunter’s Mark instead unless we run out of spell slots."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Goodberry\n\t\t\t\t\tis present in case your actual healer drops because someone needs to\n\t\t\t\t\tbe able to stand them back up. Feel free to replace this with Fog\n\t\t\t\t\tCloud if you already have two characters capable of healing."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prim(ev)al Awareness"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dread Ambusher"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known (Absorb\n\t\t\t\t\tElements)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Neither Awareness option is great, but Primal is bonus spells which is always more helpful than spending a spell slot on something which will rarely matter."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dread Ambusher, though, is where we start coming online. We immediately take our initiative mod up to +6 which is higher than most characters can ever go. We also start getting an additional attack in the first round of combat. For the last level remaining before we get Crossbow Expert, continuing to use the longbow makes a turn where everything hits 3d8+4d6+6 for a Damage Per Round of 34, assuming advantage. Please note that you are expected to have 25 hit points right now."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Absorb Elements is one of the best defensive spells in the game. It’s slightly disappointing that we don’t get to use the damage rider for it, but really we’re just here for the resistance. Use it sparingly though since you don’t get many slots and that’s precious Hunter’s Mark you’re not using."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Crossbow Expert"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Give the longbow to a random passerby and start using your\n\t\t\t\t\t"
+                },
+                {
+                  "type": "text",
+                  "text": "silenced pistol"
+                },
+                {
+                  "type": "text",
+                  "text": " hand crossbow. Cast Hunter’s Mark on one of the\n\t\t\t\t\trats you keep in your sack of rats and immediately crush it to death\n\t\t\t\t\tin your fist. Stealth up to something you want to ambush and use a\n\t\t\t\t\tbonus action to mark it as your next quarry (note that this bonus\n\t\t\t\t\taction has no components and is therefore not something that can be\n\t\t\t\t\tnoticed). Open fire."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hand crossbow with bugbear surprise and\n\t\t\t\t\tHunter’s Mark."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hand crossbow with bugbear surprise, Hunter’s\n\t\t\t\t\tMark, and Dread Ambusher bonus."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bonus action hand crossbow with\n\t\t\t\t\tbugbear surprise and Hunter’s Mark.12d6+1d8+9 for a total average of\n\t\t\t\t\t55 expected DPR on the first round of combat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known (Lesser Restoration)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Let’s add another 4d6+3 to that total I mentioned at last level for a\n\t\t\t\t\twhopping 72 DPR. A Bulette, which is a CR 5 bruiser monster, has 94\n\t\t\t\t\thealth for comparison."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lesser Restoration is there in case\n\t\t\t\t\tyour healer gets paralyzed. If you already have two sources of this,\n\t\t\t\t\ttake Pass Without Trace early instead."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Deft Explorer (Roving)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored Foe (damage increase)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Roving is a neat ability but, since it’s not spider climb, we would\n\t\t\t\t\tbe removing our ability to load our hand crossbow if we tried to use\n\t\t\t\t\tit in combat. Still, it means you’re rarely going to be stopped by\n\t\t\t\t\tterrain and can clamber up to places and drop a rope down, having tied\n\t\t\t\t\tit in place with that Sleight of Hand you’re proficient in."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored\n\t\t\t\t\tFoe’s damage goes up to matching Hunter’s Mark, so now we use that and\n\t\t\t\t\tfree up our spell slots. It doesn’t transfer between targets though,\n\t\t\t\t\tso if you’re in a fight with many small enemies consider using a Mark\n\t\t\t\t\tinstead and saving Favored Foe for things you expect to be attacking\n\t\t\t\t\tfor a while."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Iron Mind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known (Pass Without Trace)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A very uninteresting class feature gets mitigated by picking up one of the most busted spells in the game. Since Favored Foe doesn’t start until "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "in "
+                },
+                {
+                  "type": "text",
+                  "text": "combat as opposed to the cheese I mentioned for carrying Hunter’s Mark around, you can now safely afford to spend your time between fights concentrating on being a paragon of stealth (not "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "the"
+                },
+                {
+                  "type": "text",
+                  "text": " paragon of stealth, that’s still an "
+                },
+                {
+                  "type": "link",
+                  "text": "Infiltrator Armorer Artificer",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/armorer/"
+                },
+                {
+                  "type": "text",
+                  "text": ")."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you already had it from level 5, take Darkvision in case someone in your party hasn’t figured out how to deal with you needing darkness all the time yet."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Land’s Stride"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sharpshooter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Land’s Stride is almost a ribbon with how few things are going to try\n\t\t\t\t\tto stop you with damaging natural terrain."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sharpshooter, on\n\t\t\t\t\tthe other hand, is wonderful. The first bullet point means that you\n\t\t\t\t\tcan now safely ambush people from three times the distance with no\n\t\t\t\t\treduction in efficacy. This means your attack range is basically just\n\t\t\t\t\tyour darkvision range, which, as a reminder, is 90 feet. Longer than\n\t\t\t\t\tmost things if they have it at all. Also, since you’ll be presumably\n\t\t\t\t\thidden when you make these attacks, you’ll have advantage to offset\n\t\t\t\t\ttaking the penalty to hit for the 3rd bullet point."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR\n\t\t\t\t\ttaking the penalty on every attack is 78. Compare that to just\n\t\t\t\t\tincreasing Dex to +4 having a DPR of 72."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell known (Water Breathing)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Why not put that swim speed to some use by also being able to breathe\n\t\t\t\t\twater for a whole day?"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level we can also upcast\n\t\t\t\t\tHunter’s Mark to be Concentration for a whole 8 hours, which goes back\n\t\t\t\t\tto being the better play compared to Favored Foe."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Deft Explorer (Tireless)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hide in Plain Sight"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tireless’s ability to grant yourself temp hp is one of the rare ones\n\t\t\t\t\tthat doesn’t list a duration which means it lasts until you take a\n\t\t\t\t\tlong rest. What this means is that you should do it once when you wake\n\t\t\t\t\tup in the morning and again at the end of every fight for as long as\n\t\t\t\t\tyou have uses left. Other than that, it’s not really worth using. The\n\t\t\t\t\tother half of the ability though is amazing if you’re not being\n\t\t\t\t\tallowed to sleep normally."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Not nearly as good as the\n\t\t\t\t\tability of the same name from 3.5, this is still yet another +10 to\n\t\t\t\t\tstealth we can stack on top of Pass Without Trace if we want to be a\n\t\t\t\t\ttrapdoor-spider-ambusher instead of a wandering silenced\n\t\t\t\t\tpistoleer."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Stalker’s Flurry"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known (Speak with Plants)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Well, even with advantage you’re probably going to miss with one of those 4 attacks you take every round. Go ahead and take another free one. This doesn’t increase your theoretical maximum damage for a round, but it absolutely raises your average and that’s perfectly fine."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember that, as I called out above, the wording on Dread Ambusher means that if the extra attack from the feature misses you do miss out on the d8 damage bump even if the attack Flurry grants you off of missing that attack connects. I can’t actually figure out how to use the DPR calculator to account for this, but my napkin math on it means it’s probably another 9 DPR or so."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now your Land’s Stride ability is even less useful as you can use a spell slot to simply ask the plants to move out of your whole party’s way."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Piercer (Dexterity)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Four attacks on the opening turn with advantage gives us a ~34%\n\t\t\t\t\tchance to crit at least once, and we roll a "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "lot"
+                },
+                {
+                  "type": "text",
+                  "text": " of dice per\n\t\t\t\t\tattack. Don’t use the reroll on the first attack because the d8 off\n\t\t\t\t\tDread Ambusher is the most important one to reroll if it rolls low. If\n\t\t\t\t\tthat rolls fine, any d6 you roll a 1 on during the second attack or\n\t\t\t\t\tlater is good."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known (Freedom of Movement)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally, a way to get rid of those penalties for attacking\n\t\t\t\t\tunderwater! Now you’re exactly as functional in the ocean as you are\n\t\t\t\t\ton land. Or… something. It is literally our only 4th level spell\n\t\t\t\t\toption though that doesn’t conflict with concentrating on Hunter’s\n\t\t\t\t\tMark."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you don’t want to concentrate on 3-4d6 of damage\n\t\t\t\t\tper round though, this is also the level that Greater Invisibility\n\t\t\t\t\tbecomes an option from the Gloom Stalker added spells which will make\n\t\t\t\t\tsure you have advantage unless your target can see invisible\n\t\t\t\t\tcreatures. That can absolutely help ensure your Sharpshooter attacks\n\t\t\t\t\tland if you’re worried about that."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Favored Foe (Damage Increase)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Vanish"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Favored Foe goes back to being better single-target damage than\n\t\t\t\t\tHunter’s Mark, but only by one per attack. However, those d8s are\n\t\t\t\t\teligible for the reroll from Piercer so it’s actually slightly more\n\t\t\t\t\tthan one but I’m going to do that math. It does still run into the\n\t\t\t\t\tproblem of arguing for Concentration and not being swappable so mostly\n\t\t\t\t\tjust keep using full-day Hunter’s Mark."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Vanish is a neat\n\t\t\t\t\ttrick, but we use our bonus action every turn for damage. We don’t\n\t\t\t\t\treally need to hide for any reason except to get advantage, which can\n\t\t\t\t\tcertainly be valid, but just putting another shot down range is also\n\t\t\t\t\tvery valid."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Shadowy Dodge"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known (Guardian of Nature)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Or, don’t bother hiding or concentrating on Hunter’s Mark and instead\n\t\t\t\t\tjust turn into a tree. Now you have advantage just because and can\n\t\t\t\t\tsafely keep taking the penalty to attack from Sharpshooter even after\n\t\t\t\t\tyou’ve already burned your Flurry for the turn."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI (+2 Dex)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nothing exciting here, but we cap our dexterity which once again puts\n\t\t\t\t\tus ~15% ahead of fundamental math on damage, nicely offsetting the\n\t\t\t\t\tpenalties we take for Sharpshooter."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known (Conjure Volley)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Your DC isn’t great but it’s also not terrible and many things don’t\n\t\t\t\t\thave great Dex saves. Here’s your answer to Area of Effect damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feral Senses"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Safely attack that Medusa without looking at it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Resilient (Con)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known (Tree Stride)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this point, your three common saves are on par or better than a\n\t\t\t\t\tpaladin which is an incredible thing to be able to say. If anything\n\t\t\t\t\tdoes manage to find you, it’s probably going to have to take you out\n\t\t\t\t\tthe old-fashioned way: hit point attrition. Which we’ve just spent an\n\t\t\t\t\tentire build getting really good at winning"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also,\n\t\t\t\t\tyou can now walk yourself through trees. Not like we were doing 8\n\t\t\t\t\tlevels ago, but like actually "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "into"
+                },
+                {
+                  "type": "text",
+                  "text": " the trees and then out of\n\t\t\t\t\tdifferent trees."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Foe Slayer"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Because Favored Foe uses the wording of marking the target as your\n\t\t\t\t\t“favored enemy,” Foe Slayer works on anything you target it with.\n\t\t\t\t\tGiven that, we’ll want to make sure we’re putting it on high-value\n\t\t\t\t\tlarge targets again so we can (almost always) use it for that +3 to\n\t\t\t\t\thit to make sure a Sharpshooter shot connects for +10 damage."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Gloom Stalker Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dread Ambusher"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Umbral Sight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Iron Mind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Stalker’s Flurry"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Shadowy Dodge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue MotM Bugbear"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Variant Human/Custom Lineage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hand Crossbow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Longbow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Short Sword"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-gloom-stalker-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"3\"><span class=\"rating-blue\">Umbral Sight</span>: Getting free Darkvision is fantastic on its own, but invisibility to Darkvision is absolutely crazy. Most creatures tha"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-gloom-stalker-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-gloom-stalker-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-gloom-stalker-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-gloom-stalker-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-gloom-stalker-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-gloom-stalker-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-gloom-stalker-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-gloom-stalker-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-gloom-stalker-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-gloom-stalker-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-gloom-stalker-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-gloom-stalker-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-gloom-stalker-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-multiclassing-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-multiclassing-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-multiclassing-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-multiclassing-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "td/s[1]",
+      "detail": "s"
+    }
+  ],
+  "metrics": {
+    "words": 4045,
+    "sections": 17,
+    "blocks": 36,
+    "tables": 3,
+    "ratingSignals": 26
+  },
+  "status": "needs-editorial-review"
+}

@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/feats/love-bites/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "0f14682e6b770198287ed5366eb19111330d6bcc11db7970051a1fafda55f9fe",
+  "sourceRevision": {
+    "revisionId": "rpgbot-4e42beb263dc266d-0f14682e6b770198",
+    "sourceId": "rpgbot-4e42beb263dc266d",
+    "fetchedAt": "2026-09-29T19:13:03.163198+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:56:54-04:00",
+    "contentHash": "e6e8ababcebce75afd70bb77a034a42bc3454ee6d02f43f9d825650d6355604e",
+    "title": "DnD 5.5 Love Bites Feat Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-4e42beb263dc266d-0f14682e6b770198.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Love Bites allows you to hit someone and make them very briefly your friend. It’s great for stabbing someone before running away or asking them for directions, but your target is only briefly charmed, so you get very little time to enjoy the benefit."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Charmed is a condition that really needs to last longer than a round for it to feel impactful, and the fact that you can only use Love Bites once per rest makes it difficult to justify this feat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-score-increase",
+      "heading": "Ability Score Increase",
+      "sourceAnchor": "ability-score-increase",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-score-increase-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Anything! Normally perfect, but very few spellcasters will find this useful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-endearing-pain",
+      "heading": "Endearing Pain",
+      "sourceAnchor": "endearing-pain",
+      "blocks": [
+        {
+          "blockId": "block-section-endearing-pain-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Powerful, but extremely limited. 1 round once per Short Rest won’t get you very far. It can be helpful in combat because it doesn’t allow a save, and the target can’t harm you while Charmed, giving you the opportunity to retreat to safety. You probably can’t do anything social, either, since you likely spent your Action to attack and therefore can’t do things like the Influence action."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-endearing-pain-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This creates an interesting combo with Treacherous Allure, which gives you Advantage on attacks against Charmed creatures. You could, in theory, use Endearing Pain to make a target Charmed, then immediately attack them again with Advantage, ending the Charmed condition. This is a bad idea, but it’s there."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "#ability-score-increase",
+      "detail": "wp-block-heading rating-blue Ability Score Increase"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#endearing-pain",
+      "detail": "wp-block-heading rating-orange Endearing Pain"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-ability-score-increase-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-endearing-pain-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-endearing-pain-2"
+    }
+  ],
+  "metrics": {
+    "words": 214,
+    "sections": 3,
+    "blocks": 5,
+    "tables": 0,
+    "ratingSignals": 2
+  },
+  "status": "needs-editorial-review"
+}

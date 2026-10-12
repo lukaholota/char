@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FeatureAnalysis } from "@/components/optimization/FeatureAnalysis";
 import { ChevronRight } from "lucide-react";
 
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
@@ -113,16 +114,19 @@ function EntryItem({
         isTarget && cn("outline-2 outline-offset-2 [outline-style:solid]", findAccentVariant(is2024, { prism: "outline-prism-400/70", arcane: "outline-arcane-400/70" })),
       )}
     >
+      <div className="flex items-center pr-2">
       <button
         type="button"
         aria-expanded={isExpanded}
         aria-controls={descriptionId}
         onClick={onToggle}
-        className="flex min-h-11 w-full items-center gap-2 rounded-xl px-3 py-2 text-left"
+        className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-xl px-3 py-2 text-left"
       >
         <ChevronRight className={cn("h-4 w-4 shrink-0 text-slate-500", isExpanded && "rotate-90")} />
         <span className="min-w-0 flex-1 font-rpg-display text-[17px] leading-snug tracking-wide text-slate-100">{entry.name}</span>
       </button>
+      <FeatureAnalysis featureKey={entry.key} name={entry.name} level={entry.level ?? 0} />
+      </div>
       {isExpanded ? (
         <div id={descriptionId} className="px-3 pb-3">
           <FormattedDescription content={entry.description} className="text-sm leading-relaxed text-slate-300" />

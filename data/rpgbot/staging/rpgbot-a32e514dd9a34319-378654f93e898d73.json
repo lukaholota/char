@@ -1,0 +1,1945 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "378654f93e898d730fc846e977b06923421979ac2d8c7da4dc1deeadf06c5f50",
+  "sourceRevision": {
+    "revisionId": "rpgbot-a32e514dd9a34319-378654f93e898d73",
+    "sourceId": "rpgbot-a32e514dd9a34319",
+    "fetchedAt": "2026-09-29T19:19:11.634223+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:33:43-04:00",
+    "contentHash": "5c78dca8a40f7e7bc47ad2064b8e1d35a41ac9387bc614320dde28069d7ffed8",
+    "title": "Tal’Dorei Circle of the Blighted Druid 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-a32e514dd9a34319-378654f93e898d73.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Circle of the Blighted Druid is a summoning-focus Support subclass, offering a minor area control effect and a small but repeatable damage boost while also encouraging you to summon an army to repeatedly mash the “more damage” button before exploding for even more damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The subclass depends heavily on necrotic damage, which is rarely resisted. The combination of necrotic damage output and necrotic-immune pets thanks to Foul Conjuration means that Circle of the Blighted has an unusual interaction with undead, often making it hard for the druid and the undead to defeat each other quickly. Fortunately, you still have an entire party, you summons are still summoned monsters, and you still have a full spell list, so you’re never short on options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Circle of the Blighted draws a very interesting contrast with "
+            },
+            {
+              "type": "link",
+              "text": "Circle of the Shepherd",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/"
+            },
+            {
+              "type": "text",
+              "text": ". Both get a Bonus Action zone effect as their first subclass feature, then the rest of their features have a heavy focus on summoning. However, the two subclasses have very different approaches: where shepherd wants summons to be durable, long-lasting, and strong, Circle of the Blighted wants them to be short-lived, disposable, and punishing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of the Blighted Druid Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of the Blighted Druid Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#circle-of-the-blighted-druid-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of the Blighted Druid Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#circle-of-the-blighted-druid-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of the Blighted Druid Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#circle-of-the-blighted-druid-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of the Blighted Druid Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#circle-of-the-blighted-druid-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of the Blighted Druid Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#circle-of-the-blighted-druid-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – This Party Sucks and They Won't Let Me Leave",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#example-build-this-party-sucks-and-they-wont-let-me-leave"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/taldorei-circle-of-the-blighted/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Circle of the Blighted Druid Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Defile Ground"
+              },
+              {
+                "type": "text",
+                "text": ": The radius starts small,\n\t\tbut the difficult terrain does make it harder for creatures to escape. The\n\t\tdamage bonus is once per turn, so you and all of your allies can trigger it\n\t\tonce on each of your turns. Since it’s “extra damage”, it’s multiplied on a\ncritical hit. If you can catch multiple enemies in the area,\n\t\tyou can drop area damage and get the Defile Ground damage boost on every one\n\t\tof them. If you have allies who like to grapple, try to place or move the\n\t\tDefile Ground area so that the grappled enemies are on its edge.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The scaling on this is good, too. The damage die advances slowly, but\n\t\t\tyour party gets better at dealing damage at least once per turn, so you’ll\n\t\t\tget the damage die more often. The area also grows, making it easy to\n\t\t\tcatch multiple creatures."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This affects all creatures, including you and your allies.\n\t\t\tOnce you get Foul Conjuration at level 10, your summons will be immune, so\n\t\t\tyou can flood the area with cows and drop area damage on your enemies\n\t\t\twhile they try to butcher their way out."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Perhaps the biggest challenge for Circle of the Blighted is that Defile Ground\n\t\t\tonly works on the ground and in water, so flying enemies or enemies climbing\n\t\t\ton walls and ceilings may be perpetually out of reach. Against those enemies,\n\t\t\teither get them on the ground or resort to more conventional druid options."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blighted Shape"
+              },
+              {
+                "type": "text",
+                "text": ": Proficiency in a\n\t\tCharisma-based skill which you’ll never use and +2 AC while in Wild Shape\n\t\t(which you’ll never do in combat) won’t help you much. But adding 60 ft.\n\t\tDarkvision to any Wild Shape form makes scouting a lot easier."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Call of the Shadowseeds"
+              },
+              {
+                "type": "text",
+                "text": ": A free summon as\n\t\ta Reaction PB/day. The sapling isn’t strong by any means, and it certainly\n\t\twon’t compete with things beastmaster/drakewarden ranger pets, but it also\n\t\tdoesn’t eat your Bonus Action to command it and you don’t have to get\n\t\temotionally attached to it or spend a spell slot to re-summon it when it\n\t\tdies. This is intentionally a fail, disposable combat pet which can absorb a\n\t\tfew hits and be replace. It also has 60-foot blindsight, which is an amazing\n\t\tcounter to invisible enemies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Foul Conjuration"
+              },
+              {
+                "type": "text",
+                "text": ": This makes your\n\t\tsummoned creatures more durable (including your Blighted Sapling) and also\n\t\tturns them into bombs. The bombs will never be good enough for you to spend\n\t\tyour Action to detonate them, but they can still cause trouble for your\n\t\tenemies. Mercer and the team did a good job on the table for the explosion\n\t\tdamage: It’s essentially even with any of the PHB-era Conjure X spells, so\n\t\twhether you want to summon a flock of sheep or one tyrannosaurus, you’re\n\t\tgetting roughly the same damage from the explosions. Tasha’s-era Summon X\n\t\tspells will get less since they just use your Proficiency Bonus,\n\t\tunfortunately."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Incarnation of Corruption"
+              },
+              {
+                "type": "text",
+                "text": ": Good, but it\n\t\tdoesn’t change your tactics in any way that’s helpful. +2 AC and some\n\t\ttemporary hit points don’t suddenly make you durable enough to be your\n\t\tparty’s Defender, and keeping Defile Ground at a safe distance has worked\n\t\tfor us for 12 levels. Perhaps the best use here is to walk into Defile\n\t\tGround, recharge your temporary hp, then retreat to safety unless the fight\n\t\tis over."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-the-blighted-druid-ability-scores",
+      "heading": "Circle of the Blighted Druid Ability Scores",
+      "sourceAnchor": "circle-of-the-blighted-druid-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-the-blighted-druid-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from "
+            },
+            {
+              "type": "link",
+              "text": "standard druids",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-the-blighted-druid-races",
+      "heading": "Circle of the Blighted Druid Races",
+      "sourceAnchor": "circle-of-the-blighted-druid-races",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-the-blighted-druid-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from "
+            },
+            {
+              "type": "link",
+              "text": "standard druids",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/#races"
+            },
+            {
+              "type": "text",
+              "text": ". The AC bonuses might make you consider races with other AC boosts to build a durable, high-AC druid, but remember that you don’t get an AC bonus outside of Wild Shape until level 14. Races with resistance to necrotic damage may be helpful because you can more safely stay within the area of Defile Ground."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-circle-of-the-blighted-druid-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Aasimar"
+              },
+              {
+                "type": "link",
+                "text": "MotM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tResistance to both necrotic and radiant damage, and you either can use your transformation as a combat buff in encounters where Defile Ground is on cooldown or you can use both when things get difficult."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shadar-Kai"
+              },
+              {
+                "type": "link",
+                "text": "MotM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tOne of the only player options with resistance to necrotic damage, and it’s already a great option for the druid."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-the-blighted-druid-feats",
+      "heading": "Circle of the Blighted Druid Feats",
+      "sourceAnchor": "circle-of-the-blighted-druid-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-the-blighted-druid-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mostly the same as "
+            },
+            {
+              "type": "link",
+              "text": "other druids",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/#feats"
+            },
+            {
+              "type": "text",
+              "text": ". Unlike Circle of the Shepherd, you’re not invested in keeping your summons alive, so you don’t have the same feat needs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-the-blighted-druid-weapons",
+      "heading": "Circle of the Blighted Druid Weapons",
+      "sourceAnchor": "circle-of-the-blighted-druid-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-the-blighted-druid-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from "
+            },
+            {
+              "type": "link",
+              "text": "standard druids",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-circle-of-the-blighted-druid-armor",
+      "heading": "Circle of the Blighted Druid Armor",
+      "sourceAnchor": "circle-of-the-blighted-druid-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-circle-of-the-blighted-druid-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from "
+            },
+            {
+              "type": "link",
+              "text": "standard druids",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from "
+            },
+            {
+              "type": "link",
+              "text": "standard druids",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-this-party-sucks-and-they-wont-let-me-leave",
+      "heading": "Example Build – This Party Sucks and They Won’t Let Me Leave",
+      "sourceAnchor": "example-build-this-party-sucks-and-they-wont-let-me-leave",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-this-party-sucks-and-they-wont-let-me-leave-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Defile Ground is arguably the tactical center of Circle of the Blighted, and leaning hard into using it can make us and our party extremely lethal. The challenge is keeping enemies in side the area so that enemies don’t spend huge parts of the round outside until we can move the area again. By building around area control and flooding the battlefield with bodies to fill space, we can create an extremely unpleasant situation which our enemies are unable to escape."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-this-party-sucks-and-they-wont-let-me-leave-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll plan to use the Wild Companion Optional Class Feature, but it’s not actually necessary for the build to work. This adds another summon option, which fits the subclass thematically and mechanically. We’ll also assume that you’re allowing the additional spells added to spell lists in Tasha’s Cauldron of Everything because that list includes all of the updated summon spells."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "parentSectionId": "section-example-build-this-party-sucks-and-they-wont-let-me-leave",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll mostly stick to standard druid ability scores, but we’ll take a splash of Charisma so that we can explore some Face skills without a penalty. We’ll use our +2/+1 to increase Dexterity and Wisdom to 16 at level 1."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-this-party-sucks-and-they-wont-let-me-leave",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shadar-Kai. It’s a very solid race option for the Druid already, and resistance to necrotic damage makes that even better for our purposes. Plus we get to lean hard into the doom and gloom theme. We’ll use Trance to pick up proficiency in Thieves’ Tools (always helpful) and whips."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Reborn Lineage would also be cool, but less effective in combat in exchange for better skill options. Being reborn as a half-rotten whatever you were feels very thematically appropriate."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-this-party-sucks-and-they-wont-let-me-leave",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Far Traveler. We did come all the way from the Shadowfell, after all. That gets us proficiency in Insight, Perception, one instrument, and on language."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-this-party-sucks-and-they-wont-let-me-leave",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll choose Insight and Nature as our class skills. We get Perception from our race. That makes the proficiencies from our background redundant, so we’ll replace them with Persuasion and Religion. We get proficiency in Herbalism Kit from druid, one instrument from our background, and Trance allows us to pick up two tool or weapon proficiencies every day."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-this-party-sucks-and-they-wont-let-me-leave",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to rely heavily on PHB-era Conjure X spells, which depend less on your spellcasting ability than most spells. That makes it safer to delay ability score increases."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we’ll take Sentinel. Combined with proficiency in whips, that allows us to hold enemies in place within the area of Defile Ground. Attacking during our enemy’s turn also means that we get another chance to trigger the damage bonus. Our Dexterity is certainly lower than that of our martial allies, but we’re not depending solely on this tactic to be effective, so I think we’re okay."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-this-party-sucks-and-they-wont-let-me-leave",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Druidic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thorn Whip"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Until we hit level 2, you’re very much a standard druid. Stick to staple spells like Healing Word and Faerie Fire."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wild Shape"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Optional: Wild Companion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Circle of the Blighted"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Defile Ground"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blighted Shape"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Defile Ground immediately becomes a defining tactic for us. Difficult terrain slows enemies, making it easier to keep them inside dangerous area effects. The damage bonus makes it easy for your party to focus their attacks on the targets inside the area to bring them down quickly."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We took Thorn Whip so that we can pull enemies back into the area, and we’re using Trance to get proficiency in whips so that we have a one-handed reach weapon with which to make opportunity attacks. However, remember that you typically need a free hand to cast spells, so you’ll need to drop and pick up your whip on your turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you need to be inside the area of Defile Ground to keep enemies from fleeing, you’re going to take the bonus damage when you get hurt, but you do have resistance to it, so it’s not quite as bad."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Any time that Defile Ground is on cooldown, we’re effectively a standard druid."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blighted Shape adds a Charisma-based skill, which is weird for a druid. But we have 10 Charisma, Guidance, and proficiency in Persuasion and Insight, so we’re passable in social situations."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blighted Shape also gives us a +2 AC bonus while in Wild Shape, which isn’t especially useful. We technically can use "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2nd-level spells bring us some great options. Summon Beast is immediately useful, giving us a combat pet with a long duration which can capitalize on Define Ground. The beast notably takes its turns after yours, so it can trigger the damage bonus without conflicting with you."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Sentinel"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wild Shape Improvement (CR 1/2)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thunderclap"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sentinel turns us into an area control Defender. Our biggest weakness is our relative frailty due to poor armor choices and d8 hit points, so don’t be afraid to retreat if things get bad."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you do get swarmed, Thunderclap gets really appealing inside Blighted Ground. Damage everything around you with a cantrip and trigger the bonus damage. Thunderclap’s damage output is already pretty good, but it is limited by the fact that it’s on a Constitution save."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3rd-level spells brings our first Conjure X spell in Conjure Animals, and that immediately becomes a defining tactic for us. We can summon 8 CR 1/4 or lower beasts, which is enough to prevent at least two creatures from moving (enemies count as hard corners, so you can’t move diagonally past them). Use creatures with pack tactics (wolves on the ground, blood hawks in the air) to maximize their changes to hit with attacks and trigger the damage bonus."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Some rules minutiae: Conjure Animals and the other Conjure X spells all say “Roll initiative for the summoned creatures as a group, which has its own "
+                },
+                {
+                  "type": "strong",
+                  "text": "turns"
+                },
+                {
+                  "type": "text",
+                  "text": ".” The creatures act back-to-back on the same initiative, but their turns are distinct, which means that they can repeatedly trigger the damage bonus from Defile Ground."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You should still use the "
+                },
+                {
+                  "type": "link",
+                  "text": "mob attack",
+                  "href": "https://www.dndbeyond.com/sources/dmg/running-the-game#HandlingMobs"
+                },
+                {
+                  "type": "text",
+                  "text": " rules wherever possible to avoid dragging your game to a halt, but remember to add the damage bonus to each hit."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Call of the Shadowseeds"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You can summon the sapling whenever a qualifying creature takes damage, which can be from any source. One more body on the field allows you to block more space to box enemies into the area of Defile Ground, and your sapling’s attacks depend on your spell attack modifier so they’ll remain reliable as you gain levels even though we’re slightly behind the "
+                },
+                {
+                  "type": "link",
+                  "text": "Fundamental Math",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th-level spells gets us some interesting options. Conjure Fey offers another option alongside Conjure Animals, though it’s not strictly better. We get access to Fire Shield, which is a good deterrent if enemies are attacking us while we’re camping inside Defile Ground, and it notably doesn’t take Concentration. Wall of Fire is a great way to encourage enemies to stay within the area of Defile Ground, creating a lose-lose situation where they can either stay in the area and take damage or run through the wall and take damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (Wis 16 -> 8)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Wisdom boosts both our spells and our sapling’s attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5th-level spells allows us to upcast Conjure Animals for twice as many animals. Imagine 16 wolves with pack tactics all hitting for 3d4+2 every turn. We can also grab Wall of Stone to put a wall around the area of Defile Ground, leaving an opening for us and our party to attack through while still blocking escape."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Defile Ground Improvement (1d6 damage, 20-foot radius)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Foul Conjuration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A bigger area and more damage from Defile Ground means that our wolves are scarier (though the AC scale is causing them to struggle by now), and that we can catch more creatures without repeatedly moving the area."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Foul Conjuration adds some great damage immunities to our familiar from Wild Companion, our blighted sapling, and our pack of summoned wolves. And if our enemies get sick of all of these tiny creatures blocking their movement, each one explodes for damage. It’s not a ton, but splitting the damage across creatures means that the all-or-nothing save is now repeated so you’re likely to get at least partial damage. Unfortunately, this isn’t an attack or spell, so it won’t trigger the damage bonus from Defile Ground."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More spells, but nothing directly relevant to our tactics."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (Wis 18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re back on the fundamental math!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7th-level spells. We could again upcast Conjure Animals to get 24 wolves or blood hawks. We’re basically rolling for 20’s, and fortunately Pack Tactics improves those odds quite a bit (you have almost a 10% chance of rolling a 20 with Advantage)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also have a fun interaction with the spell Whirlwind. While it’s not an amazing spell on its own, it does have the ability to pick up creatures and carry them into the area of Defile Ground. Creatures in the whirlwind are Restrained, making it easy for you and your allies to attack them and repeatedly trigger the damage bonus from Defile Ground with little further expense of resources. However, the cylinder is taller than Defile Ground, so creatures may be sucked upward out of the area and tossed somewhere else. Consider ending the spell early to drop captured creatures; falling will trigger Defile Ground, and they’ll struggle to get out of the area in one turn after spending half of their movement to stand up."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Defile Ground Improvement (1d8 damage)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Incarnation of Corruption"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A tiny bit more damage from Defile Ground, but Incarnation of Corruption is why we’re here. +2 AC makes it much easier to stand inside Defile Ground and use Sentinel, plus if you don’t need to move the AOE you can spend your Bonus Action to get some temporary hit points to compensate for relatively poor hit points."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8th-level spells. Nothing interacts super well with our favorite tactics, but Sunburst to blind creatures stuck inside Defile Ground could make it very hard for them to get out."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (Dex 16 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More dexterity means better AC and better opportunity attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Foresight on yourself makes standing inside Defile Ground much safer and makes your Opportunity Attacks to trigger Sentinel much more reliable."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re going to multiclass, now’s the time. There’s not much to be had after this point."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Timeless Body"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Beast Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Neat, but not really important."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (Dex 18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More dexterity means better AC and better opportunity attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Archdruid"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Infinite disposable familiars which explode for 1d4 damage thanks to Foul Conjuration’s Toxic Demise!"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "rating-green wp-block-heading Circle of the Blighted Druid Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Defile Ground"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Blighted Shape"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Call of the Shadowseeds"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Foul Conjuration"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Incarnation of Corruption"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Aasimar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Shadar-Kai"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[1]",
+      "detail": "<li value=\"2\"><span class=\"rating-blue\">Defile Ground</span>: The radius starts small, but the difficult terrain does make it harder for creatures to escape. The damage bonus is on"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-circle-of-the-blighted-druid-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-circle-of-the-blighted-druid-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-circle-of-the-blighted-druid-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-circle-of-the-blighted-druid-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-circle-of-the-blighted-druid-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-circle-of-the-blighted-druid-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-example-build-this-party-sucks-and-they-wont-let-me-leave-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-build-this-party-sucks-and-they-wont-let-me-leave-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2991,
+    "sections": 17,
+    "blocks": 27,
+    "tables": 2,
+    "ratingSignals": 12
+  },
+  "status": "needs-editorial-review"
+}

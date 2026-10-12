@@ -7,6 +7,7 @@ import {
   Check,
   Trash2,
   Wand2,
+  Loader2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -69,6 +70,21 @@ import { useCatalogHomebrew } from "@/hooks/useCommunityHomebrew";
 import { buildHomebrewSpellKey, type HomebrewSpellEntry } from "@/lib/logic/homebrew-view";
 import { SpellDiscussion } from "@/components/spells/SpellDiscussion";
 import { SpellbookDropdown, setSpellbookPresence, type PersIndexItem, type SpellbookTarget } from "@/components/spells/SpellbookDropdown";
+import { RpgbotRecommendedChip } from "@/components/spells/RpgbotRecommendedChip";
+import { captureRpgbotEvent } from "@/lib/monitoring/rpgbot-analytics";
+import { useRpgbotSurfaceView } from "@/lib/monitoring/use-rpgbot-surface-view";
+import { SpellRatingBadge } from "@/components/spells/SpellRatingBadge";
+import { SpellRatingSection } from "@/components/spells/SpellRatingSection";
+import { useCatalogSpellRatings } from "@/hooks/useCatalogSpellRatings";
+import { parseRatedCastersParam, type RatedCaster } from "@/lib/optimization/spell-rating-casters";
+import {
+  RATING_FILTER_PARAM,
+  isRecommendedSelection,
+  listRatingFilterFacets,
+  matchesRatingSelection,
+  toggleRecommendedParam,
+} from "@/lib/optimization/spell-rating-filter";
+import { findBestSpellRating, sortByBestRating } from "@/lib/optimization/spell-rating-lookup";
 
 export type SpellListItem = {
   spellId: number;
@@ -97,6 +113,7 @@ type SelectionState = {
   levels: Set<string>;
   classes: Set<string>;
   subclasses: Set<string>;
+  ratings: Set<string>;
   schools: Set<string>;
   times: Set<string>;
   components: Set<string>;
@@ -109,7 +126,9 @@ type SelectionState = {
   spell: string;
 };
 
-const FILTER_PARAM_KEYS = ["lvl", "cls", "sub", "sch", "time", "comp", "rng", "dur", "rit", "conc"];
+const NO_RATING_SELECTION: ReadonlySet<string> = new Set();
+
+const FILTER_PARAM_KEYS = ["lvl", "cls", "sub", "sch", "time", "comp", "rng", "dur", "rit", "conc", RATING_FILTER_PARAM];
 
 type EmbedParams = {
   origin: string | null;
@@ -120,6 +139,7 @@ type EmbedParams = {
   knownTarget: number | null;
   cantripTarget: number | null;
   knownExcluded: Set<number>;
+  ratedCasters: RatedCaster[];
 };
 
 // KR27.7: `WIZARD_2024:2,CLERIC_2024:2` → ключ у назві класу з каталогу («Чарівник»), щоб звірятись зі spellClasses.
@@ -158,6 +178,7 @@ function parseEmbedParams(params: URLSearchParams): EmbedParams {
     knownTarget: Number.isFinite(knownTarget) ? knownTarget : null,
     cantripTarget: Number.isFinite(cantripTarget) ? cantripTarget : null,
     knownExcluded,
+    ratedCasters: parseRatedCastersParam(params.get("rpgbotFor")),
   };
 }
 
@@ -166,6 +187,7 @@ const parseSelection = (params: URLSearchParams): SelectionState => {
     levels: getParamSet(params, "lvl"),
     classes: getParamSet(params, "cls"),
     subclasses: getParamSet(params, "sub"),
+    ratings: getParamSet(params, RATING_FILTER_PARAM),
     schools: getParamSet(params, "sch"),
     times: getParamSet(params, "time"),
     components: getParamSet(params, "comp"),
@@ -228,6 +250,9 @@ export function SpellsClient({
   });
   const isEmbedMode = embedParams.origin === "character" && embedParams.persId !== null;
 
+  const ratings = useCatalogSpellRatings({ casters: embedParams.ratedCasters, isEmbedMode, is2024 });
+  const { isReady: areRatingsReady, findMatches: findRatingMatches } = ratings;
+  useRpgbotSurfaceView(isEmbedMode && ratings.canRate ? { surface: "spell_catalog" } : null);
   const [isAddingSpell, setIsAddingSpell] = useState(false);
   const [addedSpellIds, setAddedSpellIds] = useState<Set<number>>(new Set());
 
@@ -245,6 +270,7 @@ export function SpellsClient({
       const res = await setSpellbookPresence(buildRowTarget(spell), embedParams.persId, true);
       if (res.success) {
         setAddedSpellIds((prev) => new Set(prev).add(spell.spellId));
+        if (ratings.canRate) captureRpgbotEvent("rpgbot_catalog_spell_added", { rating_score: findBestSpellRating(findRatingMatches(spell))?.score, recommended_filter_on: isRecommendedSelection(ratingSelection) });
         window.parent.postMessage(
           { type: "SPELL_TOGGLED", persId: embedParams.persId, spellId: res.spellId, spellLevel: spell.level, added: true },
           "*"
@@ -259,6 +285,8 @@ export function SpellsClient({
     parseSelection,
     initialSearchParams
   );
+  const ratingSelection = ratings.canRate ? selection.ratings : NO_RATING_SELECTION;
+  const isWaitingForRatings = ratingSelection.size > 0 && !areRatingsReady;
 
   const catalogRuleset = is2024 ? "RULES_2024" : "RULES_2014";
   const communityHomebrew = useCatalogHomebrew({ kind: "SPELL", ruleset: catalogRuleset, isOn: selection.source.homebrew, onlyHomebrewSort: homebrewOnly?.sort ?? null });
@@ -313,6 +341,10 @@ export function SpellsClient({
         return false;
       }
 
+      if (areRatingsReady && !matchesRatingSelection(ratingSelection, findBestSpellRating(findRatingMatches(spell))?.score ?? null)) {
+        return false;
+      }
+
       if (selection.ritual !== null && isYesFlag(spell.hasRitual) !== selection.ritual) {
         return false;
       }
@@ -342,7 +374,7 @@ export function SpellsClient({
 
       return true;
     });
-  }, [spells, selection, embedParams, homebrewOnly]);
+  }, [spells, selection, embedParams, homebrewOnly, areRatingsReady, findRatingMatches, ratingSelection]);
 
   const selectedSpell = useMemo(() => {
     if (selection.spell) {
@@ -408,6 +440,7 @@ export function SpellsClient({
     selection.levels.size +
     selection.classes.size +
     selection.subclasses.size +
+    ratingSelection.size +
     selection.schools.size +
     selection.times.size +
     selection.components.size +
@@ -432,6 +465,10 @@ export function SpellsClient({
   };
 
   const flatRows = useMemo<RowItem[]>(() => {
+    const rankByRating = (list: SpellListItem[]) =>
+      areRatingsReady && ratingSelection.size > 0
+        ? sortByBestRating(list, (spell) => findBestSpellRating(findRatingMatches(spell))?.score ?? null)
+        : list;
     const grouped = new Map<number, SpellListItem[]>();
     for (const spell of filtered) {
       const arr = grouped.get(spell.level) ?? [];
@@ -443,13 +480,14 @@ export function SpellsClient({
     const rows = sortedLevels.flatMap((lvl) => {
       const list = grouped.get(lvl) || [];
       if (!homebrewOnly) list.sort((a, b) => a.name.localeCompare(b.name, "uk"));
+      const rankedList = rankByRating(list);
       return [
         { kind: "header" as const, level: lvl, count: list.length },
-        ...list.map((spell) => ({ kind: "spell" as const, spell })),
+        ...rankedList.map((spell) => ({ kind: "spell" as const, spell })),
       ];
     });
     return rows.length ? [...rows, { kind: "attribution" as const }] : rows;
-  }, [filtered, homebrewOnly]);
+  }, [filtered, homebrewOnly, areRatingsReady, findRatingMatches, ratingSelection]);
 
   return (
     <ContentListPage<SpellListItem, RowItem>
@@ -467,6 +505,17 @@ export function SpellsClient({
                 Додавання заклинань для <strong>{embedParams.persName || `персонажа #${embedParams.persId}`}</strong>
               </span>
             </div>
+            {ratings.canRate && (
+              <div className="mt-2">
+                <RpgbotRecommendedChip
+                  isActive={isRecommendedSelection(ratingSelection)}
+                  onToggle={() => {
+                    captureRpgbotEvent("rpgbot_spell_chip_toggled", { enabled: !isRecommendedSelection(ratingSelection) });
+                    setParams((next) => toggleRecommendedParam(next, ratingSelection));
+                  }}
+                />
+              </div>
+            )}
           </div>
         )
       }
@@ -514,8 +563,12 @@ export function SpellsClient({
           </div>
         )
       }
-      data={flatRows}
-      emptyState={
+      data={isWaitingForRatings ? [] : flatRows}
+      emptyState={isWaitingForRatings ? (
+        <div role="status" className="flex flex-1 items-center justify-center gap-2 p-8 text-sm text-slate-400">
+          <Loader2 className="h-4 w-4 animate-spin" /> Завантаження…
+        </div>
+      ) : (
         <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
           <Wand2 className="h-10 w-10 text-slate-600 mb-2" />
           <p className="text-sm font-medium text-slate-400">Заклинань не знайдено</p>
@@ -526,7 +579,7 @@ export function SpellsClient({
             </Button>
           )}
         </div>
-      }
+      )}
       renderItem={(_index, row) => {
         if (row.kind === "attribution") return <SpellIconAttribution />;
 
@@ -582,6 +635,7 @@ export function SpellsClient({
                   }}
                   is2024={is2024}
                   isSelected={isSelected}
+                  factBadges={ratings.canRate ? <SpellRatingBadge matches={ratings.findMatches(spell)} spellName={spell.name} spellEngName={spell.engName} /> : null}
                   nameBadges={
                     <>
                       {is2024 && spell.kind === "new" && (
@@ -654,6 +708,7 @@ export function SpellsClient({
             <HomebrewEntryFrame entry={findCommunityEntry(selectedSpell)} is2024={is2024}>
               <SpellDetailCard spell={selectedSpell as unknown as SpellData} is2024={is2024} />
             </HomebrewEntryFrame>
+            <SpellRatingSection matches={ratings.findMatches(selectedSpell)} spellEngName={selectedSpell.engName} />
             <SpellDiscussion spell={selectedSpell} is2024={is2024} />
           </div>
         ) : (
@@ -673,6 +728,7 @@ export function SpellsClient({
               is2024={is2024}
             />
           </HomebrewEntryFrame>
+          <SpellRatingSection matches={ratings.findMatches(spell)} spellEngName={spell.engName} />
           <SpellDiscussion spell={spell} is2024={is2024} />
         </div>
       )}
@@ -713,6 +769,11 @@ export function SpellsClient({
           toggleConc={() => setParams((next) => setBoolParam(next, "conc", selection.conc === true ? null : true))}
           toggleRitual={() => setParams((next) => setBoolParam(next, "rit", selection.ritual === true ? null : true))}
           clearFilters={clearFilters}
+          ratingFilter={
+            ratings.canRate
+              ? { facets: listRatingFilterFacets(), selected: selection.ratings, toggle: (score) => toggleSetValue(RATING_FILTER_PARAM, score) }
+              : undefined
+          }
         />
       }
     />

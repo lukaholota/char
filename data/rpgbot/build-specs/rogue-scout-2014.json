@@ -1,0 +1,76 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "rogue-scout-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-rogue-scout-2014-draft1",
+    "sourceRevisionId": "rpgbot-d85073cbf5c2048a-cc6199a0ce8722ff"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "ROGUE_2014",
+  "subclassKey": "SCOUT",
+  "raceKey": "HARENGON_MPMM",
+  "backgroundKey": "SAGE",
+  "abilityScores": { "STR": 8, "DEX": 15, "CON": 15, "INT": 12, "WIS": 12, "CHA": 9 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "revision": 2,
+  "levels": [
+    { "level": 2 },
+    { "level": 3, "subclassKey": "SCOUT" },
+    { "level": 4, "featKey": "PIERCER", "featOptions": [{ "optionNameEng": "PIERCER Ability (Dexterity)" }], "section": "section-feats-2" },
+    { "level": 5 },
+    { "level": 6, "expertise": ["ARCANA", "HISTORY"] },
+    { "level": 7 },
+    { "level": 8, "featKey": "GUNNER", "section": "section-feats-2" },
+    { "level": 9 },
+    { "level": 10, "featKey": "SKILL_EXPERT", "featOptions": [{ "optionNameEng": "Skill Expert (DEX)" }, { "optionNameEng": "Skill Expert Proficiency (RELIGION)" }, { "optionNameEng": "Skill Expert Expertise (RELIGION)" }], "section": "section-feats-2" },
+    { "level": 11 },
+    { "level": 12, "featKey": "ALERT", "section": "section-feats-2" },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15 },
+    { "level": 16, "featKey": "FIGHTING_INITIATE", "featOptions": [{ "optionNameEng": "Archery" }], "section": "section-feats-2" },
+    { "level": 17 },
+    { "level": 18 },
+    { "level": 19, "featKey": "SHARPSHOOTER", "section": "section-feats-2" },
+    { "level": 20 }
+  ],
+  "incomplete": [
+    {
+      "field": "Аналіз Поведінки й Розслідування від передісторії",
+      "reason": "У розділі про навички автор пише, що Мудрець дає Аналіз Поведінки й Розслідування, але в розділі про передісторію й у каталозі Мудрець дає Магію та Історію; Аналіз Поведінки й Розслідування пресет бере від Пройдисвіта.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Расові підвищення характеристик",
+      "reason": "Автор не вказує підвищень раси: таблиця «Підвищене значення» порожня, лише риса «Проколювач» має підняти Спритність 17 → 18.",
+      "section": "section-ability-scores-2"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/rogue-scout-2014.webp",
+    "title": "Пройдисвіт — Розвідник, Гаренгон",
+    "description": "Гаренгон-Мудрець зі Спритністю 17 і Статурою 16: Експертиза в Розслідуванні й Уважності, навички на знання та «Зайчачий рефлекс». Розвідник відкриється на 3-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": ["DEX", "CON", "DEX"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["INSIGHT", "INVESTIGATION", "SLEIGHT_OF_HAND", "STEALTH"], "race": [], "background": [] },
+    "expertise": ["INVESTIGATION", "PERCEPTION"],
+    "classOptions": [],
+    "languages": ["ELVISH", "DWARVISH", "CELESTIAL"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": [] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Автор не називає підвищень раси, але «Проколювач» на 4-му рівні піднімає Спритність до 18, тож на старті вона 17 (+2 від раси). Ще +1 до Статури (автор: «до максимуму Спритність і Статуру») ми обрали за вас — це вибір платформи.",
+    "skillExplanation": "Уважність — від Гаренгона, Магія й Історія — від Мудреця, Аналіз Поведінки, Розслідування, Спритність рук і Непомітність — від Пройдисвіта, Експертиза в Розслідуванні й Уважності — за таблицею автора. Три мови (одну від раси, дві від Мудреця) ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Автор не називає спорядження 1-го рівня. Рапіру, короткий лук, набір грабіжника та броню з інструментами злодія ми обрали за вас — це вибір платформи, його можна змінити."
+  }
+}

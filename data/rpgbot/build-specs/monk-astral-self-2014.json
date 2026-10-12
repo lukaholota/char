@@ -1,0 +1,70 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "monk-astral-self-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-monk-astral-self-2014-draft1",
+    "sourceRevisionId": "rpgbot-839048df69689e1a-b55488891ffd4958"
+  },
+  "exampleSection": "section-example-build-nbspyes-this-is-a-jojos-reference",
+  "levelTableSection": "section-levels",
+  "classKey": "MONK_2014",
+  "subclassKey": "WAY_OF_THE_ASTRAL_SELF",
+  "raceKey": "DHAMPIR_VRGTR",
+  "backgroundKey": "URCHIN",
+  "abilityScores": { "STR": 8, "DEX": 15, "CON": 15, "INT": 8, "WIS": 15, "CHA": 8 },
+  "revision": 2,
+  "levels": [
+    {"level": 2},
+    {"level": 3, "subclassKey": "WAY_OF_THE_ASTRAL_SELF"},
+    {"level": 4, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats"},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "featKey": "SKILL_EXPERT", "featOptions": [{"optionNameEng": "Skill Expert (WIS)"}, {"optionNameEng": "Skill Expert Proficiency (INVESTIGATION)"}, {"optionNameEng": "Skill Expert Expertise (ATHLETICS)"}], "section": "section-feats"},
+    {"level": 9},
+    {"level": 10},
+    {"level": 11},
+    {"level": 12, "featKey": "OBSERVANT", "featOptions": [{"optionNameEng": "OBSERVANT Ability (Wisdom)"}], "section": "section-feats"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "abilityScoreIncrease": [{"ability": "DEX", "amount": 2}], "section": "section-feats"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "abilityScoreIncrease": [{"ability": "DEX", "amount": 2}], "section": "section-feats"},
+    {"level": 20}
+  ],
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "incomplete": [
+    {
+      "field": "Передісторія",
+      "reason": "Автор лишає передісторію на розсуд і радить лише Виживання та Спритність рук; жодна передісторія каталогу не дає цю пару, тож Безпритульного обрано за платформою (Спритність рук від нього, Виживання замість повторної Непомітності).",
+      "section": "section-background"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/monk-astral-self-2014.webp",
+    "title": "Монах — Дампір Шляху астрального «я»",
+    "description": "Дампір-Монах Шляху астрального «я»: три шістнадцятки в Спритності, Статурі й Мудрості та астральні руки, що бʼють з відстані.",
+    "subraceKey": null,
+    "racialAbilities": ["DEX", "CON", "WIS"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["ATHLETICS", "STEALTH"], "race": ["INSIGHT", "PERCEPTION"], "background": ["SURVIVAL"] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": ["ELVISH"],
+    "equipment": [
+      { "group": 1, "option": "b", "weapons": ["QUARTERSTAFF"] },
+      { "group": 2, "option": "b", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля по 15 у Спритності, Статурі й Мудрості та три підвищення +1 дампіра за правилами Таші до цих самих характеристик: на старті три шістнадцятки, як пише автор.",
+    "skillExplanation": "Аналіз поведінки й Уважність — від Дампіра, Атлетика й Непомітність — від Монаха, як радить автор. Передісторію Безпритульного (Спритність рук) і Виживання замість повторної Непомітності ми обрали за вас, наслідуючи пораду автора; мову ми теж обрали за вас.",
+    "equipmentExplanation": "Автор радить палицю (або спис) двома руками, ми взяли палицю. Набір мандрівника ми обрали за вас — його можна змінити. Короткий лук, про який пише автор, у стартовий вибір Монаха не входить."
+  }
+}

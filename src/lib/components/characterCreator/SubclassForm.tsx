@@ -2,10 +2,11 @@
 
 import { useStepForm } from "@/hooks/useStepForm";
 import { ClassI, SubclassI } from "@/lib/types/model-types";
-import { Card, CardContent } from "@/components/ui/card";
+import { CreationCard } from "@/components/characterCreator/CreationCard";
+import { getClassVisual } from "@/components/characterCreator/creation-visuals";
+import { getSubclassImagePath } from "@/lib/assets/image-manifest";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import clsx from "clsx";
 import { useEffect, useMemo, useState } from "react";
 import { usePersFormStore } from "@/lib/stores/persFormStore";
 import { SubclassInfoModal } from "@/lib/components/characterCreator/modals/SubclassInfoModal";
@@ -15,6 +16,7 @@ import { hasLegacySubclasses, isLegacyChosen, splitSubclassesForStep } from "@/l
 import { z } from "zod";
 import { translateSubclassName, translateSubclassNameEng } from "@/lib/refs/subclass-name";
 import { useNextStepHint } from "@/lib/components/wizard/next-step-hint";
+import { constructorSubclassEntity } from "@/lib/optimization/bindings";
 
 interface Props {
   cls: ClassI;
@@ -84,6 +86,7 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
   const renderCards = (subclasses: SubclassI[]) =>
     subclasses.map((sc) => (
       <SubclassCardOption
+        cls={cls}
         key={sc.subclassId}
         subclass={sc}
         chosen={sc.subclassId === chosenId}
@@ -114,11 +117,11 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
           </p>
         </div>
       )}
-      <div className="grid gap-3 sm:grid-cols-2">{renderCards(current)}</div>
+      <div className="grid gap-4 sm:grid-cols-2">{renderCards(current)}</div>
       {legacy.length > 0 && (
         <section className="space-y-2" aria-label="Зі старих книг">
           <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300">Зі старих книг</h3>
-          <div className="grid gap-3 sm:grid-cols-2">{renderCards(legacy)}</div>
+          <div className="grid gap-4 sm:grid-cols-2">{renderCards(legacy)}</div>
         </section>
       )}
       <input
@@ -135,27 +138,30 @@ export const SubclassForm = ({ cls, formId, onNextDisabledChange }: Props) => {
   );
 };
 
-function SubclassCardOption({ subclass, chosen, onChoose }: { subclass: SubclassI; chosen: boolean; onChoose: () => void }) {
-  const name = translateSubclassName(subclass.name);
-  const engName = translateSubclassNameEng(subclass.name);
+function SubclassCardOption({ cls, subclass, chosen, onChoose }: { cls: ClassI; subclass: SubclassI; chosen: boolean; onChoose: () => void }) {
+  const visual = { ...getClassVisual(cls.name), imageSrc: getSubclassImagePath(subclass.name) };
 
   return (
-    <Card
-      className={clsx("glass-card cursor-pointer transition-all duration-200", chosen && "glass-active")}
-      onClick={(e) => {
-        if ((e.target as HTMLElement | null)?.closest?.("[data-stop-card-click]")) return;
-        onChoose();
-      }}
-    >
-      <CardContent className="relative flex items-center justify-between p-4">
-        <SubclassInfoModal subclass={subclass} />
-        <div>
-          <div className="text-lg font-semibold text-white">{name}</div>
-          <div className="text-xs text-slate-400">{engName}</div>
+    <div className="relative">
+      <CreationCard
+        testId={`subclass-${subclass.name}`}
+        title={translateSubclassName(subclass.name)}
+        englishTitle={translateSubclassNameEng(subclass.name)}
+        visual={visual}
+        isSelected={chosen}
+        is2024={cls.ruleset === "RULES_2024"}
+        infoModal={<SubclassInfoModal subclass={subclass} analysisEntity={constructorSubclassEntity(cls, subclass)} />}
+        onClick={(e) => {
+          if ((e.target as HTMLElement | null)?.closest?.("[data-stop-card-click]")) return;
+          onChoose();
+        }}
+      />
+      {subclass.legacySource && (
+        <div className="absolute left-3 top-3 z-20">
+          <SourceBadge code={subclass.legacySource} active={chosen} />
         </div>
-        {subclass.legacySource && <SourceBadge code={subclass.legacySource} active={chosen} />}
-      </CardContent>
-    </Card>
+      )}
+    </div>
   );
 }
 

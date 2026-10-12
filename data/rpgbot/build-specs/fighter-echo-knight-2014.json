@@ -1,0 +1,74 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "fighter-echo-knight-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-fighter-echo-knight-2014-draft1",
+    "sourceRevisionId": "rpgbot-0b24ff3585da2685-862da66125554d47"
+  },
+  "exampleSection": "section-example-build-dioscuri",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "raceKey": "CUSTOM_LINEAGE_TCE",
+  "backgroundKey": "GLADIATOR",
+  "featKey": "SENTINEL",
+  "abilityScores": { "STR": 15, "DEX": 12, "CON": 15, "INT": 8, "WIS": 13, "CHA": 8 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 1 },
+  "levels": [
+    { "level": 2 },
+    { "level": 3, "subclassKey": "ECHO_KNIGHT" },
+    { "level": 4, "featKey": "CRUSHER", "featOptions": [{ "optionNameEng": "CRUSHER Ability (Strength)" }], "section": "section-feats" },
+    { "level": 5 },
+    { "level": 6, "abilityScoreIncrease": [{ "ability": "STR", "amount": 2 }], "section": "section-feats" },
+    { "level": 7, "classKey": "BARBARIAN_2014" },
+    { "level": 8, "classKey": "BARBARIAN_2014" },
+    { "level": 9, "classKey": "BARBARIAN_2014", "subclassKey": "PATH_OF_THE_ANCESTRAL_GUARDIAN" },
+    { "level": 10 },
+    { "level": 11, "featKey": "GREAT_WEAPON_MASTER", "section": "section-feats" },
+    { "level": 12 },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15, "featKey": "GIFT_OF_THE_CHROMATIC_DRAGON", "section": "section-feats" },
+    { "level": 16 },
+    { "level": 17, "featKey": "CHEF", "featOptions": [{ "optionNameEng": "CHEF Ability (Constitution)" }], "section": "section-feats" },
+    { "level": 18 },
+    { "level": 19, "featKey": "RESILIENT", "featOptions": [{ "optionNameEng": "Resilient (Wisdom)" }], "section": "section-feats" },
+    { "level": 20, "classKey": "CLERIC_2014", "subclassKey": "PEACE_DOMAIN", "skillProficiencies": ["PERFORMANCE"], "spells": { "cantripKeys": ["guidance", "light", "thaumaturgy"] } }
+  ],
+  "incomplete": [
+    { "field": "Інструменти", "reason": "Автор міняє володіння Гладіатора Набором для маскування на Інструменти картографа; лист виводить інструменти з передісторії й прибрати фіксований інструмент не вміє, тож лишається Набір для маскування, а Інструментів картографа в пресеті немає.", "section": "section-background" },
+    { "field": "Продаж спорядження", "reason": "Автор радить продати зброю, що не є молотами, і купити метальні списи; пресет не записує продаж і купівлю, тому лишено стартові групи.", "section": "section-levels" },
+    { "field": "Підготовлені заклинання Клірика", "reason": "На 20-му рівні автор називає підготовлені Благословення, Виявлення отрут і хвороб, Цілюще слово; платформа не записує підготовлені заклинання на рівнях підвищення, їх готують на листі.", "section": "section-levels" }
+  ],
+  "preset": {
+    "title": "Воїн — Лицар луни, Своя раса (Діоскури)",
+    "description": "Воїн Лицар луни з рисою «Вартовий» на першому рівні: Своя раса з Темним зором, власний Гладіатор з Уважністю й Аналізом поведінки, 3 рівні Варвара-Духа предків і рівень Клірика Домену миру.",
+    "subraceKey": null,
+    "racialAbilities": ["STR"],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": ["ANIMAL_HANDLING", "ATHLETICS"],
+      "race": [],
+      "background": ["PERCEPTION", "INSIGHT"]
+    },
+    "backgroundCustomization": { "tools": [] },
+    "expertise": [],
+    "classOptions": ["Great Weapon Fighting"],
+    "raceOptions": ["Середній", "Темнозір"],
+    "platformChoices": ["raceOptions"],
+    "languages": ["ELVISH"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": [] },
+      { "group": 2, "option": "b", "weapons": ["MAUL", "GREATSWORD"] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля очок 15/12/15/8/13/8 з таблиці автора й +2 до Сили від Своєї раси за правилами Таші, тож Сила 17, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Поводження з тваринами й Атлетика — від Воїна, Уважність і Аналіз поведінки — від Гладіатора (автор міняє Акробатику й Виступ за правилом PHB «Налаштування передісторії»). Темний зір вибрано за автором; розмір (Середній) і мову (ельфійську) ми обрали за вас — вибір платформи. Інструменти картографа замість набору для маскування платформа не відтворює.",
+    "equipmentExplanation": "Автор називає кольчугу, дворучний молот, дворучний меч і легкий арбалет — вони взяті. Набір дослідника підземель ми обрали за вас — вибір платформи."
+  }
+}

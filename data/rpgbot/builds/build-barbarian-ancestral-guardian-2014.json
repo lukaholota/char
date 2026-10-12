@@ -1,0 +1,849 @@
+{
+  "buildId": "build-barbarian-ancestral-guardian-2014",
+  "revisionId": "build-barbarian-ancestral-guardian-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— Лютий через посередню Силу",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+      "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+      "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+      "sectionId": "section-example-build-furious-about-mediocre-strength",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "BARBARIAN_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "PATH_OF_THE_ANCESTRAL_GUARDIAN",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ELVEN_ACCURACY",
+        "featOptions": [
+          {
+            "optionNameEng": "ELVEN_ACCURACY Ability (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WIZARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "booming-blade",
+            "mage-hand",
+            "shape-water"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": [
+            "expeditious-retreat",
+            "feather-fall",
+            "protection-from-evil-and-good"
+          ]
+        },
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 3
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WIZARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "SCHOOL_OF_WAR_MAGIC",
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "spellbook",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Dueling"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CHAMPION",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 1
+          },
+          {
+            "ability": "DEX",
+            "amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "CHEF",
+        "featOptions": [
+          {
+            "optionNameEng": "CHEF Ability (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "BARBARIAN_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+          "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+          "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "raceKey": "ELF_2014",
+    "backgroundKey": "ENTERTAINER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 12
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 13
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": " Базове значення Підвищене значення Сила 12 13 Спритність 15 16 Статура 15 16 Інтелект 13 13 Мудрість 8 8 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Шадар-Кай{{Shadar-Kai}} із «Монстрів Мультивсесвіту» чудовий, як описано в нашому розборі рас для Варвара. Він також ельф.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Оберіть Артиста{{Entertainer}}. Обміняйте Виступ на Непомітність, а володіння Набором для гриму на Інструменти злодія. Вітаю, ви — роуді.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Оскільки наш Інтелект пристойний, беремо Природу й Розслідування. Разом із навичками з передісторії (Акробатика й Непомітність) ми стаємо напрочуд добрим Розвідником і заміною Пройдисвіта. Хоча ми занедбуємо і Мудрість, і Харизму, додаткові володіння від додаткового класового уміння «Первісне знання» можуть стати в пригоді, якщо ви колись захочете залякувати людей чи тварин.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Збірка тримається на «Ельфійській точності», тож беремо її на 4-му. Далі стає дивно. Ми насправді не отримуємо наступне підвищення характеристик до 10-го рівня персонажа, але ми жорстоко ламаємо фундаментальну математику, щоб насправді не відставати. Один дивний рівень, де ми підвищуємо і Спритність, і Статуру, а потім «Кухар», щоб заокруглити це до парного числа.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Захист без обладунків, Лють",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Безрозсудна атака, Відчуття небезпеки",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Духи-предки{{Ancestral Protectors}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Ельфійська точність (+1 Спритність)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Магічне відновлення; нові замовляння: Гримучий Клинок, Магічна рука, Формування води; підготовлені заклинання: Негайний відступ, Падіння пірʼїною, Захист від зла й добра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Додаткова атака, Швидкий рух",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Щит духів (2к6)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Арканне відхилення, Тактична кмітливість",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Дикий інстинкт{{Feral Instinct}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Спритність 17 → 19",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Бойовий Стиль (Дуель), Друге дихання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Сплеск дій{{Action Surge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Покращений критичний удар{{Improved Critical}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Статура 16 → 17, Спритність 19 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Брутальний крит{{Brutal Critical}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Порада духів, Щит духів (3к6)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Невпинна лють{{Relentless Rage}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Кухар (+1 Статура)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Брутальний крит (два кубики)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Месники-пращури{{Vengeful Ancestors}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Навичка Розслідування",
+        "reason": "Автор бере Природу й Розслідування, але Розслідування немає у списку навичок Варвара, а передісторія Артист дає Акробатику й Непомітність. Замість Розслідування узято Виживання зі списку Варвара: найближча за змістом навичка на спостережливість і знання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Інструменти",
+        "reason": "Автор міняє Набір для гриму Артиста на інструменти злодія. Платформа не може прибрати фіксований інструмент передісторії, тому лишається Набір для гриму, а інструментів злодія немає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Стартове спорядження",
+        "reason": "Автор бере стартове золото й купує Рапіру, щит і короткий лук. Платформа не веде купівлю за золото: узято набір Варвара з Рапірою (бойова зброя) та коротким луком (проста зброя), щита немає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Первісне знання",
+        "reason": "Автор згадує додаткову класову навичку «Первісне знання» (додаткова навичка Варвара під час Люті); у каталозі цього вибору немає, тож навичку не записано.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-barbarian-ancestral-guardian-2014",
+            "translationRevisionId": "translation-rpgbot-barbarian-ancestral-guardian-2014-draft1",
+            "sourceRevisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

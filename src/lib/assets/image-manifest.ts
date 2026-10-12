@@ -2,6 +2,8 @@
  * Image manifest & visual asset resolvers for races, species, classes, and catalogs.
  */
 
+import subclassArtManifest from "@/lib/assets/subclass-art-manifest.json";
+
 // 1. Race / Species image path dictionary
 const RACE_IMAGE_MAP: Record<string, string> = {
   // Core PHB (2014 & 2024)
@@ -88,11 +90,11 @@ const RACE_IMAGE_MAP: Record<string, string> = {
 
   // Spelljammer
   ASTRAL_ELF: "/images/races/astral_elf.webp",
-  AUTOGNOME: "/images/races/autognome.webp",
+  AUTOGNOME: "/images/races/autognome-4c6d78b319.webp",
   GIFF: "/images/races/giff.webp",
-  HADOZEE: "/images/races/hadozee.webp",
+  HADOZEE: "/images/races/hadozee-3bb34d1d2f.webp",
   PLASMOID: "/images/races/plasmoid.webp",
-  THRI_KREEN: "/images/races/thri_kreen.webp",
+  THRI_KREEN: "/images/races/thri_kreen-15344e36d9.webp",
 
   // Dragonlance
   KENDER: "/images/races/kender.webp",
@@ -469,4 +471,11 @@ export function getBackgroundImagePath(backgroundKey: string | null | undefined)
 
   const norm = rawKey.replace(/_2014$/, "").replace(/_2024$/, "");
   return BACKGROUND_IMAGE_MAP[norm] ?? null;
+}
+
+const SUBCLASS_IMAGE_MAP: Record<string, string> = subclassArtManifest;
+
+export function getSubclassImagePath(subclassKey: string | null | undefined): string | null {
+  if (!subclassKey) return null;
+  return SUBCLASS_IMAGE_MAP[subclassKey.trim().toUpperCase()] ?? null;
 }

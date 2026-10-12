@@ -1,0 +1,229 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "rogue-soulknife-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+    "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e"
+  },
+  "exampleSection": "section-example-soul-knife-rogue-build-halfelf-skill-monkey",
+  "levelTableSection": "section-levels",
+  "classKey": "ROGUE_2014",
+  "subclassKey": "SOULKNIFE",
+  "raceKey": "HALF_ELF_2014",
+  "backgroundKey": "CUSTOM",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 12,
+    "INT": 15,
+    "WIS": 13,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "SOULKNIFE"
+    },
+    {
+      "level": 4,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (DEX)"
+        },
+        {
+          "optionNameEng": "Skill Expert Proficiency (SURVIVAL)"
+        },
+        {
+          "optionNameEng": "Skill Expert Expertise (PERCEPTION)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "expertise": [
+        "SURVIVAL",
+        "ARCANA"
+      ]
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "featKey": "SKULKER",
+      "section": "section-feats"
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "SKILLED",
+      "featOptions": [
+        {
+          "optionNameEng": "Skilled (ANIMAL_HANDLING)"
+        },
+        {
+          "optionNameEng": "Skilled (INSIGHT)"
+        },
+        {
+          "optionNameEng": "Skilled (SLEIGHT_OF_HAND)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "featKey": "PRODIGY",
+      "featOptions": [
+        {
+          "optionNameEng": "Prodigy Proficiency (MEDICINE)"
+        },
+        {
+          "optionNameEng": "Prodigy Expertise (INSIGHT)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Експертиза в інструментах злодія (6-й рівень)",
+      "reason": "На 6-му рівні автор бере Експертизу у Виживанні та в інструментах злодія; експертиза в інструментах не підтримана моделлю листа, тож пресет бере Виживання й Магію (вибір платформи, автор не називає другу навичку); можна змінити на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Вундеркінд (16-й рівень): інструмент і мова",
+      "reason": "Автор описує Вундеркінда як володіння Медициною, Експертизу в Аналізі поведінки, володіння Водним транспортом і мову на вибір; пресет записує лише навичку й експертизу, інструмент і мову гравець додає на листі (мова — вибір платформи, автор не називає).",
+      "section": "section-feats"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/rogue-soulknife-2014.webp",
+    "title": "Пройдисвіт — Ніж душі, Напівельф (майстер навичок)",
+    "description": "Пройдисвіт Ножа душі з навичками знань: Напівельф за правилами Таші, власна передісторія з Природою й Релігією та інструментами картографа й навігатора, експертиза в Розслідуванні та Непомітності.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "INT",
+      "WIS",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ACROBATICS",
+        "INVESTIGATION",
+        "PERCEPTION",
+        "STEALTH"
+      ],
+      "race": [
+        "ARCANA",
+        "HISTORY"
+      ],
+      "background": [
+        "NATURE",
+        "RELIGION"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": [
+        "CARTOGRAPHERS_TOOLS",
+        "NAVIGATORS_TOOLS"
+      ]
+    },
+    "expertise": [
+      "INVESTIGATION",
+      "STEALTH"
+    ],
+    "classOptions": [],
+    "raceOptions": [
+      "Універсальність навичок"
+    ],
+    "languages": [
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Напівельф за правилами Таші: +2 до Спритності та по +1 до Інтелекту й Мудрості, тож Спритність 17, Інтелект 16, Мудрість 14, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Акробатика, Розслідування, Уважність і Непомітність — від Пройдисвіта; дві навички знань від Напівельфа й дві від власної передісторії (правило PHB «Налаштування передісторії»), а також інструменти картографа й навігатора, як у автора. Яку пару знань дає раса, а яку передісторія, автор не називає — це вибір платформи (раса: Магія й Історія, передісторія: Природа й Релігія). Експертиза в Розслідуванні та Непомітності — за автором. Мову ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор не називає стартового спорядження: рапіру, короткий лук, набір грабіжника, шкіряну броню, інструменти злодія й два кинджали ми обрали за вас — вибір платформи."
+  }
+}

@@ -1,0 +1,1448 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-cfcc9d4713680f09",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-cfcc9d4713680f09-1cc6365fc92f2942",
+      "sourceId": "rpgbot-cfcc9d4713680f09",
+      "fetchedAt": "2026-09-29T19:22:37.620929+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:40:47-04:00",
+      "contentHash": "7be22844ada90e79a9caa77dc5980639c945823316e40fe763190a950194e68d",
+      "title": "Gunner 5e: DnD 5e Feat Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-cfcc9d4713680f09-1cc6365fc92f2942.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-gunner-2014",
+    "sourceId": "rpgbot-cfcc9d4713680f09",
+    "slug": "gunner-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Стрілець — гайд риси (2014)",
+    "titleEn": "Gunner 5e: DnD 5e Feat Guide",
+    "topics": [
+      "риси",
+      "заклинання"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-gunner-2014-draft1",
+      "articleId": "rpgbot-gunner-2014",
+      "sourceRevisionId": "rpgbot-cfcc9d4713680f09-1cc6365fc92f2942",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вогнепальна зброя в Dungeons & Dragons завжди викликала суперечки. Дехто не хоче бачити її у своїх фентезійних пригодах із мечами й магією, і я поважаю такі аргументи, що спираються на історію світу. Зрештою, якщо вогнепальної зброї немає, бо її ще не винайшли, цей гайд нічого не змінить."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Натомість тут розглянемо механіку ренесансної вогнепальної зброї з Посібника Майстра (2014). Докладно порівняємо дистанційну зброю за шкодою за раунд, щоб побачити, чи справді вогнепальна зброя набагато сильніша за луки й арбалети."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риса Стрілець",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#the-gunner-feat"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Вогнепальна зброя проти решти варіантів",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#firearms-vs-the-world"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Проблема властивості Важка",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#the-heavy-problem"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Механічні недоліки вогнепальної зброї",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#mechanical-complications-of-firearms"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Вогнепальна зброя в мультивсесвіті",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#firearms-across-the-multiverse"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Еберрон",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#eberron"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Exandria",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#exandria"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Golarion — Pathfinder",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#golarion-pathfinder"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Krynn — Dragonlance",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#krynn-dragonlance"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Mystara",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#mystara"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Oerth — Greyhawk",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#oerth-greyhawk"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Toril — Forgotten Realms",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#toril-forgotten-realms"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Domains of Dread — Равенлофт",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#the-domains-of-dread-ravenloft"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-the-gunner-feat",
+          "heading": "Риса Стрілець",
+          "sourceAnchor": "the-gunner-feat",
+          "blocks": [
+            {
+              "blockId": "block-section-the-gunner-feat-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як риса, {{Стрілець|Gunner}} досить приємний. Це риса, яка також додає +1 до Спритності. Вона надає володіння вогнепальною зброєю та дозволяє ігнорувати її властивість Заряджання. Найголовніше — перебування в ближньому бою не накладає перешкоду на кидки дистанційних атак.\n\nРедакційна примітка: остання перевага прибирає саме перешкоду через ворожу істоту в межах 5 футів, а не всі можливі причини перешкоди на дистанційну атаку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-gunner-feat-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чому останній пункт найважливіший? Хіба для риси з назвою Стрілець не головні переваги вогнепальної зброї? Насправді ні. Якщо ви лучник і не плануєте використовувати арбалети, навіщо брати {{Експерт з арбалетів|Crossbow Expert}} заради усунення перешкоди в ближньому бою, коли Стрілець дає +1 до Спритності й ту саму єдину перевагу Експерта з арбалетів, яка потрібна для лука? Навіть якщо кампанія не використовує вогнепальну зброю, я не бачу причин забороняти цю рису лучникам."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-firearms-vs-the-world",
+          "heading": "Вогнепальна зброя проти решти варіантів",
+          "sourceAnchor": "firearms-vs-the-world",
+          "blocks": [
+            {
+              "blockId": "block-section-firearms-vs-the-world-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Порівняємо кілька дистанційних варіантів і подивимося, як вони співвідносяться за шкодою за раунд."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мої юристи сказали, що не можна помістити ці дані в таблицю, бо не всі вони є у SRD, тож ось перелік сторінок зі зброєю та Позамежним зарядом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Зброя"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Сторінка"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Пістоль (Ренесанс)",
+                      "href": "https://www.dndbeyond.com/equipment/pistol"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DMG 268"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Мушкет",
+                      "href": "https://www.dndbeyond.com/equipment/musket"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DMG 268"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Короткий лук",
+                      "href": "https://www.dndbeyond.com/equipment/shortbow"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "PHB 149"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Довгий лук",
+                      "href": "https://www.dndbeyond.com/equipment/longbow"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "PHB 149"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Ручний арбалет",
+                      "href": "https://www.dndbeyond.com/equipment/crossbow-hand"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "PHB 149"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Легкий арбалет",
+                      "href": "https://www.dndbeyond.com/equipment/crossbow-light"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "PHB 149"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Важкий арбалет",
+                      "href": "https://www.dndbeyond.com/equipment/crossbow-heavy"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "PHB 149"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "link",
+                      "text": "Позамежний заряд",
+                      "href": "https://www.dndbeyond.com/spells/eldritch-blast"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "PHB 237"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Посилання на назвах зброї в оригіналі ведуть до записів довідника D&D Beyond."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розглянемо різні рівні й стандартизуємо приклади. Расою буде {{Своя раса|Custom Lineage}}. Початкове значення характеристики атаки — 15; расовий бонус +2 підвищує його до 17. Для всієї зброї це Спритність, для Позамежний заряд [Eldritch Blast] — Харизма."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усю зброю використовує Воїн без підкласу, з бойовим стилем {{Стрільба|Archery}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Позамежний заряд так само використовує Чорнокнижник без підкласу, який на 2-му рівні обирає {{Мучливий вибух|Agonizing Blast}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 1-му рівні: вогнепальна зброя й луки беруть Стрільця з +1 до Спритності. Легкий і важкий арбалети беруть {{Проколювач|Piercer}} із +1 до Спритності. Ручний арбалет бере Експерта з арбалетів. Позамежний заряд бере {{Доторк феї|Fey Touched}} з +1 до Харизми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні: вогнепальна зброя й луки беруть {{Влучний стрілець|Sharpshooter}}. Легкий і важкий арбалети беруть Експерта з арбалетів. Ручний арбалет бере Проколювача з +1 до Спритності. Позамежний заряд бере +2 до Харизми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 6-му рівні: вогнепальна зброя й луки беруть +2 до Спритності. Арбалети беруть Влучного стрільця."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-11",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні: арбалети беруть +2 до Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-12",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цій таблиці ми використовуємо прогресію "
+                },
+                {
+                  "type": "link",
+                  "text": "базової математики ",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": "для визначення КБ за рівнем небезпеки. Зброя використовує Влучного стрільця, щойно отримує рису, а ручний арбалет завжди виконує атаку бонусною дією. Позамежний заряд завжди використовує Проклін [Hex]. Жодна атака не виконується з перевагою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-13",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пістоль (Ренесанс)"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мушкет"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Короткий лук"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Довгий лук"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ручний арбалет"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Легкий арбалет"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Важкий арбалет"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Позамежний заряд"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7.88"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.72"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6.17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7.03"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7.25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6.3"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7.88"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.72"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6.17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7.03"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7.25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9.55"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.03"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.57"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8.93"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9.48"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11.95"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6.82"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7.67"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.25"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "23.1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "24.30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.70"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "21.90"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "27.30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.50"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "21.05"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "22.15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18.85"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.95"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20.40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "21.60"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "19.10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "31.58"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "33.23"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.28"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "29.93"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "38.40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30.60"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "32.4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.65"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "31.58"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "33.23"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.28"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "29.93"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "38.40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30.60"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "32.4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "38.20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "42.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "44.30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "37.70"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "39.90"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "48"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "40.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "43.20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "38.20"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-14",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З цих даних видно, що вогнепальна зброя трішки сильніша, але різниця недостатньо велика, щоб багато важити. Якщо персонаж не має іншого важливого застосування бонусної дії, ручний арбалет із додатковою атакою помітно випереджає все інше в таблиці й навіть перевершує кілька "
+                },
+                {
+                  "type": "link",
+                  "text": "варіантів ближнього бою",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#dpr-comparisons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-15",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Так, багато чинників змінюють ці числа, але загалом можна зробити висновок: якщо вогнепальна зброя не суперечить історії вашого світу, бажання когось використовувати її нічого не зламає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-firearms-vs-the-world-16",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Насправді… вогнепальна зброя виправляє дещо фундаментально несправне в 5e…"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-the-heavy-problem",
+          "heading": "Проблема властивості Важка",
+          "sourceAnchor": "the-heavy-problem",
+          "blocks": [
+            {
+              "blockId": "block-section-the-heavy-problem-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Знову це слово — «важко»."
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Чому в майбутньому все таке важке?"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Щось негаразд із земним тяжінням?"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "—"
+                },
+                {
+                  "type": "link",
+                  "text": "Back to the Future",
+                  "href": "https://www.youtube.com/watch?v=Urg-EqR-pHc"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-heavy-problem-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Властивість Важка. Якщо ви малий — а під цим я маю на увазі Малий розмір — усі атаки зброєю з цією властивістю мають перешкоду. Довгі луки й важкі арбалети Важкі. Так само й кілька видів зброї ближнього бою, але зараз не про них."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-heavy-problem-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У попередніх редакціях розміри мали шкалу бонусів і штрафів, тож Малий розмір теж давав переваги. Натомість 5e дає бонуси за збільшення й штрафи за зменшення. Вогнепальна зброя цього не виправляє, але принаймні вирівнює дистанційну зброю. Пістолі й мушкети не мають властивості Важка, тож раси Середнього й Малого розміру отримують однакову кістку шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-heavy-problem-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Звісно, будь-яка раса може взяти Ручний арбалет{{Hand Crossbow}} і завдяки атаці бонусною дією очолити таблицю шкоди, але це підходить не всім. Якщо бонусна дія зайнята важливим класовим умінням — наприклад, посиленням шкоди багатьох підкласів Слідопита — ручний арбалет у таблиці дорівнює Короткому луку{{Shortbow}}: останнє місце."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-heavy-problem-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Але це лише теорія й припущення. Потрібні тверді докази та випробування на практиці. Потрібна мала раса з дистанційною зброєю на класі, який кожного ходу має дуже важливе застосування бонусної дії. "
+                },
+                {
+                  "type": "link",
+                  "text": "Де б нам знайти такого персонажа?",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-mechanical-complications-of-firearms",
+          "heading": "Механічні недоліки вогнепальної зброї",
+          "sourceAnchor": "mechanical-complications-of-firearms",
+          "blocks": [
+            {
+              "blockId": "block-section-mechanical-complications-of-firearms-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вогнепальна зброя має недоліки порівняно з іншою дистанційною зброєю. Зокрема, Пістоль{{Pistol (Renaissance)}} і Мушкет{{Musket}} мають меншу дальність, ніж більшість луків та арбалетів. Нормальна дальність мушкета вдвічі менша, ніж у легкого арбалета чи короткого лука. До того ж максимальна дальність вогнепальної зброї лише втричі більша за нормальну, тоді як у луків та арбалетів — учетверо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-mechanical-complications-of-firearms-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Але це не завжди важить. Коротка дальність важлива, доки всі не отримали Влучного стрільця, а після цього різниця в кістках шкоди часто втрачає значення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-mechanical-complications-of-firearms-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Крім того, вогнепальна зброя гучніша за луки й арбалети, хоча, ймовірно, не набагато гучніша за багато великих заклинань. Для приблизної оцінки можна використати замовляння Гуркіт грому [Thunderclap], яке створює громовий звук, чутний на відстані до 100 футів. Майстер може збільшити чи зменшити цю відстань, але шуму завжди буде більше, ніж від лука.\n\nРедакційна примітка: це авторська пропозиція, як оцінювати шум пострілу, а не встановлена дальність чутності вогнепальної зброї за DMG."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-firearms-across-the-multiverse",
+          "heading": "Вогнепальна зброя в мультивсесвіті",
+          "sourceAnchor": "firearms-across-the-multiverse",
+          "blocks": [
+            {
+              "blockId": "block-section-firearms-across-the-multiverse-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Деякі опубліковані світи мають власні пояснення наявності чи відсутності вогнепальної зброї. Перелік неповний; частина світів не має книги для 5e, але я додав їх, бо захотів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-eberron",
+          "parentSectionId": "section-firearms-across-the-multiverse",
+          "heading": "Еберрон",
+          "sourceAnchor": "eberron",
+          "blocks": [
+            {
+              "blockId": "block-section-eberron-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вогнепальної зброї немає, оскільки прості магічні предмети, які дають звичайним людям легкий доступ до замовлянь, настільки поширені в Еберроні, що вже займають її можливу нішу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-exandria",
+          "parentSectionId": "section-firearms-across-the-multiverse",
+          "heading": "Exandria",
+          "sourceAnchor": "exandria",
+          "blocks": [
+            {
+              "blockId": "block-section-exandria-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Exandria, світ Matt Mercer для Critical Role, має вогнепальну зброю, бо гра спочатку була в Pathfinder, а один із гравців був Gunslinger. Усередині світу причина, найімовірніше, така сама, як у Golarion."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-golarion-pathfinder",
+          "parentSectionId": "section-firearms-across-the-multiverse",
+          "heading": "Golarion — Pathfinder",
+          "sourceAnchor": "golarion-pathfinder",
+          "blocks": [
+            {
+              "blockId": "block-section-golarion-pathfinder-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Golarion, основний світ Pathfinder, має вогнепальну зброю, оскільки в деяких його регіонах магія не працює."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-krynn-dragonlance",
+          "parentSectionId": "section-firearms-across-the-multiverse",
+          "heading": "Krynn — Dragonlance",
+          "sourceAnchor": "krynn-dragonlance",
+          "blocks": [
+            {
+              "blockId": "block-section-krynn-dragonlance-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Група гномів із Krynn не лише відповідає за вогнепальну зброю свого світу, а й за її поширення в багатьох світах крізь Crystal Spheres торговельними маршрутами Spelljammer. Завдяки Krynn вогнепальна зброя доступна в усіх світах і вже не суперечить їхній історії.\n\nРедакційна примітка: це історичне узагальнення автора, а не вимога дозволяти вогнепальну зброю в кожній кампанії 5e. Вступ гайда прямо залишає її наявність за світом і Майстром."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-mystara",
+          "parentSectionId": "section-firearms-across-the-multiverse",
+          "heading": "Mystara",
+          "sourceAnchor": "mystara",
+          "blocks": [
+            {
+              "blockId": "block-section-mystara-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вогнепальна зброя переважно зосереджена на Savage Coast на заході."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oerth-greyhawk",
+          "parentSectionId": "section-firearms-across-the-multiverse",
+          "heading": "Oerth — Greyhawk",
+          "sourceAnchor": "oerth-greyhawk",
+          "blocks": [
+            {
+              "blockId": "block-section-oerth-greyhawk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На Oerth порох просто не працює — кумедно, цілком протилежна проблема до Golarion. Один орден Кліриків Oerth, присвячений богові науки, міг використовувати вогнепальну зброю завдяки божественній магії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-toril-forgotten-realms",
+          "parentSectionId": "section-firearms-across-the-multiverse",
+          "heading": "Toril — Forgotten Realms",
+          "sourceAnchor": "toril-forgotten-realms",
+          "blocks": [
+            {
+              "blockId": "block-section-toril-forgotten-realms-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вогнепальна зброя існує, але настільки рідкісна, що більшість кампаній її ніколи не зустріне. За каноном у Skullport є крамниця вогнепальної зброї з назвою Brigadier’s Broadside."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-the-domains-of-dread-ravenloft",
+          "parentSectionId": "section-firearms-across-the-multiverse",
+          "heading": "Domains of Dread — Равенлофт",
+          "sourceAnchor": "the-domains-of-dread-ravenloft",
+          "blocks": [
+            {
+              "blockId": "block-section-the-domains-of-dread-ravenloft-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вогнепальну зброю можна знайти по всіх Domains of Dread, оскільки напівплан схильний викрадати цілі місця з різних куточків мультивсесвіту."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": []
+}

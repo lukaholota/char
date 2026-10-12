@@ -1,0 +1,796 @@
+{
+  "buildId": "build-cleric-knowledge-2014",
+  "revisionId": "build-cleric-knowledge-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Клірика знань — Ой, ні-ОвО",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-cleric-knowledge-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+      "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+      "sectionId": "section-example-knowlege-cleric-build-oh-nowo",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "KNOWLEDGE_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "CLERIC_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "CLERIC_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "CLERIC_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TELEKINETIC",
+        "featOptions": [
+          {
+            "optionNameEng": "TELEKINETIC Ability (Wisdom)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "CLERIC_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "CLERIC_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "CLERIC_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "CLERIC_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "CLERIC_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "thaumaturgy"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "CLERIC_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "CLERIC_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "CLERIC_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "CLERIC_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "CLERIC_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "CLERIC_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "METAMAGIC_ADEPT"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "CLERIC_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "CLERIC_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "CLERIC_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKULKER"
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "CLERIC_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-knowledge-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "KNOWLEDGE_DOMAIN",
+    "raceKey": "TABAXI_MPMM",
+    "backgroundKey": "SAGE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 12
+      },
+      {
+        "ability": "INT",
+        "value": 14
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Як описано вище. Вкладемо +2 у Мудрість і +1 у Статуру, щоб підготуватися до «Стійкого (Статура)»{{Resilient (Constitution)}}.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 14 14 Статура 12 13 Інтелект 14 14 Мудрість 15 17 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Табаксі{{Tabaxi}}. А) Нам треба бути котом, і Б) табаксі дають достатньо пройдисвіта, щоб ви відчували, що робите пройдисвітські речі, не вдаючись до хитрощів. До того ж можливість рвонути на позицію, коли ви активуєте Духів захисників [Spirit Guardians], — доволі чудова.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Візьміть Мудреця{{Sage}} заради уміння «Дослідник»{{Researcher}}, а тоді негайно замініть усі володіння, які воно дає, на Поводження з тваринами, Природу, Набір травника й Інструменти злодія. Чи не відтворив я здебільшого Відлюдника{{Hermit}}, лише з іншим умінням передісторії? Так, відтворив. Але це дуже тематично, а нам просто дуже хочеться з користю застосувати нашу високу Мудрість, заповнюючи решту навичок знань.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Раса дає нам Уважність (щоб помічати ті розпухлі мішки зі скарбами) і Непомітність (щоб їх поцупити), передісторія дає Природу, Поводження з тваринами, Набір травника й Інструменти злодія, а Клірик дає Аналіз Поведінки й Релігію. На першому рівні від домену ми отримуємо Магію й Історію (до того ж з експертизою).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні отримуємо «Телекінетика»{{Telekinetic}}. Тепер ми не просто вдаємо будь-якого пройдисвіта, а вдаємо містичного спритника{{Arcane Trickster}}.\n\n8-й рівень доводить Мудрість до 20.\n\nНа 12-му рівні беремо «Стійкого (Статура)»{{Resilient (Con)}}\n\nНа 16-му рівні отримуємо «Адепта метамагії»{{Metamagic Adept}}.\n\nНа 19-му рівні отримуємо «Скритного»{{Skulker}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Замовляння:\n– Священне полумʼя\n– Настанова\n– Дзвін небіжчика\nБлагословення знань",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Божественність: Знання віків",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Телекінетик (Мудрість)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Знищення нежиті{{Destroy Undead}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Божественність: Читання думок\nКанал божественності 2/відпочинок",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Мудрість 18 → 20\nПотужне заклинання\nПокращення Знищення нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Божественне втручання\nНове замовляння:\n– Дивотворство",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Покращення Знищення нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Стійкий (Статура)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Покращення Знищення нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Адепт метамагії:\n– Приховане заклинання\n– Подовжене заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Видіння минулого\nПокращення Знищення нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Канал божественності 3/відпочинок",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Скритний",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Покращене божественне втручання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Метамагія з риси «Адепт метамагії»",
+        "reason": "На 16-му рівні автор бере Адепта метамагії з Прихованим і Подовженим заклинанням; у каталозі риса без опцій (BUG-O49-METAMAGIC-ADEPT), тож записано лише саму рису.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика на 4-му рівні",
+        "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-knowledge-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-knowledge-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-39b617d0c0e499c8-d2d7498133c92008",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

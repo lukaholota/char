@@ -1,0 +1,1351 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/bilgewater/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "51192cb57e70f8dbb429fa1f1469ef297071b2c2f75d7362e2e580ce6d24d232",
+  "sourceRevision": {
+    "revisionId": "rpgbot-fafbdb8198dfa9e1-51192cb57e70f8db",
+    "sourceId": "rpgbot-fafbdb8198dfa9e1",
+    "fetchedAt": "2026-09-29T19:26:05.736618+00:00",
+    "sourceUpdatedAt": "2026-03-14T14:45:15-04:00",
+    "contentHash": "06e756c3940960c06bbeb648faf67c9cefb04bd646b750bdb5cc5b30486f58cb",
+    "title": "DnD 5e Bilgewater Subclasses Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-fafbdb8198dfa9e1-51192cb57e70f8db.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Runeterra is the setting of the popular, long-running MOBA game League of Legends. It’s a fantastical setting full of bizarre creatures and tales of adventure. Legends of Runeterra: Dark Tides of Bilgewater was a digital-only supplement for Dungeons and Dragons 5th edition, originally published for free on DnDBeyond.com, then "
+            },
+            {
+              "type": "link",
+              "text": "removed without explanation",
+              "href": "https://www.dndbeyond.com/forums/d-d-beyond-general/news-announcements/71981-legends-of-runeterra-content-available-through"
+            },
+            {
+              "type": "text",
+              "text": ". It’s unlikely that we’ll see it republished in any official capacity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It included a short adventure, three new subclasses, 10 stat blocks for creatures and NPCs (including League of Legends playable characters Miss Fortune and Gangplank), and a collection of magic items which League of Legends players will recognize from the game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you are familiar with DnD 5e and my other character optimization guides, skip ahead to the next section. If you are new to Dungeons and Dragons, I encourage you to explore my "
+            },
+            {
+              "type": "link",
+              "text": "How to Play",
+              "href": "https://rpgbot.net/dnd5/how-to-play"
+            },
+            {
+              "type": "text",
+              "text": " articles, especially my "
+            },
+            {
+              "type": "link",
+              "text": "Guide Solo Adventure",
+              "href": "https://rpgbot.net/dnd5/how-to-play/adventure/"
+            },
+            {
+              "type": "text",
+              "text": " which is built to teach you the basics of how to play Dungeons and Dragons in just a few minutes."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I suspect that there are a great many people exploring Dungeons and Dragons for the first time, looking to tell their own Runeterra stories in a new medium. If you’re on such newcomer to the hobby, welcome. I’m happy that you’re here, and I hope that you’ll enjoy Dungeons and Dragons and other tabletop RPGs for years to come."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re not familiar with my character optimization material, welcome to the site. Most of what I write is about how to build an effective character. If you’re familiar with looking at published builds for League of Legends, it’s a similar concept. However, rather than hand you a page of specific items and skills and such, character optimization articles for DnD typically list available options and make suggestions based on their merits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article addresses the three subclasses published in Legends of Runeterra: Dark Tides of Bilgewater. I use the same 4-tier rating system which I use in all of my character optimization content, which is explained below. This article does not include the text of the source material, so I recommend reading the source material first (if you can find it somewhere) then coming back for advice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not that anyone cares, but yes: I have played quite a bit of League of Legends and I was always, without exception, absolutely terrible at it. But I’m really good at Dungeons and Dragons, and that’s what you’re here for."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bilgewater/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bilgewater/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Bilgewater Subclasses",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bilgewater/#subclasses"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-subclasses",
+      "heading": "Bilgewater Subclasses",
+      "sourceAnchor": "subclasses",
+      "blocks": [
+        {
+          "blockId": "block-section-subclasses-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Legends of Runeterra: Dark Tides of Bilgewater introduces three new subclasses; one each for the Barbarian, the Fighter, and the Rogue."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-subclasses-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Please note that these subclasses are not official DnD 5e content. If you want to use these subclasses, you will typically need permission from your Dungeon Master to introduce them to the game."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-path-of-the-depths",
+      "parentSectionId": "section-subclasses",
+      "heading": "Barbarian: Path of the Depths",
+      "sourceAnchor": "path-of-the-depths",
+      "blocks": [
+        {
+          "blockId": "block-section-path-of-the-depths-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Path of the Depths is a neat nauticle-themed concept. In addition to the ability to swim and breath underwater, it grants interesting abilities to pull enemies toward you and potentially grapple them, as well as an at-will teleportation effect. The teleportation effect is the only real problem in the subclass, but with a modest adjustment to prevent abuse (use it oncer per Short or Long Rest) this is a fun and effective subclass."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-path-of-the-depths-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Gift of the Drowned Ones"
+              },
+              {
+                "type": "text",
+                "text": ": The ability to\n\t\tswim and breath underwater is interesting, but in most Dungeons and Dragons\n\t\tgames it’s rarely a problem because most of your allies can’t breath\n\t\tunderwater so most of your adventuring is done on dry land."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dredge Line"
+              },
+              {
+                "type": "text",
+                "text": ": Barbarians thrive in melee,\n\t\tand the ability to pull enemies into melee with you when they don’t want to\n\t\tbe there can be a serious asset. But be careful about pulling too many\n\t\tenemies into melee with you at once."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ghostwater Dive"
+              },
+              {
+                "type": "text",
+                "text": ": Teleportation is\n\t\tfantastic for a long number of reasons, and there is no limitation on how\n\t\toften you can use this. If you want to spend all of your time out of combat\n\t\tteleporting around instead of walking, there’s nothing to stop you. If you\n\t\tdo use this in combat, you spend your Action to do so, so you can’t use\n\t\tExtra Attack in the same turn. Sometimes that’s fine if you need to get past\n\t\tan obstacle like a pit or an enemy, and you do still get one attack before\n\t\tor after teleporting.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Honestly, teleportation effects have usage limitations for a reason:\n\t\t\tthey’re powerful and easy to abuse. If you’re familiar with League of\n\t\t\tLegends, imagine if the Flash summoner spell had a 6-second cooldown. It\n\t\t\twould destroy the game! Most abilities like this can be used some number\n\t\t\tof times during a certain period, like once per day or once per Short or\n\t\t\tLong Rest. If this ability becomes a problem in your game, I recommend\n\t\t\tlimiting it to one per Short or Long Rest."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Manifestations of the Deep"
+              },
+              {
+                "type": "text",
+                "text": ": This is a fun\n\t\tdecision point, and I really like that you can change it after a long rest\n\t\tso that you can experiment with different options. However, it’s likely that\n\t\tyou’ll pick one option which suits your play style and stick to\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Eyes of the Deep"
+              },
+              {
+                "type": "text",
+                "text": ": True Seeing is\n\t\t\t\treally good, but it’s still only situationally useful and it’s hard to\n\t\t\t\tknow when you’ll need it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arms of the Deep"
+              },
+              {
+                "type": "text",
+                "text": ": Grappling a foe\n\t\t\t\treduces their speed to 0, thereby preventing them from moving away from\n\t\t\t\tyou. You notably don’t need to make an Athletics check to grapple this\n\t\t\t\tway, which is unusual for a player ability."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Heart of the Deep"
+              },
+              {
+                "type": "text",
+                "text": ": Don’t use this\n\t\t\t\tduring combat. Use it before combat and save the Bonus Action. Temporary\n\t\t\t\tHit Points last until you take a Short Rest or a Long Rest (unless they\n\t\t\t\tspecify an expiration time, which these don’t) so these will stick\n\t\t\t\taround until spent or you rest."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Soul of the Deep"
+              },
+              {
+                "type": "text",
+                "text": ": You already have\n\t\t\t\tAdvantage on saves against these effects, and while immunity is nice\n\t\t\t\tthis isn’t good enough to take unless you’re facing enemies who will\n\t\t\t\trepeatedly try to charm or frighten you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Armor of the Deep"
+              },
+              {
+                "type": "text",
+                "text": ": +1 AC is really\n\t\t\t\tgood, but it’s not very exciting. If your AC is reasonably high (such as\n\t\t\t\tif you have 14 Dexterity and are wearing half plate, which you should be\n\t\t\t\table to do by this level), this will be more protection than Heart of\n\t\t\t\tthe Deep."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Depth Charge"
+              },
+              {
+                "type": "text",
+                "text": ": 3d6 isn’t a lot of damage,\n\t\tbut it’s force damage and nearly nothing is resistant or immune to force\n\t\tdamage (similar to “true damage” for League of Legends players). Still, that\n\t\tmay offset the damage lost from using Ghostwater Dive instead of Extra\n\t\tAttack if you can hit 2 or more targets, and knocking enemies prone means\n\t\tthat your one attack might be at Advantage without resorting to Reckless\n\t\tAttack. Sure, they’ll get back up on their turn at essentially no cost, but\n\t\tit’s still very satisfying to splash a bunch of enemies and knock them down.\n\t\tSince Ghostwater Dive can be used at will, in many encounters your best\n\t\toption will be to repeatedly spam Ghostwater Dive and Depth Charge."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-renegade",
+      "parentSectionId": "section-subclasses",
+      "heading": "Fighter: Renegade",
+      "sourceAnchor": "renegade",
+      "blocks": [
+        {
+          "blockId": "block-section-renegade-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Renegade is an archetype about using firearms. It takes some artistic liberties with the rules in order to keep things simple for newcomers to DnD, but in doing so it detaches firearms from the way that weapons normally work and introduces some complications which I don’t think the authors had considered."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-renegade-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I would not allow this subclass in my game. The damage output is incredibly high even if you never use a single feature with usage limitations, and the firearm upgrades vary wildly in effectiveness. Fixing this subclass would require rearranging the the firearm upgrades, rebalancing the Gunfighter Form options and their damage output, and the firearms need to continue to exist even when you’re not using them."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-renegade-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Scoundrel’s Wit"
+              },
+              {
+                "type": "text",
+                "text": ": Two more skills are\n\t\tgreat, but Face skills like Deception and Persuasion are hard choices for\n\t\tthe Fighter because they get so little out of Charisma."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gunfighter Form"
+              },
+              {
+                "type": "text",
+                "text": ": Gunfighter Form grants\n\t\tyou a vaguely-defined firearm which seems to spring into existence when you\n\t\tspend an Action to fire it. Renegades will typically use this Action instead\n\t\tof the Attack action, which is nice simplification for players new to the\n\t\tgame, but it also detaches this firearm from a bunch of other game\n\t\tmechanics. This is weird, but not a huge problem.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The two forms are roughly equivalent, but have slightly different upgrade\n\t\t\toptions which will distinguish them."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pistoleer"
+              },
+              {
+                "type": "text",
+                "text": ": If you like to be close\n\t\t\t\tquarters, if you like to occasionally switch to melee combat, or if you\n\t\t\t\toccasionally get dragged into melee, the Pistoleer is the option for\n\t\t\t\tyou."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sniper"
+              },
+              {
+                "type": "text",
+                "text": ": If you plan to stay way in the\n\t\t\t\tback and output huge piles of damage, the Sniper is for you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Weapon of Choice"
+              },
+              {
+                "type": "text",
+                "text": ": The weapon upgrades are\n\t\tneat and resemble some fun abilities from the League of Legends characters\n\t\twho inspired the Renegade subclass. You get a limited number of upgrades and\n\t\tcan’t change them until 15th level, so be very careful with your choices.\n\t\tFor help, see Firearm Upgrades, below."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cunning Shot"
+              },
+              {
+                "type": "text",
+                "text": ": Since there’s no way to make\n\t\tyour firearms magical, this is a crucial ability. It also solves the issue\n\t\tof fire resistance/immunity being common if you plan to use Trial by\n\t\tFire."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Grin and Bear It"
+              },
+              {
+                "type": "text",
+                "text": ": This is not good enough\n\t\tto be a 10th-level class feature."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Right Gun for the Job"
+              },
+              {
+                "type": "text",
+                "text": ": You’re likely\n\t\thappy with your upgrade choices by this point, but if you’re using Sniper\n\t\tForm I recommend retraining your first Minor Upgrade so that you can have\n\t\tboth Crosshairs and Double-Barrel."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Light ‘Em Up"
+              },
+              {
+                "type": "text",
+                "text": ": A respectable quantity of\n\t\tdamage, and since it’s force damage almost nothing can resist it. The DC is\n\t\tstill Charisma-based, unfortunately."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-renegade-firearm-upgrades",
+      "parentSectionId": "section-renegade",
+      "heading": "Firearm Upgrades",
+      "sourceAnchor": "renegade-firearm-upgrades",
+      "blocks": [
+        {
+          "blockId": "block-section-renegade-firearm-upgrades-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "These are what distinguish you from other renegades. It’s weird that the save is Charisma-based, but fortunately almost none of the upgrades allow saving throws. You’ll start with one of each type, then add a second of each as you gain levels."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-renegade-firearm-upgrades-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The distinction between the two groups feels arbitrary. You could easily call them “blue upgrades” and “purple upgrades” and they’d make just as much sense."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-renegade-firearm-upgrades-minor",
+      "parentSectionId": "section-renegade-firearm-upgrades",
+      "heading": "Minor Upgrades",
+      "sourceAnchor": "renegade-firearm-upgrades-minor",
+      "blocks": [
+        {
+          "blockId": "block-section-renegade-firearm-upgrades-minor-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Blade and Black Powder"
+              },
+              {
+                "type": "text",
+                "text": ": The ability to use\n\t\tranged weapons in melee unimpeded is a huge asset, especially if you often\n\t\tfind yourself in tight quarters like inside a building. Strangely, the blade\n\t\tdoesn’t grant you the ability to attack with it in any way except with the\n\t\tBonus Action granted by this ability, and even then you’ll likely spend your\n\t\tother attacks shooting the adjacent creature repeatedly before stabbing\n\t\tit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Caliber Net"
+              },
+              {
+                "type": "text",
+                "text": ": The only Minor Upgrade with\n\t\ta usage limitation, but this is still a decent crowd control effect. Many\n\t\tcreatures are bad at Strength saves, so even if your Charisma isn’t great\n\t\tyou may still be able to use this effectively."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Collateral Damage"
+              },
+              {
+                "type": "text",
+                "text": ": The damage is really\n\t\tminor and you’re going to spend a ton of time waiting for the DM to roll\n\t\tsaving throws every time you shoot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Crosshairs"
+              },
+              {
+                "type": "text",
+                "text": ": Fighters have very little use\n\t\tfor their Bonus Action, and if you are fighting at range you’ll spend many\n\t\tturns shooting stuff without moving. In those cases this provides a massive\n\t\tboost to your damage output, so this is a logical option for Pistoleer Form\n\t\teven if a scope on a pistol seems weird. For Sniper Form, you want\n\t\tDouble-Barrel instead because sometimes you’ll hit twice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Double-Barrel"
+              },
+              {
+                "type": "text",
+                "text": ": If you took Sniper Form,\n\t\tthis doubles your damage output. No drawback, no complications, nothing. The\n\t\tonly hard thing is that you’re forced to wait for 5th level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Smoke Screen"
+              },
+              {
+                "type": "text",
+                "text": ": Because you can split\n\t\tmovement in DnD 5e, you can sit in your cloud of smoke, walk out to shoot\n\t\tstuff, then walk back into your cloud of smoke to keep yourself protected\n\t\tfrom attacks until your next turn."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-renegade-firearm-upgrades-major",
+      "parentSectionId": "section-renegade-firearm-upgrades",
+      "heading": "Major Upgrades",
+      "sourceAnchor": "renegade-firearm-upgrades-major",
+      "blocks": [
+        {
+          "blockId": "block-section-renegade-firearm-upgrades-major-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Barrage"
+              },
+              {
+                "type": "text",
+                "text": ": A great counter to enemies\n\t\tcrowding into close quarters with you, and the damage is decent."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Double Up"
+              },
+              {
+                "type": "text",
+                "text": ": Not a lot of damage, and the\n\t\tusage limitation is too low. Trial by Fire will yield considerably more\n\t\tdamage output."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lightning Round"
+              },
+              {
+                "type": "text",
+                "text": ": Lines are hard and\n\t\tyou’re likely to hit no more than 2 enemies with them usually. The damage\n\t\tisn’t good enough to\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Trial by Fire"
+              },
+              {
+                "type": "text",
+                "text": ": This is a lot of extra\n\t\tfire damage, especially for Pistoleer Form since they get more attacks.\n\t\tYou’ll want enough Charisma to justify this, but fortunately they recharge\n\t\ton a short rest and you can use Action Surge to capitalize on the effect’s\n\t\tduration."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-wild-card",
+      "parentSectionId": "section-subclasses",
+      "heading": "Rogue: Wild Card",
+      "sourceAnchor": "wild-card",
+      "blocks": [
+        {
+          "blockId": "block-section-wild-card-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Wild Card is a really cool concept based on the chartacter Twisted Fate from League of Legends, who is a human dressed like a cowboy that throws cards at people like Gambit from X-Men or one of those people on Youtube who throw cards at things."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-wild-card-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Wild Card has a lot of great ideas, some unique options, a cool decision point, and some really fun abilities related to luck. There are some mechanical issues in the text (Playing Cards needs some clarification), and a few things should be balanced, but the core of the subclass looks really good."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-wild-card-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As some quick fixes: Dragonchess needs better effects for Griffon and Sylph: try making Griffon allow you to Dash without provoking opportunity attacks and make Sylph affect a number of allies equal to your Charisma modifier within 30 feet. Playing Cards needs to specify that it’s a ranged weapon attack, that you are proficient with the attack, and that the attack counts as a magic weapon for the purposes of overcoming damage resistance/immunity. Joker Wild should specify that you "
+            },
+            {
+              "type": "emphasis",
+              "text": "and"
+            },
+            {
+              "type": "text",
+              "text": " the target creature take damage, and that the direction that the creature is shunted is chosen at random but must be an unoccupied space. Joker Wild should also end early if you fall unconscious."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-wild-card-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Tricks up the Sleeve"
+              },
+              {
+                "type": "text",
+                "text": ": Guidance is a really\n\t\tgood spell, and the ability to cast it as a Bonus Action is absolutely\n\t\tamazing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wild Card’s Gambit"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re built for\n\t\tmelee, choose Dragonchess. If you’re built for ranged combat, choose Playing\n\t\tCards.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dragonchess"
+              },
+              {
+                "type": "text",
+                "text": ": Griffon is redundant with\n\t\t\t\tCunning Action, and it’s too hard to predict when Sylph will be useful.\n\t\t\t\tDragon is fine, but I don’t think it’s good enough on its own with the\n\t\t\t\tCharisma-based daily usage cap."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Loaded Dice"
+              },
+              {
+                "type": "text",
+                "text": ": This is a fantastic\n\t\t\t\tdefensive option. So long as you have dice in the pool, your AC is\n\t\t\t\teffectively 3.5 higher (the average roll of a d6). You can choose to\n\t\t\t\troll after hearing the result of the attack, so if it’s within 4 of your\n\t\t\t\tAC, it’s probably worth a die to try to negate it. But remember that you\n\t\t\t\talso have Uncanny Dodge, so you’ve got a great way to mitigate damage if\n\t\t\t\tyou do still get hit. Experienced players looking at this should compare\n\t\t\t\tit to being able to cast Shield 2 to 10 times a day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Playing Cards"
+              },
+              {
+                "type": "text",
+                "text": ": This is really fun,\n\t\t\t\tbut the mechanics are poorly-written. As it’s written, you don’t add\n\t\t\t\tyour Proficiency Bonus to the attack roll (which I think was an error\n\t\t\t\trather than a deliberate choice), and it’s not clear if you can add\n\t\t\t\tSneak Attack to the attack unless you roll Blade or Heart."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shifting Odds"
+              },
+              {
+                "type": "text",
+                "text": ": Teleportation is great,\n\t\tforce damage is great, and the AOE is large compared to similar effects\n\t\twhich typically only have a radius of 5 feet. Typically you’ll use this to\n\t\tescape when you’re surrounded in combat, but sometimes it’s okay to use it\n\t\tto get into melee with a tempting target like an enemy spellcaster."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Twist of Fate"
+              },
+              {
+                "type": "text",
+                "text": ": Going first is a serious\n\t\tadvantage, and notably you don’t need to use this to go earlier in\n\t\tinitiative order. Often it can be more effective to have an allied\n\t\tspellcaster go early so that they can fireball the room before everyone\n\t\tstarts piling into melee. Conversely, you can trade initiative with an enemy\n\t\tspellcaster to keep them from fireballing the party while you’re all bunched\n\t\tup."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Joker Wild"
+              },
+              {
+                "type": "text",
+                "text": ": Using this as a Bonus Action\n\t\tmeans that you can still attack before using it. It resets your Wild Card’s\n\t\tGambit daily uses, boosts your speed, and while it doesn’t prevent\n\t\tOpportunity Attacks it does give you resistance to the damage if you do get\n\t\thit an it’ll get you out of grapples, ropes, etc.. For some reason if you\n\t\tend the turn inside another creature, the other creature takes damage\n\t\t(similar effects typically hurt you) and it’s totally unclear which space\n\t\tthe creature is shunted into."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#path-of-the-depths",
+      "detail": "rating-green Barbarian: Path of the Depths"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Gift of the Drowned Ones"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Dredge Line"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ghostwater Dive"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Manifestations of the Deep"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Eyes of the Deep"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Arms of the Deep"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Heart of the Deep"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Soul of the Deep"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Armor of the Deep"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Depth Charge"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#renegade",
+      "detail": "rating-blue Fighter: Renegade"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Scoundrel’s Wit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Gunfighter Form"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Pistoleer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Sniper"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Weapon of Choice"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cunning Shot"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Grin and Bear It"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Right Gun for the Job"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Light ‘Em Up"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blade and Black Powder"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Caliber Net"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Collateral Damage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Crosshairs"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Double-Barrel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Smoke Screen"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Barrage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Double Up"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Lightning Round"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Trial by Fire"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#wild-card",
+      "detail": "rating-blue Rogue: Wild Card"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Tricks up the Sleeve"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Wild Card’s Gambit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dragonchess"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Loaded Dice"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Playing Cards"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Shifting Odds"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Twist of Fate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Joker Wild"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-introduction-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-introduction-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-subclasses-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-subclasses-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-path-of-the-depths-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-path-of-the-depths-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-renegade-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-renegade-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-renegade-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-renegade-firearm-upgrades-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-renegade-firearm-upgrades-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-renegade-firearm-upgrades-minor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-renegade-firearm-upgrades-major-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-wild-card-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-wild-card-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-wild-card-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-wild-card-4"
+    }
+  ],
+  "metrics": {
+    "words": 2923,
+    "sections": 10,
+    "blocks": 27,
+    "tables": 0,
+    "ratingSignals": 44
+  },
+  "status": "needs-editorial-review"
+}

@@ -1,0 +1,1877 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "db4713a7a98949cbf4925ed0be91af5d531c31167eb79be01040670fdfc63c9b",
+  "sourceRevision": {
+    "revisionId": "rpgbot-21bd693fa3417cf9-db4713a7a98949cb",
+    "sourceId": "rpgbot-21bd693fa3417cf9",
+    "fetchedAt": "2026-09-29T19:10:10.718071+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:26:57-04:00",
+    "contentHash": "50a14eb1c31c0211d4aaca2db440d4578e7770273366f5a2a2d6b7661fb450bd",
+    "title": "Steinhardt’s Path of the Lightning Vessel Barbarian: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-21bd693fa3417cf9-db4713a7a98949cb.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Path of the Lightning Vessel, introduced by Evan Mascaro (MonkeyDM) in "
+            },
+            {
+              "type": "link",
+              "text": "Steinhardt’s Guide to the Eldritch Hunt",
+              "href": "https://www.kickstarter.com/projects/monkey-dm/eldritch-hunt?ref=epxhhw"
+            },
+            {
+              "type": "text",
+              "text": ", gives the Barbarian several exciting tactical options, including ways to hold enemies in place, enhanced mobility, and the ability to deal splash damage to clustered enemies. It also depends heavily on your Constitution modifier, which encourages players to increase their Constitution rather than maxing Strength and then taking nothing but feats for the rest of their career."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the Lightning Vessel depends so heavily on a single damage type, running into resistance or immunity to lightning is a huge problem. Be sure that your allies can step up when that does happen, but also remember that you’re still a barbarian, and you can still just get angry and hit stuff."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Lightning Vessel Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Lightning Vessel Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Lightning Vessel Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Lightning Vessel Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Lightning Vessel Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Lightning Vessel Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Path of the Lightning Vessel Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Shockingly Large DPR",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/steinhardts-path-of-the-lightning-vessel/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Path of the Lightning Vessel Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Galvanic Heart"
+              },
+              {
+                "type": "text",
+                "text": ": The resistance is nice,\n\t\tand it’s hard to get from your race. If you already have lightning\n\t\tresistance, the extra die of damage reduction is neat and can entirely\n\t\tnegate small amounts of lightning damage.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "But you’re mostly here for the second half of the feature, which gives\n\t\t\tyou several interesting tactical options. Since this uses your Bonus\n\t\t\tAction, you can’t use it on the turn that you Rage. It also depends on you\n\t\t\tmaking contested Athletics checks, so be sure that you’re proficient.\n\t\t\tYou’ll get Advantage from Rage, but you still want proficiency."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Electrified Chains"
+              },
+              {
+                "type": "text",
+                "text": ": A great way to\n\t\t\t\tprevent enemies from running off to attack your allies. If you have\n\t\t\t\tbetter reach than your target, you can hit them, move out of reach, then\n\t\t\t\tmove back in on your next turn to repeat the combo. Against single foes,\n\t\t\t\tthis is your go-to option.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "It’s not clear what happens if the target isn’t within 10 feet of a\n\t\t\t\t\tfloor. Check with your DM."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fulgurant Strike"
+              },
+              {
+                "type": "text",
+                "text": ": Easy extra damage\n\t\t\t\tand damage to other nearby enemies. Great for crowds, which can often be\n\t\t\t\ta problem for barbarians.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Keep in mind that you do still need to save against this. A reach\n\t\t\t\t\tweapon puts you out of harm’s way, you have resistance, and at high\n\t\t\t\t\tlevels you’ll be able to omit yourself, so you have several options to\n\t\t\t\t\tmitigate the damage if you don’t want to tolerate making the save."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lightning Step"
+              },
+              {
+                "type": "text",
+                "text": ": Great for moving\n\t\t\t\tbetween targets, but since you can’t use this on the turn that which you\n\t\t\t\tRage (you only get one Bonus Action), you usually won’t need this unless\n\t\t\t\tyou’re fighting in a particularly large area. This notably doesn’t\n\t\t\t\trequire you to actually move, so technically you can use this, not move\n\t\t\t\tat all, then deal automatic damage.\n\t\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Because this requires you to get within 5 feet of your target, it\n\t\t\t\t\twill be less useful with a reach weapon."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Roaring Crash"
+              },
+              {
+                "type": "text",
+                "text": ": Move when you Rage and\n\t\tdeal some damage in an area. It’s not a huge amount of damage, but it\n\t\tdoesn’t cut into your action economy at all, and the free movement makes it\n\t\teasy to jump right into a fight."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lightning Reflexes"
+              },
+              {
+                "type": "text",
+                "text": ": Barbarians typically\n\t\tdon’t make a lot of Dexterity checks other than rolling for initiative, but you might also serve as\n\t\tyour party’s Scout, in which case adding Constitution to Dexterity (Stealth) checks is\n\t\ta big bonus.\n"
+              },
+              {
+                "type": "text",
+                "text": "The second half of the feature is basically free damage every turn plus free movement if you need it.\nDon’t forget to use this, as it’s a massive improvement to your DPR."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Electric Beast"
+              },
+              {
+                "type": "text",
+                "text": ": Some modest improvements\n\t\tto your Bonus Action options from Galvanic Heart.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Electrified Chains"
+              },
+              {
+                "type": "text",
+                "text": ": A modest\n\t\t\t\tupgrade."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fulgurant Strike"
+              },
+              {
+                "type": "text",
+                "text": ": Double the radius of\n\t\t\t\tthe AOE, and you can likely exclude your whole party from the\n\t\t\t\teffect."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lightning Step"
+              },
+              {
+                "type": "text",
+                "text": ": No more worrying\n\t\t\t\tabout obstacles, intervening enemies, or difficult terrain."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Path of the Lightning Vessel Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical barbarian",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/"
+            },
+            {
+              "type": "text",
+              "text": ", but since so many of the subclass’s features depend on your Constitution modifier, it’s unusually important that you increase your Constitution."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Path of the Lightning Vessel Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Aside from an unusually large need for Constitution, Path of the Lightning Vessel’s needs are little different from that of a "
+            },
+            {
+              "type": "link",
+              "text": "standard barbarian",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/races/"
+            },
+            {
+              "type": "text",
+              "text": ". I’ve omitted coverage for official races, but a select of races from Steinhardt’s Guide to the Eldritch Hunt are appealing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cursed-Blood"
+            },
+            {
+              "type": "text",
+              "text": ": The possibility of three +1\n\tability score increases is very tempting if you’re not using the custom origin\n\trules from Tasha’s Cauldron of Everything, but the traits otherwise aren’t\n\tfantastic. Either Doused Cursed-Blood or Hulking Cursed-Blood would work well\n\there."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Manikin"
+            },
+            {
+              "type": "text",
+              "text": ": Custodian Manikin is basically\n\tperfect. We get the ability score increases we need, you can start with 18 AC\n\tunarmored, lightning resistance, and Careful Defender lets you protect allies\n\tfrom attacks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Scourgeborne"
+            },
+            {
+              "type": "text",
+              "text": ": Three +1 ability score\n\tincreases. Belua is tempting, but competes for your already over-taxed Bonus\n\tAction. Cervus is an easy go-to choice. Vespertilio also works very well."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Path of the Lightning Vessel Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical barbarian",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Path of the Lightning Vessel Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical barbarian",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#weapons"
+            },
+            {
+              "type": "text",
+              "text": ", but Electrified Chains and Fulgurant Strike make reach weapons abnormally useful. Grab a glaive or pike."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Path of the Lightning Vessel Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical barbarian",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#armor"
+            },
+            {
+              "type": "text",
+              "text": ", but your unusually large need for Constitution might justify using Unarmored Defense over half-plate."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Path of the Lightning Vessel Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "typical barbarian",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Build – Shockingly Large DPR",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "Can I flavor my barbarian rage as by internal batteries leaking? I’m basically already running on electricity, I might as well hit stuff with it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will assume no optional class features."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get +1 Strength and +2 Constitution from our race, and we want rush both stats to 20, so we’ll start with 15 in both. We don’t care much about Dexterity, so we’ll put those points in Wisdom to boost our Wisdom saves and our Perception."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Custodian Manikin. We’ll choose the medium armor option since we don’t have heavy armor proficiency, and we’ll use our Strength modifier instead of Dextertiy, giving us an AC of 16. We’ll get lightning resistance and Careful Defender so that we can protect our allies. Unfortunately, the Manikin has permanent Disadvantage on Insight checks, so be sure to bring a decently wise friend to keep you from being talked into bad ideas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take the Beast Hunter background from Steinhardt’s. That gives us proficiency in Athletics, Survival, and Herbalism Kit. We mostly just want Athletics. Any background will suffice here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll choose Intimidation and Perception from our class skills. We don’t have many great options, unfortunately. We’ll get Athletics, Survival, and Herbalism Kit from our background. Athletics and Perception will see a lot of use, but everything else likely won’t."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With 17 Constitution, we have room for a hybrid feat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unarmored Defense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At this level, we’re your standard barbarian. Hit stuff."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For your starting equipment, take a pike (or a greataxe, but plan to trade it), two handaxes (for throwing), and the pack and four javelins (also for throwing)."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reckless Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Danger Sense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Danger Sense is basically our only protection against Dexterity saves, but we have a ton of hit points, so area damage isn’t too scary."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Primal Path: Path of the Lightning Vessel"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Galvanic Heart"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If you haven’t picked up a reach weapon, now is the time. It’s a temporary solution until we reach level 8."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Galvanic Heart (Electrified Chains) is our go-to tactic. This allows us to restrict an enemy to a small area, preventing them from moving to attack. Against single melee enemies, this can be a death sentence. It only lasts one turn, so you need to refresh the effect every turn. We’re using a reach specifically so that we can do this without getting many other creatures’ reach, then retreat 10 feet so that our enemy can’t move far enough to approach us to counterattack. They can still attempt an Athletics check to break the chains, but it’s opposed by our own check made with high Strength, proficiency in Athletics, and Advantage on the check thanks to Rage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Galvanic Heart (Fulgurant Strike) is for handling multiple enemies, but because of the small AOE it’s only effective against enemies which are adjacent to each other. When you can trigger it, it’s great, but it won’t be frequent. We’re using a reach weapon, so the vast majority of the time you won’t need to make the save to avoid shocking yourself. When you do, expect to fail despite having Advantage. But that’s fine because we have resistance and then reduce the damage by another d8, negating the damage we would take the majority of the time."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Strength 16 -> 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More attack and damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More attacks!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Roaring Crash"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Leap directly into the fray! Try to hit as many targets as possible, but ideally don’t land within your enemies’ reach unless it really makes sense to do so. You’re dealing 3d8 damage now, which isn’t huge, but it also doesn’t impact your action economy."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feral Instinct"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Crusher (Con 17 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A great option with a +1 Con increase, and it fits into our tactics flawlessly. At this point, drop your reach weapon and grab a maul. This will mean that we’ll be in the area of effect for Fulgurant Strike, but at this level we have a ton of hp to throw around, and suffering a tiny bit of damage (average of 0, but max of 4) to hit two or more foes with 8 damage each is worth the trade."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With Extra Attack, you can use your first attack to hit an enemy adjacent to another enemy, then use your second with Fulgurant Strike, making the area damage much easier to achieve."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But what about Electrified Chains? Previously we were using a reach weapon so that we could hit an enemy, chain them in place, then withdraw. We can do the same thing with Crusher by moving our target away from us. There’s no reach weapon that does bludgeoning damage in 5e, but we can make do."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical (1 die)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A tiny bit more DPR."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Lightning Reflexes"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Start adding your Constitution to Dexterity checks. Mostly we care about the bonus to initiative."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lightning Step once for free each turn means 8 damage guaranteed every turn. However, it leaves us within 5 feet of our target, which is why we abandoned our reach weapon in favor of Crusher. Now we can Lightning Step into melee, use the combos I described at level 8, and get Galvanic heart damage twice per turn."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Relentless Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Strength 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More attack and damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical (2 dice)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A tiny bit more DPR."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Electric Beast"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Galvanic Heart’s damage increases from 8 to 12, which is more of a DPR boost than Brutal Critical."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Electrified Chains now limits our target to a smaller area, making it easier for us to chain then and withdraw when we’re in tight quarters."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fulgurant Strike’s larger AOE makes it much easier to hit multiple targets."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lightning Step now lets us teleport, allowing us to get angry and move past/through obstacles. If you need to maintain rage outside of combat, set yourself on fire with some Alchemist’s Fire."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Persistent Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Constitution (18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15 damage from Galvanic Heart!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical (3 dice)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A tiny bit more DPR."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable Might"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have a free space here. Great Weapon Master is always tempting, but remember that we’re getting a ton of benefit from Galvanic Heart, which only works if we hit, so GWM actually reduces our DPR."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We have a lot of great options. My recommendation is Gift of the Chromatic Dragon, which gives us a way to resist damage types which frequently come from Dexterity saves. You might also go for Tough for the huge pile of hit points."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Primal Champion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With now 24 Constitution, things get really cool for us. Your Unarmored Defense hits 19, just slightly exceeding our built-in AC from our race, and our damage from Galvanic Heart’s various options is now 21, and since we’re applying it at least twice per turn, it’s actually the majority of our damage output."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating-green Path of the Lightning Vessel Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Galvanic Heart"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Electrified Chains"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fulgurant Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Lightning Step"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Roaring Crash"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Lightning Reflexes"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Electric Beast"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Electrified Chains"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Fulgurant Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Lightning Step"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Cursed-Blood"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Manikin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Scourgeborne"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-races-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-races-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-3"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2297,
+    "sections": 17,
+    "blocks": 26,
+    "tables": 2,
+    "ratingSignals": 18
+  },
+  "status": "needs-editorial-review"
+}

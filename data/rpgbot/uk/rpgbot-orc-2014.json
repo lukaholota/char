@@ -1,0 +1,1468 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-e485fc31c79b869c",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-e485fc31c79b869c-c243547fb78430cd",
+      "sourceId": "rpgbot-e485fc31c79b869c",
+      "fetchedAt": "2026-09-29T19:24:01.159373+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:38:21-04:00",
+      "contentHash": "c9f86f9492c3ca50785d219833c238fdb0c91f5f84612e5c2e3163a39eb1c6b6",
+      "title": "Orc: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-e485fc31c79b869c-c243547fb78430cd.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-orc-2014",
+    "sourceId": "rpgbot-e485fc31c79b869c",
+    "slug": "orc-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Орк — гайд раси (2014)",
+    "titleEn": "Orc: DnD 5e Race/Species Guide",
+    "topics": [
+      "races"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "articleId": "rpgbot-orc-2014",
+      "sourceRevisionId": "rpgbot-e485fc31c79b869c-c243547fb78430cd",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Орки — фантастична раса ще з творів Tolkien; відтоді вони були типовими варварськими злими гуманоїдами в безлічі творів. Проте офіційна історія D&D має й винятки, зокрема "
+                },
+                {
+                  "type": "link",
+                  "text": "Many-Arrows Clan",
+                  "href": "https://forgottenrealms.fandom.com/wiki/Many-Arrows"
+                },
+                {
+                  "type": "text",
+                  "text": " у Забутих Королівствах. Чи хочете ви підтримати образ, чи зіграти проти нього, Орк — знакова раса, варта гри."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Механічно початковий Орк — міцний боєць ближнього бою з кількома унікальними рисами. Підвищення характеристик і Агресивність{{Aggressive}} полегшують зближення й зміну цілей. Темнозір{{Darkvision}} та навички теж чудові: часто дають Варвару й Воїну заняття поза боєм. На жаль, налаштування походження фактично зробило Орка гіршим Табаксі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оновлений Орк із Монстри Мультивсесвіту повністю про витривалість. {{Невгамовна витривалість|Relentless Endurance}} і {{Прилив адреналіну|Adrenaline Rush}} роблять його дуже важким для подолання шкодою ХП. Але сама здатність витримувати шкоду мало допомагає активно щось зробити, тому раса знову схиляється до передової, де риси постійно працюють. Запозичення Relentless Endurance у Напіворка означає, що Adrenaline Rush має перевершити Savage Critical і безкоштовну навичку — складний обмін. Примітка редакції: риса Напіворка називається Savage Attacks, а не Savage Critical."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-versions",
+          "heading": "Версії Орка",
+          "sourceAnchor": "versions",
+          "blocks": [
+            {
+              "blockId": "block-section-versions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Фактично є пʼять версій Орка. Це стільки ж, як в Аазимара й Еладріна, але історія простіша: послідовна лінія замість паралельних варіантів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-versions-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перша версія вийшла у книзі Довідник Воло з монстрів. Орк і Кобольд були єдиними расами 5e зі зниженням характеристики. Пізніше його прибрали виправленням: назвемо цей варіант 1.1."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-versions-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пізніше Орк зʼявився у книгах Еберрон: Постання з Останньої Війни і Путівник дослідника по Вайлдмаунту. {{Майстерність загрози|Menacing}} замінили на {{Первісна інтуїція|Primal Intuition}}: замість одного Залякування можна обрати дві навички з визначеного списку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-versions-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Книга Казан Таші з усім дала налаштування походження й наступну версію Орка. Гнучкості більше, але визначальна Агресивність{{Aggressive}} усе ще схиляє до ближнього бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-versions-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найновіша Монстри Мультивсесвіту повністю переписала Орка: навички прибрали, Агресивність{{Aggressive}} замінили значно кориснішою {{Прилив адреналіну|Adrenaline Rush}}, додали {{Невгамовна витривалість|Relentless Endurance}} Напіворка."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes",
+          "heading": "Орк MPMM: вибір класу",
+          "sourceAnchor": "classes",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Прилив адреналіну|Adrenaline Rush}} компенсує Кубик Здоровʼя Винахідника к8, але більшість збірок активно використовує бонусну дію, тому залишати її вільною складно. {{Невгамовна витривалість|Relentless Endurance}} корисна головному танку групи."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Прилив адреналіну|Adrenaline Rush}} може допомогти змінити ціль пізно в бою, але зазвичай вистачає швидкості 40 футів. Багато підкласів регулярно використовує бонусну дію, тому навіть корисну активацію важко вмістити."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Прилив адреналіну|Adrenaline Rush}} дає тимчасові ХП й додаткову відстань від ворогів. {{Невгамовна витривалість|Relentless Endurance}} часом рятує життя. Це не робить Барда добрим упритул, але витривалість приємна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Прилив адреналіну|Adrenaline Rush}} чудова, щоб поспішити на допомогу союзнику або вийти з небезпеки. Не потрібно тримати її доступною щораунду; коли терміново треба ввійти впритул чи вийти, можна пожертвувати раундом атак Духовна зброя [Spiritual Weapon]. {{Невгамовна витривалість|Relentless Endurance}} зберігає головного цілителя притомним."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Прилив адреналіну|Adrenaline Rush}} чудова для допомоги союзнику або виходу з небезпеки, а {{Невгамовна витривалість|Relentless Endurance}} зберігає цілителя притомним. Думаю, обидві працюють у {{Дика форма|Wild Shape}}, тому Коло місяця{{Circle of the Moon}} чудове. Примітка редакції: застосування рис залежить від фізичної спроможності нової форми й звичайних умов кожної здібності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Прилив адреналіну|Adrenaline Rush}}, {{Невгамовна витривалість|Relentless Endurance}}, {{Друге дихання|Second Wind}} і пристойні обладунки роблять Орка-Воїна дуже важким для подолання. Беріть дворучну зброю й шукайте пригод."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Прилив адреналіну|Adrenaline Rush}} частково дублює {{Крок вітру|Step of the Wind}}, але дає тимчасові ХП й не витрачає Кі. {{Невгамовна витривалість|Relentless Endurance}} страхує, особливо до зростання КБ від підвищень характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Прилив адреналіну|Adrenaline Rush}} чудова на початку бою. У Паладина більше застосувань бонусної дії, ніж у Воїна, але вони не завжди потрібні на першому ході. {{Невгамовна витривалість|Relentless Endurance}} додає витривалості й дає нагоду швидко витратити весь запас {{Цілющі руки|Lay on Hands}} на себе."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопит сильно залежить від бонусної дії, тому {{Прилив адреналіну|Adrenaline Rush}} суттєво знижує шкоду; це часто важко виправдати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes",
+          "heading": "Розбійник",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Прилив адреналіну|Adrenaline Rush}} частково дублює {{Хитра дія|Cunning Action}}, а {{Невгамовна витривалість|Relentless Endurance}} має знадобитися вкрай рідко. Завдяки легкому виходу з ближнього бою й {{Неймовірне ухилення|Uncanny Dodge}} Розбійник уже достатньо витривалий."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes",
+          "heading": "Чаклун",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Прилив адреналіну|Adrenaline Rush}} і {{Невгамовна витривалість|Relentless Endurance}} страхують крихкий клас, але не роблять вас кращим чаротворцем. Якщо непокоїть дальність, використовуйте далекобійне заклинання або змусьте ворогів наблизитися."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Прилив адреналіну|Adrenaline Rush}} і {{Невгамовна витривалість|Relentless Endurance}} страхують крихкий клас, але не роблять вас кращим чаротворцем. Якщо непокоїть дальність, використовуйте далекобійне заклинання або змусьте ворогів наблизитися."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Прилив адреналіну|Adrenaline Rush}} і {{Невгамовна витривалість|Relentless Endurance}} страхують крихкий клас, але не роблять вас кращим чаротворцем. Якщо непокоїть дальність, використовуйте далекобійне заклинання або змусьте ворогів наблизитися."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-custom-origin",
+          "heading": "Старий Орк: налаштування походження",
+          "sourceAnchor": "classes-custom-origin",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-custom-origin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ передбачає опційні правила "
+                },
+                {
+                  "type": "link",
+                  "text": "налаштування походження",
+                  "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+                },
+                {
+                  "type": "text",
+                  "text": " з книги Казан Таші з усім. Якщо їх не використовуєте, переходьте до наступного розділу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-artificer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Винахідник",
+          "sourceAnchor": "custom-origin-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Агресивність{{Aggressive}} прийнятна для {{Зброяр|Armorer}} ближнього бою, але інші Винахідники часто витрачають бонусну дію щохідно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-barbarian",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Варвар",
+          "sourceAnchor": "custom-origin-barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Лють|Rage}} також потребує бонусної дії, а багато підкласів Варвара регулярно використовує її ще для чогось. Тому Агресивність{{Aggressive}} важко застосувати на першому ході, коли вона найважливіша, а під час Люті більшість Варварів уже не захоче її використовувати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-bard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Бард",
+          "sourceAnchor": "custom-origin-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви досить далеко, щоб Агресивність{{Aggressive}} здавалася хорошою, варто накладати заклинання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-cleric",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Клірик",
+          "sourceAnchor": "custom-origin-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Використовуйте Агресивність{{Aggressive}}, щоб увійти впритул перед Духи захисники [Spirit Guardians], а потім переслідуйте ворогів, що тікають від вашої магічної променевої мʼясорубки. Найкраще для доменів із важкими обладунками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-druid",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Друїд",
+          "sourceAnchor": "custom-origin-druid",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Багато підкласів Друїда не використовує бонусну дію, але Друїд зазвичай не хоче битися впритул. Найкраще Коло місяця{{Circle of the Moon}}, бо Агресивність{{Aggressive}} має працювати у {{Дика форма|Wild Shape}}. Але бойова Дика форма теж потребує бонусної дії: обидві за один хід не використаєш."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-fighter",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Воїн",
+          "sourceAnchor": "custom-origin-fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Воїн має мало застосувань бонусної дії, тож Агресивність{{Aggressive}} чудова для ближнього бою. Дві навички допомагають поза боєм."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-monk",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Монах",
+          "sourceAnchor": "custom-origin-monk",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Агресивність{{Aggressive}} дублює {{Крок вітру|Step of the Wind}}, а швидкість Монаха зростає й майже прибирає потребу в ній після низьких рівнів. Примітка редакції: Aggressive не витрачає Кі, але рух має завершуватися ближче до ворога."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-paladin",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Паладин",
+          "sourceAnchor": "custom-origin-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Паладин майже завжди орієнтований на ближній бій, тому Агресивність{{Aggressive}} чудова, якщо бонусна дія не зайнята заклинанням чи {{Канал божественності|Channel Divinity}}. Дві навички допомагають вийти за межі переговорів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-ranger",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Слідопит",
+          "sourceAnchor": "custom-origin-ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопит сильно залежить від бонусної дії, тому Агресивність{{Aggressive}} важко використовувати, особливо на початку бою, коли вона найкорисніша."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-rogue",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Розбійник",
+          "sourceAnchor": "custom-origin-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Агресивність{{Aggressive}} дублює {{Хитра дія|Cunning Action}}. Якщо дуже потрібне пересування, грайте Табаксі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-sorcerer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чаклун",
+          "sourceAnchor": "custom-origin-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви поза дальністю всіх своїх заклинань, вороги майже напевно теж не можуть вас поранити. Використайте цей час для переваги, замість бігти з криком у дальність їхніх атак через Агресивність{{Aggressive}}. Додаткові навички чудові, але дві навички й Темнозір{{Darkvision}} доступні численним расам."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-warlock",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "custom-origin-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви поза дальністю всіх своїх заклинань, вороги майже напевно теж не можуть вас поранити. Використайте цей час для переваги, замість бігти з криком у дальність їхніх атак через Агресивність{{Aggressive}}. Додаткові навички чудові, але дві навички й Темнозір{{Darkvision}} доступні численним расам."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-wizard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чарівник",
+          "sourceAnchor": "custom-origin-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви поза дальністю всіх своїх заклинань, вороги майже напевно теж не можуть вас поранити. Використайте цей час для переваги, замість бігти з криком у дальність їхніх атак через Агресивність{{Aggressive}}. Додаткові навички чудові, але дві навички й Темнозір{{Darkvision}} доступні численним расам."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-default",
+          "heading": "Старий Орк: стандартні характеристики",
+          "sourceAnchor": "classes-default",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-default-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей розділ передбачає, що ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "не"
+                },
+                {
+                  "type": "text",
+                  "text": " використовуєте опційне налаштування походження з книги Казан Таші з усім або оновленого Орка з Монстри Мультивсесвіту. Якщо використовуєте, поверніться вище."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artificer-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Інтелекту."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Орк створений для Варвара: Сила, Статура, Агресивність{{Aggressive}} і володіння Залякуванням."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бард, мабуть, найкращий шлях Орка до арканних заклинань, але обирайте Колегію доблесті{{College of Valor}}, щоб не вкладати багато у Спритність. Навіть тоді вибір не чудовий."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірик — найкращий шлях Орка до божественних заклинань; із доменом важких обладунків має бути нормально."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Агресивність{{Aggressive}} може працювати у {{Дика форма|Wild Shape}}, але цього замало для пристойного Друїда."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для збірки від Сили складно помилитися з Орком. Сила, Статура й Агресивність{{Aggressive}} полегшують вхід у ближній бій і зміну цілей, додаткова навичка завжди приємна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монахи від Сили не працюють. Примітка редакції: це оцінка оптимізації автора, а не заборона правил."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Паладин не такий очевидний, як Варвар чи Воїн, але Орк усе одно підходить. Володіння Залякуванням дає соціальну навичку; з пристойною Харизмою Паладин може бути чудовим."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопит від Сили складний, але можливий."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Розбійник",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Спритності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чаклун",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Харизми."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Харизми."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard-2",
+          "parentSectionId": "section-classes-default",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Немає підвищення Інтелекту."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-orc-2014-001",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-orc-2014-002",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-orc-2014-003",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-orc-2014-004",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-orc-2014-005",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-orc-2014-006",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-orc-2014-007",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-orc-2014-008",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-orc-2014-009",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-orc-2014-010",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-orc-2014-011",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-orc-2014-012",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-orc-2014-013",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-orc-2014-014",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-artificer",
+      "targetBlockId": "block-section-custom-origin-artificer-1",
+      "optionId": "section-custom-origin-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-custom-origin-artificer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-orc-2014-015",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-barbarian",
+      "targetBlockId": "block-section-custom-origin-barbarian-1",
+      "optionId": "section-custom-origin-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-custom-origin-barbarian-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-orc-2014-016",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-bard",
+      "targetBlockId": "block-section-custom-origin-bard-1",
+      "optionId": "section-custom-origin-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-custom-origin-bard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-orc-2014-017",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-cleric",
+      "targetBlockId": "block-section-custom-origin-cleric-1",
+      "optionId": "section-custom-origin-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-custom-origin-cleric-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-orc-2014-018",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-druid",
+      "targetBlockId": "block-section-custom-origin-druid-1",
+      "optionId": "section-custom-origin-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-custom-origin-druid-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-orc-2014-019",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-fighter",
+      "targetBlockId": "block-section-custom-origin-fighter-1",
+      "optionId": "section-custom-origin-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-custom-origin-fighter-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-orc-2014-020",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-monk",
+      "targetBlockId": "block-section-custom-origin-monk-1",
+      "optionId": "section-custom-origin-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-custom-origin-monk-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-orc-2014-021",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-paladin",
+      "targetBlockId": "block-section-custom-origin-paladin-1",
+      "optionId": "section-custom-origin-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-custom-origin-paladin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-orc-2014-022",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-ranger",
+      "targetBlockId": "block-section-custom-origin-ranger-1",
+      "optionId": "section-custom-origin-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-custom-origin-ranger-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-orc-2014-023",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-rogue",
+      "targetBlockId": "block-section-custom-origin-rogue-1",
+      "optionId": "section-custom-origin-rogue",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-custom-origin-rogue-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-orc-2014-024",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-sorcerer",
+      "targetBlockId": "block-section-custom-origin-sorcerer-1",
+      "optionId": "section-custom-origin-sorcerer",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-custom-origin-sorcerer-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-orc-2014-025",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-warlock",
+      "targetBlockId": "block-section-custom-origin-warlock-1",
+      "optionId": "section-custom-origin-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-custom-origin-warlock-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-orc-2014-026",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-custom-origin-wizard",
+      "targetBlockId": "block-section-custom-origin-wizard-1",
+      "optionId": "section-custom-origin-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-custom-origin-wizard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-orc-2014-027",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-artificer-2",
+      "targetBlockId": "block-section-artificer-2-1",
+      "optionId": "section-artificer-2",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-orc-2014-028",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-barbarian-2",
+      "targetBlockId": "block-section-barbarian-2-1",
+      "optionId": "section-barbarian-2",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-2-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-orc-2014-029",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-bard-2",
+      "targetBlockId": "block-section-bard-2-1",
+      "optionId": "section-bard-2",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-2-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-orc-2014-030",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-cleric-2",
+      "targetBlockId": "block-section-cleric-2-1",
+      "optionId": "section-cleric-2",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-2-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-orc-2014-031",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-druid-2",
+      "targetBlockId": "block-section-druid-2-1",
+      "optionId": "section-druid-2",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-orc-2014-032",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-fighter-2",
+      "targetBlockId": "block-section-fighter-2-1",
+      "optionId": "section-fighter-2",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-2-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-orc-2014-033",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-monk-2",
+      "targetBlockId": "block-section-monk-2-1",
+      "optionId": "section-monk-2",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-orc-2014-034",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-paladin-2",
+      "targetBlockId": "block-section-paladin-2-1",
+      "optionId": "section-paladin-2",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-2-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-orc-2014-035",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-ranger-2",
+      "targetBlockId": "block-section-ranger-2-1",
+      "optionId": "section-ranger-2",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-2-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-orc-2014-036",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-rogue-2",
+      "targetBlockId": "block-section-rogue-2-1",
+      "optionId": "section-rogue-2",
+      "context": "Розбійник",
+      "explanationBlockId": "block-section-rogue-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-orc-2014-037",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-sorcerer-2",
+      "targetBlockId": "block-section-sorcerer-2-1",
+      "optionId": "section-sorcerer-2",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-sorcerer-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-orc-2014-038",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-warlock-2",
+      "targetBlockId": "block-section-warlock-2-1",
+      "optionId": "section-warlock-2",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-2-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-orc-2014-039",
+      "articleId": "rpgbot-orc-2014",
+      "translationRevisionId": "translation-rpgbot-orc-2014-draft1",
+      "sectionId": "section-wizard-2",
+      "targetBlockId": "block-section-wizard-2-1",
+      "optionId": "section-wizard-2",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-2-1",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

@@ -1,0 +1,895 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/races/harengon/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "01e1f150f5f902984919468ab68567278a1c9b930431216b9bfbdb2ddfa52960",
+  "sourceRevision": {
+    "revisionId": "rpgbot-484aa612e57ffb6f-01e1f150f5f90298",
+    "sourceId": "rpgbot-484aa612e57ffb6f",
+    "fetchedAt": "2026-09-29T19:12:45.100079+00:00",
+    "sourceUpdatedAt": "2025-10-29T13:43:19-04:00",
+    "contentHash": "0b5c440dd11a49a35753ca4ba9413c4a094bf7dbffa07a9b52cebf7173480b08",
+    "title": "Harengon: DnD 5e Race/Species Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-484aa612e57ffb6f-01e1f150f5f90298.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Harengon is a rabbit anthromorph introduce in "
+            },
+            {
+              "type": "link",
+              "text": "Wild Beyond the Witchlight",
+              "href": "https://smile.amazon.com/Wild-Beyond-Witchlight-Adventure-Dungeons/dp/0786967277?crid=3A66YTXGS12WB&dchild=1&keywords=wild+beyond+the+witchlight&qid=1632230684&sprefix=wild+beyond+t%2Caps%2C241&sr=8-1&linkCode=ll1&tag=rpgbot-20&linkId=44acba98f0656472e8e1178b80e27eab&language=en_US&ref_=as_li_ss_tl"
+            },
+            {
+              "type": "text",
+              "text": " ("
+            },
+            {
+              "type": "link",
+              "text": "affiliate link",
+              "href": "https://rpgbot.net/about/faq/#what-are-affiliate-links-and-why-do-you-use-them"
+            },
+            {
+              "type": "text",
+              "text": "). Despite originating from the Feywild, the Harengon is still a humanoid. They have a fun mix of useful traits, and everything about the race was written with a fun sensibility, so just reading the race’s traits is a good time."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you didn’t already figure it out, “harengon” is a play on “here and gone”, “hare-trigger” is a play on “hair trigger”, “lucky footwork” is a reference to the concept of rabbit’s feet being good luck tokens, and explaining jokes makes them less funny so I’m going to stop doing that now."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Mechanically, the Harengon is a versatile race that can work in a variety of builds. They use the same rules for ability scores and languages that all post-Tasha’s races use (+2/+1 ability score increases or three +1’s and two languages), and their other traits work for basically any character. Hare-Trigger is the trait that people are most likely to consider when building a harengon since bonuses to Initiative are often difficult to find. Lucky Footwork provides some insurance against damage from Dexterity saves (which are very common), and Rabbit Hop allows you to get out of melee or over small obstacles like pits and difficult terrain a few times per day. It also doesn’t provoke opportunity attacks, so in a way it’s like a miniature version of Cunning Action."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While the Harengon works for any class, it’s not exceptionally good at anything in particular. Hare Trigger is great so you can go first in combat, but beyond that capability (which is available from other sources, though Hair-Trigger is the easiest) nothing here is going to give you a crazy optimized character. The Harengon is a fine race and you won’t struggle to succeed, but in most cases there is going to be a more mechanically effective option for whatever you’re trying to do."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Harengon also receive proficiency in Perception. You may be locked into this choice since Harengon doesn’t explicitly have the “Ability Score Increase” trait which is required to use the custom origin rules ("
+            },
+            {
+              "type": "link",
+              "text": "see the Tasha’s Cauldron of Everything errata",
+              "href": "https://media.wizards.com/2021/dnd/downloads/TCE-Errata.pdf"
+            },
+            {
+              "type": "text",
+              "text": ")."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-rabbit-hop",
+      "heading": "Rabbit Hop",
+      "sourceAnchor": "rabbit-hop",
+      "blocks": [
+        {
+          "blockId": "block-section-rabbit-hop-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Rabbit Hop trait has stirred some confusion around how it works mechanically, especially in regards to your normal movement. The normal rules for jumping include jumping as part of your character’s movement for a turn. For example, if a human were to run 10 feet then jump 5 feet, they would have spent 15 feet of their 30-foot movement speed."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-rabbit-hop-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rabbit Hop is a self-contained feature. It mostly does not interact with your movement speed, so using Rabbit Hop does not consume your movement for the turn. Your movement speed must be greater than 0 (so you can’t use Rabbit Hop while grappled or restrained), but otherwise you could have your speed reduced to any value above 0 and you could still hop the full distance. Conversely, if your speed is increased (maybe you’re a monk or someone cast Haste on you), it has no effect on Rabbit Hop."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-rabbit-hop-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rabbit Hop is still a jump, despite not using the High/Long Jump rules, so it is affected by the spell Jump, which might be the first time I have ever considered casting Jump. Tripling your Rabbit Hop distance is certainly tempting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-rabbit-hop-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Finally, Rabbit Hop does not specify direction. You’re free to hop vertically, potentially leaping 30 feet into the air at high levels. However, just like the normal jump rules, you gain no protection from falling, so leaping directly into the air is a great way to hurt yourself. You might hop into the air, trip a flying enemy to bring them to the ground, then fall alongside them and continue your fight once you both land and take falling damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-rabbit-hop-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Much of this was confirmed in the "
+            },
+            {
+              "type": "link",
+              "text": "Sage Advice blog on “Creature Evolutions”",
+              "href": "https://dnd.wizards.com/articles/sage-advice/creature-evolutions"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-3",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/races/harengon/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Rabbit Hop",
+                "href": "https://rpgbot.net/dnd5/characters/races/harengon/#rabbit-hop"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/races/harengon/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Harengon Versions",
+                "href": "https://rpgbot.net/dnd5/characters/races/harengon/#harengon-versions"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Harengon Classes",
+                "href": "https://rpgbot.net/dnd5/characters/races/harengon/#classes"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-harengon-versions",
+      "heading": "Harengon Versions",
+      "sourceAnchor": "harengon-versions",
+      "blocks": [
+        {
+          "blockId": "block-section-harengon-versions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Harengon was originally published in The Wild Beyond the Witchlight, then were reprinted with no changes in Mordenkainen Presents Monsters of the Multiverse."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes",
+      "heading": "Harengon Classes",
+      "sourceAnchor": "classes",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-artificer",
+      "parentSectionId": "section-classes",
+      "heading": "Artificer",
+      "sourceAnchor": "artificer",
+      "blocks": [
+        {
+          "blockId": "block-section-artificer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Harengon’s traits offer some capabilities which the Artificer can replicate (Boots of the Winding Path vs. Rabbit Hop), but having those capabilities as racial traits reduces or removes the need to learn and use those Infusions. My go-to option for a harengon artificer would be either an alchemist or an artillerist, but basically any build will work fine. Just keep in mind that Rabbit Hop has limited uses per day, so it’s not a perfect replacement for Boots of the Winding Path if you want to do hit-and-run tactics with Booming Blade."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-barbarian",
+      "parentSectionId": "section-classes",
+      "heading": "Barbarian",
+      "sourceAnchor": "barbarian",
+      "blocks": [
+        {
+          "blockId": "block-section-barbarian-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Barbarian benefits very little from the Harengon’s traits. The additional skill is nice, but many races provide 2 skills and the Primal Knowledge Optional Class Feature adds proficiencies for barbarians in parties short on skills. Hare Trigger is always satisfying, but going first isn’t especially important for most martial characters. Lucky Footwork may be the most impactful trait, but you already get Danger sense so Lucky Footwork feels redundant. A harengon barbarian will work, but you gain little beyond the ability score increases."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-bard",
+      "parentSectionId": "section-classes",
+      "heading": "Bard",
+      "sourceAnchor": "bard",
+      "blocks": [
+        {
+          "blockId": "block-section-bard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lucky Footwork provides some extra protection against Dexterity saves which frequently carry scary piles of damage. Rabbit Hop helps to get you out of melee when you don’t want to be there. Initiative bonuses are great for spellcasters so that you can get buffs and area control spells in place early in a fight. While bards get less value out of this than other casters thanks to Jack of All Trades, the race overall is still worth a high rating."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cleric",
+      "parentSectionId": "section-classes",
+      "heading": "Cleric",
+      "sourceAnchor": "cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Initiative bonuses are great for spellcasters so that you can get buffs and area control spells in place early in a fight. Lucky Footwork provides some extra protection against Dexterity saves which frequently carry scary piles of damage. Rabbit Hop helps to get you out of melee when you don’t want to be there."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cleric-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For harengon clerics, I would probably go for casting-focused domains and fight at range, but front-line clerics will still work. Rabbit Hop lets you get both into and out of melee without provoking Opportunity Attacks, so you can use it to safely and quickly reach allies in need of assistance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-druid",
+      "parentSectionId": "section-classes",
+      "heading": "Druid",
+      "sourceAnchor": "druid",
+      "blocks": [
+        {
+          "blockId": "block-section-druid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Initiative bonuses are great for spellcasters so that you can get buffs and area control spells in place early in a fight. Lucky Footwork provides some extra protection against Dexterity saves which frequently carry scary piles of damage. Rabbit Hop helps to get you out of melee when you don’t want to be there."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-druid-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s not clear which of the Harengon’s traits work while in Wild Shape. I would rule that Hare Trigger works, but Rabbit Hop doesn’t because it relies on your rabbit-like anatomy. I’m uncertain about Lucky Footwork, but as a DM I would rule that it works while using Wild Shape. Druids focused on spellcasting should try to focus on area control effects to capitalize on the bonus from Hare Trigger."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fighter",
+      "parentSectionId": "section-classes",
+      "heading": "Fighter",
+      "sourceAnchor": "fighter",
+      "blocks": [
+        {
+          "blockId": "block-section-fighter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Fighter doesn’t benefit much from the Harengon’s traits, but there’s less redundancy than with the Barbarian. Hare Trigger will help you get into position to defend your allies, so grabbing Sentinel may be worthwhile. Rabbit Hop is helpful for ranged builds or if you need to reposition quickly. Lucky Footwork is a helpful defense for fighters who are often targeted with area damage effects to get around their high AC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-monk",
+      "parentSectionId": "section-classes",
+      "heading": "Monk",
+      "sourceAnchor": "monk",
+      "blocks": [
+        {
+          "blockId": "block-section-monk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Monk is a hard choice for the Harengon. There’s a lot of redundancy, and the Harengon doesn’t solve any of the Monk’s problems. Hare Trigger is fine, but be careful about rushing into melee by yourself. Lucky Footwork is good, but monks already have good Dexterity saves. Rabbit Hop may save you a few Ki Points per day since you can use Rabbit Hop instead of spending Ki to Disengage as a Bonus Action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-paladin",
+      "parentSectionId": "section-classes",
+      "heading": "Paladin",
+      "sourceAnchor": "paladin",
+      "blocks": [
+        {
+          "blockId": "block-section-paladin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Paladin doesn’t benefit much from the Harengon’s traits, but there’s less redundancy than with the Barbarian. Hare Trigger will help you get into position to defend your allies, so grabbing Sentinel may be worthwhile. Rabbit Hop is helpful for ranged builds or if you need to go rescue an ally, and remember that you can use it both to get into melee or to get out of it. Lucky Footwork is a helpful defense for paladins who are often targeted with area damage effects to get around their high AC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ranger",
+      "parentSectionId": "section-classes",
+      "heading": "Ranger",
+      "sourceAnchor": "ranger",
+      "blocks": [
+        {
+          "blockId": "block-section-ranger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Harengon’s traits bring the Ranger a bit closer to the Rogue in many ways. The additional skill proficiency reduces the skill gap, Lucky Footwork brings you closer to Evasion, and Rabbit Hop can help in place of Cunning Action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-rogue",
+      "parentSectionId": "section-classes",
+      "heading": "Rogue",
+      "sourceAnchor": "rogue",
+      "blocks": [
+        {
+          "blockId": "block-section-rogue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hare-Trigger is great for rogues attempting to surprise their foes, especially assassins who need to act before enemies can act in order to use Assassinate. Hare Trigger also means that Reliable Talent applies to your initiative roll (it’s a Dexterity check and you apply your Proficiency Bonus), so at high levels your minimum roll on initiative is higher than most creatures’ average roll."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sorcerer",
+      "parentSectionId": "section-classes",
+      "heading": "Sorcerer",
+      "sourceAnchor": "sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Initiative bonuses are great for spellcasters so that you can get buffs and area control spells in place early in a fight. Lucky Footwork provides some extra protection against Dexterity saves which frequently carry scary piles of damage. Rabbit Hop helps to get you out of melee when you don’t want to be there."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-warlock",
+      "parentSectionId": "section-classes",
+      "heading": "Warlock",
+      "sourceAnchor": "warlock",
+      "blocks": [
+        {
+          "blockId": "block-section-warlock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Initiative bonuses are great for spellcasters so that you can get buffs and area control spells in place early in a fight. Lucky Footwork provides some extra protection against Dexterity saves which frequently carry scary piles of damage. Rabbit Hop helps to get you out of melee when you don’t want to be there."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-wizard",
+      "parentSectionId": "section-classes",
+      "heading": "Wizard",
+      "sourceAnchor": "wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Initiative bonuses are great for spellcasters so that you can get buffs and area control spells in place early in a fight. Lucky Footwork provides some extra protection against Dexterity saves which frequently carry scary piles of damage. Rabbit Hop helps to get you out of melee when you don’t want to be there."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Wizard"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-rabbit-hop-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-rabbit-hop-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-rabbit-hop-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-rabbit-hop-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-rabbit-hop-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-harengon-versions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-artificer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-barbarian-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-bard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-cleric-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-druid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-druid-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-fighter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-monk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-paladin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-ranger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-rogue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-warlock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-wizard-1"
+    }
+  ],
+  "metrics": {
+    "words": 1849,
+    "sections": 19,
+    "blocks": 31,
+    "tables": 0,
+    "ratingSignals": 17
+  },
+  "status": "needs-editorial-review"
+}

@@ -147,7 +147,7 @@ describe("придатність конкретної форми", () => {
     expect(blockingKinds(SUCCUBUS, druid(20, true))).toEqual(["notABeast"]);
   });
 
-  /// Девʼять звірів каталогу — статблоки прикликання без ПН узагалі. Казати про них «показник
+  /// Статблоки прикликання й Giant Fly з DMG не мають ПН узагалі. Казати про них «показник
   /// небезпеки завеликий» неправда: його немає.
   it("звір без показника небезпеки відхиляється своєю причиною, а не «завеликим ПН»", () => {
     expect(blockingKinds(BESTIAL_SPIRIT, druid(20, true))).toEqual(["noChallengeRating"]);
@@ -530,7 +530,7 @@ describe("статблоки прикликання в каталозі", () => 
     }
   });
 
-  it("девʼять звірів без ПН відхиляються причиною «немає показника небезпеки»", () => {
+  it("десять звірів без ПН відхиляються причиною «немає показника небезпеки»", () => {
     const withoutChallenge = CATALOGS.flatMap((ruleset) =>
       getAllCreatures(ruleset).filter(
         (creature) =>
@@ -538,7 +538,7 @@ describe("статблоки прикликання в каталозі", () => 
       )
     );
 
-    expect(withoutChallenge).toHaveLength(9);
+    expect(withoutChallenge).toHaveLength(10);
     for (const creature of withoutChallenge) {
       expect(blockingKinds(creature, druid(20, true))).toEqual(["noChallengeRating"]);
     }

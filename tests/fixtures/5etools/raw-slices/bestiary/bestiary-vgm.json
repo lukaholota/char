@@ -1,0 +1,226 @@
+{
+  "monster": [
+    {
+      "name": "Brontosaurus",
+      "group": [
+        "Dinosaurs"
+      ],
+      "source": "VGM",
+      "page": 139,
+      "referenceSources": [
+        "ToA"
+      ],
+      "reprintedAs": [
+        "Brontosaurus|MPMM"
+      ],
+      "size": [
+        "G"
+      ],
+      "type": "beast",
+      "alignment": [
+        "U"
+      ],
+      "ac": [
+        {
+          "ac": 15,
+          "from": [
+            "natural armor"
+          ]
+        }
+      ],
+      "hp": {
+        "average": 121,
+        "formula": "9d20 + 27"
+      },
+      "speed": {
+        "walk": 30
+      },
+      "str": 21,
+      "dex": 9,
+      "con": 17,
+      "int": 2,
+      "wis": 10,
+      "cha": 7,
+      "save": {
+        "con": "+6"
+      },
+      "passive": 10,
+      "cr": "5",
+      "action": [
+        {
+          "name": "Stomp",
+          "entries": [
+            "{@atk mw} {@hit 8} to hit, reach 20 ft., one target. {@h}27 ({@damage 5d8 + 5}) bludgeoning damage, and the target must succeed on a {@dc 14} Strength saving throw or be knocked {@condition prone}."
+          ]
+        },
+        {
+          "name": "Tail",
+          "entries": [
+            "{@atk mw} {@hit 8} to hit, reach 20 ft., one target. {@h}32 ({@damage 6d8 + 5}) bludgeoning damage."
+          ]
+        }
+      ],
+      "environment": [
+        "grassland",
+        "forest"
+      ],
+      "soundClip": {
+        "type": "internal",
+        "path": "bestiary/brontosaurus.opus"
+      },
+      "damageTags": [
+        "B"
+      ],
+      "miscTags": [
+        "MW",
+        "RCH"
+      ],
+      "conditionInflict": [
+        "prone"
+      ],
+      "savingThrowForced": [
+        "strength"
+      ],
+      "hasToken": true,
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Stegosaurus",
+      "group": [
+        "Dinosaurs"
+      ],
+      "source": "VGM",
+      "page": 140,
+      "referenceSources": [
+        "ToA"
+      ],
+      "reprintedAs": [
+        "Stegosaurus|MPMM"
+      ],
+      "size": [
+        "H"
+      ],
+      "type": "beast",
+      "alignment": [
+        "U"
+      ],
+      "ac": [
+        {
+          "ac": 13,
+          "from": [
+            "natural armor"
+          ]
+        }
+      ],
+      "hp": {
+        "average": 76,
+        "formula": "8d12 + 24"
+      },
+      "speed": {
+        "walk": 40
+      },
+      "str": 20,
+      "dex": 9,
+      "con": 17,
+      "int": 2,
+      "wis": 11,
+      "cha": 5,
+      "passive": 10,
+      "cr": "4",
+      "action": [
+        {
+          "name": "Tail",
+          "entries": [
+            "{@atk mw} {@hit 7} to hit, reach 10 ft., one target. {@h}26 ({@damage 6d6 + 5}) piercing damage."
+          ]
+        }
+      ],
+      "environment": [
+        "grassland",
+        "forest"
+      ],
+      "soundClip": {
+        "type": "internal",
+        "path": "bestiary/stegosaurus.opus"
+      },
+      "damageTags": [
+        "P"
+      ],
+      "miscTags": [
+        "MW",
+        "RCH"
+      ],
+      "hasToken": true,
+      "hasFluff": true,
+      "hasFluffImages": true
+    },
+    {
+      "name": "Cow",
+      "source": "VGM",
+      "page": 207,
+      "referenceSources": [
+        "DIP"
+      ],
+      "size": [
+        "L"
+      ],
+      "type": "beast",
+      "alignment": [
+        "U"
+      ],
+      "ac": [
+        10
+      ],
+      "hp": {
+        "average": 15,
+        "formula": "2d10 + 4"
+      },
+      "speed": {
+        "walk": 30
+      },
+      "str": 18,
+      "dex": 10,
+      "con": 14,
+      "int": 2,
+      "wis": 10,
+      "cha": 4,
+      "passive": 10,
+      "cr": "1/4",
+      "trait": [
+        {
+          "name": "Charge",
+          "entries": [
+            "If the cow moves at least 20 feet straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 ({@damage 2d6}) piercing damage."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Gore",
+          "entries": [
+            "{@atk mw} {@hit 6} to hit, reach 5 ft., one target. {@h}7 ({@damage 1d6 + 4}) piercing damage."
+          ]
+        }
+      ],
+      "environment": [
+        "grassland"
+      ],
+      "soundClip": {
+        "type": "internal",
+        "path": "bestiary/cow.opus"
+      },
+      "traitTags": [
+        "Charge"
+      ],
+      "damageTags": [
+        "P"
+      ],
+      "miscTags": [
+        "MW"
+      ],
+      "hasToken": true,
+      "hasFluff": true
+    }
+  ]
+}

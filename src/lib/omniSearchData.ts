@@ -57,6 +57,7 @@ import {
 } from "@/lib/catalogs/catalog-registry";
 import type { Edition } from "@/rules/route-helpers";
 import { findAliasVariants } from "@/lib/search/searchAliases";
+import { collectRpgbotSearchItems } from "@/lib/search/rpgbotSearchData";
 import {
   buildQueryMatcher,
   buildSearchableText,
@@ -131,6 +132,7 @@ const OTHER_EDITION_ITEM_LIMIT = 3;
 /// немає в таблиці, ділить типовий пріоритет і між собою впорядковується лише рангом.
 const CATEGORY_TIE_BREAK_PRIORITY: Partial<Record<OmniSearchCategory, number>> = {
   bestiary: 1,
+  rpgbot: 2,
 };
 const DEFAULT_CATEGORY_TIE_BREAK_PRIORITY = 0;
 
@@ -173,6 +175,7 @@ export function buildOmniSearchIndex(ruleset: Ruleset = "RULES_2014"): OmniSearc
     ...collectRaceBranchItems(ruleset),
     ...collectRuleItems(ruleset),
     ...collectConditionItems(ruleset),
+    ...collectRpgbotSearchItems(ruleset),
     ...collectCatalogShortcuts(ruleset),
   ];
 
@@ -240,7 +243,7 @@ function collectRankedMatches(
     if (!matchesQuery(matcher, entry.text) && !matchesExactAlias(matcher, entry.exactAliases)) continue;
     ranked.push({
       item: entry.item,
-      rank: findMatchRank(matcher, entry.item.title, entry.item.subtitle, entry.item.aliases),
+      rank: findItemMatchRank(matcher, entry.item),
     });
   }
 
@@ -254,7 +257,25 @@ function rankServerItems(
 ): RankedMatch[] {
   return serverItems
     .filter((item) => isInCategory(item, categoryFilter))
-    .map((item) => ({ item, rank: findMatchRank(matcher, item.title) }));
+    .map((item) => ({ item, rank: item.category === "rpgbot" ? findItemMatchRank(matcher, item) : findMatchRank(matcher, item.title) }));
+}
+
+function findItemMatchRank(matcher: QueryMatcher, item: OmniSearchItem): number {
+  const rankMatcher = item.category === "rpgbot" ? dropRpgbotNameWords(matcher) : matcher;
+  const rank = findMatchRank(rankMatcher, item.title, item.subtitle, item.aliases);
+  return rank + (item.id.startsWith("rpgbot-section-") ? 1 : 0);
+}
+
+/// «пройдисвіт рпгб»: слово про джерело знаходить розділ, але не стоїть у назві статті, тому для
+/// рангу воно відкидається — інакше всі статті про Пройдисвіта рівні й порядок випадковий.
+function dropRpgbotNameWords(matcher: QueryMatcher): QueryMatcher {
+  const words = matcher.phrases[0].split(/\s+/).filter((word) => !/^(рпг|rpg)/.test(word));
+  return words.length > 0 ? buildQueryMatcher(words.join(" ")) ?? matcher : matcher;
+}
+
+function findRpgbotRowOrder(item: OmniSearchItem): number {
+  if (item.id.startsWith("rpgbot-section-")) return 2;
+  return item.id.startsWith("rpgbot-preset-") ? 1 : 0;
 }
 
 function isInCategory(item: OmniSearchItem, categoryFilter?: OmniSearchCategory | "ALL"): boolean {
@@ -265,6 +286,7 @@ function compareRankedMatches(a: RankedMatch, b: RankedMatch): number {
   return (
     a.rank - b.rank ||
     findCategoryTieBreakPriority(a.item.category) - findCategoryTieBreakPriority(b.item.category) ||
+    findRpgbotRowOrder(a.item) - findRpgbotRowOrder(b.item) ||
     a.item.title.length - b.item.title.length
   );
 }

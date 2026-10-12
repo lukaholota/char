@@ -1,0 +1,2770 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "235b99cfbd8a5761e41403f98b65da0106aa482d2ce2101beadc9ec32b96df7c",
+  "sourceRevision": {
+    "revisionId": "rpgbot-a7abc90ea9670384-235b99cfbd8a5761",
+    "sourceId": "rpgbot-a7abc90ea9670384",
+    "fetchedAt": "2026-09-29T19:19:28.000633+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:28:09-04:00",
+    "contentHash": "f8a95644c2832d7174ca51a71360325cb3e317363b54e186dd6d67e9f2ba482a",
+    "title": "College of Eloquence Bard 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-a7abc90ea9670384-235b99cfbd8a5761.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In many ways, College of Eloquence Bards are the bardiest of Bards. They’re the best at talking, they’re the best at making sure their control spells land, and they’re the most inspiring. They don’t have any fancy buttons to press like Creation or Glamour, but all of their abilities are "
+            },
+            {
+              "type": "emphasis",
+              "text": "really good"
+            },
+            {
+              "type": "text",
+              "text": ". I realize that small paragraph is basically the text on the subclass guide page put through a synonym generator, but it’s true enough that the example build at the bottom of this handbook is a character I actually played and enjoyed immensely. You can listen to some of his adventures "
+            },
+            {
+              "type": "link",
+              "text": "here",
+              "href": "https://rpgbot.net/rpgbot-podcast-episode-11/"
+            },
+            {
+              "type": "text",
+              "text": " and "
+            },
+            {
+              "type": "link",
+              "text": "here",
+              "href": "https://rpgbot.net/rpgbot-podcast-episode-20/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While there aren’t many decision points in the build itself, the real elevation of piloting this subclass is knowing when to use your inspiration on your party and when to use it to power Unsettling Words. Especially at levels 3 and 4 (when you get access to it but before you have Font of Inspiration), it can be very easy to burn through all your uses early in a day and then feel underwhelming in combat as you’re no better than an unspecialized Bard and you don’t have much to do to help your friends. With that in mind, we’ll be looking at some ways to help fix that."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Eloquence Bard Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Eloquence Bard Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#college-of-eloquence-bard-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Eloquence Bard Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#college-of-eloquence-bard-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Eloquence Bard Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#college-of-eloquence-bard-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Eloquence Bard Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#college-of-eloquence-bard-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Eloquence Bard Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#college-of-eloquence-bard-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build College of Eloquence Bard Build – Amiable Jack",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#example-build-college-of-eloquence-bard-build-amiable-jack"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/eloquence/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "College of Eloquence Bard Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Silver Tongue"
+              },
+              {
+                "type": "text",
+                "text": ": It is difficult to find an\n\t\tability which is so effective at making a key skill reliable. The Rogue’s\n\t\tReliable Talent feature provides the same benefit, but that’s an 11th-level\n\t\tfeature. Combined with access to Expertise (which you also get at 3rd\n\t\tlevel) you’re nearly incapable of failing Charisma (Deception) and Charisma\n\t\t(Persuasion) checks. With a +3 Charisma modifier and Expertise in one of the\n\t\taffected skills, your minimum roll at this level is already a 17, and will\n\t\trapidly improve as you gain levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Unsettling Words"
+              },
+              {
+                "type": "text",
+                "text": ": Use this as a Bonus\n\t\tAction, then hit the target with a save-or-suck effect.\n\t\tAdvantage/Disadvantage are worth a little more than +3/-3, and the average\n\t\tvalue of your d6 Bardic Inspiration die is 3.5, and increases as you gain\n\t\tlevels, so this is already mathematically better than imposing Disadvantage,\n\t\tand it only gets more effective as you gain levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Unfailing Inspiration"
+              },
+              {
+                "type": "text",
+                "text": ": Bardic Inspiration\n\t\tis one of the Bard’s core features, and while it’s very powerful it’s still\n\t\tlimited by a small number of dice. This provides a powerful insurance\n\t\tpolicy, making it much easier to risk a die even if it’s unlikely to make a\n\t\troll succeed. Between this and Font of Inspiration, you can afford to throw\n\t\tinspiration dice around like confetti."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Universal Speech"
+              },
+              {
+                "type": "text",
+                "text": ": A limited version of\n\t\tTongues for one hour for free every day, and you can do it again by spending\n\t\ta spell slot. You may still want to learn Comprehend Languages so that you\n\t\tcan understand other creatures, especially if your party has access to\n\t\tritual spellcasting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Infectious Inspiration"
+              },
+              {
+                "type": "text",
+                "text": ": Consider this\n\t\talongside Unfailing Inspiration. If a creature adds a die and fails, they\n\t\tkeep the die. If they pass, you spend your Reaction to pass the die to a\n\t\tdifferent creature, and the process starts over. You get to do this a number\n\t\tof times equal to your Charisma modifier, so it’s effectively 5 additional\n\t\tuses of Basic Inspiration per day, not counting the ones which fail but\n\t\tdon’t result in a lost die."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-eloquence-bard-ability-scores",
+      "heading": "College of Eloquence Bard Ability Scores",
+      "sourceAnchor": "college-of-eloquence-bard-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-eloquence-bard-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No change from standard Bard. Jack of All Trades means that we can roll pretty decently on anything at a moment’s notice, so Wis and Int are brought up to 10 instead of trying to push our defenses higher."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-eloquence-bard-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-eloquence-bard-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": You’re not a melee bard, but you could still be targeted by stray attacks or Dex saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-eloquence-bard-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Dying is suboptimal, plus you have several of the best Concentration spells in the game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-eloquence-bard-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-eloquence-bard-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Good for important saves and a handful of skills."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-eloquence-bard-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Your earliest ability is tied to making Charisma checks. Pump it up."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-eloquence-bard-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-eloquence-bard-races",
+      "heading": "College of Eloquence Bard Races",
+      "sourceAnchor": "college-of-eloquence-bard-races",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-eloquence-bard-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Anything with innate offensive spellcasting is a solid choice since you can use Unsettling Words to help it land. Half of the legacy Tieflings, Yuan-Ti, etc. Beyond that, nothing worth calling out.If you’re not using the example build, see the "
+            },
+            {
+              "type": "link",
+              "text": "Bard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#bard-races"
+            },
+            {
+              "type": "text",
+              "text": " for advice on selecting a race."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-eloquence-bard-feats",
+      "heading": "College of Eloquence Bard Feats",
+      "sourceAnchor": "college-of-eloquence-bard-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-eloquence-bard-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different for College of Eloquence. Feats that grant spells are always good to help expand your versatility."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-eloquence-bard-weapons",
+      "heading": "College of Eloquence Bard Weapons",
+      "sourceAnchor": "college-of-eloquence-bard-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-eloquence-bard-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different than any other Bard."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-eloquence-bard-armor",
+      "heading": "College of Eloquence Bard Armor",
+      "sourceAnchor": "college-of-eloquence-bard-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-eloquence-bard-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your main defense is being far away from hostile things, but there’s no reason not to strap on Studded Leather."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Again, nothing much different than other bards. You’re not something that likes attacking with weapons, so you don’t need to hexdip. A level of Clockwork Soul Sorcerer provides you with another tool to help your spells land by allowing you to negate advantage on a save rolled near you. It scales with proficiency bonus so just one level dip will carry you pretty far. I’d probably call that better than Superior Inspiration and an extra 7th-level spell per day. Similarly, a level of "
+            },
+            {
+              "type": "link",
+              "text": "Shadow Magic",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/"
+            },
+            {
+              "type": "text",
+              "text": " will give you darkvision if your race doesn’t provide it and a get out of jail free card once a day."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-college-of-eloquence-bard-build-amiable-jack",
+      "heading": "Example Build College of Eloquence Bard Build – Amiable Jack",
+      "sourceAnchor": "example-build-college-of-eloquence-bard-build-amiable-jack",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-college-of-eloquence-bard-build-amiable-jack-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As mentioned, I have played and loved this character. You can find a description of him from Dscryb "
+            },
+            {
+              "type": "link",
+              "text": "here",
+              "href": "https://dscryb.com/scene/amiable-jack/"
+            },
+            {
+              "type": "text",
+              "text": " and a full color portrait "
+            },
+            {
+              "type": "link",
+              "text": "here",
+              "href": "https://i.imgur.com/iaVHGxm.jpg"
+            },
+            {
+              "type": "text",
+              "text": " from the incredible Alexis Vásquez."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-college-of-eloquence-bard-build-amiable-jack",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As described above. Con stays odd (factoring in the racial increase) so it can get Resiliented later."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-college-of-eloquence-bard-build-amiable-jack",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Satyr. Not only are satyr bards a trope, it frees up our skills to pick up more proficiencies and give us incredible defense against spells, a very useful trait for someone like us that mostly stays at the edge of combat. Plus, who doesn’t love being faster than most playable races?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-college-of-eloquence-bard-build-amiable-jack",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Charlatan. Growing up as an orphan left us plenty of time to be inventive about who we were and how to acquire things we couldn’t otherwise. Besides, when you’re a satyr, who’s going to think twice when you say you’re a Duke of the Feywild?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-college-of-eloquence-bard-build-amiable-jack",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to be a Face, so we act like it. Between the race, background, and class we get a staggering 7 skill proficiencies which we distribute into Deception, Intimidation, Perception, Performance, Persuasion, Sleight of Hand, and Stealth. We also get access to 4 musical instruments: bagpipes to annoy our party, the hand drum because I love "
+            },
+            {
+              "type": "link",
+              "text": "bodhrán music",
+              "href": "https://www.youtube.com/watch?v=G0fYInsIxyQ"
+            },
+            {
+              "type": "text",
+              "text": ", the lute because we want a Doss one, and pan pipes because… we’re a satyr. We could also fill in the Scout role with our high-enough Stealth and Perception. If you’re going that route, take Urchin or Criminal instead to get Thieves’ Tools proficiency."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-college-of-eloquence-bard-build-amiable-jack",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 4 gets us Fey Touched for more spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 8 caps Charisma to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 12 gets Inspiring Leadership "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 16 gets Resilient (Con)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 19 can be really anything. Eldritch Adept for Devil’s Sight, Lucky, or either of Tough/Defensive Duelist for more defenses are all viable choices depending on what your character’s going through."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-college-of-eloquence-bard-build-amiable-jack",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Prestidigitation",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/prestidigitation/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Vicious Mockery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Charm Person"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Detect Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Healing Word"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sleep"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "At first and second level, we’re just like any other bard. Hang out near the edge of fights, mock things viciously, and Healing Word your friends if/when they drop. If you can catch several small enemies in a Sleep, do that."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration is a precious resource right now. Try to save it for a Striker having trouble getting past something’s AC or someone who falls over when you’re out of healing. Nothing in the ability says the character needs to be conscious to use it and it can apply to any save, which means that includes Death Saves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For starting equipment, take the gold and get studded leather, a rapier, a pan flute, and thieves’ tools."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Jack of All Trades"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Why wait until level 2 for Silvery Barbs? Because we only get two spells per day at level 1, and using either of them on a reaction is hard to justify when they could be a Sleep or a Healing Word that stands someone up. At level 2, everything (players and enemies) is a little more durable, so we have some wiggle room."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As the Amiable Jack of All Trades, we suddenly get +1 to all ability checks we weren’t already proficient in. Remember that this includes Initiative checks and, later, Dispel Magic rolls when we get access to them."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest is the preview of what we’re going to start doing during short rests at level 12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Crown of Madness"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell: Charm Person -> Phantasmal Force"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Persuasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Deception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Silver Tongue"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unsettling Words"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A hugely loaded level. Between Expertise and Silver Tongue, our Persuasion and Deception rolls now have a floor of 17 which goes up to 18 at next level and then 20 the level after that, before ending at a staggering 27 at level 17. Remember, that’s just the floor. You can roll up to 10 points higher."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Given those numbers, Charm Person seems a little redundant so we turn it into Crown of Madness. It’s still a Charmed condition, but it’s more an interesting combat tool."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Speaking of combat tools, Phantasmal Force is one of the best spells in the game. It targets the often-low Intelligence save and is broadly interpretable. The target can try to spend its Action investigating to break the illusion, but what creature is going to investigate the animated bands of iron painfully crushing it into the floor? Even if it does, that’s now an Int "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "check "
+                },
+                {
+                  "type": "text",
+                  "text": "against your save DC. Remember that Unsettling Words will help it land even over defenses like advantage against spells and then the fact that it’s a check to break it will keep those same defenses from coming into play on subsequent rounds."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You will notice that this leaves us with no first-level spells requiring saves of any kind. This is how we prevent ourselves from chewing through Inspiration uses with Unsettling Words."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Lesser Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fey Touched (Cha)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This level is all about utility. Mage Hand is a great do-anything spell and Lesser Restoration is there because you’re probably the replacement divine caster with this build. Picking up Fey Touched will round up Charisma, get a free Misty Step to get out of trouble, and, since we already have Silvery Barbs, Gift of Alacrity is an incredible spell to get free once per day because it’s functionally just a permanent +4.5 to initiative for someone, which could be you, especially next level when you get Hypnotic Pattern. Go first, win fight."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This is especially true because this is about the level you should be getting your first uncommon magic item, and it should be a "
+                },
+                {
+                  "type": "link",
+                  "text": "Doss Lute",
+                  "href": "https://www.dndbeyond.com/magic-items/5508-instrument-of-the-bards"
+                },
+                {
+                  "type": "text",
+                  "text": ". I have no idea why this thing is uncommon, but I’m also not going to argue. Remember how Crown of Madness causes the Charmed condition? Bonus action Unsettling Words, then cast it using your Lute for Disadvantage on the save. That’s mathematically like increasing your DC by "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "seven"
+                },
+                {
+                  "type": "text",
+                  "text": ". Plus the Lute gives you a bunch of neat things you can’t get elsewhere like Fly once per day."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hypnotic Pattern"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Font of Inspiration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Lacking access to Fireball, we take distractionball."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get Font of Inspiration at this level, which means we can be much more cavalier about tossing out Unsettling Words using our newly upgraded dice. Feel free to even use it for other caster’s big spells. Or to give it out to the party like it’s supposed to be used for. Especially because…"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dispel Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell: Sleep -> Tiny Hut"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unfailing Inspiration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Universal Speech"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Countercharm"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now our Inspiration isn’t spent when the person fails the check. This, of course, leads to some really stupid stuff like the ability to legitimately ask the DM “Did my Investigation check to find secret treasure/traps fail,” and have a mechanical reason why they should answer you truthfully. This is, however, dumb, and I’m going to quote the "
+                },
+                {
+                  "type": "link",
+                  "text": "Soulknife Handbook",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/soulknife/"
+                },
+                {
+                  "type": "text",
+                  "text": " for a moment: “That said, there is the incredibly nebulous definition of “success” with regards to certain skills. If you’re making an Investigation check and you don’t find anything because there was nothing to find, did you succeed or did you fail? This is a conversation to have with your group and deciding the answer is beyond the scope of this article, but I have a suggestion for how to run it: because you choose to roll the Psi-die after you see what you rolled and the results of the initial d20 roll, my suggestion is that the Psi-die is only considered spent if the results are different after rolling it.”"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Moving on. Sleep has outlived its usefulness, and we have two excellent support spells we need to pick up. We’ve already discussed why JoAT makes us the second-best dispellers behind only Abjurer Wizards, and Tiny Hut is the way to make sure you can actually sleep and get your spells back while out and about."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Universal Speech is here to make sure our enormous Deception and Persuasion transcend any language barrier."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Countercharm is also present in case you expect your whole party to get feared next round by some overly telegraphed mechanic or something."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Charm Monster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Last level was jam-packed with stuff, so this one’s a breather by comparison. With that said, I want to point out a couple important things about the interaction with the Lute. First is that the Disadvantage-on-saves function of the Lute doesn’t have a usage limit. Second is that it applies to "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "all "
+                },
+                {
+                  "type": "text",
+                  "text": "targets, so if you upcast Charm Monster later, you can turn half an encounter against the other half of the encounter with a little bit of “help, your friends are going crazy and attacking us,” and let your party grab a drink while the battle fights itself."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cha 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Greater Invisibility"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Crown of Madness -> "
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now that we have a couple spell slots at this level, we’ll trade out Crown since we have Charm that does something very similar but has no targeting restrictions. We’ll also pick up two utility staples."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mass Healing Word"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell: Lesser Restoration -> Greater Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now seems like a good time to point out that the floor for our Deception and Persuasion rolls is 23."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "That aside, we’re still probably the divine caster replacement, so we need to be able to heal multiple people at once. This is the antidote to several party members dropping all at once to an upcast Fireball."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Trading out Lesser Restoration for Greater is required since we’re short on spells known, and the diamond dust component doesn’t really matter because 5e’s economy doesn’t make sense and "
+                },
+                {
+                  "type": "link",
+                  "text": "gold isn’t very useful",
+                  "href": "https://rpgbot.net/gold-rpgbot-news-s2e70/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration Improvement"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Intimidation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Minor Illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Revivify"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Find Greater Steed"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take Expertise in the remaining Charisma-based conversation skill and Perception because Expertise is as good as 18 Wisdom right now for that purpose."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For the new Cantrip, summon a bad MS Paint drawing of something to hide behind. We can see through it, but others can’t until they interact with it. It’s off-brand invisibility."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our two spells come from "
+                },
+                {
+                  "type": "link",
+                  "text": "Magical Secrets",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/magical_secrets/"
+                },
+                {
+                  "type": "text",
+                  "text": ", so I listened to my own advice and assumed we didn’t already have two Revivifies in the party. Also, Fey Pegasus. Because Bard."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eyebite"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A great choice for a fight with several powerful enemies. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Inspiring Leader"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Every rest lets us put 17 temp HP on each party member. That may not seem like a lot at this level, but on an average party of 4 members, in a day where we wake up, have a fight, short rest, have another fight, short rest again, fight one last time, and then sleep, that’s over 200 points of possible healing we don’t have to do."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Forcecage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tiny hut -> Magnificent Mansion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Forcecage is one of the best spells in the game. If no one else in the party can cast Teleport, though, take that instead."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Meanwhile, Magnificent Mansion is one of the bardiest spells in the game, which makes perfect sense for the bardiest Bard."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Heal"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Simulacrum"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Infections Inspiration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Once again, I follow my own advice. Trade Simulacrum out for Plane Shift if need be."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration Improvement"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dominate Monster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember that it’s a Charm effect, so the Lute gives Disadvantage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Resilient (Con)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we have a spell you really can’t afford to fail Concentration on, because suddenly losing a Dominate can be disastrous."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest Improvement"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "True Polymorph",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/true-polymorph-and-shapechange/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is really only here to play around with for one level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Contingency",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/contingency/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Contingency is here because it’s really good, but, if you didn’t take Simulacrum at 14, take it now so you can be infinite naked bards with infinite money and resistance to all damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Lucky"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We finally perfect the art of persuasion: persuading the universe to be different than what it is."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Superior Inspiration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I have no idea how you managed to go into a fight with no Inspiration or what good WoTC thinks just one is going to do you, but here you go."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- College of Eloquence Bard Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Silver Tongue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Unsettling Words"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Unfailing Inspiration"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Universal Speech"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Infectious Inspiration"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Cha"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-college-of-eloquence-bard-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-college-of-eloquence-bard-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-college-of-eloquence-bard-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-college-of-eloquence-bard-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-college-of-eloquence-bard-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-college-of-eloquence-bard-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-college-of-eloquence-bard-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-college-of-eloquence-bard-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-college-of-eloquence-bard-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-college-of-eloquence-bard-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-college-of-eloquence-bard-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-college-of-eloquence-bard-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-college-of-eloquence-bard-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-build-college-of-eloquence-bard-build-amiable-jack-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3275,
+    "sections": 17,
+    "blocks": 34,
+    "tables": 3,
+    "ratingSignals": 16
+  },
+  "status": "needs-editorial-review"
+}

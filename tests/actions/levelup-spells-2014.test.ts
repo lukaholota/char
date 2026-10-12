@@ -33,7 +33,11 @@ async function createCaster2014(
 ): Promise<{ persId: number; classId: number }> {
   const [race, characterClass, background] = await Promise.all([raceByName(Races.HUMAN_2014), classByName(className), backgroundByName(BackgroundCategory.SOLDIER)]);
   const subclassId = subclassName ? (await subclassByName(characterClass.classId, subclassName)).subclassId : undefined;
-  const created = await createCharacter(await withCreationSpells(minimalForm({ raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId, subclassId, subclassChoiceSelections })));
+  const expertiseSkills = className === Classes.ROGUE_2014 ? ["ATHLETICS", "ACROBATICS"] : [];
+  const created = await createCharacter(await withCreationSpells(minimalForm({
+    raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId, subclassId, subclassChoiceSelections,
+    skills: expertiseSkills, expertiseSchema: { expertises: expertiseSkills },
+  })));
   if ("error" in created) throw new Error(`не створився: ${created.error}`);
   await prisma.persSpell.deleteMany({ where: { persId: created.persId } });
   return { persId: created.persId, classId: characterClass.classId };

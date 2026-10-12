@@ -1,0 +1,1969 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-9950a2ea789b0592",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+      "sourceId": "rpgbot-9950a2ea789b0592",
+      "fetchedAt": "2026-09-29T19:18:23.743487+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:43:35-04:00",
+      "contentHash": "e5f420ad5cd9fdce5a1e4005f5791326e629b131e4f7d3e0a2c5dff6018c6946",
+      "title": "Fathomless Warlock 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-warlock-fathomless-2014",
+    "sourceId": "rpgbot-9950a2ea789b0592",
+    "slug": "warlock-fathomless-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Безодня — гайд підкласу Чорнокнижника (2014)",
+    "titleEn": "Fathomless Warlock 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Чорнокнижник",
+      "Безодня",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Чорнокнижник Безодні 5e: гайд підкласу D&D 5e",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Схиливши голови"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "На морському дні"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "У саду восьминога"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Біля печери"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "Сад восьминога",
+                  "href": "https://www.youtube.com/watch?v=De1LCQvbqV4"
+                },
+                {
+                  "type": "text",
+                  "text": " – Бітлз"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щупальця й темні глибини океану — найкращі друзі Чорнокнижника Безодні{{Fathomless}}. Хоч у водних умовах він, безперечно, куди корисніший, Безодня може постояти за себе й на суходолі. Тож якщо вас не лякає те, що звивається в слизу, хапайтеся за моє щупальце й пірнайте. Обіцяємо: втопитися вам не дозволено. Більше ні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Жарти про вступ убік: у Чорнокнижника Безодні є псевдоніжний псевдоулюбленець — «Щупальце глибин»{{Tentacle of the Deeps}}, що вміє лупити ворогів і захищати союзників. Крім того, у Безодні пристойний список заклинань із кількома веселими варіантами, зокрема Чорними щупальцями Еварда [Evard's Black Tentacles]. Про ці уміння й не лише про них ми докладно поговоримо нижче."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наша збірка-приклад «Від води не сховатися» виконує кілька веселих трюків, створюючи різні зони як безпеки, так і шкоди завдяки таким умінням, як «Щупальце глибин»{{Tentacle of the Deeps}} і Чорні щупальця Еварда [Evard's Black Tentacles]. Користуючись «Пактом талісмана»{{Pact of the Talisman}} та його потойбічними викликами{{Eldritch Invocations}}, ми чи наш обраний партнер ніколи не потрапимо в липку ситуацію. Пригоди — справа небезпечна; завжди користуйтеся захистом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Безодні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Безодні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#fathomless-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Безодні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#fathomless-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Безодні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#fathomless-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки й зброя Безодні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#the-fathomless-armor-and-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Чорнокнижника Безодні — «Від води не сховатися»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#example-fathomless-warlock-build-never-safe-from-water"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Безодні",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Заклинання покровителя|Expanded Spell List}}: Багато ситуативних варіантів, а бойові варіанти не дуже. Список заклинань стає трохи кращим, якщо ви часто перебуваєте під водою, але навіть тоді нема чим особливо захоплюватися."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 1-го рівня: Два ситуативні варіанти. Громова хвиля [Thunderwave] нормальна, якщо вас затисли в ближньому бою або треба вирватися із захоплення, але я б не вважав її основним варіантом шкоди, бо щоб підійти достатньо близько й вразити кілька цілей, часто доводиться самому лізти в ближній бій."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 2-го рівня: Порив вітру [Gust of Wind] дуже ситуативний, але Тиша [Silence] — величезна проблема для ворожих заклинателів, особливо якщо ваша група може втримати їх усередині області, захопивши їх, вдаривши щупальцем, що знижує швидкість, або якось інакше стримуючи їхнє пересування."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 3-го рівня: Заряд блискавки [Lightning Bolt] дає пристойну шкоду, але вразити лінійним ефектом більше двох цілей важко незалежно від довжини лінії. Завірюха [Sleet Storm] — пристойний контроль зони, але нею дуже важко користуватися ефективно, вона не масштабується від рівня слота заклинання й потребує Концентрації."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 4-го рівня: Контроль води [Control Water] дуже ситуативний в неводних кампаніях, а обмеження Виклику елементаля [Summon Elemental] лише водними елементалями так само знецінює заклинання, якщо тільки ви не в кампанії з водною тематикою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання 5-го рівня: Длань Бігбі [Bigby's Hand] — чудове, універсальне заклинання. Конус холоду [Cone of Cold] — пристойна, хоч і непримітна шкода по області, але якщо вам потрібна шкода по області, кращих результатів ви досягнете з Голодом Хадара [Hunger of Hadar]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Щупальце глибин|Tentacle of the Deeps}}: На 1-му рівні воно відтворює ефекти Променя холоду [Ray of Frost] (принаймні за шкодою та вторинним ефектом). Із тривалістю 1 хвилина воно проведе вас через одну зустріч за кожне використання, якщо зустріч не відійде надто далеко від щупальця, щоб його розумно було повернути в зону дії. Це зменшує вашу залежність від Прокліну [hex] на низьких рівнях, дозволяючи витрачати ваші один-два слоти заклинань на інше без втрати шкоди. Проте оскільки добовий ліміт використань залежить від вашого Бонусу Майстерності, користуватися ним так часто, як Прокліном [hex], не вийде. Розглядайте ці два варіанти як взаємодоповнювальні: використовуйте Проклін [hex], якщо вам просто треба стріляти Позамежним зарядом [Eldritch Blast] по всьому, а «Щупальце глибин» — коли треба спрямувати Концентрацію на щось інше, ніж Проклін [hex]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Дар моря|Gift of the Sea}}: Чудово у водній кампанії, а в іншому разі дуже ситуативно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Океанічна душа{{Oceanic Soul}}: Опір шкоді — чудово, а у водній кампанії здатність розмовляти з усіма зануреними істотами значно полегшить вам роль «обличчя». Проте поза водними кампаніями вам може бути важко умовити істот розмовляти з вами під водою, якщо ви вже не маєте спільної мови."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Охоронна котушка{{Guardian Coil}}: Імовірно, у вас немає цікавих способів використати реакцію, тож використання її для зменшення шкоди собі чи союзникові — чудове доповнення до ваших можливостей. Із тривалістю щупальця 1 хвилина ви можете зменшити до 10к8 (20к8 на 10-му рівні) шкоди щоразу, коли користуєтеся ним, різко покращуючи здатність вашої групи витримувати шкоду без зцілення в бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Хапальні щупальця{{Grasping Tentacles}}: Чорні щупальця Еварда [Evard's Black Tentacles] — добре заклинання. Не знаю, чи вони кращі за Голод Хадара [Hunger of Hadar], але додаткові переваги цього уміння безперечно допомагають. Ви можете накласти їх раз на день безкоштовно, що виручає з крихітним запасом слотів заклинань Чорнокнижника, а щоразу, коли ви їх накладаєте (безкоштовно чи ні), ви отримуєте тимчасові ХП. Неможливість втратити Концентрацію на чорних щупальцях через отриману шкоду теж чимало допомагає в бою, роблячи їх простим основним вибором у небезпечних ситуаціях."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Стрибок у безодню|Fathomless Plunge}}: З дальністю 1 миля це не зовсім варіант телепортації на велику відстань. Радше це кнопка паніки. Коли справи йдуть погано, хапайте друзів і відступайте до найближчої водойми. Проте памʼятайте, що в цього уміння дуже суворі обмеження. Ви можете взяти з собою 5 інших готових істот, тож якщо ваша група більша, у вас проблеми. Також є суперечки щодо того, чи можуть непритомні союзники бути «готовими», тож якщо союзники вибули з бою, ви, можливо, не зможете їх врятувати. Дальність 1 миля мала, тож треба дуже обережно триматися поблизу придатної водойми, що важко, коли ви обшукуєте підземелля чи мандруєте площинами. Звісно, в океані це чудово, бо можна просто виринути в іншій частині океану."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fathomless-ability-scores",
+          "heading": "Характеристики Безодні",
+          "sourceAnchor": "fathomless-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-fathomless-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нам подобаються ті самі характеристики, що й іншим Чорнокнижникам. Висока Харизма для чаротворства й міжособистісних навичок, пристойна Спритність для КБ і гнучкості та Статура, щоб витримувати хоч усю ніч."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fathomless-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: з усіх характеристик її найімовірніше занедбають, бо серед тих, що нам не потрібні, її ряткидок найменш важливий."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fathomless-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: принаймні трохи її нам потрібно для КБ. Середніх обладунків ми природно не отримуємо, але якщо вдасться мультикласувати або взяти «Середньоозброєного»{{Moderately Armored}}, то 14 буде достатньо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fathomless-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: це для ХП, Концентрації та ряткидків, провал яких вельми неприємний."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fathomless-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: з-поміж характеристик, які можна занедбати, сюди можна вкласти зайві очки, бо Магія — корисна навичка для будь-якого заклинателя."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fathomless-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: ці ряткидки неприємно провалювати, але ми ними володіємо, тож цю характеристику можна занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fathomless-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: наша характеристика чаротворства. Дуже важлива."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fathomless-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fathomless-races",
+          "heading": "Раси Безодні",
+          "sourceAnchor": "fathomless-races",
+          "blocks": [
+            {
+              "blockId": "block-section-fathomless-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щодо рас, Чорнокнижник Безодні не надто відрізняється від того, що описано в "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі рас Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/races/"
+                },
+                {
+                  "type": "text",
+                  "text": ", але оскільки ми отримуємо швидкість плавання й дихання під водою, обирати расу з такими уміннями було б зайвим. Просто уникайте цього, і все буде гаразд."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fathomless-feats",
+          "heading": "Риси Безодні",
+          "sourceAnchor": "fathomless-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-fathomless-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чорнокнижнику Безодні{{Fathomless}} не потрібне нічого відмінного від "
+                },
+                {
+                  "type": "link",
+                  "text": "інших Чорнокнижників",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": ", тож натомість я розгляну риси, які використовую в збірці-прикладі нижче."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fathomless-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Середньоозброєний|Moderately Armored}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо можете мультикласувати, зазвичай краще просто взяти рівень Воїна{{Fighter}}, але в наших прикладах ми намагаємося уникати мультикласування. Середній обладунок і щит — це, чесно кажучи, досить непогано, особливо для заклинателів, які можуть носити {{мішечок із компонентами|component pouch}} й мати вільну руку навпроти щита. Здебільшого це завдяки обмеженій точності 5e, яка робить КБ вартим вкладень, а Середній обладунок — найлегший для вкладень за вимогами до характеристик."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Стійкий (Статура)|Resilient (Constitution)}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": у будь-якому з моїх гайдів ви, імовірно, чули, як я довго розводжуся про цю рису. Це справді така чудова опція: вона не лише покращує ряткидки Концентрації, а й захищає від багатьох небезпечних ефектів типу «пройди-ряткидок-або-страждай»{{save-or-suck}}. Кумедно, що, як і «Середньоозброєний», цю рису теж можна обійти розумним мультикласуванням. Якщо, наприклад, ви почали з рівня Воїна{{Fighter}} як першого, то отримали б і володіння ряткидками Статури, і всі обладунки. Мультикласування справді розкриває повну потужність персонажа."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кухар{{Chef}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Кальмарів, хтось? Жарти вбік, це непогана опція, коли вирівнюєш непарне значення Статури. А хто відмовиться від такої смакоти — пригостити групу тим, що дарують глибини, принаймні в певному сенсі. Тут є бодай трохи егоїстичної мотивації. Роблячи короткі відпочинки ще кращими, ми спонукаємо групу брати зайвий щодня пригод. Заради слотів «Магії пакту»{{Pact Magic}}. "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Джини мають той десятихвилинний трюк із пляшкою",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", а нам доводиться готувати й їсти."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-the-fathomless-armor-and-weapons",
+          "heading": "Обладунки й зброя Безодні",
+          "sourceAnchor": "the-fathomless-armor-and-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-the-fathomless-armor-and-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За "
+                },
+                {
+                  "type": "link",
+                  "text": "звичайних обставин",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": " Чорнокнижники Безодні{{Fathomless}} мають те саме володіння легкими обладунками, що й базові Чорнокнижники, і шукатимуть {{проклепаний шкіряний обладунок|Studded Leather}}. Якщо ви отримали володіння середніми обладунками — через мультикласування чи «Середньоозброєного»{{Moderately Armored}}, — то шукатимете {{Напівлати|Half Plate}}, подібно до {{Відьмацького клинка|Hexblade}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-fathomless-armor-and-weapons-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "А от зброя Чорнокнижнику Безодні{{Fathomless}} нецікава. Вільна рука для соматичних компонентів корисна, а якщо ви тримаєте щит, найкращий варіант для цього — {{мішечок із компонентами|component pouch}}, а не чаротворчий фокус (хіба що знайдете магічний, але тоді доведеться жонглювати або взяти «Бойового заклинателя»{{War Caster}})."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-fathomless-warlock-build-never-safe-from-water",
+          "heading": "Приклад збірки Чорнокнижника Безодні — «Від води не сховатися»",
+          "sourceAnchor": "example-fathomless-warlock-build-never-safe-from-water",
+          "blocks": [
+            {
+              "blockId": "block-section-example-fathomless-warlock-build-never-safe-from-water-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка зосереджена на використанні уміння «Щупальце глибин»{{Tentacle of the Deeps}}, щоб додати в бою трохи зонування{{zoning}} і контролю. Шкоди небагато, але це добре використання нашої бонусної дії, а ще воно допомагає розтягнути слоти заклинань, бо Проклін [hex] доводиться накладати не так часто, як іншим Чорнокнижникам. До того ж ми робимо кілька нетрадиційних виборів рис, щоб підвищити власний захист, не вдаючись до мультикласування. Гадаю, збірка так виходить цілком пристойною. Занурення у Воїна{{Fighter}} зʼїло б щонайменше одне Покращення Характеристик, зате компенсувало б два вибори рис."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-fathomless-warlock-build-never-safe-from-water-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка — одна з наших "
+                },
+                {
+                  "type": "link",
+                  "text": "10 улюблених збірок D&D 5e",
+                  "href": "https://rpgbot.net/rpgbots-10-favorite-dnd-character-builds-that-arent-wizards/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-fathomless-warlock-build-never-safe-from-water-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Що ж до того, чим ми насправді займаємося в боях: ставимо Щупальце й лупимо ворогів, водночас користуючись «Відштовхувальним вибухом»{{Repelling Blast}}, щоб їх розкидати. Поєднання відбирання їхньої швидкості руху та примусового переміщення має тримати ворогів подалі від вашої групи й там, куди ви скажете, — імовірно, всередині якоїсь області контролю чи шкоди. Узгоджуйте дії з групою, щоб заощаджувати слоти заклинань: накладайте такі заклинання, коли Щупальце готове до дії, а коли воно вичерпане за день, «міняйтеся» й користуйтеся натомість Прокліном [hex]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-fathomless-warlock-build-never-safe-from-water",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо Варіант людини{{Variant Human}} і на 1-му рівні — «Середньоозброєного»{{Moderately Armored}}, що дає +1 до Спритності, і це відображено в таблиці. Також вкладаємо +1 у Статуру й Харизму. Оскільки для середнього обладунка нам потрібна лише Спритність 14, у нас лишаються зайві очки, які ми витрачаємо на Інтелект, бо візьмемо навичку Магія."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-fathomless-warlock-build-never-safe-from-water",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як згадано вище, ми беремо Варіант людини{{Variant Human}} заради доступу до бонусної риси. Також отримуємо бонусне володіння навичкою — обираємо Магію. Бонусна мова більше залежить від кампанії, але для колориту я обрав Глибинну мову."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-fathomless-warlock-build-never-safe-from-water",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як передісторію я взяв Артиста{{Entertainer}} — почасти заради веселощів, почасти заради користі. Акробатика разом із нашою дещицею Спритності допоможе вириватися із захоплень, не витрачаючи ваші обмежені слоти заклинань на телепортацію, і виповзати з тісних ситуацій. Виступ і музичний інструмент можуть здатися надлишковими, але разом вони дають Перевагу на такі перевірки, якщо ви користуєтеся правилами з «Довідника Занатара про все»{{Xanathar’s Guide to Everything}}. Зручно для додаткового заробітку під час "
+                },
+                {
+                  "type": "link",
+                  "text": "міжчасся",
+                  "href": "https://rpgbot.net/rpgbot-podcast-episode-18/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-fathomless-warlock-build-never-safe-from-water",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від класу Чорнокнижник ми маємо Обман і Залякування, від Людини — Магію, а від Артиста — Акробатику, Виступ і будь-який музичний інструмент. Згодом ми також отримуємо кухарське начиння{{Cook’s Utensils}} від риси «Кухар»{{Chef}}, але так само легко могли б узяти «Експерта у навичках»{{Skill Expert}}, щоб отримати Переконання й Експертизу в тому, що здається корисним."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-fathomless-warlock-build-never-safe-from-water",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вище, у розділі про риси, я пояснив, як кожна з рис вписується в цю збірку, тож тут лише коротко перелічу рівні, на яких вони беруться."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 1-му рівні Варіант людини{{Variant Human}} дає бонусну рису, і ми беремо «Середньоозброєного»{{Moderately Armored}}, отримуючи володіння середніми обладунками та щитами, а також +1 до Спритності, що дозволяє стартувати зі Спритністю 14."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо Покращення Характеристик на +2 до Харизми, з 16 до 18, що покращує наші заклинальні атаки та СК заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо ще одне Покращення Характеристик на +2 до Харизми, доводячи її до максимуму — 20. Можна поміняти це місцями зі «Стійким (Статура)»{{Resilient (Constitution)}} на 12-му, але робіть так лише якщо очікуєте ряткидків Статури поза Концентрацією. Поки що можемо просто взяти потойбічний виклик «Потойбічний розум»{{Eldritch Mind}}, а пізніше, коли отримаємо «Стійкого», обміняти його."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо «Стійкого (Статура)»{{Resilient (Constitution)}}, отримуючи володіння ряткидком і +1 до Статури, з 16 до 17."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо «Кухаря»{{Chef}}, щоб покращити вигоди від коротких відпочинків і заохотити групу брати зайвий щодня на користь наших слотів «Магії пакту»{{Pact Magic}}. Також отримуємо ще +1 до Статури, з 17 до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні беремо Покращення Характеристик на +2 до Статури, доводячи її до максимуму — 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-fathomless-warlock-build-never-safe-from-water",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бонусна риса: Середньоозброєний\nПатрон: Безодня\n– Щупальце глибин\n– Дар моря\nМагія пакту — 1 слот\nЗамовляння:\n– Позамежний заряд\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nЗаклинання 1-го рівня:\n– Обладунок Агатіса\n– Проклін (К)\nНавички:\n– Акробатика\n– Магія\n– Обман\n– Залякування\n– Виступ"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Що стосується стартового спорядження, можна кинути кубики на гроші й купити все потрібне: нам знадобиться 50 зм на лускатий обладунок{{Scale Mail}}, 10 зм на щит і 25 зм на {{мішечок із компонентами|component pouch}}, але я раджу поговорити з Майстром і спитати, чи не заперечує він, щоб ви просто отримали лускатий обладунок як стартове спорядження, як інші класи, що мають це володіння за замовчуванням. На першому рівні ми отримуємо два замовляння й два заклинання 1-го рівня. Позамежний заряд [Eldritch Blast] — наша головна причина бути Чорнокнижником. Дуже важливий, щоб рознести ворогам обличчя. Магічна рука [Mage Hand] — корисне заклинання для дрібних справ, і ми навіть можемо казати, що при накладанні вона виглядає як щупальце. На цьому рівні в нас лише один слот, а Проклін [hex] триває годину, тож він справді корисний. Обладунок Агатіса [Armor of Agathys] теж триває годину, тож це ще один добрий вибір. Патрон-Безодня дарує нам «Щупальце глибин»{{Tentacle of the Deeps}} і «Дар моря»{{Gift of the Sea}}. Щупальце ми можемо використати лише двічі на день, тож не марнуйте його, але й не забувайте ним користуватися. «Дар моря» — це просто швидкість плавання й дихання під водою. Приємно, коли це стає в нагоді, і якщо вдається ним скористатися — чудово, але якщо воно не актуальне, це не кінець світу, бо це радше декоративне{{ribbon}} уміння, хіба що ви в кампанії на водну тематику."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічні виклики{{Eldritch Invocations}}:\n– Мучливий вибух\n– Відштовхувальний вибух (Зір диявола)\nМагія пакту — 2 слоти\nЗаклинання 1-го рівня:\n– Громова хвиля\nабо\n– Руки Хадара"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Мучливий вибух»{{Agonizing Blast}} і «Відштовхувальний вибух»{{Repelling Blast}} — ключові складники того, щоб могутньо розносити ворогів заради втіхи, прибутку й тонни шкоди. Памʼятайте, що та сама бонусна дія, якою щупальце лупить ворога, дозволяє щупальцю ще й телепортуватися на 30 футів до атаки. Поки ми не відштовхуємо ворога далі ніж на 40 футів від щупальця, його можна вдарити. А можна й навпаки: ніщо не заважає спершу вдарити, а відштовхнути потім. Насправді ви побачите, що важливіше відштовхувати цілі в те, що не рухається, як-от Павутиння [Web], Стіни вогню [Wall of Fire] чи Чорні щупальця Еварда [Evard's Black Tentacles]. Можна взяти «Зір диявола»{{Devil's Sight}} рано, а «Відштовхувальний вибух» лишити на потім, якщо Темнозір справді потрібен уже зараз. Громова хвиля [Thunderwave] — заклинання по області, яке ми отримуємо із «Заклинань покровителя»{{Expanded Spell List}} Безодні. Хоч це ряткидок Статури, це гарне джерело штовхання цілей, а шкода непогана. Як варіант, Руки Хадара [Arms of Hadar] — трохи більша область, що розходиться від нас, за меншої шкоди, але проти ряткидка Сили, і замість штовхання вони забирають у цілей Реакції. Мені здається, Громову хвилю [Thunderwave] легше націлити, але Руки Хадара [Arms of Hadar] теж нормальні, якщо вам так більше до вподоби."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дар пакту{{Pact Boon}}: Пакт талісмана\nМагія пакту\nЗаклинання 2-го рівня:\n– Невидимість (К)\nПеренавчання заклинання: Громова хвиля → Друзки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Як «Дар пакту»{{Pact Boon}} беремо «Пакт талісмана»{{Pact of the Talisman}}. Поки що він дає бонус до перевірок характеристик, коли його носять, але згодом у нас будуть потойбічні виклики, що підсилять його ще більше. Щодо заклинань, ми міняємо Громову хвилю [Thunderwave] на Друзки [Shatter]. Така сама шкода (через те, як працює «Магія пакту»{{Pact Magic}}), менша область, зате краща дальність. Також вивчаємо Невидимість [Invisibility], що дуже корисна для багатьох речей."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Харизма +2 (16 → 18)\nМагія пакту\nЗаклинання 2-го рівня:\n– Стримування особи (К)\nНове замовляння:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Штукарство",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/prestidigitation/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищуємо Харизму, щоб не відставали наші заклинальні атаки та СК. Стримування особи [Hold Person] — чудове заклинання, щоб псувати життя гуманоїдам. Параліч просто дуже сильний. Додаткова шкода від замовлянь нам не дуже потрібна, тож візьмемо Штукарство [Prestidigitation], бо воно має безліч чудових застосувань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічний виклик:\n– Зір диявола (Відштовхувальний вибух)\nМагія пакту\nЗаклинання 3-го рівня:\n– Гіпнотичний візерунок (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Зір диявола»{{Devil's Sight}} допоможе нам бачити нашими жалюгідними людськими очима. Необхідний для тих глибоководних занурень. Гіпнотичний візерунок [Hypnotic Pattern] швидким спалахом звивистих видінь може вивести з бою одразу багато ворогів. Навіть якщо дехто з них витратить дії, щоб струсонути союзників, це означає, що вони витрачають дії на те, щоб не шкодити нашій групі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Охоронна котушка\nОкеанічна душа\nМагія пакту\nЗаклинання 3-го рівня:\n– Контрчари"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Охоронна котушка»{{Guardian Coil}} — гарне уміння-реакція, що дозволяє зменшити вхідну шкоду, якщо ціль поблизу щупальця. «Океанічна душа»{{Oceanic Soul}} дає опір холоду, що добре, і різновид Мов [Tongues], який працює під водою, що, мабуть, гарно. Контрчари [Counterspell] — добра страховка проти ворожих заклинателів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічний виклик:\n– Спис млявості\nМагія пакту\nЗаклинання 4-го рівня:\n– Вигнання (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Спис млявості»{{Lance of Lethargy}} — ще один елемент гноблення щупальцями. Тепер влучання і Щупальцем, і Позамежним зарядом [Eldritch Blast] відбирає в цілі 20 футів руху. Вигнання [Banishment] відправляє когось кудись у безпечне місце, подалі звідси, на хвилину. Обійми щупалець теж вважаються безпекою. Мабуть."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Харизма +2 (18 → 20)\nМагія пакту\nЗаклинання 4-го рівня:\n– Тінь Мойла (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще більше Харизми — максимум потужності. Тінь Мойла [Shadow of Moil] дає нам прихованість та інші переваги. Вона не обовʼязково має виглядати як вогонь: нас може приховувати звивиста маса слизьких рук."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічний виклик:\n– Захист талісмана\nМагія пакту\nЗаклинання 5-го рівня:\n– Синаптичний розряд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Захист талісмана»{{Protection of the Talisman}} підсилює талісман, щоб він допомагав і з ряткидками. Неочевидно в цьому виклику те, що є два окремі запаси використань: для бонусів до перевірок характеристик і для бонусів до ряткидків. Синаптичний розряд [Synaptic Static] завдає чималої шкоди з чудовим ряткидком і дебафом без Концентрації, що псує атаки на хвилину. Загалом чудове заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хапальні щупальця{{Grasping Tentacles}}:\n– Чорні щупальця Еварда\nМагія пакту\nНове замовляння:\n– Захист від зброї"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми не лише вивчаємо Чорні щупальця Еварда [Evard's Black Tentacles], а й вони для нас значно сильніші. Мало того що вони дають безкоштовні тимчасові ХП, коли ми їх накладаємо, так і нашу Концентрацію на цьому заклинанні не можна розірвати шкодою. Захист від зброї [Blade Ward] — для випадків, коли ми концентруємося на чомусь, а Ухиляння, на нашу думку, буде недостатньо. У таких випадках отримання половини шкоди вимагатиме нижчого СК ряткидка Концентрації."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум 6-го рівня:\n– Клітка душі\nМагія пакту — 3 слоти\nЗаклинання 5-го рівня:\n– Длань Бігбі (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хто розкидав усі ці душі де попало? Ну що ж, тепер вони наші. Вони чудово пасують до цього великого плаваючого щупальця, що лупить людей. Як наше інше щупальце, тільки більш по-бігбівськи."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура)\nСтатура +1 (16 → 17)\nПотойбічний виклик:\n– Відплата талісмана"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Час зміцнити ряткидки Статури для ряткидків Концентрації. «Відплата талісмана»{{Rebuke of the Talisman}} — ще одне уміння-реакція для захисту від атак, схоже на «Охоронну котушку». Хоч може здатися, що наші реакції конкурують, усе одно будуть бої без Щупальця, і це допомагає в них. Памʼятайте про дальність цього уміння: "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "нападник"
+                    },
+                    {
+                      "type": "text",
+                      "text": " має бути в межах 30 футів від "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "нас"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", а не від носія талісмана."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум 7-го рівня:\n– Силова кліть\nМагія пакту\nЗаклинання 3-го рівня:\n– Страх (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Силова кліть [Forcecage]. Посадіть когось у коробку для «тайм-ауту», поки дорослі розмовляють. Страх [Fear] — чудове заклинання контролю. Насправді воно значно краще, коли лише половина ворогів провалює ряткидок і починає тікати, тож один важкий бій стає двома легшими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стрибок у безодню{{Fathomless Plunge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це обмежена телепортація. Якщо поблизу є зручна водойма, це добре, але загалом нам буде складно ним скористатися, хіба що ви активно перебуваєте у воді або в такому місці, як Міннесота, де ви постійно й незрозуміло поруч із якоюсь водоймою. Я не маю багатьох порад, як змусити це працювати, якщо в околицях немає зручної води."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум 8-го рівня:\n– Впевненість\nПотойбічний виклик:\n– Вкритий тінню\nМагія пакту\nЗаклинання 4-го рівня:\n– Нудотне сяйво (К)\nЗаклинання 5-го рівня:\n– Перенавчання: Невидимість → Стримування монстра (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звісно ж, щупальця — ваші друзі, і поки діє Впевненість [Glibness], ви мені повірите. Необмежена Невидимість [Invisibility] — дуже гарний виклик. Замінимо знання Невидимості [Invisibility] на додаткові заклинання. Нудотне сяйво [Sickening Radiance] просто добре, але так само добрі багато інших варіантів, тому ми чекали з ним так довго. Стримування монстра [Hold Monster] теж сильне й варте вивчення, бо ми відмовляємося від Невидимості [Invisibility]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Кухар\nСтатура +1 (17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Кухар»{{Chef}} — чудовий спосіб ненавʼязливо заохотити людей брати більше Коротких відпочинків щодня, щоб ми могли бути значно сильнішими."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний арканум 9-го рівня:\n– Передбачення\nМагія пакту — 4 слоти\nЗаклинання 5-го рівня:\n– Далекий крок (К)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Передбачення [Foresight] — дуже сильний варіант: 8 годин Переваги на все й водночас Перешкода на вхідні атаки. Будьте егоїстами з цією іграшкою — це так весело. Далекий крок [Far Step] — це, по суті, Туманний крок [Misty Step], але щоходу протягом хвилини. Беремо його в очікуванні наступного виклику."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічний виклик:\n– Узи талісмана"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Узи талісмана»{{Bond of the Talisman}} дозволяє комусь іншому телепортуватися до нас (або навпаки), якщо він носить талісман. Поєднайте це з Далеким кроком [Far Step], щоб швидко перенести себе й партнера доволі далеко."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура +2 (18 → 20)\nМагія пакту\nЗаклинання 5-го рівня:\n– Сновидіння"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура на максимумі. Вчасно. Сни — веселий спосіб спілкуватися. Особливо коли вони повні дружніх звивистих щупалець. Щупальдрузі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Містичний майстер{{Eldritch Master}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Повертаємо свої заклинання за швидку хвилину зосередження. Непогане завершальне уміння. Більше заклинань — це ніколи не погано."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-warlock-fathomless-2014-001",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання покровителя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-002",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Заклинання 1-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-003",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Заклинання 2-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-004",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Заклинання 3-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-005",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Заклинання 4-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-006",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Заклинання 5-го рівня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-007",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Щупальце глибин",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-008",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Дар моря",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-009",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Океанічна душа",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-010",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Охоронна котушка",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-011",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Хапальні щупальця",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-012",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Стрибок у безодню",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-013",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-fathomless-ability-scores",
+      "targetBlockId": "block-section-fathomless-ability-scores-2",
+      "optionId": "section-fathomless-ability-scores-block-section-fathomless-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-fathomless-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-014",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-fathomless-ability-scores",
+      "targetBlockId": "block-section-fathomless-ability-scores-3",
+      "optionId": "section-fathomless-ability-scores-block-section-fathomless-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-fathomless-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-015",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-fathomless-ability-scores",
+      "targetBlockId": "block-section-fathomless-ability-scores-4",
+      "optionId": "section-fathomless-ability-scores-block-section-fathomless-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-fathomless-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-016",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-fathomless-ability-scores",
+      "targetBlockId": "block-section-fathomless-ability-scores-5",
+      "optionId": "section-fathomless-ability-scores-block-section-fathomless-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-fathomless-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-017",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-fathomless-ability-scores",
+      "targetBlockId": "block-section-fathomless-ability-scores-6",
+      "optionId": "section-fathomless-ability-scores-block-section-fathomless-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-fathomless-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-018",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-fathomless-ability-scores",
+      "targetBlockId": "block-section-fathomless-ability-scores-7",
+      "optionId": "section-fathomless-ability-scores-block-section-fathomless-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-fathomless-ability-scores-7",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-019",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-fathomless-feats",
+      "targetBlockId": "block-section-fathomless-feats-2",
+      "optionId": "section-fathomless-feats-block-section-fathomless-feats-2-item-0",
+      "context": "Середньоозброєний PHB",
+      "explanationBlockId": "block-section-fathomless-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-020",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-fathomless-feats",
+      "targetBlockId": "block-section-fathomless-feats-2",
+      "optionId": "section-fathomless-feats-block-section-fathomless-feats-2-item-1",
+      "context": "Стійкий",
+      "explanationBlockId": "block-section-fathomless-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-fathomless-2014-021",
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sectionId": "section-fathomless-feats",
+      "targetBlockId": "block-section-fathomless-feats-2",
+      "optionId": "section-fathomless-feats-block-section-fathomless-feats-2-item-2",
+      "context": "Кухар",
+      "explanationBlockId": "block-section-fathomless-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

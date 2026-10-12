@@ -1,0 +1,814 @@
+{
+  "buildId": "build-rogue-mastermind-2014",
+  "revisionId": "build-rogue-mastermind-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "Майстра інтриг — Злочинний геній",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-rogue-mastermind-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+      "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "ROGUE_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "ROGUE_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "ROGUE_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "ROGUE_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "MASTERMIND",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "ROGUE_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (DEX)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (PERSUASION)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (STEALTH)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "ROGUE_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "ROGUE_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "expertise": [
+          "INSIGHT",
+          "PERCEPTION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "ROGUE_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "ROGUE_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "PIERCER",
+        "featOptions": [
+          {
+            "optionNameEng": "PIERCER Ability (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "ROGUE_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "ROGUE_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 1
+          },
+          {
+            "ability": "CHA",
+            "amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "ROGUE_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "ROGUE_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "ROGUE_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "ROGUE_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "ROGUE_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "ROGUE_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "MOBILE",
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "ROGUE_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "ROGUE_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "ROGUE_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY",
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "ROGUE_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-mastermind-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+          "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "MASTERMIND",
+    "raceKey": "HOBGOBLIN_MPMM",
+    "backgroundKey": "CRIMINAL",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 12
+      },
+      {
+        "ability": "CHA",
+        "value": 14
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Цілком стандартно для Пройдисвіта, але ми вкладемо в Харизму більше, ніж більшість Пройдисвітів.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 17 Статура 14 14 Інтелект 8 8 Мудрість 12 12 Харизма 14 15",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Хобгоблін{{Hobgoblin}} із власним походженням (за характеристиками з «Путівника Воло по монстрах»). Ми отримаємо стандартні +2/+1, Темний зір, два володіння бойовою зброєю (важкий арбалет, батіг) і «Збереження обличчя»{{Saving Face}}. Хобгобліни часто очолюють групи гоблиноїдів, тож це здається добрим варіантом для Майстра інтриг.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Злочинець{{Criminal}}. Бо це вся тема збірки, а ще це досить добрий вибір для Пройдисвіта. Володіння інструментами злодія зайве, тож замініть його на інший набір інструментів чи ще одну мову. Ми отримаємо володіння Обманом, Непомітністю й ігровим набором.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Ми використаємо наші чотири класові навички, щоб узяти Аналіз Поведінки, Залякування, Уважність і Спритність рук. Обман і Непомітність ми отримаємо від передісторії. Злочинець також дає нам володіння одним ігровим набором. Оберіть гральні карти як ігровий набір, бо це чомусь здається найпідступнішим із варіантів ігрових наборів.\n\nНа 3-му рівні ми отримуємо володіння набором для гриму, набором фальшивомонетника й ще одним ігровим набором. Цього разу оберемо драконячі шахи{{Dragon Chess}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні ми візьмемо «Експерта у навичках»{{Skill Expert}} і підвищимо Спритність до 18.\n\nНа 8-му рівні ми візьмемо «Проколювача»{{Piercer}} і підвищимо Спритність до 19. Так, ще один Пройдисвіт із «Проколювачем».\n\nНа 10-му рівні ми розділимо Покращення Характеристик, щоб підвищити Спритність до 20 і Харизму до 16.\n\nНа 12-му рівні ми візьмемо «Надихаючого лідера»{{Inspiring Leader}}.\n\nНа 16-му й 19-му рівнях у нас відкриті риси. «Рухливий»{{Mobile}} та «Умілець»{{Skilled}} обидва можуть бути добрими вибором. «Посвячений у магію»{{Magic Initiate}}, щоб отримати «Гримучий Клинок [Booming Blade]», теж спрацює.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Експертиза – Обман – Залякування\nПідступна атака +1к6\nЗлодійська мова",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Хитра дія{{Cunning Action}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підклас: Майстер інтриг\nМайстер інтриг (Риса)\nМайстер тактики\nСтійке прицілювання\nПідступна атака +2к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Експерт у навичках\n– Спритність 17 → 18\n– Володіння: Переконання\n– Експертиза: Непомітність",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Надприродне ухилення\nПідступна атака +3к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Експертиза – Аналіз Поведінки – Уважність",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ухилення\nПідступна атака +4к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Проколювач (Спритність 18 → 9)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Проникливий маніпулятор\nПідступна атака +5к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Покращення Характеристик: Спритність 19 → 20, Харизма 15 → 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Надійний талант\nПідступна атака +6к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Надихаючий лідер",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Введення в оману\nПідступна атака +7к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Сліповідчуття{{Blindsense}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Слизький розум\nПідступна атака +8к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Душа обману\nПідступна атака +9к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Невловимий{{Elusive}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Будь-яка\nПідступна атака +10к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Шанс удачі{{Stroke of Luck}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Інструменти передісторії",
+        "reason": "Автор радить замінити володіння інструментами злодія іншим набором інструментів чи мовою; пресет не записує заміну інструментів, тому лишається стандартна передісторія Злочинця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Ігровий набір",
+        "reason": "Автор радить гральні карти як ігровий набір Злочинця; пресет не записує вибір ігрового набору.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Риса на 16, 19-му рівнях",
+        "reason": "Автор пише «будь-яка» і не називає вибір. Пресет бере типовий (16-й: MOBILE, 19-й: LUCKY); це вибір платформи, гравець може змінити його перед створенням.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-mastermind-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-mastermind-2014-draft1",
+            "sourceRevisionId": "rpgbot-3e0367c9c43815c7-b0510fad199d2e65",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

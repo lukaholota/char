@@ -2,8 +2,12 @@
 
 import { useMemo } from "react";
 import { Check, Info } from "lucide-react";
+import { SpellRatingChipButton } from "@/components/spells/SpellRatingChipButton";
 import { SpellSummary } from "@/components/spells/SpellSummary";
+import { captureRpgbotEvent, type SpellPickSection } from "@/lib/monitoring/rpgbot-analytics";
+import { findBestSpellRating, sortByBestRating, type SpellRatingMatch } from "@/lib/optimization/spell-rating-lookup";
 import { buildSpellLinkForSpell, openSpellLink } from "@/lib/spell-link";
+import { useSpellRatingContextStore } from "@/lib/stores/spellRatingContextStore";
 import { cn } from "@/lib/utils";
 import type { SpellChoiceOption } from "@/rules/spell-choice-filter";
 import { findAccentVariant } from "@/styles/edition-accent";
@@ -17,12 +21,16 @@ interface Props {
   /** Ще не обране, чого зараз брати не можна (межа шкіл підкласу): картка лишається, але вимкнена. */
   isSelectable?: (spell: SpellChoiceOption) => boolean;
   highestLevelFirst?: boolean;
+  findRatingMatches?: (spell: SpellChoiceOption) => SpellRatingMatch[];
+  pickTracking?: SpellPickTracking;
 }
 
+export type SpellPickTracking = { section: SpellPickSection; class_key: string; recommendations_on: boolean };
+
 /** Р42 — список кандидатів на вибір заклинання: риса, крок заклинань конструктора й майстра. Картка — та сама, що в каталозі. */
-export function SpellChoiceGrid({ spells, selectedIds, limit, onChange, findGroupLabel, isSelectable, highestLevelFirst = false }: Props) {
+export function SpellChoiceGrid({ spells, selectedIds, limit, onChange, findGroupLabel, isSelectable, highestLevelFirst = false, findRatingMatches, pickTracking }: Props) {
   const groups = useMemo(() => {
-    const grouped = groupSpells(spells, findGroupLabel);
+    const grouped = rankGroupsByRating(groupSpells(spells, findGroupLabel), findRatingMatches);
     if (!highestLevelFirst) return grouped;
     return grouped.sort((a, b) => {
       const firstLevel = a[1][0].level;
@@ -32,7 +40,7 @@ export function SpellChoiceGrid({ spells, selectedIds, limit, onChange, findGrou
       if (secondLevel === 0) return 1;
       return secondLevel - firstLevel;
     });
-  }, [spells, findGroupLabel, highestLevelFirst]);
+  }, [spells, findGroupLabel, highestLevelFirst, findRatingMatches]);
   const isFull = selectedIds.length >= limit;
 
   const toggleSpell = (spellId: number) => {
@@ -40,7 +48,15 @@ export function SpellChoiceGrid({ spells, selectedIds, limit, onChange, findGrou
       onChange(selectedIds.filter((id) => id !== spellId));
       return;
     }
-    if (!isFull) onChange([...selectedIds, spellId]);
+    if (isFull) return;
+    onChange([...selectedIds, spellId]);
+    reportPick(spellId);
+  };
+  const reportPick = (spellId: number) => {
+    const spell = spells.find((candidate) => candidate.spellId === spellId);
+    if (!spell || !pickTracking) return;
+    const rating_score = findRatingMatches ? findBestSpellRating(findRatingMatches(spell))?.score : undefined;
+    captureRpgbotEvent("rpgbot_spell_picked", { ...pickTracking, rating_score, spell_level: spell.level });
   };
   const isBlocked = (spell: SpellChoiceOption, isSelected: boolean) => !isSelected && (isFull || (isSelectable !== undefined && !isSelectable(spell)));
 
@@ -60,6 +76,7 @@ export function SpellChoiceGrid({ spells, selectedIds, limit, onChange, findGrou
                   isSelected={isSelected}
                   isDisabled={isBlocked(spell, isSelected)}
                   onToggle={toggleSpell}
+                  ratingMatches={findRatingMatches?.(spell) ?? []}
                 />
               );
             })}
@@ -75,13 +92,17 @@ function SpellChoiceCard({
   isSelected,
   isDisabled,
   onToggle,
+  ratingMatches,
 }: {
   spell: SpellChoiceOption;
   isSelected: boolean;
   isDisabled: boolean;
   onToggle: (spellId: number) => void;
+  ratingMatches: SpellRatingMatch[];
 }) {
   const is2024 = spell.ruleset === "RULES_2024";
+  const bestRating = findBestSpellRating(ratingMatches);
+  const clearRatingFocus = useSpellRatingContextStore((state) => state.clearRatingFocus);
   return (
     <div
       className={cn(
@@ -98,8 +119,9 @@ function SpellChoiceCard({
         disabled={isDisabled}
         aria-pressed={isSelected}
         aria-label={spell.name}
-        className="flex min-w-0 flex-1 items-center gap-2 p-3 text-left disabled:cursor-not-allowed"
-      >
+        className="absolute inset-0 z-0 rounded-xl disabled:cursor-not-allowed"
+      />
+      <div className="pointer-events-none relative z-10 flex min-w-0 flex-1 items-center gap-2 p-3 text-left">
         <SpellSummary
           spell={{
             name: spell.name,
@@ -112,19 +134,31 @@ function SpellChoiceCard({
           }}
           is2024={is2024}
           isSelected={isSelected}
+          factBadges={bestRating && <SpellRatingChipButton score={bestRating.score} spell={spell} spellName={spell.name} />}
         />
         {isSelected && <Check className={cn("h-5 w-5 shrink-0", findAccentVariant(is2024, { prism: "text-prism-300", arcane: "text-arcane-300" }))} />}
-      </button>
+      </div>
       <button
         type="button"
-        onClick={() => openSpellLink(buildSpellLinkForSpell(spell))}
-        className="mr-2 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-arcane-300 md:h-9 md:w-9"
+        onClick={() => {
+          clearRatingFocus();
+          openSpellLink(buildSpellLinkForSpell(spell));
+        }}
+        className="relative z-10 mr-2 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-slate-400 transition hover:bg-white/5 hover:text-arcane-300 md:h-9 md:w-9"
         aria-label={`Опис: ${spell.name}`}
       >
         <Info className="h-4 w-4" />
       </button>
     </div>
   );
+}
+
+function rankGroupsByRating(
+  groups: Array<[string, SpellChoiceOption[]]>,
+  findRatingMatches: Props["findRatingMatches"],
+): Array<[string, SpellChoiceOption[]]> {
+  if (!findRatingMatches) return groups;
+  return groups.map(([label, spells]) => [label, sortByBestRating(spells, (spell) => findBestSpellRating(findRatingMatches(spell))?.score ?? null)]);
 }
 
 function groupSpells(

@@ -1,0 +1,2365 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "161fab8bf7e9dc86a2a2b67d7e9c2bef902c43ee18414c8f5e9e847a13abf87b",
+  "sourceRevision": {
+    "revisionId": "rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86",
+    "sourceId": "rpgbot-aa009315f1fb4aa1",
+    "fetchedAt": "2026-09-29T19:19:32.763738+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:28:54-04:00",
+    "contentHash": "757fabc426d88a829b11f3cce260fa18d5201c5481125dbba117234928af68b3",
+    "title": "College of Whispers Bard 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-aa009315f1fb4aa1-161fab8bf7e9dc86.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I wouldn’t consider a College of Whispers Bard for a normal adventuring campaign, but, if your game is light on common things like dungeon crawling and heavy on things like political intrigue and social interaction, College of Whispers offers some useful options. College of Whispers emphasizes the Bard’s Face capabilities, but does little for other possible roles."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Psychic Blades is the College of Whispers’ only combat feature, which should scream to you “hey, this isn’t a Bard built for combat!” I really cannot emphasize this enough: If you take a College of Whispers bard on a dungeon crawl, they’re going to have to survive almost entirely on their core class features. While the Bard is still a full spellcaster and has great options like Bardic Inspiration, marching from fight to fight for days on end is not a situation where the College of Whispers Bard is comfortable or effective. This is a Bard built to be a spy, a courtier, an ambassador, or some similar role."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want to bring College of Whispers into a more conventional game where\n\tintrigue is generally rare and combat is generally common, consider reworking\n\tPsychic Blades so that the Bard isn’t forced to split their attention between\n\tDexterity and Charisma. Try this totally untested homebrew fix: Psychic Blades\n\tis a spell attack made using a weapon in hand as an Action, but deals damage\n\tequal to the Psychic Blades damage plus your Charisma modifier. That gives\n\tCollege of Whispers a decently reliable attack option with noteworthy damage\n\toutput, but still has a cost to use so they can’t rely on it to the exclusion\n\tof spellcasting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Whispers Bard Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Whispers Bard Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Whispers Bard Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Whispers Bard Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Whispers Bard Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Whispers Bard Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Whispers Bard Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example College of Whispers Bard Build – Master Spy",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-whispers/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "College of Whispers Bard Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Psychic Blades"
+              },
+              {
+                "type": "text",
+                "text": ": This works with\n\t\tranged weapons, so you’re not forced to go swing a rapier, however, the\n\t\tdamage is pitiful compared to how useful a Bardic Inspiration die is. You\n\t\tcan decide to use this after rolling a critical hit so that you can double\n\t\tthe damage dice (similar to effects like Divine Smite or Hunter’s Mark), but\n\t\tCollege of Whispers never gets Extra Attack, so you’re gambling on a single\n\t\tattack each turn with a 5% chance to crit when you should be casting spells\n\t\tinstead. You could explore two-weapon fighting for another chance to hit and\n\t\tpotentially deliver Psychic Blades, but that’s a lot to commit for a chance\n\t\tto deal a little bit of damage.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The issue isn’t that Psychic Blades is bad. In a vacuum, it’s decent\n\t\t\tdamage of a good damage type. The issue is that it costs a precious\n\t\t\tresource to do nothing but damage, and while damage is decent, you can deal\n\t\t\tdamage with your spells, but you don’t replicate Bardic Inspiration with\n\t\t\tspells. If you want direct single-target damage, you can find more\n\t\t\treliable and more damaging options on your spell list without the need to\n\t\t\tinvest in making weapon attacks reliable."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Words of Terror"
+              },
+              {
+                "type": "text",
+                "text": ": It is hard to use this with any frequency. It’s very difficult to\n\t\tmeet the requirements of the feature without a ton of effort to bring it to\n\t\tbear against a suitable humanoid. Even if you manage to make it work,\n\t\tit’s rarely more impactful than spells like Cause Fear or Fear."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mantle of Whispers"
+              },
+              {
+                "type": "text",
+                "text": ": Situational, but it’s\n\t\tnotably better than options like Disguise Self due to your ability\n\t\tto glean mundane information about the person you’re impersonating. I can’t\n\t\tthink of how many times a disguise has been foiled by something as simple as\n\t\tthe assumed identity’s associates attempting to make small-talk. You could\n\t\talso combine this with Words of Terror to infiltrate somewhere in disguise\n\t\tand get someone talking long enough to make them Frightened before your\n\t\tparty jumps out of a closet or something."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shadow Lore"
+              },
+              {
+                "type": "text",
+                "text": ": Once per day you get a\n\t\tsomewhat diminished version of "
+              },
+              {
+                "type": "emphasis",
+                "text": "Dominate Monster"
+              },
+              {
+                "type": "text",
+                "text": " with an 8-hour\n\t\tduration. Charm bosses and force them to give you their treasure. Charm NPCs\n\t\tand force them to reveal plot secrets. Get creative. Unfortunately, you need\n\t\tto share a language with the target, so be sure to  research your target ahead of time to check if you need to cast Tongues beforehand."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "College of Whispers Bard Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "standard bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "College of Whispers Bard Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "standard bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/races"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "College of Whispers Bard Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "standard bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "College of Whispers Bard Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "standard bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "College of Whispers Bard Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "standard bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "College of Whispers Bard Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "standard bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example College of Whispers Bard Build – Master Spy",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "College of Whispers is not built for combat, so we’re not going to try to build a combat monster. Instead, we’re going to build a master spy and infiltrator capable of going anywhere and becoming anyone. We’ll still have a few combat options (this is DnD, after all), but they’re not the focal point of the build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll start from the ability scores recommended in our Bard Handbook, but we’ll reduce Constitution slightly to put more into Wisdom since we’re expecting to spend more time talking than being stabbed. We’ll put our racial +2 into Charisma and our +1 into Dexterity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "MotM Changeling. Two skills and Shapechanger offer a lot of utility in any campaign where College of Whispers would be useful. We’ll choose Insight and Persuasion for our racial skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Charlatan fits our theme here very well. Proficiency in Deception and Sleight of Hand works for us, as does proficiency in Forgery Kit. Disguise Kit likely won’t see any use since we can disguise ourselves well with Shapechanger, so consider trading it for proficiency in Thieves’ Tools."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get three skills from our class, which we’ll put into Intimidation, Investigation, and Perception. That leaves us with Deception, Insight, Intimidation, Investigation, Perception, and Persuasion, Sleight of Hand. All of the Face skills, plus a handful of Scout skills. We won’t have Stealth, but bards can cast Invisibility, so I think we’ll be okay."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we’ll take Actor. Between Shapechanger, Actor, and Expertise, our disguises are borderline impenetrable. We also raise our Charisma to 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we’ll take Skill Expert. This will raise our Charisma to 19 and grant us proficiency in Stealth (or another skill if you prefer) and Expertise in Persuasion."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12 we’ll split an Ability Score Increase between Constitution and Charisma to raise them to 14 and 20, respectively."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16 we’ll take Metamagic Adept to get Extended Spell and Subtle spell."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19 we have an open space."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d6)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Friends"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Minor Illusion",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Comprehend Languages"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Silent Image",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sleep"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Unseen Servant"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Friends is a risky choice, but can occasionally be useful if you need a brief interaction with an NPC. Leaving the target Hostile is a semi-permanent problem, but, depending on your target, that may not be a meaningful consequence. Also, if you’re disguised as someone else, your DM might allow your target’s ire to be directed elsewhere instead of inexplicably making the target Hostile toward you in any guise."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Minor Illusion is for shenanigans."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our spells provide a mix of utility options. Comprehend Languages allows us to eavesdrop or read in other languages. Silent Image provides more powerful illusions than Minor Illusion, though you should stick to Minor lllusion wherever possible to save spell slots. Sleep lets us non-violently incapacitate other creatures."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Unseen Servant provides an extra set of invisible hands, allowing you to perform tasks like cleaning and carrying things, but also potentially things like flying into open windows to retrieve letters, journals, and valuables. Even better: you can cast it as a ritual and drag your servant around for a full hour, allowing you to use it repeatedly throughout the day at little cost."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In the event that you’re forced into combat, you’re decent with a rapier or a light crossbow. Soften enemies enough that you can hit them with Sleep."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Jack of All Trades"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d6)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Charm Person"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Jack of All Trades fills gaps in our skills, which is especially useful when we’re expected to know things or perform tasks typical of one of our assumed identities."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Charm Person is useful for high-stakes social situations. The "
+                },
+                {
+                  "type": "link",
+                  "text": "Charmed",
+                  "href": "https://rpgbot.net/dnd5/characters/status-conditions/#charmed"
+                },
+                {
+                  "type": "text",
+                  "text": " condition also prevents creatures from attacking us, which may be useful if there’s a risk of violence."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bard College: College of Whispers Bard"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Words of Terror"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Psychic Blades (2d6)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Deception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Calm Emotions"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Psychic Blades is the only thing in the whole subclass which is combat-related. It’s a decent amount of damage, but not enough to make weapons a go-to combat option. Your best bet is to use it to quickly dispatch low-CR enemies rather than getting into actual combat. Even then, you’re dealing something like 13 damage on average, which is only enough to one-shot very weak enemies."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Calm Emotions can turn a violent situation into a briefly non-violent one. It only lasts one minute, but that’s conveniently just enough time to use Words of Terror."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Outside of combat, Words of Terror is a great way to terrify NPCs. The 1-minute conversation time is short enough that you can qualify with a polite conversation with a stranger like asking for directions or checking out at a grocery store. Making a creature "
+                },
+                {
+                  "type": "link",
+                  "text": "Frightened",
+                  "href": "https://rpgbot.net/dnd5/characters/status-conditions/#frightened"
+                },
+                {
+                  "type": "text",
+                  "text": " of you for a full hour means that they’re going to struggle to perform ability checks or to move around, potentially making a social situation very difficult for them."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember that Disadvantage on an Ability Check also reduces a creature’s passive skill by 5, making a Frightened creature’s Passive Insight and Passive Perception scores easy for you to beat. Make a creature Frightened, then lie to them. With Expertise and high Charisma, you’re nearly guaranteed to succeed."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Actor (Cha 17 ->18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Message"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Invisibility"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Charm Person -> Enhance Ability"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The Changeling’s Shapechanger trait has two limitations: it doesn’t change your clothes, and it doesn’t help you imitate the creature that you’re impersonating beyond their voice. The Actor feat fills the second gap, and you can fill the first with a well-stocked wardrobe."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Message gives us a way to subtly communicate with allies at a distance. The spell’s Verbal component is still plainly audible, so you’ll want to cast the spell somewhere secluded."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Invisibility is a nice substitute for Stealth proficiency, though we also have Jack of All Trades, so you may not need it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With Calm Emotions to disarm hostile situations and enough spell slots to spend on 2nd-level spells, we’ll replace Charm Person with Enhance Ability. Since Enhance Ability doesn’t target another creature, it’s both more portable and failure-proof, making it a great option for extended social situations."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d8)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Font of Inspiration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Psychic Blades (3d6)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Tongues"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tongues lets us do all of our sneaky, deceitful shenanigans in whatever language we like. No more being revealed because the creature you’re imitating is a polyglot."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Countercharm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mantle of Whispers"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Clairvoyance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mantle of Whispers is weird because it requires a creature to die, but if you or an ally can kill a guard or an inconspicuous character like a porter or carriage driver, you get a borderline unbreakable disguise. We’re already pretty close without this, but getting enough free information to perform small talk is very useful."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Clairvoyance lets us peek behind walls and such to look in places that we can’t quite reach by other means."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dimension Door"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now even walls can’t stop you from going where you’re not invited. Teleport into other people’s closets, steal their clothes, then steal their identities. Alternatively, take "
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/pathfinder/characters/polymorph/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Skill Expert"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Cha 18 -> 19"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Proficiency: Stealth"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Expertise: Persuasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Raulothim’s Psychic Lance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Skill expert improves our skill capabilities even further for even more sneaky, deceptive shenanigans."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Raulothim’s Psychic Lance is for murder. Being able to repeatedly lance a creature simply by knowing their name makes it very easy to remove other creatures that might cause you trouble. If they somehow survive, it’s not like they know who did it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d8)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Modify Memory"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Modify Memory gives you a powerful tool whenever your usual infiltration tactics fall apart."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d10)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Psychic Blades (5d6)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Investigation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Vicious Mockery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "link",
+                  "text": "Magical Secrets",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/magical_secrets/"
+                },
+                {
+                  "type": "text",
+                  "text": ":"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Arcane Eye"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Rary’s Telepathic Bond"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We now have Expertise in 5 skills. Feels good."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Yes, we’re finally taking Vicious Mockery. Sometimes you just need to tell someone that you don’t like them."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re going to use Magical Secrets to get some fantastic utilities from the Wizard’s spell list. Arcane Eye is great for spying if we can’t risk doing it in person, and Rary’s Telepathic Bond lets us stay in constant contact with our party without resorting to stepping into a closet to cast Message. If this is something like a solo campaign or you don’t need telepathy for some other reason, consider reading up on other options like using Find Steed to get a sidekick that’s smart enough to play along with your disguise shenanigans."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mass Suggestion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hey, now that we’re all gathered here and I’m in my "
+                },
+                {
+                  "type": "link",
+                  "text": "elaborate disguise",
+                  "href": "https://tvtropes.org/pmwiki/pmwiki.php/Main/PaperThinDisguise"
+                },
+                {
+                  "type": "text",
+                  "text": ", I mass suggest that you all remind me of all of those deep, dark secrets that you wouldn’t tell a stranger."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Con 15 -> 16, Cha 19 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’ll split an Ability Score Increase to get our Constitution to 16 and to max our Charisma."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also consider retraining Message at this point. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d10)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mirage Arcane"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re so good at disguises that now we can disguise the ground."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Shadow Lore"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Magical Secrets:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Contingency",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/contingency/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Plane Shift"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Use Contingency to set up Improved Invisibility in case something goes horribly wrong. Plane Shift is the closest we’ll likely get to long-range teleportation since bards learn spells permanently and we don’t want to commit two slots to the task."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d12)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Psychic Blades (8d6)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Glibness"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8d6 is a decent amount of damage if we’re ever forced to make an attack for some reason."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Glibness gives us an exceptionally high floor on our Charisma checks. Between that, proficiency, Expertise, and 20 Charisma, we’re basically unstoppable with a range of outcomes between 30 and 35."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Metamagic Adept"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Extended Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Subtle Spell"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extended Spell lets us extend high-cost buffs like Glibness and Foresight. Subtle Spell lets us cast spells while we’re disguised and being sneaky."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d12)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Foresight"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Advantage on everything for eight hours is always great."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magical Secrets:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Shapechange",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/true-polymorph-and-shapechange/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Disguise yourself as basically anything!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have a gap here. Pick whatever you like."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Superior Inspiration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s fine. We don’t expect to roll initiative often."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- College of Whispers Bard Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Psychic Blades"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Words of Terror"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mantle of Whispers"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Shadow Lore"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-2-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2785,
+    "sections": 17,
+    "blocks": 27,
+    "tables": 2,
+    "ratingSignals": 9
+  },
+  "status": "needs-editorial-review"
+}

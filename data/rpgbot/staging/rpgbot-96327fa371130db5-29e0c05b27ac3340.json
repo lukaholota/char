@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/feats/bloodlust/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "29e0c05b27ac3340681d175831a54f494293e473e006489845e6ca63e1b2f02e",
+  "sourceRevision": {
+    "revisionId": "rpgbot-96327fa371130db5-29e0c05b27ac3340",
+    "sourceId": "rpgbot-96327fa371130db5",
+    "fetchedAt": "2026-09-29T19:18:09.758987+00:00",
+    "sourceUpdatedAt": "2026-08-03T15:00:41-04:00",
+    "contentHash": "bc4f6895cd97d70333eb7328e6d1608875c25e308a7ec3f6901f27bee2b6d5ca",
+    "title": "DnD 5.5 Bloodlust Feat Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-96327fa371130db5-29e0c05b27ac3340.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bloodlust is a tempting feat for melee martial characters, providing a floor on Hit Point Die rolls and a way to spend them to heal in combat. However, the usage limitation means that the total amount healed is extremely limited."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-score-increase",
+      "heading": "Ability Score Increase",
+      "sourceAnchor": "ability-score-increase",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-score-increase-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any physical ability."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-powerful-recovery",
+      "heading": "Powerful Recovery",
+      "sourceAnchor": "powerful-recovery",
+      "blocks": [
+        {
+          "blockId": "block-section-powerful-recovery-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A floor on your Hit Point Die rolls is nice if you depend on them heavily for healing. It doesn’t increase the average significantly, but, when you only have a handful of Hit Point Dice to spend, insurance at least feels nice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-powerful-recovery-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is especially impactful thanks to the Sanguine Feast feature also provided by Bloodlust, and raising the minimum roll to 3 means that you don’t face the disaster scenario of rolling a 1 when you’re short on hp."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sanguine-feast",
+      "heading": "Sanguine Feast",
+      "sourceAnchor": "sanguine-feast",
+      "blocks": [
+        {
+          "blockId": "block-section-sanguine-feast-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not a ton of healing, but it’s additional healing in combat without an action of any kind. For characters with a lot of hit points but little or no built-in healing like Barbarians and Fighters, this is tempting. Unfortunately, the math just doesn’t hold up beyond low levels."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sanguine-feast-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The PB uses per Long Rest means that, beyond low levels, you won’t be able to heal yourself often enough for this to remain useful. At level 4, a Barbarian with 16 Constitution will heal for 1d12+3, which is roughly 1/4 of your hit points. At level 20, that same Barbarian might heal for 1d12+7, which is better, but it’s only 1/20 of your hit points, which is a drop in the bucket."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sanguine-feast-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Healing in combat is, in nearly every case, a bad idea. Spending an Action to restore hit points only to have those hit points removed by the nearest pointy stick puts players into an attrition fight, and players nearly always lose attrition fights. Sanguine Feast doesn’t consume an action, which is great, but it’s just not enough healing to be effective."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "#ability-score-increase",
+      "detail": "wp-block-heading rating-green Ability Score Increase"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#powerful-recovery",
+      "detail": "wp-block-heading rating-orange Powerful Recovery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#sanguine-feast",
+      "detail": "wp-block-heading rating-orange Sanguine Feast"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-ability-score-increase-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-powerful-recovery-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-powerful-recovery-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-sanguine-feast-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-sanguine-feast-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-sanguine-feast-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-sanguine-feast-4"
+    }
+  ],
+  "metrics": {
+    "words": 313,
+    "sections": 4,
+    "blocks": 7,
+    "tables": 0,
+    "ratingSignals": 3
+  },
+  "status": "needs-editorial-review"
+}

@@ -1,0 +1,192 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "rogue-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-rogue-2014-draft1",
+    "sourceRevisionId": "rpgbot-271305eb26fcc797-6a47ce276ce8a3ee"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "ROGUE_2014",
+  "subclassKey": "THIEF",
+  "raceKey": "HALFLING_2014",
+  "backgroundKey": "CRIMINAL",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 14,
+    "INT": 12,
+    "WIS": 12,
+    "CHA": 13
+  },
+  "recipeTitle": "Пройдисвіта — Легконогий напіврослик, Злодій",
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "THIEF"
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "expertise": [
+        "SLEIGHT_OF_HAND",
+        "DECEPTION"
+      ]
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Експертиза в інструментах",
+      "reason": "На 6-му рівні автор бере експертизу в Спритності рук та інструментах злодія; платформа не має експертизи в інструментах, тож пресет бере Спритність рук і Обман (вибір платформи).",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "title": "Пройдисвіт — спритний злодій",
+    "description": "Підкрадайтеся, відкривайте замки й знаходьте приховане. Бийте з лука або короткого меча, поки ворог відволікається на союзників.",
+    "skills": {
+      "selectedClass": [
+        "PERCEPTION",
+        "PERSUASION",
+        "SLEIGHT_OF_HAND",
+        "STEALTH"
+      ],
+      "race": [],
+      "background": [
+        "INSIGHT"
+      ]
+    },
+    "expertise": [
+      "PERCEPTION",
+      "STEALTH"
+    ],
+    "classOptions": [],
+    "subraceKey": "HALFLING_LIGHTFOOT_2014",
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "abilityExplanation": "Спритність допомагає атакувати й підкрадатися. Уже враховано +2 до Спритності від раси та +1 до Харизми від підраси.",
+    "skillExplanation": "Чотири класові навички вже обрані. Повторну Непомітність від Злочинця замінено на Аналіз поведінки, а Експертизу обрано для Уважності й Непомітності.",
+    "equipmentExplanation": "Короткий меч, короткий лук зі стрілами, шкіряний обладунок, два кинджали й інструменти злодія взяті з авторського прикладу. Набір грабіжника ми обрали за вас.",
+    "featSection": "section-feats-1",
+    "portraitSrc": "/images/presets/rogue-thief-2014.webp",
+    "featOptionName": null,
+    "racialAbilities": [],
+    "languages": [],
+    "skillSection": "section-skills-and-tools",
+    "equipmentSection": "section-levels"
+  }
+}

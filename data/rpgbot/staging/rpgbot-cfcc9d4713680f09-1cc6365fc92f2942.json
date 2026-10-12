@@ -1,0 +1,1914 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/feats/gunner/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "1cc6365fc92f2942519808704f5893eae3997d99b7717d66116d4e416e142b51",
+  "sourceRevision": {
+    "revisionId": "rpgbot-cfcc9d4713680f09-1cc6365fc92f2942",
+    "sourceId": "rpgbot-cfcc9d4713680f09",
+    "fetchedAt": "2026-09-29T19:22:37.620929+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:40:47-04:00",
+    "contentHash": "7be22844ada90e79a9caa77dc5980639c945823316e40fe763190a950194e68d",
+    "title": "Gunner 5e: DnD 5e Feat Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-cfcc9d4713680f09-1cc6365fc92f2942.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Firearms in Dungeons and Dragons have always been a divisive topic. Some people don’t want them in their sword and sorcery high fantasy adventure, and I respect those kinds of lore-based arguments. After all, if Firearms don’t exist because they haven’t been invented yet, this guide won’t change that."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide instead will take a mechanical stance for Renaissance Firearms as described in the Dungeon Masters’ Guide. We will take an in-depth look at the ranged weapons and compare just how they stack up in terms of DPR to see if guns really are that much stronger than options like bows and crossbows."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Gunner Feat",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#the-gunner-feat"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Firearms vs the World",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#firearms-vs-the-world"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Heavy Problem",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#the-heavy-problem"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Mechanical Complications of Firearms",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#mechanical-complications-of-firearms"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Firearms Across the Multiverse",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#firearms-across-the-multiverse"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Eberron",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#eberron"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Exandria",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#exandria"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Golarion – Pathfinder",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#golarion-pathfinder"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Krynn – Dragonlance",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#krynn-dragonlance"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Mystara",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#mystara"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Oerth – Greyhawk",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#oerth-greyhawk"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Toril – Forgotten Realms",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#toril-forgotten-realms"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Domains of Dread – Ravenloft",
+                "href": "https://rpgbot.net/dnd5/characters/feats/gunner/#the-domains-of-dread-ravenloft"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-gunner-feat",
+      "heading": "The Gunner Feat",
+      "sourceAnchor": "the-gunner-feat",
+      "blocks": [
+        {
+          "blockId": "block-section-the-gunner-feat-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As a feat, Gunner is rather nice. It’s a Hybrid feat granting +1 Dexterity. It grants Firearms proficiency, and lets us ignore the loading property of Firearms. Most importantly, being in melee doesn’t impose Disadvantage for ranged attack rolls."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-gunner-feat-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Why did I say that the last point was the most important? Shouldn’t the parts about Firearms be the important part of a feat called Gunner? No actually. If you’re playing an Archer and are not planning to use Crossbows, why would you take Crossbow Expert to ignore melee Disadvantage when you can take Gunner, get +1 Dexterity and the only part of CBX you care about when using a bow? Even if your campaign doesn’t use Firearms, I see no reason to disallow this feat for Archers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-firearms-vs-the-world",
+      "heading": "Firearms vs the World",
+      "sourceAnchor": "firearms-vs-the-world",
+      "blocks": [
+        {
+          "blockId": "block-section-firearms-vs-the-world-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I’m going to compare several different ranged options and we’ll see where everything falls in terms of DPR."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "My lawyers said I can’t put the data in a chart since it’s not all in the SRD, so these are a list of pages with the weapons and also Eldritch Blast:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-3",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Weapon"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Page"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "link",
+                  "text": "Pistol",
+                  "href": "https://www.dndbeyond.com/equipment/pistol"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "DMG 268"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "link",
+                  "text": "Musket",
+                  "href": "https://www.dndbeyond.com/equipment/musket"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "DMG 268"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "link",
+                  "text": "Shortbow",
+                  "href": "https://www.dndbeyond.com/equipment/shortbow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "PHB 149"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "link",
+                  "text": "Longbow",
+                  "href": "https://www.dndbeyond.com/equipment/longbow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "PHB 149"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "link",
+                  "text": "Hand Crossbow",
+                  "href": "https://www.dndbeyond.com/equipment/crossbow-hand"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "PHB 149"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "link",
+                  "text": "Light Crossbow",
+                  "href": "https://www.dndbeyond.com/equipment/crossbow-light"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "PHB 149"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "link",
+                  "text": "Heavy Crossbow",
+                  "href": "https://www.dndbeyond.com/equipment/crossbow-heavy"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "PHB 149"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "link",
+                  "text": "Eldritch Blast",
+                  "href": "https://www.dndbeyond.com/spells/eldritch-blast"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "PHB 237"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Clicking the Weapons will take you to the Compendium entry on D&D Beyond"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll look at various levels and standardise our examples. For race, we’re going to pick Custom Lineage. We’ll assume our attack stat to be 15 before adding the Custom Lineage +2 for a 17. That will be Dexterity for every weapon except Eldritch Blast, which will use Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For class, the weapons will all be used by a Fighter with no subclass and the Archery style."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Eldritch blast will likewise be used by a Warlock with no subclass and taking Agonizing Blast at 2nd level."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "At first level:"
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "text",
+              "text": "The firearms and bows will take Gunner with +1 Dexterity."
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "text",
+              "text": "The Light and Heavy crossbows will take Piercer with +1 Dexterity."
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "text",
+              "text": "The Hand Crossbow takes Crossbow Expert."
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "text",
+              "text": "The Eldritch Blast will take Fey Touched and get +1 Charisma."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "At fourth level:"
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "text",
+              "text": "The firearms and bows will take Sharpshooter."
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "text",
+              "text": "The Light and Heavy crossbows will take Crossbow Expert."
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "text",
+              "text": "The Hand Crossbow takes Piercer with +1 Dexterity."
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "text",
+              "text": "The Eldritch Blast takes +2 Charisma."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "At sixth level:"
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "text",
+              "text": "The firearms and bows take +2 Dexterity."
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "text",
+              "text": "The crossbows take Sharpshooter."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "At eighth level:"
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "text",
+              "text": "The crossbows take +2 Dexterity."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For this chart, we’re following the "
+            },
+            {
+              "type": "link",
+              "text": "Fundamental Math ",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": "progression chart to determine AC at CR. Weapons will use Sharpshooter when they get it, and the Hand Crossbow will always make the Bonus Action attack. Eldritch Blast will always use Hex. No attacks are made with Advantage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-13",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pistol"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Musket"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Short bow"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Longbow"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hand Cross"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Light Cross"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Heavy Cross"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Eldritch Blast"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.88"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.72"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.03"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.25"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.3"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.88"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.72"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.03"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.25"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9.55"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.03"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.57"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8.93"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9.48"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11.95"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6.82"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.67"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10.25"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "23.1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "24.30"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.70"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "21.90"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "27.30"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "19.40"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.50"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "21.05"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "22.15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18.85"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "19.95"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "28.80"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.40"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "21.60"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "19.10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "31.58"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "33.23"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "28.28"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "29.93"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "38.40"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "30.60"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "32.4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "28.65"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "31.58"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "33.23"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "28.28"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "29.93"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "38.40"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "30.60"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "32.4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "38.20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "42.10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "44.30"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "37.70"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "39.90"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "48"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "40.80"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "43.20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "38.20"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From this data we can see that Firearms are a tiny bit stronger, but not enough that it would really matter. We can even see that if the character has nothing else important to do with a Bonus Action, Hand Crossbow having an extra attack comes out noticeably ahead of everything else on the table, and it even trounces several "
+            },
+            {
+              "type": "link",
+              "text": "melee options",
+              "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#dpr-comparisons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-15",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Yes, a lot of factors will change these numbers, but in general we can conclude that as long as Firearms don’t clash with your setting’s lore, nothing will break if somebody wants to use one."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-firearms-vs-the-world-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In fact… Firearms fix something fundamentally broken with 5e…"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-heavy-problem",
+      "heading": "The Heavy Problem",
+      "sourceAnchor": "the-heavy-problem",
+      "blocks": [
+        {
+          "blockId": "block-section-the-heavy-problem-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "There’s that word again; “heavy”."
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "Why are things so heavy in the future?"
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "Is there a problem with the earth’s gravitational pull?"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "–"
+            },
+            {
+              "type": "link",
+              "text": "Back to the Future",
+              "href": "https://www.youtube.com/watch?v=Urg-EqR-pHc"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-heavy-problem-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Heavy property. In short, if you’re short, and by short I mean small, you have Disadvantage with any weapon with the Heavy property. Longbows and Heavy Crossbows are Heavy. So are several Melee weapons, but we’re not talking about those right now."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-heavy-problem-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In previous editions, sizes had a scaling set of bonuses and penalties that meant you actually got something for being Small. In 5e instead you get nothing but bonuses for getting bigger and penalties for shrinking. Firearms don’t fix that, but they at least equalise the ranged weapons. Pistols and Muskets lack the Heavy property, putting every race, Medium or Small, on a level damage die."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-heavy-problem-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sure, every race can just grab a Hand Crossbow and use the bonus action attack to come out on top according to our DPR chart, but that’s not an option for everyone. If the Bonus Action is occupied by something else important to our class like the Bonus Action damage boosts offered by many ranger subclasses, the Hand Crossbow comes out the same as the Shortbow on our chart: dead last."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-heavy-problem-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But that’s all theory and conjecture. We need some hard evidence and real world testing. We need a small race using a ranged weapon on a class that has something super important to do with its Bonus Action every turn. "
+            },
+            {
+              "type": "link",
+              "text": "Where could we possibly find one of those?",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/samurai/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-mechanical-complications-of-firearms",
+      "heading": "Mechanical Complications of Firearms",
+      "sourceAnchor": "mechanical-complications-of-firearms",
+      "blocks": [
+        {
+          "blockId": "block-section-mechanical-complications-of-firearms-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Firearms do have drawbacks vs other ranged weapons. Firearms, especially the Pistol and Musket, have lower ranges than most of the bows and crossbows. The short range of a Musket is half the short range of a Light Crossbow or Shortbow. On top of that, the long ranges of Firearms are only triple the short range instead of quadruple like bows and crossbows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-mechanical-complications-of-firearms-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But that doesn’t always matter. Think of it this way: having ranges this short matters until everyone has Sharpshooter, and the difference in the damage dice often stop mattering after everyone has Sharpshooter."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-mechanical-complications-of-firearms-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Additionally, Firearms are louder than archery and crossbows, though probably not much louder than many large spells. A good approximation can be found in the Thunderclap cantrip which creates a “thunderous sound that can be heard up to 100 feet away.” A DM might want to adjust this distance up or down but there will always be more noise than a bow."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-firearms-across-the-multiverse",
+      "heading": "Firearms Across the Multiverse",
+      "sourceAnchor": "firearms-across-the-multiverse",
+      "blocks": [
+        {
+          "blockId": "block-section-firearms-across-the-multiverse-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Some published settings have built in reasons for whether Firearms do or do not exist. This is not a comprehensive list and some of these settings do not have a 5e source book, but they were included because I wanted to."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-eberron",
+      "parentSectionId": "section-firearms-across-the-multiverse",
+      "heading": "Eberron",
+      "sourceAnchor": "eberron",
+      "blocks": [
+        {
+          "blockId": "block-section-eberron-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Guns don’t exist because basic magic items that allow easy cantrip access to commoners are so common in Eberron that they already occupy the niche guns would otherwise occupy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-exandria",
+      "parentSectionId": "section-firearms-across-the-multiverse",
+      "heading": "Exandria",
+      "sourceAnchor": "exandria",
+      "blocks": [
+        {
+          "blockId": "block-section-exandria-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Exandria, the setting Matt Mercer created for Critical Role, has guns because it was originally a Pathfinder game and one of the players was a Gunslinger. In universe the reason is likely the same as on Golarion."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-golarion-pathfinder",
+      "parentSectionId": "section-firearms-across-the-multiverse",
+      "heading": "Golarion – Pathfinder",
+      "sourceAnchor": "golarion-pathfinder",
+      "blocks": [
+        {
+          "blockId": "block-section-golarion-pathfinder-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Golarion, the default setting for Pathfinder, has guns because it has some regions where magic doesn’t work."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-krynn-dragonlance",
+      "parentSectionId": "section-firearms-across-the-multiverse",
+      "heading": "Krynn – Dragonlance",
+      "sourceAnchor": "krynn-dragonlance",
+      "blocks": [
+        {
+          "blockId": "block-section-krynn-dragonlance-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A group of Gnomes on Krynn are not only responsible for Firearms on that world, but for the proliferation of Firearms to a multitude of worlds across the Crystal Spheres via Spelljammer trade routes. Thanks to Krynn, guns are available in every setting and no longer lore unfriendly."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-mystara",
+      "parentSectionId": "section-firearms-across-the-multiverse",
+      "heading": "Mystara",
+      "sourceAnchor": "mystara",
+      "blocks": [
+        {
+          "blockId": "block-section-mystara-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Firearms are mostly localized to the Savage Coast on the west."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-oerth-greyhawk",
+      "parentSectionId": "section-firearms-across-the-multiverse",
+      "heading": "Oerth – Greyhawk",
+      "sourceAnchor": "oerth-greyhawk",
+      "blocks": [
+        {
+          "blockId": "block-section-oerth-greyhawk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gunpowder just flat out does not work on Oerth. The complete opposite problem of Golarion amusingly enough. One order of Clerics on Oerth devoted to the god of Science were able to operate Firearms due to divine magic."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-toril-forgotten-realms",
+      "parentSectionId": "section-firearms-across-the-multiverse",
+      "heading": "Toril – Forgotten Realms",
+      "sourceAnchor": "toril-forgotten-realms",
+      "blocks": [
+        {
+          "blockId": "block-section-toril-forgotten-realms-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Guns exist but are uncommon enough that most campaigns will never even come across them. Canonically, there is a gun shop in Skullport named the Brigadier’s Broadside."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-domains-of-dread-ravenloft",
+      "parentSectionId": "section-firearms-across-the-multiverse",
+      "heading": "The Domains of Dread – Ravenloft",
+      "sourceAnchor": "the-domains-of-dread-ravenloft",
+      "blocks": [
+        {
+          "blockId": "block-section-the-domains-of-dread-ravenloft-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Firearms can be found all over the domains due to the tendency of the demiplane to abduct whole locations from across the multiverse."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-the-gunner-feat-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-the-gunner-feat-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-firearms-vs-the-world-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-firearms-vs-the-world-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-firearms-vs-the-world-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/figcaption[1]",
+      "detail": "block-section-firearms-vs-the-world-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-firearms-vs-the-world-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-firearms-vs-the-world-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-firearms-vs-the-world-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-firearms-vs-the-world-8"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">At first level:</p> <p class=\"wp-block-paragraph\">The firearms and bo"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[2]",
+      "detail": "block-section-firearms-vs-the-world-9"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[2]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">At fourth level:</p> <p class=\"wp-block-paragraph\">The firearms and b"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[3]",
+      "detail": "block-section-firearms-vs-the-world-10"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[3]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">At sixth level:</p> <p class=\"wp-block-paragraph\">The firearms and bo"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[4]",
+      "detail": "block-section-firearms-vs-the-world-11"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[4]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">At eighth level:</p> <p class=\"wp-block-paragraph\">The crossbows take"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-firearms-vs-the-world-12"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-firearms-vs-the-world-13"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-firearms-vs-the-world-14"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-firearms-vs-the-world-15"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-firearms-vs-the-world-16"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[5]",
+      "detail": "block-section-the-heavy-problem-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "em/a[1]",
+      "detail": "link inside emphasis"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[5]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center is-style-plain is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\"><em>There’s that word again; “he"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-the-heavy-problem-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-the-heavy-problem-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-the-heavy-problem-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-the-heavy-problem-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-mechanical-complications-of-firearms-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-mechanical-complications-of-firearms-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-mechanical-complications-of-firearms-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-firearms-across-the-multiverse-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-eberron-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-exandria-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-golarion-pathfinder-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-krynn-dragonlance-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-mystara-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-oerth-greyhawk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-toril-forgotten-realms-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-the-domains-of-dread-ravenloft-1"
+    }
+  ],
+  "metrics": {
+    "words": 1676,
+    "sections": 16,
+    "blocks": 42,
+    "tables": 2,
+    "ratingSignals": 4
+  },
+  "status": "needs-editorial-review"
+}

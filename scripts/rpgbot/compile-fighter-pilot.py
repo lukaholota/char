@@ -1,0 +1,329 @@
+#!/usr/bin/env python3
+"""Compile the Fighter 2014 worksheet into a private unpublished draft.
+
+Preview is read-only. --apply creates the article and technical review only when
+both destinations are absent, so a subsequent run cannot replace editorial work.
+"""
+
+import argparse
+import copy
+import hashlib
+import json
+import re
+from importlib.util import module_from_spec, spec_from_file_location
+from pathlib import Path
+
+
+HERE = Path(__file__).resolve().parent
+SPEC = spec_from_file_location("prepare_fighter_pilot", HERE / "prepare-fighter-pilot.py")
+PREPARE = module_from_spec(SPEC)
+SPEC.loader.exec_module(PREPARE)
+BASE = PREPARE.PREPARE
+
+ARTICLE_ID = "rpgbot-fighter-2014"
+TRANSLATION_ID = "translation-rpgbot-fighter-2014-draft1"
+SCORE = {"red": 1, "orange": 2, "green": 3, "blue": 4}
+TEXT_LINK_LABELS = {
+    "block-section-introduction-2": ["Чемпіон", "Потойбічний лицар"],
+    "block-section-introduction-6/item/0": ["Гайд із рас для Воїна"],
+    "block-section-introduction-6/item/1": ["Гайд із підкласів Воїна"],
+    "block-section-introduction-6/item/2": ["Гайд із заклинань Потойбічного лицаря"],
+    "block-section-introduction-6/item/3": ["Гайд із рольового відіграшу Воїна"],
+    "block-section-introduction-6/item/4": ["Подкаст RPGbot: оптимізація Воїна в D&D 5e"],
+    "block-section-introduction-7": ["класовий гайд Воїна 2024 року"],
+    "block-section-disclaimer-3": ["стан оптимізації персонажів D&D 5e 2014"],
+    "block-section-class-features-1": ["«Додаткові класові уміння»"],
+    "block-section-class-features-8": ["практичному гайді з бойових стилів"],
+    "block-section-class-features-9/item/4": ["PHB", "трохи більше за 1 шкоди на атаку"],
+    "block-section-class-features-12": ["гайд із підкласів Воїна"],
+    "block-section-optional-class-features-2": ["практичному гайді з додаткових класових умінь"],
+    "block-section-races-4": ["гайд із рас для Воїна"],
+    "block-section-feats-2": ["гайдах рис D&D 2024"],
+    "block-section-feats-3/item/22": ["Посвячений у магію", "PHB", "гайді з магічних рис"],
+    "block-section-feats-3/item/25": ["TCoE", "гайді з Метамагії Чародія"],
+    "block-section-feats-3/item/27": ["PHB", "практичний гайд із верхового бою"],
+    "block-section-feats-3/item/35": ["TCoE", "гайді з магічних рис"],
+    "block-section-feats-3/item/41": ["Рубака", "TCoE", "хибу танка"],
+    "block-section-weapons-2": ["практичному гайді зі зброї"],
+    "block-section-multiclassing-1": ["практичному гайді з мультикласування"],
+    "block-section-magic-items-legendary-1/item/13": ["DMG", "Практичному посібнику з Бажання"],
+    "block-section-example-1": ["Описову вставку надав dScryb", "партнерське посилання"],
+    "block-section-example-6": ["гайді з підкласу Чемпіона"],
+}
+
+
+def parse_worksheet(content):
+    first = content.splitlines()[0]
+    if not first.startswith("# ") or not first[2:].strip():
+        raise ValueError("Missing Ukrainian article title")
+    headings = {}
+    for match in re.finditer(r"^<!-- sectionId: ([^ ]+) -->\n\n\*\*Український заголовок:\*\*\n([^\n]+)", content, re.M):
+        key, heading = match.groups()
+        if key in headings:
+            raise ValueError(f"Duplicate section: {key}")
+        headings[key] = heading.strip()
+    rows = {}
+    pattern = r"^### ([^ \n]+) · (абзац|пункт|заголовок таблиці|комірка таблиці) · ([^\n]+)\n(.*?)(?=^### |^## |\Z)"
+    for match in re.finditer(pattern, content, re.M | re.S):
+        key, kind, tag, body = match.groups()
+        if key in rows:
+            raise ValueError(f"Duplicate worksheet key: {key}")
+        answer = re.search(r"\*\*Українською:\*\*\n(.*?)\s*\Z", body, re.S)
+        if not answer or not answer.group(1).strip():
+            raise ValueError(f"Untranslated worksheet key: {key}")
+        rows[key] = (answer.group(1).strip(), kind, tag)
+    if len(headings) != content.count("<!-- sectionId:") or len(rows) != content.count("\n### "):
+        raise ValueError("Worksheet contains malformed section or fragment headers")
+    return first[2:].strip(), headings, rows
+
+
+def restore_unpaired_link_markers(value, links):
+    for link in links:
+        paired_marker = re.compile(r"\{\{([^{}|]+)\|" + re.escape(link["text"]) + r"\}\}")
+        value = paired_marker.sub(lambda match: f"{match.group(1)}{{{{{link['text']}}}}}", value)
+    return value
+
+
+def inline_nodes(value, source_nodes, key):
+    links = [node for node in source_nodes if node["type"] == "link"]
+    value = restore_unpaired_link_markers(value, links)
+    clean_value = value
+    for link in links:
+        clean_value = clean_value.replace(f"{{{{{link['text']}}}}}", "")
+    if not links:
+        return [{"type": "text", "text": clean_value}]
+    labels = TEXT_LINK_LABELS.get(key)
+    if labels is not None and len(labels) != len(links):
+        raise ValueError(f"Incorrect link-label count: {key}")
+    spans = []
+    for index, link in enumerate(links):
+        label = link["text"]
+        marker = f"{{{{{label}}}}}"
+        if marker in value:
+            if value.count(marker) != 1:
+                raise ValueError(f"Ambiguous linked label: {key}: {label}")
+            prefix = value[:value.index(marker)]
+            translated = prefix.rsplit(": ", 1)[-1]
+            if not translated or translated not in clean_value:
+                raise ValueError(f"Missing linked name: {key}: {label}")
+            start = clean_value.index(translated)
+            end = start + len(translated)
+            superscript = False
+        elif labels is not None:
+            translated = labels[index]
+            if clean_value.count(translated) != 1:
+                raise ValueError(f"Missing or ambiguous translated link: {key}: {translated}")
+            start = clean_value.index(translated)
+            end = start + len(translated)
+            superscript = translated == label and f"({label})" in clean_value
+            if superscript:
+                start -= 1
+                end += 1
+        elif f"({label})" in clean_value:
+            if clean_value.count(f"({label})") != 1:
+                raise ValueError(f"Ambiguous abbreviation: {key}: {label}")
+            start = clean_value.index(f"({label})")
+            end = start + len(label) + 2
+            superscript = True
+        else:
+            raise ValueError(f"No translated link label: {key}: {label}")
+        spans.append((start, end, superscript, link))
+    if spans != sorted(spans, key=lambda item: item[0]):
+        raise ValueError(f"Translated links changed source order: {key}")
+    result = []
+    cursor = 0
+    for start, end, superscript, link in spans:
+        if start < cursor:
+            raise ValueError(f"Overlapping link labels: {key}")
+        if start > cursor:
+            result.append({"type": "text", "text": clean_value[cursor:start]})
+        label = clean_value[start:end]
+        if superscript:
+            if label != f"({link['text']})":
+                raise ValueError(f"Invalid source abbreviation: {key}")
+            result += [{"type": "superscript", "text": "("},
+                       {"type": "link", "text": link["text"], "href": link["href"]},
+                       {"type": "superscript", "text": ")"}]
+        else:
+            result.append({"type": "link", "text": label, "href": link["href"]})
+        cursor = end
+    if cursor < len(clean_value):
+        result.append({"type": "text", "text": clean_value[cursor:]})
+    return result
+
+
+def all_links(sections):
+    result = []
+    for section in sections:
+        for block in section["blocks"]:
+            if block["type"] == "paragraph":
+                groups = [block["content"]]
+            elif block["type"] == "list":
+                groups = block["items"]
+            elif block["type"] == "table":
+                groups = block["headers"] + [cell for row in block["rows"] for cell in row]
+            else:
+                raise ValueError(f"Unsupported source block: {block['type']}")
+            result.extend(node["href"] for nodes in groups for node in nodes if node["type"] == "link")
+    return result
+
+
+def compile_document(stage, sheet):
+    title, headings, rows = parse_worksheet(sheet)
+    revision = stage["sourceRevision"]
+    if f"<!-- sourceRevisionId: {revision['revisionId']} -->" not in sheet:
+        raise ValueError("Worksheet source revision differs from staging")
+    match = re.search(r"^<!-- issueReviewedAt: (\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z) -->$", sheet, re.M)
+    if not match:
+        raise ValueError("Missing technical issue review timestamp")
+    rating_map = PREPARE.rating_map(stage)
+    remaining_rows = set(rows)
+    remaining_headings = set(headings)
+    sections = []
+    ratings = []
+    issue_ratings = {}
+
+    def add_rating(key, section_id, block_id, option_id, signal):
+        rating_id = f"rating-fighter-2014-{len(ratings) + 1:03d}"
+        context = re.split(r"\{\{| \(|:", rows[key][0], 1)[0].strip()
+        record = {"ratingId": rating_id, "articleId": ARTICLE_ID,
+                        "translationRevisionId": TRANSLATION_ID, "sectionId": section_id,
+                        "targetBlockId": block_id, "optionId": option_id,
+                        "context": context, "explanationBlockId": block_id}
+        if signal["sourceColor"] is not None:
+            record["sourceColor"] = signal["sourceColor"]
+            record["score"] = SCORE[signal["sourceColor"]]
+        ratings.append(record)
+        for index in signal["issueIndices"]:
+            issue_ratings[index] = rating_id
+
+    def translate(key, nodes, kind, tag):
+        if key not in remaining_rows:
+            raise ValueError(f"Missing translated fragment: {key}")
+        remaining_rows.remove(key)
+        value, actual_kind, actual_tag = rows[key]
+        if (actual_kind, actual_tag) != (kind, tag):
+            raise ValueError(f"Changed source kind or rating: {key}")
+        if kind == "комірка таблиці" and re.fullmatch(r"[0-9]+", BASE.inline_text(nodes)):
+            if value != BASE.inline_text(nodes):
+                raise ValueError(f"Changed numeric table cell: {key}")
+        return inline_nodes(value, nodes, key)
+
+    for original in stage["sections"]:
+        section = copy.deepcopy(original)
+        section_id = section["sectionId"]
+        if section_id not in remaining_headings:
+            raise ValueError(f"Missing translated section: {section_id}")
+        remaining_headings.remove(section_id)
+        section["heading"] = headings[section_id]
+        for block in section["blocks"]:
+            block_id = block["blockId"]
+            if block["type"] == "paragraph":
+                signal = rating_map.get(block_id)
+                block["content"] = translate(block_id, block["content"], "абзац",
+                                             signal["sourceClass"] if signal else "без оцінки")
+                if signal:
+                    add_rating(block_id, section_id, block_id, f"{section_id}-block-{block_id}", signal)
+            elif block["type"] == "list":
+                for index, nodes in enumerate(block["items"]):
+                    key = f"{block_id}/item/{index}"
+                    signal = rating_map.get(key)
+                    tag = signal["sourceClass"] if signal else "без оцінки"
+                    block["items"][index] = translate(key, nodes, "пункт", tag)
+                    if signal:
+                        add_rating(key, section_id, block_id, f"{section_id}-item-{index}", signal)
+            elif block["type"] == "table":
+                for index, nodes in enumerate(block["headers"]):
+                    if BASE.inline_text(nodes).strip():
+                        block["headers"][index] = translate(f"{block_id}/header/{index}", nodes,
+                                                              "заголовок таблиці", "без оцінки")
+                for row_index, row in enumerate(block["rows"]):
+                    for cell_index, nodes in enumerate(row):
+                        if BASE.inline_text(nodes).strip():
+                            row[cell_index] = translate(f"{block_id}/row/{row_index}/{cell_index}", nodes,
+                                                         "комірка таблиці", "без оцінки")
+            else:
+                raise ValueError(f"Unsupported source block: {block['type']}")
+        sections.append(section)
+    if remaining_rows or remaining_headings:
+        raise ValueError(f"Extra translated fragments or sections: {sorted(remaining_rows)}, {sorted(remaining_headings)}")
+    source_links = all_links(stage["sections"])
+    if all_links(sections) != source_links:
+        raise ValueError("Translated link targets or order differ from staging")
+    decisions = []
+    for index, issue in enumerate(stage["issues"]):
+        code = issue["code"]
+        if code == "provisional-id":
+            continue
+        if code == "rating-signal-review":
+            if index in issue_ratings and index in (25, 26, 27, 28, 139):
+                continue  # Mixed or absent source color remains unresolved for editorial review.
+            if index in issue_ratings:
+                decision = {"issueIndex": index, "disposition": "preserved",
+                            "evidence": "Source-rated list item matched by text and order; color retained",
+                            "ratingIds": [issue_ratings[index]]}
+            elif index < 4:
+                decision = {"issueIndex": index, "disposition": "excluded-noncontent",
+                            "evidence": "Rating legend, not an option recommendation"}
+            elif index in PREPARE.INLINE_COLOR_WORDS:
+                decision = {"issueIndex": index, "disposition": "excluded-noncontent",
+                            "evidence": "Conditional or hypothetical color word inside item explanation, not a separate option"}
+            else:
+                raise ValueError(f"Unmatched source rating issue: {index}")
+        elif code == "nested-markup-review" and issue["detail"] == "link inside superscript":
+            decision = {"issueIndex": index, "disposition": "preserved",
+                        "evidence": "Abbreviation URL and superscript delimiters retained in translated item"}
+        elif code == "unsupported-block" and "article-splash-image" in issue["detail"]:
+            decision = {"issueIndex": index, "disposition": "excluded-noncontent",
+                        "evidence": "Decorative splash image without analytical prose"}
+        elif code == "list-paragraphs-review":
+            decision = {"issueIndex": index, "disposition": "preserved",
+                        "evidence": "Full list item prose retained as a translated list item"}
+        elif code == "blockquote-review":
+            decision = {"issueIndex": index, "disposition": "preserved",
+                        "evidence": "Quote prose and attribution retained as a translated paragraph"}
+        else:
+            raise ValueError(f"Unreviewed source issue: {index}: {code}")
+        decisions.append(decision)
+    document = {"sources": [{"sourceId": revision["sourceId"], "rulesets": ["RULES_2014"]}],
+                "sourceRevisions": [revision],
+                "article": {"articleId": ARTICLE_ID, "sourceId": revision["sourceId"],
+                            "slug": "fighter-2014", "ruleset": "RULES_2014",
+                            "titleUk": title, "titleEn": revision["title"],
+                            "topics": ["Воїн", "класовий гайд", "риси"], "status": "unpublished"},
+                "translations": [{"translationRevisionId": TRANSLATION_ID, "articleId": ARTICLE_ID,
+                                  "sourceRevisionId": revision["revisionId"],
+                                  "status": "draft", "sections": sections}],
+                "ratings": ratings}
+    review = {"sourceRevisionId": revision["revisionId"], "reviewedAt": match.group(1),
+              "issueDecisions": decisions}
+    metrics = {"sections": len(sections), "fragments": len(rows), "links": len(source_links),
+               "ratings": len(ratings), "issueDecisions": len(decisions)}
+    return document, review, metrics
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("stage", type=Path)
+    parser.add_argument("worksheet", type=Path)
+    parser.add_argument("directory", type=Path)
+    parser.add_argument("--apply", action="store_true", help="create absent outputs, never replace drafts")
+    args = parser.parse_args()
+    stage = json.loads(args.stage.read_text())
+    document, review, metrics = compile_document(stage, args.worksheet.read_text())
+    paths = [(args.directory / "uk" / f"{ARTICLE_ID}.json", document),
+             (args.directory / "reviews" / f"{stage['sourceRevision']['revisionId']}.json", review)]
+    if args.apply and any(path.exists() for path, _ in paths):
+        raise FileExistsError("At least one output already exists; refusing to replace either")
+    for path, payload in paths:
+        encoded = (json.dumps(payload, ensure_ascii=False, indent=2) + "\n").encode()
+        print(json.dumps({**metrics, "output": str(path), "sha256": hashlib.sha256(encoded).hexdigest(),
+                          "exists": path.exists()}, ensure_ascii=False))
+        if args.apply:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            with path.open("xb") as handle:
+                handle.write(encoded)
+
+
+if __name__ == "__main__":
+    main()

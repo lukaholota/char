@@ -1,0 +1,334 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "bard-spirits-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-bard-spirits-2014-draft1",
+    "sourceRevisionId": "rpgbot-f5d1ee6097275a86-115160671636eb6e"
+  },
+  "exampleSection": "section-example-build-minor-scales-are-creepy",
+  "levelTableSection": "section-levels",
+  "classKey": "BARD_2014",
+  "subclassKey": "COLLEGE_OF_SPIRITS",
+  "raceKey": "DRAGONBORN_GEM",
+  "backgroundKey": "HAUNTED_ONE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 8,
+    "WIS": 10,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2,
+      "spells": {
+        "knownSpellKeys": [
+          "dissonant-whispers"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "subclassKey": "COLLEGE_OF_SPIRITS",
+      "expertise": [
+        "INTIMIDATION",
+        "PERSUASION"
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "shatter"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "DRAGON_FEAR",
+      "spells": {
+        "cantripKeys": [
+          "mage-hand"
+        ],
+        "knownSpellKeys": [
+          "phantasmal-force"
+        ]
+      },
+      "section": "section-feats"
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "enemies-abound"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "spells": {
+        "knownSpellKeys": [
+          "hypnotic-pattern"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 8,
+      "featKey": "TELEKINETIC",
+      "featOptions": [
+        {
+          "optionNameEng": "TELEKINETIC Ability (Charisma)"
+        }
+      ],
+      "section": "section-feats",
+      "spells": {
+        "knownSpellKeys": [
+          "raulothims-psychic-lance"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "spells": {
+        "knownSpellKeys": [
+          "hold-monster"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "expertise": [
+        "DECEPTION",
+        "ARCANA"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "synaptic-static"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "eyebite"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "featKey": "FEY_TOUCHED",
+      "featOptions": [
+        {
+          "optionNameEng": "FEY_TOUCHED Ability (Charisma)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "forcecage"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 15,
+      "spells": {
+        "knownSpellKeys": [
+          "dominate-monster"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true,
+      "section": "section-feats"
+    },
+    {
+      "level": 17,
+      "spells": {
+        "knownSpellKeys": [
+          "psychic-scream"
+        ]
+      }
+    },
+    {
+      "level": 18,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "openAdvancement": true,
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Заклинання, яких немає у списку Барда",
+      "reason": "Автор називає Фантомного вбивцю (7-й), Розщеплення розуму (10-й), Обачливість і Планарний перехід (14-й), Масове зцілення і Бажання (18-й); платформа відхиляє їх (помилка компілятора: «Обране заклинання не з вашого списку класу або зависокого рівня»), бо їх немає у списку Барда в каталозі. Гравець обирає ці заклинання сам (вибір платформи, автор їх називає).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Експертиза на 10-му рівні",
+      "reason": "Автор пише «будь-які 2» і не називає навички; пресет бере Обман та Аркану (вибір платформи, можна змінити на листі).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння на 10-му рівні",
+      "reason": "Автор пише «будь-яке 1»; його обирає гравець (вибір платформи).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Підвищення характеристик на 16-му та 19-му рівнях",
+      "reason": "Автор пише «будь-яка» і радить Статуру або Стійкого; пресет бере Статура +2 на обох рівнях (вибір платформи, можна змінити перед створенням).",
+      "section": "section-feats"
+    },
+    {
+      "field": "Заклинання Доторку феї",
+      "reason": "Автор бере Героїзм на 12-му рівні; заклинання риси на підвищенні платформа не записує, поіменно видається лише Туманний крок.",
+      "section": "section-feats"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/bard-spirits-2014.webp",
+    "title": "Бард — Колегія духів, Самоцвітний дракононароджений",
+    "description": "Бард Колегії духів із заклинаннями-страхіттями: Самоцвітний дракононароджений, Переслідуваний з Магією та Релігією, Огидний сміх Таші й Зурочення.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA",
+      "DEX",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "INTIMIDATION",
+        "PERSUASION"
+      ],
+      "race": [],
+      "background": [
+        "ARCANA",
+        "RELIGION"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": [
+      "Аметистовий дракон"
+    ],
+    "platformChoices": [
+      "raceOptions"
+    ],
+    "languages": [
+      "ABYSSAL",
+      "DEEP_SPEECH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "minor-illusion",
+        "vicious-mockery"
+      ],
+      "knownSpellKeys": [
+        "bane",
+        "healing-word",
+        "tashas-hideous-laughter",
+        "sleep"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Мала ілюзія й Злісне глузування та заклинання Зурочення, Цілюще слово, Огидний сміх Таші й Сон названо автором.",
+      "platformChoices": []
+    },
+    "abilityExplanation": "Самоцвітний дракононароджений за правилами Таші: +2 до Харизми й +1 до Спритності, тож Харизма 17, Спритність 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Обман, Залякування й Переконання — від Барда. Автор бере Переслідуваного заради Магії та Релігії: каталог фіксує Магію й Розслідування, тому навички записано як налаштовану передісторію (правило PHB «Налаштування передісторії»). Мови — Безодню та Глибинну — автор називає сам. Родовід дракона (Аметистовий) автор не називає — ми обрали за вас, вибір платформи.",
+    "equipmentExplanation": "Автор не називає стартового спорядження: рапіру, набір дипломата, лютню, шкіряну броню й кинджал ми обрали за вас — вибір платформи."
+  },
+  "revision": 2
+}

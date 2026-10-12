@@ -12,8 +12,9 @@ import { buildSelectableCardProps } from "@/lib/components/characterCreator/sele
 import clsx from "clsx";
 import { HelpCircle } from "lucide-react";
 
-type ChoiceOptions = ClassI["classChoiceOptions"];
-type ChoiceOption = ChoiceOptions[number];
+// Class and subclass option rows share these fields; the cards need nothing else.
+type ChoiceOption = Pick<ClassI["classChoiceOptions"][number], "choiceOptionId" | "choiceOption">;
+type ChoiceOptions = ChoiceOption[];
 type Selections = Record<string, number | number[]>;
 
 type Props = {
@@ -25,7 +26,7 @@ type Props = {
     pickCount: number;
     selections: Selections;
   };
-  onSelectOption: (groupName: string, optionId: number, options: ChoiceOptions) => void;
+  onSelectOption(groupName: string, optionId: number, options: ChoiceOptions): void;
   onShowFeatures: (title: string, features?: ChoiceOption["choiceOption"]["features"]) => void;
 };
 

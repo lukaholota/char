@@ -1,0 +1,972 @@
+{
+  "buildId": "build-warlock-stout-halfling-celestial-2014",
+  "revisionId": "build-warlock-stout-halfling-celestial-2014-v4",
+  "ruleset": "RULES_2014",
+  "title": "— Чорнокнижник-Небожитель, сапорт",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-warlock-celestial-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+      "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "WARLOCK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CELESTIAL"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Repelling Blast"
+          },
+          {
+            "optionNameEng": "Fiendish Vigor"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hellish-rebuke"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Talisman"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "misty-step"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceOptions": [
+          {
+            "drop": {
+              "optionNameEng": "Fiendish Vigor"
+            },
+            "add": {
+              "optionNameEng": "Rebuke of the Talisman"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "BOUNTIFUL_LUCK",
+        "spells": {
+          "cantripKeys": [
+            "minor-illusion"
+          ],
+          "knownSpellKeys": [
+            "lesser-restoration"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Maddening Hex"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hunger-of-hadar"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "revivify"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Protection of the Talisman"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wall-of-fire"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 1
+          },
+          {
+            "ability": "CHA",
+            "amount": 1
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "summon-aberration"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Grasp of Hadar"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "synaptic-static"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "mind-sliver"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "greater-restoration"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "classOptions": [
+          {
+            "optionNameEng": "Bond of the Talisman"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Shrouded in Shadow"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ELDRITCH_ADEPT",
+        "featOptions": [
+          {
+            "optionNameEng": "Agonizing Blast"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Visions of Distant Realms"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-celestial-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+          "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "CELESTIAL",
+    "raceKey": "HALFLING_2014",
+    "backgroundKey": "FACTION_AGENT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Почнемо з характеристик, близьких до рекомендованих у нашому довіднику Чорнокнижника{{Warlock Handbook}}, і вкладемо наше +2 у Харизму, а +1 — у Спритність.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 15 15 Інтелект 8 8 Мудрість 8 8 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Кремезний напіврослик{{Stout Halfling}} з налаштованим походженням{{Custom Origin}}. Нам потрібні «Удача»{{Lucky}} і «Щедра удача»{{Bountiful Luck}}, щоб додати ще більше можливостей підтримки. Якщо ви граєте в Еберроні{{Eberron}}, підійдуть також {{Мітка Зцілення|Mark of Healing}} і {{Мітка Гостинності|Mark of Hospitality}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Агент фракції{{Faction Agent}}. Дивно, але в списку навичок Чорнокнижника немає Переконання, тож ми хочемо отримати його від передісторії. Це дає нам і Аналіз Поведінки, і Переконання, а також дві мови для підтримки нашої ролі «обличчя».",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Із класу беремо Магію й Історію, тож маємо Магію, Історію, Аналіз Поведінки та Переконання. Мови ми отримали від передісторії, тому жодних володінь інструментами в нас немає.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Щедру удачу»{{Bountiful Luck}}. Вона дозволяє ділитися нашою расовою особливістю «Удача»{{Lucky}} як реакцією.\n\nНа 8-му рівні розділимо Покращення Характеристик між Статурою та Харизмою.\n\nНа 12-му рівні доведемо Харизму до 20.\n\nНа 16-му рівні візьмемо «Містичного адепта (Мучливий вибух)»{{Eldritch Adept (Agonizing Blast)}}. Краще пізно, ніж ніколи, чи не так?\n\nНа 19-му рівні візьмемо «Картоманта»{{Cartomancer}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Потойбічний покровитель{{Otherworldly Patron}}: Небожитель\nЗаклинання покровителя\nБонусні замовляння:\n– Світло\n– Священне полумʼя\nСвітило зцілення\nМагія пакту\nВідомі заклинання:\n– Проклін\n– Захист від зла й добра\nВідомі замовляння:\n– Створення багаття\n– Позамежний заряд",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Потойбічні виклики{{Eldritch Invocations}}:\n– Відштовхувальний вибух\n– Бісівська стійкість\nНове відоме заклинання:\n– Пекельна відсіч",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Дар пакту{{Pact Boon}}: Пакт талісмана\nНове відоме заклинання:\n– Туманний крок\nПеренавчання потойбічного виклику:\n– Бісівська стійкість → Відплата талісмана",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Щедра удача\nНове відоме замовляння:\n– Мала ілюзія\nНове відоме заклинання:\n– Мале відновлення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Новий потойбічний виклик:\n– Божевільне прокляття\nНове відоме заклинання:\n– Голод Хадара",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Променева душа\nНове відоме заклинання:\n– Відродження",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Новий потойбічний виклик:\n– Захист талісмана\nНове відоме заклинання:\n– Стіна вогню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Статура 15 → 16, Харизма 17 → 18\nНове відоме заклинання:\n– Виклик аберації",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Новий потойбічний виклик:\n– Хватка Хадара\nНове відоме заклинання:\n– Синаптичний розряд",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Небесне сяйво\nНове відоме замовляння:\n– Розщеплення Розуму",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Містичний арканум: Проклятуще око\nНове відоме заклинання:\n– Більше відновлення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Харизма 18 → 20\nНовий потойбічний виклик:\n– Узи талісмана",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Містичний арканум: Планарний перехід\nНове відоме заклинання:\n– Будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Пекуче відродження{{Searing Vengeance}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Містичний арканум: Нестерпна темрява\nНове відоме заклинання:\n– Будь-яке\nНовий потойбічний виклик:\n– Вкритий тінню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Містичний адепт (Мучливий вибух)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Містичний арканум: Передбачення\nНове відоме заклинання:\n– Будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Новий потойбічний виклик:\n– Видіння далеких царств",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Картомант\nНове відоме заклинання:\n– Будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Містичний майстер{{Eldritch Master}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Містичний арканум",
+        "reason": "Автор називає Проклятуще око (11-й рівень), Планарний перехід (13-й), Нестерпну темряву (15-й) і Передбачення (17-й); платформа не записує вибір арканума, тож їх слід додати вручну.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання «будь-які»",
+        "reason": "На 13, 15, 17 і 19-му рівнях автор не називає нового відомого заклинання; це вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Рівень 19: риса Картомант",
+        "reason": "Автор бере на 19-му рівні рису «Картомант» (Cartomancer), якої немає в каталозі 2014, тож 19-й рівень додано без риси й підвищення, їх можна обрати на листі. Нове відоме заклинання на цьому рівні автор називає «будь-яке» (вибір гравця).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Виклик 2-го рівня «Бісівська стійкість»",
+        "reason": "Автор називає виклик «Fiendish Resilience» (це уміння Почвари, а не виклик) і пояснює, що він лише тимчасово допомагає вижити до 3-го рівня; записано виклик Вогняна енергійність (Fiendish Vigor), який дає тимчасові ХП, а на 3-му рівні його замінено на Відплату талісмана, як радить автор.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-celestial-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-celestial-2014-draft1",
+            "sourceRevisionId": "rpgbot-bcfc3c7f2a6d8814-74803e68a5898177",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

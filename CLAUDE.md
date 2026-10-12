@@ -11,11 +11,11 @@ journal relevant to the request. Read applicable decisions in [docs/DECISIONS.md
 before proposing an alternative. Do not load every objective or the full decision history for
 an unrelated edit. [docs/STATE.md](docs/STATE.md) contains dated measurements, not a live status.
 
-Use `~/.claude/CLAUDE.md` for the owner's style and discovery preferences. Read the shared
-project memory index at
+The owner's style and discovery preferences (`~/.claude/CLAUDE.md`) and the shared memory index
+load automatically. Read the memory notes relevant to this task; open the index at
 `~/.claude/projects/-Users-luka-Documents-code-spells-holota-family/memory/MEMORY.md`
-and the notes relevant to this task. Current code, recent owner decisions and KR journals
-supersede older snapshots. Record progress in the relevant journal.
+only when it is not already in context (e.g. in a subagent). Current code, recent owner
+decisions and KR journals supersede older snapshots. Record progress in the relevant journal.
 
 ## Rules editions
 
@@ -77,7 +77,7 @@ Versions and runnable commands: [package.json](package.json).
   Keep this configuration unless the task changes it. Details: [test procedures](docs/WORKFLOWS.md#tests-and-ci).
 - Use [browser procedures](docs/WORKFLOWS.md#ui-and-browser-checks) for gestures, modal history,
   phone performance and UI changes. Preserve the site's chosen serif fonts; do not add motion
-  unless requested.
+  unless requested. For user-facing UI work, load the `ui-craft` skill.
 - Run the checks appropriate to the change. Before an authorized push, run all current CI
   guards from [.github/workflows/deploy.yml](.github/workflows/deploy.yml), then verify the deployment.
   A local fix or green local test is not proof that users received it.

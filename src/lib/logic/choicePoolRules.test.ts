@@ -63,3 +63,10 @@ it("O43 / KR43.8 — руни Рунного лицаря під воїном 20
   expect(Array.from({ length: 20 }, (_, index) => rule!.picksAtLevel(index + 1)))
     .toEqual([0, 0, 2, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]);
 });
+
+it("O49 — Шлях чотирьох стихій 2014: Співзвуччя зі стихіями дається саме, тож на 3-му рівні обирається одна дисципліна, далі по одній на 6, 11, 17", () => {
+  const rule = getChoicePoolRule({ scope: "subclass", groupName: CHOICE_GROUPS.FOUR_ELEMENTS_DISCIPLINES, subclassName: "WAY_OF_THE_FOUR_ELEMENTS" });
+  expect(rule).toBeDefined();
+  expect(Array.from({ length: 20 }, (_, index) => rule!.picksAtLevel(index + 1)))
+    .toEqual([0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0]);
+});

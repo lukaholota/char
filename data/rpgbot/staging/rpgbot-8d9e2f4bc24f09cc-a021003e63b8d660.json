@@ -1,0 +1,2108 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "a021003e63b8d6609cc37df386925f9f2e86defa98d735cdaa6518d097d0cd1a",
+  "sourceRevision": {
+    "revisionId": "rpgbot-8d9e2f4bc24f09cc-a021003e63b8d660",
+    "sourceId": "rpgbot-8d9e2f4bc24f09cc",
+    "fetchedAt": "2026-09-29T19:17:09.885107+00:00",
+    "sourceUpdatedAt": "2026-03-14T14:49:32-04:00",
+    "contentHash": "3a7f410d89e06c3d2592194c6d681146cd4eab9fd3dda4e747af3a5bfcc936d4",
+    "title": "DnD 5e Tal’Dorei Blood Magic Wizard Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-8d9e2f4bc24f09cc-a021003e63b8d660.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Blood Magic Wizard is all about damage. Right from your first subclass feature you’re rerolling dice to boost your damage output, and eventually Glyph of Hemorrhaging becomes a defining combat tactic for your whole party. And, while this makes your wizard a wonderful Blaster/Striker, it doesn’t do anything to improve your versatility."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With so much emphasis on damage output, it’s natural to compare Blood Magic to the other blast wizards: School of Evocation and War Magic. There’s some nuance here. War Magic is more durable, especially since it doesn’t eat its own hit points. Evocation is better at dropping area damage in close quarters. Blood Magic is comparatively self-centered until level 10, at which point you start picking targets for the party to dog pile onto (sometimes it’s “everything in the room”, but you get my point)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At low levels, you’re likely going to have trouble using your subclass features consistently and safely. Things get exciting at level 10, but you need to live that long to see the payoff."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Blood Magic Wizard Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Blood Magic Wizard Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#blood-magic-wizard-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Blood Magic Wizard Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#blood-magic-wizard-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Blood Magic Wizard Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#blood-magic-wizard-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Blood Magic Wizard Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#blood-magic-wizard-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Blood Magic Wizard Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#blood-magic-wizard-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – I Want to Grow Up to Be a Machine Gun",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#example-build-i-want-to-grow-up-to-be-a-machine-gun"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/taldorei-blood-magic-wizard/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Blood Magic Wizard Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Blood Channeling"
+              },
+              {
+                "type": "text",
+                "text": ": Expensive spell\n\t\tcomponents won’t become a problem for a long time, but when they do it’s\n\t\tgreat to be able to cast things like Stoneskin without bankrupting yourself.\n\t\tStill, in a game where the value of gold is so… vague, the ability to\n\t\tmitigate the cost of spells has little impact."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sanguine Burst"
+              },
+              {
+                "type": "text",
+                "text": ": It’s scary to use this at\n\t\tlow levels when you barely have double-digit hit points, but it’s pretty\n\t\tgood. I think you can choose to activate this after making the game roll, so\n\t\tif you roll a bunch of ones you can spend some hp to fix it. And even with\n\t\tthe Wizard’s hp, the cost is extremely manageable. Rerolling damage dice for\n\t\ta Fireball costs just 3 hp, and if you can add more damage than the cost you\n\t\tpaid, I think you’re winning."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bond of Mutual Suffering"
+              },
+              {
+                "type": "text",
+                "text": ": This is fine,\n\t\tbut you never want to intentionally trigger it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Glyph of Hemorrhaging"
+              },
+              {
+                "type": "text",
+                "text": ": The damage applies\n\t\twhenever the creature is hit with an attack, and it doesn’t care where the\n\t\tattack come from. Summon a bunch of pets and have your party look into\n\t\ttwo-weapon fighting.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "It’s exceptionally easy to apply this, which makes it easy to keep the\n\t\t\tcurse in place. The target only needs to take damage from one of your\n\t\t\tspells. It’s not limited to leveled spells, it’s not limited to\n\t\t\tinstantaneous spells, and it doesn’t require a failed save or successful\n\t\t\tattack. Throw up Wall of Fire and curse everything in the room for the\n\t\t\trest of the fight. Sure, they might succeed on the Con save, but so what?\n\t\t\tYou can re-apply it next time they take damage."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thicker Than Water"
+              },
+              {
+                "type": "text",
+                "text": ": The healing effect is\n\t\tneat, but the damage resistance is better. Throw Polymorph on yourself and\n\t\tnow you’re a tyrannosaurus with resistance to B/P/S."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-blood-magic-wizard-ability-scores",
+      "heading": "Blood Magic Wizard Ability Scores",
+      "sourceAnchor": "blood-magic-wizard-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-blood-magic-wizard-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from your typical wizard, but pay extra attention to\n\tConstitution so that you have the hit points to fuel your class features."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-blood-magic-wizard-races",
+      "heading": "Blood Magic Wizard Races",
+      "sourceAnchor": "blood-magic-wizard-races",
+      "blocks": [
+        {
+          "blockId": "block-section-blood-magic-wizard-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "See the\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Wizard Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-blood-magic-wizard-feats",
+      "heading": "Blood Magic Wizard Feats",
+      "sourceAnchor": "blood-magic-wizard-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-blood-magic-wizard-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Blood magic doesn’t have any unique interactions with published feats, but Tal’Dorei: Campaign Setting Reborn does include some new feat options. Notables are included below, but check our "
+            },
+            {
+              "type": "link",
+              "text": "Tal’Dorei Feats Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/taldorei-feats/"
+            },
+            {
+              "type": "text",
+              "text": " for the rest. See the "
+            },
+            {
+              "type": "link",
+              "text": "Wizard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#races"
+            },
+            {
+              "type": "text",
+              "text": " for other wizard feat options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-blood-magic-wizard-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Spelldriver"
+              },
+              {
+                "type": "link",
+                "text": "T:CSR",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\nWizards have some great Bonus Action spells including Misty Step and Thunder Step. However, they also have plenty of options to consistently use their bonus action, so this is more useful for blaster wizards who aren’t primarily relying on big Concentration spells. Fortunately, the Blood Magic Wizard is exactly that kind of wizard."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vital Sacrifice"
+              },
+              {
+                "type": "link",
+                "text": "T:CSR",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tWe can make effective use of all three options, but beware the hp cost on a wizard."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-blood-magic-wizard-weapons",
+      "heading": "Blood Magic Wizard Weapons",
+      "sourceAnchor": "blood-magic-wizard-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-blood-magic-wizard-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "See the\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Wizard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-blood-magic-wizard-armor",
+      "heading": "Blood Magic Wizard Armor",
+      "sourceAnchor": "blood-magic-wizard-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-blood-magic-wizard-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "See the\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Wizard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "See the\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Wizard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": ". For the most part the Blood Magic Wizard’s multiclassing options are no\n\tdifferent from other wizards, but I’ll include other subclasses from Tal’dorei\n\tbelow."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cleric"
+              },
+              {
+                "type": "text",
+                "text": ": One level of blood cleric makes\n\t\tfor an incredibly effective Blaster/Striker."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+      "heading": "Example Build – I Want to Grow Up to Be a Machine Gun",
+      "sourceAnchor": "example-build-i-want-to-grow-up-to-be-a-machine-gun",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-i-want-to-grow-up-to-be-a-machine-gun-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "Scorching Ray goes brrrrrr"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-i-want-to-grow-up-to-be-a-machine-gun-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I won’t offer specific spell selections in many cases. There are a few that have specific interactions with the build, but otherwise any spell that’s good for the Wizard will fit nicely."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "parentSectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Entirely typical for a wizard. We’ll put a +2 into Constitution and a +1 into Intelligence. We want to keep our hit points high to survive our class features."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hexblood. We haven’t used Hexblood in a handbook yet somehow, and Blood Magic hits an interesting use case where a wizard is incentivized to rely on attacks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get the choice of +2/+1 or three +1s, so we’ll take +2/+1 to start with 17 Constitution and 16 Intelligence. We’ll choose flight from our Ancestral Legacy trait (maybe we’re a hexblood aarakocra?). We’re mostly here for the ability to cast Hex, especially since we can use spell slots to re-cast it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any. It doesn’t impact the build."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Anything that works for any wizard is fine. We’re not doing anything unique with skills here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take Vital Sacrifice at 4th level. We’re going to lean hard into damage output, especially once we pick up Glyph of Hemorrhaging at level 10."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 we’ll grab Eldritch Adept (Fiendish Vigor) so that we can make the cost of Vital Sacrifice effectively for free. Vital Sacrifice really needs a cap on how many boons you can have. Spending 10 minutes to accumulate as many as 600 boons before stomping through several fights unchallenged means that the 1-hour expiration timer hardly matters."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since we’re starting with 17 Constitution, we can easily sdd Resilient (Con) into the build, so we’ll do so at 19th level.  If you start with 17 Intelligence instead of 17 Constitution, Fey Touched, Shadow Touched, and Telekinetic are all good choices, but they don’t fit neatly into the rest of the build without disrupting our tactics."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-i-want-to-grow-up-to-be-a-machine-gun",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Recovery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fire Bolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Prestidigitation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Ray of Frost"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– False Life"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Find Familiar"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 5 others"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re going to lean hard into Hex as an offensive option. Much like a warlock, our go-to tactic in combat is Hex and a cantrip. We want Find Familiar to get an owl which can then Help to get us Advantage on our attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "False Life won’t get used right now, but it will be important once we pick up Blood Channeling Vital Sacrifice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Tradition: Blood Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blood Channeling"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sanguine Burst"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Blood Channeling won’t be immediately useful. Sanguine Boost is a helpful way to boost our damage, so if you’re using spells like Burning Hand’s or Tasha’s Caustic Brew, you can boost your damage by rerolling low dice at the cost of a single hit point."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Scorching Ray"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Scorching Ray is the centerpiece of our combat tactics. With Hex running, we boost its damage by 50%. 9d6 damage with a 2nd-level spell is excellent."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It will become increasingly important over time, both because there are so few good single-target damage spells and because it synergizes with Glyph of Hemorrhaging."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Vital Sacrifice"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Rime’s Binding Ice"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rime’s Binding Ice is a weird choice. It’s not a great spell, but if you can get the Con save to work, it reduces targets’ speed to 0, which puts you and your party at a huge advantage without consuming Concentration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If only we had a way to penalize targets’ Constitution saves! If only there was a way! Oh look: Vital Sacrifice. -1d4 to that con save, chump."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Of course, Vital Sacrifice eats hp, and that’s scary for a wizard. Fortunately, we have False Life, and we can use Arcane Recovery to recover 1st-level spell slots. Cast False Life, eat the hp with Vital Sacrifice to accumulate some boons, then take a short rest and use Arcane Recovery to get back those 1st-level spell slots to use for Hex."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The impossible dream is to walk into a fight with a deep well of Vital Sacrifice boons, cast Hex, then machine gun something with Scorching Ray and use our boons to boost both our attack and damage. 5d6 damage per shot with 3 shots is a ton of damage. We’re a tiny bit behind the "
+                },
+                {
+                  "type": "link",
+                  "text": "Fundamental Math",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": ", but since Vital Sacrifice can offset the math it’s not a problem. If we boost our three attacks and damage on all three, we hit roughly 44.63 DPR, which is just into the “Dude Stop” range. We can only do that a few times per day at this level, unfortunately, but peaking at 4 people worth of damage output is pretty great."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fireball"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Vampiric Touch"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fireball because Fireball. Vampiric Touch because you can use it, use Sanguine Burst to reroll dice, then immediately heal yourself. The damage is also boosted by Hex."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I don’t know how Vampiric Touch works with Find Familiar. I think RAW you only get to attack through your familiar once when you initially cast the spell, but maybe your DM is willing to discuss it. Ideally, you want to use Vital Sacrifice to get a few boons, then slap something with Vampiric Touch to heal yourself. You can use boons to boost both the attack and the damage, and boosting the necrotic damage dealt by Vampiric Touch also increases how much you heal."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Just remember not to activate Vital Sacrifice to generate new boons because you’ll force yourself to make a Concentration save."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bond of Mutual Suffering"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bond of Mutual Suffering is conceptually similar to Fiendish Rebuke: A nice insurance policy if someone is going to hit you, but you usually don’t want to go looking for an excuse to use it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Polymorph into something with a ton of hit points, then feed them to Vital Sacrifice for a mountain of boons. Walk into your next fight with more boons than you can possibly spend and start slinging scorching rays. It’s an expensive but exciting taste of what we can do next level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Eldritch Adept (Fiendish Vigor)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Vital Sacrifice deals damage to you that you can’t reduce in any way. Damage is subtracted from temporary hit points before regular hit points. Therefore, Vital Sacrifice will happily eat your now endless supply of temporary hit points until you go mad from boredom."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fiendish Vigor’s 1d4+4 temporary hp is technically low enough that Vital Sacrifice’s 1d6 damage could deal actual damage to you, but it’s a one in 24 chance. Talk to your DM about taking the average result: you’ll take one damage in exchange for 24 Vital Sacrifice boons. This is a good deal. Your 1d6+3 hit die will pay for at least 96 boons, and you have 8 hit dice to spend at this level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "TL;DR: You now start every fight with 8 temporary hp and a functionally infinite supply of boons."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Keep in mind that we’re now 2 points behind the Fundamental Math. If we can’t apply a Vital Sacrifice boon, we are in trouble. Fortunately, the +1d6 to attacks and the -1d4 will offset how relatively low our Intelligence is."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bigby’s Hand is great for repeatedly triggering Glyph of Hemorrhaging, and it keeps our Bonus Action in use, so it’s generally a good idea for blood wizards. But upcasting Scorching Ray with out boon nonsense does so much more damage so quickly that on this particular build it’s impossible to justify Bigby’s Hand."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "A 5th-level Scorching Ray fires 6 rays. With damage boosts from Vital Sacrifice and from Hex, each ray deals 5d6 damage. If we assume a 3 on the +1d6 to attack rolls from a boon, we can do 76.75 DPR with our best spell slot, easily passing the “Dude Stop” DPR range."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "And, of course, it gets better."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Glyph of Hemorrhaging"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Glyph of Hemorrhaging adds yet another d6 to each of our hits, provided that we can damage the target with a spell beforehand. Enter a room, magic missile the three biggest things to apply the glyph, then eliminate them one at a time with upcast Scorching Rays."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Assuming a 5th-level Scorching Ray with our best-case scenario, we now hit 94.5 DPR, putting us into the “Dude Stop” range until 14th level. But, of course, we’re going to keep getting better. We’ll add higher-level spell slots, and our Intelligence will finally increase, further our DPR with the same 5th-level spell slot."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Intelligence +2 (16=>18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our best-case DPR with a 5th-level Scorching Ray now hits 100.8, putting us in “Dude Stop” range until 16th level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Thicker Than Water"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ignore this. Blast things."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Intelligence +2 (18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The ASI comes online just in time for our 5th-level slot to say in the “Dude Stop” DPR range."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s weird having a build where the 9th-level spell isn’t really important. Foresight would massively boost your DPR, so consider that as your go-to option."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Mastery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shield"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Scorching Ray"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Shield because our DM is probably sick of our nonsense, and sadly Hex isn’t a wizard spell."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Scorching Ray because with Hex+Glyph of Hemorrhaging it’ll massively out-damage anything else that we could pick."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Resilient (Con)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This raises our Con mod, gets us a big pile of extra hp, and improves our Concentration saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Signature Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              []
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "rating-green wp-block-heading Blood Magic Wizard Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Blood Channeling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sanguine Burst"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bond of Mutual Suffering"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Glyph of Hemorrhaging"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Thicker Than Water"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Spelldriver"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Vital Sacrifice"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cleric"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-blood-magic-wizard-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-blood-magic-wizard-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-blood-magic-wizard-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-blood-magic-wizard-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-blood-magic-wizard-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-blood-magic-wizard-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-multiclassing-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-build-i-want-to-grow-up-to-be-a-machine-gun-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-example-build-i-want-to-grow-up-to-be-a-machine-gun-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-example-build-i-want-to-grow-up-to-be-a-machine-gun-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2572,
+    "sections": 17,
+    "blocks": 30,
+    "tables": 2,
+    "ratingSignals": 13
+  },
+  "status": "needs-editorial-review"
+}

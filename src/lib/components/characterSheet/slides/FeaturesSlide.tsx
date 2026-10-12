@@ -59,7 +59,8 @@ import {
 
 // Тягне форму рис конструктора разом із zod — сотні КБ, яких лист до першого відкриття не потребує.
 const FeatsSheetManagerModal = dynamic(() =>
-  import("@/lib/components/characterSheet/FeatsSheetManagerModal").then((module) => module.FeatsSheetManagerModal)
+  import("@/lib/components/characterSheet/FeatsSheetManagerModal").then((module) => module.FeatsSheetManagerModal),
+  { loading: () => null }
 );
 
 function translateFeatName(value: string): string {

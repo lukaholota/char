@@ -1,0 +1,2827 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "7a21528d431cb3bcb454d216a28292e63b69427a6d9a404419340d5d977c817e",
+  "sourceRevision": {
+    "revisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+    "sourceId": "rpgbot-6e96b12efc5cd03a",
+    "fetchedAt": "2026-09-29T19:14:54.549104+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:28:40-04:00",
+    "contentHash": "c5f1828e1a15b8bfa0cf76b031d365b0065d10cfd1b10acfbbe2b33c61c2edf4",
+    "title": "College of Swords Bard 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The College of Swords Bard is the second attempt to bring martial capabilities to the Bard, leaning into light armor and finesse weapons and adding a splash of Battle Master to the mix. The result is an exciting mix, though there are certainly some challenges. Thematically similar to College of Valor, College of Swords places more emphasis on offense than College of Valor, offering access to Fighting Style and some interesting tactical options via Blade Flourish."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Blade Flourish is the subclass’s signature ability, and it suffers from extremely frustrating resource constraints. It eats your Bardic Inspiration dice for pitifully weak abilities and a small damage boost. If you want similar capabilities, consider a College of Valor Bard (or any other bard, really) with the Martial Adept feat or a few levels of Battlemaster Fighter. This subclass might be effective in games that start at 14th level or above once Master’s Flourish comes into play, but in a normal game (most games start between levels 1 and 4 and end before they hit level 10), this won’t perform well compared to other optimized characters."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you plan to play College of Swords, the best advice I can offer is to take a level in Hexblade Warlock. That will get you proficiency with shields, access to weapon cantrips like Booming Blade, and the ability to use Charisma for attack and damage so that you can use medium armor and focus on Charisma rather than trying to split your ability score increases between Dexterity and Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s natural to compare College of Swords to College of Valor since both attempt to turn the Bard into a gish. College of Valor is more durable and better at supporting allies, while College of Swords has marginally better offensive options. Neither make a very good gish."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While the mechanics of College of Swords don’t hold up to scrutiny, I think that the concept is exciting, and there are some good ideas here. The biggest problem with the subclass is that Blade Flourish shares a resource pool with Bardic Inspiration, and Bardic Inspiration is too useful to spend on flourishes most of the time. As a quick fix: grant a pool of flourishes equal to the Bard’s Charisma modifier and either have the dice scaling follow Bardic Inspiration or lock the dice at 1d6 if that proves too powerful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Swords Bard Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Swords Bard Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Swords Bard Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Swords Bard Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Swords Bard Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Swords Bard Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Swords Bard Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example College of Swords Bard Build – Good Sir Scales",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/college-of-swords/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "College of Swords Bard Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Bonus Proficiencies"
+              },
+              {
+                "type": "text",
+                "text": ": Medium armor is nice\n\t\tuntil you get to 18 or 20 Dexterity, but you don’t get shields, so your AC\n\t\twon’t be as good as a College of Valor Bard. Scimitars are useful if you\n\t\tplan to use two-weapon fighting, which looks viable thanks to\n\t\tFighting Style. This class feature also allows you to use weapons in which\n\t\tyou are proficient as a spellcasting focus. This is useful when\n\t\tyou need to cast spells in the middle of combat, but the rules for Somatic components\nin 5e are incredibly frustrating, so two-weapon fighting builds will still need to juggle weapons in\norder to cast most spells."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fighting Style"
+              },
+              {
+                "type": "text",
+                "text": ": An improvement to your\n\t\toffensive abilities with weapons, but it largely locks you into using melee\n\t\tor thrown weapons. Without a shield, fighting in melee is hard for a class\n\t\twith d8 hit dice, and, unlike the Rogue you don’t have Uncanny Dodge to\n\t\tmitigate damage when your AC doesn’t hold up.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dueling"
+              },
+              {
+                "type": "text",
+                "text": ": Bards are spellcasters\n\t\t\t\tfirst, and having a free hand to perform Somatic Components means that\n\t\t\t\tyou don’t need to constantly juggle one of your weapons to cast a spell\n\t\t\t\twhich requires Somatic Components but not Material Components. Remember:\n\t\t\t\tyou can use a hand holding a Focus to perform somatic components\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "only"
+              },
+              {
+                "type": "text",
+                "text": " if the spell requires a material component without a\n\t\t\t\tlisted price."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Two-Weapon Fighting"
+              },
+              {
+                "type": "text",
+                "text": ": While this\n\t\t\t\tpresents a considerable boost to your weapon damage output, bards\n\t\t\t\talready have several abilities which consume their Bonus Action,\n\t\t\t\tincluding Bardic Inspiration and some spells, so in many turns you’ll\n\t\t\t\tneed to give up your additional attack in order to do something more\n\t\t\t\timportant."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blade Flourish"
+              },
+              {
+                "type": "text",
+                "text": ": Every flourish applies\n\t\tthe Inspiration die roll as extra damage to the creature, but the damage\n\t\tfeels like it was thrown on to make this feel more appealing, and I don’t\n\t\tthink it worked. The effects just aren’t good enough to justify spending a\n\t\tBardic Inspiration die.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "It’s not totally clear how the extra damage here works on a critical hit.\n\t\t\tNormally you can tell if an effect like Divine Smite or Hex is multiplied\n\t\t\tbecause it adds “extra damage” equal to some number of dice. Blade\n\t\t\tFlourish adds the number rolled on your inspiration die, so it’s\n\t\t\ttechnically a static numerical bonus like your ability modifier, even\n\t\t\tthough you roll for the damage. I haven’t found an answer on this one from\n\t\t\tJeremy Crawford, so the RAI is unclear. As a DM, I would allow the damage\n\t\t\tto be multiplied, but I don’t think that’s the intent, and I haven’t found\nan official answer."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Defensive Flourish"
+              },
+              {
+                "type": "text",
+                "text": ": You never roll\n\t\t\t\tmore than one die for your Bardic Inspiration, so it’s entirely possible\n\t\t\t\tthat you’ll roll a 1. The 1-round duration means that you’re spending\n\t\t\t\tone of your most powerful limited resources for an unpredictable,\n\t\t\t\tunreliable, and short-lived bonus to AC. The average value is pretty\n\t\t\t\tgood, but gambling with your defenses like this is risky. If you’re\n\t\t\t\tdesperate for AC, take the Dodge action. If you want lasting defenses,\n\t\t\t\tcast a spell."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Slashing Flourish"
+              },
+              {
+                "type": "text",
+                "text": ": It’s nice that\n\t\t\t\tthis applies damage to\n\t\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "any number of qualifying creatures",
+                "href": "https://twitter.com/JeremyECrawford/status/934969036948914177"
+              },
+              {
+                "type": "text",
+                "text": ", but the damage isn’t very good, so you only want to use this when\n\t\t\t\tyou’re going to hit numerous targets. Of course, casting Thunderclap\n\t\t\t\twill have similar effects, and may deal considerably more damage without\n\t\t\t\tconsuming a limited resource."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mobile Flourish"
+              },
+              {
+                "type": "text",
+                "text": ": I would just assume\n\t\t\t\tthat you won’t get more than the base 5 feet of pushing since the\n\t\t\t\taverage roll of your inspiration die won’t exceed 5 feet until level 10,\n\t\t\t\tand even then your odds are only slightly better than 50%. Generally if\n\t\t\t\tan effect doesn’t move you a full 5 feet, it gets ignored because most\n\t\t\t\tpeople use combat grids. The 5 feet is still enough to break grapples or\n\t\t\t\tget out of an enemy’s reach in most cases, but you could also Shove or\n\t\t\t\tuse a spell to solve the same problem."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Extra Attack"
+              },
+              {
+                "type": "text",
+                "text": ": A considerable improvement\n\t\tto your damage output with weapons. If you insist on using weapons instead\n\t\tof spells, this is crucial.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Unfortunately, you don’t have a big damage boost like most martial\n\t\t\tclasses do (Sneak Attack, Improved Divine Smite, etc.), so if you can get\n\t\t\ta weapon cantrip like Booming Blade it will be considerably more effective\n\t\t\tto use Booming Blade instead of making two attacks. Even with the damage\n\t\t\tbonus from Dueling, Booming Blade can still do more damage if the\n\t\t\tsecondary damage triggers (see my article on\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Melee Cantrips vs. Extra Attack",
+                "href": "https://rpgbot.net/dnd5/characters/melee_cantrips"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Master’s Flourish"
+              },
+              {
+                "type": "text",
+                "text": ": Blade Flourish is\n\t\tmostly fine, but is hugely limited by your tiny pool of Bardic Inspiration\n\t\tdice. Allowing you to use it every round, even with a smaller die, makes it\n\t\ta reliable and meaningful part of your tactics in any turn where you’re not\n\t\tprimarily casting spells. This is especially nice with two-weapon fighting\n\t\tbecause you get three attacks with which to apply a flourish. Unfortunately,\n\t\tyou’ve spent 13 levels limping along before Master’s Flourish came along and\n\t\tmade you useful."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "College of Swords Bard Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Despite the emphasis on martial combat, College of Swords’s ability score needs are no different from a "
+            },
+            {
+              "type": "link",
+              "text": "standard bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "College of Swords Bard Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "standard bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "College of Swords Bard Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Heavily Armored"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":\n\tIf you want a Strength-based Bard, heavy armor is the way to go. The Strength increases reduces the sting of spending a feat on armor proficiency, but I would much rather start with a level in fighter."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "College of Swords Bard Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "College of Swords presents a very limited list of Fighting Style options, which means that we have a very small number of actually appealing weapon options. You can absolutely use College of Swords to fight at range, but there is very little reason to do so."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Rapier"
+              },
+              {
+                "type": "text",
+                "text": ": Your highest-damage weapon option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Scimitar"
+              },
+              {
+                "type": "text",
+                "text": ": Fine for two-weapon fighting, but TWF is hard since bards can use their Bonus Action for so much."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shortsword"
+              },
+              {
+                "type": "text",
+                "text": ": Fine for two-weapon fighting, but TWF is hard since bards can use their Bonus Action for so much."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "College of Swords Bard Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a "
+            },
+            {
+              "type": "link",
+              "text": "standard bard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "College of Swords Bard Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Fighter"
+              },
+              {
+                "type": "text",
+                "text": ": Starting with one level for\n\t\tproficiency in Constitution saves, shields, and a second Fighting Style is a\n\t\thuge boost in effectiveness. If you go for three levels, Battle Master\n\t\tsynergizes nicely with Blade Flourish, but you’ll have very few maneuver dice to spend."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Paladin"
+              },
+              {
+                "type": "text",
+                "text": ": Two levels for Divine Smite,\n\t\t1st-level Paladin Spells, and another Fighting Style can significantly\n\t\timprove your martial capabilities."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sorcerer"
+              },
+              {
+                "type": "text",
+                "text": ": Start with one level for proficiency in Con saves and 1st-level Charisma-based casting to get offensive options like Booming Blade and defensive options like Mage Armor and Shield."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warlock"
+              },
+              {
+                "type": "text",
+                "text": ": One level of Hexblade is very\n\t\timpactful. Medium armor, shields, and Charisma for attack and damage."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example College of Swords Bard Build – Good Sir Scales",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The swords bard wants very badly to be a Gish with the martial flexibility of a Battle Master Fighter, so we’re going to try our best to lean into a melee gish and use the subclass’s features to their fullest extent."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With mediocre AC and d8 hit points, we’re frail. We can’t match a real martial character’s ability to handle damage, which means that we need to pay extra attention to our survivability, and, if we go into melee, we need to do so expecting to end combat quickly and decisively before we can take any big hits or protect ourselves with something like Greater Invisibility."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is not a high-damage build. It’s not a tanky build. You don’t get enough flourishes for them to be a go-to tactic in combat until you get Master Flourish at level 14 even if you use Bardic Inspiration for nothing but flourishes. Your best tactical option for much of the level range is to be invisible, so you’re running around combat poking at the edges while your party does the bulk of the work. Since we’re emphasizing weapon attacks and need spells to buff ourselves, our offensive spells lag considerably, so we need to use spells where we can to buff and support our allies if we apply any effort to a Support role at all."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A single level of hexblade significantly addresses these problems, but we try not to multiclass in subclass handbooks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An alternative to this build is to lean into the Bard’s easy access to Advantage via spells. Go High Elf or High Half-Elf to get Booming Blade, take Elven Accuracy, then look for spells like Faerie Fire, Greater Invisibility, and Shadow of Moil via Magical Secrets. Of course, this is arguably easier with College of Lore, and Elven Accuracy is basically easy mode for many optimized builds, so it shouldn’t be a surprise when it makes a mediocre subclass suddenly great."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take three +1 increases so get Dex, Con, and Cha to 16 at level 1 and dump everything else. This isn’t far from the ability scores recommended in our Bard Handbook, but we are focusing more Constitution since we’re trying to build for consistent performance in melee."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "MotM Lizardfolk. Lizardfolk gets us an unusually high AC with 13+Dex natural armor, Hungry Jaws gives us another way to use our Bonus Action and a way to get some temporary hit points, and we get two additional skill proficiencies. We’ll put the proficiencies into Perception and Stealth."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Note that we’re going to have terrible Strength for our whole career, so our bite attacks will not be accurate. If you have a Bonus Action free with literally nothing else to do with it, Hungry Jaws in combat isn’t a terrible idea. More likely you’re going to snack on a bag of rats after a rest to get the temporary hit points. They don’t have a specified expiration, so they expire on a Long Rest, meaning that your breakfast can keep you protected all day if you somehow don’t take damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tortle would work for similar reasons, but you get fewer skills in exchange for the fixed AC, and you can’t get to 18 by maxing Dex."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Knight. Don’t question how a humble lizardfolk from the local bayou ascended to knighthood before level 1. It gets us History, Persuasion, a gaming set, and one language."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get Perception and Stealth from our race, History and Persuasion from our background, and our choice of any three skills from our class. We’ll choose Intimidation, Insight, and Sleight of Hand."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If your party doesn’t include a rogue, consider trading the gaming set from our background for proficiency in Thieves’ Tools."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 4 we’ll take War Caster. We’re absolutely dependent on Concentration, and the ability to cast a spell instead of making an attack as an Opportunity Attack is a major tactical advantage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 8 and 12 we’ll increase Dexterity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 16 we’ll take Metamagic Adept so that we can maximize the benefits of our most important buffs."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19 we’ll increase Charisma."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d6)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thunderclap"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Vicious Mockery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dissonant Whispers"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Faerie Fire"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Healing Word"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Heroism"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For starting equipment, take a rapier, either pack, and then we’re locked into leather armor and a dagger. With whatever gold you have from your background, buy some cheap darts to throw since you probably can’t afford a light crossbow or a shortbow."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We walk out with 16 AC, which is surprisingly decent. A fighter using a two-handed will have 16 AC from chainmail. We have good Constitution, so we may have nearly as many hit points as they do, too."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you plan to go into melee, cast Heroism to pad your durability. 3 temporary hp can mitigate a lot of damage, provided that you don’t lose Concentration."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In melee, our rapier is our go-to offensive option. If you’re facing multiple enemies, strongly consider Thunderclap despite the Constitution save. At range you can use Vicious Mockery if you want the debuff or throw a dart if you want the damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Jack of All Trades"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d6)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Longstrider"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re going to rely heavily on short rests once we have Font of Inspiration, and Song of Rest is a great way to nudge our party toward taking Short Rests more often. We’ll also enjoy the additional healing since we’re probably going to be hurt a lot."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Longstrider is a nice buff for us with a long duration. An extra 10 feet of movement can help us outpace enemies that may want to chase us in the event that we need to move out of melee."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bard College: College of Swords"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bonus Proficiencies"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fighting Style: Dueling"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blade Flourish"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Persuasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Warding Wind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is a very busy level. We get 2nd-level spells and a bunch of other exciting new toys."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "College of Swords comes online, so it’s time for our weapon attacks to move from amusing novelty to primary combat tactic. Dueling provides a nice damage boost, so our attacks are now comparable to a Fighter with Dueling. Unfortunately, Dueling doesn’t apply to ranged attacks, so throwing daggers won’t get the +2 damage bonus, meaning that we’re stuck in melee."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blade Flourish is exciting, but immediately becomes a resource problem. We have 3 inspiration dice to spend "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "per day"
+                },
+                {
+                  "type": "text",
+                  "text": ", which doesn’t go very far. If you use one per round, a typical 3-round combat expends all of your inspiration dice for the day, and then you’re back to relying solely on spells. Plan to reserve all of your Bardic Inspiration for flourishes."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you need Defensive Flourish, you should probably retreat. Slashing Flourish is tempting against crowds, but that’s what Thunderclap is for. Use Mobile Flourish to break grapples or to push enemies somewhere dangerous for your allies to capitalize upon."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember that Blade Flourish also grants you +10 ft. of speed when you take the Attack action. Coupled with Longstrider, your speed can hit 50 feet, allowing you to rapidly move into melee and potentially do things like move in, use Mobile Flourish, then run out of reach."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Warding Wind provides us some defense against ranged attacks and creates difficult terrain around us, making it hard for enemies to move around. The 10-minute duration means that we can get a lot of use out of one spell slot. If Warding Wind isn’t working for you, consider Mirror Image instead."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: "
+                },
+                {
+                  "type": "link",
+                  "text": "War Caster",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/war-caster/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Aid"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I always advocate for Resilient (Con) if you just care about Concentration, but in this case we want the whole feat. The ability to cast a spell as an Opportunity Attack means that we can cast more spells per round than normally possible."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As an example: Hit an enemy with Dissonant Whispers while in melee. This forces them to move, provoking an Opportunity Attack. Hit them with Dissonant Whispers for a bit of damage and a debuff."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This does put us behind the Fundamental Math, which is going to be a huge problem since we need both Dexterity and Charisma, and the Bard doesn’t have built-in tools to survive on just weapons. We’ll need Magical Secrets for that, and we don’t get that until level 10."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Aid essentially removes the gap in hit point maxinum between us and a martial character. You might reserve it for emergency healing, or you might use it early in the day to avoid action economy problems. I suggest that you pre-cast it. Strongly consider upcasting it, too."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d8)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Font of Inspiration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hypnotic Pattern"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our improved inspiration die is great, increasing our flourish damage and the odds of getting another 5-foot square when we use Mobile Flourish."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Font of Inspiration is absolutely crucial. If you’re using flourishes at all, this makes them considerably safer to use. You’ll need to push to take Short Rests often, but at least now you’re not relying solely on spells after your first encounter."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If things get a little too scary for you in melee, use Hypnotic Pattern and make everyone chill for a few turns while you fight whatever passes the save."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Countercharm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Catnap"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack a level late, but better late than never."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Catnap is here to make Short Rests even easier. If one hour is too much to  ask, you can probably get away with 10 minutes. If you can squeeze even one additional Short Rest into an adventuring day, this is a huge gain."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Greater Invisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Melee just got a whole lot easier. Throw this on yourself and run around stabbing things. You can still make Opportunity Attacks, too, and, since enemies can’t see you, they’re likely to provoke them without realizing it. Just be sure not to break Concentration by casting another Concentration spell."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Dexterity 16 -> 18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/pathfinder/characters/polymorph/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is where we force ourselves to lean into martial combat as our go-to offensive option. We’re now 2 behind the "
+                },
+                {
+                  "type": "link",
+                  "text": "Fundamental Math",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": " on spellcasting, which is enough that it really hurts our save DC. We’ll need to reserve spellcasting mostly for buffs and utility, though we might still gamble our Opportunity Attacks on a spell if we think we have a reasonable chance of success."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Of course, we’re also going to take Polymorph at this level, which feels silly because turning ourselves into a giant ape or a t-rex will make us objectively a better melee combatant than remaining a bard. Stuff like this is why spellcasters are so dominant in 5e."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d8)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Synaptic Static"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have very few options for handling crowds that don’t require Concentration, so we’ll grab Synaptic Static to clear rooms and debuff the survivors."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d10)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2 "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Magical Secrets:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Find Greater Steed",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#find-greater-steed"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shadow Blade"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The improvement to Bardic Inspiration means that Mobile Flourish has an extremely remote chance to launch enemies 15 feet away, and a 50% chance to launch them 10 feet. Note that “away” is not “directly away”, so you are free to launch enemies 10 feet away at an upward angle to drop them prone and deal an extra 1d6 damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Find Greater Steed gets us a pegasus mount. Shadow Blade gives us the coolest weapon that we can possibly get, and you can upcast it for more damage in important fights. Greater Invisibility will frequently be a better use of Concentration, but, if you can already hit reliably, the additional damage from Shadow Blade will be a significant DPR boost."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I strongly considered including Shadow of Moil here, but Greater Invisibility provides all of the same benefits, plus you can’t be targeted by anything that requires the creature to see you, and it’s a spell level lower. We are not a tank. We are not here to draw attention away from allies. We are here to kill stuff with a sword and look cool (not that anyone can see us) while we do it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Otto’s Irresistible Dance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our terrible save DC doesn’t matter if the dance is irresistible."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Dex 18 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "18 AC totally unarmored is really nice, and the attack and damage bonuses are nice, too."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d10)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Forcecage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Put enemies in time out. No save."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Master Flourish"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Magical Secrets:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Contingency",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/contingency/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Tenser’s Transformation "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Master Flourish is where this subclass stops being a headache and starts being awesome. You should use a flourish on literally every attack. Note that the AC bonus from Defensive Flourish won’t stack, but if you use Defensive Flourish twice you get to use the higher of the two d6 rolls."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Contingency is a great way set up a buff without needing to cast it during combat. Or you could do something like “Cast Polymorph when I reach 0 hp” and have your second phase be a dinosaur."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tenser’s Transformation turns us into an impactful melee threat, but it comes with some complications. Proficiency in shields means that we can grab a shield temporarily to boost our AC to 20, and, with a 10-minute duration, you can pre-cast this and gear up before a fight starts. The damage bonus means that we’re dealing 1d8+7+2d12 per hit, which is very respectable. The temporary hit points provide a nice pad of protection. Proficiency in Con saves paired with War Caster means that we’re very unlikely to fail Concentration."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "However, you also need to pass a DC 15 Con save when the spell ends to avoid a level of Exhaustion. Since this occurs "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "after"
+                },
+                {
+                  "type": "text",
+                  "text": " the spell ends, you don’t benefit from the proficiency granted by the spell. With a +3 Con save, you’re likely to fail. Exhaustion takes a Long Rest to remove, so you can really only endure one level before it becomes a huge problem. Expect to use this once per day if you use it at all."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If that sounds too complicated or annoying, take Heal instead, and use Contingency to cast Heal if you hit 0 hp."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration (d12)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mind Blank"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "An even bigger Bardic Inspiration die means that Mobile Flourish now has a 1 in 4 chance to launch creatures 15 feet."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mind Blank is a buff with a 24-hour duration."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Metamagic Adept"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Extended Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Quickened Spell"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Quickened Spell lets us get one of our awesome combat buffs running as a Bonus Action, which means that we no longer need to spend turn 1 buffing ourselves to just barely function in battle."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Extended spell is for Aid, Foresight, and exactly, precisely, definitively not one single other spell. With 8-hour durations you can cast them before a Long Rest, sleep for 8 hours, and wake up with "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "another 8 hours"
+                },
+                {
+                  "type": "text",
+                  "text": " of the spells’ durations. Aid at 8th level gives you and two other creatures 35 more max hp, which is basically the Tough feat for you and two friends at the cost of half a feat and a little bit of planning."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest (d12)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Foresight"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "No more Greater Invisibility or whatever else you needed to get Advantage so that your DPR was meaningful. Turn on Foresight and you’re good to go for 8 hours (or 16 if you abuse Extended Spell as described above)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With our Concentration no longer tied to Greater Invisibility or something else to keep us both alive and attacking with Advantage, we can now use Shadow Blade much more consistently. It only lasts for 1 minute, making it a 1-fight buff, but upcasting it to 7th or 8th level raises the damage to an impressive 5d8, making our total damage on hit 5d8+7+1d6 (flourish) (avg. 33) and our DPR 68.43, which just barely inches us into the High DPR range for the rest of our career."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Of course, we can only do this twice per day unless we also burn a 9th-level spell to do it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magical Secrets:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Elemental Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wish is for use exclusively on non-adventuring days. On adventuring days we need Foresight."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our other slot is weirdly open. Our 9th-level spell is spoken for, so we need to look at lower-level spells. This is an extremely odd choice, but let’s look at Elemental Weapon. If we cast it at 7th or 8th level, we get +3 to hit and +3d4 damage for a full hour. That makes a rapier attack for us to deal 1d8+7+3d4+1d6 (flourish) for an average of 22.5 damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With Advantage from Foresight and the extra +3 to attack, we’ll essentially never miss. With two attacks, that brings our DPR to 46.22, which still doesn’t get us above the “Target DPR” range."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spirit Shroud is marginally better, getting our DPR to 54.22 and imposing a speed debuff, but the spell only lasts 10 minutes, so it’s more costly and difficult to use. Both options barely beat the damage boost from Tenser’s Transformation, but they also don’t impose Exhaustion or prevent you from casting spells."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: Cha 16 -> 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Better late than never, I suppose."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Superior Inspiration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unimpressive."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- College of Swords Bard Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bonus Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fighting Style"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Dueling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Two-Weapon Fighting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Blade Flourish"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Defensive Flourish"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Slashing Flourish"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Mobile Flourish"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Extra Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Master’s Flourish"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Heavily Armored"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Rapier"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Scimitar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shortsword"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Warlock"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-example-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-example-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-5"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-race-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4741,
+    "sections": 17,
+    "blocks": 37,
+    "tables": 2,
+    "ratingSignals": 23
+  },
+  "status": "needs-editorial-review"
+}

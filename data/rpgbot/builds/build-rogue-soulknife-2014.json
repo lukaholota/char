@@ -1,0 +1,814 @@
+{
+  "buildId": "build-rogue-soulknife-2014",
+  "revisionId": "build-rogue-soulknife-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "Ножа душі — Напівельф, майстер навичок",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-rogue-soulknife-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+      "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+      "sectionId": "section-example-soul-knife-rogue-build-halfelf-skill-monkey",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "ROGUE_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "ROGUE_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "ROGUE_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "ROGUE_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "SOULKNIFE",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "ROGUE_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (DEX)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (SURVIVAL)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (PERCEPTION)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "ROGUE_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "ROGUE_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "expertise": [
+          "SURVIVAL",
+          "ARCANA"
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "ROGUE_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "ROGUE_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "ROGUE_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "ROGUE_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKULKER"
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "ROGUE_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "ROGUE_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILLED",
+        "featOptions": [
+          {
+            "optionNameEng": "Skilled (ANIMAL_HANDLING)"
+          },
+          {
+            "optionNameEng": "Skilled (INSIGHT)"
+          },
+          {
+            "optionNameEng": "Skilled (SLEIGHT_OF_HAND)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "ROGUE_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "ROGUE_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "ROGUE_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "ROGUE_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "PRODIGY",
+        "featOptions": [
+          {
+            "optionNameEng": "Prodigy Proficiency (MEDICINE)"
+          },
+          {
+            "optionNameEng": "Prodigy Expertise (INSIGHT)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "ROGUE_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "ROGUE_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "ROGUE_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "ROGUE_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-rogue-soulknife-2014",
+          "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+          "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "SOULKNIFE",
+    "raceKey": "HALF_ELF_2014",
+    "backgroundKey": "CUSTOM",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 12
+      },
+      {
+        "ability": "INT",
+        "value": 15
+      },
+      {
+        "ability": "WIS",
+        "value": 13
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми налаштовуємо характеристики, щоб перенести +2 на Спритність, а інші +1 поставити в Інтелект і Мудрість. Для цього прикладу я оберу Інтелект як найвищу з наших трьох розумових характеристик.\n\nЗауважте, що якщо ви не обираєте Мудрість найвищою розумовою характеристикою, ми все одно любимо Уважність чи Аналіз Поведінки, тож не занедбуйте Мудрість до 8.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 17 Статура 12 12 Інтелект 15 16 Мудрість 13 14 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Напівельф{{Half-Elf}}. Ми отримуємо дві навички, Темний зір і додатковий +1 до характеристики порівняно з функціонально кожною іншою расою. Для навичок ми беремо 2 із Магії, Історії, Природи чи Релігії, бо їх немає в списку Пройдисвіта.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Ми беремо власну передісторію для гнучкості (памʼятайте, що PHB дозволяє це). Обираємо дві навички й два інструменти. Для навичок ми візьмемо дві інші з Магії, Історії, Природи чи Релігії, яких ми не взяли як навички Напівельфа. Для інструментів ми беремо інструменти картографа й інструменти навігатора, бо ваш вибір інструментів здебільшого колорит, але тепер ми можемо і читати, і писати карти.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Як Пройдисвіт, нам дано інструменти злодія, і з нашого класового списку ми обираємо Акробатику, Розслідування, Уважність і Непомітність.\n\nПідсумовуючи, щодо навичок ми починаємо з базових володінь в Історії, Магії, Релігії, Природі, Акробатиці й Уважності, а «Експертиза» в нас у Розслідуванні й Непомітності. Щодо інструментів, ми взяли володіння інструментами картографа, навігатора й злодія.\n\nАльтернативний початок для більшої розвідки й бою, але меншого розслідування й знань перемістить «Експертизу» з Розслідування на Уважність і замінить навичку на знання за вашим вибором на Виживання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Початок із сімнадцяти у Спритності дозволяє нам взяти гібридну рису на четвертому рівні й підняти до двадцяти на восьмому. Але як Пройдисвіт ми можемо вибрати рису на десятому, раніше за більшість інших класів.\n\nЩодо цих рис, оскільки ця збірка про те, щоб бути найкращим у половині викликів навичок у грі, ми беремо деякі нетрадиційні риси, жертвуючи кількома більш бойовими варіантами на користь рис, що підсилюють навички.\n\nНа четвертому ми беремо «Експерта у навичках»{{Skill Expert}}, що дає володіння Виживанням і «Експертизу» в Уважності. Якби ми обрали натомість налаштування з більшою розвідкою й боєм, описане в розділі про навички вище, ми б обрали «Ельфійську точність»{{Elven Accuracy}} тут, на 4-му, щоб додати трохи стабільності кожній атаці з Перевагою на кубику.\n\nНа восьмому ми просто беремо два очки в Спритність. Ми хочемо ті 20 у нашій основній характеристиці.\n\nНа десятому «Скритний»{{Skulker}} розширює нашу здатність Ховатися, а також покращує нашу Уважність за поганого освітлення. Мушу це зазначити: Темний зір — не нічний зір. У Темряві Темний зір дозволяє бачити так, ніби це Тьмяне світло. Тьмяне світло дає Перешкоду на кубику на зорову Уважність, а «Скритний» прибирає цю Перешкоду.\n\nНа дванадцятому ми беремо «Умільця»{{Skilled}} заради Поводження з тваринами, Аналізу Поведінки й Спритності рук, але якщо ви шукаєте більше бойових варіантів, «Рухливий»{{Mobile}} чи «Пильний»{{Alert}} — непогані вибори. Якщо ви хочете більше зосередитися на навичках розвідки, «Спостережливий»{{Observant}} — добрий вибір.\n\nНа шістнадцятому ми беремо «Вундеркінда»{{Prodigy}}, якого не могли б узяти, якби не були Напівельфом, Людиною чи Напіорком. Якщо ви взяли «Ельфійську точність» на четвертому, але все ще схиляєтеся до навичок, це було б добре місце для «Експерта у навичках», особливо якщо ви взяли «Спостережливого» на дванадцятому, бо обидві — гібридні риси.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Експертиза\nЗлодійська мова",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Хитра дія{{Cunning Action}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Псіонічна сила: Псі-підсилений хист, Психічні шепоти\nПсихічні леза\nСтійке прицілювання (необовʼязкове)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Експерт у навичках: +1 Спритність (всього 18), Виживання, «Експертиза» в Уважності",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Надприродне ухилення\nПсіонічна сила к8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Експертиза{{Expertise}}: Виживання, інструменти злодія",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ухилення{{Evasion}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Спритність +2 (всього 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Леза душі{{Soul Blades}}: Самонавідний удар, Психічна телепортація",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Скритний",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Надійний талант\nПсіонічна сила к10",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Умілець: Поводження з тваринами, Аналіз Поведінки, Спритність рук",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Психічна завіса{{Psychic Veil}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Сліповідчуття 10 фт.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Слизький розум{{Slippery Mind}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Вундеркінд: володіння Медициною, «Експертиза» в Аналізі Поведінки, Водний транспорт, мова (на ваш вибір)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Розрив розуму\nПсіонічна сила к12",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Невловимий{{Elusive}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Мудрість +2",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Шанс удачі{{Stroke of Luck}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Експертиза в інструментах злодія (6-й рівень)",
+        "reason": "На 6-му рівні автор бере Експертизу у Виживанні та в інструментах злодія; експертиза в інструментах не підтримана моделлю листа, тож пресет бере Виживання й Магію (вибір платформи, автор не називає другу навичку); можна змінити на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Вундеркінд (16-й рівень): інструмент і мова",
+        "reason": "Автор описує Вундеркінда як володіння Медициною, Експертизу в Аналізі поведінки, володіння Водним транспортом і мову на вибір; пресет записує лише навичку й експертизу, інструмент і мову гравець додає на листі (мова — вибір платформи, автор не називає).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-rogue-soulknife-2014",
+            "translationRevisionId": "translation-rpgbot-rogue-soulknife-2014-draft1",
+            "sourceRevisionId": "rpgbot-27c60d5762fd4404-75421fa80d1c293e",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

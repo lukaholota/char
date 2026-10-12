@@ -1,0 +1,1501 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-0fc9312358bffeff",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-0fc9312358bffeff-efc1e549f0db7a6b",
+      "sourceId": "rpgbot-0fc9312358bffeff",
+      "fetchedAt": "2026-09-29T19:09:00.679120+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:46:33-04:00",
+      "contentHash": "28c79b3c8cefadd71e073d6f13be555dc352b29747fe157171ea6482535ff579",
+      "title": "School of Divination Wizard 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-0fc9312358bffeff-efc1e549f0db7a6b.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-wizard-divination-2014",
+    "sourceId": "rpgbot-0fc9312358bffeff",
+    "slug": "wizard-divination-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Школа віщування — гайд підкласу Чарівника (2014)",
+    "titleEn": "School of Divination Wizard 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Чарівник",
+      "Школа віщування",
+      "провидець",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-wizard-divination-2014-draft1",
+      "articleId": "rpgbot-wizard-divination-2014",
+      "sourceRevisionId": "rpgbot-0fc9312358bffeff-efc1e549f0db7a6b",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хто попереджений, той озброєний, а Школа віщування — це все про попередження й передбачливість. Якщо ви коли-небудь заходите до кімнати, не знаючи, хто й що в ній і що ви збираєтеся з цим робити, ви накладаєте замало заклинань Ворожіння. Добре зіграний провидець завжди має план."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Завдяки достатку заклинань ворожіння (і слотів заклинань завдяки «Майстру провидіння»{{Expert Divination}}) Школа віщування робить Чарівника-провидця чудовим розвідником на додачу до звичних ролей Чарівника: нюкера, контролера, атакера й сапорта. Поки слідопити й пройдисвіти мусять оглядатися особисто, ви можете розвідувати віддалені місця з великої відстані, потенційно знешкоджуючи проблеми задовго до того, як вороги дізнаються про ваше існування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найбільша проблема сильної залежності від ворожіння в тому, що воно швидко зʼїдає ваші слоти заклинань, часто з малим відчутним ефектом. На щастя, «Майстер провидіння» різко зменшує вартість накладання заклинань ворожіння. «Провіщення»{{Portent}} дає чудову механіку впливу на кидки, дозволяючи змінювати результат критичних кидків значущими й потужними способами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви плануєте грати провидцем, ви з Майстром повинні бути готові впоратися з ворожіннями й тим, як вони працюють. Майстру може доводитися передбачати майбутнє за вас, давати загадкові підказки чи імпровізувати неробство істот, які загалом просто сидять у кімнаті, чекаючи, поки ваша група прийде з ними воювати. Вам потрібно памʼятати про використання ворожінь для зменшення ризику й розвʼязання проблем, які не розвʼязати Вогнекуля [Fireball] і подібним. Але якщо ви докладете зусиль, Школа віщування винагородить вас за них."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Школи віщування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Школи віщування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#school-of-divination-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Школи віщування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#school-of-divination-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Школи віщування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#school-of-divination-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки й зброя Школи віщування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#school-of-divination-armor-and-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — «Імовірність і я не ладнаємо»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#example-build-probability-and-i-dont-get-along"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Школи віщування",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Знавець ворожіння{{Divination Savant}}: стандартне для підкласів Чарівника з PHB. Дивно, але це уміння спонукає використовувати два безкоштовні заклинання, вивчені на кожному рівні, на буквально будь-що, крім заклинань вашої улюбленої школи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Провіщення{{Portent}}: кинули високо? Бережіть для важливих ряткидків чи атак. Кинули низько? Використайте, щоб замінити кидок атаки ворога чи ряткидок ворога. Це не може бути поганим, хіба що ви забудете ним скористатися. «Провіщення» — визначальна риса Школи віщування, і опанування його матиме величезний вплив на вашу гру."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер провидіння{{Expert Divination}}: це різко збільшує кількість заклинань, які ви можете накласти за день. Якщо ви коли-небудь думаєте: «Чи варте це слота заклинання, щоб накласти ворожіння зараз?», відповідь завжди має бути «так». Розкидайтеся ними, як конфеті. Ви навіть можете використовувати Пронизання розуму [Mind Spike] (єдине заклинання ворожіння в грі, що завдає шкоди), щоб отримувати великі купи одноцільової шкоди за мінімальну ціну щоразу, коли зазвичай використали б замовлення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Третє око|The Third Eye}}: Темний зір [Darkvision] — не ворожіння, тож це хороший спосіб отримати його безкоштовно, якщо ви не отримуєте його від раси, предмета чи союзника, що може накласти Темний зір [Darkvision]. Інші ефекти відтворюються Бачення невидимого [See Invisibility] і Розуміння мов [Comprehend Languages], які майже нічого не коштують завдяки і «Майстру провидіння», і здатності Чарівника накладати ритуали, але постійно активне Бачення невидимого [See Invisibility] — корисний захист, бо Бачення невидимого [See Invisibility] триває лише годину."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Велике провіщення{{Greater Portent}}: не змінює гру, але «Провіщення» фантастичне, а це робить його на 50% потужнішим."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-divination-ability-scores",
+          "heading": "Характеристики Школи віщування",
+          "sourceAnchor": "school-of-divination-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-divination-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потреби провидців у характеристиках здебільшого такі самі, як у "
+                },
+                {
+                  "type": "link",
+                  "text": "інших чарівників",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": ". Якщо ви більше зосереджені на попередньому плануванні й заклинаннях підтримки, можна дозволити собі трохи применшити Інтелект."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-divination-races",
+          "heading": "Раси Школи віщування",
+          "sourceAnchor": "school-of-divination-races",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-divination-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потреби провидців у расах такі самі, як у "
+                },
+                {
+                  "type": "link",
+                  "text": "інших чарівників",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/races"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-divination-feats",
+          "heading": "Риси Школи віщування",
+          "sourceAnchor": "school-of-divination-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-divination-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого провидцям підходять ті самі риси, що й "
+                },
+                {
+                  "type": "link",
+                  "text": "іншим чарівникам",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-divination-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Доторк феї{{Fey Touched}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": можна вивчити заклинання ворожіння 1-го рівня з будь-якого списку заклинань. На жаль, привабливих варіантів ворожіння немає, тож провидці виграють не більше за будь-якого іншого чарівника. Усе одно це добре, звісно. Перегляньте наш "
+                  },
+                  {
+                    "type": "link",
+                    "text": "розбір рис для чаротворства",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/#fey-touched"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-divination-armor-and-weapons",
+          "heading": "Обладунки й зброя Школи віщування",
+          "sourceAnchor": "school-of-divination-armor-and-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-divination-armor-and-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не варто. Якщо наполягаєте на обладунку, запитайте себе: «Що я міг би зробити, щоб натомість узагалі не допустити цих атак?» Саме так мислить провидець."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик{{Cleric}}: один рівень може дати заклинання лікування, заклинання 1-го рівня на кшталт Благословення [Bless] і кращі обладунки, і все це без втрати прогресії слотів заклинань."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-probability-and-i-dont-get-along",
+          "heading": "Приклад збірки — «Імовірність і я не ладнаємо»",
+          "sourceAnchor": "example-build-probability-and-i-dont-get-along",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-probability-and-i-dont-get-along-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви граєте в ці ігри достатньо довго, ви зустрінете когось (можливо, кількох), хто незрозуміло невезучий. Всупереч усій статистиці й правдоподібним шансам, їхні кидки кубиків ніби вічно прокляті, а кидки кубиків проти їхніх здібностей ніби незбагненно благословенні. Можливо, цим хтось — ви."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-probability-and-i-dont-get-along-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка — подарунок тим із нас, хто бачить у кидках кубиків загрозу. Ви не самотні, і разом ми з вами плюнемо в обличчя богам кубиків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-probability-and-i-dont-get-along-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я тут голосно говорю, але це збірка чарівника. Ми сильно спиратимемося на варіанти, що маніпулюють кидками кубиків, захищають нас від поганих результатів і загалом зсувають шанси на нашу користь. Звісно, ми покладатимемося на «Провіщення», але також побудуємо збірку навколо тактик, що стабільно дають нам тактичні переваги в будь-якій ситуації."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-probability-and-i-dont-get-along-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ще краще: ми уникатимемо кидків кубиків якомога більше. Якщо ви зробите хоч один кидок атаки з цією збіркою, щось пішло жахливо не так. Неминуче будуть якісь ряткидки проти наших заклинань, але ми загалом вдаватимемося до них лише тоді, коли зможемо зробити їх виключно надійними."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-probability-and-i-dont-get-along-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка припускає, що ви використовуєте додаткове класове уміння з «Казана Таші з усім»{{Tasha’s Cauldron of Everything}}, щоб додати нові заклинання до списку заклинань Чарівника. Багато з цих заклинань — ворожіння."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-probability-and-i-dont-get-along-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Примітка автора:"
+                },
+                {
+                  "type": "text",
+                  "text": " Random повідомив мені, що це був ідеальний час для збірки провидця-три-кріна під назвою «Хто попереджений, той чотирирукий»{{Forewarned is Four-Armed}}. Каламбур лежав прямо на поверхні, а я просто проігнорував його, як якийсь… позбавлений гумору автомат. Але моєю місією було позлити імовірність, і іноді доводиться чимось жертвувати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-probability-and-i-dont-get-along",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми можемо дозволити собі применшити Інтелект на користь інших характеристик, зосередившись на ненаступальних заклинаннях, але ця збірка рясніє рисами, тож ми вкладемо багато в Інтелект, щоб не відстати надто сильно. Я майже ніколи не беру Статуру нижче 14, але цього разу ми вкладемо більше у Спритність і Мудрість, щоб підтримати захист і навички."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-probability-and-i-dont-get-along",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напіврослик{{Halfling}} із налаштованим походженням{{Custom Origin}}. Підійде будь-яка підраса. Ми тут заради риси «Удача»{{Luck}} і риси «Щедра удача»{{Bountiful Luck}}. За замовчуванням візьмемо Примарного через телепатію, але Кремезний теж добре працює."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-probability-and-i-dont-get-along",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Замкнений учений{{Cloistered Scholar}} або Мудрець{{Sage}}. Уміння будь-якого з них, імовірно, покращують нашу здатність знайти, де додати заклинання до книги заклинань, що, можливо, вперше на цьому сайті показує, як змусити уміння передісторій мати значення. Ми налаштуємо передісторію (так, це дозволено в PHB), замінивши навички на Аналіз Поведінки й Уважність, і збережемо дві мови від будь-якої з передісторій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-background-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Обирайте поширені мови на кшталт Підземної та Первинної або розгляньте обмін їх на "
+                },
+                {
+                  "type": "link",
+                  "text": "володіння інструментами",
+                  "href": "https://rpgbot.net/dnd5/characters/tools/"
+                },
+                {
+                  "type": "text",
+                  "text": ", бо ми можемо накладати Розуміння мов [Comprehend Languages] і Мови [Tongues]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-probability-and-i-dont-get-along",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від чарівника беремо Магію й Розслідування. Магію можна використовувати для розпізнавання заклинань у бою, Уважність — ключовий захист, Аналіз Поведінки — добра пасивна навичка в соціальних ситуаціях, а Розслідування допоможе робити такі речі, як пошук пасток, бо заклинання Пошук пасток [Find Traps] не є заклинанням чарівника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Памʼятайте: нам потрібне володіння лише тим, що потрібно за мить, і ми хочемо володінь, якими користуватимемося достатньо часто, щоб слоти заклинань стали дорогими. Там, де є час на планування, Позичене знання [Borrowed Knowledge] і Покращення здібності [Enhance Ability] зведуть перевірку до тривіальної, щойно ми зможемо дозволити собі розкидатися цими слотами заклинань."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-probability-and-i-dont-get-along",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цій збірці ми візьмемо кілька рис, щоб схилити удачу на нашу користь."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Щедру удачу»{{Bountiful Luck}}, щоб наша група могла розділити наш щедрий неспокій через погані кидки. На жаль, вона вимагає лишатися в межах 30 футів від союзників."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо «Удачу»{{Lucky}}. Страховка від поганих кидків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо «Доторк феї»{{Fey Touched}}. Оскільки це напівриса, вона також підвищить наш модифікатор Інтелекту. Ми значно відстаємо від Фундаментальної математики на цьому етапі, тож нам треба наздоганяти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні беремо «Стійкого (Статура)»{{Resilient (Constitution)}}, що підвищить наш модифікатор Статури й дасть володіння ряткидками Статури на рівні, де наш Бонус Майстерності +6."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-probability-and-i-dont-get-along",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nМагічне відновлення\nЗамовляння:\n– Створення багаття\n– Магічна рука\n– Розщеплення Розуму\n– Мала ілюзія\nВідомі заклинання:\n– Катапульта\n– Падіння пірʼїною\n– Пошук фамільяра\n– Обладунок мага\n– Магічний дротик\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для стартового спорядження візьміть кинджал, {{мішечок із компонентами|component pouch}} або чаротворчий фокус, будь-який набір і книгу заклинань. З замовлянь беремо Створення багаття [Create Bonfire], що може на певний час монополізувати нашу Концентрацію. Це дешевий контроль області, і він добре працює в тіснинах або якщо у вас є союзник, що любить захоплювати. Розщеплення Розуму [Mind Sliver] — наш основний варіант шкоди, і оскільки він на ряткидку Інтелекту, він дуже надійний. Магічна рука [Mage Hand] означає, що ми не ризикуємо торкатися чогось бридкого, а Мала ілюзія [Minor Illusion] дозволяє сховатися всередині ілюзорної коробки, якщо справи кепські. Не вивчайте заклинання ворожіння безкоштовними заклинаннями при отриманні рівня. Їх можна записувати в книгу заклинань зі зниженою вартістю з другого рівня, тож бережіть дрібні гроші. Хіба що, звісно, ваш Майстер суворо обмежує це випадково чи навмисно. Для вивчених заклинань з рівнями ми граємо обережно. Пошук фамільяра [Find Familiar] дає сову для легкої й безпечної Допомоги. Падіння пірʼїною [Feather Fall] запобігає ранній смерті всієї групи. Можна вишикувати Катапульта [Catapult], щоб мати запасні цілі, тож навіть якщо перша ціль проходить ряткидок, ми отримуємо ще один шанс. Магічний дротик [Magic missile] — на випадок, якщо ми почуваємося особливо невдахами. Сріблясті шпильки [Silvery Barbs] — коли для наших ворогів усе йде надто добре й нам треба втрутитися в розподіл імовірності. У поєднанні з «Провіщенням» у нас вдосталь боєприпасів, щоб схилити шанси на нашу користь."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Школа віщування\nЗнавець ворожіння\nПровіщення\nВідомі заклинання:\n– Поглинання стихій\n– Щит"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми можемо почуватися провидцем. «Провіщення»{{Portent}} дає нам два кидки, якими можна замінювати інші кидки протягом дня. Від гравців очікується успіх на кидках 8 і вище (хоч ряткидки часто важчі через володіння), тож якщо ви кинули 8 чи краще, зазвичай це можна зберегти для кидків атаки й перевірок характеристик союзників. Особливо високі кидки бережіть для ряткидків. Усе 10 і нижче бережіть, щоб змушувати ворогів провалювати ряткидки. Заплатіть, щоб отримати Тривога [Alarm], і накладайте його як ритуал перед кожним відпочинком (так, навіть коротким), а Розуміння мов [Comprehend Languages] візьміть на той випадок, коли це знадобиться."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Навіювання\n– Павутиння"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 2-го рівня! Тут ми починаємо бачити ворожіння, що справді нагадують ворожіння. Навіювання [Suggestion] дає спосіб швидко розвʼязати багато ситуацій без вдавання до насильства чи перевірок характеристик. Воно дозволяє ряткидок, але за потреби можна покластися на «Провіщення». Павутиння [Web] дає контроль області й контроль натовпу. Використовуйте його, щоб блокувати тіснини та/або сковувати ворогів у бою. Істоти в області можуть бути змушені робити повторні ряткидки, що страхує нас від успішних початкових ряткидків.\n\nМи також можемо почати збирати ворожіння й платити, щоб вносити їх до книги заклинань. Пророкування [Augury] — особистий улюбленець, що дозволяє отримувати невиразні поради щодо найближчого майбутнього, як-от відчинення підозрілих дверей. Його можна накладати як ритуал, але памʼятайте про кумулятивний шанс невдачі. Не довіряйте нічому після другого результату. Також візьміть Позичене знання [Borrowed Knowledge] і Бачення невидимого [See Invisibility]. Вони знадобляться не завжди, але Бачення невидимого [See Invisibility] вам абсолютно потрібне, а Позичене знання [Borrowed Knowledge] — перша половина того, як ми шахруємо з навичками. Виявлення думок [Detect Thoughts] може допомогти знайти ворогів, перш ніж ви їх побачите чи почуєте. Візьміть Пронизання розуму [Mind Spike], коли це зручно, але користуватися ним ви зможете не скоро. Також обовʼязково візьміть Темний зір [Darkvision] і Туманний крок [Misty Step]. Багато ворожінь використовують ваші власні чуття, тож Темний зір [Darkvision] критичний для магічної розвідки темних місць. Туманний крок [Misty Step] добрий на випадок, коли все пішло погано й треба тікати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Щедра удача\nВідомі заклинання:\n– Подих Дракона\n– Покращення здібності"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Щедра удача»{{Bountiful Luck}} — чудовий варіант підтримки, особливо у великих групах, що роблять багато кидків. На жаль, для її використання потрібно бути в межах 30 футів від союзника, але бої зазвичай відбуваються в ситуаціях, де це не буде проблемою. Подих Дракона [Dragon's Breath] дозволяє накласти його на нашого фамільяра й відправити фамільяра битися, поки ви лишаєтеся на безпечній відстані. З десятихвилинною тривалістю й половинною шкодою при успішному ряткидку вам не треба надто хвилюватися через жахливу удачу. Я б не використовував це замість чогось на кшталт Павутиння [Web] у прямому бою, але проти ворогів, що не літають, ваша сова раптом стає жахливою. Покращення здібності [Enhance Ability] — друга половина того, як ми шахруємо з навичками. Накладати це на себе не обовʼязково, але Позичене знання [Borrowed Knowledge] цілиться лише у вас, тож якщо ваша група щось робить погано, можна накласти Позичене знання [Borrowed Knowledge] і Покращення здібності [Enhance Ability], і ви раптом відмінні в тій навичці, яка потрібна."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Гіпнотичний візерунок\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик немертвого",
+                      "href": "https://rpgbot.net/dnd5/characters/summoning#summon-undead"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 3-го рівня. Ми не беремо Вогнекуля [Fireball], попри те, який він добрий, бо не хочемо ризикувати кинути жахливу шкоду. Ви знаєте, що кинете. Не брешіть. Гіпнотичний візерунок [Hypnotic Pattern] — «пройди-ряткидок-або-страждай»{{save-or-suck}} по області, що цілить у Мудрість. Істоти, що провалили, зазвичай вибувають із зіткнення, тож проти натовпів можна вимкнути частину зіткнення, воювати з усім, що успішно пройшло ряткидок, а тоді або звʼязати (так, звичайною мотузкою), або атакувати решту ворогів по одному, щоб мінімізувати ризик для себе й групи. Виклик немертвого [Summon Undead] дає нам гарного витривалого монстра, що нас захищає, входить у пастки, торкається підозрілих предметів і загалом просто приймає удари за нас і групу. Він також повноцінний отримувач «Щедрої удачі»! Ворожінь на цьому рівні небагато, але якнайшвидше візьміть Підглядання [Clairvoyance] і Мови [Tongues]. Підглядання [Clairvoyance] — перший варіант дистанційного спостереження, який ми можемо отримати. Його надто дорого використовувати на цьому рівні, але «Майстер провидіння» на 6-му рівні допоможе."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер провидіння\nВідомі заклинання:\n– Розвіювання магії\n– Крихітний слуга"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Майстер провидіння»{{Expert Divination}} — це те, де ця збірка по-справжньому злітає, бо наші ворожіння раптом стають значно дешевшими. Приклад: Мови [Tongues] не можна накласти як ритуал, тож вам хочеться якомога частіше користуватися Розуміння мов [Comprehend Languages]. Але тепер слот 3-го рівня для Мови [Tongues] дає Мови [Tongues] плюс слот 2-го рівня, який можна витратити на Позичене знання [Borrowed Knowledge], щоб тимчасово отримати володіння Переконанням, плюс слот 1-го рівня. З набуттям рівнів розгляньте Пронизання розуму [Mind Spike]. Це єдине заклинання ворожіння, що завдає шкоди, і в парі з «Майстром провидіння» це дешевий варіант одноцільової шкоди, що може значною мірою замінити замовляння. Починайте з одного слота високого рівня й опускайтеся вниз рівнями заклинань. Звісно, воно вимагає Концентрації, а це означає відмову від Концентрації на чомусь цікавішому, тож це не завжди легкий основний варіант. Розвіювання магії [Dispel Magic] дозволяє прибирати дошкульну магію, і його можна поєднати з Покращення здібності [Enhance Ability] для Переваги на кубику на перевірці, якщо відчуваєте потребу й хочете витратити провіщення. Контрчари [Counterspell] теж був би добрим, тож розгляньте оплату його додавання до книги заклинань. Крихітний слуга [Tiny Servant] — портативний улюбленець зі сліпозором{{Blindsight}} на 8 годин. Перетворіть ручний дзвіночок на маленького друга й накажіть йому дзвеніти, коли виявить ворога. Якщо ворога не видно, час діставати Бачення невидимого [See Invisibility]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Арканне око\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик аберації",
+                      "href": "https://rpgbot.net/dnd5/characters/summoning#summon-abberation"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня, а це означає, що ми нарешті отримуємо Арканне око [Arcane eye]! Арканне око [Arcane eye] — найбезпечніший і найефективніший спосіб дистанційно розвідати область. Ще краще, що він має вбудований Темний зір, тож не треба забезпечувати власний. На цьому етапі, якщо ви заходите кудись, у вас уже має бути карта місцевості й загальне уявлення, що в ній. З тривалістю 1 година можна легко озирнутися, перевірити пастки, розпізнати ворогів, прочитати текст і загалом робити все, що не вимагає чути чи торкатися речей. В ідеалі це дозволить заходити в кожну кімнату вже підсиленим на те, що вам зустрінеться, хоч зачинені двері й вікна можуть бути проблемою. Візьміть Віщування [Divination] (заклинання). Його можна накладати як ритуал, тож це чудовий спосіб покрити все, що не можна розвідати через Арканне око [Arcane eye]. «Що за цими дверима?» — гарне запитання, і Майстер повинен дати правдиву відповідь. Але, як і Пророкування [Augury], воно має кумулятивний шанс невдачі щодня, тож будьте обережні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Удача\nВідомі заклинання:\n– Вигнання\n– Психічний спис Раулотіма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Удача»{{Lucky}} завжди чудова. Можна спокійно приберегти «Провіщення» для шкоди ворогам і допомоги союзникам, а «Удачу» використовувати для підтримки власних ряткидків і перевірок характеристик для таких речей, як Контрчари [Counterspell] і Розвіювання магії [Dispel Magic]. Вигнання [Banishment] усуває позапланових ворогів, але також можна вивести інших ворогів із бою, поки ви розправляєтеся з їхніми союзниками, що дозволяє розділити зіткнення й зробити їх значно менш небезпечними. Психічний спис Раулотіма [Raulothim's Psychic Lance] цілить в Інтелект, і хоч шкода не вражає, він робить ціль "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Недієздатною",
+                      "href": "https://rpgbot.net/dnd5/characters/status-conditions/#incapacitated"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", позбавляючи її всього, крім руху, на наступному ході. Якщо у вас є слоти заклинань, можна знову й знову влучати ним по ворогах і звести до тривіальних зіткнення з одиничними ворогами. Вигнання [Banishment] і Психічний спис Раулотіма [Raulothim's Psychic Lance] дають нам варіанти для ряткидків, що часто слабкі. Можна використовувати Павутиння [Web] проти ворогів зі слабкою Спритністю, Психічний спис Раулотіма [Raulothim's Psychic Lance] для Інтелекту, Гіпнотичний візерунок [Hypnotic Pattern] чи Навіювання [Suggestion] для Мудрості й Вигнання [Banishment] для Харизми. Якщо вороги все одно проходять ряткидок, використовуйте «Провіщення» чи Сріблясті шпильки [Silvery Barbs]. Це дає нашим наступальним заклинанням багато страховки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Телекінез\n– Стіна енергії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 5-го рівня. З ворожінь на цьому рівні у вас чотири чудові варіанти. Звʼязок з іншим планом [Contact Other Plane] чудове, але ризиковане попри ваш відносно високий Інтелект, а ще під час його накладання не можна підтримувати Концентрацію на Покращення здібності [Enhance Ability], тож будьте готові використати «Провіщення», щоб не збожеволіти. Знання легенд [Legend Lore] — це «Спитайте Майстра про сюжет» у вигляді заклинання. Телепатичний звʼязок Рері [Rary's Telepathic Bond] — ритуал, і його слід тримати активним щоразу, коли є хоч віддалений шанс небезпеки. Стеження [Scrying] справді корисний лише проти іменованих антагоністів, але коли корисний, ви маєте часто шпигувати за будь-ким, кого вважаєте проблемою. 5-й рівень також приносить Посилення навички [Skill Empowerment] як варіант. «Експертиза» в навичці зазвичай ефективніша за Перевагу на кубику на перевірці, але розрив малий, доки не зросте ваш Бонус Майстерності, а Посилення навички [Skill Empowerment] на 3 рівні вищий за Покращення здібності [Enhance Ability] і не ворожіння, тож ми не можемо зменшити ціну. Тримайтеся Покращення здібності [Enhance Ability]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Третє око\nВідомі заклинання:\n– Стримування монстра\n– Синаптичний розряд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Третє око»{{The Third Eye}} дає пасивне чуття. Темний зір на 8 годин можна отримати із заклинання 2-го рівня, а «Поглиблене розуміння»{{Greater Comprehension}} можна замінити накладанням Розуміння мов [Comprehend Languages] як ритуалу. Дальність бачення невидимого — лише 10 футів, що смішно мало, а для цього в нас є сліпозір нашого крихітного слуги. Бачення в Ефірний план — прогалина в нашому захисті, тож беріть саме його. Стримування монстра [Hold Monster] ризикованіший за Гіпнотичний візерунок [Hypnotic Pattern], бо цілі отримують додатковий ряткидок наприкінці свого ходу. Проте шанси складені на вашу користь: у вас є «Провіщення», Сріблясті шпильки [Silvery Barbs] і Розщеплення Розуму [Mind Sliver], щоб знову й знову послаблювати ряткидки цілі, поки наша група автоматичними критами забиває її до смерті."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Обачливість",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/contingency/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Нестримний танець Отто"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 6-го рівня. Я так люблю Обачливість [Contingency]. Нестримний танець Отто [Otto's Irresistible Dance] названо так, бо ефект автоматичний, а цілі не отримують ряткидка до кінця свого ходу. Це чудово, якщо вам бракує таких речей, як «Провіщення», а треба впоратися з деякими ворогами. З ворожінь візьміть Істинний зір [True Seeing]. Це єдиний варіант на цьому рівні. Компонент вартістю 25 зм має вас відлякувати, але до цього рівня у вас стільки золота, що, побачивши 25 зм на землі, ви могли б і не нахилитися. Тримати його постійно не потрібно, але якщо є шанс, що воно знадобиться, слід його накласти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Доторк феї (Інтелект 17 → 18)\nВідомі заклинання:\n– Ланцюгова блискавка\n– Проклятуще око"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для «Доторку феї» оберемо Зурочення [Bane] як заклинання 1-го рівня. Це дивний вибір, але вислухайте: математика. Зурочення [Bane] — заклинання 1-го рівня, а ефект дуже дратівливий. Для легендарних істот ви ставите нерозвʼязну дилему: чи спалити легендарний опір, щоб опиратися заклинанню 1-го рівня? Чи провести решту зіткнення, віднімаючи к4 від атак і ряткидків? Якщо вони вирішать витратити «Легендарний опір»{{Legendary Resistance}}, можна повторити це наступного ходу. Це слот 1-го рівня. Якщо вони потерпають від ефекту, можна покращити до чогось на кшталт Сліпота/глухота [Blindness/Deafness] чи простих заклинань шкоди на кшталт Катапульта [Catapult], і це ще до того, як врахувати, що роблять ваші союзники. Додайте Синаптичний розряд [Synaptic Static] до штрафів Зурочення [Bane] на атаки — і вони віднімають 1к4+1к6 (у середньому 6 загалом) від своїх атак, що робить їх значно менш небезпечними. Проти ворожих заклинателів у вас є Контрчари [Counterspell] і «Удача», щоб підтримати перевірки характеристик. Вороги, що покладаються на особливі здібності, усе ще будуть проблемою, але для них у вас є інші заклинання. Ланцюгова блискавка [Chain Lightning] і Проклятуще око [Eyebite] — чудові й надійні наступальні варіанти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Силова кліть\n– Обернена гравітація"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 7-го рівня. Це перший рівень, де буквально немає заклинань ворожіння на вибір. Дивне відчуття. Більше ворожінь ми не побачимо до 9-го рівня. Вороги лише ближнього бою? Обернена гравітація [Reverse Gravity]. Кидайте в них каміння, доки вони не перестануть бути проблемою. Інакше серйозно розгляньте Силова кліть [Forcecage]. Жодного ряткидка, жодного ризику."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Велике провіщення\nВідомі заклинання:\n– Планарний перехід\n– Симулякр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На 50% більше провіщення! Планарний перехід [Plane Shift] — наполовину транспорт, наполовину покращення Вигнання [Banishment]. Це заклинання можна доставити через фамільяра, відправивши будь-кого зі слабкою Харизмою на план, дуже ворожий до нього. Заведіть собі Симулякр [Simulacrum]. Він може накладати за вас ритуали, нести варту, користуватися навичками й загалом бути дуже корисним. Оскільки це окрема істота, її шанси невдачі для Пророкування [Augury] і Віщування [Divination] окремі від ваших. На жаль, вона не відновлює слоти заклинань, тож приберігайте її слоти для важливого."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Клон\n– Лабіринт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 8-го рівня. Нових ворожінь усе ще немає. Клон [Clone] додає ще один шар страхування. Тепер у нас є страховка від смерті будь-яким способом, і ми функціонально безсмертні. Клонуйте всю групу — і у вас команда безсмертних супергероїв високого фентезі. Лабіринт [Maze] виводить ворога з бою без ряткидка, а більшості істот із «Бестіарію»{{Monster Manual}} буде важко пройти перевірку Інтелекту, щоб утекти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (18 → 20)\nВідомі заклинання:\n– Антимагічна сфера\n– Нестерпна темрява"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті 20 Інтелекту! Нестерпна темрява [Maddening Darkness] — контроль великої області. У вас уже є кілька варіантів для цієї потреби, але область набагато більша, ніж у таких варіантів, як Павутиння [Web]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Передбачення\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 9-го рівня! Передбачення [Foresight] — найкраще підсилення в грі, тож якщо у вас колись буде день, коли ви не плануєте накладати Бажання [Wish], час накласти Передбачення [Foresight]. Ми вже користувалися Симулякр [Simulacrum] і Клон [Clone], але Бажання [Wish] перетворює їх на повноцінне зловживання. Відтепер у вас є все потрібне. Використайте всі решту безкоштовних заклинань, щоб узяти варіанти високого рівня, яких ви ще не зібрали."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстерність заклинань{{Spell Mastery}}:\n– Сріблясті шпильки\n– Позичене знання\nВідомі заклинання:\n– будь-яке\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Майстерність заклинань»{{Spell Mastery}} бере Сріблясті шпильки [Silvery Barbs] (уже величезну проблему) і просто відверто ламає гру. Поки ви в межах дальності, успіх ваших ворогів у чомусь — рідкість. Позичене знання [Borrowed Knowledge] як наш другий варіант «Майстерності заклинань» означає, що ми майже постійно володіємо кожною навичкою. Це не обовʼязково потрібно, але важко придумати краще використання безкоштовного заклинання ворожіння, бо Пророкування [Augury] має кумулятивний шанс невдачі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура) (Статура 13 → 14)\nВідомі заклинання:\n– будь-яке\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Загалом +7 додається до наших ряткидків Статури."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підписні заклинання{{Signature Spells}}:\n– Розвіювання магії\nВідомі заклинання:\n– будь-яке\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Підписні заклинання»{{Signature Spells}} настільки гірші за «Майстерність заклинань», що я не розумію, чому їх порядок не змінений на протилежний."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-wizard-divination-2014-001",
+      "articleId": "rpgbot-wizard-divination-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-divination-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Знавець ворожіння",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-wizard-divination-2014-002",
+      "articleId": "rpgbot-wizard-divination-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-divination-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Провіщення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-divination-2014-003",
+      "articleId": "rpgbot-wizard-divination-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-divination-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Майстер провидіння",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-divination-2014-004",
+      "articleId": "rpgbot-wizard-divination-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-divination-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Третє око",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-divination-2014-005",
+      "articleId": "rpgbot-wizard-divination-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-divination-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Велике провіщення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-divination-2014-006",
+      "articleId": "rpgbot-wizard-divination-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-divination-2014-draft1",
+      "sectionId": "section-school-of-divination-feats",
+      "targetBlockId": "block-section-school-of-divination-feats-2",
+      "optionId": "section-school-of-divination-feats-block-section-school-of-divination-feats-2-item-0",
+      "context": "Доторк феї",
+      "explanationBlockId": "block-section-school-of-divination-feats-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-wizard-divination-2014-007",
+      "articleId": "rpgbot-wizard-divination-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-divination-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-2",
+      "optionId": "section-multiclassing-block-section-multiclassing-2-item-0",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

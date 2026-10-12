@@ -5,6 +5,7 @@ import { Sparkles, Info, AlertTriangle, ArrowRight } from "lucide-react";
 import { FormattedDescription } from "@/components/ui/FormattedDescription";
 import { findAccentVariant } from "@/styles/edition-accent";
 import { EditionAccentChip } from "@/components/ui/EditionAccent";
+import { collectNestedRuleHeadingAnchors } from "@/lib/nested-rule-terms";
 
 type Props = {
   article: RuleArticle;
@@ -70,7 +71,7 @@ export function RuleArticleCard({ article, className }: Props) {
 
             {/* Markdown rendered content with bold styling and tables */}
             <div className="mt-4 text-slate-300 leading-relaxed font-sans">
-              <FormattedDescription content={sub.content} className="text-slate-300 text-sm leading-relaxed" />
+              <FormattedDescription content={sub.content} headingAnchors={collectNestedRuleHeadingAnchors(article, sub.id)} className="text-slate-300 text-sm leading-relaxed" />
             </div>
 
             {/* Optional Callout */}

@@ -1,0 +1,1107 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "0f187ae9c760768c3b5977cd0911f6583d95c936ebb690f565e3d8f09c561b5f",
+  "sourceRevision": {
+    "revisionId": "rpgbot-daedb67d73c250c6-0f187ae9c760768c",
+    "sourceId": "rpgbot-daedb67d73c250c6",
+    "fetchedAt": "2026-09-29T19:23:19.117284+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:39:16-04:00",
+    "contentHash": "bafddb5deceea5a1bdfed3fca4b15ae2a667034d19c4d65ad4fb17013aeeee44",
+    "title": "Strixhaven Initiate: DnD 5e Feat Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-daedb67d73c250c6-0f187ae9c760768c.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In many ways, Strixhaven Initiate feels like an updated version of "
+            },
+            {
+              "type": "link",
+              "text": "Magic Initiate",
+              "href": "https://rpgbot.net/dnd5/characters/feats/magic-initiate/"
+            },
+            {
+              "type": "text",
+              "text": ". The cantrip options are iconic options from several classes which were published in the Player’s Handbook alongside Magic Initiate, so limiting characters to those options prevents players from taking potentially problematic cantrips like Booming Blade which are added in other supplements. In exchange for that loss of flexibility, we gain the ability to pick our spellcasting ability score, somewhat more flexibility in your choice of class for the granted 1st-level spell, and the ability to re-cast the leveled spell using spell slots regardless of your class (Magic Initiate only allows you to re-cast the spell if you have levels in the class you picked for the feat)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rather than picking a single class, Strixhaven Initiate instead allows you to pick from one of the 5 "
+            },
+            {
+              "type": "link",
+              "text": "Strixhaven colleges",
+              "href": "https://www.dndbeyond.com/sources/sacoc/character-options#ChoosingaCollege"
+            },
+            {
+              "type": "text",
+              "text": ". Your choice of college determines your spell options, so choosing your college is just as important as choosing a class for Magic Initiate."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Due to the ability to re-cast the leveled spell you select, the biggest beneficiaries of Strixhaven Initiate are full spellcasters. Partial casters like artificers or eldritch knight fighters can also benefit, but their reduced number of spell slots reduces the usefulness of the feat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For more information about spellcasting feats, including ratings of the various feats, see our "
+            },
+            {
+              "type": "link",
+              "text": "Spellcasting Feats Guide",
+              "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Strixhaven Initiate College Options",
+                "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#strixhaven-initiate-college-options"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Lorehold",
+                "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#lorehold"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Prismari",
+                "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#prismari"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Quandrix",
+                "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#quandrix"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Witherbloom",
+                "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#witherbloom"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-strixhaven-initiate-college-options",
+      "heading": "Strixhaven Initiate College Options",
+      "sourceAnchor": "strixhaven-initiate-college-options",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-lorehold",
+      "parentSectionId": "section-strixhaven-initiate-college-options",
+      "heading": "Lorehold",
+      "sourceAnchor": "lorehold",
+      "blocks": [
+        {
+          "blockId": "block-section-lorehold-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing amazing here. If you want cleric spells, Silverquill is a better\n\tchoice. If you’re going Lorehold, you want Sacred Flame and a leveled wizard spell.\n\tGood options include Bless, Heroism, and Shield of Faith from the Cleric and\n\tAbsorb Elements, Mage Armor, Shield, and Silvery Barbs from the Wizard. This\n\tcould be a good option for bards or druids."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cantrips",
+      "parentSectionId": "section-lorehold",
+      "heading": "Lorehold Cantrip Options",
+      "sourceAnchor": "cantrips",
+      "blocks": [
+        {
+          "blockId": "block-section-cantrips-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Light"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A staple utility, but available to most full spellcasters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sacred Flame"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Simple and effective ranged damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thaumaturgy"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Too situational and too limited. See our \n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Prestidigitation",
+                "href": "https://rpgbot.net/dnd5/characters/prestidigitation/#thaumaturgy"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\tfor more advice."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-prismari",
+      "parentSectionId": "section-strixhaven-initiate-college-options",
+      "heading": "Prismari",
+      "sourceAnchor": "prismari",
+      "blocks": [
+        {
+          "blockId": "block-section-prismari-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing amazing here. The cantrips are staple wizard options, and access to\n\teither bard or sorcerer spells is tempting. Bard offers options like Healing\n\tWord and Faerie Fire, while Sorcerer offers options like Absorb Elements,\n\tChromatic Orb, Mage Armor, Magic Missile, Shield, and Silvery Barbs. This is\n\tan effective choice for clerics and druids."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cantrips-2",
+      "parentSectionId": "section-prismari",
+      "heading": "Prismary Cantrip Options",
+      "sourceAnchor": "cantrips",
+      "blocks": [
+        {
+          "blockId": "block-section-cantrips-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Fire Bolt"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Simple, reliable damage at range. The only problem is that fire\n\t\tresistance is common. But since the Bard is the only one who might\n\t\treasonably take this and Eldritch Blast is an option, this appeals to\n\t\tliterally no one."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Prestidigitation"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Really cool, but not impactful enough to your build that it’s worth a\n\t\tfeat on its own. See our \n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Prestidigitation",
+                "href": "https://rpgbot.net/dnd5/characters/prestidigitation/#prestidigitation"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\tfor more advice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ray of Frost"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Decent single-target ranged damage, but if all you want is damage you\n\t\tshould grab a bow. The speed penalty is nice, but it won’t win you any\n\t\tfights on its own."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-quandrix",
+      "parentSectionId": "section-strixhaven-initiate-college-options",
+      "heading": "Quandrix",
+      "sourceAnchor": "quandrix",
+      "blocks": [
+        {
+          "blockId": "block-section-quandrix-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All three cantrip options are utility options. Guidance is a staple and\n\teveryone who can get it should, but that’s not enough to make Quandrix a great\n\toption. Good leveled spell options include Goodberry and Healing Word from the\n\tDruid and Absorb Elements, Mage Armor, and Shield from the Wizard. This is a\n\tgood option for clerics who want wizard spells and for sorcerers, warlocks,\n\tand wizards who want Guidance and Healing Word."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cantrips-3",
+      "parentSectionId": "section-quandrix",
+      "heading": "Quandrix Cantrip Options",
+      "sourceAnchor": "cantrips",
+      "blocks": [
+        {
+          "blockId": "block-section-cantrips-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Guidance"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic and versatile. You should probably cast this at every\n\t\topportunity outside of combat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mage Hand"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A good utility options."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-silverquill",
+      "parentSectionId": "section-quandrix",
+      "heading": "Silverquill",
+      "sourceAnchor": "silverquill",
+      "blocks": [
+        {
+          "blockId": "block-section-silverquill-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Two good offensive cantrips from different classes. Good leveled spell\n\toptions include Faerie Fire from the Bard, Bless and Heroism from the Cleric,\n\tand Healing Word from either. This is a great option for many spellcasters,\n\tincluding druids, sorcerers, warlocks, and wizards, but bards and clerics may\n\tboth still find Silverquill appealing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cantrips-4",
+      "parentSectionId": "section-quandrix",
+      "heading": "Silverquill Cantrip Options",
+      "sourceAnchor": "cantrips",
+      "blocks": [
+        {
+          "blockId": "block-section-cantrips-4-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Sacred Flame"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Simple and effective ranged damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thaumaturgy"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Too situational and too limited. See our \n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Prestidigitation",
+                "href": "https://rpgbot.net/dnd5/characters/prestidigitation/#thaumaturgy"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\tfor more advice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vicious Mockery"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Easily the most iconic bard spell, Vicious Mockery is unique, flavorful,\n\t\tand mechanically fantastic. The damage is relatively small, but the debuff\n\t\tis absolutely worth the poor damage."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-witherbloom",
+      "parentSectionId": "section-strixhaven-initiate-college-options",
+      "heading": "Witherbloom",
+      "sourceAnchor": "witherbloom",
+      "blocks": [
+        {
+          "blockId": "block-section-witherbloom-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Just go for Quandrix. You get the same leveled spell options with better\n\tcantrips."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cantrips-5",
+      "parentSectionId": "section-witherbloom",
+      "heading": "Witherbloom Cantrip Options",
+      "sourceAnchor": "cantrips",
+      "blocks": [
+        {
+          "blockId": "block-section-cantrips-5-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Chill Touch"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Decent damage, but not as good as Fire Bolt or something."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Druidcraft"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Too situational and too limited. See our \n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Practical Guide to Prestidigitation",
+                "href": "https://rpgbot.net/dnd5/characters/prestidigitation/#druidcraft"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\tfor more advice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spare the Dying"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Buy a Healer’s Kit."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#lorehold",
+      "detail": "wp-block-heading rating-orange Lorehold"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Light"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sacred Flame"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Thaumaturgy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#prismari",
+      "detail": "wp-block-heading rating-green Prismari"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fire Bolt"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Prestidigitation"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Ray of Frost"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#quandrix",
+      "detail": "wp-block-heading rating-green Quandrix"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Guidance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mage Hand"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#silverquill",
+      "detail": "wp-block-heading rating-blue Silverquill"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sacred Flame"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Thaumaturgy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Vicious Mockery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#witherbloom",
+      "detail": "wp-block-heading rating-red Witherbloom"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Chill Touch"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Druidcraft"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Spare the Dying"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-lorehold-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-cantrips-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-prismari-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#cantrips",
+      "detail": "section-cantrips -> section-cantrips-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-cantrips-2-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-quandrix-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#cantrips",
+      "detail": "section-cantrips -> section-cantrips-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-cantrips-3-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-silverquill-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#cantrips",
+      "detail": "section-cantrips -> section-cantrips-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-cantrips-4-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-witherbloom-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#cantrips",
+      "detail": "section-cantrips -> section-cantrips-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-cantrips-5-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "text-coverage-review",
+      "location": "root",
+      "detail": "Extracted text differs from source content"
+    }
+  ],
+  "metrics": {
+    "words": 922,
+    "sections": 14,
+    "blocks": 19,
+    "tables": 0,
+    "ratingSignals": 23
+  },
+  "status": "needs-editorial-review"
+}

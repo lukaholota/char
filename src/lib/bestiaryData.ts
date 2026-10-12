@@ -8,6 +8,7 @@ import { Ruleset } from "@/lib/prisma-enums";
 import type { CreatureSpeeds } from "@/rules/creature-speed";
 import creatures2014Json from "@/lib/generated/creatures.json";
 import creatures2024Json from "@/lib/generated/creatures2024.json";
+import optimizationSupplements from "@/lib/generated/optimization-entity-supplements-2014.json";
 import {
   type CreatureIndexEntry,
   buildCreatureIndexEntry,
@@ -81,6 +82,10 @@ const creatures2014: CreatureData[] = (creatures2014Json as CreatureData[]).map(
   creatureId: c.creatureId || index + 1,
   ruleset: "RULES_2014" as Ruleset,
 }));
+const creatureNames2014 = new Set(creatures2014.map((creature) => creature.nameEng));
+const maxCreatureId2014 = Math.max(...creatures2014.map((creature) => creature.creatureId));
+creatures2014.push(...optimizationSupplements.creatures.filter((creature) => !creatureNames2014.has(creature.nameEng))
+  .map((creature, index) => ({ ...creature, creatureId: maxCreatureId2014 + index + 1, ruleset: "RULES_2014" as const })));
 
 // 2024 creatures
 const creatures2024: CreatureData[] = (creatures2024Json as CreatureData[]).map((c, index) => ({

@@ -1,0 +1,950 @@
+{
+  "buildId": "build-bard-creation-2014",
+  "revisionId": "build-bard-creation-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Колегії творення — Автогноми, вперед!",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-bard-creation-2014",
+      "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+      "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+      "sectionId": "section-example-college-of-creation-build-autognomes-roll-out",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "BARD_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "BARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "BARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "BARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "COLLEGE_OF_CREATION",
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ],
+        "expertise": [
+          "INSIGHT",
+          "INVESTIGATION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "BARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FEY_TOUCHED",
+        "featOptions": [
+          {
+            "optionNameEng": "FEY_TOUCHED Ability (Charisma)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "BARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "BARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "BARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "BARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "BARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "BARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ],
+        "expertise": [
+          "DECEPTION",
+          "INTIMIDATION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "BARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "BARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "BARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "BARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "BARD_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "BARD_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "BARD_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "BARD_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "BARD_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "BARD_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-creation-2014",
+          "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+          "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "COLLEGE_OF_CREATION",
+    "raceKey": "AUTOGNOME_SPELLJAMMER",
+    "backgroundKey": "INVESTIGATOR",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми вкладаємо очки характеристик у Харизму, Спритність і Статуру, а расові модифікатори Автогнома{{Autognome}} дають нам +1 до Спритності та +2 до Харизми.\n\n Купівля балів Расові модифікатори 20-й рівень Сил 8 8 8 Спр 15 16 16 Стат 15 15 20 Інт 8 8 8 Мдр 8 8 8 Хар 15 17 20\n\nМи розподіляємо модифікатори так, щоб перед тим, як на 4-му рівні взяти рису «Стійкий»{{Resilient}} (Статура), наша Статура мала непарне значення. Так ми покращимо ряткидки на Концентрацію.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ми обираємо Автогнома{{Autognome}}, щоб завдяки вмінню «Природна броня»{{Natural Armor}} підвищити КБ. Такий самий ефект можуть дати Три-крін{{Thri-Kreen}} або Черепаха{{Tortle}}. Ще один хороший варіант — Локсодон{{Loxodon}} з його різновидом Природної броні, що залежить від Статури.\n\nАвтогном{{Autognome}} може обрати два інструменти. Для цієї збірки ми беремо Інструменти картографа{{Cartographer’s Tools}} й Інструменти навігатора{{Navigator’s Tools}}, але цей вибір не впливає на збірку, тож його можна змінити під вашу кампанію.\n\nВибір раси тут не найважливіший, а сама ідея бути Конструктом{{Construct}}, що оживляє Конструктів, просто кумедна.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "За передісторію ми обираємо Слідчого{{Investigator}}. Він дає нам навички Аналіз Поведінки й Уважність, а також Набір для гриму та Інструменти злодія. Аналіз Поведінки стане в пригоді для ролі «обличчя» групи, а Уважність та Інструменти злодія допоможуть виконувати функції розвідника.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Барда ми беремо навички для ролі «обличчя»: Обман, Залякування й Переконання, а також три музичні інструменти. Конкретні інструменти обирайте до смаку. Наприклад, я завжди беру волинку. Від передісторії отримуємо Аналіз Поведінки й Уважність.\n\nЗ таким набором навичок ми зможемо виконувати в групі роль «обличчя».\n\nКрім того, на 3-му рівні ми беремо Експертизу{{Expertise}} в Аналізі Поведінки й Уважності, щоб компенсувати нижчу Мудрість. На 10-му рівні ми зможемо отримати Експертизу ще у двох із трьох навичок для ролі «обличчя»; вибір залежить від того, на чому ви хочете зосередитися.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "У нас є місце для кількох рис, але потрібно також підвищити характеристики.\n\nНа 4-му рівні беремо рису «Доторк феї»{{Fey Touched}} й додаємо +1 до Харизми, щоб довести її до 18. Як заклинання 1-го рівня обираємо Благословення [Bless], бо це сильне заклинання.\n\nНа 8-му рівні беремо рису «Стійкий»{{Resilient}} (Статура). +1 до Статури підвищує її до 16, а Володіння ряткидками допомагає нам краще протистояти ефектам, що порушують Концентрацію.\n\nНа 12-му рівні беремо {{Покращення Характеристик|ASI}} на +2 до Харизми. Ми трохи відстаємо від базової математики, але, імовірно, завдяки ранньому посиленню Концентрації наші бафи протрималися довше протягом тих чотирьох рівнів. Зазвичай цим бафам Харизма й так не потрібна.\n\nНа 16-му й 19-му рівнях маємо вибір. Можемо двічі підвищити Статуру на +2, двічі підвищити Спритність на +2, узяти по одному такому підвищенню або розглянути риси на кшталт «Надихаючий лідер»{{Inspiring Leader}} чи «Експерт у навичках»{{Skill Expert}}.\n\nПодвійне підвищення Спритності збільшило б наш КБ до 18, але подвійне підвищення Статури значно краще допоможе втримувати Концентрацію й дасть на 40 ХП більше, ніж перший варіант.\n\nДля цієї збірки ми обираємо підвищити Статуру до 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бардське натхнення{{Bardic Inspiration}} — к6\nНавички: Обман, Аналіз Поведінки, Залякування, Уважність, Переконання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "«Майстер на всі руки»{{Jack of All Trades}}\n«Пісня відпочинку»{{Song of Rest}} — к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "{{Колегія творення|College of Creation}}\n«Іскра потенціалу»{{Mote of Potential}}\n«Виступ творення»{{Performance of Creation}}\nЕкспертиза{{Expertise}}: Аналіз Поведінки, Уважність",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: «Доторк феї»{{Fey Touched}}, +1 до Харизми",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Бардське натхнення{{Bardic Inspiration}} — к8\n«Джерело натхнення»{{Font of Inspiration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "«Контрпричарування»{{Countercharm}}\n«Пожвавлюючий виступ»{{Animating Performance}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Лише заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: «Стійкий»{{Resilient}} (Статура), +1 до Статури",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "«Пісня відпочинку»{{Song of Rest}} — к8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Бардське натхнення{{Bardic Inspiration}} — к10\nЕкспертиза{{Expertise}}: Обман, Залякування",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Лише заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "{{Покращення Характеристик|ASI}}: Харизма +2",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "«Пісня відпочинку»{{Song of Rest}} — к10",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "«Творче крещендо»{{Creative Crescendo}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Бардське натхнення{{Bardic Inspiration}} — к12",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "{{Покращення Характеристик|ASI}}: Статура +2",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "«Пісня відпочинку»{{Song of Rest}} — к12",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Лише заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "{{Покращення Характеристик|ASI}}: Статура +2",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "«Вище натхнення»{{Superior Inspiration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Навичка Уважність від передісторії",
+        "reason": "Автор вважає, що Слідчий дає Аналіз Поведінки й Уважність; у каталозі платформи Слідчий дає Аналіз Поведінки й Розслідування, тож Уважності на 1-му рівні немає (Експертиза в ній — лише на 3-му рівні).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Інструменти раси й музичні інструменти",
+        "reason": "Автор називає Інструменти картографа й навігатора для Автогнома та три музичні інструменти до смаку; пресет не записує вибір інструментів.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Експертиза на 3-му рівні",
+        "reason": "Автор бере Аналіз поведінки й Уважність, але Слідчий у каталозі не дає Уважності; пресет бере Аналіз поведінки й Розслідування (вибір платформи, автор називає Уважність).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання на рівнях 2–20",
+        "reason": "Автор не називає нових заклинань і замовлень, тож їх обирає гравець (відкриті вибори, вибір платформи).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання Доторку феї",
+        "reason": "Автор радить Благословення; заклинання риси на підвищенні платформа не записує, поіменно видається лише Туманний крок.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-creation-2014",
+            "translationRevisionId": "translation-rpgbot-bard-creation-2014-draft1",
+            "sourceRevisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

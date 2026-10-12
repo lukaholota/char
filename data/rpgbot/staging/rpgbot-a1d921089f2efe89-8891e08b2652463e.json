@@ -1,0 +1,3229 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "8891e08b2652463e81b5b980a697819a937ef8b16173a26a9374ec95877f8ffa",
+  "sourceRevision": {
+    "revisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+    "sourceId": "rpgbot-a1d921089f2efe89",
+    "fetchedAt": "2026-09-29T19:18:53.094194+00:00",
+    "sourceUpdatedAt": "2025-08-10T11:42:50-04:00",
+    "contentHash": "46ff1e18630000bf780b48c4ee82e9f6719cefd43a14981f73b872a780adbf1b",
+    "title": "Bladesinging Wizard 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-a1d921089f2efe89-8891e08b2652463e.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bladesinging (also known as “Bladesinger”) is an interesting subclass. Early on in fifth edition, there were two (and a half, I’m not really counting arcane trickster) options for gish characters: Eldritch Knights and Bladesingers. The former were very much “what if a fighter could cast spells” while the latter made a stab at letting wizards not die in melee. For two whole years, Bladesinger reigned supreme as the most damaging spellsword… and then Hexblade happened and immediately blew both other options out of the water. All three were rated blue on the site before I wrote this article, but as part of doing so we moved Bladesinger down for several reasons as you’ll see below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hexblade solved the main problem faced by gish characters: multiple ability dependence. If I have to swing a sword, that’s going to take strength or dexterity. My spells are going to be powered (for either of the subclasses mentioned) by intelligence. Since I’m a front-line character, I’m going to be frequently targeted by enemies and therefore I need constitution to not die and maintain concentration on my spells. But the Hexblade says no no, let’s cut that down to just our spellcasting stat, enough dexterity to fill out medium armor (which Bladesingers can’t use) and then I can put the rest into Con. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "So, in the face of a pile of disadvantages, why would you still play a Bladesinger? Because, at its heart, it’s still a subclass of the single most powerful class in the game: Wizard. You will have "
+            },
+            {
+              "type": "emphasis",
+              "text": "far"
+            },
+            {
+              "type": "text",
+              "text": " more flexibility to handle your issues than a Hexblade ever will, and you can still buckle some swashes with the best of them. Let’s dig in and see what that looks like."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is specifically for the Bladesinger Wizard, and omits sections of typical class handbooks when those sections aren’t meaningfully different from other members of the class. For more information on the Wizard, see the "
+            },
+            {
+              "type": "link",
+              "text": "Wizard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/"
+            },
+            {
+              "type": "text",
+              "text": ". I also strongly recommend reading the "
+            },
+            {
+              "type": "link",
+              "text": "Wizard Spell List Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/spells/"
+            },
+            {
+              "type": "text",
+              "text": " and the "
+            },
+            {
+              "type": "link",
+              "text": "Wizard Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Bladesinger Subclass Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#bladesinger-subclass-features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Backgrounds",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#backgrounds"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Bladesinger Wizard Spells",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#bladesinger-wizard-spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Conclusion",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#conclusion"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Goblin Bladesinging Wizard",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#example-build-goblin-bladesinging-wizard"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#abilities-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#feats-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Bladinging Wizard / Bladesinger FAQ",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#bladinging-wizard-bladesinger-faq"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-bladesinger-subclass-features",
+      "heading": "Bladesinger Subclass Features",
+      "sourceAnchor": "bladesinger-subclass-features",
+      "blocks": [
+        {
+          "blockId": "block-section-bladesinger-subclass-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Training in War Song"
+              },
+              {
+                "type": "text",
+                "text": ": This is a very\n\t\tboring and slightly eclectic ability. Performance proficiency (which is\n\t\talready hard to use) on an severely MAD class that doesn’t want Charisma\n\t\tfeels like a ribbon. Getting access to light armor while not getting it as\n\t\tpart of character creation feels mean because you either have to carry a set\n\t\tof studded leather around with you for a whole level that you can’t use or\n\t\tyou have to try buying it in the wild, but at least it helps your AC a\n\t\tlittle if you don’t feel like spending a spell slot on mage armor (which\n\t\tmakes sense at low level when you don’t have all that many). Getting access\n\t\tto a single melee weapon makes whip shenanigans much harder because you can\n\t\teither have a damaging weapon like a rapier or a whip but not both, but it’s\n\t\tcertainly better than the dismal list of weapons wizards have access to\n\t\totherwise.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bladesong"
+              },
+              {
+                "type": "text",
+                "text": ": The defining feature of the\n\t\tclass, it’s a powerful enhancement that tries to turn a wizard into a\n\t\thexblade. Adding intelligence to defensive things definitely helps keep you\n\t\talive and keep your concentration going, but it doesn’t help you actually do\n\t\tdamage. You also get additional move speed which helps you get yourself\n\t\tcloser to the things that can attack into your optimally probably 18 AC, no\n\t\tworse than a low-level fighter but also no better and without any of the big\n\t\thit dice or healing/mitigation mechanics of other classes (for now).\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Bladesong, combined with high Dexterity and buffs like Shield, allows the\n\t\t\tBladesinger to boost their AC to heights that most classes simply can’t\n\t\t\tmatch without without magic items. However, you’re still vulnerable to\n\t\t\tother sources of damage like spells and area of effect damage, so bring\n\t\t\tother defensive options like Absorb Elements and Counterspell. Also\n\t\t\tremember that a single critical hit could easily take you out of combat\n\t\t\tunless you can also use Song of Defense to reduce the damage enough to\n\t\t\tkeep yourself going."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Since your uses of Bladesong per day are tied to your Proficiency Bonus,\n\t\t\tat low levels you need to think of this more as an occasional buff than\n\t\t\tyour go-to option in combat. Use this as-needed primarily as a defensive\n\t\t\tbuff and pretend that you’re any other type of wizard until you pick up\n\t\t\tExtra Attack and your Proficiency Bonus increases."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Extra Attack"
+              },
+              {
+                "type": "text",
+                "text": ": One of your attacks can be a\n\t\tcantrip, so you can use Booming Blade/Green-Flame Blade/Swordburst and make\n\t\tan additional weapon attack using one Action. You get all the effectiveness\n\t\tof using an attack cantrip without giving up the multiple attacks made by\n\t\tusing Extra Attack so you get the best of both options. Short of the\n\t\tEldritch Knight’s War Magic feature (which notably uses a Bonus Action), no\n\t\tother “gish” subclass can match this capability.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This Attack change notably works even while you’re not using Bladesong.\n\t\t\tConsider carrying a decent ranged weapon like a crossbow so that on turns\n\t\t\twhen you plan to use a ranged attack cantrip you can make a ranged weapon\n\t\t\tattack in the same turn. Even if your Dexterity is still at a +3 bonus\n\t\t\tthat attack is still a chance at some extra damage for very little\n\t\t\teffort."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This is a totally unneeded improvement to the subclass, but since you’re\n\t\t\ttaking the Attack action to use this, it’s compatible with both two-weapon\n\t\t\tfighting and Crossbow Expert. Booming Blade plus two weapon attacks or\n\t\t\tFire Bolt and two crossbow shots at range is pretty great, especially once\n\t\t\tyou pick up Song of Victory and Tenser’s Transformation."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Song of Defense"
+              },
+              {
+                "type": "text",
+                "text": ": This is a great way to\n\t\tpad your d6 hit points, but it will eat through your spell slots very\n\t\tquickly. Consider Absorb Elements and Shield as your go-to options for\n\t\tmitigating damage, but if Shield won’t negate an attack you might use this\n\t\tinstead if you expect the damage to be more than you’re willing to take."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Song of Victory"
+              },
+              {
+                "type": "text",
+                "text": ": A bit late to the game,\n\t\tbut by now you should easily have 20 Intelligence, so 5 bonus damage per\n\t\tmelee weapon attack (yes, only melee) is pretty nice. Since Extra Attack can\n\t\tget you two attacks without giving up the benefits of a cantrip like Booming\n\t\tBlade, this can be a noteworthy boost to your damage output on turns where\n\t\tyou’re not throwing around leveled spells. Combine this with Tenser’s\n\t\tTransformation, and a mundane rapier could deal 1d8+10+2d12 damage per\n\t\tattack, which is pretty great. But, while the damage bonus is nice, at this\n\t\tlevel a +5 damage bonus on your weapon attacks is frequently less impactful\n\t\tthan upcasting Fireball, which any wizard can do."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While we might pass for something else, we are still very much a wizard and\n\tneed to stack Int to the sky. Wisdom gets the bump here over anything else for\n\ta number of reasons, but mostly to pass Wisdom saves and prevent hindering\n\tPerception. Basically every Charm/Fear effect targets Wisdom, and not being\n\table to get closer to your target as a melee combatant is a problem."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Str"
+              },
+              {
+                "type": "text",
+                "text": ": Dump"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dex"
+              },
+              {
+                "type": "text",
+                "text": ": Since you need to be attacking with\n\t\tfinesse weapons, this should be your second-highest stat. It will also help\n\t\tboost your AC and help keep you safe from the AoE attacks things will\n\t\tinevitably throw your way once they realize that trying to attack into your\n\t\tincredible AC is a waste of time."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Con"
+              },
+              {
+                "type": "text",
+                "text": ": Third in importance. While you have\n\t\tsome defensive capabilities, you are a front line combatant and need the hit\n\t\tpoints to match, and the bonus to concentration saves will be very helpful\n\t\twhen you’re not running bladesong."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Int"
+              },
+              {
+                "type": "text",
+                "text": ": The Wizard’s spells and class\n\t\tfeatures are powered by Intelligence."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wis"
+              },
+              {
+                "type": "text",
+                "text": ": Important saves."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cha"
+              },
+              {
+                "type": "text",
+                "text": ": Dump"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-3",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you aren’t using the optional rules from Tasha’s, make sure to look for Dexterity as the secondary stat harder than you would for normal wizards. Tortle is a tempting choice to get that high base AC that would then be modified by Bladesong, but since you also need Dex to make sure your weapon attacks land it doesn’t really help much. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since the bonus from Song of Victory only applies to melee attacks, we’re also giving up power budget by choosing a flying race so I’d stick to something like (perhaps unsurprisingly) an elf of either high or wood flavor. Wood Elf gets you a nice pile of weapon proficiencies that use dex so you don’t have to feel bad about wanting options, and the additional move speed is helpful for melee positioning. In fact, if you’re customizing origins as per Tasha’s, you can turn the longsword proficiency into rapier proficiency and walk out stabbing people as hard as a fighter. Of course you still die much faster than a fighter."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For more help picking a race, see our "
+            },
+            {
+              "type": "link",
+              "text": "Wizard Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-backgrounds",
+      "heading": "Backgrounds",
+      "sourceAnchor": "backgrounds",
+      "blocks": [
+        {
+          "blockId": "block-section-backgrounds-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’ve listened to our "
+            },
+            {
+              "type": "link",
+              "text": "podcast episode on backstory",
+              "href": "https://rpgbot.net/rpgbot-podcast-s2e12/"
+            },
+            {
+              "type": "text",
+              "text": " (it features a large section on backgrounds), you’ll know that backgrounds are fundamentally just a label to slap on a pile of proficiencies that can be whatever you like. Pick a unique feature you like from one and go to town customizing. For optimizing from the presets, you probably want to lean into your high intelligence and do something like Sage or Cloistered Scholar, although leaning into your dex can be fine too if you’re trying to fill in as the group’s Scout. Urchin would probably be my pick for that route."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In general, this build wants too many ASIs to bother with many feats.\n\tAssuming point buy and an optimized race, the two stats you care most about\n\twill start at 17/16. Level 4 will get you a hybrid feat, 8 gets you to 20, 12\n\tand 16 cap your second stat and that leaves you exactly one ASI that can be\n\tturned into a feat, but the earlier you do it the more you handicap yourself\n\tagainst the\n\t"
+            },
+            {
+              "type": "link",
+              "text": "Fundamental Math of the Game",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "So, we get one Hybrid feat that must be Dex or Int and then maybe one feat at\n\t19th level. If you choose variant human you can shift the feat to first level\n\tand make it not required to be hybrid, while still maintaining correct\n\tfundamental math for both stats you care about. That opens up some\n\topportunities like walking out with Warcaster which is kinda neat for using\n\tBooming Blade on people who try to walk past you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For the hybrid feats, you have a few strong contenders:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Elven Accuracy",
+                "href": "https://www.dndbeyond.com/feats/89-elven-accuracy"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Are you an\n\t\tElf or Half-Elf?\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "RPGBOT – Oops all elves",
+                "href": "https://rpgbot.net/oops-all-elves/"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Fey Touched",
+                "href": "https://www.dndbeyond.com/feats/451349-fey-touched"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Slightly\n\t\tless good as a wizard because you can learn these spells just by paying\n\t\tmoney, but it’s still 2 free spells per long rest."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Piercer",
+                "href": "https://www.dndbeyond.com/feats/452845-piercer"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": This a\n\t\tpretty good feat if you use the stereotypical rapier or if you use short\n\t\tswords, but in order to keep the fundamental math working we can’t take it\n\t\tuntil level 12. With that said, it does let you reroll the d12s off Tenser’s\n\t\tTransformation which is "
+              },
+              {
+                "type": "emphasis",
+                "text": "immensely"
+              },
+              {
+                "type": "text",
+                "text": " satisfying."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Resilient (Dex)",
+                "href": "https://www.dndbeyond.com/feats/39-resilient"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Also\n\t\twaiting until level 12 unless you want to nerf your Int, this will still be\n\t\tvery good. It’s an immediate huge bump to one of your main weaknesses\n\t\t(getting hit by AoEs) and a plausible use of your hybrid if you think you’re\n\t\tgoing to be really worried about being fragile."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skill Expert",
+                "href": "https://www.dndbeyond.com/feats/456476-skill-expert"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": If for\n\t\tsome reason you "
+              },
+              {
+                "type": "emphasis",
+                "text": "are"
+              },
+              {
+                "type": "text",
+                "text": " trying to fill in as the scout, this will\n\t\tabsolutely help fill the gap between you and a rogue. Or just throw\n\t\texpertise on Arcana and wander around as the knowingest guy with a sword\n\t\tthere ever was."
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Telekinetic",
+                "href": "https://www.dndbeyond.com/feats/456458-telekinetic"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "superscript",
+                "text": "("
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "superscript",
+                "text": ")"
+              },
+              {
+                "type": "text",
+                "text": ": Oh look,\n\t\tit’s another guide where Random recommends Telekinetic. The thing is,\n\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "it’s still that good"
+              },
+              {
+                "type": "text",
+                "text": ". As a wizard you hopefully already have Mage\n\t\tHand which means you get to double the range on it, plus you have a bonus\n\t\taction you can always take if you’re not doing something like an off-hand\n\t\tattack."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For melee, you start with a dagger at level 1 because you’re just a wizard\n\tfor now and shouldn’t actually be using it all that often. I suppose you can,\n\tbut you don’t really have any survival tools yet so trying to stab things to\n\tmaximize damage will just likely get you killed. Technically speaking, you\n\twill get better damage out of a light crossbow with this stat spread than you\n\twill with Firebolt so you should probably do that for ranged damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-weapons-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 2, you have a choice. If you pick up proficiency in a rapier, you’ll\n\tdo bigger main-hand damage which can be nice until level 11. If you instead\n\tpick up shortswords, you can dual-wield them and enjoy the benefits of apply\n\tSong of Victory and Tenser’s Transformation to your off-hand attack at high\n\tlevels."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take the gold start and just buy studded leather (and the aforementioned\n\tsword[s]). You will never wear anything else, even though you can’t actually\n\twear it until 2nd level."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-bladesinger-wizard-spells",
+      "heading": "Bladesinger Wizard Spells",
+      "sourceAnchor": "bladesinger-wizard-spells",
+      "blocks": [
+        {
+          "blockId": "block-section-bladesinger-wizard-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We already talked about some staple defensive options like Shield and Absorb\n\tElements, and those are certainly going to make good use of eating through\n\tyour low level spell slots after the early levels where you’re still\n\tfunctionally just a wizard in studded leather. But that’s not why you’re here.\n\tYou’re here to cast Haste on yourself and stab things three times a turn.\n\tUnfortunately, many of your best buffs are concentration which prevents you\n\tfrom using them together and actually being the muscle wizard."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-bladesinger-wizard-spells-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In fact, the only buff spells that "
+            },
+            {
+              "type": "emphasis",
+              "text": "aren’t"
+            },
+            {
+              "type": "text",
+              "text": " concentration are\n\tdefensive spells like False Life, Mage Armor, and Fire Shield (which is a\n\tparticularly bad choice as it requires things to hit you which should be rare\n\tas a Bladesinger)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-bladesinger-wizard-spells-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Shadow Blade"
+              },
+              {
+                "type": "text",
+                "text": " is an amazing spell for\n\t\tBladesingers, but requires concentration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magic Weapon"
+              },
+              {
+                "type": "text",
+                "text": " is good if you don’t have\n\t\tone and are running into things with resistance."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blur"
+              },
+              {
+                "type": "text",
+                "text": " and\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Mirror Image"
+              },
+              {
+                "type": "text",
+                "text": " are very good defensive\n\t\tmagic, but your AC while singing is already high enough that you don’t\n\t\treally need to worry about that."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Haste"
+              },
+              {
+                "type": "text",
+                "text": " has sparked a fierce debate about\n\t\twhether or not you can use the extra attack granted by it to cast a cantrip\n\t\t(my personal interpretation is no even if you haven’t cast anything else in\n\t\tthe round because the specific no of haste’s extra attack rule beats the\n\t\tgeneral “you can…” statement of the class feature), but it’s very good\n\t\tanyway."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ashardalon’s Stride"
+              },
+              {
+                "type": "text",
+                "text": " is a good way to make\n\t\tadditional use out of your bonus movement and keep you safe while you do it\n\t\tbut, again, concentration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Steel Wind Strike"
+              },
+              {
+                "type": "text",
+                "text": " finally feels like a\n\t\tspell you should use… but it’s completely anti-synergistic. It’s not a\n\t\tcantrip, so you can’t use it in an Attack. It makes melee spell attacks\n\t\tinstead of melee weapon attacks so it doesn’t interact with Song of Victory.\n\t\tAnd it doesn’t care what weapon you’re holding, it just hits for 6d10 force\n\t\tdamage anyway. You mind way less than most wizards that it leaves you\n\t\tadjacent to someone when you’re done, and the damage is still very good, but\n\t\tit’s just frustrating that it’s not better for you than for most wizards,\n\t\tand Evokers can use it even better than you can thanks to Overchannel."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Greater Invisibility"
+              },
+              {
+                "type": "text",
+                "text": " is a fantastic\n\t\tpersonal buff. It gives you advantage on attack rolls, it prevents people\n\t\tfrom taking opportunity attacks against you and targeting you with most\n\t\tspells and effects, and even if someone does guess where you are, attacking\n\t\tyou still has disadvantage which will be very hard to attack into your high\n\t\tAC."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spirit Shroud"
+              },
+              {
+                "type": "text",
+                "text": " is poor man’s Tenser’s but\n\t\tdoes actually have some really nice benefits like making things move more\n\t\tslowly around you and allowing you access to Necrotic and Radiant damage if\n\t\tthose types will be helpful for a given fight like against Zombies. Truth be\n\t\ttold, it actually does the thing you care most about (damage dice on weapon\n\t\tattacks) while also not having the exhaustion drawback or preventing you\n\t\tfrom casting other spells."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are many and varied opinions. Starting with a level of Artificer gets\n\tyou access to armor immediately, proficiency in Con saves and the ability to\n\tcast Cure Wounds as an Intelligence spell. If you’re willing to put 3 levels\n\tinto it you can either go Armorer with a defender primary and be a wizard…\n\ttank… or you can go Battle Smith. Either one of those gets you the ability to\n\tattack with Intelligence, but that’s at the cost of 3 levels. Paladin/Bard\n\tinto Hexblade is so popular because it’s just a 1 level dip. So even though\n\tArtificer is the most popular choice, I fall pretty cleanly into the “don’t”\n\tcamp."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While it’s hard to hype up and not very flashy, what makes wizards so strong\n\tis their immense versatility. A bladesinger is thematically very cool, but\n\tit’s fundamentally just a wizard holding a pointy stick. No doubt there is\n\tsome fun to be had there, but if you lean so hard into the pointy stick you’re\n\tholding that you forget about being a wizard you’re just shooting yourself in\n\tthe foot. So I say just be a wizard as hard as you can and have some flair\n\twhile you do it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conclusion",
+      "heading": "Conclusion",
+      "sourceAnchor": "conclusion",
+      "blocks": [
+        {
+          "blockId": "block-section-conclusion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "So, in a break from tradition, I’m going to put in a conclusion here before I give you an example build because I ended up doing a decent amount of reading for this handbook. I’m trying to convince Tyler to downgrade Bladesinger from blue because, honestly, it’s at odds with what wizard tries to do. It tries to shoehorn you into picking up spells that tailor to a gish playstyle but "
+            },
+            {
+              "type": "emphasis",
+              "text": "literally"
+            },
+            {
+              "type": "text",
+              "text": " every offensive buff on the wizard list requires concentration (except Foresight but that doesn’t really count), meaning you can only do one at a time. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conclusion-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gone are the day of stacking Haste, Tenser’s Transformation, and Girallon’s Blessing and tearing someone several new orifices in 6 seconds like you could in 3.x. Even if you could do that, you’d functionally just be nerfing yourself down to doing a lot of damage as a wizard, and if you wanted to do that you could just be an evoker and do it safely from a distance."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conclusion-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When a class’s biggest power source is enormous flexibility and you strap on a subclass that forces you to specialize into doing something other people do better, you know you’re in a bad place. When you realize that all your tools to try to catch up to them are mutually exclusive to each other, then the sadness really sets in."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conclusion-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I’m not going to say you shouldn’t play a Bladesinger. Please live your dream\n\tin this character and have enormous fun with it. Roleplay like a madperson,\n\tstab some things, cast some spells, and enjoy everything a Bladesinger can be.\n\tBut I would be remiss, in a character optimization website, not to say that\n\toptimizing a Bladesinger feels like trying to sharpen a stick when you’re\n\tsurrounded by perfectly good knives."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-goblin-bladesinging-wizard",
+      "heading": "Example Build – Goblin Bladesinging Wizard",
+      "sourceAnchor": "example-build-goblin-bladesinging-wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-goblin-bladesinging-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "They think they’re so special just because they’re tall. It’s like they\n\t\tdon’t understand that the smaller you make something, the sharper it is.\n\t\tHonestly, I’m "
+            },
+            {
+              "type": "emphasis",
+              "text": "way "
+            },
+            {
+              "type": "emphasis",
+              "text": "cooler than an elf for learning this stuff because I mastered in 5 years\n\t\twhat takes them 40 to learn."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities-2",
+      "parentSectionId": "section-example-build-goblin-bladesinging-wizard",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities-2",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will assume the point buy abilities suggested above."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-goblin-bladesinging-wizard",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Goblin presented in Monsters of the Multiverse makes a very compelling\n\treason to use something small. Having Bonus Action Disengage available to you\n\tis a great tool for Bladesingers to smooth out the gaps in Bladesong that\n\tearly levels have (and honestly just in general prevents you from having to\n\tburn slots on Shield if you want to reposition), while Fury of the Small is\n\tjust nice extra damage. You also start with 30ft of movement even at Small,\n\tand Darkvision and Fey Ancestry are always welcome. Plus, it being an MotM\n\trace means that you get to assign your +2/+1 as you see fit even if your DM\n\tdoesn’t want to use the Tasha’s rules."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-goblin-bladesinging-wizard",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Arcana and Religion."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-goblin-bladesinging-wizard",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Take Cloistered Scholar for History and Nature, leaving only Investigation as\n\tour non-proficient Intelligence skill. Your naturally high Int will carry you\n\ton that one as the backup to whatever Scout your party has."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example-build-goblin-bladesinging-wizard",
+      "heading": "Feats",
+      "sourceAnchor": "feats-2",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since I don’t actually care about the fundamental math or my own advice, I’m\n\tgoing to say take Piercer at level 4, at level 8 smooth your stats into 18 in\n\tDex and Int, 12 caps Int, 16 caps Dex, and then we don’t get an ASI at 19\n\tbecause instead there’s a surprise tool that will help us later."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I very explicitly didn’t let myself use Telekinetic, but not taking it is also a reasonable choice here since Bonus Action Disengage is going to see a lot of use."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-goblin-bladesinging-wizard",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "1"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spellcasting"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Arcane Recovery"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Cantrips Known: Shape Water, Booming Blade, Prestidigitation, Mage Hand"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Spells Known: Burning Hands, Comprehend Languages (R), Detect Magic (R), Find Familiar (R), Mage Armor, Magic Missile"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "For your starting equipment, take the money instead and buy yourself studded leather, a light crossbow, two shortswords, and a focus."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "As touched on above, until level 5 we get higher damage per round out of a light crossbow thanks to it getting our Dex to damage. This lets us start with the 3 best utility cantrips instead and take Booming Blade for once we start doing melee things."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "At this level, you’re just a wizard with a high enough Dexterity to make good use of a crossbow, so act like one. Burning Hands gets us AoE, Magic Missile is there in case you’re having trouble getting past something’s AC, and Mage Armor because you’d have to get +2 studded leather to beat it and if you’re spending a very rare item on your armor well… that’s a choice."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "All the other spells with the (R) tag are rituals, so you don’t have to prepare them in a day to cast them, just add 10 minutes."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Don’t forget Arcane Recovery. You only get to use it once per day, but it allows you to recover a few spell slots, which can be the difference between life and death in a full day of adventuring. Use it early, use it often."
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bladesinging"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Training in War and Song"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bladesong"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells\n\t\t\t\t\tKnown: Absorb Elements, Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now you can put on that armor and stabbing implement and start living out the fantasy. We still run into the gish problem of mainhand-weapon-offhand-focus-or-somatic-component-but-sometimes-not-both so be wary as you select your spells going forward to watch for what casting them will be like. I’ll try to keep an eye on it for this guide but I’m not perfect."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Shield will help you survive in melee when you’re targeted, but remember that you should be using your Bonus Action Disengage to move safely through combat. We’ve talked about Absorb elements, and a reminder that it’s even better for us than most wizards since we’ll actually use the rider melee damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bladesong is going to be your button to turn on at the start of a fight before you move into melee. You only get 2 a day at this level, so you’re going to be expected to use it in half your daily fights. Try to pick ones with many enemies to capitalize on the AC bonus and keep yourself alive."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tyler would like me to believe that a typical adventuring day is expected to include 6-8 encounters based on the “Adventuring Day” rules, but people generally don’t play that way."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known: Magic Weapon, Identify (R)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magic Weapon is our first concentration buff, and at this level it’s pretty good. Some things will start having resistance to non-magical B/P/S, so here’s the way to bypass it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Someone needs to be able to cast Identify, and taking it as a wizard lets you ritual it without preparing it, making you the best choice. If you have another person who’s already taking it, you can drop this for other staples like Invisibility or Darkvision"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat (Piercer) +1 Dex, total 17"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known: Fire Bolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared: Misty Step, Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The wording on Piercer lets you reroll any of the dice in the attack, which is very helpful when you’re rolling a big pile of them thanks to Booming Blade."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In preparation for level 6 we take Fire Bolt because being able to sub 2d10 in for a single shot while still getting off the other shot makes your ranged damage formidable."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For leveled spells there’s a few options. I’m going to recommend Misty Step because it’s one of the best spells out there and, even though you’re hard to hit, if you get grappled you’re in trouble."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re worried about survival in melee, Mirror Image is one of the best defensive spells in the game and doesn’t cost concentration so you can run it with your other buffs, but realistically you shouldn’t need it. I would probably look into Web or Earthen Grasp depending on whether you’re running into more large targets or mobs. Shadow Blade would also be a good option here, particularly if you’re in an Underdark campaign or something where dim light is plentiful."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sadly, astute readers will notice that all of those are concentration, making them mutually exclusive with each other and with Magic Weapon."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known: Fireball, See notes"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Stabbing things is all well and good, but take Fireball. Don’t bother continuing to prepare burning hands, I’d start preparing something else in that 4th slot that you bought along the way."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you don’t have anyone else in the party who can take Tiny Hut, it’s on you to do so. It’s got the (r) tag so you don’t have to prepare it, but making sure you get a long rest even if you’re camping is just too important to a spellcaster to pass up."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you don’t have to take that, Haste is going to be your staple. I talked about it above, but it’s still a great option for you. Sadly, it’s still concentration meaning you can’t use it with Magic Weapon or any of the area control options from earlier levels."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known: Counterspell, Dispel Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our leveled spells at this level are boring, but critical. Counterspell allows you to shut down enemy spellcasters, while Dispel Magic removes problematic magical effects. Both spells are crucial parts of your party’s arsenal at any level (although Counterspell is the one I’d drop for Haste if you had to be the Tiny Hut carrier)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As you now get the best version of Extra Attack, a standard turn for you will look something like Booming Blade and a normal rapier attack, possibly with an extra attack if you have yourself Hasted."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’re too far away or out of Bladesongs, shoot off a crossbow shot & a Fire Bolt."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known: Greater Invisibility, Polymorph"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Being invisible will get you advantage on every attack, which is awesome. There aren’t any other personal buffs at this level we care about, because Fire Shield is bad for us like we described above."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "On the other hand, what if you were a giant ape? Now, actually, the real question happens at next level: is a straight Bladesinger 8 more effective than a Tyrannosaurus Rex? "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(By the way, both of these spells are concentration)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Dex and Int 17 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Prepared: Arcane Eye, Stone Shape"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Assuming we’re concentrating on Haste, at this level we’re doing about 21 damage per round using the attacks mentioned at last level. We also have an AC of 21 while singing and wearing Mage Armor and conveniently exactly 50 hp."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "A monster for CR 8 should have about a +9 to hit with standard attacks if it’s meant to be a brute. For the sake of discussion, let’s just give you infinite slots for Shield and Absorb Elements and say your AC is 25 and you have resistance to elemental damage. This means those attacks will miss you 75% of the time. That makes your effective HP against attacks 200, and 100 for elemental attacks thanks for Absorb elements. Let’s average that out to 150 for super quick napkin math."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Polymorphing into a T-Rex gives you 136 temp HP, added onto your base of 50 for a total 186, which is more than our theoretical infinite-spell-slot wizard above. Meanwhile, its damage per round is "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "literally double"
+                },
+                {
+                  "type": "text",
+                  "text": ", and you get to grapple the target of your bite with no additional cost."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now, the problem here is that your Intelligence will be 2 while you do this, so you’re not going to be able to do fancy tactics. You maintain your “alignment and personality” which hopefully means your capacity to differentiate and not eat friends. But the DPR for a bladesinger doesn’t catch up until level 14 when you get Song of Victory. So, you could be a Bladesinger and put all your resources into that, or you could just be a dinosaur. I’m giving the Bladesinger a little bit of short shrift here because I didn’t include the bonus for Piercer in that calculation, but I gave Booming Blade a 50% trigger chance so let’s call that even."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Anyway, let’s pick up some utility. Stone Shape and Arcane Eye will both help you immensely out of combat, and Stone shape can be a combat trick if you’re crafty enough."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known: Telepathic Bond, Wall of Force"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wall of Force is basically cheating. Almost nothing can break it, and with a 10-minute duration you can easily entrap the biggest thing in a fight while you go and deal with its friends or while you and your friends heal, buff, and set up prepared actions. Against especially large creatures you can raise the dome off the floor enough that you can still target the victim’s feet while the victim is unable to escape. (But it’s still concentration, so no Haste while you’re doing it)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cast Telepathic Bond as a ritual. The ability to communicate silently across limitless distance is a massive tactical advantage in most situations where other creatures are a problem. This also neatly solves the challenge of language barriers (including while you’re polymorphed), so if you can get a target to sit around for 10 minutes you no longer need Tongues."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Cantrips Known: Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known: Skill Empowerment,\n\t\t\t\t\tCreation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Defense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your new Cantrip, I’d probably take Green Flame Blade if you’re not fighting many things resistant to fire damage since the cleave is better guaranteed damage than Booming Blade, but really anything works."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We still have our go-to combat buff of Haste, so let’s keep picking up utility. Both of these spells have many, many uses outside of fighting and we’d like to keep being as wizardly as possible."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We mentioned Song of Defense before. It’s not bad, but it’s certainly not great. Use it when you eat a stray crit to help keep the incoming damage low. (Or just cast Silvery Barbs if it’s allowed at your table. It really shouldn’t be, which is why I haven’t told you to prepare it thus far. But if it is, it’s a much better defensive mechanism against said stray crits.)"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known: Tenser’s Transformation, Disintegrate"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember that other short sword you’ve been carrying around since level 1? It’s finally going to see play when you pop Tenser’s and pretend to be a fighter. As a reminder, you can’t cast any spells while transformed, including cantrips. So you’re just swinging twice with a short sword and then once with your offhand short sword. No Shield or Absorb Elements to keep you safe. With that said, it’s still the better of the two choices between that and Tasha’s Otherworldly Guise since that one provides no offensive help."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tenser’s is now going to be your once-a-day buff. I say once-a-day because it forces you to make a save that, unaided, you only have a 40% chance to avoid getting a level of exhaustion when it ends (they make sure to specify that you make the save "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "after"
+                },
+                {
+                  "type": "text",
+                  "text": " it ends, meaning you don’t get to use the proficiency bonus to Con saves the spell grants). So if you fail the first save, you can’t risk casting it again. One level of exhaustion is annoying out of combat, but two is crippling. Being a T-rex is looking more and more tempting."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "So, you get one big buffed fight, then it’s back to Haste. What else do we do with a new spell level? Disintegrate. It’s not going to mess with your concentration, it’s amazing damage, and you can use it outside of combat to drill magical holes in anything you feel like, including if someone rudely used a Wall of Force on you like I just suggested they do."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known: Contingency, Globe of Invulnerability"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Ability\n\t\t\t\t\tScore Improvement (Intelligence 18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Continuing the trend of picking up spells like we’re any other wizard, both of these are incredibly powerful, even if one is only situational. I’m just going to recommend you read the "
+                },
+                {
+                  "type": "link",
+                  "text": "spell breakdown page",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/spells/#2ndlevel-spells"
+                },
+                {
+                  "type": "text",
+                  "text": " for why Globe is so good."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Contingency is just phenomenal utility and is one of those “only limited by your imagination” things. Unfortunately also limited by spell level in this edition but c’est la vie. Fun fact: you can contingency Polymorph to be cast when you think “Dino Rangers Roar!” thus negating the requirement to provide any components or an action when you do it. Think yourself into a T-Rex."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known: Teleport, Forcecage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Someone needs to be able to Teleport, and it might as well be you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Finally,\n\t\t\t\t\tsomething to do with your spell slots that doesn’t eat concentration.\n\t\t\t\t\tForcecage is a phenomenal spell with no save. Pick a target and go, or\n\t\t\t\t\tput it on your party to give yourself time to ritual cast Tiny Hut and\n\t\t\t\t\tjust decide to take your combat and go home."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known: Plane Shift, Simulacrum"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Victory"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Someone also needs to be able to Plane Shift at this level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you’ve read my "
+                },
+                {
+                  "type": "link",
+                  "text": "Practical Guide to Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/wish/"
+                },
+                {
+                  "type": "text",
+                  "text": ", you know where this is going."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Victory finally comes online, letting you add 5 damage to melee attacks. Finally, running Haste and Bladesong, we’re as good as a T-Rex."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells Prepared: Draconic Transformation, Maze"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You will notice that both of these spells are concentration and neither of them is remotely related to being a Bladesinger. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Draconic Transformation is a nod to the fact that we should probably have some way to fly at this point and using your bonus action to cast a low level fireball every turn is pretty damn good."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Dexterity 18 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:\n\t\t\t\t\tFeeblemind, Clone"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally we cap the other stat we care about."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Feeblemind is yet another tool of yours for shutting down enemy casters, which is helpful to keep them on the end of your rapier."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Oh no. No it’s starting."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known: Foresight Wish"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nooooooooo! Infinite naked bladesingers with resistance to all damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Oh I guess you could cast Foresight on yourself instead if you expect to have a fighting day."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Mastery: Shield, Misty Step"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known: Any two"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "There’s nothing else really for me to say about this build."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Shield\n\t\t\t\t\tand Misty Step are so important that being able to have an emergency\n\t\t\t\t\tspare even if you’re out of spell slots is nice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19 Fighter 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fighting Style (TWF)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hey wait a minute. Well, it turns out that all we give up here is 2 spells slots per day for not finishing out the class and if we take two levels in Fighter we can add +5 damage to our off-hand attacks and get an Action Surge once per rest which is a way better capstone than Signature Spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You also get Second Wind. It’s only a few HP, but there might be times when you’re not using your Bonus Action for other things and it doesn’t hurt."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20 Fighter 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A Tenser’s turn where you Action Surge would look like 5 attacks, each doing d6+2d12+10. That totals to an average of 132.5 damage (if it all hits), which is pretty decent, but also you can only do that once a day."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also though, remember that absolutely nothing prevents you from casting two Cantrips in one turn. A Hasted turn could look like Attack, Booming Blade, do that again with Action Surge, off-hand attack, and Hasted attack. That’s going to look like 4(d6+10)+2(d6+3d8+10) which averages 91, with 36 more possible if the target moves. Not quite as good, and dependent on enemy actions, but not bad either if you can’t risk the exhaustion level. "
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-bladinging-wizard-bladesinger-faq",
+      "heading": "Bladinging Wizard / Bladesinger FAQ",
+      "sourceAnchor": "bladinging-wizard-bladesinger-faq",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-22",
+      "parentSectionId": "section-bladinging-wizard-bladesinger-faq",
+      "heading": "Should a bladesinger forcus on melee combat?",
+      "blocks": [
+        {
+          "blockId": "block-section-22-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From an optimization perspective, no. In almost every situation it will be more impactful for you to cast a spell than it will be for you to use Bladesong to use weapons. However, that doesn’t mean that it isn’t fun to do so."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Training in War Song"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bladesong"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Extra Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Song of Defense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Song of Victory"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Elven Accuracy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Fey Touched"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Piercer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-green Resilient (Dex)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Skill Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/a[1]",
+      "detail": "rating-blue Telekinetic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Shadow Blade"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Magic Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Blur"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[2]",
+      "detail": "rating-green Mirror Image"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Haste"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ashardalon’s Stride"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Steel Wind Strike"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Greater Invisibility"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Spirit Shroud"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-bladesinger-subclass-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"2\"><span class=\"rating-blue\">Bladesong</span>: The defining feature of the class, it’s a powerful enhancement that tries to turn a wizard into a hexblade. Adding intelli"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"6\"><span class=\"rating-blue\">Extra Attack</span>: One of your attacks can be a cantrip, so you can use Booming Blade/Green-Flame Blade/Swordburst and make an additional "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-3"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-races-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-backgrounds-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-bladesinger-wizard-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-bladesinger-wizard-spells-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-bladesinger-wizard-spells-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-conclusion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-conclusion-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-conclusion-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-conclusion-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-example-build-goblin-bladesinging-wizard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-abilities-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[1]",
+      "detail": "section-22"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-22-1"
+    }
+  ],
+  "metrics": {
+    "words": 6480,
+    "sections": 22,
+    "blocks": 43,
+    "tables": 3,
+    "ratingSignals": 30
+  },
+  "status": "needs-editorial-review"
+}

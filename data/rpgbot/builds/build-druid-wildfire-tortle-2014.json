@@ -1,0 +1,806 @@
+{
+  "buildId": "build-druid-wildfire-tortle-2014",
+  "revisionId": "build-druid-wildfire-tortle-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Друїда Кола дикого вогню — «Гамера»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+      "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+      "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+      "sectionId": "section-example-circle-of-wildfire-druid-build-gamera",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "DRUID_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "DRUID_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "DRUID_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "CIRCLE_OF_WILDFIRE",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "DRUID_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "DRUID_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "WAR_CASTER",
+        "spells": {
+          "cantripKeys": [
+            "druidcraft"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ARCANA_DOMAIN",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "light",
+            "mending",
+            "thaumaturgy"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        },
+        "classOptionSpellKeys": [
+          "green-flame-blade",
+          "booming-blade"
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "DRUID_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "DRUID_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "DRUID_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "DRUID_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "DRUID_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "DRUID_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "DRUID_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "DRUID_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "DRUID_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "DRUID_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "DRUID_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "DRUID_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "POLEARM_MASTER"
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "DRUID_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "DRUID_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "DRUID_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+          "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+          "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TOUGH"
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "CIRCLE_OF_WILDFIRE",
+    "raceKey": "TORTLE_MPMM",
+    "backgroundKey": "SOLDIER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": " Купівля характеристик Скориговане значення Сила 15 16 Спритність 8 8 Статура 15 16 Інтелект 8 8 Мудрість 15 16 Харизма 8 8\n\nОскільки ми беремо черепаху{{Tortle}} із «Монстрів Мультивсесвіту»{{Monsters of the Multiverse}}, ми можемо обрати варіант +1/+1/+1 для характеристик, піднявши Силу, Статуру й Мудрість до трійки 16.\n\nСпочатку ми максимізуємо Мудрість, бо це наша характеристика чаротворства, а потім добираємо Статуру, щоб краще виживати. Оскільки КБ черепах{{Tortle}} — фіксоване значення 17, Спритність ми можемо ігнорувати. Усю решту очок кидаємо в Силу, щоб на ранніх рівнях можна було бити по ворогах і щоб Атлетикою не дати схопити чи повалити себе. З підвищенням рівня ми менше битимемося в ближньому бою й більше не підвищуватимемо Силу.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Як згадано вище, ми — черепаха{{Tortle}}. Ми маємо 17 КБ, кігті, володіння навичкою та здатність ховатися в панцир для додаткового КБ.\n\nОберіть будь-яку з навичок, яка вам подобається, це не так важливо.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Оберіть те, що пасує вашому персонажеві, але якщо ви боїтеся бути схопленим, подбайте про Атлетику, бо 8 у Спритності робить Акробатику поганим захисним вибором.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Зі списку Друїда обираємо Уважність і Виживання. Ще кілька ми отримаємо від передісторії, але й це не надто важливо, доки ви отримуєте володіння Атлетикою.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Знаєте ту математичну штуку, яку ми постійно просуваємо? Що ж, трохи ми від неї відставатимемо, але це нормально.\n\n4-й рівень, Друїд 4: причина, чому ми відставатимемо, — що ми беремо «Бойового заклинателя»{{War Caster}}, щойно можемо.\n\n9-й рівень, Друїд 8: Покращення Характеристик, Мудрість +2 (16 → 18)\n\n13-й рівень, Друїд 12: Покращення Характеристик, Мудрість +2 (18 → 20)\n\n17-й рівень, Друїд 16: «Майстер древкової зброї»{{Polearm Master}}\n\n20-й рівень, Друїд 19: «Здоровань»{{Tough}}\n\nЦе може виглядати трохи дивно, і причина в тому, що на 5-му рівні ми занурюємося в Клірика{{Cleric}} заради Домену магії{{Arcana Domain}}. Це дозволяє нам узяти і Клинок Зеленого Полумʼя [Green-Flame Blade], і Гримучий Клинок [Booming Blade]. Клинок Зеленого Полумʼя [Green-Flame Blade] гарно поєднається з рештою наших вогняних умінь, а Гримучий Клинок [Booming Blade] — корисна альтернатива, коли вогонь не діє, і для випадків, коли «Бойовий заклинатель» дозволяє здійснити принагідну атаку заклинанням. Ми також триматимемо спис і щит, тож нам потрібен «Бойовий заклинатель», щоб накладати заклинання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "{{Друїдична мова|Druidic}}\nЧаротворство{{Spellcasting}}\nЗаклинання 1-го рівня\nЗамовляння:\n– Створення багаття\n– Терновий батіг",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Дика форма\nКоло друїдів: Коло дикого вогню\nКолові закляття:\n– Палючі долоні\n– Лікування ран\nДух дикого полумʼя",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Заклинання 2-го рівня\nКолові закляття:\n– Палюча сфера\n– Розпечений промінь",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Бойовий заклинатель\nПокращення Дикої форми\nНове відоме замовляння:\n– Ремесло друїдів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Чаротворство\nЗаклинання Клірика 1-го рівня\nДомен магії\nЗамовляння Чарівника:\n– Клинок Зеленого Полумʼя\n– Гримучий Клинок\nЗаклинання домену:\n– Виявлення магії\n– Магічний дротик\nЗамовляння Клірика:\n– Світло\n– Лагодження\n– Дивотворство",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Заклинання 3-го рівня\nКолові закляття:\n– Ріст рослин\n– Відродження",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Посилений звʼязок{{Enhanced Bond}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Заклинання 4-го рівня\nКолові закляття:\n– Аура життя\n– Вогняний щит",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Покращення Характеристик (Мудрість 16 → 18)\nПокращення Дикої форми",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Заклинання 5-го рівня\nКолові закляття:\n– Полумʼяний удар\n– Масове лікування ран",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Опікові вогні{{Cauterizing Flames}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Заклинання 6-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Покращення Характеристик (Мудрість 18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Заклинання 7-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Пекельне відродження{{Blazing Revival}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Заклинання 8-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Риса: Майстер древкової зброї",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Заклинання 9-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Тіло поза часом\nЗаклинання звіра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Риса: Здоровань",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Підготовлені заклинання 2–20 рівнів",
+        "reason": "Автор називає колові й підготовлені заклинання по рівнях, але підготовку Друїда й Клірика на вищих рівнях плану не веде жоден модуль платформи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Друїда 10-го рівня",
+        "reason": "На 11-му рівні персонажа (Друїд 10) автор не називає нового замовляння, тож вибір лишено гравцеві.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-druid-circle-of-wildfire-2014",
+            "translationRevisionId": "translation-rpgbot-druid-circle-of-wildfire-2014-draft1",
+            "sourceRevisionId": "rpgbot-c9d294ef3cfc0fce-95397a7ba4b68edf",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

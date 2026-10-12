@@ -1,0 +1,996 @@
+{
+  "buildId": "build-warlock-variant-human-fathomless-2014",
+  "revisionId": "build-warlock-variant-human-fathomless-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "Чорнокнижника Безодні — «Від води не сховатися»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-warlock-fathomless-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+      "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+      "sectionId": "section-example-fathomless-warlock-build-never-safe-from-water",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "WARLOCK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "FATHOMLESS"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Agonizing Blast"
+          },
+          {
+            "optionNameEng": "Repelling Blast"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "thunderwave"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Talisman"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "invisibility"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "thunderwave",
+          "add": "shatter"
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "prestidigitation"
+          ],
+          "knownSpellKeys": [
+            "hold-person"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Devil's Sight"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hypnotic-pattern"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "counterspell"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Lance of Lethargy"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "banishment"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "shadow-of-moil"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Protection of the Talisman"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "synaptic-static"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "blade-ward"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "bigbys-hand"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ],
+        "classOptions": [
+          {
+            "optionNameEng": "Rebuke of the Talisman"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fear"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Shrouded in Shadow"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "sickening-radiance"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "invisibility",
+          "add": "hold-monster"
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "CHEF",
+        "featOptions": [
+          {
+            "optionNameEng": "CHEF Ability (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "far-step"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Bond of the Talisman"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "dream"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-fathomless-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+          "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "FATHOMLESS",
+    "raceKey": "HUMAN_2014",
+    "variantKey": "HUMAN_VARIANT",
+    "backgroundKey": "ENTERTAINER",
+    "featKey": "MODERATELY_ARMORED",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 13
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 12
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Беремо Варіант людини{{Variant Human}} і на 1-му рівні — «Середньоозброєного»{{Moderately Armored}}, що дає +1 до Спритності, і це відображено в таблиці. Також вкладаємо +1 у Статуру й Харизму. Оскільки для середнього обладунка нам потрібна лише Спритність 14, у нас лишаються зайві очки, які ми витрачаємо на Інтелект, бо візьмемо навичку Магія.\n\n Базове значення Підвищене значення 20-й рівень Сила 8 8 8 Спритність 13 14 14 Статура 15 16 20 Інтелект 12 12 12 Мудрість 8 8 8 Харизма 15 16 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Як згадано вище, ми беремо Варіант людини{{Variant Human}} заради доступу до бонусної риси. Також отримуємо бонусне володіння навичкою — обираємо Магію. Бонусна мова більше залежить від кампанії, але для колориту я обрав Глибинну мову.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Як передісторію я взяв Артиста{{Entertainer}} — почасти заради веселощів, почасти заради користі. Акробатика разом із нашою дещицею Спритності допоможе вириватися із захоплень, не витрачаючи ваші обмежені слоти заклинань на телепортацію, і виповзати з тісних ситуацій. Виступ і музичний інструмент можуть здатися надлишковими, але разом вони дають Перевагу на такі перевірки, якщо ви користуєтеся правилами з «Довідника Занатара про все»{{Xanathar’s Guide to Everything}}. Зручно для додаткового заробітку під час міжчасся.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від класу Чорнокнижник ми маємо Обман і Залякування, від Людини — Магію, а від Артиста — Акробатику, Виступ і будь-який музичний інструмент. Згодом ми також отримуємо кухарське начиння{{Cook’s Utensils}} від риси «Кухар»{{Chef}}, але так само легко могли б узяти «Експерта у навичках»{{Skill Expert}}, щоб отримати Переконання й Експертизу в тому, що здається корисним.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Вище, у розділі про риси, я пояснив, як кожна з рис вписується в цю збірку, тож тут лише коротко перелічу рівні, на яких вони беруться.\n\nНа 1-му рівні Варіант людини{{Variant Human}} дає бонусну рису, і ми беремо «Середньоозброєного»{{Moderately Armored}}, отримуючи володіння середніми обладунками та щитами, а також +1 до Спритності, що дозволяє стартувати зі Спритністю 14.\n\nНа 4-му рівні беремо Покращення Характеристик на +2 до Харизми, з 16 до 18, що покращує наші заклинальні атаки та СК заклинань.\n\nНа 8-му рівні беремо ще одне Покращення Характеристик на +2 до Харизми, доводячи її до максимуму — 20. Можна поміняти це місцями зі «Стійким (Статура)»{{Resilient (Constitution)}} на 12-му, але робіть так лише якщо очікуєте ряткидків Статури поза Концентрацією. Поки що можемо просто взяти потойбічний виклик «Потойбічний розум»{{Eldritch Mind}}, а пізніше, коли отримаємо «Стійкого», обміняти його.\n\nНа 12-му рівні беремо «Стійкого (Статура)»{{Resilient (Constitution)}}, отримуючи володіння ряткидком і +1 до Статури, з 16 до 17.\n\nНа 16-му рівні беремо «Кухаря»{{Chef}}, щоб покращити вигоди від коротких відпочинків і заохотити групу брати зайвий щодня на користь наших слотів «Магії пакту»{{Pact Magic}}. Також отримуємо ще +1 до Статури, з 17 до 18.\n\nНа 19-му рівні беремо Покращення Характеристик на +2 до Статури, доводячи її до максимуму — 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бонусна риса: Середньоозброєний\nПатрон: Безодня\n– Щупальце глибин\n– Дар моря\nМагія пакту — 1 слот\nЗамовляння:\n– Позамежний заряд\n– Магічна рука\nЗаклинання 1-го рівня:\n– Обладунок Агатіса\n– Проклін (К)\nНавички:\n– Акробатика\n– Магія\n– Обман\n– Залякування\n– Виступ",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Потойбічні виклики{{Eldritch Invocations}}:\n– Мучливий вибух\n– Відштовхувальний вибух (Зір диявола)\nМагія пакту — 2 слоти\nЗаклинання 1-го рівня:\n– Громова хвиля\nабо\n– Руки Хадара",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Дар пакту{{Pact Boon}}: Пакт талісмана\nМагія пакту\nЗаклинання 2-го рівня:\n– Невидимість (К)\nПеренавчання заклинання: Громова хвиля → Друзки",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик: Харизма +2 (16 → 18)\nМагія пакту\nЗаклинання 2-го рівня:\n– Стримування особи (К)\nНове замовляння:\n– Штукарство",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Потойбічний виклик:\n– Зір диявола (Відштовхувальний вибух)\nМагія пакту\nЗаклинання 3-го рівня:\n– Гіпнотичний візерунок (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Охоронна котушка\nОкеанічна душа\nМагія пакту\nЗаклинання 3-го рівня:\n– Контрчари",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Потойбічний виклик:\n– Спис млявості\nМагія пакту\nЗаклинання 4-го рівня:\n– Вигнання (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Харизма +2 (18 → 20)\nМагія пакту\nЗаклинання 4-го рівня:\n– Тінь Мойла (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Потойбічний виклик:\n– Захист талісмана\nМагія пакту\nЗаклинання 5-го рівня:\n– Синаптичний розряд",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Хапальні щупальця{{Grasping Tentacles}}:\n– Чорні щупальця Еварда\nМагія пакту\nНове замовляння:\n– Захист від зброї",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Містичний арканум 6-го рівня:\n– Клітка душі\nМагія пакту — 3 слоти\nЗаклинання 5-го рівня:\n– Длань Бігбі (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Стійкий (Статура)\nСтатура +1 (16 → 17)\nПотойбічний виклик:\n– Відплата талісмана",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Містичний арканум 7-го рівня:\n– Силова кліть\nМагія пакту\nЗаклинання 3-го рівня:\n– Страх (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Стрибок у безодню{{Fathomless Plunge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Містичний арканум 8-го рівня:\n– Впевненість\nПотойбічний виклик:\n– Вкритий тінню\nМагія пакту\nЗаклинання 4-го рівня:\n– Нудотне сяйво (К)\nЗаклинання 5-го рівня:\n– Перенавчання: Невидимість → Стримування монстра (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Кухар\nСтатура +1 (17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Містичний арканум 9-го рівня:\n– Передбачення\nМагія пакту — 4 слоти\nЗаклинання 5-го рівня:\n– Далекий крок (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Потойбічний виклик:\n– Узи талісмана",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Статура +2 (18 → 20)\nМагія пакту\nЗаклинання 5-го рівня:\n– Сновидіння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Містичний майстер{{Eldritch Master}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Стартове золото замість набору",
+        "reason": "Автор радить кинути кубики на гроші й купити лускатий обладунок, щит і мішечок із компонентами (або домовитися з Майстром про лускатий обладунок); пресет бере стандартний набір Чорнокнижника.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Музичний інструмент Артиста",
+        "reason": "Автор бере будь-який музичний інструмент; пресет не записує вибір інструмента передісторії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Виклики 2-го й 5-го рівнів",
+        "reason": "Автор позначає виклики «Відштовхувальний вибух (Зір диявола)» на 2-му і «Зір диявола (Відштовхувальний вибух)» на 5-му рівні, не пояснюючи дужок; записано Відштовхувальний вибух на 2-му й Зір диявола на 5-му як нові виклики, без заміни. У розділі про риси автор радить на 8-му рівні тимчасово взяти Потойбічний розум і обміняти його на 12-му; платформа заміну викликів не записує.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Містичний арканум",
+        "reason": "Автор називає Клітку душі (11-й рівень), Силову клітку (13-й), Впевненість (15-й) і Передбачення (17-й); платформа не записує вибір арканума, тож їх слід додати вручну.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання 1-го рівня на 2-му рівні",
+        "reason": "Автор називає Громову хвилю «або» Руки Хадара; записано перше назване (Громова хвиля), яку на 3-му рівні, як радить автор, замінено на Друзки.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-fathomless-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+            "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

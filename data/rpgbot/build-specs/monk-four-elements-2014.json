@@ -1,0 +1,212 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "monk-four-elements-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-monk-four-elements-2014-draft1",
+    "sourceRevisionId": "rpgbot-e24e1161d37c1764-f0e199f062d2821e"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "MONK_2014",
+  "subclassKey": "WAY_OF_THE_FOUR_ELEMENTS",
+  "raceKey": "GOBLIN_MPMM",
+  "backgroundKey": "HERMIT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "WAY_OF_THE_FOUR_ELEMENTS",
+      "subclassOptions": [
+        {
+          "optionNameEng": "Fist of Unbroken Air (Elemental Discipline)"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Gong of the Summit (Elemental Discipline)"
+        }
+      ]
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10
+    },
+    {
+      "level": 11,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Flames of the Phoenix (Elemental Discipline)"
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 17,
+      "subclassOptions": [
+        {
+          "optionNameEng": "River of Hungry Flame (Elemental Discipline)"
+        }
+      ]
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Навички Монаха",
+      "reason": "Автор каже, що навички не мають значення, і не називає їх; дві навички Монаха обрано за платформою.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Додаткові класові уміння",
+      "reason": "Автор припускає всі додаткові класові уміння (наприклад, «Присвячена зброя», «Зосереджене прицілювання»); пресет 1-го рівня їх не записує.",
+      "section": "section-example"
+    },
+    {
+      "field": "Заміна стихійної дисципліни (11-й рівень)",
+      "reason": "На 11-му рівні автор замінює «Гонг вершини» на «Осідлати вітер», але заміна дисципліни Монаха платформою не підтримана (BUG-O49-MONK-DISCIPLINE-REPLACEMENT), а «Осідлати вітер» недоступний раніше 11-го. Пресет лишає «Гонг вершини» (вибір платформи, автор тут інакше); «Осідлати вітер» можна взяти на листі замість нього.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/monk-four-elements-2014.webp",
+    "title": "Монах — Гоблін Шляху чотирьох стихій",
+    "description": "Знищувач капусти: Гоблін-Монах Шляху чотирьох стихій зі Спритністю, Статурою й Мудрістю 16, спритною втечею та люттю малого.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CON",
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ACROBATICS",
+        "STEALTH"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля по 15 у Спритності, Статурі й Мудрості та три підвищення +1 гобліна за правилами Таші до цих самих характеристик: на старті три шістнадцятки, як радить автор.",
+    "skillExplanation": "Медицина й Релігія — від Відлюдника. Акробатику й Непомітність (навички Монаха) та дві мови (від раси й передісторії) ми обрали за вас: автор їх не називає, бо вважає, що це не має значення.",
+    "equipmentExplanation": "Автор не називає стартового спорядження. Короткий меч, набір дослідника підземель і дротики ми обрали за вас — їх можна змінити."
+  }
+}

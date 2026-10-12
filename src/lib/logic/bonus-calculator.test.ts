@@ -423,6 +423,29 @@ describe("KR31.6 — Рух без обладунків монаха", () => {
   });
 });
 
+describe("Швидкий рух варвара", () => {
+  const barbarian = (engName: string, level: number, armorType?: string) =>
+    buildPers({
+      level,
+      race: { speed: 30 },
+      class: { name: "BARBARIAN_2014", features: [{ levelGranted: 5, feature: { featureId: 1, engName } }] },
+      armors: armorType ? [{ equipped: true, armor: { name: "ARMOR", armorType } }] : [],
+    } as never);
+
+  it.each(["Fast Movement", "Barbarian: Fast Movement (2024)"])("%s: Варвар 5 без важкої броні — +10 футів", (engName) => {
+    expect(calculateFinalSpeed(barbarian(engName, 5))).toBe(40);
+    expect(calculateFinalSpeed(barbarian(engName, 5, "MEDIUM"))).toBe(40);
+  });
+
+  it("важка броня вимикає бонус", () => {
+    expect(calculateFinalSpeed(barbarian("Fast Movement", 5, "HEAVY"))).toBe(30);
+  });
+
+  it("до 5-го рівня бонусу немає", () => {
+    expect(calculateFinalSpeed(barbarian("Fast Movement", 4))).toBe(30);
+  });
+});
+
 describe("KR31.6 — кубик Бойових мистецтв на зброї", () => {
   const monk = (armorName: string) =>
     buildPers({

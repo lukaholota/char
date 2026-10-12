@@ -1,0 +1,72 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "paladin-oath-of-redemption-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-paladin-oath-of-redemption-2014-draft1",
+    "sourceRevisionId": "rpgbot-f9471bb0881a1317-51aac5194954d5c3"
+  },
+  "exampleSection": "section-example-build-apostle-of-peace",
+  "levelTableSection": "section-levels",
+  "classKey": "PALADIN_2014",
+  "subclassKey": "OATH_OF_REDEMPTION",
+  "raceKey": "DWARF_2014",
+  "backgroundKey": "SPY",
+  "abilityScores": { "STR": 15, "DEX": 8, "CON": 15, "INT": 8, "WIS": 8, "CHA": 15 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 1 },
+  "levels": [
+    { "level": 2, "classOptions": [{ "optionNameEng": "Blessed Warrior" }] },
+    { "level": 3, "subclassKey": "OATH_OF_REDEMPTION" },
+    { "level": 4, "featKey": "TELEKINETIC", "featOptions": [{ "optionNameEng": "TELEKINETIC Ability (Charisma)" }], "section": "section-feats" },
+    { "level": 5 },
+    { "level": 6 },
+    { "level": 7 },
+    { "level": 8, "abilityScoreIncrease": [{ "ability": "CHA", "amount": 2 }], "section": "section-feats" },
+    { "level": 9 },
+    { "level": 10 },
+    { "level": 11 },
+    { "level": 12, "featKey": "DWARVEN_FORTITUDE", "section": "section-feats" },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15 },
+    { "level": 16, "featKey": "DURABLE", "section": "section-feats" },
+    { "level": 17 },
+    { "level": 18 },
+    { "level": 19, "abilityScoreIncrease": [{ "ability": "CON", "amount": 2 }], "section": "section-feats" },
+    { "level": 20 }
+  ],
+  "incomplete": [
+    { "field": "Інструменти", "reason": "Автор міняє обидва володіння Шпигуна інструментами (ігровий набір, інструменти злодія) на мови кампанії; лист виводить ці інструменти з передісторії й прибрати їх не вміє, а мов Шпигун не дає. Лишаються стандартні інструменти Шпигуна, мов немає.", "section": "section-background" },
+    { "field": "Замовляння Благословенного воїна", "reason": "Автор бере на 2-му рівні Настанову й Слово сяйва як замовляння Благословенного воїна; платформа не записує замовлення цього бойового стилю, тому їх треба додати на листі.", "section": "section-levels" },
+    { "field": "Необовʼязкове уміння «Спрямування божественної сили»", "reason": "Автор радить його добиватися (Майстер дозволяє); у каталозі цього необовʼязкового уміння немає.", "section": "section-example-build-apostle-of-peace" }
+  ],
+  "preset": {
+    "title": "Паладин — Клятва спокути, Дворф-дуергар (Апостол миру)",
+    "description": "Паладин Клятви спокути з Харизмою як основою: Дворф-дуергар за правилами Таші, Шпигун з Атлетикою замість Непомітності.",
+    "subraceKey": "DWARF_DUERGAR_GRAY_SCAG",
+    "racialAbilities": ["CHA", "CON"],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": ["INTIMIDATION", "PERSUASION"],
+      "race": [],
+      "background": ["DECEPTION", "ATHLETICS"]
+    },
+    "backgroundCustomization": { "tools": [] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": ["LONGSWORD"] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Дворф-дуергар за правилами Таші: +2 до Харизми й +1 до Статури, тож Харизма 17 і Статура 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Залякування й Переконання — від Паладина, Обман і Атлетика — від Шпигуна (автор міняє Непомітність на Атлетику за правилом PHB «Налаштування передісторії»). Заміну інструментів Шпигуна на мови платформа не відтворює.",
+    "equipmentExplanation": "Кольчугу, довгий меч, щит і метальні списи автор називає прямо. Набір священика ми обрали за вас — вибір платформи."
+  }
+}

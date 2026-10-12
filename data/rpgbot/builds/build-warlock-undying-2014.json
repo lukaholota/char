@@ -1,0 +1,753 @@
+{
+  "buildId": "build-warlock-undying-2014",
+  "revisionId": "build-warlock-undying-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— «Тепер я проблема для всіх»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-warlock-undying-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+      "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "FIGHTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "UNDYING",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "blade-ward",
+            "booming-blade"
+          ],
+          "knownSpellKeys": [
+            "armor-of-agathys",
+            "hex"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Beguiling Influence"
+          },
+          {
+            "optionNameEng": "Eldritch Mind"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Blade"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hellish-rebuke"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceOptions": [
+          {
+            "drop": {
+              "optionNameEng": "Eldritch Mind"
+            },
+            "add": {
+              "optionNameEng": "Improved Pact Weapon"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "WAR_CASTER",
+        "spells": {
+          "cantripKeys": [
+            "green-flame-blade"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Cloak of Flies"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Sculptor of Flesh"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "shadow-of-moil"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SLASHER",
+        "featOptions": [
+          {
+            "optionNameEng": "SLASHER Ability (Strength)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Eldritch Smite"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GUILE_OF_GIANTS",
+        "featOptions": [
+          {
+            "optionNameEng": "GUILE_OF_GIANTS Ability (Strength)"
+          }
+        ],
+        "classOptions": [
+          {
+            "optionNameEng": "Lifedrinker"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Thirsting Blade"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Witch Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undying-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+          "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "raceKey": "HUMAN_2014",
+    "variantKey": "HUMAN_VARIANT",
+    "backgroundKey": "SOLDIER",
+    "featKey": "HEAVY_ARMOR_MASTER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Ця збірка дивна для Чорнокнижника. Зазвичай ми в легких обладунках і будуємося навколо Харизми та Спритності. Але тут ми, по суті, будуємо Паладина{{Paladin}}, тож наші характеристики виглядатимуть як у стереотипного Паладина. Расову рису Варіанта людини{{Variant Human}} ми витратимо на «Майстра важких обладунків»{{Heavy Armor Master}}, що включає збільшення Сили на +1, а два расові збільшення вкладемо в Статуру й Харизму, щоб почати з 16 у всіх трьох.\n\n Базове значення Підвищене значення Сила 15 8 Спритність 8 16 Статура 15 16 Інтелект 8 8 Мудрість 8 8 Харизма 15 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undying-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+            "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Варіант людини{{Variant Human}}. Нам потрібна будь-яка допомога, тож обираємо надійний і потужний варіант.\n\nНашою расовою рисою візьмемо «Майстра важких обладунків»{{Heavy Armor Master}}. Фіксоване зниження шкоди додасть багато витривалості й дозволить нам довше й краще слугувати боксерською грушею.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undying-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+            "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Солдат{{Soldier}}. Це дає нам Атлетику й Залякування, що дивно добре підходить цій збірці. Якщо вам хочеться вишуканості, можна налаштувати передісторію й замінити володіння ігровим набором і транспортними засобами на дві мови.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undying-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+            "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Оскільки ми починаємо з рівня Воїна, класові навички обираємо зі списку Воїна. Візьмемо Аналіз Поведінки й Залякування. Атлетику й Залякування отримуємо від передісторії. «Спокусливий вплив»{{Beguiling Influence}} дасть нам Обман і Переконання. Лишається одне додаткове володіння навичкою від раси, яке вкладемо в Уважність.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undying-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+            "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 5-му рівні візьмемо «Бойового заклинателя»{{War Caster}}.\n\nНа 9-му візьмемо «Рубаку»{{Slasher}} заради дебафу швидкості та збільшення Сили.\n\nНа 13-му візьмемо «Хитрість велетнів»{{Guile of the Cloud Giant}} заради збільшення Сили й можливості зменшувати шкоду.\n\nНа 17-му підвищимо Силу до 20.\n\nНа 20-му вперше підвищимо Харизму.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undying-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+            "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бойовий Стиль: Перехоплення\nДруге дихання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undying-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+            "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Заклинання «будь-які»",
+        "reason": "На 3, 5, 6, 7 і 9-му рівнях автор не називає нового відомого заклинання; це вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undying-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+            "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Містичний арканум (12–18-й рівні)",
+        "reason": "Автор називає Вбрання льоду (12-й), Силову клітку (14-й) і «будь-яке» на 16 та 18-му; платформа не записує вибір арканума.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undying-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+            "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Вибори «будь-який / будь-яке» на 10–20-му рівнях",
+        "reason": "Автор пише «будь-який» для потойбічного виклику на 10, 16 і 19-му рівнях. Пресет бере типові: Eldritch Smite, Thirsting Blade, Witch Sight (вибір платформи; гравець може змінити). Відомі заклинання «будь-які» на 10, 12, 14, 16, 18 і 20-му лишено на вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undying-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+            "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Нове замовляння 12-го рівня",
+        "reason": "Автор ставить нове замовляння «будь-яке» на 12-му рівні, але Чорнокнижник вивчає його на 10-му рівні класу (11-й рівень персонажа); записано там як відкритий вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undying-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+            "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Налаштована передісторія Солдата",
+        "reason": "Автор лише згадує можливість замінити ігровий набір і транспорт Солдата на дві мови; це необовʼязкова порада, тому передісторію лишено стандартною.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undying-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undying-2014-draft1",
+            "sourceRevisionId": "rpgbot-4e10e8db50d005c7-7f2d528613d1b9c0",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

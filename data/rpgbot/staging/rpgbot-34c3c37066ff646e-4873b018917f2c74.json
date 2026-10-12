@@ -1,0 +1,3458 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "4873b018917f2c748e51e2156de565094cd5be9bb79e4034148ba843fad54baf",
+  "sourceRevision": {
+    "revisionId": "rpgbot-34c3c37066ff646e-4873b018917f2c74",
+    "sourceId": "rpgbot-34c3c37066ff646e",
+    "fetchedAt": "2026-09-29T19:11:27.702974+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:27:33-04:00",
+    "contentHash": "e5f2ec5f2befda82ded6949f21a5e670bc0df1a8086a0a15364eca211b188988",
+    "title": "College of Creation Bard 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-34c3c37066ff646e-4873b018917f2c74.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "intro",
+      "heading": "College of Creation Bard 5e: DnD 5e Subclass Guide",
+      "blocks": [
+        {
+          "blockId": "block-intro-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "As you’ve called us to the stage, so shall we perform. And creation magicks never fail to please."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "link",
+              "text": "Hythlodaeus ",
+              "href": "https://www.youtube.com/watch?v=ABsv47Prefc&t=351s"
+            },
+            {
+              "type": "text",
+              "text": "– FFXIV: Endwalker"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The College of Creation is a fun hybrid of the support one would expect from a Bard with a pet class and it works quite well. While the pet, called a Dancing Item, is capable of fighting, the main benefit is that it radiates an aura of walking speed manipulation, either increasing or decreasing the walking speed of anything that begins its turn close to the construct. If you’re looking to try this odd spin on pet-support-job, maybe give the College of Creation a try."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "On top of having a pet, this college also does something fun with Bardic Inspiration. In a twist on most Bardic Colleges, instead of a new way to spend inspiration dice, the College of Creation adds new rider effects to the basic feature. Each effect is specific to the kind of d20 roll the Bardic Inspiration die was added to, and each one is great because they don’t take away from the original use of the die. Additionally, the Creation Bard can nebulously conjure basically anything of increasing complexity and value as they gain levels in this class. This feature is of course ripe for abuse, which you can read about below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our example build, “Autognomes, Roll Out!”, is an easy to follow way to provide support to your team. Additionally, by using Autognome for the race, the build is a Construct that animates Constructs, for that extra dash of flavor and theme. We’ll also be discussing ways to utilize Dancing Item as more than just a combat pet that swings for some damage, so read on if you want to see the unique support opportunities it can provide."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-3",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-3-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Creation Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Creation Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#college-of-creation-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Creation Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#college-of-creation-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Creation Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#college-of-creation-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Creation Weapons and Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#college-of-creation-weapons-and-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example College of Creation Build – Autognomes, Roll Out!",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#example-college-of-creation-build-autognomes-roll-out"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/creation/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "College of Creation Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mote of Potential"
+              },
+              {
+                "type": "text",
+                "text": ": Add some rider effects\n\t\tto the use of your Bardic Inspiration. All three work well in the right situations, but don’t let this ability dictate how you use Bardic Inspiration. It’s mostly a bonus on top of the primary function.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ability Check"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re using Bardic\n\t\t\t\tInspiration on an Ability Check it’s because you can’t afford to fail.\n\t\t\t\tRolling a 1 on that die hurts, so rerolling and using the better result\n\t\t\t\tis great insurance."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Attack Roll"
+              },
+              {
+                "type": "text",
+                "text": ": The damage is fairly\n\t\t\t\tminor, but if you have an ally attacking into a crowd the total damage\n\t\t\t\tcan add up quickly. Think of this like the Ranger’s Hail of Thorns spell\n\t\t\t\t(except that you get to pick targets so you can’t hurt allies) and use\n\t\t\t\tit wherever you would use Hail of Thorns."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Saving Throw"
+              },
+              {
+                "type": "text",
+                "text": ": Using Bardic Inspiration\n\t\t\t\ton saving throws is one of the best ways to use it, and adding temporary\n\t\t\t\thit points on top of that benefit is excellent because the target is\n\t\t\t\teither going to take damage from the effect (which the temporary hit\n\t\t\t\tpoints will mitigate) or something else nasty is going to happen to them\n\t\t\t\tand the temporary hit points will help protect them while they\n\t\t\t\trecover."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Performance of Creation"
+              },
+              {
+                "type": "text",
+                "text": ": This is a great\n\t\tway to solve problems that require large, bulky, or expensive non-magic items that you\n\t\tmight not want to haul around with you all the time, as well as to get\n\t\taccess to expensive single-use nonmagical items. You might create an anvil\n\t\tor a block of stone if you need something extremely heavy, a row boat to\n\t\tcross a stream, or a battering ram to break down a door. Limiting the item’s\n\t\tsize to medium is mildly annoying, but the size quickly increases to large at\n\t\t6th level so most items in the Player’s Handbook will be available within a\n\t\tfew levels. The 20gp/level cost will cover most things in the player’s\n\t\thandbook with the exception of some heavy armor (which can be very pricey).\n\t\tYour DM may also let you go beyond the player’s handbook, allowing you to\n\t\tcreate things like walls to hide behind, bridges to span chasms, columns to\n\t\tprop up falling ceilings, or pieces of furniture to flip over in a fit of\n\t\trage. Check with your DM to see what they’ll allow.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This notably doesn’t require materials like the Fabricate spell, doesn’t\n\t\t\trequire any tool proficiencies, and doesn’t specify how detailed or\n\t\t\tintricate the item can be. You may be able to create valuable items like\n\t\t\tpoisons, blocks of gold, or jewelry, and you may be able to create\n\t\t\tcomplex, moving items like crossbows, wagons, or siege engines (cheap\n\t\t\tones). You may even be able to produce items made of special materials\n\t\t\tlike adamantine weapons. Again, check with your DM to see what they’ll allow."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You can use this once per day for free and can refresh it by spending a\n\t\t\t2nd-level slot, but remember that you can only have one item at a time.\n\t\t\tYou may want to wait to use Performance of Creation until you need it in\n\t\t\torder to avoid paying the spell slot cost to use it a second time, but on\n\t\t\tdays when you’re not adventuring definitely use it to create something\n\t\t\tsmall, portable, and useful like an expensive poison."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The option to refresh Performance of Creation means that you can compare\n\t\t\tany given item you might create to the benefits of a second-level spell.\n\t\t\tFor example: If you use this to create expensive disposable nom-magic items\n\t\t\tlike poisons, explosives, and things like alchemist’s fire, compare the\n\t\t\teffects of that item to casting a spell like Shatter."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Animating Performance"
+              },
+              {
+                "type": "text",
+                "text": ": Similar in many\n\t\tways to summoning a creature for an hour. Your Dancing Item will have a\n\t\tdecent number of hit points, and gets one attack that deals a reasonable\n\t\tamount of force damage. Since it’s an object, it’s not very smart but it’s\n\t\talso immune to poison, psychic damage, and some mental status effects like\n\t\tcharm. It’s a decent combat pet, and it’ll keep your Bonus Action busy every\n\t\tturn that it attacks (though you can share that action with granting Bardic Inspiration), but the Dancing Item’s Irrepressible Dance aura still slows down or speeds up nearby creatures, so don’t worry if you have to miss a few pet attacks by casting a bonus action spell or something.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The expectation is that you’ll cast this on something like a statue, but\n\t\t\tdon’t let that limit your choices. The item needs to be large or smaller,\n\t\t\tso you’re allowed to cast this on small things like a tankard or a necklace,\n\t\t\tas well as large things like a cart or even a carpet which might be large\n\t\t\tenough to carry you and your allies with the dancing item’s 30-foot fly\n\t\t\tspeed. At 18 Strength a large dancing item has a carrying capacity of 540\n\t\t\tpounds, allowing it to comfortably accommodate 2 medium creatures and their\n\t\t\tequipment. This becomes even easier if you and your party are mostly small\n\t\t\traces like halflings, and, since it’s immune to exhaustion, you can ride it\n\t\t\tas long as you’d like."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You can use this once per day for free, but you can also refresh the\n\t\t\teffect by spending a spell slot of 3rd-level or higher, essentially making\n\t\t\tthis equivalent to a third-level spell. Considering that the spell Fly is\n\t\t\t3rd-level, has a duration of just 10 minutes, and requires Concentration;\n\t\t\tusing your Dancing Item as a combination flying mount and combat pet is an\n\t\t\textremely effective use of a spell slot."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Animating performance received errata to specify that it doesn’t work on attended\n\t\t\tobjects, so sadly you can no longer use this on enemy’s clothes or armor\n\t\t\tand cause them to be held aloft by their own pants. But you can simply take off your own pants, animate them, then put them back on to fly by the seat of your pants."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Creative Crescendo"
+              },
+              {
+                "type": "text",
+                "text": ": Not quite as good as\n\t\tusing Performance of Creation 5 times at once, but close. One item uses the\n\t\ttypical size rules and the rest must be small or tiny, but small is as big\n\t\tas a 3-foot tall humanoid and that’s plenty to work with. Most weapons could\n\t\tbe considered small, and many extremely valuable items like jewels and\n\t\tjewelry are tiny. You could use the big item to make a small catapult and\n\t\tuse the other items to make projectiles like urns full of alchemist’s fire.\n\t\tYou can use all 5 items (because you have 20 Charisma by this level) to make\n\t\texpensive poisons, then hand them off to your party’s rogue. Get\n\t\tcreative. But you could also create 5\n"
+              },
+              {
+                "type": "link",
+                "text": "Antimatter Rifles",
+                "href": "https://www.dndbeyond.com/equipment/antimatter-rifle"
+              },
+              {
+                "type": "text",
+                "text": "\n(provided that they’re available in your game) and hand out weapons to your party that do 6d8 necrotic damage. They comply with the size restriction and there’s no longer a price restriction either."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-creation-ability-scores",
+      "heading": "College of Creation Ability Scores",
+      "sourceAnchor": "college-of-creation-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-creation-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It should come as no surprise that the Creation Bard would want similar ability scores to the "
+            },
+            {
+              "type": "link",
+              "text": "Bard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": ". It is a SAD full caster after all."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-creation-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": We don’t need this because we don’t want to be in Melee."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-creation-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": AC and saves. We don’t plan on getting stabbed, but no plan survives contact with the enemy."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-creation-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Dying is suboptimal. Have more HP and Concentrate better."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-creation-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Good for some skills, especially if nobody is an Intelligence caster."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-creation-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Skills like Perception and Insight are always useful. Insight especially if we’re going to be the Face."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-creation-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Spell DCs, Bardic Inspiration, Dancing Item’s attack, Face skills. We need this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-creation-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-creation-races",
+      "heading": "College of Creation Races",
+      "sourceAnchor": "college-of-creation-races",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-creation-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As always, refer to the "
+            },
+            {
+              "type": "link",
+              "text": "Bard Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/races/"
+            },
+            {
+              "type": "text",
+              "text": " for anything not listed below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-creation-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Autognome"
+              },
+              {
+                "type": "link",
+                "text": "SJAiS",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The extra armor and not being a humanoid are decent increases to survivability. On top of that, Bards can’t self-target with Bardic Inspiration, so Built for Success, while smaller, gives us an opportunity to also go above and beyond."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Kobold"
+              },
+              {
+                "type": "link",
+                "text": "MMoM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Grabbing an extra attack cantrip off the Sorcerer list can be very helpful. Something like Firebolt or Ray of Frost can be nice. Ray of Frost especially will stack with the Dancing Item’s ability to slow a target down."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thri-Kreen"
+              },
+              {
+                "type": "link",
+                "text": "SJAiS",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Being a bug person with four arms means having extra arms to hold onto stuff and that’s cool. Also, Thri-Kreen natural armor is as strong as mage armor, but free, and allows for Advantage on Stealth checks to hide, if that’s something we want to do."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-creation-feats",
+      "heading": "College of Creation Feats",
+      "sourceAnchor": "college-of-creation-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-creation-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Feats for Creation Bards do not differ significantly from the options explored in the "
+            },
+            {
+              "type": "link",
+              "text": "Bard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-creation-weapons-and-armor",
+      "heading": "College of Creation Weapons and Armor",
+      "sourceAnchor": "college-of-creation-weapons-and-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-creation-weapons-and-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We have the option to swing "
+            },
+            {
+              "type": "link",
+              "text": "some weapons",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#weapons"
+            },
+            {
+              "type": "text",
+              "text": ", but Cantrips will serve us better."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-creation-weapons-and-armor-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As far as "
+            },
+            {
+              "type": "link",
+              "text": "armor",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#armor"
+            },
+            {
+              "type": "text",
+              "text": ", unless we’re a race with some kind of Natural Armor feature, just get some Studded Leather."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-college-of-creation-build-autognomes-roll-out",
+      "heading": "Example College of Creation Build – Autognomes, Roll Out!",
+      "sourceAnchor": "example-college-of-creation-build-autognomes-roll-out",
+      "blocks": [
+        {
+          "blockId": "block-section-example-college-of-creation-build-autognomes-roll-out-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "It’s in the blood, it’s in the will"
+            },
+            {
+              "type": "text",
+              "text": "\n\n\n\n"
+            },
+            {
+              "type": "emphasis",
+              "text": "It’s in the mighty hands of steel"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "link",
+              "text": "The Touch",
+              "href": "https://www.youtube.com/watch?v=qDAoJIJ2ljU"
+            },
+            {
+              "type": "text",
+              "text": " – Stan Bush"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-college-of-creation-build-autognomes-roll-out-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The hard part of giving examples for most Bard Colleges is that the core of what a Bard does rarely changes. Not that the features of the College of Creation are not impactful and meaningful in play, but that our spells and feats, the decisions we actually make during the build process, don’t have to bend around trying to get the most out of those features."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-college-of-creation-build-autognomes-roll-out-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Something that at first glance seems like a big consideration is that, like other post-Tasha’s pet features, the Dancing Item requires a bonus action to do any "
+            },
+            {
+              "type": "emphasis",
+              "text": "Action"
+            },
+            {
+              "type": "text",
+              "text": " other than Dodge. The key however is that we don’t necessarily need it to do actions all the time. If we can spare the bonus action, great, but the most important part of that stat block is Irrepressible Dance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-college-of-creation-build-autognomes-roll-out",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re placing ability scores into Charisma, Dexterity, and Constitution, while getting a +1 to Dexterity and +2 to Charisma from our racial modifiers as an Autognome."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Racial Modifiers"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We place our modifiers in this arrangement so that our Constitution is odd before we take Resilient (Constitution) at 4th level to improve our Concentration."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-college-of-creation-build-autognomes-roll-out",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re choosing Autognome to get better AC from Natural Armor. We could get the same effect from Thri-Kreen or Tortle as well. Another good option would be to choose Loxodon for their version of Constitution based Natural Armor."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As part of Autognome, we get the choice of two tools. For this build we’re taking Cartographer’s Tools and Navigator’s Tools, but the choice does not impact the build and can be modified to suit your campaign."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Choice of race isn’t the biggest consideration for this build, and the idea of being a Construct that animates Constructs is fun."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-college-of-creation-build-autognomes-roll-out",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For our Background we choose Investigator. This gives us Insight and Perception as well as Disguise Kit and Thieves’ Tools. The Insight is useful for Face duty, while the Perception and Thieves’ Tools allow us to perform some Scout duties."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-college-of-creation-build-autognomes-roll-out",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Bard, we’re taking the Face skills, Deception, Intimidation, and Persuasion, and three musical instruments. The choice of specific instruments is up to preference. For example, I always take Bagpipes. From Background we get Insight and Perception."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This assortment of skills allows us to handle the Face duties for the party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "On top of that, at third level we’re taking Expertise in Insight and Perception, in order to counteract our lower Wisdom. At tenth level, we can choose two of the remaining three Face skills to gain Expertise in, and which two you choose really depends on how you want to focus."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-college-of-creation-build-autognomes-roll-out",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We have room for a few feats, but we also have to boost our ability scores."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourth level, we take Fey Touched, adding +1 Charisma to have 18. For a 1st-level spell we choose Bless, because Bless is strong."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At eighth level, we take Resilient (Constitution). The +1 Constitution pushes us to 16, and the proficiency helps us shore up our Concentration saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At twelfth level, we take an ASI for +2 Charisma. We’re a little behind on the "
+            },
+            {
+              "type": "link",
+              "text": "Fundamental Math",
+              "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+            },
+            {
+              "type": "text",
+              "text": ", but being better at Concentration sooner likely kept buffs running longer for those four levels. Those buffs usually don’t care about our Charisma anyway."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixteenth and nineteenth level, we have choices. We can either take +2 Constitution twice, +2 Dexterity twice, each once, or we could look at feats like Inspiring Leader or Skill Expert"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Double Dexterity would increase our AC to 18, but doubled Constitution will make us that much better at holding Concentration, as well as be 40 more hit points over the former option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For this build we choose to take the 20 Constitution."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-college-of-creation-build-autognomes-roll-out",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Features and Feats"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spellcasting"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration – d6"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Deception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Intimidation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Persuasion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Mending"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Vicious Mockery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Detect Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Healing Word"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Sleep"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Thanks to being an Autognome, we start with 16 AC from Armored Casing."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If you want a weapon as a sort of backup for when you want more damage than Vicious Mockery, like a hand crossbow or something, go for it. Otherwise just stick to cantrips for damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our assortment of spells is very typical of Bards."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Use Sleep to regularly win encounters for the first few levels and Silvery Barbs to either deny enemy critical hits or to help an ally land a strong debuff."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mending is a very useful spell for an Autognome. For the cost of a minute to cast it, spend a hit die for healing without taking a full hour to short rest."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Support your team and survive. Remember to hand out Inspiration dice. We have three per long rest at this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Jack of All Trades"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest – d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1st-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Feather Fall"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Jack of all Trades is great, adding half PB to checks that didn’t already add PB. This includes things like Initiative checks, Counterspell, escaping the Web spell. Important stuff."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest is a nice bonus to healing during short rests, helpful to stretch out those hit dice."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Feather Fall is one of those spells where you don’t want to be caught without it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "College of Creation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Mote of Potential"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Performance of Creation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Perception"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2nd-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Shatter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take our subclass, and things actually don’t change too much yet."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mote of Potential is nice in that it doesn’t split the uses of our Inspiration dice, instead adding extra benefits to the basic use of Bardic Inspiration."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Used on Attack Rolls it does a small AoE around the target."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Used on Ability Checks, it’s basically Advantage on the Inspiration Die itself."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Used on Saving Throws it’s some Temporary HP."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We can’t use them ourselves unfortunately, but we have Built for Success for our own rolls."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sometimes you just need to do some damage and Shatter has a reliable damage type. Yes, Constitution saves are a pain at "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "higher levels"
+                },
+                {
+                  "type": "text",
+                  "text": " but at lower levels the gap isn’t big enough to cause problems. We can trade this out later for something better when that gap becomes an issue. For right now, Shatter kills people."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Fey Touched"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Charisma"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Mage Hand"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Bless (Fey Touched)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "2nd-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Aid"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Misty Step (Fey Touched)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fey Touched does wonderful things for us."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bless is already great, but we can always throw Bardic Inspiration on top of it for ridiculous math tricks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Misty Step is a great spell as well, granting us a bonus action teleport."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also gain "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": ", a good utility cantrip, and Aid. Aid is a wonderful spell, especially if you abuse upcasting. Use this at the beginning of the day on frail party members or party pets that lack scaling hit points, such as Familiars or Mounts. Alternatively, you can use it while allies are dying, and raising the current and max hp will raise their hp from 0, allowing Aid to serve in place of Mass Healing Word."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration – d8"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Font of Inspiration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3rd-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Hypnotic Pattern"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The inspiration die grows in size and now they return on short rests, which can double or triple Inspiration for the day."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hypnotic Pattern is a great way to ruin a fight by taking most of the opponents out of it, and requiring an action to break per victim."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Countercharm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Animating Performance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3rd-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Dispel Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dispel Magic is a handy utility. It breaks magical effects and we get half PB to the check if required thanks to Jack of All Trades."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Animating Performance is the big feature we’ve been waiting for, allowing us to awaken our fellow Constructs in disguise."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As an Action, we can turn any unattended large or smaller object into a pet for an hour. It can fly and has an ok melee attack that does force damage, but the primary function is to provide a speed manipulation aura around the Dancing Item."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "So get creative with this. Sure, a large object can serve as a flying mount for an hour, but just as well we could animate a coin and have it ride in the Barbarian’s pocket, providing the Barbarian with constant extra movement while slowing down anything standing next to them."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Just Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Greater Invisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Greater Invisibility is just a useful combat buff. Never a bad option."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Resilient (Constitution)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Constitution"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Polymorph is here for a niche use:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "If your frontliner is getting low, turn them into a giant ape and suddenly they have 157 hit points."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Another possible use for it, though, is going to be open to the DM interpretation of “creature” from the wording on Polymorph. With a slightly lenient DM, it’s entirely possible you can Polymorph your Dancing Item. I’m not sure why you would, but being creative with options is really part and parcel of being a bard, so check if this tool is available to you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Resilient helps us maintain those important Concentration spells, like Polymorph, when we get roughed up."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest – d8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Greater Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Hold Monster"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Removed 1st-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Sleep"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sleep has outlived its usefulness and will be replaced."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Greater Restoration removes so many bad effects it’s worth having, but remember you need to keep around big piles of diamond dust for it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hold Monster can be a death sentence and is great to have."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration – d10"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Deception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Intimidate"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Blade Ward"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "5th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Synaptic Static"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Removed 2nd-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Shatter"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Magical Secrets"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "3rd-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Counterspell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "4th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Black Tentacles"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration goes up to d10."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We take Expertise in Deception and Intimidate, but either can be replaced with Persuasion at your preference."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "On the spell side, lots of things happen here."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We get a new Cantrip and we take Blade Ward. As we enter tier three with our 16 AC, even Dodging is less sufficient against increasing monster attack rolls. To that end, if we’re Concentrating on something important we stand a better chance of making the save if the damage is half of what it would be."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember I said we’d get rid of Shatter as well. Now is the time to switch it out for Synaptic Static, the Psychic damage Intelligence save Fireball."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For our first Magical Secrets, we take Counterspell and Black Tentacles."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Counterspell is Counterspell and Bards excel at it, despite not knowing it naturally."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Black Tentacles are a good way to restrain targets and get some damage as well. Alternatively, Web would get the same restraining options, but trade damage for being a cube instead of a square and a longer duration."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Just Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Eyebite"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eyebite can put targets to sleep round after round, so it’s good control."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Charisma +2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally 20 Charisma. Yeah, we delayed it in favor of Resilient, but keeping those spells running was very important."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest – d10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Forcecage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Put things in a box."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Viciously mock the things in the box."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Laugh at the things in the box."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Forcecage is just mean."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Creative Crescendo"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magical Secrets"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "6th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Heal"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "7th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Teleport"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Creative Crescendo is honestly pretty broken because "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "technically"
+                },
+                {
+                  "type": "text",
+                  "text": " you can create 5 Antimatter rifles. Now, no sane DM will let you have those, but it’s "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "technically"
+                },
+                {
+                  "type": "text",
+                  "text": " allowed."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For our second Magical Secrets, we’re learning Heal and Teleport."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Heal is just super efficient healing magic."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Teleport is convenient transportation but if you have, say a Wizard who can also learn it, maybe browse our "
+                },
+                {
+                  "type": "link",
+                  "text": "Practical Guide to Magical Secrets",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/bard/magical_secrets/"
+                },
+                {
+                  "type": "text",
+                  "text": " for other options."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration – d12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Glibness"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Biggest Bardic Inspiration, d12."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Glibness is great for either making every Face skill check ever or for comboing with Counterspell and Dispel Magic to always succeed on both checks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Constitution +2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More HP and better Concentration saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest – d12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Foresight"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Foresight is very useful. Advantage all day on basically everything would be neat on us, and ridiculously good on one of your allies that makes tons of attack rolls."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Just Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magical Secrets"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "8th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Holy Aura"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "9th-level Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Wish"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wish is Wish. "
+                },
+                {
+                  "type": "link",
+                  "text": "Deja vu.",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Holy Aura is a powerful defensive buff to protect the whole team for a whole minute. It’s like free Dodging for everyone."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Constitution +2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The Most HP and best Concentration saves we can have without magical items."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Superior Inspiration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Free extra Inspiration die if we start a fight empty. Kinda bland boring capstone but we’re already a stronk super fighting robot."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- College of Creation Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mote of Potential"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ability Check"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Attack Roll"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Saving Throw"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Performance of Creation"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Animating Performance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Creative Crescendo"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Autognome"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Kobold"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Thri-Kreen"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-intro-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center has-small-font-size is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\"><em>As you’ve called us to "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-3-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[2]",
+      "detail": "<li value=\"3\"><span class=\"rating-green\">Performance of Creation</span>: This is a great way to solve problems that require large, bulky, or expensive non-magic items that you migh"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"6\"><span class=\"rating-blue\">Animating Performance</span>: Similar in many ways to summoning a creature for an hour. Your Dancing Item will have a decent number of hit p"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-college-of-creation-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-college-of-creation-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-college-of-creation-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-college-of-creation-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-college-of-creation-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-college-of-creation-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-college-of-creation-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-college-of-creation-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-college-of-creation-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-college-of-creation-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-college-of-creation-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-college-of-creation-weapons-and-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-college-of-creation-weapons-and-armor-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[2]",
+      "detail": "block-section-example-college-of-creation-build-autognomes-roll-out-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[2]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center is-style-plain is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\"><em>It’s in the blood, it’s in t"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-example-college-of-creation-build-autognomes-roll-out-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-college-of-creation-build-autognomes-roll-out-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-abilities-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-race-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-skills-and-tools-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-feats-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4153,
+    "sections": 16,
+    "blocks": 44,
+    "tables": 3,
+    "ratingSignals": 21
+  },
+  "status": "needs-editorial-review"
+}

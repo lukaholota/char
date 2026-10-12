@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { afterAll, beforeEach, describe, expect, it, vi } from "vitest";
-import { BackgroundCategory, Classes, Races, Subclasses } from "@prisma/client";
+import { BackgroundCategory, Classes, Races, Skills, Subclasses } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { disconnectDatabase, resetUserData } from "../../user-data";
 import { minimalForm } from "../../helpers/build-form";
@@ -174,7 +174,8 @@ async function createOwnedCharacter(
     backgroundByName(BackgroundCategory.SAGE),
   ]);
   const subclass = subclassName ? await subclassByName(characterClass.classId, subclassName) : null;
-  const result = await createCharacter(await withCreationSpells(minimalForm({ raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId })));
+  const rogueExpertise = className === Classes.ROGUE_2014 ? { skills: [Skills.ARCANA, Skills.HISTORY], expertiseSchema: { expertises: [Skills.ARCANA, Skills.HISTORY] } } : {};
+  const result = await createCharacter(await withCreationSpells(minimalForm({ raceId: race.raceId, classId: characterClass.classId, backgroundId: background.backgroundId, ...rogueExpertise })));
   if ("error" in result) throw new Error(`${emailPrefix}: createCharacter повернув ${result.error}`);
 
   await prisma.pers.update({

@@ -1,0 +1,2430 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "50f586c68bc2d1682f09a91c3193f2a71386ad8d18abaa4e3e510d61b1cae8e5",
+  "sourceRevision": {
+    "revisionId": "rpgbot-f4fd482091798130-50f586c68bc2d168",
+    "sourceId": "rpgbot-f4fd482091798130",
+    "fetchedAt": "2026-09-29T19:25:39.143114+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:46:23-04:00",
+    "contentHash": "ae854fefac1cc84b107752f88823fc158cd8ab4a29d6a592ce101049fe85da96",
+    "title": "School of Conjuration Wizard 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-f4fd482091798130-50f586c68bc2d168.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Conjuration does a lot of things. Generally when you think of a conjurer you think of summoning creatures, but conjuration is more than that: it also includes teleportation and spells which summon or create objects. School of Conjuration offers you a bit of everything that the Conjuration school of magic has to offer, but if you’re just here to play a summoner you won’t get anything to support that concept until 14th level."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Even so, summoning creatures to aid you in combat becomes a central part of School of Conjuration’s tactics. Be sure to read my "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Summoning Spells",
+              "href": "https://rpgbot.net/dnd5/characters/summoning"
+            },
+            {
+              "type": "text",
+              "text": " before you reach level 5 and get access to spells like Summon Shadowspawn."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Long-time 5e players should note that School of Conjuration benefited significantly from the new summon spells introduced in Tasha’s Cauldron of Everything. Previously, summon spells were complicated, difficult to use, and unpredictable since the DM was tasked with selecting what you actually get to summon. The new spells are consistently useful, easy to manage for both the player and the DM, and generally effective in a broad variety of situations. These additions make School of Conjuration considerably more appealing at level 10 and above than it was previously."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Conjuration Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Conjuration Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#school-of-conjuration-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Conjuration Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#school-of-conjuration-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Conjuration Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#school-of-conjuration-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "School of Conjuration Armor and Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#school-of-conjuration-armor-and-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Generic Conjurer",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#example-build-generic-conjurer"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/conjuration/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "School of Conjuration Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Conjuration Savant"
+              },
+              {
+                "type": "text",
+                "text": ": Standard for PHB\n\t\twizard subclasses. Strangely, this feature incentivizes you to use your two\n\t\tfree spells learned per level to learn literally anything except spells from\n\t\tyour favorite school."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Minor Conjuration"
+              },
+              {
+                "type": "text",
+                "text": ": Like creation spells,\n\t\tMinor Conjuration’s effectiveness depends heavily on your creativity and on\n\t\tyour DM’s permissiveness. At the very least you can summon cylindrical\n\t\tobjects and roll them around in dungeons to set off traps, or create a\n\t\tsturdy object to use as cover.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "If your DM allows it, creating a weapon with Conjuration Creation may be\n\t\t\tenough to overcome resistance to damage from non-magical attacks since the\n\t\t\tobject is “visibly magical”. You may even be able to create weapons made\n\t\t\tof special materials like adamantine or cold iron. Unfortunately, the size\n\t\t\tconstraints may limit your weapon options, so stick to stubby weapons like\n\t\t\taxes rather than long weapons like spears and longswords. Also note that\n\t\t\tthe weapon will disappear if it deals damage once, so it’s a single-use\n\t\t\tweapon. Maybe useful for rogues or if you just need one hit, but this\n\t\t\twon’t totally replace real weapons. It’s not clear if you can create expensive\n\t\t\titems like Alchemist’s Fire, but I don’t think doing so would cause problems\n\t\t\tbeyond very low levels where your available gold is limited."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Benign Transposition"
+              },
+              {
+                "type": "text",
+                "text": ": A great way to get\n\t\taround when there are enemies present, especially if you switch places with\n\t\tyour party’s Defender and drop them in the middle of a bunch of surprised\n\t\tenemies. Of course, the biggest benefit of Benign Transposition (getting you\n\t\tout of somewhere dangerous) can be entirely replaced by Misty Step, which\n\t\tcan be used as a Bonus Action at the cost of a 2nd-level spell slot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Focused Conjuration"
+              },
+              {
+                "type": "text",
+                "text": ": This is great for\n\t\tkeeping your summoned creature around even if you take damage, but at this\n\t\tlevel you have plenty of ways to keep yourself out of trouble. Spells like\n\t\tShield, Absorb Elements, and Mirror Image are staple defensive options which\n\t\tdon’t require Concentration, and if you have a summoned creature there’s one\n\t\tmore ally on the field drawing attention away from you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Durable Summons"
+              },
+              {
+                "type": "text",
+                "text": ": 30 temporary hit points\n\t\tprovides as many additional hit points as casting a “Summon Creature” spell\n\t\ttwo or three spell levels higher (it varies by spell). That’s a huge\n\t\tincrease in durability, which means that you’re getting more mileage out of\n\t\tyour summon spells."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-conjuration-ability-scores",
+      "heading": "School of Conjuration Ability Scores",
+      "sourceAnchor": "school-of-conjuration-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-conjuration-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from\n\t"
+            },
+            {
+              "type": "link",
+              "text": "any other wizard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-conjuration-races",
+      "heading": "School of Conjuration Races",
+      "sourceAnchor": "school-of-conjuration-races",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-conjuration-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from "
+            },
+            {
+              "type": "link",
+              "text": "any other wizard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#races"
+            },
+            {
+              "type": "text",
+              "text": ". So long as you can get a +1 to Intelligence, you’ll be fine. A feat at level 1 for Inspiring Leader is tempting, but without Charisma to improve it, it’s not useful until higher levels. More teleportation from races like the Eladrin or the Shadar-Kai is thematically interesting, but doesn’t get you anything extra."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-conjuration-feats",
+      "heading": "School of Conjuration Feats",
+      "sourceAnchor": "school-of-conjuration-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-conjuration-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Little different from "
+            },
+            {
+              "type": "link",
+              "text": "any other wizard",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#feats"
+            },
+            {
+              "type": "text",
+              "text": ", but Focused Conjuration makes Concentration much less of a problem, so feats like Resilient (Con) or Warcaster are less impactful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-school-of-conjuration-armor-and-weapons",
+      "heading": "School of Conjuration Armor and Weapons",
+      "sourceAnchor": "school-of-conjuration-armor-and-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-school-of-conjuration-armor-and-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Just don’t."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Circle of the Shepherd Druid"
+              },
+              {
+                "type": "text",
+                "text": ": Two levels to get Spirit Totem and access to healing spells like Healing Word is very tempting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sorcerer"
+              },
+              {
+                "type": "text",
+                "text": ": Two levels for Font of Magic means a refillable pool of Sorcery Points. You can take a third level for Metamagic, but it means giving up Spell Mastery at high levels. You could instead take Metamagic Adept. Either way, you want Sorcery Points to fuel Extended Spell to get more mileage out of your best spell slots when you summon creatures."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-generic-conjurer",
+      "heading": "Example Build – Generic Conjurer",
+      "sourceAnchor": "example-build-generic-conjurer",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-generic-conjurer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There’s not much nuance to the conjurer. Summon things, teleport, call it a day."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-generic-conjurer-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because this build relies heavily on Tasha’s-era summoned creatures, our Concentration is nearly always in use, which heavily impacts our spell selection. Most of our other spells will be instantaneous, direct damage spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-generic-conjurer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You’ll reasonably ask yourself “is this a better summoner than "
+            },
+            {
+              "type": "link",
+              "text": "Circle of the Shepherd Druid",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-the-shepherd/"
+            },
+            {
+              "type": "text",
+              "text": "?” The answer is complicated. Shepherd can support and buff their summons more effectively, but the Wizard has better and more diverse summon options, and is also a wizard when summoning stuff isn’t working. Shepherd is a better support summoner, but School of Conjuration Wizard is a better summoner offensively by virtue of being a wizard and having the Wizard’s powerful offensive options on top of their summons."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "parentSectionId": "section-example-build-generic-conjurer",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll adjust things to take advantage of three +1 increases. We could go for 16 Constitution, but raising Wisdom from 8 to 12 will be helpful both for Wisdom saves and for Perception."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-generic-conjurer",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tortle. 17 AC, an extra skill, and three +1 increases. It’s not especially impactful to the build, so very little changes if you want to choose a different race."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-generic-conjurer",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It doesn’t really matter to the build. Sage works great."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-generic-conjurer",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll choose Perception for our Tortle skill, we get Arcana and History from Sage, and we’ll choose Investigation and Religion from our wizard skills."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-generic-conjurer",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to very patiently wait to have 20 Intelligence before we take feats because our summons depend heavily on your spellcasting ability modifier. We could look at some hybrid feats, but there’s nothing especially impactful. Instead, we want stuff that will make our expensive summoned creatures stick around longer."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 12, we’ll take Metamagic Adept to get Extended Spell. Extending our two highest-level summons each day gets us a lot of mileage out of those spell slots."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take Inspiring Leader at level 16 for the temporary hit points. We’ll have Durable Summons by then, but with summons lasting a very long time, we may want to add more temporary hp after the 30 from Durable Summons is lost."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 19, consider Lucky. There’s nothing else we really need."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You might also consider Fighting Initiate to get Fighting Style (Interception), but that requires that we stand within 5 feet of our summoned creature, which is a terrible and dangerous place for us to be unless we’re relying exclusively on summoned creatures which fight at range, and there are very few of those."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-generic-conjurer",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Level"
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              },
+              {
+                "type": "text",
+                "text": " "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t\t"
+              },
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\t\t"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Arcane Recovery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Acid Splash"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Prestidigitation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Find Familiar"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fog Cloud"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Unseen Servant"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting equipment, take a dagger, a component pouch or spellcasting focus, either pack, and a spellbook."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At first level we’re just like any other wizard. We grab some good staple cantrips, and some staple 1st-level Conjuration spells. A familiar is the first thing we can summon, and remains a helpful ally for our whole career."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Beyond the staples, any 1st-level spells will work great. Go-to options like Magic Missile and Shield are good choices. Eventually you’ll want to add Absorb Elements and possibly "
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Conjuration Savant"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Minor Conjuration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Tenser’s Floating Disk"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Minor Conjuration is a lot of fun, but it’s one of those features where thinking about it too much might lead to mischief. The item being visibly magical and disappearing when it takes or deals damage does prevent a lot of abuse (most NPCs won’t take your obviously magical money), but this can still be very useful. Many hand tools fit into the 3-foot, 10 pound limitations, allowing you to conjure up solutions to many problems at a moment’s notice and at no cost."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You may also be able to conjure expensive, disposable items like Alchemist’s Fire. The item disappears when it deals damage, which means that it does deal damage. You’re not going to conjure up and toss Alchemist’s Fire mid-combat because the Action cost is too high, but you might walk into combat with a conjured flask in hand. You might also hand your party’s martial characters a magic javelin or arrow so that they can get past resistance to non-magic attacks at least once."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Outside of combat, Minor Conjuration is your go-to solution for many problems. Owning permanent stuff is limited to things you need constantly, like pants. Everything else that qualifies can be summoned when needed."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tenser’s Floating Disk is there because we want it as a ritual later."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Misty Step"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Web"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Web is an amazing area control spell at any level. Try using it on dragons in flight. Sure, the spell ends at the start of your next turn because it’s not anchored to anything, but 1 round of Restrained is enough to ground a flying enemy."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (16 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Vortex Warp"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Vortex Warp is like Misty Step but for anyone except you. It’s a Constitution save if you target an unwilling creature, so instead, target your allies and teleport your big melee allies into places that enemies don’t want them to be."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Shadowspawn",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-shadowspawn"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally we feel like a real conjurer! Summon Shadowspawn is our first combat summon. With a 1-hour duration we can get a lot of mileage out of one spell slot, provided that we can keep our summon alive. Of course, given the choice between our summon dying and ourselves dying, let the summon take the hits for you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "From here on we’ll look at the changing DPR of Summon Shadowspawn. Other summon options are appealing even with possibly lower DPR, but it’s still informative to watch the DPR scale with spell level. Since spell level adds both a flat damage bonus and additional attacks, it scales quickly."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "3rd-level Summon Shadowspawn (Despair) DPR: 8.45"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "That’s only slightly better DPR than casting Fire Bolt every turn (7.70), but our Shadowspawn alongside a cantrip brings us into the "
+                },
+                {
+                  "type": "link",
+                  "text": "Target DPR",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/#lets-talk-damage"
+                },
+                {
+                  "type": "text",
+                  "text": " range without spending any other limited resources. If you can keep your Shadowspawn alive and use spell slots when they have a big impact, you can be very effective with very few resources."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Benign Transposition"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Benign Transposition is great, and we can make it available every time we’re in combat. The obvious use is to get yourself out of danger, but you can also swap places with a nearby ally to go from “I’m in danger” to “I am the danger.”"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Benign Transposition recharges when you cast a conjuration spell of 1st level or higher, but it doesn’t require you to spend a spell slot. That means that a spell from your race, from a feat, or cast as a ritual will work. You could use Misty Step to recharge it and teleport twice in a turn, but that’s expensive. More likely, you’re going to cast Tenser’s Floating Disk as a ritual to recharge it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Evard’s Black Tentacles"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Aberration",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-aberration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we’re getting to the part where Concentration gets to be a problem. Most of the time we’re going to have a summoning spell running, so Evard’s Black Tentacles may not see much use. It’s effectively a panic option for when our summoned creature goes down or when you’re greatly outnumbered."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Summon Aberration diversifies our summon options, but upcasting lower-level summons is still very effective. Remember that Tasha’s-era summons get an additional attack at each even-numbered spell level, so 4th-level spell slots are a good upgrade, more than doubling DPR for Summon Shadowspawn if we don’t cast Summon Aberration instead."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "4th-level Summon Shadowspawn (Despair) DPR: 18.20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This brings us into the Target DPR range solely based on our summoned creature’s attacks. Cantrips won’t quite get us into High DPR, but we can get close. And if we need more damage, we can still cast Fireball or something."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (18 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Conjure Woodland Beings"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Conjure Woodland Beings is arguably the best pre-Tasha’s summon spell. It has a variety of interesting fey options, many of which can cast spells or otherwise make themselves a problem beyond just attacking. They get really crazy when we eventually get durable summons."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Steel Wind Strike"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Draconic Spirit",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-draconic-spirit"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Steel Wind Strike is decent damage dealt as an attack. If you can get Advantage on the attacks, it will significantly improve the damage output."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Summon Draconic Spirit serves double duty as a flying mount and as a combat summon. The breath weapon is nice, too, and it grants you damage resistance."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "5th-level Summon Shadowspawn (Despair) DPR: 19.50"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re still in Target DPR range, but the increased spell level isn’t the worth the cost for DPR alone. But remember that increasing the spell level also adds more AC and hit points, which can make your summoned creature stick around longer."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Focused Conjuration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Creation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "No more worrying about Concentration for our favorite spells. You still don’t want to draw attacks, but they are less scary."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Creation is an illusion spell, which feels odd, but it’s basically a bigger version of our Minor Creation feature. The 5-foot square limitation is considerably larger than “3 feet to a side”, though the limitation on materials may be more restrictive."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Scatter"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Scatter allows us to grab all of our enemies and put them into a nice, neat space. Then we can have our allies drop area damage on them. If you summoned a creature with an aura, such as Summon Undead’s Putrid option, you might drop your enemies into the aura."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "6th-level Summon Shadowspawn (Despair) DPR: 31.20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "A third attack boosts our DPR quite a bit, but we’re still not up to High DPR based solely on our summoned creature’s attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Metamagic Adept"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Grab Extended Spell and Subtle Spell. We usually want to extend our spells twice per day, but the ability to cast a summon without anyone knowing who did it can be very useful, or you may need it to cast Misty Step while gagged or magically silenced"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Plane Shift"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Teleport"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Plane Shift is touch range, which means that you can deliver it through your familiar. Have your owl fly sneakily into position, then Plane Shift your enemy to somewhere that they’ll hate."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "7th-level Summon Shadowspawn (Despair) DPR: 33.15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Durable Summons"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Durable Summons adds a bunch of durability to our summoned creatures. While it’s certainly great with our go-to spells like Summon Aberration or Summon Draconic Spirit, you can also use it with Summon Woodland beings and get a ton of small creatures with a weirdly huge pool of hit points, then use them to swarm your enemies and prevent them from moving."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Maze"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "There aren’t any 8th-level summon spells, but 8th-level slots give our Tasha’s-era summons yet another attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "8th-level Summon Shadowspawn (Despair) DPR: 46.80"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "A fourth and final attack boosts our DPR again, bringing us as close to High DPR as our summoned creature can get. We never get to High based on our summons alone, but sitting comfortably inside the Target DPR range without using our own turn for most of our career is still impressive."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Inspiring Leader"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Inspiring Leader lets us put a bunch of temporary hit points on up to 6 creatures. That’s enough to cover our familiar, a summoned creature, and likely our entire party. Alternatively, if you’re using Conjure Woodland Beings, you could put temporary hp on 6 of them and get some more mileage out of your small army of damage sponges."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Gate"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Gate is a really interesting way to summon a creature from another plane. You need to know their name, and you don’t control them, but they don’t get a save. If you know a friendly high-CR creature, you can call them up and say “Hey, I need a favor” in the middle of a fight. If things go well, they can probably go home before the spell ends. If not, you may owe them an apology and a promise that you’ll get them a Gate home in the morning."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "9th-level Summon Shadowspawn (Despair) DPR: 49.40"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spell Mastery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Misty Step or Web"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Because summon spells don’t come online until 3rd-level spells, Spell Mastery can be a frustrating option for us. Our 1st-level option can be an easy go-to like Silvery Barbs or Shield."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Misty Step means that we can use Misty Step and Benign Transposition to teleport twice per turn and literally never need to walk again, which feels very thematically appropriate. But also consider Web so that you can restrain enemies while your party kills them."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Lucky"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have everything we need, and the Wizard’s last two levels are underwhelming. Consider two levels of either circle of the shepherd druid or any variety of sorcerer."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Signature Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Signature Spells lets you cast the two spells for free as a 3rd-level spell once per day. That sounds nice, but remember that your summoned creature spells get better stats and more attacks with higher-level spell slots. Your best bet is to pick something that "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "isn’t"
+                },
+                {
+                  "type": "text",
+                  "text": " a summoning spell."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "rating- wp-block-heading School of Conjuration Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Conjuration Savant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Minor Conjuration"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Benign Transposition"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Focused Conjuration"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Durable Summons"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Circle of the Shepherd Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sorcerer"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-school-of-conjuration-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-school-of-conjuration-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-school-of-conjuration-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-school-of-conjuration-armor-and-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-example-build-generic-conjurer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-example-build-generic-conjurer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-build-generic-conjurer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3352,
+    "sections": 16,
+    "blocks": 29,
+    "tables": 2,
+    "ratingSignals": 12
+  },
+  "status": "needs-editorial-review"
+}

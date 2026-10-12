@@ -1,0 +1,878 @@
+{
+  "buildId": "build-ranger-gloom-stalker-2014",
+  "revisionId": "build-ranger-gloom-stalker-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "Приклад персонажа — Кілер із хутром",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+      "sectionId": "section-example-build-hitman-with-fur",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "RANGER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "RANGER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "RANGER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Archery"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hunters-mark",
+            "goodberry"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "RANGER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "GLOOM_STALKER_CONCLAVE",
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Primal Awareness"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "absorb-elements"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "RANGER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "CROSSBOW_EXPERT"
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "RANGER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "lesser-restoration"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "RANGER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "RANGER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "pass-without-trace"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "RANGER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SHARPSHOOTER"
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "RANGER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "water-breathing"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "RANGER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Hide in Plain Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "RANGER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "speak-with-plants"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "RANGER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "PIERCER",
+        "featOptions": [
+          {
+            "optionNameEng": "PIERCER Ability (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "RANGER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "freedom-of-movement"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "RANGER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "RANGER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "guardian-of-nature"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "RANGER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "RANGER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "conjure-volley"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "RANGER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "RANGER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "tree-stride"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "RANGER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-gloom-stalker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+          "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "GLOOM_STALKER_CONCLAVE",
+    "raceKey": "BUGBEAR_MPMM",
+    "backgroundKey": "HAUNTED_ONE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 13
+      },
+      {
+        "ability": "INT",
+        "value": 10
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 10
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Помітна перевага Слідопита — ранній доступ до {{Стрільба з лука|Archery}}. Це дозволяє дещо ігнорувати очікуване зростання базових розрахунків, отримуючи цікаві можливості без відставання у влучності.\n\n Базові Підвищені Сил 8 8 Спр 15 17 Ста 13 13 Інт 10 10 Муд 15 16 Хар 10 10",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ведмебай із «Монстрів Мультивсесвіту» чудовий, як описано вище. Обираємо його й використовуємо сповна.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Оскільки більшість складових передісторії можна вільно замінювати, обираємо цікаве тематичне особливе вміння. Переслідуваний{{Haunted One}} — чудовий вибір: за замовчуванням дає доступ до Підземної мови, Виживання та безкоштовного Набору мисливця на монстрів{{Monster Hunter’s Pack}}, що дуже пасує образу. Оскільки персонаж має бути розвідником і заміняти Пройдисвіта, другу мову замініть володінням злодійськими інструментами, а другу навичку — Спритністю рук.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Із трьох класових навичок візьміть Уважність, Аналіз поведінки і Розслідування. Переслідуваний також дає Виживання та Спритність рук.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Хочемо якнайшвидше отримати Експерта з арбалетів, потім Влучного стрільця. Як згадано вище, на 2-му рівні отримуємо +2 до влучання далекобійними атаками, тож маємо 8 рівнів для інших можливостей, перш ніж підвищувати Спритність заради базових розрахунків. Саме стільки й потрібно для цих рис.\n\nНа 12-му рівні беремо {{Проколювач|Piercer}}: величезна кількість атак і схильність атакувати з перевагою означають часті критичні влучання. До того ж уся шкода колюча, тож перекидання низьких результатів приємне.\n\nНа 16-му рівні максимізуємо Спритність. 19-й залишаємо для {{Стійкий|Resilient}} зі Статурою, стаючи, мабуть, єдиним персонажем у грі з володінням усіма 3 поширеними ряткидками.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Вправний дослідник — Кмітливий; {{Мічений ворог|Favored Foe}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Стрільба з лука; нові відомі заклинання: Мисливська мітка, Доброягода [Goodberry]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "{{Первородне усвідомлення|Primal Awareness}} / {{Первісне усвідомлення|Primeval Awareness}}; Вбивця в темряві; нове відоме заклинання: Поглинання стихій [Absorb Elements]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Експерт з арбалетів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "{{Додаткова атака|Extra Attack}}; нове відоме заклинання: Мале відновлення [Lesser Restoration]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "{{Вправний дослідник - Мандрівний|Deft Explorer - Roving}}; Мічений ворог: підвищення шкоди",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Залізний розум; нове відоме заклинання: Переміщення без сліду",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "{{Стежка землі|Land's Stride}}; Влучний стрілець",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нове відоме заклинання: Дихання водою [Water Breathing]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "{{Вправний дослідник - Невтомний|Deft Explorer - Tireless}}; {{Сховатися на видноті|Hide in Plain Sight}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Шквал мисливця; нове відоме заклинання: Розмова з рослинами [Speak with Plants]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Проколювач: Спритність",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нове відоме заклинання: Свобода рухів [Freedom of Movement]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Мічений ворог: підвищення шкоди; {{Зникнення|Vanish}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Тіньовий ухил; нове відоме заклинання: Вартовий природи [Guardian of Nature]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення характеристик: +2 Спр",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Нове відоме заклинання: Виклик залпу [Conjure Volley]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "{{Дикі почуття|Feral Senses}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Стійкий: Статура; нове відоме заклинання: Деревний шлях [Tree Stride]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "{{Убивця ворогів|Foe Slayer}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Продаж спорядження",
+        "reason": "Автор радить продати лускатий обладунок і мечі та придбати проклепаний шкіряний обладунок, зберігши 50 зм для ручного арбалета; пресет не записує продаж і купівлю, тож лишено лускатий обладунок, два короткі мечі, довгий лук і набір дослідника підземель.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Кмітливий дослідник: Мандрівний (6-й) і Невтомний (10-й)",
+        "reason": "Автор на 6-му й 10-му рівнях називає уміння «Вправний дослідник - Мандрівний» і «Вправний дослідник - Невтомний»; у каталозі Слідопита для них немає виборів на цих рівнях, тому вони в плані не записані.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-gloom-stalker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+            "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

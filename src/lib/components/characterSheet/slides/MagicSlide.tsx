@@ -1046,7 +1046,7 @@ const MagicSlide = memo(function MagicSlide({ pers, spellcastingSources, onPersU
           }
         }}
       >
-        <DialogContent className="w-[calc(100vw-1rem)] max-h-[92dvh] overflow-y-auto sm:max-w-[520px] glass-card border-white/10 bg-slate-900/45 text-slate-100">
+        <DialogContent className="w-[calc(100vw-1rem)] max-h-[92dvh] overflow-y-auto sm:max-w-[520px] border-white/10 text-slate-100">
           <DialogHeader>
             <DialogTitle>Налаштування заклинання: {badgeEditorSpellName}</DialogTitle>
           </DialogHeader>

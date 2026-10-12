@@ -1,0 +1,265 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "artificer-artillerist-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-artificer-artillerist-2014-draft1",
+    "sourceRevisionId": "rpgbot-681007a7f2b64cb5-c3375fc31cd5d044"
+  },
+  "exampleSection": "section-example-artillerist-specialist-build-practical-problem-solver",
+  "levelTableSection": "section-levels",
+  "classKey": "ARTIFICER_2014",
+  "subclassKey": "ARTILLERIST",
+  "raceKey": "CENTAUR_MPMM",
+  "backgroundKey": "INVESTIGATOR",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 15,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "infusions": [
+        "Enhanced Arcane Focus",
+        "Enhanced Defense",
+        "Enhanced Weapon",
+        "Replicate: Bag of Holding"
+      ],
+      "section": "section-infusions"
+    },
+    {
+      "level": 3,
+      "subclassKey": "ARTILLERIST"
+    },
+    {
+      "level": 4,
+      "featKey": "FEY_TOUCHED",
+      "featOptions": [
+        {
+          "optionNameEng": "FEY_TOUCHED Ability (Intelligence)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "infusions": [
+        "Repulsion Shield",
+        "Spell-Refueling Ring"
+      ],
+      "section": "section-infusions"
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "infusions": [
+        "Replicate: Winged Boots",
+        "Replicate: Cloak of Protection"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "MOBILE",
+      "section": "section-feats"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "infusions": [
+        "Replicate: Bracers of Archery",
+        "Replicate: Ring of Protection"
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18,
+      "infusions": [
+        "Replicate: Amulet of Health",
+        "Replicate: Boots of Speed"
+      ],
+      "section": "section-infusions"
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Стартове золото",
+      "reason": "Автор радить взяти середнє стартове золото (125 зм) замість спорядження: лускатий обладунок, щит, вʼючне сідло, інструменти тесляра, чинбаря й злодія; пресет бере стандартний набір класу.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Передісторія Слідчий",
+      "reason": "Автор бере Слідчого з Путівника Ван Ріхтена (набір для гриму й інструменти злодія) і замінює повторні інструменти злодія інструментами тесляра; каталог має Слідчого зі Sword Coast без інструментів, а пресет не записує вибір інструментів.",
+      "section": "section-background"
+    },
+    {
+      "field": "Заклинання «Доторку феї»",
+      "reason": "Автор радить Зурочення або Благословення та Туманний крок; заклинання риси на підвищенні рівня платформа не записує, поіменно видається лише Туманний крок.",
+      "section": "section-feats"
+    },
+    {
+      "field": "Замовляння на 10-му рівні",
+      "reason": "Автор не називає нового замовляння; його обирає гравець.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Вливання на 14-му та 18-му рівнях",
+      "reason": "Автор пише, що вивчає по дві, але не називає їх; пресет бере Репліку: Налучники стрільця (їх автор згадує) і Репліку: Перстень захисту на 14-му, Репліку: Амулет здоровʼя та Репліку: Чоботи швидкості на 18-му (вибір платформи, можна змінити на листі).",
+      "section": "section-infusions"
+    },
+    {
+      "field": "Підвищення Статури на 16-му та 19-му рівнях",
+      "reason": "Автор дає кілька варіантів (Статура до 20, або Експерт у навичках з Кухарем, Бойовий заклинатель, Здоровань); пресет бере перший: Статура +2 на обох рівнях (вибір платформи).",
+      "section": "section-feats"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/artificer-artillerist-centaur-2014-88ac2c9ac8.webp",
+    "title": "Винахідник — Кентавр-Артилерист",
+    "description": "Практичний розвʼязувач проблем: Кентавр-Артилерист з Інтелектом 17, Статурою 16 та замовляннями Кислотні бризки й Лагодження.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "INT",
+      "CON",
+      "INT"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INVESTIGATION",
+        "PERCEPTION"
+      ],
+      "race": [
+        "SURVIVAL"
+      ],
+      "background": [
+        "ARCANA"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "SYLVAN",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": [
+          "DAGGER",
+          "DAGGER"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Кентавр за правилами Таші: +2 до Інтелекту й +1 до Статури, як у авторській таблиці (Інтелект 17, Статура 16); це вже враховано.",
+    "skillExplanation": "Виживання — від Кентавра, Розслідування й Уважність — від Винахідника, Аналіз поведінки — від Слідчого, а повторне Розслідування Слідчого автор замінює Магією. Три мови (від раси й передісторії) автор не називає: їх ми обрали за вас.",
+    "equipmentExplanation": "Автор радить стартове золото замість набору. Ми взяли стандартний набір: два кинджали, легкий арбалет, лускату броню, набір дослідника підземель та інструменти злодія — їх вибір платформи, їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "acid-splash",
+        "mending"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Кислотні бризки й Лагодження — авторський рядок 1-го рівня. Підготовлені заклинання автор не перелічує, їх оберете на листі.",
+      "platformChoices": []
+    }
+  }
+}

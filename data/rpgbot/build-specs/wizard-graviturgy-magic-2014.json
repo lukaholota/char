@@ -1,0 +1,374 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-graviturgy-magic-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-graviturgy-magic-2014-draft1",
+    "sourceRevisionId": "rpgbot-ed4bae1eb3e7290a-9edeb52ae222e8a6"
+  },
+  "exampleSection": "section-example-build-pull",
+  "levelTableSection": "section-levels",
+  "classKey": "WIZARD_2014",
+  "subclassKey": "SCHOOL_OF_GRAVITURGY",
+  "raceKey": "CUSTOM_LINEAGE_TCE",
+  "backgroundKey": "SAGE",
+  "featKey": "TELEKINETIC",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 15,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2,
+      "subclassKey": "SCHOOL_OF_GRAVITURGY",
+      "spells": {
+        "spellbookKeys": [
+          "absorb-elements",
+          "shield"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "spells": {
+        "spellbookKeys": [
+          "phantasmal-force",
+          "web"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "prestidigitation"
+        ],
+        "spellbookKeys": [
+          "invisibility",
+          "immovable-object"
+        ]
+      }
+    },
+    {
+      "level": 5,
+      "spells": {
+        "spellbookKeys": [
+          "fly",
+          "pulse-wave"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "spells": {
+        "spellbookKeys": [
+          "counterspell",
+          "dispel-magic"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "spells": {
+        "spellbookKeys": [
+          "evards-black-tentacles",
+          "wall-of-fire"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "featKey": "METAMAGIC_ADEPT",
+      "section": "section-feats",
+      "spells": {
+        "spellbookKeys": [
+          "gravity-sinkhole",
+          "polymorph"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "spells": {
+        "spellbookKeys": [
+          "hold-monster"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 10,
+      "spells": {
+        "cantripKeys": [
+          "shape-water"
+        ],
+        "spellbookKeys": [
+          "telekinesis",
+          "wall-of-stone"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "spells": {
+        "spellbookKeys": [
+          "contingency",
+          "gravity-fissure"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "section": "section-feats",
+      "spells": {
+        "spellbookKeys": [
+          "scatter",
+          "disintegrate"
+        ]
+      }
+    },
+    {
+      "level": 13,
+      "spells": {
+        "spellbookKeys": [
+          "reverse-gravity",
+          "tether-essence"
+        ]
+      }
+    },
+    {
+      "level": 14,
+      "spells": {
+        "spellbookKeys": [
+          "forcecage",
+          "teleport"
+        ]
+      }
+    },
+    {
+      "level": 15,
+      "spells": {
+        "spellbookKeys": [
+          "dark-star",
+          "clone"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "featKey": "ELDRITCH_ADEPT",
+      "featOptions": [
+        {
+          "optionNameEng": "Devil's Sight"
+        }
+      ],
+      "section": "section-feats",
+      "spells": {
+        "spellbookKeys": [
+          "maze",
+          "simulacrum"
+        ]
+      }
+    },
+    {
+      "level": 17,
+      "spells": {
+        "spellbookKeys": [
+          "true-polymorph",
+          "wish"
+        ]
+      }
+    },
+    {
+      "level": 18,
+      "spells": {
+        "spellbookKeys": [
+          "ravenous-void"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "featKey": "LUCKY",
+      "section": "section-feats",
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "level": 20,
+      "openSpellPicks": [
+        {
+          "category": "spellbook",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Навичка Природа",
+      "reason": "Автор каже, що клас і Мудрець дають Магію, Історію, Природу й Релігію, але Природи немає ні в класових навичках Чарівника, ні у Мудреця, а Своя раса дає лише Темнозір. Щоб отримати всі чотири, ми налаштували передісторію Мудреця за правилом PHB: Історія й Природа замість Магії та Історії Мудреця, а Магію й Релігію бере Чарівник. Автор такого налаштування не називає.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Заміна замовляння 4-го рівня",
+      "reason": "На 4-му рівні автор замінює Вогняний заряд на Промінь холоду; платформа не вміє міняти замовляння Чарівника, тож лишається Вогняний заряд.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Збільшення тяжіння на 1-му рівні",
+      "reason": "Автор бере Збільшення тяжіння в книгу на 1-му рівні, але платформа дозволяє це заклинання (дунамантія) лише Чарівнику Школи гравітургії, тобто з 2-го рівня; на 1-му рівні замість нього взято Магічний дротик, а Збільшення тяжіння можна додати пізніше.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Метамагія Адепта метамагії",
+      "reason": "На 8-му рівні автор бере Подовжене та Пришвидшене заклинання; Адепт метамагії не має опцій у каталозі (BUG-O49-METAMAGIC-ADEPT), тож саму рису записано, а метамагію ні.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Гравітаційна тріщина на 9-му рівні",
+      "reason": "На 9-му рівні автор називає Гравітаційну тріщину (6-го кола), а Чарівник 9-го рівня ще не має слотів 6-го кола; у таблиці вона названа знову на 11-му. На 9-му записано лише Стримування монстра, друге місце лишено вільним для вибору гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Майстерність заклинань і Підписні заклинання",
+      "reason": "На 18-му рівні автор обирає Сріблясті шпильки й Невидимість, а на 20-му лише згадує Підписні заклинання; платформа не записує ці вибори.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання без назви",
+      "reason": "Таблиця автора не називає частину нових заклинань книги на рівнях 18–20; їх лишено вільними для вибору гравця.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "title": "Чарівник Школи гравітургії — Своя раса",
+    "description": "Чарівник Школи гравітургії зі Своєю расою: Інтелект 18 уже на 1-му рівні завдяки Телекінетику, Темнозір і навички знань (Магія, Історія, Природа, Релігія).",
+    "subraceKey": null,
+    "racialAbilities": [
+      "INT"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "RELIGION"
+      ],
+      "race": [],
+      "background": [
+        "HISTORY",
+        "NATURE"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": [
+      "Середній",
+      "Темнозір"
+    ],
+    "languages": [
+      "ELVISH",
+      "DWARVISH",
+      "GNOMISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": "TELEKINETIC Ability (Intelligence)",
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "fire-bolt",
+        "mind-sliver",
+        "mage-hand"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [
+        "comprehend-languages",
+        "find-familiar",
+        "mage-armor",
+        "magic-missile",
+        "silvery-barbs",
+        "sleep"
+      ],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "mage-armor",
+        "silvery-barbs",
+        "sleep",
+        "magic-missile",
+        "find-familiar"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Вогняний заряд, Розщеплення Розуму й Магічну руку (її дає ще й Телекінетик) та пʼять заклинань книги обрав автор. Збільшення тяжіння автор теж називає, але в базі платформи його можна взяти лише після вибору Школи гравітургії, тож шосте заклинання книги (Магічний дротик) і початкову підготовку пʼяти заклинань ми обрали за вас.",
+      "platformChoices": [
+        "preparedSpells"
+      ]
+    },
+    "abilityExplanation": "Своя раса дає +2 до Інтелекту, а Телекінетик ще +1: Інтелект 18 на 1-му рівні, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Магію й Релігію бере Чарівник, Історію й Природу — Мудрець з налаштованою передісторією (правило PHB «Налаштування передісторії»): так вийшли всі чотири навички знань, про які пише автор. Темнозір обрано за автором, розмір (Середній) і три мови (одну расову, дві від Мудреця) ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Автор не називає стартового спорядження. Кинджал, мішечок із компонентами, набір ученого й книгу заклинань ми обрали за вас — вибір платформи."
+  },
+  "revision": 2
+}

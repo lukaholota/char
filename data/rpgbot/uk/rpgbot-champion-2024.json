@@ -1,0 +1,1831 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-ec7af736a93c9ec0",
+      "rulesets": [
+        "RULES_2024"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-ec7af736a93c9ec0-8f6b96b373215685",
+      "sourceId": "rpgbot-ec7af736a93c9ec0",
+      "fetchedAt": "2026-09-29T19:25:01.673986+00:00",
+      "sourceUpdatedAt": "2026-04-23T13:32:21-04:00",
+      "contentHash": "ccfc36a0eca2e7f721bde9be38898d828adfee11803f7194d91432b8cfc87bc8",
+      "title": "DnD 5.5 Champion Fighter Subclass Guide | 2024 DnD",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-ec7af736a93c9ec0-8f6b96b373215685.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-champion-2024",
+    "sourceId": "rpgbot-ec7af736a93c9ec0",
+    "slug": "champion-2024",
+    "ruleset": "RULES_2024",
+    "titleUk": "Чемпіон — гайд із підкласу Воїна D&D 2024",
+    "titleEn": "DnD 5.5 Champion Fighter Subclass Guide | 2024 DnD",
+    "topics": [
+      "Воїн",
+      "Чемпіон",
+      "гайд із підкласу"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "articleId": "rpgbot-champion-2024",
+      "sourceRevisionId": "rpgbot-ec7af736a93c9ec0-8f6b96b373215685",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Чемпіон — гайд із підкласу Воїна D&D 2024",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Влучання в яблучко — уже в комплекті!"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чемпіон — мабуть, найлегший підклас у грі. Він існує, щоб завдавати критичних влучань і жувати жуйку, а жуйку ще не винайшли. Вибір доведеться зробити рівно один раз — коли отримаєте додатковий бойовий стиль, — і тут важко помилитися. Далі ви просто стаєте сильнішими аж до 18-го рівня, коли раптом стаєте ще й неймовірно живучими."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Простота підкласу не заважає йому бути сильним у вправних руках. Тому Чемпіон добре підходить новачкам, але можливостей для оптимізації теж вистачає. Підклас явно створений для ролі атакера: правильний вибір предметів і рис відрізняє просто непогану збірку Чемпіона від справді чудової."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей гайд присвячений Чемпіону за правилами 2024 року. Якщо граєте за правилами 2014 року, читайте наш "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд із підкласу Чемпіона 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Чемпіона",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження Чемпіона",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#backgrounds"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Види Чемпіона",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Чемпіона",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Чемпіона",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Чемпіона",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Чемпіона",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Чемпіона",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Чемпіона — Лорд Лісохід, версія 2.0",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Вид",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#species"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Володіння навичками й інструментами",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#skill-and-tool-proficiencies"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси та підвищення характеристик",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#feats-and-ability-score-increases"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, некорисні або вкрай ситуативні варіанти. Майже ніколи не приносять користі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Інколи доречні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, часто важливі для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поради в цій статті спираються на "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 2024",
+                  "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на час останнього оновлення статті. Він час від часу змінюється з виходом нових матеріалів, тому автор за можливості оновлює гайд. Також періодично перевіряйте "
+                },
+                {
+                  "type": "link",
+                  "text": "виправлення правил",
+                  "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними правилами ми не розглядаємо матеріали сторонніх видавців, Unearthed Arcana чи домашні правила, адже не можемо припускати, що їх дозволено у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Чемпіона",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Покращене критичне влучання|Improved Critical}}: удвічі більше критичних влучань, і це ще до розмови про перевагу. Особливо більше нічого додати. Приємне поліпшення зручності: тепер уміння працює і з беззбройними ударами, на відміну від попередніх правил."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вражаючий атлет{{Remarkable Athlete}}: з одного боку, перевага на перевірки Сили (Атлетика) майже ніколи не знадобиться, особливо після змін правил захоплення. З іншого — перевага на кидки ініціативи чудова, а додатковий ефект критичних влучань цікавий."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додатковий бойовий стиль{{Additional Fighting Style}}: у найгіршому разі це +1 до КЗ або сліпий зір на 10 футів — обидва варіанти доволі добрі для будь-якої збірки. Деяким збіркам справді потрібні два бойові стилі, тож вони можуть вибрати щось інше."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Героїчний воїн{{Heroic Warrior}}: безплатна Героїчна перевага раз за хід — чудова річ. Але вона дивно погано поєднується зі змінами самої механіки: тепер ви робите повторний кидок після першого результату й мусите прийняти новий. Тож якщо вже влучили, полювати на критичне влучання небезпечно — можна перетворити влучання на промах. Найкраще це уміння допомагає проходити ряткидки й діяти поза боєм."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Вище критичне влучання|Superior Critical}}: на 50% більше критичних влучань, якщо у вас немає переваги."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виживальник{{Survivor}}: разом з усіма додатковими джерелами тимчасових пунктів здоровʼя в грі це робить Чемпіона з належною підтримкою майже безсмертним."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-backgrounds",
+          "heading": "Походження Чемпіона",
+          "sourceAnchor": "backgrounds",
+          "blocks": [
+            {
+              "blockId": "block-section-backgrounds-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загалом вибір такий самий, як для інших Воїнів. Але одна початкова риса стає для нас важливішою, ніж можна очікувати, якщо хочете максимально використати властивість зброї «Знервування»{{Vex}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-backgrounds-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Мандрівник{{Wayfarer}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо робите ставку на перевагу, лише це походження дає водночас рису «Щасливчик» і характеристику, придатну для атак зброєю."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-backgrounds-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Відомості й поради про початкові риси, зокрема ті, що дає ваше походження, наведено нижче в розділі «Риси Чемпіона»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Види Чемпіона",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вибір виду нічим не відрізняється від вибору для "
+                },
+                {
+                  "type": "link",
+                  "text": "інших Воїнів",
+                  "href": "https://rpgbot.net/2024-dnd/classes/fighter/#species"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Чемпіона",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: найімовірніше, ваша головна характеристика для атак."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: якщо не обираєте фехтувальну зброю, варто носити важкі обладунки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: помирати невигідно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: знижуйте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: ряткидки цієї ментальної характеристики трапляються найчастіше. Вкладіть усе, що залишиться."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: знижуйте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-7",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розподіл очок"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Чемпіона",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загалом вибір рис такий самий, як для інших Воїнів. Але через акцент на критичних влучаннях уважніше придивіться до Дробильника, Проколювача й Рубаки: можливо, хтось із них пасуватиме вашому стилю гри."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Крім того, як ви побачите нижче, Ельфійська точність — і без того "
+                },
+                {
+                  "type": "link",
+                  "text": "одна з найсильніших рис у грі",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/elven-accuracy/"
+                },
+                {
+                  "type": "text",
+                  "text": " — дуже добре поєднується з розширеним діапазоном критичних влучань."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Чемпіона",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зброя з властивістю «Знервування»{{Vex}} зробить чимало роботи, адже мета — якомога частіше завдавати критичних влучань. Тому рапіра й пістоль стануть основною зброєю, щойно ви зможете дозволити собі пістоль; якщо її не знайдете, залишайтеся з ручним арбалетом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Чемпіона",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Те саме, що й для "
+                },
+                {
+                  "type": "link",
+                  "text": "інших Воїнів",
+                  "href": "https://rpgbot.net/2024-dnd/classes/fighter/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Чемпіона",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загалом так само, як для "
+                },
+                {
+                  "type": "link",
+                  "text": "інших Воїнів",
+                  "href": "https://rpgbot.net/2024-dnd/classes/fighter/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": ". Багато збірок інших класів беруть три рівні Чемпіона заради частіших критичних влучань. Але якщо ви не хочете здобути Варварову Шалену атаку{{Reckless Attack}}, інші класи мало що можуть запропонувати самому Чемпіону."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Чемпіона — Лорд Лісохід, версія 2.0",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Виявляється, бути ельфом — досі чудовий спосіб частіше завдавати критичних влучань. Погляньмо, наскільки кращим став цей підхід."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як описано вище, але ми користуватимемося фехтувальною зброєю, тому зосередимося на Спритності. Також вкладемо трохи в Силу, щоб підтримати Атлетику від «Вражаючого атлета»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Скориговане"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цій збірці вкрай потрібна початкова риса «Щасливчик». Лише одне походження дає її разом із бонусом до Спритності, тож обираємо Мандрівника. Ми воліли б додати +1 до Статури, але мусимо вкласти його в Мудрість."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-species",
+          "parentSectionId": "section-example",
+          "heading": "Вид",
+          "sourceAnchor": "species",
+          "blocks": [
+            {
+              "blockId": "block-section-species-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для «Ельфійської точності» потрібен один із видів ельфа. Якщо доступний тільки PHB, лісовий ельф цілком підійде. Ми ж оберемо шадар-кая: безплатні телепортації й опір шкоді чудові, особливо коли ми почнемо подвоювати користь від усього цього безплатного зцілення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skill-and-tool-proficiencies",
+          "parentSectionId": "section-example",
+          "heading": "Володіння навичками й інструментами",
+          "sourceAnchor": "skill-and-tool-proficiencies",
+          "blocks": [
+            {
+              "blockId": "block-section-skill-and-tool-proficiencies-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мандрівник дає Аналіз Поведінки, Непомітність і володіння злодійськими інструментами — саме те для ролі розвідника. Від класу беремо Акробатику й Атлетику, від виду — Уважність. Так виходить досить збалансований персонаж."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-and-ability-score-increases",
+          "parentSectionId": "section-example",
+          "heading": "Риси та підвищення характеристик",
+          "sourceAnchor": "feats-and-ability-score-increases",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 1-му рівні походження дає нам Щасливчика."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо Ельфійську точність."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 6-му рівні беремо Проколювача."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо Оборонного дуелянта."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо Кухаря."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 14-му рівні беремо Стійкого (Мудрість)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні підвищуємо Мудрість до 16 і Статуру до 17."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-and-ability-score-increases-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні епічним даром беремо Дар Витривалості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий стиль: Дуель. Друге дихання. Майстерність зброї: рапіра, ручний арбалет, пістоль."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На низьких рівнях наша робота — колоти ворогів і не помирати. Для цього вже є кілька інструментів. Оберіть набір C і для Воїна, і для Мандрівника; витратьте 145 золотих на рапіру, ручний арбалет і проклепаний шкіряний обладунок. Решту 60 золотих збережіть, додайте до них перші зароблені 190 і купіть пістоль. Згодом знадобляться ще пістолі. До цього дійдемо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дії. Тактичний розум."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Поки немає особливих тактичних прийомів, які варто згадати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підклас Воїна: Чемпіон."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми завдаємо критичних влучань удвічі частіше! Уся наша зброя має властивість «Знервування»{{Vex}}. Тому після першого влучання всі наступні атаки по тій самій істоті мають перевагу, доки ми продовжуємо влучати. Здається, ви вже здогадуєтеся, до чого це веде. З перевагою критичним буде 19% наших атак — майже кожна пʼята."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Ельфійська точність (Спритність 17 → 18). Використання Другого дихання: 2 → 3."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ось куди ми йшли. Якщо використовувати розумніший темп пригодницького дня, а не рекомендації DMG 2014, яких я жодного разу не бачив у грі, можна чекати до трьох сутичок за тривалий відпочинок. Зараз наш бонус майстерності +2, а наступного рівня стане +3. Відтоді очок удачі вистачить, щоб давати собі звичайну перевагу, а не Героїчну, на перший кидок атаки в кожній сутичці. «Ельфійська точність» перетворить її на потрійну перевагу: менш ніж 5% шансів промахнутися і 27,1% шансів завдати критичного влучання. Після влучання підтримуватимемо цю перевагу завдяки «Знервуванню»{{Vex}}. Коли доведеться змінити ціль, шкода за раунд спадатиме, але зі зростанням бонусу майстерності додаткові очки удачі дадуть певний запас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака. Тактичний зсув."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Удар, удар. Тактичний зсув — чудове доповнення до вміння, яке суттєво посилили правила 2024 року. Купіть другу пістоль. Зброя з властивістю «Заряджання» тепер, як не дивно, не потребує вільної руки для заряджання; з неї просто не можна стріляти більше одного разу за одну дію будь-якого типу. Ходіть із пістоллю та рапірою в руках. На початку бою вистріліть із готової пістолі, киньте її, дістаньте другу й вистріліть знову. Наблизьтеся на 30 футів. Наступного раунду пройдіть ще 30 футів і починайте колоти. Шкода за раунд за припущення, що кожну сутичку ми починаємо атакою з перевагою від очка удачі й далі ніколи не промахуємося рапірою, — 22,5; це майже "
+                    },
+                    {
+                      "type": "link",
+                      "text": "високий рівень шкоди за раунд",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/#lets-talk-damage"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Проколювач (Спритність 18 → 19)."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ця риса підвищує нашу шкоду за раунд на 15% — до 26. Ми дедалі ближче до високого рівня шкоди, залишаючись дуже живучим бійцем ближнього бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додатковий бойовий стиль: Бій наосліп."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не дозволяйте магічній темряві зупинити вас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Оборонний дуелянт (Спритність 19 → 20)."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ось чому за додатковий бойовий стиль ми не брали Оборону. Наш КЗ у ближньому бою тепер постійно дорівнює 20, а наступного рівня — 21, якщо тільки нам не захочеться вколоти того, хто пробігатиме повз."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нездоланний. Тактичний майстер."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перекидання ряткидка з бонусом +9 уже майже гарантує успіх, а з рівнями ставатиме ще кращим. Ми не надто хочемо замінювати «Знервування»{{Vex}}, тому Тактичний майстер майже не знадобиться. Виняток — коли повалити ціль важливіше за постійну потрійну перевагу. Звісно, атаки ближнього бою по лежачій цілі матимуть перевагу, тож це може спрацювати. Але так ми міняємо гарантовану перевагу на перевагу лише за умови, що ворог провалить ряткидок Статури, а статистично це "
+                    },
+                    {
+                      "type": "link",
+                      "text": "найсильніший ряткидок монстрів",
+                      "href": "https://rpgbot.net/dnd5/characters/srd-monster-stats-analysis/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Героїчний воїн. Використання Другого дихання: 3 → 4."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безплатна Героїчна перевага кожного ходу була б чудовою для більшості бойових класів, але ми не більшість. Для нас це переважно захисний інструмент. Хоча якщо ми якимось дивом провалимо атаку з потрійною перевагою, додаткове перекидання все ж допоможе — промахнутися стане майже неможливо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дві Додаткові атаки."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перевірмо шкоду за раунд: 41,3, тобто вже на 5% вище за високий рівень. Замість подальших хитрощів із пістолями можна просто телепортуватися на початку бою, якщо ціль далеко: наш бонус майстерності вже зріс, а отже, запас телепортацій шадар-кая став більшим. Якщо зовсім потрібно, витратьте Сплеск дії на Ривок."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Кухар (Статура 15 → 16)."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Час посилювати захист. Риса дає нам надійне застосування бонусної дії без витрачання Другого дихання чи телепортації, а також допомагає всій групі під час короткого відпочинку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нездоланний (2 використання). Вивчені атаки."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Двічі на день здобуваємо «"
+                    },
+                    {
+                      "type": "link",
+                      "text": "захист від націлювання",
+                      "href": "https://mtg.fandom.com/wiki/Hexproof"
+                    },
+                    {
+                      "type": "text",
+                      "text": "». Вивчені атаки не дають зламатися нашому ланцюжку, навіть якщо промахнемося будь-якою атакою, крім першої. Але промахи настільки рідкісні, що їх не варто навіть рахувати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Мудрість 14 → 15)."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Саме ряткидки Мудрості найімовірніше вибʼють нас із бою. Отримаймо до них +5."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вище критичне влучання."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Завдяки силі Ельфійської точності це підвищує шкоду за раунд лише на 3. Утім, відчуття приємне: шанс критичного влучання зростає з 27% (трохи більше ніж кожна четверта атака) до 38,6% (трохи більше ніж кожна третя)."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 15 → 16, Статура 16 → 17."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вирівнюємо Мудрість і готуємо Статуру до епічного дару."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дії (2 використання). Нездоланний (3 використання)."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "link",
+                      "text": "Ще більше",
+                      "href": "https://www.youtube.com/watch?v=uNy_MLr8mXA"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Виживальник."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зцілювати 5 пунктів здоровʼя за хід — неймовірно, особливо разом із тимчасовими пунктами здоровʼя від бонусної закуски Кухаря."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Епічний дар: Дар Витривалості (Статура 17 → 18)."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер погляньмо на захист. Зі щитом та Оборонним дуелянтом наш КЗ у ближньому бою дорівнює 25. Маємо 234 пункти здоровʼя; коли їх лишається менше ніж 117, відновлюємо 9 пунктів за хід. Бонусною дією також можемо здобути 6 тимчасових пунктів здоровʼя, близько 25 справжніх пунктів здоровʼя або опір усій шкоді. Загальна кількість використань за день дає змогу легко робити щось із цього кожного раунду. Бонуси до поширених ряткидків — +5/+10/+9; один із них можемо перекидати щораунду без обмеження завдяки безплатній Героїчній перевазі, а якщо й це не допоможе — спробувати знову завдяки Нездоланному. Навіть якщо нас усе-таки звалять, матимемо перевагу на ряткидки від смерті й підведемося за результату 18 або більше. Мені шкода того, хто спробує нас убити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Три Додаткові атаки."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Завершуємо карʼєру з приблизно 59 шкоди за раунд. З огляду на те, наскільки важко нас убити, ми становимо неймовірну загрозу."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-champion-2024-001",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-item-0",
+      "context": "Покращене критичне влучання",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-champion-2024-002",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-item-1",
+      "context": "Вражаючий атлет",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-champion-2024-003",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-item-2",
+      "context": "Додатковий бойовий стиль",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-champion-2024-004",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-item-3",
+      "context": "Героїчний воїн",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-champion-2024-005",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-item-4",
+      "context": "Вище критичне влучання",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-champion-2024-006",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-item-5",
+      "context": "Виживальник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-champion-2024-007",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-backgrounds",
+      "targetBlockId": "block-section-backgrounds-2",
+      "optionId": "section-backgrounds-item-0",
+      "context": "Мандрівник",
+      "explanationBlockId": "block-section-backgrounds-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-champion-2024-008",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-1",
+      "optionId": "section-ability-scores-block-block-section-ability-scores-1",
+      "context": "Сила",
+      "explanationBlockId": "block-section-ability-scores-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-champion-2024-009",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-2",
+      "optionId": "section-ability-scores-block-block-section-ability-scores-2",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-ability-scores-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-champion-2024-010",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-3",
+      "optionId": "section-ability-scores-block-block-section-ability-scores-3",
+      "context": "Статура",
+      "explanationBlockId": "block-section-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-champion-2024-011",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-4",
+      "optionId": "section-ability-scores-block-block-section-ability-scores-4",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-ability-scores-4",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-champion-2024-012",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-5",
+      "optionId": "section-ability-scores-block-block-section-ability-scores-5",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-champion-2024-013",
+      "articleId": "rpgbot-champion-2024",
+      "translationRevisionId": "translation-rpgbot-champion-2024-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-6",
+      "optionId": "section-ability-scores-block-block-section-ability-scores-6",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

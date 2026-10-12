@@ -1,0 +1,870 @@
+{
+  "buildId": "build-ranger-horizon-walker-bugbear-2014",
+  "revisionId": "build-ranger-horizon-walker-bugbear-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад персонажа — Стрілець з інших планів",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-ranger-horizon-walker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+      "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+      "sectionId": "section-example-build-extraplanar-gunner",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "RANGER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "RANGER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "RANGER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Archery"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "ensnaring-strike",
+            "zephyr-strike"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "RANGER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "HORIZON_WALKER_CONCLAVE",
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Primal Awareness"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "RANGER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GUNNER"
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "RANGER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "RANGER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "RANGER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "RANGER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "RANGER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "elemental-weapon"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "RANGER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Hide in Plain Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "RANGER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "RANGER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SHARPSHOOTER"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "RANGER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "RANGER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "RANGER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "RANGER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "RANGER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "RANGER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "RANGER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "RANGER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-horizon-walker-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+          "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "HORIZON_WALKER_CONCLAVE",
+    "raceKey": "BUGBEAR_MPMM",
+    "backgroundKey": "FAR_TRAVELER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 10
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores",
+        "title": "Характеристики",
+        "text": "Візьмемо характеристики для Слідопита на Спритності, запропоновані в нашому гайді Слідопита. +2 вкладемо в Спритність, а +1 — у Мудрість.\n\n Базові Підвищені Сил 8 8 Спр 15 17 Ста 14 14 Інт 10 10 Муд 15 16 Хар 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-ability-scores",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ведмебай із «Морденкайнен представляє: Монстри Мультивсесвіту»{{Mordenkainen Presents: Monsters of the Multiverse}}. Отримуємо +2/+1 до характеристик, {{Несподівана атака|Surprise Attack}}, володіння Непомітністю, щоб не надто відставати від більшої кількості навичок Пройдисвіта, і Несподівану атаку для додаткової шкоди за вдалого кидка ініціативи. Ведмебаї також походять від фей, що здається доречним для Мандрівника горизонту.\n\nТут багато чудових рас. Я також розглядав Кентавра, Гобліна, Гаренгона, Орка та Черепаху; будь-який із цих варіантів чудово працював би з мінімальними змінами персонажа або тактики.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Далекий мандрівник{{Far Traveler}}. Тематично пасує, адже ми подорожуємо планами. Аналіз поведінки і Уважність — хороші навички для Слідопита. Володіння інструментом і мовою можна замінити на злодійські інструменти та ще один інструмент, як-от наземний транспорт.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Для трьох класових навичок візьмемо Розслідування, Природу та Уважність. Непомітність отримаємо від раси, Аналіз поведінки — від передісторії; повторне володіння Уважністю можна замінити чимось іншим. Можна взяти Поводження з тваринами або Виживання, але особливої користі від них немає. Матимемо два володіння інструментами, і одне з них має бути злодійськими інструментами.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні візьмемо Стрільця. Непарне значення характеристики залишає місце для риси, яка також підвищує характеристику. Отримаємо +1 до Спритності й замінимо арбалет мушкетом.\n\nНа 12-му рівні беремо {{Влучний стрілець|Sharpshooter}}. Розрахунки пояснено нижче. Вони складні.\n\nДалі маємо ще два місця для будь-яких рис. {{Дарунок хроматичного дракона|Gift of the Chromatic Dragon}}, Експерт у навичках і {{Стійкий|Resilient}} — хороші варіанти. Також можна підвищити Мудрість через Покращення характеристик, щоб ефективно користуватися Вигнання [Banishment].",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "{{Вправний дослідник - Кмітливий|Deft Explorer - Canny}}: експертність у Непомітності; {{Мічений ворог|Favored Foe}} (1к4)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "{{Стрільба з лука|Archery}}; {{Чаротворство|Spellcasting}}; відомі заклинання: Обплутуючий удар [Ensnaring Strike], Удар Зефіра [Zephyr Strike]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Архетип Слідопита: Конклав мандрівника горизонту; {{Первородне усвідомлення|Primal Awareness}}; Магія мандрівника горизонту; Виявлення порталів; Планарний воїн (1к8); нове відоме заклинання: Обплутування [Entangle]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Стрілець (Спр 17 → 18); {{Бойова гнучкість|Martial Versatility (Ranger)}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака; нове відоме заклинання: Туманний крок [Misty Step]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Мічений ворог (1к6); {{Вправний дослідник - Мандрівний|Deft Explorer - Roving}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ефірний крок; нове відоме заклинання: Покращення здібності [Enhance Ability]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення характеристик (Спр 18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нове відоме заклинання: Стихійна зброя",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Сховатися на видноті; {{Вправний дослідник - Невтомний|Deft Explorer - Tireless}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Дистанційний удар; Планарний воїн (2к8); нове відоме заклинання: —",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Влучний стрілець",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Мічений ворог (1к8); {{Зникнення|Vanish}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Спектральний захист; нове відоме заклинання: —",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Нове відоме заклинання: Коло телепортації [Teleportation Circle]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "{{Дикі почуття|Feral Senses}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: будь-яка; нове відоме заклинання: будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "{{Убивця ворогів|Foe Slayer}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Заклинання Слідопита: Обплутування, Туманний крок, Покращення здібності, Коло телепортації",
+        "reason": "На 3-му, 5-му, 7-му й 17-му рівнях автор називає нові відомі заклинання Обплутування, Туманний крок, Покращення здібності та Коло телепортації, але цих заклинань немає в списку Слідопита платформи (Туманний крок і Коло телепортації додає сам підклас); замість них у плані відкриті місця для вибору гравця. На 11-му, 13-му, 15-му й 19-му рівнях автор заклинання не називає («—» чи «будь-яке»), тож там теж відкриті місця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Риси 16-го та 19-го рівнів",
+        "reason": "На 16-му й 19-му рівнях автор лишає риси відкритими (радить Дарунок хроматичного дракона, Експерта у навичках чи Стійкого, або Мудрість через Покращення характеристик); у плані ці підвищення не використані.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Інструменти й мова передісторії",
+        "reason": "Автор радить замінити інструмент і мову Далекого мандрівника на злодійські інструменти й ще один інструмент; пресет не записує заміну володінь передісторії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-horizon-walker-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-horizon-walker-2014-draft1",
+            "sourceRevisionId": "rpgbot-1efa406e093aa2f3-19f7dacc92fd7f87",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

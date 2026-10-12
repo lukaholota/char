@@ -1,0 +1,1678 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-f1f31f31866990c8",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-f1f31f31866990c8-77e3cfafdad1e921",
+      "sourceId": "rpgbot-f1f31f31866990c8",
+      "fetchedAt": "2026-09-29T19:25:18.924518+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:29:49-04:00",
+      "contentHash": "4b67d98fd9c0c4a93a8d4d718a7d8f4603e9b930e36355d1e823bdcf94088883",
+      "title": "Forge Domain Cleric 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-f1f31f31866990c8-77e3cfafdad1e921.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-cleric-forge-2014",
+    "sourceId": "rpgbot-f1f31f31866990c8",
+    "slug": "cleric-forge-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Домен кузні — гайд підкласу Клірика (2014)",
+    "titleEn": "Forge Domain Cleric 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Клірик",
+      "Домен кузні",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "sourceRevisionId": "rpgbot-f1f31f31866990c8-77e3cfafdad1e921",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірик домену кузні{{Forge Domain}} — міцна збірка для передової, яка багато що пропонує, але мало нюансів. Здебільшого уміння тут працюють за принципом «поставив і забув», за винятком «Благословення ремісника»{{Artisan’s Blessing}}, тож це чудовий варіант, якщо ви не хочете ускладнювати Клірика. Клірики домену кузні — добрі танки й мають достатньо живучості та шкоди, щоб бути загрозою в бою навіть без покладання на заклинання з рівнями."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Втім, залежність домену кузні{{Forge Domain}} від вогняної шкоди може стати вадою, бо опір вогню й імунітет до нього трапляються часто. Коли виникне потреба, ніщо не заважає вам стати побожним і накласти Духів захисників [Spirit Guardians]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клірика домену кузні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клірика домену кузні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#forge-domain-cleric-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Клірика домену кузні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#forge-domain-cleric-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клірика домену кузні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#forge-domain-cleric-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Клірика домену кузні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#forge-domain-cleric-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Клірика домену кузні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#forge-domain-cleric-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Клірика домену кузні — Викуваний у запалі бою",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#example-forge-cleric-build-forged-in-the-heat-of-battle"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/forge/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клірика домену кузні",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання домену{{Domain Spells}}: Бездоганні. Список заклинань домену кузні майже повністю складається із заклинань, що зазвичай недоступні клірикам, зокрема кількох чудових наступальних варіантів зі списку заклинань Паладина й кількох чудових утилітарних зі списку заклинань Чарівника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Розпізнавання [Identify] потрібне лише зрідка й зазвичай може зачекати довгого відпочинку, щоб його підготувати. Паляча кара [Searing Smite] зазвичай виключно паладинське заклинання, а СК ваших заклинань буде вищою, ніж у більшості паладинів. Навіть на високих рівнях це лишається дешевим і надійним підвищенням шкоди ваших атак зброєю, хоч підтримувати Концентрацію заради тривалої шкоди 1к6 може не вартувати, якщо тільки ваша ціль не підтримує Концентрацію на заклинанні або це не троль. Те, що Паляча кара [Searing Smite] перевіряє ряткидок Статури, теж не допомагає."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Розжарення металу [Heat Metal] корисне лише ситуативно, бо більшість монстрів не користуються обладунками чи зброєю, але коли воно працює, то працює дуже добре. Магічна зброя [Magic Weapon] — чудове підсилення, але у вас уже є «Благословення кузні»{{Blessing of the Forge}}, тож воно здається зайвим."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Стихійна зброя [Elemental Weapon] і Магічна зброя [Magic Weapon] частково дублюють одне одного, але приємно, що ви отримуєте обидва варіанти. Стихійна зброя [Elemental Weapon] чудова для персонажів, які роблять багато атак, як-от воїни. Захист від енергії [Protection from Energy] — базове підсилення, яке потрібне під рукою кожній групі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Жодного із заклинань немає у списку заклинань Клірика, і обидва чудові."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Знову ж таки, жодного із заклинань немає у списку заклинань Клірика. Обидва заклинання фантастичні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткові майстерності{{Bonus Proficiencies}}: Важкі обладунки завжди доречні Клірикові, незалежно від його ролі, але особливо важливі для Клірика передової на кшталт Клірика домену кузні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Благословення кузні|Blessing of the Forge}}: Додайте групі безкоштовну зброю +1 на практично постійній основі. Абсолютно вирішально, якщо у вашій грі немає магічних предметів, але навіть якщо вони є, це чудове й гнучке підсилення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Благословення ремісника|Channel Divinity: Artisan’s Blessing}}: Можливо, ситуативно, але надзвичайно універсально. Застрягли в ямі? Зробіть драбину. Двері заклинило? Зробіть переносний таран. Тунель заблоковано? Зробіть кирку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Душа ковальства|Soul of the Forge}}: Опір до шкоди теж приємний, але такий фіксований бонус до КБ — надзвичайна рідкість у 5e."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественний удар{{Divine Strike}}: Бонусна шкода добра, але вогонь — один із типів шкоди, до яких найчастіше є опір. Дивіться також: "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Божественний удар проти замовлянь",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/#divine-strike-vs-cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Святий кузні й вогню|Saint of Forge and Fire}}: Це, можна сказати, надто добре навіть для цього рівня."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-forge-domain-cleric-ability-scores",
+          "heading": "Характеристики Клірика домену кузні",
+          "sourceAnchor": "forge-domain-cleric-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-forge-domain-cleric-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від будь-якого іншого клірика в важких обладунках, про що йдеться в "
+                },
+                {
+                  "type": "link",
+                  "text": "довіднику Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-forge-domain-cleric-races",
+          "heading": "Раси Клірика домену кузні",
+          "sourceAnchor": "forge-domain-cleric-races",
+          "blocks": [
+            {
+              "blockId": "block-section-forge-domain-cleric-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мало чим відрізняється від стандартного "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-forge-domain-cleric-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Воєнокований{{Warforged}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "ERtlW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ще +1 до КБ і кілька стійкостей до станів. Якщо поєднати це з латами, «Благословення кузні»{{Blessing of the Forge}} і щитом, отримаєте 22 КБ майже без зусиль. «Хиба танка»{{Tank Fallacy}} зазвичай була б проблемою, але Духи захисники [Spirit Guardians] її елегантно розвʼязують."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-forge-domain-cleric-feats",
+          "heading": "Риси Клірика домену кузні",
+          "sourceAnchor": "forge-domain-cleric-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-forge-domain-cleric-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від стандартного "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-forge-domain-cleric-weapons",
+          "heading": "Зброя Клірика домену кузні",
+          "sourceAnchor": "forge-domain-cleric-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-forge-domain-cleric-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від стандартного "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-forge-domain-cleric-armor",
+          "heading": "Обладунки Клірика домену кузні",
+          "sourceAnchor": "forge-domain-cleric-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-forge-domain-cleric-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не відрізняється від стандартного "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Винахідник{{Artificer}}: два рівні заради «Вливання предмета»{{Infuse Item}}, щоб отримати «Покращений захист»{{Enhanced Defense}} і «Покращену зброю»{{Enhanced Weapon}}, а отже +1 для кожного з вашого обладунка, щита й зброї."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Воїн{{Fighter}}: один рівень заради «Бойового Стилю»{{Fighting Style}}, щоб отримати ще +1 до КБ, спокушає."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-forge-cleric-build-forged-in-the-heat-of-battle",
+          "heading": "Приклад збірки Клірика домену кузні — Викуваний у запалі бою",
+          "sourceAnchor": "example-forge-cleric-build-forged-in-the-heat-of-battle",
+          "blocks": [
+            {
+              "blockId": "block-section-example-forge-cleric-build-forged-in-the-heat-of-battle-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Я люблю щось майструвати власними руками. Здебільшого майструю проблеми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-forge-cleric-build-forged-in-the-heat-of-battle-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Домен кузні{{Forge Domain}} загалом дуже простий. Накладіть «Благословення кузні»{{Blessing of the Forge}} на зброю друга, візьміть щит і важкі обладунки та вирушайте в ближній бій, накладаючи Слово сяйва [Word of Radiance] чи щось інше, що підходить моменту. Але писати цю збірку вкотре мені так само нецікаво, як вам її читати, тож зробімо щось інше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-forge-cleric-build-forged-in-the-heat-of-battle-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зробімо справжнього клірика, що користується зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-forge-cleric-build-forged-in-the-heat-of-battle-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я першим скажу вам, що "
+                },
+                {
+                  "type": "link",
+                  "text": "клірики погано користуються зброєю",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/#divine-strike-vs-cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": ". Шкода замовлянь стабільно ефективніша за «Божественний удар»{{Divine Strike}}. Але домен кузні{{Forge Domain}} дає нам гарантовану зброю +1, і ми також можемо додати замовляння для зброї (Гримучий Клинок [Booming Blade] або Клинок Зеленого Полумʼя [Green-Flame Blade]), щоб ще більше підвищити нашу ефективність зі зброєю. Поєднання цього з іншою основною тактикою клірика (Духовна зброя [Spiritual Weapon], Духи захисники [Spirit Guardians] тощо) може працювати дуже добре, і воно робить нас вагомою загрозою в ближньому бою не лише тим, що ми стоїмо в зоні досяжності ближнього бою. Загалом це зробить нас ефективнішим танком, ніж ми могли б бути інакше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-forge-cleric-build-forged-in-the-heat-of-battle-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Одне це поєднання не робить нас великим джерелом шкоди. Насправді ми ледве утримуємося в діапазоні цільового DPR на більшій частині рівнів, та й то лише тоді, коли вороги спричиняють додаткову шкоду від Гримучого Клинка [Booming Blade]. Принагідні атаки (особливо з «Бойовим заклинателем»{{War Caster}}) значно це покращать, але вони не гарантовані. Якщо вам неодмінно потрібно завдавати шкоди, вона має надходити від ваших заклинань з рівнями. Памʼятайте: ваша робота як танка — бути живучим (його важко вбити чи вивести з ладу) і чіпким (від нього важко втекти)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-forge-cleric-build-forged-in-the-heat-of-battle-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми більше налягаємо на роль танка на передовій, ніж на типову тактику клірика, наші характеристики, риси й вибір заклинань виглядатимуть інакше, ніж у типового клірика. Ми наголошуємо на ролі танка коштом варіантів нюкера й контролера, але подекуди основні варіанти клірика на кшталт Духів захисників [Spirit Guardians] усе одно чудові й, можливо, навіть кращі для нас, ніж для типового клірика."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-forge-cleric-build-forged-in-the-heat-of-battle-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка не припускає жодних додаткових класових умінь{{Optional Class Features}}, крім розширеного списку заклинань."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-forge-cleric-build-forged-in-the-heat-of-battle",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка незвично залежна від багатьох характеристик (MAD) для клірика, тож ми використовуємо правила налаштованого походження{{Custom Origin}} з Напівельфом{{Half-Elf}}, щоб перерозподілити кілька очок. Ми максимізуємо Силу, Статуру й Мудрість, а решту характеристик занедбаємо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-forge-cleric-build-forged-in-the-heat-of-battle",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Було б дуже весело зробити цю збірку з Геназі вогню{{Fire Genasi}} чи чимось подібним, але я веду не туди. Натомість: Високий напівельф{{High Half-Elf}} із налаштованим походженням{{Custom Origin}}. Клірики не надто сильні в навичках, а ми робимо щось дещо залежне від багатьох характеристик (MAD) і намагаємося змусити працювати атаки ближнього бою на клірикові, тож нам потрібні три підвищення характеристик і Гримучий Клинок [Booming Blade]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клинок Зеленого Полумʼя [Green-Flame Blade] — очевидно, значно тематичніший вибір, але це гайд з оптимізації. Якщо ваш Майстер побачить, що ви робите, і скривиться, запропонуйте перейти на Клинок Зеленого Полумʼя [Green-Flame Blade] як жест примирення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також можна взяти Високого ельфа{{High Elf}} або Варіант людини{{Variant Human}} з «Посвяченим у магію»{{Magic Initiate}}, але це потребуватиме перестановки деяких характеристик і рис."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-forge-cleric-build-forged-in-the-heat-of-battle",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гільдійський ремісник{{Guild Artisan}} здається доречним. Аналіз Поведінки — чудова навичка для Клірика, а Переконання можна обміняти на Уважність. Мова й інструмент ремісника не важливі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-forge-cleric-build-forged-in-the-heat-of-battle",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З класових навичок візьмемо Історію й Релігію й змиримося з тим, що ми в них погані, а Аналіз Поведінки й Уважність отримаємо від передісторії. Один вид інструментів ремісника ми отримаємо від передісторії, а ковальські інструменти — від підкласу на 1-му рівні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-forge-cleric-build-forged-in-the-heat-of-battle",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Дробильника»{{Crusher}}. «Дробильник» дає нам +1 до Сили й здатність посунути ворога, коли ми влучаємо по ньому атакою зброєю. У поєднанні з Гримучим Клинком [Booming Blade] ми можемо вгатити по чомусь булавою, відсунути це за межі досяжності й покарати за спробу рухатися."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо «Бойового заклинателя»{{War Caster}}. Ми хочемо мати змогу використовувати наше поєднання «Дробильника»{{Crusher}} і Гримучого Клинка [Booming Blade] замість Принагідної атаки, закріплюючи нашу роль танка."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні піднімаємо Силу до 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му й 19-му рівнях підвищуємо Мудрість до 18, а потім до 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-forge-cleric-build-forged-in-the-heat-of-battle",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nВідомі замовляння:\n– Настанова\n– Дзвін небіжчика\n– Слово сяйва\nЗаклинання домену:\n– Розпізнавання\n– Паляча кара\nБожественний домен: Домен кузні\nДодаткові майстерності\nБлагословення кузні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Накладіть «Благословення кузні»{{Blessing of the Forge}} на свою булаву й починайте розмахувати Гримучим Клинком [Booming Blade]. Якщо хтось завдає вам клопоту, вдарте його Палячою карою [Searing Smite]. Так, це проти ряткидка Статури, але ви на 1-му рівні. Крім цього, ви стандартний клірик передової. Слово сяйва [Word of Radiance] — для натовпів. Тримайте напохваті слот заклинання для Цілющого слова [healing word]. DPR із булавою +1, уся шкода від Гримучого Клинка [Booming Blade]: 8,58"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (1/відпочинок)\n– Благословення ремісника\n– Вигнання нежиті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Благословення ремісника»{{Artisan’s Blessing}} — універсальний і потужний інструмент. Воно не розвʼяже кожну проблему, але здатне розвʼязати чимало. Також ним можна переплавляти здобич на монети, монети — на металеві зливки, перетворити 1000 мідних монет на одну платинову заради зручності перенесення й робити всілякі інші речі, що можуть розлютити таких людей, як уряд, ваш Майстер і закони збереження матерії. Можливо, перетворіть ту купу викинутих обладунків на дедалі більшу колекцію адамантинових шматків. На жаль, обмеження вартості в 100 зм означає, що ви не зможете зробити собі латний обладунок чи "
+                    },
+                    {
+                      "type": "link",
+                      "text": "адамантинову зброю",
+                      "href": "https://www.dndbeyond.com/sources/xgte/dungeon-masters-tools#AdamantineWeapons"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Adamantine Weapon}}. Прикро, але «Канал божественності»{{Channel Divinity}} майже марний для нас у бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Розжарення металу\n– Магічна зброя"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Духовна зброя [Spiritual Weapon] по суті подвоює вашу шкоду. Ми все одно не користувалися цією Бонусною дією постійно. До того ж врахуйте, що Духовна зброя [Spiritual Weapon] вимагає від заклинача кидок атаки заклинанням ближнього бою, а отже, будь-яка підстава кинути атаку з Перевагою на кубику означає, що й атаки Духовної зброї [Spiritual Weapon] робитимуться з Перевагою. Це здебільшого важливо, якщо ваш стіл використовує необовʼязкове правило фланкування, бо фланкування цілі вами застосується й до заклинання. Магічна зброя [Magic Weapon] — чудове підсилення, що триває цілу годину. Але порівняно з «Благословення кузні»{{Blessing of the Forge}} воно нам нічого не дає, тож якщо ви його накладаєте, поділіться ним із союзником. На вищих рівнях може виникнути спокуса накласти Магічну зброю [Magic Weapon] вищим слотом заради більшого бонусу, але здебільшого Духи захисники [Spirit Guardians] будуть важливішими, і ми не можемо підтримувати Концентрацію на обох."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Дробильник (Сила 17 → 18)\nВідомі замовляння:\n– Світло"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення Сили тримає нашу Силу на рівні "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Фундаментальної математики",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", але насправді ми трохи попереду завдяки «Дарунку кузні»{{Gift of the Forge}}. Ми можемо почати використовувати наше поєднання «Дробильника»{{Crusher}} і Гримучого Клинка [Booming Blade], щоб переставляти ворогів і заманювати їх на додаткову шкоду, якщо вони хочуть і далі брати участь у ближньому бою. Наше чаротворство починає відставати, тож наступальні заклинання поступово втрачатимуть ефективність. Обирайте, коли використовувати заклинання наступально, ретельніше, ніж типовий клірик. Гримучий Клинок [Booming Blade] лишається нашим основним варіантом атаки. DPR із булавою +1, уся шкода від Гримучого Клинка [Booming Blade]: 9,28"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Стихійна зброя\n– Захист від енергії\nЗнищення нежиті (ПН 1/2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стихійна зброя [Elemental Weapon] дуже спокушає, але вона не зрівняється за шкодою з Духами захисниками [Spirit Guardians], якщо не поділитися нею із союзником. До слова про Духів захисників [Spirit Guardians]: вам слід накласти Духів захисників [Spirit Guardians]. Швидкість ворогів у зоні вдвічі зменшується, а разом із нашим поєднанням «Дробильника»{{Crusher}} і Гримучого Клинка [Booming Blade] ворогам дуже важко від нас утекти. Так, наша СК трохи низька для нашого рівня, але вороги все одно отримують половину шкоди. Шкода замовлянь на цьому рівні зростає, роблячи Гримучий Клинок [Booming Blade] ще впливовішим. DPR із булавою +1, уся шкода від Гримучого Клинка [Booming Blade]: 15,80"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (2/відпочинок)\nДуша ковальства"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Опір до поширеного типу шкоди та +1 до КБ. Зі щитом і латами це дає нам 21, що чудово для живучості."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Виготовлення\n– Стіна вогню"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня відкривають доступ до Захисту від смерті [Death Ward]. Накладіть його на себе. Можете подумати про те, щоб поділитися, але, імовірно, не варто. Ви тут танк. Виготовлення [Fabricate] частково дублює «Благословення ремісника»{{Artisan’s Blessing}}, але не забирає стільки часу й не має обмеження на вартість того, що ви створюєте, тож ним можна розвʼязувати інші проблеми й створювати дорожчі предмети. Магічних предметів створювати не можна, але хоч адамантиновий обладунок{{Adamantine Armor}} і є магічним предметом, "
+                    },
+                    {
+                      "type": "link",
+                      "text": "адамантинова зброя",
+                      "href": "https://www.dndbeyond.com/sources/xgte/dungeon-masters-tools#AdamantineWeapons"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{Adamantine Weapon}} — ні! Тож візьміть ту купу адамантину, яку ви збирали з кожного шматка металобрухту, що вдалося знайти, ще від 2-го рівня, і перетворіть сміття на 505 зм на блискучу нову адамантинову булаву, до якої тоді можна застосувати «Благословення кузні»{{Blessing of the Forge}}, бо, знову ж таки, адамантинова зброя чомусь "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "не є магічним предметом"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". На цьому рівні ви також отримуєте Форму каменю [Stone Shape] — ще більше майстерних можливостей. Якщо Духи захисники [Spirit Guardians] недостатньо ефективні, щоб тримати ворогів там, де вам потрібно, розгляньте Стіну вогню [Wall of Fire] як альтернативу. Якщо вороги втечуть, можна використати «Дробильника»{{Crusher}}, щоб відбити їх назад через стіну на додаткову шкоду!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Бойовий заклинатель\nЗнищення нежиті (ПН 1)\nБожественний удар +1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Бойовий заклинатель»{{War Caster}} дозволяє нам використовувати «Дробильника»{{Crusher}} разом із Гримучим Клинком [Booming Blade] замість Принагідних атак, що просто дивовижно. Наша Сила трохи відстає, але +1 від «Благословення кузні»{{Blessing of the Forge}} тримає нас точно на потрібній математиці. Я дуже хочу, щоб «Божественний удар»{{Divine Strike}} не був поганим. У нашому випадку він нормальний, бо це підсилення шкоди атаки (принаймні на нашому ході), яку ми й так робитимемо часто. На інших клірикам він усе ще поганий. Можете попросити Майстра дозволити додаткове класове уміння{{Optional Class Feature}} «Благословенні удари»{{Blessed Strikes}}, бо воно працює й на Принагідних атаках, але лише раз на раунд, тож воно краще, лише якщо ви не атакуєте Дією або схибили. DPR із булавою +1, уся шкода від Гримучого Клинка [Booming Blade], 1к8 «Божественного удару»: 19,18"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання домену:\n– Оживлення предметів\n– Творення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 5-го рівня відкривають доступ до Священної зброї [Holy Weapon], що для нас усе ще погана ідея, попри те що ми більше покладаємося на зброю, ніж типовий клірик. Якщо хочете підтримувати Концентрацію на чомусь, це мають бути Духи захисники [Spirit Guardians], Виклик небожителя [Summon Celestial] або доречний за ситуацією захист на кшталт Захисту від енергії [Protection from Energy]. Вас переважають числом? Оживіть свої ковальські інструменти й нехай ваші молот і кліщі бʼються поруч із вами. Творення [Creation] схоже на «Благословення ремісника»{{Artisan’s Blessing}} та на Виготовлення [Fabricate], але не потребує сировини в обмін на те, що предмет тимчасовий."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі замовляння:\n– будь-яке\nБожественне втручання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Почніть готувати Зцілення [Heal]. Шкода замовлянь зростає. DPR із булавою +1, уся шкода від Гримучого Клинка [Booming Blade], 1к8 «Божественного удару»{{Divine Strike}}: 25,70"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Сила 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для нас немає нічого особливо цікавого серед заклинань 7-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 3)\nБожественний удар +2к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із булавою +1, уся шкода від Гримучого Клинка [Booming Blade], 2к8 «Божественного удару»{{Divine Strike}}: 29,07"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Накладіть Святу ауру [Holy aura] і стійте, демонструючи біцепси, поки вороги марно намагаються завдати шкоди вам і вашим друзям."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 16 → 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті ми знову дбаємо про Мудрість!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 4)\nСвятий кузні й вогню"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Святий кузні й вогню»{{Saint of Forge and Fire}} не повинен бути постійним. Він надто хороший. Опір немагічній дробячій/колючій/ріжучій шкоді — це "
+                    },
+                    {
+                      "type": "link",
+                      "text": "легендарний магічний предмет",
+                      "href": "https://www.dndbeyond.com/magic-items/4574-armor-of-invulnerability"
+                    },
+                    {
+                      "type": "text",
+                      "text": " або "
+                    },
+                    {
+                      "type": "link",
+                      "text": "епічний дар",
+                      "href": "https://www.dndbeyond.com/sources/dmg/other-rewards#BoonofResilience"
+                    },
+                    {
+                      "type": "text",
+                      "text": "{{epic boon}}. Але ось ми тут, тож киньтеся в кільцеву Стіну вогню [Wall of Fire], накладену вищим слотом, і нагадайте ворогам, що це не ви замкнені тут разом із ними. Шкода замовлянь зростає. DPR із булавою +1, уся шкода від Гримучого Клинка [Booming Blade], 2к8 «Божественного удару»{{Divine Strike}}: 35,60"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (3/відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Я дуже хочу сказати тут щось цікаве, але ваша тактика буквально не змінюється після 17-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращене божественне втручання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дайте «пʼятірку» своєму божеству. Запитайте, що воно думає про вашу круту адамантинову булаву, яку ви зробили."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-cleric-forge-2014-001",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання домену",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-002",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-003",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-004",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-005",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-006",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-007",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Додаткові майстерності",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-008",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Благословення кузні",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-009",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-010",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Душа ковальства",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-011",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Божественний удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-012",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Святий кузні й вогню",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-013",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-forge-domain-cleric-races",
+      "targetBlockId": "block-section-forge-domain-cleric-races-2",
+      "optionId": "section-forge-domain-cleric-races-block-section-forge-domain-cleric-races-2-item-0",
+      "context": "Воєнокований",
+      "explanationBlockId": "block-section-forge-domain-cleric-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-014",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-1",
+      "optionId": "section-multiclassing-block-section-multiclassing-1-item-0",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-multiclassing-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-forge-2014-015",
+      "articleId": "rpgbot-cleric-forge-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+      "sectionId": "section-multiclassing",
+      "targetBlockId": "block-section-multiclassing-1",
+      "optionId": "section-multiclassing-block-section-multiclassing-1-item-1",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-multiclassing-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

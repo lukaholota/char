@@ -1,19 +1,35 @@
 "use client";
 
-import { CloudOff, RefreshCw, TriangleAlert } from "lucide-react";
+import { CloudCheck, CloudDownload, CloudOff, RefreshCw, TriangleAlert } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { useOfflineQueue } from "@/hooks/useOfflineQueue";
 import type { OfflineSyncStatus } from "@/lib/offline/queue";
+import type { OfflineReadiness } from "@/lib/offline/offline-readiness";
 
 const OFFLINE_TONE = "border-amber-500/30 bg-amber-500/10 text-amber-400";
 const SYNCING_TONE = "border-sky-500/30 bg-sky-500/10 text-sky-300";
 const STUCK_TONE = "border-rose-500/30 bg-rose-500/10 text-rose-300";
 
-export default function OfflineStatusBadge({ className }: { className?: string }) {
+const READINESS_LABEL = {
+  preparing: { icon: <CloudDownload aria-hidden className="h-3 w-3" />, label: "Зберігаю для офлайну…", tone: "text-slate-400" },
+  ready: { icon: <CloudCheck aria-hidden className="h-3 w-3" />, label: "Доступний офлайн", tone: "text-emerald-300/80" },
+  failed: { icon: <TriangleAlert aria-hidden className="h-3 w-3" />, label: "Офлайн не збережено", tone: "text-amber-300/80" },
+} as const;
+
+export default function OfflineStatusBadge({ readiness, className }: { readiness: OfflineReadiness; className?: string }) {
   const { isOnline, pendingCount, syncStatus, flush } = useOfflineQueue();
 
-  if (isOnline && pendingCount === 0) return null;
+  if (isOnline && pendingCount === 0) {
+    if (readiness === "unavailable") return null;
+    const { icon, label, tone } = READINESS_LABEL[readiness];
+    return (
+      <span data-offline-readiness={readiness} role="status" className={`inline-flex items-center gap-1 ${tone}`}>
+        {icon}
+        {label}
+      </span>
+    );
+  }
 
   const { tone, icon, label } = describeStatus(isOnline, pendingCount, syncStatus);
   const canRetry = isOnline && syncStatus.state !== "syncing";

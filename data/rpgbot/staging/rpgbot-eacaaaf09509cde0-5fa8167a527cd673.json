@@ -1,0 +1,825 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/feats/artificer-initiate/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "5fa8167a527cd6731eb050bd9898bec7192f5ac243660120785133a6b321634a",
+  "sourceRevision": {
+    "revisionId": "rpgbot-eacaaaf09509cde0-5fa8167a527cd673",
+    "sourceId": "rpgbot-eacaaaf09509cde0",
+    "fetchedAt": "2026-09-29T19:24:40.973109+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:42:11-04:00",
+    "contentHash": "4b828c5b28b99231cd939973d192d36fd5837da05a7372f32ebdc610ea53a1b4",
+    "title": "Artificer Initiate: DnD 5e Feat Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-eacaaaf09509cde0-5fa8167a527cd673.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Magic Initiate doesn’t support Artificer as a choice because the Artificer isn’t in the Player’s Handbook. Instead, we have Artificer Initiate. In many ways it’s just Magic Initiate for the Artificer, but you give up one cantrip for a tool proficiency and the ability to use that tool as a spellcasting focus for Intelligence-based spellcasting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, the only other Intelligence-based spellcasters are the Arcane Trickster Rogue, the Eldritch Knight Fighter, and the Wizard. Even for those classes, the benefits of a tool proficiency and using a tool as a spellcasting focus are very minor. You might get a magical tool that provides a bonus to your spell attacks and save DCs, but there are plenty of focuses which do that already and don’t require a feat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The real benefit of Artificer Initiate is buried in the Artificer’s spell list. You get many cantrips available to the sorcerer or the wizard, including staple options like Booming Blade, but the Artificer has access to spells which the wizard doesn’t like Cure Wounds, Faerie Fire, and Sanctuary. Essentially, Artificer Initiate lets you get Intelligence-based spellcasting with access to spells which historically were only available to the bard, the cleric, and the druid. Unfortunately, the the classes which benefit are all Intelligence-based spellcasters who use the Wizard’s spell list."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For more information about spellcasting feats, including ratings of the various feats, see our "
+            },
+            {
+              "type": "link",
+              "text": "Spellcasting Feats Guide",
+              "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/feats/artificer-initiate/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/feats/artificer-initiate/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artificer Initiate Cantrip Options",
+                "href": "https://rpgbot.net/dnd5/characters/feats/artificer-initiate/#artificer-initiate-cantrips"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artificer Initiate Spell Options",
+                "href": "https://rpgbot.net/dnd5/characters/feats/artificer-initiate/#artificer-initiate-leveled-spells"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artificer-initiate-cantrips",
+      "heading": "Artificer Initiate Cantrip Options",
+      "sourceAnchor": "artificer-initiate-cantrips",
+      "blocks": [
+        {
+          "blockId": "block-section-artificer-initiate-cantrips-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The spell assessments here are adjusted for characters likely to use the Artificer Initiate feat, and spell options are trimmed down to spells which are on the Artificer’s spell list but not the Wizard’s."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artificer-initiate-cantrips-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For advice on cantrips that are on both the Artificer’s and the Wizard’s spell list, see "
+            },
+            {
+              "type": "link",
+              "text": "Magic Initiate Cantrip Options",
+              "href": "https://rpgbot.net/dnd5/characters/feats/artificer-initiate/#magic-initiate-wizard-cantrips"
+            },
+            {
+              "type": "text",
+              "text": ", below. For a full list of available spell options and spell descriptions, see "
+            },
+            {
+              "type": "link",
+              "text": "DnDBeyond",
+              "href": "https://www.dndbeyond.com/spells/class/artificer"
+            },
+            {
+              "type": "text",
+              "text": ". For assessments of the Artificer’s full spell list, see our "
+            },
+            {
+              "type": "link",
+              "text": "Artificer Spell List Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/spells#cantrips"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artificer-initiate-cantrips-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Guidance"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic and versatile. You should probably cast this at every\n\t\topportunity outside of combat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magic Stone"
+              },
+              {
+                "type": "link",
+                "text": "EEPC / XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Wizards using Magic Stone will do more damage than those using Fire Bolt\n\t\tuntil 5th level when cantrip damage increases. But at level 5 wizards also\n\t\tget 3rd-level spells including Tiny Servant. Unlike a familiar, your tiny\n\t\tservant can attack. If you keep your servant within arms reach, you can cast\n\t\tMagic Stone, hand them the stones, and command them to attack with them. If\n\t\tyou don’t mind spending every Bonus Action to do so, you might even upcast\n\t\tTiny Servant to 4th level to get three servants and have each of them throw\n\t\tone stone per turn. This can get complicated if you move around in combat\n\t\tsince your servants act on their own initiative and would need to follow\n\t\tyou, but it may be worth the effort."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resistance"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Considerably more difficult to use than Guidance. Your best bet is to\n\t\tthrow this on an ally before going into combat, but if you have that luxury\n\t\tyou should be casting a better Concentration spell."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spare the Dying"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Buy a Healer’s Kit instead. You don’t need proficiency to use it to\n\t\tstabilize a creature and it takes the same Action."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thorn Whip"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Similar in many ways to Lightning Lure, but since it doesn’t rely on a\n\t\tStrength saving throw it’s easier to use on big, strong enemies. The range\n\t\tis also considerably better.\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thunderclap"
+              },
+              {
+                "type": "link",
+                "text": "EEPC",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Sword Burst but worse.\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artificer-initiate-leveled-spells",
+      "heading": "Artificer Initiate Spell Options",
+      "sourceAnchor": "artificer-initiate-leveled-spells",
+      "blocks": [
+        {
+          "blockId": "block-section-artificer-initiate-leveled-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The spell assessments here are adjusted for characters likely to use the Artificer Initiate feat, and spell options are trimmed down to spells which are on the Artificer’s spell list but not the Wizard’s."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artificer-initiate-leveled-spells-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For advice on cantrips that are on both the Artificer’s and the Wizard’s spell list, see "
+            },
+            {
+              "type": "link",
+              "text": "Magic Initiate Spell Options",
+              "href": "https://rpgbot.net/dnd5/characters/feats/artificer-initiate/#magic-initiate-wizard-spells"
+            },
+            {
+              "type": "text",
+              "text": ", below. For a full list of available spell options and spell descriptions, see "
+            },
+            {
+              "type": "link",
+              "text": "DnDBeyond",
+              "href": "https://www.dndbeyond.com/spells/class/artificer"
+            },
+            {
+              "type": "text",
+              "text": ". For assessments of the Artificer’s full spell list, see our "
+            },
+            {
+              "type": "link",
+              "text": "Artificer Spell List Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/spells#cantrips"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-artificer-initiate-leveled-spells-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cure Wounds"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Healing Word would be better, but it’s only available to the Alchemist\n\t\tand not to the core Artificer. If you’re desperate for a healing option\n\t\tbetter than a Potion of Healing this will suffice."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Faerie Fire"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A spectacularly effective offensive option at any level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "False Life"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A good way to improve your durability, but if this is the reason you’re\n\t\there you might be better served by the Tough feat. You’ll also mitigate more\n\t\ttotal damage as you level with Absorb Elements or Shield since False Life\n\t\twon’t scale, but the damage that you take will."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Purify Food and Drink"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Take Ritual Caster instead."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sanctuary"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ":  \t\tPotentially forcing enemies to give up an attack is great, and this\n\t\tdoesn’t prevent the target from contributing via support spells, the Help action,\n\t\tsummoned creatures, pets, etc.. Sanctuary also has a Bonus Action\n\t\tcasting time, so you can attack or cast a cantrip in the same turn (likely\n\t\tbefore casting Sanctuary). However,\n\t\tsince Sanctuary allows the attack to retarget their attack, Sanctuary isn’t\n\t\tas effective against ranged attacks."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Snare"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Too situational."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Guidance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Magic Stone"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Spare the Dying"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Thorn Whip"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Thunderclap"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Cure Wounds"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Faerie Fire"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange False Life"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Purify Food and Drink"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Sanctuary"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Snare"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-artificer-initiate-cantrips-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-artificer-initiate-cantrips-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-artificer-initiate-cantrips-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-artificer-initiate-leveled-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-artificer-initiate-leveled-spells-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-artificer-initiate-leveled-spells-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    }
+  ],
+  "metrics": {
+    "words": 1009,
+    "sections": 5,
+    "blocks": 15,
+    "tables": 0,
+    "ratingSignals": 16
+  },
+  "status": "needs-editorial-review"
+}

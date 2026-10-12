@@ -1,0 +1,295 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "oversized-weapons-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-oversized-weapons-2014-draft1",
+    "sourceRevisionId": "rpgbot-098ccf679fd01120-fefae604eecbf752"
+  },
+  "exampleSection": "section-the-build-heavy-weapons-goliath",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "subclassKey": "RUNE_KNIGHT",
+  "raceKey": "GOLIATH_MPMM",
+  "backgroundKey": "URCHIN",
+  "abilityScores": {
+    "STR": 12,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 13
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Велика зброя (варіантне правило)",
+      "reason": "Збірка спирається на Великий розмір від Силу велетня Рунічного лицаря та Велику зброю; пресет лише 1-го рівня їх не відтворює, там Голіаф Середнього розміру з ручним арбалетом.",
+      "section": "section-but-is-it-any-good"
+    },
+    {
+      "field": "Походження та навички",
+      "reason": "Автор каже, що походження й навички не визначають збірку, і лише як приклад радить Безпритульного з Непомітністю, Спритністю рук і злодійськими інструментами; навички Воїна не названо.",
+      "section": "section-background-and-skills"
+    }
+  ],
+  "revision": 3,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "RUNE_KNIGHT",
+      "subclassOptions": [
+        {
+          "optionNameEng": "Fire Rune (Rune)"
+        },
+        {
+          "optionNameEng": "Stone Rune (Rune)"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "featKey": "CROSSBOW_EXPERT",
+      "section": "section-feats"
+    },
+    {
+      "level": 5,
+      "classKey": "WARLOCK_2014",
+      "subclassKey": "THE_GENIE",
+      "subclassOptions": [
+        {
+          "optionNameEng": "Genie Kind: Marid"
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "mage-hand",
+          "minor-illusion"
+        ],
+        "knownSpellKeys": [
+          "armor-of-agathys",
+          "fog-cloud"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Armor of Shadows"
+        },
+        {
+          "optionNameEng": "Eldritch Mind"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "expeditious-retreat"
+        ]
+      }
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "featKey": "SHARPSHOOTER",
+      "section": "section-feats"
+    },
+    {
+      "level": 9,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Pact of the Chain"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "misty-step"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "expeditious-retreat",
+        "add": "blur"
+      }
+    },
+    {
+      "level": 10,
+      "classKey": "WARLOCK_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "blade-ward"
+        ],
+        "knownSpellKeys": [
+          "invisibility"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Hill Rune (Rune)"
+        }
+      ]
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "subclassOptions": [
+        {
+          "optionNameEng": "Storm Rune (Rune)"
+        }
+      ]
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 17,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Gift of the Ever-Living Ones"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "counterspell"
+        ]
+      }
+    },
+    {
+      "level": 18,
+      "classKey": "WARLOCK_2014",
+      "spells": {
+        "knownSpellKeys": [
+          "hunger-of-hadar"
+        ]
+      }
+    },
+    {
+      "level": 19,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Devil's Sight"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "sickening-radiance"
+        ]
+      }
+    },
+    {
+      "level": 20,
+      "classKey": "WARLOCK_2014",
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "dimension-door"
+        ]
+      }
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/fighter-rune-knight-goliath-2014.webp",
+    "title": "Воїн Рунічний лицар — Голіаф із завеликою зброєю",
+    "description": "Голіаф-стрілець зі Спритністю 16, Стрільбою та ручним арбалетом; згодом додає Чорнокнижника Джина й Велику зброю від Рунічного лицаря.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CON",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ACROBATICS",
+        "PERCEPTION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [
+      "Archery"
+    ],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": [
+          "HAND_CROSSBOW"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-background-and-skills",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля очок 12/15/15/8/8/13 з таблиці автора; Голіаф додає по одиниці до Спритності, Статури й Харизми (16, 16, 14), як у таблиці. Це вже враховано.",
+    "skillExplanation": "Стрільбу й ручний арбалет автор називає прямо. Спритність рук і Непомітність дає Безпритульний, якого автор лише радить як приклад; Атлетику дає Голіаф. Акробатику й Уважність від Воїна та мову ми обрали за вас — це вибір платформи.",
+    "equipmentExplanation": "Ручний арбалет узято з авторського прикладу. Щит, кольчугу, легкий арбалет і набір дослідника підземель ми обрали за вас — це вибір платформи, їх можна змінити."
+  }
+}

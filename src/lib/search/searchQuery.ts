@@ -36,6 +36,12 @@ export function normalizeSearchText(value: string): string {
     .replace(/[иї]/g, "і");
 }
 
+const ANALYTICS_QUERY_MAX_LENGTH = 80;
+
+export function buildAnalyticsQuery(query: string): string {
+  return query.trim().toLowerCase().replace(/\s+/g, " ").slice(0, ANALYTICS_QUERY_MAX_LENGTH);
+}
+
 export function swapGutturals(value: string): string {
   return value.replace(/[гх]/g, (letter) => (letter === "г" ? "х" : "г"));
 }

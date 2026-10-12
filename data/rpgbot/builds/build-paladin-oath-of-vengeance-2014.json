@@ -1,0 +1,787 @@
+{
+  "buildId": "build-paladin-oath-of-vengeance-2014",
+  "revisionId": "build-paladin-oath-of-vengeance-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Клятви помсти — Глибинний атакер",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+      "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+      "sectionId": "section-example-oath-of-vengeance-build-deep-striker",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "PALADIN_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "PALADIN_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "PALADIN_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Dueling"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "PALADIN_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "OATH_OF_VENGEANCE",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "PALADIN_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "PALADIN_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "PALADIN_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "PALADIN_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "PALADIN_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "PALADIN_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "PALADIN_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "PALADIN_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "PALADIN_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "PALADIN_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "PALADIN_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "PALADIN_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "PALADIN_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "PALADIN_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "PALADIN_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "PALADIN_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "PALADIN_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+          "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+          "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "complete",
+  "details": {
+    "origin": "example",
+    "subclassKey": "OATH_OF_VENGEANCE",
+    "raceKey": "HUMAN_2014",
+    "variantKey": "HUMAN_VARIANT",
+    "backgroundKey": "COURTIER",
+    "featKey": "POLEARM_MASTER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ми зосередимося на Силі й ближньому бою, а Статуру та Харизму зробимо другорядними характеристиками.\n\n Розподіл за очками Підвищене значення 20-й рівень Сила 15 16 20 Спритність 8 8 8 Статура 15 15 16 (18) Інтелект 8 8 8 Мудрість 8 8 8 Харизма 15 16 20 (18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Граючи за Варіант людини{{Variant Human}}, на 1-му рівні беремо додаткову рису «Майстер древкової зброї»{{Polearm Master}}. Так рано ця риса значно підвищить нашу бойову ефективність — більше, ніж більшість інших расових варіантів. Бонуси +1 і +1 додаємо до Харизми й Сили.\n\nТакож підійде Своя раса{{Custom Lineage}}, якби ми планували мультикласуватися у {{Відьмацький клинок|Hexblade}}: +2 до Харизми, а Силу лишаємо на рівні 15, щоб носити лати без штрафу до швидкості.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-multiclassing",
+        "title": "Мультикласування",
+        "text": "У цій збірці ми не мультикласуємося, але рівень {{Чорнокнижника Відьмацького клинка|Hexblade Warlock}} на 2-му рівні покращив би персонажа, обʼєднавши характеристики атак і заклинань.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-multiclassing",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Придворний{{Courtier}} дає Аналіз поведінки і Переконання. Якщо одну з цих навичок ви отримуєте, почавши Паладином, замініть її на Обман — єдину соціальну навичку, якої немає в списку Паладина. Вибір мов дуже залежить від кампанії, тож оберіть ті, що пасують вашій грі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Варіанта людини{{Variant Human}} беремо Атлетику. Від Паладина{{Paladin}} — Залякування й Аналіз поведінки. Придворний{{Courtier}} дає Переконання, а повторний Аналіз поведінки замінюємо на Обман. Так ми володіємо всіма соціальними навичками.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 1-му рівні Варіант людини{{Variant Human}} дає змогу взяти «Майстра древкової зброї»{{Polearm Master}}.\n\nНа 4-му рівні беремо Покращення Характеристик і додаємо +2 до Сили (16 → 18).\n\nНа 8-му рівні беремо рису {{Стійкий (Статура)|Resilient (Constitution)}}, щоб значно покращити концентрацію. Робимо це зараз із причин, які пояснено в таблиці нижче, у рядку про рекомендовані заклинання цього рівня — Магічну зброю [Magic Weapon] і Стихійну зброю [Elemental Weapon].\n\nНа 12-му рівні ще раз беремо Покращення Характеристик і додаємо +2 до Сили (18 → 20).\n\nНа 16-му рівні беремо Покращення Характеристик і додаємо +2 до Харизми (16 → 18).\n\nНа 19-му рівні ще раз беремо Покращення Характеристик і додаємо +2 до Харизми (18 → 20).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Божественне відчуття{{Divine Sense}}\n{{Цілющі руки|Lay on Hands}}\nБойова зброя\nВажкі обладунки\nНавички: Атлетика, Обман, Аналіз поведінки, Залякування, Переконання\nДодаткова риса: {{Майстер древкової зброї|Polearm Master}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Божественна кара{{Divine Smite}}\nБойовий Стиль: Дуель{{Dueling}}\nЧаротворство{{Spellcasting}}\nЗаклинання 1-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Божественне здоровʼя{{Divine Health}}\nСвященна клятва: {{Клятва помсти|Oath of Vengeance}}\nКанал божественності{{Channel Divinity}}\n– {{Відречення від ворога|Abjure Enemy}}\n– {{Обітниця ворожнечі|Vow of Enmity}}\nЗаклинання клятви{{Oath Spells}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик: Сила +2 (16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака{{Extra Attack}}\nЧаротворство{{Spellcasting}}: заклинання 2-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "{{Аура захисту|Aura of Protection}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Невтомний месник{{Relentless Avenger}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: {{Стійкий (Статура)|Resilient (Constitution)}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Чаротворство{{Spellcasting}}: заклинання 3-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "{{Аура мужності|Aura of Courage}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Покращена божественна кара{{Improved Divine Smite}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: +2 до Сили (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Чаротворство{{Spellcasting}}: заклинання 4-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Очищувальний дотик{{Cleansing Touch}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "{{Душа помсти|Soul of Vengeance}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: +2 до Харизми (16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Чаротворство{{Spellcasting}}: заклинання 5-го рівня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Покращення Аур{{Aura Improvements}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: +2 до Харизми (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Ангел помсти{{Avenging Angel}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-paladin-oath-of-vengeance-2014",
+            "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2014-draft1",
+            "sourceRevisionId": "rpgbot-c04eb3b465c797bf-1a23ed99d40adb96",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": []
+  }
+}

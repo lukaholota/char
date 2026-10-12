@@ -1,0 +1,2314 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/area-of-effect-rules/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "4d3b31c661b3710438543bdf771e5eb186015b0f4924b9c53e9bef721b9ccccf",
+  "sourceRevision": {
+    "revisionId": "rpgbot-f7cd0d81cbca5e54-4d3b31c661b37104",
+    "sourceId": "rpgbot-f7cd0d81cbca5e54",
+    "fetchedAt": "2026-09-29T19:25:58.372761+00:00",
+    "sourceUpdatedAt": "2025-05-21T09:57:24-04:00",
+    "contentHash": "e2c9864bf4d9274f511fe1b0361de3396ff9b42b41a6c8a17a229ac3b5eae72b",
+    "title": "DnD 5e’s Area of Effect Rules – A Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-f7cd0d81cbca5e54-4d3b31c661b37104.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In May of 2025, we received the first round of “Sage Advice” rules answers from the D&D design team. Now published on DnDBeyond instead of as a PDF from the "
+            },
+            {
+              "type": "link",
+              "text": "wizards.com",
+              "href": "http://wizards.com/"
+            },
+            {
+              "type": "text",
+              "text": " website, "
+            },
+            {
+              "type": "link",
+              "text": "Sage Advice",
+              "href": "https://www.dndbeyond.com/sources/dnd/sae/sage-advice-compendium"
+            },
+            {
+              "type": "text",
+              "text": " is now a collection of FAQs directly on the site."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "After scrutinizing the first batch of answers, I came across a specific question regarding "
+            },
+            {
+              "type": "link",
+              "text": "Cloud of Daggers",
+              "href": "https://www.dndbeyond.com/sources/dnd/sae/sage-advice-compendium#SAC-Spells-CloudofDaggers1"
+            },
+            {
+              "type": "text",
+              "text": ":"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "Q: Using 5-foot squares, does Cloud of Daggers affect a single square?"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "A: "
+            },
+            {
+              "type": "link",
+              "text": "Cloud of Daggers",
+              "href": "https://www.dndbeyond.com/spells/2618974-cloud-of-daggers"
+            },
+            {
+              "type": "emphasis",
+              "text": " (5-foot Cube) can affect more than one square on a grid unless the DM says effects snap to the grid. There are many ways to position that "
+            },
+            {
+              "type": "link",
+              "text": "Cube",
+              "href": "https://www.dndbeyond.com/sources/dnd/free-rules/rules-glossary#CubeAreaofEffect"
+            },
+            {
+              "type": "emphasis",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Initially I thought this was a deviation from the text of the rules, and was justifiably a little confused. When I raised the issue on socials, I got a perplexing mix of people who have always played this way, people who thought this was madness, and people who fell somewhere in between. This prompted me to reexamine the rules for space, position, and areas of effect."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To briefly summarize my findings: Basically everyone is doing it some degree of wrong, myself included."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To fully understand and handle all of these rules, you’ll need the 2014 Dungeon Master’s Guide, Xanathar’s Guide to Everything, and both the 2024 PHB and DMG. Yes, that feels insane. I’ll replicate as much of the information here as I can to hopefully save you some trouble and a book purchase."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-three-methods-for-handling-space-and-areas-of-effect",
+      "heading": "Three Methods for Handling Space and Areas of Effect",
+      "sourceAnchor": "three-methods-for-handling-space-and-areas-of-effect",
+      "blocks": [
+        {
+          "blockId": "block-section-three-methods-for-handling-space-and-areas-of-effect-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I have identified 3(ish) officially supported methods for handling maps, space, positioning, and areas of effect. Each of these methods is a compromise between verisimilitude, convenience, and reliable fairness. None is necessarily better than the others, but groups generally pick one method and stick to it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-method-1-theater-of-the-mind",
+      "parentSectionId": "section-three-methods-for-handling-space-and-areas-of-effect",
+      "heading": "Method 1: Theater of the Mind",
+      "sourceAnchor": "method-1-theater-of-the-mind",
+      "blocks": [
+        {
+          "blockId": "block-section-method-1-theater-of-the-mind-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The nominal default, Theater of the Mind is the most flexible approach to playing the game, but also requires a great deal of trust between the players and the DM to avoid situations where enemies are 5 feet and 1 inch away when the players need to attack. For parties who don’t lean into tactical combat, this is often fine."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-method-1-theater-of-the-mind-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, when you need to do things like aim a Lightning bolt between a bunch of your allies, Theater of the Mind can break down. Without precise knowledge of where everyone stands, asking how many creatures you can hit with an effect is left entirely up to the DM. This isn’t reliably fair, and even a DM acting in good faith might make players feel cheated."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-method-1-theater-of-the-mind-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Theater of the Mind can absolutely work, but it’s at its best with very small numbers of creatures in any given combat encounter. Large groups cause things to become too confusing and arbitrary."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-method-1-theater-of-the-mind-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When handling areas of effect, I recommend using the “"
+            },
+            {
+              "type": "link",
+              "text": "Targets in an Area of Effect",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+            },
+            {
+              "type": "text",
+              "text": "” table in the 2014 DMG as a guideline."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-method-2-the-grid",
+      "parentSectionId": "section-three-methods-for-handling-space-and-areas-of-effect",
+      "heading": "Method 2: The Grid",
+      "sourceAnchor": "method-2-the-grid",
+      "blocks": [
+        {
+          "blockId": "block-section-method-2-the-grid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The strictest option, using "
+            },
+            {
+              "type": "link",
+              "text": "miniatures on a grid",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/running-the-game#Miniatures"
+            },
+            {
+              "type": "text",
+              "text": " is explained in detail in the Dungeon Master’s Guide. 5 feet maps to 1 square or hex on the grid, and DnD’s distances are always in 5-foot steps in order to cleanly support playing on a grid. Much of the way that adventures are designed and maps are laid out is done specifically with this play style in mind."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-method-2-the-grid-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This method is the most consistent and fair, but also the least flexible. You give up the realism of precise movement for rigid gamified mechanics that work the same way every time."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-method-2-the-grid-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Despite technically being an option rule, this is usually considered the default method used for DnD. DnD’s combat is simply too complex to handle combat of any real complexity without the structures of a combat grid."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-method-3-miniatures-but-no-grid",
+      "parentSectionId": "section-three-methods-for-handling-space-and-areas-of-effect",
+      "heading": "Method 3: Miniatures, But No Grid",
+      "sourceAnchor": "method-3-miniatures-but-no-grid",
+      "blocks": [
+        {
+          "blockId": "block-section-method-3-miniatures-but-no-grid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The original method used for D&D dating back to the game’s roots in tabletop wargaming, 5 feet translates to 1 inch on the battle map. Medium creatures have 1-inch diameter circular bases which represent the space that they occupy. This creates a very realistic simulation of positioning"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-method-3-miniatures-but-no-grid-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This method allows for a lot of flexibility, but suffers from issues with precision. Tiny variations in measurements might lead to creatures being just inside or outside of reach or an area of effect, which can feel frustrating when your fighter is 1/8th of an inch too far away to attack the monsters. At the same time, this can let you do things like completely block a 15-foot wide hallway with just two characters."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-method-3-miniatures-but-no-grid-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, the 5e rules don’t provide official support for this method."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-areas-of-effect",
+      "heading": "Areas of Effect",
+      "sourceAnchor": "areas-of-effect",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-point-of-origin",
+      "parentSectionId": "section-areas-of-effect",
+      "heading": "Point of Origin",
+      "sourceAnchor": "point-of-origin",
+      "blocks": [
+        {
+          "blockId": "block-section-point-of-origin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "“An area of effect must be translated onto squares or hexes to determine which potential targets are in the area. If the area has a point of origin, choose an intersection of squares or hexes to be the point of origin, then follow its rules as normal.”"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-point-of-origin-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "When placing an area of effect, you first pick its point of origin, and then work from there. The precise process varies by method and by the shape of your AOE."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-how-much-must-an-aoe-affect-a-space-to-have-an-effect",
+      "parentSectionId": "section-areas-of-effect",
+      "heading": "How Much Must an AOE Affect a Space to Have an Effect?",
+      "sourceAnchor": "how-much-must-an-aoe-affect-a-space-to-have-an-effect",
+      "blocks": [
+        {
+          "blockId": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It depends. I know, groans all around."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 1, it’s basically vibes. Whatever the DM decides."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2, an area of effect must cover half of a 5-foot square to affect that square."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 3, it’s unclear since there isn’t any official rules text. At some tables, just touching a target’s base is enough for the AOE to apply."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "“If an area of effect covers at least half a square or hex, the entire square or hex is affected.”"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "– 2024 DMG Chapter 2: Running Combat"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-visualising-areas-of-effect",
+      "parentSectionId": "section-areas-of-effect",
+      "heading": "Visualising Areas of Effect",
+      "sourceAnchor": "visualising-areas-of-effect",
+      "blocks": [
+        {
+          "blockId": "block-section-visualising-areas-of-effect-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re using miniatures, it can be very helpful to have a way to visually represent areas of effect when placing them on the battle map. This helps to quickly determine what spaces and creatures are affected. "
+            },
+            {
+              "type": "link",
+              "text": "Xanathar’s Guide to Everything",
+              "href": "https://www.dndbeyond.com/sources/dnd/xgte/dungeon-masters-tools#AreasofEffectonaGrid"
+            },
+            {
+              "type": "text",
+              "text": " provides detailed advice on how to handle this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-visualising-areas-of-effect-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To briefly summarize: Xanathar’s presents two methods for visualizing AOEs."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-template-method",
+      "parentSectionId": "section-visualising-areas-of-effect",
+      "heading": "The Template Method",
+      "sourceAnchor": "the-template-method",
+      "blocks": [
+        {
+          "blockId": "block-section-the-template-method-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The template method uses physical templates to represent areas of effect. You might draw a 15-foot cone on a sheet of paper, cut it out, and use it as a template when casting Burning Hands. You can also purchase these templates, which is helpful if they see enough use that paper doesn’t suffice. The template method is flexible, fast, and can allow for very precise placement."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-template-method-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, it also creates issues when the AOE doesn’t fully cover a space. As explained above, half of the 5-foot square must be affected. But how do you figure that out with weird triangles or circles? No one should feel the need to do complicated geometry during a combat encounter. This isn’t "
+            },
+            {
+              "type": "link",
+              "text": "Pathfinder",
+              "href": "https://aonprd.com/FeatDisplay.aspx?ItemName=Sacred%20Geometry"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-template-method-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Template Method works especially well with Method 3. Without the strictures of a grid, it makes sense to use pre-cut shapes to apply area effects to a battle map."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-token-method",
+      "parentSectionId": "section-visualising-areas-of-effect",
+      "heading": "The Token Method",
+      "sourceAnchor": "the-token-method",
+      "blocks": [
+        {
+          "blockId": "block-section-the-token-method-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The "
+            },
+            {
+              "type": "link",
+              "text": "Token Method",
+              "href": "https://www.dndbeyond.com/sources/dnd/xgte/dungeon-masters-tools#TokenMethod"
+            },
+            {
+              "type": "text",
+              "text": " depicts everything using squares. It is, without doubt, the simplest and most eminently fair way to visualize areas of effect. It is consistent, simple, and reliable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-token-method-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To briefly summarize: Use a token (the example graphics use d6’s, though a typical d6 isn’t a full inch across and therefore won’t fill a grid space) to mark each square affected by an AOE. A space is either affected or not affected. There is no “half a square” or “a curvy area in one corner.” None of that. Everything is conveniently square and nice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-token-method-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, the Token Method also treats circles as squares and cones can only be easily handled if they’re pointed in cardinal directions or at perfect diagonals. You’re trading flexibility for precision and reliability."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-square-circles",
+      "parentSectionId": "section-the-token-method",
+      "heading": "Square Circles",
+      "sourceAnchor": "square-circles",
+      "blocks": [
+        {
+          "blockId": "block-section-square-circles-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The token method turns circular, spherical, and cylindrical areas of effect into squares. While this does simplify things, it can feel silly to cast Fireball and get Firecube instead."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-square-circles-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The reason it works this way is because 5e does not make diagonal movement cost extra. 4e also had square circles, but expected to be played on a grid much more explicitly than 5e."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-square-circles-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In 3.x, moving diagonal cost a little bit extra; every other square cost 2 squares of movement. This made circles much more circular, but also required a little extra math for a little extra verisimilitude."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-square-circles-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want to use the token method, but you still want circular circles, consider adopting the diagonals rule from previous editions. I recommend using it for both movement and for area effects, otherwise moving diagonally becomes a disproportionately good way to move away from area effects."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-snapping-to-the-grid",
+      "parentSectionId": "section-visualising-areas-of-effect",
+      "heading": "Snapping to the Grid",
+      "sourceAnchor": "snapping-to-the-grid",
+      "blocks": [
+        {
+          "blockId": "block-section-snapping-to-the-grid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The text of the rules doesn’t specifically require you to “snap to the grid” even if you’re using the Token Method. Players often do this by default because it feels natural on a grid, but doing so isn’t discussed within the text of the rules. This is how I prefer to play because it is consistent, simple, and reliable, which is always how I prefer the rules to work. Eminently fair, minimal fiddling, no arguments or geometry calculations."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-snapping-to-the-grid-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you don’t snap to the grid, you’re free to place areas of effect so that they partially span multiple spaces. Even if you’re using the Token Method, you might shift the tokens so that they straddle the line between two adjacent spaces. The "
+            },
+            {
+              "type": "link",
+              "text": "Cloud of Daggers",
+              "href": "https://www.dndbeyond.com/sources/dnd/sae/sage-advice-compendium#SAC-Spells-CloudofDaggers1"
+            },
+            {
+              "type": "text",
+              "text": " answer referenced in the Introduction to this article specifically discusses this practice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-snapping-to-the-grid-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You could place the AOE for a square or cube such that it’s offset by half a square, expanding the total covered area. Since you’re still covering half of each of those outer squares, they’re still affected. For example: Cloud of Daggers is a 5-foot cube. If you place it on the line between two squares, you’re affecting two 5-foot squares instead of one."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cones",
+      "parentSectionId": "section-areas-of-effect",
+      "heading": "Cones",
+      "sourceAnchor": "cones",
+      "blocks": [
+        {
+          "blockId": "block-section-cones-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "A Cone is an area of effect that extends in straight lines from a point of origin in a direction its creator chooses. A Cone’s width at any point along its length is equal to that point’s distance from the point of origin. For example, a Cone is 15 feet wide at a point along its length that is 15 feet from the point of origin. The effect that creates a Cone specifies its maximum length."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cones-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 1, use the "
+            },
+            {
+              "type": "link",
+              "text": "Targets in an Area of Effect",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+            },
+            {
+              "type": "text",
+              "text": " table and your best judgement."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cones-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2 with the Template Method:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cones-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Place your template with the narrow end of the cone at a grid intersection as the point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orient the cone as desired"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Determine which spaces are at least half covered by the template to determine which spaces are affected"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-cones-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2 with the Token Method:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cones-6",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Choose a grid intersections as the point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pick a cardinal or diagonal direction (north, northeast, etc.) to orient the cone"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Place tokens in a line on spaces out to the cone’s length (ex: 3 tokens for a 15-foot cone)"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Starting from either end of the cone, place tokens so that the cone widens by one token for each space further away from the cone’s point of origin\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "If you are snapping to the grid, this will naturally result in every other row of tokens being an even number of tokens, which means that the cone will be lopsided at that distance. Decide if the cone is oriented to the right or the left, then place the extra tokens on that side as you place tokens for your cone"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "If you are not snapping to the grid, you may shift tokens to partially cover squares. This can make the covered area look more like a triangle, but will also mean that alternating segments of the cone can be as wide as the segment further from the origin. In effect, the width of the cone changes every 10 feet instead of every 5, so the squares affected by your cone look like a stepped pyramid instead of a triangular pyramid"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-cones-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 3: Pick a suitable point of origin, typically at the edge of the space of whatever creates the AOE, then place a template to determine what is affected"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cones-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "A Cone’s point of origin isn’t included in the area of effect unless its creator decides otherwise."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cones-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This "
+            },
+            {
+              "type": "emphasis",
+              "text": "might"
+            },
+            {
+              "type": "text",
+              "text": " mean that you can include yourself in an AOE. For example: a wizard might include themself in the area of Burning Hands. If you use Method 2, the point of origin is an intersection on the grid, so including the point of origin in the area has no mechanical effect."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cubes",
+      "parentSectionId": "section-areas-of-effect",
+      "heading": "Cubes",
+      "sourceAnchor": "cubes",
+      "blocks": [
+        {
+          "blockId": "block-section-cubes-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "A Cube is an area of effect that extends in straight lines from a point of origin located anywhere on a face of the Cube. The effect that creates a Cube specifies its size, which is the length of each side."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cubes-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 1, use the "
+            },
+            {
+              "type": "link",
+              "text": "Targets in an Area of Effect",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+            },
+            {
+              "type": "text",
+              "text": " table and your best judgement."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cubes-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2 with the Template Method:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cubes-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Choose a grid intersection as your point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Place your template so that any edge or corner of the square touches the point of origin\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Remember that you can rotate the square freely"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Determine which spaces are at least half covered by the template to determine which spaces are affected"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-cubes-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2 with the Token Method:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cubes-6",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Choose a grid intersection as your point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Determine if your square will be square to the grid or rotated 5 degrees"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Position your square so that it is square to the grid and also so that any edge or corner of the square touches the point of origin\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "You could technically rotate the square 45 degrees to get a diamond shape, but this still results in a square space unless your cube is 20 feet or more. In these cases, the geometry gets really confusing and will usually result in a sort of lopsided diamond shape"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-cubes-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 3: Pick a suitable point of origin, typically at the edge of the space of whatever creates the AOE, then place a template to determine what is affected"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cubes-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "A Cube’s point of origin isn’t included in the area of effect unless its creator decides otherwise."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cubes-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This "
+            },
+            {
+              "type": "emphasis",
+              "text": "might"
+            },
+            {
+              "type": "text",
+              "text": " mean that you can include yourself in an AOE. For example: a wizard might include themself in the area of Thunderclap. If you use Method 2, the point of origin is an intersection on the grid, so including the point of origin in the area has no mechanical effect."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cylinders",
+      "parentSectionId": "section-areas-of-effect",
+      "heading": "Cylinders",
+      "sourceAnchor": "cylinders",
+      "blocks": [
+        {
+          "blockId": "block-section-cylinders-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "A Cylinder is an area of effect that extends in straight lines from a point of origin located at the center of the circular top or bottom of the Cylinder. The effect that creates a Cylinder specifies the radius of the Cylinder’s base and the Cylinder’s height."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cylinders-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "A Cylinder’s point of origin is included in the area of effect."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cylinders-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 1, use the "
+            },
+            {
+              "type": "link",
+              "text": "Targets in an Area of Effect",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+            },
+            {
+              "type": "text",
+              "text": " table and your best judgement."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cylinders-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2 with the Template Method:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cylinders-5",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Choose a grid intersection as your point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Choose if the point of origin is the top or bottom of the cylinder"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Choose which direction the cylinder will expand from the point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Determine which spaces are at least half covered by the template to determine which spaces are affected"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-cylinders-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2 with the Token Method:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-cylinders-7",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Choose a grid intersection as your point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Choose if the point of origin is the top or bottom of the cylinder"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Choose which direction the cylinder will expand from the point of origin"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-cylinders-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 3: Pick a suitable point of origin, typically at the edge of the space of whatever creates the AOE, then place a template to determine what is affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-emanations",
+      "parentSectionId": "section-areas-of-effect",
+      "heading": "Emanations",
+      "sourceAnchor": "emanations",
+      "blocks": [
+        {
+          "blockId": "block-section-emanations-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "An Emanation is an area of effect that extends in straight lines from a creature or an object in all directions. The effect that creates an Emanation specifies the distance it extends."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-emanations-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "An Emanation moves with the creature or object that is its origin unless it is an instantaneous or a stationary effect."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-emanations-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "An Emanation’s origin (creature or object) isn’t included in the area of effect unless its creator decides otherwise."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-emanations-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Emanations are a unique case. Unlike other shapes, an Emanation does not start from the edge of a creature or object’s space, rather than from a grid intersection."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-emanations-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 1, use the "
+            },
+            {
+              "type": "link",
+              "text": "Targets in an Area of Effect",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+            },
+            {
+              "type": "text",
+              "text": " table and your best judgement."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-emanations-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2 with the Template Method:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-emanations-7",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Place your template so that the creature or object is at the center of the template"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Measure distance from the edge of the creature or object’s space"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Determine which spaces are at least half covered by the template to determine which spaces are affected"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-emanations-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2 with the Token Method:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-emanations-9",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Place tokens in a square area around the creature or object so that the tokens extend in every direction a distance equal to the emanation’s size\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ex: Spirit Guardians is a 15-foot emanation. Place tokens in 3 spaces outward in all directions from the caster. This will result in a square area 7 spaces across (1 for the creature, then 3 in each direction)"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-emanations-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 3:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-emanations-11",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Place your template so that the creature or object is at the center of the template"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Measure distance from the edge of the creature or object’s space"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Determine which spaces are at least half covered by the template to determine which spaces are affected"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-lines",
+      "parentSectionId": "section-areas-of-effect",
+      "heading": "Lines",
+      "sourceAnchor": "lines",
+      "blocks": [
+        {
+          "blockId": "block-section-lines-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "A Line is an area of effect that extends from a point of origin in a straight path along its length and covers an area defined by its width. The effect that creates a Line specifies its length and width."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-lines-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "A Line’s point of origin isn’t included in the area of effect unless its creator decides otherwise."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-lines-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lines are nearly always 5 feet wide, though there are very rare exceptions."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-lines-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 1, use the "
+            },
+            {
+              "type": "link",
+              "text": "Targets in an Area of Effect",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+            },
+            {
+              "type": "text",
+              "text": " table and your best judgement."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-lines-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2 with the Template Method:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-lines-6",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Choose a grid intersection as your point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Center the leading edge of your template on the point of the origin\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Note that this will result in straddling the line between spaces when orienting the line to a cardinal direction"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orient your template in the desired direction"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Determine which spaces are at least half covered by the template to determine which spaces are affected"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-lines-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2 with the Token Method:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-lines-8",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Choose a grid intersection as your point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Place a token for the first part of the line\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "If you are snapping to the grid, pick a space with a corner touching the point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "If you are not snapping to the grid, place the token so that the point of origin is in the center of one of the token’s sides. This will result in the token overlapping multiple spaces, most of which will only have a tiny corner of the token and therefore won’t be affected"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Place additional tokens until you reach the line’s length\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "If you are snapping to the grid, any line not oriented to a cardinal direction can pass between two creatures that are diagonally adjacent to each other without affecting either of them"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Determine which spaces are at least half covered by tokens to determine which spaces are affected"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-lines-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 3: Pick a suitable point of origin, typically at the edge of the space of whatever creates the AOE, then place a template to determine what is affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spheres",
+      "parentSectionId": "section-areas-of-effect",
+      "heading": "Spheres",
+      "sourceAnchor": "spheres",
+      "blocks": [
+        {
+          "blockId": "block-section-spheres-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "A Sphere is an "
+            },
+            {
+              "type": "link",
+              "text": "area of effect",
+              "href": "https://www.dndbeyond.com/sources/dnd/br-2024/rules-glossary#AreaofEffect"
+            },
+            {
+              "type": "emphasis",
+              "text": " that extends in straight lines from a point of origin outward in all directions. The effect that creates a Sphere specifies the distance it extends as the radius of the Sphere."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spheres-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "A Sphere’s point of origin is included in the Sphere’s area of effect."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spheres-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 1, use the "
+            },
+            {
+              "type": "link",
+              "text": "Targets in an Area of Effect",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#TargetsinAreaofEffect"
+            },
+            {
+              "type": "text",
+              "text": " table and your best judgement."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spheres-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2 with the Template Method:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spheres-5",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Choose a grid intersection as your point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Place the template with the center of the template on the point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Determine which spaces are at least half covered by the template to determine which spaces are affected"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-spheres-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 2 with the Token Method:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spheres-7",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Choose a grid intersection as your point of origin"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Place tokens until you have a square around the point of origin of appropriate size\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Remember: The token method turns circles into squares"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-spheres-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Under Method 3: Pick a suitable point of origin, typically at the edge of the space of whatever creates the AOE, then place a template to determine what is affected"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conclusion",
+      "heading": "Conclusion",
+      "sourceAnchor": "conclusion",
+      "blocks": [
+        {
+          "blockId": "block-section-conclusion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "All of this feels confusing. The fact that I wrote an article this long to disambiguate something like 2-3 pages of official rules text really highlights just how messy and unclear all of this is when you sit down to examine it in depth. But, most likely, your group already has a preferred way to handle all of this. Chances are that answer is pretty close to one of the official answers, even if you didn’t get it precisely right."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conclusion-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While I generally advocate for playing the rules as written wherever possible and rules as intended where RAW is problematic, this is a place where the rules have very intentionally created space for different play styles. Choose options which work for your table."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-introduction-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-introduction-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-introduction-7"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[2]",
+      "detail": "<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\"> <div class=\"f"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-three-methods-for-handling-space-and-areas-of-effect-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-method-1-theater-of-the-mind-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-method-1-theater-of-the-mind-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-method-1-theater-of-the-mind-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-method-1-theater-of-the-mind-4"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[3]",
+      "detail": "<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\"> <div class=\"f"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-method-2-the-grid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-method-2-the-grid-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-method-2-the-grid-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-method-3-miniatures-but-no-grid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-method-3-miniatures-but-no-grid-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-method-3-miniatures-but-no-grid-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-point-of-origin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-point-of-origin-2"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[4]",
+      "detail": "<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\"> <div class=\"f"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-how-much-must-an-aoe-affect-a-space-to-have-an-effect-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-visualising-areas-of-effect-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-visualising-areas-of-effect-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-the-template-method-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-the-template-method-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-the-template-method-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-the-token-method-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-the-token-method-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-the-token-method-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-square-circles-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-square-circles-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-square-circles-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-square-circles-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-snapping-to-the-grid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-snapping-to-the-grid-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-snapping-to-the-grid-3"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[5]",
+      "detail": "<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\"> <div class=\"f"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-cones-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-cones-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-cones-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-cones-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-cones-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-cones-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-cones-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-cones-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-cones-9"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[6]",
+      "detail": "<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\"> <div class=\"f"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-cubes-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-cubes-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-cubes-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-cubes-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-cubes-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-cubes-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-cubes-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-cubes-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[55]",
+      "detail": "block-section-cubes-9"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[7]",
+      "detail": "<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\"> <div class=\"f"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[56]",
+      "detail": "block-section-cylinders-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[57]",
+      "detail": "block-section-cylinders-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[58]",
+      "detail": "block-section-cylinders-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[59]",
+      "detail": "block-section-cylinders-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-cylinders-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[60]",
+      "detail": "block-section-cylinders-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-cylinders-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[61]",
+      "detail": "block-section-cylinders-8"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[8]",
+      "detail": "<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\"> <div class=\"f"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[62]",
+      "detail": "block-section-emanations-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[63]",
+      "detail": "block-section-emanations-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[64]",
+      "detail": "block-section-emanations-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[65]",
+      "detail": "block-section-emanations-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[66]",
+      "detail": "block-section-emanations-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[67]",
+      "detail": "block-section-emanations-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-emanations-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[68]",
+      "detail": "block-section-emanations-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-emanations-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[69]",
+      "detail": "block-section-emanations-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-emanations-11"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[9]",
+      "detail": "<figure class=\"wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio\"><div class=\"wp-block-embed__wrapper\"> <div class=\"f"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[70]",
+      "detail": "block-section-lines-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[71]",
+      "detail": "block-section-lines-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[72]",
+      "detail": "block-section-lines-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[73]",
+      "detail": "block-section-lines-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[74]",
+      "detail": "block-section-lines-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[10]",
+      "detail": "block-section-lines-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[75]",
+      "detail": "block-section-lines-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[11]",
+      "detail": "block-section-lines-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[76]",
+      "detail": "block-section-lines-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[77]",
+      "detail": "block-section-spheres-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[78]",
+      "detail": "block-section-spheres-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[79]",
+      "detail": "block-section-spheres-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[80]",
+      "detail": "block-section-spheres-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[12]",
+      "detail": "block-section-spheres-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[81]",
+      "detail": "block-section-spheres-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[13]",
+      "detail": "block-section-spheres-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[82]",
+      "detail": "block-section-spheres-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[83]",
+      "detail": "block-section-conclusion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[84]",
+      "detail": "block-section-conclusion-2"
+    }
+  ],
+  "metrics": {
+    "words": 3561,
+    "sections": 20,
+    "blocks": 97,
+    "tables": 0,
+    "ratingSignals": 0
+  },
+  "status": "needs-editorial-review"
+}

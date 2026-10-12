@@ -19,7 +19,7 @@ export type SpellSummaryFacts = {
 };
 
 /** Іконка школи, назва з оригіналом і рядок фактів — одна картка заклинання для каталогу й кроку вибору. */
-export function SpellSummary(props: { spell: SpellSummaryFacts; is2024: boolean; isSelected: boolean; nameBadges?: ReactNode }) {
+export function SpellSummary(props: { spell: SpellSummaryFacts; is2024: boolean; isSelected: boolean; nameBadges?: ReactNode; factBadges?: ReactNode }) {
   const { spell, is2024, isSelected } = props;
   const accent = findEditionAccent(is2024 ? "2024" : "2014");
   const visual = getSpellSchoolVisual(spell.school);
@@ -62,6 +62,7 @@ export function SpellSummary(props: { spell: SpellSummaryFacts; is2024: boolean;
               Концентрація
             </span>
           )}
+          {props.factBadges}
         </div>
       </div>
     </div>

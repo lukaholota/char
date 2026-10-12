@@ -38,7 +38,7 @@ import {
   type SourceSelection,
 } from "@/lib/catalog-source-filter";
 import type { RaceData } from "@/lib/racesData";
-import { RACE_TRAIT_KEYS, RACE_TRAIT_LABELS, findSearchHaystack, hasRaceTrait } from "@/components/races/race-catalog-filters";
+import { RACE_TRAIT_KEYS, RACE_TRAIT_LABELS, hasRaceTrait, matchesRaceQuery } from "@/components/races/race-catalog-filters";
 import { useCatalogUrlSync } from "@/hooks/useCatalogUrlSync";
 import {
   getParamSet,
@@ -100,9 +100,9 @@ export function RacesClient({
   );
 
   const filtered = useMemo(() => {
-    const query = selection.q.trim().toLowerCase();
+    const query = selection.q.trim();
     return races.filter((race) => {
-      if (query && !findSearchHaystack(race).includes(query) && findRaceMatches(race, query).length === 0) return false;
+      if (query && !matchesRaceQuery(race, query) && findRaceMatches(race, query).length === 0) return false;
       if (!matchesSourceSelection(race.source, selection.source)) return false;
       if (selection.sizes.size > 0 && !race.sizes.some((size) => selection.sizes.has(size))) return false;
       if (selection.speeds.size > 0 && !selection.speeds.has(String(race.speed))) return false;

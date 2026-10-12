@@ -1,0 +1,765 @@
+{
+  "buildId": "build-monk-human-open-hand-2014",
+  "revisionId": "build-monk-human-open-hand-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Монаха — Людина-Монах (Відкрита долоня)",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-monk-2014",
+      "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+      "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "MONK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "MONK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "MONK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "MONK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WAY_OF_THE_OPEN_HAND",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "MONK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "MONK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "MONK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "MONK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "MONK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "MONK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "MONK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "MONK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "MONK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "MONK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "MONK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "MONK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "MONK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "MONK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "MONK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "MONK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "MONK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-2014",
+          "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+          "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "complete",
+  "details": {
+    "origin": "example",
+    "subclassKey": "WAY_OF_THE_OPEN_HAND",
+    "raceKey": "HUMAN_2014",
+    "backgroundKey": "CRIMINAL",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики збірки",
+        "text": "Ми припускатимемо значення купівлі характеристик, запропоновані вище, або раси, що отримують 3 підвищення характеристик. Люди отримують +1 до кожної характеристики, що найближче до цього, чого ми можемо досягти в межах Основних правил і SRD.\n\n  Базове значення Підвищене значення Сила 8 9 Спритність 15 16 Статура 15 16 Інтелект 8 9 Мудрість 15 16 Харизма 8 9",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Людина — безперечно найпростіша раса. Базова людина — спокусливий варіант для класів, що спираються на кілька характеристик, а жоден клас не залежить від кількох характеристик більше за Монаха. Тож це буде єдина базова збірка, де ми використовуємо людину.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Ми візьмемо Аналіз Поведінки та Непомітність. Аналіз Поведінки допоможе бути корисними в соціальних ситуаціях, а Непомітність допоможе виконувати роль розвідника. Якщо від передісторії ви отримаєте дублююче володіння, візьміть Уважність, щоб використати Мудрість. Також можете розглянути володіння Атлетикою, щоб краще захоплювати.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-1",
+        "title": "Передісторія",
+        "text": "На жаль, жодна з передісторій, включених до Основних правил, не підходить Монаху особливо добре. Найкращий варіант, імовірно, — «Злочинець». Обман — не найкраща навичка для Монаха, але Непомітність й Інструменти злодія дозволяють нам дуже гарно замінити Пройдисвіта. «Послушник» прохідний, але з бідною Харизмою я не знаю, що ми робили б із двома мовами.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-background-1",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-1",
+        "title": "Риси",
+        "text": "Монахи — один із небагатьох бойових класів, для яких риси не завжди хороша ідея. Монаху потрібні три високі характеристики, тож, окрім Варіанта людини, зазвичай немає слушного моменту взяти рису. Коли ви довели Спритність і Мудрість до максимуму, може бути вигідніше взяти «Здорованя», ніж підвищення Статури, але якщо триматися підвищень характеристик, усе буде добре.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-feats-1",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "– Захист без броні – Бойові мистецтва",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "– Кі – Рух без броні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "– Монастирська Традиція: Шлях відкритої долоні – Техніка відкритої долоні – Відхилення снарядів",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "– Покращення Характеристик (Спритність 16 → 18) – Повільне падіння",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "– Додаткова атака – Приголомшливий удар",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "– Удари, посилені Кі – Цілісність тіла",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "– Ухилення – Спокій розуму",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "– Покращення Характеристик (Спритність 18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "– Покращення Руху без броні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "– Чистота тіла",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "– Спокій",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "– Покращення Характеристик (Мудрість 16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "– Язик Сонця і Місяця",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "– Алмазна душа",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "– Невмируще тіло",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "– Покращення Характеристик (Мудрість 18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "– Тремтяча долоня",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "– Порожнє тіло",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "– Покращення Характеристик (Статура 16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "– Досконале Я",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-2014",
+            "translationRevisionId": "translation-rpgbot-monk-2014-draft1",
+            "sourceRevisionId": "rpgbot-d0ca2424381613a0-a9e383a241087fca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": []
+  }
+}

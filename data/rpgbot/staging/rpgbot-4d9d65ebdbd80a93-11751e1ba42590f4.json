@@ -1,0 +1,1269 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/epic-boons/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "11751e1ba42590f4d09fcb2f32cca2e13e5350bbdb1f552e846a748383ece1aa",
+  "sourceRevision": {
+    "revisionId": "rpgbot-4d9d65ebdbd80a93-11751e1ba42590f4",
+    "sourceId": "rpgbot-4d9d65ebdbd80a93",
+    "fetchedAt": "2026-09-29T19:12:56.465783+00:00",
+    "sourceUpdatedAt": "2024-12-14T14:43:26-05:00",
+    "contentHash": "f5ab7e8d9ed93bf5c3ed88195f9ed6c54c19bbd3d79e38ccc13015dc4bffe4bc",
+    "title": "DnD 5e Epic Boons Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-4d9d65ebdbd80a93-11751e1ba42590f4.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "5th edition’s character advancement “stops” at 20th level, and for many\n\tparties that’s the end of things. You might run a few sessions at level 20 to\n\tenjoy those capstone class features, but generally that’s where people decide\n\tit’s time to retire characters and start a new story. But level 20 doesn’t\n\tneed to be the end of things."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "DnD 5e’s Epic Boons provide a system for the DM to award a new form of\n\tcharacter advancement for 20th-level characters that continue adventuring. You\n\tdon’t even need to wait very long to grant them: The DMG recommends one boon\n\tfor every 30,000xp beyond the xp needed to hit 20th level. A CR 20 creature\n\tawards 25,000xp, so in a party of four you can get a boon roughly every 5\n\tencounters. That feels a bit fast, but these are an optional reward so your DM\n\tis certainly free to adjust that number."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While this article is listed under Character Optimization, it’s also a\n\thelpful articles for dungeon masters. The Dungeon Master’s Guide states that\n\tby default the DM picks which Epic Boon a character receives, but can choose\n\tto let players pick. Either option works fine, but if you as the DM are going\n\tto pick, I hope that you’ll use this article to help you pick boons which will\n\tbenefit the characters who receive them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-epic-boons",
+      "heading": "Epic Boons",
+      "sourceAnchor": "epic-boons",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-4",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Ability Score Increase / Feat",
+      "blocks": [
+        {
+          "blockId": "block-section-4-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The “Alternatives to Epic Boons” sidebar suggests an ASI or feat as an option\n\tin place of an Epic Boon. This is an easy option to give to any character, and\n\tevery character will appreciate it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-4-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For MAD classes, this offers the opportunity to raise multiple ability scores\n\tto 20 and also take a feat. Classes like the Monk and the Paladin often need\n\tto make sacrifices, and an additional ASI/Feat makes that opportunity cost\n\tless of a challenge."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-5",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Combat Prowess",
+      "blocks": [
+        {
+          "blockId": "block-section-5-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Intended for melee martial characters. Since this works infrequently, relying on big single attacks is your best option. By this level that only leaves rogues as a likely beneficiary. Any melee martial build will benefit, but it’s only impressive on the Rogue, and even then I would much rather have something else."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-6",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Dimensional Travel",
+      "blocks": [
+        {
+          "blockId": "block-section-6-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Fey Touched feat has made this largely obsolete."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-7",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Fate",
+      "blocks": [
+        {
+          "blockId": "block-section-7-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A fantastic support option. This doesn’t consume an action, so it works well\n\ton any character."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-8",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Fortitude",
+      "blocks": [
+        {
+          "blockId": "block-section-8-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The equivalent of taking the Tough feat. It’s fine, especially for front-line martial characters, but Boon of Invincibility, Boon of Recovery (unless you have pitifully few hit points), and Boon of Resilience will all provide more durability."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-9",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of High Magic",
+      "blocks": [
+        {
+          "blockId": "block-section-9-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "9th-level spells include insanely powerful options like Foresight, True Polymorph, and Wish. For full spellcasters, this is spectacular. For everyone else, there’s Boon of Recall."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-10",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Immortality",
+      "blocks": [
+        {
+          "blockId": "block-section-10-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is more of a plot device than a character option. Some class and subclass features like the Druid’s Ageless Body make your character extremely long-lived or even immortal, and for characters who don’t get those options this Epic Boon has some appeal. Even a wizard might get sick of casing Clone and waiting for old age to set in before pushing the soft reset button on their body. If your DM is planning a storyline which might play out over decades or even centuries, this may be a crucial option for characters who aren’t immortal or at last very long-lived."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-11",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Invincibility",
+      "blocks": [
+        {
+          "blockId": "block-section-11-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A great way to negate a big hit a few times per day. Good on any character, but front-line martial characters will get the most benefit because they’re most likely to be targeted. You might be tempted to use this for things like critical hits, but it also works for things like Meteor Swarm, which will almost certainly do more damage than even the most terrifying critical hit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-12",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Irresistible Offense",
+      "blocks": [
+        {
+          "blockId": "block-section-12-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "By this level, magic weapons should be not only available but abundant. Almost nothing resists damage from magic weapons, and spellcasters can typically just change spells if one damage type isn’t working. Unless you’re built around a specific damage type, this isn’t as helpful as you might expect. And even then, Elemental Adept may be more helpful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-13",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Luck",
+      "blocks": [
+        {
+          "blockId": "block-section-13-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Boon of Fate, but it only works on you. It’s still good, of course, but making it available to one character rather than 3 (assuming a party of 4) is strictly worse."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-14",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Magic Resistance",
+      "blocks": [
+        {
+          "blockId": "block-section-14-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spectacularly powerful. Great on any character. It typically requires a legendary magic item (or playing a Satyr/Yuan-Ti prior to Monsters of the Multiverse) to replicate this."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-15",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Peerless Aim",
+      "blocks": [
+        {
+          "blockId": "block-section-15-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This essentially guarantees that you will hit, but unlike Boon of Combat Prowess you need to use it before you roll, making it less powerful. Boon of Combat Prowess isn’t especially powerful, so neither is this."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-16",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Perfect Health",
+      "blocks": [
+        {
+          "blockId": "block-section-16-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Diseases and poison are common across the full level range, and Constitution saves cover both dangerous effects and Concentration saves. This is great on any character."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-17",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Planar Travel",
+      "blocks": [
+        {
+          "blockId": "block-section-17-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Neat and potentially a great plot device, but not especially useful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-18",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Quick Casting",
+      "blocks": [
+        {
+          "blockId": "block-section-18-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spectacular. Upcasting the spell doesn’t appear to matter, so you can turn Fireball into a Bonus Action and upcast it as much as you’d like. Keep in mind that you can no longer choose to cast the spell with a regular Action, and this doesn’t change the restriction on casting other spells when you cast a spell with a Bonus Action casting time."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-18-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This is especially powerful for wizards with Spell Mastery or character with the Spell Mastery Epic Boon. Pick a spell that you can cast for free and now it’s both free and a Bonus Action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-19",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Recovery",
+      "blocks": [
+        {
+          "blockId": "block-section-19-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A good source of in-combat healing for front-line martial characters, but I would only take this if you have a huge pile of hit points. Barbarians and Fighters with high Constitution are a good example."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-20",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Resilience",
+      "blocks": [
+        {
+          "blockId": "block-section-20-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Most monsters’ attacks aren’t magical, even at this level. This will provide broad and reliable resistance to the most common damage types. This also makes it easier for martial characters to handle being swarmed by small enemies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-21",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Skill Proficiency",
+      "blocks": [
+        {
+          "blockId": "block-section-21-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Few characters are built to be effective with more skills than they start\n\twith at first level, so even with Proficiency you may still be less effective\n\twith any given skill than someone in your party who is better suited to that\n\tskill."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-21-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Rogue’s Reliable Talent makes this especially useful. Add an Ioun Stone of Mastery (the one that improves your Proficiency Bonus) and you have a minimum result of 17+mod on any skill check."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-22",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Speed",
+      "blocks": [
+        {
+          "blockId": "block-section-22-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The ability to Disengage as a Bonus Action is appealing for many characters, and increasing your speed by 30 feet is enough that most enemies will struggle to keep you within reach unless you want to be there. This is great for melee Strikers like monks, rangers, and rogues, and might even be useful for spellcasters who like to use short-range spells."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-23",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Spell Mastery",
+      "blocks": [
+        {
+          "blockId": "block-section-23-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Excellent. Not quite as good as the Wizard’s Spell Mastery, but close. 1st-level spells include great options like Absorb Elements, Healing Word, and Shield."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-24",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Spell Recall",
+      "blocks": [
+        {
+          "blockId": "block-section-24-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This allows you to cast one of your spells once per day. Since you cast it without spending a spell slot, you can’t spend a higher level spell slot to upcast the spell. You’ll almost certainly use this to case a spell of your highest spell level to get the most benefit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-25",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of the Fire Soul",
+      "blocks": [
+        {
+          "blockId": "block-section-25-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Immunity to fire is really nice at any level because fire is consistently one\n\tof the most common damage types.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-25-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At level 20 Burning Hands does less damage than cantrips. Sure, you can hit multiple targets, but that’s still just not good enough to make it a consistently useful option in combat. I would consider this on a martial character if you also got Boon of Quick Casting so that you could spend your Action to attack and use your Bonus Action to cast Burning Hands every turn."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-26",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of the Night Spirit",
+      "blocks": [
+        {
+          "blockId": "block-section-26-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Similar in purpose to the Ring of Invisibility. Boon of the Night spirit is\n\tmore restrictive in where you can become invisible and has different\n\trestrictions on what will break your invisibility. It also doesn’t specify\n\tthat it turns your equipment invisible, but WotC almost certainly didn’t\n\tintend to have you walking around invisibly with visible gear."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-26-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The wording on what you can do without breaking invisibility explicitly omits\n\tBonus Actions. This means that you can use things like Bonus Action spells and\n\tCunning Action without breaking invisibility. You can even make attacks\n\t(provided that you can do so with only a Bonus Action), unlike the\n\tInvisibility spell."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-27",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of the Stormborn",
+      "blocks": [
+        {
+          "blockId": "block-section-27-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Similar to Boon of the Fire Spirit. It has all of the same challenges."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-28",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of the Unfettered",
+      "blocks": [
+        {
+          "blockId": "block-section-28-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Too situational. If you’re this worried about being grappled, have someone\n\tcast Freedom of Movement on you."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-29",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Truesight",
+      "blocks": [
+        {
+          "blockId": "block-section-29-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Excellent, but technically only situationally useful. At this level\n\thigh-level spellcasters are abundant, so enemies will often have access to\n\tinvisibility and illusions, and the ability to see past them is great\n\tprotection."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-30",
+      "parentSectionId": "section-epic-boons",
+      "heading": "Boon of Undetectability",
+      "blocks": [
+        {
+          "blockId": "block-section-30-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stellar for any rogue. Great for any character who likes to be sneaky, but unless you’re using Stealth during combat it’s not essential."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-aberrant-dragonmark",
+      "heading": "Aberrant Dragonmark",
+      "sourceAnchor": "aberrant-dragonmark",
+      "blocks": [
+        {
+          "blockId": "block-section-aberrant-dragonmark-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Aberrant Dragonmark feat introduced in Eberron: Rising from the Last War, grants the character a 10% chance upon gaining a level to gain an Epic Boon starting at level 10."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-aberrant-dragonmark-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don’t use this mechanic."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-aberrant-dragonmark-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Aberrant Dragonmark is already one of the best "
+            },
+            {
+              "type": "link",
+              "text": "spellcasting feats",
+              "href": "https://rpgbot.net/dnd5/characters/spellcasting-feats/"
+            },
+            {
+              "type": "text",
+              "text": ", and doesn’t need the added capabilities. On average, a character who starts at level 10 with Aberrant Dragonmark will expect to have an Epic Boon, putting them a step above the rest of the party. The boon is also determined randomly, which leaves a good chance that a character will get a boon that’s totally useless to them, like casting a spell as a Bonus Action for a character with no ability to cast spells. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-aberrant-dragonmark-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can manage this by delaying when they get the boon and hand-picking the boon, but at that point you’re just choosing to give them a boon with extra steps that add nothing but frustration."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-aberrant-dragonmark-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Again: Don’t use this mechanic."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[1]",
+      "detail": "rating-blue Ability Score Increase / Feat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[2]",
+      "detail": "rating-orange Boon of Combat Prowess"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[3]",
+      "detail": "rating-orange Boon of Dimensional Travel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[4]",
+      "detail": "rating-blue Boon of Fate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[5]",
+      "detail": "rating-red Boon of Fortitude"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[6]",
+      "detail": "rating-blue Boon of High Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[7]",
+      "detail": "rating-orange Boon of Immortality"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[8]",
+      "detail": "rating-orange Boon of Invincibility"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[9]",
+      "detail": "rating-red Boon of Irresistible Offense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[10]",
+      "detail": "rating-green Boon of Luck"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[11]",
+      "detail": "rating-blue Boon of Magic Resistance"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[12]",
+      "detail": "rating-orange Boon of Peerless Aim"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[13]",
+      "detail": "rating-green Boon of Perfect Health"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[14]",
+      "detail": "rating-red Boon of Planar Travel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[15]",
+      "detail": "rating-blue Boon of Quick Casting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[16]",
+      "detail": "rating-orange Boon of Recovery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[17]",
+      "detail": "rating-blue Boon of Resilience"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[18]",
+      "detail": "rating-green Boon of Skill Proficiency"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[19]",
+      "detail": "rating-green Boon of Speed"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[20]",
+      "detail": "rating-blue Boon of Spell Mastery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[21]",
+      "detail": "rating-green Boon of Spell Recall"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[22]",
+      "detail": "rating-orange Boon of the Fire Soul"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[23]",
+      "detail": "rating-blue Boon of the Night Spirit"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[24]",
+      "detail": "rating-orange Boon of the Stormborn"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[25]",
+      "detail": "rating-orange Boon of the Unfettered"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[26]",
+      "detail": "rating-green Boon of Truesight"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "div/h3[27]",
+      "detail": "rating-green Boon of Undetectability"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[1]",
+      "detail": "section-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-4-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-4-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[2]",
+      "detail": "section-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-5-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[3]",
+      "detail": "section-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-6-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[4]",
+      "detail": "section-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-7-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[5]",
+      "detail": "section-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-8-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[6]",
+      "detail": "section-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-9-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[7]",
+      "detail": "section-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-10-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[8]",
+      "detail": "section-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-11-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[9]",
+      "detail": "section-12"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-12-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[10]",
+      "detail": "section-13"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-13-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[11]",
+      "detail": "section-14"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-14-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[12]",
+      "detail": "section-15"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-15-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[13]",
+      "detail": "section-16"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-16-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[14]",
+      "detail": "section-17"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-17-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[15]",
+      "detail": "section-18"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-18-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-18-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[16]",
+      "detail": "section-19"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-19-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[17]",
+      "detail": "section-20"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-20-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[18]",
+      "detail": "section-21"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-21-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-21-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[19]",
+      "detail": "section-22"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-22-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[20]",
+      "detail": "section-23"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-23-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[21]",
+      "detail": "section-24"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-24-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[22]",
+      "detail": "section-25"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-25-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-25-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[23]",
+      "detail": "section-26"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-26-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-26-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[24]",
+      "detail": "section-27"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-27-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[25]",
+      "detail": "section-28"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-28-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[26]",
+      "detail": "section-29"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-29-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h3[27]",
+      "detail": "section-30"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-30-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-aberrant-dragonmark-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-aberrant-dragonmark-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-aberrant-dragonmark-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-aberrant-dragonmark-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-aberrant-dragonmark-5"
+    }
+  ],
+  "metrics": {
+    "words": 1896,
+    "sections": 31,
+    "blocks": 44,
+    "tables": 0,
+    "ratingSignals": 31
+  },
+  "status": "needs-editorial-review"
+}

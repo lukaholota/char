@@ -1,0 +1,217 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "cleric-forge-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-cleric-forge-2014-draft1",
+    "sourceRevisionId": "rpgbot-f1f31f31866990c8-77e3cfafdad1e921"
+  },
+  "exampleSection": "section-example-forge-cleric-build-forged-in-the-heat-of-battle",
+  "levelTableSection": "section-levels",
+  "classKey": "CLERIC_2014",
+  "subclassKey": "FORGE_DOMAIN",
+  "raceKey": "HALF_ELF_2014",
+  "backgroundKey": "GUILD_ARTISAN",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3
+    },
+    {
+      "level": 4,
+      "featKey": "CRUSHER",
+      "featOptions": [
+        {
+          "optionNameEng": "CRUSHER Ability (Strength)"
+        }
+      ],
+      "spells": {
+        "cantripKeys": [
+          "light"
+        ]
+      },
+      "section": "section-feats"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "featKey": "WAR_CASTER",
+      "section": "section-feats"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "STR",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/cleric-forge-2014-fa6b027073.webp",
+    "title": "Клірик — Домен кузні, Напівельф",
+    "description": "Клірик ближнього бою зі зброєю: Напівельф зі спадком високого ельфа (Гримучий Клинок), Домен кузні з Благословенням кузні, Гільдійський ремісник з Аналізом поведінки й Уважністю.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CON",
+      "WIS",
+      "STR"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "HISTORY",
+        "RELIGION"
+      ],
+      "race": [],
+      "background": [
+        "INSIGHT",
+        "PERCEPTION"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": [
+      "Замовляння"
+    ],
+    "languages": [
+      "DWARVISH",
+      "GOBLIN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "c",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 5,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "toll-the-dead",
+        "word-of-radiance"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [
+        "booming-blade"
+      ],
+      "preparedSpellKeys": [
+        "healing-word"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Автор називає замовляння Настанова, Дзвін небіжчика, Слово сяйва й Гримучий Клинок (від спадку Напівельфа), а Цілюще слово радить тримати напохваті: його підготовлено.",
+      "platformChoices": []
+    },
+    "abilityExplanation": "Напівельф за правилами Таші: +1 до Статури й Мудрості та +2 до Сили, тож Сила 17, Статура 16, Мудрість 16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Історія й Релігія — від Клірика. Автор бере Аналіз поведінки від Гільдійського ремісника, а Переконання міняє на Уважність (правило PHB «Налаштування передісторії»). Мову й вид інструментів ремісника автор лишає на розсуд гравця — дві мови ми обрали за вас, вибір платформи.",
+    "equipmentExplanation": "Булава, кольчуга, щит, легкий арбалет і набір священика: автор радить щит і важкі обладунки, решту ми обрали за вас — вибір платформи."
+  },
+  "revision": 2
+}

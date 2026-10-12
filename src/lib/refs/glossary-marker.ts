@@ -48,8 +48,10 @@ export function findGlossaryMarkers(text: string): Array<{ term: string; origina
   return found;
 }
 
-export function expandGlossaryMarkersToHtml(text: string): string {
-  let result = "";
+export type GlossarySegment = { text: string; original?: string };
+
+export function splitGlossaryMarkers(text: string): GlossarySegment[] {
+  const segments: GlossarySegment[] = [];
   let cursor = 0;
 
   for (const match of text.matchAll(MARKER)) {
@@ -57,12 +59,23 @@ export function expandGlossaryMarkersToHtml(text: string): string {
     const { pairedTerm, original } = readMarker(match[1]);
     const start = pairedTerm === null ? findTermStart(text, at, at + match[0].length, original) : at;
     const term = pairedTerm ?? text.slice(start, at).trim();
-    result += text.slice(cursor, start);
-    result += `<abbr title="${escapeHtmlAttribute(original)}">${term === "" ? original : term}</abbr>`;
+    if (start > cursor) segments.push({ text: text.slice(cursor, start) });
+    segments.push({ text: term === "" ? original : term, original });
     cursor = at + match[0].length;
   }
 
-  return result + text.slice(cursor);
+  if (cursor < text.length) segments.push({ text: text.slice(cursor) });
+  return segments;
+}
+
+export function expandGlossaryMarkersToHtml(text: string): string {
+  return splitGlossaryMarkers(text)
+    .map((segment) =>
+      segment.original === undefined
+        ? segment.text
+        : `<abbr title="${escapeHtmlAttribute(segment.original)}">${segment.text}</abbr>`
+    )
+    .join("");
 }
 
 function readMarker(body: string): { pairedTerm: string | null; original: string } {
@@ -72,9 +85,23 @@ function readMarker(body: string): { pairedTerm: string | null; original: string
 }
 
 function findTermStart(text: string, at: number, markerEnd: number, original: string): number {
-  let start = findSectionNameStart(text, at, markerEnd, original) ?? findWordsStart(text, at, original);
+  let start = findSectionNameStart(text, at, markerEnd, original) ?? findQuotedNameStart(text, at) ?? findWordsStart(text, at, original);
   while (start < at && /\s/.test(text[start])) start += 1;
   return start;
+}
+
+/// «Відкритої Аркани»{{Unearthed Arcana}} — назва в лапках, за якою одразу стоїть маркер, і є
+/// терміном: лапки несуть межу, тож лік слів оригіналу тут не потрібен. Вкладені лапки
+/// («Руки астрального «я»»{{…}}) рахуються парами, щоб термін не обрізався на внутрішніх.
+function findQuotedNameStart(text: string, at: number): number | null {
+  if (text[at - 1] !== "»") return null;
+  let depth = 0;
+  for (let index = at - 1; index >= 0; index -= 1) {
+    if (text[index] === "»") depth += 1;
+    if (text[index] === "«") depth -= 1;
+    if (depth === 0) return index;
+  }
+  return null;
 }
 
 /// «Голова чорного дракона: Кислотний подих{{Black Dragon Head: Acid Breath}}» і «Танцюй, моя

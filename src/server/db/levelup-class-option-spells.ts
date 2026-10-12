@@ -3,6 +3,7 @@
 import { auth } from "@/lib/auth";
 import { canEditPers } from "@/lib/actions/pers";
 import { prisma } from "@/lib/prisma";
+import type { Prisma, PrismaClient } from "@prisma/client";
 import {
   findClassOptionSpellProblem,
   findSubclassAtNextLevel,
@@ -35,16 +36,18 @@ export async function loadLevelUpClassOptionSpellOffer(
 }
 
 export async function findLevelUpClassOptionSpellProblem(input: {
+  client?: PrismaClient | Prisma.TransactionClient;
   persId: number;
   newlyChosenOptionIds: readonly number[];
   subclassAtLevel: SubclassAtLevel | null;
   alsoChosenSpellIds: readonly number[];
   selectedSpellIds: readonly number[];
 }) {
-  return findClassOptionSpellProblem(prisma, {
+  const client = input.client ?? prisma;
+  return findClassOptionSpellProblem(client, {
     newlyChosenOptionIds: input.newlyChosenOptionIds,
     subclassAtLevel: input.subclassAtLevel,
-    unavailableSpellIds: [...(await findOwnedSpellIds(input.persId)), ...input.alsoChosenSpellIds],
+    unavailableSpellIds: [...(await findOwnedSpellIds(input.persId, client)), ...input.alsoChosenSpellIds],
     selectedSpellIds: input.selectedSpellIds,
   });
 }
@@ -56,7 +59,7 @@ async function canCurrentUserEdit(persId: number): Promise<boolean> {
   return userId !== null && (await canEditPers(persId, userId));
 }
 
-async function findOwnedSpellIds(persId: number): Promise<number[]> {
-  const rows = await prisma.persSpell.findMany({ where: { persId }, select: { spellId: true } });
+async function findOwnedSpellIds(persId: number, client: PrismaClient | Prisma.TransactionClient = prisma): Promise<number[]> {
+  const rows = await client.persSpell.findMany({ where: { persId }, select: { spellId: true } });
   return rows.map((row) => row.spellId);
 }

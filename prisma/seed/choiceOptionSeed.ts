@@ -593,7 +593,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
             groupName: 'Потойбічні виклики',
             optionName: 'Максимум хілу з фамільяром',
             optionNameEng: 'Gift of the Ever-Living Ones',
-            prerequisites: { level: 5, pact: 'Pact of the Chain' },
+            prerequisites: { pact: 'Pact of the Chain' },
             features: {
                 create: [{ feature: { connect: { engName: 'Gift of the Ever-Living Ones' } } }]
             },
@@ -622,7 +622,7 @@ export const seedChoiceOptions = async (prisma: PrismaClient) => {
             groupName: 'Потойбічні виклики',
             optionName: 'Невидимість на себе в тіні',
             optionNameEng: 'One with Shadows',
-            prerequisites: { level: 7 },
+            prerequisites: { level: 5 },
             features: {
                 create: [{ feature: { connect: { engName: 'One with Shadows' } } }]
             },

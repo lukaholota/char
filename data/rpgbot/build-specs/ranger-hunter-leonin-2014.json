@@ -1,0 +1,125 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "ranger-hunter-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-ranger-hunter-2014-draft1",
+    "sourceRevisionId": "rpgbot-0c370626b4827817-c06b415d3208af22"
+  },
+  "exampleSection": "section-example-hunter-build-gunnhildrs-blades",
+  "levelTableSection": "section-levels",
+  "classKey": "RANGER_2014",
+  "subclassKey": "HUNTER_CONCLAVE",
+  "raceKey": "LEONIN_MOOT",
+  "backgroundKey": "GLADIATOR",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    { "level": 2, "classKey": "CLERIC_2014", "subclassKey": "LIFE_DOMAIN", "spells": { "cantripKeys": ["light", "mending", "word-of-radiance"] }, "section": "section-levels" },
+    { "level": 3, "classOptions": [{ "optionNameEng": "Archery" }], "spells": { "knownSpellKeys": ["fog-cloud", "goodberry"] } },
+    { "level": 4, "subclassKey": "HUNTER_CONCLAVE", "subclassOptions": [{ "optionNameEng": "Horde Breaker (Hunter)" }], "classOptions": [{ "optionNameEng": "Primeval Awareness" }], "spells": { "knownSpellKeys": ["longstrider"] } },
+    { "level": 5, "featKey": "GUNNER", "section": "section-feats" },
+    { "level": 6, "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 7 },
+    { "level": 8, "subclassOptions": [{ "optionNameEng": "Multiattack Defense (Hunter)" }], "spells": { "knownSpellKeys": ["pass-without-trace"] } },
+    { "level": 9, "featKey": "SHARPSHOOTER", "section": "section-feats" },
+    { "level": 10, "spells": { "knownSpellKeys": ["elemental-weapon"] } },
+    { "level": 11, "classOptions": [{ "optionNameEng": "Hide in Plain Sight" }] },
+    { "level": 12, "subclassOptions": [{ "optionNameEng": "Volley (Hunter)" }], "openSpellPicks": [{ "category": "knownSpells", "count": 1 }] },
+    { "level": 13, "abilityScoreIncrease": [{ "ability": "DEX", "amount": 2 }], "section": "section-feats" },
+    { "level": 14, "spells": { "knownSpellKeys": ["guardian-of-nature"] } },
+    { "level": 15 },
+    { "level": 16, "subclassOptions": [{ "optionNameEng": "Uncanny Dodge (Hunter)" }], "spells": { "knownSpellKeys": ["freedom-of-movement"] }, "section": "section-class-features" },
+    { "level": 17, "featKey": "RESILIENT", "featOptions": [{ "optionNameEng": "Resilient (Constitution)" }], "section": "section-feats" },
+    { "level": 18, "spells": { "knownSpellKeys": ["swift-quiver"] } },
+    { "level": 19 },
+    { "level": 20, "abilityScoreIncrease": [{ "ability": "CON", "amount": 2 }], "openSpellPicks": [{ "category": "knownSpells", "count": 1 }], "section": "section-feats" }
+  ],
+  "incomplete": [
+    {
+      "field": "Заклинання Слідопита 5-го, 11-го і 19-го рівня Слідопита (рівні персонажа 6, 12, 20)",
+      "reason": "Автор називає Кінетичний скік (6-й рівень персонажа), Відродження (12-й) і Більше відновлення (20-й), але цих заклинань немає в списку Слідопита платформи; замість них у плані відкрите місце для вибору гравця. Для 6-го рівня автор також дозволяє Переміщення без сліду, яке вже взято на 8-му.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Передісторія Студент Прізмарі",
+      "reason": "Автор називає варіант із передісторією Студент Прізмарі та рисою Посвячений Стріксхейвена (Прізмарі); пресет не записує заклинань цієї риси, тому взято Гладіатора — він має ті самі навички.",
+      "section": "section-background"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/ranger-hunter-leonin-2014.webp",
+    "title": "Слідопит Мисливець — Леонін",
+    "description": "Леонін-стрілець зі швидкістю 35 футів і темнозором, що бʼє з довгого лука. Починає з Міченим ворогом і Кмітливим дослідником; Мисливець відкриється на 3-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ANIMAL_HANDLING",
+        "PERCEPTION",
+        "INSIGHT"
+      ],
+      "race": [
+        "SURVIVAL"
+      ],
+      "background": []
+    },
+    "expertise": [
+      "PERCEPTION"
+    ],
+    "classOptions": [
+      "Favored Foe",
+      "Deft Explorer - Canny"
+    ],
+    "languages": [
+      "GIANT",
+      "GNOMISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Леонін зі змінюваним походженням за правилами Таші: +2 до Спритності й +1 до Мудрості, як в авторській таблиці (Спритність 17, Мудрість 16); це вже враховано.",
+    "skillExplanation": "Виживання — від леоніна; Поводження з тваринами, Уважність і Аналіз поведінки — від Слідопита; Акробатика й Виступ — від Гладіатора, як у прикладі автора. Кмітливий дослідник дає експертизу в Уважності, як радить автор; його дві додаткові мови автор не називає, тож їх ми обрали за вас.",
+    "equipmentExplanation": "Автор називає довгий лук. Шкіряний обладунок, два короткі мечі й набір дослідника підземель ми обрали за вас — стартове спорядження автор не описує."
+  }
+}

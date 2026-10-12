@@ -1,0 +1,918 @@
+{
+  "buildId": "build-ranger-swarmkeeper-custom-lineage-2014",
+  "revisionId": "build-ranger-swarmkeeper-custom-lineage-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад персонажа — Маю камінець",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-ranger-swarmkeeper-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+      "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+      "sectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "RANGER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "RANGER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "RANGER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Druidic Warrior"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "absorb-elements"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "RANGER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "SWARMKEEPER",
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Primal Awareness"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fog-cloud"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "RANGER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SHARPSHOOTER"
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "RANGER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "pass-without-trace"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "RANGER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "RANGER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "RANGER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 1
+          },
+          {
+            "ability": "CON",
+            "amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "RANGER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "RANGER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Hide in Plain Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "RANGER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "conjure-barrage"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "RANGER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "RANGER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "guardian-of-nature"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "RANGER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "RANGER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "freedom-of-movement"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "RANGER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "RANGER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "conjure-volley"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "RANGER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "RANGER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "steel-wind-strike"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "RANGER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-ranger-swarmkeeper-2014",
+          "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+          "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "SWARMKEEPER",
+    "raceKey": "CUSTOM_LINEAGE_TCE",
+    "backgroundKey": "INVESTIGATOR",
+    "featKey": "CRUSHER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 10
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Змінюємо звичайні пріоритети Слідопита: насамперед Мудрість і Статура, Спритність залишаємо 14 для середніх обладунків. Обираємо Свою расу{{Custom Lineage}}; таблиця вже враховує +1 Статури від Дробильника.\n\n Купівля характеристик Бонуси раси й риси Рівень 20 Сил 8 8 8 Спр 14 14 14 Ста 15 16 20 Інт 10 10 10 Муд 15 17 20 Хар 8 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Своя раса дає чудову бонусну рису: одразу беремо Дробильника й округлюємо Статуру. Чарівні камені завдають дробильної шкоди, тож Дробильник додає трохи контролю.\n\nТакож беремо темнозір і вкладаємо +2 в Мудрість.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Передісторія Слідчий{{Investigator}} дає Уважність та Аналіз поведінки, а також володіння Набором для гриму й Інструментами злодія.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Слідопита беремо Непомітність, Природу й Розслідування. Вправний дослідник дає експертність у Розслідуванні, компенсуючи середній Інтелект. Разом з Уважністю, Аналізом поведінки й особливо Інструментами злодія від Слідчого це дозволяє виконувати роль розвідника.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-multiclassing-potential",
+        "title": "Можливості мультикласування",
+        "text": "Якщо мультикласування прийнятне, персонажу допоможе будь-який варіант із розділу вище.\n\nІз трьох шляхів я, імовірно, почав би Воїном зі Стрільбою з лука, щоб одразу мати володіння ряткидками Статури. Після 4-го рівня персонажа маємо Стрільбу з лука від Воїна 1, Друїдичного воїна від Слідопита 2 й Хранителя рою від Слідопита 3. Далі можна залишитися Слідопитом або повернутися до Воїна. Якщо в групі вже достатньо небезпечного контролю області, Воїн зрештою дає другу Додаткову атаку на своєму 11-му рівні, що чудово працює з трьома Чарівними каменями.\n\nІнший сильний варіант — почати Друїдом і згодом узяти другий рівень для Кола зірок. Тоді все ще потрібен Стійкий (Статура), зате керуватимемо камінцями вже на 1-му рівні замість чекати Слідопита 2.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-multiclassing-potential",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "Завдяки Своїй расі маємо бонусну рису на 1-му рівні та пʼять Покращень характеристик від Слідопита.\n\nНа 1-му рівні беремо Дробильника, вкладаючи +1 у Статуру. Магічні камінці штовхатимуть людей у невигідні місця — корисно.\n\nНа 4-му рівні беремо Влучного стрільця. Камінець із замовляння, запущений із пращі, є атакою далекобійною зброєю й відповідає останньому — лише останньому — пункту риси. Отримуємо додаткову шкоду.\n\nНа 8-му рівні Покращення характеристик дає +1 Мудрості й +1 Статури: Мудрість 18, Статура 17, готуємося до Стійкого (Статура).\n\nНа 12-му рівні +2 Мудрості доводить її до 20. За бажанням зараз можна взяти Стійкого (Статура), а це підвищення — на 16-му.\n\nНа 16-му рівні беремо Стійкого (Статура): Статура 18 і володіння її ряткидками.\n\nНа 19-му рівні +2 Статури доводить її до 20.\n\nЯкщо додаткова користь Дробильника не потрібна, бонусною рисою на 1-му рівні може бути Стійкий (Статура). Тоді на 8-му беремо рису з +1 Мудрості: {{Кухар|Chef}}, {{Доторк феї|Fey Touched}}, {{Доторк тіні|Shadow Touched}} чи {{Експерт у навичках|Skill Expert}}. А на місце пізнішого Стійкого ставимо +2 Статури.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "{{Вправний дослідник - Кмітливий|Deft Explorer - Canny}} (опціонально); Мічений ворог — 1к4 (опціонально); навички: Аналіз поведінки, Розслідування (експертність), Природа, Уважність, Непомітність; інструменти: Набір для гриму, Інструменти злодія; бонусна риса: Дробильник",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Бойовий стиль: Друїдичний воїн — Чарівний камінь, Кийок; {{Чаротворство (Слідопит)|Spellcasting (Ranger)}}: заклинання 1-го рівня — Поглинання стихій [Absorb Elements], Обплутування [Entangle] (к)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Хранитель рою: Зібраний рій, Магія охоронця рою — Магічна рука, Вогники фей (к); чаротворство: заклинання 1-го рівня — Туманна хмара [Fog Cloud] (к)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Влучний стрілець",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "{{Додаткова атака|Extra Attack (Ranger)}}; Магія охоронця рою — Павутиння (к); чаротворство: заклинання 2-го рівня — Переміщення без сліду [Pass without Trace] (к)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "{{Вправний дослідник - Мандрівний|Deft Explorer - Roving}}; Мічений ворог — 1к6",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Корчуватий прилив; чаротворство: заклинання 2-го рівня — Покращення здібності [Enhance Ability]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення характеристик: +1 Мудрість (18), +1 Статура (17); {{Стежка землі|Land’s Stride}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Магія охоронця рою — Газоподібна форма (к); чаротворство: заклинання 3-го рівня — Відродження [Revivify]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "{{Сховатися на видноті|Hide in Plain Sight}}; {{Вправний дослідник - Невтомний|Deft Explorer - Tireless}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Могутній рій; чаротворство: заклинання 3-го рівня — Виклик обстрілу [Conjure Barrage] або Стихійна зброя [Elemental Weapon] (к)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення характеристик: +2 Мудрість (20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Магія охоронця рою — Арканне око (к); чаротворство: заклинання 4-го рівня — Вартовий природи [Guardian of Nature] (к)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "{{Зникнення|Vanish}}; Мічений ворог — 1к8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Розсіювання в рій; чаротворство: заклинання 4-го рівня — Свобода рухів [Freedom of Movement]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Стійкий (Статура); +1 Статура (18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Магія охоронця рою — Нашестя комах (к); чаротворство: заклинання 5-го рівня — Виклик залпу [Conjure Volley]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "{{Дикі почуття|Feral Senses}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення характеристик: +2 Статура (20); чаротворство: заклинання 5-го рівня — Удар сталевого вітру [Steel Wind Strike]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "{{Убивця ворогів|Foe Slayer}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Замовляння Друїдичного воїна",
+        "reason": "На 2-му рівні автор бере бойовий стиль Друїдичний воїн із замовляннями Чарівний камінь і Кийок; платформа не записує замовлень цього стилю, тому вони не додані.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання Слідопита: Обплутування, Покращення здібності та Відродження",
+        "reason": "На 2-му рівні автор називає Обплутування, на 7-му Покращення здібності, а на 9-му Відродження, але цих заклинань немає в списку Слідопита платформи; замість них у плані відкриті місця для вибору гравця. На 11-му рівні автор допускає Виклик обстрілу або Стихійну зброю — узято першу названу.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Усвідомлення Слідопита на 3-му рівні",
+        "reason": "Таблиця автора не називає вибору між Первісним і Первородним усвідомленням; платформа вимагає вибору, тому Первородне усвідомлення (опціональний варіант) ми обрали за вас.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-ranger-swarmkeeper-2014",
+            "translationRevisionId": "translation-rpgbot-ranger-swarmkeeper-2014-draft1",
+            "sourceRevisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,740 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/feats/dual-wielder/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "1a8e4cad48160c414f80aebca8fe4958e0dfc0f958646dce1c11f265ff2dfd70",
+  "sourceRevision": {
+    "revisionId": "rpgbot-a281acc04211f2db-1a8e4cad48160c41",
+    "sourceId": "rpgbot-a281acc04211f2db",
+    "fetchedAt": "2026-09-29T19:19:01.522024+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:55:39-04:00",
+    "contentHash": "d279364a54ab3fe55b1f14ccd717a709b2b5cf4e1fe5246c4a8f9d19e8763eba",
+    "title": "DnD 5.5 Dual Wielder Feat Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-a281acc04211f2db-1a8e4cad48160c41.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Dual Wielder feat got significant updates in the 2024 DnD rules to align with the much more appealing rules for two-weapon fighting. Two-weapon fighting was rarely viable in the 2014 rules, but the advent of the Nick Weapon Mastery has made two-weapon fighting an exciting and powerful combat option. Dual Wielder seeks to improve that capability even further."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you plan to build around two-weapon fighting, be sure that you have Weapon Mastery with a Nick weapon like the Dagger. Dual Wielder is largely pointless without it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/2024-dnd/feats/dual-wielder/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/2024-dnd/feats/dual-wielder/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Changes from 2014",
+                "href": "https://rpgbot.net/2024-dnd/feats/dual-wielder/#changes-from-2014"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Light Property and the Nick Mastery",
+                "href": "https://rpgbot.net/2024-dnd/feats/dual-wielder/#the-light-property-and-the-nick-mastery"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Dual Wielder Features",
+                "href": "https://rpgbot.net/2024-dnd/feats/dual-wielder/#dual-wielder-features"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Enhanced Dual Wielding",
+                "href": "https://rpgbot.net/2024-dnd/feats/dual-wielder/#enhanced-dual-wielding"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Quick Draw",
+                "href": "https://rpgbot.net/2024-dnd/feats/dual-wielder/#quick-draw"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice in this article is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2024 DnD Character Optimization Meta",
+              "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows. Also be sure to check for "
+            },
+            {
+              "type": "link",
+              "text": "errata",
+              "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+            },
+            {
+              "type": "text",
+              "text": " periodically."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-changes-from-2014",
+      "heading": "Changes from 2014",
+      "sourceAnchor": "changes-from-2014",
+      "blocks": [
+        {
+          "blockId": "block-section-changes-from-2014-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dual Wielder has been totally rewritten from the 2014 rules. Perhaps more importantly, the general rules for fighting with two weapons have changed to make them much more appealing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-light-property-and-the-nick-mastery",
+      "heading": "The Light Property and the Nick Mastery",
+      "sourceAnchor": "the-light-property-and-the-nick-mastery",
+      "blocks": [
+        {
+          "blockId": "block-section-the-light-property-and-the-nick-mastery-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Two-weapon fighting is not its own rule in the 2024 DnD rules; it’s simply a function of the "
+            },
+            {
+              "type": "link",
+              "text": "Light",
+              "href": "https://www.dndbeyond.com/sources/dnd/free-rules/equipment#Light"
+            },
+            {
+              "type": "text",
+              "text": " weapon property. Weapons like the Handaxe and the Shortsword allow you to make an additional attack with another Light weapon as a Bonus Action."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-light-property-and-the-nick-mastery-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "When you take the Attack action on your turn and attack with a Light weapon, you can make one extra attack as a Bonus Action later on the same turn. That extra attack must be made with a different Light weapon, and you don’t add your ability modifier to the extra attack’s damage unless that modifier is negative."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-light-property-and-the-nick-mastery-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The "
+            },
+            {
+              "type": "link",
+              "text": "Nick",
+              "href": "https://www.dndbeyond.com/sources/dnd/free-rules/equipment#Nick"
+            },
+            {
+              "type": "text",
+              "text": " Weapon Mastery further improves this capability by allowing you to make the additional attack during the Attack Action rather than by spending your Bonus Action. This leaves your Bonus Action free for other things, which is a huge benefit for martial classes like the Paladin and the Ranger who want their Bonus Action free for spells and for the Rogue who wants theirs free for Cunning Action."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-light-property-and-the-nick-mastery-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Nick property:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-the-light-property-and-the-nick-mastery-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "When you make the extra attack of the Light property, you can make it as part of the Attack action instead of as a Bonus Action. You can make this extra attack only once per turn."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-dual-wielder-features",
+      "heading": "Dual Wielder Features",
+      "sourceAnchor": "dual-wielder-features",
+      "blocks": [
+        {
+          "blockId": "block-section-dual-wielder-features-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dual Wielder provides three benefits. The first is an Ability Score Increase which doesn’t require further investigation, but we’ll dig into the other two."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-enhanced-dual-wielding",
+      "parentSectionId": "section-dual-wielder-features",
+      "heading": "Enhanced Dual Wielding",
+      "sourceAnchor": "enhanced-dual-wielding",
+      "blocks": [
+        {
+          "blockId": "block-section-enhanced-dual-wielding-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The heart of the feat, Enhanced Dual Wielding is why you’re here. It’s also really complicated."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enhanced-dual-wielding-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you do not have Weapon Mastery (Nick), Enhanced Dual Wielding lets you make an attack with a second weapon so long as the second weapon does not have the Two-Handed property. So, your primary attack(s) could be with a shortsword, then your Bonus Action could be used to attack with a longsword. But that’s not good enough to justify this feat, and it’s not why you’re here."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enhanced-dual-wielding-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you have Weapon Mastery with a Nick weapon, Enhanced Dual Wielder gets you an additional attack each turn. I’ll elaborate, because it feels too good to be true."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enhanced-dual-wielding-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Nick Weapon Mastery allows you to make the additional attack from the Light property during your Attack action, but it also specifies “you can make this extra attack only once per turn.” This explicitly prevents you from also making the additional attack as a Bonus Action."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enhanced-dual-wielding-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, Enhanced Dual Wielder’s additional attack is a separate thing. It’s not the additional attack granted by the Light weapon property. This attack must be made with a weapon that lacks the two-handed property, but it doesn’t explicitly need to have the Light property, either."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enhanced-dual-wielding-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Imagine you’re a level 5 Fighter with the Dual Wielder feat. You’re wielding a shortsword in one hand and a dagger in the other. Both are Light weapons, and you have Weapon Mastery with both weapons."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enhanced-dual-wielding-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "On your turn, you declare the Attack action. You have Extra Attack, so you can make 2 attacks normally. You make one attack with your shortsword. This triggers the Light weapon property, allowing you to make an additional attack at any point later in your turn. You can use your second attack with either of your weapons, so you choose to use your shortsword for the better damage and the Vex Weapon Mastery."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enhanced-dual-wielding-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You then make the additional attack from the Light weapon property. Since you’ve only attacked with your shortsword until now, and it must be made with a different weapon, you use your dagger, which you can do as part of your Attack action thanks to your dagger’s Nick Weapon Mastery. By default, this attack doesn’t apply your ability modifier to damage if it hits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enhanced-dual-wielding-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You then use Action Surge and use the Attack action again. Unfortunately, you can only use the additional attack from the Light weapon property once per turn. You can still use your 2 attacks with whichever weapon you like, as normal. However, you don’t get an additional attack form the Light Weapon Property. Again: you can only use it once per turn. You make both attacks with your Shortsword."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enhanced-dual-wielding-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Finally, you use your Bonus Acton to activate the additional attack from Enhanced Dual Wielding. You attacked with both your dagger and your shortsword as part of the Attack action, so you can technically make this attack with either of your weapons. Because this additional attack is independent of the Light weapon property, it doesn’t count against the “only once per turn” limitation."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-enhanced-dual-wielding-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This effectively means that you can get two additional attacks per turn using Dual Wielder alongside Weapon Mastery (Nick). This feels too good to be true, and in most cases, that means that it is. However, Jeremy Crawford apparently confirmed that this was intentional in a conversation with the Dungeon Dudes in a YouTube comments section. That feels very “trust me, my dad works at Nintendo”, but, until we get a Sage Advice for the 2024 rules, that’s the best that we have."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-quick-draw",
+      "parentSectionId": "section-dual-wielder-features",
+      "heading": "Quick Draw",
+      "sourceAnchor": "quick-draw",
+      "blocks": [
+        {
+          "blockId": "block-section-quick-draw-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The rules for drawing and stowing weapons are already very generous. However, if you start an encounter empty-handed and need to draw 2 weapons, this is helpful if you don’t have Weapon Mastery."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-quick-draw-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The rules for drawing/stowing weapons allow you to equip/unequip a weapon for each attack you make as part of the Attack action. If you have Weapon Mastery (Nick), you can draw your off-hand weapon during the Attack action because your additional attack is being made as part of the Attack action."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-changes-from-2014-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-the-light-property-and-the-nick-mastery-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-the-light-property-and-the-nick-mastery-2"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">When you take the&nbsp;Attack&nbsp;action on your turn and attack wit"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-the-light-property-and-the-nick-mastery-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-the-light-property-and-the-nick-mastery-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[2]",
+      "detail": "block-section-the-light-property-and-the-nick-mastery-5"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[2]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">When you make the extra attack of the&nbsp;Light&nbsp;property, you c"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-dual-wielder-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-enhanced-dual-wielding-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-enhanced-dual-wielding-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-enhanced-dual-wielding-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-enhanced-dual-wielding-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-enhanced-dual-wielding-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-enhanced-dual-wielding-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-enhanced-dual-wielding-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-enhanced-dual-wielding-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-enhanced-dual-wielding-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-enhanced-dual-wielding-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-enhanced-dual-wielding-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-quick-draw-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-quick-draw-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-quick-draw-3"
+    }
+  ],
+  "metrics": {
+    "words": 1242,
+    "sections": 8,
+    "blocks": 27,
+    "tables": 0,
+    "ratingSignals": 4
+  },
+  "status": "needs-editorial-review"
+}

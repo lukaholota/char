@@ -1,0 +1,894 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-ce0412a446ebeb07",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-ce0412a446ebeb07-ad59e286f2f64169",
+      "sourceId": "rpgbot-ce0412a446ebeb07",
+      "fetchedAt": "2026-09-29T19:22:19.004704+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:41:08-04:00",
+      "contentHash": "cff6c28efdd5e911a98e1159109ff232badcd0aeb970982ddc88b8159423d6a0",
+      "title": "Fey Touched: DnD 5e Feat Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-ce0412a446ebeb07-ad59e286f2f64169.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-fey-touched-2014",
+    "sourceId": "rpgbot-ce0412a446ebeb07",
+    "slug": "fey-touched-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Доторк феї — гайд риси (2014)",
+    "titleEn": "Fey Touched: DnD 5e Feat Guide",
+    "topics": [
+      "риси",
+      "заклинання"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "articleId": "rpgbot-fey-touched-2014",
+      "sourceRevisionId": "rpgbot-ce0412a446ebeb07-ad59e286f2f64169",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Доторк феї|Fey Touched}} підвищує одну з ментальних характеристик на 1 та додає заклинання, тож це простий вибір для будь-якого чаротворчого класу. Туманний крок [Misty Step] — заклинання 2-го рівня й одне з найбільш тактично впливових у грі. На додачу ви отримуєте непросте завдання: обрати заклинання Віщування чи Зачарування 1-го рівня, яке вивчите й зможете безкоштовно накладати раз на день.\n\nРедакційна примітка: за текстом риси безкоштовні накладання відновлюються після тривалого відпочинку; це не окремий календарний ліміт."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Попри силу риси, вона не завжди є найкращим способом отримати ці заклинання. Якщо передусім потрібен Імлистий крок, Еладрін{{Eladrin}} і Шадар-Кай{{Shadar-Kai}} теж мають телепортацію, а Ґітьянкі{{Githyanki}} може накладати Імлистий крок. Якщо не плануєте часто використовувати обидва заклинання та витрачати додаткові слоти, щоб накладати їх більше одного разу на день, розгляньте інші варіанти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Очевидний переможець серед заклинань Доторку феї — Сріблясті шпильки [Silvery Barbs]. Звісно, саме воно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше про чаротворчі риси, зокрема оцінки різних рис, дивіться у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді чаротворчих рис",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/fey-touched/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/fey-touched/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання Доторку феї 1-го рівня",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/fey-touched/#fey-touched-spells"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fey-touched-spells",
+          "heading": "Заклинання Доторку феї 1-го рівня",
+          "sourceAnchor": "fey-touched-spells",
+          "blocks": [
+            {
+              "blockId": "block-section-fey-touched-spells-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Повний перелік доступних заклинань та їхні описи є на "
+                },
+                {
+                  "type": "link",
+                  "text": "DnDBeyond",
+                  "href": "https://www.dndbeyond.com/spells?filter-class=0&filter-search=&filter-level=1&filter-school=5&filter-school=6&filter-verbal=&filter-somatic=&filter-material=&filter-concentration=&filter-ritual=&filter-sub-class="
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fey-touched-spells-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Дружба з тваринами [Animal Friendship]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зурочення [Bane]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": пристойне послаблення ворога, але надійніше посилити своїх союзників за допомогою Благословення [Bless]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Звірячі узи [Beast Bond]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "EEPC / XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне. Більшість класів не має достатніх причин витрачати ресурси, щоб зробити тварину настільки дружньою, аби вона могла бути ціллю цього заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Благословення [Bless]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": одне з найкращих посилень низького рівня. Залишається ефективним на всіх рівнях, навіть якщо накладати слотом 1-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Причарування особи [Charm Person]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якби мав вибір, спершу взяв би {{Експерт у навичках|Skill Expert}} для Переконання, а не витрачав рису заради цього заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Наказ [Command]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": пристойний контроль ворогів, а посилене накладання працює досить добре. Ворогам, які покладаються на зброю, можна наказати кинути те, що вони тримають, а потім швидко підібрати це раніше за них."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виклик на дуель [Compelled Duel]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудове для витривалих чаротворців, зокрема Винахідників, Кліриків і Чарівників Школи співу клинків. Не змушує ворогів вступати з вами в ближній бій, але автор вважає, що утримує їх досить близько, аби до них вистачало вашого переміщення.\n\nРедакційна примітка: заклинання не переміщує ціль. Воно вимагає ряткидка Мудрості для спроби відійти більш ніж на 30 футів від вас; після успіху цей хід не обмежує переміщення цілі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розуміння мов [Comprehend Languages]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": натомість оберіть {{Ритуальний заклинатель|Ritual Caster}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виявлення зла та добра [Detect Evil and Good]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виявлення магії [Detect Magic]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": натомість оберіть {{Ритуальний заклинатель|Ritual Caster}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виявлення отрут і хвороб [Detect Poison and Disease]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": натомість оберіть {{Ритуальний заклинатель|Ritual Caster}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дисонуючий шепіт [Dissonant Whispers]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хороший спосіб розірвати захоплення, змусити ворога відійти від вас чи союзника або спровокувати атаки з нагоди. Проте шкоди небагато, тож якщо не потрібен саме контроль, пропускайте."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дар готовності [Gift of Alacrity]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "EGtW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хороше посилення на будь-якому рівні, але якщо не плануєте також накладати його на союзників, риса {{Пильний|Alert}} може бути кращою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Героїзм [Heroism]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хороше бойове посилення для будь-якого воїна першої лінії. Тимчасові хіт-поінти, що поновлюються, можуть поглинути багато шкоди й суттєво зменшити потребу групи в лікуванні за дуже дешевий слот."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Проклін [Hex]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудове майже для кожного персонажа, який завдає шкоди кількома атаками. Бонусна дія дозволяє легко накласти перед атакою дією. Ще можна надати цілі перешкоду на перевірки Сили чи Спритності, щоб полегшити Захоплення та Штовхання. Тривалість одна година й можливість переносити на нову ціль дозволяють отримати багато від одного слота. Один із головних варіантів для Воїнів і Паладинів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мисливська мітка [Hunter’s Mark]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": подібне до Проклін [Hex], але переваги поза шкодою ситуативніші й їх важче використовувати для надмірної вигоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розпізнавання [Identify]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": майже марне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Сон [Sleep]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": накладання 1-го рівня не зростає разом із персонажем, тож без витрачання слотів на повторне накладання цілком марне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Сріблясті шпильки [Silvery Barbs]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "SCoC",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надзвичайно потужне, але й дуже складне. Численні можливості надмірного використання описано в нашому "
+                  },
+                  {
+                    "type": "link",
+                    "text": "дописі про це заклинання",
+                    "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розмова з тваринами [Speak with Animals]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Огидний сміх Таші [Tasha’s Hideous Laughter]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хороший варіант проти однієї цілі, для якої провал ряткидка означає серйозні наслідки. Проте допустимі цілі навмисно обмежені, а посилене накладання нічого не додає."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-fey-touched-2014-001",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-0",
+      "context": "Дружба з тваринами [Animal Friendship]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-002",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-1",
+      "context": "Зурочення [Bane]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-003",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-2",
+      "context": "Звірячі узи [Beast Bond]EEPC / XGtE",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-004",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-3",
+      "context": "Благословення [Bless]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-005",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-4",
+      "context": "Причарування особи [Charm Person]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-006",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-5",
+      "context": "Наказ [Command]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-007",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-6",
+      "context": "Виклик на дуель [Compelled Duel]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-008",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-7",
+      "context": "Розуміння мов [Comprehend Languages]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-009",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-8",
+      "context": "Виявлення зла та добра [Detect Evil and Good]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-010",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-9",
+      "context": "Виявлення магії [Detect Magic]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-011",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-10",
+      "context": "Виявлення отрут і хвороб [Detect Poison and Disease]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-012",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-11",
+      "context": "Дисонуючий шепіт [Dissonant Whispers]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-013",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-12",
+      "context": "Дар готовності [Gift of Alacrity]EGtW",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-014",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-13",
+      "context": "Героїзм [Heroism]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-015",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-14",
+      "context": "Проклін [Hex]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-016",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-15",
+      "context": "Мисливська мітка [Hunter’s Mark]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-017",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-16",
+      "context": "Розпізнавання [Identify]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-018",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-17",
+      "context": "Сон [Sleep]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-019",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-18",
+      "context": "Сріблясті шпильки [Silvery Barbs]SCoC",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-020",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-19",
+      "context": "Розмова з тваринами [Speak with Animals]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fey-touched-2014-021",
+      "articleId": "rpgbot-fey-touched-2014",
+      "translationRevisionId": "translation-rpgbot-fey-touched-2014-draft1",
+      "sectionId": "section-fey-touched-spells",
+      "targetBlockId": "block-section-fey-touched-spells-2",
+      "optionId": "section-fey-touched-spells-block-section-fey-touched-spells-2-item-20",
+      "context": "Огидний сміх Таші [Tasha’s Hideous Laughter]PHB",
+      "explanationBlockId": "block-section-fey-touched-spells-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

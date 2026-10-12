@@ -1,0 +1,2828 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "e581c5cb68238bf109a8de932ef2930bc4d215ead233b87aef8b0a88707576d1",
+  "sourceRevision": {
+    "revisionId": "rpgbot-a3099a850001fed5-e581c5cb68238bf1",
+    "sourceId": "rpgbot-a3099a850001fed5",
+    "fetchedAt": "2026-09-29T19:19:06.151684+00:00",
+    "sourceUpdatedAt": "2026-06-26T07:51:57-04:00",
+    "contentHash": "d970154e33ba861796d9be569547276dc338eeef0b29ee2addf4003b243659e7",
+    "title": "Aberrant Mind Sorcerer 5e: DnD Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-a3099a850001fed5-e581c5cb68238bf1.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Aberrant Minds are another fine example of power creep from Tasha’s. The Aberrant Mind subclass is on the stronger end of Sorcerers, behind Clockwork Soul and close to Lunar Sorcery, while distinctly ahead of the rest of the choices that lack bonus known spells. Their powers derive from Aberrations and the homeland of these bizarre creatures: the Far Realm. This is expressed in one of their later features, Revelation in Flesh, which directly borrows the physiological traits of several Aberrations. When you put these together, you get an incredibly versatile, unsettling, and powerful Sorcerer, capable of being equally at home as a highly-tuned Striker or a strong battlefield Controller."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Released as part of the trio of Psionic subclasses, WoTC didn’t want to give Sorcerers yet another resource to manage (considering spell slots and sorcery points to already be enough), so, rather than try to stuff a psychic die in somewhere, they just gave them the power to cast spells "
+            },
+            {
+              "type": "link",
+              "text": "by will alone",
+              "href": "https://youtu.be/EMBb_tPPA8E?t=22"
+            },
+            {
+              "type": "text",
+              "text": ". This makes them incredibly resource-efficient on an already very efficient class, and, depending on your interpretations of some of the rules of the subclass, able to take these powers and use them on even more powerful spells than were originally given to them."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is for the 2014 DnD 5e rules. We haven’t published a guide for the DnD 5.5 version yet."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Aberrant Mind Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Aberrant Mind Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#aberrant-mind-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Aberrant Mind Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#aberrant-mind-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Aberrant Mind Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#aberrant-mind-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Aberrant Mind Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#aberrant-mind-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Aberrant Mind Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#aberrant-mind-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Akorian, Herald of the Abolithid",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#example-build-akorian-herald-of-the-abolithid"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/aberrant-mind/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Aberrant Mind Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Psionic Spells"
+              },
+              {
+                "type": "text",
+                "text": ": There is a lot of\n\t\tcomplexity buried in this feature that’s very easy to overlook, but\n\t\tunderstanding what makes this so powerful will help you to capitalize on it.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The first and most obvious benefit is that you get several excellent\n\t\t\tspells, including some warlock exclusives like Hunger of Hadar and wizard\n\t\t\texclusives like Evard’s Black Tentacles. Not everything on the list is a\n\t\t\tgem, of course, and be sure to check my\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Warlock Spell List Breakdown",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/spells"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\tand my\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Wizard Spell List Breakdown",
+                "href": "https://rpgbot.net/dnd5/characters/classes/wizard/spells"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t\tfor details on the spells borrowed from other spell lists.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Slightly less obvious: this adds a total of 10 known leveled spells to\n\t\t\tyour sorcerer (Mind Sliver is buried in the 1st-level spells on the table,\n\t\t\tand it’s a cantrip). A 20th-level sorcerer typically knows just 15 spells,\n\t\t\tso this is a massive increase. Even at level 1, you know twice as many\n\t\t\tspells as a typical sorcerer, plus you get an additional cantrip."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Third, and easiest to overlook, is the retraining mechanic. The Sorcerer\n\t\t\tcan already retrain one known spell every time they gain a level, but\n\t\t\tPsionic Spells also allows you to retrain the spells granted by the\n\t\t\tfeature. Surprisingly, you can choose from the sorcerer, warlock, and\n\t\t\twizard spell lists, though you’re limited to divination and enchantment\n\t\t\tspells. Of course, there are plenty of excellent divination and\n\t\t\tenchantment options (Hex is tempting at early levels), so that’s not a\n\t\t\tproblem. Trade in spells that you’re not benefiting from as you gain\n\t\t\tlevels, especially since divination options are often useful long after\n\t\t\ttheir spell level stops being defining in combat."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st Level"
+              },
+              {
+                "type": "text",
+                "text": ": Two decent low-level\n\t\t\t\tdamage options, and the absolutely phenomenal Mind Sliver. I recommend\n\t\t\t\tretraining Arms of Hadar after a few levels, but you might enjoy\n\t\t\t\tDissonant Whispers as an inexpensive way to force enemies to remove\n\t\t\t\tthemselves from grapples and/or to provoke opportunity attacks.\n"
+              },
+              {
+                "type": "text",
+                "text": "Replacing either of these spells with Silvery Barbs makes that spell eligible for Psionic Sorcery. Even though it would cost a reaction, using it on our own save-or-suck spells would be like getting to use Heighten for only 1 Sorcery Point."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd Level"
+              },
+              {
+                "type": "text",
+                "text": ": Two options with\n\t\t\t\tsituational uses. Detect Thoughts is difficult for spellcasters that\n\t\t\t\taren’t Intelligence-based, so consider retraining it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Hunger of Hadar is an\n\t\t\t\texcellent AOE damage and area control option, and I’ve eyed it jealously\n\t\t\t\tfrom other spellcasting classes since 5e’s initial release. Sending is\n\t\t\t\tneat but not crucial, so you might retrain it, especially once you have\n\t\t\t\tlong-distance teleportation available at higher levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Black Tentacles is a good\n\t\t\t\tspell, but it does less damage and has a smaller AOE than Hunger of\n\t\t\t\tHadar, and also doesn’t scale with spell level, so there’s a lot of\n\t\t\t\tredundancy between the two that the Sorcerer can’t justify. I recommend\n\t\t\t\tpicking one of the two to keep and retraining the other. Summon\n\t\t\t\tAberration is one of the new summon options presented in Tasha’s\n\t\t\t\tCauldron of Everything, and it’s pretty good, offering three very\n\t\t\t\teffective choices to suit your needs."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th Level"
+              },
+              {
+                "type": "text",
+                "text": ": Two excellent utility\n\t\t\t\toptions. Rary’s Telepathic Bond feels like a weird choice since you get\n\t\t\t\tTelepathic Speech at first level, but Telepathic Speech is extremely\n\t\t\t\tlimited so Rary’s Telepathic Bond is a big upgrade."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Telepathic Speech"
+              },
+              {
+                "type": "text",
+                "text": ": A useful utility, but\n\t\tvery limited compared to most forms of telepathy. You can communicate, but\n\t\tyou still need to share a language, the duration is short, and you can only\n\t\tconnect to one creature. That’s enough to send your party’s Scout off on\n\t\ttheir own with a way to remain in contact, but beyond stealth and subtlety\n\t\tthere are few meaningful ways to use this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Psionic Sorcery"
+              },
+              {
+                "type": "text",
+                "text": ": This saves you one or\n\t\ttwo Sorcery Points (depending on the spell level) when you spend Sorcery\n\t\tPoints to get extra spell slots. You also don’t need to spend the Bonus\n\t\tAction to convert Sorcery Points into spell slots first. You also get to\n\t\tcast the spell without verbal or somatic components (and some material\n\t\tcomponents), so you get the benefits of Subtle Spell for free.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "It’s not perfectly clear how this works if you retrained the spells from\n\t\t\tPsionic Spells. This definitely applies to the default spells that you\n\t\t\tget, but I’m not sure otherwise. I think RAW it works with retrained\n\t\t\tspells since you still get those spells from the feature, but keep an eye\n\t\t\tout for Sage Advice or Errata, and check with your DM until then."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Psychic Defenses"
+              },
+              {
+                "type": "text",
+                "text": ": Psychic damage is rare,\n\t\tbut charm and fear effects are very common."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Revelation in Flesh"
+              },
+              {
+                "type": "text",
+                "text": ": For a single Sorcery\n\t\tPoint, every one of these effects is excellent. Replicating any of these is\n\t\tat least a 2nd-level spell, so the effects aren’t just good, they’re very\n\t\tcost-efficient. Note that since the fly and swim speeds are based on your\n\t\twalking speed, it’s easy to boost your new movement speed with buffs like\n\t\tLongstrider or Haste.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Personal note: Tyler finds the term “writhing sensory tendrils” upsetting."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warping Implosion"
+              },
+              {
+                "type": "text",
+                "text": ": Great for setting up\n\t\tcombos with Quicken Spell. Follow this with a quickened AOE damage spell\n\t\tlike Meteor Swarm or area control spell like Force Cage and you can\n\t\teliminate whole encounters in one turn even at this high level. The saving\n\t\tthrow is Strength, though, and with the exceptions of enemies who rely on\n\t\tmagic in combat many enemies will have high Strength saves."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-aberrant-mind-ability-scores",
+      "heading": "Aberrant Mind Ability Scores",
+      "sourceAnchor": "aberrant-mind-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-aberrant-mind-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Identical to the "
+            },
+            {
+              "type": "link",
+              "text": "Sorcerer Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": ". Maximum Charisma, then Dexterity and Constitution for defenses. If anything else is leftover, Wisdom for saves before anything else."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-aberrant-mind-ability-scores-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-aberrant-mind-races",
+      "heading": "Aberrant Mind Races",
+      "sourceAnchor": "aberrant-mind-races",
+      "blocks": [
+        {
+          "blockId": "block-section-aberrant-mind-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For anything not listed below check the "
+            },
+            {
+              "type": "link",
+              "text": "Sorcerer Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-aberrant-mind-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Races with Psychic Resistence"
+            },
+            {
+              "type": "text",
+              "text": " While many of these races are thematically appropriate with Psionic flavor, because we gain Psychic resistance from our subclass, the redundancy means we would get a little less out of those features."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-aberrant-mind-feats",
+      "heading": "Aberrant Mind Feats",
+      "sourceAnchor": "aberrant-mind-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-aberrant-mind-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For more feats not listed below refer to the "
+            },
+            {
+              "type": "link",
+              "text": "Sorcerer Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-aberrant-mind-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Metamagic Adept"
+            },
+            {
+              "type": "strong",
+              "text": ":"
+            },
+            {
+              "type": "text",
+              "text": " Because we have so many other things we want to spend our points on with our Psionic Spells and Revelation in Flesh, getting an extra two points that are only for Metamagic is slightly more helpful for us than for general Sorcerers."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "strong",
+              "text": "War Caster"
+            },
+            {
+              "type": "strong",
+              "text": ":"
+            },
+            {
+              "type": "text",
+              "text": " Even though Sorcerers have Constitution proficiency built in, several of our Psionic Spells require concentration and a little extra insurance doesn’t hurt."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-aberrant-mind-weapons",
+      "heading": "Aberrant Mind Weapons",
+      "sourceAnchor": "aberrant-mind-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-aberrant-mind-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different than any other Sorcerer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-aberrant-mind-armor",
+      "heading": "Aberrant Mind Armor",
+      "sourceAnchor": "aberrant-mind-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-aberrant-mind-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your main defense is being far away from hostile things unless you multiclass."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing about this subclass wants anything except to get its abilities as quickly as possible. I personally would avoid multiclassing here. If you really must though, there are a couple good options."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Order Domain",
+              "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/order/"
+            },
+            {
+              "type": "strong",
+              "text": " Cleric"
+            },
+            {
+              "type": "strong",
+              "text": ": "
+            },
+            {
+              "type": "text",
+              "text": "I have written two articles about combining this subclass with the "
+            },
+            {
+              "type": "link",
+              "text": "Divine Soul Sorcerer",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/divine-soul/"
+            },
+            {
+              "type": "text",
+              "text": " to be a good “cleric” while abusing Voice of Authority and Silvery Barbs. If, instead, you just want to be that combo on a regular Sorcerer, this is a great subclass to do it with because Aberrant Mind can make Silvery Barbs a Psionic Spell and then start casting it for the low price of one Sorcery Point."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Fathomless",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/fathomless/"
+            },
+            {
+              "type": "strong",
+              "text": " Warlock"
+            },
+            {
+              "type": "text",
+              "text": ": This build, like many mental-stat based characters that don’t get one from their subclass, suffers from “what can I do with my bonus action that justifies not taking Telekinetic?” The answer is a one-level dip for tentacles. It’s thematically appropriate, the number of uses scales off proficiency bonus, and it means that you’ll be able to take Agonizing Blast when you grab Eldritch Adept, having retrained Arms of Hadar into Hex. Two or three levels instead for other invocations and Pact of the Chain is also very viable since you’ll still end up with Wish, even if it’s delayed. If you’re going to do this, do it first so that you can wear some armor."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-akorian-herald-of-the-abolithid",
+      "heading": "Example Build – Akorian, Herald of the Abolithid",
+      "sourceAnchor": "example-build-akorian-herald-of-the-abolithid",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-akorian-herald-of-the-abolithid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Thank you for nearly two decades of excellent adventuring."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-akorian-herald-of-the-abolithid-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is for the 2014 DnD 5e rules. We haven’t published a guide for the DnD 5.5 version yet."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-akorian-herald-of-the-abolithid",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increase"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-akorian-herald-of-the-abolithid",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warforged. A free point of AC is nothing to sneeze at for a Sorcerer (especially if you plan to try making use of Arms of Hadar at low levels), and no one can prove that we’re not a "
+            },
+            {
+              "type": "link",
+              "text": "walking suit of armor full of tentacles",
+              "href": "https://www.halopedia.org/Mgalekgolo"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-akorian-herald-of-the-abolithid",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We take Faction Agent (Zhentarim) to have the best chance of finding more like-minded people willing to help us collect various tentacles of questionable provenance and add them to our collection."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-akorian-herald-of-the-abolithid",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since we’ll be capping Charisma and have a passable Dexterity, it makes sense to grab Intimidation and Persuasion from the class, Insight and Deception from Faction Agent, and use the Warforged proficiencies to round us out with Arcana and Thieves’ Tools so we can be a backup for if the Rogue is incapacitated."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-akorian-herald-of-the-abolithid",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since this guide won’t be multiclassing to solve the “how do I use my bonus action?” problem, I’m resigned to taking Telekinetic at 4th level."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "8th level caps Charisma"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "12th level gets us Metamagic Adept, or take Elemental Adept now, depending on your campaign’s common enemies. See notes below."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "16th level gets us Inspired Leader"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "19th level gets us Elemental Adept because resistances are frustratingly common at high levels and we can transmute anything with the Metamagic we’ve picked up along the way. If you’re just taking Metamagic Adept, It’s almost like the Wizard’s ability to get Silvery Barbs as a signature spell."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-akorian-herald-of-the-abolithid",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Psionic Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Telepathic Speech"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fire Bolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Light"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Prestidigitation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Shape Water",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Arms of Hadar"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Chaos Bolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dissonant Whispers"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sleep"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Until level 6, we’re basically an un-subclassed Sorcerer with a couple extra spells known. For now, Mind Sliver’s presence does mean that we have a fallback attack if fire seems like a bad idea, if we’re fighting an enemy with a high AC, or if the DM has decided that making attack rolls with a d12 is your curse today. Other than that, typical tactics apply: hang near the edge of fights, cantrip most of the time, throw a Sleep as needed, and survive for a few levels."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For equipment, take whatever you like that includes a focus. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Arms of Hadar -> "
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shield"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Font of Magic"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This guide has already talked at length about why Silvery Barbs is excellent on this subclass and particularly by acquiring it through Psionic Spells and its option to retrain the listed spells. Shield is another Reaction in case we expect to be targeted by many attacks in one round instead of using our Reaction for the other spell."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Retrain Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dissonant Whispers -> Hex"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sleep -> Scorching Ray"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Calm Emotions"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Detect Thoughts"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Invisibility"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Metamagic:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Quicken Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Extended Spell"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hex wants many attack rolls. How do you get many attack rolls against the same person as a 3rd level Sorcerer? Scorching Ray. Way better than Ray of Stupidity, even if such a thing existed in this edition. Sleep has outlived its usefulness, so we turn it in for this combo."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Invisibility, meanwhile, is a staple for letting you or a party member do whatever they want* for an hour at a time. Or, for the still very low price of a sorcery point, two hours."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Telekinetic (+1 Cha)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Detect Thought -> Hold Person"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Web"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Between Hold Person and Web we’ve got all the standard spellcaster supremacy things going on."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Taking Mage Hand and then Telekinetic in that order while applying this level gets all the benefits of having had it already when taking the feat. Now we always have something to do with our Bonus Action and are starting to feel like we have a very powerful mind indeed."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Calm Emotions -> Borrowed Knowledge"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fireball"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hunger of Hadar"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Sending"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Normally inaccessible to Sorcerers, now you can pretend to be the Rogue even harder by thinking really hard and understanding how to pick a pocket, be stealthy, or effectively search for things."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "In other news, Sorcerer gets Extra Attack at this level. 8d6 of fire damage worth of Extra Attack. If you’re willing to stick to the theme, though, you can have incredibly unsettling area denial with your newest spell slot instead."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Sending -> Enemies Abound"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– See Text"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Psionic Sorcery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Psychic Defenses"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "There are easily half a dozen great choices for your new spell known at this level, so pay attention to what’s in your party. If you have a Cleric especially, or a willing Bard, let them take Dispel Magic. If no one else can, that falls to you. Counterspell is tempting, but we’re often going to be spending our Reaction on Silvery Barbs, so hesitate a moment before picking it up. Haste could be good, but we didn’t pick up Twinned Spell, so now is not the time. Our preference, then, is to take Fly if we’re allowed the freedom. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Meanwhile, the DM-aggravating magical cell phone (Sending) gets turned into a pseudo-Dominate."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "All of these pale in comparison to the big thing at this level: directly spending Sorcery Points for spellcasting. We’ve gone on at length about how good it is with one spell already, but it’s also great for the fact that they require no verbal or somatic components as if we’d used Subtle (but can still be modified by other metamagic). Putting a Hold Person on someone with just the power of your thoughts means they’ll have no way of knowing it was you if they pass the save. Getting Hex started pre-combat is now much stealthier. The options for using this to your advantage (just like the enemies) abound."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Invisibility -> Misty Step"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Evard’s Black Tentacles"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Aberration",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-creature-spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Greater Invisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally a level we don’t want to retrain either spell from. They’re both incredible and you should read up on why summoning things is so good if you haven’t already. If you really are being a pretend Rogue though, you could retrain Black Tentacles into Arcane Eye. Hm, writhing tentacles into eyes seems like the exact opposite of what we want to do."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Cha 18 -> 20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Just because you have the stat block of a T-rex doesn’t mean you have to "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "look"
+                },
+                {
+                  "type": "text",
+                  "text": " like one. Be all you can be. Be a "
+                },
+                {
+                  "type": "link",
+                  "text": "hydra",
+                  "href": "https://www.reddit.com/r/DnD/comments/1qzr4a/be_all_that_you_can_be_be_a_hydra_35/"
+                },
+                {
+                  "type": "text",
+                  "text": " mass of tentacles."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Cloudkill"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Rary’s Telepathic Bond"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Telekinesis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fun fact: you can do the telekinesis-into-a-blender trick with Cloudkill just as well as you can with "
+                },
+                {
+                  "type": "link",
+                  "text": "Spirit Guardians",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/peace-domain/#peace-domain-feats"
+                },
+                {
+                  "type": "text",
+                  "text": ". By which I mean the Telekinetic feat Bonus Action, not the other Telekinesis we also get now."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Telepathic Bond -> See Text"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Metamagic:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Transmute Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Minor Illusion",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/#minor-illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hold Monster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Upcasting Scorching Ray into a Hexed target is still frighteningly good DPR (a solid 20% above "
+                },
+                {
+                  "type": "link",
+                  "text": "high DPR",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": "), so let’s make sure that something as pesky as fire resistance doesn’t get in our way."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Telepathic Bond, we have a couple good options to turn it into. If we don’t have a Bard or Cleric in the party, Legend Lore can be incredibly helpful. Similarly, if we’re somehow the only spellcaster, Scrying can be a great fit in the right campaign. Contact Other Plane (while thematically excellent) is a rough choice because we’re going to have a hard time passing that Int save, so, if you feel like your particular party doesn’t need any utility, grab Synaptic Strike."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Web -> Mental Prison"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Disintegrate"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We have plenty of area denial, so we can afford to give one up for the coolest disable. Note that, unlike nearly every other long-term, single-target thing which kills people slowly, they don’t get additional saves on later turns."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Metamagic Adept"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "The choices for the feat don’t matter, we’re just here for more Sorcery Points to fuel the machine. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Delayed Blast Fireball"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cooking the grenade for a whole extra minute thanks to Extended Spell feels like cheating and results in an enormous 32d6 damage, well over 100 average per target."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Revelation in Flesh"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fly -> Teleport"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "If you took Fly earlier and don’t have a Bard pretending to be a Cleric in your party, now’s the time to trade it for Teleport because we now have a much cheaper way to fly thanks to our slimy, luminescent body."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:- Dominate Monster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You should probably be able to control whatever horrific being you’ve birthed from your bizarre tendency to hoard writhing appendages."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Inspired Leader"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "So many temp HP."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Metamagic:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tentacles don’t have a listed GP value, so I can’t think of a single reason you can’t wish for as many of them as will fit in your current living space."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Warping Implosion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sure, we could have taken Forcecage to do the trick described above, but why would we want to pin things in place when we can just ignore this feature and keep killing them with spells instead?"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elemental Adept"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "In case you’re, for some reason, using a 9th-level slot for Scorching Ray on a Hexed target, this brings the DPR up to just shy of 80, still roughly 20% ahead of high DPR."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sorcerous Restoration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "How kind of WoTC to give us a Silvery Barbs every round and something Extended to boot for free every fight."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Aberrant Mind Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Psionic Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 1st Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 7th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Telepathic Speech"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Psionic Sorcery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Psychic Defenses"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Revelation in Flesh"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Warping Implosion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "strong/span[1]",
+      "detail": "rating-orange Races with Psychic Resistence"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "strong/span[1]",
+      "detail": "rating-blue Metamagic Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "strong/span[1]",
+      "detail": "rating-green War Caster"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "strong/span[1]",
+      "detail": "rating-blue Order Domain"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "strong/span[1]",
+      "detail": "rating-blue Fathomless"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[1]",
+      "detail": "<li value=\"1\"><span class=\"rating-blue\">Psionic Spells</span>: There is a lot of complexity buried in this feature that’s very easy to overlook, but understanding what makes this s"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-aberrant-mind-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-aberrant-mind-ability-scores-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-aberrant-mind-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-aberrant-mind-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-aberrant-mind-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-aberrant-mind-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-aberrant-mind-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-aberrant-mind-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-aberrant-mind-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-multiclassing-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-multiclassing-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-build-akorian-herald-of-the-abolithid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-build-akorian-herald-of-the-abolithid-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3462,
+    "sections": 17,
+    "blocks": 33,
+    "tables": 3,
+    "ratingSignals": 21
+  },
+  "status": "needs-editorial-review"
+}

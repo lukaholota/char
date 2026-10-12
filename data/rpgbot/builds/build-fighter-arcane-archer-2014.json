@@ -1,0 +1,827 @@
+{
+  "buildId": "build-fighter-arcane-archer-2014",
+  "revisionId": "build-fighter-arcane-archer-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "Містичного лучника — Чарівний ельфійський лучник",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-fighter-arcane-archer-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+      "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "FIGHTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ARCANE_ARCHER",
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Piercing Arrow (Arcane Shot)"
+          },
+          {
+            "optionNameEng": "Shadow Arrow (Arcane Shot)"
+          }
+        ],
+        "classOptionSpellKeys": [
+          "prestidigitation"
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ELVEN_ACCURACY",
+        "featOptions": [
+          {
+            "optionNameEng": "ELVEN_ACCURACY Ability (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SHARPSHOOTER"
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Grasping Arrow (Arcane Shot)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "PIERCER",
+        "featOptions": [
+          {
+            "optionNameEng": "PIERCER Ability (Dexterity)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Seeking Arrow (Arcane Shot)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GUNNER"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "ALERT",
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Bursting Arrow (Arcane Shot)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY",
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TOUGH",
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-arcane-archer-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+          "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ARCANE_ARCHER",
+    "raceKey": "ELF_2014",
+    "backgroundKey": "URCHIN",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 15
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Максимізуємо Спритність та Інтелект, але оскільки бʼємося здалеку, Статуру можна лишити на 14, а запасні очки вкласти в Мудрість і для ряткидків, і для Уважності. Расове +2 ставимо в Спритність, а +1 — в Інтелект.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 17 Статура 14 14 Інтелект 15 16 Мудрість 10 10 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "{{Лісовий ельф за правилами Таші|Custom Origin Wood Elf}}. Додаткова швидкість приємна для позиціонування під «Пронизувальну стрілу», а володіння Уважністю завжди приємне.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Безпритульний{{Urchin}}. Чудовий вибір для будь-якого персонажа на Спритності: Безпритульний дає всі володіння, потрібні, щоб замінити Пройдисвіта в нашій групі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Уважність ми отримуємо від раси, Спритність рук, Непомітність та інструменти злодія — від передісторії, а Аналіз Поведінки й Виживання візьмемо від класу. Виживання майже марне, але ми скинули Інтелект і Силу, тож варіанти у нас невеликі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Ельфійську точність»{{Elven Accuracy}}. Надійного способу отримати Перевагу на кубику в нас немає, окрім «Тіньової стріли»{{Shadow Arrow}}, але поєднання «Тіньової стріли» і «Сплеску дій»{{Action Surge}} може дати один дуже ефективний хід. Також це дає +1 до Спритності, що чудово.\n\nНа 6-му рівні беремо «Влучного стрільця»{{Sharpshooter}}. Це значне підвищення DPR, а оскільки застосовується до кожної атаки, ми можемо почати з «Тіньової стріли», фактично осліпивши ціль, потім скористатися «Сплеском дій» і обрушити на неї гору шкоди за один хід.\n\nНа 8-му рівні беремо «Проколювача»{{Piercer}} заради +1 до Спритності та загального посилення колючої шкоди.\n\nНа 12-му рівні беремо «Стрільця»{{Gunner}}, максимізуючи Спритність і дозволяючи користуватися дальньою зброєю в ближньому бою без Перешкоди на кубику. На жаль, вогнепальну зброю з «Арканним пострілом» використати не можна.\n\nНа 14, 16 і 19 рівнях у нас вільні місця. «Удача»{{Lucky}} — легкий вибір за замовчуванням. «Військовий адепт»{{Martial Adept}} може додати ще один варіант раз на Короткий відпочинок, щоб зробити ваші атаки крутими. «Дарунок хроматичного дракона»{{Gift of the Chromatic Dragon}} додає чудову захисну опцію й дає змогу додати до зброї елементну шкоду на 1 хвилину на день.\n\nПідійде справді будь-яка опорна риса Воїна, але всі варіанти, зосереджені на стрільбі з лука, ми вже взяли, тож доведеться бути креативнішими.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бойовий Стиль{{Fighting Style}}: Стрільба з лука, Друге дихання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Сплеск дій (1)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Військовий Архетип: Містичний лучник, Арканний лучник: знання — Магія, Штукарство, Арканний постріл — Пронизувальна стріла, Тіньова стріла",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Ельфійська точність (Спритність 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака{{Extra Attack}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Риса: Влучний стрілець",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Криволінійний постріл, Магічна стріла, Новий Арканний постріл: — Хапальна стріла",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Проколювач (Спритність 18 → 19)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Непохитність (1)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Новий Арканний постріл: — Стріла-наведення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Додаткова атака (2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Стрілець (Спритність 19 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Непохитність (2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Риса: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Завжди напоготові, Новий Арканний постріл: — будь-який",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Сплеск дій (2), Непохитність (3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Новий Арканний постріл: — будь-який, Покращений постріл",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: будь-яка",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Додаткова атака (3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Знання містичного лучника: навичка Магія",
+        "reason": "Автор бере на 3-му рівні Штукарство (записано) і навичку Магія; вибір навички цього уміння платформа в плані рівнів не записує.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Риса «будь-яка» (14, 16, 19-й рівні)",
+        "reason": "Автор залишає «вільні місця» без назв: пресет бере типові риси Пильний, Удача та Здоровань (вибір платформи, автор не називає); гравець може змінити їх на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Арканний постріл «будь-який» (15 і 18-й рівні)",
+        "reason": "На 15-му рівні автор не називає постріл: пресет бере Вибухову стрілу (вибір платформи, автор не називає; можна змінити на листі). На 18-му рівні автор додає ще один Арканний постріл, але каталог не дає вибору пострілу на цьому рівні (компілятор: «рівень 18: Опція «Enfeebling Arrow (Arcane Shot)» недоступна на рівні 18. На цьому рівні класу вибору опцій немає»), тож шостий постріл не записано.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-arcane-archer-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-arcane-archer-2014-draft1",
+            "sourceRevisionId": "rpgbot-e66eef0dcc9bf01b-7b5c77e6ae728c6b",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

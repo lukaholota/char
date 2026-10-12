@@ -1,4 +1,4 @@
-import { BackgroundCategory, Classes, Feats, Races } from "@prisma/client";
+import { BackgroundCategory, Classes, Feats, Races, Skills } from "@prisma/client";
 import { backgroundByName, classByName, featByName, featChoiceOptionIds, raceByName } from "../../helpers/seed-lookup";
 import { minimalForm } from "../../helpers/build-form";
 import type { Build } from "./types";
@@ -26,6 +26,8 @@ export const build: Build = {
         proficiency: proficiencyIds[0],
         expertise: expertiseIds[0],
       },
+      skills: [Skills.SLEIGHT_OF_HAND, Skills.STEALTH],
+      expertiseSchema: { expertises: [Skills.SLEIGHT_OF_HAND, Skills.STEALTH] },
     });
   },
 };

@@ -1,0 +1,964 @@
+{
+  "buildId": "build-warlock-tiefling-archfey-2014",
+  "revisionId": "build-warlock-tiefling-archfey-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "— «Чувак», він же найледачіший чорнокнижник у світі",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-warlock-archfey-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+      "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+      "sectionId": "section-example-build-the-dude-aka-the-worlds-laziest-warlock",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "WARLOCK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "ARCHFEY"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Fiendish Vigor"
+          },
+          {
+            "optionNameEng": "Misty Visions"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "unseen-servant"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Chain"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "misty-step"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "sleep",
+          "add": "calm-emotions"
+        },
+        "replaceOptions": [
+          {
+            "drop": {
+              "optionNameEng": "Fiendish Vigor"
+            },
+            "add": {
+              "optionNameEng": "Investment of the Chain Master"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "INSPIRING_LEADER",
+        "spells": {
+          "cantripKeys": [
+            "minor-illusion"
+          ],
+          "knownSpellKeys": [
+            "invisibility"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Voice of the Chain Master"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hunger-of-hadar"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "counterspell"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceSpell": {
+          "drop": "invisibility",
+          "add": "dispel-magic"
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Sculptor of Flesh"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "banishment"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 1
+          },
+          {
+            "ability": "CHA",
+            "amount": 1
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "greater-invisibility"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Whispers of the Grave"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hold-monster"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "prestidigitation"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "seeming"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Eldritch Mind"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Shrouded in Shadow"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Witch Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true,
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-archfey-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+          "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "ARCHFEY",
+    "raceKey": "TIEFLING_2014",
+    "variantKey": "TIEFLING_VARIANT_DEVILS_TONGUE_SCAG",
+    "backgroundKey": "COURTIER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 10
+      },
+      {
+        "ability": "WIS",
+        "value": 10
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Почнемо з характеристик, рекомендованих у довіднику Чорнокнижника. Збільшення на +2 вкладемо в Харизму, а збільшення на +1 — у Спритність, щоб одним Покращенням Характеристик підвищити обидві й одразу покращити обидва модифікатори.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 14 15 Статура 14 14 Інтелект 10 10 Мудрість 10 10 Харизма 15 17",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Риса нам особливо не потрібна, тож своя раса{{Custom Lineage}} і людина{{Human}} відпадають. Політ був би чудовим, але це виглядає як робота. Навички — це добре. Вроджене чаротворство теж добре. Змінник{{Changeling}} і Сатир{{Satyr}} — чудові кандидати (вони ж таки феї), а ще є кілька чудових варіантів серед тифлінгів{{Tiefling}}.\n\nДля цієї збірки ми візьмемо варіант {{Тифлінг (диявольський язик)|Devil’s Tongue Tiefling}} за правилами налаштованого походження{{Custom Origin}}. Злісне глузування [Vicious Mockery] дає нам добрий наступально-підтримувальний варіант, Причарування особи [Charm Person] допомагає виконувати роль «обличчя» без «Експертизи»{{Expertise}} чи Покращення здібності [Enhance Ability], а Захоплива промова [Enthrall] принаймні кумедна, якщо вже не особливо корисна. {{Тифлінг (Діспатер)|Dispater Tiefling}} і {{Тифлінг (Гласія)|Glasya Tiefling}} теж чудові варіанти, залежно від того, який набір вродженого чаротворства вам потрібен.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Придворний{{Courtier}}. Він дає нам володіння навичками Аналіз Поведінки та Переконання й двома мовами.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Із класових навичок ми візьмемо Обман і Залякування, а від передісторії Придворного{{Courtier}} — Аналіз Поведінки та Переконання. Придворний також дає нам дві мови — скажімо, ельфійську та сільван (ними зазвичай розмовляють феї).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Надихаючого лідера»{{Inspiring Leader}}. Хоч пул тимчасових ХП, який він дає, дещо невеликий, він вирішальний для нашого фамільяра, у якого лише 2 ХП. На 4-му рівні «Надихаючий лідер» дасть нашому фамільяру 7 тимчасових ХП (наш модифікатор Харизми на той момент становитиме +3), що не так уже й багато, але цього досить, щоб фамільяр справді мав шанс пережити атаку.\n\nЩойно ми доведемо Харизму до 20 (це станеться на 12-му рівні), у нас зʼявиться місце для додаткових рис із Покращеннями Характеристик на 16-му та 19-му рівнях. Нам не потрібне нічого, що забиратиме нашу бонусну дію в бою, бо вона зарезервована для наказів фамільяру. «Містичний адепт»{{Eldritch Adept}}, «Адепт метамагії»{{Metamagic Adept}} і «Стійкий»{{Resilient}} — усе добрі варіанти. Можна взяти «Доторк феї»{{Fey Touched}} на 12-му рівні й ще одну гібридну рису на 16-му, але це надовго відставить вас від Фундаментальної математики{{Fundamental Math}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Потойбічний покровитель (Архіфея)\nПрисутність феї\nМагія пакту\nВідомі заклинання:\n– Вогники фей\n– Сон\nЗамовляння:\n– Магічна рука\n– Розщеплення Розуму",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Потойбічні виклики{{Eldritch Invocations}}:\n– Вогняна енергійність\n– Туманні видіння\nНове відоме заклинання: Невидимий служник",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Дар пакту (Пакт ланцюга)\nПеренавчання потойбічного виклику:\n– Вогняна енергійність → Інвестиція майстра ланцюгів\nНове відоме заклинання: Туманний крок\nПеренавчання заклинання: Сон → Вгамування емоцій",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Надихаючий лідер\nНове замовляння: Мала ілюзія\nНове відоме заклинання: Невидимість",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Новий потойбічний виклик: Голос майстра ланцюгів\nНове відоме заклинання: Голод Хадара",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Втеча туману\nНове відоме заклинання: Контрчари\nПеренавчання заклинання: Невидимість → Розвіювання магії",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Новий потойбічний виклик: Скульптор плоті\nНове відоме заклинання: Вигнання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Спритність 15 → 16, Харизма 17 → 18)\nНове відоме заклинання: Більша невидимість",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Новий потойбічний виклик: Шепіт могили\nНове відоме заклинання: Стримування монстра",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Звабливий захист\nНове замовляння: Штукарство",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Містичний арканум: Масове навіювання\nНове відоме заклинання: Позірність",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик (Харизма 18 → 20)\nНовий потойбічний виклик: Будь-який",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Містичний арканум: Планарний перехід\nНове відоме заклинання: Будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Темний марево{{Dark Delirium}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Новий потойбічний виклик: Вкритий тінню\nМістичний арканум: Впевненість\nНове відоме заклинання: Будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик або риса",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Містичний арканум: Передбачення\nНове відоме заклинання: Будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Новий потойбічний виклик: Відьомський зір",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик або риса: Будь-яка\nНове відоме заклинання: Будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Містичний майстер{{Eldritch Master}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Містичний арканум (11–17-й рівні)",
+        "reason": "Автор називає Масове навіювання (11-й), Планарний перехід (13-й), Впевненість (15-й) і Передбачення (17-й); платформа не записує вибір арканума.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Вибори «будь-який / будь-яке» на 12–19-му рівнях",
+        "reason": "Автор пише «будь-який» для потойбічного виклику на 12-му рівні, «будь-яке» для відомого заклинання на 13, 15, 17 і 19-му, «Покращення Характеристик або риса» на 16-му та «будь-яка» на 19-му. Пресет бере типове: виклик Eldritch Mind, Статура +2 на 16-му, Спритність +2 на 19-му, заклинання лишено на вибір гравця; гравець може змінити їх.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-archfey-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-archfey-2014-draft1",
+            "sourceRevisionId": "rpgbot-2493c74f5f3fb41f-044a5edf7422e00e",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

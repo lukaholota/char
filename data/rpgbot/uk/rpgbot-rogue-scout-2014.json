@@ -1,0 +1,1325 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-d85073cbf5c2048a",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-d85073cbf5c2048a-cc6199a0ce8722ff",
+      "sourceId": "rpgbot-d85073cbf5c2048a",
+      "fetchedAt": "2026-09-29T19:23:04.876749+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:52:49-04:00",
+      "contentHash": "674ff45f1706d054a6a8b0bf568e398f4afd8d7dd13bf44aca179d2d8438dd61",
+      "title": "Scout Rogue 5e: DnD Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-d85073cbf5c2048a-cc6199a0ce8722ff.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-rogue-scout-2014",
+    "sourceId": "rpgbot-d85073cbf5c2048a",
+    "slug": "rogue-scout-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Розвідник — гайд підкласу Пройдисвіта (2014)",
+    "titleEn": "Scout Rogue 5e: DnD Subclass Guide",
+    "topics": [
+      "Пройдисвіт",
+      "Розвідник",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-rogue-scout-2014-draft1",
+      "articleId": "rpgbot-rogue-scout-2014",
+      "sourceRevisionId": "rpgbot-d85073cbf5c2048a-cc6199a0ce8722ff",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пройдисвіт-Розвідник приносить колорит дослідника дикої природи в клас, відомий нишпоренням по підземеллях і вуличках міст. Проте, на відміну від Слідопита, він не спирається на магію, запозичену в Друїда. Натомість Розвідник спирається на свої навички, щоб вижити в диких частинах світу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоч колорит трохи відрізняється від типового Пройдисвіта, Розвідник не змінює ролі Пройдисвіта в групі. Кілька навичок, близьких до Слідопита, мають напрочуд малий вплив і не схиляють вас до конкретних завдань. У бою Розвідник добре тримається поза ближнім боєм і чудово керує засідкою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Розвідника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Розвідника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Розвідника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Розвідника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Розвідника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Розвідника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Розвідника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Розвідника — Польовий учений",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Розвідника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Розвідника",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/scout/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Розвідника",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Застрільник{{Skirmisher}}: чудово для дальніх білдів, але менш корисне для більшості ближніх, і оскільки діє як Реакція, може конфліктувати з «Надприродним ухиленням»{{Uncanny Dodge}}. «Хитра дія»{{Cunning Action}} теж може розвʼязати ту саму проблему, тож «Застрільник» здається мізерним доповненням до ваших можливостей. Ви не можете цим скористатися, доки ворог не закінчить свій хід, тож він уже зробив будь-які атаки, які планував, і ви, можливо, вже витратили Реакцію на «Надприродне ухилення», щоб помʼякшити шкоду від влучання.\n\nЯкщо ваш білд розрахований на ближній бій, використання цього часто означає витрату більшої частини руху на вашому ході, щоб повернутися в ближній бій, тож зберігати реакцію для «Надприродного ухилення» — краща інвестиція. Якщо ваш білд розрахований на бій на відстані, можна використати це, щоб вийти з досяжності майже будь-якої істоти, а тоді на вашому ході у вас ще залишаться рух і бонусна дія, щоб використати «Хитру дію» для чогось цікавішого, ніж Відступ."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виживальник{{Survivalist}}: дві нові навички й «Експертиза»{{Expertise}} в обох, що дає вам «Експертизу» загалом у чотирьох речах (якщо ви не отримуєте «Експертизу» ще звідкись). «Експертиза» легко компенсує порівняно слабкі характеристики Інтелекту й/чи Мудрості."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Виняткова мобільність{{Superior Mobility}}: справді корисна разом із «Застрільником» і вашою потребою триматися якомога далі. Зауважте, що це не впливає на швидкість польоту."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстер засідки{{Ambush Master}}: розгляньте рису «Пильний»{{Alert}} через бонус до кидків Ініціативи. Вам треба ходити першим, щоб максимізувати корисність цього уміння. Заохочуйте своїх союзників зосереджуватися на вашій цілі й швидко усувати високопріоритетні цілі на початку бою, перш ніж перейматися іншими ворогами."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раптовий удар{{Sudden Strike}}: ця додаткова атака витрачає вашу бонусну дію, тож бій двома зброями зайвий. Можливість завдати «Підступну атаку» двічі за хід фактично подвоює вашу шкоду, що чудово на будь-якому рівні. На жаль, не можна завдати «Підступну атаку» одній цілі двічі за один хід через «Раптовий удар», тож це значно легше використовувати з дальньою зброєю."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Розвідника",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Розвідника",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/races/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Додаткова швидкість ходьби може допомогти покращити ефект «Застрільника»{{Skirmisher}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Розвідника",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Розвідника",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Розвідника",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Розвідника",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "типового Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Розвідника — Польовий учений",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розвідник не дуже бойове чудовисько, але він фантастичний дослідник. Однак, не маючи багатьох навичок на знання, найкраще, що може типовий Розвідник, — щось знайти, сказати «це цікаво», а тоді піти знайти когось обізнанішого, щоб пояснив. Ця збірка додає Пройдисвітові навички на знання, дозволяючи вам знаходити речі, визначати їх і безпечно втікати, щоб розповісти союзникам, що ви знайшли."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка не припускає додаткових класових умінь."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми доведемо до максимуму Спритність і Статуру, а решту очок розподілимо між Інтелектом і Мудрістю на підтримку наших навичок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  []
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наш вибір раси тут важить дуже мало, але ми використаємо Гаренгона{{Harengon}} для цієї збірки. «Зайчачий рефлекс»{{Hare Trigger}} і додаткова навичка працюють чудово. У нас немає Темного зору, тож шукайте «Окуляри ночі»{{Goggles of Night}} або просіть когось із союзників накласти на вас «Темний зір [Darkvision]»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрець{{Sage}}. Це дає нам володіння Магією та Історією, плюс дві мови."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми починаємо з Уважності від раси, потім Аналіз Поведінки й Розслідування від передісторії. З чотирьох класових навичок ми візьмемо Аналіз Поведінки, Розслідування, Спритність рук і Непомітність. Володіння інструментами злодія ми отримуємо автоматично."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 3-му рівні ми отримаємо володіння й «Експертизу» і в Природі, і у Виживанні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні ми візьмемо «Проколювача»{{Piercer}} заради легкого приросту шкоди й підвищимо Спритність до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні ми візьмемо «Стрільця»{{Gunner}} і підвищимо Спритність до 19."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 10-му рівні ми візьмемо «Експерта у навичках»{{Skill Expert}}"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні ми візьмемо «Пильного»{{Alert}} для синергії з «Майстром засідки»{{Ambush Master}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні ми беремо «Посвяченого у бій»{{Fighting Initiate}} (Стрільба з лука), щоб підсилити наші дальні атаки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні ми беремо «Влучного стрільця»{{Sharpshooter}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза – Розслідування – Уважність\nПідступна атака +1к6\nЗлодійська мова"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми дуже уважні, але в іншому ми дуже звичайний Пройдисвіт."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хитра дія{{Cunning Action}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Хитра дія» (Сховатися) — наш основний спосіб отримати «Підступну атаку»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підклас: Розвідник\nЗастрільник\nВиживальник\nПідступна атака +2к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Застрільник» дає нам легкий спосіб вийти з ближнього бою, лишаючи нашу бонусну дію вільною для «Хитрої дії» (Сховатися). «Виживальник» дає нам ще більше навичок."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Проколювач (Спритність 17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Легкий приріст шкоди на будь-якому Пройдисвіті."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надприродне ухилення\nПідступна атака +3к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Надприродне ухилення» конкуруватиме із «Застрільником» за місце. Користуйтеся «Надприродним ухиленням», якщо отримуєте сильний удар, інакше користуйтеся «Застрільником», щоб безпечно вийти з ближнього бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза – Магія – Історія"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Робимо акцент на наших навичках на знання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухилення\nПідступна атака +4к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Завжди чудово."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стрілець (Спритність 18 → 19)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перехід з короткого лука на мушкет — невеликий, але вагомий приріст шкоди. Великий кубик шкоди також добрий кандидат для перекидання з «Проколювачем»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Виняткова мобільність\nПідступна атака +5к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова швидкість фантастична. «Застрільник» тепер дозволяє нам переміститися на 20 футів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках\n– Спритність 19 → 20\n– Володіння: Релігія\n– Експертиза: Релігія"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оскільки «Надійний талант» зʼявиться на 11-му рівні, більше володінь й «Експертизи» дуже захопливі. Тепер ми маємо володіння й «Експертизу» в усіх навичках на знання (Магія, Історія, Природа, Релігія), тож наші перевірки з цими навичками стабільно хороші попри посередній Інтелект."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надійний талант\nПідступна атака +6к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Надійний талант» чудово працює з усіма нашими навичками й «Експертизою». Його також можна використовувати з кидками ініціативи, бо ми додаємо Бонус Майстерності до Ініціативи за допомогою «Зайчачого рефлексу»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Пильний"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Саме вчасно, щоб узяти «Майстра засідки» на 13-му рівні. У нас Спритність 20 і «Зайчачий рефлекс», але це +5 до ініціативи все одно величезне. Наш бонус ініціативи загалом +14. У поєднанні з Перевагою на кубику від «Майстра засідки» і мінімальним кидком 10 від «Надійного таланту» ми майже гарантовано діємо першими в бою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстер засідки\nПідступна атака +7к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Можливо, наше найкраще класове уміння. Ми майже гарантовано діємо першими в бою. Якщо ми можемо влучити атакою (сподіваємося, з Перевагою на кубику), уся ваша група може зосередити атаки на вашій цілі, щоб швидко її усунути. Швидке виведення одного ворога з бою значно схиляє шанси на вашу користь."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сліповідчуття{{Blindsense}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дуже потужне."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слизький розум\nПідступна атака +8к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще одне володіння ряткидком завжди вітається."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Посвячений у бій (Стрільба з лука)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не дуже захопливо, але +2 до наших атак — значний приріст нашого DPR."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Раптовий удар\nПідступна атака +9к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо у вас дві дійсні цілі, «Раптовий удар» дозволяє використати «Підступну атаку» на обох, подвоюючи вашу шкоду. Однак відповідати вимогам «Підступної атаки» може бути проблемою, бо ви можете неохоче користуватися «Хитрою дією», щоб сховатися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невловимий{{Elusive}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Корисний захист."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підступна атака +10к6\nРиса: Влучний стрілець"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Велика купа шкоди. Ми не завжди користуватимемося «Влучним стрільцем», але це чудово, якщо в нас є Перевага на кубику. Між Перевагою на кубику й Бойовим Стилем (Стрільба з лука) наші атаки достатньо точні, щоб «Влучний стрілець» не був великим ризиком."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шанс удачі{{Stroke of Luck}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Завжди приємно. Збережіть це для використання з «Майстром засідки», щоб гарантувати, що ви можете дати Перевагу на кубику всій групі."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-rogue-scout-2014-001",
+      "articleId": "rpgbot-rogue-scout-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-scout-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Застрільник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-scout-2014-002",
+      "articleId": "rpgbot-rogue-scout-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-scout-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Виживальник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-scout-2014-003",
+      "articleId": "rpgbot-rogue-scout-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-scout-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Виняткова мобільність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-scout-2014-004",
+      "articleId": "rpgbot-rogue-scout-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-scout-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Майстер засідки",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-scout-2014-005",
+      "articleId": "rpgbot-rogue-scout-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-scout-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Раптовий удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

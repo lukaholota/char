@@ -77,4 +77,9 @@ describe("ознака, що людина тут не вперше", () => {
     expect(hasReturningVisitorSignal(buildStorage({ "catalog-homebrew:spells": "1" }))).toBe(true);
     expect(hasReturningVisitorSignal(buildStorage({ pers_details_open: "1" }))).toBe(true);
   });
+
+  it("лічильник банера встановлення пишеться вже на першому візиті й новачка не скасовує", () => {
+    expect(hasReturningVisitorSignal(buildStorage({ "char:install-visits:v1": "1" }))).toBe(false);
+    expect(hasReturningVisitorSignal(buildStorage({ "char:install-visits:v1": "1", "char:offline-queue:v1": "[]" }))).toBe(true);
+  });
 });

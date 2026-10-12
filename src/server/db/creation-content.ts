@@ -52,6 +52,10 @@ export async function loadCreationContent(data: PersFormData) {
             classId: true,
             armorProficiencies: true,
             weaponProficiencies: true,
+            subclassChoiceOptions: {
+              where: { levelsGranted: { has: 1 } },
+              select: { choiceOption: { select: { groupName: true, effectKind: true } } },
+            },
           },
         })
       : null,
@@ -180,6 +184,7 @@ export async function loadCreationContent(data: PersFormData) {
         where: { featureId: { in: allFeatureIds } },
         select: {
           featureId: true,
+          engName: true,
           bonusHitPointsPerLevel: true,
           skillProficiencies: true,
           armorProficiencies: true,
@@ -226,6 +231,7 @@ export async function loadCreationContent(data: PersFormData) {
     selectedEquipmentOptionIds,
     raceChoiceOptionIds,
     initialFeatureIds,
+    subclassFeatureIds: subclassFeatures.map((feature) => feature.featureId),
     optionalGrantedFeatureIds,
     optionalReplacedFeatureIds,
     choiceOptionFeatureIds,

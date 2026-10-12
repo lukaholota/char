@@ -1,0 +1,980 @@
+{
+  "buildId": "build-warlock-fallen-aasimar-undead-2014",
+  "revisionId": "build-warlock-fallen-aasimar-undead-2014-v3",
+  "ruleset": "RULES_2014",
+  "title": "— Привиди зі стволами",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-warlock-undead-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+      "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "WARLOCK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "UNDEAD"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Agonizing Blast"
+          },
+          {
+            "optionNameEng": "Devil's Sight"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Pact of the Blade"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "darkness"
+          ],
+          "spellbookKeys": []
+        },
+        "replaceOptions": [
+          {
+            "drop": {
+              "optionNameEng": "Agonizing Blast"
+            },
+            "add": {
+              "optionNameEng": "Improved Pact Weapon"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GUNNER",
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Thirsting Blade"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "spirit-shroud"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "speak-with-dead"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Eldritch Smite"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "greater-invisibility"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SHARPSHOOTER",
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Sculptor of Flesh"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "classOptions": [
+          {
+            "optionNameEng": "Lifedrinker"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Shrouded in Shadow"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FIGHTING_INITIATE",
+        "featOptions": [
+          {
+            "optionNameEng": "Archery"
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Witch Sight"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-warlock-undead-2014",
+          "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+          "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "UNDEAD",
+    "raceKey": "AASIMAR_MPMM",
+    "backgroundKey": "NOBLE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Расове +2 вкладемо в Спритність, а +1 — у Харизму.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 17 Статура 15 15 Інтелект 8 8 Мудрість 8 8 Харизма 15 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ми тут вдаємося до божевільної ідеї, тож оберімо божевільну расу: Занепалий аазимар{{Fallen Aasimar}} із налаштованим походженням{{Custom Origin}} (версія з «Путівника Воло по монстрах»{{Volo’s Guide to Monsters}}). Версія з «Монстрів Мультивсесвіту»{{Monsters of the Multiverse}} теж підійде, але шкоду «Некротичного покривала»{{Necrotic Shroud}} там суттєво ослабили.\n\n{{Напівельф-дроу|Drow Half-Elf}} — ще один сильний претендент. Вогники фей [Faerie fire] і Темрява [Darkness] як вроджені заклинання обидва дають додаткові джерела Переваги, не зменшуючи наших класових ресурсів, а доступ до «Ельфійської точності»{{Elven Accuracy}} вкрай спокушає разом із «Містичною карою»{{Eldritch Smite}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Для збірки це не надто важливо. Оберіть простий варіант для чорнокнижника.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Ви чорнокнижник, тож, імовірно, обираєте навички «обличчя».",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Стрільця»{{Gunner}}. +1 до Спритності доводить її до 18, а тоді додаємо «Покращену пактову зброю»{{Improved Pact Weapon}} — і ми вже випереджаємо «Фундаментальну математику»{{Fundamental Math}}. Зауважте: вогнепальну зброю як пактову ми все одно можемо використовувати, лише якщо знайдемо таку, що постійно магічна. Докладніше про це нижче.\n\nНа 8-му рівні беремо «Влучного стрільця»{{Sharpshooter}} заради збільшення шкоди.\n\nНа 12-му рівні беремо «Посвяченого у бій»{{Fighting Initiate}}, щоб отримати «Бойовий Стиль»{{Fighting Style}} ({{Стрільба з лука|Archery}}).\n\nНа 16-му рівні беремо +2 до Спритності.\n\nНа 19-му рівні ми нарешті згадуємо, що ми заклинатель, і підвищуємо Харизму.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Потойбічний покровитель{{Otherworldly Patron}}: Невмерлий\nОбличчя жаху\nМагія пакту\nВідомі заклинання:\n– Обладунок Агатіса\n– Проклін\nВідомі замовляння:\n– Позамежний заряд\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Потойбічні виклики{{Eldritch Invocations}}:\n– Мучливий вибух\n– Зір диявола\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Некротичне покривало\nДар пакту: Пакт клинка\nПеренавчання виклику:\n– Мучливий вибух → Покращена пактова зброя\nНове відоме заклинання:\n– Темрява",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Стрілець (Спритність 17 → 18)\nНове відоме замовляння:\n– будь-яке\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Новий потойбічний виклик:\n– Спрагле лезо\nНове відоме заклинання:\n– Духовна плащаниця",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Дотик могили\nНове відоме заклинання:\n– Розмова з мертвими",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Новий потойбічний виклик:\n– Містична кара\nНове відоме заклинання:\n– Покращена невидимість",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Риса: Влучний стрілець\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Новий потойбічний виклик:\n– Скульптор плоті\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Некротична оболонка{{Necrotic Husk}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Містичний арканум: Будь-яке\nНове відоме заклинання:\n– будь-яке\nНове відоме замовляння:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Спритність 18 → 20\nНовий потойбічний виклик:\n– Життєпийця",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Містичний арканум: Силова кліть\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Проєкція духу{{Spirit Projection}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Містичний арканум:\nНове відоме заклинання: Впевненість\n– будь-яке\nНовий потойбічний виклик:\n– Вкритий тінню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: Спритність 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Містичний арканум: Передбачення\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Новий потойбічний виклик:\n– будь-який",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Харизма 16 → 18\nНове відоме заклинання:\n– будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Містичний майстер{{Eldritch Master}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Версія Занепалого аазимара",
+        "reason": "Автор бере версію з «Путівника Воло по монстрах» і називає версію з «Монстрів Мультивсесвіту» прийнятною, хоч «Некротичне покривало» там слабше; у каталозі є лише друга.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання й замовляння «будь-які»",
+        "reason": "На 2, 4, 8, 9 і 11-му рівнях автор не називає нового заклинання чи замовлення; це вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Розбіжність таблиці й розділу про риси (12-й і 16-й рівні)",
+        "reason": "Таблиця ставить Покращення Характеристик (Спритність 18 → 20) і на 12-му, і на 16-му рівні, а розділ про риси дає Посвяченого у бій на 12-му й +2 до Спритності на 16-му. Обрано пріоритет таблиці: Спритність +2 на 12-му. Друге підвищення Спритності на 16-му неможливе (вже 20), тому на 16-му записано Посвяченого у бій (Стрільба з лука) з розділу про риси як типовий вибір платформи; гравець може змінити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Містичний арканум (11–17-й рівні)",
+        "reason": "Автор називає лише Силову клітку (13-й) і Передбачення (17-й), на 11-му пише «будь-яке», на 15-му рядок таблиці неоднозначний; платформа не записує вибір арканума.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Вибори «будь-який / будь-яке» на 13–19-му рівнях",
+        "reason": "Автор пише «будь-який» для потойбічного виклику на 18-му рівні (пресет бере Witch Sight; гравець може змінити). Відомі заклинання «будь-які» на 13, 15, 17 і 19-му лишено на вибір гравця; на 15-му таблиця називає заклинання неоднозначно (Впевненість поруч із «будь-яке»), тому теж лишено вибір гравця.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-warlock-undead-2014",
+            "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+            "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

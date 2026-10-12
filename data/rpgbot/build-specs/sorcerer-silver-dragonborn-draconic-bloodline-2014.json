@@ -1,0 +1,311 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "sorcerer-draconic-bloodline-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-sorcerer-draconic-bloodline-2014-draft1",
+    "sourceRevisionId": "rpgbot-fea402e9b203246d-19a9bca3d616f6ba"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "SORCERER_2014",
+  "subclassKey": "DRACONIC_BLOODLINE",
+  "raceKey": "DRAGONBORN_METALLIC",
+  "backgroundKey": "NOBLE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 10,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "spells": {
+        "knownSpellKeys": [
+          "ice-knife"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "classOptions": [
+        {
+          "optionNameEng": "Heightened Spell"
+        },
+        {
+          "optionNameEng": "Transmuted Spell"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "dragons-breath"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "ELEMENTAL_ADEPT",
+      "featOptions": [
+        {
+          "optionNameEng": "Elemental Adept (Fire)"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "rimes-binding-ice"
+        ]
+      },
+      "section": "section-feats-2"
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "fireball"
+        ]
+      }
+    },
+    {
+      "level": 6,
+      "spells": {
+        "knownSpellKeys": [
+          "ashardalons-stride"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "spells": {
+        "knownSpellKeys": [
+          "wall-of-fire"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "featKey": "GIFT_OF_THE_CHROMATIC_DRAGON",
+      "spells": {
+        "knownSpellKeys": [
+          "raulothims-psychic-lance"
+        ]
+      },
+      "section": "section-feats-2"
+    },
+    {
+      "level": 9,
+      "spells": {
+        "knownSpellKeys": [
+          "summon-draconic-spirit"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classOptions": [
+        {
+          "optionNameEng": "Quickened Spell"
+        }
+      ],
+      "openClassOptions": true,
+      "spells": {
+        "cantripKeys": [
+          "mind-sliver"
+        ],
+        "knownSpellKeys": [
+          "hold-monster"
+        ]
+      }
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "otilukes-freezing-sphere"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "featKey": "GIFT_OF_THE_METALLIC_DRAGON",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "draconic-transformation"
+        ]
+      }
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15,
+      "spells": {
+        "knownSpellKeys": [
+          "dominate-monster"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "featKey": "GIFT_OF_THE_GEM_DRAGON",
+      "featOptions": [
+        {
+          "optionNameEng": "GIFT_OF_THE_GEM_DRAGON Ability (Charisma)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 17,
+      "spells": {
+        "knownSpellKeys": [
+          "wish"
+        ]
+      },
+      "classOptions": [
+        {
+          "optionNameEng": "Careful Spell"
+        }
+      ],
+      "openClassOptions": true
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "LUCKY",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Стихія Адепта стихій на 4-му рівні",
+      "reason": "Автор не називає стихії; оскільки драконячого предка вогняної стихії ми вже обрали за вас (червоний дракон), Адепта стихій узято на вогонь. Це вибір платформи, його можна змінити.",
+      "section": "section-feats-2"
+    },
+    {
+      "field": "Замовляння 4-го рівня",
+      "reason": "Автор пише «будь-яке» нове замовлення на 4-му рівні, тому це відкритий вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Харизма від Дарунку хроматичного дракона",
+      "reason": "Автор рахує +1 до Харизми від Дарунку хроматичного дракона (17 до 18), а в каталозі платформи ця риса не підвищує характеристик; підвищення не додане. Те саме з Дарунками металевого й самоцвітного дракона: Харизма 19 і 20 з таблиці автора на платформі не зростає від Дарунку металевого дракона; Дарунок самоцвітного дракона підвищує Харизму на 1.",
+      "section": "section-feats-2"
+    },
+    {
+      "field": "Метамагія на 10-му рівні",
+      "reason": "Автор на 10-му називає дві метамагії (Quickened Spell і Twinned Spell), а Чародій на цьому рівні вивчає лише одну, і про заміну автор не пише. Платформа бере Quickened Spell як вибір платформи (гравець може змінити), Twinned Spell не записано. Заміна метамагії платформою не підтримується. Містичний арканум з 11-го автор не бере. На 17-му автор метамагію не називає: типова Careful Spell, вибір платформи.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Ігровий набір Аристократа",
+      "reason": "Пресет не записує вибір ігрового набору передісторії.",
+      "section": "section-background"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/sorcerer-silver-dragonborn-draconic-bloodline-2014.webp",
+    "title": "Чародій Драконячого родоводу — Срібний дракононароджений",
+    "description": "Срібний дракононароджений Фізбана з Харизмою 17 і Статурою 16, Аристократ. Вогняний предок і замовляння «Кислотні бризки» та «Вогняний заряд».",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA",
+      "CON",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "INTIMIDATION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "raceOptions": [
+      "Срібний дракон"
+    ],
+    "subclassOptions": [
+      "Red Dragon (Fire)"
+    ],
+    "platformChoices": [
+      "subclassOptions"
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats-2",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Дракононароджений Фізбана за правилами Таші: +2 до Харизми й +1 до Статури, як у авторській таблиці (Харизма 17, Статура 16); це вже враховано.",
+    "skillExplanation": "Аналіз Поведінки й Залякування — від Чародія, Історія й Переконання — від Аристократа, як радить автор. Мову ми обрали за вас: автор її не називає.",
+    "equipmentExplanation": "Автор не називає спорядження. Легкий арбалет, мішечок із компонентами, набір дослідника підземель і кинджали ми обрали за вас — їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "acid-splash",
+        "fire-bolt",
+        "mage-hand",
+        "prestidigitation"
+      ],
+      "knownSpellKeys": [
+        "chromatic-orb",
+        "shield"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Замовляння й заклинання названі автором. Драконячого предка автор називає лише «з вогняної стихії»: червоного дракона ми обрали за вас.",
+      "sectionId": "section-levels"
+    }
+  }
+}

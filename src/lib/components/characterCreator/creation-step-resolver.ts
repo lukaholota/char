@@ -38,13 +38,21 @@ const coreSteps: CreationStep[] = [
   { id: "skills", name: "Навички", component: "skills" },
 ];
 
-export function resolveCreationSteps(conditions: CreationStepConditions): CreationStep[] {
+export type CreationStepOrder = "RACE_FIRST" | "CLASS_FIRST";
+
+export function findCreationStepOrder(ruleset: "RULES_2014" | "RULES_2024"): CreationStepOrder {
+  return ruleset === "RULES_2014" ? "CLASS_FIRST" : "RACE_FIRST";
+}
+
+export function resolveCreationSteps(conditions: CreationStepConditions, order: CreationStepOrder = "RACE_FIRST"): CreationStep[] {
+  const raceSteps: CreationStep[] = [{ id: "race", name: "Раса", component: "races" }, ...resolveRaceSteps(conditions)];
+  const classSteps: CreationStep[] = [{ id: "class", name: "Клас", component: "class" }, ...resolveClassSteps(conditions)];
+  const spellSteps = resolveSpellSteps(conditions);
+  const isClassFirst = order === "CLASS_FIRST";
   return [
-    { id: "race", name: "Раса", component: "races" },
-    ...resolveRaceSteps(conditions),
-    { id: "class", name: "Клас", component: "class" },
-    ...resolveClassSteps(conditions),
+    ...(isClassFirst ? [...classSteps, ...raceSteps] : [...raceSteps, ...classSteps, ...spellSteps]),
     ...coreSteps,
+    ...(isClassFirst ? spellSteps : []),
     ...resolveChoiceSteps(conditions),
     { id: "equipment", name: "Спорядження", component: "equipment" },
     { id: "name", name: "Імʼя", component: "name" },
@@ -74,8 +82,11 @@ function resolveClassSteps(conditions: CreationStepConditions): CreationStep[] {
   if (conditions.hasLevelOneChoices) steps.push({ id: "classChoices", name: "Опції класу", component: "classChoices" });
   if (conditions.hasLevelOneOptionalFeatures) steps.push({ id: "classOptional", name: "Додаткові риси", component: "classOptional" });
   if (conditions.hasWeaponMastery) steps.push({ id: "weaponMastery", name: "Майстерність зброї", component: "weaponMastery" });
-  if (conditions.hasSpellChoice) steps.push({ id: "spells", name: "Заклинання", component: "spells" });
   return steps;
+}
+
+function resolveSpellSteps(conditions: CreationStepConditions): CreationStep[] {
+  return conditions.hasSpellChoice ? [{ id: "spells", name: "Заклинання", component: "spells" }] : [];
 }
 
 function resolveChoiceSteps(conditions: CreationStepConditions): CreationStep[] {

@@ -1,0 +1,91 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "fighter-samurai-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-fighter-samurai-2014-draft1",
+    "sourceRevisionId": "rpgbot-5778d896b80f693d-1c98c2148d119d61"
+  },
+  "exampleSection": "section-example-samurai-build-a-fistful-of-advantage",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "subclassKey": "SAMURAI",
+  "raceKey": "KOBOLD_MPMM",
+  "backgroundKey": "FAR_TRAVELER",
+  "abilityScores": { "STR": 8, "DEX": 15, "CON": 15, "INT": 10, "WIS": 14, "CHA": 8 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "incomplete": [
+    {
+      "field": "Середній обладунок",
+      "reason": "Автор радить середній обладунок і легкий арбалет; стартовий набір Воїна середнього обладунку не містить, тож пресет бере шкіряний обладунок із групи 1.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Навички Далекого мандрівника",
+      "reason": "Автор називає Непомітність і Уважність від Далекого мандрівника; у каталозі передісторія дає Аналіз поведінки й Уважність, тож пресет бере навички каталогу.",
+      "section": "section-background"
+    },
+    {
+      "field": "Додаткова майстерність Самурая: Аналіз поведінки",
+      "reason": "Автор на 3-му рівні бере Аналіз поведінки через Додаткову майстерність Самурая; платформа не має вибору навички для цієї здібності, тож навичка в плані рівнів не записана.",
+      "section": "section-levels"
+    }
+  ],
+  "revision": 2,
+  "levels": [
+    {"level": 2},
+    {"level": 3, "subclassKey": "SAMURAI"},
+    {"level": 4, "featKey": "GUNNER", "section": "section-feats"},
+    {"level": 5},
+    {"level": 6, "featKey": "RESILIENT", "featOptions": [{"optionNameEng": "Resilient (Dexterity)"}], "section": "section-feats"},
+    {"level": 7},
+    {"level": 8, "featKey": "PIERCER", "featOptions": [{"optionNameEng": "PIERCER Ability (Dexterity)"}], "section": "section-feats"},
+    {"level": 9},
+    {"level": 10},
+    {"level": 11},
+    {"level": 12, "featKey": "SHARPSHOOTER", "section": "section-feats"},
+    {"level": 13},
+    {"level": 14, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}], "section": "section-feats"},
+    {"level": 15},
+    {"level": 16, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}], "section": "section-feats"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "featKey": "TOUGH", "section": "section-feats"},
+    {"level": 20}
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/fighter-samurai-2014.webp",
+    "title": "Воїн — Самурай, Кобольд",
+    "description": "Кобольд-стрілець за правилами Таші зі Спритністю 17 та Статурою 16: Бойовий стиль «Стрільба з лука» і легкий арбалет з першого рівня.",
+    "subraceKey": null,
+    "racialAbilities": ["DEX", "CON", "DEX"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["SURVIVAL", "ACROBATICS"], "race": [], "background": [] },
+    "expertise": [],
+    "classOptions": ["Archery"],
+    "raceOptions": ["Драконяче чаклунство"],
+    "languages": ["ELVISH", "DWARVISH"],
+    "equipment": [
+      { "group": 1, "option": "b", "weapons": [] },
+      { "group": 2, "option": "b", "weapons": ["RAPIER", "SHORTSWORD"] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Кобольд за правилами Таші: +2 до Спритності й +1 до Статури, як у таблиці автора (Спритність 17, Статура 16). Це вже враховано.",
+    "skillExplanation": "Виживання й Акробатика — від Воїна, як радить автор. Далекий мандрівник у каталозі дає Аналіз поведінки й Уважність (автор називає Непомітність і Уважність), тож узято навички каталогу. Дві мови ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Легкий арбалет з болтами узято з поради автора. Шкіряний обладунок з довгим луком, дві бойові зброї (рапіру й короткий меч) і Набір дослідника підземель ми обрали за вас; середнього обладунку у стартовому наборі Воїна немає, тож його не додано.",
+    "spells": {
+      "classCantripKeys": [],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": ["blade-ward"],
+      "preparedSpellKeys": [],
+      "sectionId": "section-race",
+      "explanation": "Драконяче чаклунство і замовляння Захист від зброї обрано автором."
+    }
+  }
+}

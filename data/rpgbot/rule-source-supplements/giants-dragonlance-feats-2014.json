@@ -1,0 +1,1376 @@
+{
+  "upstream": "https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/e5f3e77b303a92df10487207857200245e71957c/data/feats.json",
+  "sha256": "a06e99bdc529e58acb7f3f3ff902c0941e83ba8003cc2caffcccd0c46a804338",
+  "ruleset": "RULES_2014",
+  "feats": [
+    {
+      "name": "Adept of the Black Robes",
+      "source": "DSotDQ",
+      "page": 31,
+      "prerequisite": [
+        {
+          "level": 4,
+          "feat": [
+            "initiate of high sorcery|dsotdq|initiate of high sorcery (nuitari)"
+          ]
+        }
+      ],
+      "additionalSpells": [
+        {
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "innate": {
+            "_": {
+              "daily": {
+                "1e": [
+                  {
+                    "choose": "level=2|school=E;N"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "entries": [
+        "You chose the moon Nuitari to influence your magic, and your ambition and loyalty to the Order of the Black Robes have been recognized, granting you these benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Ambitious Magic",
+              "entries": [
+                "You learn one 2nd-level spell of your choice. The {@filter 2nd-level spell|spells|level=2|school=E;N} must be from the enchantment or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the {@feat Initiate of High Sorcery|DSotDQ} feat."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Life Channel",
+              "entries": [
+                "You can channel your life force into the power of your magic. When a creature you can see within 60 feet of you fails a saving throw against a spell that deals damage that you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll the expended Hit Dice and add them together. The damage that the creature takes increases by an amount equal to that total."
+              ]
+            }
+          ]
+        }
+      ],
+      "hasFluffImages": true
+    },
+    {
+      "name": "Adept of the Red Robes",
+      "source": "DSotDQ",
+      "page": 32,
+      "prerequisite": [
+        {
+          "level": 4,
+          "feat": [
+            "initiate of high sorcery|dsotdq|initiate of high sorcery (lunitari)"
+          ]
+        }
+      ],
+      "additionalSpells": [
+        {
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "innate": {
+            "_": {
+              "daily": {
+                "1e": [
+                  {
+                    "choose": "level=2|school=I;T"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "entries": [
+        "You chose the moon Lunitari to influence your magic, and your dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Insightful Magic",
+              "entries": [
+                "You learn one 2nd-level spell of your choice. The {@filter 2nd-level spell|spells|level=2|school=I;T} must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the {@feat Initiate of High Sorcery|DSotDQ} feat."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Magical Balance",
+              "entries": [
+                "When you make an attack roll or an ability check and roll a 9 or lower on the {@dice d20}, you can balance fate and treat the roll as a 10. You can balance fate in this way a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+              ]
+            }
+          ]
+        }
+      ],
+      "hasFluffImages": true
+    },
+    {
+      "name": "Adept of the White Robes",
+      "source": "DSotDQ",
+      "page": 32,
+      "prerequisite": [
+        {
+          "level": 4,
+          "feat": [
+            "initiate of high sorcery|dsotdq|initiate of high sorcery (solinari)"
+          ]
+        }
+      ],
+      "additionalSpells": [
+        {
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "innate": {
+            "_": {
+              "daily": {
+                "1e": [
+                  {
+                    "choose": "level=2|school=A;D"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "entries": [
+        "You chose the moon Solinari to influence your magic, and your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Protective Magic",
+              "entries": [
+                "You learn one 2nd-level spell of your choice. The {@filter 2nd-level spell|spells|level=2|school=A;D} must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the {@feat Initiate of High Sorcery|DSotDQ} feat."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Protective Ward",
+              "entries": [
+                "When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier."
+              ]
+            }
+          ]
+        }
+      ],
+      "hasFluffImages": true
+    },
+    {
+      "name": "Divinely Favored",
+      "source": "DSotDQ",
+      "page": 32,
+      "prerequisite": [
+        {
+          "level": 4,
+          "campaign": [
+            "Dragonlance"
+          ]
+        }
+      ],
+      "additionalSpells": [
+        {
+          "name": "Evil",
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "known": {
+            "_": [
+              {
+                "choose": "level=0|class=Cleric",
+                "count": 1
+              }
+            ]
+          },
+          "innate": {
+            "_": {
+              "daily": {
+                "1e": [
+                  "augury",
+                  {
+                    "choose": "level=1|class=warlock"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "Good",
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "known": {
+            "_": [
+              {
+                "choose": "level=0|class=Cleric",
+                "count": 1
+              }
+            ]
+          },
+          "innate": {
+            "_": {
+              "daily": {
+                "1e": [
+                  "augury",
+                  {
+                    "choose": "level=1|class=cleric"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "Neutral",
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "known": {
+            "_": [
+              {
+                "choose": "level=0|class=Cleric",
+                "count": 1
+              }
+            ]
+          },
+          "innate": {
+            "_": {
+              "daily": {
+                "1e": [
+                  "augury",
+                  {
+                    "choose": "level=1|class=druid"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "entries": [
+        "A god chose you to carry a spark of their power.",
+        "You learn one cantrip of your choice from the {@filter cleric spell list|spells|level=0|class=cleric} and one 1st-level spell based on the alignment of your character, as specified in the Alignment Spells table below. You also learn the {@spell augury} spell.",
+        {
+          "type": "table",
+          "caption": "Alignment Spells",
+          "colLabels": [
+            "Alignment",
+            "1st-Level Spell"
+          ],
+          "colStyles": [
+            "col-2",
+            "col-10"
+          ],
+          "rows": [
+            [
+              "Evil",
+              "Choose one {@filter 1st-level warlock spell|spells|level=1|class=warlock}"
+            ],
+            [
+              "Good",
+              "Choose one {@filter 1st-level cleric spell|spells|level=1|class=cleric}"
+            ],
+            [
+              "Neutral",
+              "Choose one {@filter 1st-level druid spell|spells|level=1|class=druid}"
+            ]
+          ]
+        },
+        "You can cast the chosen 1st-level spell and the {@spell augury} spell without a spell slot, and you must finish a long rest before you can cast either of these spells in this way again. You can also cast these spells using spell slots you have of the appropriate level.",
+        "Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+        "In addition, you can use a holy symbol as a spellcasting focus for any spell you cast that uses the spellcasting ability you choose when you select this feat."
+      ]
+    },
+    {
+      "name": "Ember of the Fire Giant",
+      "source": "BGG",
+      "page": 17,
+      "prerequisite": [
+        {
+          "level": 4,
+          "feat": [
+            "strike of the giants|BGG|strike of the giants (fire strike)"
+          ]
+        }
+      ],
+      "ability": [
+        {
+          "choose": {
+            "from": [
+              "str",
+              "con",
+              "wis"
+            ],
+            "amount": 1
+          }
+        }
+      ],
+      "resist": [
+        "fire"
+      ],
+      "entries": [
+        "You've manifested the fiery combat emblematic of fire giants, granting you the following benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Born of Flame",
+              "entries": [
+                "You have resistance to fire damage."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Searing Ignition",
+              "entries": [
+                "When you take the {@action Attack} action on your turn, you can replace a single attack with a magical burst of flame. Each creature of your choice in a 15-foot-radius sphere centered on you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, a creature takes fire damage equal to {@damage 1d8} + your proficiency bonus, and it has the blinded condition until the start of your next turn. On a successful save, the creature takes half as much damage only. You can use your Searing Ignition a number of times equal to your proficiency bonus (but no more than once per turn), and you regain all expended uses when you finish a long rest."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fury of the Frost Giant",
+      "source": "BGG",
+      "page": 17,
+      "prerequisite": [
+        {
+          "level": 4,
+          "feat": [
+            "strike of the giants|BGG|strike of the giants (frost strike)"
+          ]
+        }
+      ],
+      "ability": [
+        {
+          "choose": {
+            "from": [
+              "str",
+              "con",
+              "wis"
+            ],
+            "amount": 1
+          }
+        }
+      ],
+      "resist": [
+        "cold"
+      ],
+      "entries": [
+        "You've manifested the icy might emblematic of frost giants, granting you the following benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Born of Ice",
+              "entries": [
+                "You have resistance to cold damage."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Frigid Retaliation",
+              "entries": [
+                "Immediately after a creature you can see within 30 feet of you hits you with an attack roll and deals damage, you can use your reaction to retaliate with a conjured blast of ice. The creature must make a Constitution saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, the creature takes cold damage equal to {@damage 1d8} + your proficiency bonus, and its speed is reduced to 0 until the end of its next turn. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+              ]
+            }
+          ]
+        }
+      ],
+      "hasFluffImages": true
+    },
+    {
+      "name": "Guile of the Cloud Giant",
+      "source": "BGG",
+      "page": 18,
+      "prerequisite": [
+        {
+          "level": 4,
+          "feat": [
+            "strike of the giants|BGG|strike of the giants (cloud strike)"
+          ]
+        }
+      ],
+      "ability": [
+        {
+          "choose": {
+            "from": [
+              "str",
+              "con",
+              "cha"
+            ],
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "You've manifested the confounding magic emblematic of cloud giants, granting you the following benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Cloudy Escape",
+              "entries": [
+                "When a creature you can see hits you with an attack roll, you can use your reaction to give yourself resistance to that attack's damage. You then teleport to an unoccupied space that you can see within 30 feet of yourself. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Initiate of High Sorcery",
+      "source": "DSotDQ",
+      "page": 32,
+      "prerequisite": [
+        {
+          "campaign": [
+            "Dragonlance"
+          ],
+          "level": {
+            "level": 1,
+            "class": {
+              "name": "Sorcerer",
+              "visible": true
+            }
+          }
+        },
+        {
+          "campaign": [
+            "Dragonlance"
+          ],
+          "level": {
+            "level": 1,
+            "class": {
+              "name": "Wizard",
+              "visible": true
+            }
+          }
+        },
+        {
+          "campaign": [
+            "Dragonlance"
+          ],
+          "background": [
+            {
+              "name": "Mage of High Sorcery",
+              "displayEntry": "{@background Mage of High Sorcery|DSotDQ}"
+            }
+          ]
+        }
+      ],
+      "additionalSpells": [
+        {
+          "name": "Nuitari",
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "known": {
+            "_": [
+              {
+                "choose": "level=0|class=Wizard"
+              }
+            ]
+          },
+          "innate": {
+            "_": {
+              "daily": {
+                "1e": [
+                  {
+                    "choose": {
+                      "from": [
+                        "dissonant whispers",
+                        "false life",
+                        "hex",
+                        "ray of sickness"
+                      ],
+                      "count": 2
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "Lunitari",
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "known": {
+            "_": [
+              {
+                "choose": "level=0|class=Wizard"
+              }
+            ]
+          },
+          "innate": {
+            "_": {
+              "daily": {
+                "1e": [
+                  {
+                    "choose": {
+                      "from": [
+                        "color spray",
+                        "disguise self",
+                        "feather fall",
+                        "longstrider"
+                      ],
+                      "count": 2
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name": "Solinari",
+          "ability": {
+            "choose": [
+              "int",
+              "wis",
+              "cha"
+            ]
+          },
+          "known": {
+            "_": [
+              {
+                "choose": "level=0|class=Wizard"
+              }
+            ]
+          },
+          "innate": {
+            "_": {
+              "daily": {
+                "1e": [
+                  {
+                    "choose": {
+                      "from": [
+                        "comprehend languages",
+                        "detect evil and good",
+                        "protection from evil and good",
+                        "shield"
+                      ],
+                      "count": 2
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "entries": [
+        "You've received training from magic-users affiliated with the Mages of High Sorcery.",
+        "Choose one of the three moons of Krynn to influence your magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip of your choice from the wizard spell list and two 1st-level spells based on the moon you choose, as specified in the Lunar Spells table.",
+        {
+          "type": "table",
+          "caption": "Lunar Spells",
+          "colLabels": [
+            "Moon",
+            "1st-Level Spell"
+          ],
+          "colStyles": [
+            "col-1",
+            "col-11"
+          ],
+          "rows": [
+            [
+              "Nuitari",
+              "Choose two from {@spell dissonant whispers}, {@spell false life}, {@spell hex}, and {@spell ray of sickness}"
+            ],
+            [
+              "Lunitari",
+              "Choose two from {@spell color spray}, {@spell disguise self}, {@spell feather fall}, and {@spell longstrider}"
+            ],
+            [
+              "Solinari",
+              "Choose two from {@spell comprehend languages}, {@spell detect evil and good}, {@spell protection from evil and good}, and {@spell shield}"
+            ]
+          ]
+        },
+        "You can cast each of the chosen 1st-level spells without a spell slot, and you must finish a long rest before you can cast them in this way again. You can also cast the spells using any spell slots you have.",
+        "Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat)."
+      ],
+      "hasFluffImages": true
+    },
+    {
+      "name": "Keenness of the Stone Giant",
+      "source": "BGG",
+      "page": 18,
+      "prerequisite": [
+        {
+          "level": 4,
+          "feat": [
+            "strike of the giants|BGG|strike of the giants (stone strike)"
+          ]
+        }
+      ],
+      "ability": [
+        {
+          "choose": {
+            "from": [
+              "str",
+              "con",
+              "wis"
+            ],
+            "amount": 1
+          }
+        }
+      ],
+      "bonusSenses": [
+        {
+          "darkvision": 60
+        }
+      ],
+      "entries": [
+        "You've manifested the physical talents emblematic of stone giants, granting you the following benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Cavernous Sight",
+              "entries": [
+                "You gain {@sense darkvision} with a range of 60 feet. If you already have {@sense darkvision} from another source, its range increases by 60 feet."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Stone Throw",
+              "entries": [
+                "As a bonus action, you can take a rock and make a magical attack with it. The attack is a ranged spell attack with a range of 60 feet that uses the ability score you increased with this feat as the spellcasting ability. On a hit, the rock deals {@damage 1d10} force damage, and the target must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the spellcasting ability modifier) or have the prone condition. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Knight of the Crown",
+      "source": "DSotDQ",
+      "page": 32,
+      "prerequisite": [
+        {
+          "level": 4,
+          "feat": [
+            "squire of solamnia|dsotdq"
+          ]
+        }
+      ],
+      "ability": [
+        {
+          "choose": {
+            "from": [
+              "str",
+              "dex",
+              "con"
+            ],
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Commanding Rally",
+              "entries": [
+                "As a bonus action, you can command one ally within 30 feet of yourself to attack. If that ally can see or hear you, they can immediately make one weapon attack as a reaction. If the attack hits, the ally can roll a {@dice d8} and add the number rolled as a bonus to the attack's damage roll. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "inset",
+          "name": "Membership in Knightly Orders",
+          "entries": [
+            "Knights of Solamnia are only ever members of one of their organization's orders. In the course of their training, most knights begin as members of the Knights of the Crown and then move on to join other orders. Whether a character follows this path or another, they retain what they learned as a member of an order even if they join another. Characters can change what knightly order they're a part of, but they always have access to any Knight of Solamnia feats they've acquired."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Knight of the Rose",
+      "source": "DSotDQ",
+      "page": 33,
+      "prerequisite": [
+        {
+          "level": 4,
+          "feat": [
+            "squire of solamnia|dsotdq"
+          ]
+        }
+      ],
+      "ability": [
+        {
+          "choose": {
+            "from": [
+              "con",
+              "wis",
+              "cha"
+            ],
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Bolstering Rally",
+              "entries": [
+                "As a bonus action, you can encourage one creature you can see within 30 feet of yourself (you can choose yourself). If the target can see or hear you, the target gains temporary hit points equal to {@dice 1d8} + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "inset",
+          "name": "Membership in Knightly Orders",
+          "entries": [
+            "Knights of Solamnia are only ever members of one of their organization's orders. In the course of their training, most knights begin as members of the Knights of the Crown and then move on to join other orders. Whether a character follows this path or another, they retain what they learned as a member of an order even if they join another. Characters can change what knightly order they're a part of, but they always have access to any Knight of Solamnia feats they've acquired."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Knight of the Sword",
+      "source": "DSotDQ",
+      "page": 33,
+      "prerequisite": [
+        {
+          "level": 4,
+          "feat": [
+            "squire of solamnia|dsotdq"
+          ]
+        }
+      ],
+      "ability": [
+        {
+          "choose": {
+            "from": [
+              "int",
+              "wis",
+              "cha"
+            ],
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Demoralizing Strike",
+              "entries": [
+                "Once per turn, when you hit a creature with a weapon attack roll, you can attempt to frighten that target. The target must make a Wisdom saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the target is {@condition frightened} of you until the end of your next turn. On a successful save, the target has disadvantage on the next attack roll it makes before the end of its next turn. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "inset",
+          "name": "Membership in Knightly Orders",
+          "entries": [
+            "Knights of Solamnia are only ever members of one of their organization's orders. In the course of their training, most knights begin as members of the Knights of the Crown and then move on to join other orders. Whether a character follows this path or another, they retain what they learned as a member of an order even if they join another. Characters can change what knightly order they're a part of, but they always have access to any Knight of Solamnia feats they've acquired."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rune Shaper",
+      "source": "BGG",
+      "page": 18,
+      "prerequisite": [
+        {
+          "spellcastingFeature": true
+        },
+        {
+          "background": [
+            {
+              "name": "Rune Carver",
+              "displayEntry": "{@background Rune Carver|BGG}"
+            }
+          ]
+        }
+      ],
+      "additionalSpells": [
+        {
+          "innate": {
+            "_": {
+              "daily": {
+                "1e": [
+                  "comprehend languages",
+                  "fog cloud",
+                  "inflict wounds",
+                  "chromatic orb",
+                  "disguise self",
+                  "burning hands",
+                  "speak with animals",
+                  "armor of agathys",
+                  "goodberry",
+                  "longstrider",
+                  "command",
+                  "entangle",
+                  "sanctuary",
+                  "thunderwave"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "entries": [
+        "You've studied the magic of Giant runes, granting you the following benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Comprehend Languages",
+              "entries": [
+                "You learn the {@spell comprehend languages} spell. You can cast this spell without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using any spell slots you have."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Rune Magic",
+              "entries": [
+                "You know a number of runes equal to half your proficiency bonus (rounded down), chosen from the Rune Spells table. Whenever you finish a long rest, you can inscribe each rune you know onto one nonmagical weapon, armor, piece of clothing, or other object you touch. You temporarily learn the 1st-level spells that correspond to the runes you inscribed, as specified on the Rune Spells table, and you know those spells until you finish a long rest, when the runes fade. While you are wearing or carrying any rune-marked object, you can cast the spells associated with those runes using any spell slots you have.",
+                "You can also invoke a rune inscribed on an object you are wearing or carrying and cast its associated spell without expending a spell slot or using material components. Once you cast the spell in this way, you can't do so again until you finish a long rest. Your spellcasting ability for this feat is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+                "Each time you gain a level, you can replace one of the runes you know with another one from the Rune Spells table.",
+                {
+                  "type": "table",
+                  "colStyles": [
+                    "col-2",
+                    "col-10"
+                  ],
+                  "colLabels": [
+                    "Rune",
+                    "Spell"
+                  ],
+                  "rows": [
+                    [
+                      "Cloud",
+                      "{@spell Fog cloud}"
+                    ],
+                    [
+                      "Death",
+                      "{@spell Inflict wounds}"
+                    ],
+                    [
+                      "Dragon",
+                      "{@spell Chromatic orb}"
+                    ],
+                    [
+                      "Enemy",
+                      "{@spell Disguise self}"
+                    ],
+                    [
+                      "Fire",
+                      "{@spell Burning hands}"
+                    ],
+                    [
+                      "Friend",
+                      "{@spell Speak with animals}"
+                    ],
+                    [
+                      "Frost",
+                      "{@spell Armor of Agathys}"
+                    ],
+                    [
+                      "Hill",
+                      "{@spell Goodberry}"
+                    ],
+                    [
+                      "Journey",
+                      "{@spell Longstrider}"
+                    ],
+                    [
+                      "King",
+                      "{@spell Command}"
+                    ],
+                    [
+                      "Mountain",
+                      "{@spell Entangle}"
+                    ],
+                    [
+                      "Stone",
+                      "{@spell Sanctuary}"
+                    ],
+                    [
+                      "Storm",
+                      "{@spell Thunderwave}"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Soul of the Storm Giant",
+      "source": "BGG",
+      "page": 19,
+      "prerequisite": [
+        {
+          "level": 4,
+          "feat": [
+            "strike of the giants|BGG|strike of the giants (storm strike)"
+          ]
+        }
+      ],
+      "ability": [
+        {
+          "choose": {
+            "from": [
+              "str",
+              "wis",
+              "cha"
+            ],
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "You've manifested the tempest magic emblematic of storm giants, granting you the following benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Maelstrom Aura",
+              "entries": [
+                "As a bonus action, you surround yourself with an aura of magical wind and lightning that extends 10 feet from you in every direction but not through {@quickref Cover||3||total cover}. The aura lasts until the start of your next turn or until you are incapacitated. While the aura is active, you have resistance to lightning and thunder damage. In addition, attack rolls against you have disadvantage, and whenever another creature starts its turn within the aura, you can force the creature to make a Strength saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, the creature's speed is halved until the start of its next turn. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Squire of Solamnia",
+      "source": "DSotDQ",
+      "page": 34,
+      "prerequisite": [
+        {
+          "campaign": [
+            "Dragonlance"
+          ],
+          "level": {
+            "level": 1,
+            "class": {
+              "name": "Fighter",
+              "visible": true
+            }
+          }
+        },
+        {
+          "campaign": [
+            "Dragonlance"
+          ],
+          "level": {
+            "level": 1,
+            "class": {
+              "name": "Paladin",
+              "visible": true
+            }
+          }
+        },
+        {
+          "campaign": [
+            "Dragonlance"
+          ],
+          "background": [
+            {
+              "name": "Knight of Solamnia",
+              "displayEntry": "{@background Knight of Solamnia|DSotDQ}"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        "Your training in the ways of the Knights of Solamnia grants you these benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Mount Up",
+              "entries": [
+                "Mounting or dismounting costs you only 5 feet of movement."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Precise Strike",
+              "entries": [
+                "Once per turn, when you make a weapon attack roll against a creature, you can cause the attack roll to have advantage. If the attack hits, you roll a {@dice d8} and add the number rolled as a bonus to the attack's damage roll. You can use this benefit a number of times equal to your proficiency bonus, but a use is expended only if the attack hits. You regain all expended uses when you finish a long rest."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "inset",
+          "name": "Membership in Knightly Orders",
+          "entries": [
+            "Knights of Solamnia are only ever members of one of their organization's orders. In the course of their training, most knights begin as members of the Knights of the Crown and then move on to join other orders. Whether a character follows this path or another, they retain what they learned as a member of an order even if they join another. Characters can change what knightly order they're a part of, but they always have access to any Knight of Solamnia feats they've acquired."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Strike of the Giants",
+      "source": "BGG",
+      "page": 19,
+      "prerequisite": [
+        {
+          "proficiency": [
+            {
+              "weaponGroup": "martial"
+            }
+          ]
+        },
+        {
+          "background": [
+            {
+              "name": "Giant Foundling",
+              "displayEntry": "{@background Giant Foundling|BGG}"
+            }
+          ]
+        }
+      ],
+      "entries": [
+        "You have absorbed primeval magic that gives you an echo of the might of giants. When you take this feat, choose one of the benefits listed below. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect depending on the benefit you chose:",
+        {
+          "type": "entries",
+          "name": "Cloud Strike",
+          "entries": [
+            "The target takes an extra {@damage 1d4} thunder damage. If the target is a creature, it must succeed on a Wisdom saving throw, or you become invisible to it until the start of your next turn or until immediately after you make an attack roll or cast a spell."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Fire Strike",
+          "entries": [
+            "The target takes an extra {@damage 1d10} fire damage."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Frost Strike",
+          "entries": [
+            "The target takes an extra {@damage 1d6} cold damage. If the target is a creature, it must succeed on a Constitution saving throw, or its speed is reduced to 0 until the start of your next turn."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Hill Strike",
+          "entries": [
+            "The target takes an extra {@damage 1d6} damage of the weapon's type. If the target is a creature, it must succeed on a Strength saving throw or have the prone condition."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Stone Strike",
+          "entries": [
+            "The target takes an extra {@damage 1d6} force damage. If the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet from you in a straight line."
+          ]
+        },
+        {
+          "type": "entries",
+          "name": "Storm Strike",
+          "entries": [
+            "The target takes an extra {@damage 1d6} lightning damage. If the target is a creature, it must succeed on a Constitution saving throw, or it has disadvantage on attack rolls until the start of your next turn.",
+            "The saving throw DC for these effects equals 8 + your proficiency bonus + your Strength or Constitution modifier.",
+            "You can use this feat a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+          ]
+        }
+      ],
+      "_versions": [
+        {
+          "name": "Strike of the Giants; Cloud",
+          "source": "BGG",
+          "_mod": {
+            "entries": [
+              {
+                "mode": "replaceArr",
+                "replace": {
+                  "index": 0
+                },
+                "items": [
+                  "You have absorbed primeval magic that gives you an echo of the might of giants. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect:"
+                ]
+              },
+              {
+                "mode": "removeArr",
+                "names": [
+                  "Fire Strike",
+                  "Frost Strike",
+                  "Hill Strike",
+                  "Stone Strike",
+                  "Storm Strike"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "Strike of the Giants; Fire",
+          "source": "BGG",
+          "_mod": {
+            "entries": [
+              {
+                "mode": "replaceArr",
+                "replace": {
+                  "index": 0
+                },
+                "items": [
+                  "You have absorbed primeval magic that gives you an echo of the might of giants. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect:"
+                ]
+              },
+              {
+                "mode": "removeArr",
+                "names": [
+                  "Cloud Strike",
+                  "Frost Strike",
+                  "Hill Strike",
+                  "Stone Strike",
+                  "Storm Strike"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "Strike of the Giants; Frost",
+          "source": "BGG",
+          "_mod": {
+            "entries": [
+              {
+                "mode": "replaceArr",
+                "replace": {
+                  "index": 0
+                },
+                "items": [
+                  "You have absorbed primeval magic that gives you an echo of the might of giants. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect:"
+                ]
+              },
+              {
+                "mode": "removeArr",
+                "names": [
+                  "Cloud Strike",
+                  "Fire Strike",
+                  "Hill Strike",
+                  "Stone Strike",
+                  "Storm Strike"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "Strike of the Giants; Hill",
+          "source": "BGG",
+          "_mod": {
+            "entries": [
+              {
+                "mode": "replaceArr",
+                "replace": {
+                  "index": 0
+                },
+                "items": [
+                  "You have absorbed primeval magic that gives you an echo of the might of giants. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect:"
+                ]
+              },
+              {
+                "mode": "removeArr",
+                "names": [
+                  "Cloud Strike",
+                  "Fire Strike",
+                  "Frost Strike",
+                  "Stone Strike",
+                  "Storm Strike"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "Strike of the Giants; Stone",
+          "source": "BGG",
+          "_mod": {
+            "entries": [
+              {
+                "mode": "replaceArr",
+                "replace": {
+                  "index": 0
+                },
+                "items": [
+                  "You have absorbed primeval magic that gives you an echo of the might of giants. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect:"
+                ]
+              },
+              {
+                "mode": "removeArr",
+                "names": [
+                  "Cloud Strike",
+                  "Fire Strike",
+                  "Frost Strike",
+                  "Hill Strike",
+                  "Storm Strike"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "Strike of the Giants; Storm",
+          "source": "BGG",
+          "_mod": {
+            "entries": [
+              {
+                "mode": "replaceArr",
+                "replace": {
+                  "index": 0
+                },
+                "items": [
+                  "You have absorbed primeval magic that gives you an echo of the might of giants. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect:"
+                ]
+              },
+              {
+                "mode": "removeArr",
+                "names": [
+                  "Cloud Strike",
+                  "Fire Strike",
+                  "Frost Strike",
+                  "Hill Strike",
+                  "Stone Strike"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Vigor of the Hill Giant",
+      "source": "BGG",
+      "page": 19,
+      "prerequisite": [
+        {
+          "level": 4,
+          "feat": [
+            "strike of the giants|BGG|strike of the giants (hill strike)"
+          ]
+        }
+      ],
+      "ability": [
+        {
+          "choose": {
+            "from": [
+              "str",
+              "con",
+              "wis"
+            ],
+            "amount": 1
+          }
+        }
+      ],
+      "entries": [
+        "You've manifested the resilience emblematic of hill giants, granting you the following benefits:",
+        {
+          "type": "list",
+          "style": "list-hang-notitle",
+          "items": [
+            {
+              "type": "item",
+              "name": "Bulwark",
+              "entries": [
+                "When you are subjected to an effect that would move you at least 5 feet or give you the prone condition, you can use your reaction to steady yourself. You aren't moved and don't have the prone condition."
+              ]
+            },
+            {
+              "type": "item",
+              "name": "Iron Stomach",
+              "entries": [
+                "Whenever you eat food as part of a short rest and spend one or more Hit Dice to regain hit points, you regain additional hit points equal to your Constitution modifier + your proficiency bonus."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

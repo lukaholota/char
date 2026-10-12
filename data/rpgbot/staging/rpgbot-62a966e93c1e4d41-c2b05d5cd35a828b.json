@@ -1,0 +1,4943 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/bastions/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "c2b05d5cd35a828b8885a9d2dd33c0047a0092b87de1e5336a6b2f84a098380e",
+  "sourceRevision": {
+    "revisionId": "rpgbot-62a966e93c1e4d41-c2b05d5cd35a828b",
+    "sourceId": "rpgbot-62a966e93c1e4d41",
+    "fetchedAt": "2026-09-29T19:14:17.654095+00:00",
+    "sourceUpdatedAt": "2026-03-14T15:38:22-04:00",
+    "contentHash": "7f206ef05632974b3ebd25929f8b3064502ec26f6b0d951a64af02f6e15f3e44",
+    "title": "DnD 5.5 Bastions Guide | 2024 DnD",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-62a966e93c1e4d41-c2b05d5cd35a828b.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The 5.5 Dungeon Master’s Guide introduced the new Bastion Rules, allowing players to acquire an exciting "
+            },
+            {
+              "type": "link",
+              "text": "home base",
+              "href": "https://rpgbot.net/dnd5/players/defending-a-permanent-base/"
+            },
+            {
+              "type": "text",
+              "text": " and let them acquire useful facilities and allies. This would serve their needs as adventurers while also giving players an anchor in the world, which many so-called “murder tourists” sorely need."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In addition to providing an explicit way for player characters to build and maintain a home base that’s slightly more engaging than your DM declaring “you now own a house”, Bastions provide several Special Facility options which encourage players to build a unique Bastion which suits their character’s tastes and which supports them as adventurers. Monks might build Meditation Chambers and Training Areas, while Wizards might build Arcane Studies, Observatories, and Demiplanes."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bastions can be a powerful tool in your character’s arsenal, but, like any build choice, not all options are created equal. Knowing how Bastions actually work and knowing how each Special Facility works compared to other options will help you make choices that will work for your character."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "NOTE:"
+            },
+            {
+              "type": "text",
+              "text": " This article has not been updated to cover new Bastion options introduced after the publication of the 5.5 Dungeon Master’s Guide. If you want to see updates faster, consider supporting us on "
+            },
+            {
+              "type": "link",
+              "text": "Patreon",
+              "href": "https://www.patreon.com/rpgbot"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "The Basics",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#the-basics"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Basic Facilities and Layout",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#basic-facilities-and-layout"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Combining Bastions",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#combining-bastions"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Bastion Turns",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#bastion-turns"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Defenders are a Trap and You Should Probably Never Use Them",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#defenders-are-a-trap-and-you-should-probably-never-use-them"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "I'm Still Scared. How Do I Defend My Bastion?",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#im-still-scared-how-do-i-defend-my-bastion"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Defensive Walls",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#defensive-walls"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Collective Defense",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#collective-defense"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Special Facilities",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#special-facilities"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Expanding Special Facilities",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#expanding-special-facilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 5 Special Facilities",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#level-5-special-facilities"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Arcane Study",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#arcane-study"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Armory",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#armory"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Barrack",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#barrack"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Garden",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#garden"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Library",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#library"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Sanctuary",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#sanctuary"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Smithy",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#smithy"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Storehouse",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#storehouse"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Workshop",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#workshop"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 9 Special Facilities",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#level-9-special-facilities"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Gaming Hall",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#gaming-hall"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Greenhouse",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#greenhouse"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Laboratory",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#laboratory"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Sacristy",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#sacristy"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Scriptorium",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#scriptorium"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Stable",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#stable"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Teleportation Circle",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#teleportation-circle"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Theater",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#theater"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Training Area",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#training-area"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Trophy Room",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#trophy-room"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 13 Special Facilities",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#level-13-special-facilities"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Archive",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#archive"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Meditation Chamber",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#meditation-chamber"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Menagerie",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#menagerie"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Observatory",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#observatory"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Pub",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#pub"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Reliquary",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#reliquary"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Level 17 Special Facilities",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#level-17-special-facilities"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Demiplane",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#demiplane"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Guildhall",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#guildhall"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Sanctum",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#sanctum"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "War Room",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#war-room"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Doing Stuff With Your Bastions",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#doing-stuff-with-your-bastions"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Combat Buffs",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#combat-buffs"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Crafting Magic Items",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#crafting-magic-items"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Healing Items",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#healing-items"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Poison",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#poison"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Revenue",
+                "href": "https://rpgbot.net/2024-dnd/bastions/#revenue"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice in this article is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2024 DnD Character Optimization Meta",
+              "href": "https://rpgbot.net/2024-dnd/2024-dnd-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows. Also be sure to check for "
+            },
+            {
+              "type": "link",
+              "text": "errata",
+              "href": "https://www.dndbeyond.com/changelog#2024CoreRulesErrata"
+            },
+            {
+              "type": "text",
+              "text": " periodically."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-the-basics",
+      "heading": "The Basics",
+      "sourceAnchor": "the-basics",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-basic-facilities-and-layout",
+      "parentSectionId": "section-the-basics",
+      "heading": "Basic Facilities and Layout",
+      "sourceAnchor": "basic-facilities-and-layout",
+      "blocks": [
+        {
+          "blockId": "block-section-basic-facilities-and-layout-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your Bastion starts with two Basic Facilities, one of which is Cramped, and one of which is Roomy. Your Bastion could have a Cramped Bedroom and a Roomy Kitchen, and you’re basically living in a one-room apartment. You could have a Roomy Courtyard and a Cramped Storage, and your Bastion is an empty plot of land with a shed on it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-basic-facilities-and-layout-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You’re free to lay out your Bastion however you like. Doors, Halls, Stairs, Washrooms, and Windows are all free. Facility squares can be vertical, too, so you could have a Cramped Bedroom that’s laid out vertically and just hope your DM doesn’t decide to make that a problem for you somehow. You could shape your facilities like Tetris pieces. It really doesn’t matter unless you and your DM decide that it does."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-basic-facilities-and-layout-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There’s no specific limit on how large your Bastion can be, but I would limit the layout to a single sheet of gridded paper if only for convenience."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-basic-facilities-and-layout-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can add additional facilities or expand existing ones by spending gold and time. The rules specifically say “spending” rather than “waiting”, which is a poor choice of words. The text also says “A character doesn’t need to be in their Bastion while basic facilities are being added or enlarged”, so you’re explicitly not spending your time to expand the facility, you’re just waiting."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-basic-facilities-and-layout-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Remember that Basic Facilities have no mechanical effect on the game. They are, in strictly mechanical terms, a functionless hole into which to dump your money."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-basic-facilities-and-layout-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "That said, It can be a lot of fun to roleplay how your characters live in the safety of their own home, and having different Basic Facilities might say a lot about individual characters. The Fighter might like a Roomy Storage for all of their trophies and spare equipment. The Druid might have a Cramped Bedroom and a minimalist aesthetic, preferring to spend time in a Vast Courtyard that they’ve lovingly tended."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-basic-facilities-and-layout-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Expanding new facilities cost the difference (both in time and in gold) between each step; no efficiency is lost if you work your way up each size step over time rather than going straight to Vast."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-combining-bastions",
+      "parentSectionId": "section-the-basics",
+      "heading": "Combining Bastions",
+      "sourceAnchor": "combining-bastions",
+      "blocks": [
+        {
+          "blockId": "block-section-combining-bastions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Players are free to combine their Bastions. There is no explicit benefit or cost to doing this. Since Basic Facilities have no mechanical effect, there’s nothing stopping the party from sharing every Basic Facility in their Bastions. A party of 5 players could each have a Cramped Bedroom and contribute a Roomy facility of one type, giving them a 25,000 square foot Bastion before considering hallways, stairs, and washrooms."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-combining-bastions-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Combining Bastions to reduce their total floor space can be especially worthwhile if you plan to build Defensive Walls. They’re 250 gp per 5-foot square, and only function if they completely encircle your Bastion. Sharing walls will reduce the total price significantly."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-bastion-turns",
+      "parentSectionId": "section-the-basics",
+      "heading": "Bastion Turns",
+      "sourceAnchor": "bastion-turns",
+      "blocks": [
+        {
+          "blockId": "block-section-bastion-turns-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You will typically take Bastion Turns at your DM’s discretion, typically once every 7 days. If you issue commands to any of your facilities, you’re fine. If you do not, the Bastion will take the Maintain order, which results in a random Bastion Event."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-bastion-turns-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Remember that you issue orders to each Special Facility individually. Ideally, every Special Facility can do something useful every Bastion Turn, but that’s not always practical."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-bastion-turns-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, you typically need to visit your Bastion in person to make this happen, which discourages you from traveling far from home for long periods. The rules do provide an exception:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-bastion-turns-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "…unless the owner can communicate with the Bastion hirelings using the "
+            },
+            {
+              "type": "link",
+              "text": "Sending",
+              "href": "https://www.dndbeyond.com/spells/2619015-sending"
+            },
+            {
+              "type": "text",
+              "text": " spell or similar magic."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-bastion-turns-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If your party can communicate "
+            },
+            {
+              "type": "emphasis",
+              "text": "via magic"
+            },
+            {
+              "type": "text",
+              "text": ", you can continue to issue orders to your Bastion. However, RAW, you can only do so magically. You can’t send a letter via carrier pigeon or any other means, you can’t leave a to-do list, you can’t have a friend stop by to feed your cat, water your plants, and tell your hirelings to craft magic items."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-bastion-turns-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fortunately, Sending Stones are Uncommon and don’t require Attunement, so someone with an Arcane Study or a Sacristy can have a set crafted during one of their Bastion Turns. Over time you can equip the whole party, allowing you to easily issue orders from anywhere in the multiverse."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-defenders-are-a-trap-and-you-should-probably-never-use-them",
+      "heading": "Defenders are a Trap and You Should Probably Never Use Them",
+      "sourceAnchor": "defenders-are-a-trap-and-you-should-probably-never-use-them",
+      "blocks": [
+        {
+          "blockId": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I want to establish and reinforce a fundamental, incontestable truth about the Bastion mechanics:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Bastion Defenders are a trap and you should probably never use them. –RPGBOT"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Defenders are risk mitigation intended to protect your Bastion from random threats which occur via the Bastion Events table. The table includes 11 event options spread across a d100 table, half of which is covered by the “All is Well” option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Defenders apply to exactly 2 of those options, amounting to a 10% chance (1\n\tin 10) per Bastion Turn for your Defenders to have an affect on the game. Of\n\tthose 2, only 1 actually hurts you. The appropriate named “Attack” option\n\tmeans that someone or something attacked your Bastion and attempted to cause\n\ttrouble. Your Defenders can die for the cause in order to prevent you from\n\tbeing mildly inconvenienced."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The failure result the Attack event is that one of your Special Facilities is\n\tdisabled for 1 Bastion Turn. Again: "
+            },
+            {
+              "type": "emphasis",
+              "text": "mildly"
+            },
+            {
+              "type": "text",
+              "text": " inconvenienced."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Consider the cost to have a Barrack: It’s one of your Special Facility slots, and you’ll never get more than 6. Most players will never have more than 2 or 3. It sits occupying space that could be another Special Facility. Consider: Do you want one of your Special Facility slots to be useless 100% of the time, or do you want to have one Special Facility randomly shut down less than 5% of the time?"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To make this all even more ridiculous, the Meditation Chamber allows you to use the Empower order to reroll your next Bastion Event, reducing the probability of an Attack event from 1 in 20 to 1 in 400."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-im-still-scared-how-do-i-defend-my-bastion",
+      "parentSectionId": "section-defenders-are-a-trap-and-you-should-probably-never-use-them",
+      "heading": "I’m Still Scared. How Do I Defend My Bastion?",
+      "sourceAnchor": "im-still-scared-how-do-i-defend-my-bastion",
+      "blocks": [
+        {
+          "blockId": "block-section-im-still-scared-how-do-i-defend-my-bastion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll entertain the hypothetical idea that you do actually want to defender your Bastion from the Attack event."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-im-still-scared-how-do-i-defend-my-bastion-2",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "# of 1’s on 6d6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "d6 Probability"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "d20 Approximation"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "d8 Probability"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "d20 Approximation"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "0"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "33.49%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7 in 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "38.77%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8 in 20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "40.19%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8 in 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "39.88%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8 in 20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20.09%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4 in 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16.99%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3 in 20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5.36%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1 in 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3.84%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1 in 20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.80%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.49%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.06%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.03%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.00%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.00%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-im-still-scared-how-do-i-defend-my-bastion-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "According "
+            },
+            {
+              "type": "link",
+              "text": "AnyDice.com",
+              "href": "https://anydice.com/program/39941"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-im-still-scared-how-do-i-defend-my-bastion-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Attack event asks you to roll 6d6, then check for 1s. Each 1 kills one Defender. If you reach 0 Defenders, you hit the failure result and one of your Special Facilities is disabled for one Bastion Turn. According to "
+            },
+            {
+              "type": "link",
+              "text": "AnyDice",
+              "href": "https://anydice.com/program/39941"
+            },
+            {
+              "type": "text",
+              "text": ", rolling 4 or more 1’s on that 6d6 occurs less than 1% of the time. It’s a statistical anomaly that your character will probably never experience. So if you have 4 Defenders, you have as many you need for a single Attack event. The most likely result is that you will lose 1 Defender per Attack."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-im-still-scared-how-do-i-defend-my-bastion-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since there is a 1 in 20 chance of rolling the Attack event, you lose 1/20 of a Defender on average per Bastion Turn. You could be away from your Bastion for several weeks at a time and be perfectly fine with 4 Defenders. This is convenient because a single Recruit order at a "
+            },
+            {
+              "type": "link",
+              "text": "Barrack",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/bastions#Barrack"
+            },
+            {
+              "type": "text",
+              "text": " will recruit up to 4 Defenders. A standard Barrack can hold up to 12, and it costs nothing to keep the Defenders on hand, so you may as well stock up when you’re home and never actually worry about losing your Defenders. This makes extended travel convenient and safe."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-im-still-scared-how-do-i-defend-my-bastion-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can also use your Menagerie’s creatures as Defenders, but those cost actual gold that could be spent on literally anything else, so the only reason to do so is because you want a Menagerie and decide to use your pet hyenas as Defenders. Don’t do this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-im-still-scared-how-do-i-defend-my-bastion-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you want to improve the odds of your Defenders surviving an attack, you can get an Armory and spend a stupidly large amount of money stocking it. 100gp per Defender. It’s 50 with a Smithy, but that is still a stupidly large amount of gold, especially since it’s "
+            },
+            {
+              "type": "emphasis",
+              "text": "single use"
+            },
+            {
+              "type": "text",
+              "text": ". That’s right: You spend hundreds of gold, and it’s gone as soon as you’re attacked even once. The benefit is to change the 6d6 to 6d8 so you’re less likely to roll 1’s, but only very slightly.  Don’t do this, either."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-im-still-scared-how-do-i-defend-my-bastion-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "So we’ve ruled out using the Menagerie defensively and we’ve ruled out the Armory as an expensive waste of… well, everything. That just leaves our Barrack and its maximum of 12 Defenders (25 if you expand it). If you depart your Bastion, leaving it with a full complement of 12 Defenders, you can survive an average of 240 Bastion Turns before running out of Defenders. That’s of 4.5 "
+            },
+            {
+              "type": "emphasis",
+              "text": "years"
+            },
+            {
+              "type": "text",
+              "text": ". You’re fine."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-im-still-scared-how-do-i-defend-my-bastion-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But don’t forget this rule:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-im-still-scared-how-do-i-defend-my-bastion-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "strong",
+              "text": "Neglect."
+            },
+            {
+              "type": "text",
+              "text": " If a character issues no orders to their Bastion for a number of consecutive Bastion turns equal to the character’s level (typically because the character is dead or otherwise out of commission), the hirelings abandon the Bastion and the site is eventually looted. If the character returns later, they can start a new Bastion, perhaps building it amid the ruins of the old one."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-im-still-scared-how-do-i-defend-my-bastion-11",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "That’s right. Even at level 20, your Defenders will abandon the Bastion before they’re killed by attrition."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-defensive-walls",
+      "parentSectionId": "section-defenders-are-a-trap-and-you-should-probably-never-use-them",
+      "heading": "Defensive Walls",
+      "sourceAnchor": "defensive-walls",
+      "blocks": [
+        {
+          "blockId": "block-section-defensive-walls-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The old adage “good fences make good neighbors” is good advice here. Defensive Walls which fully encircle your Bastion reduce the number of dice rolled for the Attack event from 6d6 to 4d6, dramatically reducing your odds of rolling 1’s. It also means that the maximum number of Defenders lost drops from 6 to 4, so a Barrack with 12 Defenders is now even more resilient."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defensive-walls-2",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "# of 1’s on 6d6"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "d6 Probability"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "d20 Approximation"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "d8 Probability"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "d20 Approximation"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "0"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "48.23%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10 in 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "58.62%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12 in 20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "38.58%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8 in 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "33.50%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7 in 20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "11.57%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2 in 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7.18%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1 in 20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "1.54%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.68%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.08%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "0.49%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-defensive-walls-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "According "
+            },
+            {
+              "type": "link",
+              "text": "AnyDice.com",
+              "href": "https://anydice.com/program/39991"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defensive-walls-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With a nearly 50% of not rolling any 1’s on 4d6, Defensive Walls are a good countermeasure even if you have no Defenders. However, it’s not perfectly clear how that case is handled."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defensive-walls-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Roll "
+            },
+            {
+              "type": "strong",
+              "text": "6d6"
+            },
+            {
+              "type": "text",
+              "text": "; for each die that rolls a 1, one Bastion Defender dies. Remove these Bastion Defenders from your Bastion’s roster. If the Bastion has zero Bastion Defenders, one of the Bastion’s special facilities (determined randomly) is damaged and forced to shut down."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defensive-walls-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s not clear if the final sentence occurs as a result of rolling a 1 on the 6d6 roll. That is how I would rule it, but it’s not entirely clear."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defensive-walls-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You must also consider the cost to build Defensive Walls. At 250 gp per square, they’re expensive. They don’t have a recurring cost like an Armory, and they don’t consume a limited Special Facility slot, but they’re still extremely expensive. The cost of a spacious walled area means that a vertical Bastion is the most cost-efficient option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defensive-walls-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This tells us that an optimal Bastion is either a wizard’s tower with a Defensive Wall around the perimeter, or a subterranean dungeon with a tiny access point above ground."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-defensive-walls-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Of course, you can also use a Guildhall to get a Mason’s Guild and get free walls, then replace the Guildhall the next time you gain a level."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-collective-defense",
+      "parentSectionId": "section-defenders-are-a-trap-and-you-should-probably-never-use-them",
+      "heading": "Collective Defense",
+      "sourceAnchor": "collective-defense",
+      "blocks": [
+        {
+          "blockId": "block-section-collective-defense-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The rules for "
+            },
+            {
+              "type": "link",
+              "text": "Combining Bastions",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/bastions#CombiningBastions"
+            },
+            {
+              "type": "text",
+              "text": " provide exactly one mechanical benefit: "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-collective-defense-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "if some event deprives one character’s Bastion of defenders, another character can apply all or some of those losses to their Bastion instead, provided the two Bastions are combined."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-collective-defense-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This means that if one player can tolerate having a Barrack, they can provide Defenders to the entire combined Bastion."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-collective-defense-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "However, the phrase “some event” is vague. It’s not clear if it’s referring to Bastion Events or just some mundane “event,” such as a smart, well-informed player opting to forgo Defenders because they’re largely pointless."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-collective-defense-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If “some event” only refers to Bastion Events, collective defense might as well not exist. If “some event” is permissive, one character can have a Barrack, keep it full, and cover the entire party’s combined Bastions. This becomes more valuable as your party grows in size because more Bastion Turns will be taken over the same period of time."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-collective-defense-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Roll "
+            },
+            {
+              "type": "strong",
+              "text": "6d6"
+            },
+            {
+              "type": "text",
+              "text": "; for each die that rolls a 1, one Bastion Defender dies. Remove these Bastion Defenders from your Bastion’s roster. If the Bastion has zero Bastion Defenders, one of the Bastion’s special facilities (determined randomly) is damaged and forced to shut down."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-special-facilities",
+      "heading": "Special Facilities",
+      "sourceAnchor": "special-facilities",
+      "blocks": [
+        {
+          "blockId": "block-section-special-facilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your Bastion starts with 2 Special Facilities at their default size, and you automatically gain a total of 4 more as you gain levels. You can replace a facility each time you gain a level, so don’t be afraid to pick an option which is good for a few levels, then swap it for a better option later."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-special-facilities-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There is no rule addressing what happens if you gain your Bastion at a level higher than 5, so it’s not clear if you could start a new Bastion using only high-level Special Facilities. Discuss it with your DM if it’s going to become an issue. I would rule that you start from 2 level 5 Special Facilities, then pretend to advance your Bastion as though you had gained levels one at a time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-expanding-special-facilities",
+      "parentSectionId": "section-special-facilities",
+      "heading": "Expanding Special Facilities",
+      "sourceAnchor": "expanding-special-facilities",
+      "blocks": [
+        {
+          "blockId": "block-section-expanding-special-facilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The rules for Basic Facilities say “A character doesn’t need to be in their Bastion while basic facilities are being added or enlarged”, but no such text exists for Special Facilities. Newly-added Special Facilities apparently just spring into existence, but it’s totally unclear if you need to spend time working to expand Special Facilities. As a DM, I would rule that you follow the same rule as Basic Facilities because it seems pointlessly punishing to sideline a player for potentially months at a time while they expand their facilities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-level-5-special-facilities",
+      "parentSectionId": "section-special-facilities",
+      "heading": "Level 5 Special Facilities",
+      "sourceAnchor": "level-5-special-facilities",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-arcane-study",
+      "parentSectionId": "section-level-5-special-facilities",
+      "heading": "Arcane Study",
+      "sourceAnchor": "arcane-study",
+      "blocks": [
+        {
+          "blockId": "block-section-arcane-study-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Arcane Study is borderline useless until you reach level 9. Until that point it can cast Identify, but Identify is a level 1 ritual spell with a reusable 100gp material component. Just learn the spell and a buy a pearl."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-arcane-study-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Starting at level 9, the Arcane Study can be used to craft a huge number of useful magic items. Consider picking it up at level 9 by replacing a lower-level facility."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armory",
+      "parentSectionId": "section-level-5-special-facilities",
+      "heading": "Armory",
+      "sourceAnchor": "armory",
+      "blocks": [
+        {
+          "blockId": "block-section-armory-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Defenders are borderline useless. An Armory is throwing good money after bad."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-barrack",
+      "parentSectionId": "section-level-5-special-facilities",
+      "heading": "Barrack",
+      "sourceAnchor": "barrack",
+      "blocks": [
+        {
+          "blockId": "block-section-barrack-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Defenders are borderline useless. They might be helpful in large parties with combined Bastions depending on how your DM interprets the rules of the Attack event, but even then they’re probably not worth the cost to dedicate one of your Special Facility slots."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-barrack-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your Bastion can contain more than one Barrack, but a single Barrack’s 12 Defenders is enough to defend your Bastion until the heat death of the multiverse (or at least until you’re away for so long that your Bastion is abandoned), so there’s no reason to have more than one."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-garden",
+      "parentSectionId": "section-level-5-special-facilities",
+      "heading": "Garden",
+      "sourceAnchor": "garden",
+      "blocks": [
+        {
+          "blockId": "block-section-garden-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The fundamental difficulty of the Garden is that you can buy everything that it produces. The most expensive product is Basic Poison, which costs 100 gp. Are you going to use Basic Poison often enough that this will make a difference for you? You could opt for Potions of Healing instead, but, again: Are you going to use this enough for it to make a difference?"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-garden-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Expanding the garden costs 2,000 gp, but fully doubles your Greenhouse’s output, which is very tempting. But 2,000 gp is 20 vials of Basic Poison. Are you going to use enough of them to justify that cost? In most games, you probably won’t. But if your game is going to run for a long time both in and out of game, the extra poison will pay for itself after 20 Bastion Turns."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-garden-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Garden is perhaps the only Special Facility which allows you to have multiple and which might be good enough to justify having 2."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-library",
+      "parentSectionId": "section-level-5-special-facilities",
+      "heading": "Library",
+      "sourceAnchor": "library",
+      "blocks": [
+        {
+          "blockId": "block-section-library-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If your DM is willing to come up with useful information to share, this can be useful in campaigns with subjects which justify researching."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sanctuary",
+      "parentSectionId": "section-level-5-special-facilities",
+      "heading": "Sanctuary",
+      "sourceAnchor": "sanctuary",
+      "blocks": [
+        {
+          "blockId": "block-section-sanctuary-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Healing Word is great, but the limitations on who can take this present an issue: only Clerics, Druids, Paladins, and Rangers can use the listed spellcasting foci, and Clerics and Druids can already cast Healing Word. If you’re a Paladin, you have Lay on Hands and probably don’t need more healing. A Ranger may want the ability to cast Healing Word once in case their party’s primary healer goes down, but you may be fine preparing Cure Wounds or carrying some Potions of Healing."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-smithy",
+      "parentSectionId": "section-level-5-special-facilities",
+      "heading": "Smithy",
+      "sourceAnchor": "smithy",
+      "blocks": [
+        {
+          "blockId": "block-section-smithy-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Smithy can produce mundane metal equipment, such as Full Plate, but the primary appeal of the Smithy is the ability to craft Common/Uncommon magic items from the Armaments table, which includes mithral armor, +1 shields, and +1 weapons, and some other useful goodies. Unfortunately, you need to wait for level 9."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-storehouse",
+      "parentSectionId": "section-level-5-special-facilities",
+      "heading": "Storehouse",
+      "sourceAnchor": "storehouse",
+      "blocks": [
+        {
+          "blockId": "block-section-storehouse-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Storehouse exists purely to generate revenue on alternating weeks. It starts glacially slow, but improves as you gain levels, eventually becoming the most profitable Special Facility option. If you expect your game to run into high levels, the Storehouse can be a fantastically profitable choice. If you expect your game to end before level 13 (most published adventures end between 10 and 12), a Storehouse may not be worth the space."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-storehouse-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The organization of the text in the DMG makes it hard to visualize the purchase/sale prices, so here’s a convenient table:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-storehouse-3",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Max Cost (gp)"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Profit %"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sale Price (gp)"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Profit (gp)"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "500"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "550"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "50"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2,000"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2,400"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "400"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5,000"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "50%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7,500"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2,500"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5,000"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "100%"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10,000"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5,000"
+                }
+              ]
+            ]
+          ]
+        },
+        {
+          "blockId": "block-section-storehouse-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Maximum values by level. Profit is possible every other week."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-workshop",
+      "parentSectionId": "section-level-5-special-facilities",
+      "heading": "Workshop",
+      "sourceAnchor": "workshop",
+      "blocks": [
+        {
+          "blockId": "block-section-workshop-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Workshop lists 11 tool options, but you only get to pick 6 (8 if you enlarge the facility). The sole purpose of this proficiency is crafting mundane items. By level 5, you have enough gold that you can easily afford everything in the PHB except full plate, warhorses, and firearms."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-workshop-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Workshop expects you to pick several tools with which the Workshop is equipped in order to craft mundane items. If you do need mundane gear, you can’t select Smith’s tools to craft expensive metal equipment because that capability is covered by the Smithy. Consider Carpenters’ Tools for wagons and Tinkers’ Tools for firearms."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-workshop-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The major appeal is the ability to craft magic items, which convenient ignores the tools which you selected for your Workshop because “The facility has the tool required to craft the item”. The Implements table contains a lot of great utility items and tools."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-workshop-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can also use the Workshop to get Heroic Inspiration by spending a Short Rest there. If your DM isn’t handing out Heroic Inspiration frequently, that can be very helpful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-level-9-special-facilities",
+      "parentSectionId": "section-special-facilities",
+      "heading": "Level 9 Special Facilities",
+      "sourceAnchor": "level-9-special-facilities",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-gaming-hall",
+      "parentSectionId": "section-level-9-special-facilities",
+      "heading": "Gaming Hall",
+      "sourceAnchor": "gaming-hall",
+      "blocks": [
+        {
+          "blockId": "block-section-gaming-hall-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pure income, but not a lot. 50% of the time you’ll get the lowest result, which averages to 35 gp. Taking the whole table, you’ll average 73.5 gp per Bastion Turn. By level 9 that’s a pittance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-greenhouse",
+      "parentSectionId": "section-level-9-special-facilities",
+      "heading": "Greenhouse",
+      "sourceAnchor": "greenhouse",
+      "blocks": [
+        {
+          "blockId": "block-section-greenhouse-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A direct upgrade from the Garden, the Greenhouse’s primary functions are to produce Healing Potions (greater) and poisons more powerful than Basic Poison. Unfortunately, with no way to scale the save DC for those poisons, they may not be effective long-term. A DC 15 Constitution save for Malice may be worth the gamble against big enemies since the effects are so debilitating. Also consider the Laboratory if you plan to use poison heavily, as it offers different poison options."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-laboratory",
+      "parentSectionId": "section-level-9-special-facilities",
+      "heading": "Laboratory",
+      "sourceAnchor": "laboratory",
+      "blocks": [
+        {
+          "blockId": "block-section-laboratory-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Laboratory can craft anything that can be crafted with Alchemist’s Supplies, which includes several items in the PHB (Alchemist’s Fire, etc.), plus potions. Unlike other facilities which can produce magic items, the Laboratory isn’t restricted to a fixed list or to a specific rarity. You can create potions of any rarity, provided that you have the gold and that you’re willing to commit the facility to the task for as long as it takes. Remember that consumable items take "
+            },
+            {
+              "type": "link",
+              "text": "half as long and cost half as much",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/treasure#MagicItemCraftingTimeandCost"
+            },
+            {
+              "type": "text",
+              "text": " to craft as permanent magic items."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-laboratory-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Laboratory can also be used to produce poisons. Unfortunately, with no way to scale the save DC for those poisons, they may not be effective long-term. A DC 15 Constitution save for Essence of Ether may be worth the gamble since it knocks the target unconscious, essentially negating them as a threat. Also consider the Greenhouse if you plan to use poison heavily, as it offers different poison options."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sacristy",
+      "parentSectionId": "section-level-9-special-facilities",
+      "heading": "Sacristy",
+      "sourceAnchor": "sacristy",
+      "blocks": [
+        {
+          "blockId": "block-section-sacristy-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Crafting Holy Water is fine, but not especially impactful. By this level your attacks and/or spells are more powerful. Spending gold to improve the Holy Water’s damage is certainly tempting, but 100gp for 1d8 additional damage is absurdly expensive. I definitely want to hit a demon with a 7d8 radiant damage water balloon, but not enough to spend 500 gp to do it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sacristy-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The real appeal here is the ability to craft magic items."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sacristy-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Spell Refreshment option is also useful for any spellcaster except Warlocks, but unless you’re adventuring within walking distance of your Bastion, it likely won’t affect the game."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-scriptorium",
+      "parentSectionId": "section-level-9-special-facilities",
+      "heading": "Scriptorium",
+      "sourceAnchor": "scriptorium",
+      "blocks": [
+        {
+          "blockId": "block-section-scriptorium-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Book Replica and Paperwork options are neat from a roleplaying perspective, but have little to no mechanical effect. The real appeal is the ability to have your hirelings craft Spell Scrolls for you. Other facilities can’t craft items which allow the user to cast a spell, so the Scriptorium is the only option for Spell Scrolls."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-stable",
+      "parentSectionId": "section-level-9-special-facilities",
+      "heading": "Stable",
+      "sourceAnchor": "stable",
+      "blocks": [
+        {
+          "blockId": "block-section-stable-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Putting a rideable Beast into the Stable for 14 days gives you permanent Advantage on Animal Handling checks with that animal, but in a game where Beasts are rarely useful and can be handled by inexpensive magic, there’s very little value to this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stable-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The buy/sell mechanic for the stored mounts is a paltry attempt to make trading via your Bastion more interesting than “My Brewers’ Guild sells 500 gp of beer this week”, but it is strictly worse than using a Guildhall to generate gold unless your DM will let you trade animals considerably more expensive than 400 gp Warhorses, which are the most expensive option in the Player’s Handbook."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stable-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your Bastion can contain more than one Stable, but you can’t justify having one, so I don’t know why you would want multiple."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-teleportation-circle",
+      "parentSectionId": "section-level-9-special-facilities",
+      "heading": "Teleportation Circle",
+      "sourceAnchor": "teleportation-circle",
+      "blocks": [
+        {
+          "blockId": "block-section-teleportation-circle-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A permanent teleportation circle is a fantastic convenience for parties with spellcasters of high enough level to cast "
+            },
+            {
+              "type": "link",
+              "text": "Teleport",
+              "href": "https://www.dndbeyond.com/spells/2619163-teleport"
+            },
+            {
+              "type": "text",
+              "text": ", "
+            },
+            {
+              "type": "link",
+              "text": "Teleportation Circle",
+              "href": "https://www.dndbeyond.com/spells/2619167-teleportation-circle"
+            },
+            {
+              "type": "text",
+              "text": " and/or "
+            },
+            {
+              "type": "link",
+              "text": "Plane Shift",
+              "href": "https://www.dndbeyond.com/spells/2618867-plane-shift"
+            },
+            {
+              "type": "text",
+              "text": ", allowing you to easily and reliably return home without risk of landing in the wrong place."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-teleportation-circle-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can create a Teleportation Circle on your own without investing one of your Special Facility slots, but doing so requires you to cast the spell every day for 365 days, which simply isn’t achievable in most campaigns."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-teleportation-circle-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The more novel benefit is the ability to temporarily recruit an NPC wizard who will cast a spell for you once before departing. This can be a helpful way to access utility spells like Divination or Stone Shape, as well as Antipathy/Sympathy when you reach level 17, provided that your party can’t already cast those spells. You may also be able to use combat buffs, but durations may be an issue unless you’re teleporting straight into a fight. Gaseous Form, Invisibility, and Stoneskin all have 1-hour durations, allowing your NPC to cast them from a safe place and maintain Concentration without endangering themselves while you race off to do some adventuring."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-teleportation-circle-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unfortunately, there is only a 50% chance that the invited NPC accepts the invitation, so you have a 50% chance of the Recruit order doing exactly nothing, which is immensely frustrating. Nearly no other Special Facility has a limitation like this (only the Observatory), so I’m not sure why designers felt the need to specifically limit this one thing. In protest, I’m going to use a bunch of other facilities to craft a mountain of Spell Scrolls. That’ll show ’em."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-teleportation-circle-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At the same time, a Teleportation Circle is accessible as a real-world phone number. Anyone who knows the sigil sequence can get in, and they’re at least powerful enough to cast level 5 spells, so these aren’t random passers by who accidentally dialed your phone number while trying to order pizza. Unless your DM very explicitly agrees not to use the Teleportation Circle as a plot device, consider putting "
+            },
+            {
+              "type": "link",
+              "text": "some precautions",
+              "href": "https://rpgbot.net/dnd5/players/defending-a-permanent-base/"
+            },
+            {
+              "type": "text",
+              "text": " around your Teleportation Circle like traps, secret doors, or a guardian of some kind."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-theater",
+      "parentSectionId": "section-level-9-special-facilities",
+      "heading": "Theater",
+      "sourceAnchor": "theater",
+      "blocks": [
+        {
+          "blockId": "block-section-theater-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Using the Theater is a huge time investment, but the Theater die is a powerful buff which you can use “At any point after the rehearsals end”, allowing you to save it to rescue a failed save or a high-value attack. Even better, your whole party can participate, and if your party is decent at Charisma (Performance), your whole party could walk away with Theater dice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-theater-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fitting 14 days of rehearsals into a busy adventuring schedule is a huge headache, so talk to your DM long before you decide to build a Theater. If you expect long periods of downtime between adventure arcs, this is great. If you’re going to be rushing between adventures with only brief respites to visit your Bastion, you’ll never be home long enough to rehearse, so the Theater won’t be worth the space."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-theater-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Also: You don’t make money from owning a Theater. Somehow that feels true to life, but in a way that makes me sad."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-training-area",
+      "parentSectionId": "section-level-9-special-facilities",
+      "heading": "Training Area",
+      "sourceAnchor": "training-area",
+      "blocks": [
+        {
+          "blockId": "block-section-training-area-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Training Area requires you to spend 8 hours in it for a week, then you get the benefits for a week, so you can only benefit on alternating weeks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-training-area-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Battle Expert: Reducing 1d4 damage as a Reaction is not enough to justify your Reaction, especially since a minority of monsters rely on Unarmed Strikes or weapons. Remember: claws, teeth, etc. are not unarmed strikes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Skills Expert: Another skill proficiency is nice, but if you’re built to benefit from those skills, you almost certainly have them already."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tools Expert: Tools are not impactful enough to justify this amount of effort to get proficiency."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Unarmed Combat Expert: A massive damage boost for Monks and for the handful of non-Monk builds that rely on Unarmed Strikes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Weapon Expert: A good way to get Weapon Mastery if you’re built for weapons, but your class doesn’t provide it. Bladesinger Wizards maybe? Your other options are to multiclass or to spend a feat, so this is a surprisingly good replacement for what could otherwise be a very expensive build choice."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-training-area-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can have multiple Training Areas in your Bastion, but doing so may be impractical. You would need to add a second when you reach level 13 and have access to nominally better options. If you choose to do so, you need to spend 16 hours a day training for a full week in order to benefit from both Training Areas at the same time."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-training-area-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can also share Training Areas with your allies. Any character who meets the time requirement qualifies for the buff, so a Skills Expert may be a good way to prepare for a stealth mission by granting proficiency in Stealth to the whole party. If you have a War Room and some lieutenants, you could have them train, too."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-trophy-room",
+      "parentSectionId": "section-level-9-special-facilities",
+      "heading": "Trophy Room",
+      "sourceAnchor": "trophy-room",
+      "blocks": [
+        {
+          "blockId": "block-section-trophy-room-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Trophy Room tries to walk a line between the Library’s Research option and the Arcane Study’s Craft option. It perfectly matches the Library’s ability to Research, but the Research option to find magic items only work 50% of the time, only gets you Common magic items, and doesn’t let you pick what you get. There is no niche where the Trophy Room is appealing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-trophy-room-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Also, there’s no mechanics involving any trophies that you might collect, which feels like a wasted opportunity. If you have a Guildhall (Adventurers’ Guild), sending them to slay a creature can get you a trophy from that creature, but there is no mechanical effect for doing so."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-level-13-special-facilities",
+      "parentSectionId": "section-special-facilities",
+      "heading": "Level 13 Special Facilities",
+      "sourceAnchor": "level-13-special-facilities",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-archive",
+      "parentSectionId": "section-level-13-special-facilities",
+      "heading": "Archive",
+      "sourceAnchor": "archive",
+      "blocks": [
+        {
+          "blockId": "block-section-archive-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A conceptual upgrade form the Library. If you don’t have a Cleric or a Wizard in the party to cast Legend Lore, the Research action is fantastically useful. The books can also be useful if your DM makes research impactful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-meditation-chamber",
+      "parentSectionId": "section-level-13-special-facilities",
+      "heading": "Meditation Chamber",
+      "sourceAnchor": "meditation-chamber",
+      "blocks": [
+        {
+          "blockId": "block-section-meditation-chamber-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Having a Meditation Chamber and using the Empower order allows you to roll twice for the next Bastion Event and choose either result. This reduces the chances of an Attack event from 1 in 20 to 1 in 400, making it borderline impossible. This makes the Meditation Chamber the single most effective defensive option available. If you’re disciplined about issuing orders to your Bastion (remember to get some Sending Stones to issue orders remotely), the reroll will hang around potentially forever. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-meditation-chamber-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you can spare 7 days to sit in the Meditation Chamber, the benefits are absolutely fantastic. If you expect to crawl a dungeon or face some major enemies, this can absolutely save your life. If it’s feasible, alternating weeks between meditating and adventuring is a great idea. This doesn’t require specific actions while there, either, so you could craft items, talk to people, add spells to a spellbook, or whatever else you like."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-menagerie",
+      "parentSectionId": "section-level-13-special-facilities",
+      "heading": "Menagerie",
+      "sourceAnchor": "menagerie",
+      "blocks": [
+        {
+          "blockId": "block-section-menagerie-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Menagerie is a personal zoo. It allows you to spend gold to add various animals to your collection, which can then serve as Defenders. But, as explained above, that’s a massive and pointless waste of resources. If you do nothing but use the Menagerie’s Recruit option and the listed animals, the Menagerie is a complete waste of space."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-menagerie-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you also have a Guildhall (Adventurer’s Guild), you can use the Guildhall’s Recruit order to send adventurers to capture a creature of CR 2 or lower, and add that creature to your Menagerie, provided that your DM gives you permission to do so. The text says “With the DM’s consent, you can add different creatures”, so the ability to do this is entirely up to the DM. Even then, you need a known lair within 50 miles of your Bastion. This could get you creatures for free, minus the resource cost of having two Special Facilities dedicated to the effort, but the layers of begging your DM for permission are absurd."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-menagerie-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Even if it works, this gimmick provides essentially no value. The most valuable thing you can get from the Menagerie is "
+            },
+            {
+              "type": "link",
+              "text": "harvesting poison",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/dms-toolbox#HarvestingPoison"
+            },
+            {
+              "type": "text",
+              "text": " from the creatures it contains. For example: an Ettercap is CR 2, and they have a poison bite that does 1d8 damage and makes the target Poisoned if they fail a DC 11 Con save. Unfortunately, the rules for harvesting poison says “no additional poison can be harvested from that creature”, so this is a one-time thing for each creature. It’s a very convoluted and frustrating way to get poison when you could just get a Greenhouse or a Laboratory."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-observatory",
+      "parentSectionId": "section-level-13-special-facilities",
+      "heading": "Observatory",
+      "sourceAnchor": "observatory",
+      "blocks": [
+        {
+          "blockId": "block-section-observatory-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Observatory Charm lets you cast a level 5 spell once without spending a spell slot, which is really nice. Of course, it’s a Ritual, so it’s really only appealing if it’s not on your spell list. Just remember that if you fail the DC 15 Intelligence save, it’ll ruin your day. If you have decent Intelligence saves, it’s fantastic. Artificers, Arcane Tricksters, and Eldritch Knights may find it valuable. Other spellcasters should be nervous about the saving throw."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-observatory-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Eldritch Discovery option is fine, but annoying because it only works 50% of the time, and the benefits are most impactful for non-spellcasters who can’t select the Observatory because they can’t use  a spellcasting focus."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-pub",
+      "parentSectionId": "section-level-13-special-facilities",
+      "heading": "Pub",
+      "sourceAnchor": "pub",
+      "blocks": [
+        {
+          "blockId": "block-section-pub-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Research option won’t be predictably useful unless your campaign takes place in a very small geographical area like a dense city. Your party also probably has access to Scrying by this level, which may be an easier way to gain the same effect."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-pub-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The real benefit here is the magical drinks. You only get one on tap by default, but expanding the Pub to add a second slot is absolutely worth the cost."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-pub-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Bigby’s Burden: A spectacular buff for Strength-based martial characters."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Kiss of the Spider Queen: Spider Climb is fantastic, providing many of the most important benefits of flight. You can replicate the effect with Slippers of Spider Climbing, but they require Attunement which is better spent elsewhere at this high level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Moonlight Serenade. Good, but obsolete by the time you can get a Pub. Darkvision is a level 2 spell, or you can get "
+              },
+              {
+                "type": "link",
+                "text": "Goggles of Night",
+                "href": "https://www.dndbeyond.com/magic-items/4648-goggles-of-night"
+              },
+              {
+                "type": "text",
+                "text": " by having a Workshop craft them for you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Positive Reinforcement. Necrotic damage isn’t common, but it’s hard to find resistance to it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sterner Stuff. Fear effects are common across the full level range, and they’re frustratingly effective at taking martial characters out of a fight. If you don’t already have a comparable defense (Halfling’s Brave trait, Paladin’s Aura of Courage, etc.), this is a great defensive buff."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-reliquary",
+      "parentSectionId": "section-level-13-special-facilities",
+      "heading": "Reliquary",
+      "sourceAnchor": "reliquary",
+      "blocks": [
+        {
+          "blockId": "block-section-reliquary-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Excellent for any spellcaster. The Reliquary Charm makes Greater Restoration much more useful without worrying about diamond dust. The Harvest option’s Talisman makes it easier to cast powerful but expensive spells like Revivify, Stoneskin, and Truesight."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-level-17-special-facilities",
+      "parentSectionId": "section-special-facilities",
+      "heading": "Level 17 Special Facilities",
+      "sourceAnchor": "level-17-special-facilities",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-demiplane",
+      "parentSectionId": "section-level-17-special-facilities",
+      "heading": "Demiplane",
+      "sourceAnchor": "demiplane",
+      "blocks": [
+        {
+          "blockId": "block-section-demiplane-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Empower option gives you a dizzyingly large amount of Temporary Hit Points, and they last up to 7 days rather than disappearing when you complete your next Long Rest."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-guildhall",
+      "parentSectionId": "section-level-17-special-facilities",
+      "heading": "Guildhall",
+      "sourceAnchor": "guildhall",
+      "blocks": [
+        {
+          "blockId": "block-section-guildhall-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "6 options in one, the Guildhall’s benefits vary depending on the type of guild you select."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-guildhall-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Adventurers’ Guild: Only useful if you have a Menagerie and/or a Treasury."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bakers’ Guild: 500 gp each time you activate the facility. Easy money."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Brewers’ Guild: Basically the same as the Baker’s Guild."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Masons’ Guild: Free Defensive Walls for your Bastion and potentially for your party members. Unfortunately, once you have Defensive Walls constructed, it provides no further benefit, so replace the Guildhall with a different Guildhall."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shipbuilders’ Guild: You can build yourself an airship in 40 days. Just to reiterate how cool that is, let me repeat it in italics: "
+              },
+              {
+                "type": "emphasis",
+                "text": "You can build yourself an airship if 40 days."
+              },
+              {
+                "type": "text",
+                "text": " It’s not clear how this all works if the work takes more than 7 days. Can you issue another order and have multiple boats in progress? Do you need to re-issue the order every 7 days to continue the work, or are the guild members smart enough to keep working on their own? As a DM, I would allow the guild members to work until the ship’s completion without further orders, but I also think the rules for issuing orders are ridiculous, so I lean toward a permissive interpretation."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Unfortunately, you do still need to pay the full price of the ships. Once you’ve built an airship or two, it’s probably wise to replace this facility."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thieves’ Guild: This one is impossible to assess objectively because its value comes down to what your DM decides is available within 50 miles of your Bastion. If you’re in a major city like Baldur’s Gate, Sharn, or the Free City of Greyhawk, you might have access to a ton of cool stuff. If you’re in the middle of nowhere, there’s likely very little to steal. Your DM might also decide that the rightful owners of your stolen goods are vengeful and powerful enough that stealing anything worthwhile isn’t worth the trouble."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sanctum",
+      "parentSectionId": "section-level-17-special-facilities",
+      "heading": "Sanctum",
+      "sourceAnchor": "sanctum",
+      "blocks": [
+        {
+          "blockId": "block-section-sanctum-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A free casting of Heal is a lot of free healing, so the Charm is nice. The temporary hit points from the Empower order are similarly fantastic. They’re not as good as those from the Demiplane facility, but they’re renewable and you can apply them to another creature who might need them more than you."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sanctum-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Sanctum Recall option is a nice convenience that lets you and your party quickly teleport home if a situation turns against you."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-war-room",
+      "parentSectionId": "section-level-17-special-facilities",
+      "heading": "War Room",
+      "sourceAnchor": "war-room",
+      "blocks": [
+        {
+          "blockId": "block-section-war-room-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "36 squares is 900 square feet, which is less of a “war room” and more of a “war hall” or “war apartment.”"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-war-room-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The War Room is more of a plot point than a facility. I do not recommend selecting a War Room unless your DM is okay with dealing with the implications. You can have up to 10 Lieutenants, who can then recruit up to 1,000 soldiers (100 each), giving you a decently large army. A replenishable army of 1,010 soldiers (counting the lieutenants) is enough to cause a lot of trouble, and can easily overcome a lot of problems which you might otherwise be expected to solve directly as adventurers."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-war-room-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Lieutenants’ effect on the Attack event is helpful, significantly reducing or outright eliminating your odds of a rolling a 1. However, the wording of the Attack event is vague about what happens if you have 0 Defenders and don’t roll any 1’s. I would rule that nothing happens, but it’s possible that you are still intended to shut down a facility for one Bastion Turn. That still doesn’t make Defenders worthwhile, but it does go even further to highlight how poor the Bastion Defenders mechanic is."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-doing-stuff-with-your-bastions",
+      "heading": "Doing Stuff With Your Bastions",
+      "sourceAnchor": "doing-stuff-with-your-bastions",
+      "blocks": [
+        {
+          "blockId": "block-section-doing-stuff-with-your-bastions-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Certain groups of facilities can provide similar benefits. Comparing and sometimes combining the effects of these facilities can maximize the benefits of Bastion."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-combat-buffs",
+      "parentSectionId": "section-doing-stuff-with-your-bastions",
+      "heading": "Combat Buffs",
+      "sourceAnchor": "combat-buffs",
+      "blocks": [
+        {
+          "blockId": "block-section-combat-buffs-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Demiplane, Meditation Chamber, Pub, Sanctum, Training Area, Workshop"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-combat-buffs-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Demiplane provides a massive amount of Temporary Hit Points after you take a Long Rest in it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-combat-buffs-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Meditation Chamber’s Fortify Self benefit is extremely powerful, and doesn’t require a specific amount o time to be spent in the facility so long as you don’t leave the Bastion."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-combat-buffs-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Pub offers several magical drinks which provide buffs for 24 hours after drinking them. I don’t know if they’re portable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-combat-buffs-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Sanctum can get you or an ally Temporary Hit Points that refresh on a Long Rest every day for a week. The target doesn’t need to be in the Sanctum, either, so you can issue orders remotely with Sending Stones to keep the benefit going anywhere in the multiverse. The THP aren’t as good as those from Demiplane, but they’re considerably easier to get."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-combat-buffs-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Training Area can get you several buffs, but it requires daily training for a week straight. Naturally, this conflicts with the Meditation Chamber. If you have access to 2 Training Areas, you could get buffs from both."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-combat-buffs-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Workshop can get you Heroic Inspiration by taking a Short Rest inside the facility."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-crafting-magic-items",
+      "parentSectionId": "section-doing-stuff-with-your-bastions",
+      "heading": "Crafting Magic Items",
+      "sourceAnchor": "crafting-magic-items",
+      "blocks": [
+        {
+          "blockId": "block-section-crafting-magic-items-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Arcane Study (Arcana), Laboratory (Potions), Sacristy (Relic), Scriptorium (Spell Scrolls), Smithy (Armaments), Workshop (Implements)"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-crafting-magic-items-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Several Special Facilities allow you to creat Common/Uncommon magic items starting at level 9, covering each of the four table groups for magic items ("
+            },
+            {
+              "type": "link",
+              "text": "Arcana",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/random-magic-items#ArcanaTables"
+            },
+            {
+              "type": "text",
+              "text": ", "
+            },
+            {
+              "type": "link",
+              "text": "Armaments",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/random-magic-items#ArmamentsTables"
+            },
+            {
+              "type": "text",
+              "text": ", "
+            },
+            {
+              "type": "link",
+              "text": "Implements",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/random-magic-items#ImplementsTables"
+            },
+            {
+              "type": "text",
+              "text": ", and "
+            },
+            {
+              "type": "link",
+              "text": "Relics",
+              "href": "https://www.dndbeyond.com/sources/dnd/dmg-2024/random-magic-items#RelicsTables"
+            },
+            {
+              "type": "text",
+              "text": "). While Uncommon magic items aren’t crazy combat options, they’re still impactful enough that accumulating them will rapidly ruin the balance of the game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-crafting-magic-items-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "To be absolutely clear: If you follow my advice below, it’s probably going to ruin your game. I strongly recommend agreeing to a house rule to limit the benefits of these facilities. The 200 gp per Uncommon item is a pittance. I recommend limiting players to one magic item per facility; crafting a new one causes the previous item to turn to dust. This allows access to these items, but prevents players from accumulating enough to break things."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-crafting-magic-items-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The biggest limitation on using the crafting facilities for magic items is that you can’t do so until you reach level 9, despite several of these facilities being available at level 5."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-crafting-magic-items-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The order in which you select the facilities depends on which items you want from the random magic items tables and on what sort of spellcasting focus/foci you can use. A multiclassed character can easily get all 4 Special Facilities, but single-class characters may need to choose between an Arcane Study and a Reliquary depending on what spellcasting focus they can use."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-crafting-magic-items-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Arcana list is by far the largest, followed by the Implements list. The Armaments list has exclusive access to magic armor, shields, and weapons, so it’s essential in most parties. The Relics list has exactly 2 exclusives: "
+            },
+            {
+              "type": "link",
+              "text": "Keoghtom’s Ointment",
+              "href": "https://www.dndbeyond.com/magic-items/9228809-keoghtoms-ointment"
+            },
+            {
+              "type": "text",
+              "text": " and Ring of Water Walking."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-crafting-magic-items-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With the exception of the Scriptorium, every facility which can craft magic items says “If the item allows its user to cast any spells from it, "
+            },
+            {
+              "type": "emphasis",
+              "text": "you must craft the item yourself"
+            },
+            {
+              "type": "text",
+              "text": "“. This means that your Special Facilities can craft Spell Scrolls, but no other items which can cast spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-crafting-magic-items-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Staple items include:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-crafting-magic-items-9",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Anything with a +1 (shield, Wand of the War Mage, weapon, Wraps of Unarmed Power)"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Potions. Really any of them."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spell Scrolls. Start with situationally useful spells, then start loading up on powerful low-level spells like Catnap and Prayer of Healing. Remember that only the Scriptorium can craft these even though they’re on several of the magic item tables."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bag of Holding. Useful on its own, but also as a bomb."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boots of Elvenkind. Advantage on Dexterity (Stealth) for the whole party without Attunement."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Broom of Flying. One for everyone in the party, of course. It does require Attunement, but it’s absolutely worth it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cap of Water Breathing. You’ll probably never need it, but it’ll be hilarious for the one party in the whole that survives a TPK because they read this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cloak of Protection. So good that many parties argue over who gets it if they find one. It does require Attunement, unfortunately."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Decanter of Endless Water. An endless supply of endless supplies of water. Definitely not a problem."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dust of Disappearance. If you have enough, you can walk into any encounter with the whole party Invisible."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gloves of Thievery. Someone in your party will want them."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Goggles of Night. Permanent Darkvision without a spell slot or Attunement."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hag Eye. Fantastic, but your hireling isn’t in a hag coven, so they can’t craft this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Helm of Comprehend Languages. Sure, Comprehend Languages is a ritual, but not every party has a Wizard."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Immovable Rod. Use one more for shenanigans. Mischief, even!"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Keoghtom’s Ointment. Great for healing after combat without resorting to a Short Rest and Hit Point Dice. A great way to stretch resources through a long adventuring day. Spell Scrolls of Prayer of Healing are more efficient, but creatures can only be subject to Prayer of Healing once per Short Rest. Bring both."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lantern of Revealing. A permanent counter to invisibility so long as you have enough oil to keep it lit."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pearl of Power. Easy extra spell slots at the cost an Attunement slot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Potion of Giant Strength (Hill). If your party can manufacture enough, Strength-based characters don’t need to put resources into improving their Strength. Go full Baldur’s Gate 3."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Potion of Pugilism. Monks. Don’t forget to stack this with the buff from Training Area (Unarmed Combat Expert)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Swimming. 40 ft. swim speed is more than you get from most spells. Combine this with a Cap of Water Breathing, and you can take hour-long forays underwater without issue."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rod of the Pact Keeper. It’s extremely unfair that only Warlocks get a +X spellcasting focus in the DMG because it means that only Warlocks can get a +X spellcasting focus from the random treasure table. Wand of the War Mage doesn’t affect spell DCs, and that sucks for everyone "
+              },
+              {
+                "type": "emphasis",
+                "text": "except the Warlock."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Stone of Good Luck. Skill-focused characters will prefer this over a Cloak of Protection. It does require Attunement, though."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-healing-items",
+      "parentSectionId": "section-doing-stuff-with-your-bastions",
+      "heading": "Healing Items",
+      "sourceAnchor": "healing-items",
+      "blocks": [
+        {
+          "blockId": "block-section-healing-items-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Garden, Greenhouse, anything that lets you Craft to get magic items."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-healing-items-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Garden can produce Potions of Healing. You can expand the garden to produce twice as many items, allowing you to create two potions per Bastion Turn. This is very efficient until you hit level 9, at which point a Sacristy can produce Potions of Healing (Greater). These heal twice as much as a Potion of Healing in a single Bonus Action, so they’re more efficient despite healing the same amount. Consider getting both facilities instead of getting a second Garden."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-healing-items-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Greenhouse can produce a Potion of Healing (Greater) each Bastion Turn, plus it houses a plant that provides Lesser Restoration 3 times per day. Unfortunately, the plant’s fruit only last 24 hours, so they’re not fantastically portable. Using a Special Facility which lets you craft Spell Scrolls to get Spell Scrolls of Lesser Restoration is more reliable."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-poison",
+      "parentSectionId": "section-doing-stuff-with-your-bastions",
+      "heading": "Poison",
+      "sourceAnchor": "poison",
+      "blocks": [
+        {
+          "blockId": "block-section-poison-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Garden, Greenhouse, Laboratory, possibly Menagerie."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poison-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Garden can produce 1 Basic Poison per Bastion Turn, and you can expand it to produce twice as much. You can have multiple gardens, allowing you to get 4 Basic Poisons per Bastion Turn very early in your career."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poison-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Greenhouse produces a few specific poisons, producing 1 per Bastion Turn. 3 of the options are Ingested, while Malice is inhaled. In my opinion, Malice is the best of the listed options. It’s notoriously difficult to get other creatures to eat poisoned food unless they’re trying to swallow you whole."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poison-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Laboratory offers 3 specific poisons, 2 of which are inhaled, and 1 of which is ingested. Essence of Ether is the most impactful of the 3 by far. You can produce 1 per Bastion Turn."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-poison-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Menagerie can potentially serve as an additional source of poison sources from creatures of CR 2 or lower. See our assessment of the Menagerie, above. I don’t recommend this, as it also requires a Guildhall (Adventurers’ Guild), and the poison options aren’t very good."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-revenue",
+      "parentSectionId": "section-doing-stuff-with-your-bastions",
+      "heading": "Revenue",
+      "sourceAnchor": "revenue",
+      "blocks": [
+        {
+          "blockId": "block-section-revenue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gambling Hall, Guildhall (Bakers’ or Brewers’), Stable, Storehouse"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-revenue-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Gambling hall provides an average of just of 70 gp per Bastion Turn, but it’s unpredictable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-revenue-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Guildhall (Bakers’ or Brewers’) will generate 500 gp per Bastion Turn with no further fuss."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-revenue-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Stable allows you to buy and sell mounts on alternating weeks, but the profits are tiny. A Gambling Hall will be more profitable for most of the level range."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-revenue-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A Storehouse is the most profitable "
+            },
+            {
+              "type": "emphasis",
+              "text": "eventually"
+            },
+            {
+              "type": "text",
+              "text": ". It starts very slow, but at level 13 it becomes the most profitable Special Facility by a huge margin. If you make it to level 17, you’re selling the economy of a small city every other week."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#defenders-are-a-trap-and-you-should-probably-never-use-them",
+      "detail": "wp-block-heading rating- Defenders are a Trap and You Should Probably Never Use Them"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#arcane-study",
+      "detail": "wp-block-heading rating-blue Arcane Study"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#armory",
+      "detail": "wp-block-heading rating-red Armory"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#barrack",
+      "detail": "wp-block-heading rating-red Barrack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#garden",
+      "detail": "wp-block-heading rating-green Garden"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#library",
+      "detail": "wp-block-heading rating-orange Library"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#sanctuary",
+      "detail": "wp-block-heading rating-orange Sanctuary"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#smithy",
+      "detail": "wp-block-heading rating-blue Smithy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#storehouse",
+      "detail": "wp-block-heading rating-green Storehouse"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#workshop",
+      "detail": "wp-block-heading rating-blue Workshop"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#gaming-hall",
+      "detail": "wp-block-heading rating-red Gaming Hall"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#greenhouse",
+      "detail": "wp-block-heading rating-orange Greenhouse"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#laboratory",
+      "detail": "wp-block-heading rating-green Laboratory"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#sacristy",
+      "detail": "wp-block-heading rating-blue Sacristy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#scriptorium",
+      "detail": "wp-block-heading rating-blue Scriptorium"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#stable",
+      "detail": "wp-block-heading rating-red Stable"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#teleportation-circle",
+      "detail": "wp-block-heading rating-green Teleportation Circle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#theater",
+      "detail": "wp-block-heading rating-orange Theater"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#training-area",
+      "detail": "wp-block-heading rating-orange Training Area"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#trophy-room",
+      "detail": "wp-block-heading rating-red Trophy Room"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#archive",
+      "detail": "wp-block-heading rating-green Archive"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#meditation-chamber",
+      "detail": "wp-block-heading rating-green Meditation Chamber"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#menagerie",
+      "detail": "wp-block-heading rating-red Menagerie"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#observatory",
+      "detail": "wp-block-heading rating-orange Observatory"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#pub",
+      "detail": "wp-block-heading rating-blue Pub"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#reliquary",
+      "detail": "wp-block-heading rating-blue Reliquary"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#demiplane",
+      "detail": "wp-block-heading rating-blue Demiplane"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#guildhall",
+      "detail": "wp-block-heading rating-green Guildhall"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#sanctum",
+      "detail": "wp-block-heading rating-blue Sanctum"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#war-room",
+      "detail": "wp-block-heading rating-orange War Room"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-basic-facilities-and-layout-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-basic-facilities-and-layout-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-basic-facilities-and-layout-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-basic-facilities-and-layout-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-basic-facilities-and-layout-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-basic-facilities-and-layout-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-basic-facilities-and-layout-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-combining-bastions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-combining-bastions-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-bastion-turns-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-bastion-turns-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-bastion-turns-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-bastion-turns-4"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">…unless the owner can communicate with the Bastion hirelings using th"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-bastion-turns-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-bastion-turns-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[2]",
+      "detail": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-2"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[2]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">Bastion Defenders are a trap and you should probably never use them. "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-defenders-are-a-trap-and-you-should-probably-never-use-them-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-im-still-scared-how-do-i-defend-my-bastion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-im-still-scared-how-do-i-defend-my-bastion-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/figcaption[1]",
+      "detail": "block-section-im-still-scared-how-do-i-defend-my-bastion-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-im-still-scared-how-do-i-defend-my-bastion-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-im-still-scared-how-do-i-defend-my-bastion-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-im-still-scared-how-do-i-defend-my-bastion-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-im-still-scared-how-do-i-defend-my-bastion-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-im-still-scared-how-do-i-defend-my-bastion-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-im-still-scared-how-do-i-defend-my-bastion-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[3]",
+      "detail": "block-section-im-still-scared-how-do-i-defend-my-bastion-10"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[3]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\"><strong>Neglect.</strong>&nbsp;If a character issues no orders to the"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-im-still-scared-how-do-i-defend-my-bastion-11"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-defensive-walls-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-defensive-walls-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/figcaption[1]",
+      "detail": "block-section-defensive-walls-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-defensive-walls-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[4]",
+      "detail": "block-section-defensive-walls-5"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "p/img[1]",
+      "detail": "img"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[4]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">Roll&nbsp;<strong>6d6</strong><img decoding=\"async\" src=\"data:image/g"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-defensive-walls-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-defensive-walls-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-defensive-walls-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-defensive-walls-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-collective-defense-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[5]",
+      "detail": "block-section-collective-defense-2"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[5]",
+      "detail": "<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">if some event deprives one character’s Bastion of defenders, another "
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-collective-defense-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-collective-defense-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-collective-defense-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-collective-defense-6"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "p/img[1]",
+      "detail": "img"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-special-facilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-special-facilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-expanding-special-facilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-arcane-study-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-arcane-study-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-armory-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-barrack-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-barrack-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[55]",
+      "detail": "block-section-garden-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[56]",
+      "detail": "block-section-garden-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[57]",
+      "detail": "block-section-garden-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[58]",
+      "detail": "block-section-library-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[59]",
+      "detail": "block-section-sanctuary-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[60]",
+      "detail": "block-section-smithy-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[61]",
+      "detail": "block-section-storehouse-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[62]",
+      "detail": "block-section-storehouse-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-storehouse-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/figcaption[1]",
+      "detail": "block-section-storehouse-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[63]",
+      "detail": "block-section-workshop-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[64]",
+      "detail": "block-section-workshop-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[65]",
+      "detail": "block-section-workshop-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[66]",
+      "detail": "block-section-workshop-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[67]",
+      "detail": "block-section-gaming-hall-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[68]",
+      "detail": "block-section-greenhouse-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[69]",
+      "detail": "block-section-laboratory-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[70]",
+      "detail": "block-section-laboratory-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[71]",
+      "detail": "block-section-sacristy-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[72]",
+      "detail": "block-section-sacristy-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[73]",
+      "detail": "block-section-sacristy-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[74]",
+      "detail": "block-section-scriptorium-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[75]",
+      "detail": "block-section-stable-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[76]",
+      "detail": "block-section-stable-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[77]",
+      "detail": "block-section-stable-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[78]",
+      "detail": "block-section-teleportation-circle-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[79]",
+      "detail": "block-section-teleportation-circle-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[80]",
+      "detail": "block-section-teleportation-circle-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[81]",
+      "detail": "block-section-teleportation-circle-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[82]",
+      "detail": "block-section-teleportation-circle-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[83]",
+      "detail": "block-section-theater-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[84]",
+      "detail": "block-section-theater-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[85]",
+      "detail": "block-section-theater-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[86]",
+      "detail": "block-section-training-area-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-training-area-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[87]",
+      "detail": "block-section-training-area-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[88]",
+      "detail": "block-section-training-area-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[89]",
+      "detail": "block-section-trophy-room-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[90]",
+      "detail": "block-section-trophy-room-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[91]",
+      "detail": "block-section-archive-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[92]",
+      "detail": "block-section-meditation-chamber-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[93]",
+      "detail": "block-section-meditation-chamber-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[94]",
+      "detail": "block-section-menagerie-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[95]",
+      "detail": "block-section-menagerie-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[96]",
+      "detail": "block-section-menagerie-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[97]",
+      "detail": "block-section-observatory-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[98]",
+      "detail": "block-section-observatory-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[99]",
+      "detail": "block-section-pub-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[100]",
+      "detail": "block-section-pub-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-pub-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[101]",
+      "detail": "block-section-reliquary-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[102]",
+      "detail": "block-section-demiplane-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[103]",
+      "detail": "block-section-guildhall-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-guildhall-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[104]",
+      "detail": "block-section-sanctum-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[105]",
+      "detail": "block-section-sanctum-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[106]",
+      "detail": "block-section-war-room-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[107]",
+      "detail": "block-section-war-room-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[108]",
+      "detail": "block-section-war-room-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[109]",
+      "detail": "block-section-doing-stuff-with-your-bastions-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[110]",
+      "detail": "block-section-combat-buffs-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[111]",
+      "detail": "block-section-combat-buffs-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[112]",
+      "detail": "block-section-combat-buffs-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[113]",
+      "detail": "block-section-combat-buffs-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[114]",
+      "detail": "block-section-combat-buffs-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[115]",
+      "detail": "block-section-combat-buffs-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[116]",
+      "detail": "block-section-combat-buffs-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[117]",
+      "detail": "block-section-crafting-magic-items-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[118]",
+      "detail": "block-section-crafting-magic-items-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[119]",
+      "detail": "block-section-crafting-magic-items-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[120]",
+      "detail": "block-section-crafting-magic-items-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[121]",
+      "detail": "block-section-crafting-magic-items-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[122]",
+      "detail": "block-section-crafting-magic-items-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[123]",
+      "detail": "block-section-crafting-magic-items-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[124]",
+      "detail": "block-section-crafting-magic-items-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-crafting-magic-items-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[125]",
+      "detail": "block-section-healing-items-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[126]",
+      "detail": "block-section-healing-items-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[127]",
+      "detail": "block-section-healing-items-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[128]",
+      "detail": "block-section-poison-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[129]",
+      "detail": "block-section-poison-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[130]",
+      "detail": "block-section-poison-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[131]",
+      "detail": "block-section-poison-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[132]",
+      "detail": "block-section-poison-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[133]",
+      "detail": "block-section-revenue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[134]",
+      "detail": "block-section-revenue-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[135]",
+      "detail": "block-section-revenue-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[136]",
+      "detail": "block-section-revenue-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[137]",
+      "detail": "block-section-revenue-5"
+    }
+  ],
+  "metrics": {
+    "words": 8164,
+    "sections": 52,
+    "blocks": 154,
+    "tables": 3,
+    "ratingSignals": 34
+  },
+  "status": "needs-editorial-review"
+}

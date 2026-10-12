@@ -1,0 +1,2163 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-d49823d102e68ed2",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+      "sourceId": "rpgbot-d49823d102e68ed2",
+      "fetchedAt": "2026-09-29T19:22:47.550693+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:31:25-04:00",
+      "contentHash": "d46cb2c2caa18fb0db4bb3cdcce19b026d5416931acfb50272ee1b198823f1b3",
+      "title": "Trickery Domain Cleric 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-d49823d102e68ed2-f203440d2bd59d9a.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-cleric-trickery-domain-2014",
+    "sourceId": "rpgbot-d49823d102e68ed2",
+    "slug": "cleric-trickery-domain-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Домен підступності — гайд підкласу Клірика (2014)",
+    "titleEn": "Trickery Domain Cleric 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Клірик",
+      "Домен підступності",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "sourceRevisionId": "rpgbot-d49823d102e68ed2-f203440d2bd59d9a",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хочете поклонятися богу пустощів на кшталт Локі? Хочете бути злодієм, що навернувся до віри? А як щодо шарлатана з благословенням божества? Хочете божественний мандат на витівки? Тоді Клірик Домену підступності{{Trickery Domain}} може бути саме тим персонажем, що вам потрібен."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Домен підступності{{Trickery Domain}} у D&D 5e — найближче, чим Клірик будь-коли буває до пройдисвіта, і, мабуть, найкращий привід для Клірика замислитися про легкий обладунок. Завдяки таким варіантам, як «Благословення хитруна»{{Blessing of the Trickster}} і Переміщення без сліду [Pass without Trace], клірик підступності — і ефективний мастак скрадатися, і бажаний член будь-якої групи, якій доводиться покладатися на непомітність. Клірики підступності також отримують доступ до деяких заклинань Ілюзії й Причарування, які зазвичай клірикам недоступні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Попри ці можливості, мало які персонажі так легко виграють від мультикласування. Клірики підступності отримують чимало речей, завдяки яким трохи відчувають себе пройдисвітами, але зовсім не здатні відтворити ключові володіння навичками Пройдисвіта. Якщо почати збірку з одного рівня пройдисвіта, клірик підступності з ролі сапорта в групі хитрих персонажів перетворюється на унікально спроможного персонажа, що поєднує чудові володіння навичками Пройдисвіта з божественною міццю клірика."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проте це занурення в клас аж ніяк не обовʼязкове. Багато проблем, які Пройдисвіт розвʼязує буденними засобами, можна розвʼязати заклинаннями зі списку заклинань Домену підступності{{Trickery Domain}}, як-от Маскування [Disguise Self] (замінює набори для гриму), Причарування особи [Charm Person] (замінює навички «обличчя») і Переміщення без сліду [Pass without Trace] (замінює або принаймні підсилює Непомітність). Це одне з тих занурень у клас, де можна без проблем узяти скільки завгодно рівнів — багато чи мало — і в обох випадках мати ефективного персонажа."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Домену підступності",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Збірка на непомітності",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#stealth-build"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Збірка на хитрощах",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#subterfuge-build"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Напівельф, Клірик домену підступності / Пройдисвіт",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#example-build-halfelf-trickery-cleric-rogue"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#feats-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Домену підступності",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання домену{{Domain Spells}}: багато справді цікавих варіантів, чимало з яких зазвичай недоступні Клірикам."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Маскування [Disguise Self] і Причарування особи [Charm Person] можуть розрядити чимало соціальних ситуацій. Причарування особи [Charm Person] не може повністю замінити справжнє «обличчя», але підходить дуже близько."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Віддзеркалення [Mirror Image], можливо, краще за пристойний КБ, а Переміщення без сліду [Pass without Trace] перетворює групу гупаючих Воїнів на мандрівну кулю тихого вбивства."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Мерехтіння [Blink] дає вам 50% шансу, що вас не можна буде обрати ціллю між ходами, що чудово, бо ви, імовірно, лікар групи, тож бути недосяжним для союзників коштує вам дуже мало, а небажаної уваги ви не привертаєте. Розвіювання магії [Dispel Magic] формально ситуативне, але таке корисне й важливе, що не підготувати його часто може бути смертельною помилкою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Двері між вимірами [Dimension Door] — добра телепортація на коротку відстань, яку переважна більшість кліриків просто не може відтворити. Перевтілення [Polymorph] — один із найуніверсальніших ефектів у грі, і з правильною формою звіра дозволяє розвʼязати найрізноманітніші проблеми. Памʼятайте, що накладати його на себе не обовʼязково, тож перетворити союзника на динозавра й їздити на ньому — цілком реальний варіант."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Зміна спогадів [Modify Memory] дуже ситуативне, але Підкорення особистості [Dominate Person] — чудовий спосіб перетворити потужного ворога-гуманоїда на кумедного вихованця на цілу хвилину."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Благословення хитруна|Blessing of the Trickster}}: на себе його застосувати не можна, тож або накладайте його на того, хто в групі здіймає купу шуму, тупаючи в важких обладунках, або на розвідника групи й відправляйте його самого. Разом із Переміщенням без сліду [Pass without Trace] перевірки Непомітності для вашої групи майже гарантовано успішні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Заклик двійника|Channel Divinity: Invoke Duplicity}}: це може бути складно ефективно використовувати, але коли ви в цьому розберетеся, воно дуже потужне. Памʼятайте, що воно вимагає Концентрації, тож його не можна поєднувати з базовими варіантами клірика на кшталт Духів захисників [Spirit Guardians], а оскільки для переміщення двійника використовується ваша бонусна дія, вам може бути важко застосовувати його одночасно з Духовною зброєю [Spiritual Weapon]. Найкращий сценарій — розмістити ілюзію десь на видноті, поки ви ховаєтеся поблизу, і використовувати ілюзію як точку початку для заклинань малої дальності. Варіанти на кшталт Слова сяйва [Word of Radiance] набагато безпечніші, коли ви можете завести свою ілюзію в натовп ворогів, щоб накласти його, а оскільки ілюзія — не істота, її не турбують принагідні атаки, ефекти контролю території чи навіть ворожі істоти, що блокують простір. Ви можете використати ілюзію, щоб отримати Перевагу на кубику в ближньому бою, але я нервуюся, радячи робити це основною тактикою. Лише в середніх обладунках ви не такий живучий, як інші клірики на передовій, а атаки зброєю здебільшого не найкращий варіант для кліриків. Легкий доступ до Переваги може зробити зброю життєздатною порівняно із замовляннями (що для більшості кліриків дуже важко), особливо після отримання «Божественного удару»{{Divine Strike}}, але не дозволяйте цьому змусити вас будувати персонажа навколо ближнього бою. Це, що примітно, стосується всіх атак, тож Перевага компенсує Перешкоду на кубику за дальні атаки, а також застосовується до атак заклинаннями, тож ви можете доставляти заклинання на кшталт Завдання ран [Inflict Wounds] і Духовної зброї [Spiritual Weapon] з Перевагою. Якщо вас влаштовує використовувати свого ілюзорного двійника як відволікання й курʼєра для своїх заклинань, ви можете повністю ігнорувати частину про Перевагу в «Заклику двійника» і все одно впораєтеся чудово. Дивно, але «Заклик двійника» не дає подробиць про те, як поводитися із взаємодією з ілюзорним двійником. Що буде, якщо ілюзію атакують? Чи можуть істоти не вірити в неї, і якщо так, як вони тоді сприймають ілюзію? Якщо істоти знають, що двійник — ілюзія, чи отримуєте ви Перевагу на атаках, коли ви з двійником поруч з істотою? Джеремі Кроуфорд підтвердив, що двійник "
+                  },
+                  {
+                    "type": "link",
+                    "text": "імунний до шкоди, а зброя проходить крізь нього",
+                    "href": "https://twitter.com/JeremyECrawford/status/775482420497756161"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", але це єдина корисна відповідь за правилами, яку я знайшов на цю тему."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Плащ тіней|Channel Divinity: Cloak of Shadows}}: невидимість чудова, але одного раунду просто замало. Надзвичайно прикро, що це єдиний варіант невидимості в Домену підступності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественний удар{{Divine Strike}}: отруйна шкода — один із типів шкоди, до яких у грі найчастіше є опір, та імунітет теж поширений. Майте замовляння шкоди для ворогів на кшталт нежиті й конструктів. Дивіться також: "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Божественний удар проти замовлянь",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/#divine-strike-vs-cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": " вище."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Удосконалений двійник{{Improved Duplicity}}: дозволяє тримати двійників поруч з усіма вашими союзниками, щоб підсилювати чи лікувати їх заклинаннями з дистанцією «Дотик», тримати ворогів у розгубленості щодо вашого положення й, в ідеалі, обманом змусити їх марнувати атаки/заклинання на ваших двійників, доставляти заклинання малої дальності на кшталт Шкоди [Harm] з безпечної відстані та переміщатися між цілями, отримуючи Перевагу на кубику в атаках ближнього бою проти них."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Клірики підступності певною мірою унікальні серед кліриків. Від них очікують незвично багато непомітності й підступності. Це може означати, що вам потрібно більше Спритності та/або Харизми, ніж типовому клірикові. Пожертвувавши дещо в інших характеристиках, ми можемо підтримати навички, які збираємося використовувати. Також вам може знадобитися більше Спритності, ніж типовому клірикові, якщо ви збираєтеся користуватися зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На жаль, бути добрим у всьому важко, тому раджу зосередитися або на непомітності (з упором на Спритність), або на хитрощах (з упором на Харизму). Цілком можливо знайти золоту середину між ними, але оскільки володінь навичками в вас небагато, часто легше зосередитися на одному наборі можливостей, а решту залишити групі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-stealth-build",
+          "parentSectionId": "section-ability-scores",
+          "heading": "Збірка на непомітності",
+          "sourceAnchor": "stealth-build",
+          "blocks": [
+            {
+              "blockId": "block-section-stealth-build-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка робить упор на Спритність, щоб підтримати Непомітність та інструменти злодія{{Thieves’ Tools}}, які є ключовими володіннями, якщо ви збираєтеся замінити пройдисвіта у своїй групі. Якщо ви збираєтеся користуватися зброєю, це ваш найкращий вибір. Якщо хочете користуватися зброєю в ближньому бою, кілька рівнів пройдисвіта дуже допоможуть підвищити вашу ефективність, а незвично висока Спритність підтримає ваші спроби застосовувати зброю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-stealth-build-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-stealth-build-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: ось навіщо ви тут."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-stealth-build-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: ХП, ряткидки Статури, Концентрація."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-stealth-build-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: занедбати, якщо вам не важливе Розслідування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-stealth-build-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: чаротворство все ще ваш основний варіант у бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-stealth-build-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: на 1-му рівні ви, імовірно, можете дозволити собі 10, але далі, імовірно, не піднімете."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-stealth-build-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-subterfuge-build",
+          "parentSectionId": "section-ability-scores",
+          "heading": "Збірка на хитрощах",
+          "sourceAnchor": "subterfuge-build",
+          "blocks": [
+            {
+              "blockId": "block-section-subterfuge-build-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Трохи більше Харизми, ніж у збірці на непомітності, дає кращі бонуси до соціальних навичок. Якщо ви потрапляєте в багато соціальних ситуацій (можливо, ви «обличчя» своєї групи або граєте в кампанії з великою кількістю інтриг), підвищення Харизми дуже суттєво вплине."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-subterfuge-build-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-subterfuge-build-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: 14 цілком досить."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-subterfuge-build-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: ХП, ряткидки Статури, Концентрація."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-subterfuge-build-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: занедбати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-subterfuge-build-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: чаротворство все ще ваш основний варіант у бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-subterfuge-build-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: навіть трохи Харизми дадуть багато користі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-subterfuge-build-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підвищення Спритності й Мудрості або Мудрості й Харизми критично важливі — залежно від того, чи хочете ви збірку на непомітності, чи на хитрощах."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо можете отримати три підвищення характеристик, це ідеально, якщо ви хочете розвивати і непомітність, і хитрощі. Раси на кшталт Напівельфа{{Half-Elf}} і будь-що, опубліковане після «Казана Таші з усім»{{Tasha’s Cauldron of Everything}}, це уможливлюють. Також вам можуть знадобитися додаткові володіння навичками, особливо якщо ви хочете користуватися і навичками скрадання, і навичками «обличчя». Раси на кшталт Напівельфа, Кенку{{Kenku}} і Табаксі{{Tabaxi}} — чудові кандидати. Варіант людини{{Variant Human}} теж може підійти, особливо якщо взяти таку рису, як «Експерт у навичках»{{Skill Expert}}. Напівельф із варіантом Високого ельфа{{High Elf}} може отримати Гримучий Клинок [Booming Blade] без 3 рівнів пройдисвіта чи «Посвячений у магію»{{Magic Initiate}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо вас влаштовує зосередитися лише на одному аспекті клірика підступності, вам потрібні лише два підвищення характеристик. Гірські дворфи{{Mountain Dwarf}} за правилами налаштованого походження{{Custom Origin}} пропонують два підвищення на +2, що спокушає, якщо хочете почати зі 17 і в Спритності, і в Мудрості. Варіант людини{{Variant Human}} — завжди чудовий вибір, особливо якщо взяти рису, що дозволяє додати ще +1 до одного з ваших расових підвищень характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Домен підступності{{Trickery Domain}} не потребує рис як таких, а вписати риси в збірку насправді може бути дуже непросто."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Посвячений у магію|Magic Initiate}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": доступ до замовлянь-атак зброєю на кшталт Гримучого Клинка [Booming Blade] може зробити зброю значно ефективнішою. Мала ілюзія [Minor Illusion] теж дає чудовий утилітарний варіант. Як заклинання з рівнем розгляньте варіанти на кшталт Прокліна [hex] і Обладунку мага [Mage Armor]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Експерт у навичках|Skill Expert}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": широко корисний варіант, щоб покращити ваші можливості з навичками."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо не зануритися в пройдисвіта, причин користуватися зброєю немає. Натомість вивчіть Священне полумʼя [Sacred Flame] і Дзвін небіжчика [Toll the Dead] та покладайтеся на заклинання. Цей розділ припускає занурення в пройдисвіта."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-weapons-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Легкий арбалет{{Crossbow, Light}}: ваша основна дальня зброя. Якщо ви не візьмете Гримучий Клинок [Booming Blade], щоб зробити свої атаки в ближньому бою змістовними, це майже напевно ваша зброя вибору."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кинджал{{Dagger}}: ваш основний варіант для ближнього бою, якщо ви не зануритеся в пройдисвіта, щоб отримати володіння рапірами. Його також можна метнути, що дозволяє легко залишати руку вільною для накладання заклинань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рапіра{{Rapier}}: якщо ви збираєтеся користуватися зброєю, то, імовірно, хочете отримати всю шкоду, яку тільки можна."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо почнете з рівня пройдисвіта, стартуватимете зі шкіряним обладунком. Щойно матимете рівень клірика, отримаєте володіння середніми обладунками й щитами. Візьміть щит і якнайшвидше замініть обладунок на нагрудник. Якщо ви колись досягнете 20 Спритності, ефективнішим буде {{проклепаний шкіряний обладунок|Studded Leather}}, але це малоймовірно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-armor-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо почнете з рівня клірика, імовірно, стартуватимете в лускатому обладунку. Якнайшвидше замініть його на нагрудник. Якщо вдасться роздобути мітрилові напівлати, буде ще краще."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+          "heading": "Приклад збірки — Напівельф, Клірик домену підступності / Пройдисвіт",
+          "sourceAnchor": "example-build-halfelf-trickery-cleric-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-halfelf-trickery-cleric-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спробуймо зробити все й одразу. Це буде доволі складно, і подекуди наша ефективність трохи просідатиме, але результат веселий."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-halfelf-trickery-cleric-rogue-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Також є багато простору, щоб підлаштувати цю збірку під ваш смак і потреби вашої групи, що завжди приємно в прикладі збірки. Наприклад: якщо у вашій групі вже є «обличчя», вам потрібно менше навичок, тож можна розглянути раси, що не дають володінь навичками, а «Експертизу»{{Expertise}} вкласти в щось інше, ніж Обман."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми використаємо трохи змінений варіант характеристик зі збірки на хитрощах вище, щоб скористатися унікальними підвищеннями характеристик Напівельфа{{Half-Elf}} із PHB. Якщо ви користуєтеся правилами налаштованого походження{{Custom Origin}}, можна перерозподілити їх, щоб почати зі 17 у Спритності чи Мудрості, але це не набагато краще, якщо ви не розглядаєте риси, що дають +1 до характеристики."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Напівельф{{Half-Elf}}. У цьому випадку можемо користуватися стандартними правилами для напівельфів. Дві додаткові навички полегшать нам покриття і непомітності, і хитрощів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Натомість можна обрати Напівельфа з варіантом Високого ельфа{{High Elf}} і отримати Гримучий Клинок [Booming Blade], що дає корисне підсилення атак зброєю на ходах, коли ви не накладаєте заклинання, але коштує двох володінь навичками напівельфа. Якщо підете цим шляхом, раджу відмовитися від Залякування й Спритності рук. Спритність рук походить від нашої передісторії, але в PHB зазначено, що володіння передісторії можна замінювати, тож {{за правилами як написано|RAW}} це цілком дозволено."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Завдяки нашій расі, класу й передісторії ми отримуємо 8 володінь навичками та три інструменти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Навички:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Обман"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Аналіз Поведінки"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Залякування"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розслідування"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Уважність"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Переконання"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спритність рук"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Непомітність"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інструменти:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-5",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Набір для гриму{{Disguise Kit}}"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Набір фальшивомонетника{{Forgery Kit}}"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Інструменти злодія{{Thieves’ Tools}}"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми також отримаємо «Експертизу»{{Expertise}} у двох речах. Складно обрати, у яких саме, але оскільки Харизма — наше слабке місце, може бути розумно обрати Обман і ще щось одне. Непомітність майже напевно можна пропустити, бо ви зможете накладати Переміщення без сліду [Pass without Trace], що значно краще за «Експертизу»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Шарлатан{{Charlatan}}. Це чудова ідея для персонажа, що може поклонятися богу підступності, а поєднання навичок та інструментів добре споряджає вас для досягнення цілей різноманітними оманливими засобами. Уміння «Фальшива Особистість»{{False Identity}} теж чудове. Розгляньте можливість зробити свою фальшиву особистість клірика іншого божества."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+          "heading": "Риси",
+          "sourceAnchor": "feats-2",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цій збірці ми не плануємо брати риси. Ми й так будуємо персонажа із залежністю від багатьох характеристик (MAD), тож хочемо всі Покращення Характеристик, які можемо отримати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-halfelf-trickery-cleric-rogue",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 – Пройдисвіт 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза (Обман, Інструменти злодія)\nПідступна атака 1к6\nЗлодійська мова"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ви, по суті, просто пройдисвіт із дивно високою Мудрістю. Ваші навички — основний варіант поза боєм, і навіть коли ми додамо чаротворство, вони залишатимуться вашим основним варіантом більшу частину часу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 – Клірик 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння легкими й середніми обладунками та щитами\nЧаротворство\nЗамовляння:\n– Настанова\n– Священне полумʼя\n– одне інше\nБожественний домен (Хитрість)\nБлагословення хитруна\nЗаклинання домену (Хитрість)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зі Спритністю 16 і «Підступною атакою»{{Sneak Attack}} ви ефективні зі зброєю — за умови, що можете активувати «Підступну атаку». Візьміть щит і нагрудник — і ваш КБ може сягати 18 до заклинань, що робить вас цілком живучим. Причарування особи [Charm Person] і Маскування [Disguise Self] можуть значно полегшити соціальні ситуації та проникнення, легко компенсуючи вашу відносно низьку Харизму порівняно з більшістю персонажів-«облич». Пристойна шкода, пристойна живучість, добрі навички й основні заклинання клірика на кшталт Благословення [Bless] і Цілющого слова [healing word]. Доволі чудово для 2-го рівня, і ви вже можете влаштовувати всілякі підступи."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 – Клірик 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (1/відпочинок)\nБожественність: Заклик двійника\nБожественність: Вигнання нежиті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Заклик двійника»{{Invoke Duplicity}} дає простий спосіб отримати Перевагу на кубику на атаки в ближньому бою, а отже, активувати «Підступну атаку». Проте він створює конкуренцію за вашу бонусну дію. У вас є добрі заклинання бонусної дії, як-от Цілюще слово [healing word], Святилище [Sanctuary] і Щит віри [Shield of Faith]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 – Клірик 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 2-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Цей рівень відкриває нам Переміщення без сліду [Pass without Trace], раптом роблячи перевірки Непомітності дуже легкими для всієї вашої групи. Якщо нервуєте, можна додатково накласти Настанову [Guidance], але у вас уже +15 до перевірок Непомітності, тож ви в доброму стані. Можна спробувати поєднати Духовну зброю [Spiritual Weapon] із «Закликом двійника»{{Invoke Duplicity}}, але пильнуйте свою бонусну дію. Більшість кліриків віддають бонусну дію на Духовну зброю [Spiritual Weapon], і хоч Духовна зброя [Spiritual Weapon] усе ще варіант, бонусна дія знадобиться й для переміщення вашого ілюзорного двійника. Будуть ходи, коли потрібно накласти заклинання дією, і ходи, коли ви охоче залишите двійника там, де він є. На таких ходах Духовна зброя [Spiritual Weapon] часто є чудовим вибором для вашої бонусної дії. На цьому рівні ви також отримуєте Віддзеркалення [Mirror Image]. Це захисний баф на 1 хвилину, що не потребує Концентрації, тож він чудовий. Але його, можливо, доведеться зберегти для вищих рівнів, коли у вас буде більше слотів заклинань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 – Клірик 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове замовляння:\n– будь-яке\nПокращення Характеристик (Мудрість 16 → 18)\nЗбільшення шкоди замовлянь"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хоч досі нам подобалося користуватися зброєю, тепер замовляння стануть надійнішим джерелом шкоди. На цьому рівні ми підвищимо Мудрість, але не хвилюйтеся: за кілька рівнів ми знову встромлятимемо зброю в усе, що трапиться."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 – Клірик 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 3-го рівня\nЗнищення нежиті (ПН 1/2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 3-го рівня приносять потужні варіанти на кшталт Духів захисників [Spirit Guardians]. На жаль, «Заклик двійника»{{Invoke Duplicity}} вимагає Концентрації, але в боях, де ваша ілюзія не працює, коли у вас закінчився «Канал божественності»{{Channel Divinity}} або коли ви втратили Концентрацію на «Заклику двійника», Духи захисники [Spirit Guardians] усе одно лишаються жахливим магічним блендером. Цей рівень також дає корисні варіанти, як-от Підглядання [Clairvoyance]/підслуховування{{Clairaudience}} і Мови [Tongues]. Якщо ваш Майстер дозволяє заклинання з книги «Корпорація пригодників»{{Acquisitions Incorporated}}, розгляньте Швидкі друзі [Fast Friends]. Це наче суперпідсилена версія Причарування особи [Charm Person]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 – Клірик 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (2/відпочинок)\nБожественність: Плащ тіней"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Канал божественності»{{Channel Divinity}} двічі за відпочинок означає, що ним можна користуватися майже в кожному зіткненні. Це чудово, бо це стабільне джерело Переваги на кубику на атаки в ближньому бою, коли ми знову до них повернемося, а до того часу це чудовий спосіб заходити в натовп, щоб накласти заклинання малої дальності на кшталт Слова сяйва [Word of Radiance]. «Плащ тіней»{{Cloak of Shadows}} розчаровує. Ігноруйте його."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 – Клірик 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Серед заклинань 4-го рівня є чудові варіанти на кшталт Перевтілення [Polymorph] (зі списку заклинань домену підступності) і Форми каменю [Stone Shape], і лише ці два заклинання пропонують такий фантастичний набір можливостей для пустощів, що ви, мабуть, розвʼяжете більшість своїх проблем лише ними."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 – Клірик 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Спритність 16 → 18)\nЗнищення нежиті (ПН 1)\nБлагословенні удари"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ми повертаємося до своєї зброї. Додаткове класове уміння{{Optional Class Feature}} «Благословенні удари»{{Blessed Strikes}} — вкрай потрібна заміна «Божественного удару»{{Divine Strike}}, і тому, що отруйна шкода слабка, і тому, що наша збірка може використовувати і атаки зброєю, і замовляння."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 – Пройдисвіт 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хитра дія{{Cunning Action}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ми повертаємося до Пройдисвіта. «Хитра дія»{{Cunning Action}} загалом нам мало що дасть, бо ми часто працюємо через «Заклик двійника»{{Invoke Duplicity}}, але якщо «Заклик двійника» спаде, «Хитра дія» — чудовий спосіб вибратися з халепи. Також можна використати «Заклик двійника», щоб накладати заклинання з простору вашої ілюзії, а потім скористатися «Хитрою дією», щоб сховатися після того, як ви видасте своє положення вербальними компонентами заклинань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 – Пройдисвіт 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підступна атака 2к6\nПройдисвітський архетип (Містичний спритник)\nЗамовляння:\n– Гримучий Клинок\n– Магічна рука\n– Мала ілюзія\nВідомі заклинання 1-го рівня:\n– Обладунок мага\n– будь-які 2 Причарування/Ілюзії\nЗбільшення шкоди замовлянь"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гримучий Клинок [Booming Blade] на цьому рівні дуже захоплює. Тепер ми можемо скласти шкоду від нашої рапіри (1к8+4), «Підступної атаки»{{Sneak Attack}} (2к6), «Благословенних ударів»{{Blessed Strikes}} (1к8) і початкову шкоду від Гримучого Клинка [Booming Blade] (2к8) — разом вражаючі 4к8+2к6+4. Непогано для того, що можна робити практично щораунду. Доповніть це Духовною зброєю [Spiritual Weapon] (особливо якщо накласти її вищим слотом) — і щоходу у вас буде велика купа шкоди, яку можна розкидати. Я обрав Містичного спритника{{Arcane Trickster}} тут виключно заради чаротворства. Інтелект ми занедбали, тож уникайте всього, що хоч віддалено стосується СК ряткидка, але ви можете отримати купу утиліт від Магічної руки [Mage Hand] та Малої ілюзії [Minor Illusion], а з заклинань із рівнями Обладунок мага [Mage Armor] (якщо ви вже не знайшли пристойний магічний обладунок), Мовчазний образ [Silent Image] і Сріблясті шпильки [Silvery Barbs] запропонують купу варіантів. Якщо ваш Майстер забороняє Сріблясті шпильки [Silvery Barbs] (я його не звинувачую), чудових варіантів у вас немає, тож беріть Ілюзорний напис [Illusory Script] і користуйтеся ним для пустощів і передавання записок на уроці."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12+"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "\n\t\t\t\t\t"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n\t\t\t\t"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому етапі у нас більш ніж достатньо інструментів для всіляких підступів. У бою у вас є нещадно ефективний повторюваний варіант атаки, доповнений 8 рівнями чаротворства клірика. Поза боєм у вас є купа чудових утилітарних заклинань і відмінні навички. Куди йти далі — справді залежить від вас і ваших особистих смаків. Ще один рівень пройдисвіта дає Покращення Характеристик, а два — «Надприродне ухилення»{{Uncanny Dodge}}. Зважте це проти чаротворства клірика; заклинання 5-го рівня за один рівень звідси. Можна, звісно, чергувати. Або можна триматися клірика й чекати на покращення «Заклику двійника»{{Invoke Duplicity}}, коли ви досягнете 17-го рівня клірика на 20-му рівні. Тоді у вас буде не лише достатньо можливостей, щоб бути цілою групою, а й достатньо ілюзорних копій себе, щоб зіграти цілу групу!"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-001",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання домену",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-002",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-003",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-004",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-005",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-006",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-007",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Благословення хитруна",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-008",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-009",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-010",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Божественний удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-011",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Удосконалений двійник",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-012",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-stealth-build",
+      "targetBlockId": "block-section-stealth-build-2",
+      "optionId": "section-stealth-build-block-section-stealth-build-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-stealth-build-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-013",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-stealth-build",
+      "targetBlockId": "block-section-stealth-build-3",
+      "optionId": "section-stealth-build-block-section-stealth-build-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-stealth-build-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-014",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-stealth-build",
+      "targetBlockId": "block-section-stealth-build-4",
+      "optionId": "section-stealth-build-block-section-stealth-build-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-stealth-build-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-015",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-stealth-build",
+      "targetBlockId": "block-section-stealth-build-5",
+      "optionId": "section-stealth-build-block-section-stealth-build-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-stealth-build-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-016",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-stealth-build",
+      "targetBlockId": "block-section-stealth-build-6",
+      "optionId": "section-stealth-build-block-section-stealth-build-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-stealth-build-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-017",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-stealth-build",
+      "targetBlockId": "block-section-stealth-build-7",
+      "optionId": "section-stealth-build-block-section-stealth-build-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-stealth-build-7",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-018",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-stealth-build",
+      "targetBlockId": "block-section-stealth-build-8",
+      "optionId": "section-stealth-build-block-section-stealth-build-8-row-0-0",
+      "context": "Сила",
+      "explanationBlockId": "block-section-stealth-build-8",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-019",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-stealth-build",
+      "targetBlockId": "block-section-stealth-build-8",
+      "optionId": "section-stealth-build-block-section-stealth-build-8-row-1-0",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-stealth-build-8",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-020",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-stealth-build",
+      "targetBlockId": "block-section-stealth-build-8",
+      "optionId": "section-stealth-build-block-section-stealth-build-8-row-2-0",
+      "context": "Статура",
+      "explanationBlockId": "block-section-stealth-build-8",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-021",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-stealth-build",
+      "targetBlockId": "block-section-stealth-build-8",
+      "optionId": "section-stealth-build-block-section-stealth-build-8-row-3-0",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-stealth-build-8",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-022",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-stealth-build",
+      "targetBlockId": "block-section-stealth-build-8",
+      "optionId": "section-stealth-build-block-section-stealth-build-8-row-4-0",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-stealth-build-8",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-023",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-stealth-build",
+      "targetBlockId": "block-section-stealth-build-8",
+      "optionId": "section-stealth-build-block-section-stealth-build-8-row-5-0",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-stealth-build-8",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-024",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-0",
+      "context": "Посвячений у магію",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-025",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-2",
+      "optionId": "section-feats-block-section-feats-2-item-1",
+      "context": "Експерт у навичках",
+      "explanationBlockId": "block-section-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-026",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-weapons",
+      "targetBlockId": "block-section-weapons-2",
+      "optionId": "section-weapons-block-section-weapons-2-item-0",
+      "context": "Легкий арбалет",
+      "explanationBlockId": "block-section-weapons-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-027",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-weapons",
+      "targetBlockId": "block-section-weapons-2",
+      "optionId": "section-weapons-block-section-weapons-2-item-1",
+      "context": "Кинджал",
+      "explanationBlockId": "block-section-weapons-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-trickery-domain-2014-028",
+      "articleId": "rpgbot-cleric-trickery-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-trickery-domain-2014-draft1",
+      "sectionId": "section-weapons",
+      "targetBlockId": "block-section-weapons-2",
+      "optionId": "section-weapons-block-section-weapons-2-item-2",
+      "context": "Рапіра",
+      "explanationBlockId": "block-section-weapons-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

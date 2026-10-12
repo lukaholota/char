@@ -21,13 +21,18 @@ const noOptionalSteps: CreationStepConditions = {
 };
 
 async function expectCreationSteps(page: Page, conditions: Partial<CreationStepConditions>) {
-  const expected = resolveCreationSteps({ ...noOptionalSteps, ...conditions }).map((step) => step.id);
+  const expected = resolveCreationSteps({ ...noOptionalSteps, ...conditions }, "CLASS_FIRST").map((step) => step.id);
   const steps = page.locator("[data-step-id]");
 
   await expect(steps).toHaveCount(expected.length);
   await expect(
     steps.evaluateAll((nodes) => nodes.map((node) => node.getAttribute("data-step-id")))
   ).resolves.toEqual(expected);
+}
+
+async function selectClassAndOpenRaceStep(page: Page, classKey = "BARBARIAN_2014") {
+  await page.getByTestId(`class-${classKey}`).click();
+  await page.getByRole("button", { name: "Далі →" }).click();
 }
 
 async function selectHumanVariantPath(page: Page) {
@@ -61,6 +66,29 @@ test.describe("Адреса конструктора 2014", () => {
   });
 });
 
+test.describe("Чернетка конструктора 2014 зі старим порядком кроків", () => {
+  test("скидається з повідомленням, і створення починається з класу", async ({ page }) => {
+    await page.addInitScript(() => {
+      if (localStorage.getItem("dnd-pers-form")) return;
+      localStorage.setItem("dnd-pers-form", JSON.stringify({ state: { formData: { raceId: 1, classId: 1 }, currentStep: 4, totalSteps: 9 }, version: 0 }));
+    });
+    await page.goto("/char/create");
+
+    await expect(page.getByText("Стару чернетку довелося скинути.")).toBeVisible();
+    await expect(page.getByTestId("creation-step-class")).toHaveAttribute("data-active", "true");
+  });
+
+  test("чернетка нового порядку переживає перезавантаження без повідомлення", async ({ page }) => {
+    await page.goto("/char/create");
+    await page.getByTestId("class-BARBARIAN_2014").click();
+    await page.getByRole("button", { name: "Далі →" }).click();
+    await page.reload();
+
+    await expect(page.getByTestId("creation-step-race")).toHaveAttribute("data-active", "true");
+    await expect(page.getByText("Стару чернетку довелося скинути.")).toHaveCount(0);
+  });
+});
+
 test.describe("KR4.5 — constructor step oracle", () => {
   test("core constructor має exact normal order із KR4.2", async ({ page }) => {
     await page.goto("/char/create");
@@ -68,14 +96,24 @@ test.describe("KR4.5 — constructor step oracle", () => {
     await expectCreationSteps(page, {});
   });
 
-  test("core constructor блокує forward, доки расу не обрано", async ({ page }) => {
+  test("core constructor починається з класу й блокує forward, доки його не обрано", async ({ page }) => {
     await page.goto("/char/create");
 
+    await expect(page.getByTestId("creation-step-class")).toHaveAttribute("data-active", "true");
+    await expect(page.getByRole("button", { name: "Далі →" })).toBeDisabled();
+  });
+
+  test("після класу відкривається раса, і forward заблоковано, доки расу не обрано", async ({ page }) => {
+    await page.goto("/char/create");
+    await selectClassAndOpenRaceStep(page);
+
+    await expect(page.getByTestId("creation-step-race")).toHaveAttribute("data-active", "true");
     await expect(page.getByRole("button", { name: "Далі →" })).toBeDisabled();
   });
 
   test("Dwarf одразу додає підрасу в ordered oracle", async ({ page }) => {
     await page.goto("/char/create");
+    await selectClassAndOpenRaceStep(page);
     await page.getByTestId("race-DWARF_2014").click();
 
     await expectCreationSteps(page, { hasSubraces: true });
@@ -83,6 +121,7 @@ test.describe("KR4.5 — constructor step oracle", () => {
 
   test("Dwarf вибір вмикає forward лише після selection", async ({ page }) => {
     await page.goto("/char/create");
+    await selectClassAndOpenRaceStep(page);
     await page.getByTestId("race-DWARF_2014").click();
 
     await expect(page.getByRole("button", { name: "Далі →" })).toBeEnabled();
@@ -90,6 +129,7 @@ test.describe("KR4.5 — constructor step oracle", () => {
 
   test("Dwarf path переходить на disabled subrace step", async ({ page }) => {
     await page.goto("/char/create");
+    await selectClassAndOpenRaceStep(page);
     await page.getByTestId("race-DWARF_2014").click();
     await page.getByRole("button", { name: "Далі →" }).click();
 
@@ -100,30 +140,27 @@ test.describe("KR4.5 — constructor step oracle", () => {
 
   test("Human одразу додає variant branch в ordered oracle", async ({ page }) => {
     await page.goto("/char/create");
+    await selectClassAndOpenRaceStep(page);
     await page.getByTestId("race-HUMAN_2014").click();
 
-    await expectCreationSteps(page, { hasRaceVariants: true });
+    await expectCreationSteps(page, { hasRaceVariants: true, hasLanguageChoice: true });
   });
 
-  test("Human standard variant веде до class step без race-choice branch", async ({ page }) => {
+  test("Human standard variant веде до background step без race-choice branch", async ({ page }) => {
     await page.goto("/char/create");
+    await selectClassAndOpenRaceStep(page);
     await selectHumanVariantPath(page);
 
-    await expectCreationSteps(page, { hasRaceVariants: true });
-    await expect(page.getByTestId("creation-step-class")).toHaveAttribute("data-active", "true");
+    await expectCreationSteps(page, { hasRaceVariants: true, hasLanguageChoice: true });
+    await expect(page.getByTestId("creation-step-background")).toHaveAttribute("data-active", "true");
     await expect(page.getByTestId("creation-step-raceChoices")).toHaveCount(0);
   });
 
-  test("Human → Ranger додає level-one class-choice branch в ordered oracle", async ({ page }) => {
+  test("Ranger додає level-one class-choice branch одразу після класу в ordered oracle", async ({ page }) => {
     await page.goto("/char/create");
-    await selectHumanVariantPath(page);
     await page.getByTestId("class-RANGER_2014").click();
 
-    await expectCreationSteps(page, {
-      hasRaceVariants: true,
-      hasLevelOneChoices: true,
-      hasLanguageChoice: true,
-    });
+    await expectCreationSteps(page, { hasLevelOneChoices: true });
     await expect(page.getByTestId("creation-step-classChoices")).toBeVisible();
   });
 });

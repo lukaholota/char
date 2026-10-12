@@ -1,0 +1,17 @@
+.build-tree-nodes > section::before {
+  content: "";
+  position: absolute;
+  height: 1.25rem;
+  width: 1px;
+  top: -1.25rem;
+  left: 2.25rem;
+  background: rgb(148 163 184 / 0.25);
+}
+@keyframes assemble-glow {
+  from { opacity: 0.3; box-shadow: inset 0 0 80px rgb(167 139 250 / 0.3); }
+  to { opacity: 1; box-shadow: inset 0 0 12px rgb(167 139 250 / 0.1); }
+}
+.assemble-flash { animation: assemble-glow 350ms ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .assemble-flash { animation: none; }
+}

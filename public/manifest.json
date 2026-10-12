@@ -2,15 +2,35 @@
   "name": "ДнД українською",
   "short_name": "ДнД",
   "description": "Персонажі, заклинання й довідник D&D українською — працює й без мережі",
+  "id": "/char/home",
   "start_url": "/char/home",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone"],
+  "prefer_related_applications": false,
+  "categories": ["games", "entertainment"],
   "orientation": "portrait",
   "background_color": "#020617",
   "theme_color": "#020617",
   "lang": "uk",
   "icons": [
-    { "src": "/images/logo.png", "sizes": "494x500", "type": "image/png", "purpose": "any" },
-    { "src": "/images/dragon.png", "sizes": "512x512", "type": "image/png", "purpose": "monochrome" }
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icon-monochrome-512.png", "sizes": "512x512", "type": "image/png", "purpose": "monochrome" }
+  ],
+  "screenshots": [
+    { "src": "/icons/screenshots/characters-narrow.png", "sizes": "1080x2400", "type": "image/png", "form_factor": "narrow", "label": "Мої персонажі" },
+    { "src": "/icons/screenshots/sheet-narrow.png", "sizes": "1080x2400", "type": "image/png", "form_factor": "narrow", "label": "Лист персонажа" },
+    { "src": "/icons/screenshots/spells-narrow.png", "sizes": "1080x2400", "type": "image/png", "form_factor": "narrow", "label": "Заклинання українською" },
+    { "src": "/icons/screenshots/dice-narrow.png", "sizes": "1080x2400", "type": "image/png", "form_factor": "narrow", "label": "Кубики під час гри" },
+    { "src": "/icons/screenshots/spells-wide.png", "sizes": "1280x800", "type": "image/png", "form_factor": "wide", "label": "Довідник заклинань" }
+  ],
+  "shortcuts": [
+    { "name": "Мої персонажі", "url": "/char/home", "icons": [{ "src": "/icons/icon-96.png", "sizes": "96x96", "type": "image/png" }] },
+    { "name": "Заклинання", "url": "/spells", "icons": [{ "src": "/icons/icon-96.png", "sizes": "96x96", "type": "image/png" }] },
+    { "name": "Бестіарій", "url": "/bestiary", "icons": [{ "src": "/icons/icon-96.png", "sizes": "96x96", "type": "image/png" }] },
+    { "name": "Створити персонажа", "url": "/char/create", "icons": [{ "src": "/icons/icon-96.png", "sizes": "96x96", "type": "image/png" }] }
   ]
 }

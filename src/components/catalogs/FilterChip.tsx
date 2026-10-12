@@ -25,6 +25,7 @@ export function FilterChip({
     <button
       type="button"
       onClick={onClick}
+      aria-pressed={selected}
       title={title}
       className={cn(
         "max-w-full truncate rounded-lg border px-2.5 py-1 text-xs font-medium transition-all max-md:min-h-10",

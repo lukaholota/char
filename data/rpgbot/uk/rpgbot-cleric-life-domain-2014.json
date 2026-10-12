@@ -1,0 +1,2372 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-50ce81f820dfad83",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+      "sourceId": "rpgbot-50ce81f820dfad83",
+      "fetchedAt": "2026-09-29T19:13:13.142194+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:30:20-04:00",
+      "contentHash": "b9d7ac1bf0eafeac820512c3508ad0a61fd434267725f3e61599f8882aee7790",
+      "title": "Life Domain Cleric 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-50ce81f820dfad83-a54e58fcaffb32fa.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-cleric-life-domain-2014",
+    "sourceId": "rpgbot-50ce81f820dfad83",
+    "slug": "cleric-life-domain-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Домен життя — гайд підкласу Клірика (2014)",
+    "titleEn": "Life Domain Cleric 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Клірик",
+      "Домен життя",
+      "цілитель",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "sourceRevisionId": "rpgbot-50ce81f820dfad83-a54e58fcaffb32fa",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Клірик домену життя 5e: гайд підкласу D&D 5e",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Що робити, коли ваша група при повному здоровʼї?"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Що робити, коли ваша група при повному здоровʼї?"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Чи навіть коли вона напівздорова, але на ногах?"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "ЗАВДАЙТЕ ШКОДИ ЗЛОДІЯМ!"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "link",
+                  "text": "{{Паршивий гайд із FFXIV: Цілителі|A Crap Guide to FFXIV: Healers}}",
+                  "href": "https://www.youtube.com/watch?v=osvUOqeDwD0"
+                },
+                {
+                  "type": "text",
+                  "text": " – JoCat"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Домен життя{{Life Domain}} — потужний інструмент у D&D 5e, але легко неправильно зрозуміти сильні сторони його умінь. Бонуси до магії лікування та ще й «Канал божественності»{{Channel Divinity}} на додачу легко заманюють гравця в пастку бажання завжди й усіх лікувати, але Клірики — це далеко більше, ніж просто "
+                },
+                {
+                  "type": "link",
+                  "text": "хілботи",
+                  "href": "https://rpgbot.net/dnd5/characters/healbot-olympics/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Лікування в бою зазвичай вкрай неефективне, хіба що ваша дія рятує дію союзника, а для цього не обовʼязково бути Кліриком життя."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тож чому ми тоді Клірик життя? Тому що уміння домену «Учень життя»{{Disciple of Life}} дає одне з найефективніших лікувань поза боєм у грі, а {{Божественність: Збереження життя|Channel Divinity: Preserve Life}} — один із небагатьох способів провести ефективне лікування під час бою. Я бачив групи, що ледве трималися на ногах після одного-двох боїв, але Клірик життя має способи повернути всіх до повного здоровʼя майже після кожного бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Приклад збірки, Лайфберрі — паровозик-танк, демонструє трохи дворфійського колориту, але тримається дуже близько до того, що Клірик має робити в групі. Я маю на увазі витирати підлогу ворогами, піддаючи їх ураганові болю. Ой, не хвилюйтеся, часу полікувати друзів буде вдосталь, коли ви поза ініціативою. Крім того, збірка демонструє синергію із заклинанням Доброягодою [Goodberry]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Домену життя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Домену життя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#life-domain-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Домену життя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#life-domain-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Домену життя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#life-domain-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Домену життя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#life-domain-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Домену життя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#life-domain-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Домену життя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#life-domain-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Лайфберрі, паровозик-танк",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#example-life-cleric-build-lifeberry-the-tank-engine"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Що таке дворфійський ургош?",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#whats-a-dwarven-urgosh"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "А якщо я не хочу мультикласувати?",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#but-i-dont-want-to-multiclass"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#levels"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чому ми відклали Мудрість на користь «Стійкого (Статура)»?",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#why-did-we-delay-wisdom-in-favor-of-resilient-constitution"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Домену життя",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання домену{{Domain Spells}}: Варіанти низьких рівнів абсолютно фантастичні, і багато заклинань домену життя фактично обовʼязкові для будь-якого Клірика. На жаль, варіанти високих рівнів менш корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Благословення [Bless] на низьких рівнях — майже умова перемоги: додавання 1к4 до кидка може перевершувати ваш Бонус Майстерності, і воно лишається базовим підсиленням практично на будь-якому рівні, якщо тільки ваша Концентрація не потрібна для чогось іншого. Лікування ран [Cure Wounds] — гарне лікувальне заклинання, але в бою варто покладатися на Цілюще слово [healing word] і витрачати свою дію на напад."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Мале відновлення [Lesser Restoration] приємно мати напоготові, але здебільшого ефекти, які воно знімає, можуть зачекати, поки ви зможете відпочити й підготувати заклинання, щоб їх виправити. Духовна зброя [Spiritual Weapon] — одне з найефективніших використань слотів заклинань і бонусних дій Клірика."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Маяк надії [Beacon of Hope] ситуативний, але може бути приємно накласти його перед відпочинком, щоб максимізувати ефективність ваших лікувальних заклинань, коли бракує Кубиків Здоровʼя. Відродження [Revivify] — це «податок Клірика»{{Cleric Tax}}, тож отримати його безкоштовно справді приємно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Два цікаві варіанти з тривалістю 8 годин, але Захист від смерті [Death Ward] безперечно кращий із двох."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Масове лікування ран [Mass Cure Wounds] дублює «Збереження життя»{{Preserve Life}}, а якщо вам щодня потрібне підготовлене Оживлення мерців [Raise Dead], ви або в жахливій грі, або в грі з Варваром-Фанатиком."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткові майстерності{{Bonus Proficiency}}: З важкими обладунками й щитом ви можете працювати на передовій не гірше за будь-якого Воїна. Покращений КБ також допоможе зменшити потребу лікувати себе замість того, щоб лікувати чи підтримувати союзників, особливо якщо доповнити його заклинаннями на кшталт Щита віри [Shield of Faith] і Святилища [Sanctuary]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Учень життя|Disciple of Life}}: Це не купа зцілення за раз, але воно буде особливо корисним із Цілющим словом [healing word], що є добрим поєднанням, бо вимагає бонусної дії, але зазвичай не лікує особливо багато. Протягом вашої карʼєри загальний обсяг додаткового зцілення буде значним, тож заохочую вас вести рахунок, хоча б для того, щоб нагадати членам групи, як сильно їм потрібно, щоб ви вижили."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Божественність: Збереження життя|Channel Divinity: Preserve Life}}: Фантастично, коли попереду можлива повна загибель групи (TPK). Оскільки ви лікуєте так багато, більшість персонажів вашого рівня підніматимуться від 0 до половини ХП, хіба що ви маєте справу з кимось на кшталт Варвара з Кубиками Здоровʼя к12 і 20 Статури або якщо ви ділите очки між кількома союзниками. Навіть так, масштабування чудове: коли ви здобуваєте додаткові використання «Каналу божественності»{{Channel Divinity}}, це швидко стане вашим основним варіантом для відновлення великої кількості ХП у бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Блаженний цілитель{{Blessed Healer}}: У поєднанні з вашим відмінним КБ тепер майже ніколи немає причин накладати на себе лікувальне заклинання замість того, щоб допомагати союзникам. Проте накладання лікувального заклинання для відновлення ХП не має траплятися часто під час бою, тож це може спрацьовувати не так часто, як вам хотілося б."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественний удар{{Divine Strike}}: Променева шкода — один із найнадійніших доступних типів шкоди. Дивіться також: "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Божественний удар проти замовлянь",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/life-domain/#divine-strike-vs-cantrips"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Найвище лікування{{Supreme Healing}}: Чим більше кубиків ви додаєте, тим більше ваші кидки тяжітимуть до статистичного середнього, тобто кожен к8 від Лікування ран [Cure Wounds] — це фактично 4,5 очка зцілення. Максимізація кубика підвищує це до 8 очок зцілення, майже подвоюючи ефект ваших лікувальних заклинань і тим самим роблячи слоти заклинань, витрачені на зцілення, значно ефективнішими, що дозволяє зберегти високорівневі слоти заклинань для цікавіших речей. Проте оскільки зцілення в бою загалом не найкраща ідея, ситуацій, де це матиме суттєвий вплив, мало. У бою, якщо вам потрібне зцілення, варто накладати Зцілення [Heal] або Масове зцілення [Mass Heal], у яких кубики не задіяні. Щоб знати, як найкраще це застосувати, потрібно трохи математики. Для зцілення однієї цілі все від 6-го рівня й вище має бути Зцілення [Heal] або заклинанням 9-го рівня на кшталт Масового зцілення [Mass Heal]. Лікування ран [Cure Wounds], накладене на 6-му рівні, зцілює лише 48+Мудрість ХП проти 70 у Зцілення [Heal] (не враховуючи «Учня життя»{{Disciple of Life}}, що дає той самий бонус до обох). Для зцілення кількох цілей Молитва зцілення [Prayer of Healing] — ваш найкращий варіант, але з часом накладання 10 хвилин ви радше користуватиметеся Масовим цілющим словом [Mass Healing Word]."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-life-domain-ability-scores",
+          "heading": "Характеристики Домену життя",
+          "sourceAnchor": "life-domain-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-life-domain-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми Клірик, і в нас важкі обладунки. Ми не хочемо отримувати удари, але й не зминаємося, як аркуш паперу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-life-domain-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: якщо ми не Дворф{{Dwarf}} і не можемо ігнорувати цю вимогу, Сила потрібна, щоб важкі обладунки нас не сповільнювали."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-life-domain-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: ряткидки Спритності й перевірки Ініціативи нікуди не поділися."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-life-domain-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: наша робота — лишатися живими, щоб усі інші теж могли повернутися цілими."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-life-domain-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: нам це нічим по-справжньому не допомагає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-life-domain-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: характеристика заклинань зустрічає повного заклинача."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-life-domain-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: не найважливіше, але Переконання — вибір, який Клірики можуть зробити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-life-domain-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-life-domain-races",
+          "heading": "Раси Домену життя",
+          "sourceAnchor": "life-domain-races",
+          "blocks": [
+            {
+              "blockId": "block-section-life-domain-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе, чого тут немає, уже оцінено в "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі рас Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-life-domain-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Кентавр{{Centaur}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MMoM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": памʼятаєте, що я казав про Силу вище? Так от, єдиний штраф за те, що вам бракує сили носити важкі обладунки, — втрата 10 футів швидкості ходьби. Це зробить кентавра таким самим швидким, як звичайні раси зі швидкістю 30 футів, але без потреби в Силі ми зможемо вкластися в Спритність для Ініціативи й поширенішого ряткидка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дворф{{Dwarf}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": так само, як вище, відмова від Сили зі збереженням важких обладунків — чудовий варіант, коли потрібні інші характеристики, наприклад при мультикласуванні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Напіврослик (Мітка Гостинності)|Halfling (Mark of Hospitality)}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "ERftLW",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": згадано вище в «Учні життя»{{Disciple of Life}}, доступ до Доброягоди [Goodberry] — фантастичний спосіб розтягнути слоти заклинань низьких рівнів, а ця {{Драконяча мітка|Dragonmark}} надає це заклинання."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-life-domain-feats",
+          "heading": "Риси Домену життя",
+          "sourceAnchor": "life-domain-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-life-domain-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд Клірика",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": " добре охоплює ці варіанти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-life-domain-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "«Посвячений у магію (Друїд)»{{Magic Initiate (Druid)}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": це не дасть нам прийому з Доброягодою [Goodberry]. «Посвячений у магію» дозволяє повторно накладати заклинання лише тоді, коли у вас є рівні в класі, з якого ви його взяли."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-life-domain-weapons",
+          "heading": "Зброя Домену життя",
+          "sourceAnchor": "life-domain-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-life-domain-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зверніться до гайда Клірика щодо "
+                },
+                {
+                  "type": "link",
+                  "text": "зброї",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": ". Хіба що ви хочете чогось із викрутасами. Тоді, звісно, беріть зброю. Просто відкладіть її, щойно досягнете 5-го рівня, коли замовляння масштабуються."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-life-domain-armor",
+          "heading": "Обладунки Домену життя",
+          "sourceAnchor": "life-domain-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-life-domain-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гайд Клірика настільки "
+                },
+                {
+                  "type": "link",
+                  "text": "вичерпний",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": ", що вже рекомендує Клірикам життя носити {{лати|Full Plate}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-life-domain-multiclassing",
+          "heading": "Мультикласування Домену життя",
+          "sourceAnchor": "life-domain-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-life-domain-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гайд Клірика підійде для "
+                },
+                {
+                  "type": "link",
+                  "text": "більшості класів",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-life-domain-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Друїд{{Druid}}: памʼятайте, що Доброягода [Goodberry] чудово працює з Доменом життя, і це найпростіший спосіб його отримати. Памʼятайте, що нібито заборона на метал — це змова, вигадана заздрісними не-друїдами, а не справжнє правило."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Слідопит{{Ranger}}: менш прямий спосіб отримати Доброягоду [Goodberry]. Це займає два рівні, але нічого страшного, якщо вам чомусь потрібні бойова зброя й Бойовий Стиль."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-life-cleric-build-lifeberry-the-tank-engine",
+          "heading": "Приклад збірки — Лайфберрі, паровозик-танк",
+          "sourceAnchor": "example-life-cleric-build-lifeberry-the-tank-engine",
+          "blocks": [
+            {
+              "blockId": "block-section-example-life-cleric-build-lifeberry-the-tank-engine-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вони хочуть, щоб ви були цілителем, еге ж? Що ж, нехай чекають, поки бій закінчиться, щоб зализати рани, — ми зайняті помʼякшенням їхньої майбутньої шкоди через "
+                },
+                {
+                  "type": "link",
+                  "text": "танкування заклинанням Духи захисники",
+                  "href": "https://rpgbot.net/the-tank-fallacy/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-life-cleric-build-lifeberry-the-tank-engine-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми мультикласуємо в Друїда заради заклинання Доброягода [Goodberry], додаткове зцілення від «Учня життя»{{Disciple of Life}} застосовується до "
+                },
+                {
+                  "type": "link",
+                  "text": "кожної окремої ягоди",
+                  "href": "https://dnd.wizards.com/sage-advice/rules-answers-august-2015"
+                },
+                {
+                  "type": "text",
+                  "text": ". Крім того, хоча Доброягода [Goodberry] від природи не має переваг від накладання вищим слотом, «Учень життя» усе одно застосовується до вищого слота, додаючи 10 ХП за накладання (+1 до кожної ягоди) за кожен рівень заклинання. Якщо ваша перша думка: «Це марнування високорівневого слота», — то Доброягоди [Goodberry] тривають 24 години, а ви все одно спалите кожен слот, що лишився, одразу перед довгим відпочинком, роблячи їх на наступний день."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-life-cleric-build-lifeberry-the-tank-engine",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як расу ми обираємо Гірського дворфа{{Mountain Dwarf}}, що дає нам +2 до Статури й +2 до Мудрості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила нам не обовʼязкова. Як Дворф{{Dwarf}}, ми можемо ігнорувати вимоги до Сили для важких обладунків, але нам, можливо, доведеться мати справу з проблемами вантажопідйомності через ці важкі обладунки, тож беремо 14. Також ставимо 10 у Спритність, щоб не мати −1 до перевірок Ініціативи чи ряткидків Спритності. Решта має бути зрозуміла: висока Статура, щоб не померти, висока Мудрість для СК Клірика, а Інтелект і Харизму скидаємо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-life-cleric-build-lifeberry-the-tank-engine",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гірський дворф{{Mountain Dwarf}} із налаштованим походженням{{Custom Origin}} — наш вибір раси, бо ми можемо обміняти всі володіння, а ще маємо два збільшення характеристик на +2. До того ж ми використовуємо Дворфа як привід змінити опис дурного ельфійського меча на круту дворфійську сокиру. Для розваги. Бо розвага — це оптимально."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-whats-a-dwarven-urgosh",
+          "parentSectionId": "section-race",
+          "heading": "Що таке дворфійський ургош?",
+          "sourceAnchor": "whats-a-dwarven-urgosh",
+          "blocks": [
+            {
+              "blockId": "block-section-whats-a-dwarven-urgosh-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Урок історії. У D&D 3.5 існував клас зброї вище за бойову — екзотична зброя. Така зброя зазвичай мала дивні властивості, і однією з них був дворфійський ургош{{Dwarven Urgosh}} — сокира зі списом на іншому кінці. У 5e екзотичної зброї більше немає, але "
+                },
+                {
+                  "type": "link",
+                  "text": "{{шабля з двома лезами|Double-Bladed Scimitar}}",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#doublebladed-scimitar"
+                },
+                {
+                  "type": "text",
+                  "text": " — це бойова зброя зі спеціальною властивістю, що імітує старі подвійні зброї з 3.5."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-whats-a-dwarven-urgosh-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як колись сказав "
+                },
+                {
+                  "type": "link",
+                  "text": "мудрий Кобольд",
+                  "href": "https://www.youtube.com/c/PackTactics"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Kobold}}, "
+                },
+                {
+                  "type": "link",
+                  "text": "колорит нічого не коштує",
+                  "href": "https://www.youtube.com/watch?v=k4RmUFH5MI0"
+                },
+                {
+                  "type": "text",
+                  "text": ". Ми можемо просто взяти шаблю з двома лезами й назвати її дворфійським ургошем. Це не на 100% точно, бо задній кінець справжнього ургоша завдавав би колючої шкоди, але якщо гарно попросити Майстра, не думаю, що він сильно заперечуватиме проти колючої шкоди, якщо Клірик захоче іноді зробити неоптимальний вибір і розмахнутися зброєю заради розваги."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-life-cleric-build-lifeberry-the-tank-engine",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо передісторію Морського піхотинця{{Marine}} заради Атлетики, Виживання та й наземного, й водного транспорту."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-life-cleric-build-lifeberry-the-tank-engine",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дворфи мають багато володінь зброєю, а Гірські дворфи додають до цієї купи ще й володіння легкими та середніми обладунками. Усе це ми можемо обміняти на "
+                },
+                {
+                  "type": "link",
+                  "text": "інструменти",
+                  "href": "https://rpgbot.net/dnd5/characters/tools/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Для цього прикладу, оскільки ми беремо передісторію Морського піхотинця, ми обираємо кілька повʼязаних інструментів: інструменти тесляра, інструменти картографа, інструменти каменяра, інструменти навігатора, ковальські інструменти й інструменти злодія (можливо, замініть їх на щось інше, якщо ваша група вже це покрила). Це всі володіння, крім одного, яке ми обміняємо на шаблю з двома лезами заради колориту. Згадана передісторія Морського піхотинця дасть нам наземний і водний транспорт."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З навичок обираємо Аналіз Поведінки й Релігію від Клірика, а Атлетику й Виживання отримуємо від Морського піхотинця."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні риса «Експерт у навичках»{{Skill Expert}} дає нам і володіння Уважністю, і «Експертизу» в ній."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "parentSectionId": "section-example-life-cleric-build-lifeberry-the-tank-engine",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми зануримо в цю збірку трохи {{Друїда Кола зірок|Stars Druid}}, щоб отримати Доброягоду [Goodberry] і здобути Зоряну форму{{Starry Form}}. Перший рівень Друїда візьмемо на другому рівні персонажа, бо рання Доброягода [Goodberry] дуже корисна. Другий рівень Друїда відкладемо до шостого рівня персонажа, щоб надто не відсувати наше перше Покращення Характеристик. Як варіант, можна відкласти це до десятого рівня персонажа, щоб поставити його одразу після нашого другого Покращення Характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-but-i-dont-want-to-multiclass",
+          "parentSectionId": "section-multiclassing",
+          "heading": "А якщо я не хочу мультикласувати?",
+          "sourceAnchor": "but-i-dont-want-to-multiclass",
+          "blocks": [
+            {
+              "blockId": "block-section-but-i-dont-want-to-multiclass-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загалом дві великі речі, які ми втрачаємо, відмовившись від занурення в Коло зірок{{Circle of Stars}}, — це взаємодія Доброягоди [Goodberry] і Домену життя та Зоряна форма{{Starry Form}}: Дракон, що так потужно допомагає підтримувати Концентрацію. Через це «Бойовий заклинатель»{{War Caster}} на такому ранньому етапі стає привабливішим за «Стійкого (Статура)»{{Resilient (Constitution)}}. Ми все одно хочемо взяти «Стійкого», але пізніше, близько 12-го чи 16-го рівня, а решту вибору можна просто зсунути, бо ми отримаємо Покращення Характеристик на 19-му рівні Клірика."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-life-cleric-build-lifeberry-the-tank-engine",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні Клірика, 5-му загалом, беремо «Стійкого (Статура)»{{Resilient (Constitution)}}, якщо ми не вирішили взяти «Експерта у навичках»{{Skill Expert}} раніше заради Мудрості. Беремо це замість підвищення Мудрості, бо воно покращує нижню межу нашої Зоряної форми{{Starry Form}} «Дракон», коли ми її отримаємо. Це своєю чергою зробить майже неможливим те, що ми рано втратимо Духів захисників [Spirit Guardians]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як згадувалося вище, беремо «Експерта у навичках»{{Skill Expert}} на 8-му рівні Клірика (10-му рівні персонажа), обираючи Уважність і для володіння, і для Експертизи. Як варіант, якщо в групі вже вдосталь Уважності, «Кухар»{{Chef}} — хороший вибір і тематично пасує до нашого рішення робити надто багато доброягід [Goodberry]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні Клірика, 14-му загалом, беремо Покращення Характеристик на +2 до Мудрості."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні Клірика, 18-му загалом, «Здоровань»{{Tough}} підсилює наші ХП. Як побачите нижче, +1 до ряткидків Статури від збільшення Статури на +2 не матиме великого значення."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-life-cleric-build-lifeberry-the-tank-engine",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 — Клірик 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественний домен{{Divine Domain}}: Життя\n– Учень життя\n– Важкі обладунки\nНавички:\n– Атлетика\n– Аналіз Поведінки\n– Релігія\n– Виживання\nІнструменти:\n– Інструменти тесляра\n– Інструменти картографа\n– Інструменти каменяра\n– Інструменти навігатора\n– Ковальські інструменти\n– Інструменти злодія\n– Наземний транспорт\n– Водний транспорт\nЧаротворство\nЗамовляння:\n– Дзвін небіжчика\n– Слово сяйва\nЗаклинання Клірика 1-го рівня:\n– Благословення\n– Лікування ран\n– Цілюще слово"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Клірик 1-го рівня виходить із {{кольчугою|Chain Mail}}, щитом і булавою, що добре, бо цей КБ нам потрібен, щоб вижити на цьому етапі. Зазвичай у бою на такому ранньому етапі ми хочемо накласти Благословення [Bless] на членів групи, що залежать від кидків атаки, щоб перемогти математику. Крім того, не помирайте й використовуйте магію лікування щоразу, коли вона зекономить союзникові хід. Наш дуже широкий асортимент інструментів дає нам багато "
+                    },
+                    {
+                      "type": "link",
+                      "text": "додаткових утилітарних можливостей",
+                      "href": "https://rpgbot.net/dnd5/characters/tools/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Зокрема, у нас є інструменти злодія, тож ми можемо знешкоджувати пастки, якщо треба. Бо це просто лікування майбутніх болячок ще до їхньої появи."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 — Друїд 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗамовляння:\n– Лагодження\n– Формування води\nЗаклинання Друїда 1-го рівня:\n– Поглинання стихій\n– Вогники фей\n– Доброягода"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ага, і тепер ми друїд. Скелястий друїд-дворф. Так. Друїди зазвичай не носять металевих обладунків, але жодної механічної причини не робити цього немає, тож ми просто проігноруємо це питання. Ми тут, щоб отримати Доброягоду [Goodberry]. Ми хочемо накладати Доброягоду [Goodberry] наприкінці кожного дня з тими слотами, що лишилися, бо вони тривають 24 години. У поєднанні з «Учнем життя»{{Disciple of Life}} кожна ягода лікує 4 ХП, тобто разом 40 ХП зі слота заклинання 1-го рівня. Поки ми тут, ми також можемо підготувати Поглинання стихій [Absorb Elements] і Вогники фей [Faerie fire] — корисні заклинання, яких немає у списку Клірика. Кийок [Shillelagh] помітно пропущено серед замовлянь, бо навіть із Кийком [Shillelagh] зброя все одно гірша за замовляння Клірика."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 — Клірик 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності{{Channel Divinity}}:\n– Збереження життя\n– Вигнання нежиті\nСпрямування божественної сили"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Канал божественності»{{Channel Divinity}} чудовий. Як Клірик життя ми отримуємо «Збереження життя»{{Preserve Life}}, що дозволяє вкласти великий запас лікування в союзників, розподіливши його як завгодно, але не можна лікувати союзників понад половину максимуму ХП. Це нормально. Решту половини можна долікувати доброягодами [Goodberry]. Додаткове класове уміння «Спрямування божественної сили»{{Harness Divine Power}} дозволяє перетворити використання Каналу божественності на слот заклинання. Скористайтеся ним, якщо наприкінці дня є вільне використання, щоб отримати зайву купу доброягід на наступний день."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 — Клірик 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання Клірика 2-го рівня:\n– Мале відновлення\n– Духовна зброя"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання Клірика 2-го рівня. Час накладати Духовну зброю [Spiritual Weapon] заради атак бонусною дією в більшості боїв. Це заклинання майже надто сильне, бо не потребує Концентрації. Будьте гордим дворфом і кажіть, що воно має форму дворфійського ургоша{{Dwarven Urgosh}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 — Клірик 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура) (17 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підсилюємо ряткидки Концентрації. Коли на наступному рівні ми отримаємо Зоряну форму{{Starry Form}} «Дракон», ми зможемо активувати її, щоб встановити нижню межу наших ряткидків Концентрації."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 — Друїд 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Коло друїдів{{Druid Circle}}: Коло зірок\n– Зоряна форма\n– Зоряна мапа\n— Настанова\n— Спрямований заряд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зірки — це просто "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "дуже гарячі"
+                    },
+                    {
+                      "type": "text",
+                      "text": " камені. Ми тут, бо Зоряна форма{{Starry Form}} справді сильна. Стрілець: лазери бонусною дією — це приємно, і замість того, щоб конфліктувати з Духовною зброєю [Spiritual Weapon], ми можемо просто використовувати їх у боях по черзі, заощаджуючи ресурси. Кубок: ей, друже, я чув, ти любиш лікування, тож я додав у твоє лікування ще більше лікування, яке й так повне лікування, щоб ти міг лікувати, коли лікуєш, коли лікуєш. Але якщо серйозно, це непоганий вибір, коли шкоди розподілено багато. Те 1к8+Мудрість від цього не обовʼязково має діставатися цілі лікувального заклинання. Дракон: ось справжня причина, чому ми тут. Ми вестимемо дуже важливі заклинання Концентрації, які не хочемо втратити, а ця форма перетворює будь-який результат 9 чи менше на кубику ряткидка Концентрації на 10. На цьому рівні це дає нам нижню межу 17, чого досить, щоб захистити нас від будь-якої шкоди менше 34. Крім того, уміння «Зоряна мапа»{{Star Map}} дає нам замовляння Настанова [Guidance] і заклинання Спрямований заряд [Guiding Bolt]. На додачу ми можемо накладати Спрямований заряд [Guiding Bolt] безкоштовно стільки разів, скільки дорівнює наш Бонус Майстерності, щодня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 — Клірик 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 1)\nЧаротворство\nЗаклинання Клірика 3-го рівня:\n– Маяк надії\n– Відродження\n– Духи захисники"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 3-го рівня із запізненням на два рівні. Але все одно добре. Завдяки нашому Домену в нас завжди напоготові «податок на Відродження»{{Revivify tax}}. Ще важливіше: настав час Духів захисників [Spirit Guardians]. Накладання цього заклинання кине наших ворогів в ураган болю. Точніше, в області швидкість ворогів зменшується вдвічі, і вони починають отримувати 3к8 променевої шкоди, наполовину за ряткидком Мудрості. Але в нас є слот 4-го рівня через мультикласування й поки немає заклинань 4-го рівня для накладання, тож ми можемо накласти це заклинання вищим слотом на 4к8 шкоди. Ми подбаємо про захист нашої Концентрації на цьому заклинанні за допомогою Зоряної форми «Дракон». Наприклад: Раунд 1: накладіть Духів захисників [Spirit Guardians]. Активуйте Зірки Дракона. Раунд 2: накладіть Духовну зброю [Spiritual Weapon]. Накладайте замовляння або використовуйте Ухиляння. Раунд 3+: атака Духовної зброї [Spiritual Weapon]. Замовляння або Ухиляння."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 — Клірик 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Блаженний цілитель\nКанал божественності: 2 за відпочинок"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Блаженний цілитель{{Blessed Healer}} досить гарний. Він дозволяє трохи полікувати себе, коли ми лікуємо когось іншого. Якщо поєднати його із Зоряною формою{{Starry Form}} (Кубок), можна накласти заклинання, щоб полікувати одну ціль, використати «Кубок» для лікування іншої й полікувати себе «Блаженним цілителем». Також ми можемо використовувати «Канал божественності»{{Channel Divinity}} двічі за відпочинок, що чудово. Зі «Збереженням життя»{{Preserve Life}} це 30 ХП двічі за короткий відпочинок."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 — Клірик 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання Клірика 4-го рівня:\n– Вигнання\n– Захист від смерті\n– Свобода рухів\n– Вартовий віри"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня. Тут є кілька пристойних заклинань із нішевою користю, але знову ж таки, у нас є слот 5-го рівня й немає заклинань 5-го рівня. Ці заклинання 4-го рівня добрі, але жодне з них ми не хочемо накладати вищим слотом, тож чому б не накласти Духів захисників [Spirit Guardians] 5-го рівня?"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 — Клірик 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Експерт у навичках\n– Мудрість +1 (17 → 18)\n– Уважність\n– Експертиза в Уважності\nБлагословенні удари"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Експерт у навичках»{{Skill Expert}} — чудовий спосіб підвищити Мудрість і водночас покращити Уважність завдяки експертизі. Більше тут нічого сказати, окрім того, що ніщо не повинно прослизати повз нашу увагу. Також ми отримуємо «Благословенні удари»{{Blessed Strikes}}, щоб додати більше шкоди замовлянням. Це небагато, але добре, і це безперечно краще за «Божественний удар»{{Divine Strike}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 — Клірик 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання Клірика 5-го рівня:\n– Більше відновлення\n– Священна зброя\n– Масове лікування ран\n– Оживлення мерців"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 5-го рівня. Тут кілька добрих варіантів. Більше відновлення [Greater Restoration] може зняти безліч жахливих ефектів. Священна зброя [Holy Weapon] ситуативно корисна. Не на нашій зброї, а, мабуть, на Воїні, бо Воїн 11-го рівня тепер матиме три атаки. Масове лікування ран [Mass Cure Wounds] входить у наш домен і є нормальним способом додати групі трохи лікування."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 — Клірик 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне втручання{{Divine Intervention}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нормально. Випадковий шанс отримати корисний ефект заклинання безкоштовно. Не надто чудово, але все одно нормально."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 — Клірик 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 2)\nЧаротворство\nЗаклинання Клірика 6-го рівня:\n– Зцілення\n– Бенкет героїв"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 6-го рівня приємні. Нарешті ми отримуємо Зцілення [Heal] — один із небагатьох способів ефективно полікувати когось у бою. Бенкет героїв [Heroes' Feast] натомість — настільки чудове підсилення, що варто намагатися вмістити його, коли можемо. Зауважте, що до збільшеного максимуму ХП застосовується бонус від «Учня життя»{{Disciple of Life}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 — Клірик 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті ми отримуємо 20 Мудрості."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 — Клірик 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання Клірика 7-го рівня:\n– Планарний перехід"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 7-го рівня. Час для Планарного переходу [Plane Shift]. Тепер ми вирішуємо, де буде пригода."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 — Клірик 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 3)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непогано."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 — Клірик 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗаклинання Клірика 8-го рівня:\n– Свята аура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 8-го рівня, вони веселі. Свята аура [Holy aura] справді чудова. Союзники мають Перевагу на кубику на всіх ряткидках, а вороги мають Перешкоду на кубику на атаках."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 — Клірик 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Здоровань"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП. Так багато ХП."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 — Клірик 17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (ПН 4)\nЧаротворство\nЗаклинання Клірика 9-го рівня:\n– Масове зцілення\n– Слово сили: Зцілення\nНайвище лікування"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 9-го рівня, вони нормальні. Масове зцілення [Mass Heal] і Слово сили: Зцілення [Power Word Heal] пристойні, але Масове зцілення [Mass Heal], мабуть, корисніше. Воно діє на 60 футів проти дотику й, окрім 4 станів, робить усе, що й Слово сили: Зцілення [Power Word Heal]. Ах так, і «Найвище лікування»{{Supreme Healing}} вступає в дію, тож будь-яке лікування з кидком кубиків тепер дає максимальне значення. Це не стосується випадку, коли ми подаємо Бенкет героїв [Heroes' Feast], бо це збільшення максимуму ХП, яке також лікує на таку саму кількість, на яку збільшує."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 — Клірик 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (3 за відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Три використання за відпочинок — це гідне завершення. Тепер ми маємо просто завжди бути на максимумі здоровʼя після кожного бою — назавжди."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-why-did-we-delay-wisdom-in-favor-of-resilient-constitution",
+          "parentSectionId": "section-example-life-cleric-build-lifeberry-the-tank-engine",
+          "heading": "Чому ми відклали Мудрість на користь «Стійкого (Статура)»?",
+          "sourceAnchor": "why-did-we-delay-wisdom-in-favor-of-resilient-constitution",
+          "blocks": [
+            {
+              "blockId": "block-section-why-did-we-delay-wisdom-in-favor-of-resilient-constitution-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоча в Клірика є добра добірка заклинань «пройди-ряткидок-або-страждай»{{save-or-suck}}, цей клірик цілком про підтримання Концентрації на Духах захисниках [Spirit Guardians], бо це весело й завдає доброї шкоди. Важливіше було підвищити нижню межу Концентрації Зоряної форми{{Starry Form}} «Дракон» через «Стійкого (Статура)»{{Resilient (Constitution)}}, ніж змусити ворогів отримувати повну шкоду від заклинання на 5% частіше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-why-did-we-delay-wisdom-in-favor-of-resilient-constitution-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Уявіть, що ми поспішили з Мудрістю й підійшли, щоб зловити трьох противників у Духах захисниках [Spirit Guardians] 4-го рівня на повну шкоду, але вони зуміли зламати нашу Концентрацію вже після одного ходу. Ми завдали 4к8 кожній цілі. А що, якщо натомість ми підійшли, і вони всі пройшли ряткидок, але не змогли зламати нашу Концентрацію до кінця бою на 4 раунди. Тоді ми завдали 2к8*4=8к8 кожній цілі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-why-did-we-delay-wisdom-in-favor-of-resilient-constitution-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "А як щодо справжньої математики? Припустимо, що на 7-му рівні, якщо ми не відстаємо з Покращеннями Характеристик, цілі мають 60% шанс провалити ряткидок від Духів захисників [Spirit Guardians] і 55%, якщо ми взяли «Стійкого (Статура)»{{Resilient (Con)}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-why-did-we-delay-wisdom-in-favor-of-resilient-constitution-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Формула DPR для половини шкоди при ряткидку",
+                  "href": "https://www.youtube.com/watch?v=hRcsmqeL7qA"
+                },
+                {
+                  "type": "text",
+                  "text": " така: ([Середнє кубиків]*([Шанс провалу ряткидка]+0,5*(1-[Шанс провалу ряткидка])))"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-why-did-we-delay-wisdom-in-favor-of-resilient-constitution-5",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Шанс провалу (повна шкода)"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Духи захисники 4-го рівня, накладені вищим слотом, 4к8=18"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Загальний DPR"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "60%"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "(18*(0.6+0.5*(1-0.6)))"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14.4"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "55%"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "(18*(0.55+0.5*(1-0.55)))"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13.95"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-why-did-we-delay-wisdom-in-favor-of-resilient-constitution-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Обравши кращий ряткидок Статури перед кращою Мудрістю, ми втрачаємо 0,45 DPR (на ціль) від Духів захисників [Spirit Guardians], але можемо очікувати, що вона триватиме довше, перш ніж ми втратимо Концентрацію, і отримаємо більше реальної шкоди зі слота заклинання."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-cleric-life-domain-2014-001",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання домену",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-002",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-003",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-004",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-005",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-006",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-007",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Додаткові майстерності",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-008",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Учень життя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-009",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Божественність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-010",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Блаженний цілитель",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-011",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Божественний удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-012",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Найвище лікування",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-013",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-life-domain-ability-scores",
+      "targetBlockId": "block-section-life-domain-ability-scores-2",
+      "optionId": "section-life-domain-ability-scores-block-section-life-domain-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-life-domain-ability-scores-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-014",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-life-domain-ability-scores",
+      "targetBlockId": "block-section-life-domain-ability-scores-3",
+      "optionId": "section-life-domain-ability-scores-block-section-life-domain-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-life-domain-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-015",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-life-domain-ability-scores",
+      "targetBlockId": "block-section-life-domain-ability-scores-4",
+      "optionId": "section-life-domain-ability-scores-block-section-life-domain-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-life-domain-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-016",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-life-domain-ability-scores",
+      "targetBlockId": "block-section-life-domain-ability-scores-5",
+      "optionId": "section-life-domain-ability-scores-block-section-life-domain-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-life-domain-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-017",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-life-domain-ability-scores",
+      "targetBlockId": "block-section-life-domain-ability-scores-6",
+      "optionId": "section-life-domain-ability-scores-block-section-life-domain-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-life-domain-ability-scores-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-018",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-life-domain-ability-scores",
+      "targetBlockId": "block-section-life-domain-ability-scores-7",
+      "optionId": "section-life-domain-ability-scores-block-section-life-domain-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-life-domain-ability-scores-7",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-019",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-life-domain-races",
+      "targetBlockId": "block-section-life-domain-races-2",
+      "optionId": "section-life-domain-races-block-section-life-domain-races-2-item-0",
+      "context": "Кентавр",
+      "explanationBlockId": "block-section-life-domain-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-020",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-life-domain-races",
+      "targetBlockId": "block-section-life-domain-races-2",
+      "optionId": "section-life-domain-races-block-section-life-domain-races-2-item-1",
+      "context": "Дворф",
+      "explanationBlockId": "block-section-life-domain-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-021",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-life-domain-races",
+      "targetBlockId": "block-section-life-domain-races-2",
+      "optionId": "section-life-domain-races-block-section-life-domain-races-2-item-2",
+      "context": "Напіврослик",
+      "explanationBlockId": "block-section-life-domain-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-022",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-life-domain-feats",
+      "targetBlockId": "block-section-life-domain-feats-2",
+      "optionId": "section-life-domain-feats-block-section-life-domain-feats-2-item-0",
+      "context": "«Посвячений у магію",
+      "explanationBlockId": "block-section-life-domain-feats-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-023",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-life-domain-multiclassing",
+      "targetBlockId": "block-section-life-domain-multiclassing-2",
+      "optionId": "section-life-domain-multiclassing-block-section-life-domain-multiclassing-2-item-0",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-life-domain-multiclassing-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-cleric-life-domain-2014-024",
+      "articleId": "rpgbot-cleric-life-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-life-domain-2014-draft1",
+      "sectionId": "section-life-domain-multiclassing",
+      "targetBlockId": "block-section-life-domain-multiclassing-2",
+      "optionId": "section-life-domain-multiclassing-block-section-life-domain-multiclassing-2-item-1",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-life-domain-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

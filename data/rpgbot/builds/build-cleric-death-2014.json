@@ -1,0 +1,816 @@
+{
+  "buildId": "build-cleric-death-2014",
+  "revisionId": "build-cleric-death-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Клірика домену смерті — Колюча, вбивча Смерть",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-cleric-death-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+      "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "DEATH_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "CLERIC_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "CLERIC_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "CLERIC_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TELEKINETIC",
+        "featOptions": [
+          {
+            "optionNameEng": "TELEKINETIC Ability (Wisdom)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "CLERIC_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "CLERIC_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "CLERIC_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "CLERIC_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "CLERIC_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "CLERIC_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "CLERIC_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "WAR_CASTER"
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "CLERIC_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "CLERIC_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "CLERIC_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "CLERIC_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "LUCKY"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "CLERIC_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "CLERIC_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "CLERIC_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "METAMAGIC_ADEPT"
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "CLERIC_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-death-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+          "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "DEATH_DOMAIN",
+    "raceKey": "HALF_ELF_2014",
+    "backgroundKey": "FACTION_AGENT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Вкладаємося повністю в Спритність, Статуру й Мудрість. Ми плануємо бути в ближньому бою в середніх обладунках, тож нам потрібна живучість. Перерозподіляємо +2/+1/+1 Напівельфа{{Half-Elf}}, що дає нам чудову відправну точку.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 15 16 Інтелект 8 8 Мудрість 15 17 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Напівельф{{Half-Elf}} із налаштованим походженням{{Custom Origin}} і варіантом Високого ельфа{{High Elf}}. Це дозволяє переставити +2/+1/+1 як нам завгодно, а додаткові навички Напівельфа ми міняємо на замовляння Чарівника, яке використаємо для Гримучого Клинка [Booming Blade].",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Агент фракції{{Faction Agent}}. Якої фракції? Імовірно, якоїсь підступної. Дає володіння Аналізом Поведінки, Уважністю та двома мовами.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Дві класові навички Клірика ми використаємо, щоб отримати володіння Історією й Релігією, а Аналіз Поведінки й Уважність отримаємо від передісторії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо «Телекінетика»{{Telekinetic}} і підвищуємо Мудрість до 18.\n\nНа 8-му рівні підвищуємо Мудрість до 20.\n\nНа 12-му рівні беремо «Бойового заклинателя»{{War Caster}}.\n\nНа 16-му рівні беремо «Удачу»{{Lucky}}.\n\nНа 19-му рівні беремо «Адепта метамагії»{{Metamagic Adept}}, щоб отримати «Спрямоване заклинання»{{Seeking Spell}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Божественний домен{{Divine Domain}}: Смерть\nЗаклинання домену\nДодаткові майстерності\nЖнець\nЧаротворство\nЗамовляння:\n– Моторошний дотик\n– Настанова\n– Слово сяйва\n– Гримучий Клинок*\n– Дзвін небіжчика*",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Канал божественності (1/відпочинок)\n– Дотик смерті\n– Вигнання нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Телекінетик (Мудрість 17 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Знищення нежиті (ПН 1/2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Невідворотне знищення\nКанал божественності (2/відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Мудрість 18 → 20\nБожественний удар +1к8\nЗнищення нежиті (ПН 1)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Божественне втручання{{Divine Intervention}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Знищення нежиті (ПН 2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Бойовий заклинатель",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Божественний удар +2к8\nЗнищення нежиті (ПН 3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "–",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Удача",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Удосконалений жнець\nЗнищення нежиті (ПН 4)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Канал божественності (3/відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Риса: Адепт метамагії\n– Підсилене заклинання\n– Спрямоване заклинання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Покращене божественне втручання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Стартове золото замість набору",
+        "reason": "Автор радить обрати золото (у середньому 125 зм) замість стартових предметів і купити рапіру, арбалет, щит та обладунок; пресет бере стандартний набір класу.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Удаване життя",
+        "reason": "Автор радить розглянути Удаване життя в ближньому бою, але лишає це на пізніше: узято лише Цілюще слово й Благословення, які він називає основними.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Метамагія з риси «Адепт метамагії»",
+        "reason": "На 19-му рівні автор бере Адепта метамагії зі Спрямованим заклинанням (Seeking Spell) і ще однією метамагією; у каталозі риса без опцій (BUG-O49-METAMAGIC-ADEPT), тож записано лише саму рису.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика на 4-му та 10-му рівнях",
+        "reason": "Автор не називає нових замовлень Клірика на 4-му й 10-му рівнях, тож це вибір платформи: гравець обирає їх сам.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-death-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-death-2014-draft1",
+            "sourceRevisionId": "rpgbot-221c1fd52ae09448-2252e9533c457358",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

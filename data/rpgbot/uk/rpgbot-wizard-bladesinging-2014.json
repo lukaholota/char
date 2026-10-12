@@ -1,0 +1,2308 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-a1d921089f2efe89",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+      "sourceId": "rpgbot-a1d921089f2efe89",
+      "fetchedAt": "2026-09-29T19:18:53.094194+00:00",
+      "sourceUpdatedAt": "2025-08-10T11:42:50-04:00",
+      "contentHash": "46ff1e18630000bf780b48c4ee82e9f6719cefd43a14981f73b872a780adbf1b",
+      "title": "Bladesinging Wizard 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-a1d921089f2efe89-8891e08b2652463e.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-wizard-bladesinging-2014",
+    "sourceId": "rpgbot-a1d921089f2efe89",
+    "slug": "wizard-bladesinging-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Школа співу клинків — гайд підкласу Чарівника (2014)",
+    "titleEn": "Bladesinging Wizard 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Чарівник",
+      "Школа співу клинків",
+      "Співець клинка",
+      "гіш",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Школа співу клинків (відома також як «Співець клинка») — цікавий підклас. На початку пʼятої редакції для персонажів-гішів{{gish}} були два (з половиною, я не зовсім рахую Містичного спритника) варіанти: Потойбічні лицарі й Співці клинків. Перші були цілком про «що, якби воїн умів накладати заклинання», а другі намагалися дати чарівникам не вмирати в ближньому бою. Цілих два роки Співець клинка панував як найбільш шкідливий мечник-заклинач… а потім зʼявився {{Відьмацький клинок|Hexblade}} і одразу розніс обидва інші варіанти вщент. Усі троє були оцінені синім на сайті до того, як я написав цю статтю, але в ході її написання ми знизили Співця клинка з кількох причин, як ви побачите нижче."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Відьмацький клинок» розвʼязав головну проблему персонажів-гішів: залежність від багатьох характеристик. Якщо мені треба махати мечем, для цього потрібні Сила або Спритність. Мої заклинання (для обох згаданих підкласів) працюють на Інтелекті. Оскільки я боєць передової, мене часто цілитимуть вороги, тож Статура потрібна, щоб не померти й підтримувати Концентрацію на заклинаннях. Але Відьмацький клинок каже: ні-ні, зведімо це до однієї лише характеристики чаротворства, достатньої Спритності для середніх обладунків (які Співці клинків не можуть носити), а решту можна вкласти в Статуру."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тож перед купою недоліків — навіщо взагалі грати Співцем клинка? Бо в основі це все ще підклас найпотужнішого класу в грі: Чарівника. У вас буде "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "набагато"
+                },
+                {
+                  "type": "text",
+                  "text": " більше гнучкості для розвʼязання проблем, ніж у Відьмацького клинка будь-коли, і ви все ще можете красуватися з мечем не гірше за найкращих. Давайте зануримося й подивимося, як це виглядає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей гайд — саме для Чарівника-співця клинка і пропускає розділи типових класових довідників, коли ці розділи суттєво не відрізняються від інших представників класу. Більше про Чарівника дивіться в "
+                },
+                {
+                  "type": "link",
+                  "text": "довіднику Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Також наполегливо раджу прочитати "
+                },
+                {
+                  "type": "link",
+                  "text": "розбір списку заклинань Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/spells/"
+                },
+                {
+                  "type": "text",
+                  "text": " і "
+                },
+                {
+                  "type": "link",
+                  "text": "розбір рас Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Підкласові уміння Співця клинка",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#bladesinger-subclass-features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#backgrounds"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Заклинання Чарівника-співця клинка",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#bladesinger-wizard-spells"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Висновок",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#conclusion"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Гоблін, Чарівник Школи співу клинків",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#example-build-goblin-bladesinging-wizard"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#abilities-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#feats-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#levels"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "ЧаП про Чарівника-співця клинка",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/bladesinging/#bladinging-wizard-bladesinger-faq"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bladesinger-subclass-features",
+          "heading": "Підкласові уміння Співця клинка",
+          "sourceAnchor": "bladesinger-subclass-features",
+          "blocks": [
+            {
+              "blockId": "block-section-bladesinger-subclass-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Навчання війні та пісні{{Training in War Song}}: дуже нудне й дещо еклектичне уміння. Володіння Виступом (яке й так складно використовувати) на вкрай залежному від багатьох характеристик класі, якому Харизма не потрібна, нагадує бантик. Доступ до легких обладунків, коли ви не отримуєте їх при створенні персонажа, здається підлим, бо вам доведеться або цілий рівень носити з собою набір проклепаного шкіряного обладунку, який не можна використовувати, або намагатися купити його в дикій місцевості, але принаймні він трохи допомагає з КБ, якщо не хочеться витрачати слот заклинання на Обладунок мага [Mage Armor] (що має сенс на низьких рівнях, коли їх не так багато). Доступ до однієї зброї ближнього бою значно ускладнює витівки з батогом, бо можна мати або зброю з шкодою на кшталт рапіри, або батіг, але не обидва, проте це точно краще за жалюгідний список зброї, який інакше мають чарівники."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Пісня клинка|Bladesong}}: визначальне уміння класу, потужне посилення, що намагається перетворити чарівника на відьмацький клинок. Додавання Інтелекту до захисних речей точно допомагає вижити й утримувати Концентрацію, але не допомагає завдавати шкоди. Ви також отримуєте додаткову швидкість руху, що допомагає наблизитися до тих, хто може атакувати ваш, оптимально, ймовірно, 18 КБ: не гірше за воїна низького рівня, але й не краще, і без жодних великих кубиків здоровʼя чи механік лікування/помʼякшення інших класів (поки що). «Пісня клинка» разом із високою Спритністю й підсиленнями на кшталт Щит [Shield] дозволяє Співцю клинка підняти КБ до висот, яких більшість класів без магічних предметів просто не може досягти. Проте ви все одно вразливі до інших джерел шкоди, як-от заклинання й шкода по області, тож майте інші захисні варіанти, як-от Поглинання стихій [Absorb Elements] і Контрчари [Counterspell]. Також памʼятайте, що одне критичне влучання може легко вивести вас із бою, якщо ви не можете використати «Пісню захисту»{{Song of Defense}}, щоб зменшити шкоду достатньо, аби триматися. Оскільки кількість використань «Пісні клинка» на день привʼязана до вашого Бонусу Майстерності, на низьких рівнях думайте про це радше як про епізодичне підсилення, ніж про основний варіант у бою. Використовуйте її за потреби головним чином як захисне підсилення й удавайте, що ви звичайний чарівник будь-якого іншого типу, доки не отримаєте «Додаткову атаку»{{Extra Attack}} і ваш Бонус Майстерності не зросте."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Додаткова атака{{Extra Attack}}: одна з ваших атак може бути замовлянням, тож ви можете користуватися Гримучий Клинок [Booming Blade]/Клинок Зеленого Полумʼя [Green-Flame Blade]/Спалах Мечів [Sword Burst] і робити додаткову атаку зброєю однією дією. Ви отримуєте всю ефективність атакувального замовляння, не відмовляючись від кількох атак, які дає «Додаткова атака», тож отримуєте найкраще з обох варіантів. Окрім уміння «Бойова магія»{{War Magic}} Потойбічного лицаря (яке, що примітно, використовує бонусну дію), жоден інший підклас гіша{{gish}} не може зрівнятися з цією здатністю. Ця зміна Атаки, що примітно, працює навіть коли ви не користуєтеся «Піснею клинка». Розгляньте носіння пристойної дальньої зброї на кшталт арбалета, щоб на ходах, коли ви плануєте використати дальнє атакувальне замовляння, робити дальню атаку зброєю в тому самому ході. Навіть якщо ваша Спритність усе ще з бонусом +3, ця атака — це шанс завдати додаткової шкоди з мінімальними зусиллями. Це абсолютно непотрібне покращення підкласу, але оскільки для цього ви виконуєте дію Атака, воно сумісне і з боєм двома зброями, і з «Експертом з арбалетів»{{Crossbow Expert}}. Гримучий Клинок [Booming Blade] плюс дві атаки зброєю або Вогняний заряд [Fire Bolt] і два постріли з арбалета на відстані — це доволі чудово, особливо коли ви отримуєте «Пісню перемоги»{{Song of Victory}} і Тензерова трансформація [Tenser's Transformation]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Пісня захисту|Song of Defense}}: чудовий спосіб підсилити свої к6 ХП, але вона дуже швидко зʼїдає ваші слоти заклинань. Розглядайте Поглинання стихій [Absorb Elements] і Щит [Shield] як основні варіанти зменшення шкоди, але якщо Щит [Shield] не скасує атаку, можете використати її, якщо очікуєте шкоди більше, ніж готові прийняти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Пісня перемоги|Song of Victory}}: трохи пізно, але до цього часу ви вже легко маєте 20 Інтелекту, тож 5 додаткової шкоди на кожну атаку зброєю ближнього бою (так, лише ближнього) — це досить приємно. Оскільки «Додаткова атака» дає вам дві атаки, не відмовляючись від переваг замовляння на кшталт Гримучий Клинок [Booming Blade], це може бути помітним підвищенням вашої шкоди на ходах, коли ви не розкидаєтеся заклинаннями з рівнями. Поєднайте це з Тензерова трансформація [Tenser's Transformation], і звичайна рапіра може завдавати 1к8+10+2к12 шкоди за атаку, що доволі чудово. Але хоч бонус до шкоди приємний, на цьому рівні бонус +5 до шкоди ваших атак зброєю часто менш впливовий, ніж підсилення Вогнекуля [Fireball] вищим слотом, що може зробити будь-який чарівник."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоч ми можемо видаватися за когось іншого, ми все ще цілком чарівник і маємо вкладати Інтелект до небес. Мудрість отримує підвищення тут над усім іншим з кількох причин, але переважно щоб проходити ряткидки Мудрості й не заважати Уважності. Практично кожен ефект Причарування/Страху цілить у Мудрість, а неможливість наблизитися до цілі для бійця ближнього бою — це проблема."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Сила{{Str}}: занедбайте"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спритність{{Dex}}: оскільки ви маєте атакувати витонченою зброєю, це має бути ваша друга за величиною характеристика. Вона також підвищить КБ і допоможе вберегтися від атак по області, які неминуче летітимуть у вас, щойно вороги зрозуміють, що атакувати ваш неймовірний КБ — марна трата часу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Статура{{Con}}: третя за важливістю. Хоч у вас є певні захисні можливості, ви боєць передової й потребуєте ХП відповідно, а бонус до ряткидків Концентрації буде дуже корисним, коли ви не користуєтеся піснею клинка."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Інтелект{{Int}}: заклинання й класові уміння Чарівника працюють на Інтелекті."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мудрість{{Wis}}: важливі ряткидки."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Харизма{{Cha}}: занедбайте"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-3",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви не використовуєте додаткові правила з «Казана Таші»{{Tasha’s Cauldron of Everything}}, обовʼязково шукайте Спритність як другорядну характеристику наполегливіше, ніж для звичайних чарівників. Черепаха — спокусливий вибір, щоб отримати високий базовий КБ, який потім модифікуватиме «Пісня клинка», але оскільки Спритність також потрібна, щоб ваші атаки зброєю влучали, це не надто допомагає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки бонус від «Пісні перемоги» діє лише на атаки ближнього бою, вибір літаючої раси теж марнує бюджет потужності, тож я б тримався чогось на кшталт (мабуть, невипадково) ельфа високого чи лісового гатунку. Лісовий ельф дає чудову купу володінь зброєю на Спритності, тож не доведеться соромитися, що хочете варіантів, а додаткова швидкість руху корисна для позиціонування в ближньому бою. Власне, якщо ви налаштовуєте походження за «Казаном Таші», можна обміняти володіння довгим мечем на володіння рапірою й вийти колоти людей не гірше за воїна. Звісно, ви все одно вмираєте значно швидше за воїна."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-races-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше про вибір раси дивіться в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі рас Чарівника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-backgrounds",
+          "heading": "Передісторії",
+          "sourceAnchor": "backgrounds",
+          "blocks": [
+            {
+              "blockId": "block-section-backgrounds-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви слухали наш "
+                },
+                {
+                  "type": "link",
+                  "text": "епізод подкасту про передісторію",
+                  "href": "https://rpgbot.net/rpgbot-podcast-s2e12/"
+                },
+                {
+                  "type": "text",
+                  "text": " (там велика частина про передісторії), ви знаєте, що передісторії — це по суті просто ярлик, який чіпляють на купу володінь, що можуть бути якими завгодно. Оберіть одну унікальну рису, що вам подобається, і дайте собі волю в налаштуванні. Для оптимізації з готових варіантів вам, імовірно, варто спертися на високий Інтелект і взяти щось на кшталт Мудреця{{Sage}} чи Замкненого ученого{{Cloistered Scholar}}, хоч спертися на Спритність теж може бути доречно, якщо ви намагаєтеся підмінити розвідника групи. Безпритульний{{Urchin}}, мабуть, був би моїм вибором для такого шляху."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Загалом ця збірка потребує занадто багато Покращень Характеристик, щоб морочитися з багатьма рисами. Припускаючи купівлю характеристик і оптимізовану расу, дві найважливіші для вас характеристики починатимуть із 17/16. 4-й рівень дасть гібридну рису, 8-й доведе до 20, 12-й і 16-й доводять до межі другу характеристику, і це лишає рівно одне Покращення Характеристик, яке можна обміняти на рису, але чим раніше ви це зробите, тим більше обмежите себе щодо "
+                },
+                {
+                  "type": "link",
+                  "text": "Фундаментальної математики гри",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тож ми отримуємо одну гібридну рису, що має бути на Спритність чи Інтелект, а тоді, можливо, одну рису на 19-му рівні. Якщо оберете Варіант людини{{Variant Human}}, можна перенести рису на перший рівень і зробити її необовʼязково гібридною, зберігаючи правильну фундаментальну математику для обох важливих характеристик. Це відкриває деякі можливості, як-от почати з «Бойовим заклинателем»{{War Caster}}, що доволі зручно для використання Гримучий Клинок [Booming Blade] проти тих, хто намагається пройти повз вас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Серед гібридних рис є кілька сильних претендентів:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Ельфійська точність",
+                    "href": "https://www.dndbeyond.com/feats/89-elven-accuracy"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Elven Accuracy}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "XGtE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ви ельф чи напівельф? "
+                  },
+                  {
+                    "type": "link",
+                    "text": "RPGBOT — Ой, самі ельфи",
+                    "href": "https://rpgbot.net/oops-all-elves/"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Доторк феї",
+                    "href": "https://www.dndbeyond.com/feats/451349-fey-touched"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Fey Touched}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": трохи менш добре для чарівника, бо ці заклинання можна вивчити просто за гроші, але це все одно 2 безкоштовні заклинання на довгий відпочинок."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Проколювач",
+                    "href": "https://www.dndbeyond.com/feats/452845-piercer"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Piercer}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": це доволі добра риса, якщо ви користуєтеся стереотипною рапірою чи короткими мечами, але щоб фундаментальна математика працювала, ми не можемо взяти її до 12-го рівня. При цьому вона дозволяє перекидати к12 від Тензерова трансформація [Tenser's Transformation], що "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "надзвичайно"
+                  },
+                  {
+                    "type": "text",
+                    "text": " приємно."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "{{Стійкий (Спритність)|Resilient (Dex)}}",
+                    "href": "https://www.dndbeyond.com/feats/39-resilient"
+                  },
+                  {
+                    "type": "text",
+                    "text": " "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": теж чекаємо до 12-го рівня, якщо тільки не хочете послабити Інтелект; усе одно це буде дуже добре. Це негайне велике покращення однієї з ваших головних слабкостей (влучання по області) і правдоподібне використання вашої гібридної риси, якщо ви думаєте, що справді хвилюватиметеся про тендітність."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Експерт у навичках",
+                    "href": "https://www.dndbeyond.com/feats/456476-skill-expert"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Skill Expert}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо з якоїсь причини ви "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "таки"
+                  },
+                  {
+                    "type": "text",
+                    "text": " намагаєтеся підмінити розвідника, це точно допоможе заповнити прогалину між вами та пройдисвітом. Або просто накиньте «Експертизу» на Магію й блукайте як найзнаючіший із усіх, хто коли-небудь мав меч."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Телекінетик",
+                    "href": "https://www.dndbeyond.com/feats/456458-telekinetic"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Telekinetic}} "
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "("
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": о, дивіться, ще один гайд, де Random рекомендує «Телекінетика». Річ у тім, що "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "він досі настільки хороший"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Як чарівник ви, сподіваюся, вже маєте Магічна рука [Mage Hand], що дозволяє подвоїти його дальність, а ще у вас є бонусна дія, яку завжди можна використати, якщо ви не робите щось на кшталт атаки другою рукою."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для ближнього бою ви починаєте з кинджалом на 1-му рівні, бо поки що ви просто чарівник і не маєте користуватися ним надто часто. Гадаю, можна, але в вас ще немає справжніх засобів виживання, тож спроби колоти ворогів заради максимізації шкоди, імовірно, просто вас убʼють. Технічно кажучи, із цим розподілом характеристик ви завдасте більше шкоди з легкого арбалета, ніж із Вогняний заряд [Fire Bolt], тож для дальньої шкоди, мабуть, так і слід робити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-weapons-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 2-му рівні у вас є вибір. Якщо візьмете володіння рапірою, ви завдаватимете більшу шкоду основною рукою, що може бути приємно до 11-го рівня. Якщо натомість візьмете короткі мечі, можна битися двома й насолоджуватися перевагами застосування «Пісні перемоги»{{Song of Victory}} і Тензерова трансформація [Tenser's Transformation] до атаки другою рукою на високих рівнях."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьміть стартове золото й просто купіть проклепаний шкіряний обладунок (і згадані вище меч[і]). Нічого іншого ви ніколи не носитимете, хоч насправді носити його можна лише з 2-го рівня."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bladesinger-wizard-spells",
+          "heading": "Заклинання Чарівника-співця клинка",
+          "sourceAnchor": "bladesinger-wizard-spells",
+          "blocks": [
+            {
+              "blockId": "block-section-bladesinger-wizard-spells-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми вже говорили про деякі основні захисні варіанти на кшталт Щит [Shield] і Поглинання стихій [Absorb Elements], і вони, безумовно, добре використають ваші слоти заклинань низьких рівнів після перших рівнів, коли ви ще функціонально просто чарівник у проклепаному шкіряному обладунку. Але ви тут не заради цього. Ви тут, щоб накласти на себе Прискорення [Haste] і колоти ворогів тричі за хід. На жаль, багато ваших найкращих підсилень вимагають Концентрації, що не дозволяє поєднувати їх і справді бути мʼязистим чарівником."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-bladesinger-wizard-spells-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Насправді єдині заклинання підсилення, що "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "не"
+                },
+                {
+                  "type": "text",
+                  "text": " вимагають Концентрації, — захисні заклинання на кшталт Удаване життя [False life], Обладунок мага [Mage Armor] і Вогняний щит [Fire Shield] (що особливо поганий вибір, бо вимагає, щоб по вас влучали, а для Співця клинка це має траплятися рідко)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-bladesinger-wizard-spells-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Клинок тіні [Shadow Blade] — чудове заклинання для Співців клинка, але вимагає Концентрації."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Магічна зброя [Magic Weapon] — добре, якщо у вас немає магічної зброї й ви стикаєтеся з істотами з опором."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розмиття [Blur] і Віддзеркалення [Mirror Image] — дуже добра захисна магія, але ваш КБ під час співу вже достатньо високий, щоб вам не треба було про це перейматися."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Прискорення [Haste] викликало жорстку дискусію про те, чи можна використати додаткову атаку від нього, щоб накласти замовляння (моя особиста інтерпретація — ні, навіть якщо ви більше нічого не накладали в раунді, бо конкретне «ні» правила додаткової атаки Прискорення [Haste] перемагає загальне твердження «можете…» класового уміння), але воно все одно дуже добре."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Хода Ашардалона [Ashardalon's Stride] — хороший спосіб додатково використати бонусний рух і зберегти вас у безпеці при цьому, але, знову ж, Концентрація."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Удар сталевого вітру [Steel Wind Strike] нарешті здається заклинанням, яким варто користуватися… але воно цілком анти-синергійне. Це не замовляння, тож його не можна використати в Атаці. Воно робить заклинальні атаки ближнього бою замість атак зброєю ближнього бою, тож не взаємодіє з «Піснею перемоги»{{Song of Victory}}. І йому байдуже, яку зброю ви тримаєте, воно все одно завдає 6к10 шкоди силовим полем. Вам набагато менше, ніж більшості чарівників, заважає те, що воно лишає вас поруч із кимось, коли закінчите, і шкода все ще дуже хороша, але просто прикро, що воно не краще для вас, ніж для більшості чарівників, а заклиначі стихій можуть користуватися ним ще краще за вас завдяки «Надзаряду»{{Overchannel}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Більша невидимість [Greater Invisibility] — фантастичне особисте підсилення. Воно дає Перевагу на кубику на кидки атаки, не дозволяє іншим робити Принагідні атаки по вас і цілити вас більшістю заклинань та ефектів, а навіть якщо хтось здогадається, де ви, атака по вас усе одно матиме Перешкоду на кубику, яку буде дуже важко вдарити по вашому високому КБ."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Духовна плащаниця [Spirit Shroud] — це Тензерова трансформація [Tenser's Transformation] для бідних, але має й справді гарні переваги, як-от змушувати істот рухатися повільніше навколо вас і давати доступ до некротичної й променевої шкоди, якщо ці типи будуть корисні в певному бою, як-от проти зомбі. Правду кажучи, воно справді робить те, що вам найважливіше (кубики шкоди на атаках зброєю), і при цьому не має недоліку виснаження й не заважає накладати інші заклинання."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Думок багато й різних. Початок із рівня Винахідника одразу дає обладунки, володіння ряткидками Статури й можливість накладати Лікування ран [Cure Wounds] як заклинання Інтелекту. Якщо готові вкласти 3 рівні, можна піти Зброярем із танком як основною роллю й стати чарівником… танком… або піти Бойовим ковалем. Обидва дають можливість атакувати за Інтелектом, але ціною 3 рівнів. Мультикласування Паладина/Барда у Відьмацький клинок таке популярне, бо це занурення лише на 1 рівень. Тож хоч Винахідник — найпопулярніший вибір, я цілком чітко належу до табору «не варто»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоч це складно розхвалити й воно не дуже яскраве, чарівників робить такими сильними їхня величезна різнобічність. Співець клинка тематично дуже крутий, але по суті це лише чарівник із гострою палицею. Безперечно, там можна отримати задоволення, але якщо так сильно зосередитися на гострій палиці, що забудете, що ви чарівник, ви просто стріляєте собі в ногу. Тож я кажу: просто будьте чарівником якомога більше й додайте трохи шарму."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-conclusion",
+          "heading": "Висновок",
+          "sourceAnchor": "conclusion",
+          "blocks": [
+            {
+              "blockId": "block-section-conclusion-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тож, відступаючи від традиції, я вставлю тут висновок перед тим, як дати вам приклад збірки, бо я прочитав чимало для цього довідника. Я намагаюся переконати Тайлера знизити Співця клинка з синього, бо, відверто кажучи, він суперечить тому, що намагається робити чарівник. Він намагається втиснути вас у вибір заклинань, що відповідають стилю гри гіша{{gish}}, але "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "буквально"
+                },
+                {
+                  "type": "text",
+                  "text": " кожне наступальне підсилення в списку чарівника вимагає Концентрації (крім Передбачення [Foresight], але це не зовсім рахується), а отже, ви можете мати лише одне за раз."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Минули дні, коли можна було накласти разом Прискорення [Haste], Тензерова трансформація [Tenser's Transformation] і «Благословення Жіралона»{{Girallon’s Blessing}} та за 6 секунд пороздирати комусь кілька нових дірок, як у 3.x. Навіть якби це було можливо, функціонально ви б просто занижували себе до завдання великої шкоди як чарівник, а якщо хочете це, можна просто бути заклиначем стихій і робити це безпечно здалеку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Коли найбільше джерело сили класу — величезна гнучкість, а ви чіпляєте підклас, що змушує спеціалізуватися на тому, що інші роблять краще, ви розумієте, що опинилися в поганому місці. Коли ж усвідомлюєте, що всі ваші інструменти, аби їх наздогнати, взаємовиключні, тоді смуток по-справжньому накриває."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я не казатиму, що не варто грати Співцем клинка. Будь ласка, живіть своєю мрією в цьому персонажі й отримуйте величезне задоволення. Відіграйте як божевільний, поколіть кілька речей, накладіть кілька заклинань і насолоджуйтеся всім, чим може бути Співець клинка. Але я був би недбалим, на сайті оптимізації персонажів, якби не сказав, що оптимізація Співця клинка нагадує гостріння палиці, коли ви оточені цілком добрими ножами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-goblin-bladesinging-wizard",
+          "heading": "Приклад збірки — Гоблін, Чарівник Школи співу клинків",
+          "sourceAnchor": "example-build-goblin-bladesinging-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-goblin-bladesinging-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Вони думають, що такі особливі лише тому, що високі. Ніби не розуміють, що чим менше щось зробити, тим гостріше воно. Чесно кажучи, я "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "набагато "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "крутіший за ельфа, бо опанував за 5 років те, на що їм потрібно 40."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities-2",
+          "parentSectionId": "section-example-build-goblin-bladesinging-wizard",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities-2",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми припускатимемо характеристики за купівлею, запропоновані вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-goblin-bladesinging-wizard",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гоблін{{Goblin}}, представлений у «Монстрах Мультивсесвіту»{{Monsters of the Multiverse}}, дає дуже вагому причину обрати щось мале. Бонусний Відступ, доступний вам, — чудовий інструмент для Співців клинка, щоб згладити прогалини в «Пісні клинка» на ранніх рівнях (і, чесно кажучи, загалом дозволяє не палити слоти на Щит [Shield], якщо хочете переміститися), а «Лють маленького»{{Fury of the Small}} — просто приємна додаткова шкода. Ви також починаєте з 30 футів руху навіть будучи Малим, а Темний зір і «Фейське походження»{{Fey Ancestry}} завжди доречні. До того ж те, що це раса з «Монстрів Мультивсесвіту», означає, що ви можете розподілити свої +2/+1 як вважаєте за потрібне, навіть якщо Майстер не хоче використовувати правила «Казана Таші»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-goblin-bladesinging-wizard",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьміть Магію й Релігію."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-goblin-bladesinging-wizard",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Візьміть Замкненого ученого{{Cloistered Scholar}} заради Історії й Природи, лишивши Розслідування єдиною навичкою Інтелекту без володіння. Ваш природно високий Інтелект витягне вас у цьому як запасного для будь-якого розвідника у вашій групі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example-build-goblin-bladesinging-wizard",
+          "heading": "Риси",
+          "sourceAnchor": "feats-2",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки мені насправді байдужа фундаментальна математика чи мої власні поради, скажу: візьміть «Проколювача»{{Piercer}} на 4-му рівні, на 8-му вирівняйте характеристики до 18 у Спритності й Інтелекті, 12-й доводить Інтелект до межі, 16-й — Спритність, а на 19-му ми не отримуємо Покращення Характеристик, бо натомість є несподіваний інструмент, який допоможе нам пізніше."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я цілком свідомо не дозволив собі взяти «Телекінетика»{{Telekinetic}}, але не брати його тут теж розумний вибір, бо Відступ бонусною дією використовуватиметься часто."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-goblin-bladesinging-wizard",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "1"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чаротворство\nМагічне відновлення\nВідомі замовляння:\n– Формування води\n– Гримучий Клинок\n– Штукарство\n– Магічна рука\nВідомі заклинання:\n– Палючі долоні\n– Розуміння мов (Р)\n– Виявлення магії (Р)\n– Пошук фамільяра (Р)\n– Обладунок мага\n– Магічний дротик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Для стартового спорядження візьміть натомість гроші й купіть собі проклепаний шкіряний обладунок, легкий арбалет, два короткі мечі й фокус. Як зазначено вище, до 5-го рівня ми завдаємо більше шкоди за раунд із легкого арбалета, бо до його шкоди додається Спритність. Це дозволяє нам натомість почати з 3 найкращими утилітарними замовляннями й узяти Гримучий Клинок [Booming Blade] на той час, коли почнемо битися в ближньому бою. На цьому рівні ви просто чарівник із достатньо високою Спритністю, щоб добре користуватися арбалетом, тож поводьтеся відповідно. Палючі долоні [Burning Hands] дає нам шкоду по області, Магічний дротик [Magic missile] — на випадок, якщо у вас проблеми з пробиттям чийогось КБ, а Обладунок мага [Mage Armor] — бо щоб його побити, довелося б отримати +2 проклепаний шкіряний обладунок, а якщо ви витрачаєте дуже рідкісний предмет на свій обладунок, то що ж… це вибір. Усі інші заклинання з позначкою (Р) — ритуали, тож їх не треба готувати на день, щоб накласти, просто додайте 10 хвилин. Не забувайте про «Магічне відновлення»{{Arcane Recovery}}. Використати його можна лише раз на день, але воно дозволяє відновити кілька слотів заклинань, що в повний день пригод може бути різницею між життям і смертю. Використовуйте його рано й часто."
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Школа співу клинків\nНавчання війні та пісні\nПісня клинка\nВідомі заклинання:\n– Поглинання стихій\n– Щит"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер можна одягти той обладунок і взяти в руки колючу штуку й почати втілювати фантазію. Ми все ще натрапляємо на проблему гіша — основна рука зі зброєю, друга з фокусом чи соматичним компонентом, але іноді не з обома одразу, — тож будьте обережні, добираючи заклинання далі, і дивіться, як їх буде накладати. Я намагатимусь стежити за цим у цьому гайді, але я не ідеальний. Щит [Shield] допоможе вижити в ближньому бою, коли вас цілять, але памʼятайте, що для безпечного пересування боєм слід використовувати Відступ бонусною дією. Ми говорили про Поглинання стихій [Absorb Elements] і нагадаю, що для нас він навіть кращий, ніж для більшості чарівників, бо ми справді використаємо додаткову шкоду ближнього бою. «Пісня клинка»{{Bladesong}} буде вашою кнопкою, яку вмикаєте на початку бою перед тим, як рушити в ближній бій. На цьому рівні у вас лише 2 на день, тож від вас очікується використання її в половині ваших щоденних боїв. Намагайтеся обирати ті, де багато ворогів, щоб скористатися бонусом до КБ і лишатися живим. Тайлер хотів би, щоб я вірив, що типовий день пригод має включати 6–8 зіткнень за правилами «Дня пригод»{{Adventuring Day}}, але люди зазвичай так не грають."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Магічна зброя\n– Розпізнавання (Р)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магічна зброя [Magic Weapon] — наше перше підсилення з Концентрацією, і на цьому рівні воно доволі добре. Деякі істоти почнуть мати опір до немагічної Д/К/Р, і ось спосіб його обійти. Хтось має вміти накладати Розпізнавання [Identify], а взявши його як чарівник, ви накладаєте його ритуалом без підготовки, що робить вас найкращим вибором. Якщо ще хтось із вашої групи його вже бере, можна відмовитися від нього на користь інших основних, як-от Невидимість [Invisibility] чи Темний зір [Darkvision]"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса (Проколювач)\n+1 Спритності, разом 17\nНове відоме замовляння:\n– Вогняний заряд\nНові підготовлені заклинання:\n– Туманний крок\n– будь-яке"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Формулювання «Проколювача» дозволяє перекинути будь-який із кубиків атаки, що дуже корисно, коли ви кидаєте їх купу завдяки Гримучий Клинок [Booming Blade]. Готуючись до 6-го рівня, ми беремо Вогняний заряд [Fire Bolt], бо можливість підставити 2к10 в один постріл, усе ще встигнувши зробити другий постріл, робить вашу шкоду на відстані грізною. З заклинань з рівнями є кілька варіантів. Я рекомендую Туманний крок [Misty Step], бо це одне з найкращих заклинань, і хоч у вас важко влучити, якщо вас схоплять, ви в біді. Якщо вас турбує виживання в ближньому бою, Віддзеркалення [Mirror Image] — одне з найкращих захисних заклинань у грі й не коштує Концентрації, тож його можна тримати з іншими підсиленнями, але реалістично воно вам не знадобиться. Я б, мабуть, придивився до Павутиння [Web] чи «Земної хватки Максиміліана»{{Earthen Grasp}} залежно від того, зустрічаєте ви більше великих цілей чи натовпів. Клинок тіні [Shadow Blade] теж був би добрим варіантом, особливо якщо ви в кампанії Андердарка{{Underdark}} чи там, де багато тьмяного світла. На жаль, уважні читачі помітять, що всі вони вимагають Концентрації, що робить їх взаємовиключними між собою й із Магічна зброя [Magic Weapon]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Вогнекуля\n– дивіться примітки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Колоти речі — це все добре, але візьміть Вогнекуля [Fireball]. Не морочтеся продовженням підготовки Палючі долоні [Burning Hands], я б почав готувати щось інше в той 4-й слот, який ви придбали дорогою. Якщо в групі нікому більше брати Леомундова крихітна хатинка [Leomund's Tiny Hut], це на вас. Воно має позначку (Р), тож не треба його готувати, але гарантувати довгий відпочинок навіть у таборі надто важливо для заклинателя, щоб це пропускати. Якщо вам не треба це брати, Прискорення [Haste] буде вашою основою. Я говорив про нього вище, але для вас це все одно чудовий варіант. На жаль, воно все ще вимагає Концентрації, а отже, його не можна використовувати з Магічна зброя [Magic Weapon] чи будь-якими варіантами контролю області з попередніх рівнів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака\nВідомі заклинання:\n– Контрчари\n– Розвіювання магії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наші заклинання з рівнями на цьому рівні нудні, але критичні. Контрчари [Counterspell] дозволяє заглушити ворожих заклинателів, а Розвіювання магії [Dispel Magic] усуває проблемні магічні ефекти. Обидва заклинання — ключова частина арсеналу вашої групи на будь-якому рівні (хоч Контрчари [Counterspell] я б відкинув заради Прискорення [Haste], якби вам довелося бути носієм Леомундова крихітна хатинка [Leomund's Tiny Hut]). Оскільки тепер ви отримуєте найкращу версію «Додаткової атаки», стандартний хід для вас виглядатиме приблизно як Гримучий Клинок [Booming Blade] і звичайна атака рапірою, можливо, з додатковою атакою, якщо ви під Прискорення [Haste]. Якщо ви надто далеко чи у вас закінчилися «Пісні клинка», стріляйте з арбалета й Вогняний заряд [Fire Bolt]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Більша невидимість\n– Перевтілення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невидимість дасть вам Перевагу на кубику на кожну атаку, що чудово. Інших особистих підсилень, що нас цікавлять на цьому рівні, немає, бо Вогняний щит [Fire Shield] для нас поганий, як ми описували вище. З іншого боку, що, як би ви були гігантською мавпою? А справжнє питання постане наступного рівня: чи чистий Співець клинка 8 ефективніший за тираннозавра? (До речі, обидва ці заклинання вимагають Концентрації)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Спритність та Інтелект 17 → 18)\nНові підготовлені заклинання:\n– Арканне око\n– Форма каменю"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Припустимо, що ми підтримуємо Концентрацію на Прискорення [Haste]; на цьому рівні ми завдаємо приблизно 21 шкоди за раунд атаками, згаданими на попередньому рівні. Також у нас КБ 21 під час співу й у Обладунок мага [Mage Armor] і, зручно, рівно 50 ХП. Монстр із ПН 8 має мати приблизно +9 до влучання стандартними атаками, якщо це здоровань. Задля обговорення просто дамо вам нескінченні слоти на Щит [Shield] і Поглинання стихій [Absorb Elements] і скажемо, що ваш КБ — 25, а опір до стихійної шкоди ви маєте. Це означає, що ці атаки промахуватимуться по вас 75% часу. Тож ваші ефективні ХП проти атак — 200, і 100 проти стихійних атак завдяки Поглинання стихій [Absorb Elements]. Усереднімо це до 150 для надшвидкої математики на серветці. Перевтілення в тираннозавра дає 136 тимчасових ХП, що додаються до вашої бази 50, разом 186, тобто більше, ніж у нашого теоретичного чарівника з нескінченними слотами вище. Тим часом його шкода за раунд "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "буквально вдвічі більша"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", а ще ви захоплюєте ціль свого укусу без додаткових витрат.\n\nПроблема в тому, що ваш Інтелект під час цього дорівнюватиме 2, тож ви не зможете користуватися вигадливою тактикою. Ви зберігаєте свій «світогляд і особистість», що, сподіваюся, означає вашу здатність розрізняти й не їсти друзів. Але DPR співця клинка не наздоганяє до 14-го рівня, коли ви отримуєте «Пісню перемоги»{{Song of Victory}}. Тож можна бути Співцем клинка й вкласти в це всі ресурси, а можна просто бути динозавром. Я трохи недооцінюю Співця клинка тут, бо не врахував у розрахунку бонус «Проколювача»{{Piercer}}, але ж я дав Гримучий Клинок [Booming Blade] 50% шансу спрацювання, тож вважатимемо, що вирівнялося. Так чи інакше, візьмемо трохи утиліти. Форма каменю [Stone Shape] і Арканне око [Arcane eye] обидва допоможуть вам неймовірно поза боєм, а Форма каменю [Stone Shape] може стати бойовим трюком, якщо ви достатньо кмітливі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Телепатичний звʼязок Рері\n– Стіна енергії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стіна енергії [Wall of Force] — це по суті шахрайство. Майже ніщо не здатне його зламати, а з 10-хвилинною тривалістю ви легко можете замкнути найбільшу істоту в бою, поки розправляєтеся з її друзями або поки ви з друзями лікуєтеся, підсилюєтеся й готуєте підготовлені дії. Проти особливо великих істот купол можна підняти над підлогою настільки, щоб усе ще можна було цілити по ногах жертви, поки вона не може втекти. (Але це все одно Концентрація, тож жодного Прискорення [Haste], поки ви це робите). Накладайте Телепатичний звʼязок Рері [Rary's Telepathic Bond] як ритуал. Здатність мовчки спілкуватися на безмежну відстань — масивна тактична перевага в більшості ситуацій, де інші істоти — проблема. Це також елегантно розвʼязує проблему мовних барʼєрів (зокрема коли ви під Перевтілення [Polymorph]), тож якщо вдасться змусити ціль посидіти 10 хвилин, Мови [Tongues] вам більше не потрібен."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові відомі замовляння:\n– будь-яке\nВідомі заклинання:\n– Посилення навички\n– Творення\nПісня захисту"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для нового замовляння я б, мабуть, узяв Клинок Зеленого Полумʼя [Green-Flame Blade], якщо ви не бʼєтеся з багатьма істотами з опором до вогню, бо розсікання — краща гарантована шкода, ніж Гримучий Клинок [Booming Blade], але насправді підійде будь-що. У нас усе ще є основне бойове підсилення Прискорення [Haste], тож продовжуймо брати утиліту. Обидва ці заклинання мають безліч застосувань поза боєм, а ми хочемо лишатися максимально «чарівницькими». Ми вже згадували «Пісню захисту»{{Song of Defense}}. Вона непогана, але точно не чудова. Використовуйте її, коли ловите випадкове критичне влучання, щоб зменшити вхідну шкоду. (Або просто накладіть Сріблясті шпильки [Silvery Barbs], якщо це дозволено за вашим столом. Насправді не повинно бути дозволено, тому я досі не казав вам його готувати. Але якщо дозволено, це набагато краща захисна механіка проти згаданих випадкових критів.)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Тензерова трансформація\n– Розщеплення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Памʼятаєте той інший короткий меч, який ви носите з собою з 1-го рівня? Він нарешті знадобиться, коли ви активуєте Тензерова трансформація [Tenser's Transformation] і удаватимете воїна. Нагадаю: ви не можете накладати жодних заклинань у перетвореному вигляді, зокрема замовлянь. Тож ви просто двічі бʼєте коротким мечем і ще раз другим коротким мечем. Ні Щит [Shield], ні Поглинання стихій [Absorb Elements], щоб вас убезпечити. Проте це все одно краще з двох варіантів між ним і Потойбічний вигляд Таші [Tasha's Otherworldly Guise], бо той не дає жодної наступальної допомоги. Тензерова трансформація [Tenser's Transformation] тепер буде вашим підсиленням раз на день. Я кажу «раз на день», бо воно змушує вас робити ряткидок, який без допомоги ви маєте лише 40% шансу уникнути, щоб не отримати рівень виснаження після завершення (вони обовʼязково уточнюють, що ряткидок ви робите "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "після"
+                    },
+                    {
+                      "type": "text",
+                      "text": " завершення, тобто Бонус Майстерності до ряткидків Статури, який дає заклинання, ви не можете використати). Тож якщо ви провалили перший ряткидок, ризикувати накладати його знову не можна. Один рівень виснаження дратує поза боєм, а два — калічать. Бути тираннозавром виглядає дедалі спокусливіше. Тож ви отримуєте один великий підсилений бій, а потім назад до Прискорення [Haste]. Що ще ми робимо з новим рівнем заклинань? Розщеплення [Disintegrate]. Він не псуватиме вашу Концентрацію, завдає чудової шкоди, а ще поза боєм ним можна свердлити магічні діри в будь-чому, що забажаєте, зокрема й якщо хтось нечемно накладе на вас Стіна енергії [Wall of Force], як я щойно запропонував."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Обачливість\n– Сфера невразливості\nПокращення Характеристик (Інтелект 18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Продовжуючи тенденцію брати заклинання як будь-який інший чарівник: обидва вони неймовірно потужні, навіть якщо одне лише ситуативне. Я просто порекомендую прочитати "
+                    },
+                    {
+                      "type": "link",
+                      "text": "сторінку розбору заклинань",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/wizard/spells/#2ndlevel-spells"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", щоб зрозуміти, чому Сфера невразливості [Globe of Invulnerability] такий добрий. Обачливість [Contingency] — просто феноменальна утиліта й одна з тих речей, «обмежених лише вашою уявою». На жаль, у цій редакції ще й обмежена рівнем заклинань, але се ля ві. Цікавий факт: можна накласти Перевтілення [Polymorph] через Обачливість [Contingency] так, щоб воно спрацьовувало, коли ви подумаєте «Рев динорейнджерів!», тим самим скасовуючи вимогу надавати будь-які компоненти чи дію. Подумайте, що ви тираннозавр."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Телепорт\n– Силова кліть"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хтось має вміти Телепорт [Teleport], і цей хтось цілком може бути ви. Нарешті щось, на що можна витратити слоти заклинань, що не зʼїдає Концентрацію. Силова кліть [Forcecage] — феноменальне заклинання без ряткидка. Оберіть ціль і вперед, або накладіть його на свою групу, щоб дати собі час накласти Леомундова крихітна хатинка [Leomund's Tiny Hut] ритуалом і просто вирішити забрати свій бій і піти додому."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Планарний перехід\n– Симулякр\nПісня перемоги"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хтось також має вміти Планарний перехід [Plane Shift] на цьому рівні. Якщо ви читали мій "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Практичний гайд із Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/wish/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", ви знаєте, до чого це йде. «Пісня перемоги»{{Song of Victory}} нарешті стає активною, дозволяючи додавати 5 шкоди до атак ближнього бою. Нарешті, з Прискорення [Haste] і «Піснею клинка»{{Bladesong}} ми не гірші за тираннозавра."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові підготовлені заклинання:\n– Драконяче перетворення\n– Лабіринт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ви помітите, що обидва ці заклинання вимагають Концентрації й жодне не має жодного стосунку до того, щоб бути Співцем клинка. Драконяче перетворення [Draconic Transformation] — кивок у бік того, що на цьому етапі нам, мабуть, слід мати якийсь спосіб літати, а використання бонусної дії, щоб кожного ходу накладати вогнекулю низького рівня, — це доволі чудово."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Спритність 18 → 20)\nВідомі заклинання:\n– Слабоумство\n– Клон"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті ми доводимо до межі другу важливу для нас характеристику. Слабоумство [Feeblemind] — ще один ваш інструмент для виведення з гри ворожих заклинателів, що корисно, щоб тримати їх на кінці рапіри. О ні. Ні, воно починається."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відомі заклинання:\n– Передбачення\n– Бажання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нііііііііі! Нескінченні голі співці клинків з опором до всієї шкоди. О, гадаю, можна натомість накласти Передбачення [Foresight] на себе, якщо очікуєте бойового дня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстерність заклинань{{Spell Mastery}}:\n– Щит\n– Туманний крок\nВідомі заклинання:\n– будь-які два"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мені більше нічого сказати про цю збірку. Щит [Shield] і Туманний крок [Misty Step] такі важливі, що можливість мати аварійний запас, навіть коли закінчилися слоти заклинань, — це приємно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 Воїн 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Друге дихання\nБойовий Стиль (Бій двома зброями)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гей, зачекайте. Виявляється, усе, чим ми жертвуємо тут за невикористання класу до кінця, — це 2 слоти заклинань на день, а якщо взяти два рівні Воїна, можна додати +5 шкоди до атак другою рукою й отримати «Сплеск дій»{{Action Surge}} раз на відпочинок, що набагато кращий вінець, ніж «Підписні заклинання»{{Signature Spells}}. Ви також отримуєте «Друге дихання»{{Second Wind}}. Це лише кілька ХП, але можуть бути моменти, коли ви не використовуєте бонусну дію на щось інше, і це не зашкодить."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 Воїн 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій{{Action Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хід під Тензерова трансформація [Tenser's Transformation] зі «Сплеском дій» виглядатиме як 5 атак, кожна з яких завдає к6+2к12+10. Це в сумі в середньому 132,5 шкоди (якщо все влучить), що доволі пристойно, але й зробити це можна лише раз на день. Втім, також памʼятайте, що ніщо абсолютно не заважає накласти два замовляння за один хід. Хід під Прискорення [Haste] може виглядати як Атака, Гримучий Клинок [Booming Blade], повторити це зі «Сплеском дій», атака другою рукою й атака від Прискорення [Haste]. Це виглядатиме як 4(к6+10)+2(к6+3к8+10), що в середньому дає 91, а ще 36 можливих, якщо ціль рухається. Не зовсім так добре й залежить від дій ворога, але теж непогано, якщо ви не можете ризикувати рівнем виснаження."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bladinging-wizard-bladesinger-faq",
+          "heading": "ЧаП про Чарівника-співця клинка",
+          "sourceAnchor": "bladinging-wizard-bladesinger-faq",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-22",
+          "parentSectionId": "section-bladinging-wizard-bladesinger-faq",
+          "heading": "Чи варто співцю клинка зосереджуватися на ближньому бою?",
+          "blocks": [
+            {
+              "blockId": "block-section-22-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З погляду оптимізації — ні. Майже в кожній ситуації накласти заклинання буде впливовіше, ніж використати «Пісню клинка»{{Bladesong}}, щоб користуватися зброєю. Проте це не означає, що це не весело."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-001",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-subclass-features",
+      "targetBlockId": "block-section-bladesinger-subclass-features-1",
+      "optionId": "section-bladesinger-subclass-features-block-section-bladesinger-subclass-features-1-item-0",
+      "context": "Навчання війні та пісні",
+      "explanationBlockId": "block-section-bladesinger-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-002",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-subclass-features",
+      "targetBlockId": "block-section-bladesinger-subclass-features-1",
+      "optionId": "section-bladesinger-subclass-features-block-section-bladesinger-subclass-features-1-item-1",
+      "context": "Пісня клинка",
+      "explanationBlockId": "block-section-bladesinger-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-003",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-subclass-features",
+      "targetBlockId": "block-section-bladesinger-subclass-features-1",
+      "optionId": "section-bladesinger-subclass-features-block-section-bladesinger-subclass-features-1-item-2",
+      "context": "Додаткова атака",
+      "explanationBlockId": "block-section-bladesinger-subclass-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-004",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-subclass-features",
+      "targetBlockId": "block-section-bladesinger-subclass-features-1",
+      "optionId": "section-bladesinger-subclass-features-block-section-bladesinger-subclass-features-1-item-3",
+      "context": "Пісня захисту",
+      "explanationBlockId": "block-section-bladesinger-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-005",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-subclass-features",
+      "targetBlockId": "block-section-bladesinger-subclass-features-1",
+      "optionId": "section-bladesinger-subclass-features-block-section-bladesinger-subclass-features-1-item-4",
+      "context": "Пісня перемоги",
+      "explanationBlockId": "block-section-bladesinger-subclass-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-006",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-abilities",
+      "targetBlockId": "block-section-abilities-2",
+      "optionId": "section-abilities-block-section-abilities-2-item-0",
+      "context": "Сила",
+      "explanationBlockId": "block-section-abilities-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-007",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-abilities",
+      "targetBlockId": "block-section-abilities-2",
+      "optionId": "section-abilities-block-section-abilities-2-item-1",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-abilities-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-008",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-abilities",
+      "targetBlockId": "block-section-abilities-2",
+      "optionId": "section-abilities-block-section-abilities-2-item-2",
+      "context": "Статура",
+      "explanationBlockId": "block-section-abilities-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-009",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-abilities",
+      "targetBlockId": "block-section-abilities-2",
+      "optionId": "section-abilities-block-section-abilities-2-item-3",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-abilities-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-010",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-abilities",
+      "targetBlockId": "block-section-abilities-2",
+      "optionId": "section-abilities-block-section-abilities-2-item-4",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-abilities-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-011",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-abilities",
+      "targetBlockId": "block-section-abilities-2",
+      "optionId": "section-abilities-block-section-abilities-2-item-5",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-abilities-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-012",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-4",
+      "optionId": "section-feats-block-section-feats-4-item-0",
+      "context": "Ельфійська точність",
+      "explanationBlockId": "block-section-feats-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-013",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-4",
+      "optionId": "section-feats-block-section-feats-4-item-1",
+      "context": "Доторк феї",
+      "explanationBlockId": "block-section-feats-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-014",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-4",
+      "optionId": "section-feats-block-section-feats-4-item-2",
+      "context": "Проколювач",
+      "explanationBlockId": "block-section-feats-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-015",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-4",
+      "optionId": "section-feats-block-section-feats-4-item-3",
+      "context": "Стійкий",
+      "explanationBlockId": "block-section-feats-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-016",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-4",
+      "optionId": "section-feats-block-section-feats-4-item-4",
+      "context": "Експерт у навичках",
+      "explanationBlockId": "block-section-feats-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-017",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-4",
+      "optionId": "section-feats-block-section-feats-4-item-5",
+      "context": "Телекінетик",
+      "explanationBlockId": "block-section-feats-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-018",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-wizard-spells",
+      "targetBlockId": "block-section-bladesinger-wizard-spells-3",
+      "optionId": "section-bladesinger-wizard-spells-block-section-bladesinger-wizard-spells-3-item-0",
+      "context": "Клинок тіні [Shadow Blade] — чудове заклинання для Співців клинка, але вимагає Концентрації.",
+      "explanationBlockId": "block-section-bladesinger-wizard-spells-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-019",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-wizard-spells",
+      "targetBlockId": "block-section-bladesinger-wizard-spells-3",
+      "optionId": "section-bladesinger-wizard-spells-block-section-bladesinger-wizard-spells-3-item-1",
+      "context": "Магічна зброя [Magic Weapon] — добре, якщо у вас немає магічної зброї й ви стикаєтеся з істотами з опором.",
+      "explanationBlockId": "block-section-bladesinger-wizard-spells-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-020",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-wizard-spells",
+      "targetBlockId": "block-section-bladesinger-wizard-spells-3",
+      "optionId": "section-bladesinger-wizard-spells-block-section-bladesinger-wizard-spells-3-item-2",
+      "context": "Розмиття [Blur] і Віддзеркалення [Mirror Image] — дуже добра захисна магія, але ваш КБ під час співу вже достатньо високий, щоб вам не треба було про це перейматися.",
+      "explanationBlockId": "block-section-bladesinger-wizard-spells-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-021",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-wizard-spells",
+      "targetBlockId": "block-section-bladesinger-wizard-spells-3",
+      "optionId": "section-bladesinger-wizard-spells-block-section-bladesinger-wizard-spells-3-item-3",
+      "context": "Прискорення [Haste] викликало жорстку дискусію про те, чи можна використати додаткову атаку від нього, щоб накласти замовляння",
+      "explanationBlockId": "block-section-bladesinger-wizard-spells-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-022",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-wizard-spells",
+      "targetBlockId": "block-section-bladesinger-wizard-spells-3",
+      "optionId": "section-bladesinger-wizard-spells-block-section-bladesinger-wizard-spells-3-item-4",
+      "context": "Хода Ашардалона [Ashardalon's Stride] — хороший спосіб додатково використати бонусний рух і зберегти вас у безпеці при цьому, але, знову ж, Концентрація.",
+      "explanationBlockId": "block-section-bladesinger-wizard-spells-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-023",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-wizard-spells",
+      "targetBlockId": "block-section-bladesinger-wizard-spells-3",
+      "optionId": "section-bladesinger-wizard-spells-block-section-bladesinger-wizard-spells-3-item-5",
+      "context": "Удар сталевого вітру [Steel Wind Strike] нарешті здається заклинанням, яким варто користуватися… але воно цілком анти-синергійне. Це не замовляння, тож його не можна використати в Атаці. Воно робить заклинальні атаки ближнього бою замість атак зброєю ближнього бою, тож не взаємодіє з «Піснею перемоги»",
+      "explanationBlockId": "block-section-bladesinger-wizard-spells-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-024",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-wizard-spells",
+      "targetBlockId": "block-section-bladesinger-wizard-spells-3",
+      "optionId": "section-bladesinger-wizard-spells-block-section-bladesinger-wizard-spells-3-item-6",
+      "context": "Більша невидимість [Greater Invisibility] — фантастичне особисте підсилення. Воно дає Перевагу на кубику на кидки атаки, не дозволяє іншим робити Принагідні атаки по вас і цілити вас більшістю заклинань та ефектів, а навіть якщо хтось здогадається, де ви, атака по вас усе одно матиме Перешкоду на кубику, яку буде дуже важко вдарити по вашому високому КБ.",
+      "explanationBlockId": "block-section-bladesinger-wizard-spells-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-bladesinging-2014-025",
+      "articleId": "rpgbot-wizard-bladesinging-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+      "sectionId": "section-bladesinger-wizard-spells",
+      "targetBlockId": "block-section-bladesinger-wizard-spells-3",
+      "optionId": "section-bladesinger-wizard-spells-block-section-bladesinger-wizard-spells-3-item-7",
+      "context": "Духовна плащаниця [Spirit Shroud] — це Тензерова трансформація [Tenser's Transformation] для бідних, але має й справді гарні переваги, як-от змушувати істот рухатися повільніше навколо вас і давати доступ до некротичної й променевої шкоди, якщо ці типи будуть корисні в певному бою, як-от проти зомбі. Правду кажучи, воно справді робить те, що вам найважливіше",
+      "explanationBlockId": "block-section-bladesinger-wizard-spells-3",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

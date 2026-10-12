@@ -1,0 +1,3023 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "97c7f688a25b63f1a79697c7518107dba9a59f340257b38d55ee7c34fb4614ed",
+  "sourceRevision": {
+    "revisionId": "rpgbot-c3a6e09382a9f98a-97c7f688a25b63f1",
+    "sourceId": "rpgbot-c3a6e09382a9f98a",
+    "fetchedAt": "2026-09-29T19:21:36.594973+00:00",
+    "sourceUpdatedAt": "2026-03-14T15:16:13-04:00",
+    "contentHash": "6a3a5c2c064394aa1f987b1d3d8c1f03fbb22b0fb4ef170e42b170c514d1c5ce",
+    "title": "DnD 5e Artificer Infusions Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-c3a6e09382a9f98a-97c7f688a25b63f1.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Artificer infusions create semi-permanent magic items, giving you a ton of powerful options. You get total of just 6 infused items by 20th level, but you’ll know 12 Infusions, which means you’ll have plenty of options to consider on any single day. Replicate Magic Item is the only one that can be selected more than once, so expect to skip some other infusion options to get Replicate Magic multiple times."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Several of the infusions apply to existing weapons or armor. Because you must infuse a non-magical item, you can’t stack infusions on the same item, and the effects won’t stack with spells like Magic Weapon or Elemental Weapon because those spells all affect target “nonmagic weapon” and make it a magic weapon. Each infusion which applies to an existing item also specifies that it makes the item magical. If you plan to rely on spells like Magic Weapon, be cautious about applying infusions to the same weapon."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Also, remember that you can only have each Infusion in effect once at a time, so you can’t just throw the Enhanced Defense infusion on everything your party is wearing and call it a day."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Artificer Infusions",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#infusions"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "2nd-Level Artificer Infusions",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#infusions-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "6th-Level Artificer Infusions",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#infusions-6"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "10th-Level Artificer Infusions",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#infusions-10"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "14th-Level Artificer Infusions",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#infusions-14"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Replicate Magic Item",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#replicate-magic-item"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Common Magic Items",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#replicate-magic-item-common"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "2nd-Level Replicatable Items",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#replicate-magic-item-2"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "6th-Level Replicatable Items",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#replicate-magic-item-6"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "10th-Level Replicatable Items",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#replicate-magic-item-10"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "14th-Level Replicatable Items",
+                "href": "https://rpgbot.net/dnd5/characters/classes/artificer/infusions/#replicate-magic-item-14"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-infusions",
+      "heading": "Artificer Infusions",
+      "sourceAnchor": "infusions",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-infusions-2",
+      "parentSectionId": "section-infusions",
+      "heading": "2nd-Level Artificer Infusions",
+      "sourceAnchor": "infusions-2",
+      "blocks": [
+        {
+          "blockId": "block-section-infusions-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Armor of Magical Strength"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Strength (Athletics) is a great way to knock enemies prone, but unless\n\t\tyou or an ally is going to Grapple them you won’t be able to keep them\n\t\tprone. If you take this, consider delaying until you get Extra Attack\n\t\t(provided that your subclass grants it). If you dumped Strength I wouldn’t\n\t\tbother with this. Your Intelligence bonus will help, but it’s not enough to\n\t\tmake your 8 Strength not a problem."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Enhanced Arcane Focus"
+              },
+              {
+                "type": "link",
+                "text": "ERLW / TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Bonuses to spell attacks are very hard to find, and when you can get them\n\t\tthey are absolutely fantastic. If you have a full caster in the party who\n\t\tcan use rods, staffs, or wands as focuses (sorcerer, etc.), it’s probably a\n\t\tgood idea to hand this to them, but I certainly don’t blame you for keeping\n\t\tit for yourself, especially if you’re an alchemist or artillerist.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The Battle Smith can benefit from this via their Steel Defender. Your\n\t\t\tdefender uses your spell attack modifier, so an Enhanced Arcane Focus will\n\t\t\timprove your defender’s attacks."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Enhanced Defense"
+              },
+              {
+                "type": "link",
+                "text": "ERLW / TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": +1 or +2 AC doesn’t sound like much, but in 5e’s bounded math it’s a\n\t\tsignificant buff at any level in 5e. This Infusion is one of the ways that\n\t\tthe Artificer achieves the insanely high AC for which they’re often\n\t\tknown."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Enhanced Weapon"
+              },
+              {
+                "type": "link",
+                "text": "ERLW / TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": +X weapons are excellent in a game where the maximum normal attack bonus\n\t\tis only +11, but you may get more use out of other options. If you just want\n\t\ta +1 weapon, you can always cast Magic Weapon for the same effect, though\n\t\twhen the bonus increases to +2 you may not want to spend the spell slots to\n\t\tkeep a +2 weapon running for an hour per casting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Homunculus Servant"
+              },
+              {
+                "type": "link",
+                "text": "ERLW / TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Homunculus Servant has seen a lot of changes, first from the Unearthed\n\t\tArcana version to the Eberron version, and then to the Tasha’s Cauldron of\n\t\tEverything version. After all of those design changes, I think WotC got it\n\t\tright this time.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The Homunculus Servant is, in many ways, similar to a familiar. It’s tiny\n\t\t\tand extremely frail, but can make an excellent assistant and can serve as\n\t\t\ta Scout. While it is intelligent and understands languages that you speak,\n\t\t\tit can’t communicate verbally and you can’t share its senses, so your\n\t\t\tfamiliar must resort to other means of communication like pantomime or\n\t\t\tpossibly writing, thought it only explicitly "
+              },
+              {
+                "type": "emphasis",
+                "text": "understands"
+              },
+              {
+                "type": "text",
+                "text": " languages. Like a familiar, your homunculus can deliver spells with\n\t\t\ta range of touch, allowing you to to more easily target allies with buffs\n\t\t\tand healing. I recommend avoiding using your homunculus to deliver\n\t\t\toffensive spells since its AC and hp are so poor."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The humunculus distinguishes itself from familiars in a few very\n\t\t\tmeaningful ways. First, where a familiar has just 1 hit point, your\n\t\t\thomunculus will have up to 26 hp depending on your level. Second, your\n\t\t\tfamiliar has a built-in ranged attack, allowing it to deal force damage.\n\t\t\tSince you command your homunculus as a Bonus Action (another difference\n\t\t\tfrom familiars), you’re effectively converting your Bonus Action into\n\t\t\tdamage. Your homunculus also doesn’t share a familiar’s action\n\t\t\tlimitations. They’re capable of performing any action which a normal\n\t\t\tcreature could take, allowing them to be more flexible and useful. They\n\t\t\tmay even be able to use items, including magic ones."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Also note that the 100gp initial cost may be too much to pay at low\n\t\t\tlevels, so you may need to return to Homunculus Servant later when you’ve\n\t\t\tcollected some more treasure."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mind Sharpener"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Many artificers will scoff at this, and lean toward Enhanced Armor\n\t\tinstead, but this is absolutely worth consideration. Artificers have a lot\n\t\tof really good buffs which require Concentration, and while they do get\n\t\tProficiency in Constitution saves that’s still a gamble. For artificers who\n\t\tdon’t need a ton of AC (maybe you’re relying on your more durable allies\n\t\tinstead), this can be good insurance. You could also share this with other\n\t\tspellcasters in your party who likely also have excellent Concentration\n\t\tspells and likely do not have proficiency with Constitution saves."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Repeating Shot"
+              },
+              {
+                "type": "link",
+                "text": "ERLW / TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This makes crossbows and firearms viable options for ranged builds that\n\t\tdon’t include Crossbow Expert. Once you get Extra Attack, crossbows and\n\t\tfirearms typically become undesireable due to the Loading property. Battle\n\t\tSmiths can use either a heavy crossbow or a rifle and still make two attacks\n\t\tonce they get Extra Attack at 5th level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Replicate Magic Item"
+              },
+              {
+                "type": "link",
+                "text": "ERLW / TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This is probably the best Infusion option at any level, but it’s not so\n\t\tgood that I recommend spending all of your Infusion slots on it. Because the\n\t\tlist of item options is so long I moved them to their own section. See\n\t\t“Replicate Magic Item”, below."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Returning Weapon"
+              },
+              {
+                "type": "link",
+                "text": "ERLW / TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Until you hit level 10 this is strictly better than Enhanced Weapon, but\n\t\teven once you hit level 10 it’s still really good. It only works on weapons\n\t\twith the thrown property like spears, unfortunately, so it’s best used on an\n\t\tally’s weapon or on your own dagger so you never need to switch between a\n\t\tcrossbow and melee weapon."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-infusions-6",
+      "parentSectionId": "section-infusions",
+      "heading": "6th-Level Artificer Infusions",
+      "sourceAnchor": "infusions-6",
+      "blocks": [
+        {
+          "blockId": "block-section-infusions-6-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Boots of the Winding Path"
+              },
+              {
+                "type": "link",
+                "text": "ERLW / TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Teleportation is great, but you can only use these to return to a space\n\t\twhich you previously occupied in the same turn. That’s fine for hit-and-run\n\t\ttactics, but that’s the only common case where you would use this. Melee\n\t\tartificers can combine this with Booming Blade to help keep enemies locked\n\t\tin place, which is tempting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Radiant Weapon"
+              },
+              {
+                "type": "link",
+                "text": "ERLW / TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A nice defensive mechanism and a small buff to a weapon. If whoever\n\t\tcarries this is using weapons constantly, they may prefer Advanced Weapon\n\t\tonce the bonus increases to +2, but from levels 6 through 11 this is\n\t\tstrictly better."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Repulsion Shield"
+              },
+              {
+                "type": "link",
+                "text": "ERLW / TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Interesting, but unreliable. 5e’s movement rules are really gentle, so\n\t\tyou may find yourself pushing an enemy away after their first attack only to\n\t\twatch them walk right back up to you and finish attacking. However, if\n\t\tyou’re already using Enhance Defense on your armor and you still want more\n\t\tAC you may enjoy Repulsion Shield. The Repulsion Shield can also break\n\t\tgrapples, which is nice since few artificers good at acrobatics or athletics."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resistant Armor"
+              },
+              {
+                "type": "link",
+                "text": "ERLW / TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This allows you to get resistance to psychic, necrotic, and radiant\n\t\tdamage. Resistances to these damage types are almost nonexistent. Throw this\n\t\ton a bear totem barbarian and they’re nearly unstoppable. However, since you\n\t\tcan’t put more than one Infusion on the same item, you’re likely choosing\n\t\tbetween this and Enhanced Defense for your own suit of armor. If you still\n\t\twant the AC bonus from Enhanced Defense, stick it on a shield. Remember that\n\t\tAbsorb Elements is on your spell list, so you can use it to reliably provide\n\t\tresistance to common damage types, though you’ll still need Resistant Armor\n\t\tfor less common ones like Psychic and Necrotic damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spell-Refueling Ring"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": More spell slots are always welcome. At a glance, this looks just like\n\t\tthe effects of a Pearl of Power, but the wording is different in a very\n\t\timportant way. You can’t use Spell-Refueling Ring to regain a spell slot\n\t\tabove 3rd level, and if you don’t have spells slots of 3rd level or lower,\n\t\tthis doesn’t do anything. This means that this item very specifically does\n\t\tnot allow warlocks to regain a spell slot if they’re above level 6."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-infusions-10",
+      "parentSectionId": "section-infusions",
+      "heading": "10th-Level Artificer Infusions",
+      "sourceAnchor": "infusions-10",
+      "blocks": [
+        {
+          "blockId": "block-section-infusions-10-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Helm of Awareness"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Bonuses to Initiative are hard to find. Advantage on Intitiative is even\n\t\tharder (unless you’re running Enhance Ability (Dexterity) all the time). Put\n\t\tthis on the whichever character in your party is best at area control spells\n\t\tso that they can get control of the battlefield before the fight gets going.\n\t\tAlternatively, if you have an assassin in the party they’ll be very happy to\n\t\thave this so that they can reliably use Assassinate."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-infusions-14",
+      "parentSectionId": "section-infusions",
+      "heading": "14th-Level Artificer Infusions",
+      "sourceAnchor": "infusions-14",
+      "blocks": [
+        {
+          "blockId": "block-section-infusions-14-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Arcane Propulsion Armor"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Basically Arcane Propulsion Arm (see below) but as full-body suit of\n\t\tarmor. The biggest added benefits are +5 ft. speed and that the armor can’t\n\t\tbe removed by force. You do get two gauntlets, but you can’t use the\n\t\ttwo-weapon fighting rules with them because you’re not “holding” the\n\t\tgauntlets.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "I’m not sure who this is for. The Armorer already gets similar benefits\n\t\t\tfrom Arcane Armor, and without the ability to use this with two-weapon\n\t\t\tfighting there’s basically no benefit ove ra propulsion arm unless the\n\t\t\twearer is missing several limbs."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-replicate-magic-item",
+      "parentSectionId": "section-infusions",
+      "heading": "Replicate Magic Item",
+      "sourceAnchor": "replicate-magic-item",
+      "blocks": [
+        {
+          "blockId": "block-section-replicate-magic-item-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The list of items which you can replicate via artificer infusions is versatile and grows as you gain levels, but keep in mind that when you take this Infusion your are "
+            },
+            {
+              "type": "emphasis",
+              "text": "permanently"
+            },
+            {
+              "type": "text",
+              "text": " locked into whichever magic item you choose unless you retrain your Infuse Item choice. You’re free to select Replicate Magic Item again and change the item, but you can only retrain one Infusion each time you gain a level, so that’s a very limited option."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-replicate-magic-item-common",
+      "parentSectionId": "section-replicate-magic-item",
+      "heading": "Common Magic Items",
+      "sourceAnchor": "replicate-magic-item-common",
+      "blocks": [
+        {
+          "blockId": "block-section-replicate-magic-item-common-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The vast majority of "
+            },
+            {
+              "type": "link",
+              "text": "Common Magic Items",
+              "href": "https://www.dndbeyond.com/sources/xgte/common-magic-items"
+            },
+            {
+              "type": "text",
+              "text": " are amusing novelties. I’ve chosen to list a handful of options below if they offer some real, meaningful reason why you might choose to use Replicate Magic Item to create one."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-replicate-magic-item-common-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cast-Off Armor"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The wealth by level curve in 5e makes it difficult to afford full plate armor before level 5 or 6. Infusing cast-off armor via Replicate Magic Item allows you to create a suit of full plate at no further cost. Of course, Enhance Armor on Slint armor will get the same AC, but you can only do that once. If you need more armor, this will get you a second suit of AC 18 armor."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Clockwork Amulet"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Guaranteeing a 10 on an attack roll is frequently enough to hit. I don’t\n\t\tknow if once per day is enough to justify the item, though."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hat of Vermin"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Grab the animal and toss it into room which you suspect might contain\n\t\ttraps."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Moon-Touched Sword"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Before you have easy access to permanent (or infused) magic weapons, this\n\t\toffers a way to handle enemies with resistance to damage from non-magical\n\t\tweapons. Unfortunately, it can only be a sword."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mystery Key"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Oh no, my magic key disappeared when it opened this lock. Oh well, I\n\t\tguess I’ll make a new one tomorrow."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Perfume of Bewitching"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Enhance Ability (Charisma) will do the same thing and more, but you get\n\t\taccess to this a level earlier and it doesn’t require Concentration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pot of Awakening"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": It’s hard for a busy adventurer to commit one of their limited infusions\n\t\tto an item which does nothing until 30 days pass. But if you have long\n\t\tperiods of downtime between adventures, you might amass a small collection\n\t\tof friendly shrubs. Keep in mind that they take no actions unless you\n\t\tcommand them, so be sure to command them to replant themselves after they\n\t\tbreak out of the pot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ruby of the War Mage"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A good item all around for other martial spellcasters, though\n\t\tgenerally unnecessary for the Artificer. For most martial spellcasters, this\n\t\treduces the need to juggle weapons and material components when casting\n\t\tspells. Unfortunately typical spellcasters still need a free hand to cast\n\t\tspells which have Somatic components but don’t require Material components,\n\t\tso they still need a free hand for Absorb Elements and Shield. The\n\t\tArtificer’s Tools Required feature adds a Material component to all of their\n\t\tspells, so having any Infused item (or qualifying tool) in hand allows you\n\t\tto perform Somatic components for all of your spells with that hand, even if\n\t\tthey don’t normally require a Material component."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spellwrought Tattoo"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Cantrips and 1st-level spell tattoos are Common items. The tattoo only\n\t\tworks once, similar to a potion or a spell scroll, but you can’t create\n\t\teither of those with Infusions.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This is great if you have non-spellcasters in the party. Give them things\n\t\t\tlike Healing Word in case your party’s other healers are all down, or\n\t\t\tbuffs which require Concentration since they weren’t concentrating on\n\t\t\tanything before. You can even cast spells like Find Familiar with the\n\t\t\ttattoo, allowing your party to collect an entire parliament of owls\n\t\t\t(that’s what a group of owls it called, I checked). You don’t even need to\n\t\t\tspend the 10gp material component cost!"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Avoid most offensive spells since the attacks and save DC are fixed and\n\t\t\tdon’t scale as you gain levels and face tougher opponents, but you can\n\t\t\tmake spells like Booming Blade and Green-Flame Blade work because they\n\t\t\trely on a weapon attack by the caster instead of a spell attack."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The rules are silent on what spells can go into the tattoo. Your DM might\n\t\t\timpose a requirement that you can only create spellwrought tattoos for\n\t\t\tspells which you know how to cast, which seems like a perfectly reasonable\n\t\t\trestriction on what is otherwise a serious abuse case."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Unbreakable Arrow"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Allows you to bypass resistance to weapon damage from nonmagical weapons.\n\t\tTragically, infusing this only gets you one arrow, but at least you can\n\t\trecover it and use it again in the next encounter."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Walloping Ammunition"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Allows you to bypass resistance to weapon damage from nonmagical weapons,\n\t\tand has the added benefit of possibly knocking the target prone. Tragically,\n\t\tinfusing this only gets you one arrow."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-replicate-magic-item-2",
+      "parentSectionId": "section-replicate-magic-item",
+      "heading": "2nd-Level Replicatable Items",
+      "sourceAnchor": "replicate-magic-item-2",
+      "blocks": [
+        {
+          "blockId": "block-section-replicate-magic-item-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Alchemy jug"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": One of my absolute favorite items because it can do so many things and\n\t\tsolve so many problems in surprising ways. Between the beer, honey,\n\t\tmayonnaise, fresh water, and wine you may be able to sustain a creature or\n\t\ttwo without food for extended periods (though I can’t imagine enjoying the\n\t\texperience). The daily acid is enough to fully fill two vials, getting you\n\t\ttwo 25 gp items daily if you can provide the 1 gp vial (How does 4 ounces of\n\t\tliquid in a glass container result in a 1-pound vial of acid? I have no\n\t\tidea!). Even silly things like producing 5 total gallons of alcohol and\n\t\tusing them to get NPCs drunk can let you get away with all sorts of stuff.\n\t\tNeed to clean a crime scene? Vinegar. Need to drass a salad? Oil\n\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "and"
+              },
+              {
+                "type": "text",
+                "text": " vinegar. Tragically, you do need 8 days worth of poison to fill\n\t\ta vial, so don’t expect that to be a reliable contributor to your daily\n\t\toptions. Also, expect to invest in a huge number of containers and somewhere\n\t\tto put them (like a Bag of Holding) so that you can stockpile the daily\n\t\toutput of the Alchemy Jug for later emergencies."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Armblade"
+              },
+              {
+                "type": "link",
+                "text": "ERLW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This was removed by errata. It’s fine, it was a bad choice anyway."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bag of Holding"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you can’t find a clever way to make use of a Bag of Holding, you’re\n\t\tnot trying hard enough. The fact that you get to recreate this every day\n\t\tmakes it even better because the threat of the bag breaking is greatly\n\t\tdiminished, and if you intentionally turn your bag into a bomb it’s not a\n\t\tproblem because you’ll make a new one tomorrow.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Replicate Magic Item is the only Infusion which you can learn more than\n\t\t\tonce, and there’s no restriction on creating the sime item more than once.\n\t\t\tThis means that you can create multiple bags of holding and turn them into\n\t\t\tsingle-use bombs. It’s not totally clear if WotC intended for artificers\n\t\t\tto be able to replicate the same item multiple times, but it appears to\n\t\t\twork RAW."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cap of Water Breathing"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Situational by design, and Water Breathing is on your spell list so once\n\t\tyou get 3rd-level spells at level 9 this becomes obsolete. It’s also made\n\t\tobsolete by better items like the Cloak of the Manta Ray and Necklace of\n\t\tAdaptation. My point is: don’t get attached to the idea of wearing a magical\n\t\tfish bowl on your head, Mysterio."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Goggles of Night"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Useful, but hardly essential. Darkvision is on the Artificer’s spell\n\t\tlist, and has an 8-hour duration, easily allowing you to cover a long day of\n\t\tadventuring on one or two spell slots per target. Unfortunately you don’t\n\t\tget 2nd-level spells until 5th level, so there will be a brief period where\n\t\tthis is your only way to provide Darkvision beyond your own racial\n\t\ttraits."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Prosthetic Limb"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This was removed by from the 2nd-level items list by errata because\n\t\tProsthetic Limbs are now Common magic items and can therefore be created as\n\t\tInfusions using Replicate Magic Item."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rope of Climbing"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A fine low-level option for addressing problems commonly solved by\n\t\tflight. If you take this, expect to replace it as you gain levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sending Stones"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Long-range communication like this can be extremely helpful if you have\n\t\tsomeone worth talking to like a benefactor or a well-informed friendly\n\t\tNPC."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wand of Magic Detection"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Detect Magic is on your spell list and you can cast it as a Ritual."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wand of Secrets"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Situational, and your party can replace it by having proficiencies in\n\t\tInvestigation and Perception which any adventuring party needs anyway."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-replicate-magic-item-6",
+      "parentSectionId": "section-replicate-magic-item",
+      "heading": "6th-Level Replicatable Items",
+      "sourceAnchor": "replicate-magic-item-6",
+      "blocks": [
+        {
+          "blockId": "block-section-replicate-magic-item-6-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Boots of Elvenkind"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Given the choice between this and the Cloak of Elvenkind, the cloak is\n\t\tbetter. These are still good, but the cloak is still better."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cloak of Elvenkind"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Not only do other creatures suffer Disadvantage to see you, but you gain\n\t\tAdvantage on checks to hide. Just the raw math on that puts the wearer at a\n\t\thuge advantage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cloak of the Manta Ray"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Situational by design, and unless you’re doing enough exploring\n\t\tunderwater to need this frequently it’s going to become obsolete as soon as\n\t\tyou hit level 9 and you can cast Water Breathing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Eyes of Charming"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The DC is just 13, which is in no way reliable."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gloves of Thievery"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": +5 is a significant bonus, and picking locks is common in many campaigns.\n\t\tYou get proficiency with Thieve’s Tools, so you’re likely to use these\n\t\tyourself rather than handing them off to a rogue."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Lantern of Revealing"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": You can cast See Invisibility, but that only affects yourself and oncey\n\t\tyou detect invisible creatures you may still need your party’s help dealing\n\t\twith them. The Lantern of Revealing provides a reliable way to do this with\n\t\tan impressively long duration. Just be sure to keep plenty of oil on hand.\n\t\tEven an Alchemy Jug can only produce enough to keep the lantern lit for 12\n\t\thours a day, so either stockpile out when you’re not adventuring or spend\n\t\tthe gold to buy some."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pipes of Haunting"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A decent crowd control option, but you need proficiency in wind\n\t\tinstruments so expect to pass this off to a bard."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Water Walking"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Too situational, and you’ll be able to cast Water Walk at level 9."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wand Sheath"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This was removed by from the 2nd-level items list by errata because Wand\n\t\tSheaths are now Common magic items and can therefore be created as Infusions\n\t\tusing Replicate Magic Item."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-replicate-magic-item-10",
+      "parentSectionId": "section-replicate-magic-item",
+      "heading": "10th-Level Replicatable Items",
+      "sourceAnchor": "replicate-magic-item-10",
+      "blocks": [
+        {
+          "blockId": "block-section-replicate-magic-item-10-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Boots of Striding and Springing"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Useful for too few characters, especially when Winged Boots are available\n\t\tat the same time."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boots of the Winterlands"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Resistance to cold damage is the primary draw."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bracers of Archery"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you have an archer in the party they’ll appreciate the extra damage,\n\t\tbut you can do much better with your limited Infusion slots."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Brooch of Shielding"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Resistance to force damage is almost nonexistent, but force damage is\n\t\talso incredibly rare."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cloak of Protection"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": +1 to AC "
+              },
+              {
+                "type": "emphasis",
+                "text": "and"
+              },
+              {
+                "type": "text",
+                "text": " saving throws. This is so unversally useful that\n\t\tpeople in your party may actually argue over who gets to wear it. In a\n\t\tcampaign where it’s possible, it’s absolutely worth the effort to buy or\n\t\tcraft one of these for everyone in the party."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Eyes of the Eagle"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Advantage on sight-based Perception checks covers most Perception\n\t\tchecks."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gauntlets of Ogre Power"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": You’ve been hobbling along with 8 Strength since first level and done\n\t\tjust fine. Raising it to 19 is only helpful if you need to be able to carry\n\t\tmore things that don’t fit into your bag of holding. By this level\n\t\tStrength-based melee characters will have 18 or 20 Strength, so even they\n\t\twon’t benefit from this.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Beast Master Rangers might eye this item for their companion, but most\n\t\t\tanimals don’t have the correct anatomy to wear gauntlets and your DM may\n\t\t\tbe unwilling to let you put these on a gorilla."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gloves of Missile Snaring"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Too situational. A +1 to AC will be more meaningful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gloves of Swimming and Climbing"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Cloak of the Manta Ray grants you a swim speed, and Winged Boots make\n\t\tclimbing obsolete."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hat of Disguise"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Disguise Self is a 1st-level spell. If you want to be able to disguise\n\t\tyourself constantly, play a Changeling or a Warock. If you’re still set on\n\t\thaving an Infusion to disguise yourself or an ally with, the Masequerade\n\t\tTattoo is a Common Magic Item."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Headband of Intellect"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": All the same issues as Gauntlets of Ogre Power, but now it’s\n\t\tIntelligence. You probably hit 20 at 8th level, so this is worthless to you,\n\t\tbut if you have an arcane trickster or eldritch knight in the party, this\n\t\tcould help them a great deal. They need to increase their Strength/Dexterity\n\t\tbefore they can start raising their Intelligence, and a better Intelligence\n\t\tscore can dramatically improve their spellcasting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Helm of Telepathy"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Constantly read creatures’ surface thoughts and communicate telepathically without a language barrier. It may be helpful to pass this to your party’s Face so that they can do the telepathic talking. Ignore anything behind the save DC on this thing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Medallion of Thoughts"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Helm of Telepathy can cast Detect Thoughts at the same DC with no\n\t\tlimitation on charges."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Necklace of Adaptation"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Situational, but it’s an upgrade from Cap of Water breathing. If you’re\n\t\texpecting to go underwater, Cloak of the Manta Ray’s swim speed makes it a\n\t\tbetter item. I would only take this over Cloak of the Manta Ray if you’re\n\t\ttaking this as a “just in case” sort of item, but at that point just cast\n\t\tWater Breathing. This does admittedly help with saves against gas effects,\n\t\tbut those are very rare."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Periapt of Wound Closure"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Put this on the person in your party with the biggest hit dice.\n\t\tBarbarians, fighters, etc. are all on the front lines taking most of the\n\t\tdamage, which means that they’re the most likely to fall unconscious and the\n\t\tmost likely to bleed out in the middle of a fight. This will both save them\n\t\tfrom an untimely fate and stretch the effects of their natural healing."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Pipes of the Sewers"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Summon up to 3 CR 1/2 swarms that you can’t directly control, and be less\n\t\tscared of creatures that are below CR 1 when you’re already 10th level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Quiver of Ehlonna"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": 5e’s item management rules are too generous to make this useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Jumping"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Winged Boots make jumping obsolete."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Mind Shielding"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Too situational. Add resistance to Psychic Damage and I would be excited,\n\t\tbut the effects listed are simply too rare to spend an Infusion on."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Slippers of Spider Climbing"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Not necessarily bad, but Winged Boots make them obsolete."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ventilating Lungs"
+              },
+              {
+                "type": "link",
+                "text": "ERLW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Too situational. WotC removed most of the items like this one in errata\n\t\tfor the Artificer. I’m not sure why this one was left in."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Winged Boots"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Four hours of flight is plenty when it’s broken up in 1-minute\n\t\tincrements. In previous editions you got something like 10 minutes per da\n\t\tyand that was typically enough. These boots are so good that they make\n\t\tseveral other infusion obtions at this level and at 14th level obsolete."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-replicate-magic-item-14",
+      "parentSectionId": "section-replicate-magic-item",
+      "heading": "14th-Level Replicatable Items",
+      "sourceAnchor": "replicate-magic-item-14",
+      "blocks": [
+        {
+          "blockId": "block-section-replicate-magic-item-14-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Amulet of Health"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Even if you raised your Constitution at level 12, you probably only have\n\t\t16 or 17, so this is still great. If you don’t need it for yourself, someone\n\t\telse in your party almost certainly does."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Arcane Propulsion Arm"
+              },
+              {
+                "type": "link",
+                "text": "ERLW",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The arm does as much damage as a longsword, and making it force damage is\n\t\tvery appealing. The Thrown property also makes it an easy ranged weapon,\n\t\tallowing a Strength-based character to fight effectiveley both in melee and\n\t\tat range. You can probably even use it with Booming Blade and Green-Flame\n\t\tBlade for the same reasons that the Armorer Artificer can use those spells\n\t\twith Thunder Gauntlets.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While the damage type and the Thrown property are major advantages, the\n\t\t\tarm is going to deal less damage and hit less frequently than a weapon\n\t\t\twith Enhanced Weapon due the simple mathematical effectiveness of a +1 or\n\t\t\t+2 bonus to attacks and damage. Given the trades between the two options,\n\t\t\tI think they’re roughly equivalent."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Belt of Hill Giant Strength"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": All the same problems as Gauntlets of Ogre Power, but with a slightly\n\t\thigher Strength score."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boots of Levitation"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Winged Boots have been around for four levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Boots of Speed"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A good replacement for Boots of the Winding Path if you like hit-and-run\n\t\ttactics, and since you can turn the effect off it’s easy to stretch the\n\t\t10-minute duration over a long adventuring day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bracers of Defense"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you have a monk or barbarian in the party these are great, otherwise\n\t\tskip them. A spellcaster relying on Mage Armor might want them, but their AC\n\t\tis already so bad that they should really be looking for other defensive\n\t\toptions."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cloak of the Bat"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Possibly better for Stealth than the Cloak of Elvenkind (definitely less\n\t\tconfusing), and the ability to fly and turn into a bat in dim light or\n\t\tdarkness is great for scouting and for getting around at night."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dimensional Shackles"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Situational by design. Don’t rush to learn this, and if you do learn it\n\t\tdon’t expect to use it every day. Instead, keep it around and use it on a\n\t\tday where you intent to capture a creature."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Gem of Seeing"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": True Seeing is a 6th-level spell that’s not on your spell list, and this\n\t\teffectively lets you cast it three times per day."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Horn of Blasting"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": 20% chance to deal 10d6 damage to yourself with no save. Unless you’re\n\t\tresistant to fire I wouldn’t risk it."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Free Action"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Technically situational, but being paralyzed or restrained is often a\n\t\tdeath sentence so immunity to magic which imposes those conditions is very\n\t\thelpful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of Protection"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": This appears to stack with a Cloak of Protection, and if that’s the case\n\t\tI don’t know how you could pass up an opportunity to have an AC that\n\t\tabsurdly high and saves that absurdly good."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Ring of the Ram"
+              },
+              {
+                "type": "link",
+                "text": "DMG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The damage isn’t especially exciting at this level (though force damage\n\t\tis always nice), and the attack bonus is worse than your own."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Armor of Magical Strength"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Enhanced Arcane Focus"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Enhanced Defense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Enhanced Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Homunculus Servant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mind Sharpener"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Repeating Shot"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Replicate Magic Item"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Returning Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Boots of the Winding Path"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Radiant Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Repulsion Shield"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Resistant Armor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Spell-Refueling Ring"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Helm of Awareness"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Arcane Propulsion Armor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Cast-Off Armor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Clockwork Amulet"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Hat of Vermin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Moon-Touched Sword"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Mystery Key"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Perfume of Bewitching"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Pot of Awakening"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Ruby of the War Mage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Spellwrought Tattoo"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Unbreakable Arrow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Walloping Ammunition"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Alchemy jug"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Armblade"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bag of Holding"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Cap of Water Breathing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Goggles of Night"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Prosthetic Limb"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Rope of Climbing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sending Stones"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Wand of Magic Detection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Wand of Secrets"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Boots of Elvenkind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cloak of Elvenkind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Cloak of the Manta Ray"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Eyes of Charming"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Gloves of Thievery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Lantern of Revealing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Pipes of Haunting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Ring of Water Walking"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Wand Sheath"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Boots of Striding and Springing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Boots of the Winterlands"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bracers of Archery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Brooch of Shielding"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cloak of Protection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Eyes of the Eagle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Gauntlets of Ogre Power"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Gloves of Missile Snaring"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Gloves of Swimming and Climbing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Hat of Disguise"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Headband of Intellect"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Helm of Telepathy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Medallion of Thoughts"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Necklace of Adaptation"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Periapt of Wound Closure"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Pipes of the Sewers"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Quiver of Ehlonna"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Ring of Jumping"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Ring of Mind Shielding"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Slippers of Spider Climbing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Ventilating Lungs"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Winged Boots"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Amulet of Health"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Arcane Propulsion Arm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Belt of Hill Giant Strength"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Boots of Levitation"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Boots of Speed"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bracers of Defense"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cloak of the Bat"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Dimensional Shackles"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Gem of Seeing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Horn of Blasting"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Ring of Free Action"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ring of Protection"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Ring of the Ram"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-infusions-2-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[5]",
+      "detail": "<li><span class=\"rating-green\">Homunculus Servant</span><sup><a href=\"/dnd5/abbreviations/\">ERLW / TCoE</a></sup>: Homunculus Servant has seen a lot of changes, first from the Unea"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-infusions-6-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-infusions-10-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-infusions-14-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-replicate-magic-item-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-replicate-magic-item-common-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-replicate-magic-item-common-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ul/li[9]",
+      "detail": "<li><span class=\"rating-none\">Spellwrought Tattoo</span><sup><a href=\"/dnd5/abbreviations/\">TCoE</a></sup>: Cantrips and 1st-level spell tattoos are Common items. The tattoo only w"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-replicate-magic-item-2-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-replicate-magic-item-6-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-replicate-magic-item-10-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[10]",
+      "detail": "block-section-replicate-magic-item-14-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    }
+  ],
+  "metrics": {
+    "words": 4823,
+    "sections": 14,
+    "blocks": 19,
+    "tables": 0,
+    "ratingSignals": 85
+  },
+  "status": "needs-editorial-review"
+}

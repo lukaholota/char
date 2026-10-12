@@ -1,0 +1,215 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "rogue-inquisitive-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-rogue-inquisitive-2014-draft1",
+    "sourceRevisionId": "rpgbot-83c96affabb5bcd8-2e4b08dcd68f10b4"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "ROGUE_2014",
+  "subclassKey": "INQUISITIVE",
+  "raceKey": "VEDALKEN_GGTR",
+  "backgroundKey": "NOBLE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 12,
+    "WIS": 14,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "INQUISITIVE"
+    },
+    {
+      "level": 4,
+      "featKey": "PIERCER",
+      "featOptions": [
+        {
+          "optionNameEng": "PIERCER Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "expertise": [
+        "INVESTIGATION",
+        "STEALTH"
+      ]
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "featKey": "OBSERVANT",
+      "featOptions": [
+        {
+          "optionNameEng": "OBSERVANT Ability (Wisdom)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "ALERT",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "featKey": "RESILIENT",
+      "featOptions": [
+        {
+          "optionNameEng": "Resilient (Constitution)"
+        }
+      ],
+      "openAdvancement": true,
+      "section": "section-feats-2"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (CON)"
+        }
+      ],
+      "openAdvancement": true,
+      "section": "section-feats-2"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Експертиза в інструментах злодія (6-й рівень)",
+      "reason": "На 6-му рівні автор бере Експертизу в Розслідуванні та в інструментах злодія; експертиза в інструментах не підтримана моделлю листа, тож пресет бере Розслідування й Непомітність (вибір платформи, автор не називає навичку); можна змінити на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Інструмент Ведалкена",
+      "reason": "Автор каже обрати «інший інструмент» для Ведалкена; пресет не записує вибір інструментів раси.",
+      "section": "section-race"
+    },
+    {
+      "field": "Аналіз Поведінки від раси",
+      "reason": "У розділі про навички автор пише, що Аналіз Поведінки дає раса, але в розділі про расу бере Розслідування, а Ведалкен не може обрати Аналіз Поведінки; пресет бере Розслідування від раси, а Аналіз Поведінки — від Пройдисвіта.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Риси 16-го та 19-го рівнів («будь-яка»)",
+      "reason": "Автор пише «Риса: будь-яка» і лише радить Стійкого та Експерта у навичках; пресет бере Стійкого (Статура) на 16-му й Експерта у навичках (Статура) на 19-му (вибір платформи, автор не називає); гравець може змінити перед створенням.",
+      "section": "section-feats-2"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/rogue-inquisitive-2014.webp",
+    "title": "Пройдисвіт — Дізнавач, Ведалкен",
+    "description": "Ведалкен-Аристократ із Спритністю 17 і Мудрістю 15: Експертиза в Аналізі Поведінки й Уважності, дальня зброя для «Стійкого прицілювання». Дізнавач відкриється на 3-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "PERCEPTION",
+        "SLEIGHT_OF_HAND",
+        "STEALTH"
+      ],
+      "race": [
+        "INVESTIGATION"
+      ],
+      "background": []
+    },
+    "expertise": [
+      "INSIGHT",
+      "PERCEPTION"
+    ],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Ведалкен із власним походженням за правилами Таші: +2 до Спритності й +1 до Мудрості, як у авторській таблиці (Спритність 17, Мудрість 15); це вже враховано.",
+    "skillExplanation": "Аналіз Поведінки, Уважність, Спритність рук і Непомітність — від Пройдисвіта, Розслідування — від Ведалкена (автор обирає його в розділі про расу), Експертиза в Аналізі Поведінки й Уважності — за автором. Передісторію Аристократа автор лише радить як компроміс («нічого конкретного від передісторії не потрібно»), тож це вибір платформи, як і дві мови.",
+    "equipmentExplanation": "Автор радить дальню зброю, але нічого конкретного не називає. Рапіру, короткий лук, набір грабіжника та броню з інструментами злодія ми обрали за вас — це вибір платформи, його можна змінити."
+  }
+}

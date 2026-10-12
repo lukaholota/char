@@ -1,0 +1,1479 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-7baf3134528c3a86",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-7baf3134528c3a86-56bf05765b93ae50",
+      "sourceId": "rpgbot-7baf3134528c3a86",
+      "fetchedAt": "2026-09-29T19:15:57.662395+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:39:59-04:00",
+      "contentHash": "941f7bc44325c9ff201d9287e8007113a4760cf587fe574abac4ad888d4d33ff",
+      "title": "Ritual Caster 5e: DnD 5e Feat Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-7baf3134528c3a86-56bf05765b93ae50.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-ritual-caster-2014",
+    "sourceId": "rpgbot-7baf3134528c3a86",
+    "slug": "ritual-caster-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Ритуальний заклинатель — гайд рис (2014)",
+    "titleEn": "Ritual Caster 5e: DnD 5e Feat Guide",
+    "topics": [
+      "feats"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-ritual-caster-2014-draft1",
+      "articleId": "rpgbot-ritual-caster-2014",
+      "sourceRevisionId": "rpgbot-7baf3134528c3a86-56bf05765b93ae50",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Ритуальний заклинатель",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чарівник славиться як один із найкращих ритуальних заклинателів у грі: він може накладати будь-яке ритуальне заклинання зі своєї книги заклинань. Але риса {{Ритуальний заклинатель|Ritual Caster}} робить цю перевагу доступною майже кожному й дозволяє обирати між кількома списками заклинань. Який список узяти й чому? Чи варта риса своєї ціни?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чому ритуали важливі?",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#why-do-we-care-about-rituals"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Хто вже може накладати ритуали?",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#who-can-already-cast-rituals"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Доступні ритуальні заклинання",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#available-ritual-spells"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риса Ритуальний заклинатель",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#the-ritual-caster-feat"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Кому підійде Ритуальний заклинатель",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#good-candidates-for-ritual-caster"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Підсумки",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/#conclusion"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-why-do-we-care-about-rituals",
+          "heading": "Чому ритуали важливі?",
+          "sourceAnchor": "why-do-we-care-about-rituals",
+          "blocks": [
+            {
+              "blockId": "block-section-why-do-we-care-about-rituals-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ритуальні заклинання накладають без витрачання слота, що робить їх чудовими допоміжними варіантами поза боєм. Вони охоплюють більшу частину діапазону рівнів і включають такі корисні заклинання, як Тривога [Alarm] та Леомундова крихітна хатинка [Leomund’s Tiny Hut]. Доступ до них дозволяє групі розвʼязати багато проблем із малими витратами ресурсів, тож ритуальний заклинатель у групі дає багато користі за невелику ціну."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-who-can-already-cast-rituals",
+          "heading": "Хто вже може накладати ритуали?",
+          "sourceAnchor": "who-can-already-cast-rituals",
+          "blocks": [
+            {
+              "blockId": "block-section-who-can-already-cast-rituals-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Винахідник: подібний до Чарівника, але через повільніший розвиток чаротворення отримує нові ритуальні заклинання пізніше, ніж повні чаротворці чи персонажі з рисою Ритуальний заклинатель.\n\nРедакційна примітка: на відміну від Чарівника, Винахідник має підготувати заклинання, щоб накладати його ритуалом."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик / Друїд: завдяки доступу до повного класового списку вам доступний будь-який ритуал із нього, "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "якщо ви його підготували"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Якщо потрібного ритуалу немає серед підготовлених заклинань, доведеться підготувати його наступного дня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чорнокнижники з {{Книгою давніх секретів|Book of Ancient Secrets}}: цей варіант вимагає певних рішень у збірці — угоди та інвокації — але дає найкращу доступну версію ритуального чаклунства. Ви збираєте заклинання, як Винахідник чи Чарівник, проте не обмежені класовим списком: вам відкритий увесь світ ритуальних заклинань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чарівник: найвідоміший ритуальний заклинатель може накладати будь-яке ритуальне заклинання, записане в його книзі. Багато найкращих ритуалів гри доступні йому будь-якої миті без необхідності готувати ці заклинання."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-available-ritual-spells",
+          "heading": "Доступні ритуальні заклинання",
+          "sourceAnchor": "available-ritual-spells",
+          "blocks": [
+            {
+              "blockId": "block-section-available-ritual-spells-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Таблиця нижче показує ритуали зі списків чаротворчих класів, які можна обрати для риси Ритуальний заклинатель. Додаткові заклинання підкласів, а також списки Паладина й Слідопита тут не враховані.\n\nРедакційна примітка: таблиця відтворює списки джерела, а не обіцяє повне покриття всіх необовʼязкових розширень класових списків. У рядку Мʼякого спокою виправлено очевидну друкарську помилку джерела «Gentle Response» на «Gentle Repose»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-available-ritual-spells-2",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бард"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Друїд"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чаклун"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чорнокнижник"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чарівник"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тривога [Alarm]"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тварина-посланець [Animal Messenger]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пророкування [Augury]"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тваринне чуття [Beast Sense]"
+                    }
+                  ],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Церемонія [Ceremony]"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звернення [Commune]"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звернення до природи [Commune with Nature]"
+                    }
+                  ],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розуміння мов [Comprehend Languages]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звʼязок з іншим планом [Contact Other Plane]"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Виявлення магії [Detect Magic]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Виявлення отрут і хвороб [Detect Poison and Disease]"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Віщування [Divination]"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Миттєві виклики Дроуміджа [Drawmij’s Instant Summons]"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Удавана смерть [Feign Death]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пошук фамільяра [Find Familiar]"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заборона [Forbiddance]"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нетлінні рештки [Gentle Repose]"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розпізнавання [Identify]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ілюзорний напис [Illusory Script]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Леомундова крихітна хатинка [Leomund’s Tiny Hut]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пошук тварин або рослин [Locate Animals or Plants]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магічні вуста [Magic Mouth]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Злиття з каменем [Meld into Stone]"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Фантомний скакун [Phantom Steed]"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Очищення їжі та напоїв [Purify Food and Drink]"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Телепатичний звʼязок Рері [Rary’s Telepathic Bond]"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тиша [Silence]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Небесні письмена [Skywrite]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розмова з тваринами [Speak with Animals]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Літаючий диск Тензера [Tenser’s Floating Disk]"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невидимий служник [Unseen Servant]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дихання водою [Water Breathing]"
+                    }
+                  ],
+                  [],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ходіння по воді [Water Walk]"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "X"
+                    }
+                  ],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наручна кишеня [Wristpocket] (доступне лише підкласам)"
+                    }
+                  ],
+                  [],
+                  [],
+                  [],
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "strong",
+                      "text": "Усього заклинань"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "22"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-the-ritual-caster-feat",
+          "heading": "Риса Ритуальний заклинатель",
+          "sourceAnchor": "the-ritual-caster-feat",
+          "blocks": [
+            {
+              "blockId": "block-section-the-ritual-caster-feat-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сама риса досить проста. Вибір, прихований серед її переваг, — значно складніший."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-ritual-caster-feat-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ритуальний заклинатель дає книгу ритуалів і можливість записувати в неї заклинання. Ви можете використовувати ритуали рівня, доступного повному чаротворцю вашого рівня, тож не плануйте обходити обмеження надзвичайно високорівневими ритуалами. Користь риси — отримати ритуальне чаклунство, якщо його ще немає, або доступ до іншого набору ритуалів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-ritual-caster-feat-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беручи рису, ви обираєте чаротворчий клас для своїх ритуалів і надалі привʼязані до цього рішення. Автор радить обирати клас, що відповідає вашим характеристикам і має потрібні заклинання, та стверджує, що для нього потрібна чаротворча характеристика 13.\n\nРедакційна примітка: останнє твердження джерела помилкове. Вимога риси — Інтелект або Мудрість 13 незалежно від обраного класу. Харизма 13 сама по собі не дає права взяти рису, а для списків Барда, Чаклуна й Чорнокнижника не потрібно мати Харизму 13. Обраний клас визначає характеристику для накладання заклинань, але не передумову риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-the-ritual-caster-feat-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Бард: за твердженням автора, єдиний прийнятний варіант, якщо лише Харизма відповідає вимозі. Дивне поєднання ритуалів Друїда й Чарівника. Деякі хороші, але, на мою думку, не варті риси.\n\nРедакційна примітка: згадка про передумову Харизми помилкова; діє вимога Інтелекту або Мудрості 13, пояснена вище."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клірик: унікальний доступ до чудових ритуалів Віщування, як-от Пророкування [Augury] та Віщування [Divination], а також цікавих Церемонія [Ceremony] і Заборона [Forbiddance]. Якщо маєте ритуали Клірика й Чарівника, у вас є всі ритуали, які варто мати.\n\nРедакційна примітка: це оцінка автора за списками таблиці. Необовʼязкові розширення списків можуть змінювати ексклюзивність окремих заклинань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Друїд: приблизно половина його ритуалів перетинається зі списком Клірика, а решта повʼязана з взаємодією зі звірами. Вона стає значно менш важливою, коли звірі переважно випадають із відповідного діапазону Рівня Небезпеки близько 4-го рівня та зовсім зникають до 10-го."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чаклун: лише 4 ритуали, і всі, крім Ходіння по воді [Water Walk], є у Чарівника. Автор радить Барда, якщо потрібні ритуали, а лише Харизма перевищує 13.\n\nРедакційна примітка: самої Харизми недостатньо для передумови риси; потрібен Інтелект або Мудрість 13."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чорнокнижник: лише 4 ритуали, і всі є у Чарівника. Автор радить Барда, якщо потрібні ритуали, а лише Харизма перевищує 13.\n\nРедакційна примітка: самої Харизми недостатньо для передумови риси; потрібен Інтелект або Мудрість 13."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чарівник: більше ритуалів, ніж у будь-кого, і до того ж найкращі. За винятком кількох ритуалів, які автор вважає доступними лише Клірику, можна обрати Чарівника й більше не перейматися ритуальним чаклунством."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-good-candidates-for-ritual-caster",
+          "heading": "Кому підійде Ритуальний заклинатель",
+          "sourceAnchor": "good-candidates-for-ritual-caster",
+          "blocks": [
+            {
+              "blockId": "block-section-good-candidates-for-ritual-caster-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ритуальний заклинатель нечасто зʼявляється в наших прикладах збірок, проте це чудове доповнення для багатьох класів і підкласів, які вже відповідають передумові риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-good-candidates-for-ritual-caster-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Містичний спритник|Arcane Trickster}} Пройдисвіта: вам і так потрібен певний Інтелект для заклинань, а ритуали Чарівника розширять і без того величезний набір можливостей."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "{{Потойбічний лицар|Eldritch Knight}} Воїна",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/eldritch-knight/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": вам і так потрібен певний Інтелект для заклинань, а Ритуальний заклинатель додає дуже потрібну допоміжну користь класу, зосередженому майже цілком на бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Монах: ритуали Клірика додають допоміжні можливості, але не розвʼязують жодної фундаментальної проблеми Монаха, тож рису важко вмістити у збірку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Паладин: ритуали Барда пристойні, але можуть не виправдати рису для класу, що залежить від кількох характеристик та й так насилу знаходить місце для рис."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Слідопит: ритуали Клірика, а не Друїда, додають багато користі. Друїд тематично доречніший, проте ритуали Клірика загалом впливовіші."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-conclusion",
+          "heading": "Підсумки",
+          "sourceAnchor": "conclusion",
+          "blocks": [
+            {
+              "blockId": "block-section-conclusion-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не скажу, що Чарівники найкращі — тобто скажу, але не тут. Утім, для Ритуального заклинателя переможець досить очевидний: Клірик посідає близьке друге місце, а решта варіантів далеко позаду. Якщо вашій групі бракує ритуального чаклунства, ця риса — чудовий спосіб його отримати. Розуміння того, що вже доступне групі та які можливості можна додати, суттєво полегшує отримання користі від риси."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-ritual-caster-2014-001",
+      "articleId": "rpgbot-ritual-caster-2014",
+      "translationRevisionId": "translation-rpgbot-ritual-caster-2014-draft1",
+      "sectionId": "section-available-ritual-spells",
+      "targetBlockId": "block-section-available-ritual-spells-2",
+      "optionId": "section-available-ritual-spells-block-section-available-ritual-spells-2-header-1",
+      "context": "Бард",
+      "explanationBlockId": "block-section-available-ritual-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ritual-caster-2014-002",
+      "articleId": "rpgbot-ritual-caster-2014",
+      "translationRevisionId": "translation-rpgbot-ritual-caster-2014-draft1",
+      "sectionId": "section-available-ritual-spells",
+      "targetBlockId": "block-section-available-ritual-spells-2",
+      "optionId": "section-available-ritual-spells-block-section-available-ritual-spells-2-header-2",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-available-ritual-spells-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ritual-caster-2014-003",
+      "articleId": "rpgbot-ritual-caster-2014",
+      "translationRevisionId": "translation-rpgbot-ritual-caster-2014-draft1",
+      "sectionId": "section-available-ritual-spells",
+      "targetBlockId": "block-section-available-ritual-spells-2",
+      "optionId": "section-available-ritual-spells-block-section-available-ritual-spells-2-header-3",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-available-ritual-spells-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ritual-caster-2014-004",
+      "articleId": "rpgbot-ritual-caster-2014",
+      "translationRevisionId": "translation-rpgbot-ritual-caster-2014-draft1",
+      "sectionId": "section-available-ritual-spells",
+      "targetBlockId": "block-section-available-ritual-spells-2",
+      "optionId": "section-available-ritual-spells-block-section-available-ritual-spells-2-header-4",
+      "context": "Чаклун",
+      "explanationBlockId": "block-section-available-ritual-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ritual-caster-2014-005",
+      "articleId": "rpgbot-ritual-caster-2014",
+      "translationRevisionId": "translation-rpgbot-ritual-caster-2014-draft1",
+      "sectionId": "section-available-ritual-spells",
+      "targetBlockId": "block-section-available-ritual-spells-2",
+      "optionId": "section-available-ritual-spells-block-section-available-ritual-spells-2-header-5",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-available-ritual-spells-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ritual-caster-2014-006",
+      "articleId": "rpgbot-ritual-caster-2014",
+      "translationRevisionId": "translation-rpgbot-ritual-caster-2014-draft1",
+      "sectionId": "section-available-ritual-spells",
+      "targetBlockId": "block-section-available-ritual-spells-2",
+      "optionId": "section-available-ritual-spells-block-section-available-ritual-spells-2-header-6",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-available-ritual-spells-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

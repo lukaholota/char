@@ -1,0 +1,1082 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/sorcerer/metamagic/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "b3de2cb04ee4c5bbcda2bf2c5c3b0134f0197865d090706765d674866bd022b2",
+  "sourceRevision": {
+    "revisionId": "rpgbot-66a84b67e1d86f51-b3de2cb04ee4c5bb",
+    "sourceId": "rpgbot-66a84b67e1d86f51",
+    "fetchedAt": "2026-09-29T19:14:30.480083+00:00",
+    "sourceUpdatedAt": "2026-03-14T14:53:42-04:00",
+    "contentHash": "503546b6ad00997838ad7ca7e07d27ffa9530e5393168d54ad567baa08253c1d",
+    "title": "DnD 5e Sorcerer Metamagic Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-66a84b67e1d86f51-b3de2cb04ee4c5bb.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Metamagic is the Sorcerer’s signature mechanic, allowing you to twist and adapt your spells to suit the needs of the moment. It is perhaps the best example of the Sorcerer’s philosophy on spellcasting: a few good tools, adapted as necessary to suit any situation."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But, while metamagic can be very powerful, it can also be complicated and costly. Metamagic is the primary way that sorcerers spend their Sorcery Points, and budgeting that finite resource to get the most impact is an important part of mastering the Sorcerer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/metamagic/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/metamagic/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Metamagic Options",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/metamagic/#metamagic-options"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Metamagic Adept",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/metamagic/#metamagic-adept"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-metamagic-options",
+      "heading": "Metamagic Options",
+      "sourceAnchor": "metamagic-options",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-careful-spell",
+      "parentSectionId": "section-metamagic-options",
+      "heading": "Careful Spell",
+      "sourceAnchor": "careful-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-careful-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Usually you can avoid hitting your allies by positioning your spells carefully, but sometimes you need to drop a fireball or some other big AOE like "
+            },
+            {
+              "type": "emphasis",
+              "text": "Fear"
+            },
+            {
+              "type": "text",
+              "text": " and you don’t have a way to avoid hitting your allies."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-careful-spell-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While Careful spell is certainly tempting, you can usually solve the same problem simply by casting a different spell. Plenty of spells target only enemies, or you could cast a buff or an area control spell. Situations where Fireball or a similar spell is the only option are extremely rare."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-distant-spell",
+      "parentSectionId": "section-metamagic-options",
+      "heading": "Distant Spell",
+      "sourceAnchor": "distant-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-distant-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spells generally have enough range to get the job done in situations where they make sense to use. There are some spells like Invisibility which have a range of Touch that could really benefit, but such spells aren’t numerous enough to make this not “situational” since in a lot of cases you can solve that problem by walking."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-distant-spell-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It would be nice if you could use this with cones, but cones have range of “Self” and an area of effect, so they don’t qualify. It does notably apply to spells like Thunderclap and Word of Radiance, but situations where you want to spend a Sorcery Point on a Cantrip are exceptionally rare."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-empowered-spell",
+      "parentSectionId": "section-metamagic-options",
+      "heading": "Empowered Spell",
+      "sourceAnchor": "empowered-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-empowered-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you reroll 1’s you might get a few extra points of damage. The effectiveness grows as you add more dice because you’re more likely to roll 1’s as you add additional dice. You don’t want to use this on every spell that you cast, but if you’re hitting several targets with an AOE spell the 1-point cost will definitely pay off."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-empowered-spell-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As an example: If you have 20 Charisma and roll a massive pile of d6’s and 5 of those dice come up as 1’s, you can reroll them for an average damage of 12.5 (5 x 3.5 – 5) additional damage. You can reroll any of the dice which you originally rolled, but rerolling 1’s has the most impact so it gives us a good sense of the maximum amount of damage which you can expect. The additional damage will be higher for spells which use bigger damage dice: 17.5 for d8’s, 22.5 for d10’s and 27.5 for d12’s. The math definitely makes this worth the tiny cost of 1 Sorcery Point if you’re hitting several targets with an AOE, but I usually don’t recommend using this for single-target spells because you don’t get as much for your Sorcery Point."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-empowered-spell-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In order to maximize the benefits of Empowered Spell, always reroll the lowest dice in your original roll. Even then, you don’t necessarily want to reroll the 3 to 5 lowest dice (depending on your spellcasting ability modifier), since some of those dice might be close to or above average for that die."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-extended-spell",
+      "parentSectionId": "section-metamagic-options",
+      "heading": "Extended Spell",
+      "sourceAnchor": "extended-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-extended-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Many fantastic buffs have short durations, and extending them can save you the trouble of casting the same spell twice. However, the nature of spell durations in 5e means that not every spell will justify increasing its duration. Spells with 1-minute durations can be extended but they’ll still only last one fight unless you sprint to the next encounter."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-extended-spell-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Spells with 10-minute durations can likely be stretched into 2 encounters normally, maybe 3 if extended and if you know where to find another fight. Spells with durations of one or more hours could be extended to be last entire adventuring days, especially if you don’t need to stop for a Short Rest. You don’t need to extend every spell, and you’ll need to learn to pick and choose."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-heightened-spell",
+      "parentSectionId": "section-metamagic-options",
+      "heading": "Heightened Spell",
+      "sourceAnchor": "heightened-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-heightened-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Use this on almost every save-or-suck spell you cast. Compared to the cost of casting another spell on the following turn to incapacitate the same target, 3 Sorcery Points is negligible. Note that some save-or-suck spells like Hold Person allow repeated saves so the effect is considerably diminished since Heightened Spell only applies to one target’s initial save."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-quickened-spell",
+      "parentSectionId": "section-metamagic-options",
+      "heading": "Quickened Spell",
+      "sourceAnchor": "quickened-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-quickened-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cast a 1-Action spell and a Cantrip in one turn. This is one of very few options which allows you to “break” the action economy, and it’s absolutely worth the cost. However, the temptation to use it constantly can be problematic, as it can eat your Sorcery Points very quickly. Use this sparingly; ideally at the beginning of a fight where your spells will have the most impact."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-seeking-spell",
+      "parentSectionId": "section-metamagic-options",
+      "heading": "Seeking Spell (Optional)",
+      "sourceAnchor": "seeking-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-seeking-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sorcerers get some unique spell options like Chromatic Orb and Chaos Bolt which rely on attack rolls, and spending a spell slot only to miss with a leveled spell feels awful. The low cost of two Sorcery Points to reroll the attack is a small cost compared to the actions and spell slots to cast a leveled spell a second time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-subtle-spell",
+      "parentSectionId": "section-metamagic-options",
+      "heading": "Subtle Spell",
+      "sourceAnchor": "subtle-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-subtle-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Situational. In most cases (especially in combat) you generally won’t care if someone hears and/or sees you casting a spell, but the number of situations where this is useful is weirdly large. In social situations where casting a spell might be considered rude or might cause problems, Subtle Spell can solve a lot of problems. Many spells like Charm Person don’t have an obvious visual component, so using Subtle Spell with those spells makes them essentially undetectable."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-subtle-spell-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because Subtle Spell also removes both Verbal and Somatic components of spells, it may be difficult or impossible for enemy spellcasters to counter you spell simply because they don’t know that it’s happening. Spells without an obvious visual component (a fireball, a bolt of lightning, etc.) and without components provided by the spellcaster are essentially undetectable short of something like Detect Magic. However, enemies who can cast Counterspell are generally very rare."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-subtle-spell-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Removing the need to provide Verbal and Somatic components also allows you to cast spells in some situations which would normally prevent you from doing so, such as while in an are of magical Silence or while Restrained."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-transmuted-spell",
+      "parentSectionId": "section-metamagic-options",
+      "heading": "Transmuted Spell (Optional)",
+      "sourceAnchor": "transmuted-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-transmuted-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sorcerers get very few spells known, so the ability to change the damage type on favorites like Fireball allows you to rely on favorite spells even when damage resistances and immunities are a problem. This also makes it easier to enjoy Elemental Adept, but try to avoid paying the Sorcery Point cost every time you cast a spell or you’ll find yourself out of resources early in the day. If you can’t fit this into your build, there’s always Chromatic Orb."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-twinned-spell",
+      "parentSectionId": "section-metamagic-options",
+      "heading": "Twinned Spell",
+      "sourceAnchor": "twinned-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-twinned-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A lot of fantastic spells like Haste and Polymorph target single creatures and require Concentration. This allows you to affect two creatures at the same time. However, the Sorcery Point cost scales with spell level, making Twinned Spell the most expensive metamagic option."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-twinned-spell-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You can also use this offensively, which at low levels can be very efficient. Twinning spells like Chromatic Orb is a cost-efficient way to quickly deal damage to multiple targets at a minor cost of both resources and actions."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-twinned-spell-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Just remember that Twinned Spell only works when the spell is only capable of targeting one creature, so you can’t twin AOE spells, spells with secondary targets (Green-Flame Blade, Chaos Bolt, Hex, Hunter’s Mark), spells with effects that other creatures walk through (Wall of Fire), or spells that don’t target creatures at all (Goodberry, Stone Shape, Minor Illusion). Booming Blade looks like it qualifies to be twinned, but according to Jeremy Crawford on the official "
+            },
+            {
+              "type": "link",
+              "text": "Dragon Talk Podcast",
+              "href": "https://dnd.wizards.com/articles/features/dragontalk_jeremy-crawford"
+            },
+            {
+              "type": "text",
+              "text": ", the updated version published in Tasha’s Cauldron of Everything can’t be twinned with Twin Spell."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-metamagic-adept",
+      "heading": "Metamagic Adept",
+      "sourceAnchor": "metamagic-adept",
+      "blocks": [
+        {
+          "blockId": "block-section-metamagic-adept-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Metamagic Adept feat, introduced in Tasha’s Cauldron of Everything, offers easy access to metamagic and small pool of Sorcery Points for non-sorcerers. However, non-sorcerers taking the feat lack the Font of Magic feature which allows you to convert back and forth between Sorcery Points and spell slots. This means that you have a much stricter limitation on which metamagic options work for non-sorcerers who take the feat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-metamagic-adept-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For sorcerers taking Metamagic Adept, it’s just more of the same things that you love about the Sorcerer. For everyone else, the section below includes advice on how to make best use of metamagic via the Metamagic Adept feat without the Sorcerer’s other features. Remember that you get to choose two forms of metamagic, but you only get two Sorcery Points, so you may want to pick two forms of metamagic which each cost 1 point unless you’re happy choosing between each of your two options and only using one of them in a single day."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-metamagic-adept-careful-spell",
+      "parentSectionId": "section-metamagic-adept",
+      "heading": "Careful Spell",
+      "sourceAnchor": "metamagic-adept-careful-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-metamagic-adept-careful-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A tempting option for blaster casters, but extremely situational. Careful Spell is already only situationally useful for the Sorcerer because you can simply cast a different spell, and most spellcasters know or can prepare considerably more spells than the Sorcerer so you have even more options to choose from which won’t harm your allies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-metamagic-adept-distant-spell",
+      "parentSectionId": "section-metamagic-adept",
+      "heading": "Distant Spell",
+      "sourceAnchor": "metamagic-adept-distant-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-metamagic-adept-distant-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Very situational. Most of the time range issues can be solved by moving closer."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-metamagic-adept-empowered-spell",
+      "parentSectionId": "section-metamagic-adept",
+      "heading": "Empowered Spell",
+      "sourceAnchor": "metamagic-adept-empowered-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-metamagic-adept-empowered-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Only helpful for sorcerers and for blaster Warlocks since this is explicitly dependent on your Charisma modifier rather than your spellcasting ability modifier. You can use this twice per day."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-metamagic-adept-extended-spell",
+      "parentSectionId": "section-metamagic-adept",
+      "heading": "Extended Spell",
+      "sourceAnchor": "metamagic-adept-extended-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-metamagic-adept-extended-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Excellent if you have specific spells in mind which you want to use this with. Remember that it will only work for you twice per day, so you generally want to have some go-to spells in mind."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-metamagic-adept-extended-spell-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Good examples include spells with incredibly long durations like Aid, Darkvision, Hex, Mage Armor, and Foresight. If the durations are long enough, you can cast the extended spells before your take a Long Rest and the spells will continue to function both while you rest and throughout much or all of the next day, allowing you to enjoy their benefits without spending a spell slot on the day that you use them."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-metamagic-adept-extended-spell-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Be cautious when extending spells with Concentration. The longer you run the spell, the more likely you are to have your Concentration broken and lose both the spell slot and the points you spent to extend it. If you’re looking at extending 1st-level spells, consider if a spellcasting feat like Magic Initiate may be a better choice so that you can just cast the spell an extra time per day."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-metamagic-adept-heightened-spell",
+      "parentSectionId": "section-metamagic-adept",
+      "heading": "Heightened Spell",
+      "sourceAnchor": "metamagic-adept-heightened-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-metamagic-adept-heightened-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Costs more sorcery points than you have."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-metamagic-adept-quickened-spell",
+      "parentSectionId": "section-metamagic-adept",
+      "heading": "Quickened Spell",
+      "sourceAnchor": "metamagic-adept-quickened-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-metamagic-adept-quickened-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For dedicated spellcasters, this effectively means that you can cast a 1-Action spell and a 1-Action cantrip in the same turn once per day. If you’re also built to fight with weapons, you can cast a leveled spell and take the Attack action instead. That can be a very powerful combo with the right spell, but I don’t know if one combo once per day is worth an entire feat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-metamagic-adept-seeking-spell",
+      "parentSectionId": "section-metamagic-adept",
+      "heading": "Seeking Spell (Optional)",
+      "sourceAnchor": "metamagic-adept-seeking-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-metamagic-adept-seeking-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Not nearly effective enough to be your only metamagic, especially since you’ll only get to use it once per day due to the point cost."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-metamagic-adept-subtle-spell",
+      "parentSectionId": "section-metamagic-adept",
+      "heading": "Subtle Spell",
+      "sourceAnchor": "metamagic-adept-subtle-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-metamagic-adept-subtle-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Situational, but it can get you through some situations which might entirely prevent you from casting spells (I go into detail in the main Metamagic Options section, above)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-metamagic-adept-transmuted-spell",
+      "parentSectionId": "section-metamagic-adept",
+      "heading": "Transmuted Spell (Optional)",
+      "sourceAnchor": "metamagic-adept-transmuted-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-metamagic-adept-transmuted-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Many spellcasting classes depend too heavily on one type of damage (like druids with fire damage), so the ability to change your damage type twice per day can be very helpful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-metamagic-adept-twinned-spell",
+      "parentSectionId": "section-metamagic-adept",
+      "heading": "Twinned Spell",
+      "sourceAnchor": "metamagic-adept-twinned-spell",
+      "blocks": [
+        {
+          "blockId": "block-section-metamagic-adept-twinned-spell-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Because the Sorcery Point cost scales, you can use this either once or twice per day. There are plenty of great low-level single-target spells to twin like Heroism. RAW I think you can twin spells like Hex and Hunter’s Mark, but RAI they don’t want you to since they have the ability to target multiple creatures over time. Dicuss it with your DM."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#careful-spell",
+      "detail": "rating-orange Careful Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#distant-spell",
+      "detail": "rating-orange Distant Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#empowered-spell",
+      "detail": "rating-green Empowered Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#extended-spell",
+      "detail": "rating-orange Extended Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#heightened-spell",
+      "detail": "rating-blue Heightened Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#quickened-spell",
+      "detail": "rating-blue Quickened Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#seeking-spell",
+      "detail": "rating-green Seeking Spell (Optional)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#subtle-spell",
+      "detail": "rating-orange Subtle Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#transmuted-spell",
+      "detail": "rating-green Transmuted Spell (Optional)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#twinned-spell",
+      "detail": "rating-blue Twinned Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#metamagic-adept-careful-spell",
+      "detail": "rating-red Careful Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#metamagic-adept-distant-spell",
+      "detail": "rating-red Distant Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#metamagic-adept-empowered-spell",
+      "detail": "rating-orange Empowered Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#metamagic-adept-extended-spell",
+      "detail": "rating-green Extended Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#metamagic-adept-heightened-spell",
+      "detail": "rating-red Heightened Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#metamagic-adept-quickened-spell",
+      "detail": "rating-orange Quickened Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#metamagic-adept-seeking-spell",
+      "detail": "rating-red Seeking Spell (Optional)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#metamagic-adept-subtle-spell",
+      "detail": "rating-orange Subtle Spell"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#metamagic-adept-transmuted-spell",
+      "detail": "rating-green Transmuted Spell (Optional)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#metamagic-adept-twinned-spell",
+      "detail": "rating-green Twinned Spell"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-careful-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-careful-spell-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-distant-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-distant-spell-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-empowered-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-empowered-spell-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-empowered-spell-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-extended-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-extended-spell-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-heightened-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-quickened-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-seeking-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-subtle-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-subtle-spell-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-subtle-spell-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-transmuted-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-twinned-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-twinned-spell-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-twinned-spell-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-metamagic-adept-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-metamagic-adept-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-metamagic-adept-careful-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-metamagic-adept-distant-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-metamagic-adept-empowered-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-metamagic-adept-extended-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-metamagic-adept-extended-spell-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-metamagic-adept-extended-spell-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-metamagic-adept-heightened-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-metamagic-adept-quickened-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-metamagic-adept-seeking-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-metamagic-adept-subtle-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-metamagic-adept-transmuted-spell-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-metamagic-adept-twinned-spell-1"
+    }
+  ],
+  "metrics": {
+    "words": 2188,
+    "sections": 25,
+    "blocks": 40,
+    "tables": 0,
+    "ratingSignals": 24
+  },
+  "status": "needs-editorial-review"
+}

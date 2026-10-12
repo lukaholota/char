@@ -670,10 +670,10 @@ export const seedRaces = async (prisma: PrismaClient) => {
             traits: {
                 create: [
                     { feature: { connect: { engName: 'Darkvision' } } },
-                    { feature: { connect: { engName: 'Fey Ancestry' } } },
+                    { feature: { connect: { engName: 'Fey Ancestry (MPMM)' } } },
                     { feature: { connect: { engName: 'Fey Step' } } },
                     { feature: { connect: { engName: 'Keen Senses' } } },
-                    { feature: { connect: { engName: 'Trance' } } }
+                    { feature: { connect: { engName: 'Trance (Eladrin Race)' } } }
                 ]
             }
         },
@@ -1062,7 +1062,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
                 create: [
                     { feature: { connect: { engName: 'Darkvision' } } },
                     { feature: { connect: { engName: 'Fey Ancestry' } } },
-                    { feature: { connect: { engName: 'Trance' } } },
+                    { feature: { connect: { engName: 'Trance (Sea Elf Race)' } } },
                     { feature: { connect: { engName: 'Child of the Sea (Sea Elf Race)' } } },
                     { feature: { connect: { engName: 'Keen Senses' } } },
                     { feature: { connect: { engName: 'Friend of the Sea (Sea Elf Race)' } } },
@@ -1083,8 +1083,8 @@ export const seedRaces = async (prisma: PrismaClient) => {
             traits: {
                 create: [
                     { feature: { connect: { engName: 'Darkvision' } } },
-                    { feature: { connect: { engName: 'Fey Ancestry' } } },
-                    { feature: { connect: { engName: 'Trance' } } },
+                    { feature: { connect: { engName: 'Fey Ancestry (MPMM)' } } },
+                    { feature: { connect: { engName: 'Trance (Shadar-kai Race)' } } },
                     { feature: { connect: { engName: 'Keen Senses' } } },
                     { feature: { connect: { engName: 'Blessing of the Raven Queen (Shadar-kai Race)' } } },
                     { feature: { connect: { engName: 'Necrotic Resistance (Shadar-kai Race)' } } }
@@ -1152,7 +1152,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
             traits: {
                 create: [
                     { feature: { connect: { engName: 'Shell Armor' } } },
-                    { feature: { connect: { engName: 'Hold Breath' } } },
+                    { feature: { connect: { engName: 'Hold Breath (Tortle)' } } },
                     { feature: { connect: { engName: 'Claws' } } },
                     { feature: { connect: { engName: 'Shell Defense' } } }
                 ]
@@ -1257,7 +1257,7 @@ export const seedRaces = async (prisma: PrismaClient) => {
             weaponProficiencies: {
                 type: [WeaponType.FIREARMS]
             },
-            skillProficiencies: [Skills.ATHLETICS],
+            skillProficiencies: Prisma.DbNull,
             ASI: MPMMBaseASI,
             traits: {
                 create: [

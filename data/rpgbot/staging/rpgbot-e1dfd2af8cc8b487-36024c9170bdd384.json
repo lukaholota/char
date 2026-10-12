@@ -1,0 +1,2281 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "36024c9170bdd384cb4648be03cc6ef89404aa433f9369332eb931911992484d",
+  "sourceRevision": {
+    "revisionId": "rpgbot-e1dfd2af8cc8b487-36024c9170bdd384",
+    "sourceId": "rpgbot-e1dfd2af8cc8b487",
+    "fetchedAt": "2026-09-29T19:23:55.364698+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:35:33-04:00",
+    "contentHash": "155faa4820e9ad1b7cd38dba1780661e6ce3fb5688a506b0a949991223ac0888",
+    "title": "Champion Fighter 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-e1dfd2af8cc8b487-36024c9170bdd384.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Champion is just about the most standard fighter you can imagine. It has no buttons to press, barely one decision point to make, and is generally so easy to pick up that it’s the default subclass used in the base "
+            },
+            {
+              "type": "link",
+              "text": "Fighter Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/"
+            },
+            {
+              "type": "text",
+              "text": ". Its defining feature is the ability to score critical hits more often than most characters by widening the range of die rolls that trigger one. By itself, this is just a DPR boost. Of course, if we’re looking at something by itself, that’s not really optimizing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Xanathar’s Guide to Everything came out five and a half years ago and introduced one of the most overpowered feats in the game: "
+            },
+            {
+              "type": "link",
+              "text": "Elven Accuracy",
+              "href": "https://rpgbot.net/oops-all-elves/"
+            },
+            {
+              "type": "text",
+              "text": ". These two things seem like they would interact in such a tasty fashion that many people have looked into how to combine them but have had to resort to multiclassing to accomplish it because WotC has been surprisingly robust in thinking of all the things people could do to make that easy a pairing work and shutting most of them down."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Most, but not all. Stick around and read about the terrible build I created while satisfying all the constraints of our subclass handbooks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article is for the 2014 rules. For the 2024 rules, see our "
+            },
+            {
+              "type": "link",
+              "text": "2024 DnD Champion Fighter Subclass Guide",
+              "href": "https://rpgbot.net/2024-dnd/classes/fighter/fighter-subclasses/champion/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Champion Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Champion Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#champion-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Champion Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#champion-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Champion Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#champion-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Champion Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#champion-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Champion Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#champion-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Conclusion",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#conclusion"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Lord Forestwalk",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#example-build-lord-forestwalk"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/champion/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Champion Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Improved Critical"
+              },
+              {
+                "type": "text",
+                "text": ": Critical hits are a\n\t\tbig deal in 5e, and this doubles your chance of getting one. Remember that\n\t\tcriticals only multiply damage dice, so to maximize this you want to use a\n\t\tbig weapon for the biggest damage die/dice possible and look for magic items\n\t\tthat add additional damage dice like flametongue swords. Improved Critical also synergizes well with the\n\t\tHalf-Orc’s Savage Attacks, so half-orc champions are a popular build for new\n\t\tplayers."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Remarkable Athlete"
+              },
+              {
+                "type": "text",
+                "text": ": Half proficiency in\n\t\tAcrobatics, Athletics, Sleight of Hand, Stealth, Initiative rolls, and\n\t\tseveral other possible ability checks. It’s not as good as Jack of All\n\t\tTrades, but it’s enough that you can forgo some of those skills and put your\n\t\tproficiencies into something which will make you useful outside of\n\t\tcombat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Additional Fighting Style"
+              },
+              {
+                "type": "text",
+                "text": ": For many\n\t\tbuilds the only option which works alongside your first choice is Defense,\n\t\tand this became much less interesting when the Fighting Initiate feat was\n\t\tintroduced."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Superior Critical"
+              },
+              {
+                "type": "text",
+                "text": ": This is a huge\n\t\tcritical range, especially with as many attacks as a Fighter can make. If\n\t\tyou combine this with the Grapple+Shove combo to keep enemies prone, you’ll\n\t\tscore critical hits 27.7% of the time thanks to Advantage and your high\n\t\tcritical hit rate. Make sure that you pick up a feat which provides an extra\n\t\tbenefit on critical hits."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Survivor"
+              },
+              {
+                "type": "text",
+                "text": ": Constant healing makes Second\n\t\tWind largely obsolete, and can keep you in a fight almost indefinitely."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-champion-ability-scores",
+      "heading": "Champion Ability Scores",
+      "sourceAnchor": "champion-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-champion-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Likely your primary attack stat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-champion-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": You should be wearing heavy armor unless you’re choosing to use finesse/ranged weapons (like if you plan on using Elven Accuracy)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-champion-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": We like hitpoints."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-champion-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-champion-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": The most commonly targeted mental save. Give it whatever you have left over, and probably throw Resilient at it at some point since we have extra feats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-champion-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-champion-ability-scores-7",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-champion-races",
+      "heading": "Champion Races",
+      "sourceAnchor": "champion-races",
+      "blocks": [
+        {
+          "blockId": "block-section-champion-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Half Orc’s Savage Attacks is already called out in the subclass breakdown, and the Orcish Fury feat makes it even better. That’s definitely the way to go if you want something easy. Elves are exceedingly hard to use without multiclassing, but very good if you figure out the way to make it work with Elven Accuracy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-champion-feats",
+      "heading": "Champion Feats",
+      "sourceAnchor": "champion-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-champion-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While "
+            },
+            {
+              "type": "link",
+              "text": "Crusher, Piercer, and Slasher",
+              "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+            },
+            {
+              "type": "text",
+              "text": " have obvious synergy, don’t forget about Great Weapon Master’s ability to grant an extra attack on a critical hit as well. Other than that, the subclass breakdown page calls out adding complexity via things like Polearm Master and Sentinel. If the shenanigans I describe below don’t sound good, you can always pick up Grappler instead, raise Strength (and Dex if you’re still going for Elven Accuracy), and just hold someone and repeatedly stab them with a Rapier or a Greatsword (because only starting a grapple requires a free hand, "
+            },
+            {
+              "type": "link",
+              "text": "not maintaining one",
+              "href": "https://rpgbot.net/dnd5/characters/grapple/#:~:text=However%2C%20if%20you%20fight%20unarmed,to%20keep%20that%20hand%20free."
+            },
+            {
+              "type": "text",
+              "text": ")."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-champion-weapons",
+      "heading": "Champion Weapons",
+      "sourceAnchor": "champion-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-champion-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since you’re probably going to build around one of the feats I just mentioned, pick the best weapon for it as discussed in the article and/or the Fighter Handbook."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-champion-armor",
+      "heading": "Champion Armor",
+      "sourceAnchor": "champion-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-champion-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different than any other Fighter. If you’re Strength-based, walk out in scale, buy plate when you can. Otherwise, wear studded leather forever."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Champion is literally begging for a touch of something else if you want to combine it with Elven Accuracy because Strength-based attacks are the only ones which don’t qualify for the feat. The quickest solution is a level of Warlock for "
+            },
+            {
+              "type": "link",
+              "text": "Hexblade",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/"
+            },
+            {
+              "type": "text",
+              "text": ", because of course it is. Using Charisma to attack automatically makes Elven Accuracy much easier to trigger, plus the dip gives you Magic Stone natively and, if you take it to level 3, even gives you the familiar to start the goofy dance I’m about to describe which saves on a feat later and therefore stat budget."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Druid or Ranger with Druidic Warrior are also both good choices since they will also be able to walk out with Shillelagh and Magic Stone. This means you give up your bonus action at the start of each fight, but that’s not strictly a problem if you haven’t given yourself some other way to use it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you feel like picking up 3 levels in Rogue and have access to the optional feature Steady Aim, you can do that instead and turn your bonus action into advantage on one attack. Of course, at that point you can also just become an assassin and have the first turn be straight advantage anyway.If none of those are your speed, picking up 3 levels of Artificer for either "
+            },
+            {
+              "type": "link",
+              "text": "Battle Smith",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/"
+            },
+            {
+              "type": "text",
+              "text": " or "
+            },
+            {
+              "type": "link",
+              "text": "Armorer",
+              "href": "https://rpgbot.net/dnd5/characters/classes/artificer/armorer/"
+            },
+            {
+              "type": "text",
+              "text": " will let you use Intelligence to attack by default. Doing either of those is just going to make you feel like an Artificer more than an Champion though, so that’s very much another case of optimization vs. character identity."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-conclusion",
+      "heading": "Conclusion",
+      "sourceAnchor": "conclusion",
+      "blocks": [
+        {
+          "blockId": "block-section-conclusion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For only the second time on one of these builds, I have to insert some conversation before getting to the build. Dear reader, I sat and I thought for hours about ways to reliably trigger Elven Accuracy on any target without relying on outside assistance. I finally boiled it down to this convoluted summary:"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conclusion-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The foundation: The Help action requires you to be adjacent to your target to use it. It does not require you to "
+            },
+            {
+              "type": "emphasis",
+              "text": "stay "
+            },
+            {
+              "type": "text",
+              "text": "adjacent to your target until the advantage is used."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conclusion-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The setup: Archery fighting style so we can ignore stat progression for a minute. Elven Accuracy at Level 4, Ritual Caster at Level 6 to get Find Familiar, Crusher at Level 8, Artificer Initiate at Level 12 to finally get Magic Stone. Magic Stone doesn’t require concentration and has a minute-long duration, so you’re constantly juggling 30 magical rocks until you start a combat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conclusion-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The payoff: Familiar prepares Help when adjacent to an enemy. You walk next to said enemy, triggering help action. You then continue your movement and walk away, maintaining the advantage on the first attack against them (and removing the disadvantage from ranged attacking in melee). First one has a 27.7% chance to crit, triggering Crusher and making all other attacks this round against them have advantage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conclusion-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In this fashion, you end up (slightly more than a quarter of the time) making all of your attacks in a round with Elven Accuracy advantage against any target regardless of their size or any of their actions and without multiclassing. At last, the holy grail. Except I then put it through the DPR calculator and, at every level, it’s worse than the build in the base class handbook that takes no feats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conclusion-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "So, instead, I’m just going to give you something that relies on Strength and Dex and "
+            },
+            {
+              "type": "link",
+              "text": "holding things still so you can stab them repeatedly",
+              "href": "https://www.youtube.com/watch?v=E_lmtYPw6ro"
+            },
+            {
+              "type": "text",
+              "text": ". Because this relies on grappling, you should definitely read our "
+            },
+            {
+              "type": "link",
+              "text": "practical guide",
+              "href": "https://rpgbot.net/dnd5/characters/grapple/"
+            },
+            {
+              "type": "text",
+              "text": " on that. Notably, "
+            },
+            {
+              "type": "emphasis",
+              "text": "this only works against targets up to one size larger than you."
+            },
+            {
+              "type": "text",
+              "text": " You have been warned."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-conclusion-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you have easy access to advantage because your table uses the Flanking optional rule or you have a Wolf Barbarian friend, please do not follow this build. Grab Elven Accuracy, Piercer, and a rapier or longbow, and deal huge exploding crit damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-lord-forestwalk",
+      "heading": "Example Build – Lord Forestwalk",
+      "sourceAnchor": "example-build-lord-forestwalk",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-lord-forestwalk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "“… and then I target your land with Gaea’s Liege and declare combat.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-lord-forestwalk",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We need enough strength to power grappling, but we can leave it at 16 and fake the rest with Skill Expert to get double our proficiency bonus on Athletics."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-lord-forestwalk",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Any flavor of elf will do. Wizard cantrips are cool, and bonus action teleportation is cool, but we just need the ancestry. I’d probably choose Shadar-Kai for damage resistance and Darkvision."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-lord-forestwalk",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since we’re a lord that likes fighting, we represent that with the Knight background and then immediately drop the two skills it gives us for Stealth and Perception. We’ve got the Dex to back up Stealth, we’ll be wearing Studded Leather forever, and proficiency in Perception will eventually be better than capped Wisdom. We trade the gaming set proficiency for Thieves’ Tools since we’re setting ourselves up as a Scout."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-lord-forestwalk",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We take Acrobatics and Athletics from Fighter, adding that to the Perception, Stealth, and Thieves’ Tools from the background."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-lord-forestwalk",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 4 gets Elven Accuracy"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 6 gets us Piercer"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 8 gets us Skill Expert"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 12 gets us Grappler"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 14 gets us Gift of the Chromatic Dragon"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 16 gets us Gift of the Metallic Dragon"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 19 gets us Mage Slayer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-lord-forestwalk",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "strong",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              },
+              {
+                "type": "strong",
+                "text": " "
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dueling"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Being a Dex-based fighter means we’re completely identical in effectiveness with our rapier or longbow, so we hang back if we can, but we’re also not afraid to pull out the needle and board if things get in close."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For equipment, walk out with the leather and bow option, a greatsword and rapier, and a light crossbow. Sell the crossbow, greatsword, and leather armor and get studded leather and a shield."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Stab, stab again."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Critical"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re still no different than the base Fighter handbook."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elven Accuracy:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dex (17 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I can’t believe I’m writing this into an optimization guide, but we really need to figure out how to get Advantage, and the best way right now, especially because at this level you only have one attack per turn, is to try role playing really well so you get Inspiration. Every flourish and opportunity to sacrifice outside of combat should be taken so you can try to get that lovely check mark on your character sheet that says “I stab with 3d20s.”"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Whack, Whack. We’ve almost started being a real build."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Piercer:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dex (18 -> 19)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Originally I put Grappler here, but even if you land the grapple you still lose 2 DPR (over 17%) on the round you start it, and not many fights, especially at this level, are against one scary target. Take Piercer instead so that, when you "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "do "
+                },
+                {
+                  "type": "text",
+                  "text": "crit, you deal extra damage. Plus, the reroll alone is an extra point of damage by itself."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remarkable Athlete"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "While this is still a pretty mediocre ability (especially on this build where we’re already taking most of the skills it would apply to), it does do fun things like help you get out of Web and other spells that ask for checks on later turns if you fail the save. And the initiative bonus is nothing to sneeze at."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Skill Expert:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dex (19 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Expertise (Athletics)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Survival"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re still losing DPR if we grapple, even if we win on the first roll, but it’s still a core tactic and we want to be good at it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Since our Wisdom isn’t negative and we’re trying to be a Rogue, we should take a skill that might come in handy."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You get to pretend to be a "
+                },
+                {
+                  "type": "link",
+                  "text": "Legendary Creature.",
+                  "href": "https://rpgbot.net/dnd5/dungeonmasters/legendary-creatures/"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Blind Fighting"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It would really suck if something as mundane as your enemy being invisible meant that you couldn’t stab it with advantage. Let’s remove that possibility. Also, if your allies like spells like Darkness or Fog Cloud, that gets you easy Advantage because you can “see”, but your enemies can’t."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Just spend a level attacking three times per turn and we’ll finally get to the build being done."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Grappler"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Since this is the only time that we’ve ever suggested the Grappler feat, a quick reminder: The first bullet of the feat grants you Advantage on attack rolls against targets which you have grappled. Normally we advocate for the grapple+shove combo, but the intent of this build is to spend as many attacks as possible actually attacking, so spending one to Shove will cut into our DPR heavily."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "So, you walk up, start a grapple with a +11 Athletics modifier (which goes up to +13 at next level), then spend two attacks stabbing with Elven Accuracy. This is finally a DPR increase over just stabbing something three times, leaving us at 27, a solid 25% over target DPR for this level while also being a decent controller by holding things in place."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "It’s also, finally, higher DPR than the Dueling number in the base handbook. Important to remember, too, is that this is assuming we have to give up one attack every round to start a grapple. Of course, this is also assuming it succeeds. If we get to spend all three attacks wailing on something we’ve held the whole time, our actual DPR for the fight will be 35, halfway between target DPR and high DPR."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I’m going to call out here that we care about when we Action Surge more than most fighters. If you manage to get a grapple going, you should probably Action Surge immediately to get the most out of it. That’ll be an additional 40 DPR for the round, averaging out to an additional 13.5 for the whole fight, bringing us up nearly into high DPR territory for the fight, just because we managed a resource carefully. Of course, that also assumes something is both grappleable and will survive being stabbed five times, which is a pretty small overlap."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Indomitable (2 uses)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Rerollin’ rollin’ rollin’ rollin’ (come on)!"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Gift of the Chromatic Dragon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You know what’s really good on crit-fishing builds? Extra damage dice. This shoots our DPR up over 33 for one fight which, averaged out, means we’re at 29 DPR for the day. But also, big elemental attacks are more common and scary at this level, and we love having resistance to several of them. "
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Superior Critical"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This increases our averaged DPR to just shy of 32 on the first round of combat, and 36 on the fight we use Chromatic our rapier. That’s 33 for the day."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Gift of the Metallic Dragon"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "What if we could take Shield as a feat? Here you go. We’re also capable of standing someone up now if every other healer goes down in a fight."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge (2 uses)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Indomitable (3 uses)"
+                }
+              ],
+              [
+                {
+                  "type": "link",
+                  "text": "More",
+                  "href": "https://www.youtube.com/watch?v=uNy_MLr8mXA"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Survivor"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember how we just took Gift of the Metallic Dragon in case everyone else went down in a fight? This makes it incredibly more likely we’ll survive what might otherwise have been a TPK, and now we can put our real healer back on their feet so they can get everyone else back to consciousness."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mage Slayer"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "High level spellcasters are scary. But getting to stab something that Misty Steps out of your grapple feels pretty great. Especially when you give it disadvantage on its concentration save to deal with that big crit you just dealt. If they don’t try to get away first, you even have advantage against their spells, which will apply to the indomitable reroll too."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Extra Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We end our career at an averaged 46 DPR, comfortably 30% above target. "
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Champion Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Improved Critical"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Remarkable Athlete"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Additional Fighting Style"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Superior Critical"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Survivor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-champion-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-champion-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-champion-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-champion-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-champion-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-champion-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-champion-ability-scores-7"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-champion-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-champion-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-champion-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-champion-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-multiclassing-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-multiclassing-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-conclusion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-conclusion-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-conclusion-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-conclusion-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-conclusion-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-conclusion-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-conclusion-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-example-build-lord-forestwalk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-feats-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    }
+  ],
+  "metrics": {
+    "words": 2970,
+    "sections": 18,
+    "blocks": 46,
+    "tables": 3,
+    "ratingSignals": 16
+  },
+  "status": "needs-editorial-review"
+}

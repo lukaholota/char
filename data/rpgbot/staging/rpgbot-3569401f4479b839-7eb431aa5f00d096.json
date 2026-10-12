@@ -1,0 +1,3714 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "7eb431aa5f00d0966ea16230d4f24eeb97c890f9f527f8bfc7a6b9d5bd24a5e9",
+  "sourceRevision": {
+    "revisionId": "rpgbot-3569401f4479b839-7eb431aa5f00d096",
+    "sourceId": "rpgbot-3569401f4479b839",
+    "fetchedAt": "2026-09-29T19:11:29.382611+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:41:43-04:00",
+    "contentHash": "634a96a5c90bcdcfaa60da5914b9e796392c40203a15bb78947f447ec28ace11",
+    "title": "Swarmkeeper Ranger 5e: DnD Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-3569401f4479b839-7eb431aa5f00d096.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Swarmkeeper Ranger is designed to add a bit of control effects to a Ranger with a mixture of forced movement effects and area control spells. While it’s not going to do the most damage of any Ranger subclass, Swarmkeeper gives options for what to do each turn when attacking. This allows for some very tactical decision making in combat and if that appeals to you, read on."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If I may draw a comparison from an older edition, the features and expanded spells of Swarmkeeper remind me of the Seeker class from D&D 4E. With great effects like forced movement, difficult terrain, and the restrained condition, while the Swarmkeeper will never be as prolific a controller as a Wizard, an extra half-controller on the field is a great addition to any party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For our example build, I Got a Rock, we’re stretching the idea of a swarm of things to include space rocks. Like a meteor swarm. Because we’re using the magic stone cantrip to launch rocks at people in order to be a Wisdom-based Ranger, this allows us to keep our spell save DCs higher than most Rangers so we can take advantage of the great expanded spells from Swarmkeeper, including Web, the best 2nd-level spell in the game."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Swarmkeeper Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Swarmkeeper Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#swarmkeeper-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Swarmkeeper Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#swarmkeeper-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Swarmkeeper Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#swarmkeeper-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Swarmkeeper Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#swarmkeeper-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Swarmkeeper Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#swarmkeeper-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Swarmkeeper Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#swarmkeeper-multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Swarmkeeper Ranger Build – I Got a Rock",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#example-swarmkeeper-ranger-build-i-got-a-rock"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing Potential",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#multiclassing-potential"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/swarmkeeper/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Swarmkeeper Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Gathered Swarm"
+              },
+              {
+                "type": "text",
+                "text": ": Using this will add some\n\t\ttactical complexity to every one of your turns. Keep in mind that this only\n\t\tworks once per turn so it’s no replacement for something like Hunter’s\n\t\tMark/Favored Foe in terms of sheer damage output, and you’ll want to have a\n\t\tplan at the start of your turn before you start attacking. This will be more\n\t\treliable if you’re making multiple attacks, so consider two-weapon fighting\n\t\tuntil you get Extra Attack.  One more subtle note: The trigger is any attack, so it’s not restricted to weapon attacks and can include spell attacks.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "While each of the options below are rated as\n\t\t\t"
+              },
+              {
+                "type": "text",
+                "text": "orange"
+              },
+              {
+                "type": "text",
+                "text": " to indicate that they are only\n\t\t\tsituationally useful, their combined capabilities are excellent. It’s like\n\t\t\thaving a toolbox with three tools in it: any one tool can only do a couple\n\t\t\tthings, but between the three of them you can do a lot."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Damage"
+              },
+              {
+                "type": "text",
+                "text": ": Your go-to option in most\n\t\t\t\tcases, but also your option of last resort. Use the other options if\n\t\t\t\tthey’re going to have any significant impact. Otherwise, the 1d6 damage\n\t\t\t\tis a small but satisfying bonus. Unfortunately, since this is from a\n\t\t\t\tseparate source rather than “extra damage” added to your attack, the\n\t\t\t\tdamage isn’t multiplied on a critical hit. Creatures which resist piercing damage typically have resistance to piercing damage\n\t\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "from non-magical attacks"
+              },
+              {
+                "type": "text",
+                "text": ". This isn’t an attack, so those\n\t\t\t\tresistances don’t apply."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Move Target"
+              },
+              {
+                "type": "text",
+                "text": ": Moving enemies can\n\t\t\t\tforce them to break grapples with your allies, and can put them into bad\n\t\t\t\tplaces like ongoing area damage, open pits, etc."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Move Self"
+              },
+              {
+                "type": "text",
+                "text": ": This is the option you\n\t\t\t\tare least likely to use, but it’s still helpful. Moving yourself 5 feet\n\t\t\t\tcan get you out of melee reach, out of grapples, out of area effects,\n\t\t\t\tand generally out of trouble."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swarmkeeper Magic"
+              },
+              {
+                "type": "text",
+                "text": ": Some really good\n\t\tutility options, but the offensive options will be hard to rely upon.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Mage hand is a good\n\t\t\t\tcantrip, and rangers generally don’t get cantrips. Even if you take\n\t\t\t\tDruidic Warrior, Mage Hand isn’t an option. Faerie Fire is a great\n\t\t\t\tcombat option, but your save DC will likely be low, so save it for when\n\t\t\t\tyou’re facing a crowd (statistically some of your enemies will still\n\t\t\t\tfail their save) or when you’re facing enemies which have poor Dexterity\n\t\t\t\tlike ogres or the Tarrasque."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Web is one of the best area shutdown spells in the game.a hard choice. It’s like a persistent version of Entangle, where creatures can be subjected to the spell over and over just for being in the area. Thrown over a group of foes, statistically some of them will fail their saves and even if they all make the strength check, not save, to escape, we’ve made them all lose an action. And we have a great forced movement ability so we can just shove people back inside when they escape. Now, they might burn their way out of the webs if they happen to have a way to do fire damage but then just don’t web the Red Dragon and you can avoid that one issue."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": A great way to infiltrate\n\t\t\t\tplaces, to escape, to scout, and generally to go somewhere without other\n\t\t\t\tcreatures causing you trouble. The move speed is very limited, so\n\t\t\t\tcombine this with buffs like Longstrider to boost your speed and get\n\t\t\t\tmore done in the 1-hour duration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "13th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Even though you get it\n\t\t\t\tmuch later than dedicated spellcasters, Arcane Eye is still one of my\n\t\t\t\tabsolute favorite divination options for scouting from a safe\n\t\t\t\tdistance."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "17th-Level"
+              },
+              {
+                "type": "text",
+                "text": ": Constitution saves tend\n\t\t\t\tto be high and ranger’s save DCs tend to be low, which is a hard\n\t\t\t\tcombination. But with a 10-minute duration and half damage on a\n\t\t\t\tsuccessful save, with a particularly good damage type, if you can trap enemies in an enclosed space or\n\t\t\t\trepeatedly knock them into the area with Gathered Swarm, you can still\n\t\t\t\tdeal huge amounts of damage even if enemies consistently pass the saving\n\t\t\t\tthrow. If nothing else, you can plug a choke point while the full casters concentrate on other impressive effects."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Writhing Tide"
+              },
+              {
+                "type": "text",
+                "text": ": Flight of any kind is\n\t\tgreat, but 10 ft. speed definitely isn’t much. You can get off the ground\n\t\tand over small obstacles, but don’t expect to travel like this. Remember\n\t\tthat you can Dash if necessary, so if you have nothing else to do you can\n\t\tfly up to 200 feet on one usage. You can also boost your speed with buffs\n\t\tlike Longstrider and Haste, which will go a long way to make this more\n\t\tuseful both in and out of combat."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mighty Swarm"
+              },
+              {
+                "type": "text",
+                "text": ": Huge improvements to the\n\t\tmovement options. The damage option improves so little I’m confused why they\n\t\tbother to improve it at all."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Damage"
+              },
+              {
+                "type": "text",
+                "text": ": 1d6 to 1d8 is not a meaningful\n\t\t\t\tdifference."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Move Target"
+              },
+              {
+                "type": "text",
+                "text": ": Knocking the target prone\n\t\t\t\tis great if you have melee allies who will benefit from them being prone\n\t\t\t\tor if you need to cut the target’s movement. However, if you’re\n\t\t\t\tattacking at range you’ll make your own life harder by knocking your\n\t\t\t\ttarget prone."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Move Self"
+              },
+              {
+                "type": "text",
+                "text": ": +2 AC for one round. If\n\t\t\t\tyou’re fighting in melee that’s a huge benefit and you should consider\n\t\t\t\tusing this every turn."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swarming Dispersal"
+              },
+              {
+                "type": "text",
+                "text": ": By this level you\n\t\thave plenty of daily uses for this. Use it to gain Resistance against\n\t\thigh-damage attacks like critical hits or high-level spells, and also to get\n\t\tyourself out of melee combat if you don’t want to be there. You can\n\t\ttechnically use this by willingly taking damage in order to trigger the\n\t\tteleportation, but it’s probably not a significant abuse case because the\n\t\tuses per day are limited and the range is so short. Still, if you need to\n\t\tget out of somewhere nasty (a grapple, a pool of acid, an ongoing spell\n\t\teffect, etc.) you can always slap yourself for 1+Str damage to trigger the\n\t\tteleportation."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-swarmkeeper-ability-scores",
+      "heading": "Swarmkeeper Ability Scores",
+      "sourceAnchor": "swarmkeeper-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-swarmkeeper-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We have some options as a Swarmkeeper. We can go the traditional route of high Dexterity ranged attacking or Strength based melee combat, but we have some features that call for our spell save DC, so there is a case to be made for being Wisdom based with Druidic Warrior."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarmkeeper-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": You can maybe start doing some Polearm Master shenanigans or Great Weapon Master, but I don’t recommend that."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarmkeeper-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Use this for AC and ranged attacks.The good choice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarmkeeper-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": HP and Concentration saves. Good for us."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarmkeeper-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Let someone else handle the Scholar checks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarmkeeper-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": We have some great abilities that rely on our Spell DC, so getting this up is a good plan."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarmkeeper-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Let someone else handle the Face checks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarmkeeper-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-swarmkeeper-races",
+      "heading": "Swarmkeeper Races",
+      "sourceAnchor": "swarmkeeper-races",
+      "blocks": [
+        {
+          "blockId": "block-section-swarmkeeper-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don’t forget to check the "
+            },
+            {
+              "type": "link",
+              "text": "Ranger Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/races/"
+            },
+            {
+              "type": "text",
+              "text": " for anything not listed here. This list only calls out things that differ in color rank."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarmkeeper-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Dragonborn"
+              },
+              {
+                "type": "link",
+                "text": "FToD",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": We get a great combo with access to Web which causes restrained, imposing disadvantage on Dexterity saves for caught targets. Just avoid any Fire options."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Kobold"
+              },
+              {
+                "type": "link",
+                "text": "MMoM",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you want another odd way to get an attack cantrip in order to maximize Wisdom, the newer Kobold’s Draconic Sorcery feature can get a Sorcerer attack cantrip to key off of Wisdom. Remember that Gathered Swarm only cares about attacks so the good options are Firebolt and Chill Touch."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-swarmkeeper-feats",
+      "heading": "Swarmkeeper Feats",
+      "sourceAnchor": "swarmkeeper-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-swarmkeeper-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don’t ignore the "
+            },
+            {
+              "type": "link",
+              "text": "Ranger Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/#feats"
+            },
+            {
+              "type": "text",
+              "text": " when deciding your feats."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarmkeeper-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Crusher"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re using either of the Druid cantrips that can turn your Swarmkeeper into a Wisdom-based combatant (Magic Stone or Shillelagh), then you’ll be doing Bludgeoning damage, so why not add an extra 5 ft. of forced movement on top of the rest of your Gathered Swarm effects?"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magic Initiate (Druid)"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": There’s one little trick that I want to call out for this. While we could just use Druidic Warrior, putting a Magic Stone into a Sling lets us apply the Archery style. Sure, this applies to every Ranger, but Swarmkeepers have some good reasons for pushing their spell DCs. Note, this drops down to "
+              },
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": " if you’re multiclassing, because either one level of Fighter for the Archery style or one level of Druid to grab the cantrips would be far better ways to go about this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resilient (Constitution)"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": All five of the leveled spells granted to Swarmkeepers are concentration spells, so boosting Constitution saves is very helpful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Warcaster"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": We’ve got all these concentration spells, and this is a nice way to keep those spells running, but unless you have an offensive cantrip to use in place of your Opportunity Attack, Resilient is better for most of the level range."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-swarmkeeper-weapons",
+      "heading": "Swarmkeeper Weapons",
+      "sourceAnchor": "swarmkeeper-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-swarmkeeper-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With a small exception, the list from the "
+            },
+            {
+              "type": "link",
+              "text": "Ranger Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/#weapons"
+            },
+            {
+              "type": "text",
+              "text": " will serve you well."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarmkeeper-weapons-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Sling"
+              },
+              {
+                "type": "text",
+                "text": ": If you gain the Magic Stone cantrip (Druidic Warrior, Multiclassing, Magic Initiate) and want to apply Sharpshooter to the stones, then put the stones into a Sling. It becomes an interesting hybrid of rules text: A ranged spell attack with a ranged weapon. The nuance here is that the very important part of Sharpshooter that allows -5 to attack rolls for +10 to damage applies because of “attack with a ranged weapon” but the first two features do not apply unless your DM is nice because this is not technically a “ranged weapon attack”."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-swarmkeeper-armor",
+      "heading": "Swarmkeeper Armor",
+      "sourceAnchor": "swarmkeeper-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-swarmkeeper-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Ranger Handbook has "
+            },
+            {
+              "type": "link",
+              "text": "good advice",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/#armor"
+            },
+            {
+              "type": "text",
+              "text": " for this."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarmkeeper-armor-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Half-Plate"
+              },
+              {
+                "type": "text",
+                "text": ": If you take the route of making a Wisdom-based Druidic Warrior Swarmkeeper, try to at least get 14 Dexterity and put on some Half-Plate for your AC."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-swarmkeeper-multiclassing",
+      "heading": "Swarmkeeper Multiclassing",
+      "sourceAnchor": "swarmkeeper-multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-swarmkeeper-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Don’t forget the advice from the "
+            },
+            {
+              "type": "link",
+              "text": "Ranger Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/ranger/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": ". The options below are three routes to access both the magic stone cantrip and the Archery fighting style."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-swarmkeeper-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Cleric"
+              },
+              {
+                "type": "text",
+                "text": ": A single level into Nature cleric can grab the magic stone cantrip and Heavy armor, as well as 1st-level Cleric spells."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Druid"
+              },
+              {
+                "type": "text",
+                "text": ": One level here gets the cantrip, but a second level will pick up a Druid Circle. The Stars Druid is a particularly nice choice for protecting our Concentration and, like we mentioned above, since spell attacks can trigger Gathered Swarm, the free Guiding Bolts get a little extra punch."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fighter"
+              },
+              {
+                "type": "text",
+                "text": ": Taking our first level as a Fighter would mean we start with Constitution save proficiency, which saves having to take Resilient (Constitution), and we can take the Archery style. Then we can get Magic Stone from Druidic Warrior later. And since we’re already one level in, taking the second level for Action Surge is an easy choice for later."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+      "heading": "Example Swarmkeeper Ranger Build – I Got a Rock",
+      "sourceAnchor": "example-swarmkeeper-ranger-build-i-got-a-rock",
+      "blocks": [
+        {
+          "blockId": "block-section-example-swarmkeeper-ranger-build-i-got-a-rock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ve got some great features that work best when we can focus on our Spell save DC by increasing Wisdom, but how do we go about that as a Ranger? Well, if you’ve simply skipped down to the build here, we’re going to use the Magic Stone cantrip with the Druidic Warrior fighting style."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-swarmkeeper-ranger-build-i-got-a-rock-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This gives us a few advantages. First and foremost, we will be making attacks with Wisdom. This by itself would be ok, but there’s an extra quirk to this cantrip. If you put the stones into a sling, they become a “spell attack with a ranged weapon” which causes all sorts of strange rules interactions. We’re primarily interested in the fact that this makes them eligible for Sharpshooter’s extra damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-swarmkeeper-ranger-build-i-got-a-rock-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build leans into this odd combination so that we can have good spell save DCs like other casters while still being a Ranger with some respectable damage output. On top of that, we’re taking some flavor from the whole rock theme to stretch the idea of a swarm. Since the shape of the swarm is mechanically irrelevant, there’s nothing stopping us from saying it’s a bunch of rocks, orbiting us like asteroids. Look at all that flavor and theming just by picking a weird cantrip. Spelljammer has intelligent, living meteors, so why can’t we?"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-swarmkeeper-ranger-build-i-got-a-rock-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This build is one of our "
+            },
+            {
+              "type": "link",
+              "text": "10 favorite DnD 5e builds",
+              "href": "https://rpgbot.net/rpgbots-10-favorite-dnd-character-builds-that-arent-wizards/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to twist around the typical ability score choices of a Ranger. We’ll prioritize Wisdom and Constitution, while leaving Dexterity at 14 to fill out Medium Armor. Our race is Custom Lineage and we’re accounting for the +1 to Constitution from the Crusher feat in this table."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Racial/Feat Adjustment"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re using Custom Lineage because the bonus feat is great for us, allowing us to grab Crusher right away and round out our Constitution. Crusher adds us a tiny bit of extra control because magic stones do Bludgeoning damage."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We also take Darkvision and put the +2 into Wisdom."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For our background, we take Investigator for Perception and Insight. We also gain Disguise Kit and Thieves’ Tools proficiencies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Ranger we take Stealth, Nature, and Investigation. With Deft Explorer, we gain Expertise in Investigation to make up for our average Intelligence. Together with Perception and Insight and especially Thieves’ Tools from Investigator, this allows us to perform the Scout role in a party."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing-potential",
+      "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+      "heading": "Multiclassing Potential",
+      "sourceAnchor": "multiclassing-potential",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-potential-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re ok with some Multiclassing, this build could benefit from anything described above in the Multiclassing section."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-potential-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Of the three options, I would likely take the “start as Fighter with the Archery style” path in order to start with the proficiency in Constitution saves. In this arrangement, after fourth level, with Archery from Fighter 1 and Druidic Warrior and Swarmkeeper from Ranger 2 and 3, you could either stay Ranger or hop back into Fighter. If someone else in the party already has lots of dangerous area control so that we don’t need to stay Swarmkeeper for more control, sticking with Fighter eventually gets the second Extra Attack at Fighter 11, which works wonderfully with the three stones from magic stone."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-potential-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The other path I would strongly consider is starting Druid and then eventually taking a 2nd level for Circle of Stars because of how strong the dip really is. Going that route, we’d still need to take Resilient (Constitution), but we can align rocks from first level instead of waiting for Ranger 2nd."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Thanks to Custom Lineage, we get a bonus feat at first level alongside five ASIs from Ranger."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At first level, we take Crusher, putting the +1 into Constitution. Because we’re going to be flinging magical rocks at people, smacking people around a bit for forcing them into bad places is helpful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At fourth level, we take Sharpshooter. Because of the way the feat is written, placing a magic stone from the cantrip into a sling counts as an attack with a ranged weapon, satisfying the final bullet point (but only the final bullet point) of Sharpshooter. This will allow us to get some extra damage, which is always good."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At eighth level, we take an ASI, adding +1 to Wisdom and +1 to Constitution. This pushes Wisdom to 18 and Constitution to 17 in preparation for Resilient (Constitution) later."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At twelfth level, an ASI for +2 Wisdom pushes us to 20. Optionally, we could have taken Resilient (Constitution) now and this at sixteenth level."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At sixteenth level, we’re taking Resilient (Constitution), rounding out to an 18 Constitution and gaining proficiency in Constitution saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At nineteenth level, we’re taking an ASI for +2 Constitution, capping at 20 Constitution."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-8",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optionally, if we don’t want the extra utility of Crusher, Resilient (Constitution) could be the bonus feat at first level. In this alternate path, at 8th we would take a half feat with +1 to Wisdom like Chef, Fey Touched, Shadow Touched, or Skill Expert and we just substitute in an ASI for +2 Constitution where the original path took Resilient (Constitution)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-swarmkeeper-ranger-build-i-got-a-rock",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Deft Explorer (optional)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored Foe – 1d4 (optional)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Investigation (Expertise)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Nature"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Stealth"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Disguise Kit"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Thieves’ Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bonus Feat"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Crusher"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This level is going to be a little rough."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Our best ability score is Wisdom, but we can’t really use it till we take Druidic Warrior next level, so for just this level, rely on the Longbow we get for being a Ranger."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also pickup a quarterstaff from the starting equipment options. We’ll be choosing Shillelagh as our other cantrip from Druidic Warrior. We don’t "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "want"
+                },
+                {
+                  "type": "text",
+                  "text": " to be in melee but we will still end up there sometimes and with Crusher we can easily bonk away an opponent."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Then buy a sling for 1 silver and wear the best medium armor you can afford."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Try not to die, things are rough out there."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored Foe is usually better than Favored Enemy, even if it competes for our Concentration. Really it’s just extra damage if we want to save on spell slots."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The only time Favored Enemy can be better is if we’re level 20 for Foe Slayer and we’ve chosen types well."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Druidic Warrior"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Magic Stone"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Shillelagh"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Absorb Elements"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Entangle (c)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We pick up Druidic Warrior, giving us Magic Stone and Shillelagh, so now we can fight with Wisdom."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get our 1st-level Spells."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Absorb Elements will save your life from time to time, so it’s worth learning."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Entangle is pretty nice because it restrains targets and costs them an Action to escape. Good control spell."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Swarmkeeper"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Gathered Swarm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Swarmkeeper Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Mage Hand"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Faerie Fire (c)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Fog Cloud (c)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With Swarmkeeper we gain Gathered Swarm and an expanded spell list. We can pick whatever our swarm is shaped like so how about a swarm of tiny rocks, like some sort of "
+                },
+                {
+                  "type": "link",
+                  "text": "asteroid belt",
+                  "href": "https://en.wikipedia.org/wiki/Asteroid_belt"
+                },
+                {
+                  "type": "text",
+                  "text": " or "
+                },
+                {
+                  "type": "link",
+                  "text": "planetary ring",
+                  "href": "https://en.wikipedia.org/wiki/Ring_system"
+                },
+                {
+                  "type": "text",
+                  "text": ". We are the rock guy after all. Flavor is free."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Gathered Swarm will allow us to add a lot of control in the form of forced movement every round in combat. There is a save, but we’re building to account for that."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Mage Hand is a nice utility cantrip."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Faerie Fire is a good way to get Advantage while attacking multiple targets for our party."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fog Cloud is good for a lot of situations. Like if we’re surrounded by wolves with pack tactics, this negates the advantage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Sharpshooter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sharpshooter will apply to Magic Stone, but only when fired from a sling."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I know it’s weird, but that’s how the rules work."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Swarmkeeper Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Web (c)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "2nd-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Pass Without Trace (c)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fling two stones. Twice the pain."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Web is basically the best 2nd-level spell in the game so it’s great that we get access to it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pass Without Trace is good for stealth missions. Sure, we have multiple Concentration spells now, but this would be for out of combat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Deft Explorer"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Roving"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored Foe – 1d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Walk 5 ft. faster as well as gain climb and swim speeds."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Increased die size for Favored Foe. A lot of our Concentration spells are good for multiple foes, while this will be helpful for single foes."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Writhing Tide"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "2nd-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Enhance Ability"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A bit of low-speed temporary flying can be useful for reaching something out of combat. Less useful in a fight."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Enhance Ability is another good utility spell for getting free Advantage on checks out of combat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Wisdom (18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Constitution (17)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Land’s Stride"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Land’s Stride is a weird feature. It won’t come up often, but it’s nice when it does help us."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "As mentioned above, we split the ASI here to prepare our Constitution for taking Resilient later."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Swarmkeeper Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Gaseous Form (c)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "3rd-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Revivify"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pay the Revivify Tax."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also we can turn into a cloud. Well, technically I think the idea is to turn into a swarm of whatever your Swarmkeeper spirits are, while mechanically being a cloud. So we’re like a "
+                },
+                {
+                  "type": "link",
+                  "text": "nebula",
+                  "href": "https://en.wikipedia.org/wiki/Nebula"
+                },
+                {
+                  "type": "text",
+                  "text": " or the "
+                },
+                {
+                  "type": "link",
+                  "text": "oort cloud",
+                  "href": "https://en.wikipedia.org/wiki/Oort_cloud"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hide in Plain Sight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tireless"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hide in Plain Sight is ok. It allows making camouflage in order to hide in plain sight. Exactly what it says on the tin."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tireless is free temporary HP PB times per day (currently 4). Also recover from a level of Exhaustion after only a short rest. This is good because Exhaustion is awful and removing it can require several days or expensive magic."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mighty Swarm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "3rd-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Conjure Barrage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–or–"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Elemental Weapon (c)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "An upgrade to Gathered Swarm."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The damage increase is fine. It’s more than nothing."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The wording on the forced movement is pretty nice. The option to knock prone is in addition to also moving the target. Knock something prone and also deliver it right to the feet of your melee ally of choice."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "And the option to have +2 to AC and Dex saves from half cover for a turn is great."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Good upgrades all around."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Alright so I know Conjure Barrage is called out as red on the Ranger spell breakdown. But that list makes assumptions that are not true about this build, like having bad spell DCs or foes won’t be restrained by Web or Entangle."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But mostly, a 60-ft. cone is great if you get to those real cinematic battles where you’re participating in a large skirmish for the fate of Krynn. Or for shotgunning rocks across an enemy spelljammer."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But if you don’t expect to need a 60-ft. cone, Elemental Weapon will make our sling magical and add extra elemental damage to the attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Wisdom +2 (20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Capped Wisdom for magic rock attacks and spell DCs."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Swarmkeeper Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Arcane Eye (c)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "4th-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Guardian of Nature (c)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Eye. Great spell. Spy on your foes with your space rock. The space rock that totally does not have a suspicious camera. Like a not suspicious at all spy satellite."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Guardian of Nature is a cool buff. We can turn into a big ole space-rock tree to get Advantage on our rock flings. Kinda neat. And impose difficult terrain within 15 feet. I dunno. Wacky space gravity or something. Free Flavor etc."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Vanish"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored Foe  – 1d8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hide as a bonus action and leave no trail. Alright."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored Foe gets stronger. Which is ok, but we’ve got a lot of nice Concentration spells now. It’s alright and still a good way to not spend spell slots."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Swarming Dispersal"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "4th-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Freedom of Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A reaction to take half damage and teleport PB times per day."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Freedom of Movement is a decent buff. Rangers don’t get a lot of good 4th-level spells, but at least this is good."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Resilient (Constitution)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Constitution (18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Getting this will boost up our Concentration saves. Good deal. Sure it’s a bit late, but we had other things that took priority."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Swarmkeeper Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insect Plague (c)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "5th-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Conjure Volley"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Insect Plague is an ok damage effect in an area. Since it’s a spell and it’s piercing, almost nothing is going to resist magical piercing damage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Conjure Volley is in a similar situation to Conjure Barrage. We have good Wisdom so we can use this to drop a decent amount of AoE damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feral Senses"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "See invisible foes and no longer have Disadvantage to hit things we can’t see."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This can even combo with fog cloud, giving us Advantage because we would count as an unseen attacker."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: +2 Constitution (20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "5th-level Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Steel Wind Strike"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Capped Constitution. Good for our HP and saves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Steel Wind Strike is kinda neat. Normally this spell is a let down for other Rangers because it’s a spell attack, which means it keys off of our primary ability score, Wisdom."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "So we can just pull out our Quarterstaff and bust a few skulls. The best part is that we can still trigger Gathered Swarm, which would go off during the spell, and if the target fails the save we can slide it to better decide where we land."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Maybe even position to provide flanking for an ally if that optional rule is in play."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Foe Slayer"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This boosts Favored Foe greatly as a Wisdom-based Ranger."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Because we can apply it before or after a roll, we can decide to either add +5 to the attack roll if we nearly hit or +5 to the damage roll if we make the hit."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Swarmkeeper Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Gathered Swarm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Damage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Move Target"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Move Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Swarmkeeper Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3rd-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 5th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 13th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 17th-Level"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Writhing Tide"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mighty Swarm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Damage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Move Target"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Move Self"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Swarming Dispersal"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Dragonborn"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Kobold"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Crusher"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Magic Initiate (Druid)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[2]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Resilient (Constitution)"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Warcaster"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Half-Plate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Fighter"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-swarmkeeper-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-swarmkeeper-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-swarmkeeper-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-swarmkeeper-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-swarmkeeper-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-swarmkeeper-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-swarmkeeper-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-swarmkeeper-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-swarmkeeper-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-swarmkeeper-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-swarmkeeper-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-swarmkeeper-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-swarmkeeper-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-swarmkeeper-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-swarmkeeper-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-swarmkeeper-armor-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-swarmkeeper-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-swarmkeeper-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-swarmkeeper-ranger-build-i-got-a-rock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-swarmkeeper-ranger-build-i-got-a-rock-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-example-swarmkeeper-ranger-build-i-got-a-rock-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-example-swarmkeeper-ranger-build-i-got-a-rock-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-multiclassing-potential-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-multiclassing-potential-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-multiclassing-potential-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-feats-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-feats-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-feats-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 4467,
+    "sections": 18,
+    "blocks": 49,
+    "tables": 3,
+    "ratingSignals": 40
+  },
+  "status": "needs-editorial-review"
+}

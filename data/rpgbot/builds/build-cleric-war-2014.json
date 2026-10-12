@@ -1,0 +1,789 @@
+{
+  "buildId": "build-cleric-war-2014",
+  "revisionId": "build-cleric-war-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Клірика домену війни — «Воїтелька руйнування»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-cleric-war-domain-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+      "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+      "sectionId": "section-example-war-cleric-build-die-kriegerin-der-zerstorung",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WAR_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "CLERIC_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "CLERIC_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "CLERIC_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "light"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "CLERIC_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "CLERIC_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "CLERIC_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "CLERIC_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "CLERIC_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "thaumaturgy"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "CLERIC_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "CLERIC_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "CLERIC_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "CLERIC_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "CLERIC_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "CLERIC_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GIFT_OF_THE_CHROMATIC_DRAGON"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "CLERIC_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "CLERIC_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "CLERIC_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "CLERIC_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-war-domain-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+          "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "WAR_DOMAIN",
+    "raceKey": "DRAGONBORN_CHROMATIC",
+    "backgroundKey": "SAGE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Щоб скористатися важкими обладунками без штрафу до швидкості, ми візьмемо Силу 15, і вона залишиться 15 на всю карʼєру. Знаю, що це непарне число дратуватиме дехто, але наші Мудрість і Статура надто важливі. До речі, очки купівлі характеристик ми теж вкладемо в ці дві характеристики. Цікаво, але +2 від нашого расового бонусу ми вкладемо в Статуру, а +1 — у Мудрість. Чому саме так, пояснимо в розділі про риси нижче.\n\n Базове значення Підвищене значення 20-й рівень Сила 15 15 15 Спритність 8 8 8 Статура 15 17 20 Інтелект 8 8 8 Мудрість 15 16 20 Харизма 8 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Як расу беремо Хроматичного дракононародженого{{Chromatic Dragonborn}} і обираємо Зеленого. Як зазначено вище в розділі про раси, оскільки новіші дракононароджені використовують зброю дихання як частину дії Атака, «Священик війни»{{Warpriest}} може спрацювати, але в нас, по суті, немає сили, щоб скористатися цим. Натомість ми зможемо користуватися отруйною зброєю дихання, не завдаючи шкоди нашим скелесолдатам{{Skelesoldiers}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беремо Мудреця{{Sage}} заради Магії, щоб створювати сувої, і Історії, щоб знати війни. Ми отримуємо дві мови, якими можуть бути будь-які, що добре пасують до вашої кампанії.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від Клірика беремо Аналіз Поведінки, бо це єдина по-справжньому корисна навичка Мудрості в нашому класовому списку, і Релігію, щоб знати нежить. З навичками в нас не дуже, але це, власне, і не наша робота.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На четвертому рівні ми візьмемо «Стійкого (Статура)»{{Resilient (Constitution)}}, що дасть нам +1 до Статури, тож вона дійде до 18, а також володіння ряткидками Статури. Я довго розводився раніше про те, що підтримувати Концентрацію на заклинаннях протягом усієї тривалості може бути краще, ніж різниця в 5–10% у провалі ряткидків.\n\nНа восьмому рівні візьмемо Покращення Характеристик на +2 до Мудрості, теж доводячи її до 18. Є відчайдушний варіант — взяти «Дарунок хроматичного дракона»{{Gift of the Chromatic Dragon}} раніше й ще більше відкласти підвищення Мудрості, але я б цього не радив.\n\nНа дванадцятому рівні завершуємо Мудрість другим Покращенням Характеристик на +2. На цьому рівні було б розумніше взяти «Дарунок»{{Gift of the Chromatic Dragon}} раніше, а Покращення Мудрості взяти на 16-му рівні.\n\nНа шістнадцятому рівні беремо «Дарунок хроматичного дракона»{{Gift of the Chromatic Dragon}} насамперед заради реакції, що дає опір стихійній шкоді, адже клірики не отримують Поглинання стихій [Absorb Elements]. Менше шкоди означає, що нам доведеться проходити ряткидки Концентрації з нижчим СК. У деяких обставинах цю рису можна взяти раніше. Є цікаві заклинання, яким узагалі байдужа наша Мудрість, а бонусна дія для додавання шкоди до зброї раз на день на цьому рівні слабка.\n\nНа девʼятнадцятому рівні візьмемо ще одне Покращення Характеристик, щоб довести Статуру до 20.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Божественний домен{{Divine Domain}}: Війна\n– Важкі (абісальні?) обладунки\n– Бойова зброя\n– Священик війни\nЧаротворство\nЗамовляння:\n– Настанова\n– Дзвін небіжчика\n– Слово сяйва\nЗаклинання 1-го рівня:\n– Божа милість (К)\n– Спрямований заряд\n– Цілюще слово\n– Захист від зла й добра (К)\n– Щит віри (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Канал божественності\n– Вигнання нежиті\n– Наведений удар\nСпрямування божественної сили (за бажанням)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Чаротворство\nЗаклинання 2-го рівня:\n– Мале відновлення\n– Магічна зброя (К)\n– Духовна зброя",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Стійкий (Статура)\n– +1 до Статури (17 → 18)\nЧаротворство\nЗамовляння:\n– Світло",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Знищення нежиті (ПН 1/2)\nЧаротворство\nЗаклинання 3-го рівня:\n– Підіймання мерців\n– Мантія хрестоносця (К)\n– Відродження\n– Духи захисники (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Канал божественності (2/відпочинок)\n– Благословення бога війни",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Чаротворство\nЗаклинання 4-го рівня:\n– Захист від смерті\n– Свобода рухів\n– Камʼяна шкіра (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: +2 до Мудрості (16 → 18)\nЗнищення нежиті (ПН 1)\nБлагословенні удари (за бажанням)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Чаротворство\nЗаклинання 5-го рівня:\n– Зараження\n– Полумʼяний удар\n– Більше відновлення\n– Стримування монстра (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Божественне втручання\nЧаротворство\nЗамовляння:\n– Дивотворство",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Знищення нежиті (ПН 2)\nЧаротворство\nЗаклинання 6-го рівня:\n– Зцілення\n– Істинний зір",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Мудрість +2 (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Чаротворство\nЗаклинання 7-го рівня:\n– Етерність\n– Планарний перехід",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Знищення нежиті (ПН 3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Чаротворство\nЗаклинання 8-го рівня:\n– Свята аура (К)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Дарунок хроматичного дракона",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Аватар битви\nЗнищення нежиті (ПН 4)\nЧаротворство\nЗаклинання 9-го рівня:\n– Масове зцілення",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Канал божественності (3/відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: +2 до Статури (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Покращене божественне втручання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Підготовлені заклинання 2–20 рівнів",
+        "reason": "Автор називає підготовлені заклинання по рівнях, але підготовку Клірика на вищих рівнях плану не веде жоден модуль платформи; їх готують на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-war-domain-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-war-domain-2014-draft1",
+            "sourceRevisionId": "rpgbot-bce96ff66fa9ba1e-73e8808e9b9cfa79",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "fighter-psi-warrior-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-fighter-psi-warrior-2014-draft1",
+    "sourceRevisionId": "rpgbot-071b19857f4ca74a-51057c16aa223a65"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "subclassKey": "PSI_WARRIOR",
+  "raceKey": "GIFF_SPELLJAMMER",
+  "backgroundKey": "SOLDIER",
+  "abilityScores": {
+    "STR": 10,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 15,
+    "WIS": 8,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Риса на 19-му рівнях",
+      "reason": "Автор пише «будь-яка» і не називає вибір. Пресет бере типовий (19-й: LUCKY); це вибір платформи, гравець може змінити його перед створенням.",
+      "section": "section-levels"
+    }
+  ],
+  "revision": 4,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "PSI_WARRIOR"
+    },
+    {
+      "level": 4,
+      "featKey": "PIERCER",
+      "featOptions": [
+        {
+          "optionNameEng": "PIERCER Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "featKey": "SHARPSHOOTER",
+      "section": "section-feats-2"
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "featKey": "GIFT_OF_THE_GEM_DRAGON",
+      "featOptions": [
+        {
+          "optionNameEng": "GIFT_OF_THE_GEM_DRAGON Ability (Intelligence)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "featKey": "TELEKINETIC",
+      "featOptions": [
+        {
+          "optionNameEng": "TELEKINETIC Ability (Intelligence)"
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "INT",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats-2"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "LUCKY",
+      "openAdvancement": true
+    },
+    {
+      "level": 20
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/fighter-psi-warrior-2014.webp",
+    "title": "Воїн — Псі-воїн, Гіфф",
+    "description": "Гіфф-стрілець за правилами Таші зі Спритністю 17 та Інтелектом 16: довгий лук і Бойовий стиль «Стрільба з лука» з першого рівня.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "INT",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "PERCEPTION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [
+      "Archery"
+    ],
+    "languages": [
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "RAPIER",
+          "SHORTSWORD"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Гіфф за правилами Таші: +2 до Спритності й +1 до Інтелекту, як у таблиці автора (Спритність 17, Інтелект 16). Це вже враховано.",
+    "skillExplanation": "Аналіз поведінки й Уважність — від Воїна, Атлетика й Залякування — від Солдата, як радить автор.",
+    "equipmentExplanation": "Довгий лук і легкий арбалет узяті з авторської поради (лук чи арбалет, поки не буде мушкета). Дві бойові зброї (рапіру й короткий меч), шкіряний обладунок зі стрілами, Набір дослідника підземель і додаткову мову ми обрали за вас; їх можна змінити."
+  }
+}

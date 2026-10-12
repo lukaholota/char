@@ -1,0 +1,1958 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "e733c69e8f44168111071a4b04178ffbed1883dfff7d1a75022544cd6c4d32c2",
+  "sourceRevision": {
+    "revisionId": "rpgbot-afc53f3ce14d50fb-e733c69e8f441681",
+    "sourceId": "rpgbot-afc53f3ce14d50fb",
+    "fetchedAt": "2026-09-29T19:19:48.977441+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:37:28-04:00",
+    "contentHash": "33c42a8a1fb244e21f040e55eda31157c283901d965a53f13a355a63b2edfadf",
+    "title": "DnD 5e Impractical Skill Checks: A Practical Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-afc53f3ce14d50fb-e733c69e8f441681.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In 5e Dungeons and Dragons, skills represent abstract knowledge and familiarity with a topic or activity. In editions past, D&D 3.5e and PF1, skills were represented by points that grew as the character leveled, but since D&D 4e have been a binary yes or no decision. The upside of this is that a lot of skills have been consolidated in the new editions, such as Hide and Move Silently merging into Stealth. On the flip side, a character can no longer be partially trained in a skill by putting a few ranks in and most characters will never gain a new skill after first level without either multiclassing or taking a feat for it."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As a consequence of these changes, in 5e everything revolves around proficiency, for better or worse. Skills for example, are not checks in and of themselves. Skills are a list of situations and circumstances where your proficiency bonus can apply to an ability check."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It is really an unfortunate artifact of the old skill system that the skills are primarily associated with certain abilities and it is frequently forgotten that these are not the only ways to use those skills. From the DMG on page 239, “Under certain circumstances, you can decide a character’s proficiency in a skill can be applied to a different ability check.” This article will list through the skills of 5e D&D and consider situations where different ability scores might apply."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Checks vs Saves",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#checks-vs-saves"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#skills"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Acrobatics",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#acrobatics"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Animal Handling",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#animal-handling"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Arcana",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#arcana"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Athletics",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#athletics"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Deception",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#deception"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "History",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#history"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Insight",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#insight"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Intimidation",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#intimidation"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Investigation",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#investigation"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Medicine",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#medicine"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Nature",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#nature"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Perception",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#perception"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Performance",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#performance"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Persuasion",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#persuasion"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Religion",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#religion"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Sleight of Hand",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#sleight-of-hand"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Stealth",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#stealth"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Survival",
+                "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/#survival"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-checks-vs-saves",
+      "heading": "Checks vs Saves",
+      "sourceAnchor": "checks-vs-saves",
+      "blocks": [
+        {
+          "blockId": "block-section-checks-vs-saves-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "A check",
+              "href": "https://www.dndbeyond.com/sources/phb/introduction#TheD20"
+            },
+            {
+              "type": "text",
+              "text": " is when the character is actively doing something while a save is when something happens to the character. Actively holding your breath to remain motionless and silent for a Constitution (Stealth) check is different than making a Constitution save because you’re drowning."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills",
+      "heading": "Skills",
+      "sourceAnchor": "skills",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-acrobatics",
+      "parentSectionId": "section-skills",
+      "heading": "Acrobatics",
+      "sourceAnchor": "acrobatics",
+      "blocks": [
+        {
+          "blockId": "block-section-acrobatics-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Dexterity"
+            },
+            {
+              "type": "text",
+              "text": ". Generally used to attempt to stay upright in situations with poor footing or to perform stunts of an acrobatic nature like dives, rolls, and flips."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-acrobatics-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Strength"
+            },
+            {
+              "type": "text",
+              "text": " – Normally Athletics would cover situations related to jumping, but one might argue that Strength (Acrobatics) in a situation where the tricky part is sticking the landing. Strength is used here for the muscle power to get the distance because without that it doesn’t matter how well you know how to land."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-acrobatics-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Constitution"
+            },
+            {
+              "type": "text",
+              "text": " – Contortion is a kind of acrobatics that involves tying the body up into knots. If one needed to contort for an extended time, it’s less a matter of Dexterity and more a matter of being able to endure squeezing for that long. Constitution (Acrobatics) in this case is knowing how to twist into a position that will be the least uncomfortable for the duration."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-acrobatics-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": " – Using contortion as another example, an Intelligence (Acrobatics) check would use Intelligence to determine at a distance based on the character’s knowledge and experience of the subject, Acrobatics, if a creature of a given size could fit inside a box of a smaller given size, were they proficient in Acrobatics. As well, this might be able to identify where someone trained after observing the particular style with which they flip and roll and stunt, due to familiarity with different schools of Acrobatics."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-acrobatics-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Wisdom"
+            },
+            {
+              "type": "text",
+              "text": " – Where Wisdom (Perception) might see a tree and some vines, Wisdom (Acrobatics) sees the high jump and trapeze. To use a real world example, this is similar to the concept of ‘Flow’ in parkour. When trained in Parkour, one starts to passively see everything as an object to stunt over or off of or similar."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-animal-handling",
+      "parentSectionId": "section-skills",
+      "heading": "Animal Handling",
+      "sourceAnchor": "animal-handling",
+      "blocks": [
+        {
+          "blockId": "block-section-animal-handling-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Wisdom"
+            },
+            {
+              "type": "text",
+              "text": ". This skill is all about interacting with beasts, primarily domesticated beasts but also wild ones as well. Keeping an animal calm, preventing it from getting spooked, or controlling a mount are all typical uses of this skill."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-animal-handling-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Strength"
+            },
+            {
+              "type": "text",
+              "text": " – It’s one thing to fight a wild beast off, it’s another thing entirely to keep an animal restrained without harm, such as during many necessary tasks of animal husbandry. More or less a different way to make a very specific grapple check. Additionally, attempting to remain saddled on your mount with leg strength alone because your focus is elsewhere can be a Strength (Animal Handling) check."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-animal-handling-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Dexterity"
+            },
+            {
+              "type": "text",
+              "text": " – Shearing a sheep or milking a cow could reasonably be a Dexterity (Animal Handling) check."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-animal-handling-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": " – While Intelligence (Nature) overlaps with this a little bit, Intelligence (Animal Handling) is a much more focused knowledge of domesticated animals and the practices of animal husbandry."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-animal-handling-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Charisma"
+            },
+            {
+              "type": "text",
+              "text": " – Projecting your will and intentions through commands and cues that can be understood by beasts is an example of Charisma (Animal Handling)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-arcana",
+      "parentSectionId": "section-skills",
+      "heading": "Arcana",
+      "sourceAnchor": "arcana",
+      "blocks": [
+        {
+          "blockId": "block-section-arcana-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": ". Knowledge skills are a broad collection of information. Arcana is about magic and magical phenomena including magic items, spells, and many monsters."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-arcana-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Strength"
+            },
+            {
+              "type": "text",
+              "text": " – Breaking a powerful magic item with raw muscle is incredibly dangerous, but it’s far less dangerous if you understand magic. A Strength (Arcana) check represents taking necessary precautions in your destructive attempts."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-arcana-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Dexterity"
+            },
+            {
+              "type": "text",
+              "text": " – Making a precise copy of magic runes requires fine hand control which could be accomplished with a Dexterity (Arcana) check."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-arcana-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Charisma"
+            },
+            {
+              "type": "text",
+              "text": " – Back in 3.5e there was this skill called “Use Magic Device” that used Charisma to represent using force of will to make the item do what you want, which was usually just to make the item activate. That’s Charisma (Arcana)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-athletics",
+      "parentSectionId": "section-skills",
+      "heading": "Athletics",
+      "sourceAnchor": "athletics",
+      "blocks": [
+        {
+          "blockId": "block-section-athletics-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Strength"
+            },
+            {
+              "type": "text",
+              "text": ". Physical activities like climbing, jumping, running, swimming, and sporting contests are covered by Athletics."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-athletics-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Dexterity"
+            },
+            {
+              "type": "text",
+              "text": ": There is a case to be made that performing the Shove attack with the attack action in Combat with a Finesse weapon or an ability that allows making attacks with Dexterity should allow using Dexterity (Athletics) for the Shove attack."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-athletics-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Constitution"
+            },
+            {
+              "type": "text",
+              "text": " – Any sort of endurance activities, such as running a marathon or long-distance swimming (which is the example used in the DMG) would be a Constitution (Athletics) check."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-athletics-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": " – To use a real world example, a referee would be using Intelligence (Athletics) to know the rules of a professional sport without necessarily being physically fit to perform the sport at that level. Any sort of general knowledge about professional or recreational sports also falls under this check."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-deception",
+      "parentSectionId": "section-skills",
+      "heading": "Deception",
+      "sourceAnchor": "deception",
+      "blocks": [
+        {
+          "blockId": "block-section-deception-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Charisma"
+            },
+            {
+              "type": "text",
+              "text": ". Lies, deceit, hiding intentions while keeping a straight face."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-deception-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Strength"
+            },
+            {
+              "type": "text",
+              "text": " – Faking a fight and really selling the hits is a Strength (Deception) check. This is closer to the kayfabe of professional wrestling than throwing a fight."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-deception-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Constitution"
+            },
+            {
+              "type": "text",
+              "text": " – This instead is taking the hits and selling them as harder than they are. This, Constitution (Deception), is how you throw a staged fight, like a fixed boxing match."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-deception-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": " – Committing fraud is more about knowing what correct information is supposed to look like, especially with fraudulent documents. One might also do similar work with a Forgery Kit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-history",
+      "parentSectionId": "section-skills",
+      "heading": "History",
+      "sourceAnchor": "history",
+      "blocks": [
+        {
+          "blockId": "block-section-history-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": ". Knowledge and lore about historical events, legendary people, ancient kingdoms, wars, ancient civilizations."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-history-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Charisma"
+            },
+            {
+              "type": "text",
+              "text": " – Convince someone of something using your knowledge of history rather than powers of persuasion. My best explanation for this is an example. Suppose the heirs of a noble line all had a certain birthmark, if your task was to convince the royal court that you have found the true royal heir to the throne with this lore and knowledge, rather than Charisma (Persuasion) you might be able to use Charisma (History)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-insight",
+      "parentSectionId": "section-skills",
+      "heading": "Insight",
+      "sourceAnchor": "insight",
+      "blocks": [
+        {
+          "blockId": "block-section-insight-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Wisdom"
+            },
+            {
+              "type": "text",
+              "text": ". Interpreting the intentions of another creature such as catching a lie or determining their next move."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-insight-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Dexterity"
+            },
+            {
+              "type": "text",
+              "text": " – Reading your opponent in a fight to see if they’re holding back to hide their full strength would be a Dexterity (Insight) check."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-intimidation",
+      "parentSectionId": "section-skills",
+      "heading": "Intimidation",
+      "sourceAnchor": "intimidation",
+      "blocks": [
+        {
+          "blockId": "block-section-intimidation-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Charisma"
+            },
+            {
+              "type": "text",
+              "text": ". Assert your dominance with Intimidation. Influencing creatures with threats and coercion is the purview of this skill."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-intimidation-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Strength"
+            },
+            {
+              "type": "text",
+              "text": " – One of the actual examples in the PHB for skills with different abilities, Strength (Intimidation) is all about using raw might to scare enemies into line. Things like crushing a rock with your bare hands or deadlifting a boulder are great examples of ways to avoid having to actually fight things."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-intimidation-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Dexterity"
+            },
+            {
+              "type": "text",
+              "text": " – Have you ever seen someone bend their double joint the wrong way just to spook or freak someone else out. That would be a Dexterity (Intimidation) check. Another great example is the knife between the fingers trick, where someone stabs the table repeatedly while the target is held in place and told not to move or it’s their own fault for getting stabbed."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-intimidation-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Constitution"
+            },
+            {
+              "type": "text",
+              "text": " – Self-flagellation is a thing that can be a Constitution (Intimidate) check, but also enduring harsh imprisonment or torture is a way to turn such situations around mentally to unsettle the captors. Maybe don’t use this one as much."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-intimidation-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": " – Intelligence (Intimidation) is the closest thing to a knowledge check about agressive methods of interrogation or torture and useful in identifying the tools used in such activities."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-investigation",
+      "parentSectionId": "section-skills",
+      "heading": "Investigation",
+      "sourceAnchor": "investigation",
+      "blocks": [
+        {
+          "blockId": "block-section-investigation-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": ". As the successor to the Search skill of old, Investigation is for in depth information gathering."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-investigation-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Dexterity"
+            },
+            {
+              "type": "text",
+              "text": " – Trying to find a hidden panel, switch, or button by touch."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-investigation-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Charisma"
+            },
+            {
+              "type": "text",
+              "text": " – While some might think Charisma (Persuasion) is a way to Gather Information, that whole activity of systematic questioning is far better served as Charisma (Investigation)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-medicine",
+      "parentSectionId": "section-skills",
+      "heading": "Medicine",
+      "sourceAnchor": "medicine",
+      "blocks": [
+        {
+          "blockId": "block-section-medicine-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Wisdom"
+            },
+            {
+              "type": "text",
+              "text": ". The diagnosis and administration of medical aid."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-medicine-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Constitution"
+            },
+            {
+              "type": "text",
+              "text": " – Self-administration of some kinds of first-aid, such as resocketing a dislocated shoulder, might reasonably be a Constitution (Medicine) check."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-medicine-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": " – The academic study of physiology and anatomy is best described as Intelligence (Medicine)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-nature",
+      "parentSectionId": "section-skills",
+      "heading": "Nature",
+      "sourceAnchor": "nature",
+      "blocks": [
+        {
+          "blockId": "block-section-nature-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": ". The study of natural phenomena, geology, plants, animals and fey."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-nature-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Charisma"
+            },
+            {
+              "type": "text",
+              "text": ": Not to repeat myself, but similar situations to what I mention under History can apply here too."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-perception",
+      "parentSectionId": "section-skills",
+      "heading": "Perception",
+      "sourceAnchor": "perception",
+      "blocks": [
+        {
+          "blockId": "block-section-perception-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Wisdom"
+            },
+            {
+              "type": "text",
+              "text": ". Spotting, hearing, and general awareness of surroundings."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-perception-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Dexterity"
+            },
+            {
+              "type": "text",
+              "text": " – A creature with Tremorsense might be able to detect something with a Dexterity (Perception) check. Additionally, a creature might make this kind of check to notice a small earth tremor that might otherwise go unnoticed, such as an enormous creature walking nearby."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-perception-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": " – Potentially a telepathic creature might be able to make an Intelligence (Perception) check to find a hidden creature."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-performance",
+      "parentSectionId": "section-skills",
+      "heading": "Performance",
+      "sourceAnchor": "performance",
+      "blocks": [
+        {
+          "blockId": "block-section-performance-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Charisma"
+            },
+            {
+              "type": "text",
+              "text": ". Entertaining an audience with music, dance, acting, storytelling etc."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-performance-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Dexterity"
+            },
+            {
+              "type": "text",
+              "text": " – Parlour tricks and other forms of entertainment requiring physical flexibility, such as some kinds of dance."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-performance-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": " – Conveying information, like when giving a presentation, could be done as an Intelligence (Performance) check to determine how effective the information was communicated."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-persuasion",
+      "parentSectionId": "section-skills",
+      "heading": "Persuasion",
+      "sourceAnchor": "persuasion",
+      "blocks": [
+        {
+          "blockId": "block-section-persuasion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Charisma"
+            },
+            {
+              "type": "text",
+              "text": ". As opposed to Intimidation, this is about presenting a point of view or making a case and how well one can argue an issue."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-persuasion-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Strength"
+            },
+            {
+              "type": "text",
+              "text": " – Perhaps one might be trying to calm the fears of a village under threat by a show of Strength (Persuasion) from their valiant defender."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-persuasion-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Constitution"
+            },
+            {
+              "type": "text",
+              "text": " – Another might do the same as the Strength user but by standing tough through a test of endurance with Constitution (Persuasion)."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-persuasion-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": " – An appeal of logic and reason is an Intelligence (Persuasion) check."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-religion",
+      "parentSectionId": "section-skills",
+      "heading": "Religion",
+      "sourceAnchor": "religion",
+      "blocks": [
+        {
+          "blockId": "block-section-religion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": ". Lore and information about deities, rites and prayers, and other information relating to various religions."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-religion-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Wisdom"
+            },
+            {
+              "type": "text",
+              "text": " – Consoling and counselling a creature through a crisis of faith could be done with a Wisdom (Religion) check."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-religion-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Charisma"
+            },
+            {
+              "type": "text",
+              "text": " – Proselytizing for a faith makes more sense as a Charisma (Religion) check than a Charisma (Persuasion) check."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sleight-of-hand",
+      "parentSectionId": "section-skills",
+      "heading": "Sleight of Hand",
+      "sourceAnchor": "sleight-of-hand",
+      "blocks": [
+        {
+          "blockId": "block-section-sleight-of-hand-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Dexterity"
+            },
+            {
+              "type": "text",
+              "text": ". Legerdemain and manual trickery as well as pickpocketing and general larceny. Sleight of Hand is also used for restraining a creature with rope."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sleight-of-hand-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": " – Casing an establishment for later burglary might be an Intelligence (Sleight of Hand) check."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sleight-of-hand-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Wisdom"
+            },
+            {
+              "type": "text",
+              "text": " – Identifying a mark in a crowd for pickpocketing could be a Wisdom (Sleight of Hand) check."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-stealth",
+      "parentSectionId": "section-skills",
+      "heading": "Stealth",
+      "sourceAnchor": "stealth",
+      "blocks": [
+        {
+          "blockId": "block-section-stealth-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Dexterity"
+            },
+            {
+              "type": "text",
+              "text": ". Concealment, sneaking past guards, slipping away or sneaking upon someone undetected."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stealth-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Constitution"
+            },
+            {
+              "type": "text",
+              "text": " – Holding one’s breath to remain motionless and silent could be made with a Constitution (Stealth) check."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stealth-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": " – Hiding secret information as a secret code in a written document."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-stealth-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Wisdom"
+            },
+            {
+              "type": "text",
+              "text": " – Blanking one’s mind to empty all surface thoughts as a proactive defense against suspected mind reading."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-survival",
+      "parentSectionId": "section-skills",
+      "heading": "Survival",
+      "sourceAnchor": "survival",
+      "blocks": [
+        {
+          "blockId": "block-section-survival-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Primary ability: "
+            },
+            {
+              "type": "strong",
+              "text": "Wisdom"
+            },
+            {
+              "type": "text",
+              "text": ". Tracking, hunting, not getting lost, and identifying or avoiding other natural hazards."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-survival-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "strong",
+              "text": "Intelligence"
+            },
+            {
+              "type": "text",
+              "text": " – While Intelligence (Nature) is commonly the check for identifying a plant or animal, Intelligence (Survival) will identify the disassembled parts of the same creatures and plants."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-checks-vs-saves-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-acrobatics-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-acrobatics-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-acrobatics-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-acrobatics-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-acrobatics-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-animal-handling-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-animal-handling-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-animal-handling-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-animal-handling-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-animal-handling-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-arcana-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-arcana-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-arcana-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-arcana-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-athletics-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-athletics-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-athletics-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-athletics-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-deception-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-deception-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-deception-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-deception-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-history-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-history-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-insight-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-insight-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-intimidation-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-intimidation-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-intimidation-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-intimidation-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-intimidation-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-investigation-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-investigation-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-investigation-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-medicine-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-medicine-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-medicine-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-nature-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-nature-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-perception-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-perception-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-perception-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-performance-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-performance-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-performance-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-persuasion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-persuasion-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[55]",
+      "detail": "block-section-persuasion-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[56]",
+      "detail": "block-section-persuasion-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[57]",
+      "detail": "block-section-religion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[58]",
+      "detail": "block-section-religion-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[59]",
+      "detail": "block-section-religion-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[60]",
+      "detail": "block-section-sleight-of-hand-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[61]",
+      "detail": "block-section-sleight-of-hand-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[62]",
+      "detail": "block-section-sleight-of-hand-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[63]",
+      "detail": "block-section-stealth-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[64]",
+      "detail": "block-section-stealth-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[65]",
+      "detail": "block-section-stealth-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[66]",
+      "detail": "block-section-stealth-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[67]",
+      "detail": "block-section-survival-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[68]",
+      "detail": "block-section-survival-2"
+    }
+  ],
+  "metrics": {
+    "words": 2248,
+    "sections": 23,
+    "blocks": 70,
+    "tables": 0,
+    "ratingSignals": 4
+  },
+  "status": "needs-editorial-review"
+}

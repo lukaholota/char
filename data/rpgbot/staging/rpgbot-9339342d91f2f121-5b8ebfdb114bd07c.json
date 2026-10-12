@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/2024-dnd/feats/vampire-hunter/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "5b8ebfdb114bd07c8f700e579ec5ad282e6c419a1107c0ff8b583955d5dd9716",
+  "sourceRevision": {
+    "revisionId": "rpgbot-9339342d91f2f121-5b8ebfdb114bd07c",
+    "sourceId": "rpgbot-9339342d91f2f121",
+    "fetchedAt": "2026-09-29T19:17:43.456810+00:00",
+    "sourceUpdatedAt": "2026-05-07T21:25:09-04:00",
+    "contentHash": "c1865d36624d625e0550ba51f4bb91b245fe0ec3eed637368bc78db8f595e46c",
+    "title": "DnD 5.5 Vampire Hunter Feat Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-9339342d91f2f121-5b8ebfdb114bd07c.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The benefits of the Vampire Hunter feat should, in theory, help protect you from vampires and other evil, undead creatures that prey on the living. Unfortunately, the benefits are very limited and only situationally useful, so there isn’t much value here."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Vampire Hunter is available from the Vampire Survivor background published in Astarion’s Book of Hungers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-adroit-escape",
+      "heading": "Adroit Escape",
+      "sourceAnchor": "adroit-escape",
+      "blocks": [
+        {
+          "blockId": "block-section-adroit-escape-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Escaping non-magical bonds isn’t especially difficult unless you’re in combat, and most campaigns won’t place in you in restraints often enough that this matters."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-adroit-escape-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Advantage on checks to escape grapples will rarely be useful. The 5.5 rules provide numerous ways to end a grapple without restoring to an Ability Check, such as using a Push weapon or shoving your grappler away from you. These options are nearly always both more reliable and less costly to use than spending your entire Action to do so."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-vitality-ward",
+      "heading": "Vitality Ward",
+      "sourceAnchor": "vitality-ward",
+      "blocks": [
+        {
+          "blockId": "block-section-vitality-ward-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The amount of damage reduced is fine, but only working once per rest makes this dubiously useful. At very low levels it will be more impactful than Resistance, but it will feel less impactful as you gain levels despite the PB scaling."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-vitality-ward-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I think this was a compromise because granting a permanent damage resistance on an Origin Feat might be too powerful, but I think what we got is too limited. If this was usable PB times per Long Rest, this would be more appealing. As written, you might benefit from this once in a busy adventuring day, then not take Necrotic damage for the rest of the day."
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Note that effects which subtract from incoming damage apply "
+            },
+            {
+              "type": "emphasis",
+              "text": "before"
+            },
+            {
+              "type": "text",
+              "text": " resistance/vulnerability, so picking up resistance to Necrotic damage will make this feel even less impactful."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "#adroit-escape",
+      "detail": "wp-block-heading rating-red Adroit Escape"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#vitality-ward",
+      "detail": "wp-block-heading rating-orange Vitality Ward"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-adroit-escape-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-adroit-escape-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-vitality-ward-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-vitality-ward-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-vitality-ward-3"
+    }
+  ],
+  "metrics": {
+    "words": 279,
+    "sections": 3,
+    "blocks": 6,
+    "tables": 0,
+    "ratingSignals": 2
+  },
+  "status": "needs-editorial-review"
+}

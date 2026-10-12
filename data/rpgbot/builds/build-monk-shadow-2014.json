@@ -1,0 +1,956 @@
+{
+  "buildId": "build-monk-shadow-2014",
+  "revisionId": "build-monk-shadow-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Тіньовий боксер",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-monk-shadow-2014",
+      "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+      "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "MONK_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [
+    "race",
+    "background",
+    "feat"
+  ],
+  "choices": [
+    {
+      "choiceId": "race",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-race",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "race-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "race",
+            "entityKey": "HUMAN_2014"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-shadow-2014",
+              "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+              "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+              "sectionId": "section-race",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Варіант людини{{Variant Human}}. Нам дуже потрібна риса на 1-му рівні, щоб отримати «Містичного адепта». Ми також отримуємо додаткову навичку, що приємно.",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "background",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-background",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "background-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "background",
+            "entityKey": "URCHIN"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-shadow-2014",
+              "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+              "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+              "sectionId": "section-background",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Безпритульний{{Urchin}}. Ми отримуємо чудові навички та Інструменти злодія, що дає змогу легко замінити Пройдисвіта в групі.",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat",
+      "stage": "initial",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "feat",
+            "entityKey": "ELDRITCH_ADEPT"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-shadow-2014",
+              "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+              "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+              "sectionId": "section-feats-2",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "На 1-му рівні беремо «Містичного адепта» заради «Зору диявола». Темнозір — це чудово, але здатність бачити в магічній темряві абсолютно критична для Шляху тіні.",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat-level-4",
+      "stage": "progression",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-level-4-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "feat",
+            "entityKey": "SENTINEL"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-shadow-2014",
+              "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+              "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+              "sectionId": "section-levels",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Риса: Вартовий, Повільне падіння",
+          "dependsOn": []
+        }
+      ]
+    },
+    {
+      "choiceId": "feat-level-16",
+      "stage": "progression",
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "count": 1,
+      "alternatives": [
+        {
+          "alternativeId": "feat-level-16-default",
+          "entity": {
+            "ruleset": "RULES_2014",
+            "kind": "feat",
+            "entityKey": "CRUSHER"
+          },
+          "sourceRefs": [
+            {
+              "articleId": "rpgbot-monk-shadow-2014",
+              "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+              "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+              "sectionId": "section-levels",
+              "ratingIds": []
+            }
+          ],
+          "explanation": "Риса: Дробильник (Статура 15 → 16)",
+          "dependsOn": []
+        }
+      ]
+    }
+  ],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "MONK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "MONK_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "MONK_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "WAY_OF_SHADOW",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "MONK_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SENTINEL"
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "MONK_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "MONK_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "MONK_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "MONK_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "MONK_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "MONK_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "MONK_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "MONK_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "MONK_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "MONK_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "MONK_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "MONK_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "CRUSHER",
+        "featOptions": [
+          {
+            "optionNameEng": "CRUSHER Ability (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "MONK_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "MONK_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "MONK_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "MONK_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-monk-shadow-2014",
+          "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+          "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "complete",
+  "details": {
+    "origin": "example",
+    "subclassKey": "WAY_OF_SHADOW",
+    "raceKey": "HUMAN_2014",
+    "variantKey": "HUMAN_VARIANT",
+    "backgroundKey": "URCHIN",
+    "featKey": "ELDRITCH_ADEPT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Ми отримуємо два підвищення на +1, тож вкладемо їх у Спритність і Мудрість.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 15 15 Інтелект 8 8 Мудрість 15 16 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Варіант людини{{Variant Human}}. Нам дуже потрібна риса на 1-му рівні, щоб отримати «Містичного адепта». Ми також отримуємо додаткову навичку, що приємно.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Безпритульний{{Urchin}}. Ми отримуємо чудові навички та Інструменти злодія, що дає змогу легко замінити Пройдисвіта в групі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Серед класових навичок оберемо Аналіз Поведінки та Непомітність. Безпритульний дає Спритність рук і Непомітність, а зайву Непомітність замінимо на Уважність. Додаткову навичку від Варіанта людини використаємо на Розслідування. Також від Безпритульного отримуємо Інструменти злодія та ігровий набір. Це дає все потрібне, щоб бути розвідником нашої групи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 1-му рівні беремо «Містичного адепта» заради «Зору диявола». Темнозір — це чудово, але здатність бачити в магічній темряві абсолютно критична для Шляху тіні.\n\nНа 4-му рівні беремо «Вартового»{{Sentinel}}.\n\nРешту часу — лише підвищення характеристик.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Захист без броні, Бойові мистецтва",
+        "notes": "На цьому рівні ми — дуже типовий Монах. Візьміть спис і/або палицю й атакуйте нею двома руками заради більшої кістки шкоди.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Кі, Рух без броні",
+        "notes": "На цьому рівні все ще доволі типові для Монаха речі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підклас: Шлях тіні, Тіньові мистецтва, Відхилення снарядів",
+        "notes": "Цей рівень визначальний для нас: ми отримуємо здатність накладати заклинання за допомогою Кі. «Переміщення без сліду [Pass without Trace]» зробить непомітною всю групу. «Тиша [Silence]» може створити проблеми ворожим заклиначам. «Мала ілюзія [Minor Illusion]» дає змогу влаштовувати всілякі витівки.\n\nАле ми тут заради «Темряви [Darkness]». За 2 очки за використання вона монополізує наше Кі на кілька рівнів, але воно того варте. Наша куля «веселощів лише для нас» дає нам Перевагу на кубику в атаках, а ворогам — Перешкоду на кубику, коли вони атакують нас, забезпечуючи стабільний і надійний захист на всю карʼєру. За рідкісними винятками вороги просто не зможуть ефективно протистояти нам у ближньому бою.\n\nЗвісно, це створює незручності для союзників. Але памʼятайте: можна накласти «Темряву» на предмет, а потім накрити його, щоб придушити ефект.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: Вартовий, Повільне падіння",
+        "notes": "Єдиний недолік нашої стратегії темної кулі в тому, що вороги все ще можуть вийти з неї й піти турбувати наших союзників. «Вартовий» дає змогу цьому запобігти. Через це ми відстаємо від Фундаментальної математики{{Fundamental Math}}.\n\nТакож тепер у нас достатньо Кі, щоб накласти «Темряву» двічі за Короткий відпочинок. За 10 хвилин на одне накладання цього часто вистачає, тож тепер можна думати про використання Кі на інше.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака, Приголомшливий удар",
+        "notes": "Більше атак! Більше шкоди! А ще ми можемо приголомшувати!",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Удари, посилені Кі, Тіньовий крок",
+        "notes": "Удари, посилені Кі, — це нудно, але вкрай важливо. Тепер ми можемо телепортуватися в тінях. Здебільшого користуватимемося цим поза боєм, бо ми вже дуже швидкі й гарно",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Ухилення, Спокій розуму",
+        "notes": "Нас неможливо ефективно атакувати, нас нелегко обрати ціллю, бо більшість істот нас не бачить, Ухилення помʼякшує більшість видів шкоди по області, а Спокій розуму захищає від двох найпоширеніших станів-послаблень. Нас дуже важко вбити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: Спритність 16 → 18",
+        "notes": "Не надто цікаво, але ми все одно хочемо довести Спритність до максимуму.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Покращення Руху без броні",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Чистота тіла{{Purity of Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Плащ тіней{{Cloak of Shadows}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: Спритність 18 → 20",
+        "notes": "Усе ще не надто цікаво, але додаткова шкода — це приємно.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Язик Сонця і Місяця{{Tongue of the Sun and Moon}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Алмазна душа{{Diamond Soul}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Невмируще тіло{{Timeless Body}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Риса: Дробильник (Статура 15 → 16)",
+        "notes": "«Дробильник» дуже добрий, якщо ви покладаєтеся на дроблячу шкоду, а +1 до Статури дає нам модифікатор Статури +3.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Опортуніст{{Opportunist}}",
+        "notes": "Якщо ворогів усередині вашої кулі темряви вдарить хтось із ваших союзників, ви можете вдарити їх Реакцією. Слідкуйте за порядком ініціативи й подбайте, щоб ваша Реакція була доступна під час ходів ворогів, аби утримати їх на місці за допомогою «Вартового».",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Порожнє тіло{{Empty Body}}",
+        "notes": "Можливо, ми ніколи не скористаємося Порожнім тілом. Ми й так отримуємо по суті ті самі переваги від невидимості, а опір шкоді нам, імовірно, не потрібен, адже нас так важко поранити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Мудрість 16 → 18",
+        "notes": "Кращі ряткидки, вища Складність «Приголомшливого удару».",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Досконале Я{{Perfect Self}}",
+        "notes": "Завжди корисно. Ви вступатимете в кожен бій із достатньою кількістю Кі, щоб двічі накласти «Темряву».",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-monk-shadow-2014",
+            "translationRevisionId": "translation-rpgbot-monk-shadow-2014-draft1",
+            "sourceRevisionId": "rpgbot-4a7eefd98b9f9163-98f801c95e92bee6",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": []
+  }
+}

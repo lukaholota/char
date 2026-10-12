@@ -1,0 +1,3678 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-cc43efaa573a3f00",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-cc43efaa573a3f00-e60d253e1542d636",
+      "sourceId": "rpgbot-cc43efaa573a3f00",
+      "fetchedAt": "2026-09-29T19:22:08.818407+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:18:57-04:00",
+      "contentHash": "e5e342aad69ea3aef5881f578f14040e8fec1278f69420a786a77ed7e591515d",
+      "title": "DnD 5e Weapons: A Practical Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-cc43efaa573a3f00-e60d253e1542d636.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-weapons-2014",
+    "sourceId": "rpgbot-cc43efaa573a3f00",
+    "slug": "weapons-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Зброя — практичний гайд (2014)",
+    "titleEn": "DnD 5e Weapons: A Practical Guide",
+    "topics": [
+      "rules"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "articleId": "rpgbot-weapons-2014",
+      "sourceRevisionId": "rpgbot-cc43efaa573a3f00-e60d253e1542d636",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вибір зброї може бути важливим рішенням для бойового персонажа. Певні "
+                },
+                {
+                  "type": "link",
+                  "text": "риси",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/"
+                },
+                {
+                  "type": "text",
+                  "text": " та властивості зброї сильно змінюють тактику; розуміння варіантів допомагає обирати свідомо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стаття схожа на "
+                },
+                {
+                  "type": "link",
+                  "text": "навчальну сторінку про зброю",
+                  "href": "https://rpgbot.net/dnd5/how-to-play/weapons/"
+                },
+                {
+                  "type": "text",
+                  "text": ", але докладніше розглядає її з погляду оптимізації персонажа."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/weapons/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/weapons/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Атрибуція й ліцензія",
+                    "href": "https://rpgbot.net/dnd5/characters/weapons/#legalese"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Таблиці зброї",
+                    "href": "https://rpgbot.net/dnd5/characters/weapons/#weapons-tables"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Властивості зброї",
+                    "href": "https://rpgbot.net/dnd5/characters/weapons/#weapon-properties"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Огляд зброї",
+                    "href": "https://rpgbot.net/dnd5/characters/weapons/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Особливі матеріали",
+                    "href": "https://rpgbot.net/dnd5/characters/weapons/#special-materials"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Вогнепальна зброя",
+                    "href": "https://rpgbot.net/dnd5/characters/weapons/#firearms"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-4",
+          "heading": "Атрибуція й ліцензія",
+          "blocks": [
+            {
+              "blockId": "block-section-4-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця робота використовує матеріали System Reference Document 5.1 («SRD 5.1») від Wizards of the Coast LLC, доступні за адресою "
+                },
+                {
+                  "type": "link",
+                  "text": "https://dnd.wizards.com/resources/systems-reference-document",
+                  "href": "https://dnd.wizards.com/resources/systems-reference-document"
+                },
+                {
+                  "type": "text",
+                  "text": ". SRD 5.1 поширюється за ліцензією Creative Commons Attribution 4.0 International: "
+                },
+                {
+                  "type": "link",
+                  "text": "https://creativecommons.org/licenses/by/4.0/legalcode",
+                  "href": "https://creativecommons.org/licenses/by/4.0/legalcode"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons-tables",
+          "heading": "Таблиці зброї",
+          "sourceAnchor": "weapons-tables",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-simple-weapons",
+          "parentSectionId": "section-weapons-tables",
+          "heading": "Проста зброя",
+          "sourceAnchor": "simple-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-simple-weapons-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Назва зброї"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вартість"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шкода"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вага"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Властивості"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "emphasis",
+                      "text": "Проста зброя ближнього бою"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дубинка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 см"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4 дробильної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Легка"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кинджал"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність, Легка, Кидальна (Дальність 20/60)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Велика дубинка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 см"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8 дробильної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дворучна"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ручна сокира"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6 рубаної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Легка, Кидальна (Дальність 20/60)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кидальний спис"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 см"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кидальна (Дальність 30/120)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Легкий молот"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4 дробильної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Легка, Кидальна (Дальність 20/60)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Булава"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6 дробильної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Палиця"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 см"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6 дробильної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Універсальна (1к8)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Серп"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4 рубаної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Легка"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спис"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кидальна (Дальність 20/60), Універсальна (1к8)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "emphasis",
+                      "text": "Проста зброя дальнього бою"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Легкий арбалет"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Боєприпас (Дальність 80/320), Заряджання, Дворучна"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дротик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 мм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/4 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність, Кидальна (Дальність 20/60)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Короткий лук"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Боєприпас (Дальність 80/320), Дворучна"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Праща"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 см"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4 дробильної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Боєприпас (Дальність 30/120)"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-martial-weapons",
+          "parentSectionId": "section-weapons-tables",
+          "heading": "Військова зброя",
+          "sourceAnchor": "martial-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-martial-weapons-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Назва зброї"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вартість"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шкода"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вага"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Властивості"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "emphasis",
+                      "text": "Військова зброя ближнього бою"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойова сокира"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8 рубаної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Універсальна (1к10)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий ціп"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8 дробильної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Глефа"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к10 рубаної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Важка, Досяг, Дворучна"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Велика сокира"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "30 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к12 рубаної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Важка, Дворучна"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дворучний меч"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "50 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2к6 рубаної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Важка, Дворучна"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Алебарда"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к10 рубаної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Важка, Досяг, Дворучна"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Довгий спис"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к12 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Досяг, Спеціальна"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Довгий меч"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8 рубаної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Універсальна (1к10)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дворучний молот"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2к6 дробильної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Важка, Дворучна"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Моргенштерн"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Піка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к10 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Важка, Досяг, Дворучна"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рапіра"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шабля"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "25 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6 рубаної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність, Легка"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Короткий меч"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність, Легка"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тризуб"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кидальна (Дальність 20/60), Універсальна (1к8)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Клевець"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий молот"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8 дробильної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Універсальна (1к10)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Батіг"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4 рубаної"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність, Досяг"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "emphasis",
+                      "text": "Військова зброя дальнього бою"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Духова трубка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Боєприпас (Дальність 25/100), Заряджання"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ручний арбалет"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "75 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Боєприпас (Дальність 30/120), Легка, Заряджання"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Важкий арбалет"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "50 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к10 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Боєприпас (Дальність 100/400), Важка, Заряджання, Дворучна"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Довгий лук"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "50 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8 колючої"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Боєприпас (Дальність 150/600), Важка, Дворучна"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сітка"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 зм"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 фунт."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спеціальна, Кидальна (Дальність 5/15)"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-other-weapons",
+          "parentSectionId": "section-weapons-tables",
+          "heading": "Інша зброя",
+          "sourceAnchor": "other-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-other-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інша зброя також існує, але її характеристики відсутні в SRD, тому автор не відтворює їх у цій статті. Вогнепальну дивіться в Посібник Майстра (2014), Double-Bladed Scimitar — у Еберрон: Постання з Останньої Війни, Hoopak — у Спис Дракона: Тінь Королеви Драконів. Примітка редакції: це пояснення автора щодо його публікації; перелік не означає, що кожна кампанія дозволяє всю зброю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapon-properties",
+          "heading": "Властивості зброї",
+          "sourceAnchor": "weapon-properties",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-properties-ammunition",
+          "parentSectionId": "section-weapon-properties",
+          "heading": "Боєприпас",
+          "sourceAnchor": "properties-ammunition",
+          "blocks": [
+            {
+              "blockId": "block-section-properties-ammunition-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зброєю з властивістю Боєприпас можна робити дальню атаку лише за наявності відповідного боєприпасу, наприклад болта для арбалета чи стріли для лука. Кожна атака витрачає один боєприпас. Діставання його з сагайдака, футляра чи іншого контейнера є частиною атаки. Після бою можете витратити хвилину на пошук і повернути половину витрачених боєприпасів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-ammunition-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор зауважує, що боєприпаси часто не відстежують, але для заряджання одноручної зброї з цією властивістю все одно потрібна вільна рука. Тому звичайний ручний арбалет не працює зі щитом, хоча для самого пострілу достатньо однієї руки. Примітка редакції: особливі ефекти, наприклад Repeating Shot, можуть змінювати цю вимогу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-properties-finesse",
+          "parentSectionId": "section-weapon-properties",
+          "heading": "Спритність",
+          "sourceAnchor": "properties-finesse",
+          "blocks": [
+            {
+              "blockId": "block-section-properties-finesse-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Атакуючи зброєю з властивістю Спритність, оберіть модифікатор Сили або Спритності для кидка атаки й шкоди. Для обох кидків використовуйте той самий модифікатор."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-finesse-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це важливо персонажам із високою Спритністю для ближнього бою. Пройдисвіту зброя з властивістю Спритність потрібна для Підступної атаки{{Sneak Attack}} в ближньому бою; її також люблять Слідопити й деякі Воїни. Стрільцю вона дає добру запасну зброю: кинджал чи інший варіант стане в пригоді, коли ворог надто близько до лука."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-finesse-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Приклади: кинджал, короткий меч і рапіра."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-properties-heavy",
+          "parentSectionId": "section-weapon-properties",
+          "heading": "Важка",
+          "sourceAnchor": "properties-heavy",
+          "blocks": [
+            {
+              "blockId": "block-section-properties-heavy-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Малі істоти мають Перешкоду на атаки Важкою зброєю. Її розміри й громіздкість заважають ефективно використовувати її Малим істотам. Примітка редакції: правило PHB 2014 також поширюється на Крихітних істот; це не вимога мінімальної Сили з редакції 2024."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-heavy-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усі Важкі варіанти в наведеній таблиці також Дворучні. Важка властивість — одна з небагатьох причин, чому Малий розмір гірший за Середній."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-properties-light",
+          "parentSectionId": "section-weapon-properties",
+          "heading": "Легка",
+          "sourceAnchor": "properties-light",
+          "blocks": [
+            {
+              "blockId": "block-section-properties-light-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Легка зброя невелика й зручна, тому підходить для бою двома зброями."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-light-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Властивість існує насамперед для підтримки бою двома зброями. Примітка редакції: сама Легка властивість ручного арбалета не дозволяє бій двома зброями — правило 2014 потребує зброї ближнього бою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-properties-loading",
+          "parentSectionId": "section-weapon-properties",
+          "heading": "Заряджання",
+          "sourceAnchor": "properties-loading",
+          "blocks": [
+            {
+              "blockId": "block-section-properties-loading-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Через час заряджання ви можете вистрілити лише одним боєприпасом, коли використовуєте дію, бонусну дію або реакцію для пострілу цією зброєю, незалежно від звичайного числа доступних атак."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-loading-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На рівнях 1–4 Заряджання зазвичай мало впливає, але з Додатковою атакою{{Extra Attack}} стає проблемою. Тому порохова зброя й арбалети придатні Пройдисвіту, але менш корисні Варвару, Воїну, Паладину й Слідопиту без способу обійти обмеження."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-loading-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для арбалетів "
+                },
+                {
+                  "type": "link",
+                  "text": "Експерт з арбалетів",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Crossbow Expert}} дозволяє ігнорувати Заряджання; для вогнепальної це робить Стрілець{{Gunner}}. Якщо є Винахідник, Repeating Shot{{Repeating Shot}} теж його прибирає. Примітка редакції: це Вливання застосовне до відповідної простої або військової зброї з Боєприпасом, а не буквально до будь-якої зброї."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-properties-range",
+          "parentSectionId": "section-weapon-properties",
+          "heading": "Дальність",
+          "sourceAnchor": "properties-range",
+          "blocks": [
+            {
+              "blockId": "block-section-properties-range-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зброя для дальньої атаки має дальність у дужках після Боєприпасу чи Кидальної властивості. Перше число — звичайна дальність у футах, друге — максимальна. Поза звичайною дальністю атака має Перешкоду; поза максимальною атакувати не можна."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-range-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Досить просто."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-range-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо звичайна дальність замала, розгляньте Влучний стрілець{{Sharpshooter}}: риса прибирає Перешкоду від дальньої дистанції."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-properties-reach",
+          "parentSectionId": "section-weapon-properties",
+          "heading": "Досяг",
+          "sourceAnchor": "properties-reach",
+          "blocks": [
+            {
+              "blockId": "block-section-properties-reach-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця зброя додає 5 футів до вашої досяжності, коли атакуєте нею. Примітка редакції: виправлений PHB 2014 також використовує цю досяжність для визначення Провокованих атак саме цією зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-reach-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дозволяє бити ворогів здалеку, бажано поза їхньою відповідною досяжністю. Проте вільне переміщення 5e рідко дає спосіб завадити їм просто наблизитися."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-reach-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Добре поєднується з Майстер древкової зброї{{Polearm Master}} і Вартовий{{Sentinel}}: Провокована атака при вході ворога в досяжність, а після влучання його швидкість стає 0. Це зупиняє наближення; для повторення доведеться змінити позицію. Дотримуйтеся переліку зброї відповідних пунктів рис."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-properties-special",
+          "parentSectionId": "section-weapon-properties",
+          "heading": "Спеціальна",
+          "sourceAnchor": "properties-special",
+          "blocks": [
+            {
+              "blockId": "block-section-properties-special-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зброя з властивістю Спеціальна має незвичні правила, пояснені в її описі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-special-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор називає Double-Bladed Scimitar, довгий спис і сітку; кожен розглянуто нижче. Примітка редакції: твердження «лише ці три опубліковані» застаріле — сама стаття також розглядає Hoopak з особливими правилами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-properties-thrown",
+          "parentSectionId": "section-weapon-properties",
+          "heading": "Кидальна",
+          "sourceAnchor": "properties-thrown",
+          "blocks": [
+            {
+              "blockId": "block-section-properties-thrown-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кидальну зброю можна кинути для дальньої атаки. Якщо це зброя ближнього бою, використовуйте той самий модифікатор характеристики для атаки й шкоди, який використовували б для її ближньої атаки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-thrown-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Майже вся Кидальна зброя належить до ближнього бою; дротик — виняток. Для силового персонажа кидок такої зброї часто є найкращою дальньою атакою. Примітка редакції: сітка також дальня Кидальна зброя, хоча не завдає шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-thrown-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Після кидка зброя опиняється поза рукою, тому магічну зброю використовувати складніше. Автор наводить винятки, які повертаються після влучання: "
+                },
+                {
+                  "type": "link",
+                  "text": "Arcane Propulsion Arm",
+                  "href": "https://www.dndbeyond.com/magic-items/976932-arcane-propulsion-arm"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "link",
+                  "text": "Boomerang Shield",
+                  "href": "https://www.dndbeyond.com/magic-items/7526627-boomerang-shield"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "link",
+                  "text": "Elven Thrower",
+                  "href": "https://www.dndbeyond.com/magic-items/7102420-elven-thrower"
+                },
+                {
+                  "type": "text",
+                  "text": " і "
+                },
+                {
+                  "type": "link",
+                  "text": "Dwarven Thrower",
+                  "href": "https://www.dndbeyond.com/magic-items/4627-dwarven-thrower"
+                },
+                {
+                  "type": "text",
+                  "text": ". Тому звичайна магічна стрілецька зброя часто зручніша. Примітка редакції: перелік не вичерпний; Returning Weapon Винахідника також повертає зброю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-thrown-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стиль "
+                },
+                {
+                  "type": "link",
+                  "text": "Бій метальною зброєю",
+                  "href": "https://rpgbot.net/dnd5/characters/fighting-styles/#thrown-weapon-fighting"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Thrown Weapon Fighting}} підтримує кидки, але має низку важливих нюансів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-properties-two-handed",
+          "parentSectionId": "section-weapon-properties",
+          "heading": "Дворучна",
+          "sourceAnchor": "properties-two-handed",
+          "blocks": [
+            {
+              "blockId": "block-section-properties-two-handed-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця зброя потребує двох рук для використання. Примітка редакції: виправлене правило PHB 2014 уточнює — для атаки цією зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-two-handed-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Йдеться про "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "використання"
+                },
+                {
+                  "type": "text",
+                  "text": ", а не "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "тримання"
+                },
+                {
+                  "type": "text",
+                  "text": ". Можна тримати дворучну зброю однією рукою, наприклад іти зі смолоскипом і великою сокирою, але атакувати нею треба двома. Це дозволяє вільною рукою Захоплювати, Штовхати, накладати заклинання чи використовувати предмети, не кидаючи зброю. Примітка редакції: для заклинань усе одно виконуйте вимоги компонентів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-properties-versatile",
+          "parentSectionId": "section-weapon-properties",
+          "heading": "Універсальна",
+          "sourceAnchor": "properties-versatile",
+          "blocks": [
+            {
+              "blockId": "block-section-properties-versatile-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цю зброю можна використовувати однією або двома руками. Шкода в дужках при Універсальній властивості застосовується, коли робите нею ближню атаку двома руками."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-properties-versatile-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Універсальна зброя завдає менше шкоди за подібну дворучну, тому автор очікує двох рук переважно для знайденої магічної зброї або Малого персонажа."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-SpecialWeapons",
+          "parentSectionId": "section-weapon-properties",
+          "heading": "Особлива зброя",
+          "sourceAnchor": "SpecialWeapons",
+          "blocks": [
+            {
+              "blockId": "block-section-SpecialWeapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Особливу зброю розглянуто нижче за назвами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Огляд зброї",
+          "sourceAnchor": "weapons",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-battleaxe",
+          "parentSectionId": "section-weapons",
+          "heading": "Бойова сокира",
+          "sourceAnchor": "battleaxe",
+          "blocks": [
+            {
+              "blockId": "block-section-battleaxe-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Pepsi для Coca-Cola довгого меча. Так, вони практично однакові."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-blowgun",
+          "parentSectionId": "section-weapons",
+          "heading": "Духова трубка",
+          "sourceAnchor": "blowgun",
+          "blocks": [
+            {
+              "blockId": "block-section-blowgun-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кумедна цікавинка без особливої механічної принади. Духова трубка не наносить отруту краще за іншу зброю, тож персонажу з Володінням автор радить довгий лук. Примітка редакції: порівняння передбачає Володіння й можливість використовувати Важкий лук."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-club",
+          "parentSectionId": "section-weapons",
+          "heading": "Дубинка",
+          "sourceAnchor": "club",
+          "blocks": [
+            {
+              "blockId": "block-section-club-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дубинка існує насамперед заради дешевизни. Якщо використовуєте її, мабуть, кращого варіанта немає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-crossbow-hand",
+          "parentSectionId": "section-weapons",
+          "heading": "Ручний арбалет",
+          "sourceAnchor": "crossbow-hand",
+          "blocks": [
+            {
+              "blockId": "block-section-crossbow-hand-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Експерт з арбалетів",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Crossbow Expert}} робить ручний арбалет надзвичайно смертоносним і є основою багатьох сильних дальніх збірок. Без риси автор майже не бачить причини його використовувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-crossbow-hand-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для заряджання все ще потрібна вільна рука, тож звичайний арбалет — без щита. Бій двома зброями теж не працює: він лише для зброї ближнього бою. Особливе Вливання Repeating Shot може прибрати потребу заряджання боєприпасом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-crossbow-heavy",
+          "parentSectionId": "section-weapons",
+          "heading": "Важкий арбалет",
+          "sourceAnchor": "crossbow-heavy",
+          "blocks": [
+            {
+              "blockId": "block-section-crossbow-heavy-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найбільший кубик шкоди серед звичайної дальньої зброї таблиці робить важкий арбалет добрим до 5-го рівня, коли більшість бойових класів отримує Додаткову атаку; тоді автор радить довгий лук. Пройдисвіту з відповідним Володінням це найсильніший кубик дальньої зброї."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-crossbow-heavy-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Crossbow Expert прибирає Заряджання, тому важкий арбалет приваблює замість лука. Але бонусна атака ручним арбалетом зазвичай дає більше: повторне додавання модифікатора характеристики важливіше за різницю кубика."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-crossbow-light",
+          "parentSectionId": "section-weapons",
+          "heading": "Легкий арбалет",
+          "sourceAnchor": "crossbow-light",
+          "blocks": [
+            {
+              "blockId": "block-section-crossbow-light-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типова дальня зброя для класів із лише простою зброєю: кубик більший за короткий лук, але є Заряджання. Без Додаткової атаки це не проблема. Дальній Пройдисвіт, який ховається Хитрою дією{{Cunning Action}}, може користуватися ним усю карʼєру."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-crossbow-light-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Низькорівневому чаротворцю варто розглянути легкий арбалет. Автор стверджує, що Друїд чи Чарівник зі Спритністю 16 матиме вищу шкоду за атакувальне замовляння завдяки модифікатору Спритності. Примітка редакції: Друїд 2014 за замовчуванням не володіє легким арбалетом, а «будь-яке замовляння» надто широке узагальнення; врахуйте Володіння, шанс влучання й ефект конкретного заклинання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dagger",
+          "parentSectionId": "section-weapons",
+          "heading": "Кинджал",
+          "sourceAnchor": "dagger",
+          "blocks": [
+            {
+              "blockId": "block-section-dagger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Легкий кинджал із властивостями Спритність і Кидальна дуже універсальний. Добра запасна зброя, особливо з обліком ваги, та типовий вибір Пройдисвіта з двома зброями. Легко переходити від ближніх до дальніх атак без заміни зброї; це може зекономити бонусну дію на Відступ після наближення. Головне обмеження — 1к4, тому шкоду зазвичай додають інші джерела, як Підступна атака. Примітка редакції: дальній кидок біля свідомого видимого ворога в межах 5 футів усе ще має Перешкоду."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dart",
+          "parentSectionId": "section-weapons",
+          "heading": "Дротик",
+          "sourceAnchor": "dart",
+          "blocks": [
+            {
+              "blockId": "block-section-dart-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор називає дротик єдиною дальньою Метальною зброєю й робить висновок, що лише його можна кидати зі Спритністю та Sharpshooter. Примітка редакції: сітка також дальня Кидальна; кинджал із властивістю Спритність теж можна кидати зі Спритністю. Особливість дротика — сумісність із бонусом Стрільби з лука та пунктом Sharpshooter −5/+10, які потребують саме зброї дальнього бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dart-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більшість дальніх збірок використовує іншу зброю, наприклад луки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-doublebladed-scimitar",
+          "parentSectionId": "section-weapons",
+          "heading": "Double-Bladed Scimitar",
+          "sourceAnchor": "doublebladed-scimitar",
+          "blocks": [
+            {
+              "blockId": "block-section-doublebladed-scimitar-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Double-Bladed Scimitar{{Double-Bladed Scimitar}} — незвичайна й задумана як дуже рідкісна зброя з Еберрон: Постання з Останньої Війни. Дворучна, але основна шкода близька до одноручної. Головна перевага — вбудована слабша бонусна атака. Це економіка дій двох зброєвих атак із меншими труднощами. Примітка редакції: вона має власне правило бонусної атаки й не використовує правило бою двома зброями."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-doublebladed-scimitar-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Revenant Blade{{Revenant Blade}} поліпшує її, як пояснює "
+                },
+                {
+                  "type": "link",
+                  "text": "Практичний гайд бонусних атак",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-flail",
+          "parentSectionId": "section-weapons",
+          "heading": "Бойовий ціп",
+          "sourceAnchor": "flail",
+          "blocks": [
+            {
+              "blockId": "block-section-flail-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Та сама шкода, що й у бойового молота, але без Універсальної властивості та на 5 зм дешевше. Якщо не потрібні дві руки, практично однаковий."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-glaive",
+          "parentSectionId": "section-weapons",
+          "heading": "Глефа",
+          "sourceAnchor": "glaive",
+          "blocks": [
+            {
+              "blockId": "block-section-glaive-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Великий кубик, Досяг і сумісність із Polearm Master. Типовий вибір для дворучної збірки з цією рисою, хоча б тому, що Glaive стоїть в англійській абетці раніше за Halberd."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-greataxe",
+          "parentSectionId": "section-weapons",
+          "heading": "Велика сокира",
+          "sourceAnchor": "greataxe",
+          "blocks": [
+            {
+              "blockId": "block-section-greataxe-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Pepsi для Coca-Cola дворучного меча — так, жарт повторено. Кубик 1к12 привабливий Напіворку завдяки Savage Attacks{{Savage Attacks}} і Варвару завдяки Brutal Critical{{Brutal Critical}}. Іншим зазвичай цікавіша стабільна середня шкода дворучного меча."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-greatclub",
+          "parentSectionId": "section-weapons",
+          "heading": "Велика дубинка",
+          "sourceAnchor": "greatclub",
+          "blocks": [
+            {
+              "blockId": "block-section-greatclub-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор не бачить причини її існування: Палиця двома руками дає ту саму шкоду й значно меншу вагу. У старих редакціях це була прийнятна дворучна зброя для класів із простою зброєю, але з 1к8 у 5e вона втратила таку нішу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-greatsword",
+          "parentSectionId": "section-weapons",
+          "heading": "Дворучний меч",
+          "sourceAnchor": "greatsword",
+          "blocks": [
+            {
+              "blockId": "block-section-greatsword-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Еталон для порівняння всієї дворучної зброї."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-halberd",
+          "parentSectionId": "section-weapons",
+          "heading": "Алебарда",
+          "sourceAnchor": "halberd",
+          "blocks": [
+            {
+              "blockId": "block-section-halberd-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Механічно ідентична Глефі. У 5e прибрали довгі переліки різної древкової зброї старих редакцій, бо простіша механіка майже не розрізняє їх. Тому автору дивно, що Wizards of the Coast залишили два однакові варіанти «рубального леза на довгій палиці»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-handaxe",
+          "parentSectionId": "section-weapons",
+          "heading": "Ручна сокира",
+          "sourceAnchor": "handaxe",
+          "blocks": [
+            {
+              "blockId": "block-section-handaxe-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більша шкода за кинджал із тією самою дальністю кидка, але без властивості Спритність. Силовому персонажу добре замінює кинджал."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hoopak",
+          "parentSectionId": "section-weapons",
+          "heading": "Hoopak",
+          "sourceAnchor": "hoopak",
+          "blocks": [
+            {
+              "blockId": "block-section-hoopak-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Hoopak{{Hoopak}} зовні схожий на спис із пращею на іншому кінці, а механічно — на короткий меч із вбудованою пращею. Для дальньої атаки майже все інше ефективніше. Основна принада: одна магічна версія впливає і на ближні, і на дальні атаки без другої магічної зброї."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-javelin",
+          "parentSectionId": "section-weapons",
+          "heading": "Кидальний спис",
+          "sourceAnchor": "javelin",
+          "blocks": [
+            {
+              "blockId": "block-section-javelin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типовий дальній вибір силового персонажа. Кожному силовому бійцю ближнього бою корисно мати кілька метальних списів, щоб не бути безпорадним проти літаючих ворогів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-lance",
+          "parentSectionId": "section-weapons",
+          "heading": "Довгий спис",
+          "sourceAnchor": "lance",
+          "blocks": [
+            {
+              "blockId": "block-section-lance-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви маєте "
+                },
+                {
+                  "type": "link",
+                  "text": "Перешкоду",
+                  "href": "https://www.dndbeyond.com/sources/basic-rules/using-ability-scores#AdvantageandDisadvantage"
+                },
+                {
+                  "type": "text",
+                  "text": ", коли атакуєте довгим списом ціль у межах 5 футів. Якщо не їдете верхи, для використання потрібні дві руки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-lance-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Незвичайна зброя, задумана для верхового бою. Досяг дозволяє наблизитися, атакувати й відʼїхати на скакуні. Проте "
+                },
+                {
+                  "type": "link",
+                  "text": "верховий бій",
+                  "href": "https://rpgbot.net/dnd5/how-to-play/mounted-combat/"
+                },
+                {
+                  "type": "text",
+                  "text": " у 5e складніший: часто ворог опиниться поряд зі скакуном, а ви обговорюватимете, де саме ваш простір 5 × 5 розташований на коні 10 × 10."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-lance-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На землі схожий на Глефу, але з Перешкодою для сусіднього ворога. Він має к12 та Досяг, проте автор не вважає цей кубик достатньою компенсацією незручності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-lance-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Верхи довгий спис одноручний, тому Боєць з двома зброями{{Dual Wielder}} дозволяє тримати два й битися двома зброями."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-light-hammer",
+          "parentSectionId": "section-weapons",
+          "heading": "Легкий молот",
+          "sourceAnchor": "light-hammer",
+          "blocks": [
+            {
+              "blockId": "block-section-light-hammer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Подібний до кинджала без властивості Спритність. Дробильна шкода цікава проти скелетів; інакше кинджал добре виконує ту саму роль."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-longbow",
+          "parentSectionId": "section-weapons",
+          "heading": "Довгий лук",
+          "sourceAnchor": "longbow",
+          "blocks": [
+            {
+              "blockId": "block-section-longbow-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типовий вибір дальнього бойового класу без місця для Crossbow Expert. На жаль, Важка властивість шкодить Малим персонажам; їм краще короткий лук."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-longsword",
+          "parentSectionId": "section-weapons",
+          "heading": "Довгий меч",
+          "sourceAnchor": "longsword",
+          "blocks": [
+            {
+              "blockId": "block-section-longsword-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Еталон одноручної зброї: знаковий, але механічно не надто цікавий. Одна велика перевага — дуже багато опублікованих магічних довгих мечів порівняно з іншою зброєю. Доступність у вашій кампанії визначає Майстер."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-mace",
+          "parentSectionId": "section-weapons",
+          "heading": "Булава",
+          "sourceAnchor": "mace",
+          "blocks": [
+            {
+              "blockId": "block-section-mace-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Традиційний вибір Клірика, але автор вважає його слабким. Палиця дає ту саму шкоду, коштує 1/25 ціни, має Універсальну властивість і дозволяє тикати в підозрілі речі здалеку. Якщо не знайшли магічну Булаву, механічна причина її обирати мала."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-maul",
+          "parentSectionId": "section-weapons",
+          "heading": "Дворучний молот",
+          "sourceAnchor": "maul",
+          "blocks": [
+            {
+              "blockId": "block-section-maul-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Еквівалент дворучного меча з дробильною шкодою. Автор любить його через скелетів, а також він підходить під "
+                },
+                {
+                  "type": "link",
+                  "text": "рису Дробильник",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Crusher}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-morningstar",
+          "parentSectionId": "section-weapons",
+          "heading": "Моргенштерн",
+          "sourceAnchor": "morningstar",
+          "blocks": [
+            {
+              "blockId": "block-section-morningstar-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Майже Клевець, але вдвічі важчий і втричі дорожчий без очевидної механічної причини."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-net",
+          "parentSectionId": "section-weapons",
+          "heading": "Сітка",
+          "sourceAnchor": "net",
+          "blocks": [
+            {
+              "blockId": "block-section-net-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Велика або менша істота, в яку влучила сітка, стає "
+                },
+                {
+                  "type": "link",
+                  "text": "Скованою",
+                  "href": "https://www.dndbeyond.com/compendium/rules/basic-rules/appendix-a-conditions#Restrained"
+                },
+                {
+                  "type": "text",
+                  "text": " до звільнення. Сітка не діє на безформних, Величезних або більших істот. Істота може дією зробити перевірку Сили зі СК 10 й за успіху звільнити себе або іншу істоту в межах досяжності. Якщо завдати сітці 5 рубаної шкоди проти КБ 10, істота теж звільняється без ушкодження, а сітка руйнується.\n\nКоли використовуєте дію, бонусну дію або реакцію для атаки сіткою, можете зробити лише одну атаку, незалежно від звичайного доступного числа."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-net-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Постійне джерело роздратування. Дальність 5/15 футів зазвичай дає Перешкоду: в межах 5 ви поряд із ворогом, далі — на дальній дистанції. Примітка редакції: ближня Перешкода вимагає ворожої істоти в межах 5 футів, яка бачить вас і не є Недієздатною; це не буквально кожна можлива атака."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-net-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо обійти обмеження, сітка дуже сильна: Сковування потужне. Ціль може атакою розірвати сітку, але це вже атака не по вас чи союзниках, якщо вона не погоджується лишатися з Перешкодою на свої атаки. Звільнення має відповідати наведеним умовам шкоди чи перевірки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-net-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Прибрати Перешкоду можливо. Sharpshooter прибирає дальню, а Crossbow Expert або Gunner — від ворога поряд. Кумедно йти з арбалетом в одній руці й сіткою в іншій, але автор не писав правила. Примітка редакції: сітка все одно обмежує число атак саме використаною для неї дією; риса цього не скасовує."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-pike",
+          "parentSectionId": "section-weapons",
+          "heading": "Піка",
+          "sourceAnchor": "pike",
+          "blocks": [
+            {
+              "blockId": "block-section-pike-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Має Досяг і гострий кінець — що ще потрібно? Типова військова древкова зброя. Автор дивується, що Polearm Master з нею не працює. Примітка редакції: не працює саме пункт бонусної атаки; пункт Провокованої атаки при вході в досяжність 2014 прямо включає Піку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-pike-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Разом із важким арбалетом найважча в таблиці: 18 фунтів. Чому так багато? Це дуже довга деревʼяна жердина, а дерево важить."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-quarterstaff",
+          "parentSectionId": "section-weapons",
+          "heading": "Палиця",
+          "sourceAnchor": "quarterstaff",
+          "blocks": [
+            {
+              "blockId": "block-section-quarterstaff-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дуже дешева, Універсальна й підтримує Polearm Master. Палиця як магічний фокус також може використовуватися як ця зброя, тому багато Чарівників носять її без наміру бити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-quarterstaff-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Попри просту категорію, Палиця зі щитом — популярна й дієва збірка з Polearm Master для тих, кому не потрібна Досяг."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rapier",
+          "parentSectionId": "section-weapons",
+          "heading": "Рапіра",
+          "sourceAnchor": "rapier",
+          "blocks": [
+            {
+              "blockId": "block-section-rapier-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Типовий вибір багатьох ближніх збірок на Спритності: добрий кубик 1к8 із властивістю Спритність."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-scimitar",
+          "parentSectionId": "section-weapons",
+          "heading": "Шабля",
+          "sourceAnchor": "scimitar",
+          "blocks": [
+            {
+              "blockId": "block-section-scimitar-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор знає: ви мрієте про дві шаблі та домашню пантеру. Можливо, навіть хочете зіграти "
+                },
+                {
+                  "type": "link",
+                  "text": "Дроу",
+                  "href": "https://en.wikipedia.org/wiki/Drizzt_Do%27Urden"
+                },
+                {
+                  "type": "text",
+                  "text": ". Це трапляється майже з кожним гравцем DnD хоча б раз, і автор не може пояснити явище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-scimitar-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ідентична короткому мечу, але дорожча й важча. Примітка редакції: тип шкоди теж різний — рубана проти колючої. Поза зовнішністю, цим типом і магічними варіантами автор не бачить переваги."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-shortbow",
+          "parentSectionId": "section-weapons",
+          "heading": "Короткий лук",
+          "sourceAnchor": "shortbow",
+          "blocks": [
+            {
+              "blockId": "block-section-shortbow-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Менша шкода за легкий арбалет, зате без Заряджання. Автор вважає його нішу вузькою: більшість класів із Додатковою атакою також володіє військовою зброєю й обирає довгий лук. Важка властивість останнього підтримує нішу короткого для Малих персонажів. Примітка редакції: «кожен клас» у джерелі неправильно — Монах 2014 має Додаткову атаку, але не загальне Володіння військовою зброєю; існують й окремі інші підкласові варіанти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-shortsword",
+          "parentSectionId": "section-weapons",
+          "heading": "Короткий меч",
+          "sourceAnchor": "shortsword",
+          "blocks": [
+            {
+              "blockId": "block-section-shortsword-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зазвичай типовий вибір для двох зброєвих атак, бо багато таких збірок спирається на Спритність."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sickle",
+          "parentSectionId": "section-weapons",
+          "heading": "Серп",
+          "sourceAnchor": "sickle",
+          "blocks": [
+            {
+              "blockId": "block-section-sickle-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поза різницею ціни автор не бачить причини обирати його замість ручної сокири. Примітка редакції: врахуйте своє Володіння; наприклад, класовий перелік Друїда розрізняє ці варіанти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sling",
+          "parentSectionId": "section-weapons",
+          "heading": "Праща",
+          "sourceAnchor": "sling",
+          "blocks": [
+            {
+              "blockId": "block-section-sling-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Єдина звичайна дальня зброя таблиці з дробильною шкодою. Сама по собі приваблює дешевизною й відсутністю зазначеної ваги. Але "
+                },
+                {
+                  "type": "link",
+                  "text": "Дробильник",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Crusher}} дозволяє примусово зміщувати ворога здалеку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-spear",
+          "parentSectionId": "section-weapons",
+          "heading": "Спис",
+          "sourceAnchor": "spear",
+          "blocks": [
+            {
+              "blockId": "block-section-spear-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Одноручний, Універсальний, Кидальний і підтримує Polearm Master. Також довга жердина для перевірки підозрілих речей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-spear-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монаху варто придивитися: двома руками це один із найкращих низькорівневих варіантів до зростання кубика Бойових мистецтв{{Martial Arts}} до к8. Беззбройні удари зазвичай дробильні, тому колюча шкода дає альтернативу проти рідкісного опору. Примітка редакції: Палиця двома руками дає той самий кубик; перевага списа тут у типі шкоди й кидку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-trident",
+          "parentSectionId": "section-weapons",
+          "heading": "Тризуб",
+          "sourceAnchor": "trident",
+          "blocks": [
+            {
+              "blockId": "block-section-trident-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дивина PHB 2014: гірший за Спис — просту зброю з близькими характеристиками. Без магічного варіанта автор не бачить причини обирати його."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-war-pick",
+          "parentSectionId": "section-weapons",
+          "heading": "Клевець",
+          "sourceAnchor": "war-pick",
+          "blocks": [
+            {
+              "blockId": "block-section-war-pick-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Великий для одноручної зброї кубик колючої шкоди. Моргенштерн має ту саму шкоду, але дорожчий і важчий."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warhammer",
+          "parentSectionId": "section-weapons",
+          "heading": "Бойовий молот",
+          "sourceAnchor": "warhammer",
+          "blocks": [
+            {
+              "blockId": "block-section-warhammer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Подібний до бойової сокири й довгого меча, але з дробильною шкодою. Автор любить його через скелетів або для "
+                },
+                {
+                  "type": "link",
+                  "text": "риси Дробильник",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/crusher-piercer-slasher/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Crusher}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-whip",
+          "parentSectionId": "section-weapons",
+          "heading": "Батіг",
+          "sourceAnchor": "whip",
+          "blocks": [
+            {
+              "blockId": "block-section-whip-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Автор називає його єдиною одноручною зброєю з Досяжністю; також він з властивістю Спритність, але кубик лише к4. Цікавий для Sentinel, стилів Захисту{{Protection}} чи Перехоплення{{Interception}} та тактики «вдарив і втік» без Хитрої дії. Примітка редакції: довгий спис теж одноручний верхи, тому «єдина» має це обмеження; стилі захищають союзника в межах 5 футів, незалежно від досяжності батога."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-special-materials",
+          "heading": "Особливі матеріали",
+          "sourceAnchor": "special-materials",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-adamantine",
+          "parentSectionId": "section-special-materials",
+          "heading": "Адамантинова зброя",
+          "sourceAnchor": "adamantine",
+          "blocks": [
+            {
+              "blockId": "block-section-adamantine-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Правила адамантинової зброї відсутні в базових правилах і SRD, тому автор не відтворює їх. Дивіться сторінку 78 "
+                },
+                {
+                  "type": "link",
+                  "text": "Довідника Занатара про все",
+                  "href": "https://www.dndbeyond.com/sources/xgte/dungeon-masters-tools#AdamantineWeapons"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-adamantine-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Істоти, чий захист залежить від адамантину, рідкісні, а відповідний опір часто обходить магічна зброя. Автор не бачить великої потреби в адамантині, якщо магічні предмети доступні. Перевіряйте точний текст захисту конкретної істоти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-adamantine-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Він може бути корисний для руйнування: автоматичні критичні влучання по предметах швидко ламають двері, замки й стіни. Враховуйте КБ, ХП та можливий поріг шкоди предмета."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-silvered",
+          "parentSectionId": "section-special-materials",
+          "heading": "Посріблена зброя",
+          "sourceAnchor": "silvered",
+          "blocks": [
+            {
+              "blockId": "block-section-silvered-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Деякі монстри з імунітетом або опором немагічній зброї вразливі до срібної, тому обережні шукачі пригод платять за посріблення. Одну зброю або десять боєприпасів можна посріблити за 100 зм. Ціна охоплює срібло, час і майстерність нанесення без погіршення зброї."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-silvered-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Срібло може обходити відповідний захист дияволів, лікантропів і деяких невмерлих. Після низьких рівнів 100 зм відносно небагато. Магічна зброя часто обходить ті самі захисти, тож за її доступності потреба в сріблі мала; перевіряйте статблок."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-firearms",
+          "heading": "Вогнепальна зброя",
+          "sourceAnchor": "firearms",
+          "blocks": [
+            {
+              "blockId": "block-section-firearms-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вогнепальна зброя доступна не в кожній грі. Автор стверджує, що Еберрон і Фаерун канонічно її не мають, але це не єдині світи. Примітка редакції: не сприймайте це як універсальну заборону всіх публікацій чи кампаній цих світів. Запитайте Майстра про конкретну доступність; якщо дозволено, дивіться "
+                },
+                {
+                  "type": "link",
+                  "text": "Практичний гайд Стрільця",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/gunner/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-musket",
+          "parentSectionId": "section-firearms",
+          "heading": "Мушкет",
+          "sourceAnchor": "musket",
+          "blocks": [
+            {
+              "blockId": "block-section-musket-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Значно менша дальність за довгий лук і важкий арбалет, але шкода 1к12 й немає Важкої властивості, тож Малий персонаж не отримує її Перешкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-musket-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для дальньої шкоди мушкет із Gunner і Sharpshooter автор порівнює з Crossbow Expert та Sharpshooter. Без бонусного пострілу ваша бонусна дія вільна для іншого; це цінно, наприклад, для Мисливська мітка [Hunter's Mark]. Точне порівняння залежить від збірки й умов."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-pistol",
+          "parentSectionId": "section-firearms",
+          "heading": "Пістоль",
+          "sourceAnchor": "pistol",
+          "blocks": [
+            {
+              "blockId": "block-section-pistol-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Менша дальність за ручний арбалет, але значно більший кубик. Проте Gunner не дає додаткового пострілу, як Crossbow Expert, тому за доступного мушкета автор майже не бачить причини обирати пістоль."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-pistol-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Виняток — Винахідник у групі: Repeating Shot дозволяє ігнорувати Заряджання й створює боєприпас, тож пістоль можна використовувати зі щитом. Примітка редакції: Reloading Infusion у джерелі — помилкова назва; без такого особливого ефекту Боєприпас вимагає вільної руки."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-weapons-2014-001",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-battleaxe",
+      "targetBlockId": "block-section-battleaxe-1",
+      "optionId": "section-battleaxe",
+      "context": "Бойова сокира",
+      "explanationBlockId": "block-section-battleaxe-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-002",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-blowgun",
+      "targetBlockId": "block-section-blowgun-1",
+      "optionId": "section-blowgun",
+      "context": "Духова трубка",
+      "explanationBlockId": "block-section-blowgun-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-weapons-2014-003",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-club",
+      "targetBlockId": "block-section-club-1",
+      "optionId": "section-club",
+      "context": "Дубинка",
+      "explanationBlockId": "block-section-club-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-weapons-2014-004",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-crossbow-hand",
+      "targetBlockId": "block-section-crossbow-hand-1",
+      "optionId": "section-crossbow-hand",
+      "context": "Ручний арбалет",
+      "explanationBlockId": "block-section-crossbow-hand-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-weapons-2014-005",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-crossbow-heavy",
+      "targetBlockId": "block-section-crossbow-heavy-1",
+      "optionId": "section-crossbow-heavy",
+      "context": "Важкий арбалет",
+      "explanationBlockId": "block-section-crossbow-heavy-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-006",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-crossbow-light",
+      "targetBlockId": "block-section-crossbow-light-1",
+      "optionId": "section-crossbow-light",
+      "context": "Легкий арбалет",
+      "explanationBlockId": "block-section-crossbow-light-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-007",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-dagger",
+      "targetBlockId": "block-section-dagger-1",
+      "optionId": "section-dagger",
+      "context": "Кинджал",
+      "explanationBlockId": "block-section-dagger-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-weapons-2014-008",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-dart",
+      "targetBlockId": "block-section-dart-1",
+      "optionId": "section-dart",
+      "context": "Дротик",
+      "explanationBlockId": "block-section-dart-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-weapons-2014-009",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-doublebladed-scimitar",
+      "targetBlockId": "block-section-doublebladed-scimitar-1",
+      "optionId": "section-doublebladed-scimitar",
+      "context": "Double-Bladed Scimitar",
+      "explanationBlockId": "block-section-doublebladed-scimitar-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-weapons-2014-010",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-flail",
+      "targetBlockId": "block-section-flail-1",
+      "optionId": "section-flail",
+      "context": "Бойовий ціп",
+      "explanationBlockId": "block-section-flail-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-weapons-2014-011",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-glaive",
+      "targetBlockId": "block-section-glaive-1",
+      "optionId": "section-glaive",
+      "context": "Глефа",
+      "explanationBlockId": "block-section-glaive-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-012",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-greataxe",
+      "targetBlockId": "block-section-greataxe-1",
+      "optionId": "section-greataxe",
+      "context": "Велика сокира",
+      "explanationBlockId": "block-section-greataxe-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-013",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-greatclub",
+      "targetBlockId": "block-section-greatclub-1",
+      "optionId": "section-greatclub",
+      "context": "Велика дубинка",
+      "explanationBlockId": "block-section-greatclub-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-weapons-2014-014",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-greatsword",
+      "targetBlockId": "block-section-greatsword-1",
+      "optionId": "section-greatsword",
+      "context": "Дворучний меч",
+      "explanationBlockId": "block-section-greatsword-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-015",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-halberd",
+      "targetBlockId": "block-section-halberd-1",
+      "optionId": "section-halberd",
+      "context": "Алебарда",
+      "explanationBlockId": "block-section-halberd-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-016",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-handaxe",
+      "targetBlockId": "block-section-handaxe-1",
+      "optionId": "section-handaxe",
+      "context": "Ручна сокира",
+      "explanationBlockId": "block-section-handaxe-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-017",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-hoopak",
+      "targetBlockId": "block-section-hoopak-1",
+      "optionId": "section-hoopak",
+      "context": "Hoopak",
+      "explanationBlockId": "block-section-hoopak-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-weapons-2014-018",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-javelin",
+      "targetBlockId": "block-section-javelin-1",
+      "optionId": "section-javelin",
+      "context": "Кидальний спис",
+      "explanationBlockId": "block-section-javelin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-019",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-lance",
+      "targetBlockId": "block-section-lance-1",
+      "optionId": "section-lance",
+      "context": "Довгий спис",
+      "explanationBlockId": "block-section-lance-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-weapons-2014-020",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-light-hammer",
+      "targetBlockId": "block-section-light-hammer-1",
+      "optionId": "section-light-hammer",
+      "context": "Легкий молот",
+      "explanationBlockId": "block-section-light-hammer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-021",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-longbow",
+      "targetBlockId": "block-section-longbow-1",
+      "optionId": "section-longbow",
+      "context": "Довгий лук",
+      "explanationBlockId": "block-section-longbow-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-weapons-2014-022",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-longsword",
+      "targetBlockId": "block-section-longsword-1",
+      "optionId": "section-longsword",
+      "context": "Довгий меч",
+      "explanationBlockId": "block-section-longsword-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-023",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-mace",
+      "targetBlockId": "block-section-mace-1",
+      "optionId": "section-mace",
+      "context": "Булава",
+      "explanationBlockId": "block-section-mace-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-weapons-2014-024",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-maul",
+      "targetBlockId": "block-section-maul-1",
+      "optionId": "section-maul",
+      "context": "Дворучний молот",
+      "explanationBlockId": "block-section-maul-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-weapons-2014-025",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-morningstar",
+      "targetBlockId": "block-section-morningstar-1",
+      "optionId": "section-morningstar",
+      "context": "Моргенштерн",
+      "explanationBlockId": "block-section-morningstar-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-weapons-2014-026",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-net",
+      "targetBlockId": "block-section-net-1",
+      "optionId": "section-net",
+      "context": "Сітка",
+      "explanationBlockId": "block-section-net-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-weapons-2014-027",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-pike",
+      "targetBlockId": "block-section-pike-1",
+      "optionId": "section-pike",
+      "context": "Піка",
+      "explanationBlockId": "block-section-pike-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-weapons-2014-028",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-quarterstaff",
+      "targetBlockId": "block-section-quarterstaff-1",
+      "optionId": "section-quarterstaff",
+      "context": "Палиця",
+      "explanationBlockId": "block-section-quarterstaff-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-029",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-rapier",
+      "targetBlockId": "block-section-rapier-1",
+      "optionId": "section-rapier",
+      "context": "Рапіра",
+      "explanationBlockId": "block-section-rapier-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-weapons-2014-030",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-scimitar",
+      "targetBlockId": "block-section-scimitar-1",
+      "optionId": "section-scimitar",
+      "context": "Шабля",
+      "explanationBlockId": "block-section-scimitar-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-weapons-2014-031",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-shortbow",
+      "targetBlockId": "block-section-shortbow-1",
+      "optionId": "section-shortbow",
+      "context": "Короткий лук",
+      "explanationBlockId": "block-section-shortbow-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-weapons-2014-032",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-shortsword",
+      "targetBlockId": "block-section-shortsword-1",
+      "optionId": "section-shortsword",
+      "context": "Короткий меч",
+      "explanationBlockId": "block-section-shortsword-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-weapons-2014-033",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-sickle",
+      "targetBlockId": "block-section-sickle-1",
+      "optionId": "section-sickle",
+      "context": "Серп",
+      "explanationBlockId": "block-section-sickle-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-weapons-2014-034",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-sling",
+      "targetBlockId": "block-section-sling-1",
+      "optionId": "section-sling",
+      "context": "Праща",
+      "explanationBlockId": "block-section-sling-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-weapons-2014-035",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-spear",
+      "targetBlockId": "block-section-spear-1",
+      "optionId": "section-spear",
+      "context": "Спис",
+      "explanationBlockId": "block-section-spear-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-036",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-trident",
+      "targetBlockId": "block-section-trident-1",
+      "optionId": "section-trident",
+      "context": "Тризуб",
+      "explanationBlockId": "block-section-trident-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-weapons-2014-037",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-war-pick",
+      "targetBlockId": "block-section-war-pick-1",
+      "optionId": "section-war-pick",
+      "context": "Клевець",
+      "explanationBlockId": "block-section-war-pick-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-038",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-warhammer",
+      "targetBlockId": "block-section-warhammer-1",
+      "optionId": "section-warhammer",
+      "context": "Бойовий молот",
+      "explanationBlockId": "block-section-warhammer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-039",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-whip",
+      "targetBlockId": "block-section-whip-1",
+      "optionId": "section-whip",
+      "context": "Батіг",
+      "explanationBlockId": "block-section-whip-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-weapons-2014-040",
+      "articleId": "rpgbot-weapons-2014",
+      "translationRevisionId": "translation-rpgbot-weapons-2014-draft1",
+      "sectionId": "section-musket",
+      "targetBlockId": "block-section-musket-1",
+      "optionId": "section-musket",
+      "context": "Мушкет",
+      "explanationBlockId": "block-section-musket-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

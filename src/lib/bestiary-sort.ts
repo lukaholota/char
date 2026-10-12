@@ -102,33 +102,27 @@ function chain(...comparators: CreatureComparator[]): CreatureComparator {
   };
 }
 
+/// Ранг кожної істоти залежить лише від сіянки та її ключа, а не від сусідів: фільтр, пошук чи
+/// дозавантажене хоумбрю лише прибирають або вставляють рядки, решта не тасується заново.
 function shuffleWithSeed(
   entries: readonly CreatureIndexEntry[],
   seed: number
 ): CreatureIndexEntry[] {
-  const shuffled = [...entries];
-  const nextRandom = createSeededRandom(seed);
-
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(nextRandom() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-
-  return shuffled;
+  return entries
+    .map((entry) => ({ entry, rank: findShuffleRank(entry.key, seed) }))
+    .sort((left, right) => left.rank - right.rank)
+    .map(({ entry }) => entry);
 }
 
-/// mulberry32: та сама сіянка дає ту саму перестановку, тож зміна фільтра чи пошуку не тасує
-/// список заново під руками читача — він лише коротшає.
-function createSeededRandom(seed: number): () => number {
-  let state = seed >>> 0;
-
-  return () => {
-    state = (state + 0x6d2b79f5) >>> 0;
-    let t = state;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
+/// FNV-1a з сіянкою замість базового зсуву, а наприкінці перемішування бітів з murmur3.
+function findShuffleRank(key: string, seed: number): number {
+  let hash = (seed ^ 0x811c9dc5) >>> 0;
+  for (let i = 0; i < key.length; i++) {
+    hash = Math.imul(hash ^ key.charCodeAt(i), 0x01000193);
+  }
+  hash = Math.imul(hash ^ (hash >>> 16), 0x85ebca6b);
+  hash = Math.imul(hash ^ (hash >>> 13), 0xc2b2ae35);
+  return (hash ^ (hash >>> 16)) >>> 0;
 }
 
 export function createCreatureShuffleSeed(): number {

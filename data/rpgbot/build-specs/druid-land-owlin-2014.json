@@ -1,0 +1,142 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "druid-circle-of-the-land-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-druid-circle-of-the-land-2014-draft1",
+    "sourceRevisionId": "rpgbot-7b57c43f20999858-e2cb200ccdf03640"
+  },
+  "exampleSection": "section-example-circle-of-the-land-druid-build-wise-old-owl",
+  "levelTableSection": "section-levels",
+  "classKey": "DRUID_2014",
+  "subclassKey": "CIRCLE_OF_THE_LAND",
+  "raceKey": "OWLIN_SACOC",
+  "backgroundKey": "HERMIT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "revision": 2,
+  "levels": [
+    {"level": 2, "subclassKey": "CIRCLE_OF_THE_LAND", "classOptionSpellKeys": ["shape-water"]},
+    {"level": 3, "subclassOptions": [{"optionNameEng": "Circle Spells — Grassland"}]},
+    {"level": 4, "featKey": "TELEKINETIC", "featOptions": [{"optionNameEng": "TELEKINETIC Ability (Wisdom)"}], "spells": {"cantripKeys": ["produce-flame"]}, "section": "section-feats"},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}]},
+    {"level": 9},
+    {"level": 10, "openSpellPicks": [{"category": "cantrips", "count": 1}]},
+    {"level": 11},
+    {"level": 12, "featKey": "RESILIENT", "featOptions": [{"optionNameEng": "Resilient (Constitution)"}], "section": "section-feats"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19},
+    {"level": 20}
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Стартове спорядження за золото",
+      "reason": "Автор радить замінити стартовий набір золотом (2к5×10 зм) і купити щит, шкіряний обладунок, набір мандрівника, друїдичний фокус, кинджал і пращу; пресет бере стандартний набір Друїда з кинджалом, а пращі й дротиків у ньому немає.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Додаткові класові уміння",
+      "reason": "Автор використовує всі додаткові класові уміння Друїда (Дикий супутник, Природне відновлення тощо); пресет їх не записує.",
+      "section": "section-example-circle-of-the-land-druid-build-wise-old-owl"
+    },
+    {
+      "field": "Підготовлені заклинання 2–20 рівнів",
+      "reason": "Автор називає підготовлені заклинання по рівнях, але підготовку Друїда на вищих рівнях плану не веде жоден модуль платформи; їх готують на листі.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риси 16-го та 19-го рівнів",
+      "reason": "Автор пише лише «будь-яка риса»; конкретного вибору немає, тож рівні виконуються без підвищення чи риси. На 10-му рівні автор не називає замовляння, тому воно лишене вибору гравця.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/druid-land-owlin-2014.webp",
+    "title": "Друїд Кола землі — Совин",
+    "description": "Друїд-совин зі стартом Спритність 16 і Мудрість 17: контроль поля бою, розвідка й політ. Починає із замовляннями Настанова й Терновий батіг; Коло землі відкриється на 2-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "WIS",
+      "DEX",
+      "WIS"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "INSIGHT",
+        "PERCEPTION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "SYLVAN"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "DAGGER"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Совин зі змінюваним походженням за правилами Таші: +2 до Мудрості й +1 до Спритності, як в авторській таблиці (Спритність 16, Мудрість 17); це вже враховано.",
+    "skillExplanation": "Аналіз поведінки й Уважність — від Друїда, Непомітність — від совина, як описує автор. Передісторію автор не називає («що завгодно»), тому Відлюдника (Медицина, Релігія) та дві мови ми обрали за вас.",
+    "equipmentExplanation": "Автор радить купити за золото щит, шкіряний обладунок, набір мандрівника, друїдичний фокус, кинджал і пращу. Пресет бере стандартний набір Друїда: деревʼяний щит, кинджал, шкіряну броню, набір мандрівника й друїдичний фокус; пращі в ньому немає.",
+    "spells": {
+      "classCantripKeys": [
+        "guidance",
+        "thorn-whip"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "entangle",
+        "faerie-fire",
+        "goodberry",
+        "healing-word"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Настанова й Терновий батіг взято з рядка 1-го рівня авторської таблиці. Підготовлені заклинання Обплутування, Вогники фей, Доброягода й Цілюще слово названо автором."
+    }
+  }
+}

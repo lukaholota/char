@@ -1,0 +1,954 @@
+{
+  "buildId": "build-sorcerer-draconic-2014",
+  "revisionId": "build-sorcerer-draconic-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Приклад збірки Чародія — Дракононароджений, Чародій (Драконячий родовід)",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-sorcerer-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+      "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "SORCERER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "SORCERER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "DRACONIC_BLOODLINE"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "SORCERER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "burning-hands"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "SORCERER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Empowered Spell"
+          },
+          {
+            "optionNameEng": "Quickened Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "scorching-ray"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "SORCERER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [
+            "fire-bolt"
+          ],
+          "knownSpellKeys": [
+            "blindness-deafness"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "SORCERER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fireball"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "SORCERER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "haste"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "SORCERER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "wall-of-fire"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "SORCERER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "polymorph"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "SORCERER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "cone-of-cold"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "SORCERER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Twinned Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hold-monster"
+          ],
+          "spellbookKeys": []
+        },
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "SORCERER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "sunbeam"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "SORCERER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "SORCERER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "fire-storm"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "SORCERER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "SORCERER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "incendiary-cloud"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "SORCERER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "SORCERER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openClassOptions": true,
+        "classOptions": [
+          {
+            "optionNameEng": "Careful Spell"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "meteor-swarm"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "SORCERER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "SORCERER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "SORCERER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-sorcerer-2014",
+          "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+          "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "DRACONIC_BLOODLINE",
+    "raceKey": "DRAGONBORN_2014",
+    "backgroundKey": "NOBLE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 14
+      },
+      {
+        "ability": "CON",
+        "value": 14
+      },
+      {
+        "ability": "INT",
+        "value": 12
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Здебільшого ми припускатимемо характеристики за купівлею, запропоновані вище. Підвищення характеристик Дракононародженого збільшують вашу Силу (якою ми не користуватимемося) і нашу Харизму.\n\n  Базове значення Підвищене значення Сила 8 10 Спритність 14 14 Статура 14 14 Інтелект 12 12 Мудрість 10 10 Харизма 15 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Класичний дракононароджений{{Dragonborn}}. Підвищення Харизми — найбільша принада, а я ще не використовував Дракононародженого в базовій збірці, тож дуже хочу посилити драконячу тему персонажа. Вам доведеться обрати дракона-предка, щоб визначити вашу зброю дихання й опір до шкоди. Особисто я завжди віддаю перевагу конусам, а не лініям, але це здебільшого особисті вподобання. Також памʼятайте, що починаючи з 6-го рівня ви зможете додати опір до шкоди за допомогою умінь вашого родоводу, тож обирайте різних предків для вашої раси й для вашого класу.\n\nОскільки базові збірки обмежені SRD та Основними правилами, заклинань на вибір у нас небагато, а це означає, що дракон-предок, якого ви оберете для Драконячого родоводу{{Draconic Bloodline}}, має бути вогняним. Для расового дракона-предка я раджу холод або отруту. Холод буде кориснішим у нападі, але багато ворогів завдають шкоди отрутою, через що опір до отрути дуже корисний у захисті.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "З високою Харизмою й доступом до всіх чотирьох навичок «обличчя» мало причин не стати «обличчям» групи. Між передісторією та класовими навичками постарайтеся отримати Обман, Залякування й Переконання. Візьміть Аналіз Поведінки, якщо це зручно, але ваша Мудрість недостатньо висока, щоб бути в ньому особливо добрим, тож сподіваймося, що хтось у вашій групі заповнить цю прогалину.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background-1",
+        "title": "Передісторія",
+        "text": "Послушник{{Acolyte}}, Злочинець{{Criminal}}, Аристократ{{Noble}} і Солдат{{Soldier}} дають одну з навичок «обличчя», які нам потрібні, але жодна передісторія не дає двох. Якщо ні в кого іншого в групі немає володіння інструментами злодія, беріть Злочинця. Інакше я раджу Аристократа, щоб отримати три навички «обличчя» на основі Харизми.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-background-1",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "Чародіям, по суті, потрібна лише Харизма, тож риси можуть бути чудовим варіантом. Уміння «Стихійна спорідненість»{{Elemental Affinity}} Драконячого родоводу{{Draconic Bloodline}} наголошує на одній стихії, що робить «Адепта стихій»{{Elemental Adept}} особливо привабливим варіантом.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Драконячий родовід\nДракон-предок\nДраконяча стійкість\nЧаротворство\nВідомі замовляння:\n– Моторошний дотик\n– Магічна рука\n– Штукарство\n– Промінь холоду\nВідомі заклинання:\n– Щит\n– Сон",
+        "notes": "Як стартове спорядження візьміть легкий арбалет, {{мішечок із компонентами|component pouch}} або чаротворчий фокус, будь-який набір і два кинджали. На першому рівні ми отримуємо багато всього, і вибирати доводиться багато. На вищих рівнях усе трохи менш лякає, але на першому рівні нам треба зробити багато виборів. Спершу ми отримуємо речі від Драконячого родоводу{{Draconic Bloodline}}. Нам треба обрати {{Дракона-предка|Dragon Ancestor}}, і оскільки в SRD вогняних заклинань більше, ніж інших заклинань шкоди, я наполегливо раджу вогняного дракона-предка. Щойно на 6-му рівні ми отримаємо «Стихійну спорідненість»{{Elemental Affinity}}, це дасть значне підвищення шкоди на більшості рівнів заклинань, зокрема й замовлянь. «Драконяча стійкість»{{Draconic Resilience}} відповідає Обладунку мага [Mage Armor], що заощаджує нам відоме заклинання, а на додачу ми отримуємо ще одне ХП на рівень. Це робить нас дуже живучими порівняно з іншими чародіями, чорнокнижниками й чарівниками. Чотири замовляння — більше замовлянь, ніж у будь-якого іншого заклинателя. У нас багато чудових варіантів. Проте памʼятайте, що ваш легкий арбалет — цілком життєздатний бойовий варіант. Навіть за Спритності лише 14 бонус +4 до влучання й 1к8+2 шкоди, імовірно, дадуть більше середньої шкоди, ніж ви можете нанести замовлянням. Згодом Вогняний заряд [Fire Bolt] стане вашим основним бойовим варіантом, але поки що можемо зосередитися на цікавіших варіантах. Моторошний дотик [Chill Touch] дає нам один із небагатьох варіантів Чародія для завдання некротичної шкоди, і це чудова запасна опція, коли ви стикаєтеся з ворогами з проблемним опором до шкоди. Промінь холоду [Ray of Frost] пропонує приємний варіант контролю натовпу. Це вдосталь наступальних варіантів на цьому рівні, тож ми маємо місце, щоб решту замовлянь витратити на утиліту. Для заклинань із рівнями візьмемо загальні основні варіанти. Щит [Shield] — потужний захисний варіант на кожному рівні, а Сон [Sleep] на низьких рівнях достатньо потужний, щоб одразу закінчити зіткнення, але згодом ви, можливо, захочете перенавчити його, коли.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Джерело магії\nНове відоме заклинання:\n– Палючі долоні",
+        "notes": "«Джерело магії»{{Font of Magic}} — найвідоміше класове уміння Чародія. Очки чародійства{{Sorcery Points}} дозволяють створювати додаткові слоти заклинань, але головна принада — «Метамагія»{{Metamagic}}. Метамагії ми не отримуємо до 3-го рівня, тож поки що це по суті лише безкоштовний слот заклинання 1-го рівня. На цьому рівні ми вивчимо Палючі долоні [Burning Hands]. Ймовірно, вони дублюють вашу зброю дихання, тож спершу користуйтеся нею. Вони потрібні нам здебільшого тоді, коли на 6-му рівні ми отримаємо «Стихійну спорідненість»{{Elemental Affinity}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Метамагія\n– Підсилене заклинання\n– Пришвидшене заклинання\nНове відоме заклинання:\n– Розпечений промінь",
+        "notes": "3-й рівень відкриває метамагію. Зараз ви отримуєте два варіанти й ще два пізніше, разом 4 варіанти. Усього є 8 варіантів, тож очевидно, що деякі нам доведеться пропустити. Ми візьмемо «Підсилене заклинання»{{Empowered Spell}} і «Пришвидшене заклинання»{{Quickened Spell}}. «Підсилене заклинання» страхує нас від поганих кидків шкоди, і на низьких рівнях від нього буде більше користі, ніж від «Пришвидшеного заклинання», бо у вас так мало очок чародійства{{Sorcery Points}}, а перекидання трьох кубиків шкоди на цьому рівні може дати відносно велике підсилення. Розпечений промінь [Scorching Ray] — надійний варіант шкоди, але не надто захопливий. Памʼятайте, що «Стихійна спорідненість»{{Elemental Affinity}} застосовується лише до одного кидка шкоди на заклинання, але це також означає, що вам досить влучити лише одним із трьох променів, щоб отримати бонусну шкоду.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Покращення Характеристик (Харизма 16 → 18)\nНові відомі замовляння:\n– Вогняний заряд\nНове відоме заклинання:\n– Сліпота/глухота",
+        "notes": "На цьому рівні наша Харизма зростає. Більший бонус заклинальної атаки означає, що замовляння стануть значно надійнішими за арбалет, тож з огляду на покращений бонус атаки й додавання Вогняного заряду [Fire Bolt], імовірно, настав час відкласти арбалет. Сліпота/глухота [Blindness/Deafness] — чудове послаблення. Сліпота ускладнює націлювання на ворогів заклинаннями, а Перешкода на кубику на атаки — величезне послаблення. Проте воно працює на ряткидках Статури, тож є ненадійним проти великих дужих ворогів, які зазвичай покладаються на атаки зброєю.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Нове відоме заклинання:\n– Вогнекуля",
+        "notes": "Якщо ви ще не відклали арбалет, час настав. Навіть замовляння з найменшою шкодою з обраних нами тепер завдають 2к8 (у середньому 9), легко випереджаючи ваш арбалет із 1к8+2 (у середньому 6,5). 5-й рівень також відкриває заклинання 3-го рівня. Беріть Вогнекулю [Fireball]. Це дає нам потужний варіант шкоди по області, тож розгляньте перенавчання Сну [Sleep] на утилітарні варіанти на кшталт Виявлення магії [Detect Magic], якщо ви не користуєтеся ним часто.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Стихійна спорідненість\nНове відоме заклинання:\n– Прискорення",
+        "notes": "«Стихійна спорідненість»{{Elemental Affinity}} суттєво підсилює всі наші вогняні заклинання. Вогняний заряд [Fire Bolt] зростає до 2к10+4. Додавання цього підсилення до заклинань по області на кшталт Палючих долонь [Burning Hands] і Вогнекулі [Fireball] робить їх особливо потужними, бо підвищення шкоди застосовується до кожної цілі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Нове відоме заклинання:\n– Стіна вогню",
+        "notes": "Стіна вогню [Wall of Fire] — перший варіант контролю території, який ми взяли. Перший кидок шкоди виграє від «Стихійної спорідненості»{{Elemental Affinity}}, а подальша додаткова шкода — ні. Користуйтеся Стіною вогню [Wall of Fire], щоб змінити розстановку в бою; розділяйте групи ворогів так, щоб ворогам доводилося зазнавати додаткової шкоди, аби дістатися до вас і ваших союзників. Щойно ворогів розділено, вони або отримають шкоду, щоб дістатися до вас, або застрягнуть в очікуванні, поки ви вбиваєте їхніх союзників.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик (Харизма 18 → 20)\nНове відоме заклинання:\n– Перевтілення",
+        "notes": "Ще одне підвищення Харизми означає кращі заклинальні атаки, вищі СК, більше шкоди від «Стихійної спорідненості»{{Elemental Affinity}} і більше кубиків від «Підсиленого заклинання»{{Empowered Spell}}. Перевтілення [Polymorph] додає потужний варіант підсилення для вас чи ваших союзників, але його також можна використати, щоб перетворити ворогів на щось нешкідливе. До цього рівня у вас достатньо очок чародійства{{Sorcery Points}}, щоб ви експериментували з «Пришвидшеним заклинанням»{{Quickened Spell}}. Памʼятайте, що ви все ще не можете накласти два заклинання з рівнями за один хід (хіба що отримали другу дію від чогось на кшталт «Сплеску дій»{{Action Surge}}), тож «Пришвидшене заклинання» зазвичай означає, що своєю дією ви робите щось інше, наприклад накладаєте замовляння.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Нове відоме заклинання:\n– Конус холоду",
+        "notes": "Заклинання 5-го рівня важливі, бо це слоти найвищого рівня, які ви можете створити за допомогою очок чародійства{{Sorcery Points}}. На жаль, SRD та Основні правила не містять вогняних заклинань цього рівня. Натомість спирайтеся на заклинання нижчих рівнів, накладені слотами 5-го рівня. Вогнекуля [Fireball], накладена як заклинання 5-го рівня, завдає 10к6 шкоди (у середньому 35) проти 8к8 (у середньому 36) від Конуса холоду [Cone of Cold], тож різниця в шкоді вже незначна, а «Стихійна спорідненість»{{Elemental Affinity}} зробить Вогнекулю [Fireball] ефективнішою. «Підсилене заклинання»{{Empowered Spell}} ефективніше для заклинань із меншою кількістю, але більших кубиків, чого має вистачити, щоб Конус холоду [Cone of Cold] завдавав більше шкоди, ніж Вогнекуля [Fireball], якщо ви захочете витратити очко чародійства, щоб його підсилити. А якщо ви все одно накладаєте заклинання зі слота високого рівня, витратити очко чародійства, щоб отримати трохи більше сили, вартує своєї ціни. Це порівняння справді привертає увагу до того, як чародії можуть підлаштовувати свою обмежену кількість заклинань на льоту, щоб отримати більше універсальності від відносно невеликої кількості відомих заклинань.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Метамагія\n– Спарене заклинання\nНове відоме замовляння:\n– Будь-яке\nНове відоме заклинання:\n– Стримування монстра",
+        "notes": "На цьому рівні ми отримуємо чимало чудового. Додатковий варіант метамагії дає нам ще більше способів підлаштовувати наші заклинання. Використання «Спареного заклинання»{{Twinned Spell}} на одноцільових заклинаннях на кшталт Сліпоти/глухоти [Blindness/Deafness] і Стримування монстра [Hold Monster] означає, що ми можемо націлюватися на додаткових ворогів так, ніби накладали ці заклинання слотами вищих рівнів, — за допомогою «Спареного заклинання». Також можна спарювати потужні заклинання на кшталт Перевтілення [Polymorph], які обмежені одиничними цілями.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Нове відоме заклинання:\n– Сонячний промінь",
+        "notes": "Заклинання 6-го рівня приносять наші перші слоти заклинань, які ми не можемо створити за допомогою очок чародійства{{Sorcery Points}}. Вони — наша «важка артилерія», навіть на високих рівнях, а оскільки заклинателі отримують так мало слотів високих рівнів, з кожного з них справді треба вичавити максимум. Хоча початкова шкода Сонячного променя [Sunbeam] нижча, ніж у варіантів нижчих рівнів на кшталт Конуса холоду [Cone of Cold], його можна використовувати щораунду цілу хвилину, завдаючи величезної шкоди одним слотом заклинання. Це також один із небагатьох способів для Чародія завдавати променевої шкоди, а засліплення ворогів дуже ефективне. Якщо накласти його за допомогою «Пришвидшеного заклинання»{{Quickened Spell}}, початковий промінь накладається бонусною дією, і ви все ще можете використати свою дію в цей самий хід, щоб випустити ще один промінь. Це також останній рівень, на якому Чародій вивчає нове заклинання щорівня. Далі ви вивчатимете по одному новому заклинанню щоразу, коли отримуєте доступ до нового рівня заклинань. Очікуйте, що спиратиметеся на заклинання нижчих рівнів, накладені слотами вищих рівнів, і перенавчайте всі низькорівневі заклинання, якими ви не користуєтеся.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик (Статура 14 → 16)",
+        "notes": "Це наше перше Покращення Характеристик, яке нам насправді не потрібне, тож якщо ви вирішили поекспериментувати з рисами, саме час. Інакше насолоджуйтеся купою додаткових ХП.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Нове відоме заклинання:\n– Вогняний шторм",
+        "notes": "Шкода Вогняного шторму [Fire Storm] насправді не така вже вражаюча. 7к10 (у середньому 38,5) — це насправді менше, ніж ви отримали б від Конуса холоду [Cone of Cold], накладеного як заклинання 7-го рівня (10к8, у середньому 45). Головна привабливість Вогняного шторму [Fire Storm] (окрім типу шкоди) у тому, що ви можете дуже гнучко розташовувати куби, щоб оминати своїх союзників. Також можна використати «Підсилене заклинання»{{Empowered Spell}}, щоб перекинути низькі кубики, а оскільки Вогняний шторм [Fire Storm] використовує к10, від «Підсиленого заклинання» ви отримаєте багато користі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Крила дракона{{Dragon Wings}}",
+        "notes": "«Крила дракона»{{Dragon Wings}} — це безкоштовний постійний політ без підтримання концентрації чи витрат слота заклинання. Якщо ви бʼєтеся, ви маєте літати.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Нове відоме заклинання:\n– Запальна хмара",
+        "notes": "Запальна хмара [Incendiary Cloud] — загалом фантастичний наступальний варіант. Він завдає приблизно стільки ж шкоди, як Вогнекуля [Fireball], накладена як заклинання 8-го рівня, щораунду цілу хвилину в досить великій області.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик (Статура 16 → 18)",
+        "notes": "О, дивіться, ще більше ХП.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Метамагія\n– Будь-яка\nНове відоме заклинання:\n– Рій метеорів",
+        "notes": "На цьому рівні замовляння отримують своє останнє підвищення шкоди, піднімаючи Вогняний заряд [Fire Bolt] до вражаючих 4к10+5 шкоди. Рій метеорів [Meteor Swarm] — найбільше заклинання шкоди по області в грі, що завдає в сумі 40к6+5 шкоди (у середньому 145). Використайте «Підсилене заклинання»{{Empowered Spell}}, щоб підсилити шкоду, і ви можете знищити цілі зіткнення (разом із місцевістю) за один хід.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Драконяча присутність{{Draconic Presence}}",
+        "notes": "«Драконяча присутність»{{Draconic Presence}} — приємний спосіб упоратися з натовпом, але якщо ви в ситуації, де дипломатія не варіант, вам більше пощастить із Роєм метеорів [Meteor Swarm].",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик (Статура 18 → 20)",
+        "notes": "Ще більше ХП!",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Відновлення чарівництва{{Sorcerous Restoration}}",
+        "notes": "Відновлення очок чародійства{{Sorcery Points}} під час короткого відпочинку — приємно. 4 очки означають два пришвидшені заклинання. Не надто вражає, але завжди корисно.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Метамагія на 17-му рівні",
+        "reason": "Автор пише «Метамагія: будь-яка»; пресет бере типову Careful Spell, гравець може змінити.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння на 10-му рівні",
+        "reason": "Автор пише «Нове відоме замовляння: будь-яке» і не називає його; його обирає гравець.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Характеристики",
+        "reason": "Автор подає базові 8/14/14/12/10/15 (29 очок), а купівля дає 27; пресет зменшує Мудрість з 10 до 8.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-sorcerer-2014",
+            "translationRevisionId": "translation-rpgbot-sorcerer-2014-draft1",
+            "sourceRevisionId": "rpgbot-29b968997e704b3a-1842e7cfebfb06d2",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

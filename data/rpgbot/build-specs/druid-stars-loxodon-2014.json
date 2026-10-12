@@ -1,0 +1,121 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "druid-circle-of-stars-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-druid-circle-of-stars-2014-draft1",
+    "sourceRevisionId": "rpgbot-65ec4de5c0243c5e-e5e7997cf7aff534"
+  },
+  "exampleSection": "section-example-circle-of-stars-druid-build-elephant-brain-energy",
+  "levelTableSection": "section-levels",
+  "classKey": "DRUID_2014",
+  "subclassKey": "CIRCLE_OF_STARS",
+  "raceKey": "LOXODON_GGTR",
+  "backgroundKey": "SAGE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 10,
+    "CON": 15,
+    "INT": 14,
+    "WIS": 15,
+    "CHA": 8
+  },
+  "revision": 2,
+  "levels": [
+    {"level": 2, "subclassKey": "CIRCLE_OF_STARS"},
+    {"level": 3},
+    {"level": 4, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "spells": {"cantripKeys": ["shape-water"]}, "section": "section-feats"},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "featKey": "RESILIENT", "featOptions": [{"optionNameEng": "Resilient (Constitution)"}], "section": "section-feats"},
+    {"level": 9},
+    {"level": 10, "spells": {"cantripKeys": ["druidcraft"]}},
+    {"level": 11},
+    {"level": 12, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}], "section": "section-feats"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "featKey": "TOUGH", "section": "section-feats"},
+    {"level": 20}
+  ],
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [],
+  "incomplete": [
+    {
+      "field": "Заклинання 3–17 рівнів",
+      "reason": "Автор називає підготовлені заклинання по рівнях, але підготовку Друїда на вищих рівнях плану не веде жоден модуль платформи; їх готують на листі.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/druid-stars-loxodon-2014.webp",
+    "title": "Друїд Кола зірок — Локсодон",
+    "description": "Друїд-локсодон з КБ 12 + Статура: Спритність знехтувано заради Інтелекту. Починає із замовляннями Первісна дикість і Створення вогню; Коло зірок відкриється на 2-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [],
+    "skills": {
+      "selectedClass": [
+        "NATURE",
+        "RELIGION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Бонуси локсодона (Статура +2, Мудрість +1) дають Статуру 17 і Мудрість 16, як в авторській таблиці; це вже враховано.",
+    "skillExplanation": "Природа й Релігія — від Друїда, Магія та Історія — від Мудреця, як у авторському прикладі. Дві мови від Мудреця ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Автор радить узяти щит. Решту — шаблю, шкіряну броню, набір мандрівника й друїдичний фокус — ми обрали за вас; їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "primal-savagery",
+        "produce-flame"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "absorb-elements",
+        "faerie-fire",
+        "goodberry",
+        "healing-word"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Замовляння Первісна дикість і Створення вогню взято з рядка 1-го рівня авторської таблиці. Підготовлені заклинання Поглинання стихій, Вогники фей, Доброягода й Цілюще слово названо автором."
+    }
+  }
+}

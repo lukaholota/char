@@ -1,0 +1,170 @@
+{
+  "monster": [
+    {
+      "name": "Lesser Star Spawn Emissary",
+      "source": "VRGR",
+      "page": 245,
+      "reprintedAs": [
+        "Lesser Star Spawn Emissary|RHW"
+      ],
+      "size": [
+        "M"
+      ],
+      "type": "aberration",
+      "ac": [
+        {
+          "ac": 19,
+          "from": [
+            "natural armor"
+          ]
+        }
+      ],
+      "hp": {
+        "average": 241,
+        "formula": "21d8 + 147"
+      },
+      "speed": {
+        "walk": 40,
+        "fly": {
+          "number": 40,
+          "condition": "(hover)"
+        },
+        "canHover": true
+      },
+      "str": 21,
+      "dex": 18,
+      "con": 24,
+      "int": 25,
+      "wis": 20,
+      "cha": 23,
+      "save": {
+        "int": "+13",
+        "wis": "+11",
+        "cha": "+12"
+      },
+      "skill": {
+        "arcana": "+19",
+        "deception": "+18",
+        "perception": "+11"
+      },
+      "senses": [
+        "truesight 120 ft."
+      ],
+      "passive": 21,
+      "resist": [
+        "acid",
+        "force",
+        "necrotic",
+        "psychic"
+      ],
+      "conditionImmune": [
+        "charmed",
+        "frightened"
+      ],
+      "languages": [
+        "all",
+        "telepathy 1,000 ft."
+      ],
+      "cr": "19",
+      "trait": [
+        {
+          "name": "Aberrant Rejuvenation",
+          "entries": [
+            "When the emissary drops to 0 hit points, its body melts away. A greater star spawn emissary instantly appears in an unoccupied space within 60 feet of where the lesser emissary disappeared. The greater emissary uses the lesser emissary's initiative count."
+          ]
+        },
+        {
+          "name": "Legendary Resistance (3/Day)",
+          "entries": [
+            "If the emissary fails a saving throw, it can choose to succeed instead."
+          ]
+        },
+        {
+          "name": "Unusual Nature",
+          "entries": [
+            "The emissary doesn't require air, food, drink, or sleep."
+          ]
+        }
+      ],
+      "action": [
+        {
+          "name": "Multiattack",
+          "entries": [
+            "The emissary makes three attacks."
+          ]
+        },
+        {
+          "name": "Lashing Maw",
+          "entries": [
+            "{@atk mw} {@hit 11} to hit, reach 15 ft., one target. {@h}16 ({@damage 2d10 + 5}) piercing damage plus 13 ({@damage 3d8}) acid damage."
+          ]
+        },
+        {
+          "name": "Psychic Orb",
+          "entries": [
+            "{@atk rs} {@hit 13} to hit, range 120 ft., one creature. {@h}18 ({@damage 2d10 + 7}) psychic damage."
+          ]
+        },
+        {
+          "name": "Change Shape",
+          "entries": [
+            "The emissary polymorphs into a Small or Medium creature of its choice or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed."
+          ]
+        }
+      ],
+      "legendary": [
+        {
+          "name": "Psychic Orb",
+          "entries": [
+            "The emissary makes a Psychic Orb attack."
+          ]
+        },
+        {
+          "name": "Teleportation Maw (Costs 2 Actions)",
+          "entries": [
+            "The emissary teleports to an unoccupied space it can see within 30 feet of it and can make a Lashing Maw attack."
+          ]
+        },
+        {
+          "name": "Psychic Lash (Costs 3 Actions)",
+          "entries": [
+            "The emissary targets a creature it can see within 30 feet of it and psychically lashes at that creature's mind. The target must succeed on a {@dc 21} Wisdom saving throw or take 36 ({@damage 8d8}) psychic damage and be {@condition stunned} until the start of its next turn."
+          ]
+        }
+      ],
+      "tokenCustom": true,
+      "traitTags": [
+        "Legendary Resistances",
+        "Unusual Nature"
+      ],
+      "senseTags": [
+        "U"
+      ],
+      "actionTags": [
+        "Multiattack",
+        "Shapechanger"
+      ],
+      "languageTags": [
+        "TP",
+        "XX"
+      ],
+      "damageTags": [
+        "A",
+        "P",
+        "Y"
+      ],
+      "miscTags": [
+        "MW",
+        "RCH"
+      ],
+      "conditionInflict": [
+        "stunned"
+      ],
+      "savingThrowForced": [
+        "wisdom"
+      ],
+      "hasToken": true,
+      "hasFluff": true
+    }
+  ]
+}

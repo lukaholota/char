@@ -1,0 +1,152 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "warlock-fathomless-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-warlock-fathomless-2014-draft1",
+    "sourceRevisionId": "rpgbot-9950a2ea789b0592-9b2db922bfa8ed0d"
+  },
+  "exampleSection": "section-example-fathomless-warlock-build-never-safe-from-water",
+  "levelTableSection": "section-levels",
+  "classKey": "WARLOCK_2014",
+  "subclassKey": "FATHOMLESS",
+  "raceKey": "HUMAN_2014",
+  "variantKey": "HUMAN_VARIANT",
+  "featKey": "MODERATELY_ARMORED",
+  "backgroundKey": "ENTERTAINER",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 13,
+    "CON": 15,
+    "INT": 12,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 3,
+  "levels": [
+    {"level":2,"classOptions":[{"optionNameEng":"Agonizing Blast"},{"optionNameEng":"Repelling Blast"}],"spells":{"knownSpellKeys":["thunderwave"]}},
+    {"level":3,"classOptions":[{"optionNameEng":"Pact of the Talisman"}],"spells":{"knownSpellKeys":["invisibility"]},"replaceSpell":{"drop":"thunderwave","add":"shatter"}},
+    {"level":4,"abilityScoreIncrease":[{"ability":"CHA","amount":2}],"spells":{"cantripKeys":["prestidigitation"],"knownSpellKeys":["hold-person"]}},
+    {"level":5,"classOptions":[{"optionNameEng":"Devil's Sight"}],"spells":{"knownSpellKeys":["hypnotic-pattern"]}},
+    {"level":6,"spells":{"knownSpellKeys":["counterspell"]}},
+    {"level":7,"classOptions":[{"optionNameEng":"Lance of Lethargy"}],"spells":{"knownSpellKeys":["banishment"]}},
+    {"level":8,"abilityScoreIncrease":[{"ability":"CHA","amount":2}],"spells":{"knownSpellKeys":["shadow-of-moil"]}},
+    {"level":9,"classOptions":[{"optionNameEng":"Protection of the Talisman"}],"spells":{"knownSpellKeys":["synaptic-static"]}},
+    {"level":10,"spells":{"cantripKeys":["blade-ward"]}},
+    {"level":11,"spells":{"knownSpellKeys":["bigbys-hand"]}},
+    {"level":12,"featKey":"RESILIENT","featOptions":[{"optionNameEng":"Resilient (Constitution)"}],"classOptions":[{"optionNameEng":"Rebuke of the Talisman"}]},
+    {"level":13,"spells":{"knownSpellKeys":["fear"]}},
+    {"level":14},
+    {"level":15,"classOptions":[{"optionNameEng":"Shrouded in Shadow"}],"spells":{"knownSpellKeys":["sickening-radiance"]},"replaceSpell":{"drop":"invisibility","add":"hold-monster"}},
+    {"level":16,"featKey":"CHEF","featOptions":[{"optionNameEng":"CHEF Ability (Constitution)"}]},
+    {"level":17,"spells":{"knownSpellKeys":["far-step"]}},
+    {"level":18,"classOptions":[{"optionNameEng":"Bond of the Talisman"}]},
+    {"level":19,"abilityScoreIncrease":[{"ability":"CON","amount":2}],"spells":{"knownSpellKeys":["dream"]}},
+    {"level":20}
+  ],
+  "incomplete": [
+    {
+      "field": "Стартове золото замість набору",
+      "reason": "Автор радить кинути кубики на гроші й купити лускатий обладунок, щит і мішечок із компонентами (або домовитися з Майстром про лускатий обладунок); пресет бере стандартний набір Чорнокнижника.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Музичний інструмент Артиста",
+      "reason": "Автор бере будь-який музичний інструмент; пресет не записує вибір інструмента передісторії.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Виклики 2-го й 5-го рівнів",
+      "reason": "Автор позначає виклики «Відштовхувальний вибух (Зір диявола)» на 2-му і «Зір диявола (Відштовхувальний вибух)» на 5-му рівні, не пояснюючи дужок; записано Відштовхувальний вибух на 2-му й Зір диявола на 5-му як нові виклики, без заміни. У розділі про риси автор радить на 8-му рівні тимчасово взяти Потойбічний розум і обміняти його на 12-му; платформа заміну викликів не записує.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Містичний арканум",
+      "reason": "Автор називає Клітку душі (11-й рівень), Силову клітку (13-й), Впевненість (15-й) і Передбачення (17-й); платформа не записує вибір арканума, тож їх слід додати вручну.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання 1-го рівня на 2-му рівні",
+      "reason": "Автор називає Громову хвилю «або» Руки Хадара; записано перше назване (Громова хвиля), яку на 3-му рівні, як радить автор, замінено на Друзки.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/warlock-variant-human-fathomless-2014.webp",
+    "title": "Чорнокнижник Безодні — Варіант людини",
+    "description": "«Від води не сховатися»: Щупальце глибин для контролю поля бою, «Середньоозброєний» з 1-го рівня. Статура 16, Харизма 16, Спритність 14.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CON",
+      "CHA"
+    ],
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "INTIMIDATION"
+      ],
+      "race": [
+        "ARCANA"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "DEEP_SPEECH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": [
+          "CLUB"
+        ]
+      }
+    ],
+    "featOptionName": "MODERATELY_ARMORED Ability (Dexterity)",
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Варіант людини: +1 до Статури й +1 до Харизми, а «Середньоозброєний» дає +1 до Спритності, як у авторській таблиці (Статура 16, Спритність 14, Харизма 16); це вже враховано.",
+    "skillExplanation": "Обман і Залякування — від Чорнокнижника, Магія — від Варіанта людини, Акробатика й Виступ — від Артиста, як радить автор. Мова — Глибинна, як обрав автор.",
+    "equipmentExplanation": "Автор радить купити лускатий обладунок, щит і мішечок за стартове золото; ми взяли стандартний набір. Легкий арбалет, мішечок із компонентами, набір вченого та кийок як просту зброю ми обрали за вас — їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "eldritch-blast",
+        "mage-hand"
+      ],
+      "knownSpellKeys": [
+        "armor-of-agathys",
+        "hex"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Замовляння й заклинання названі автором.",
+      "sectionId": "section-levels"
+    }
+  }
+}

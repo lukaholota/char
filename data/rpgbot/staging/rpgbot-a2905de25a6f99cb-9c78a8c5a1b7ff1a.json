@@ -1,0 +1,3342 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "9c78a8c5a1b7ff1a7477e0777c321acc0a95b3faed8b0a4de497582b482ce74c",
+  "sourceRevision": {
+    "revisionId": "rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a",
+    "sourceId": "rpgbot-a2905de25a6f99cb",
+    "fetchedAt": "2026-09-29T19:19:03.088916+00:00",
+    "sourceUpdatedAt": "2026-03-14T14:56:15-04:00",
+    "contentHash": "f0c9cdbc3e6aed627b53943ba5a5042a606a72092e61d85e99369213ff857748",
+    "title": "Shadow Magic Sorcerer 5e: DnD Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-a2905de25a6f99cb-9c78a8c5a1b7ff1a.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Shadow Magic Origin Sorcerer is not really all that concerned with shadows or darkness. It has a few tools that interact with darkness and dim light, but as a whole, even if you spent the entire campaign in well-lit environments, this subclass would do quite well."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The main gimmick of the subclass is a shadowy summon at sixth level that imposes Disadvantage on saves vs your spells for the same price as the Heighten spell metamagic, which is excellent value against a single enemy that you continue to hammer with spells, but less so in battles against numerous foes. The real worth however comes from continuing Disadvantage on spells with repeated saves, which Heighten does not do."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ultimately, the Shadow Magic Sorcerer, like other Sorcerous Origins, is really defined by the individual’s spell choices more than the subclass itself, which allows for flexible building and flavor. Hopefully you’ll enjoy the humorous twist we’ve put on the features in our example build at the bottom of the page."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Shadow Magic Origin Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Shadow Magic Origin Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#shadow-magic-origin-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Shadow Magic Origin Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#shadow-magic-origin-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Shadow Magic Origin Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#shadow-magic-origin-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Shadow Magic Origin Weapons and Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#shadow-magic-origin-weapons-and-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Shadow Magic Origin Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#shadow-magic-origin-multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Shadow Magic Origin Spells",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#shadow-magic-origin-spells"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "1st level",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#1st-level"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "2nd level",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#2nd-level"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "3rd level",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#3rd-level"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "5th level",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#5th-level"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "9th level",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#9th-level"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Shadow Magic Origin Build – Goose Goose Revolution",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#example-shadow-magic-origin-build-goose-goose-revolution"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/shadow-magic/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Shadow Magic Origin Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Eyes of the Dark"
+              },
+              {
+                "type": "text",
+                "text": ": Darkvision is important\n\t\tin a game that often includes a lot of dungeons, caves, and other poorly-lit\n\t\tlocales. 120 ft. Darkvision means that you can safely attack other enemies\n\t\twith Darkvision while remaining outside their vision range. In places that\n\t\tare well lit (like outside, if that’s somewhere that you go for whatever\n\t\treason), casting Darkness using Sorcery Points means that you’ve got a fun\n\t\tlittle bubble where you (and often "
+              },
+              {
+                "type": "emphasis",
+                "text": "only"
+              },
+              {
+                "type": "text",
+                "text": " you) can see normally.\n\t\tDarkness is a 2nd-level spell, and converting a 2nd-level spell slot to\n\t\tSorcery Points gives you 2 Sorcery Points, so all that it costs you is the\n\t\tBonus Action to make the conversion."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Strength of the Grave"
+              },
+              {
+                "type": "text",
+                "text": ": This might keep\n\t\tyou going if you’re dropped by an attack that doesn’t deal a lot of damage,\n\t\tbut against abilities which deal lots of damage all at once like breath\n\t\tweapons or spells it’s going to be very difficult to make the saving\n\t\tthrow."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hound of Ill Omen"
+              },
+              {
+                "type": "text",
+                "text": ": Even at high levels\n\t\twhen the dire wolf stat block won’t be threatening, forcing Disadvantage on\n\t\tsaving throws means that you can easily hit the target of your hound with a\n\t\tsave-or-suck spell immediately after summoning the hound.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "The hound also moves unerringly toward the target, so if they become\n\t\t\tinvisible you have a great way to locate them. The hound can move through\n\t\t\tobjects (though it can’t fly), so even solid walls won’t stop this thing\n\t\t\tonce you summon it, and it has enough hit points that it can suffer a few\n\t\t\tattacks before it dies."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "In essence, this is Heightened Spell attached to a very determined set of\n\t\t\tteeth, and unlike Heightened Spell the target suffers Disadvantage on\n\t\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "all"
+              },
+              {
+                "type": "text",
+                "text": " saves against your spells rather than the first save for an\n\t\t\taffected spell. As an example: you can target a creature with your hound\n\t\t\tthen hit it with Hold Monster, and it will make every save against Hold\n\t\t\tMonster at Disadvantage. Even better, your wolf will attack it with\n\t\t\tAdvantage and score automatic critical hits (provided that it hits, which\n\t\t\tis still a problem against high-AC foes) since the target it paralyzed."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Curiously, there’s no limitation on how many hounds you can have beyond\n\t\t\tthe Sorcery Point cost. If you want to summon a hound every turn until you\n\t\t\trun out of sorcery points, you’re free to do so. If you want to get\n\t\t\tmultiple hounds on the field then upcast Hold Monster to paralyze a bunch\n\t\t\tof things, that’s a thing you can do. I’ve done it, and it’s exactly as\n\t\t\tamazing as it sounds."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Now, your foes might decide to try killing the hound, but any attack against the hound is damage not taken by your less instantly resummonable party members. \nOne more fun little tidbit, even though it’s called “Hound” you can just decide it’s whatever you want. A black cat bringing bad luck, a totally rad dinosaur, a horrible goose. Flavor is free."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shadow Walk"
+              },
+              {
+                "type": "text",
+                "text": ": Free teleportation as a Bonus\n\t\tAction! The range is pretty good, and in a pinch you can cast Darkness to\n\t\tcreate an area in which to teleport. You can even use this while travelling,\n\t\tallowing you to move roughly 5 times as fast as normal by combining a\n\t\tcomfortable walking pace and frequent teleportation."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Umbral Form"
+              },
+              {
+                "type": "text",
+                "text": ": What if Rage let you cast spells and walk through walls instead of hitting things really hard? That’s kinda how this works. The Sorcery Points are\n\t\tcheaper than casting many spells which let you walk through walls and\n\t\tcreatures like Etherealness. Hopefully you won’t need the damage resistances\n\t\tbecause you have great defensive options like Improved Invisibility, but you\n\t\tmight be able to use Umbral Form before polymorphing and maintain the damage\n\t\tresistance."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-shadow-magic-origin-ability-scores",
+      "heading": "Shadow Magic Origin Ability Scores",
+      "sourceAnchor": "shadow-magic-origin-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-shadow-magic-origin-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As a Shadow Magic Sorcerer, we don’t change attribute priority from the "
+            },
+            {
+              "type": "link",
+              "text": "class handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-magic-origin-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump it unless you’re going for some niche Gish."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-magic-origin-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": We need AC."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-magic-origin-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": We need HP."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-magic-origin-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Knowledge skills maybe."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-magic-origin-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Perception and Insight."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-magic-origin-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": This is our casting stat: Spell attacks and Save DCs."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-magic-origin-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-shadow-magic-origin-races",
+      "heading": "Shadow Magic Origin Races",
+      "sourceAnchor": "shadow-magic-origin-races",
+      "blocks": [
+        {
+          "blockId": "block-section-shadow-magic-origin-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We do alright with the advice from the "
+            },
+            {
+              "type": "link",
+              "text": "Sorcerer Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/races/"
+            },
+            {
+              "type": "text",
+              "text": " but because we gain Darkvision from Shadow Magic we can ignore that when comparing races. Don’t take that to mean you shouldn’t pick a race with Darkvision if the rest of the package is good for your build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-magic-origin-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": ":\n\t"
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-shadow-magic-origin-feats",
+      "heading": "Shadow Magic Origin Feats",
+      "sourceAnchor": "shadow-magic-origin-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-shadow-magic-origin-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Sorcerer Handbook already covers"
+            },
+            {
+              "type": "link",
+              "text": " most of the better options",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/#feats"
+            },
+            {
+              "type": "text",
+              "text": ". Still, we’re theoretically the spooky shadow guy who likes to be in the shadows so there are some feats that can help with that."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-magic-origin-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Skill Expert"
+              },
+              {
+                "type": "link",
+                "text": "TCoE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": We might like to be even better at sticking to the shadows, or seeing things with our Darkvision, or maybe even that Face thing that our party might assume is our job without even consulting us. The nerve. An extra skill and an expertise could give us the edge we need in those departments."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-shadow-magic-origin-weapons-and-armor",
+      "heading": "Shadow Magic Origin Weapons and Armor",
+      "sourceAnchor": "shadow-magic-origin-weapons-and-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-shadow-magic-origin-weapons-and-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No. Just no. That’s what magic is for. Unless you multiclass in which case consult the armor section of your other class for details."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-shadow-magic-origin-multiclassing",
+      "heading": "Shadow Magic Origin Multiclassing",
+      "sourceAnchor": "shadow-magic-origin-multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-shadow-magic-origin-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There’s a few options that work but nothing that stands out as ridiculous."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-magic-origin-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Paladin"
+              },
+              {
+                "type": "text",
+                "text": ": It’s not terrible. If you started Paladin before jumping to Sorcerer you gain heavy armor, but you lose Constitution proficiency. If the armor is all you wanted, you get better mileage just doing this with "
+              },
+              {
+                "type": "text",
+                "text": "Fighter"
+              },
+              {
+                "type": "text",
+                "text": " instead."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hexblade Warlock"
+              },
+              {
+                "type": "text",
+                "text": ": Medium Armor, Hexblade’s Curse, and Charisma weapons. It’s not awful here but Shadow Magic is not the subclass to be trying to build a gish."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bard"
+              },
+              {
+                "type": "text",
+                "text": ": Light Armor and a Skill are things you can get with a single level dip."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-shadow-magic-origin-spells",
+      "heading": "Shadow Magic Origin Spells",
+      "sourceAnchor": "shadow-magic-origin-spells",
+      "blocks": [
+        {
+          "blockId": "block-section-shadow-magic-origin-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The notable thing Shadow Magic gives us that interacts directly with spells is the Hound of Ill Omen ability. This ability causes a shadowy monstrosity to follow the target and attack it. When adjacent to the target, the monstrosity imposes Disadvantage to saves vs our spells. This is like Heighten spell, even costing the same spell points, except it has hit points, lasts until it or the target are dead, and affects every spell we cast which targets the target of your hound."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-magic-origin-spells-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "And it doesn’t even need to be shaped like a dog. So for this section, let’s pretend it’s a "
+            },
+            {
+              "type": "link",
+              "text": "horrible goose",
+              "href": "https://www.youtube.com/watch?v=5OrLdnOUEkY"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-shadow-magic-origin-spells-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Consulting the "
+            },
+            {
+              "type": "link",
+              "text": "Sorcerer Spell List Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/spells/"
+            },
+            {
+              "type": "text",
+              "text": ", we want to find spells that cause horrible things to people harassed by a horrible goose. If I don’t call a spell out here it’s because it doesn’t meaningfully change by adding geese."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-1st-level",
+      "parentSectionId": "section-shadow-magic-origin-spells",
+      "heading": "1st level",
+      "sourceAnchor": "1st-level",
+      "blocks": [
+        {
+          "blockId": "block-section-1st-level-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Charm Person"
+              },
+              {
+                "type": "text",
+                "text": ": The horrible goose will unfortunately keep attacking the target, breaking the charm. Peace was never an option."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2nd-level",
+      "parentSectionId": "section-shadow-magic-origin-spells",
+      "heading": "2nd level",
+      "sourceAnchor": "2nd-level",
+      "blocks": [
+        {
+          "blockId": "block-section-2nd-level-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Blindness/Deafness"
+              },
+              {
+                "type": "text",
+                "text": ": Constitution saves might be hard to land, but with Disadvantage it might stick on more things. Blinding the target also means your goose/hound has Advantage on its attacks against the target. Neither of these things require Concentration so you’re free to set up this combo in one turn, then go do something else with your time."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hold Person"
+              },
+              {
+                "type": "text",
+                "text": ": So the problem with this spell for normal boring Sorcerers is that Heighten only works on the first saving throw. A horrible goose remains to the end, imposing Disadvantage on all of the creature’s saves to escape the spell’s effects."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-3rd-level",
+      "parentSectionId": "section-shadow-magic-origin-spells",
+      "heading": "3rd level",
+      "sourceAnchor": "3rd-level",
+      "blocks": [
+        {
+          "blockId": "block-section-3rd-level-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Sleet Storm"
+              },
+              {
+                "type": "text",
+                "text": ": The important part here is the way the last effect is worded. This isn’t a normal save to keep Concentration from damage, this is a save from the spell where the effect of failing is that Concentration ends. You try to keep Concentration while listening to “Honk honk honk honk honk honk~”"
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-5th-level",
+      "parentSectionId": "section-shadow-magic-origin-spells",
+      "heading": "5th level",
+      "sourceAnchor": "5th-level",
+      "blocks": [
+        {
+          "blockId": "block-section-5th-level-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Hold Monster"
+              },
+              {
+                "type": "text",
+                "text": ": For all the same reasons as Hold Person, this is just that spell but better."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-9th-level",
+      "parentSectionId": "section-shadow-magic-origin-spells",
+      "heading": "9th level",
+      "sourceAnchor": "9th-level",
+      "blocks": [
+        {
+          "blockId": "block-section-9th-level-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Psychic Scream"
+              },
+              {
+                "type": "text",
+                "text": ": It’s just so thematic that the target has Disadvantage on their Intelligence saves from all the honking. If Intelligence is the worst save on average then things will remain stunned forever with Disadvantage (or at least for 5 minutes until your goose expires)."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+      "heading": "Example Shadow Magic Origin Build – Goose Goose Revolution",
+      "sourceAnchor": "example-shadow-magic-origin-build-goose-goose-revolution",
+      "blocks": [
+        {
+          "blockId": "block-section-example-shadow-magic-origin-build-goose-goose-revolution-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "It’s a lovely day, and you are haunted by a horrible goose.",
+              "href": "https://www.youtube.com/watch?v=n3DfLpdhXkg"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-shadow-magic-origin-build-goose-goose-revolution-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I’m not going to beat around the bush. There’s very little shadow and darkness required to be a good Shadow Magic Origin Sorcerer. Oh sure, you get some nice benefits in the dark from your 14th level ability and you get Darkvision just for showing up. So we’ll instead focus on having a horrible goose impose Disadvantage to save-or-suck spells."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to do an atypical point buy spread. We’ll be taking a 14 in Dexterity because we’re not too concerned with pushing that up. We put 15s in Constitution and Charisma to have good hit points and good DCs. Then we put a 10 in Wisdom since we have points left over from leaving Dexterity round at 14."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hill Dwarf. We’re going to use some shenanigans about dwarves. Most races need to worry about Strength if they want to wear Heavy armor. Dwarves ignore that part and never lose speed from wearing armor. Hill dwarves get +1 HP per level. This will make our d6 hit die feel like we’re a d8 class."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We get a lot of built in weapon and tool proficiencies but we’re going to trade all of those out for custom tools: Cook’s Utensils, Disguise Kit, Forgery Kit, Poisoner’s Kit, and Horn."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re taking Courtier to get our Face proficiencies due to our unorthodox first level. The languages don’t matter, choose what works for your campaign."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Our first level is going to be Fighter for Heavy Armor and Shield proficiency, which means we have to pick off the Fighter list at first level. Well conveniently, Fighters can pick Intimidate and Insight. Because we’re getting Insight from our class, when taking Coutier we get to replace Insight with any skill. This allows us to pick Deception while the background also grants us Persuasion."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As mentioned above, we’re replacing all of the built-in dwarf proficiencies with tools: Cook’s Utensils, Disguise Kit, Forgery Kit, Poisoner’s Kit, and Horn.  This gives us a silly way to infiltrate as a chef and assassinate a target with poison. This has nothing to do with being good at Sorcerer or with horrible geese. Oh except I guess you can blame the goose."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to lose the 19th level ASI because we’re putting in two Fighter levels because of Action Surge."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Fifth level, Sorcerer 4: Skill Expert (+1 Charisma). We actually have options here based on the rest of the party. If nobody else in the party is good at Insight, we’re taking Expertise in that because we need to be on par with that skill as the Face. If someone else will cover that during negotiations, we can take the Expertise in one of our other Face skills depending on exactly how we want to lean. For the sake of being a horrible goose, this example took Deception expertise. The skill we learn is mostly up to preference, but we’re taking Acrobatics because we live the motto “the goose is loose.”"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ninth level, Sorcerer 8: ASI Charisma +2. We want to keep up, nothing fancy."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Thirteenth level, Sorcerer 12: Tough. Yeah that’s right, we’re taking Tough on top of being a Hill Dwarf. If you’re not keeping score, that’s like having a d12 hit die instead of our d6. If you instead prefer extra insurance on your Concentration checks, I suggest Warcaster here."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Seventeenth level, Sorcerer 16: ASI Constitution +2. Better concentration and better HP."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-shadow-magic-origin-build-goose-goose-revolution",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1-Fighter 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style (Defense)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "All Armor and Martial Weapons"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cook’s Utensils"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Disguise Kit"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Forgery Kit"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Poisoner’s Kit"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Horn"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Deception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Intimidation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Persuasion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re dipping in here to grab Armor proficiency without giving up proficiency in Constitution saves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Being a Dwarf, we don’t lose 10 feet of move speed from not being strong enough for heavy armor, so we’re going to abuse that to wear heavy armor."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The tankier we are, the less our allies have to worry that the squishy caster is going to get stabbed."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "To that end we also take the Defense fighting style since we’re not using weapons."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2-Sorcerer 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sorcerous Origin (Shadow Magic)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Eyes of the Dark"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Strength of the Grave"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Acid Splash"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Mage Hand"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Minor Illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Absorb Elements"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Sleep"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take our first level of Sorcerer and gain access to Shadow Magic Origin. This improves our Darkvision from the 60 of Dwarves to 120. Strength of the Grave allows us to make a Charisma save if we hit 0 HP to hit 1 HP instead. It might help us sometimes but try not to rely on it."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For cantrips, we’re taking Acid Splash and Mind Sliver. Acid Splash duo targets that stand too close together, and Mind Sliver "
+                },
+                {
+                  "type": "text",
+                  "text": "gives all Slivers “Tap: Target creature takes 2 damage and becomes tapped"
+                },
+                {
+                  "type": "text",
+                  "text": " anyone standing alone to ruin their saves."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "After that we have room for some utility so we take Mage Hand and Minor Illusion, but other good options include Mending and Prestidigitation."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For 1st-level spells, we don’t have a lot of slots at this level nor do we have a horrible goose. So we’ll take Sleep because it’s a death sentence to many creatures at this level. Since we have Heavy Armor, Absorb Elements might be better for us than Shield as a defensive option."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3-Sorcerer 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Font of Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "1st level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Silvery Barbs"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Or-"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Shield"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get Sorcery Points and this lets us be a bit flexible. Since we don’t have any metamagic yet the only thing this lets us do is have an extra 1st level spell slot every day. I’m not going to list the spell points per level on this table, you’ll have as many as levels in Sorcerer."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We don’t get a lot of spells so we have to be careful. Silvery Barbs is great, Shield is great. Both serve different purposes, so weigh your options."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4-Sorcerer 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Metamagic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Quicken Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Subtle Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Eyes of the Dark"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "2nd level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Darkness"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Hold Person"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We gain access to metamagic finally, picking up Quicken and Subtle. Quicken is just great for all sorts of reasons. Subtle spell, however, is great for causing mass hysteria and panic about a horrible goose that may or may not exist."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also we’re granted Darkness by our Eyes of the Dark and we take Hold Person. Sure this is later overshadowed by Hold Monster but we’ll want to keep it then anyways. If we come across a large group of humanoid foes, upcasting Person to the base level of Monster is far superior."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5-Sorcerer 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Skill Expert (+1 Charisma)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "(17=>18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skill"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Acrobatics"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Deception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrip"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Mending"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "2nd level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Phantasmal Force"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Or-"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Mind Whip"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get a feat so we’re taking Skill Expert to learn Acrobatics and gain Expertise in Deception."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We take Acrobatics because getting grabbed is generally a bad thing while doubling up on Deception helps us to lie our way out of problems. Sure there might be magical ways to handle situations like these, but Sorcerers have a limited number of spells known."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Phantasmal Force is interesting. A phantasm can make the target do things if you’re clever. A horrible goose phantasm for example can cause a target to drop an item when they believe the goose has pulled it from their hand. But, like many illusion spells, exactly what you can accomplish with the spell is greatly up to DM interpretation."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "On the other hand, Mind Whip hits a commonly weak save and first messes up the target’s reactions, then ruins the target’s action economy for the next turn. Sure it only lasts 1 round, but it doesn’t eat our Concentration like so many other spells on our list."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6-Sorcerer 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3rd level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Lightning Bolt"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Sleep => Major Image"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You may be wondering why Lightning Bolt and not Fireball? We’ll be getting our real horrible goose next level and we don’t want our goose to be cooked, that would be horrible."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But maybe it’s hard to get enemies in a line? Well for that we’ll need something to force them into a funnel. While sleep can be useful still, it is starting to fall off and needs to be replaced, which is how we learn Major Image."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With a bit of clever manipulation we can appear to collapse a bit of the floor or the ceiling and funnel our foes into that satisfying 5-foot wide line we need."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7-Sorcerer 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Hound"
+                },
+                {
+                  "type": "text",
+                  "text": " Goose of Ill Omen"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "3rd level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Dispel Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Absorb Elements => Counterspell"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For three points, we can call out a goose as a bonus action and ruin someone’s day. As described above, this is “Heighten spell” with a beak and a health bar. Honk."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For spells, we’ll pick up Dispel Magic and replace Absorb Elements with Counterspell."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8-Sorcerer 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Greater Invisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sometimes you just gotta be invisible, which is very different from being a highly visible ominous ball of darkness. Just how it is."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9-Sorcerer 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Charisma +2 (18=>20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "4th level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Psychic Lance"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We cap our Charisma here to keep up with the fundamental math."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Psy Lance does a bit of damage but more importantly incapacitates a target for a round. You know what you can’t do while incapacitated? Most things, including c"
+                },
+                {
+                  "type": "link",
+                  "text": "oncentrate",
+                  "href": "https://www.dndbeyond.com/sources/basic-rules/spellcasting#Concentration"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10-Sorcerer 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5th level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Hold Monster"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I explained this spell above, but with a horrible goose nipping at our foe’s heels this spell can really stick to weaker-willed enemies."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11-Sorcerer 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Metamagic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Twinned Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrip"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Blade Ward"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "4th level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Polymorph"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get another metamagic at this level and we’re picking up Twinned Spell now that we have a handful of spells we can double up."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now that we can twin it, we grab Polymorph so we can turn two of our allies into Giant Apes or something."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Blade Ward is what you use when the Disadvantage from Dodging isn’t strong enough to protect you from the runaway attack bonuses of high CR foes. And we have Quicken so we can always cast a leveled spell as a bonus action and still Blade Ward."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12-Sorcerer 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6th level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Disintegrate"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is both our big damage nuke spell and our get out of Forcecage spell."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13-Sorcerer 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Tough"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re this big pile of hit points from Hill Dwarf and now Tough. Add that to our Heavy Armor and we’re really hard to kill."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Because geese are persistent."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14-Sorcerer 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7th level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Draconic"
+                },
+                {
+                  "type": "text",
+                  "text": " Goose Transformation"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For a whole minute we can spread our wings and fly like a majestic and horrible goose."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We even have a "
+                },
+                {
+                  "type": "text",
+                  "text": "breath"
+                },
+                {
+                  "type": "text",
+                  "text": " honk weapon that does force damage and blindsight too."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15-Sorcerer 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Shadow Walk"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Free Teleport as a bonus action forever so long as you enter and exit from dim light or darkness. You know what creates convenient darkness? The spell Darkness, which you can cast using sorcery points and then see through."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16-Sorcerer 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8th level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Demiplane"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally, somewhere to stash all the things the goose has stolen."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17-Sorcerer 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI: Constitution +2 (16=>18)"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18-Sorcerer 17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9th level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Wish"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Polymorph=>Psychic Scream"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re taking Wish."
+                },
+                {
+                  "type": "link",
+                  "text": " Because Wish.",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "And then we’re replacing Polymorph with Psychic Scream because the forms are falling off and with Goose imposing Disadvantage on Intelligence saves, the targets aren’t getting loose."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19-Sorcerer 18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Umbral Form"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For six points and a bonus action, we walk through walls and have resistance to most damage for a minute."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "we’re"
+                },
+                {
+                  "type": "text",
+                  "text": " the horrible goose."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20-Fighter 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our capstone is the ability to cast two leveled spells on the same turn, because Fighter. I suggest something obnoxious like Hold Monster or Psychic Scream followed by Disintegrate."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Both Paralyzed and Stunned cause the target to automatically fail Dexterity saves. Because peace was never an option."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Shadow Magic Origin Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Eyes of the Dark"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Strength of the Grave"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hound of Ill Omen"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Shadow Walk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Umbral Form"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Skill Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[2]",
+      "detail": "rating-orange Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Hexblade Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Charm Person"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Blindness/Deafness"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hold Person"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Sleet Storm"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hold Monster"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Psychic Scream"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[3]",
+      "detail": "<li value=\"6\"><span class=\"rating-blue\">Hound of Ill Omen</span>: Even at high levels when the dire wolf stat block won’t be threatening, forcing Disadvantage on saving throws mean"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-shadow-magic-origin-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-shadow-magic-origin-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-shadow-magic-origin-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-shadow-magic-origin-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-shadow-magic-origin-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-shadow-magic-origin-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-shadow-magic-origin-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-shadow-magic-origin-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-shadow-magic-origin-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-shadow-magic-origin-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-shadow-magic-origin-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-shadow-magic-origin-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-shadow-magic-origin-weapons-and-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-shadow-magic-origin-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-shadow-magic-origin-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-shadow-magic-origin-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-shadow-magic-origin-spells-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-shadow-magic-origin-spells-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-1st-level-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-2nd-level-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-3rd-level-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-5th-level-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-9th-level-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-example-shadow-magic-origin-build-goose-goose-revolution-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-example-shadow-magic-origin-build-goose-goose-revolution-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "td/s[1]",
+      "detail": "s"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "td/s[1]",
+      "detail": "s"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "td/s[1]",
+      "detail": "s"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "td/s[1]",
+      "detail": "s"
+    }
+  ],
+  "metrics": {
+    "words": 3769,
+    "sections": 22,
+    "blocks": 47,
+    "tables": 3,
+    "ratingSignals": 27
+  },
+  "status": "needs-editorial-review"
+}

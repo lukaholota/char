@@ -1,0 +1,735 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "4bf67f566a7292508374ae9e0121d2346ecca58a11d1a3134432f52dc0c05aea",
+  "sourceRevision": {
+    "revisionId": "rpgbot-92e46fc6a85c6eea-4bf67f566a729250",
+    "sourceId": "rpgbot-92e46fc6a85c6eea",
+    "fetchedAt": "2026-09-29T19:17:39.170756+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:39:44-04:00",
+    "contentHash": "b55d9b4b16c20e56962371aede658bc990391e658149bc86c4a0fc78ab9a4e04",
+    "title": "Skilled, Skill Expert, and Skill-Related Feats: DnD 5e Feat Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-92e46fc6a85c6eea-4bf67f566a729250.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "In 5e D&D, most characters will start with a handful of skill proficiencies from Race, Class, and Background and never learn any new skills over the course of their career. Those that do wish to learn something new have two options, multiclassing or feats. This article will be focusing on those feat options for gaining proficiencies as well as touching on other feats that grant skill related bonuses."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are three feats that grant skill proficiencies, Skilled, Skill Expert, and Prodigy, as well as a handful of feats that grant non-proficiency bonuses to skills. We’ll discuss in depth the pros and cons of the first three, and then briefly compare the benefits of the other feats to simply gaining Expertise from Skill Expert."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For further reading and inspiration on ways to apply skills and tools in your games, we recommend reading the other articles in this series, "
+            },
+            {
+              "type": "link",
+              "text": "The Practical Guide to Tools",
+              "href": "https://rpgbot.net/dnd5/characters/tools/"
+            },
+            {
+              "type": "text",
+              "text": ", and "
+            },
+            {
+              "type": "link",
+              "text": "The Practical Guide to Impractical Skill Checks",
+              "href": "https://rpgbot.net/dnd5/characters/impractical-skill-checks/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skilled",
+                "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#skilled"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skill Expert",
+                "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#skill-expert"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Prodigy",
+                "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#prodigy"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Additional Skill-Related Feats",
+                "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#additional-skillrelated-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Actor",
+                "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#actor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Dungeon Delver",
+                "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#dungeon-delver"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Observant",
+                "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#observant"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skulker",
+                "href": "https://rpgbot.net/dnd5/characters/feats/skill-expert-skilled-prodigy/#skulker"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skilled",
+      "heading": "Skilled",
+      "sourceAnchor": "skilled",
+      "blocks": [
+        {
+          "blockId": "block-section-skilled-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The first of the three feats, introduced in the "
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ", and the most straightforward. Gain three skill or tool proficiencies. This feat may be old but it’s still useful for anyone that really needs more skills. Particularly, the value of this feat depends on what skills your party already has covered and how many skills you already have."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skilled-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Races have between 0 and 2 skills, Classes have between 2 and 4 skills, and all Backgrounds have 2 skills, so a character can have anywhere from 4 to 8 skills at level 1 depending on Race and Class selections. If you only have 4, adding 3 more almost doubles your options, but going from 8 to 11 can still be useful depending on which skills one chooses, your party composition, and your specific build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skilled-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Alternatively, this feat can also grant tool proficiencies, but using the feat this way is not recommended. "
+            },
+            {
+              "type": "link",
+              "text": "Tools are useful",
+              "href": "https://rpgbot.net/dnd5/characters/tools/"
+            },
+            {
+              "type": "text",
+              "text": " but it’s much easier to gain tools thanks to the customized origin rules in "
+            },
+            {
+              "type": "link",
+              "text": "TCoE",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": " and the downtime learning rules in "
+            },
+            {
+              "type": "link",
+              "text": "XGtE",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ". More specifically, it’s harder to justify giving up an ASI for tools than for skills. If your party really has a skill gap and you can fill it in without harming your build with the missing ASI, Skilled is a great option."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skill-expert",
+      "heading": "Skill Expert",
+      "sourceAnchor": "skill-expert",
+      "blocks": [
+        {
+          "blockId": "block-section-skill-expert-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unlike Skilled, Skill Expert only grants a single skill proficiency, but makes up for that with a +1 ability score increase of your choice (what is often called a “hybrid feat”). In addition to being hybrid, the feat grants Expertise in any one skill which does not have to be the skill proficiency learned from the feat. This feat is fantastic for all three of its functions. While it grants fewer skills than Skilled, sometimes all you need is one skill, so getting a +1 increase to any one ability score instead of two more skills is already a good trade, but getting the Expertise as well is excellent."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skill-expert-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Double proficiency on a key skill can be the cornerstone of many builds. "
+            },
+            {
+              "type": "link",
+              "text": "Grappling builds",
+              "href": "https://rpgbot.net/dnd5/characters/grapple/"
+            },
+            {
+              "type": "text",
+              "text": " for example will benefit greatly from Athletics Expertise. "
+            },
+            {
+              "type": "link",
+              "text": "Mounted combat builds",
+              "href": "https://rpgbot.net/dnd5/characters/mounted_combat/"
+            },
+            {
+              "type": "text",
+              "text": " might need to make lots of Animal Handling checks in combat. The key decision with Skill Expert is whether taking the feat or "
+            },
+            {
+              "type": "link",
+              "text": "taking a multiclass dip",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing/"
+            },
+            {
+              "type": "text",
+              "text": " is better for a given build. In some cases, the correct answer might even be both."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-prodigy",
+      "heading": "Prodigy",
+      "sourceAnchor": "prodigy",
+      "blocks": [
+        {
+          "blockId": "block-section-prodigy-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Introduced in Xanathar’s Guide to Everything, Prodigy is a racial feat available only to Humans, Half-Elves, and Half-Orcs. Prodigy is very similar to Skill Expert in that it grants a Skill and an Expertise. Unlike Skill Expert, Prodigy is not a hybrid feat, instead granting both a Tool and a Language. Compared to Skill Expert, it’s not great, but compared to Skilled, it’s more on par. Neither feat is hybrid and the trade becomes a choice of two more Skills or Expertise, a tool, and a language. If you’re Human, Half-Elf, or Half-Orc and need even more Expertise after already choosing Skill Expert, maybe take Prodigy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-additional-skillrelated-feats",
+      "heading": "Additional Skill-Related Feats",
+      "sourceAnchor": "additional-skillrelated-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-additional-skillrelated-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are additional feats that give non-proficiency bonuses to skills. We’ll briefly discuss these skills and compare them to using Skill Expert to just gain Expertise instead."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-actor",
+      "parentSectionId": "section-additional-skillrelated-feats",
+      "heading": "Actor",
+      "sourceAnchor": "actor",
+      "blocks": [
+        {
+          "blockId": "block-section-actor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Advantage on Deception and Performance when pretending to be someone else. It’s not too great because of how narrowly it applies, whereas Skill Expert could grant a large bonus on all Deception checks regardless of circumstance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-dungeon-delver",
+      "parentSectionId": "section-additional-skillrelated-feats",
+      "heading": "Dungeon Delver",
+      "sourceAnchor": "dungeon-delver",
+      "blocks": [
+        {
+          "blockId": "block-section-dungeon-delver-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Advantage to find secret doors. The bonus is far too narrow compared to getting Expertise in Perception or Investigation with Skill Expert. The rest of the benefits from the feat are still pretty good in the right campaign though, so we can consider the Advantage to secret doors more of a bonus on top."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-observant",
+      "parentSectionId": "section-additional-skillrelated-feats",
+      "heading": "Observant",
+      "sourceAnchor": "observant",
+      "blocks": [
+        {
+          "blockId": "block-section-observant-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A +5 to passive Perception and Investigation. This is actually a sizable bonus and better than just taking Skill Expert for the applicable skills. It’s also a hybrid feat for Intelligence or Wisdom."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skulker",
+      "parentSectionId": "section-additional-skillrelated-feats",
+      "heading": "Skulker",
+      "sourceAnchor": "skulker",
+      "blocks": [
+        {
+          "blockId": "block-section-skulker-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Being able to hide in more situations and removing Disadvantage from Perception under the same conditions. Good benefits to two skills that enhance the main function of those skills makes this a great feat that enhances Stealth and Perception in ways that Skill Expert doesn’t."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#skilled",
+      "detail": "wp-block-heading rating-green Skilled"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#skill-expert",
+      "detail": "wp-block-heading rating-blue Skill Expert"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#prodigy",
+      "detail": "wp-block-heading rating-orange Prodigy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#actor",
+      "detail": "wp-block-heading rating-orange Actor"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#dungeon-delver",
+      "detail": "wp-block-heading rating-green Dungeon Delver"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#observant",
+      "detail": "wp-block-heading rating-blue Observant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#skulker",
+      "detail": "wp-block-heading rating-blue Skulker"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-skilled-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-skilled-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-skilled-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-skill-expert-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-skill-expert-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-prodigy-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-additional-skillrelated-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-actor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-dungeon-delver-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-observant-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-skulker-1"
+    }
+  ],
+  "metrics": {
+    "words": 1051,
+    "sections": 11,
+    "blocks": 19,
+    "tables": 0,
+    "ratingSignals": 11
+  },
+  "status": "needs-editorial-review"
+}

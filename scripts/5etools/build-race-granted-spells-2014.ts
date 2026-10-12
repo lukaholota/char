@@ -14,13 +14,13 @@ export type RaceGrantMechanic = "known" | "innate";
 
 export type RaceGrantedSpell = { engName: string; characterLevel: number; mechanic: RaceGrantMechanic };
 
-export type RaceGrantedSpells = { race: string; subrace: string | null; definedIn: string; spells: RaceGrantedSpell[] };
+export type RaceGrantedSpells = { race: string; subrace: string | null; raceOptionName?: string; definedIn: string; spells: RaceGrantedSpell[] };
 
 export type UncoveredRaceGrant = { race: string; subrace: string | null; reason: string };
 
 export type RaceGrantedSpellsFile = { races: RaceGrantedSpells[]; uncovered: UncoveredRaceGrant[] };
 
-type Target = { race: string; subrace: string | null };
+type Target = { race: string; subrace: string | null; raceOptionName?: string };
 
 /// Ключ раси — «Назва|книга», підраси — «Раса|Назва|книга». Раса з заклинаннями поза переліком і поза
 /// `SOURCES_WITHOUT_OUR_RACES` зупиняє генерацію.
@@ -49,6 +49,7 @@ const TARGET_BY_MIRROR_KEY: Readonly<Record<string, Target>> = {
   "Genasi|Fire|MPMM": { race: "GENASI_FIRE_MPMM", subrace: null },
   "Genasi|Water|MPMM": { race: "GENASI_WATER_MPMM", subrace: null },
   "Gnome|Forest|PHB": { race: "GNOME_2014", subrace: "GNOME_FOREST_2014" },
+  "Half-Elf|Variant; Drow Descent|SCAG": { race: "HALF_ELF_2014", subrace: null, raceOptionName: "Магія дроу" },
 };
 
 /// Книги й варіанти, яких у нашому каталозі 2014 немає: старі видання рас, перевидані в MPMM, UA-подібні

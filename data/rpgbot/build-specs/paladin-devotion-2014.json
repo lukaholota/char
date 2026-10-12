@@ -1,0 +1,196 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "paladin-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-paladin-2014-draft1",
+    "sourceRevisionId": "rpgbot-1c05d55f9e324a13-e8565e5bad858404"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "PALADIN_2014",
+  "subclassKey": "OATH_OF_DEVOTION",
+  "raceKey": "DRAGONBORN_2014",
+  "backgroundKey": "ACOLYTE",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 8,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "recipeTitle": "Приклад збірки Паладина — Дракононароджений, Паладин Клятви відданості",
+  "levelPlans": {
+    "levels": "all",
+    "notes": true,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "classOptions": [
+        {
+          "optionNameEng": "Dueling"
+        }
+      ],
+      "openClassOptions": true
+    },
+    {
+      "level": 3,
+      "subclassKey": "OATH_OF_DEVOTION"
+    },
+    {
+      "level": 4,
+      "abilityScoreIncrease": [
+        {
+          "ability": "STR",
+          "amount": 1
+        },
+        {
+          "ability": "CON",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "STR",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Бойовий стиль на 2-му рівні",
+      "reason": "Автор пише «будь-який, крім Бою великою зброєю»; пресет бере типовий Dueling (одноручна зброя зі щитом), гравець може змінити.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/paladin-devotion-2014.webp",
+    "title": "Паладин Клятви відданості — Дракононароджений",
+    "description": "Щитоносець у кольчузі з цілющим запасом. Клятва відкриється на 3-му рівні, а заклинання паладин отримує з 2-го.",
+    "skills": {
+      "selectedClass": [
+        "PERSUASION",
+        "ATHLETICS"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "subraceKey": null,
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": [
+          "WARHAMMER"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "abilityExplanation": "Розподіл характеристик узято з прикладу RPGbot. Бонуси дракононародженого дають Силу 17 та Харизму 16.",
+    "skillExplanation": "Автор радить Переконання, Атлетику й Релігію. Переконання та Атлетику ми взяли від класу, а Релігію дає передісторія Послушника, яку автор допускає.",
+    "equipmentExplanation": "Бойовий молот, щит, пʼять списів і кольчуга взяті з авторського прикладу. Набір мандрівника та дві додаткові мови ми обрали за вас — це вибір платформи.",
+    "featSection": null,
+    "featOptionName": null,
+    "racialAbilities": [],
+    "languages": [
+      "CELESTIAL",
+      "DWARVISH"
+    ],
+    "skillSection": "section-skills-and-tools",
+    "equipmentSection": "section-levels",
+    "raceOptions": [
+      "Чорний дракон"
+    ],
+    "platformChoices": [
+      "raceOptions"
+    ]
+  }
+}

@@ -1,0 +1,1755 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-3c3a977a8ee9d26a",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-3c3a977a8ee9d26a-dd11855cb2b0a328",
+      "sourceId": "rpgbot-3c3a977a8ee9d26a",
+      "fetchedAt": "2026-09-29T19:11:57.440694+00:00",
+      "sourceUpdatedAt": "2025-10-29T13:35:52-04:00",
+      "contentHash": "cb69d0f58581535efbd0ebf557d6c2c894b475afac307187d3d95f610e0a6e09",
+      "title": "Tabaxi: DnD 5e Race/Species Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-3c3a977a8ee9d26a-dd11855cb2b0a328.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-tabaxi-2014",
+    "sourceId": "rpgbot-3c3a977a8ee9d26a",
+    "slug": "tabaxi-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Табаксі — гайд раси (2014)",
+    "titleEn": "Tabaxi: DnD 5e Race/Species Guide",
+    "topics": [
+      "race"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "articleId": "rpgbot-tabaxi-2014",
+      "sourceRevisionId": "rpgbot-3c3a977a8ee9d26a-dd11855cb2b0a328",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Механічно Табаксі дуже сильний: расові здібності чудові для непомітності й проникнення. Найкраще працює в класах із хорошими навичками, як Бард і Пройдисвіт, де два расові Володіння розширюють і так сильний набір."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З Темнозором{{Darkvision}} і швидкістю лазіння Табаксі дістається туди, де іншим расам складно. Використовуйте незвичне переміщення, щоб здивувати ворогів чи уникнути небезпечних ситуацій."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З опційним походженням підвищення характеристик і навички стають гнучкими, дозволяючи вийти за межі Пройдисвіта й схожих класів. Водночас Табаксі втрачає частину особливості. Кігті{{Cat's Claws (VGM)}} й так переважно атмосферна здібність без істотного механічного впливу, тож вирізняють расу здебільшого лазіння й Feline Agility{{Feline Agility}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Версія з Монстри Мультивсесвіту принаймні частково повертає Табаксі до ніші Пройдисвіта й близьких збірок. Якщо не ігнорувати додаткові Володіння — інакше краще взяти майже будь-яку іншу расу — ви, ймовірно, оберете персонажа, якому потрібна одна чи обидві навички."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tabaxi/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tabaxi/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Версії Табаксі",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tabaxi/#tabaxi-versions"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Окрема довідка: сумісність із правилами 2024",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tabaxi/#tabaxi-in-the-2024-dnd-rules"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Расові здібності Табаксі",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tabaxi/#tabaxi-traits"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Табаксі MPMM: вибір класу",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tabaxi/#classes"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Табаксі з налаштуванням походження: вибір класу",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tabaxi/#classes-custom-origin"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Початковий Табаксі: вибір класу",
+                    "href": "https://rpgbot.net/dnd5/characters/races/tabaxi/#classes-classic"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-tabaxi-versions",
+          "heading": "Версії Табаксі",
+          "sourceAnchor": "tabaxi-versions",
+          "blocks": [
+            {
+              "blockId": "block-section-tabaxi-versions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Фактично є три версії Табаксі. Перша вийшла у Довідник Воло з монстрів, потім без змін перевидана у Путівник дослідника по Вайлдмаунту."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-tabaxi-versions-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друга — з опційним налаштуванням походження: можна перерозподілити як підвищення характеристик, так і Володіння навичками."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-tabaxi-versions-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найновіша версія у Монстри Мультивсесвіту повертає фіксовані Уважність і Скритність, підвищує кістку шкоди кігтів до к6 та використовує новий стандарт характеристик: +2/+1 або три +1. Примітка редакції: швидкість лазіння також стала дорівнювати швидкості ходьби, а розмір можна обрати Малий чи Середній."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-tabaxi-in-the-2024-dnd-rules",
+          "heading": "Окрема довідка: сумісність із правилами 2024",
+          "sourceAnchor": "tabaxi-in-the-2024-dnd-rules",
+          "blocks": [
+            {
+              "blockId": "block-section-tabaxi-in-the-2024-dnd-rules-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це окрема довідка автора про сумісність із редакцією 2024. Табаксі востаннє оновлювали у Монстри Мультивсесвіту; автор зазначає відсутність нової версії 2024. Для гри за правилами 2024 він радить ігнорувати расові підвищення характеристик і взяти їх із походження тієї редакції. Решта цього гайда й модалки стосуються правил 2014."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-tabaxi-traits",
+          "heading": "Расові здібності Табаксі",
+          "sourceAnchor": "tabaxi-traits",
+          "blocks": [
+            {
+              "blockId": "block-section-tabaxi-traits-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищення характеристик: +2/+1 — стандарт. Початкові підвищення підходять Барду, Воїну, Паладину, Слідопиту, Пройдисвіту, Чародію й Чорнокнижнику. Примітка редакції: в оригіналі помилково названо Тифлінга замість Табаксі. Старі підвищення — +2 Спритності/+1 Харизми; у Монстри Мультивсесвіту вони гнучкі."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Вік"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": рідко впливає на гру."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Розмір: Середній трохи кращий за Малий, бо менше ворогів можуть схопити чи проковтнути вас цілими. Примітка редакції: фіксований Середній стосується старої версії; у Монстри Мультивсесвіту можна обрати Малий або Середній."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Швидкість: стандартна, але є Feline Agility{{Feline Agility}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Темнозір{{Darkvision}}: у грі з багатьма темними підземеллями необхідний."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Feline Agility{{Feline Agility}}: у бою 5e ви не рухаєтеся кожного ходу, а коли рух потрібен, інколи доводиться одразу пройти далеко. Ця здібність значно це спрощує."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Catʼs Claws{{Cat's Claws}}: автор вважає кігті переважно декоративними, бо звичайна зброя ефективніша. Примітка редакції: це оцінка, не правило; удари без зброї мають окремі застосування, зокрема у Монаха."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Catʼs Talent{{Cat's Talent}}: дві навички приємні будь-якому персонажу, але фіксований вибір не всім підходить."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мови: Спільна й одна додаткова — стандарт."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes",
+          "heading": "Табаксі MPMM: вибір класу",
+          "sourceAnchor": "classes",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-artificer",
+          "parentSectionId": "section-classes",
+          "heading": "Винахідник",
+          "sourceAnchor": "artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Табаксі — прийнятний Винахідник, але цікаві расові переваги втрачають значення, коли можна створити інфузією Крилаті чоботи{{Winged Boots}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-barbarian",
+          "parentSectionId": "section-classes",
+          "heading": "Варвар",
+          "sourceAnchor": "barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варвар не має власних простих способів лазити чи літати, а поза досяжністю ближнього бою стає майже безпорадним. Тому швидкість лазіння й Feline Agility{{Feline Agility}} чудові. Дві додаткові навички розширюють можливості поза боєм, де Варвар часто має труднощі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-bard",
+          "parentSectionId": "section-classes",
+          "heading": "Бард",
+          "sourceAnchor": "bard",
+          "blocks": [
+            {
+              "blockId": "block-section-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Швидкість лазіння й Feline Agility{{Feline Agility}} допомагають вийти з ближнього бою, а дві навички чудово доповнюють клас, який багато з ними робить. Барду майже завжди вистачає Спритності для Непомітності. Мудрість зазвичай низька, але Уважність усе одно корисна, а Експертиза{{Expertise}} компенсує слабку характеристику."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric",
+          "parentSectionId": "section-classes",
+          "heading": "Клірик",
+          "sourceAnchor": "cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Уважність чудова для Клірика, але мало хто з них ефективно використовує Скритність. Клірик також не має Темний зір [Darkvision], тож безкоштовний Темнозір{{Darkvision}} приємний. Табаксі — прекрасний Клірик Домену підступності{{Trickery Domain}}: навичок стільки ж, як у більшості Пройдисвітів, хоча Експертизи{{Expertise}} немає."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-druid",
+          "parentSectionId": "section-classes",
+          "heading": "Друїд",
+          "sourceAnchor": "druid",
+          "blocks": [
+            {
+              "blockId": "block-section-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друїду потрібно більше Спритності, ніж Клірику, щоб компенсувати слабкі обладунки, та Мудрість для заклинань. Тому расові Володіння навичками дуже корисні. На жаль, додаткові способи переміщення менш цінні: ті самі проблеми зазвичай вирішує Wild Shape{{Wild Shape}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter",
+          "parentSectionId": "section-classes",
+          "heading": "Воїн",
+          "sourceAnchor": "fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Табаксі — чудовий Воїн на Спритності. Швидкість лазіння й Feline Agility{{Feline Agility}} забезпечують мобільність без польоту чи телепортації. Скритність добре працює в легких обладунках. Висока Мудрість рідкісна, але Володіння Уважністю завжди корисне. Примітка редакції: це узагальнення автора про базовий клас; окремі підкласи мають телепортацію, політ або відповідні заклинання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монахи зазвичай не можуть самі літати: Шлях висхідного дракона{{Way of the Ascendant Dragon}} може лише ненадовго, тому швидкість лазіння чудова. Feline Agility{{Feline Agility}} подвоює й так неймовірну швидкість, роблячи Табаксі-Монаха найшвидшим у забігу на один раунд. Дві навички скорочують відставання від Пройдисвіта й допомагають бути розвідником: вони ідеально відповідають характеристикам Монаха. Примітка редакції: твердження про неможливість польоту має винятки; зокрема Шлях чотирьох стихій{{Way of the Four Elements}} може отримати Політ [Fly] на 11-му рівні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin",
+          "parentSectionId": "section-classes",
+          "heading": "Паладин",
+          "sourceAnchor": "paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Табаксі — хороший Паладин на Спритності, але Уважність складно розвинути: клас потребує кількох високих характеристик і зазвичай жертвує Мудрістю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger",
+          "parentSectionId": "section-classes",
+          "heading": "Слідопит",
+          "sourceAnchor": "ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Швидкість лазіння, Темнозір{{Darkvision}} й дві улюблені навички Слідопита. Вони скорочують відставання від Пройдисвіта й полегшують роль розвідника групи."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue",
+          "parentSectionId": "section-classes",
+          "heading": "Пройдисвіт",
+          "sourceAnchor": "rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Швидкість лазіння, Темнозір{{Darkvision}} й дві улюблені навички Пройдисвіта. Додаткові навички дозволяють вийти за межі звичної ролі розвідника. Feline Agility{{Feline Agility}} працює з Cunning Action{{Cunning Action}}: використавши Ривок{{Dash}} дією та бонусною дією й увімкнувши Feline Agility в тому самому ході, можна пройти до шести своїх швидкостей. Шкода, що кігтями Табаксі не можна завдати Sneak Attack{{Sneak Attack}}. Примітка редакції: кігті не відповідають вимозі Фехтувальної або дальньобійної зброї цієї здібності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes",
+          "heading": "Чародій",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Швидкість лазіння й Feline Agility{{Feline Agility}} менш привабливі, коли заклинання дають політ і телепортацію. Але вони можуть звільнити одне відоме заклинання, а для Чародія з дуже обмеженим списком це величезна перевага. Дві навички прийнятні, хоча не найкращі для класу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock",
+          "parentSectionId": "section-classes",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У Чорнокнижника дуже мало комірок, тому вирішувати проблеми без магії надзвичайно корисно. Лазіння часто замінює політ, а Feline Agility{{Feline Agility}} допомагає втекти чи ухилитися від ворогів. Дві навички теж приємні, але не найкращі для класу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Навички погано відповідають Чарівнику, а після низьких рівнів недорогі заклинання на кшталт Негайний відступ [Expeditious Retreat] можуть зробити расові переваги зайвими. Примітка редакції: Expeditious Retreat дає Ривок бонусною дією, але не замінює швидкість лазіння; оцінка автора стосується лише частини мобільності."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-custom-origin",
+          "heading": "Табаксі з налаштуванням походження: вибір класу",
+          "sourceAnchor": "classes-custom-origin",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-custom-origin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут використовуємо опційні правила «"
+                },
+                {
+                  "type": "link",
+                  "text": "Налаштування походження",
+                  "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+                },
+                {
+                  "type": "text",
+                  "text": "» з книги Казан Таші з усім. Якщо ними не користуєтеся, перейдіть до наступного розділу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-artificer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Винахідник",
+          "sourceAnchor": "custom-origin-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Табаксі — прийнятний Винахідник, але цікаві расові переваги втрачають значення, коли можна створити інфузією Крилаті чоботи{{Winged Boots}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-barbarian",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Варвар",
+          "sourceAnchor": "custom-origin-barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варвар не має власних простих способів лазити чи літати, а поза досяжністю ближнього бою стає майже безпорадним. Тому швидкість лазіння й Feline Agility{{Feline Agility}} чудові. Дві додаткові навички розширюють можливості поза боєм, де Варвар часто має труднощі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-bard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Бард",
+          "sourceAnchor": "custom-origin-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дві навички чудові для класу, який і так багато ними користується. Швидкість лазіння й Feline Agility{{Feline Agility}} допомагають безпечно триматися подалі від ворогів, не витрачаючи обмежені відомі заклинання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-cleric",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Клірик",
+          "sourceAnchor": "custom-origin-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дві додаткові навички розширюють невеликий набір цікавих навичок Клірика. Це чудово для Домену підступності{{Trickery Domain}}, якщо хочете вдавати Пройдисвіта. Feline Agility{{Feline Agility}} допомагає швидко наблизитися для допомоги союзникам."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-druid",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Друїд",
+          "sourceAnchor": "custom-origin-druid",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потрібна швидкість? Станьте конем. Потрібно лазити? Станьте мавпою. Табаксі додає Друїду переважно навички. Автор не певен, чи працює Feline Agility{{Feline Agility}} під час Wild Shape{{Wild Shape}}, і як Майстер заборонив би це. Примітка редакції: це рішення автора як Майстра, не загальна заборона правил. Збереження расової здібності залежить від того, чи здатна нова форма фізично нею користуватися."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-fighter",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Воїн",
+          "sourceAnchor": "custom-origin-fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і іншим бійцям першої лінії, Feline Agility{{Feline Agility}} допомагає збірці ближнього бою скоротити відстань до ворога. Дві навички роблять вас кориснішим поза боєм, а швидкість лазіння дозволяє долати перешкоди, для швидкого подолання яких часто потрібна магія."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-monk",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Монах",
+          "sourceAnchor": "custom-origin-monk",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монах і так дуже швидкий, а з Feline Agility{{Feline Agility}} Табаксі може побити рекорди наземної швидкості за один раунд. Дві навички скорочують відставання від Пройдисвіта, полегшуючи роль розвідника. Швидкість лазіння часто допомагає обходити перешкоди."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-paladin",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Паладин",
+          "sourceAnchor": "custom-origin-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і іншим бійцям першої лінії, Feline Agility{{Feline Agility}} допомагає Паладину ближнього бою наблизитися до ворога. Навички зазвичай ідуть на роль обличчя групи, звужуючи вибір. Два додаткові Володіння дозволяють урізноманітнити його й розвивати навички поза Харизмою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-ranger",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Слідопит",
+          "sourceAnchor": "custom-origin-ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дві навички скорочують відставання від Пройдисвіта, а швидкість лазіння чудова для класу без простого доступу до польоту. Feline Agility{{Feline Agility}} не має особливої синергії, але дуже весела разом із Удар Зефіра [Zephyr Strike]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-rogue",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Пройдисвіт",
+          "sourceAnchor": "custom-origin-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дві додаткові навички, швидкість лазіння для проникнення у вікна та Feline Agility{{Feline Agility}} з Cunning Action{{Cunning Action}}. Ривок{{Dash}} дією й бонусною дією в той самий хід з Feline Agility дозволяє пройти до шести своїх швидкостей. Шкода, що кігтями не можна завдати Sneak Attack{{Sneak Attack}}: вони не є потрібною Фехтувальною чи дальньобійною зброєю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-sorcerer",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чародій",
+          "sourceAnchor": "custom-origin-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Лазіння й Feline Agility{{Feline Agility}} менш привабливі з доступом до польоту та телепортації, але можуть звільнити відоме заклинання. Для Чародія, який знає їх мало, це величезна перевага. Дві навички дозволяють вийти за межі ролі обличчя групи, хоча унікальні расові здібності перестають бути цікавими після низьких рівнів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-warlock",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "custom-origin-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Через малу кількість комірок Чорнокнижнику дуже корисно вирішувати проблеми без магії. Лазіння часто достатньо замість польоту, а Feline Agility{{Feline Agility}} допомагає тікати й уникати ворогів. Дві навички розширюють можливості поза роллю обличчя групи, але після низьких рівнів унікальні расові переваги менш цікаві."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-custom-origin-wizard",
+          "parentSectionId": "section-classes-custom-origin",
+          "heading": "Чарівник",
+          "sourceAnchor": "custom-origin-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-custom-origin-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Лазіння й Feline Agility{{Feline Agility}} менш привабливі, коли заклинання дозволяють літати й телепортуватися. На жаль, у Чарівника мало хороших варіантів навичок, тому навіть два додаткові Володіння не особливо корисні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-classic",
+          "heading": "Початковий Табаксі: вибір класу",
+          "sourceAnchor": "classes-classic",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-classic-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут припускаємо, що ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "не"
+                },
+                {
+                  "type": "text",
+                  "text": " використовуєте опційне налаштування походження з Казан Таші з усім чи оновлену расу з Монстри Мультивсесвіту. Якщо використовуєте, поверніться до попереднього розділу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-artificer",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Винахідник",
+          "sourceAnchor": "classic-artificer",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-artificer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Невдалий розподіл підвищень характеристик."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-barbarian",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Варвар",
+          "sourceAnchor": "classic-barbarian",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-barbarian-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варвар добре використав би Feline Agility{{Feline Agility}} й швидкість лазіння, але надто залежить від расового підвищення Сили, щоб Табаксі був хорошим варіантом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-bard",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Бард",
+          "sourceAnchor": "classic-bard",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-bard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підвищення характеристик Табаксі ідеальні для Барда незалежно від колегії. Безкоштовні навички посилюють його й так чудові можливості. Навіть атмосфера відповідає: Табаксі — допитливі мандрівники, що обмінюються історіями й дрібничками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-cleric",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Клірик",
+          "sourceAnchor": "classic-cleric",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-cleric-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Без підвищення Мудрості Клірик складний. Можна спробувати Домен підступності{{Trickery Domain}}, але механічно Табаксі дає мало того, що Кенку{{Kenku}} не зробить краще."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-druid",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Друїд",
+          "sourceAnchor": "classic-druid",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-druid-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ті самі проблеми, що у Клірика. Feline Agility{{Feline Agility}}, схоже, може працювати під час Wild Shape{{Wild Shape}}, але цього недостатньо, щоб виправдати поєднання. Примітка редакції: потрібна фізична сумісність здібності з формою; оцінка тут відрізняється від рішення автора як Майстра в попередньому розділі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-fighter",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Воїн",
+          "sourceAnchor": "classic-fighter",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-fighter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність чудова для Воїна з Рапірою{{Rapier}} чи дальньобійною зброєю. Безкоштовні навички допомагають виконувати звичні ролі Пройдисвіта, але для повного набору варто отримати Володіння Злодійськими інструментами{{Thieves' Tools}} через походження."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-monk",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Монах",
+          "sourceAnchor": "classic-monk",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність — хороша основа Монаха. Його збільшення швидкості застосовується і до швидкості лазіння Табаксі, роблячи вас чудовим скелелазом. Чисельно Кенку{{Kenku}} й Лісовий ельф{{Wood Elf}} ймовірно кращі завдяки Мудрості. Автор пише, що кігті не дозволяють застосувати збільшену шкоду удару без зброї Монаха як рублячу. Примітка редакції: це висновок автора щодо старої версії природної зброї, а не загальна заборона Martial Arts{{Martial Arts}}; правило кігтів прямо дозволяє удари без зброї. Узгодьте точну взаємодію з Майстром."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-paladin",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Паладин",
+          "sourceAnchor": "classic-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність і Харизма чудові для Паладина на Спритності. Із пристойною Спритністю Володіння Скритністю теж корисне."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-classic-paladin-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо Скритність не цікавить, візьміть Лати{{Plate}} — так, ігноруючи вимогу Сили. Feline Agility{{Feline Agility}} допоможе дістатися ближнього бою навіть зі штрафом швидкості 10 футів за недостатню Силу. Лазіння дозволяє долати перешкоди, з якими більшість Паладинів без допомоги має труднощі. Примітка редакції: ігнорувати можна вимогу щодо зменшення швидкості, не потребу у Володінні важкими обладунками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-ranger",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Слідопит",
+          "sourceAnchor": "classic-ranger",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-ranger-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кенку{{Kenku}} кращий для Слідопита завдяки Мудрості, але Табаксі теж хороший. Спритність завжди корисна. Расові навички скорочують відставання від Барда й Пройдисвіта, які мають більше Володінь і виконують схожу роль у групі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-rogue",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Пройдисвіт",
+          "sourceAnchor": "classic-rogue",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-rogue-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підвищення характеристик ідеальні для Пройдисвіта, а безкоштовні навички кожному з них і так потрібні. Візьміть Обман і Переконання, щоб використати підвищення Харизми, й отримаєте вправного, чарівного Пройдисвіта."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-sorcerer",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Чародій",
+          "sourceAnchor": "classic-sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма — хороший початок для Чародія, а Спритність допомагає КБ. Інших особливо корисних переваг немає. Якщо хочете бути чаротворцем, Чорнокнижник може підійти краще."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-warlock",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Чорнокнижник",
+          "sourceAnchor": "classic-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність і Харизма чудові: перша підсилює КБ, друга — заклинання. Расові навички не прямо відповідають Чорнокнижнику, але нічого не заважає зробити непомітного персонажа. Візьміть походження зі Злодійськими інструментами{{Thieves' Tools}}, щоб переконливо наслідувати Містичного пройдисвіта{{Arcane Trickster}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classic-wizard",
+          "parentSectionId": "section-classes-classic",
+          "heading": "Чарівник",
+          "sourceAnchor": "classic-wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-classic-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Жодна здібність Табаксі не особливо відповідає Чарівнику."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-tabaxi-2014-001",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-tabaxi-traits",
+      "targetBlockId": "block-section-tabaxi-traits-1",
+      "optionId": "section-tabaxi-traits-block-section-tabaxi-traits-1-item-0",
+      "context": "Підвищення характеристик",
+      "explanationBlockId": "block-section-tabaxi-traits-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-002",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-tabaxi-traits",
+      "targetBlockId": "block-section-tabaxi-traits-1",
+      "optionId": "section-tabaxi-traits-block-section-tabaxi-traits-1-item-2",
+      "context": "Розмір",
+      "explanationBlockId": "block-section-tabaxi-traits-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-003",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-tabaxi-traits",
+      "targetBlockId": "block-section-tabaxi-traits-1",
+      "optionId": "section-tabaxi-traits-block-section-tabaxi-traits-1-item-3",
+      "context": "Швидкість",
+      "explanationBlockId": "block-section-tabaxi-traits-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-004",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-tabaxi-traits",
+      "targetBlockId": "block-section-tabaxi-traits-1",
+      "optionId": "section-tabaxi-traits-block-section-tabaxi-traits-1-item-4",
+      "context": "Темнозір",
+      "explanationBlockId": "block-section-tabaxi-traits-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-005",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-tabaxi-traits",
+      "targetBlockId": "block-section-tabaxi-traits-1",
+      "optionId": "section-tabaxi-traits-block-section-tabaxi-traits-1-item-5",
+      "context": "Feline Agility",
+      "explanationBlockId": "block-section-tabaxi-traits-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-006",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-tabaxi-traits",
+      "targetBlockId": "block-section-tabaxi-traits-1",
+      "optionId": "section-tabaxi-traits-block-section-tabaxi-traits-1-item-6",
+      "context": "Catʼs Claws",
+      "explanationBlockId": "block-section-tabaxi-traits-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-007",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-tabaxi-traits",
+      "targetBlockId": "block-section-tabaxi-traits-1",
+      "optionId": "section-tabaxi-traits-block-section-tabaxi-traits-1-item-7",
+      "context": "Catʼs Talent",
+      "explanationBlockId": "block-section-tabaxi-traits-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-008",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-tabaxi-traits",
+      "targetBlockId": "block-section-tabaxi-traits-1",
+      "optionId": "section-tabaxi-traits-block-section-tabaxi-traits-1-item-8",
+      "context": "Мови",
+      "explanationBlockId": "block-section-tabaxi-traits-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-009",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-artificer",
+      "targetBlockId": "block-section-artificer-1",
+      "optionId": "section-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-artificer-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-010",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-barbarian",
+      "targetBlockId": "block-section-barbarian-1",
+      "optionId": "section-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-barbarian-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-011",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-bard",
+      "targetBlockId": "block-section-bard-1",
+      "optionId": "section-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-bard-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-012",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-cleric",
+      "targetBlockId": "block-section-cleric-1",
+      "optionId": "section-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-cleric-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-013",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-druid",
+      "targetBlockId": "block-section-druid-1",
+      "optionId": "section-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-druid-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-014",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-fighter",
+      "targetBlockId": "block-section-fighter-1",
+      "optionId": "section-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-fighter-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-015",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-monk",
+      "targetBlockId": "block-section-monk-1",
+      "optionId": "section-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-monk-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-016",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-paladin",
+      "targetBlockId": "block-section-paladin-1",
+      "optionId": "section-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-paladin-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-017",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-ranger",
+      "targetBlockId": "block-section-ranger-1",
+      "optionId": "section-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-ranger-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-018",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-rogue",
+      "targetBlockId": "block-section-rogue-1",
+      "optionId": "section-rogue",
+      "context": "Пройдисвіт",
+      "explanationBlockId": "block-section-rogue-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-019",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-sorcerer",
+      "targetBlockId": "block-section-sorcerer-1",
+      "optionId": "section-sorcerer",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-sorcerer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-020",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-warlock",
+      "targetBlockId": "block-section-warlock-1",
+      "optionId": "section-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-warlock-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-021",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-wizard",
+      "targetBlockId": "block-section-wizard-1",
+      "optionId": "section-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-wizard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-022",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-artificer",
+      "targetBlockId": "block-section-custom-origin-artificer-1",
+      "optionId": "section-custom-origin-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-custom-origin-artificer-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-023",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-barbarian",
+      "targetBlockId": "block-section-custom-origin-barbarian-1",
+      "optionId": "section-custom-origin-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-custom-origin-barbarian-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-024",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-bard",
+      "targetBlockId": "block-section-custom-origin-bard-1",
+      "optionId": "section-custom-origin-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-custom-origin-bard-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-025",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-cleric",
+      "targetBlockId": "block-section-custom-origin-cleric-1",
+      "optionId": "section-custom-origin-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-custom-origin-cleric-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-026",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-druid",
+      "targetBlockId": "block-section-custom-origin-druid-1",
+      "optionId": "section-custom-origin-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-custom-origin-druid-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-027",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-fighter",
+      "targetBlockId": "block-section-custom-origin-fighter-1",
+      "optionId": "section-custom-origin-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-custom-origin-fighter-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-028",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-monk",
+      "targetBlockId": "block-section-custom-origin-monk-1",
+      "optionId": "section-custom-origin-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-custom-origin-monk-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-029",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-paladin",
+      "targetBlockId": "block-section-custom-origin-paladin-1",
+      "optionId": "section-custom-origin-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-custom-origin-paladin-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-030",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-ranger",
+      "targetBlockId": "block-section-custom-origin-ranger-1",
+      "optionId": "section-custom-origin-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-custom-origin-ranger-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-031",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-rogue",
+      "targetBlockId": "block-section-custom-origin-rogue-1",
+      "optionId": "section-custom-origin-rogue",
+      "context": "Пройдисвіт",
+      "explanationBlockId": "block-section-custom-origin-rogue-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-032",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-sorcerer",
+      "targetBlockId": "block-section-custom-origin-sorcerer-1",
+      "optionId": "section-custom-origin-sorcerer",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-custom-origin-sorcerer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-033",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-warlock",
+      "targetBlockId": "block-section-custom-origin-warlock-1",
+      "optionId": "section-custom-origin-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-custom-origin-warlock-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-034",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-custom-origin-wizard",
+      "targetBlockId": "block-section-custom-origin-wizard-1",
+      "optionId": "section-custom-origin-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-custom-origin-wizard-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-035",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-artificer",
+      "targetBlockId": "block-section-classic-artificer-1",
+      "optionId": "section-classic-artificer",
+      "context": "Винахідник",
+      "explanationBlockId": "block-section-classic-artificer-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-036",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-barbarian",
+      "targetBlockId": "block-section-classic-barbarian-1",
+      "optionId": "section-classic-barbarian",
+      "context": "Варвар",
+      "explanationBlockId": "block-section-classic-barbarian-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-037",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-bard",
+      "targetBlockId": "block-section-classic-bard-1",
+      "optionId": "section-classic-bard",
+      "context": "Бард",
+      "explanationBlockId": "block-section-classic-bard-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-038",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-cleric",
+      "targetBlockId": "block-section-classic-cleric-1",
+      "optionId": "section-classic-cleric",
+      "context": "Клірик",
+      "explanationBlockId": "block-section-classic-cleric-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-039",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-druid",
+      "targetBlockId": "block-section-classic-druid-1",
+      "optionId": "section-classic-druid",
+      "context": "Друїд",
+      "explanationBlockId": "block-section-classic-druid-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-040",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-fighter",
+      "targetBlockId": "block-section-classic-fighter-1",
+      "optionId": "section-classic-fighter",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-classic-fighter-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-041",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-monk",
+      "targetBlockId": "block-section-classic-monk-1",
+      "optionId": "section-classic-monk",
+      "context": "Монах",
+      "explanationBlockId": "block-section-classic-monk-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-042",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-paladin",
+      "targetBlockId": "block-section-classic-paladin-1",
+      "optionId": "section-classic-paladin",
+      "context": "Паладин",
+      "explanationBlockId": "block-section-classic-paladin-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-043",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-ranger",
+      "targetBlockId": "block-section-classic-ranger-1",
+      "optionId": "section-classic-ranger",
+      "context": "Слідопит",
+      "explanationBlockId": "block-section-classic-ranger-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-044",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-rogue",
+      "targetBlockId": "block-section-classic-rogue-1",
+      "optionId": "section-classic-rogue",
+      "context": "Пройдисвіт",
+      "explanationBlockId": "block-section-classic-rogue-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-045",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-sorcerer",
+      "targetBlockId": "block-section-classic-sorcerer-1",
+      "optionId": "section-classic-sorcerer",
+      "context": "Чародій",
+      "explanationBlockId": "block-section-classic-sorcerer-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-046",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-warlock",
+      "targetBlockId": "block-section-classic-warlock-1",
+      "optionId": "section-classic-warlock",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-classic-warlock-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-tabaxi-2014-047",
+      "articleId": "rpgbot-tabaxi-2014",
+      "translationRevisionId": "translation-rpgbot-tabaxi-2014-draft1",
+      "sectionId": "section-classic-wizard",
+      "targetBlockId": "block-section-classic-wizard-1",
+      "optionId": "section-classic-wizard",
+      "context": "Чарівник",
+      "explanationBlockId": "block-section-classic-wizard-1",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

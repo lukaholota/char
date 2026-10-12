@@ -1,0 +1,75 @@
+{
+  "ruleset": "RULES_2014",
+  "source": "SCC",
+  "page": 36,
+  "reviewedAt": "2026-10-04",
+  "evidenceUrls": [
+    "https://www.dndbeyond.com/posts/1128-building-around-the-new-backgrounds-found-in",
+    "https://dnd5e.wikidot.com/feat:strixhaven-initiate",
+    "https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/master/data/feats.json"
+  ],
+  "options": [
+    {
+      "college": "Lorehold",
+      "name": "Лорхолд",
+      "cantrips": [
+        "Light",
+        "Sacred Flame",
+        "Thaumaturgy"
+      ],
+      "firstLevelClassesUa": "Клірика або Чарівника"
+    },
+    {
+      "college": "Prismari",
+      "name": "Прізмарі",
+      "cantrips": [
+        "Fire Bolt",
+        "Prestidigitation",
+        "Ray of Frost"
+      ],
+      "firstLevelClassesUa": "Барда або Чаклуна"
+    },
+    {
+      "college": "Quandrix",
+      "name": "Квандрікс",
+      "cantrips": [
+        "Druidcraft",
+        "Guidance",
+        "Mage Hand"
+      ],
+      "firstLevelClassesUa": "Друїда або Чарівника"
+    },
+    {
+      "college": "Silverquill",
+      "name": "Сілверквіл",
+      "cantrips": [
+        "Sacred Flame",
+        "Thaumaturgy",
+        "Vicious Mockery"
+      ],
+      "firstLevelClassesUa": "Барда або Клірика"
+    },
+    {
+      "college": "Witherbloom",
+      "name": "Візерблум",
+      "cantrips": [
+        "Chill Touch",
+        "Druidcraft",
+        "Spare the Dying"
+      ],
+      "firstLevelClassesUa": "Друїда або Чарівника"
+    }
+  ],
+  "sharedRules": {
+    "chooseCantrips": 2,
+    "chooseFirstLevelSpells": 1,
+    "freeCastingRefresh": "long rest",
+    "canUseOwnSlots": true,
+    "spellcastingAbilityChoice": [
+      "INT",
+      "WIS",
+      "CHA"
+    ]
+  },
+  "scope": "Descriptions, short descriptions and source metadata only; no DB or character-creator mechanics change."
+}

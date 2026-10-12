@@ -72,6 +72,8 @@ import { findAbilityScoresAfterLevelUp } from "@/rules/levelup-ability-scores";
 import { getRulesStrategy } from "@/rules/strategies";
 import { findInfusionPicksAtLevel } from "@/rules/artificer-infusions";
 import { sumLevelUpFeatureHitPoints, toHitPointGrantingFeature } from "@/rules/hit-points";
+import { countPickableMulticlassSkills, findMulticlassSkillChoice, MULTICLASS_SKILL_SELECTION_KEY } from "@/rules/multiclass-skill-choice";
+import { SkillsEnum } from "@/lib/types/enums";
 import {
   extractSkillsFromChoiceOption,
   extractExpertisesFromChoiceOption,
@@ -280,9 +282,12 @@ export default function LevelUpWizard({ info }: Props) {
   const isError = "error" in info;
   const pers = isError ? null : info.pers;
   const nextLevel = isError ? 0 : info.nextLevel;
-  const classes = useMemo(() => info?.classes || [], [info?.classes]);
-  const feats = useMemo(() => info?.feats || [], [info?.feats]);
-  const weapons = useMemo(() => info?.weapons || [], [info?.weapons]);
+  const infoClasses = "error" in info ? undefined : info.classes;
+  const infoFeats = "error" in info ? undefined : info.feats;
+  const infoWeapons = "error" in info ? undefined : info.weapons;
+  const classes = useMemo(() => infoClasses || [], [infoClasses]);
+  const feats = useMemo(() => infoFeats || [], [infoFeats]);
+  const weapons = useMemo(() => infoWeapons || [], [infoWeapons]);
   const weaponProficiency = isError ? NO_WEAPON_PROFICIENCY : info.weaponProficiency;
 
   const selectedFeatId = useMemo(() => {
@@ -550,7 +555,20 @@ export default function LevelUpWizard({ info }: Props) {
     selectedFeat,
   ]);
 
+  const multiclassSkillFeature = useMemo(() => {
+    if (formData.levelUpPath !== "MULTICLASS" || !selectedClass || !pers) return null;
+    const choice = findMulticlassSkillChoice(selectedClass.name, selectedClass.skillProficiencies, SkillsEnum);
+    const ownedSkills = pers.skills.filter((skill) => skill.proficiencyType !== "NONE").map((skill) => skill.name);
+    if (!choice || countPickableMulticlassSkills(choice, ownedSkills) === 0) return null;
+    return {
+      featureId: MULTICLASS_SKILL_SELECTION_KEY,
+      name: "Навичка нового класу",
+      skillProficiencies: { choiceCount: choice.choiceCount, options: choice.options },
+    };
+  }, [formData.levelUpPath, selectedClass, pers]);
+
   const needsSkillProficiencies = useMemo(() => {
+    if (multiclassSkillFeature) return true;
     return currentLevelFeatures.some((f) => {
       const sp = f.skillProficiencies as any;
       if (!sp) return false;
@@ -563,7 +581,7 @@ export default function LevelUpWizard({ info }: Props) {
             : Number(sp.choiceCount);
       return Number.isFinite(rawCount) && rawCount > 0;
     });
-  }, [currentLevelFeatures]);
+  }, [currentLevelFeatures, multiclassSkillFeature]);
 
   const needsExpertise = useMemo(() => {
     const hasKnowledgeChoicesAtThisLevel = (effectiveSubclass?.subclassChoiceOptions || []).some((opt: any) => {
@@ -1233,7 +1251,7 @@ export default function LevelUpWizard({ info }: Props) {
 
         return (
           <LevelUpSkillProficienciesForm
-            activeFeatures={currentLevelFeatures}
+            activeFeatures={multiclassSkillFeature ? [...currentLevelFeatures, multiclassSkillFeature] : currentLevelFeatures}
             formId="levelup-skills-form"
             onNextDisabledChange={onNextDisabledChange}
             extraExistingSkills={extraExistingSkills}

@@ -7,6 +7,7 @@ import { ContentImage } from "@/components/no-ai/ContentImage";
 import { ModeLink } from "@/components/no-ai/ModeLink";
 import { ReportProblemDialog } from "@/lib/components/problemReport/ReportProblemDialog";
 
+import { ChunkLoadBoundary } from "./ChunkLoadBoundary";
 import { useWildMagicErrorCopy } from "./useWildMagicErrorCopy";
 
 // Межа помилок вантажиться з кожною сторінкою, а діалог тягне markdown-рендерер — сотні КБ.
@@ -25,10 +26,24 @@ type Props = {
   onRetry?: () => void;
 };
 
+function TableNotSavedNotice() {
+  return (
+    <p role="status" className="mt-3 text-sm text-slate-400">
+      Таблиця Дикої магії ще не збережена на пристрої — відкрийте її, коли зʼявиться мережа.
+    </p>
+  );
+}
+
 export function WildMagicErrorScreen({ seed, onRetry }: Props) {
   const copy = useWildMagicErrorCopy(seed);
   const [isReportOpen, setIsReportOpen] = useState(false);
   const [isTableOpen, setIsTableOpen] = useState(false);
+  const [hasOpenedTable, setHasOpenedTable] = useState(false);
+
+  const openTable = () => {
+    setHasOpenedTable(true);
+    setIsTableOpen(true);
+  };
 
   return (
     <section
@@ -59,7 +74,7 @@ export function WildMagicErrorScreen({ seed, onRetry }: Props) {
         <p className="mt-3 min-h-[6.5em] max-w-prose text-base leading-relaxed text-slate-300 sm:text-lg md:min-h-[4.9em]">
           <button
             type="button"
-            onClick={() => setIsTableOpen(true)}
+            onClick={openTable}
             className="text-arcane-300 underline underline-offset-4 hover:text-arcane-200"
           >
             У таблиці Дикої магії випало {copy.surgeRoll.replace("-", "–")}
@@ -94,11 +109,11 @@ export function WildMagicErrorScreen({ seed, onRetry }: Props) {
         </p>
 
         <ReportProblemDialog open={isReportOpen} onOpenChange={setIsReportOpen} />
-        <WildMagicSurgeTableDialog
-          open={isTableOpen}
-          onOpenChange={setIsTableOpen}
-          selectedRoll={copy.surgeRoll}
-        />
+        {hasOpenedTable && (
+          <ChunkLoadBoundary fallback={<TableNotSavedNotice />}>
+            <WildMagicSurgeTableDialog open={isTableOpen} onOpenChange={setIsTableOpen} selectedRoll={copy.surgeRoll} />
+          </ChunkLoadBoundary>
+        )}
       </div>
     </section>
   );

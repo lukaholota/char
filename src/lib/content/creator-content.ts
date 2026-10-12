@@ -37,8 +37,10 @@ export function findCharacterCreatorOptions(ruleset: Ruleset): CreatorContent {
  * but do not serialize features that the wizard cannot offer into its RSC payload.
  */
 export function findCharacterCreationOptions(ruleset: Ruleset): CreatorContent {
-  const content = findCharacterCreatorOptions(ruleset);
+  return buildCharacterCreationOptions(findCharacterCreatorOptions(ruleset));
+}
 
+export function buildCharacterCreationOptions(content: CreatorContent): CreatorContent {
   return {
     ...content,
     classes: content.classes.map((characterClass) => ({

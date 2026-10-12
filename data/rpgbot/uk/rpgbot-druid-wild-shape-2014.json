@@ -1,0 +1,5016 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-280cb6f1b117907c",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-280cb6f1b117907c-004db4ad34d5b836",
+      "sourceId": "rpgbot-280cb6f1b117907c",
+      "fetchedAt": "2026-09-29T19:10:33.007169+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:34:31-04:00",
+      "contentHash": "b3688d48f6d05901850fdcd1f20800e44cf4a41b2f130d402dd1032a92b1d68c",
+      "title": "Wild Shape Guide | DnD 5e",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-280cb6f1b117907c-004db4ad34d5b836.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-druid-wild-shape-2014",
+    "sourceId": "rpgbot-280cb6f1b117907c",
+    "slug": "druid-wild-shape-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Дика форма Друїда — гайд D&D 5e 2014",
+    "titleEn": "Wild Shape Guide | DnD 5e",
+    "topics": [
+      "Друїд",
+      "Дика форма",
+      "звірині форми",
+      "елементалі"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "sourceRevisionId": "rpgbot-280cb6f1b117907c-004db4ad34d5b836",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Дика форма»{{Wild Shape}} — захопливе й універсальне класове уміння Друїда, яким хочуть користуватися багато хто, але яке легко використати погано. Розуміння «Дикої форми» здебільшого зводиться до розуміння того, яку форму обрати: які форми працюють, які працюють у певних ситуаціях, а які просто ніколи не працюють."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Памʼятайте, що «Дикою формою»{{Wild Shape}} можна скористатися лише двічі за Короткий відпочинок, а очікування DMG щодо звичайного дня пригод — 6-8 зіткнень на день із 2 Короткими відпочинками (дивіться DMG, с. 84: «Пригодницький день»), тож одне використання «Дикої форми» часто має витримувати в середньому щонайменше цілий бій. Можна лікувати себе бонусною дією, спалюючи слоти заклинань, і це допомагає, але це дуже дорого порівняно з тим, що можна отримати, накладаючи заклинання цим слотом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Навколо правил «Дикої форми»{{Wild Shape}} та її взаємодії з вашими расовими рисами й класовими уміннями панує велика плутанина. Наполегливо раджу послухати "
+                },
+                {
+                  "type": "link",
+                  "text": "цей випуск подкасту Dragon Talk",
+                  "href": "https://podcasts.apple.com/gb/podcast/chris-avellone-and-philip-daigle-on-planescape/id189053885?i=1000384082916"
+                },
+                {
+                  "type": "text",
+                  "text": ", у якому Джеремі Кроуфорд 45 хвилин розбирає дрібниці «Дикої форми» та її взаємодію з рештою речей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вам також може сподобатися наш випуск подкасту про "
+                },
+                {
+                  "type": "link",
+                  "text": "D&D 5e: «Дика форма»",
+                  "href": "https://rpgbot.net/wild-shape-mastery-choosing-the-right-form-as-a-druid-rpgbot-podcast-s4e3/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Wild Shape}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Коло місяця"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Інше коло"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/4"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/4"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/2"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/2"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/2"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/2"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Форми Дикої форми за ПН",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#animal-forms"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "ПН 0",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_0"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "ПН 1/8",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_.125"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "ПН 1/4",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_.25"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "ПН 1/2",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_.5"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "ПН 1",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_1"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "ПН 2",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "ПН 3",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_3"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "ПН 4",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_4"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "ПН 5",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_5"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "ПН 6",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#cr_6"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Форми елементалів",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#elemental-forms"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Захист без броні й Дика форма",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#unarmored-defense"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/druid/wild-shape/#feats"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-animal-forms",
+          "heading": "Форми Дикої форми за ПН",
+          "sourceAnchor": "animal-forms",
+          "blocks": [
+            {
+              "blockId": "block-section-animal-forms-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "strong",
+                  "text": "Примітка"
+                },
+                {
+                  "type": "text",
+                  "text": ": памʼятайте, що Друїди (зокрема й Друїди {{Кола місяця|Circle of the Moon}}) не можуть приймати форми зі швидкістю плавання до 4-го рівня, а форми зі швидкістю польоту — до 8-го рівня, тож багато форм, фантастичних для свого ПН, матимуть погані оцінки: на момент, коли ви їх отримуєте, їм доводиться конкурувати зі значно потужнішими формами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cr_0",
+          "parentSectionId": "section-animal-forms",
+          "heading": "ПН 0",
+          "sourceAnchor": "cr_0",
+          "blocks": [
+            {
+              "blockId": "block-section-cr_0-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На ПН 0 ви не шукаєте бойову форму. До ПН 0 входять істоти, які не становлять небезпеки або небезпечні лише у великій кількості (тобто будь-хто з «Тактикою зграї»{{Pack Tactics}}). Натомість шукайте тут форми, які хочете використовувати для розвідки й проникнення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cr_0-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Політ зазвичай найкращий вибір для розвідки, тож найкращий варіант — сова. Під водою найкращий вибір — восьминіг. Якщо з якоїсь причини вам треба лазити, а не літати, добрий вибір — павук. Якщо треба непомітно пересуватися містом, і кіт, і пацюк — добрі варіанти на випадок, якщо вас помітять."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cr_0-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Бабуїн{{Baboon}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Швидкість лазіння й «Тактика зграї»{{Pack Tactics}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Борсук{{Badger}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Гострий нюх»{{Keen Smell}} і швидкість риття можуть інколи стати в пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кажан{{Bat}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Крихітний розмір, політ, Сліпозір і «Гострий слух»{{Keen Hearing}} роблять цю форму абсолютно фантастичною для розвідки. Однак «Ехолокація»{{Echolocation}} зазвичай вимагає чимало вереску, тож ви, імовірно, видасте свою присутність. Недоступно до 8-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кіт{{Cat}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Крихітний розмір, пристойний бонус до Непомітності, «Гострий нюх»{{Keen Smell}} і швидкість лазіння. Загалом пристойна форма розвідника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Краб{{Crab}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Амфібія»{{Amphibious}}, швидкість плавання й Сліпозір. Недостатньо хороша для бою, але чудова форма розвідника під водою. Недоступно до 4-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Черепний щур{{Cranium Rat}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "VGtM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Темнозір, «Освітлення»{{Illumination}}, телепатія та «Телепатичний покров»{{Telepathic Shroud}}. На жаль, без бонусу до Непомітності вона може не підійти як форма розвідника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Олень{{Deer}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Чудова швидкість, але якщо вам просто треба швидко пересуватися, імовірно, краще підійде той, хто вміє літати."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Орел{{Eagle}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Фантастична швидкість польоту й найкраща атака на цьому ПН, але будь-який Друїд, що може перетворитися на орла за допомогою «Дикої форми»{{Wild Shape}}, може так само перетворитися й на гігантську сову, яка значно краща. Недоступно до 8-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Жаба{{Frog}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Швидкість плавання й Темнозір 30 фт. Краб однозначно кращий, тож жаба — добрий вибір лише там, де треба виглядати непомітно в довкіллі. Якби хтось побачив краба в болоті, він, імовірно, це помітив би. Недоступно до 4-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський вогняний жук{{Giant Fire Beetle}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Сліпозір, і ви світитеся. Магічне світло легкодоступне, а смолоскипи дешеві, тож у вашої групи не має бути проблем з освітленням. Якщо вам треба бачити в темряві, перетворіться на когось із кращим Сліпозором або з Темнозором."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Коза{{Goat}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Прийнятна шкода й повалення, якщо влучите після «Наступу»{{Charge}}, але важко використати «Наступ» більш ніж раз за один бій."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Яструб{{Hawk}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Орел однозначно кращий. Недоступно до 8-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гієна{{Hyena}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Добра швидкість і «Тактика зграї»{{Pack Tactics}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шакал{{Jackal}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Добра швидкість, «Гострий слух і нюх»{{Keen Hearing and Smell}} та «Тактика зграї»{{Pack Tactics}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ящірка{{Lizard}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Темнозір і швидкість лазіння, але без бонусу до Непомітності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Восьминіг{{Octopus}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Темнозір, а під водою — фантастична непомітність. Якщо вас спіймають, скористайтеся «Чорнильною хмарою»{{Ink Cloud}} і тікайте! Недоступно до 4-го рівня, але навіть на цьому рівні лишається чудовим розвідником під водою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Сова{{Owl}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Добра непомітність, величезна дальність Темнозору, «Гострий слух і зір»{{Keen Hearing and Sight}} і фантастична швидкість польоту. Недоступно до 8-го рівня, але навіть на цьому рівні це й далі абсолютно фантастична форма літаючого розвідника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Квіпер{{Quipper}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Швидкість плавання й Темнозір, але восьминіг однозначно кращий. Недоступно до 4-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пацюк{{Rat}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Темнозір і «Гострий нюх»{{Keen Smell}}. Пацюки мають суттєву перевагу з погляду самого світу: це звичне видовище в населених місцях, тож легко не звернути на себе увагу, навіть коли вас бачать гуманоїди. Однак ця перевага не діє на монстрів, котів чи людей, які просто не люблять пацюків."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Крук{{Raven}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Пристойна швидкість польоту й пристойна Уважність, і ви, можливо, зможете говорити за допомогою «Мімікрії»{{Mimicry}}, але інші літаючі варіанти кращі для непомітності й розвідки. Недоступно до 8-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Скорпіон{{Scorpion}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Повільний, крихта Сліпозору й трохи отрути. На жаль, без Непомітності й Спритності вас дуже легко помітити."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Морський коник{{Sea Horse}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Марний."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Павук{{Spider}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Добра непомітність, Темнозір і краще лазіння, ніж у будь-кого іншого, завдяки «Павучому лазінню»{{Spider Climb}}. Політ загалом кращий варіант, але іноді треба триматися на стелі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стервʼятник{{Vulture}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Гострий зір і нюх»{{Keen Sight and Smell}} і «Тактика зграї»{{Pack Tactics}} на літаючій істоті, але орел кращий для бою, а сова — для розвідки."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ласка{{Weasel}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Добрі Уважність і Непомітність, а також «Гострий слух і нюх»{{Keen Hearing and Smell}}. На жаль, без особливих типів переміщення це не ефективна форма розвідника."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-6",
+          "parentSectionId": "section-animal-forms",
+          "heading": "ПН 1/8",
+          "sourceAnchor": "cr_.125",
+          "blocks": [
+            {
+              "blockId": "block-section-6-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей ПН — складна проміжна ланка, де здебільшого зібрані більші версії варіантів ПН 0. На ПН 0 розвідувальні варіанти кращі, бо менші істоти легше потрапляють у тісні місця, а всі Друїди мають доступ до вищих ПН, де є кращі бойові форми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-6-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Крилатий змій — по суті єдиний корисний варіант тут, бо вміє багато чого в одній формі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-6-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Кривавий яструб{{Blood Hawk}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Політ, «Гострий зір»{{Keen Sight}} і «Тактика зграї»{{Pack Tactics}}, але все одно не може конкурувати з кращими бойовими формами, доступними Друїдам того самого рівня. Недоступно до 8-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Верблюд{{Camel}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Пристойна швидкість і перша форма, на якій союзники безперечно можуть їздити верхи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Крилатий змій{{Flying Snake}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Без обмеження на літаючі форми це було б фантастично. На жаль, до того часу, коли ви зможете отримати цю форму на 8-му рівні, вам уже доступні значно кращі варіанти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський краб{{Giant Crab}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Сліпозір, краща швидкість плавання й краща Непомітність, ніж у звичайного краба, плюс (очевидно) кращі атаки. Середнього розміру, тож як форма розвідника вона не має особливого сенсу, бо не пролізе в тісні місця, і чіткої ролі в неї немає. Недоступно до 4-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський щур{{Giant Rat}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Жодного особливого руху, посередня Непомітність. «Гострий нюх»{{Keen Smell}}, але його мають чимало кращих варіантів. А ще «Тактика зграї»{{Pack Tactics}}, що підкріплює її посередню атаку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантська ласка{{Giant Weasel}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Темнозір і «Гострий слух і нюх»{{Keen Hearing and Smell}}, добра Непомітність, але без особливих типів переміщення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мастиф{{Mastiff}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Гострий слух і нюх»{{Keen Hearing and Smell}} та укус з ефектом повалення. До того ж, оскільки це собака, ви, імовірно, зможете лишатися непоміченими в цивілізованих місцях."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мул{{Mule}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Верблюд швидший, але, мабуть, іноді треба тягти купу здобичі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Отруйна змія{{Poisonous Snake}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Недоступно до 4-го рівня, а до того часу у вас уже є кращі варіанти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Поні{{Pony}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Верблюд швидший."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стирж{{Stirge}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Крилатий змій однозначно кращий. Прикріплення здається спокусливим, але воно робить вас украй вразливими до вибивання з «Дикої форми»{{Wild Shape}}."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-7",
+          "parentSectionId": "section-animal-forms",
+          "heading": "ПН 1/4",
+          "sourceAnchor": "cr_.25",
+          "blocks": [
+            {
+              "blockId": "block-section-7-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усі, крім Друїдів {{Кола місяця|Circle of the Moon}}, починатимуть із цього ПН як свого найкращого варіанта на 2-му й 3-му рівнях. Друїди Кола місяця повністю пропустять цей ПН, бо мають доступ до значно кращих варіантів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-7-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проти одиночних ворогів обирайте гігантську жабу, якщо вони малого розміру чи менші, або велоцираптора, якщо ні. Проти груп розгляньте гігантську сову, вовка чи велоцираптора."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-7-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Сокироклюв|Axe Beak}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Добра швидкість і пристойна атака, але без особливих умінь і абсолютно жахливий КБ."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вепр{{Boar}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Наступ»{{Charge}} спокушає ефектом повалення, але СК дуже низька. Поганий КБ, погані ХП, погана шкода, а «Невгамовність»{{Relentless}} працює лише раз за відпочинок."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Змія-констриктор|Constrictor Snake}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Швидкість плавання, Сліпозір і «Здавлювання»{{Constrict}}. «Здавлювання» — абсолютно фантастичний спосіб здолати одиночні цілі, особливо якщо їм важко пройти СК втечі. На жаль, форма недоступна до 4-го рівня, коли Друїди {{Кола землі|Circle of the Land}} користуватимуться крокодилом, а Друїди {{Кола місяця|Circle of the Moon}} — гігантським удавом."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Корова{{Cow}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "VGtM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Пристойно виконує «Наступ»{{Charge}}, але з поганим КБ і малою кількістю ХП не переживе відходу, щоб зробити ще один."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Діметродон{{Dimetrodon}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "VGtM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Атака укусом і швидкість плавання. Ви не зможете використовувати цю форму, доки не досягнете 4-го рівня, а тоді крокодил однозначно кращий."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тягловий кінь{{Draft Horse}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Пристойна швидкість і дуже міцна атака, але КБ — сміття."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лось{{Elk}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Наступ»{{Charge}} додає до «Тарану»{{Ram}} приємну шкоду, плюс ефект повалення, а коли застрягнете в ближньому бою, можна перейти на «Копита»{{Hooves}} для вищої шкоди. На жаль, у лося і низький КБ, і мало ХП."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський борсук{{Giant Badger}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Швидкість риття, «Гострий нюх»{{Keen Smell}} і «Мультиатака»{{Multiattack}}. На жаль, поганий КБ і ХП."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський кажан{{Giant Bat}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Химерно велика кількість ХП, але жахлива шкода, а великого розміру він дуже поганий розвідник. Недоступно до 8-го рівня, а на той час у всіх є кращі варіанти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантська жаба{{Giant Frog}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Укус»{{Bite}} і «Ковтання»{{Swallow}} жаби значно смертоносніші за «Здавлювання»{{Constrict}} змії-констриктора, але працюють лише на істотах малого розміру чи менших. Недоступно до 4-го рівня, а тоді у вас є кращі варіанти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантська ящірка{{Giant Lizard}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Вражаюче схожа на сокироклюва, але зі швидкістю лазіння й повільнішою наземною швидкістю."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантська сова{{Giant Owl}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Пристойна шкода й «Обліт»{{Flyby}}, що чудово підходять літаючій формі. Недоступно до 8-го рівня, а тоді у вас є кращі варіанти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантська отруйна змія{{Giant Poisonous Snake}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Швидкість плавання, досяг, трохи Сліпозору й шкода отрутою. На жаль, СК отрути дуже низька, а форма недоступна до 4-го рівня, коли у вас є кращі варіанти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський вовчий павук{{Giant Wolf Spider}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Фантастична непомітність і вся здатність до лазіння, якої ви чекаєте від павука. Пристойна шкода отрутою, але СК низька."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гадрозавр{{Hadrosaurus}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "VGtM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Поганий КБ, погана швидкість, погана шкода, жодних особливих умінь."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Пантера{{Panther}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Гострий нюх»{{Keen Smell}} і чудова Непомітність. «Наскок»{{Pounce}} додає приємний ефект повалення до кігтів пантери, але шкоди їй не вистачає, щоб конкурувати з іншими бойовими формами того самого ПН."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Птеранодон{{Pteranodon}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Гігантська сова однозначно краща."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Верховий кінь{{Riding Horse}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Атака з пристойною шкодою й, очевидно, можна їздити верхи, але все інше погане."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Велоцираптор{{Velociraptor}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "VGtM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Більша шкода, ніж у вовка, і «Тактика зграї»{{Pack Tactics}}, але без ефекту повалення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вовк{{Wolf}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Гострий слух і нюх»{{Keen Hearing and Smell}} і «Тактика зграї»{{Pack Tactics}}, щоб підкріпити атаку вовка. Шкода не вражає, але на кожне влучання накладається ефект повалення. Пристойний КБ для тварини цього ПН, але ХП не густо."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-8",
+          "parentSectionId": "section-animal-forms",
+          "heading": "ПН 1/2",
+          "sourceAnchor": "cr_.5",
+          "blocks": [
+            {
+              "blockId": "block-section-8-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усі, крім Друїдів {{Кола місяця|Circle of the Moon}}, користуватимуться цим ПН з 4-го по 7-й рівень, тоді як Друїди Кола місяця пропустять цей ПН і перейдуть одразу до ПН 1. На 4-му рівні вам також стають доступні форми зі швидкістю плавання, тож Друїди {{Кола землі|Circle of the Land}} можуть використовувати чудові варіанти на кшталт крокодила."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-8-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проти одиночних ворогів використовуйте крокодила. Проти кількох ворогів — мавпу. На цьому ПН є кілька чудових літаючих варіантів, але Друїди Кола місяця мають кращі варіанти на ПН 1, а решта друїдів не можуть обирати форми зі швидкістю польоту."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-8-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Мавпа{{Ape}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Дві атаки ближнього бою з пристойною шкодою й пристойним бонусом атаки та вкрай рідкісна для тварини дальня атака. Оскільки в мавпи руки як у людини, ви, імовірно, зможете користуватися зброєю. А ось обладунок у «Дикій формі»{{Wild Shape}}, імовірно, носити не вийде, бо пропорції мавп так сильно відрізняються від гуманоїдних."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Чорний ведмідь{{Black Bear}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Мавпа однозначно краща в усьому, крім того, що чорний ведмідь має трохи кращу швидкість."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Крокодил{{Crocodile}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Чудовий контролер для одиночної цілі. Укус завдає пристойної шкоди, а доки ціль не вирветься, ви маєте Перевагу на кубику на атаки по ній. Однак із кількома цілями в бою будуть проблеми. Недоступно до 4-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантська коза{{Giant Goat}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Пристойна шкода, особливо якщо перед тим пересунутися, але дуже важко отримати додаткову шкоду від «Наступу»{{Charge}} більш ніж раз за зіткнення. Бойовий кінь працює схоже, але завдає більшої шкоди, має кращу швидкість і повалює цілі під час наступу."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський морський коник{{Giant Sea Horse}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Менша шкода й гірший КБ, ніж у рифової акули. Недоступно до 4-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантська оса{{Giant Wasp}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Чудова швидкість польоту й єдиний літаючий варіант на цьому ПН. Шкода від жала оси не вражає, але отрута дуже сильна, якщо ціль провалить низьку СК ряткидка, щоб їй опиратися. На жаль, форма недоступна до 8-го рівня, тож на той час у вас уже будуть кращі варіанти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рифова акула{{Reef Shark}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Найкраща водна форма на цьому ПН. Друїди Кола землі користуватимуться нею, а Друїди Кола місяця на 4-му рівні, коли відкриваються форми для плавання, можуть узяти акулу-мисливця."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Бойовий кінь|Warhorse}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Чудова швидкість і шкода, а ефект наступу — відмінний спосіб допомогти союзникам, хоча скористатися тим, що вороги повалені, у вас немає як."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cr_1",
+          "parentSectionId": "section-animal-forms",
+          "heading": "ПН 1",
+          "sourceAnchor": "cr_1",
+          "blocks": [
+            {
+              "blockId": "block-section-cr_1-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ПН 1 — максимум для всіх Друїдів, крім Друїдів {{Кола місяця|Circle of the Moon}}, але до моменту, коли ви його досягнете, використовувати ці форми як бойові може бути важко. У ворогів буде вищий КБ, ніж ви можете надійно пробити без Переваги на кубику, і вони надто легко влучатимуть по вас та завдаватимуть надто багато шкоди, щоб «Дика форма»{{Wild Shape}} була варіантом, на який можна постійно покладатися. На щастя, Друїди {{Кола землі|Circle of the Land}} отримують цей ПН на 8-му рівні, коли відкриваються літаючі форми, тож гігантський гриф — ідеальна відповідь на ці проблеми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cr_1-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друїди {{Кола місяця|Circle of the Moon}} починають із цього ПН, тож памʼятайте, що форми для плавання й польоту не будуть доступні одразу, але 4-го рівня ви досягнете ще до того, як матимете доступ до ПН 2."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cr_1-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проти одиночних ворогів гігантська ропуха може швидко прибрати будь-кого середнього розміру чи менше. В інших боях гігантський гриф завдає чудової шкоди, а лютий вовк має приємний ефект повалення. «Павутина»{{Web}} гігантського павука — веселий утилітарний засіб, особливо проти великих ворогів із низьким КБ. Під водою гігантський восьминіг — єдиний ваш варіант, але він теж доволі добрий."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cr_1-4",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Бурий ведмідь{{Brown Bear}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Пристойна кількість ХП, «Гострий нюх»{{Keen Smell}}, швидкість лазіння та «Мультиатака»{{Multiattack}} з двома пристойними атаками. На жаль, КБ бурого ведмедя відносно низький для його ПН, а ХП недостатньо, щоб це компенсувати, тож утримати форму, якщо по вас націлюють атаки, дуже важко. Багатьом подобаються ведмеді, бо кілька атак дозволяють двічі застосувати шкоду від «Люті»{{Rage}}, але вам абсолютно не вистачить застосувань «Люті», щоб ця форма лишалася життєздатною цілий день. Якщо ви наполягаєте на використанні бурого ведмедя (а багато хто наполягає), неодмінно накладіть Дубову шкіру [Barkskin] перед боєм."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дейноніх{{Deinonychus}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "VGtM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Чудовий нападник із розгону: дейноніх може перевершити шкоду лютого вовка від «Мультиатаки»{{Multiattack}}, але повалює ціль, лише коли пересувається, тож ви справді захочете налітати й відскакувати, щоб спробувати збити цілі з ніг «Наскоком»{{Pounce}} і отримати укус бонусною дією. Особисто я вважаю, що лютий вовк — кращий варіант, бо вам не треба ризикувати Принагідними атаками, щоб валити ворогів, але дейноніх усе одно потенційно добрий варіант, і якщо вам вдасться змусити його працювати, його шкода буде вищою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лютий вовк{{Dire Wolf}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Добрі ХП і добрий для тварини КБ. «Гострий слух і нюх»{{Keen Hearing and Smell}}, а також добрі Уважність і Непомітність — невідомо чому. Укус лютого вовка завдає пристойної шкоди й має ефект повалення з пристойною СК опору, а з «Тактикою зграї»{{Pack Tactics}} ви маєте влучати стабільно. Загалом, дуже міцна бойова форма."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський орел{{Giant Eagle}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Вражаюча швидкість польоту, «Гострий зір»{{Keen Sight}} і «Мультиатака»{{Multiattack}} з двома пристойними атаками. Гігантський гриф завдає значно більше шкоди й має «Тактику зграї»{{Pack Tactics}}, що підкріплює його атаки, але гігантський орел витриваліший і краще вміє влучати без опори на «Тактику зграї»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантська гієна{{Giant Hyena}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Низький КБ, але пристойна купа ХП. Укус гігантської гієни завдає пристойної шкоди, а з «Шаленством»{{Rampage}} ви можете дуже швидко прогризати групи слабких ворогів, особливо на низьких рівнях."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський восьминіг{{Giant Octopus}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Під водою це єдина доступна форма на цьому ПН, але вона чудовий варіант для бою й навіть пристойна в непомітності. Недоступно до 4-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський павук{{Giant Spider}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Найкращий трюк гігантського павука — атака «Павутиною»{{Web}}. Бонус атаки пристойний, а ціль не робить ряткидка, щоб опиратися її ефекту. Тоді ціль може або марнувати дію на спроби вирватися, або атакувати з Перешкодою на кубику, щоб прорубати собі вихід, або намагатися битися в стані Скований. У будь-якому з цих випадків ви перемагаєте. Особливо це так проти одиночних ворогів, де економіка дій сильно схиляється на користь групи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантська ропуха{{Giant Toad}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Більша версія гігантської жаби: ропуха додає до укусу шкоду отрутою й збільшує розмір істот, яких можна проковтнути, до середнього. Проковтування ворога й досі чудовий спосіб усунути важливі одиночні цілі. Недоступно до 4-го рівня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський гриф{{Giant Vulture}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Кращий за гігантського орла в усьому, крім швидкості. Завдяки «Тактиці зграї»{{Pack Tactics}} гігантський гриф може надійно влучати своєю «Мультиатакою»{{Multiattack}} та завдавати вражаючої шкоди. Для Друїдів не з Кола місяця це найкраща літаюча форма. Для Друїдів Кола місяця кетцалькоатль — кращий варіант, щойно дозволяються літаючі форми."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Лев{{Lion}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Наскок»{{Pounce}} легко поступається укусу лютого вовка, а лютий вовк завдає більше шкоди. У лева дві атаки, але без «Мультиатаки»{{Multiattack}} це нічого не дає. Лютий вовк однозначно кращий."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тигр{{Tiger}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Майже ідентичний леву, але з Темнозором і трохи більшою шкодою. Лютий вовк усе одно кращий."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cr_2",
+          "parentSectionId": "section-animal-forms",
+          "heading": "ПН 2",
+          "sourceAnchor": "cr_2",
+          "blocks": [
+            {
+              "blockId": "block-section-cr_2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На ПН 2 форми «Дикої форми»{{Wild Shape}} починають по-справжньому нарощувати шкоду, що збігається з тим, як воїнські персонажі на кшталт Воїнів отримують «Додаткову атаку»{{Extra Attack}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cr_2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Літальні форми відкриваються лише на 8-му рівні, але на той момент ви все ще будете на ПН 2, і Кетцалькоатль{{Quetzalcoatlus}} легко переважатиме варіанти нижчого ПН і для подорожей, і в бою. Шаблезубий тигр{{Saber-Toothed Tiger}} — ваша основна форма для шкоди, а {{Гігантський удав|Giant Constrictor Snake}} — ваша форма атакера проти одиночних цілей. Під водою Гігантський восьминіг{{Giant Octopus}} усе ще лишається міцним варіантом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cr_2-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Аллозавр{{Allosaurus}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Гігантський лось{{Giant Elk}} працює майже так само й завдає значно більше шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тур{{Aurochs}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "VGtM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": трохи краща шкода, ніж у Гігантського лося{{Giant Elk}}, але значно менша живучість."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський вепр{{Giant Boar}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Лютий вовк{{Dire Wolf}}, імовірно, кращий, бо може валити ворога з ніг кожною атакою, а захист і шкода в нього порівнянні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Гігантський удав|Giant Constrictor Snake}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": лінійне покращення {{Змії-констриктора|Constrictor Snake}}, Гігантський удав чудово скуває й усуває одиночні цілі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський лось{{Giant Elk}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": здатність «Наступ»{{Charge}} Гігантського лося приємна, але атака «Копита»{{Hooves}} цілком непридатна. Вона працює лише проти поваленої істоти, і її не можна використати в тому самому ході, що й «Наступ». Без «Копит» Гігантський лось — це просто більший і живучіший Тур{{Aurochs}}. Якщо у вас є союзник, який добре вміє Штовхати й не проти витратити одну зі своїх атак, щоб допомогти вам, «Копита» дають абсурдну купу шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Акула-мисливець|Hunter Shark}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": більшу частину бою ви атакуєте когось, у кого не всі ХП, тож більшу частину бою матимете гарантовану перевагу. Акула-мисливець — єдина водна форма на цьому рівні, але вона все одно не набагато краща за Гігантського восьминога{{Giant Octopus}}, бо восьминіг так легко скуває ворогів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Плезіозавр{{Plesiosaurus}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": здатність «Кровʼяний шал»{{Blood Frenzy}} {{Акули-мисливця|Hunter Shark}} дає їй величезну перевагу над Плезіозавром."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Полярний ведмідь{{Polar Bear}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": «Мультиатака»{{Multiattack}} із пристойною шкодою, але інші форми цього ПН завдають більше шкоди й мають особливі здібності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Носоріг{{Rhinoceros}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": більше шкоди й кращий СК «Наступу»{{Charge}}, ніж у Гігантського лося{{Giant Elk}}, але «Копита»{{Hooves}} роблять Гігантського лося значно кращим у затяжному бою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кетцалькоатль{{Quetzalcoatlus}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "VGtM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудова швидкість, пристойний КБ, «Обліт»{{Flyby}} та «Атака з піке»{{Dive Attack}} роблять Кетцалькоатля ідеальною літальною формою атакера. До того ж він Величезний, досить сильний і має швидкість польоту 80 футів, тож легко перенесе всю вашу групу на великі відстані (звісно, по кілька годин за раз)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шаблезубий тигр{{Saber-Toothed Tiger}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": шкода порівнянна з Гігантським лосем{{Giant Elk}}, але є компроміси. Хоча кігті завдають на 1 пункт шкоди більше, ніж буцання Гігантського лося, КБ Гігантського лося на 2 вищий, а швидкість пересування значно краща. Якщо ви користуєтеся тактикою «вдарив і втік», щоб тримати «Наступ»{{Charge}} чи «Наскок»{{Pounce}} у грі, вища швидкість лося критична для позиціювання, а вищий КБ краще працює проти Принагідних атак, коли ви відходите. Комбо «Наскоку» Шаблезубого тигра завдасть на кілька пунктів більше шкоди, ніж «Наступ» під час початкового комбо атак, але якщо ворог залишається Поваленим, Гігантський лось — явно кращий варіант."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cr_3",
+          "parentSectionId": "section-animal-forms",
+          "heading": "ПН 3",
+          "sourceAnchor": "cr_3",
+          "blocks": [
+            {
+              "blockId": "block-section-cr_3-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Анкілозавр{{Ankylosaurus}} виконує роль танка, Гігантський скорпіон{{Giant Scorpion}} чудово тримає ворогів на місці й нищить їх (за умови, що ви можете влучати з бонусом лише +4), а Плямистий лев{{Spotted Lion}} чудово підходить, щоб кидатися в атаку на одиночних ворогів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cr_3-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Анкілозавр{{Ankylosaurus}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": міцна шкода, досяжність і ефект повалення роблять Анкілозавра чудовим танком."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський скорпіон{{Giant Scorpion}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ця штука — справжній монстр. Завдяки «Мультиатаці»{{Multiattack}} ви маєте дві спроби захопити ціль, плюс жало. Жало завдає чудової шкоди отрутою, навіть якщо ціль проходить ряткидок. Навіть КБ скорпіона пристойний, а завдяки сліпозору ви легко впораєтеся з невидимими чи прихованими ворогами. Проте бонус атаки Гігантського скорпіона лише +4, а на момент, коли ви зможете перетворитися на нього «Дикою формою»{{Wild Shape}}, ваші союзники кидають +9 на влучання. Може виявитися, що атаки Гігантського скорпіона неефективні, якщо ви не бʼєтеся з ворогами з порівняно поганим КБ."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Косатка|Killer Whale}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудовий сліпозір і пристойна шкода, але в бою не такий корисний, як Гігантський восьминіг{{Giant Octopus}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Плямистий лев{{Spotted Lion}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "GotG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": маючи найвищий бонус атаки серед форм, доступних на цьому рівні, "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "і"
+                  },
+                  {
+                    "type": "text",
+                    "text": " «Тактику зграї»{{Pack Tactics}}, Плямистий лев чудово влучає стабільно. Він також майже такий самий живучий, як Анкілозавр{{Ankylosaurus}}, і має ефект повалення з напрочуд високою СК 16. Проте, на відміну від Анкілозавра, щоб запустити повалення, йому треба розганятися. Плямистий лев кращий для атак на одиночних ворогів разом із союзниками, а Анкілозавр кращий, щоб займати простір і тримати позицію."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cr_4",
+          "parentSectionId": "section-animal-forms",
+          "heading": "ПН 4",
+          "sourceAnchor": "cr_4",
+          "blocks": [
+            {
+              "blockId": "block-section-cr_4-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "ПН 4 дуже розчаровує. Стегозавр{{Stegosaurus}} — найкращий новий варіант, але його сира шкода, найімовірніше, не зможе зрівнятися зі здатністю Гігантського скорпіона{{Giant Scorpion}} тримати ворогів на місці й виснажувати їх."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cr_4-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Слон{{Elephant}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": гірший КБ, ніж у Гігантського скорпіона{{Giant Scorpion}}, порівнянна шкода й лише трохи більше ХП. «Наскок із затоптуванням»{{Trampling Charge}} пристойний, особливо тому, що дає безкоштовну атаку, але СК нижча, ніж СК ефекту повалення від укусу Лютого вовка{{Dire Wolf}}, тож навіть це не робить Слона добрим."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стегозавр{{Stegosaurus}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "VGtM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": краща шкода й КБ, ніж у Слона{{Elephant}}, але жодних особливих здібностей."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cr_5",
+          "parentSectionId": "section-animal-forms",
+          "heading": "ПН 5",
+          "sourceAnchor": "cr_5",
+          "blocks": [
+            {
+              "blockId": "block-section-cr_5-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гігантський крокодил{{Giant Crocodile}} здебільшого — ваш найкращий вибір, але Гігантська акула{{Giant Shark}} чудова під водою. Проти кількох ворогів розгляньте Бронтозавра{{Brontosaurus}} за його приголомшливу шкоду й досяжність. Якщо вам просто потрібна велика купа ХП, щоб поглинати шкоду, то Титанотерій{{Titanothere}} тут як тут — титанічно до ваших послуг."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cr_5-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Бронтозавр{{Brontosaurus}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "VGtM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Бронтозавр завдає приголомшливих 5к8+5 шкоди з ефектом повалення або може відмовитися від повалення заради ще одного к8 шкоди. Окрім повалення, він не робить нічого особливого, але з досяжністю 20 футів може бути серйозною загрозою навіть у боях, розкиданих на великій площі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантський крокодил{{Giant Crocodile}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Гігантський крокодил замінює {{Гігантського удава|Giant Constrictor Snake}} як ваш варіант для усунення одиночних цілей. Хвіст крокодила також дає гарну можливість валити ворогів на землю."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гігантська акула{{Giant Shark}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудова шкода, сліпозір і величезна купа ХП. Жодних цікавих трюків, але надійний водний варіант."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Титанотерій{{Titanothere}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "GotG",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": з КБ 15 і на 10 ХП більше, ніж у Мамонта{{Mammoth}}, Титанотерій — найживучіша форма «Дикої форми»{{Wild Shape}} з-поміж доступних. Проте він усе одно змагається за місце з Бронтозавром{{Brontosaurus}}. Титанотерій швидший, має більше ХП і кращий бонус атаки на +2, але завдає менше шкоди й вимагає пересуватися, щоб повалити цілі. З рисою «Рухливий»{{Mobile}} Титанотерій майже напевно кращий варіант, а без неї все залежить від того, що вам потрібно в конкретний момент."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Трицератопс{{Triceratops}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": Слон{{Elephant}} із кращими показниками. Він усе ще не фантастичний, але кращий."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cr_6",
+          "parentSectionId": "section-animal-forms",
+          "heading": "ПН 6",
+          "sourceAnchor": "cr_6",
+          "blocks": [
+            {
+              "blockId": "block-section-cr_6-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Погляньте лишень на всі ці варіанти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cr_6-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Мамонт{{Mammoth}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "MM",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дуже схожий на Гігантського лося{{Giant Elk}} з більшою кількістю ХП. СК «Наскоку із затоптуванням»{{Trampling Charge}} чудова, тож ви зможете покладатися на цю здатність, навіть якщо вдасться застосувати її лише раз за бій."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-elemental-forms",
+          "heading": "Форми елементалів",
+          "sourceAnchor": "elemental-forms",
+          "blocks": [
+            {
+              "blockId": "block-section-elemental-forms-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Друїди {{Кола місяця|Circle of the Moon}} отримують здатність перетворюватися «Дикою формою»{{Wild Shape}} на елементалів. Усі елементалі з «Бестіарію»{{Monster Manual}} мають ПН 5, тож це варіанти з найвищим ПН, доступні Друїду до 18-го рівня. Однак цей варіант витрачає обидва ваші використання «Дикої форми», що може зробити його ризикованим вибором, якщо ви не плануєте незабаром відпочивати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-elemental-forms-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Повітря: головна принада Повітряного елементаля{{Air Elemental}} — його здатність літати. Шкода на рівні інших елементалів, а «Вихор»{{Whirlwind}} веселий, але не надто потужний, тож головна привабливість — додаткова мобільність, а політ, хоч і чудовий, для {{Кола місяця|Circle of the Moon}} не така вже й новина."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Земля: у нападі розчаровує, але має найвищі КБ і ХП із чотирьох елементальних форм. Головні принади Земляного елементаля{{Earth Elemental}} — живучість, тремочуття та швидкість риття. У більшості ситуацій він не затьмарить інших елементалів, але це найкращий варіант, якщо вам просто треба витримати купу атак."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вогонь: хочете повбивати всіх? Вогняний елементаль{{Fire Elemental}}. Можна витратити рух, щоб пройти крізь ворогів і підпалити все в кімнаті, а потім зробити Ривок, щоб підпалити те, до чого вам не вистачило руху, або вдарити по тому, що вже горить. Якщо турбуєтеся через Принагідні атаки, замість цього використайте Відступ, і зможете бігати скільки завгодно. Якщо вороги не гасять вогонь, вони отримують шкоду, і ви перемагаєте. Якщо вони витрачають дію на гасіння вогню, ви своїм рухом змусили їх витратити дію, і ви перемагаєте. Жодного ряткидка, щоб уникнути цієї здатності, чи чогось такого. Це гора палаючої маячні. Скиньте її на ворогів. О, і якщо вони атакують вас у ближньому бою (зокрема Принагідними атаками, поки ви бігаєте), вони отримують шкоду вогнем (хіба що в них є досяжність)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вода: не такий вбивчий, як Вогняний елементаль{{Fire Elemental}}, але здатність захоплювати, скувати й топити двох істот одночасно, продовжуючи атакувати, робить Водяного елементаля{{Water Elemental}} серйозною загрозою. Ряткидок зі СК 15 не особливо високий, але достатньо високий, щоб вороги, не збудовані навколо Сили, часто мали проблеми з його проходженням."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-unarmored-defense",
+          "heading": "Захист без броні й Дика форма",
+          "sourceAnchor": "unarmored-defense",
+          "blocks": [
+            {
+              "blockId": "block-section-unarmored-defense-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Один рівень Варвара або Монаха, щоб отримати «Захист без броні»{{Unarmored Defense}}, дуже допомагає друїдам {{Кола місяця|Circle of the Moon}}, бо він діє під час «Дикої форми»{{Wild Shape}}, за словами "
+                },
+                {
+                  "type": "link",
+                  "text": "Майка Мірлза",
+                  "href": "https://twitter.com/Acr0ssTh3P0nd/status/446889985497903104"
+                },
+                {
+                  "type": "text",
+                  "text": ". Однак памʼятайте, що ви користуєтеся обчисленням «Захисту без броні» замість стандартного обчислення вашої звіриної форми, тож «природна броня» форми не складається (знову ж таки за "
+                },
+                {
+                  "type": "link",
+                  "text": "«Мудрими порадами»",
+                  "href": "https://www.sageadvice.eu/2015/06/01/unarmored-druid-monk/"
+                },
+                {
+                  "type": "text",
+                  "text": "{{Sage Advice}})."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-unarmored-defense-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Особисто мені більше подобається «Захист без броні»{{Unarmored Defense}} Монаха для занурення на один рівень, бо він працює від вашої Мудрості 20 (стабільний +5 до КБ), а не від того значення Статури, яке має ваша форма «Дикої форми»{{Wild Shape}}, що коливається від 10 до 20, але зазвичай тримається біля 15–16. Якщо плануєте занурення на один рівень, беріть Монаха. Якщо готові взяти 2–3 рівні, на користь Варвара є що сказати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-unarmored-defense-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "КБ за джерелом"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": " "
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Форма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "ПН"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Базовий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Варвар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Монах"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сова"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "0"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Крилатий змій"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Змія-констриктор"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гігантська жаба"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мавпа"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гігантська оса"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рифова акула"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1/2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Лютий вовк"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гігантський восьминіг"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гігантський гриф"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гігантський удав"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гігантський лось"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Анкілозавр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гігантський скорпіон"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Плямистий лев"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слон"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гігантський крокодил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Гігантська акула"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Титанотерій"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10+МУД"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мамонт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9+МУД"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-unarmored-defense-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як бачите, версія «Захисту без броні»{{Unarmored Defense}} у Монаха перевищує версію Варвара майже в усіх випадках уже з Мудрістю 16. З 20 вона дорівнює або перевищує кожен КБ у таблиці. Проте Дубова шкіра [Barkskin] встановлює ваш КБ щонайменше на 16, що перевищить КБ майже кожної форми з таблиці, навіть за Мудрості 20."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Те, як риси впливають на вас під час «Дикої форми»{{Wild Shape}}, може бути трохи важко витлумачити. Коли ви використовуєте «Дику форму», «ви зберігаєте користь від будь-яких умінь вашого класу, раси чи іншого джерела й можете користуватися ними, якщо нова форма фізично на це здатна». Допоки ви дотримуєтеся решти механік «Дикої форми» (жодного чаклування тощо), це справді дуже широке формулювання. Риса підпадає під «інше джерело», тож вона працює під час «Дикої форми» — знову ж таки, якщо відповідає іншим правилам «Дикої форми»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Деякі риси мають чіткий ефект: «Здоровань»{{Tough}} збільшує ваші власні ХП, але «Дика форма»{{Wild Shape}} прямо каже: «Коли ви перетворюєтеся, ви набуваєте ХП і Кубиків Здоровʼя звіра». «Майстер древкової зброї»{{Polearm Master}} усе ще працює, але якщо ви не перетворюєтеся на істоту з руками, користі з нього небагато."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інші риси менш зрозумілі. Расова риса Дракононароджених{{Dragonborn}} «Драконяча шкура»{{Dragon Hide}} дає вам підвищення характеристики (яке замінюється «Дикою формою»{{Wild Shape}}; ця частина зрозуміла), але не цілком ясно, як працює решта риси. У тексті другого пункту прямо йдеться про зміцнення ваших лусок, тож, можливо, вона діє для істот із лускою, як-от риби, ящірки й динозаври, але не для тварин без луски, як-от птахи й ссавці. Третій пункт дозволяє виростити кігті з пальців, але більшість тварин не має пальців. Чи отримують кігті мавпи й інші примати? Незрозуміло."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На мою думку, усе, що є частиною тіла вашого персонажа, як-от кігті, «природна броня» чи опір шкоді, не працює під час «Дикої форми»{{Wild Shape}}. Усе, що знає ваш персонаж, як-от володіння чимось, спеціальне навчання від риси на кшталт «Рухливий»{{Mobile}} чи «Актор»{{Actor}}, або щось властиве особистості чи культурі вашого персонажа, або будь-що інше нефізичне, як-от риса «Удача»{{Lucky}} чи расова риса напівросликів{{Halfling}} «Удача», має й надалі застосовуватися під час «Дикої форми». Але, як у будь-якому випадку, де є сумнів, остаточне рішення ухвалює ваш Майстер. Обовʼязково поговоріть зі своїм Майстром, перш ніж ухвалювати будь-які рішення щодо збірки."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У кількох випадках ми отримали відповіді на те, чи працюють риси під час «Дикої форми»{{Wild Shape}}:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Борець{{Grappler}}"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": це працює, але все одно жахливо. "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Джерело.",
+                    "href": "https://www.sageadvice.eu/2016/11/22/does-grappler-feat-work-with-wild-shape/"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Здоровань{{Tough}}"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": не впливає на ХП вашої звіриної форми. "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Джерело.",
+                    "href": "https://www.sageadvice.eu/2015/10/31/does-the-tough-feat-have-an-affect-on-shifting-druid/"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рухливий{{Mobile}}"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": імовірно, працює. Майк Мірлз — не офіційний тлумач правил, але його думки офіційніші за думку добре обізнаного гравця. Гадаю, у цьому випадку я погоджуюся з Мірлзом. "
+                  },
+                  {
+                    "type": "link",
+                    "text": "Джерело.",
+                    "href": "https://www.sageadvice.eu/2016/04/09/does-mobility-feat-provides-benefits-for-a-wildshaped-druid/"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-druid-wild-shape-2014-001",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-0",
+      "context": "Бабуїн",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-002",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-1",
+      "context": "Борсук",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-003",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-2",
+      "context": "Кажан",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-004",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-3",
+      "context": "Кіт",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-005",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-4",
+      "context": "Краб",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-006",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-5",
+      "context": "Черепний щур",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-007",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-6",
+      "context": "Олень",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-008",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-7",
+      "context": "Орел",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-009",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-8",
+      "context": "Жаба",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-010",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-9",
+      "context": "Гігантський вогняний жук",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-011",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-10",
+      "context": "Коза",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-012",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-11",
+      "context": "Яструб",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-013",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-12",
+      "context": "Гієна",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-014",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-13",
+      "context": "Шакал",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-015",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-14",
+      "context": "Ящірка",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-016",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-15",
+      "context": "Восьминіг",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-017",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-16",
+      "context": "Сова",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-018",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-17",
+      "context": "Квіпер",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-019",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-18",
+      "context": "Пацюк",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-020",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-19",
+      "context": "Крук",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-021",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-20",
+      "context": "Скорпіон",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-022",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-21",
+      "context": "Морський коник",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-023",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-22",
+      "context": "Павук",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-024",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-23",
+      "context": "Стервʼятник",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-025",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_0",
+      "targetBlockId": "block-section-cr_0-3",
+      "optionId": "section-cr_0-block-section-cr_0-3-item-24",
+      "context": "Ласка",
+      "explanationBlockId": "block-section-cr_0-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-026",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-6",
+      "targetBlockId": "block-section-6-3",
+      "optionId": "section-6-block-section-6-3-item-0",
+      "context": "Кривавий яструб",
+      "explanationBlockId": "block-section-6-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-027",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-6",
+      "targetBlockId": "block-section-6-3",
+      "optionId": "section-6-block-section-6-3-item-1",
+      "context": "Верблюд",
+      "explanationBlockId": "block-section-6-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-028",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-6",
+      "targetBlockId": "block-section-6-3",
+      "optionId": "section-6-block-section-6-3-item-2",
+      "context": "Крилатий змій",
+      "explanationBlockId": "block-section-6-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-029",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-6",
+      "targetBlockId": "block-section-6-3",
+      "optionId": "section-6-block-section-6-3-item-3",
+      "context": "Гігантський краб",
+      "explanationBlockId": "block-section-6-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-030",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-6",
+      "targetBlockId": "block-section-6-3",
+      "optionId": "section-6-block-section-6-3-item-4",
+      "context": "Гігантський щур",
+      "explanationBlockId": "block-section-6-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-031",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-6",
+      "targetBlockId": "block-section-6-3",
+      "optionId": "section-6-block-section-6-3-item-5",
+      "context": "Гігантська ласка",
+      "explanationBlockId": "block-section-6-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-032",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-6",
+      "targetBlockId": "block-section-6-3",
+      "optionId": "section-6-block-section-6-3-item-6",
+      "context": "Мастиф",
+      "explanationBlockId": "block-section-6-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-033",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-6",
+      "targetBlockId": "block-section-6-3",
+      "optionId": "section-6-block-section-6-3-item-7",
+      "context": "Мул",
+      "explanationBlockId": "block-section-6-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-034",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-6",
+      "targetBlockId": "block-section-6-3",
+      "optionId": "section-6-block-section-6-3-item-8",
+      "context": "Отруйна змія",
+      "explanationBlockId": "block-section-6-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-035",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-6",
+      "targetBlockId": "block-section-6-3",
+      "optionId": "section-6-block-section-6-3-item-9",
+      "context": "Поні",
+      "explanationBlockId": "block-section-6-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-036",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-6",
+      "targetBlockId": "block-section-6-3",
+      "optionId": "section-6-block-section-6-3-item-10",
+      "context": "Стирж",
+      "explanationBlockId": "block-section-6-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-037",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-0",
+      "context": "СокироклювMM",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-038",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-1",
+      "context": "Вепр",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-039",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-2",
+      "context": "Змія-констрикторMM",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-040",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-3",
+      "context": "Корова",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-041",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-4",
+      "context": "Діметродон",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-042",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-5",
+      "context": "Тягловий кінь",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-043",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-6",
+      "context": "Лось",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-044",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-7",
+      "context": "Гігантський борсук",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-045",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-8",
+      "context": "Гігантський кажан",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-046",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-9",
+      "context": "Гігантська жаба",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-047",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-10",
+      "context": "Гігантська ящірка",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-048",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-11",
+      "context": "Гігантська сова",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-049",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-12",
+      "context": "Гігантська отруйна змія",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-050",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-13",
+      "context": "Гігантський вовчий павук",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-051",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-14",
+      "context": "Гадрозавр",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-052",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-15",
+      "context": "Пантера",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-053",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-16",
+      "context": "Птеранодон",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-054",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-17",
+      "context": "Верховий кінь",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-055",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-18",
+      "context": "Велоцираптор",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-056",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-7",
+      "targetBlockId": "block-section-7-3",
+      "optionId": "section-7-block-section-7-3-item-19",
+      "context": "Вовк",
+      "explanationBlockId": "block-section-7-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-057",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-8",
+      "targetBlockId": "block-section-8-3",
+      "optionId": "section-8-block-section-8-3-item-0",
+      "context": "Мавпа",
+      "explanationBlockId": "block-section-8-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-058",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-8",
+      "targetBlockId": "block-section-8-3",
+      "optionId": "section-8-block-section-8-3-item-1",
+      "context": "Чорний ведмідь",
+      "explanationBlockId": "block-section-8-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-059",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-8",
+      "targetBlockId": "block-section-8-3",
+      "optionId": "section-8-block-section-8-3-item-2",
+      "context": "Крокодил",
+      "explanationBlockId": "block-section-8-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-060",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-8",
+      "targetBlockId": "block-section-8-3",
+      "optionId": "section-8-block-section-8-3-item-3",
+      "context": "Гігантська коза",
+      "explanationBlockId": "block-section-8-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-061",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-8",
+      "targetBlockId": "block-section-8-3",
+      "optionId": "section-8-block-section-8-3-item-4",
+      "context": "Гігантський морський коник",
+      "explanationBlockId": "block-section-8-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-062",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-8",
+      "targetBlockId": "block-section-8-3",
+      "optionId": "section-8-block-section-8-3-item-5",
+      "context": "Гігантська оса",
+      "explanationBlockId": "block-section-8-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-063",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-8",
+      "targetBlockId": "block-section-8-3",
+      "optionId": "section-8-block-section-8-3-item-6",
+      "context": "Рифова акула",
+      "explanationBlockId": "block-section-8-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-064",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-8",
+      "targetBlockId": "block-section-8-3",
+      "optionId": "section-8-block-section-8-3-item-7",
+      "context": "Бойовий кіньMM",
+      "explanationBlockId": "block-section-8-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-065",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_1",
+      "targetBlockId": "block-section-cr_1-4",
+      "optionId": "section-cr_1-block-section-cr_1-4-item-0",
+      "context": "Бурий ведмідь",
+      "explanationBlockId": "block-section-cr_1-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-066",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_1",
+      "targetBlockId": "block-section-cr_1-4",
+      "optionId": "section-cr_1-block-section-cr_1-4-item-1",
+      "context": "Дейноніх",
+      "explanationBlockId": "block-section-cr_1-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-067",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_1",
+      "targetBlockId": "block-section-cr_1-4",
+      "optionId": "section-cr_1-block-section-cr_1-4-item-2",
+      "context": "Лютий вовк",
+      "explanationBlockId": "block-section-cr_1-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-068",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_1",
+      "targetBlockId": "block-section-cr_1-4",
+      "optionId": "section-cr_1-block-section-cr_1-4-item-3",
+      "context": "Гігантський орел",
+      "explanationBlockId": "block-section-cr_1-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-069",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_1",
+      "targetBlockId": "block-section-cr_1-4",
+      "optionId": "section-cr_1-block-section-cr_1-4-item-4",
+      "context": "Гігантська гієна",
+      "explanationBlockId": "block-section-cr_1-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-070",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_1",
+      "targetBlockId": "block-section-cr_1-4",
+      "optionId": "section-cr_1-block-section-cr_1-4-item-5",
+      "context": "Гігантський восьминіг",
+      "explanationBlockId": "block-section-cr_1-4",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-071",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_1",
+      "targetBlockId": "block-section-cr_1-4",
+      "optionId": "section-cr_1-block-section-cr_1-4-item-6",
+      "context": "Гігантський павук",
+      "explanationBlockId": "block-section-cr_1-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-072",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_1",
+      "targetBlockId": "block-section-cr_1-4",
+      "optionId": "section-cr_1-block-section-cr_1-4-item-7",
+      "context": "Гігантська ропуха",
+      "explanationBlockId": "block-section-cr_1-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-073",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_1",
+      "targetBlockId": "block-section-cr_1-4",
+      "optionId": "section-cr_1-block-section-cr_1-4-item-8",
+      "context": "Гігантський гриф",
+      "explanationBlockId": "block-section-cr_1-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-074",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_1",
+      "targetBlockId": "block-section-cr_1-4",
+      "optionId": "section-cr_1-block-section-cr_1-4-item-9",
+      "context": "Лев",
+      "explanationBlockId": "block-section-cr_1-4",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-075",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_1",
+      "targetBlockId": "block-section-cr_1-4",
+      "optionId": "section-cr_1-block-section-cr_1-4-item-10",
+      "context": "Тигр",
+      "explanationBlockId": "block-section-cr_1-4",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-076",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_2",
+      "targetBlockId": "block-section-cr_2-3",
+      "optionId": "section-cr_2-block-section-cr_2-3-item-0",
+      "context": "Аллозавр",
+      "explanationBlockId": "block-section-cr_2-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-077",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_2",
+      "targetBlockId": "block-section-cr_2-3",
+      "optionId": "section-cr_2-block-section-cr_2-3-item-1",
+      "context": "Тур",
+      "explanationBlockId": "block-section-cr_2-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-078",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_2",
+      "targetBlockId": "block-section-cr_2-3",
+      "optionId": "section-cr_2-block-section-cr_2-3-item-2",
+      "context": "Гігантський вепр",
+      "explanationBlockId": "block-section-cr_2-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-079",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_2",
+      "targetBlockId": "block-section-cr_2-3",
+      "optionId": "section-cr_2-block-section-cr_2-3-item-3",
+      "context": "Гігантський удав MM",
+      "explanationBlockId": "block-section-cr_2-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-080",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_2",
+      "targetBlockId": "block-section-cr_2-3",
+      "optionId": "section-cr_2-block-section-cr_2-3-item-4",
+      "context": "Гігантський лось",
+      "explanationBlockId": "block-section-cr_2-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-081",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_2",
+      "targetBlockId": "block-section-cr_2-3",
+      "optionId": "section-cr_2-block-section-cr_2-3-item-5",
+      "context": "Акула-мисливець MM",
+      "explanationBlockId": "block-section-cr_2-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-082",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_2",
+      "targetBlockId": "block-section-cr_2-3",
+      "optionId": "section-cr_2-block-section-cr_2-3-item-6",
+      "context": "Плезіозавр",
+      "explanationBlockId": "block-section-cr_2-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-083",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_2",
+      "targetBlockId": "block-section-cr_2-3",
+      "optionId": "section-cr_2-block-section-cr_2-3-item-7",
+      "context": "Полярний ведмідь",
+      "explanationBlockId": "block-section-cr_2-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-084",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_2",
+      "targetBlockId": "block-section-cr_2-3",
+      "optionId": "section-cr_2-block-section-cr_2-3-item-8",
+      "context": "Носоріг",
+      "explanationBlockId": "block-section-cr_2-3",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-085",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_2",
+      "targetBlockId": "block-section-cr_2-3",
+      "optionId": "section-cr_2-block-section-cr_2-3-item-9",
+      "context": "Кетцалькоатль",
+      "explanationBlockId": "block-section-cr_2-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-086",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_2",
+      "targetBlockId": "block-section-cr_2-3",
+      "optionId": "section-cr_2-block-section-cr_2-3-item-10",
+      "context": "Шаблезубий тигр",
+      "explanationBlockId": "block-section-cr_2-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-087",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_3",
+      "targetBlockId": "block-section-cr_3-1",
+      "optionId": "section-cr_3-block-section-cr_3-1",
+      "context": "Анкілозавр",
+      "explanationBlockId": "block-section-cr_3-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-088",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_3",
+      "targetBlockId": "block-section-cr_3-2",
+      "optionId": "section-cr_3-block-section-cr_3-2-item-1",
+      "context": "Гігантський скорпіон",
+      "explanationBlockId": "block-section-cr_3-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-089",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_3",
+      "targetBlockId": "block-section-cr_3-2",
+      "optionId": "section-cr_3-block-section-cr_3-2-item-2",
+      "context": "Косатка MM",
+      "explanationBlockId": "block-section-cr_3-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-090",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_3",
+      "targetBlockId": "block-section-cr_3-2",
+      "optionId": "section-cr_3-block-section-cr_3-2-item-3",
+      "context": "Плямистий лев",
+      "explanationBlockId": "block-section-cr_3-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-091",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_4",
+      "targetBlockId": "block-section-cr_4-2",
+      "optionId": "section-cr_4-block-section-cr_4-2-item-0",
+      "context": "Слон",
+      "explanationBlockId": "block-section-cr_4-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-092",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_4",
+      "targetBlockId": "block-section-cr_4-2",
+      "optionId": "section-cr_4-block-section-cr_4-2-item-1",
+      "context": "Стегозавр",
+      "explanationBlockId": "block-section-cr_4-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-093",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_5",
+      "targetBlockId": "block-section-cr_5-2",
+      "optionId": "section-cr_5-block-section-cr_5-2-item-0",
+      "context": "Бронтозавр",
+      "explanationBlockId": "block-section-cr_5-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-094",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_5",
+      "targetBlockId": "block-section-cr_5-2",
+      "optionId": "section-cr_5-block-section-cr_5-2-item-1",
+      "context": "Гігантський крокодил",
+      "explanationBlockId": "block-section-cr_5-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-095",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_5",
+      "targetBlockId": "block-section-cr_5-2",
+      "optionId": "section-cr_5-block-section-cr_5-2-item-2",
+      "context": "Гігантська акула",
+      "explanationBlockId": "block-section-cr_5-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-096",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_5",
+      "targetBlockId": "block-section-cr_5-2",
+      "optionId": "section-cr_5-block-section-cr_5-2-item-3",
+      "context": "Титанотерій",
+      "explanationBlockId": "block-section-cr_5-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-097",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_5",
+      "targetBlockId": "block-section-cr_5-2",
+      "optionId": "section-cr_5-block-section-cr_5-2-item-4",
+      "context": "Трицератопс",
+      "explanationBlockId": "block-section-cr_5-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-098",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-cr_6",
+      "targetBlockId": "block-section-cr_6-2",
+      "optionId": "section-cr_6-block-section-cr_6-2-item-0",
+      "context": "Мамонт",
+      "explanationBlockId": "block-section-cr_6-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-099",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-elemental-forms",
+      "targetBlockId": "block-section-elemental-forms-2",
+      "optionId": "section-elemental-forms-block-section-elemental-forms-2-item-0",
+      "context": "Повітря",
+      "explanationBlockId": "block-section-elemental-forms-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-100",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-elemental-forms",
+      "targetBlockId": "block-section-elemental-forms-2",
+      "optionId": "section-elemental-forms-block-section-elemental-forms-2-item-1",
+      "context": "Земля",
+      "explanationBlockId": "block-section-elemental-forms-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-101",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-elemental-forms",
+      "targetBlockId": "block-section-elemental-forms-2",
+      "optionId": "section-elemental-forms-block-section-elemental-forms-2-item-2",
+      "context": "Вогонь",
+      "explanationBlockId": "block-section-elemental-forms-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-druid-wild-shape-2014-102",
+      "articleId": "rpgbot-druid-wild-shape-2014",
+      "translationRevisionId": "translation-rpgbot-druid-wild-shape-2014-draft1",
+      "sectionId": "section-elemental-forms",
+      "targetBlockId": "block-section-elemental-forms-2",
+      "optionId": "section-elemental-forms-block-section-elemental-forms-2-item-3",
+      "context": "Вода",
+      "explanationBlockId": "block-section-elemental-forms-2",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

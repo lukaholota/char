@@ -1,0 +1,275 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "ranger-beast-master-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-ranger-beast-master-2014-draft1",
+    "sourceRevisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551"
+  },
+  "exampleSection": "section-example-build-a-novel-concept",
+  "levelTableSection": "section-levels",
+  "classKey": "RANGER_2014",
+  "subclassKey": "BEAST_MASTER_CONCLAVE",
+  "raceKey": "HALF_ELF_2014",
+  "backgroundKey": "HERMIT",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 12,
+    "INT": 8,
+    "WIS": 15,
+    "CHA": 13
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {
+      "level": 2,
+      "classOptions": [
+        {
+          "optionNameEng": "Two-Weapon Fighting"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "hunters-mark",
+          "goodberry"
+        ]
+      }
+    },
+    {
+      "level": 3,
+      "subclassKey": "BEAST_MASTER_CONCLAVE",
+      "classOptions": [
+        {
+          "optionNameEng": "Primeval Awareness"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "absorb-elements"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "ELVEN_ACCURACY",
+      "featOptions": [
+        {
+          "optionNameEng": "ELVEN_ACCURACY Ability (Dexterity)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5,
+      "spells": {
+        "knownSpellKeys": [
+          "lesser-restoration"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "hunters-mark",
+        "add": "pass-without-trace"
+      }
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7,
+      "spells": {
+        "knownSpellKeys": [
+          "darkvision"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "DEX",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 9,
+      "spells": {
+        "knownSpellKeys": [
+          "water-breathing"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "classOptions": [
+        {
+          "optionNameEng": "Hide in Plain Sight"
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "speak-with-plants"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "featKey": "FIGHTING_INITIATE",
+      "featOptions": [
+        {
+          "optionNameEng": "Blind Fighting"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "freedom-of-movement"
+        ]
+      }
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15,
+      "spells": {
+        "knownSpellKeys": [
+          "guardian-of-nature"
+        ]
+      }
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17,
+      "spells": {
+        "knownSpellKeys": [
+          "conjure-volley"
+        ]
+      }
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "WIS",
+          "amount": 2
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "tree-stride"
+        ]
+      },
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Продаж спорядження",
+      "reason": "Автор радить продати лускатий обладунок і купити клепаний шкіряний, а на перші 40 зм замінити короткі мечі скімітарами; пресет не записує продаж і купівлю, тож лишено лускатий обладунок, два короткі мечі, довгий лук і набір дослідника підземель.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/ranger-beast-master-2014.webp",
+    "title": "Слідопит — Володар звірів, Напівельф-дроу",
+    "description": "Слідопит Володар звірів із двома мечами: Напівельф-дроу за правилами Таші, Відлюдник з Виживанням замість Релігії, Кмітливий дослідник.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "WIS",
+      "CHA",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "PERCEPTION",
+        "ANIMAL_HANDLING",
+        "STEALTH"
+      ],
+      "race": [],
+      "background": [
+        "MEDICINE",
+        "SURVIVAL"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [
+      "STEALTH"
+    ],
+    "classOptions": [
+      "Favored Foe",
+      "Deft Explorer - Canny"
+    ],
+    "raceOptions": [
+      "Магія дроу"
+    ],
+    "platformChoices": [],
+    "languages": [
+      "DWARVISH",
+      "SYLVAN",
+      "GIANT",
+      "GNOMISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Напівельф за правилами Таші: +2 до Спритності та по +1 до Мудрості й Харизми, тож Спритність 17, Мудрість 16, Харизма 14, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Уважність, Поводження з тваринами й Непомітність — від Слідопита, Медицина й Виживання — від Відлюдника, у якого автор замінює Релігію на Виживання (правило PHB «Налаштування передісторії»); набір травника лишається. Експертиза Кмітливого дослідника — в Непомітності, яку автор називає очевидним вибором. Чотири мови (від Напівельфа, Відлюдника й Кмітливого дослідника) ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Лускатий обладунок, два короткі мечі, довгий лук і набір дослідника підземель — за порадою автора."
+  }
+}

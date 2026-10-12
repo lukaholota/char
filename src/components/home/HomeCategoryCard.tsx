@@ -1,7 +1,9 @@
 "use client";
 
-import { ModeLink as Link } from "@/components/no-ai/ModeLink";
+import { ModeLink as Link, useLinkStatus } from "@/components/no-ai/ModeLink";
+import { Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { TAPPABLE_HIDDEN_OPACITY } from "@/lib/tappable-entrance";
 
 import { cn } from "@/lib/utils";
 import { HomeCoverImage } from "./HomeCoverImage";
@@ -10,6 +12,7 @@ import { StarDivider } from "@/components/ui/StarDivider";
 import { useVisibleImageSrc } from "@/components/no-ai/ContentImage";
 import { HOME_ACCENTS, HOME_HERO_RATIO, HOME_TILE_RATIO } from "./homeTokens";
 import type { HomeCard, HomeCardTier } from "./homeCategories";
+import { buildRpgbotCtaProps } from "@/lib/monitoring/rpgbot-analytics-model";
 
 type TierStyle = {
   ratio: number;
@@ -43,7 +46,7 @@ const TIER_STYLES: Record<HomeCardTier, TierStyle> = {
 };
 
 const cardMotion = {
-  hidden: { opacity: 0, y: 18 },
+  hidden: { opacity: TAPPABLE_HIDDEN_OPACITY, y: 18 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
 } as const;
 
@@ -60,11 +63,13 @@ export function HomeCategoryCard({ card, priority, className }: HomeCategoryCard
   const coverSrc = useVisibleImageSrc(card.imageSrc, card.noAiImageSrc);
 
   return (
-    <motion.div variants={cardMotion} className={className}>
+    <motion.div variants={cardMotion} data-entrance-layer className={className}>
       <Link
         href={category.href}
-        navigateOnFirstTouch={category.slug === "characters"}
-        className="group block transition-transform duration-300 ease-out hover:-translate-y-1 focus-visible:outline-none"
+        {...(category.slug === "rpgbot" ? buildRpgbotCtaProps("open_index", "home_tile") : {})}
+        // A long press lifts a snapshot of the clipped, filtered frame for a preview or drag; phones draw it black and leave traces.
+        draggable={false}
+        className="group relative block select-none [-webkit-touch-callout:none] transition-transform duration-300 ease-out hover:-translate-y-1 active:opacity-80 focus-visible:outline-none"
       >
         <OrnateFrame
           chamfer={style.chamfer}
@@ -101,7 +106,19 @@ export function HomeCategoryCard({ card, priority, className }: HomeCategoryCard
             </div>
           </div>
         </OrnateFrame>
+        <CardPendingIndicator />
       </Link>
     </motion.div>
+  );
+}
+
+function CardPendingIndicator() {
+  const { pending } = useLinkStatus();
+  if (!pending) return null;
+  return (
+    <span role="status" className="pointer-events-none absolute inset-0 flex items-center justify-center">
+      <Loader2 aria-hidden className="h-9 w-9 animate-spin rounded-full bg-black/60 p-2 text-slate-100" />
+      <span className="sr-only">Завантаження сторінки</span>
+    </span>
   );
 }

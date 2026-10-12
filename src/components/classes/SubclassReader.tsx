@@ -1,6 +1,9 @@
 "use client";
 
 import type { ClassData, SubclassData } from "@/lib/classesData";
+import { SubclassAnalysisProvider } from "@/components/optimization/SubclassAnalysisContext";
+import { SubclassAnalysis } from "@/components/optimization/SubclassAnalysis";
+import { catalogSubclassEntity } from "@/lib/optimization/bindings";
 import { buildFeatureEntries } from "@/lib/catalogs/reading-entries";
 import { BranchReader } from "@/components/catalogs/reading/BranchReader";
 import { ReadingEntryList } from "@/components/catalogs/reading/ReadingEntryList";
@@ -24,11 +27,14 @@ export function SubclassReader({
   onClose: () => void;
 }) {
   return (
+    <SubclassAnalysisProvider entity={catalogSubclassEntity(characterClass, subclass)} placement="catalog">
     <BranchReader
       name={subclass.name}
       engName={subclass.engName}
       sourceLabel={findSubclassSourceLabel(subclass)}
       description={subclass.description}
+      coverSrc={subclass.imageSrc}
+      beforeDescription={<SubclassAnalysis entity={catalogSubclassEntity(characterClass, subclass)} placement="catalog" />}
       labels={{ parentName: characterClass.name, backLabel: "До класу", kindLabel: "Підклас" }}
       is2024={is2024}
       focusOnOpen={!featureKey}
@@ -44,5 +50,6 @@ export function SubclassReader({
         isExpandedByDefault
       />
     </BranchReader>
+    </SubclassAnalysisProvider>
   );
 }

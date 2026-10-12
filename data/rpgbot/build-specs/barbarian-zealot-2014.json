@@ -1,0 +1,89 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "barbarian-zealot-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-barbarian-zealot-2014-draft1",
+    "sourceRevisionId": "rpgbot-70747a40b02abe28-4c9f6423a357d26d"
+  },
+  "exampleSection": "section-example-path-of-the-zealot-build-starbarian",
+  "levelTableSection": "section-levels",
+  "classKey": "BARBARIAN_2014",
+  "subclassKey": "PATH_OF_THE_ZEALOT",
+  "raceKey": "ASTRAL_ELF_SPELLJAMMER",
+  "backgroundKey": "MARINE",
+  "abilityScores": { "STR": 15, "DEX": 14, "CON": 15, "INT": 8, "WIS": 10, "CHA": 8 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "revision": 2,
+  "levels": [
+    { "level": 2 },
+    { "level": 3, "subclassKey": "PATH_OF_THE_ZEALOT" },
+    { "level": 4, "featKey": "GREAT_WEAPON_MASTER", "section": "section-feats" },
+    { "level": 5 },
+    { "level": 6 },
+    { "level": 7 },
+    {
+      "level": 8,
+      "featKey": "SLASHER",
+      "featOptions": [{ "optionNameEng": "SLASHER Ability (Strength)" }],
+      "section": "section-feats"
+    },
+    { "level": 9 },
+    { "level": 10 },
+    { "level": 11 },
+    { "level": 12, "abilityScoreIncrease": [{"ability": "STR", "amount": 2}], "section": "section-feats" },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15 },
+    { "level": 16, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}], "section": "section-feats" },
+    { "level": 17 },
+    { "level": 18 },
+    { "level": 19, "abilityScoreIncrease": [{"ability": "CON", "amount": 2}], "section": "section-feats" },
+    { "level": 20 }
+  ],
+  "incomplete": [
+    {
+      "field": "Плаваюче володіння Астрального ельфа",
+      "reason": "Автор обирає для плаваючого володіння Астрального трансу Непомітність і змінює його після кожного довгого відпочинку; у каталозі цього володіння як вибору немає, тож пресет його не записує — Непомітність можна дописати на листі.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Передісторія Дикий космонавт",
+      "reason": "Автор радить замінити Морського піхотинця на Дикого космонавта (Spelljammer) заради безкоштовної риси «Здоровань», якщо Майстер дозволяє; пресет бере основний вибір автора — Морського піхотинця.",
+      "section": "section-background"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/barbarian-zealot-2014.webp",
+    "title": "Варвар — Шлях фанатика, Астральний ельф",
+    "description": "Зірковарвар: Астральний ельф із замовлянням «Світло» і Шляхом фанатика, що додає бонусну шкоду раз за хід.",
+    "subraceKey": null,
+    "racialAbilities": ["STR", "CON", "STR"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["ATHLETICS", "SURVIVAL"], "race": [], "background": ["INSIGHT", "RELIGION"] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": ["ELVISH"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": [] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля 15/14/15/8/10/8 з таблиці автора; Астральний ельф за правилами Таші додає +2 до Сили й +1 до Статури, тож Сила 17, Статура 16, як у таблиці. Це вже враховано.",
+    "skillExplanation": "Уважність дає раса. Атлетику й Виживання автор бере від Варвара, а Аналіз поведінки та Релігію — замість повторюваних навичок Морського піхотинця, як у прикладі. Мову ми обрали за вас: автор її не називає.",
+    "equipmentExplanation": "Автор не називає стартового спорядження. Велику сокиру, дві ручні сокири й набір мандрівника ми обрали за вас — це вибір платформи, їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": ["light"],
+      "preparedSpellKeys": [],
+      "sectionId": "section-race",
+      "explanation": "Замовляння «Світло» з Астрального вогню обрано автором."
+    }
+  }
+}

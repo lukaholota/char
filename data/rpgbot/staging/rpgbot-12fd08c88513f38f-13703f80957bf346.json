@@ -1,0 +1,2122 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "13703f80957bf346d9d88d137ab8eb63ff5b11f9e0120674ce352aa231964b97",
+  "sourceRevision": {
+    "revisionId": "rpgbot-12fd08c88513f38f-13703f80957bf346",
+    "sourceId": "rpgbot-12fd08c88513f38f",
+    "fetchedAt": "2026-09-29T19:09:18.990019+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:25:57-04:00",
+    "contentHash": "b57726012f17a81281509e8fb6f4d14ea4ec1dd607b00facff92141031cf3213",
+    "title": "Path of the Ancestral Guardian Barbarian 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-12fd08c88513f38f-13703f80957bf346.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Optimizing tanks is a particular challenge in DnD. We often talk about the “"
+            },
+            {
+              "type": "link",
+              "text": "Tank Fallacy",
+              "href": "https://rpgbot.net/the-tank-fallacy/"
+            },
+            {
+              "type": "text",
+              "text": "” where monsters stop trying to pry the stringy meat out of the very hard to open tin can and instead walk past you to the delightfully tender wizard. Various classes have different ways to handle this. Paladins have Compelled Duel. "
+            },
+            {
+              "type": "link",
+              "text": "Rune Knights solve the problem via suplexing enemies",
+              "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/rune-knight/"
+            },
+            {
+              "type": "text",
+              "text": " (even if those enemies are trains). Oath of Conquest solves this problem by "
+            },
+            {
+              "type": "link",
+              "text": "paralyzing enemies with fear",
+              "href": "https://rpgbot.net/dnd5/characters/classes/paladin/oath-of-conquest/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Barbarians, on the other hand, have a couple options. Several of the Barbarian’s subclasses lean towards the flavor of “do so much damage you can’t ignore me,” but one in particular instead gives you the tools to actually protect your friends: Ancestral Guardian. With that said, we are still barbarians and so we’re going to delve into doing the best job possible of cutting bad guys to pieces while keeping them off our party."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you’re picking this subclass, you’re not here to optimize damage. We still definitely "
+            },
+            {
+              "type": "emphasis",
+              "text": "are "
+            },
+            {
+              "type": "text",
+              "text": "going to optimize damage because the plan isn’t just to be an attack sponge; you want to be able to hold your own in a fight without being reliant on your party members to kill things for you. But that’s secondary to making sure that we’re tough and supportive, protecting our party members while working in some excellent utility and respectable damage. Plus, you get to be one of a vanishingly small number of things that always has a use for your reaction in a round which is pretty neat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ancestral Guardian Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#ancestral-guardian-features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ancestral Guardian Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#ancestral-guardian-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ancestral Guardian Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#ancestral-guardian-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ancestral Guardian Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#ancestral-guardian-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ancestral Guardian Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#ancestral-guardian-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ancestral Guardian Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#ancestral-guardian-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Furious About Mediocre Strength",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#example-build-furious-about-mediocre-strength"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/ancestral-guardian/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ancestral-guardian-features",
+      "heading": "Ancestral Guardian Features",
+      "sourceAnchor": "ancestral-guardian-features",
+      "blocks": [
+        {
+          "blockId": "block-section-ancestral-guardian-features-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ancestral Protectors"
+              },
+              {
+                "type": "text",
+                "text": ": This is an amazing\n\t\t“taunt” mechanic. Sure, the target can attack other people, but they do so\n\t\twith Disadvantage and do half damage. At that point, attacking anyone except\n\t\tyou seems pointless. You do need to hit something for this to trigger, so\n\t\tyou should absolutely use Reckless Attack to improve the likelihood that you\n\t\thit as much as possible."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spirit Shield"
+              },
+              {
+                "type": "text",
+                "text": ": There is no limitation on\n\t\thow often you can use this except that it uses your Reaction. This is a\n\t\t"
+              },
+              {
+                "type": "emphasis",
+                "text": "massive"
+              },
+              {
+                "type": "text",
+                "text": " increase to your party’s survivability, and even if this\n\t\tnever scaled it would still be fantastic. The only problem is that you can’t\n\t\tuse it on yourself, but fortunately you get damage resistance from Rage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Consult the Spirits"
+              },
+              {
+                "type": "text",
+                "text": ": Augury and\n\t\tClairvoyance are two of my favorite divinations because they’re simple, but\n\t\textremely useful. Use Augury any time you make a major decision with unknown\n\t\trisks. Use Clairvoyance to scout around corners, behind doors, etc. By this\n\t\tlevel actual spellcasters will be able to do this with ease, but you can use\n\t\tthis ability once per short rest without spending spell slots, so doing it\n\t\tyourself may be less costly for the party."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vengeful Ancestors"
+              },
+              {
+                "type": "text",
+                "text": ": As a Reaction, reflect\n\t\tup to 4d6 damage directed at an ally back to the attacker. Amazing. You\n\t\tmight encourage your allies to draw fire just so you can use this,\n\t\tespecially when facing enemies with multiple low-damage attacks so that you\n\t\tcan reliably reflect all or most of the damage from a single attack."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ancestral-guardian-ability-scores",
+      "heading": "Ancestral Guardian Ability Scores",
+      "sourceAnchor": "ancestral-guardian-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ancestral-guardian-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Powers our attacks and, as a reminder, we need to hit with them to apply our tanking debuff."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ancestral-guardian-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": We only want to fill out medium armor unless you’re rolling for stats and end up with 3 high rolls. If that happens, you can take advantage of the unique version of unarmored defense offered by the class and make all three physical stats as high as possible."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ancestral-guardian-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": The more Con we have the better. We’re incentivizing things to attack us and need to be able to take those hits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ancestral-guardian-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ancestral-guardian-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Anything you have leftover should go here to prevent yourself from being taken out of the fight by a common mental status effect."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ancestral-guardian-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ancestral-guardian-ability-scores-7",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ancestral-guardian-races",
+      "heading": "Ancestral Guardian Races",
+      "sourceAnchor": "ancestral-guardian-races",
+      "blocks": [
+        {
+          "blockId": "block-section-ancestral-guardian-races-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Scourge Aasimar"
+              },
+              {
+                "type": "text",
+                "text": ": If you can get your DM to let you take the old version but customize it with Tasha’s rules, this has a particularly good niche use for you. Radiant Consumption causing you damage every turn will keep your Rage running even if you miss everything and aren’t attacked, a very rare and useful trait."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Hobgoblin"
+              },
+              {
+                "type": "text",
+                "text": ": Ancestral Guardian is one of the subclasses that doesn’t have a way to use its bonus action every turn while raging by default, and since we’re doing the job of tanking we may as well throw some support in there too."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ancestral-guardian-feats",
+      "heading": "Ancestral Guardian Feats",
+      "sourceAnchor": "ancestral-guardian-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-ancestral-guardian-feats-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Elven Accuracy"
+              },
+              {
+                "type": "text",
+                "text": ": So, hear me out. If you have some way of getting reliable advantage (for instance if your table uses the "
+              },
+              {
+                "type": "link",
+                "text": "flanking variant rule",
+                "href": "https://rpgbot.net/rpgbot-podcast-episode-season-2-episode-1/"
+              },
+              {
+                "type": "text",
+                "text": "), you could actually dump strength, pump Dex primary and Con second, and use a rapier and shield. You obviously drop some damage, but you trade it for never having to use reckless attack (it only works with strength) and being "
+              },
+              {
+                "type": "emphasis",
+                "text": "incredibly"
+              },
+              {
+                "type": "text",
+                "text": " tanky, and with super advantage you’re way more likely to crit which triggers brutal critical and helps mitigate the smaller damage die and the lack of rage bonus damage."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ancestral-guardian-weapons",
+      "heading": "Ancestral Guardian Weapons",
+      "sourceAnchor": "ancestral-guardian-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-ancestral-guardian-weapons-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Greataxe"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re going to be a normal barbarian, this is still the gold standard because of Brutal Critical."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Rapier"
+              },
+              {
+                "type": "text",
+                "text": ": If you’re doing goofy tank things, this is the biggest damage die on a finesse weapon."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ancestral-guardian-armor",
+      "heading": "Ancestral Guardian Armor",
+      "sourceAnchor": "ancestral-guardian-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-ancestral-guardian-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "As described above, you either want to put your 14 Dex to work in a Breastplate or go naked."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Fighter"
+              },
+              {
+                "type": "text",
+                "text": ": A classic pairing, a couple levels in fighter can do you a lot of good. Literally every character loves Action Surge, and if you take an extra level you can turn into a Champion, meaning you crit twice as often. Or, you could turn into an Echo Knight and enjoy the benefits of Recklessly Attacking someone from 30 feet away."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-furious-about-mediocre-strength",
+      "heading": "Example Build – Furious About Mediocre Strength",
+      "sourceAnchor": "example-build-furious-about-mediocre-strength",
+      "blocks": []
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-furious-about-mediocre-strength",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-furious-about-mediocre-strength",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "link",
+              "text": "Monsters of the Multiverse",
+              "href": "https://www.dndbeyond.com/sources/motm/fantastical-races-continued#Shadarkai"
+            },
+            {
+              "type": "text",
+              "text": " "
+            },
+            {
+              "type": "link",
+              "text": "Shadar-Kai",
+              "href": "https://rpgbot.net/dnd5/characters/races/shadar-kai/"
+            },
+            {
+              "type": "text",
+              "text": " is fantastic as described in our "
+            },
+            {
+              "type": "link",
+              "text": "Barbarian Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/races/"
+            },
+            {
+              "type": "text",
+              "text": ". It’s also an elf."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-furious-about-mediocre-strength",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Pick Entertainer. Trade in Performance for Stealth and the Disguise Kit proficiency for Thieves tools. Congratulations, you’re a roadie."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-furious-about-mediocre-strength",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Since our Intelligence is decent, we take Nature and Investigation. Combined with the skills from our background (Acrobatics and Stealth) we make a surprisingly good Scout and rogue replacement. While we dump both Wisdom and Charisma, getting extra proficiencies from the Primal Knowledge optional class feature may come in handy if you want to Intimidate people or animals at some point."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-furious-about-mediocre-strength",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The build hinges on "
+            },
+            {
+              "type": "link",
+              "text": "Elven Accuracy",
+              "href": "https://rpgbot.net/oops-all-elves/"
+            },
+            {
+              "type": "text",
+              "text": " so we’re going to take that at 4th. Then it gets weird. We don’t actually get another ASI until character level 10, but we viciously break the fundamental math so that we’re not "
+            },
+            {
+              "type": "emphasis",
+              "text": "really"
+            },
+            {
+              "type": "text",
+              "text": " behind. One odd level where we increase both Dex "
+            },
+            {
+              "type": "emphasis",
+              "text": "and"
+            },
+            {
+              "type": "text",
+              "text": " Con, and then Chef to round that up to an even number."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-furious-about-mediocre-strength",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1 – Barbarian 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Unarmored Defense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Take the starting gold and walk out with a rapier, a shield, and a shortbow. Technically this puts you 10 gold over average, but if your DM is going to be a curmudgeon about this, you can forgo the shortbow and hope to loot one."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We walk out with the standard optimized AC of 18 including a shield, but we’re also phenomenal at Con saves and much better at Dex saves than we have any right to be as a barbarian."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Rage is, right now, just a tool to get resistance to B/P/S. Turn it on if you’re worried about your survivability in a fight."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2 – Barbarian 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Reckless Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Danger Sense"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We never use Reckless Attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Danger Sense is very satisfying since our Dex is already high by itself."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 – Barbarian 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ancestral Protectors"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we need to make sure we Rage every fight. Conveniently, we get an extra one at this level. Make sure you’re stabbing something scary with your rapier every turn to apply the debuff and keep the Rage going."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 – Barbarian 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elven Accuracy (+1 Dex)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You’re going to spend one level being very sad that much of this feat doesn’t do anything for you very often. You do have darkvision though, so if you can fight someone who doesn’t in a dark place, this will trigger for you."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 – Wizard 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Recovery"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Booming Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "link",
+                  "text": "Shape Water",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Prepared: Expeditious Retreat"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Feather Fall"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Protection from Evil and Good"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane recovery is a nicety, but honestly, we’re not really here to cast spells. We’re here because, in addition to the three spells you keep prepared, you have three more in your spellbook. All of them should be rituals. Two of them can be up to the party’s needs (strong recommendation for Detect Magic and Identify but if you already have a real wizard you can go for others), and the last one is Find Familiar. Once you get your owl, it now sits on your shoulder and uses the Help action every turn to grant you advantage on your first attack roll. This will trigger Elven Accuracy every turn with no other requirement."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You can also have your familiar pour out an acid vial on your shoulder to maintain your Rage if you’re spending a turn running between hallways or something and can’t attack with your shortbow."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The spells we "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "do"
+                },
+                {
+                  "type": "text",
+                  "text": " bother taking are for a very specific reason: you can’t cast or concentrate on spells while raging. Expeditious Retreat is helpful to chase things down before combat begins or out of combat to just run really fast for 10 minutes. Feather Fall is there in case we fall off of something out of combat, and Protection from Evil and Good is there for its ability to end conditions out of combat."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Cantrips we mostly have utility, but Booming Blade is there so I can do Damage Per Round calculations at higher levels."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 – Barbarian 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fast Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Speaking of going fast, both our rapier and our feet get faster at this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 – Barbarian 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spirit Shield (2d6)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I already talked about how good this is and I stand by it. Just remember that the range is only 30 feet, so you need to stay in range to protect your allies."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 – Wizard 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Deflection"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tactical Wit"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Arcane Deflection is the reaction for when they fall for our tanking scheme and decide to attack us. Or especially if they try to take us out with a Wisdom save. The drawback is literally nonexistent since we couldn’t cast spells anyway."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Tactical Wit starts to present a little bit of a problem. Technically speaking, your familiar rolls a separate initiative from you and can’t Help if they haven’t gone yet. Of course, there’s nothing except decorum preventing your familiar readying an action constantly to use Help when it’s within 5 feet of an enemy."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 – Barbarian 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feral Instinct"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "That becomes even more important now that you have advantage and a +6 to initiative."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10 – Barbarian 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dex 17 -> 19"
+                }
+              ],
+              []
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11 – Fighter 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style (Dueling)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You might be tempted to pick up the Defense fighting style, but it only works while you’re wearing armor for some reason, and we don’t. So instead, we just stab things harder. Now it’s like we’re getting a low-level rage bonus to damage all the time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second Wind is fine if we’re not doing anything else with a bonus action on our turn."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12 – Fighter 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Action Surge"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This can compensate for the turn at the start of combat where we won’t have advantage if your familiar hasn’t gone yet. Use it for 4 attacks instead of two and that’s almost as good."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13 – Fighter 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Improved Critical"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Swinging twice in a turn with Elven Accuracy and Improved Critical gives us a nearly 50% chance to crit. By default, though, our help owl only gets us advantage on the first attack, meaning our effective crit chance is actually about 30% per turn by ourselves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14 – Fighter 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Con 16 -> 17"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Dex 19 -> 20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Further increasing both our AC and HP, we’re nearing peak tankiness."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15 – Barbarian 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Remember how we crit roughly every three turns? Well, this means that, when we do, it hits for another 4.5 average damage on top. That means this is worth about 1.5 DPR on this build. Compare that to attacking recklessly for advantage with a greataxe which is only around 0.5 DPR"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16 – Barbarian 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Consult the Spirits"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spirit Shield (3d6)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pretend you kept going in Wizard and use a divination spell once per short rest."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17 – Barbarian 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Relentless Rage"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I’m not quite sure "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "how"
+                },
+                {
+                  "type": "text",
+                  "text": " something would drop you to 0 hit points, but just in case it does, you’re very likely to make the Con save at least the first two times, rolling with a +9 as you are. Also, nothing prevents you from using Arcane Deflection on this save, putting your bonus on par with "
+                },
+                {
+                  "type": "link",
+                  "text": "that other silly example build",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/totem-warrior/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This is also the level that Cantrips cap. If, for some reason, you aren’t Raging, Booming Blade will do functionally identical DPR to attacking twice at roughly 29. However, if your target then moves that number goes up to 46. Maybe you’ve run out of Rages. Maybe it’s the first round and you want to Booming Blade, action surge, Rage, and get in two attacks before walking out of range, confident that your enormous AC and hp won’t mind the opportunity attack. That certainly seems like a pretty great turn to me."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18 – Barbarian 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Chef (+1 Con)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sadly, we’ll never be able to max Con, but we take all that experience gained from our adventures and turn it into delicious treats to provide our party temp HP which is a nice buffer that we can still protect (and later turn into damage) using Spirit Shield."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19 – Barbarian 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Brutal Critical (two dice)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "An additional 1.5 DPR thanks to our enormous crit chance."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20 – Barbarian 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Vengeful Ancestors"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "A phenomenal capstone to this build. If something decides to attack us, it has to contend with the preposterous defenses described above. If something attacks our friend, it has a really bad day. This is like getting infinite castings of Armor of Agathys on other people as a reaction."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ancestral Protectors"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Spirit Shield"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Consult the Spirits"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Vengeful Ancestors"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Scourge Aasimar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Hobgoblin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Elven Accuracy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Greataxe"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Rapier"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Fighter"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-ancestral-guardian-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-ancestral-guardian-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-ancestral-guardian-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-ancestral-guardian-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-ancestral-guardian-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-ancestral-guardian-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-ancestral-guardian-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ancestral-guardian-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-ancestral-guardian-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-ancestral-guardian-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-ancestral-guardian-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-ancestral-guardian-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "strong/a[1]",
+      "detail": "link inside strong"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 2648,
+    "sections": 17,
+    "blocks": 27,
+    "tables": 3,
+    "ratingSignals": 20
+  },
+  "status": "needs-editorial-review"
+}

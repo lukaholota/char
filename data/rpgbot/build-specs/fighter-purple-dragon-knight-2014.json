@@ -1,0 +1,236 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "fighter-purple-dragon-knight-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+    "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540"
+  },
+  "exampleSection": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "subclassKey": "BANNERET",
+  "raceKey": "DRAGONBORN_GEM",
+  "backgroundKey": "FACELESS",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 10,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Середній обладунок",
+      "reason": "Автор радить взяти середній обладунок і довгий лук; стартовий набір Воїна середнього обладунку не містить, тож пресет бере довгий лук і шкіряний обладунок з групи 1.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Королівський посланець: експертиза в Переконанні",
+      "reason": "На 9-му рівні автор отримує Переконання з Королівським посланцем; платформа не моделює експертизу цього вміння (каталог дає 0 виборів експертизи), тож Переконання й експертиза в пресеті відсутні.",
+      "section": "section-levels"
+    }
+  ],
+  "revision": 3,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "BANNERET"
+    },
+    {
+      "level": 4,
+      "featKey": "DRAGON_FEAR",
+      "featOptions": [
+        {
+          "optionNameEng": "DRAGON_FEAR Ability (Charisma)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5,
+      "classKey": "WARLOCK_2014",
+      "subclassKey": "UNDEAD",
+      "spells": {
+        "cantripKeys": [
+          "eldritch-blast"
+        ],
+        "knownSpellKeys": [
+          "hex"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        },
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "classKey": "WARLOCK_2014",
+      "classOptions": [
+        {
+          "optionNameEng": "Agonizing Blast"
+        },
+        {
+          "optionNameEng": "Repelling Blast"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18,
+      "featKey": "TOUGH",
+      "section": "section-feats"
+    },
+    {
+      "level": 19
+    },
+    {
+      "level": 20
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/fighter-purple-dragon-knight-2014-3156decbc1.webp",
+    "title": "Воїн — Лицар Пурпурового Дракона, Самоцвітний дракононароджений",
+    "description": "Аметистовий (пурпуровий) дракононароджений за правилами Таші зі Спритністю 16 і Статурою 16: довгий лук і Бойовий стиль «Стрільба з лука» з першого рівня.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CON",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ACROBATICS",
+        "INSIGHT"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [
+      "Archery"
+    ],
+    "raceOptions": [
+      "Аметистовий дракон"
+    ],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": [
+          "RAPIER",
+          "SHORTSWORD"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Самоцвітний дракононароджений за правилами Таші: +2 до Спритності й +1 до Статури, як радить автор (Спритність 16, Статура 16). Це вже враховано.",
+    "skillExplanation": "Акробатика й Аналіз поведінки — від Воїна, Обман і Залякування — від Безликого, як у розділі автора. Аметистовий дракон — вибір автора; мову ми обрали за вас: автор радить мови за потребами кампанії.",
+    "equipmentExplanation": "Довгий лук, 20 стріл і шкіряний обладунок узяті з авторської поради. Дві бойові зброї (рапіру й короткий меч), легкий арбалет і Набір дослідника підземель ми обрали за вас; середнього обладунку у стартовому наборі Воїна немає, тож його не додано."
+  }
+}

@@ -1,0 +1,4401 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "e0ac96b716da532b9814f06fa1bfcacbf2cdc21970e0357c0e83acd5422c0e2a",
+  "sourceRevision": {
+    "revisionId": "rpgbot-7e83f670a054730f-e0ac96b716da532b",
+    "sourceId": "rpgbot-7e83f670a054730f",
+    "fetchedAt": "2026-09-29T19:16:13.918114+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:32:31-04:00",
+    "contentHash": "8590fb2344275185c55a19131e98af1056fd8bd98a596910471b86fbb188565f",
+    "title": "Circle of Spores Druid 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-7e83f670a054730f-e0ac96b716da532b.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Circle of Spores Druid is a complex, challenging subclass. It offers a\n\tnumber of interesting features which will ensure that no part of your turn\n\tgoes unused, and that you always have something interesting to do. However, it\n\tis complicated to build and play, and players will need to make complex\n\trisk-reward decisions almost constantly."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is specifically for the Circle of Spores Druid, and omits sections of my typical class handbooks when those sections aren’t meaningfully different from other members of the subclass. For more information on the Druid, see our "
+            },
+            {
+              "type": "link",
+              "text": "Druid Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Spores Subclass Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#subclass-features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Spores Druid Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Spores Druid Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races of Eberron",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#races-eberron"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Dragonmarks",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#races-eberron-dragonmarks"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races of Ravnica",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#races-ravnica"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Races of Wildemount",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#races-wildemount"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Spores Druid Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Spores Druid Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Spores Druid Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Circle of Spores Druid Spells",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#spells"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Cantrips",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#cantrips"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Circle of Spores Druid Build – Tortle Druid",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/druid/subclasses/circle-of-spores/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            2,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-subclass-features",
+      "heading": "Circle of Spores Subclass Features",
+      "sourceAnchor": "subclass-features",
+      "blocks": [
+        {
+          "blockId": "block-section-subclass-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Circle Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Almost everything on the\n\t\tspell is useful frequently, and you get a handful of options which\n\t\taren’t on the Druid’s spell list.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cantrip"
+              },
+              {
+                "type": "text",
+                "text": ": You get Chill Touch for free\n\t\t\t\tat 2nd level. It’s buried in the text of Circle Spells rather than in\n\t\t\t\tthe Circle Spells table alongside everything else, so it’s easy to miss."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3"
+              },
+              {
+                "type": "text",
+                "text": ": A fantastic debuff and a\n\t\t\t\tvery situational utility option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5"
+              },
+              {
+                "type": "text",
+                "text": ": The logic behind why Circle\n\t\t\t\tof Spores druids can raise undead is a "
+              },
+              {
+                "type": "emphasis",
+                "text": "huge"
+              },
+              {
+                "type": "text",
+                "text": " stretch,\n\t\t\t\tbut Animate Dead is great regardless. Having four human skeletons\n\t\t\t\tis useful at any level because they’re expendable and easy to\n\t\t\t\tuse as bait without feeling sad about killing an innocent person.\n\t\t\t\tGaseous Form is great too for a variety of sneaking and exploratory\n\t\t\t\tpurposes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "7"
+              },
+              {
+                "type": "text",
+                "text": ": A decent single-target damage\n\t\t\t\tspell that works really well on plants, and a mediocre, unreliable\n\t\t\t\tdebuff."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "9"
+              },
+              {
+                "type": "text",
+                "text": ": Two excellent offensive options."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Circle of Spores"
+              },
+              {
+                "type": "text",
+                "text": ": When you first get\n\t\tthis, a free 1d4 damage is a really nice boost to your damage output.\n\t\tThe damage scales very slowly, so it won’t be especially threatening\n\t\tat high levels, but consider how infrequently most druids get to do\n\t\tsomething with their Reaction this is a fantastic improvement to your\n\t\taction economy. Find allies who make numerous attacks (fighters, etc.)\n\t\tto stun-lock enemies for extended periods of time. The range is\n\t\tshort, unfortunately, so make sure you have a tanky ally between you\n\t\tand whatever is trying to kill you."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Symbiotic Entity"
+              },
+              {
+                "type": "text",
+                "text": ": Someone finally wrote\n\t\ta way for druids to thrive in melee without turning into an animal!\n\t\tCast Shillelagh on a club or a quarterstaff, grab your shield, and go\n\t\tclubbing. The 10 minute duration may be enough to get you through\n\t\tseveral fights if you move quickly, and even if you’re not walking\n\t\taround swinging a weapon, 4 temporary hit points per class level is a\n\t\tmassive pile of hit points."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fungal Infestation"
+              },
+              {
+                "type": "text",
+                "text": ": You’re limited to\n\t\tsmall or medium beasts and humanoids, which means your best hope is\n\t\tfor a wolf or something to die right next to you. It’s cool that you\n\t\tcan activate this as a Reaction, but 1 to 5 CR 1/4 zombies aren’t\n\t\tgoing to do a whole lot. Best case scenario: whatever you’re fighting\n\t\tspends an attack on the zombie instead of you and your\n\t\tallies (remember that your zombies only get 1 hp)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Spreading Spores"
+              },
+              {
+                "type": "text",
+                "text": ": This creates an additional\n\t\tarea in which enemies can take the damage from your Halo of Spores.\n\t\tYou activate this as a Bonus Action, but after that creatures take the\n\t\tdamage without you spending your Reaction, so if you can keep enemies\n\t\tinside the area it’s a better use of actions and you may even deal\n\t\tmore damage if you can affect multiple targets.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "You lose the ability to use\n\t\tHalo of Spores as a Reaction, unfortunately, and the ability curiously\n\t\tdoesn’t exclude you from the damage, so be careful not top drop\n\t\tSpreading Spores on yourself. Cast something like\n\t\tEntangle to keep enemies from moving away quickly, then throw your\n\t\tspores on top of them."
+              },
+              {
+                "type": "text",
+                "text": "\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "This can also monopolize your Bonus Action, which conflicts with\n\t\t\tcommon tactics like Polearm Master. That may be perfectly fine\n\t\t\tdepending on your build and your situation. Not every turn needs\n\t\t\tto involve swinging a shillelagh, and alternating attack turns\n\t\t\twith turns where\n\t\t\tyou move Spreading Spores and cast a spell could be a great\n\t\t\tway to bring all of your options into play consistently.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fungal Body"
+              },
+              {
+                "type": "text",
+                "text": ": A nice list of condition\n\t\timmunitites. You can still take poison damage, which seems odd, but\n\t\tI’m never going to complain about condition immunities."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Circle of Spores Druid Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unlike other druids, the Circle of Spores Druid needs to be concerned with\n\ttheir physical ability scores. Because you’re not relying on turning into an\n\tanimal but you still need to function in melee or near-melee range, you need\n\tto be able to survive melee combat on your own. Unfortunately, this means that\n\tthe Circle of Spores Druid is more MAD than other druids. Strangely, this also\n\tmeans that your ability score requirements match those of the Monk."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": You can’t afford to have high ability\n\tscores in four abilities, and Strength simply isn’t useful enough. The only\n\tthing you would need from Strength is melee attacks, and you can solve that by\n\tusing finesse weapons or by casting Shillelagh."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Druids have notoriously poor AC, and\n\tanything you can do to address that will still require high Dexterity."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": The Circle of Spores Druid needs\n\tConstitution more than other druids. Yes, Symbiotic Entity gives you a huge\n\tpile of temporary hit points, but you will inevitably take damage which goes\n\tbeyond your temporary hit points, and you don’t want to die because you have\n\t10 Constitution."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": The Druid’s spells are powered by\n\tWisdom."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Circle of Spores Druid Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Ability scores are absolutely critical for the Circle of Spores Druid. Look\n\tfor some combination of Dexterity, Constitution, and Wisdom in most cases. But\n\tbeyond that, look for ways to make yourself more durable. Natural armor and\n\tcondition resistances are offered by several races. Innate spellcasting and\n\tadditional skills may look tempting, but you generally don’t have room to fit\n\tthem into your build with Circle of Spores."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The list of races and subraces below is intentionally reduced to those options which I think make an effective Circle of Spores Druid or which offer traits which are illustrative of what you should look for in other races, and it does not address the Customizing Your Origin optional rules. These are by no means the only viable options (especially with the optional rules in place), and I encourage you to explore other options not listed below. For full race coverage (including discussion of options which work well for Circle of Spores), please see our "
+            },
+            {
+              "type": "link",
+              "text": "Druid Races Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/races/"
+            },
+            {
+              "type": "text",
+              "text": ", which includes the full range of available races."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Aarakocra"
+            },
+            {
+              "type": "link",
+              "text": "EEPC",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dexterity and Wisdom increases and flight. You need to be in melee or\n\tnear-melee range for much of the Circle of Spores to function, so flight\n\tdoesn’t do much except get you into melee faster. You could take the Mobile\n\tfeat to enable you to employ flying hit-and-run tactics, which is a\n\tsignificant improvement, but Circle of Spores is very MAD so it’s often\n\tdifficult to sacrifice an Ability Score Increase for a feat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dwarf"
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": +2 constitution, Darkvision, and Dwarven resilience are all great.\n\tUnfortunately, we won’t be able to make use of Dwarven Combat Training because\n\twere dumping Strength and relying on shillelagh.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-5",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Hill"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Constitution, Wisdom, and a big pile of extra hit points. Numerically\n\t\tmostly sound, but races which provide a way to address the Druid’s terrible\n\t\tAC will still be more effective.."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Firbolg"
+            },
+            {
+              "type": "link",
+              "text": "VGTM",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Hidden Step is great when Symbiotic Entity runs out while you’re stuck in\n\tmelee, and since the Firbolg is already a good option for the Druid."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Gith"
+            },
+            {
+              "type": "link",
+              "text": "MToF",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Githzerai is a decent option, but the Intelligence option is wasted.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-8",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Githzerai"
+              },
+              {
+                "type": "link",
+                "text": "MToF",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A wisdom increase, shield as an inate spell, and Mental Discipline.\n\t\tShield looks very tempting, but it can be difficult to provide the somatic\n\t\tcomponent when you have a shield in one hand and a shillelagh in the\n\t\tother."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-9",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Goblin"
+            },
+            {
+              "type": "superscript",
+              "text": "VGtM"
+            },
+            {
+              "type": "text",
+              "text": ": Dexterity and\n\tConstitution are good, but falling behind on Wisdom is a serious handicap for\n\ta long time. Nimble Escape is a great addition for when Symbiotic Entity runs\n\tout, and Fury of the Small can be a helpful damage boost since most enemies\n\tare medium or larger."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-10",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Half-Elf"
+            },
+            {
+              "type": "text",
+              "text": ": The abilities work great, and\n\tbonus skills are always nice, but Variant Human is strictly better.\n"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-11",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "High/Moon/Sun"
+              },
+              {
+                "type": "link",
+                "text": "SCAG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A single cantrip from the Wizard spell list means that you can get\n\t\tBooming Blade or Green-Flame Blade without taking Magic Initiate. However,\n\t\tat that point you’ll get a lot more from playing a Variant Human and taking\n\t\tMagic Initiate."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Vanilla"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Two skills are nice on nearly any character, but they do nothing to help\n\t\tthe Circle of Spores and you really need your race to complement the\n\t\tsubclass for any of it to work."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-12",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Halfling"
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": The Dexterity increase provides a helpful AC boost, and Ghostwise provides\n\ta Wisdom increase. Lucky and Brave can help a bit, but may not be as useful as\n\tsomething that provides more condition resistances."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-13",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Ghostwise"
+              },
+              {
+                "type": "link",
+                "text": "SCAG",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": A small wisdom bump is good, but that’s the only thing we really care\n\t\tabout."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-14",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Human"
+            },
+            {
+              "type": "link",
+              "text": "PHB",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Versatile and fantastic at everything."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-15",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Vanilla"
+              },
+              {
+                "type": "text",
+                "text": ": +1 to every ability score means\n\t\t+1 to each of the three that we care about. That’s still not enough to make\n\t\tthis a great option, but it’s something."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Variant"
+              },
+              {
+                "type": "text",
+                "text": ": Put the bonuses into Dexterity\n\t\tand Wisdom, and grab a feat. Magic Initiate and Polearm Master are both\n\t\tgreat choices."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-16",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Lizardfolk"
+            },
+            {
+              "type": "link",
+              "text": "VGTM",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": The Lizardfolk’s natural armor isn’t as good as the Loxodon’s because\n\tyou’ll still need both Dexterity and Constitution, but everything else about\n\tthe Lizardfolk is better. Unfortunately, Bite and Hungry Jaws are both\n\tStrength-based, so don’t expect to get much out of them."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-17",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tortle"
+            },
+            {
+              "type": "link",
+              "text": "TP",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Despite only providing an increase to one ability score that we care about,\n\tthe Tortle’s natural armor makes it a serious contender. +1 Wisdom is enough\n\tto keep you on the Attack vs. AC progression, and 17 AC means you can totally\n\tignore Dexterity. Grab a shield, and your AC is 19 at 1st level, which will\n\tmatch most other druids until very high levels."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-18",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Thri-Kreen"
+            },
+            {
+              "type": "link",
+              "text": "SAiS",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Four arms means that you can use a shield "
+            },
+            {
+              "type": "emphasis",
+              "text": "and"
+            },
+            {
+              "type": "text",
+              "text": " two-weapon fighting, allowing you to capitalize more on Circle of Spores’ capabilities in melee without Polearm Master. Chameleon Carapace will beat every non-magical armor option available to the Druid."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-19",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Setting-specific races are address below. Not every setting allows every race, and while most races presented in the core rules and in content for the Forgotten Realms can be used in other settings, races specific to settings like Ravnica aren’t typically allowed in other settings. Talk to your DM about what races are allowed in your game. "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-eberron",
+      "parentSectionId": "section-races",
+      "heading": "Races of Eberron",
+      "sourceAnchor": "races-eberron",
+      "blocks": [
+        {
+          "blockId": "block-section-races-eberron-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kalashtar"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": The Wisdom increase is great, but it doesn’t address the Druid’s poor\n\tdurability. The Kalasthar’s defense are mostly mental, and the Druid’s\n\tproblems are mostly with physical defenses."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Shifter"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Since using Symbiotic Entity doesn’t change your base form (much), you can\n\tstill Shift while using it and combine the two effects. However, the temporary\n\thit points from the two effects won’t stack and if you lose the temporary hit\n\tpoints from Symbiotic Entity (such as choosing to replace them with the\n\ttemporary hit points from Shifting), Symbiotic Entity ends immediately."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Beasthide"
+              },
+              {
+                "type": "text",
+                "text": ": Extra constitution is great,\n\t\tbut since the temporary hit points from Shifting conflict with Symbiotic\n\t\tEntity, much of the Beasthide Shifter’s appeal is lost. If you just want\n\t\tConsitution and AC, play a warforged."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Wildhunt"
+              },
+              {
+                "type": "text",
+                "text": ": The ability scores line up\n\t\twell, and Advantage on Wisdom checks is nice, but neither of those things\n\t\tsolve the Druid’s durability problem."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Warforged"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": The Druid’s biggest problem is durability, and the Warforged is all about\n\tdurability. The resistance to poison is admittedly redundant, but that’s fine\n\tconsidering how helpful everything else is."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-eberron-dragonmarks",
+      "parentSectionId": "section-races-eberron",
+      "heading": "Dragonmarks",
+      "sourceAnchor": "races-eberron-dragonmarks",
+      "blocks": [
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While the design intent for Dragonmarks was that they would offer some innate spellcasting for everyone, every dragonmark includes an expanded spell list which is arguably a more significant benefit than most of the provided racial traits. Because the expanded spell options are such an important part of the dragonmarks, if you’re not playing a spellcaster you’re giving up a huge part of your racial traits, which makes it exceptionally difficult to justify playing a dragonmark character who can’t cast spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmarked Half-Orc"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dragonmark traits replace ALL of your racial traits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Finding"
+              },
+              {
+                "type": "text",
+                "text": ": Constitution and Wisdom\n\t\tincreases are great, and Hunter’s Mark provides a small but pleasant\n\t\tincrease to your damage output. However, many of the dragonmark spells are\n\t\talready on the Druid’s spell list."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmarked Halfling"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dragonmark traits replace your subrace."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-5",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Healing"
+              },
+              {
+                "type": "text",
+                "text": ": Dexterity, Wisdom, and a\n\t\tfew new spells like Mass healing Word."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dragonmarked Human"
+            },
+            {
+              "type": "link",
+              "text": "ERLW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Dragonmark traits replace ALL of your racial traits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-eberron-dragonmarks-7",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Mark of Finding"
+              },
+              {
+                "type": "text",
+                "text": ": See Mark of Finding under\n\t\tDragonmarked Half-Orc, above. Mechanically, the final racial traits are\n\t\tidentical."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mark of Handling"
+              },
+              {
+                "type": "text",
+                "text": ": The ability scores\n\t\twork great, but nearly all of the spells are on the Druid’s spell list\n\t\talready."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mark of Passage"
+              },
+              {
+                "type": "text",
+                "text": ": The ability scores are\n\t\tgreat, and the dragonmark spells add numerous new spells to the Druid’s\n\t\tspell list including powerful options like Misty Step to help you get in and\n\t\tout of melee in a hurry."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mark of Sentinel"
+              },
+              {
+                "type": "text",
+                "text": ": The abiltiy scores are\n\t\tgreat, you get Shield once per day for free, and most of the dragonmark\n\t\tspells are new to the Druid, including powerful low-level options like\n\t\tShield of Faith which can help to compensate for the Druid’s poor AC."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-ravnica",
+      "parentSectionId": "section-races",
+      "heading": "Races of Ravnica",
+      "sourceAnchor": "races-ravnica",
+      "blocks": [
+        {
+          "blockId": "block-section-races-ravnica-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Loxodon"
+            },
+            {
+              "type": "link",
+              "text": "GGTR",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Excellent ability scores for the Druid, and a handful of useful passive\n\tbenefits. The Loxodon’s Natural Armor is Constitution-based, so you can safely\n\tdump Dexterity and be incredibly durable, allowing you to build your druid\n\tmuch more easily and potentially even make room for feats. Loxodon Serenity\n\talso provides helpful defenses against common status conditions."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-ravnica-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Simic Hybrid"
+            },
+            {
+              "type": "link",
+              "text": "GGTR",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Put the flexible increase into Wisdom. Take any of the 1st-level\n\tenhancements, and take Carapace at 5th level. Grappling Appendages is\n\ttempting, but it’s Strength-based so it’s not a good option. Unfortunately,\n\twithout a Dexterity increase or somee other means of boosting your AC, the\n\tSimic Hybrid will lag behind other options at low levels."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-ravnica-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Vedalken"
+            },
+            {
+              "type": "link",
+              "text": "GGTR",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": A fine fit for many druids, but the Vedalken’s defenses are only mental,\n\tand the Druid’s problem is mostly with physical durability."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races-wildemount",
+      "parentSectionId": "section-races",
+      "heading": "Races of Wildemount",
+      "sourceAnchor": "races-wildemount",
+      "blocks": [
+        {
+          "blockId": "block-section-races-wildemount-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Elf"
+            },
+            {
+              "type": "link",
+              "text": "EGtW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Wildemount elves share the core traits of core elves, but Wildemount adds\n\ttwo new elf subraces. See above for information on core elf traits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-wildemount-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Pallid Elf"
+              },
+              {
+                "type": "text",
+                "text": ": The same ability increases as\n\t\tthe Wood Elf, but with more emphasis on thinking and magic than on running\n\t\taround in nature."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sea Elf"
+              },
+              {
+                "type": "text",
+                "text": ": See above."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-races-wildemount-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Halfling"
+            },
+            {
+              "type": "link",
+              "text": "EGtW",
+              "href": "https://rpgbot.net/dnd5/abbreviations/"
+            },
+            {
+              "type": "text",
+              "text": ": Wildemount halflings share the core traits of core halflings, but\n\tWildemount adds a new halflings subrace. See above for information on core\n\thalflings traits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-races-wildemount-4",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Lotusden"
+              },
+              {
+                "type": "text",
+                "text": ": Dexterity, Wisdom, and some\n\t\tfree druid spells. Definitely works for the druid in general, but nothing to\n\t\tsolve your durability proble."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Circle of Spores Druid Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section does not address every published feat, as doing so would result\n\tin an ever-growing list of options which don’t cater to the class. Instead,\n\tthis section will cover feats which we think work especially well for the\n\tclass or which might be tempting but poor choices. For more specific advice on\n\tindividual feats, see our\n\t"
+            },
+            {
+              "type": "link",
+              "text": "2024 DnD Feat Guides",
+              "href": "https://rpgbot.net/2024-dnd/feats/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For more general advice on feats, see our "
+            },
+            {
+              "type": "link",
+              "text": "Druid Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Elemental Adept"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Tragically, Elemental Adept doesn’t allow you to select Necrotic."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magic Initiate"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Magic Initiate is a great option for Circle of Spores. Melee cantrips\n\t\tlike Booming Blade and Green-Flame Blade allow you to exceed your normal\n\t\tcantrip damage by combining Shillelagh, an attack cantrip, and the extra 1d6\n\t\tdamage from Symbotic Entity. On top of that, you can get either Mage Armor.\n\t\tMage Armor’s 13+Dex AC will exceed the 12+Dex of Studded Leather, raising\n\t\tyour maximum possible AC to 20 (13 base, 20 Dex, +2 shield) without\n\t\tmulticlassing or magic items.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "For more advice on Magic Initiate, see our\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Spellcasting Feats Breakdown",
+                "href": "https://rpgbot.net/dnd5/characters/spellcasting-feats"
+              },
+              {
+                "type": "text",
+                "text": "."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Mobile"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Not essential, but helpful when Symbiotic Entity runs out of temporary\n\t\thit points, and not standing directly in melee will help mitigate\n\t\tdamage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Polearm Master"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Works with quarterstaffs, which means that it works with Shillelagh and\n\t\tall of our other shenanigans. If you don’t want to rely on melee cantrips,\n\t\tusing Polarm Master to make an additional attack is a great option. You\n\t\tstill get to apply the extra 1d6 damage from Symbiotic Entity on the bonus\n\t\taction attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Resilient"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Proficiency in Constitution saves is really helpful for a class with a\n\t\tlot of really great spells which require Concentration, especially since\n\t\tyou’re planning to spend a lot of time in melee."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sentinel"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Great if you want to be a Defender, but I think you’ll see better results\n\t\tfrom other feats."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shield Master"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Druids don’t typically have enough Strength to make the Shove option\n\t\tuseful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Tough"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": More hit points never hurt, but you almost certainly don’t have enough\n\t\tfeats to make room for this."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "War Caster"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": You’ll be spending a lot of time in melee range, and you may have a\n\t\tweapon and a shield in your hands when you do so. Juggling a weapon to cast\n\t\tspells can be a problem in many cases, so War Caster can save you quite a\n\t\tbit of trouble. Even if you’re using a Staff (Druids can use a wooden staff\n\t\tas a focus, and staff foci use the same weapon stats as a quarterstaff), you\n\t\tnormally can’t perform somatic components with a weapon in hand unless the\n\t\tspell also has material components."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Weapon Master"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": You already have proficiency in everything which can be the subject of\n\t\tShillelagh, but if you have exeptionally high Dexterity you might choose to\n\t\tuse a rapier instead of a quarterstaff, but if you want a better Finesse\n\t\tweapon you can play a Wood Elf and use a short sword. The damage difference\n\t\tbetween a rapier and a short sword isn’t big enough to waste a feat."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Circle of Spores Druid Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Club"
+              },
+              {
+                "type": "text",
+                "text": ": Works with shillelagh, but a\n\t\tquarterstaff works with Polearm Master, and it’s a longer stick for poking\n\t\ttraps and other strange objects."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Dagger"
+              },
+              {
+                "type": "text",
+                "text": ": Doesn’t work with Shillelagh,\n\t\tbut your Dexterity should be decent so it’s a fine backup weapon, and every\n\t\tcharacter should carry a dagger for utility purposes and to cut their way\n\t\tout of creatures’ stomachs."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Quarterstaff"
+              },
+              {
+                "type": "text",
+                "text": ": Perfectly fine, and you can\n\t\tuse it with both Polearm Master and Shillelagh."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Circle of Spores Druid Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Hide"
+              },
+              {
+                "type": "text",
+                "text": ": Your starting armor unless you have\n\t\t16 Dexterity at 1st level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Leather"
+              },
+              {
+                "type": "text",
+                "text": ": Your starting armor if you have\n\t\t16 or more Dexterity at 1st level."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Studded Leather"
+              },
+              {
+                "type": "text",
+                "text": ": The best armor you can\n\t\tget, but wait to get it until your Dexterity is at least 16."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shield"
+              },
+              {
+                "type": "text",
+                "text": ": You need a shield like a fish\n\t\tneeds water. You’re going to be in melee a lot. Given the choice between a\n\t\tweapon and a shield, always pick a shield. Druids have horrible AC, and\n\t\tSymbiotic Entity’s temporary hit points aren’t enough to make up for it."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Barbarian"
+              },
+              {
+                "type": "text",
+                "text": ": Unarmored Defense is helpful,\n\t\tbut that’s all we care about and the Monk’s version works better."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Cleric"
+              },
+              {
+                "type": "text",
+                "text": ": More Wisdom-based spellcasting,\n\t\tand some of the domains’ 1st-level abilities are tempting, but there’s\n\t\tnothing that directly helps up with Circle of Spores."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Monk"
+              },
+              {
+                "type": "text",
+                "text": ": Circle of Spores spends most of\n\t\ttheir time, especially at low levels, in melee or near-melee range, but on\n\t\ttheir own Circle of Spores is very frail despite the durability added by\n\t\tSymbiotic Entity. The Druid’s AC is terrible, and they never get the ability\n\t\tto make additional weapon attacks so the 1d6 extra damage from Symbiotic\n\t\tEntity often isn’t meaningful beyond low levels. A single level of Monk\n\t\tsolve all of those problems. Unarmored Defense lets you reach an AC of 20\n\t\twith the ability scores that you were already going to increase and you no\n\t\tlonger need to use a shield. You could use unarmed strikes instead of a\n\t\tweapon, but you can also use a quarterstaff two-handed with or without\n\t\tShillelagh depending on whether you prefer to focus on Dexterity or on\n\t\tWisdom. However, your bonus action unarmed strike will still be\n\t\tDexterity-based unarmed strikes, so I recommend focusing on Dexterity first\n\t\tinstead of Wisdom and allow your spellcasting to lag until you can get both\n\t\tDexterity and Wisdom to 20."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-spells",
+      "heading": "Circle of Spores Druid Spells",
+      "sourceAnchor": "spells",
+      "blocks": [
+        {
+          "blockId": "block-section-spells-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Circle of Spores Druid likely needs keep a melee weapon in-hand both for attacking on their own turn and for making opportunity attacks. They also need a shield to help deal with the Druid’s notoriously bad AC. Unfortunately, that means that you’ll need to constantly draw/store your weapon to get a free hand with which to cast spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spells-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you need to draw a Spellcasting Focus or Material Components, it could require you to spend your item interaction on two successive turns to switch from a weapon to a focus or from a weapon to a focus. Because this can be a problem and will often leave you empty-handed between turns, try to use spells that lack Material and Somatic components whenever possible unless you intend to take War Caster."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-spells-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The section below only covers Cantrips. Most of the Circle of Spores Druid’s spellcasting is essentially the same as every other druids’. Your Cantrips will be slightly different to emphasize fighting in melee or near-melee range, but for the most part you’re still a regular druid. For more guidance on spells, see our "
+            },
+            {
+              "type": "link",
+              "text": "Druid Spells Breakdown",
+              "href": "https://rpgbot.net/dnd5/characters/classes/druid/spells"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cantrips",
+      "parentSectionId": "section-spells",
+      "heading": "Cantrips",
+      "sourceAnchor": "cantrips",
+      "blocks": [
+        {
+          "blockId": "block-section-cantrips-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Chill Touch"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Free at 2nd level thanks to Circle Spells. Chill Touch does as much\n\t\tdamage as Produce Flame with 4 times as much range, and it’s Necrotic damage\n\t\twhich is rare for the Druid. It also debuffs undead, which is fantastic\n\t\tbecause undead are typically resistant or immune to necrotic damage which\n\t\tdominates Circle of Spore’s damage output."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Primal Savagery"
+              },
+              {
+                "type": "link",
+                "text": "XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Because this is a spell attack it won’t benefit from the extra damage\n\t\tfrom Symbiotic Entity. The damage scaling will eventually outdo Shillelagh,\n\t\tbut not until 17th level. Unfortunately, the Druid gets their last new\n\t\tCantrip at 4th level, unless you’re using the optional rules in Tasha’s\n\t\tCauldron of Everything there’s no way to retrain them. I simply can’t\n\t\trecommend carrying around a cantrip that you’ll probably never use for 14\n\t\tlevels. It does have the advantage of not requiring you to use a weapon, but\n\t\tif magic weapons are a possibility or if you don’t plan to take War Caster,\n\t\tShillelagh still seems like a better option."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shillelagh"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": If you plan to do any melee combat of any kind, you almost certainly need\n\t\tShillelagh. You can’t afford to invest in Strength, and you’ll need to focus\n\t\ton Wisdom over Dexterity until you hit 20 Wisdom to keep your spellcasting\n\t\tup to par since that’s still your class’s primary function."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thorn Whip"
+              },
+              {
+                "type": "link",
+                "text": "PHB",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": The damage is fine, but the real appeal is the pull effect. 10 feet may\n\t\tnot seem like much, but its enough to pull enemies off of ledges, to pull\n\t\tlow-flying enemies into melee, to pull enemies into an area control effect\n\t\tlike Create Bonfire or Wall of Fire, to pull enemies out of a grapple, or in\n\t\ta pinch you can pull an ally out of a dangerous location (albeit at the\n\t\tprice of some friendly fire)."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thunderclap"
+              },
+              {
+                "type": "link",
+                "text": "EEPC / XGtE",
+                "href": "https://rpgbot.net/dnd5/abbreviations/"
+              },
+              {
+                "type": "text",
+                "text": ": Damaging every creature within 5 feet of you is great if you’re in melee\n\t\tfacing numerous enemies. Even with Extra Attack you will deal more damage\n\t\twith this against three or more foes than you could with a weapon. See our\n\t\tarticle on\n\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Melee Cantrips vs. Extra Attack",
+                "href": "https://rpgbot.net/dnd5/characters/melee_cantrips"
+              },
+              {
+                "type": "text",
+                "text": "\n\t\tfor a breakdown of the math comparing melee cantrip spells to normal martial\n\t\tattacks."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Circle of Spores Druid Build – Tortle Druid",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "When you think about it, the cap of a mushroom is sort of like a turtle’s\n\t\tshell. Except a mushroom can’t hide inside the shell. Okay, terrible simile.\n\t\tMove on."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tortle simplifies a lot of things for the Circle of Spores. An AC of 17 will exceed the AC of every other Druid at low levels, and AC is a massive problem for druids, especially if you’re going to be in melee. Even the Loxodon will only have and AC of 16 at first level, and you probably don’t want to spend an ability increase on anything except Wisdom until your Wisdom hits 20, so the Tortle will have the highest Druid AC until 12th level."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At high levels other druids may eventually exceed your AC, but that will take a Monk class dip and still won’t happen until at least 9th level, so the Tortle is kind for nearly half of the level span."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "With a fixed base AC, you don’t need to worry about Dexterity as much as most\n\tother Circle of Spores Druids. It’s basically only for saving throws, and\n\tsince we don’t need to max out Dexterity as much as possible we can split\n\tthose points across other ability scores so that our saving throw and skill\n\tbonuses aren’t dumped in favor of essential combat effectiveness."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will assume the point buy abilities suggested above."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": " "
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tortle. As discussed above, Tortle dramatically simplifies both your ability\n\tscores and your AC, which are two of the Circle of Spores Druid’s biggest\n\tchallenges."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You could switch out the Tortle for the Loxodon without too much trouble.\n\tYou’ll start with higher Constitution, but slightly less AC. You probably\n\twon’t be able to make room to boost your Constitution until you’ve already\n\tmaxed out your Wisdom, but 12th and 16th level will be very satisfying ability\n\tincreases."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Start with Nature and Perception, which are great skills for the Druid.\n\tYou’ll get two more from your background, but that’s not especialy important\n\tto making Circle of Spores work."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Your choice of background doesn’t matter much beyond normal Druid stuff."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll start at 16 Wisdom, so two ability score increases will go into Wisdom, but we’ll have three more to spend. Starting at 15 Constitution means that we can take Resilient to bring it to 16 and also gain proficiency in Constitution saving throws. We can also look at other feats like "
+            },
+            {
+              "type": "link",
+              "text": "War Caster",
+              "href": "https://rpgbot.net/dnd5/characters/feats/war-caster/"
+            },
+            {
+              "type": "text",
+              "text": ", but there’s nothing that we strictly need."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Druidic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shillelagh"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thorn whip"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For your starting equipment, take a wooden shield, a quarterstaff, leather armor, an explorer’s pack, and a druidic focus."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With a shield in hand, your AC is 19. That’s as high as most fighters with shields at 1st level, so despite a few less hit points you’re still very durable. In combat your primary role is similar to the Fighter: Get into melee and club people with a stick."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Shillelagh is immediately useful, and at this level you have very few options for using your Bonus Action, but try to get into the habit of repeatedly casting Shillelagh whenever you might be attacked. As you gain levels, your action economy will be used heavily, and having Shillelagh running at the beginning of a fight can open up your Bonus Action for other things."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At range, your primary option is Thorn Whip. You generally want to get into melee with enemies, especially if they don’t want to be in melee, and pulling them 10 ft. closer can make that happen."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Wild Shape"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Druidic Circle: Circle of Spores"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Circle Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Circle Spell: Chill Touch"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Halo of Spores"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Symbiotic Entity"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2nd level is big for the Druid. You gain the ability to Wild Shape into animals, but you’ll likely only use that for utility and exploration. More importantly, you get your subclass features."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Circle of Spores notably gets "
+                },
+                {
+                  "type": "link",
+                  "text": "Chill Touch",
+                  "href": "https://www.dndbeyond.com/spells/chill-touch"
+                },
+                {
+                  "type": "text",
+                  "text": " as an extra cantrip at this level. It’s easy to miss because it’s listed in the text of Circle Spells rather than in the Circle Spells table. This offers"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Halo of Spores and Symbiotic Entities are the most important things that we get at this level, and they’re two of our most important options in combat. You’ll still do fine in combat without Symbiotic Entity and you’ll employ the same tactics, but Symbiotic Entity is like a Caps Lock button for kicking ass. It takes an action to activate and lasts ten minutes, so ideally you want to start it before combat breaks out, but that’s not always an option."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": " –"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "2nd-level spells. As you gain access to more spells, look for spells\n\t\t\t\t\tthat help you in melee. Warding Wind is a great way to make it even\n\t\t\t\t\tmore difficult for enemies to get away from you, and area control\n\t\t\t\t\tspells like Spike Growth can help you control the battlefield. If\n\t\t\t\t\tyou’re low on hit points, cast Healing Spirit and stand your ground\n\t\t\t\t\twhile it heals you."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Wisdom 16 -> 18)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wild Shape Improvement"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thunderclap"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "More Wisdom improves your spellcasting and your attacks at the same\n\t\t\t\t\ttime."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this level we’ll learn Thunderclap. We don’t have\n\t\t\t\t\ta good way to deal with crowds yet, and with only a single weapon\n\t\t\t\t\tattack per turn at any level it can be difficult to deal with numerous\n\t\t\t\t\tenemies engaging you in melee."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": " –"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "3rd-level spells. There aren’t a lot of good 3rd-level Druid spells,\n\t\t\t\t\tand even fewer cater to the Circle of Spores."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fungal Infestation"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fungal Infestation isn’t especially powerful, but it gives you a pet\n\t\t\t\t\tzombie for up to an hour that you can use to block enemy movement, or\n\t\t\t\t\tyou can throw a backpack on it and make it carry treasure or\n\t\t\t\t\tsomething."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": " –"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "4th-level spells. We get some great options at this level. Giant Insect is really good, and if anyone is gross enough to carry a bunch of bugs in their pockets it’s a Circle of Spores Druid. Guardian of Nature is a fantastic fit, too."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "This level also gives us access to "
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/pathfinder/characters/polymorph/"
+                },
+                {
+                  "type": "text",
+                  "text": ". You’re already level 7, so nearly every polymorph option is already available to you. As far as I can tell, you can use Symbiotic Entity then cast Polymorph and retain all of Symbiotic Entity’s benefits. Of course, you can’t activate any of your class features once you’re polymorphed, so you only benefit from the temporary hit points and the bonus 1d6 necrotic damage on weapon attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Wisdom 18 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Wild Shape Improvement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I generally recommend to people that they get their primary ability\n\t\t\t\t\tscore to 18 before they consider feats, so this is the first time\n\t\t\t\t\twhere I would consider introducing feats to the build."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": " –"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "5th-level spells. Some good options, but nothing that changes our\n\t\t\t\t\ttactics."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spreading Spores"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "By this level you have a bunch of great area control spells like\n\t\t\t\t\tSpike Growth and Wall of Stone. Throw something down to keep\n\t\t\t\t\tenemies"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "from running away, then drop your spores on them and\n\t\t\t\t\twait. If they get out of the spores, spend another Bonus Action to\n\t\t\t\t\tmove Spreading Spores on top of them again."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We already have\n\t\t\t\t\tthe cantrips we care about, so take whatever you want at this level.\n\t\t\t\t\tI’m always partial to Shape Water because it’s amazing and Druidcraft\n\t\t\t\t\tis a steaming pile of worthless garbage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": " –"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "6th-level spells. Investiture of Flame and Investiture of Ice both\n\t\t\t\t\twork great in melee."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Resilient (Constitution 15 -> 16)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Resilient bumps our Constitution increase, giving us a big pile of\n\t\t\t\t\thit points plus proficiency in Constitution saves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": " –"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "7th-level spells. Nothing exciting at this level, but you can use\n\t\t\t\t\tPlane Shift to get rid of enemies which you’re having trouble\n\t\t\t\t\twith."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fungal Body"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fungal body adds a bunch of nice condition immunities. It doesn’t\n\t\t\t\t\tchange our tactics, but it makes you a bit more durable."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": " –"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8th-level spells. Again, nothing that changes our tactics."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Constitution 16 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Another opportunity for a feat, but by this level you’re probably\n\t\t\t\t\tconmfortable enough with your tactics that you don’t need another\n\t\t\t\t\tfeat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": " –"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "9th-level spells. Cast Foresight on yourself. All targets suffer\n\t\t\t\t\tDisadvantage on attacks against you, making you dramatically more\n\t\t\t\t\tdurable and easily compensating for any AC issues which you haven’t\n\t\t\t\t\tmanaged to address yet. You also gain Advantage on all of your\n\t\t\t\t\tattacks, ability checks, and saving throws for a full 8 hours."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Timeless Body"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Beast Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tragically, we’ll probably never use Beast Spells. For other druids it’s a powerful option allowing them to use Wild Shape to improve their mobility and stay out of reach while still casting spells offensively."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Improvement (Constitution 18 -> 20)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Another big pile of hit points or another feat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Archdruid"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Archdruid gets us two really great things. First, you can use Wild\n\t\t\t\t\tShape as often as you want, which means that you can use Symbiotic\n\t\t\t\t\tEntity as often as you want. You should basically always have it\n\t\t\t\t\trunning, and you might even refresh it mid-combat if the temporary hit\n\t\t\t\t\tpoints run low."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Second, you can ignore all somatic and\n\t\t\t\t\tverbal components, and most material components for your druid spells.\n\t\t\t\t\tYou no longer need a free hand to perform somatic components, which\n\t\t\t\t\thas been a headache for most of your career unless you took War\n\t\t\t\t\tCaster."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Circle Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Cantrip"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 3"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 7"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 9"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Circle of Spores"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Symbiotic Entity"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fungal Infestation"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Spreading Spores"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Fungal Body"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Aarakocra"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Dwarf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hill"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Firbolg"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Gith"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Githzerai"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Goblin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Half-Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green High/Moon/Sun"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Vanilla"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Halfling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Ghostwise"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Human"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Vanilla"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Variant"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Lizardfolk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Tortle"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Thri-Kreen"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Kalashtar"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Shifter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Beasthide"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Wildhunt"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Warforged"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Dragonmarked Half-Orc"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mark of Finding"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Dragonmarked Halfling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mark of Healing"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Dragonmarked Human"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Mark of Finding"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Mark of Handling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mark of Passage"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Mark of Sentinel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Loxodon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Simic Hybrid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Vedalken"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Pallid Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-none Sea Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-none Halfling"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Lotusden"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Elemental Adept"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Magic Initiate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Mobile"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Polearm Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Resilient"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Sentinel"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Shield Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Tough"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green War Caster"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Weapon Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Club"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Dagger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Quarterstaff"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Hide"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Leather"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Studded Leather"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Shield"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Chill Touch"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Primal Savagery"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Shillelagh"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Thorn Whip"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Thunderclap"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-subclass-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[5]",
+      "detail": "<li value=\"10\"><span class=\"rating-blue\">Spreading Spores</span>: This creates an additional area in which enemies can take the damage from your Halo of Spores. You activate this a"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-races-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-races-4"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-races-5"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-races-6"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-races-7"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-races-8"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-races-9"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-races-10"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-races-11"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-races-12"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-races-13"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-races-14"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-races-15"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-races-16"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-races-17"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-races-18"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-races-19"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-races-eberron-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-races-eberron-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-races-eberron-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-races-eberron-4"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-races-eberron-dragonmarks-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-races-eberron-dragonmarks-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[8]",
+      "detail": "block-section-races-eberron-dragonmarks-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-races-eberron-dragonmarks-4"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[9]",
+      "detail": "block-section-races-eberron-dragonmarks-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-races-eberron-dragonmarks-6"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[10]",
+      "detail": "block-section-races-eberron-dragonmarks-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[34]",
+      "detail": "block-section-races-ravnica-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[35]",
+      "detail": "block-section-races-ravnica-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[36]",
+      "detail": "block-section-races-ravnica-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[37]",
+      "detail": "block-section-races-wildemount-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[11]",
+      "detail": "block-section-races-wildemount-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[38]",
+      "detail": "block-section-races-wildemount-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[12]",
+      "detail": "block-section-races-wildemount-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[39]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[40]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[13]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[14]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[15]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[41]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[16]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[42]",
+      "detail": "block-section-spells-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[43]",
+      "detail": "block-section-spells-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[44]",
+      "detail": "block-section-spells-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[17]",
+      "detail": "block-section-cantrips-1"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[45]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[46]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[47]",
+      "detail": "block-section-example-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[48]",
+      "detail": "block-section-example-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[49]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[50]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[51]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[52]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[53]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[54]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 5834,
+    "sections": 23,
+    "blocks": 76,
+    "tables": 3,
+    "ratingSignals": 86
+  },
+  "status": "needs-editorial-review"
+}

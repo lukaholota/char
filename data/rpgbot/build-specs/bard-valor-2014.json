@@ -1,0 +1,120 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "bard-valor-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-bard-valor-2014-draft1",
+    "sourceRevisionId": "rpgbot-0c75c8ec98bc380b-ab2076d605a4120a"
+  },
+  "exampleSection": "section-example-college-of-valor-build-another-gish-for-the-pile",
+  "levelTableSection": "section-levels",
+  "classKey": "BARD_2014",
+  "subclassKey": "COLLEGE_OF_VALOR",
+  "raceKey": "HALF_ELF_2014",
+  "backgroundKey": "CRIMINAL",
+  "abilityScores": { "STR": 8, "DEX": 15, "CON": 15, "INT": 8, "WIS": 8, "CHA": 15 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "revision": 3,
+  "levels": [
+    { "level": 2, "openSpellPicks": [{"category": "knownSpells", "count": 1}] },
+    {
+      "level": 3,
+      "subclassKey": "COLLEGE_OF_VALOR",
+      "expertise": ["INSIGHT", "STEALTH"],
+      "spells": { "knownSpellKeys": ["enhance-ability"] }
+    },
+    {
+      "level": 4,
+      "featKey": "ELVEN_ACCURACY",
+      "featOptions": [{ "optionNameEng": "ELVEN_ACCURACY Ability (Charisma)" }],
+      "section": "section-feats",
+      "openSpellPicks": [{ "category": "cantrips", "count": 1 }, { "category": "knownSpells", "count": 1 }]
+    },
+    { "level": 5, "spells": {"knownSpellKeys": ["dispel-magic"]} },
+    { "level": 6, "openSpellPicks": [{"category": "knownSpells", "count": 1}] },
+    { "level": 7, "spells": {"knownSpellKeys": ["dimension-door"]} },
+    {
+      "level": 8,
+      "featKey": "FIGHTING_INITIATE",
+      "featOptions": [{ "optionNameEng": "Archery" }],
+      "section": "section-feats",
+      "openSpellPicks": [{ "category": "knownSpells", "count": 1 }]
+    },
+    { "level": 9, "spells": {"knownSpellKeys": ["hold-monster"]} },
+    {
+      "level": 10,
+      "expertise": ["ARCANA", "PERCEPTION"],
+      "openSpellPicks": [{ "category": "cantrips", "count": 1 }, { "category": "knownSpells", "count": 2 }]
+    },
+    { "level": 11, "spells": {"knownSpellKeys": ["mass-suggestion"]} },
+    { "level": 12, "abilityScoreIncrease": [{"ability": "CHA", "amount": 2}], "section": "section-feats" },
+    { "level": 13, "spells": {"knownSpellKeys": ["forcecage"]} },
+    { "level": 14, "openSpellPicks": [{"category": "knownSpells", "count": 2}] },
+    { "level": 15, "spells": {"knownSpellKeys": ["feeblemind"]} },
+    { "level": 16, "abilityScoreIncrease": [{"ability": "DEX", "amount": 2}], "section": "section-feats" },
+    { "level": 17, "spells": {"knownSpellKeys": ["foresight"]} },
+    { "level": 18, "openSpellPicks": [{"category": "knownSpells", "count": 2}] },
+    { "level": 19, "abilityScoreIncrease": [{"ability": "DEX", "amount": 2}], "section": "section-feats" },
+    { "level": 20 }
+  ],
+  "incomplete": [
+    {
+      "field": "Музичні інструменти",
+      "reason": "Автор каже, що Бард дає три музичні інструменти на вибір; пресет не записує вибір музичних інструментів (лютня є в стандартному наборі).",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Ігровий набір Злочинця",
+      "reason": "Злочинець дає володіння ігровим набором, але автор його не називає; пресет не записує вибір ігрового набору.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Магічні таємниці (10, 14 і 18 рівні)",
+      "reason": "Автор бере по два заклинання з чужих списків (Священна зброя, Виклик небожителя; Зцілення, Стіна енергії; Свята аура, Бажання); платформа приймає в плані лише заклинання зі списку Барда, тож ці вибори лишено гравцеві (openSpellPicks).",
+      "section": "section-levels"
+    },
+    {
+      "field": "Замовляння на 4-му та 10-му рівнях",
+      "reason": "Автор не називає нових замовлянь; їх обирає гравець.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання 2–17 рівнів",
+      "reason": "Таблиця автора перелічує по кілька заклинань за рядок і не каже, які відомі заклинання вони замінюють: репертуар більший за квоту Барда на рівні. Тому в `levels` записано перше назване заклинання рядка (Покращення здібності, Розвіювання магії, Двері між вимірами, Стримування монстра, Масове навіювання, Силова кліть, Слабоумство, Передбачення), решту лишено в таблиці рівнів; на 2, 4, 6 і 8-му рівнях автор заклинань не називає — їх обирає гравець (openSpellPicks).",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/bard-valor-2014.webp",
+    "title": "Бард — Колегія доблесті, Напівельф",
+    "description": "Напівельф-Злочинець із Харизмою 17, Спритністю й Статурою 16: бойовий заклинатель із легким арбалетом. Колегія доблесті відкриється на 3-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": ["DEX", "CON"],
+    "skills": { "selectedClass": ["INTIMIDATION", "INSIGHT", "PERSUASION"], "race": ["ARCANA", "PERCEPTION"], "background": [] },
+    "expertise": [],
+    "classOptions": [],
+    "raceOptions": ["Універсальність навичок"],
+    "languages": ["DWARVISH"],
+    "equipment": [
+      { "group": 1, "option": "c", "weapons": ["LIGHT_CROSSBOW"] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": ["mage-hand", "minor-illusion"],
+      "knownSpellKeys": ["faerie-fire", "healing-word", "silvery-barbs", "sleep"],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "sectionId": "section-levels",
+      "explanation": "Два замовляння й чотири заклинання названі автором."
+    },
+    "abilityExplanation": "Напівельф: +2 до Харизми та по +1 до Спритності й Статури, як у авторській таблиці (Харизма 17, Спритність і Статура 16); це вже враховано.",
+    "skillExplanation": "Магія й Уважність — від «Універсальності навичок» напівельфа, Залякування, Аналіз Поведінки й Переконання — від Барда, Обман і Непомітність — від Злочинця, як у розділі автора. Мову напівельфа ми обрали за вас: автор її не називає.",
+    "equipmentExplanation": "Автор радить легкий обладунок і легкий арбалет: вони й узяті (шкіряна броня з кинджалом, легкий арбалет). Набір дипломата й лютню ми обрали за вас — це вибір платформи, його можна змінити."
+  }
+}

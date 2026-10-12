@@ -1,0 +1,2510 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-b116bebce7d4f3d8",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-b116bebce7d4f3d8-8919e768bafed35d",
+      "sourceId": "rpgbot-b116bebce7d4f3d8",
+      "fetchedAt": "2026-09-29T19:19:59.605436+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:37:22-04:00",
+      "contentHash": "f3db6be35f877d932b75916f2431a4ddbe5380b308338a645e83840a182fce62",
+      "title": "Way of the Kensei Monk 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-b116bebce7d4f3d8-8919e768bafed35d.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-monk-kensei-2014",
+    "sourceId": "rpgbot-b116bebce7d4f3d8",
+    "slug": "monk-kensei-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Шлях кенсея — гайд підкласу Монаха (2014)",
+    "titleEn": "Way of the Kensei Monk 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Монах",
+      "Шлях кенсея",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "sourceRevisionId": "rpgbot-b116bebce7d4f3d8-8919e768bafed35d",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Шлях кенсея — гайд підкласу Монаха D&D 5e",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кличте грім! Меч у руці, титани справедливості, ми стоїмо безстрашні. Кличте грім! Міцні в командуванні, благословенні єднанням, свобода людини. "
+                },
+                {
+                  "type": "link",
+                  "text": "Cry Thunder",
+                  "href": "https://www.youtube.com/watch?v=r2ZstuGjF_c"
+                },
+                {
+                  "type": "text",
+                  "text": " – Dragonforce"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монахам здебільшого дістається найгірше. Через суперечливі уміння й обмежені ресурси Монахи подекуди почуваються відсталими за шкодою. Кенсей{{Kensei}} схильний потрапляти в ті самі пастки, що й інші Монахи, але принаймні має кілька способів показати пристойні цифри шкоди. Якщо ви хочете бути майстром зброї бойових мистецтв, ми подбаємо, щоб ви виступили якнайкраще."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кенсей трохи схожий на "
+                },
+                {
+                  "type": "link",
+                  "text": "Слідопита-Мисливця",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/hunter/"
+                },
+                {
+                  "type": "text",
+                  "text": ": він має кілька різних здібностей для ближньої та дальньої зброї, і, як у Мисливця, дальній варіант кращий. У нього є «Спритне парирування»{{Agile Parry}} для ближнього бою, що дає трохи додаткового КБ, проти «Пострілу кенсея»{{Kensei’s Shot}}, де ви завдаєте трохи додаткової шкоди, але й не отримуєте ударів, не заходячи в ближній бій. Це одна з сильних сторін Кенсея порівняно з іншими Монахами: мати справжній дальній варіант."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "З цією метою збірка нижче показує, що Кенсей може внести в те, що інакше було б звичайною збіркою «Влучного стрільця» й «Експерта з арбалетів». Зокрема, коли вмикається «Загострення клинка»{{Sharpen the Edge}}, здатність додавати +3 до атак і шкоди зрештою скасовує штрафи «Влучного стрільця». Завдяки «Руху без броні» ця збірка може просто втікати від багатьох ворогів, перетворюючи цілі на подушечки для голок."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Шляху кенсея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Шляху кенсея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#way-of-the-kensei-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Шляху кенсея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#way-of-the-kensei-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Шляху кенсея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#way-of-the-kensei-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Шляху кенсея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#way-of-the-kensei-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Шляху кенсея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#way-of-the-kensei-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Шляху кенсея",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#way-of-the-kensei-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Шляху кенсея — Чому б просто не вистрілити?",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#example-way-of-the-kensei-build-why-dont-you-just-shoot-it"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "А якщо я не хочу мультикласувати?",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#but-i-dont-want-to-multiclass"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#levels"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "А якби ми просто грали Воїном-Чемпіоном 20 рівнів?",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/monk/subclasses/kensei/#what-if-we-just-played-champion-fighter-for-20-levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                2,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Шляху кенсея",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Шлях кенсея|Path of the Kensei}}: це базові уміння, що визначатимуть, як функціонує ваш персонаж. Уміння, надані на вищих рівнях, зазвичай надбудовуються над цими."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зброя кенсея{{Kensei Weapons}}: це відкриває багато можливостей для Монахів. Маючи лише просту зброю та короткі мечі, найкраща зброя Монаха — спис. Відкриття більшості бойової зброї означає доступ до властивостей зброї, які зазвичай поза досяжністю Монаха. Я розгляну деякі цікаві можливості, але не перелічуватиму всю бойову зброю, бо це забрало б купу місця, не даючи нічого корисного; я охоплю добрі варіанти й варіанти, що виглядають добре, але такими не є.\n\nНа жаль, справді добрих варіантів лише жменька, тож очікуйте, що кожен Кенсей зрештою користуватиметься тим самим набором зброї. Легко глянути на це уміння поряд із додатковим класовим умінням «Присвячена зброя»{{Dedicated Weapon}} і відчути, що воно не дуже корисне. Насправді, якщо можна отримати володіння деінде (найімовірніше, від раси), «Присвячена зброя» робить «Зброю кенсея» здебільшого зайвою.\n\nЄдині переваги «Зброї кенсея» в тому, що ви не обмежені однією зброєю, обраною наприкінці Довгого відпочинку, тож можна змінювати зброю відповідно до ситуації (хоча це трапляється нечасто), і що ви здобуваєте володіння."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Спритне парирування{{Agile Parry}}: точне формулювання цієї здібності критичне. Вам потрібно виконати удар без зброї "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "як частину дії Атака"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Тож атаки бонусною дією від Бойових мистецтв чи «Шквалу ударів» не рахуються. Доки ви не отримаєте «Додаткову атаку», вам захочеться відмовитися від зброї на користь бонусу до КБ, а коли отримаєте «Додаткову атаку», ви зазвичай виконуватимете лише одну атаку зброєю.\n\nХоча це прикре зниження вашої шкоди за хід, бонус +2 до КБ чудовий для класу, відомого слабкою живучістю. На жаль, це означає, що розумний Кенсей часто виконуватиме щонайбільше одну атаку за хід своєю зброєю. На низьких рівнях вам потрібен КБ, а на високих додаткова шкода від вашої зброї не буде достатньою різницею, щоб виправдати зусилля з користуванням зброєю.\n\nДодаткове класове уміння «Атака, посилена Кі»{{Ki-Fueled Attack}} певною мірою може розвʼязати цю проблему. Якщо витратити Кі на «Вправний удар»{{Deft Strike}} або на додаткове класове уміння «Зосереджене прицілювання»{{Focused Aim}}, це запустить «Атаку, посилену Кі», дозволяючи атакувати зброєю бонусною дією."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Постріл кенсея{{Kensei’s Shot}}: небагато шкоди, але це робить дальні атаки конкурентними з ближніми й не коштує Кі. Зазвичай Монахи, що бʼються здалеку, повністю жертвують потенційною шкодою своїх бонусних дій, тож приємно мати простий спосіб перетворити цю дію на щось корисне. Оскільки це додаткова шкода, вона множиться при критичному влучанні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Шлях пензля|Way of the Brush}}: одне володіння інструментом, яким, імовірно, ніколи не скористаєтеся."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Єдність із клинком|One with the Blade}}: дві здебільшого незалежні переваги."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Магічна зброя кенсея{{Magic Kensei Weapons}}: зазвичай Монах мусить покладатися лише на свої удари без зброї, щоб долати опір до шкоди від немагічних атак, якщо тільки ви не можете гарантувати доступ до магічної зброї. Це дає змогу й далі користуватися улюбленою зброєю без проблем, навіть якщо вона не магічна."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вправний удар{{Deft Strike}}: рідко це завдасть більше шкоди, ніж витрата цього очка Кі на «Шквал ударів», але якщо вам дуже важко влучати, шкоду можна брати де завгодно. У формулюванні також сказано «додаткова шкода», що означає: ця шкода є частиною звичайної шкоди атаки й тому множиться при критичному влучанні так само, як «Містична кара»{{Eldritch Smite}} і «Божественна кара», і, як і ці уміння, її можна вирішити використати після кидка атаки, тож це легке підсилення шкоди, якщо випав натуральний 20."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Загострення клинка|Sharpen the Blade}}: надзвичайно спокусливо, але це багато Кі, щоб витрачати на одну атаку за хід (можливо, 2 з «Атакою, посиленою Кі». Памʼятайте, що для «Спритного парирування» треба виконати один удар без зброї). Додаткові атаки від «Шквалу ударів», імовірно, будуть кориснішим способом витратити Кі.\n\nНайкращий випадок застосування — бій на відстані, де «Спритне парирування» менш критичне. Візьміть довгий лук, вкладіть у нього 3 очки Кі й починайте стріляти. Розгляньте «Вправний удар» та/або додаткове класове уміння «Зосереджене прицілювання», щоб запустити «Атаку, посилену Кі» й атакувати бонусною дією, але це рішення варто ухвалити рано, бо «Постріл кенсея» треба використати до початку атак, якщо ви взагалі збираєтеся ним користуватися."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Безпомилкова точність{{Unerring Accuracy}}: ви виконуватимете лише одну атаку зброєю за хід, якщо не користуєтеся додатковим класовим умінням «Атака, посилена Кі», тож можна зробити її надійною."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-way-of-the-kensei-ability-scores",
+          "heading": "Характеристики Шляху кенсея",
+          "sourceAnchor": "way-of-the-kensei-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-way-of-the-kensei-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Шлях кенсея має типовий розподіл характеристик Монаха. Нам потрібна Спритність для атак, Мудрість для підвищення КБ і Статура, щоб мати трохи ХП."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-kensei-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: нам іноді може захотітися когось Штовхнути, тож якщо ми користуємося стандартним набором, це наша 12."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-kensei-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: це ваш показник атаки й половина нашого КБ."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-kensei-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: ми не хочемо померти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-kensei-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: для нас неважливо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-kensei-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: це половина нашого КБ, а також вона задає Складність для умінь Монаха на кшталт «Приголомшливого удару»{{Stunning Fist}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-kensei-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: для нас неважливо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-kensei-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-way-of-the-kensei-races",
+          "heading": "Раси Шляху кенсея",
+          "sourceAnchor": "way-of-the-kensei-races",
+          "blocks": [
+            {
+              "blockId": "block-section-way-of-the-kensei-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Монахам не вистачає рис, бо їм потрібні і Спритність, і Мудрість для КБ. Це означає, що раси з бонусними рисами виділяються. Усе, чого тут немає, розглянуто в "
+                },
+                {
+                  "type": "link",
+                  "text": "розборі рас Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/races/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-kensei-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Своя раса{{Custom Lineage}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо ви хочете, щоб ваша бонусна риса йшла з +2 в одну характеристику й варіантом Темнозору, це ваша раса. Чудово, якщо вдасться взяти гібридну рису, щоб підвищити Спритність до 18."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Варіант людини{{Variant Human}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": якщо ж ви хочете, щоб бонусна риса йшла з парою +1 і без варіанту Темнозору, це ваша раса. Цей варіант кращий, якщо бонусна риса не гібридна, бо він дозволяє мати і Спритність, і Мудрість по 16."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-way-of-the-kensei-feats",
+          "heading": "Риси Шляху кенсея",
+          "sourceAnchor": "way-of-the-kensei-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-way-of-the-kensei-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Усе, чого тут немає, шукайте в "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Монаха",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-kensei-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Експерт з арбалетів|Crossbow Expert}}: ви можете подумати: «хіба в Монахів уже немає способів робити атаки бонусною дією?» Є, але вони або коштують очки Кі, або обмежені атаками ближнього бою. Натомість можна зберегти очки Кі для решти наших умінь, зробивши ручний арбалет нашою зброєю кенсея."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Влучний стрілець|Sharpshooter}}: якщо ми й так збираємося використовувати дальню зброю кенсея, можна вичавити весь DPR."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-way-of-the-kensei-weapons",
+          "heading": "Зброя Шляху кенсея",
+          "sourceAnchor": "way-of-the-kensei-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-way-of-the-kensei-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кенсей — "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "той самий"
+                },
+                {
+                  "type": "text",
+                  "text": " Монах зі зброєю, але оскільки «Казан Таші з усім» запровадив уміння «Присвячена зброя» для всіх Монахів, у них насправді немає більше доступних варіантів, ніж у "
+                },
+                {
+                  "type": "link",
+                  "text": "звичайних Монахів",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": ", крім того, що Кенсей здобуває володіння зброєю, яку обирає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-kensei-weapons-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Ближній бій"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойова сокира [Battleaxe] / Довгий меч [Longsword] / Бойовий молот [Warhammer]: гарно й просто, ви одразу виходите на максимальну шкоду Монаха 1к10. Раджу зробити одну з них першим вибором зброї, а на 6-му чи 11-му рівні взяти зброю іншого типу шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Тризуб [Trident]: за цифрами ідентичний списам."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рапіра [Rapier]: ви можете вважати обрану зброю зброєю Монаха, тож можете користуватися нею зі Спритністю незалежно від властивості зброї «Спритність»{{Finesse}}. Якщо ви не мультикласуєте в Пройдисвіта, причин обирати рапіру немає."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Батіг [Whip]: буквально єдиний спосіб для Монаха отримати досяг зі зброєю. Батоги страждають через слабкий кубик шкоди, але ви можете це ігнорувати. На високих рівнях це поступово ставатиме кращим варіантом, коли шкода почне наближатися до довгих мечів і зрештою зрівняється з ними."
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Дальній бій"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Довгий лук [Longbow] / Короткий лук [Shortbow]: єдині варіанти без властивості «Заряджання»{{Loading}}, тож це явний переможець, якщо тільки ви не хочете взяти «Експерта з арбалетів» чи «Стрільця» й битися в ближньому бою дальньою зброєю. Можна й так, і це було б справді весело, але Монахам відчайдушно потрібні підвищення характеристик, тож риси — зазвичай важкий вибір."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Мушкет [Musket]: якщо у вашій грі є вогнепальна зброя, мушкет — чудовий вибір для Кенсея. Властивість «Заряджання» має значення лише якщо ви не намагаєтеся запустити «Спритне парирування», але якщо ви хочете більше однієї атаки, вам знадобиться «Стрілець»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ручний арбалет [Hand Crossbow]: у поєднанні з «Експертом з арбалетів» і «Влучним стрільцем» це обʼєктивно найсильніший вибір для стійкого DPR."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-way-of-the-kensei-armor",
+          "heading": "Обладунки Шляху кенсея",
+          "sourceAnchor": "way-of-the-kensei-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-way-of-the-kensei-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для цього й існує ваша Мудрість."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-way-of-the-kensei-multiclassing",
+          "heading": "Мультикласування Шляху кенсея",
+          "sourceAnchor": "way-of-the-kensei-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-way-of-the-kensei-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайді Монаха є дещо про "
+                },
+                {
+                  "type": "link",
+                  "text": "мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/monk/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": ", але наш вибір зброї дає над чим подумати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-way-of-the-kensei-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Воїн: занурення на один рівень заради Бойового Стилю (Стрільба з лука) краще, ніж витрачати рису на «Посвяченого у бій»{{Fighting Initiate}}, якщо ми користуємося дальньою зброєю."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-way-of-the-kensei-build-why-dont-you-just-shoot-it",
+          "heading": "Приклад збірки Шляху кенсея — Чому б просто не вистрілити?",
+          "sourceAnchor": "example-way-of-the-kensei-build-why-dont-you-just-shoot-it",
+          "blocks": [
+            {
+              "blockId": "block-section-example-way-of-the-kensei-build-why-dont-you-just-shoot-it-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Звична проблема Монахів у тому, що їм заборонена Важка зброя, тож вони не можуть скористатися «Майстром важкої зброї»{{Great Weapon Master}} для підвищення DPR.\n\nАле Кенсей має чимало переваг, які можна застосувати до дальньої зброї, а тому він головний кандидат на риси «Експерт з арбалетів» і «Влучний стрілець». Додайте до цього застосування кубика Бойових мистецтв до ручного арбалета й «Загострення клинка», що дає +3 до атак і здебільшого компенсує штраф «Влучного стрільця», — і це справді починає виглядати дуже сильно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-way-of-the-kensei-build-why-dont-you-just-shoot-it-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоча збірка нижче перелічує додаткові класові уміння з TCoE, коли вони здобуваються, жодне з цих умінь насправді не обовʼязкове для збірки, але деякі приємні. «Присвячена зброя» дозволяє зняти обладунок на рівень раніше. «Зосереджене прицілювання» допомагає, коли ми ледь схибили. «Швидке зцілення»{{Quickened Healing}} дозволяє спалити Кі прямо перед Коротким відпочинком, щоб отримати додаткове зцілення, перш ніж запас поповниться. «Атака, посилена Кі» нам нічого не дає, бо в нас уже є «Експерт з арбалетів»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-way-of-the-kensei-build-why-dont-you-just-shoot-it",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Користуватимемося ручним арбалетом зі Спритністю, Мудрість нам потрібна для КБ, а Статура — для ХП."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо Варіант людини й обираємо «Експерта з арбалетів» як бонусну рису. Підвищення +1 ідуть у Спритність і Мудрість. Оскільки риси й підвищення характеристик у цій збірці дуже обмежені, ми залишимо Статуру на 14 і вкладемо залишкові очки в Силу."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-way-of-the-kensei-build-why-dont-you-just-shoot-it",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо Варіант людини заради бонусної риси. Оскільки ми беремо «Експерта з арбалетів», а не гібридну рису, більше користі від підвищення Спритності та Мудрості до 16, ніж від одного +2 в одну з них і значень 17 та 15. Також отримуємо Володіння навичкою й обираємо Акробатику."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "parentSectionId": "section-example-way-of-the-kensei-build-why-dont-you-just-shoot-it",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цій збірці ми візьмемо два рівні Воїна: спершу заради Бойового Стилю (Стрільба з лука), а пізніше ще й заради «Сплеску дій»{{Action Surge}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-but-i-dont-want-to-multiclass",
+          "parentSectionId": "section-multiclassing",
+          "heading": "А якщо я не хочу мультикласувати?",
+          "sourceAnchor": "but-i-dont-want-to-multiclass",
+          "blocks": [
+            {
+              "blockId": "block-section-but-i-dont-want-to-multiclass-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми безумовно втратимо трохи «перчинки», якщо не отримаємо Бойовий Стиль (Стрільба з лука): DPR на 20-му рівні впаде з 46,66 до 39,60, але це не надто велика проблема. Загалом вибір і порядок рис не змінюються, а останнє підвищення характеристик ми отримаємо від Монаха й зможемо використати його, щоб довести Мудрість до максимуму."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-way-of-the-kensei-build-why-dont-you-just-shoot-it",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Обираємо «Безпритульного»{{Urchin}} заради Володінь Набором для гриму, Інструментами злодія, Непомітністю та Спритністю рук."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-way-of-the-kensei-build-why-dont-you-just-shoot-it",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Свій перший рівень ми візьмемо як Воїн, а тому обираємо навички зі списку Воїна, вибираючи Уважність і Виживання."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-way-of-the-kensei-build-why-dont-you-just-shoot-it",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки ми беремо один рівень Воїна, а потім переходимо в Монаха, наші підвищення характеристик приходять на рівень пізніше. Другий рівень Воїна ми також берем на 20-му рівні, бо «Сплеск дій» сильніший за будь-що інше, що ми могли б отримати замість підвищення/риси девʼятнадцятого рівня від Монаха."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Варіант людини дає нам рису на першому рівні — «Експерт з арбалетів»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На четвертому рівні Монаха, пʼятому загалом, беремо «Влучного стрільця»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На восьмому рівні Монаха, девʼятому загалом, беремо підвищення характеристик на +2 до Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На дванадцятому рівні Монаха, тринадцятому загалом, беремо підвищення характеристик на +2 до Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На шістнадцятому рівні Монаха, сімнадцятому загалом, беремо підвищення характеристик на +2 до Мудрості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-way-of-the-kensei-build-why-dont-you-just-shoot-it",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойові мистецтва"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 — Воїн 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль (Стрільба з лука), Друге дихання, Навички: Акробатика, Уважність, Спритність рук, Непомітність, Виживання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Так, ця збірка Монаха починається з рівня Воїна. Нам потрібен Бойовий Стиль (Стрільба з лука), і ось як ми його отримуємо. Беріть Ручний арбалет [Hand Crossbow] і починайте робити атаки бонусною дією. Для КБ візьміть Кольчужну сорочку [Chain Shirt] чи якийсь Шкуряний обладунок [Hide]. Нічого надто дорогого, бо ми позбудемося його, коли станемо Монахом 2-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 — Монах 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойові мистецтва, Захист без броні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це важливі уміння, але ми ще трохи поносимо середній обладунок, бо зараз вони нам мало що дадуть."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 — Монах 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Присвячена зброя (додатково), Кі, Рух без броні +10 фт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ось і воно: тепер ми можемо скинути середній обладунок, бо маємо «Присвячену зброю» для нашого ручного арбалета. Або ні, якщо середній обладунок дає нам більше КБ, що можливо, якщо ви вже можете дозволити собі Напівлати [Half Plate]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 — Монах 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відхилення снарядів, Атака, посилена Кі (додатково), Шлях кенсея: Зброя кенсея, Спритне парирування, Постріл кенсея, Шлях пензля"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Зазвичай «Відхилення снарядів» просто нормальне, але ми бʼємося здалеку, тож по нас здебільшого влучатимуть дальні атаки, а Бойовий Стиль (Стрільба з лука) діє на відповідну атаку реакцією. Більше того, коли ми отримаємо «Влучного стрільця», "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "він теж діятиме"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". «Атака, посилена Кі». У більшості збірок Монаха це досить корисно.\n\nУ цій збірці ми й так можемо атакувати зброєю бонусною дією, не витрачаючи очки Кі, завдяки «Експерту з арбалетів». Ми обираємо Монастирську Традицію — Шлях кенсея — і оголошуємо ручний арбалет зброєю кенсея, разом із будь-якою зброєю ближнього бою, яку захочемо. Для розваги раджу Бойову сокиру [Battleaxe]. «Спритне парирування» та «Постріл кенсея» нам мало що дадуть.\n\nМи користуємося дальньою зброєю, тож не можемо парирувати, а «Постріл кенсея» завдає менше шкоди, ніж атака від «Експерта з арбалетів». Зате безкоштовне Володіння Приладдям маляра."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 — Монах 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Влучний стрілець, Повільне падіння, Швидке зцілення (додатково)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Завдяки +2 від Бойового Стилю (Стрільба з лука) ми отримуємо чимало користі від «Влучного стрільця». Завдяки атаці бонусною дією від «Експерта з арбалетів» ми отримуємо ще більше шкоди. «Повільне падіння» приємне, якщо ми впадемо. «Швидке зцілення» насправді дуже корисне. Витратьте його перед Коротким відпочинком, щоб заощадити витрати Кубиків Здоровʼя."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 — Монах 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака, Зосереджене прицілювання (додатково), Приголомшливий удар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми можемо стріляти двічі за свою дію. «Зосереджене прицілювання» може бути корисним, якщо ми схибили на кілька очок. «Приголомшливий удар» — для атак ближнього бою. Можна вдарити кулаком, якщо хочемо спробувати приголомшити, але стріляти болтами буде успішніше."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 — Монах 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Удари, посилені Кі, зброя кенсея, Єдність із клинком, Рух без броні +15 фт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Удари, посилені Кі» роблять наші удари без зброї магічними. «Єдність із клинком» робить те саме для нашої зброї кенсея, і на цьому рівні ми додаємо до списку ще одну зброю. OwtB також дозволяє витратити очко Кі, щоб отримати додаткову шкоду після влучання атакою, що дорівнює нашому кубику бойових мистецтв. Як міні-«Кара»{{Smite}}.\n\nПамʼятайте, що, оскільки це «додаткова шкода», вона множиться при критичному влучанні. Також тепер ми рухаємося швидше."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 — Монах 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухилення, Спокій розуму"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Ухилення» — щоб отримувати менше шкоди від ряткидків Спритності. «Спокій розуму» трапляється нечасто, але все одно чудово його мати, коли на нас діють стани, які він може зняти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 — Монах 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність +2 (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше Спритності, більше КБ, кращі атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 — Монах 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Руху без броні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми можемо ходити по воді й вгору по стінах, але лише під час нашого руху у свій хід."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 — Монах 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Рух без броні +20 фт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вжух-вжух."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 — Монах 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Загострення клинка, зброя кенсея"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Загострення клинка» — те, що справді дає цій збірці перевагу. Зараз у нас є «Влучний стрілець» і Бойовий Стиль (Стрільба з лука), але бонусною дією ми можемо зробити наш ручний арбалет зброєю +3, що повністю скасовує залишковий штраф «Влучного стрільця» у поєднанні з бонусом від Бойового Стилю (Стрільба з лука). Це коштує 3 очки Кі, а запас у нас лише 11 очок "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "за Короткий відпочинок"
+                    },
+                    {
+                      "type": "text",
+                      "text": ".\n\nНа цьому рівні, якщо в нас вісім боїв на день і два Короткі відпочинки, це буде 33 очки Кі загалом, а на цю здібність за день ми витратимо 24 очки, що того варте заради DPR. Це велика частина того, чому ми користувалися «Експертом з арбалетів», щоб заощаджувати Кі: щоб вибудовувати цю неймовірно сильну комбінацію й водночас мати стабільне ефективне застосування бонусної дії, не вдаючись до Бойових мистецтв. Оберіть ще одну зброю для вашого списку зброї кенсея."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 — Монах 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще більше Спритності, більше КБ, кращі атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 — Монах 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Язик Сонця і Місяця{{Tongue of the Sun and Moon}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розмовляйте з усім зі своєю Харизмою 8."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 — Монах 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Алмазна душа, Рух без броні +25 фт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння кожним ряткидком і можливість витратити очко Кі, щоб перекинути провалений ряткидок. Памʼятайте, що обидві ці переваги діють і на ряткидки від смерті."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 — Монах 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невмируще тіло{{Timeless Body}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше жодного старіння. Більше жодної їжі чи пиття."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 — Монах 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість +2 (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше КБ."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 — Монах 17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безпомилкова точність, зброя кенсея"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перекиньте промах зброєю кенсея раз за хід. Оберіть ще одну зброю для списку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 — Монах 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Порожнє тіло, Рух без броні +30 фт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наше майже вершинне вміння — здатність витратити 4 очки Кі, щоб стати Невидимим на хвилину. Це чудово й дає Перевагу на кубику в атаках по будь-чому без істинного зору, сліпозору чи чуття вібрацій{{tremorsense}}. Також ми можемо витратити 8 Кі на астральну проєкцію, але це менш корисно. А ще вжух-вжух-вжух."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 — Воїн 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій{{Action Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "А для нашого справжнього вершинного вміння, з другим рівнем Воїна, ми можемо мати дві дії за один хід раз за Короткий відпочинок."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-what-if-we-just-played-champion-fighter-for-20-levels",
+          "parentSectionId": "section-example-way-of-the-kensei-build-why-dont-you-just-shoot-it",
+          "heading": "А якби ми просто грали Воїном-Чемпіоном 20 рівнів?",
+          "sourceAnchor": "what-if-we-just-played-champion-fighter-for-20-levels",
+          "blocks": [
+            {
+              "blockId": "block-section-what-if-we-just-played-champion-fighter-for-20-levels-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Порівняємо цю збірку з Воїном-Чемпіоном — варіантом людини, що бере «Експерта з арбалетів» на першому рівні та «Влучного стрільця» на четвертому, а потім підвищує Спритність до 20. Ця таблиця використовує "
+                },
+                {
+                  "type": "link",
+                  "text": "наш калькулятор DPR",
+                  "href": "https://rpgbot.net/dnd5/tools/dpr-calculator/"
+                },
+                {
+                  "type": "text",
+                  "text": " за "
+                },
+                {
+                  "type": "link",
+                  "text": "очікуваною математикою",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Оскільки наша збірка отримує підвищення характеристик на рівень пізніше, Воїн досягає кожного з наведених нижче рубежів на рівень раніше, ніж ми, але вони достатньо близькі, щоб порівняння лишалося корисним."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-what-if-we-just-played-champion-fighter-for-20-levels-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й/6-й рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "8-й/9-й рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "11-й/12-й рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "12-й/13-й рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кенсей"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "22.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "24.15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "39.38"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "44.55"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "46.65"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чемпіон"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10.10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "27.30"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "38.40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "38.40"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "48.87"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-what-if-we-just-played-champion-fighter-for-20-levels-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Результат такий: пара рівна до пʼятого рівня, де Чемпіон виходить уперед приблизно на шість рівнів. Потім вмикається «Загострення клинка», і ми попереду, доки Чемпіон нарешті не наздоганяє на двадцятому рівні з «Додатковою атакою» (4). Усе це припускає, що в них ще немає магічної зброї, що зменшило б вигоди «Загострення клинка»."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-monk-kensei-2014-001",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Шлях кенсея",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-002",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Зброя кенсея",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-003",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Спритне парирування",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-004",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Постріл кенсея",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-005",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Шлях пензля",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-006",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "Єдність із клинком",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-007",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Магічна зброя кенсея",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-008",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Вправний удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-009",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Загострення клинка",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-010",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Безпомилкова точність",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-011",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-ability-scores",
+      "targetBlockId": "block-section-way-of-the-kensei-ability-scores-2",
+      "optionId": "section-way-of-the-kensei-ability-scores-block-section-way-of-the-kensei-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-way-of-the-kensei-ability-scores-2",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-012",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-ability-scores",
+      "targetBlockId": "block-section-way-of-the-kensei-ability-scores-3",
+      "optionId": "section-way-of-the-kensei-ability-scores-block-section-way-of-the-kensei-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-way-of-the-kensei-ability-scores-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-013",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-ability-scores",
+      "targetBlockId": "block-section-way-of-the-kensei-ability-scores-4",
+      "optionId": "section-way-of-the-kensei-ability-scores-block-section-way-of-the-kensei-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-way-of-the-kensei-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-014",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-ability-scores",
+      "targetBlockId": "block-section-way-of-the-kensei-ability-scores-5",
+      "optionId": "section-way-of-the-kensei-ability-scores-block-section-way-of-the-kensei-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-way-of-the-kensei-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-015",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-ability-scores",
+      "targetBlockId": "block-section-way-of-the-kensei-ability-scores-6",
+      "optionId": "section-way-of-the-kensei-ability-scores-block-section-way-of-the-kensei-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-way-of-the-kensei-ability-scores-6",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-016",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-ability-scores",
+      "targetBlockId": "block-section-way-of-the-kensei-ability-scores-7",
+      "optionId": "section-way-of-the-kensei-ability-scores-block-section-way-of-the-kensei-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-way-of-the-kensei-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-017",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-races",
+      "targetBlockId": "block-section-way-of-the-kensei-races-2",
+      "optionId": "section-way-of-the-kensei-races-block-section-way-of-the-kensei-races-2-item-0",
+      "context": "Своя раса",
+      "explanationBlockId": "block-section-way-of-the-kensei-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-018",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-races",
+      "targetBlockId": "block-section-way-of-the-kensei-races-2",
+      "optionId": "section-way-of-the-kensei-races-block-section-way-of-the-kensei-races-2-item-1",
+      "context": "Варіант людини",
+      "explanationBlockId": "block-section-way-of-the-kensei-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-019",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-feats",
+      "targetBlockId": "block-section-way-of-the-kensei-feats-2",
+      "optionId": "section-way-of-the-kensei-feats-block-section-way-of-the-kensei-feats-2-item-0",
+      "context": "Експерт з арбалетів",
+      "explanationBlockId": "block-section-way-of-the-kensei-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-020",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-feats",
+      "targetBlockId": "block-section-way-of-the-kensei-feats-2",
+      "optionId": "section-way-of-the-kensei-feats-block-section-way-of-the-kensei-feats-2-item-1",
+      "context": "Влучний стрілець",
+      "explanationBlockId": "block-section-way-of-the-kensei-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-021",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-weapons",
+      "targetBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "optionId": "section-way-of-the-kensei-weapons-block-section-way-of-the-kensei-weapons-2-item-1",
+      "context": "Бойова сокира [Battleaxe] / Довгий меч [Longsword] / Бойовий молот [Warhammer]",
+      "explanationBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-022",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-weapons",
+      "targetBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "optionId": "section-way-of-the-kensei-weapons-block-section-way-of-the-kensei-weapons-2-item-2",
+      "context": "Тризуб [Trident]",
+      "explanationBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-023",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-weapons",
+      "targetBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "optionId": "section-way-of-the-kensei-weapons-block-section-way-of-the-kensei-weapons-2-item-3",
+      "context": "Рапіра [Rapier]",
+      "explanationBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-024",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-weapons",
+      "targetBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "optionId": "section-way-of-the-kensei-weapons-block-section-way-of-the-kensei-weapons-2-item-4",
+      "context": "Батіг [Whip]",
+      "explanationBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-025",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-weapons",
+      "targetBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "optionId": "section-way-of-the-kensei-weapons-block-section-way-of-the-kensei-weapons-2-item-6",
+      "context": "Довгий лук [Longbow] / Короткий лук [Shortbow]",
+      "explanationBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-026",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-weapons",
+      "targetBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "optionId": "section-way-of-the-kensei-weapons-block-section-way-of-the-kensei-weapons-2-item-7",
+      "context": "Мушкет [Musket]",
+      "explanationBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-027",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-weapons",
+      "targetBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "optionId": "section-way-of-the-kensei-weapons-block-section-way-of-the-kensei-weapons-2-item-8",
+      "context": "Ручний арбалет [Hand Crossbow]",
+      "explanationBlockId": "block-section-way-of-the-kensei-weapons-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-monk-kensei-2014-028",
+      "articleId": "rpgbot-monk-kensei-2014",
+      "translationRevisionId": "translation-rpgbot-monk-kensei-2014-draft1",
+      "sectionId": "section-way-of-the-kensei-multiclassing",
+      "targetBlockId": "block-section-way-of-the-kensei-multiclassing-2",
+      "optionId": "section-way-of-the-kensei-multiclassing-block-section-way-of-the-kensei-multiclassing-2-item-0",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-way-of-the-kensei-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

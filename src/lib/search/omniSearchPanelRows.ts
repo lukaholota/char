@@ -17,6 +17,7 @@ export type OmniSearchPanelRowsInput = {
   activeCategory: OmniSearchCategory | "ALL";
   personalResults: UserSearchHit[];
   homebrewResults: HomebrewSearchHit[];
+  rpgbotResults?: OmniSearchItem[];
 };
 
 /// `otherEdition` задано, коли в поточній редакції не знайшлося нічого взагалі і рядки взято
@@ -30,6 +31,7 @@ export function buildOmniSearchPanelRows(input: OmniSearchPanelRowsInput): OmniS
   const serverItems = [
     ...input.personalResults.map((hit) => toPersonalItem(hit)),
     ...input.homebrewResults.map((hit) => toHomebrewItem(hit)),
+    ...(input.rpgbotResults ?? []),
   ];
   const { items, overflow } = findOmniSearchOutcome(input.query, input.ruleset, input.activeCategory, serverItems);
   if (items.length > 0) return { rows: buildOmniSearchRows(items, overflow), otherEdition: null };

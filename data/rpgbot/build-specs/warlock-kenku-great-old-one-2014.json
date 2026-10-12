@@ -1,0 +1,362 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "warlock-great-old-one-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-warlock-great-old-one-2014-draft1",
+    "sourceRevisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "WARLOCK_2014",
+  "subclassKey": "GREAT_OLD_ONE",
+  "raceKey": "KENKU_MPMM",
+  "backgroundKey": "CHARLATAN",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 8,
+    "WIS": 10,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 5,
+  "levels": [
+    {
+      "level": 2,
+      "classOptions": [
+        {
+          "optionNameEng": "Agonizing Blast"
+        },
+        {
+          "optionNameEng": "Mask of Many Faces"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "classOptions": [
+        {
+          "optionNameEng": "Pact of the Tome"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "invisibility"
+        ]
+      }
+    },
+    {
+      "level": 4,
+      "featKey": "SKILL_EXPERT",
+      "featOptions": [
+        {
+          "optionNameEng": "Skill Expert (CHA)"
+        },
+        {
+          "optionNameEng": "Skill Expert Expertise (DECEPTION)"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "suggestion"
+        ]
+      },
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "classOptions": [
+        {
+          "optionNameEng": "Book of Ancient Secrets"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "enemies-abound"
+        ]
+      },
+      "replaceSpell": {
+        "drop": "dissonant-whispers",
+        "add": "hunger-of-hadar"
+      }
+    },
+    {
+      "level": 6,
+      "spells": {
+        "knownSpellKeys": [
+          "hypnotic-pattern"
+        ]
+      }
+    },
+    {
+      "level": 7,
+      "classOptions": [
+        {
+          "optionNameEng": "Ghostly Gaze"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "summon-aberration"
+        ]
+      }
+    },
+    {
+      "level": 8,
+      "featKey": "TELEKINETIC",
+      "featOptions": [
+        {
+          "optionNameEng": "TELEKINETIC Ability (Charisma)"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "evards-black-tentacles"
+        ]
+      }
+    },
+    {
+      "level": 9,
+      "classOptions": [
+        {
+          "optionNameEng": "Gift of the Protectors"
+        }
+      ],
+      "spells": {
+        "knownSpellKeys": [
+          "telekinesis"
+        ]
+      }
+    },
+    {
+      "level": 10,
+      "openSpellPicks": [
+        {
+          "category": "cantrips",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 11,
+      "spells": {
+        "knownSpellKeys": [
+          "synaptic-static"
+        ]
+      }
+    },
+    {
+      "level": 12,
+      "featKey": "GUILE_OF_GIANTS",
+      "classOptions": [
+        {
+          "optionNameEng": "Eldritch Mind"
+        }
+      ],
+      "openClassOptions": true,
+      "featOptions": [
+        {
+          "optionNameEng": "GUILE_OF_GIANTS Ability (Charisma)"
+        }
+      ]
+    },
+    {
+      "level": 13,
+      "spells": {
+        "knownSpellKeys": [
+          "tashas-hideous-laughter"
+        ]
+      }
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15,
+      "classOptions": [
+        {
+          "optionNameEng": "Shrouded in Shadow"
+        }
+      ],
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 16,
+      "featKey": "LUCKY",
+      "openAdvancement": true
+    },
+    {
+      "level": 17,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 18,
+      "classOptions": [
+        {
+          "optionNameEng": "Visions of Distant Realms"
+        }
+      ]
+    },
+    {
+      "level": 19,
+      "featKey": "INSPIRING_LEADER",
+      "openAdvancement": true,
+      "openSpellPicks": [
+        {
+          "category": "knownSpells",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Версія Кенку",
+      "reason": "Автор описує Кенку з «Путівника Воло по монстрах» і расову рису «Майстерне підроблення»; у каталозі є лише версія з «Монстрів Мультивсесвіту» з підвищеннями за правилами Таші.",
+      "section": "section-race"
+    },
+    {
+      "field": "Заміна інструментів Шарлатана",
+      "reason": "Автор радить обміняти одне з володінь інструментами на Інструменти злодія; пресет не записує заміну інструментів.",
+      "section": "section-background"
+    },
+    {
+      "field": "Замовляння Пакту гримуара",
+      "reason": "На 3-му рівні автор називає замовляння Дружба, Настанова й Розщеплення Розуму з Книги Тіней; платформа не записує замовлення Пакту гримуара, тож їх слід додати вручну.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Володіння Експерта у навичках (4-й рівень)",
+      "reason": "Автор називає володіння суперечливо: таблиця дає Уважність, а текст про риси й розділ про збірку — Переконання; записано лише узгоджене (Харизма +1, Експертиза в Обмані), володіння слід обрати вручну.",
+      "section": "section-feats-2"
+    },
+    {
+      "field": "Заклинання й замовлення «будь-які»",
+      "reason": "На 2-му рівні автор не називає нового заклинання, на 4-му — нового замовляння; це вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Рядок 10-го рівня",
+      "reason": "Автор дає на 10-му рівні Синаптичний розряд (заклинання), а на 11-му «будь-яке» заклинання й замовляння. Чорнокнижник вивчає замовляння на 10-му, а заклинання на 11-му: записано замовляння на 10-му (вибір гравця), Синаптичний розряд на 11-му; зайве заклинання «будь-яке» 11-го рівня не вміщається.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Містичний арканум (11–17-й рівні)",
+      "reason": "Автор називає Ментальну вʼязницю (11-й), Планарний перехід (13-й), Впевненість (15-й) і Психічний крик (17-й); платформа не записує вибір арканума.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Вибори «будь-який / будь-яка» на 12–19-му рівнях",
+      "reason": "Автор пише «будь-який» для потойбічного виклику на 12-му рівні (пресет бере Eldritch Mind), «будь-яка» риса на 16-му й 19-му (автор радить Удачу та Надихаючого лідера; записано в такому порядку, гравець може змінити), а відомі заклинання «будь-які» на 15, 17 і 19-му лишено на вибір гравця.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/warlock-kenku-great-old-one-2014.webp",
+    "title": "Чорнокнижник-Прадавній — Кенку",
+    "description": "«Ігри розуму»: хитре «обличчя» групи з Пробудженим розумом. Харизма 17, Спритність 16, Обман, Спритність рук і Непомітність.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "CHA",
+      "DEX",
+      "CHA"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "INTIMIDATION"
+      ],
+      "race": [
+        "DECEPTION",
+        "STEALTH"
+      ],
+      "background": [
+        "INSIGHT"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": [
+          "DAGGER"
+        ]
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Кенку за правилами Таші: +2 до Харизми й +1 до Спритності, як у авторській таблиці (Харизма 17, Спритність 16); це вже враховано.",
+    "skillExplanation": "Магія й Залякування — від Чорнокнижника, Обман і Непомітність — від Кенку, Спритність рук — від Шарлатана. Обман від передісторії повторюється, тож її заміну на Аналіз Поведінки автор називає. Мову ми обрали за вас: автор її не називає.",
+    "equipmentExplanation": "Автор радить легкий арбалет, чаротворчий фокус, будь-який набір, шкіряний обладунок і три кинджали. Набір вченого ми обрали за вас — його можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "eldritch-blast",
+        "minor-illusion"
+      ],
+      "knownSpellKeys": [
+        "dissonant-whispers",
+        "hex"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [],
+      "explanation": "Замовляння й заклинання названі автором.",
+      "sectionId": "section-levels"
+    }
+  }
+}

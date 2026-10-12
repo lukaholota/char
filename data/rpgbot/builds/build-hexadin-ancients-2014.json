@@ -1,0 +1,641 @@
+{
+  "buildId": "build-hexadin-ancients-2014",
+  "revisionId": "build-hexadin-ancients-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Збірка Hexadin — Лицар ночей",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+      "sectionId": "section-hexadin-build-knight-of-knights",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "PALADIN_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "PALADIN_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "WARLOCK_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "HEXBLADE",
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "booming-blade",
+            "eldritch-blast"
+          ],
+          "knownSpellKeys": [
+            "hex",
+            "shield"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "PALADIN_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "classOptions": [
+          {
+            "optionNameEng": "Dueling"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "PALADIN_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "OATH_OF_THE_ANCIENTS",
+      "decisions": {}
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "PALADIN_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "WAR_CASTER"
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "PALADIN_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "PALADIN_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "PALADIN_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "PALADIN_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "PALADIN_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "PALADIN_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "PALADIN_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "PALADIN_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "PALADIN_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "PALADIN_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "PALADIN_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "PALADIN_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "PALADIN_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "PALADIN_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "PALADIN_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-hexadin-2014",
+          "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+          "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "STR",
+            "amount": 2
+          }
+        ],
+        "openAdvancement": true
+      }
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "OATH_OF_THE_ANCIENTS",
+    "raceKey": "HUMAN_2014",
+    "variantKey": "HUMAN_VARIANT",
+    "backgroundKey": "MARINE",
+    "featKey": "POLEARM_MASTER",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores",
+        "title": "Характеристики",
+        "text": "Потрібна Сила для важких лат і достатня Статура для живучості. Але, як і всі Відьмацькі лицарі, ми насамперед розвиваємо Харизму.\n\n Купівля очок Після расових бонусів Сила 15 15 Спритність 8 8 Статура 15 16 Інтелект 8 8 Мудрість 8 8 Харизма 15 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-ability-scores",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Людина з варіантними рисами{{Variant Human}} із Майстер древкової зброї{{Polearm Master}} дуже сильна, особливо до Додаткової атаки Паладина. Без пакту Hex Warrior працює лише зі зброєю без властивості Дворучна: візьмемо спис або Палицю. Це особливо добре поєднується з Дуелянтом.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Походження",
+        "text": "Походження Морського піхотинця{{Marine}} відповідає досвідченому бійцю й дає Володіння Атлетикою та Виживанням.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "На 1-му рівні старанно опановуємо древкову зброю, обираючи Майстер древкової зброї{{Polearm Master}}.\n\nНа 5-му рівні персонажа, Паладин 4, обираємо Бойовий заклинатель{{War Caster}}.\n\nНа 9-му рівні персонажа, Паладин 8, підвищуємо Харизму на +2.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Божественне відчуття{{Divine Sense}}; Цілющі руки{{Lay on Hands}}. Навички: Магія, Атлетика, Залякування, Переконання, Виживання. Риса: Майстер древкової зброї{{Polearm Master}}. Примітка редакції: Атлетика й Виживання — від походження, Магія — варіантне расове Володіння; Паладин може обрати Залякування й Переконання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Відьмацький клинок{{Hexblade}}: Прокляття Відьмацького Клинка{{Hexblade's Curse}}, Воїн Прокляття{{Hex Warrior}}. Магія пакту{{Pact Magic}}: замовляння Гримучий Клинок [Booming Blade], Позамежний заряд [Eldritch Blast]; заклинання 1-го рівня Проклін [hex], Щит [Shield].",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Бойовий стиль: Дуель{{Dueling}}. Spellcasting{{Spellcasting}}: заклинання 1-го рівня. Божественна кара{{Divine Smite}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Божественне здоровʼя{{Divine Health}}. Священна клятва: Клятва прадавніх{{Oath of the Ancients}}. Божественність{{Channel Divinity}}: Божественність: Гнів природи{{Channel Divinity: Nature's Wrath}}, Божественність: Вигнання невірних{{Channel Divinity: Turn the Faithless}}, Спрямування божественної сили{{Harness Divine Power}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Риса: Бойовий заклинатель{{War Caster}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Extra Attack{{Extra Attack}}. Чаротворення: заклинання 2-го рівня.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Аура захисту{{Aura of Protection}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Аура оберігання{{Aura of Warding}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Підвищення характеристики: Харизма +2 (16=>18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Рівні 10–20",
+        "reason": "Стаття описує збірку лише до 9-го рівня персонажа (Паладин 8). Далі пресет просто бере рівні Паладина 9–19 (вибір платформи, автор не називає): на 13-му Харизма +2 (до 20), на 17-му Статура +2, на 20-му Сила +2; гравець може змінити ці підвищення на листі.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-hexadin-2014",
+            "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+            "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

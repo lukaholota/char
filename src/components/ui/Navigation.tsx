@@ -4,18 +4,20 @@ import { Logo } from "@/lib/components/icons/Logo";
 import { DragonIcon } from "@/lib/components/icons/DragonIcon";
 import { D20Icon } from "@/lib/components/icons/D20Icon";
 import { ModeLink as Link, useLinkStatus } from "@/components/no-ai/ModeLink";
-import { useSearchParams } from "next/navigation";
-import { BookOpen, Eye, Home, Loader2, Search, Sparkles, WandSparkles, type LucideIcon } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { ArrowLeft, BookOpen, Eye, Home, Loader2, Search, Sparkles, WandSparkles, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { useDiceUIStore } from "@/lib/stores/diceUIStore";
 import { useOmniSearchStore } from "@/lib/stores/omniSearchStore";
 import { NavExtraMenu } from "@/components/ui/NavExtraMenu";
 import { EditionSwitcher } from "@/components/ui/EditionSwitcher";
-import { useRoutePathname } from "@/components/no-ai/NoAiModeProvider";
+import { useNoAiHref, useRoutePathname } from "@/components/no-ai/NoAiModeProvider";
 import { type Edition } from "@/rules/route-helpers";
 import { type AccentSchemeName, findEditionAccent } from "@/styles/edition-accent";
 import { useActiveEdition } from "@/components/ui/PersEditionPin";
+import { hasAppHistory, useHasAppHistory, useStandaloneMode } from "@/lib/pwa/standalone-navigation";
+import { goBackInHistory } from "@/lib/history-back";
 
 const NAV_ACCENT = {
 	arcane: {
@@ -38,9 +40,9 @@ const NAV_ACCENT = {
 
 // Kept in step with the button inside NavExtraMenu — "Меню" sits in the same row and must not
 // drift away from its neighbours.
-const ITEM = "relative flex w-16 flex-col items-center justify-center gap-1 rounded-xl py-2 transition-colors";
-const ITEM_IDLE = "text-slate-400 hover:bg-white/5 hover:text-slate-200";
-const ITEM_LABEL = "text-[11px] leading-none";
+const ITEM = "safe-nav-item relative flex w-16 flex-col items-center justify-center gap-1 rounded-xl py-2 transition-colors";
+const ITEM_IDLE = "text-slate-400 hover:bg-white/5 hover:text-slate-200 active:bg-white/10 active:text-slate-100 disabled:opacity-40";
+const ITEM_LABEL = "safe-nav-label text-xs leading-none";
 
 /// The phone shows one row of five; the desktop column has room for the whole catalogue set.
 /// "Пошук" takes the slot "Предмети" used to hold on the phone (KR15.3 §1) and keeps its own
@@ -55,6 +57,7 @@ type NavItem = {
 	width: NavWidth;
 	href?: string;
 	onSelect?: () => void;
+	disabled?: boolean;
 	matchesPathname?: (pathname: string) => boolean;
 };
 
@@ -153,12 +156,12 @@ function NavIcon({ icon, className }: { icon: LucideIcon | "dragon"; className?:
 	return <Icon strokeWidth={NAV_ICON_STROKE} className={cn("h-6 w-6", className)} />;
 }
 
-function NavPendingIndicator() {
+function NavPendingIndicator({ accent }: { accent: (typeof NAV_ACCENT)[AccentSchemeName] }) {
 	const { pending } = useLinkStatus();
 	if (!pending) return null;
 	return (
-		<span data-nav-pending role="status" className="absolute right-1 top-1 text-slate-200">
-			<Loader2 aria-hidden className="h-3 w-3 animate-spin" />
+		<span data-nav-pending role="status" className={cn("pointer-events-none absolute inset-0 rounded-xl", accent.activeItem)}>
+			<Loader2 aria-hidden className="absolute right-1 top-1 h-3 w-3 animate-spin" />
 			<span className="sr-only">Завантаження сторінки</span>
 		</span>
 	);
@@ -188,7 +191,7 @@ function NavItemButton({
 
 	if (item.href === undefined) {
 		return (
-			<button type="button" aria-label={item.label} onClick={item.onSelect} className={className}>
+			<button type="button" aria-label={item.label} onClick={item.onSelect} disabled={item.disabled} className={className}>
 				{body}
 			</button>
 		);
@@ -197,13 +200,12 @@ function NavItemButton({
 	return (
 		<Link
 			href={item.href}
-			navigateOnFirstTouch={item.key === "characters"}
 			aria-label={item.label}
 			aria-current={isActive ? "page" : undefined}
 			className={className}
 		>
 			{body}
-			<NavPendingIndicator />
+			<NavPendingIndicator accent={accent} />
 		</Link>
 	);
 }
@@ -239,6 +241,10 @@ export const Navigation = () => {
 	const { toggle: toggleDice } = useDiceUIStore();
 	const { open: openSearch } = useOmniSearchStore();
 	const edition = useActiveEdition();
+	const standalone = useStandaloneMode();
+	const router = useRouter();
+	const buildHref = useNoAiHref();
+	const hasHistory = useHasAppHistory(`${pathname}?${searchParams.toString()}`);
 
 	const isEmbed =
 		(pathname.startsWith("/spells") || pathname.startsWith("/magic-items") || pathname.startsWith("/2024/spells") || pathname.startsWith("/2024/magic-items")) &&
@@ -250,6 +256,15 @@ export const Navigation = () => {
 
 	const accent = NAV_ACCENT[findEditionAccent(edition).scheme];
 	const items = buildNavItems(edition, openSearch);
+	const fallbackPath = edition === "2024" ? "/2024/char/home" : "/char/home";
+	if (standalone) items[0] = {
+		key: "back", label: "Назад", icon: ArrowLeft, width: "both",
+		disabled: !hasHistory && pathname === fallbackPath,
+		onSelect: () => {
+			if (hasAppHistory()) goBackInHistory();
+			else router.replace(buildHref(fallbackPath));
+		},
+	};
 	const homeHref = edition === "2024" ? "/2024" : "/";
 
 	// Панель меню всередині <nav> не може вибитися вище за сам <nav>: fixed + z-index робить із
@@ -257,6 +272,7 @@ export const Navigation = () => {
 	// (крокова панель конструктора й левелапа — z-[60]), інакше вони ріжуть відкрите меню.
 	return (
 		<nav
+			data-safe-navigation
 			className={cn(
 				"fixed bottom-0 left-0 z-[70] flex w-full flex-row items-center justify-between gap-1 px-2 pt-2 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))]",
 				"border-t border-white/[0.07] bg-[#0b0b11] bg-[linear-gradient(to_top,#08080c,#0e0e16)]",
@@ -275,6 +291,7 @@ export const Navigation = () => {
 
 			<div className="contents md:flex md:w-full md:flex-col md:items-center md:gap-2">
 				<Link
+					data-safe-nav-decoration
 					href={homeHref}
 					aria-label="Головна"
 					className={cn(
@@ -294,7 +311,7 @@ export const Navigation = () => {
 					/>
 				))}
 
-				<NavOrnament className={accent.ornament} />
+				<div data-safe-nav-decoration className="contents"><NavOrnament className={accent.ornament} /></div>
 			</div>
 
 			<div className="contents md:flex md:w-full md:flex-col md:items-center md:gap-2">

@@ -1,0 +1,803 @@
+{
+  "sourceUrl": "https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/e5f3e77b303a92df10487207857200245e71957c/data/races.json",
+  "mirrorRevision": "e5f3e77b303a92df10487207857200245e71957c",
+  "records": [
+    {
+      "kind": "race",
+      "record": {
+        "name": "Genasi",
+        "source": "EEPC",
+        "page": 9,
+        "additionalSources": [
+          {
+            "source": "EGW",
+            "page": 170
+          }
+        ],
+        "otherSources": [
+          {
+            "source": "EGW",
+            "page": 170
+          }
+        ],
+        "reprintedAs": [
+          "Genasi|MPMM"
+        ],
+        "size": [
+          "M"
+        ],
+        "speed": 30,
+        "ability": [
+          {
+            "con": 2
+          }
+        ],
+        "heightAndWeight": {
+          "baseHeight": 56,
+          "heightMod": "2d10",
+          "baseWeight": 110,
+          "weightMod": "2d4"
+        },
+        "age": {
+          "mature": 20,
+          "max": 120
+        },
+        "languageProficiencies": [
+          {
+            "common": true,
+            "primordial": true
+          }
+        ],
+        "soundClip": {
+          "type": "internal",
+          "path": "races/genasi.opus"
+        },
+        "entries": [
+          {
+            "name": "Age",
+            "type": "entries",
+            "entries": [
+              "Genasi mature at about the same rate as humans and reach adulthood in their late teens. They live somewhat longer than humans do, up to 120 years."
+            ]
+          },
+          {
+            "name": "Alignment",
+            "type": "entries",
+            "entries": [
+              "Independent and self-reliant, genasi tend toward a neutral alignment."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Size",
+            "entries": [
+              "Genasi are as varied as their mortal parents but are generally built like humans, standing anywhere from 5 feet to over 6 feet tall. Your size is Medium."
+            ]
+          },
+          {
+            "name": "Languages",
+            "entries": [
+              "You can speak, read, and write Common and Primordial. Primordial is a guttural language, filled with harsh syllables and hard consonants."
+            ],
+            "type": "entries"
+          }
+        ],
+        "hasFluff": true,
+        "hasFluffImages": true
+      }
+    },
+    {
+      "kind": "race",
+      "record": {
+        "name": "Half-Elf",
+        "source": "PHB",
+        "page": 38,
+        "srd": true,
+        "reprintedAs": [
+          "Khoravar|EFA"
+        ],
+        "size": [
+          "M"
+        ],
+        "speed": 30,
+        "ability": [
+          {
+            "cha": 2,
+            "choose": {
+              "from": [
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis"
+              ],
+              "count": 2
+            }
+          }
+        ],
+        "heightAndWeight": {
+          "baseHeight": 57,
+          "heightMod": "2d8",
+          "baseWeight": 110,
+          "weightMod": "2d4"
+        },
+        "age": {
+          "mature": 20,
+          "max": 180
+        },
+        "darkvision": 60,
+        "traitTags": [
+          "Uncommon Race"
+        ],
+        "skillProficiencies": [
+          {
+            "any": 2
+          }
+        ],
+        "languageProficiencies": [
+          {
+            "common": true,
+            "elvish": true,
+            "anyStandard": 1
+          }
+        ],
+        "soundClip": {
+          "type": "internal",
+          "path": "races/half-elf.opus"
+        },
+        "entries": [
+          {
+            "name": "Age",
+            "type": "entries",
+            "entries": [
+              "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Size",
+            "entries": [
+              "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+            ]
+          },
+          {
+            "name": "Darkvision",
+            "entries": [
+              "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            ],
+            "type": "entries"
+          },
+          {
+            "name": "Fey Ancestry",
+            "entries": [
+              "You have advantage on saving throws against being {@condition charmed}, and magic can't put you to sleep."
+            ],
+            "type": "entries"
+          },
+          {
+            "name": "Skill Versatility",
+            "entries": [
+              "You gain proficiency in two skills of your choice."
+            ],
+            "type": "entries"
+          },
+          {
+            "name": "Languages",
+            "entries": [
+              "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+            ],
+            "type": "entries"
+          }
+        ],
+        "hasFluff": true,
+        "hasFluffImages": true
+      }
+    },
+    {
+      "kind": "race",
+      "record": {
+        "name": "Shifter",
+        "source": "ERLW",
+        "page": 33,
+        "reprintedAs": [
+          "Shifter|MPMM",
+          "Shifter|EFA"
+        ],
+        "size": [
+          "M"
+        ],
+        "speed": 30,
+        "heightAndWeight": {
+          "baseHeight": 54,
+          "heightMod": "2d8",
+          "baseWeight": 90,
+          "weightMod": "2d4"
+        },
+        "age": {
+          "mature": 10,
+          "max": 70
+        },
+        "darkvision": 60,
+        "languageProficiencies": [
+          {
+            "common": true
+          }
+        ],
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Age",
+            "entries": [
+              "Shifters are quick to mature both physically and emotionally, reaching young adulthood at age 10. They rarely live to be more than 70 years old."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Alignment",
+            "entries": [
+              "Shifters tend toward neutrality, being more focused on survival than concepts of good and evil. A love of personal freedom can drive shifters toward chaotic alignments."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Size",
+            "entries": [
+              "Your size is Medium."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Speed",
+            "entries": [
+              "Your base walking speed is 30 feet."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Darkvision",
+            "entries": [
+              "You have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Shifting",
+            "entries": [
+              "As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to your level + your Constitution modifier (minimum of 1 temporary hit point). You also gain additional benefits that depend on your shifter subrace, described below.",
+              "Once you shift, you can't do so again until you finish a short or long rest."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Languages",
+            "entries": [
+              "You can speak, read, and write Common."
+            ]
+          }
+        ],
+        "hasFluff": true,
+        "hasFluffImages": true
+      }
+    },
+    {
+      "kind": "race",
+      "record": {
+        "name": "Shifter",
+        "source": "MPMM",
+        "page": 32,
+        "reprintedAs": [
+          "Shifter|EFA"
+        ],
+        "lineage": "VRGR",
+        "size": [
+          "M"
+        ],
+        "speed": 30,
+        "darkvision": 60,
+        "skillProficiencies": [
+          {
+            "choose": {
+              "from": [
+                "acrobatics",
+                "athletics",
+                "intimidation",
+                "survival"
+              ]
+            }
+          }
+        ],
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Bestial Instincts",
+            "entries": [
+              "Channeling the beast within, you have proficiency in one of the following skills of your choice: {@skill Acrobatics}, {@skill Athletics}, {@skill Intimidation}, or {@skill Survival}."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Darkvision",
+            "entries": [
+              "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Shifting",
+            "entries": [
+              "As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus. You can shift a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+              "Whenever you shift, you gain an additional benefit based on one of the following options (choose when you select this race):",
+              {
+                "type": "list",
+                "items": [
+                  {
+                    "type": "item",
+                    "name": "Beasthide",
+                    "entry": "You gain {@dice 1d6} additional temporary hit points. While shifted, you have a +1 bonus to your Armor Class."
+                  },
+                  {
+                    "type": "item",
+                    "name": "Longtooth",
+                    "entry": "When you shift and as a bonus action on your other turns while shifted, you can use your elongated fangs to make an unarmed strike. If you hit with your fangs, you can deal piercing damage equal to {@damage 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+                  },
+                  {
+                    "type": "item",
+                    "name": "Swiftstride",
+                    "entry": "While shifted, your walking speed increases by 10 feet. Additionally, you can move up to 10 feet as a reaction when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke opportunity attacks."
+                  },
+                  {
+                    "type": "item",
+                    "name": "Wildhunt",
+                    "entry": "While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you unless you're {@condition incapacitated}."
+                  }
+                ],
+                "style": "list-hang-notitle"
+              }
+            ]
+          }
+        ],
+        "hasFluff": true,
+        "hasFluffImages": true,
+        "_versions": [
+          {
+            "name": "Shifter; Beasthide",
+            "source": "MPMM",
+            "_mod": {
+              "entries": {
+                "mode": "replaceArr",
+                "replace": "Shifting",
+                "items": {
+                  "name": "Shifting (Beasthide)",
+                  "type": "entries",
+                  "entries": [
+                    "As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus + {@dice 1d6}, and you regain all expended uses when you finish a long rest.",
+                    "While shifted, you have a +1 bonus to your Armor Class."
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "name": "Shifter; Longtooth",
+            "source": "MPMM",
+            "_mod": {
+              "entries": {
+                "mode": "replaceArr",
+                "replace": "Shifting",
+                "items": {
+                  "name": "Shifting (Longtooth)",
+                  "type": "entries",
+                  "entries": [
+                    "As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+                    "When you shift and as a bonus action on your other turns while shifted, you can use your elongated fangs to make an unarmed strike. If you hit with your fangs, you can deal piercing damage equal to {@dice 1d6} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "name": "Shifter; Swiftstride",
+            "source": "MPMM",
+            "_mod": {
+              "entries": {
+                "mode": "replaceArr",
+                "replace": "Shifting",
+                "items": {
+                  "name": "Shifting (Swiftstride)",
+                  "type": "entries",
+                  "entries": [
+                    "As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+                    "While shifted, your walking speed increases by 10 feet. Additionally, you can move up to 10 feet as a reaction when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke opportunity attacks."
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "name": "Shifter; Wildhunt",
+            "source": "MPMM",
+            "_mod": {
+              "entries": {
+                "mode": "replaceArr",
+                "replace": "Shifting",
+                "items": {
+                  "name": "Shifting (Wildhunt)",
+                  "type": "entries",
+                  "entries": [
+                    "As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+                    "While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you unless you're {@condition incapacitated}."
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "subrace",
+      "record": {
+        "name": "Air",
+        "source": "EEPC",
+        "raceName": "Genasi",
+        "raceSource": "EEPC",
+        "page": 9,
+        "reprintedAs": [
+          "Genasi (Air)|MPMM"
+        ],
+        "ability": [
+          {
+            "dex": 1
+          }
+        ],
+        "additionalSpells": [
+          {
+            "ability": "con",
+            "known": {
+              "1": [
+                "levitate"
+              ]
+            }
+          }
+        ],
+        "entries": [
+          {
+            "name": "Unending Breath",
+            "entries": [
+              "You can hold your breath indefinitely while you're not {@condition incapacitated}."
+            ],
+            "type": "entries"
+          },
+          {
+            "name": "Mingle with the Wind",
+            "entries": [
+              "You can cast the {@spell levitate} spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell."
+            ],
+            "type": "entries"
+          }
+        ],
+        "hasFluff": true,
+        "hasFluffImages": true
+      }
+    },
+    {
+      "kind": "subrace",
+      "record": {
+        "name": "Earth",
+        "source": "EEPC",
+        "raceName": "Genasi",
+        "raceSource": "EEPC",
+        "page": 9,
+        "reprintedAs": [
+          "Genasi (Earth)|MPMM"
+        ],
+        "ability": [
+          {
+            "str": 1
+          }
+        ],
+        "additionalSpells": [
+          {
+            "ability": "con",
+            "known": {
+              "1": [
+                "pass without trace"
+              ]
+            }
+          }
+        ],
+        "entries": [
+          {
+            "name": "Earth Walk",
+            "entries": [
+              "You can move across {@quickref difficult terrain||3} made of earth or stone without expending extra movement."
+            ],
+            "type": "entries"
+          },
+          {
+            "name": "Merge with Stone",
+            "entries": [
+              "You can cast the {@spell pass without trace} spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell."
+            ],
+            "type": "entries"
+          }
+        ],
+        "hasFluff": true,
+        "hasFluffImages": true
+      }
+    },
+    {
+      "kind": "subrace",
+      "record": {
+        "name": "Fire",
+        "source": "EEPC",
+        "raceName": "Genasi",
+        "raceSource": "EEPC",
+        "page": 9,
+        "reprintedAs": [
+          "Genasi (Fire)|MPMM"
+        ],
+        "ability": [
+          {
+            "int": 1
+          }
+        ],
+        "darkvision": 60,
+        "resist": [
+          "fire"
+        ],
+        "additionalSpells": [
+          {
+            "innate": {
+              "3": {
+                "daily": {
+                  "1": [
+                    "burning hands"
+                  ]
+                }
+              }
+            },
+            "ability": "con",
+            "known": {
+              "1": [
+                "produce flame#c"
+              ]
+            }
+          }
+        ],
+        "entries": [
+          {
+            "name": "Darkvision",
+            "entries": [
+              "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. Your ties to the Elemental Plane of Fire make your darkvision unusual: everything you see in darkness is in a shade of red."
+            ],
+            "type": "entries"
+          },
+          {
+            "name": "Fire Resistance",
+            "entries": [
+              "You have resistance to fire damage."
+            ],
+            "type": "entries"
+          },
+          {
+            "name": "Reach to the Blaze",
+            "entries": [
+              "You know the {@spell produce flame} cantrip. Once you reach 3rd level, you can cast the {@spell burning hands} spell once with this trait as a 1st-level spell, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells."
+            ],
+            "type": "entries"
+          }
+        ],
+        "hasFluff": true,
+        "hasFluffImages": true
+      }
+    },
+    {
+      "kind": "subrace",
+      "record": {
+        "name": "Water",
+        "source": "EEPC",
+        "raceName": "Genasi",
+        "raceSource": "EEPC",
+        "page": 10,
+        "reprintedAs": [
+          "Genasi (Water)|MPMM"
+        ],
+        "speed": {
+          "walk": 30,
+          "swim": 30
+        },
+        "ability": [
+          {
+            "wis": 1
+          }
+        ],
+        "traitTags": [
+          "Amphibious"
+        ],
+        "resist": [
+          "acid"
+        ],
+        "additionalSpells": [
+          {
+            "innate": {
+              "3": {
+                "daily": {
+                  "1": [
+                    "create or destroy water#2"
+                  ]
+                }
+              }
+            },
+            "ability": "con",
+            "known": {
+              "1": [
+                "shape water|xge#c"
+              ]
+            }
+          }
+        ],
+        "entries": [
+          {
+            "name": "Acid Resistance",
+            "entries": [
+              "You have resistance to acid damage."
+            ],
+            "type": "entries"
+          },
+          {
+            "name": "Amphibious",
+            "entries": [
+              "You can breathe air and water."
+            ],
+            "type": "entries"
+          },
+          {
+            "name": "Swim",
+            "entries": [
+              "You have a swimming speed of 30 feet."
+            ],
+            "type": "entries"
+          },
+          {
+            "name": "Call to the Wave",
+            "entries": [
+              "You know the {@spell shape water|xge} cantrip. When you reach 3rd level, you can cast the {@spell create or destroy water} spell as a 2nd-level spell once with this trait, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells."
+            ],
+            "type": "entries"
+          }
+        ],
+        "hasFluff": true,
+        "hasFluffImages": true
+      }
+    },
+    {
+      "kind": "subrace",
+      "record": {
+        "name": "Variant; Aquatic Elf Descent",
+        "source": "SCAG",
+        "raceName": "Half-Elf",
+        "raceSource": "PHB",
+        "page": 116,
+        "speed": 30,
+        "entries": [
+          {
+            "type": "inset",
+            "name": "Variant Feature (Choose 1)",
+            "entries": [
+              {
+                "name": "Skill Versatility",
+                "entries": [
+                  "You gain proficiency in two skills of your choice."
+                ],
+                "type": "entries"
+              },
+              {
+                "name": "Swim",
+                "entries": [
+                  "You gain a swimming speed of 30 ft."
+                ],
+                "type": "entries"
+              }
+            ],
+            "data": {
+              "overwrite": "Skill Versatility"
+            }
+          }
+        ],
+        "_versions": [
+          {
+            "name": "Variant; Aquatic Elf Descent; Skill Versatility",
+            "source": "SCAG",
+            "_mod": {
+              "entries": {
+                "mode": "replaceArr",
+                "replace": "Variant Feature (Choose 1)",
+                "items": {
+                  "name": "Variant Feature; Skill Versatility",
+                  "type": "entries",
+                  "entries": [
+                    "You gain proficiency in two skills of your choice."
+                  ]
+                }
+              }
+            },
+            "skillProficiencies": [
+              {
+                "any": 2
+              }
+            ]
+          },
+          {
+            "name": "Variant; Aquatic Elf Descent; Swim Speed",
+            "source": "SCAG",
+            "_mod": {
+              "entries": {
+                "mode": "replaceArr",
+                "replace": "Variant Feature (Choose 1)",
+                "items": {
+                  "name": "Variant Feature; Swim Speed",
+                  "type": "entries",
+                  "entries": [
+                    "You gain a swimming speed of 30 ft."
+                  ]
+                }
+              }
+            },
+            "speed": {
+              "walk": 30,
+              "swim": 30
+            },
+            "skillProficiencies": null,
+            "overwrite": {
+              "skillProficiencies": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "kind": "subrace",
+      "record": {
+        "name": "Wildhunt",
+        "source": "ERLW",
+        "raceName": "Shifter",
+        "raceSource": "ERLW",
+        "page": 34,
+        "reprintedAs": [
+          "Shifter|MPMM",
+          "Shifter|EFA"
+        ],
+        "ability": [
+          {
+            "wis": 2,
+            "dex": 1
+          }
+        ],
+        "skillProficiencies": [
+          {
+            "survival": true
+          }
+        ],
+        "entries": [
+          {
+            "type": "entries",
+            "name": "Natural Tracker",
+            "entries": [
+              "You have proficiency in the {@skill Survival} skill."
+            ]
+          },
+          {
+            "type": "entries",
+            "name": "Shifting Feature",
+            "entries": [
+              "While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you, unless you're {@condition incapacitated}."
+            ]
+          }
+        ],
+        "hasFluff": true,
+        "hasFluffImages": true
+      }
+    }
+  ]
+}

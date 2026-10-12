@@ -47,6 +47,16 @@ describe("GlossaryTerm", () => {
     expect(paragraph?.textContent).not.toContain("[Insight]");
   });
 
+  it("з поясненням жаргону показує його під оригіналом і виглядає плашкою з іконкою питання", () => {
+    render(<p><GlossaryTerm original="Multiple Ability Dependent" hint="Залежність від багатьох характеристик.">MAD</GlossaryTerm></p>);
+    const term = screen.getByRole("button", { name: /MAD — Multiple Ability Dependent\. Залежність від багатьох характеристик\./ });
+    expect(term.querySelector("svg[aria-hidden]")).not.toBeNull();
+    expect(term.className).toContain("rounded-md");
+    expect(term.className).toContain("border");
+    fireEvent.click(term);
+    expect(screen.getByRole("tooltip").textContent).toBe("Multiple Ability DependentЗалежність від багатьох характеристик.");
+  });
+
   /// Рішення власника 2026-09-20: крапкова лінія лишилася рівно за посиланнями на правила,
   /// бо доти маркер звірки виглядав так само й обіцяв відкриття, якого не було.
   it("позначає себе надрядковим «en», а не підкресленням", () => {

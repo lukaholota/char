@@ -96,7 +96,7 @@ export default function AddWeaponDialog({ persId, ruleset, onSuccess }: AddWeapo
         </Button>
       </DialogTrigger>
       <DialogContent 
-        className="max-w-md bg-slate-900/60 backdrop-blur-xl border-white/10 text-slate-50 p-0 overflow-hidden flex flex-col h-[80vh]"
+        className="max-w-md border-white/10 text-slate-50 p-0 overflow-hidden flex flex-col h-[80vh]"
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
         <DialogHeader className="p-4 border-b border-white/10 shrink-0">
@@ -184,7 +184,7 @@ export default function AddWeaponDialog({ persId, ruleset, onSuccess }: AddWeapo
                   <Button 
                     size="sm" 
                     variant="ghost" 
-                    className="opacity-0 group-hover:opacity-100 transition h-8 w-8 p-0"
+                    className="[@media(hover:hover)_and_(pointer:fine)]:opacity-0 group-hover:opacity-100 transition h-8 w-8 p-0"
                     onClick={() => handleAdd(w)}
                     disabled={isPending}
                   >

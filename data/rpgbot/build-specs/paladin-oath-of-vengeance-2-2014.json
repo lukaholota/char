@@ -1,0 +1,204 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "paladin-oath-of-vengeance-2-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-paladin-oath-of-vengeance-2-2014-draft1",
+    "sourceRevisionId": "rpgbot-904b7b3e34283e86-3553a26218a903b7"
+  },
+  "exampleSection": "section-example-build-oath-of-retribution",
+  "levelTableSection": "section-levels",
+  "classKey": "PALADIN_2014",
+  "subclassKey": "OATH_OF_VENGEANCE",
+  "raceKey": "BUGBEAR_MPMM",
+  "backgroundKey": "URBAN_BOUNTY_HUNTER",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 10,
+    "CON": 14,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "levels": [
+    {
+      "level": 2,
+      "classOptions": [
+        {
+          "optionNameEng": "Defense"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "subclassKey": "OATH_OF_VENGEANCE"
+    },
+    {
+      "level": 4,
+      "featKey": "POLEARM_MASTER"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "featKey": "SLASHER",
+      "featOptions": [
+        {
+          "optionNameEng": "SLASHER Ability (Strength)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "STR",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CHA",
+          "amount": 2
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 20
+    }
+  ],
+  "incomplete": [
+    {
+      "field": "Продаж спорядження",
+      "reason": "Автор радить продати дворучний меч; пресет не записує продаж, тож лишено глефу, дворучний меч і метальні списи зі стартових груп.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Інструменти Міського мисливця за головами",
+      "reason": "Автор називає лише інструменти злодія; каталог дає всі три володіння передісторії (ігровий набір, музичний інструмент, інструменти злодія), хоча за книгою вибирають два з трьох.",
+      "section": "section-background"
+    },
+    {
+      "field": "Підготовлені заклинання Паладина",
+      "reason": "Автор по рівнях називає підготовлені заклинання (Виклик на дуель, Щит віри, Лікування ран, Громова кара тощо), а на 6-му, 8-му й 16-му пише «будь-яке». Платформа не записує вибір підготовлених заклинань Паладина в прогресію, їх готують на листі; рівні 2–20 додані без заклинань.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/paladin-oath-of-vengeance-2-2014.webp",
+    "title": "Паладин — Клятва помсти, Ведмебай",
+    "description": "Паладин Клятви помсти з глефою в кольчузі: Ведмебай із Несподіваною атакою, Обман і Переконання від Міського мисливця за головами, Майстер древкової зброї на 4-му рівні.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "STR",
+      "CHA",
+      "STR"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ATHLETICS",
+        "INTIMIDATION"
+      ],
+      "race": [],
+      "background": [
+        "DECEPTION",
+        "PERSUASION"
+      ]
+    },
+    "backgroundCustomization": {
+      "tools": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": [
+          "GLAIVE",
+          "GREATSWORD"
+        ]
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Ведмебай за правилами Таші: +2 до Сили й +1 до Харизми, як у таблиці автора (Сила 17, Харизма 16). Це вже враховано.",
+    "skillExplanation": "Атлетика й Залякування — від Паладина, Непомітність — від Ведмебая. Автор бере Обман і Переконання від Міського мисливця за головами; каталог дає Обман і Аналіз поведінки, тож Аналіз поведінки замінено на Переконання за правилом PHB «Налаштування передісторії». Мову ми обрали за вас — вибір платформи.",
+    "equipmentExplanation": "Кольчуга, глефа, дворучний меч і метальні списи — за порадою автора. Набір священика ми обрали за вас — вибір платформи."
+  },
+  "revision": 2
+}

@@ -1,0 +1,70 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "monk-drunken-master-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-monk-drunken-master-2014-draft1",
+    "sourceRevisionId": "rpgbot-294ef46d7ed3fee8-0a76ddab2bb31be2"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "MONK_2014",
+  "subclassKey": "WAY_OF_THE_DRUNKEN_MASTER",
+  "raceKey": "SATYR_MPMM",
+  "backgroundKey": "FAR_TRAVELER",
+  "abilityScores": { "STR": 8, "DEX": 15, "CON": 15, "INT": 8, "WIS": 15, "CHA": 8 },
+  "revision": 2,
+  "levels": [
+    {"level": 2},
+    {"level": 3, "subclassKey": "WAY_OF_THE_DRUNKEN_MASTER"},
+    {"level": 4, "abilityScoreIncrease": [{"ability": "DEX", "amount": 2}], "section": "section-feats-2"},
+    {"level": 5},
+    {"level": 6},
+    {"level": 7},
+    {"level": 8, "abilityScoreIncrease": [{"ability": "DEX", "amount": 2}], "section": "section-feats-2"},
+    {"level": 9},
+    {"level": 10},
+    {"level": 11},
+    {"level": 12, "featKey": "CRUSHER", "featOptions": [{"optionNameEng": "CRUSHER Ability (Constitution)"}], "section": "section-feats-2"},
+    {"level": 13},
+    {"level": 14},
+    {"level": 15},
+    {"level": 16, "featKey": "CHEF", "featOptions": [{"optionNameEng": "CHEF Ability (Constitution)"}], "section": "section-feats-2"},
+    {"level": 17},
+    {"level": 18},
+    {"level": 19, "abilityScoreIncrease": [{"ability": "WIS", "amount": 2}], "section": "section-feats-2"},
+    {"level": 20}
+  ],
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "incomplete": [
+    {
+      "field": "Музичний інструмент передісторії",
+      "reason": "Далекий мандрівник дає володіння музичним інструментом на вибір; автор його не називає, а пресет не записує вибір інструментів.",
+      "section": "section-background"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/monk-drunken-master-2014.webp",
+    "title": "Монах — Сатир Шляху пʼяного майстра",
+    "description": "Гуляка: Сатир-Монах Шляху пʼяного майстра зі Спритністю, Статурою й Мудрістю 16, опором магії та веселими стрибками.",
+    "subraceKey": null,
+    "racialAbilities": ["DEX", "CON", "WIS"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["HISTORY", "STEALTH"], "race": [], "background": [] },
+    "expertise": [],
+    "classOptions": [],
+    "languages": ["ELVISH", "SYLVAN"],
+    "equipment": [
+      { "group": 1, "option": "b", "weapons": ["SPEAR"] },
+      { "group": 2, "option": "b", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля по 15 у Спритності, Статурі й Мудрості та три підвищення +1 сатира за правилами Таші до цих самих характеристик: на старті три шістнадцятки, як пише автор.",
+    "skillExplanation": "Виступ і Переконання — від Сатира, Історія й Непомітність — від Монаха, Аналіз поведінки й Уважність — від Далекого мандрівника, як у авторському прикладі. Дві мови (від раси й передісторії) автор не називає: їх ми обрали за вас.",
+    "equipmentExplanation": "Автор радить тримати спис чи палицю двома руками; ми взяли спис (перший названий). Дротики — стартова група Монаха, набір мандрівника ми обрали за вас — його можна змінити."
+  }
+}

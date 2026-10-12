@@ -1,0 +1,2024 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-51ef21035189f705",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-51ef21035189f705-babeb18f83895075",
+      "sourceId": "rpgbot-51ef21035189f705",
+      "fetchedAt": "2026-09-29T19:13:18.573527+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:52:33-04:00",
+      "contentHash": "9ee6455b6490e68ee0233b8ce221b52e06adeaaf7e28e764b77902cfaabe9ae5",
+      "title": "Phantom Rogue 5e: DnD Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-51ef21035189f705-babeb18f83895075.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-rogue-phantom-2014",
+    "sourceId": "rpgbot-51ef21035189f705",
+    "slug": "rogue-phantom-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Фантом — гайд підкласу Пройдисвіта (2014)",
+    "titleEn": "Phantom Rogue 5e: DnD Subclass Guide",
+    "topics": [
+      "Пройдисвіт",
+      "Фантом",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "sourceRevisionId": "rpgbot-51ef21035189f705-babeb18f83895075",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "intro",
+          "heading": "Пройдисвіт-Фантом 5e: гайд підкласу D&D",
+          "blocks": [
+            {
+              "blockId": "block-intro-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "«Хто ви?»"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "«Напівзгаслі душі мертвих. Хіба це не болісно очевидно?»"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "-FFXIV: Endwalker"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пройдисвіт-Фантом має дуже виразний смак смерті й жнив душ. Хоч ви можете грати персонажа як завгодно, ці відтінки вбудовані в механіку класу, з ресурсом, що поповнюється, коли поруч із Фантомом хтось помирає. Правильно керуючи цим ресурсом, Фантом може дуже стабільно завдавати чимало додаткової шкоди. Єдина прикра річ у тому, що Фантоми не отримують цю здатність відновлення від убивств до девʼятого рівня. До того ми все ще Пройдисвіт, що намагається завдавати «Підступних атак»{{Sneak Attack}}, коли може."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щодо ролей у групі, Фантом не змінює основне призначення Пройдисвіта. Уміння Фантома натомість посилюють роль Пройдисвіта як джерела шкоди, доки в боях більше одного ворога. Поза боєм Фантом — цікаве дзеркало "
+                },
+                {
+                  "type": "link",
+                  "text": "Ножа душі",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/soulknife/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Там, де Ніж душі може штовхати верхні межі навичок, які він знає, Фантом натомість може змінювати навички, які він знає, з невеликою підготовкою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки Пройдисвіти можуть здаватися трохи схожими щодо білдів, наш приклад досліджує колорит і стиль, не жертвуючи шкодою. Збірка розрахована на того, хто жне душі в імʼя Королеви Круків{{Raven Queen}}, навʼязуючи смертність тим, хто смів би тікати від смерті. Так, це трохи занадто пафосно й прямолінійно."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-3",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Фантома",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Фантома",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#phantom-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Фантома",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#phantom-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Фантома",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#phantom-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Фантома",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#phantom-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Фантома",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#phantom-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Фантома — Не можу перемогти Її, тож доведеться стати Нею",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/phantom/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Фантома",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Шепіт мертвих|Whispers of the Dead}}: можливість швидко отримати володіння — неймовірно корисна. Якщо поєднати її з іншими бафами на кшталт «Покращення здібності [Enhance Ability]» і «Настанови [Guidance]», можна обійти майже будь-який виклик на основі навичок чи інструментів, якщо у вас є час підготуватися. Здебільшого можна залишати це на володінні навичкою низького значення, але більшість інструментів не знадобляться, якщо немає часу на короткий відпочинок.\n\nНіхто не влаштує вам засідку й не попросить дістати інструменти пивовара й зробити їм пива (я варив пиво. Це займає кілька годин, а витратити годину, щоб спершу подрімати, — не велике прохання. Я й це робив)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Плач з могили|Wails from the Grave}}: стартує дуже повільно (1к6 двічі на день), але зростає експоненційно, коли збільшуються шкода від «Підступної атаки» і ваш Бонус Майстерності. Шкода некротична, а до неї рідко є опір, і вона автоматична, якщо ви успішно завдали «Підступної атаки», тож чудова проти ворогів, у яких важко влучити. Навіть коли вона міцнішає, не варто кидатися нею без потреби. Ви ніколи не матимете більше ніж 6 використань (не рахуючи «Токенів спочилих») і вони ніколи не завдаватимуть більше 5к6 шкоди, тож треба діяти стратегічно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Токени спочилих|Tokens of the Departed}}: я люблю в цьому умінні все. Тема крута, механіка весела, ресурсний запас відповідно обмежений, але легко відновлюється, а переваги веселі, тематично відповідні й справді хороші. На 9-му рівні ви отримуєте три переваги, а на 13-му можете відновлювати «Примарну ходу» жетоном, і на 17-му ви прокидаєтеся після довгого відпочинку з безкоштовним душевним жетоном.\n\nПерша перевага — безсумнівно найкраща з трьох, і вона достатньо хороша, щоб майже завжди тримати під рукою душевний жетон. Перевага на ряткидки Статури не зовсім така добра, як володіння, але близька. На жаль, Фантому не треба хвилюватися про Концентрацію, якщо ви не берете «Посвяченого у магію»{{Magic Initiate}} чи мультикласування, тож не вдасться махати жетоном щоразу, коли накладаєте заклинання Концентрації.\n\nДруга перевага допомагає з «Плачем з могили» і це, без сумніву, ваш найчастіший спосіб витрачати жетони. На цьому рівні «Плач з могили» — пристойна порція шкоди, що відповідає тому, що заклинатель може з багатьма замовляннями. Проте обмеження на використання за Бонусом Майстерності вас далеко не заведе, тож можна знищити жетон, щоб отримати трохи безкоштовної шкоди. Щоразу, коли ви думаєте «чи вартий новий жетон моєї Реакції прямо зараз?», памʼятайте, що це невелика купа легкої некротичної шкоди, коли вона вам потрібна пізніше.\n\nТретя перевага — по суті «Розмова з мертвими [Speak with Dead]», але ви отримуєте лише одне запитання. В іншому ті самі проблеми, коли субʼєкт може бути невизначеним, оманливим чи в інший спосіб некорисним. Дуже ситуативно, але якщо ви якимось чином змусите це працювати, це чудово. Тут також є цікавий крайній випадок: істота, що дозволила вам створити жетон, може знову бути живою, особливо коли ваші союзники гинуть і їх воскрешають. Ви можете скористатися цим, щоб поставити запитання істоті, яка зараз жива, що призведе до кумедних ситуацій, коли примарна подоба живої істоти зʼявляється в тій самій кімнаті з цією істотою лише для того, щоб сказати щось цілком некорисне, перш ніж зникнути.\n\nЄдина вада в усьому цьому в тому, що воно падає жертвою класичного трюку «Мішок щурів». Ви можете вбити будь-яку істоту, щоб створити новий душевний жетон, тож якщо у вас є мішок щурів чи доступ до інших легкозамінних істот, ви можете вбивати їх поза боєм для відновлення. Ваш Майстер може виправдано внести зміни, щоб це заборонити (вимога ПН вище 0, можливо, достатня, особливо на 9-му рівні), тож намагайтеся не покладатися на випадок зловживання надто сильно. Загалом це не працюватиме із закликаними істотами (вони мають померти, а не просто опинитися на 0 хітів), і оскільки смерть і зведення до 0 хітів раптом означають різне, я закликаю Майстрів почати відстежувати ряткидки від смерті для ворогів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примарна хода{{Ghost Walk}}: 1-хвилинна тривалість була б хорошою. 10-хвилинна тривалість — фантастична. 10 хвилин, очевидно, цілком достатньо, якщо ви користуєтеся цим у бою, але важливіше це поза боєм, де вам може знадобитися пройти крізь стіни, підлоги чи стелі під час розвідки. Швидкість 10 фт. крихітна, але памʼятайте, що ви маєте «Хитру дію», тож можете робити Ривок бонусною дією. Якщо ви можете отримати бафи на кшталт «Скорохода [Longstrider]», вони дуже допоможуть, бо будь-яке пласке числове збільшення порівняно велике відносно 10 фт., і бо ви можете по суті подвоїти ефект ривком без витрат вашої Дії."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Друг смерті{{Death's Friend}}: на цьому рівні «Плач з могили» завдає 4к6 шкоди, трохи не доходячи максимуму 6к6. Додавання цієї шкоди до вашої основної цілі, коли ви використовуєте «Плач з могили», означає, що ваша «Підступна атака» завдає на 50% більше шкоди, хоч незрозуміло, чи можна помножити шкоду на критичному влучанні. Вважаю, що не можна, бо шкода застосовується до цілі з окремого джерела, а не додається до шкоди початкової атаки, як ефекти на кшталт «Божественної кари»{{Divine Smite}}.\n\nДруга перевага цього уміння гарантує, що в кінці довгого відпочинку у вас є принаймні один душевний жетон. Це критично важлива перевага, щоб ви могли користуватися Перевагою на ряткидки Статури, тож намагайтеся не спалювати свій жетон, коли вперше захочете застосувати «Плач душ»{{Wail of Souls}}. Але оскільки ви отримуєте жетон безкоштовно, це також полегшує витрачання вашого останнього жетона прямо перед довгим відпочинком. Звісно, можна просто скористатися трюком із мішком щурів, щоб отримувати безкоштовні душевні жетони, тож ця перевага не така впливова, як того хотіла WotC, коли її писала."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-phantom-ability-scores",
+          "heading": "Характеристики Фантома",
+          "sourceAnchor": "phantom-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-phantom-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Фантом — типовий Пройдисвіт і хоче типових характеристик Пройдисвіта."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-phantom-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: хоч технічно є аргумент на користь Атлетики й, можливо, деяких інструментів, це дуже нішеві варіанти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-phantom-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: КБ, кидки атаки, Непомітність, інші речі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-phantom-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: не помирайте, будь ласка."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-phantom-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: для «книжкових» навичок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-phantom-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: для навичок дослідника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-phantom-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: для навичок «обличчя»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-phantom-ability-scores-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки Фантоми мають плаваючу навичку й нам нагально не потрібні розумові характеристики, при купівлі характеристик можна підвищити дві до 10, а третю до 13, щоб прибрати штрафи й відкрити потенційні мінімуми для мультикласування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-phantom-ability-scores-9",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 (13)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 (10)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 (13)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-phantom-races",
+          "heading": "Раси Фантома",
+          "sourceAnchor": "phantom-races",
+          "blocks": [
+            {
+              "blockId": "block-section-phantom-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зверніться до "
+                },
+                {
+                  "type": "link",
+                  "text": "огляду рас Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/races/"
+                },
+                {
+                  "type": "text",
+                  "text": ": у тому, що нам потрібно, нічого не змінюється."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-phantom-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Лісовий ельф{{Wood Elf}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": стандартні ельфійські риси й доступ до «Ельфійської точності»{{Elven Accuracy}} добре поєднуються з набором володінь зброєю, які можна замінити, щоб розширити варіанти Пройдисвіта, і додатковими 5 футами швидкості ходьби."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-phantom-feats",
+          "heading": "Риси Фантома",
+          "sourceAnchor": "phantom-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-phantom-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Уміння підкласу Фантома не змінюють того, чого ми хочемо від "
+                },
+                {
+                  "type": "link",
+                  "text": "рис з гайда Пройдисвіта.",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#feats"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-phantom-weapons",
+          "heading": "Зброя Фантома",
+          "sourceAnchor": "phantom-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-phantom-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Використовуйте зброю зі Спритністю чи дальню зброю "
+                },
+                {
+                  "type": "link",
+                  "text": "на ваш смак",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": ", але памʼятайте, що хоч «Плач з могили»{{Wails from the Grave}} зважає лише на відстань між вашими цілями, «Токени спочилих»{{Tokens of the Departed}} зважають на те, що ви маєте бути в межах 30 футів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-phantom-weapons-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ваша раса має володіння зброєю, які можна замінити, ви можете захотіти обрати один із таких варіантів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-phantom-weapons-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Батіг{{Whip}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": одноручна ріжуча зброя зі Спритністю та Досяжністю. Звісно, вона завдає лише 1к4 шкоди, але для цього й існують кубики «Підступної атаки»."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шабля{{Scimitar}} "
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": єдина інша ріжуча зброя зі Спритністю, що може мати значення, якщо ви хочете користуватися «Рубакою»{{Slasher}}, щоб цілі не могли втекти з радіуса ваших жетонів. Більше шкоди, 1к6, але без досяжності."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-phantom-armor",
+          "heading": "Обладунки Фантома",
+          "sourceAnchor": "phantom-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-phantom-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як "
+                },
+                {
+                  "type": "link",
+                  "text": "будь-який інший Пройдисвіт",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": ", це шкіряний і проклепаний шкіряний обладунок, якщо ви не"
+                },
+                {
+                  "type": "link",
+                  "text": " мультикласуєте",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+          "heading": "Приклад збірки Фантома — Не можу перемогти Її, тож доведеться стати Нею",
+          "sourceAnchor": "example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+          "blocks": [
+            {
+              "blockId": "block-section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Дивлячись смерті в очі, я вдихаю, нічого більше не лишилося"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Тепер заплющую очі востаннє й кажу «прощавай»"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Лежачи оголеним, поки навколо падає сніг"
+                },
+                {
+                  "type": "text",
+                  "text": " "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "Наближаюся до краю, але Вона мене не візьме"
+                },
+                {
+                  "type": "text",
+                  "text": " –"
+                },
+                {
+                  "type": "link",
+                  "text": "Oblivion",
+                  "href": "https://www.youtube.com/watch?v=Bb_-bGLLhn0"
+                },
+                {
+                  "type": "emphasis",
+                  "text": " (FFXIV: Heavensward)"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Збірки Пройдисвітів дещо цікаві. Більшість архетипів лише дають альтернативні умови для застосування шкоди «Підступної атаки», і Фантом не виняток. Ну, напіввиняток. Фантом не дає іншого способу зробити ціль вразливою до «Підступної атаки», а натомість дозволяє Пройдисвіту завдати частину шкоди другій цілі. Утім, окрім кількох рис, які добре мати, більшість Пройдисвітських архетипів усе одно будуються однаково, тож ця збірка досліджує вибір, зроблений, щоб підсилити колорит персонажа."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей колорит — той, хто збирає душі живих на службі в якогось божества смерті. Для прикладу оберемо Королеву Круків, але підійде будь-який бог чи богиня смерті. Наша основна зброя механічно є батогом і слугувала б чудово як є, але оскільки колорит безкоштовний і ми йдемо ва-банк на тему й колорит, можна просто сказати, що це швидше "
+                },
+                {
+                  "type": "link",
+                  "text": "кусарігама",
+                  "href": "https://en.wikipedia.org/wiki/Kusarigama"
+                },
+                {
+                  "type": "text",
+                  "text": ", щось на кшталт маленької коси на ланцюгу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чудова річ у всьому цьому колориті й стилі в тому, що ми не жертвуємо жодною базовою компетентністю Пройдисвіта; ми все ще роздавач «Підступних атак» із купою навичок."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми використовуємо Лісового ельфа{{Wood Elf}} як расу, і стандартний розподіл характеристик працює як є: +2 Спритність +1 Мудрість."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми розподіляємо розумові характеристики так, щоб прибрати штрафи й краще синергувати з плаваючою навичкою Фантома від «Шепоту мертвих»{{Whispers of the Dead}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми використовуємо Лісового ельфа з кількох причин. Передусім нам потрібна була раса з принаймні одним володінням бойовою зброєю, яке можна замінити на володіння батогом за правилами власного походження. Лісові ельфи мають чотири володіння, тож три інші можна замінити на корисні інструменти: приладдя пивовара, інструменти картографа й кухарське начиння."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми також залишаємо володіння Уважністю, бо воно нам корисне. До всього цього «Прудконогість»{{Fleet of Foot}} підвищує нашу швидкість ходьби до 35, а «Маскування в дикій природі»{{Mask of the Wild}} дозволяє ховатися, будучи лише слабко прихованим природними явищами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми беремо передісторію {{Морського піхотинця|Marine}}, що давала б Атлетику й Виживання, але якщо ми обираємо Атлетику як один із варіантів Пройдисвіта, її можна замінити на будь-яку навичку. Ми обираємо Релігію, щоб додати трохи колориту збірці у формі Віри. Оскільки цей вибір цілком заради колориту, будь-що інше, у чому ви хочете бути добрим, — варіант. Морський піхотинець також дає обидва володіння транспортом: наземним і водним."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Лісового ельфа ми отримуємо приладдя пивовара, інструменти картографа, кухарське начиння й Уважність. Від Пройдисвіта — Атлетику, Аналіз Поведінки, Розслідування, Непомітність і інструменти злодія. Від передісторії Морського піхотинця — Релігію, Виживання й транспорт (наземний і водний)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Цей Фантом стає особливо корисним для групи завдяки синергії інструментів. Приладдя пивовара може перетворити будь-яку воду на чисту питну воду. Інструменти картографа дозволяють складати справжню карту в русі. Кухарське начиння має дві чудові переваги."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У поєднанні з Виживанням начиння дає Перевагу на кубику на перевірки для пошуку їжі, а якщо їжу приготувати й зʼїсти під час короткого відпочинку, усі додають ще +1 за кожен кинутий кубик здоровʼя для відновлення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для «Експертизи» першого рівня ми обираємо Атлетику, щоб компенсувати нашу Силу 8, і Виживання, щоб подвоїти нашу третинну інвестицію в Мудрість. Для «Експертизи» шостого рівня ми обираємо Релігію, щоб по-справжньому виявити колорит жнеця, і Непомітність, що чудово працює з нашим ховатися через «Маскування в дикій природі»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На четвертому рівні ми беремо «Ельфійську точність»{{Elven Accuracy}}, додаючи +1 до Спритності. Це чудово для ситуацій, де ми можемо отримати Перевагу на кубику, як-от якщо маємо доступ до «Стійкого прицілювання»{{Steady Aim}} чи якщо успішно сховалися перед атакою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На восьмому рівні ми беремо «Рубаку»{{Slasher}}, додаючи ще +1 до Спритності. Хоч це трохи ставить нас позаду "
+                },
+                {
+                  "type": "link",
+                  "text": "фундаментальної математики",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": ", Пройдисвіти мають Покращення Характеристик на десятому рівні, що дозволить наздогнати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На десятому рівні ми беремо «Атлета»{{Athlete}}, додаючи останній +1 до Спритності. Це дає невеликий приріст рухливості, будучи ще й гібридною рисою. Як варіант, якщо ви справді хочете більше «Експертизи», «Експерт у навичках»{{Skill Expert}} — ніколи не поганий вибір."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На дванадцятому рівні «Стійкий»{{Resilient}} (Статура) дає нам +1 до Статури, підтягуючи її до 16 і даючи володіння ряткидками Статури. Ми вже маємо Перевагу на кубику на ці ряткидки від «Токенів спочилих», але тепер ми просто грубі до всього, що просить ряткидок Статури."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На шістнадцятому рівні ми беремо «Рухливого»{{Mobile}}. Збільшення швидкості з 35 до 45 чудове, але синергія з «Хитрою дією»{{Cunning Action}} означає, що ми можемо ігнорувати складну місцевість бонусною дією."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На девʼятнадцятому рівні ми беремо Покращення Характеристик на +2 до Мудрості."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-phantom-build-cant-defeat-her-so-instead-ill-have-to-be-her",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підступна атака"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Легкий обладунок\nБатіг (від Лісового ельфа)\nРяткидки\n-Спритність\n-Інтелект\nНавички\n-Аналіз Поведінки\n-Розслідування\n-Уважність\n-Релігія\n-Непомітність\nЕкспертиза\n-Атлетика\n-Виживання\nІнструменти\n-Приладдя пивовара\n-Інструменти картографа\n-Кухарське начиння\n-Інструменти злодія\n-Наземний транспорт\n-Водний транспорт\nЗлодійська мова"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми можемо взяти середнє початкове золото (2,5*4*10=100 зм), щоб купити проклепаний шкіряний обладунок (45 зм), батіг (2 зм), кухарське начиння (1 зм), інструменти злодія (25 зм) і або приладдя пивовара (20 зм), або інструменти картографа (15 зм). Ми тут здебільшого стандартний Пройдисвіт, окрім того, що зробили все потрібне, щоб мати зброю з досяжністю, тож стояти на 10 футів від ворогів, поки наші союзники тримають лінію."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хитра дія{{Cunning Action}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бонусна дія для Ривка, Відступу чи Сховатися. Чудово для нашої економіки дій."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Архетип Фантома\n-Шепіт мертвих\n-Плач з могили\nСтійке прицілювання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Шепіт мертвих» дозволяє нам мати плаваюче володіння навичкою чи інструментом, яке можна міняти на відпочинку. Приємно для багатьох ситуацій, якщо є час підготуватися. «Плач з могили» дозволяє нам вдарити додаткову ціль, коли ми завдаємо «Підступної атаки». Ліміт використань зараз досить малий, але з часом він розшириться. Якщо нам дозволено мати «Стійке прицілювання», це чудовий приріст, особливо з досяжністю нашого батога."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Ельфійська точність\n+1 Спритність (17=>18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "І це найімовірніша причина, чому нам не дозволено мати «Стійке прицілювання». Кидок додаткового кубика на атаки з Перевагою на кубику — "
+                    },
+                    {
+                      "type": "link",
+                      "text": "ось така сильна",
+                      "href": "https://rpgbot.net/oops-all-elves/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " річ."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надприродне ухилення{{Uncanny Dodge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отримуйте менше шкоди. Це зʼїдає нашу реакцію, тож доведеться зважувати інші варіанти, які ми отримаємо пізніше."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза\n-Релігія\n-Непомітність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Приріст до Непомітності, щоб зробити нас особливо підступним жнецем душ, і приріст до Релігії, бо ми вчимося особливо старанно через наш фанатичний запал."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухилення{{Evasion}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Як ухилитися від Вогнекулі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Рубака\n+1 Спритність (18=>19)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Смерть неминуча, і наші вороги ніколи не втечуть від Її крижаної хватки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Токени спочилих{{Tokens of the Departed}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Як винагороду за всю нашу службу, ми тепер можемо позичати душі, які жнемо, перш ніж відправити їх далі. Ці душевні жетони можна використовувати кількома способами, але найважливіше — вони є додатковими використаннями «Плачу з могили». Єдина ціна — треба витратити Реакцію, коли щось помирає, що лишає нас без «Надприродного ухилення»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Атлет\n+1 Спритність (19=>20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Лазіння не допоможе нашим ворогам уникнути Її. Ні зараз, ні ніколи."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надійний талант{{Reliable Talent}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Надійний талант» уже досить смішне уміння, але з «Шепотом мертвих» час на підготовку для переключення навички дає нам таке смішне підсилення будь-чого. Наприклад, на цьому рівні, маючи Силу 8 і «Експертизу» в Атлетиці, ми не можемо кинути менше ніж 17 загалом. Чудово для лазіння чи для повалення когось на підлогу. І це один із наших найгірших прикладів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий (Статура)\n+1 Статура (15=>16)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підсилення ряткидка Статури. Звісно, ми вже маємо Перевагу на кубику на ці ряткидки, але це просто чудова страховка поверх цього проти багатьох жахливих ефектів."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Примарна хода{{Ghost Walk}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розчиняйтеся зі світу живих. Ми можемо літати (швидкість лише 10 фт., але політ є польотом), можемо проходити крізь істот і обʼєкти, а атаки проти нас мають Перешкоду на кубику. Використання технічно раз на довгий відпочинок, але ми також можемо витрачати наші душевні жетони, щоб знову скористатися цією формою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сліповідчуття{{Blindsense}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми можемо визначити, чи щось невидиме занадто близько до нас."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слизький розум{{Slippery Mind}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння ряткидками Мудрості. Це дивовижно, просто якось безбарвно. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Нудно, але практично.",
+                      "href": "https://tvtropes.org/pmwiki/pmwiki.php/Main/BoringButPractical"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Рухливий"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Одне із застережень «Примарної ходи» — проходження крізь людей вважається Складною місцевістю. Якби тільки був якийсь спосіб це ігнорувати. Наприклад, Ривок бонусною дією з «Хитрою дією» і риса «Рухливий»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Друг смерті{{Death's Friend}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На 50% більше шкоди «Підступної атаки» вашій основній цілі, коли ви користуєтеся «Плачем з могили». На жаль, ця шкода не множиться на критичному влучанні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невловимий{{Elusive}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо «Невловимий» не дозволяє нікому отримати Перевагу на кубику проти нас, а «Примарна хода» дає Перешкоду на кубику будь-кому проти нас, ця Перешкода ніколи не може бути скасована."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Мудрість +2 (14=>16)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невеликий приріст навичкам, якими ми любимо користуватися, і ряткидкам Мудрості."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шанс удачі{{Stroke of Luck}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Замість програти, просто виграйте."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-rogue-phantom-2014-001",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Шепіт мертвих",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-002",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Плач з могили",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-003",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Токени спочилих",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-004",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Примарна хода",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-005",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Друг смерті",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-006",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-phantom-ability-scores",
+      "targetBlockId": "block-section-phantom-ability-scores-2",
+      "optionId": "section-phantom-ability-scores-block-section-phantom-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-phantom-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-007",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-phantom-ability-scores",
+      "targetBlockId": "block-section-phantom-ability-scores-3",
+      "optionId": "section-phantom-ability-scores-block-section-phantom-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-phantom-ability-scores-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-008",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-phantom-ability-scores",
+      "targetBlockId": "block-section-phantom-ability-scores-4",
+      "optionId": "section-phantom-ability-scores-block-section-phantom-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-phantom-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-009",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-phantom-ability-scores",
+      "targetBlockId": "block-section-phantom-ability-scores-5",
+      "optionId": "section-phantom-ability-scores-block-section-phantom-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-phantom-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-010",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-phantom-ability-scores",
+      "targetBlockId": "block-section-phantom-ability-scores-6",
+      "optionId": "section-phantom-ability-scores-block-section-phantom-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-phantom-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-011",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-phantom-ability-scores",
+      "targetBlockId": "block-section-phantom-ability-scores-7",
+      "optionId": "section-phantom-ability-scores-block-section-phantom-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-phantom-ability-scores-7",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-012",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-phantom-races",
+      "targetBlockId": "block-section-phantom-races-2",
+      "optionId": "section-phantom-races-block-section-phantom-races-2-item-0",
+      "context": "Лісовий ельф",
+      "explanationBlockId": "block-section-phantom-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-013",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-phantom-weapons",
+      "targetBlockId": "block-section-phantom-weapons-3",
+      "optionId": "section-phantom-weapons-block-section-phantom-weapons-3-item-0",
+      "context": "Батіг",
+      "explanationBlockId": "block-section-phantom-weapons-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-phantom-2014-014",
+      "articleId": "rpgbot-rogue-phantom-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-phantom-2014-draft1",
+      "sectionId": "section-phantom-weapons",
+      "targetBlockId": "block-section-phantom-weapons-3",
+      "optionId": "section-phantom-weapons-block-section-phantom-weapons-3-item-1",
+      "context": "Шабля",
+      "explanationBlockId": "block-section-phantom-weapons-3",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

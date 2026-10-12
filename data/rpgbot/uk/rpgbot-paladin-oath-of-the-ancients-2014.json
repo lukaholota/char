@@ -1,0 +1,1589 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-c21aeda0e3f1afab",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-c21aeda0e3f1afab-aa2347ec79936c67",
+      "sourceId": "rpgbot-c21aeda0e3f1afab",
+      "fetchedAt": "2026-09-29T19:21:29.428450+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:39:34-04:00",
+      "contentHash": "ecc991478c57c183d9fc302add1c3fe93beb1ccc1016320c5cf5df078e702923",
+      "title": "Oath of the Ancients Paladin 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-c21aeda0e3f1afab-aa2347ec79936c67.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+    "sourceId": "rpgbot-c21aeda0e3f1afab",
+    "slug": "paladin-oath-of-the-ancients-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Паладин Клятви прадавніх — гайд підкласу (2014)",
+    "titleEn": "Oath of the Ancients Paladin 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Паладин",
+      "підклас",
+      "Клятва прадавніх",
+      "збірка"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "sourceRevisionId": "rpgbot-c21aeda0e3f1afab-aa2347ec79936c67",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слідопит серед Паладинів: {{Клятва прадавніх|Oath of the Ancients}} має багато спільного зі Слідопитами й Друїдами — і за стилем, і за можливостями. Вона пропонує магічні засоби контролю натовпу й території, недоступні більшості Паладинів, а також Туманний крок [Misty Step], що дає змогу вільно пересуватися. Вона однаково добре підходить і для збірок зі зброєю, і для збірок із Благословенним воїном{{Blessed Warrior}}, тож вибору тут чимало."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перш ніж грати за {{Клятву прадавніх|Oath of the Ancients}}, запитайте себе: «Що я хочу робити такого, з чим Друїд або Слідопит не впорається краще?» Зазвичай відповідь — «виживати», адже Паладин надзвичайно витривалий. Вам також можуть стати в пригоді кращі засоби лікування, ніж у Слідопита, або ж вашій групі може знадобитися «обличчя»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як і будь-який Паладин, {{Клятва прадавніх|Oath of the Ancients}} добре виконує ролі танка, «обличчя» групи, цілителя й атакера. Вона також додає кілька варіантів контролера, хоча замінити в цій ролі повного заклинача не зможе."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Клятви прадавніх",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Клятви прадавніх",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#oath-of-the-ancients-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Клятви прадавніх",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#oath-of-the-ancients-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Клятви прадавніх",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#oath-of-the-ancients-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Клятви прадавніх",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#oath-of-the-ancients-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Клятви прадавніх",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#oath-of-the-ancients-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки — Мисливець-служитель",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#example-build-celebrant-hunter"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-ancients/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Клятви прадавніх",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинання клятви{{Oath Spells}}: Приблизно половина варіантів у списку погана, але зазвичай з кожної пари можна вибрати одне придатне заклинання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{3-й рівень|3rd-Level}}: Розмова з тваринами [Speak with Animals] корисна лише за певних обставин і з рівнями стає дедалі менш потрібною, зате Обплутуючий удар [Ensnaring Strike] — чудовий варіант із багатьох причин. Якщо треба змінити ціль або допомогти союзнику, витратьте бонусну дію й атаку, щоб спіймати ворога в пастку, а тоді дайте йому трохи стікати кровʼю, поки ви займаєтеся нагальнішими справами. Зауважте: після першого ряткидка істота робить "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "перевірку"
+                  },
+                  {
+                    "type": "text",
+                    "text": " Сили, а не ряткидок, тож навіть істотам із володінням ряткидками Сили буде важко втекти. А головне, шкода зростає лінійно з рівнем слота заклинання, тож це чудовий спосіб використати слот протягом усієї карʼєри."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{5-й рівень|5th-Level}}: Місячний промінь [Moonbeam] складно ефективно застосувати, якщо не втримати істоту в його зоні достатньо довго, щоб виправдати витрату слота заклинання (наприклад, захопивши її); та й тоді його краще залишити повним заклиначам. Туманний крок [Misty Step] — фантастичний варіант, який розвʼязує багато проблем із пересуванням: ями, провалля, складна місцевість, стіни вогню, інші небезпечні перепони, вороги тощо. Перемістіться до головного лиходія й помахайте йому мечем перед обличчям."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{9-й рівень|9th-Level}}: Ріст рослин [Plant Growth] дивовижно ефективно контролює територію, а Захист від енергії [Protection from Energy] — фантастичний і дуже важливий захисний варіант."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{13-й рівень|13th-Level}}: Крижаний шторм [Ice Storm] — прикре поєднання недостатньої шкоди й замалої зони контролю. Камʼяна шкіра [Stoneskin] — надзвичайно потужне підсилення, але компоненти вартістю 100 зм швидко виснажать гаманець, тож не накладайте його постійно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{17-й рівень|17th-Level}}: Звернення до природи [Commune with Nature] корисне віщування, особливо в незнайомих місцях; Деревний шлях [Tree Stride] — надзвичайно ситуативне й цілковито марне поза лісом чи джунглями."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Канал божественності{{Channel Divinity}}: Жоден із варіантів не буде стабільно корисним. Обговоріть із Майстром можливість скористатися необовʼязковим класовим умінням «Спрямування божественної сили»{{Harness Divine Power}}."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гнів природи{{Nature’s Wrath}}: По суті, це Обплутуючий удар [Ensnaring Strike], тільки гірше. Гнів природи дозволяє цілі вибрати для ряткидка Силу або Спритність, тоді як Обплутуючий удар змушує її використовувати Силу. Гнів природи дає цілі безкоштовно повторювати ряткидок щоходу, а щоб утекти від ефекту Обплутуючого удару, треба витратити дію на "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "перевірку"
+                  },
+                  {
+                    "type": "text",
+                    "text": " Сили (перевірки характеристик зазвичай слабші за ряткидки, бо до них не додається Бонус Майстерності). Обплутуючий удар завдає шкоди щоходу, а Гнів природи — зовсім ні. Гнів природи потребує дії, тоді як Обплутуючий удар забирає бонусну дію й чекає, поки ви успішно влучите атакою. Ефект Обплутуючого удару посилюється з рівнем слота заклинання, а Гнів природи ніколи не стає кращим. Так, щоб застосувати Обплутуючий удар, спершу треба влучити атакою, але влучати атаками — ваш основний хід у бою. Найбільший недолік Обплутуючого удару порівняно з Гнівом природи — потреба в Концентрації, але навіть це не робить Гнів природи кращим."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Вигнання невірних|Turn the Faithless}}: Ситуативність закладена в уміння. Воно не гірше за Вигнання нежиті{{Turn Undead}} чи подібні варіанти, але без іншого хорошого застосування Каналу божественності{{Channel Divinity}} така вузька опція засмучує."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Аура оберігання|Aura of Warding}}: Опір шкоді від заклинань запобігає величезній шкоді, але в більшості ігор заклиначі становлять меншість ворогів, особливо з огляду на те, що після виходу «Монстрів Мультивсесвіту»{{Monsters of the Multiverse}} монстри все частіше мають дії, схожі на заклинання. Це добре, але корисне лише ситуативно, якщо тільки у вас немає союзників, яких не турбує дружній вогонь."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Безсмертний вартовий{{Undying Sentinel}}: Навряд чи це вміння часто знадобиться, але воно чудово виручить після щасливого критичного удару чи несподіваної потужної атаки. Не знаю, чи належить «смерть від природних причин» до «недоліків старості», але якщо так — це вміння робить вас безсмертним."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Прадавній чемпіон{{Elder Champion}}: Хвилина на день — небагато, але протягом цього короткого часу вміння дуже потужне. Можливість накладати заклинання бонусною дією дає змогу вписати їх у свій хід: використайте, наприклад, Крижаний шторм [Ice Storm] і Захист від смерті [Death Ward] або вразьте ворогів Карою вигнання [Banishing Smite] чи Руйнівною хвилею [Destructive Wave], щоб скористатися тим, що цілі мають перешкоду на ряткидки проти ваших заклинань. Активація потребує дії, але того ж ходу ви все одно встигнете накласти заклинання. Памʼятайте: слотів заклинань мало, і якщо витратити і вершинне вміння класу, і всі слоти заклинань, до кінця дня ви залишитеся в скрутному становищі."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-the-ancients-ability-scores",
+          "heading": "Характеристики Клятви прадавніх",
+          "sourceAnchor": "oath-of-the-ancients-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-the-ancients-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від інших Паладинів{{Paladin}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-the-ancients-races",
+          "heading": "Раси Клятви прадавніх",
+          "sourceAnchor": "oath-of-the-ancients-races",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-the-ancients-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від інших Паладинів{{Paladin}}. Якщо ви плануєте активно користуватися вміннями підкласу, особливо такими варіантами, як Гнів природи{{Nature’s Wrath}}, Харизма може бути непропорційно важливою. Тоді особливо корисно отримати три бонуси +1 до Сили, Статури й Харизми або до Спритності, Статури й Харизми."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-the-ancients-feats",
+          "heading": "Риси Клятви прадавніх",
+          "sourceAnchor": "oath-of-the-ancients-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-the-ancients-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від інших Паладинів{{Paladin}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-the-ancients-weapons",
+          "heading": "Зброя Клятви прадавніх",
+          "sourceAnchor": "oath-of-the-ancients-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-the-ancients-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від інших Паладинів{{Paladin}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-oath-of-the-ancients-armor",
+          "heading": "Обладунки Клятви прадавніх",
+          "sourceAnchor": "oath-of-the-ancients-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-oath-of-the-ancients-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від інших Паладинів{{Paladin}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від інших Паладинів{{Paladin}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-celebrant-hunter",
+          "heading": "Приклад збірки — Мисливець-служитель",
+          "sourceAnchor": "example-build-celebrant-hunter",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-celebrant-hunter-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "А, ще одне вдале полювання! Треба вшанувати Балінор{{Balinor}}. Як щодо ще одного полювання?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-celebrant-hunter-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка навмисно трохи дивна: ми спробуємо зробити те, що, мабуть, неможливо добре реалізувати, — зібрати Паладина дальнього бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-celebrant-hunter-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Створити Паладина дальнього бою складно, адже кілька його атакувальних умінь працюють лише з атаками зброєю ближнього бою — зокрема Божественна кара{{Divine Smite}} і більшість заклинань кари Паладина (як-от Гнівна кара [Wrathful Smite]). Доведеться пожертвувати частиною вбудованої шкоди Паладина заради переваг дальнього бою. Бій на відстані зменшує залежність від позиціювання: можна триматися ближче до інших стрільців у групі, щоб ділитися з ними аурами, а не постійно наздоганяти союзників у ближньому бою, аби вони залишалися в аурі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-celebrant-hunter-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Припустімо, що для цієї збірки доступні всі необовʼязкові класові вміння."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-celebrant-hunter",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основною характеристикою буде Спритність. Оскільки ми здебільшого битимемося на відстані, запас ХП може бути меншим. Натомість вкладемо ці очки в Силу, щоб краще проходити перевірки Атлетики."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки збірка зосереджена на Спритності, на 1-му рівні не доведемо Статуру до 16, як робить чимало інших Паладинів. Ми переважно битимемося на відстані й маємо {{Цілющі руки|Lay on Hands}}, тож можемо дозволити собі менше ХП. Натомість вкладемо ці очки в Силу, щоб краще проходити перевірки Атлетики. Расові бонуси +2/+1 підуть у Спритність і Харизму, щоб на 1-му рівні обидві характеристики мали значення 16."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-3",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Після підвищення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "На 20-му рівні"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-celebrant-hunter",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гіфф{{Giff}}. Гіфф дає нам дві дуже потрібні речі: вогнепальну зброю й Статуру гіпопотама{{Hippo Build}}. {{Майстерність вогнепальної зброї|Firearms Mastery}} — це найважливіші частини риси «Стрілець»{{Gunner}}: вона дозволяє ефективно користуватися вогнепальною зброєю та за потреби стріляти з неї навіть у ближньому бою. Статура гіпопотама дає змогу ефективно Штовхати ворогів попри посередню Силу. Астральна іскра{{Astral Spark}} теж не завадить."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-race-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ту саму збірку можна зробити із налаштованим походженням{{Custom Origin}} або Варіантом людини{{Variant Human}}, пожертвувавши Темним зором чи володінням однією навичкою заради Статури гіпопотама й Астральної іскри. Тоді Штовхання майже зникне з наших тактичних можливостей — можливо, для вас це цілком прийнятно. Вогнепальна зброя для цієї збірки взагалі не обовʼязкова, тож натомість можна взяти «Влучного стрільця»{{Sharpshooter}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-celebrant-hunter",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чужинець{{Outlander}}. Він без перевірок безкоштовно дає майже все корисне з Виживання. Ба більше, замінимо володіння Виживанням на будь-що інше. Поза боєм Паладини часто стають «обличчям» групи, тож візьмімо Аналіз поведінки, щоб компенсувати занедбану Мудрість."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-celebrant-hunter",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чужинець дає нам Атлетику й Аналіз поведінки (памʼятайте, що ми замінили Виживання), а з навичок Паладина візьмімо Переконання та Релігію. Якщо хтось іще у групі може взяти на себе Релігію, оберіть із передісторії Уважність, а з навичок Паладина — Аналіз поведінки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-celebrant-hunter",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Риси — складний вибір для Паладина, адже клас дуже залежить від кількох характеристик, і ця збірка не виняток. Утім, є кілька вельми спокусливих варіантів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Влучний стрілець»{{Sharpshooter}} добре підвищує шкоду будь-якої збірки зі зброєю дальнього бою. Однак Паладин не може обрати бойовий стиль «Стрільба з лука»{{Archery}}, тому надійно користуватися рисою буває складно."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Посвячений у бій»{{Fighting Initiate}} заради бойового стилю «Стрільба з лука»{{Archery}} — чудовий вибір для цієї збірки, але, імовірно, важливіше підвищити характеристики."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Експерт у навичках»{{Skill Expert}} заради Експертизи в Атлетиці може здаватися привабливим варіантом, але, на мою думку, це надмірність, адже Штовхання не буде нашою основною тактикою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-celebrant-hunter",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне відчуття{{Divine Sense}}; {{Цілющі руки|Lay on Hands}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для стартового спорядження візьміть дві одиниці бойової зброї. Якщо Майстер дозволить — два мушкети{{muskets}}. Продайте один. Тоді Майстер скаже: «Я передумав», бо випадково дозволив вам почати з {{вогнепальною зброєю|firearms}} на 1000 зм. Натомість візьміть важкий арбалет{{heavy crossbow}} і рапіру як дві одиниці бойової зброї. Візьміть легкий арбалет{{light crossbow}} за варіантом із метальними списами або простою зброєю. Обидва набори підійдуть. Ми мусимо починати в {{кольчузі|chain mail}}, бо WotC справді не очікували Паладинів, що покладаються на Спритність, тож візьміть її, продайте кольчугу й легкий арбалет та купіть {{проклепаний шкіряний обладунок|studded leather}} і щит. На цьому рівні ми, по суті, дивний Воїн, але, на щастя, 1-й рівень швидко минає. Рапірою зі щитом або арбалетом можна користуватися однаково ефективно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий стиль{{Fighting Style}} («Захист»{{Protection}}); Чаротворство{{Spellcasting}}; Божественна кара{{Divine Smite}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На жаль, Паладин не отримує бойового стилю «Стрільба з лука»{{Archery}}, хіба що дуже чемно попросити Майстра. Оберімо «Захист»{{Protection}}, щоб краще прикривати задню лінію загону. «Перехоплення»{{Interception}} теж підійде — переважно це справа смаку. Можна також обрати «Бій наосліп»{{Blind Fighting}}, щоб знаходити невидимих ворогів і згодом влучати в них Таврувальною карою [Branding Smite], але для цього доведеться зблизитися. Божественна кара{{Divine Smite}} мало що дасть цій збірці. За потреби можна вступити в ближній бій із рапірою та застосувати її, але дія на вдягання щита залишить вам відносно низький КБ порівняно з іншими Паладинами ближнього бою, тож цього варто уникати. На цьому рівні чаротворення теж мало допоможе, але можна підсилити союзників на передовій Щитом віри [Shield of Faith] і підтримувати Концентрацію на безпечній відстані, поки стріляєте."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне здоровʼя{{Divine Health}}; Священна клятва{{Sacred Oath}} (Прадавніх{{Ancients}}); Канал божественності{{Channel Divinity}}: «Гнів природи»{{Nature’s Wrath}}; «Вигнання невірних»{{Turn the Faithless}}; Спрямування божественної сили{{Harness Divine Power}} (необовʼязкове уміння класу), 1 раз на день"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Саме тут починають розкриватися наші тактики дальнього бою. Обплутуючий удар [Ensnaring Strike] — наш головний атакувальний варіант. Він працює подібно до заклинань кари Паладина: триває 1 хвилину, потребує Концентрації, а ефект спрацьовує після влучання зброєю. Зауважте: не обовʼязково атакувати зброєю "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "ближнього"
+                    },
+                    {
+                      "type": "text",
+                      "text": " бою. Наша основна тактика — вистрілити в ціль Обплутуючим ударом, а тоді попросити загін зосередити на ній атаки й усунути її, доки вона не вирвалася. Ціль спершу робить ряткидок Сили, тож проти сильних ворогів доведеться шукати інший спосіб. Коли ціль уже обплутана, вона має перешкоду на ряткидки Сили й Спритності, а її швидкість дорівнює 0. Якщо союзники можуть накласти, наприклад, Створення багаття [Create Bonfire], можна додати тривалу шкоду за малу ціну й атакувати з безпечної відстані, зменшуючи ризик для загону. Канал божественності{{Channel Divinity}} рідко стане в пригоді. «Вигнання невірних»{{Turn the Faithless}} діє лише на небагатьох істот, але коли спрацьовує, може принести перемогу. «Гнів природи»{{Nature’s Wrath}} просто гірший за Обплутуючий удар. Краще скористайтеся «Спрямуванням божественної сили»{{Harness Divine Power}}, щоб відновити додатковий слот заклинання й іще раз накласти Обплутуючий удар."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: «Посвячений у бій»{{Fighting Initiate}} («Стрільба з лука»{{Archery}})"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий стиль «Стрільба з лука»{{Archery}} дає менший приріст шкоди за раунд, ніж підвищення Спритності, але нам це неважливо. Нам потрібен вищий шанс застосувати Обплутуючий удар [Ensnaring Strike]: якщо накласти його на початку бою, загальна шкода всього загону зросте. На цьому рівні можна дозволити собі пістоль{{pistol}}, але він не кращий за важкий арбалет, а кожну монету варто відкласти на мушкет."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 2-го рівня; Додаткова атака{{Extra Attack}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це перший рівень, коли ви "
+                    },
+                    {
+                      "type": "link",
+                      "text": "можете собі дозволити витратити 500 зм",
+                      "href": "https://rpgbot.net/dnd5/players/starting-above-1st-level/#wealth-by-level-table"
+                    },
+                    {
+                      "type": "text",
+                      "text": " на мушкет{{musket}}, що чудово, адже тепер важкий арбалет можна замінити на "
+                    },
+                    {
+                      "type": "link",
+                      "text": "громову палицю{{boom stick}}",
+                      "href": "https://youtube.com/clip/UgkxlIlVIGrN7Ik5e-Cv5ljv1chjrJ9RPF-K"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Додаткова атака{{Extra Attack}} подвоює ймовірність хоча б раз влучити й застосувати Обплутуючий удар [Ensnaring Strike], після чого можна завдавати шкоди повторними атаками з перевагою. Також відкриваються заклинання 2-го рівня. Обовʼязково скористайтеся "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Пошуком скакуна",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#find-steed"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Find Steed], щоб отримати щось цікаве. Лось{{elk}} пасує до теми, а коли на ньому не треба їхати (а це більшість часу), його можна використовувати як бойове прикликання. Таврувальна кара [Branding Smite] — одне з лише двох справжніх заклинань кари, які не обмежені ближнім боєм, і, мабуть, найкраща відповідь Паладина на невидимих ворогів. Як і інші заклинання кари, її можна застосовувати повторними атаками: ефект спрацює при першому влучанні й діятиме до кінця 1-хвилинної тривалості, тож навіть якщо ворога ще не видно, можна бити навмання, доки не зможете його побачити. Посилити Обплутуючий удар слотом 2-го рівня можна, але це лише збільшить тривалу шкоду, тож значного ефекту не дасть, якщо тільки ви не очікуєте довгого бою проти великих одиночних ворогів. Заклинання підкласу дають нам Туманний крок [Misty Step]. Якщо ми опинимося в ситуації, коли не зможемо ні відстрілятися, ні вибратися Штовханням (так, навіть зі Статурою гіпопотама{{Hippo Build}}), можна просто телепортуватися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура захисту|Aura of Protection}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+3 до всіх наших ряткидків, а якщо ми тусуємося в тилу групи разом із "
+                    },
+                    {
+                      "type": "link",
+                      "text": "крутими хлопцями",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/wizard/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", то можемо поділитися з ними своїми «ласощами» — бонусом до ряткидків. Попри зосередження на дальньому бою, ми все ще доволі витривалі. Щоб захищати союзників у ближньому бою, станьте на 10 футів позаду них: так ви поширите ауру й додасте ще одне тіло між ворогами та вразливою задньою лінією загону."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура оберігання|Aura of Warding}}; Спрямування божественної сили{{Harness Divine Power}} (необовʼязкове уміння класу), 2 рази на день"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Опір шкоді від заклинань, який дає {{Аура оберігання|Aura of Warding}}, не знадобиться постійно, але чудово захищає, коли ви стикаєтеся з ворожими заклиначами. Якщо ви тримаєтеся в тилу поруч із крихкими персонажами загону, то вразливі до шкоди по площі від заклинань на кшталт Вогнекулі [Fireball]. Ваші аури значно зменшать цю вразливість. Також тепер можна вдруге скористатися «Спрямуванням божественної сили»{{Harness Divine Power}} і відновити загалом 2 слоти заклинань 1-го рівня на день."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: {{Влучний стрілець|Sharpshooter}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми знову відкладаємо підвищення Спритності, і це лякає. Бойовий стиль «Стрільба з лука»{{Archery}} тримає влучність на належному рівні згідно з «Фундаментальною математикою»{{Fundamental Math}}. Тепер стратегія така: спершу влучити Обплутуючим ударом [Ensnaring Strike], а в наступні ходи перейти на «Влучного стрільця»{{Sharpshooter}} і швидко розстріляти ціль."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 3-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер «Спрямування божественної сили»{{Harness Divine Power}} може відновити слот заклинання 2-го рівня. Серед доступних заклинань зʼявляються важливі Розвіювання магії [Dispel Magic] і Відродження [Revivify]. Також отримуємо Ріст рослин [Plant Growth] — зручний спосіб перетворити вазон на потужний засіб контролю території. Тактика не змінюється."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Аура мужності|Aura of Courage}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Страх ніколи не перестає бути проблемою, тож це вміння завжди корисне."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращена божественна кара{{Improved Divine Smite}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми майже ніколи не отримаємо від цього користі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}} (Спритність 16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вища влучність, кращий КБ і ряткидки Спритності."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 4-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Час знайти "
+                    },
+                    {
+                      "type": "link",
+                      "text": "вищого скакуна",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#find-greater-steed"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Find Greater Steed]. Найкраще підійде пегас{{Pegasus}}: ви й, можливо, союзник верхи на ньому постійно будете в повітрі та в межах ваших аур. Якщо потрібен бойовий скакун, оберіть грифона{{Griffon}}. Перитон{{Peryton}} кращий у бою, але, здається, зовсім суперечить заповідям Клятви прадавніх, адже перитони — хаотично злі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Очищувальний дотик{{Cleansing Touch}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Геть послаблення!"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Безсмертний вартовий»{{Undying Sentinel}}; Спрямування божественної сили{{Harness Divine Power}} (необовʼязкове уміння класу), 3 рази на день"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Можливо, безсмертя? Якщо «смерть» вважається недоліком старості, то ви перестаєте старіти й стаєте безсмертним."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}} (Спритність 18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вища влучність, кращий КБ і ряткидки Спритності."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 5-го рівня"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Серед інших чудових заклинань 5-го рівня є Кара вигнання [Banishing Smite], яка не обмежена ближнім боєм, тож можна вражати ворогів здалеку, якщо це видається кращим за нашу звичну тактику з Обплутуючим ударом [Ensnaring Strike]. «Спрямування божественної сили»{{Harness Divine Power}} тепер відновлює слоти 3-го рівня — загалом 3 слоти 3-го рівня на день."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Аури{{Aura Improvement}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер можна ділитися аурами із союзниками в ближньому бою, не підходячи до них аж надто близько."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Покращення Характеристик|Ability Score Improvement}} (Харизма 16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті трохи зросте складність ряткидка ваших заклинань і сила {{Аури захисту|Aura of Protection}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Прадавній чемпіон»{{Elder Champion}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Протягом 1 хвилини накладайте заклинання на кшталт Вигнання [Banishment] і Руйнівної хвилі [Destructive Wave] бонусною дією. Памʼятайте про вкрай обмежений запас слотів заклинань."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-paladin-oath-of-the-ancients-2014-001",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Заклинання клятви",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-ancients-2014-002",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-ancients-2014-003",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-ancients-2014-004",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-ancients-2014-005",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "13-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-ancients-2014-006",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "17-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-ancients-2014-007",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Канал божественності",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-ancients-2014-008",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Гнів природи",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-ancients-2014-009",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Вигнання невірних",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-ancients-2014-010",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Аура оберігання",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-ancients-2014-011",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Безсмертний вартовий",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-paladin-oath-of-the-ancients-2014-012",
+      "articleId": "rpgbot-paladin-oath-of-the-ancients-2014",
+      "translationRevisionId": "translation-rpgbot-paladin-oath-of-the-ancients-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Прадавній чемпіон",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

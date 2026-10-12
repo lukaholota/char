@@ -1,0 +1,2588 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "d3cfe5fd9996e551beabba4a5969bcbe3271aa30c0a14468c0449208b892f9c2",
+  "sourceRevision": {
+    "revisionId": "rpgbot-c20794434f3ec477-d3cfe5fd9996e551",
+    "sourceId": "rpgbot-c20794434f3ec477",
+    "fetchedAt": "2026-09-29T19:21:23.975034+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:40:59-04:00",
+    "contentHash": "3469c4712854e3a0f853a31bbc7b8609477f3b812f6fc73242a0ca25b89a6d77",
+    "title": "Beast Master Ranger 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-c20794434f3ec477-d3cfe5fd9996e551.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A character and their animal companion acting in almost supernatural unison as a fighting style. We see this archetype everywhere: in stories, in movies, in video games, and in DnD 5e as the Beast Master Ranger. This subclass has a troubled past as, on release, it was practically unusable. Requiring your action every turn to perform the basic function of your identity is a crippling design decision, and it took WotC a long time to do something about that. Fortunately, they finally did."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Primal Companion “optional” feature is essentially a complete replacement of the mechanics of the subclass that fixes the entire problem. With these changes, it’s a very satisfying way to live out the trope and still feel like you’re meaningfully contributing to combat in an optimized way."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This article is for the 2014 rules. For the 2024 rules, see our "
+            },
+            {
+              "type": "link",
+              "text": "2024 DnD Beast Master Ranger Subclass Guide",
+              "href": "https://rpgbot.net/2024-dnd/classes/ranger/ranger-subclasses/beast-master/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Beast Master Subclass Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Primal Companion Options",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#beast-master-primal-companion"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Beast Master Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#beast-master-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Beast Master Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#beast-master-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Beast Master Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#beast-master-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Beast Master Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#beast-master-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Beast Master Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#beast-master-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – A Novel Concept",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#example-build-a-novel-concept"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            2,
+            3,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Beast Master Subclass Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Primal Companion"
+              },
+              {
+                "type": "text",
+                "text": ": Your defining feature,\n\t\tyour companion is equal parts pet and weapon. Unlike summoned pets which\n\t\tother classes might use (Dancing Item, Wildfire Spirit, etc.), your pet\n\t\tsticks around all the time. You don’t need to summon it or whatever.\n\t\tHowever, like any other member of your party it needs food, healing,\n\t\tetc."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Exceptional Training"
+              },
+              {
+                "type": "text",
+                "text": ": Making your\n\t\tcompanion’s attacks magical is the only thing you actually benefit from\n\t\there, but it’s crucial. Resistance to non-magic weapon attacks is common and\n\t\tbecomes more common as you gain levels."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Bestial Fury"
+              },
+              {
+                "type": "text",
+                "text": ": Your beast gets two attacks\n\t\tand it still only costs you a Bonus Action (or half of an Attack action) to command them."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Share Spells"
+              },
+              {
+                "type": "text",
+                "text": ": This is a fantastic way to\n\t\tshare buff spells, especially those which require Concentration."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beast-master-primal-companion",
+      "parentSectionId": "section-features",
+      "heading": "Primal Companion Options",
+      "sourceAnchor": "beast-master-primal-companion",
+      "blocks": [
+        {
+          "blockId": "block-section-beast-master-primal-companion-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Tasha’s Cauldron of Everything presents a replacement mechanic for the Beast Master’s Companion feature. Rather than selecting an animal with a published stat block, you pick from one of three generic beasts and you can describe it however you like. If you want a sabretooth tiger, a dinosaur, a komodo dragon, or just a dog, you’re using the same stat block."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-primal-companion-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "More important than simplifying the challenges of picking a companion, the\n\tnew Companion feature also corrects the action economy issues which were the\n\tfundamental problem which made the Beast Master such a poor option. Commanding\n\tyour companion is now done as a Bonus Action, allowing you to do interesting\n\tthings on your turn like attacking or casting spells without leaving your pet\n\tto stand adjacent to your enemies and Dodge."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-primal-companion-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Raising your companion from the dead now takes a spell slot (so long as you\n\tdo so within an hour of its death), allowing you throw your companion into\n\tcombat with little regard for its safey confident in the knowledge that you\n\tcan bring it right back to life good as new. Obviously that’s a horrible way\n\tto treat an animal that you’re supposed to be emotionally bonded with, but\n\tthis is a game, your companion is a class feature, and as a DM I wouldn’t make\n\ta fighter spend 8 hours feeding a wild longsword table scraps until they were\n\tfriends, so no one should hold rangers to the same standard."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-primal-companion-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Changing your companion is also much easier now. If you suddenly find\n\tyourself on a boat trip and want a suitable aquatic companion, you can change\n\tyour companion after a Long Rest. This may be hard for players who want to\n\tbond with a single animal, but you might choose to think of your ranger as\n\tmaster of "
+            },
+            {
+              "type": "emphasis",
+              "text": "all"
+            },
+            {
+              "type": "text",
+              "text": " beasts rather than a master of just one beast that you\n\tdrag around everywhere."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-primal-companion-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The only shortcoming of the Primal Companion feature is the limited set of\n\tcompanion choices. None of them appear to work as mounts (though your DM might\n\tstill allow it), and no matter how you dress up the stats any two beast\n\tmasters are going to feel very similar to one another."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-primal-companion-6",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Beast of the Land"
+              },
+              {
+                "type": "text",
+                "text": ": Simple and iconic.\n\t\tWith 40 ft. land and climb speed, this thing can get around very quickly.\n\t\tThe damage will match or exceed a weapon, and Charge allows your companion\n\t\tto knock foes prone if they can get a running start. Unfortunately, since\n\t\tyour beast only gets one attack until you get Bestial Fury at level 11, it\n\t\tcan’t capitalize on knocking enemies prone on its own for half of the level\n\t\trange."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Beast of the Sea"
+              },
+              {
+                "type": "text",
+                "text": ": Only viable in aquatic\n\t\tcampaigns. 5-foot land speed is not enough for your sharktopus to hobble\n\t\taround on land and be effective in combat. If you can somehow get its speed\n\t\tup to reasonable amount (look for spells like Longstrider with long\n\t\tdurations which don’t require Concentration), you may be able to make this\n\t\twork on land. If you can do it, the Beast of the Sea’s attacks grapple when\n\t\tthey hit, which is a powerful option not normally available to players."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Beast of the Sky"
+              },
+              {
+                "type": "text",
+                "text": ": 60-foot fly speed and\n\t\tFlyby. Less hit points than the other options, but with the ability to\n\t\tremain perpetually out of melee reach that’s less of a problem. The damage\n\t\tis also slightly lower than Beast of the Land, but Beast of the Land deals\n\t\t6.5+PB on average and the Beast of the Sky’s 5.5+PB isn’t noticably lower.\n\t\tHaving a flying companion discourages you from using your companion as a\n\t\tDefender by interposing itself between you and your enemies, but Beast of\n\t\tthe Sky’s AC is just as good as the other options and if your companion’s\n\t\thit points are looking problematic it can use Flyby to withdraw to\n\t\tsafety."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beast-master-ability-scores",
+      "heading": "Beast Master Ability Scores",
+      "sourceAnchor": "beast-master-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-beast-master-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No change from any other Ranger."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": Powers our attacks and a skill."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": Everything likes more Con."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": Powers our spells, our Primal Companion, and the rest of our skills."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": Dump."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-beast-master-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beast-master-races",
+      "heading": "Beast Master Races",
+      "sourceAnchor": "beast-master-races",
+      "blocks": [
+        {
+          "blockId": "block-section-beast-master-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from other Rangers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beast-master-feats",
+      "heading": "Beast Master Feats",
+      "sourceAnchor": "beast-master-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-beast-master-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from other Rangers. Unlike "
+            },
+            {
+              "type": "link",
+              "text": "PF2",
+              "href": "https://rpgbot.net/p2/characters/classes/ranger/"
+            },
+            {
+              "type": "text",
+              "text": " for example, 5e has no feats focused around an animal companion."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beast-master-weapons",
+      "heading": "Beast Master Weapons",
+      "sourceAnchor": "beast-master-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-beast-master-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from other Rangers but pay special attention to two-weapon fighting here. With the Primal Companion optional class feature (which this guide assumes, as the original is terrible), you can sacrifice one attack in the attack action to command your pet to take the attack action. So, from level five onward, you can attack once with your main hand, satisfy the conditions for TWF, and use the extra attack to get your companion to maul/shred as appropriate."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-beast-master-armor",
+      "heading": "Beast Master Armor",
+      "sourceAnchor": "beast-master-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-beast-master-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing different from other Dexterity-flavored Rangers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section briefly details some obvious and enticing multiclass options, but doesn’t fully explore the broad range of multiclassing combinations. For more on multiclassing, see our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-multiclassing-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Nothing else is going to help us optimize our primal companion, so we straight class and get features as quickly as possible. If you’re not a huge fan of Foe Slayer as a capstone, you could always take level 20 and put it into Peace Cleric to get Emboldening Bond and Bless to put on your whole party (cat included). Or, if your problem is a party lacking burst damage, dropping 19 and 20 into Fighter for Action Surge is viable. But we’ve covered both of these in other handbooks, and they don’t really belong in this one."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-a-novel-concept",
+      "heading": "Example Build – A Novel Concept",
+      "sourceAnchor": "example-build-a-novel-concept",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-a-novel-concept-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": " I strike hard, and if I am lucky, I see nothing—nothing but the blur of the moment. As my instincts engulf my rational mind, I am at peace."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-a-novel-concept-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "– Some famous character probably"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-a-novel-concept-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll be using all of the Ranger’s Optional Class Features in this build."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-a-novel-concept-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "A quick note: for obvious reasons, this character design has to be optimized around dual wielding scimitars. If you wanted to "
+            },
+            {
+              "type": "emphasis",
+              "text": "actually"
+            },
+            {
+              "type": "text",
+              "text": " optimize a Beast Master, I would highly recommend using Druidic Warrior instead of the TWF Fighting Style. Pump Wisdom up to 20, leave Dex at 14, wear medium armor and a shield, and use a club with Shillelagh. On the one hand, this always has a Bonus Action cost for the cantrip round one which means levels 3 and 4 you will have to choose between attacking yourself and swinging the cat. On the other hand, this lets you pick up more feats that I couldn’t fit into this build like Skulker, Drow High Magic, etc."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-build-a-novel-concept",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Stats are a little different from above to take advantage of the free spells and +2/+1/+1 spread provided by being a half-elf."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-a-novel-concept",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Drow Half-Elf. All the flavor of Drow, half the Darkvision. It also removes the crippling Sunlight Sensitivity, which is very valuable."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-build-a-novel-concept",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Rather than focusing on our initial formative years, the background choice is more reflective of the decade spent wandering the Underdark away from civilization. We take Hermit and trade Religion for Survival."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-build-a-novel-concept",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Hermit gets us Medicine, Survival, and Herbalism Kit proficiency. Ranger gets us Perception, Animal Handling, and Stealth."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-a-novel-concept",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 4 gets us Elven Accuracy. We have an Animal Companion to provide Flanking if your table uses the optional rule and Faerie Fire from Drow Magic if it doesn’t."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 8 Caps Dex."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Level 12 gets us Fighting Initiate (Blind Fighting) to make use of the Darkness and/or Fog Cloud we can cast."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Levels 16 and 19 cap Wisdom so that our Companion doesn’t fall behind in effectiveness."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-a-novel-concept",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "strong",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Deft Explorer (Canny)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored Foe"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Natural Explorer is outright terrible and Favored Enemy needed work. Conveniently, Tasha’s gave us replacements for both of them and we very much want that."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Use Canny for Expertise in really anything. Stealth is an obvious choice, but Perception is another good one. For starting equipment, take the scale mail, two short swords, a dungeoneer’s pack, and the longbow. Sell the scale mail and buy studded leather instead. Spend your first 40 gold trading the short swords for scimitars. Are they functionally identical? Yes. But they do slashing damage, which absolutely doesn’t matter."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Speaking of, you have the longbow in case something is fleeing you, but the general tactic here is to get up in melee and use both swords as much as possible."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style (Two-Weapon Fighting)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hunter’s Mark"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Goodberry"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Picking up the fighting style immediately improves your DPR by 30%, which is even more impressive than Archery’s."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "I went into a lot of detail around Hunter’s Mark vs. Favored Foe in the "
+                },
+                {
+                  "type": "link",
+                  "text": "Gloom Stalker Handbook",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Consider, though, that, after level five, neither will be as useful to us because we’re nearly always going to be spending an attack on commanding our companion. I might trade out the spell for something else once you get there."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Goodberry is present in case your actual healer drops because someone needs to be able to stand them back up. Feel free to replace this with Fog Cloud if you already have two characters capable of healing."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Prim(ev)al Awareness"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Primal Companion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Absorb Elements"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Faerie Fire (Racial)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Neither Awareness option is great, but Primal is bonus spells, which is always more helpful than spending a spell slot on something which will rarely matter."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We get out Beast of the Land (shaped like a panther, of course) and start using it in combat. Right now, we can attack with our main hand for 1d6+3 and then bonus action either do the same with offhand or command the pet to attack with the same bonus for 1d8+4. At this level, our pet clearly wins. Make sure to have it run up first to trigger Charge, then you move up and get Advantage off of the now maybe-prone target."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Absorb Elements is one of the best defensive spells in the game, and we’re something that can actually use the rider effect. There’s always questionable utility to that however, since many things that deal large amounts of elemental damage are either resistant or immune to said element."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Technically speaking, we only get the one casting of Faerie Fire per day and don’t actually learn it, but, given that every race that’s come out recently has moved away from that, you can probably convince your DM to let you have it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Elven Accuracy"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Let’s check the math again. With Elven Accuracy coming online, and with the "
+                },
+                {
+                  "type": "link",
+                  "text": "Fundamental Math",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": " expecting your attack bonus to go up (yours does, but your Companion’s does not), the DPR for how you use your attacks is practically a wash (10.1 TWF vs. 10.4 Attack and Cat without advantage, 15.35 TWF vs. 15.26 Attack and Cat with advantage) unless you can trigger Charge, which still gives the cat a clear edge."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "But wait, there’s more. The math swings "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "dramatically"
+                },
+                {
+                  "type": "text",
+                  "text": " back to being a wash even with Charge if you start up a Hunter’s Mark. Now the Ranger attacking alone deals 15 DPR without advantage, up to 21 DPR with advantage. Compare that to swinging the cat in the offhand and you only get ~14 DPR, up to 20 with advantage."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now, how do we get this advantage? Well, as mentioned, we could get it from the flanking variant rule or Faerie Fire. But there’s also a third option. If left to its own devices, our companion will Dodge. Unlike in previous editions, maintaining a grapple doesn’t cost any actions. Our companion has 8 Intelligence, plenty enough to understand directions. So, we can have it "
+                },
+                {
+                  "type": "link",
+                  "text": "grapple+shove",
+                  "href": "https://rpgbot.net/dnd5/characters/grapple/"
+                },
+                {
+                  "type": "text",
+                  "text": " targets for us. It gets our proficiency bonus on all checks it makes, which helps counteract the low Strength. Is this a tactic to use all the time? No. Is it a good trick to know about? Absolutely."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Darkness (Racial)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Lesser Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hunter’s Mark -> Pass Without Trace"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This entire article is an exercise in table-making. Really quick, I’m going to call out that, thanks to the TWF fighting style, either dropping one attack for the Attack command or dropping your bonus action to command are completely identical unless you have different swords (i.e. one is magical)."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Please trust me and the 15 minutes I spent doing math when I say that, even with Hunter’s Mark running, in every case except a turn where you have your cat attack without getting to Pounce, it’s either a wash or slightly in the favor of swinging the cat. With Mark running, and advantage, and no Pounce, attacking alone comes out 10% ahead. But that doesn’t take into account the turn or spell slot setting up Hunter’s Mark, and fights last an average of 3 turns, so that’s actually only 6.67% ahead, which probably isn’t worth keeping the spell known."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "That lets us pick up Pass Without Trace, probably the single best spell on the Ranger list. We also grab Lesser Restoration in case the healer gets paralyzed."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Deft Explorer (Roving)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored Foe (damage increase)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Roving is a neat ability but, since we’re a melee character, it’s not going to see a lot of combat use. Still, it means you’re rarely going to be stopped by terrain and can clamber up to places and drop a rope down."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Favored Foe’s damage goes up to match Hunter’s Mark, which is nice if we find ourselves in a fight where we can’t use our cat for some reason. Perhaps it’s been transformed into a tiny statue a la "
+                },
+                {
+                  "type": "link",
+                  "text": "Super Smash Brothers",
+                  "href": "https://www.youtube.com/watch?v=L7KI-i20v4g"
+                },
+                {
+                  "type": "text",
+                  "text": ", or perhaps it’s just incapacitated or lost somewhere."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Exceptional Training"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Darkvision"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Practically a dead level thanks to the Primal Companion changes, but at least its damage is magical now. This may swing the calculation in the cat’s favor if you only have one (or heavens forbid, none) magical weapons. Even the joy of picking up a new spell is somewhat squashed by it being utility to help our friends see in the dark."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (Dex 18 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Land’s Stride"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Land’s Stride is almost a ribbon with how few things are going to try to stop you with damaging natural terrain."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Is it table time again? It sure is. Dex goes up and Wisdom doesn’t, meaning our Companion has an even lower bonus to hit than the scaling says it should. Pounce once again keeps things pretty even anyway."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Water Breathing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Why not put that swim speed to some use by also being able to breathe water for a whole day?"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Deft Explorer (Tireless)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Hide in Plain Sight"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Tireless’s ability to grant yourself temp hp is one of the rare ones that doesn’t list a duration which means it lasts until you take a long rest. What this means is that you should do it once when you wake up in the morning and again at the end of every fight for as long as you have uses left. Other than that, it’s not really worth using. The other half of the ability though is amazing if you’re not being allowed to sleep normally."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Not nearly as good as the ability of the same name from 3.5, Hide in Plain Sight is still yet another +10 to stealth we can stack on top of Pass Without Trace."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bestial Fury"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Speak with Plants"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We can now stop checking DPR forever because the additional attack from Bestial Fury means that swinging the cat wins in every case, even with its lower attack bonus. Now your Land’s Stride ability is even less useful as you can use a spell slot to simply ask the plants to move out of your whole party’s way."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Initiate (Blind Fighting)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Did you want yet another way to get advantage? Here you go. Drop Darkness on your scimitar and walk around, confident that hardly anything can see you. Does this make Feral Senses almost completely irrelevant? Yes. But it’s also better enough than Feral Senses to still be worth the feat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Freedom of Movement"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Finally, a way to get rid of those penalties for attacking underwater! Now you’re exactly as functional in the ocean as you are on land. Or… something. One nice benefit is that we get to share the spell with our companion starting next level, so it can join us on our diving expedition."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Favored Foe (Damage Increase)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Vanish"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You might finally think that the die increase is where the Ranger attacking alone might win out in DPR, but no. Because our proficiency bonus has gone up to +5 in the interim (which, as a reminder, the cat uses in its damage calculation), it’s still neatly in the cat’s favor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Vanish is a neat trick, but we use our bonus action every turn for damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Share Spells"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guardian of Nature"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Or, just turn into a tree. Doubling the value of Guardian of Nature is pretty incredible. For reasons I can’t pretend to understand, your Companion’s attacks are described as melee weapon attacks.These combine to let us cast the Tree version on ourselves and the Primal Beast version on our… primal beast, letting us take advantage of Elven Accuracy and giving it extra damage per hit. Unfortunately, since it’s a melee weapon attack that uses your spell attack modifier, it doesn’t count as strength-based. But you’re probably flanking with it anyway, so don’t worry too much about it not getting advantage from the spell."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (Wis 16 -> 18)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Several skills get better, as does cat damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Conjure Volley"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Your DC is nearly capped and will get there in just a few levels, and besides, many things don’t have great Dex saves. Here’s your answer to Area of Effect damage."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feral Senses"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We are now vaguely aware of anything 15-30 feet away from us which is otherwise invisible."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase (Wis 18 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Tree Stride"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Several skills get better again, as does cat damage.Also, you can now walk yourself through trees. Not like we were doing 8 levels ago, but like actually "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "into"
+                },
+                {
+                  "type": "text",
+                  "text": " the trees and then out of different trees."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Foe Slayer"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "I’m sorry, I’m just not going to run the same 8 calculations twice with the two versions of this ability to compare it to cat because, honestly, if playing through 20 levels of Beast Master hasn’t convinced you that putting the cat to good use is more important than maybe eking out a tiny bit more DPR, I don’t think anything will."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Beast Master Subclass Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Primal Companion"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Exceptional Training"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Bestial Fury"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Share Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Beast of the Land"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Beast of the Sea"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Beast of the Sky"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Cha"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-beast-master-primal-companion-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-beast-master-primal-companion-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-beast-master-primal-companion-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-beast-master-primal-companion-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-beast-master-primal-companion-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-beast-master-primal-companion-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-beast-master-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-beast-master-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-beast-master-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-beast-master-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-beast-master-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-beast-master-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-beast-master-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-beast-master-ability-scores-8"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-beast-master-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-beast-master-races-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-beast-master-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-beast-master-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-beast-master-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-beast-master-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-multiclassing-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-example-build-a-novel-concept-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-example-build-a-novel-concept-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-example-build-a-novel-concept-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-example-build-a-novel-concept-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[33]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    }
+  ],
+  "metrics": {
+    "words": 3671,
+    "sections": 18,
+    "blocks": 43,
+    "tables": 3,
+    "ratingSignals": 18
+  },
+  "status": "needs-editorial-review"
+}

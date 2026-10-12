@@ -1,0 +1,4 @@
+Eldritch Versatility (Addition) → {{Потойбічна гнучкість (Доповнення)|Eldritch Versatility (Addition)}} | block-section-optional-class-features-7 | немає в каталогах; за зразком «Гнучкість замовлянь» і класових «Потойбічні виклики»
+Pact Boon Option: Pact of the Talisman (Addition) → {{Варіант Дару пакту: Пакт талісмана (Доповнення)|Pact Boon Option: Pact of the Talisman (Addition)}} | block-section-optional-class-features-5 | службова назва додаткового уміння, у даних немає; «Дар пакту» й «Пакт талісмана» з каталогу
+Eldritch Invocation (однина, загальне поняття) → потойбічний виклик{{Eldritch Invocation}} | block-section-feats-2/item/11 | у каталозі лише множина «Потойбічні виклики»
+Mounted Combat (у джерелі) → Верховий боєць{{Mounted Combatant}} | block-section-feats-2/item/33 | маркер з офіційною назвою риси, як у сестринських сторінках

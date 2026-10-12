@@ -1,0 +1,2362 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-3e7de1a9893e13a1",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+      "sourceId": "rpgbot-3e7de1a9893e13a1",
+      "fetchedAt": "2026-09-29T19:12:12.017917+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:52:01-04:00",
+      "contentHash": "1b1f3846d1da251f879c42792d9a65a7542f7415ea936ef4bfa3778187c4932e",
+      "title": "Assassin Rogue 5e: DnD Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-3e7de1a9893e13a1-88509b1701cc04cc.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-rogue-assassin-2014",
+    "sourceId": "rpgbot-3e7de1a9893e13a1",
+    "slug": "rogue-assassin-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Убивця — гайд підкласу Пройдисвіта (2014)",
+    "titleEn": "Assassin Rogue 5e: DnD Subclass Guide",
+    "topics": [
+      "Пройдисвіт",
+      "Убивця",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "sourceRevisionId": "rpgbot-3e7de1a9893e13a1-88509b1701cc04cc",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо вам подобається отримувати Критичні влучання на своїх великих «Підступних атаках»{{Sneak Attack}}, але не подобається ідея «полювання на криті»{{Crit Fishing}}, можливо, Убивця — Пройдисвіт для вас. Ви, імовірно, вже дивилися на уміння «Вбивство»{{Assassinate}} і хочете скористатися гарантованими Критичними влучаннями, але гарантовані не означає безкоштовні. Вам доведеться працювати зі своєю групою, щоб "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "заскочити зненацька"
+                },
+                {
+                  "type": "text",
+                  "text": " своїх ворогів і заслужити ті Критичні влучання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Застигнутий зненацька"
+                },
+                {
+                  "type": "text",
+                  "text": " — простий стан, якого досягти набагато важче, ніж ви думаєте. Якщо Непомітність "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "всієї вашої групи"
+                },
+                {
+                  "type": "text",
+                  "text": " переважає Пасивну Уважність ворога, ворога заскочено зненацька. Так, навіть того Паладина, що ходить перевальцем у латах. Якщо ворог помічає навіть одного вашого союзника, його не "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "заскочено зненацька"
+                },
+                {
+                  "type": "text",
+                  "text": ". Це офіційне визначення того, як працює Раптовість у D&D 5e. Ми вдавалися до надзвичайних подробиць у "
+                },
+                {
+                  "type": "link",
+                  "text": "випуску про Непомітність",
+                  "href": "https://rpgbot.net/stealth-and-invisibility-rpgbot-podcast-s2e43/"
+                },
+                {
+                  "type": "text",
+                  "text": ", який також пропонує деякі виправлення, якщо захочете."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Все стає туманнішим, коли ми розглядаємо, чому в Убивці також є пара умінь, спроєктованих навколо Обману й проникнення. Правила Раптовості згадують лише Непомітність і Уважність, але ми могли б (і справді) стверджувати, що Обман проти Аналізу Поведінки також має бути чинним способом накласти на ціль стан "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "застигнутого зненацька"
+                },
+                {
+                  "type": "text",
+                  "text": ". Той топчучий Паладин раніше, безперечно, має достатньо Харизми, щоб брехати без запинки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Убивці",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Убивці",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#assassin-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Убивці",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#assassin-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Убивці",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#assassin-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Убивці",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#assassin-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Убивці",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#assassin-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Убивці",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#assassin-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Підтримка групи для Убивці",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#assassin-party-support"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Убивці — Кролик-убивця з Кербанога",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#example-assassin-build-the-killer-rabbit-of-caerbannog"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Убивці",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Бонусні володіння{{Bonus Proficiencies}}: обидва набори інструментів фантастичні й відкривають чудові варіанти для Пройдисвіта."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Вбивство{{Assassinate}}: щоб це працювало, вам дуже треба ходити першим у бою заради безкоштовної Переваги на кубику. Якнайшвидше доведіть Спритність до максимуму й розгляньте рису «Пильний»{{Alert}}. Якщо вам доступні магічні предмети, постарайтеся отримати «Зброю застереження»{{Weapon of Warning}}. Безкоштовна Перевага на кубику — це добре, але як щодо тих автоматичних Критичних влучань? Для цього доведеться попрацювати.\n\n«Застигнутого зненацька»{{Surprised}} можна розглядати як стан, і накласти його на ворога нелегко. За правилами, щоб застати ціль зненацька, уся ваша сторона має досягти успіху в перевірках Непомітності проти Пасивної Уважності ворога. Кожного ворога можуть застати зненацька чи ні окремо, але по суті вся ваша група має виграти у Непомітності. Це може здатися складним, але стан «застигнутий зненацька» досить виснажливий навіть без цього уміння й дуже допоможе всій вашій групі.\n\nЯ не раджу змушувати вашу групу до налаштування на Непомітність, а радше подивитися, чи хочуть вони тактичних переваг і готові спробувати. Той, хто вміє накладати «Переміщення без сліду [Pass Without Trace]», звісно, дуже підсилить таку групу, але навіть просто якщо кожен отримає володіння Непомітністю, це допоможе."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Майстерність проникнення{{Infiltration Expertise}}: за правилами «як написано» стан «застигнутий зненацька» — це Непомітність проти Уважності, але це також залежить від Майстра. Якщо ви граєте Убивцю (чи якщо у вашій грі є гравець-Убивця), я б запропонував, що Обман проти Аналізу Поведінки так само чинний для накладання раптовості. Ви не банда вбивць-волоцюг, ви скромний купець, а це ваш персонал. А тоді ви застаєте їх зненацька вбивством.\n\nОчевидно, це корисно лише якщо у вашій кампанії є ситуації, де така брехня допоможе. У багатьох кампаніях просто немає ситуацій, де можна бути оперативником всередині."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Самозванець{{Impostor}}: «Майстерність проникнення» призначена для створення зовсім нової особи, а це — для підміни наявної особи. Воно має бути корисним приблизно так само часто, як «Майстерність проникнення», тобто дуже сильно залежить від кампанії."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Смертельний удар{{Death Strike}}: якщо раптовість так важко здійснити, чому це оцінено так високо? Ну, якщо ви граєте Убивцею такого високого рівня, я припускаю, що вся ваша група прийняла підхід до гри з атаками зненацька. Навіть із невеликою магічною підтримкою застати ворога зненацька набагато легше."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-assassin-ability-scores",
+          "heading": "Характеристики Убивці",
+          "sourceAnchor": "assassin-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-assassin-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Основні характеристики Убивці відповідатимуть характеристикам з "
+                },
+                {
+                  "type": "link",
+                  "text": "гайда Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#ability-scores"
+                },
+                {
+                  "type": "text",
+                  "text": ", але наші уміння справді штовхають нас до навичок «обличчя» як другорядної турботи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: технічно завжди можна використовувати Силу як Пройдисвіт, але це зазвичай непрактично. Для Убивць, що намагаються скрадатися заради Раптовості, це подвійно так."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: КБ у легкому обладунку й атаки зброєю зі Спритністю чи дальньою. Важлива для нас."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: тримає нас живими, а ці ряткидки дуже погано провалювати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: технічно ми можемо використовувати це з володінням набором отруйника, але це майже все, що можна з нього отримати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: вона така ж корисна для нас, як і для більшості людей, тобто Аналіз Поведінки, Уважність і ряткидки, але понад цю загальну корисність нічого особливого ми з неї не отримуємо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: ми отримуємо деякі переваги в Обмані й маскуванні, що виграли б від Харизми. Якщо ваш Майстер погодиться з моїм твердженням вище про Обман проти Аналізу Поведінки для Раптовості, вона навіть може стрибнути до синього."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-assassin-races",
+          "heading": "Раси Убивці",
+          "sourceAnchor": "assassin-races",
+          "blocks": [
+            {
+              "blockId": "block-section-assassin-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут є кілька цікавих ідей для розгляду, але також погляньте на "
+                },
+                {
+                  "type": "link",
+                  "text": "огляд рас Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/races/"
+                },
+                {
+                  "type": "text",
+                  "text": " за іншими варіантами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Ведмебай{{Bugbear}}: синергія уміння «Несподівана атака»{{Surprise Attack}} просто накопичується, якщо ми можемо отримати Раптовість, бо додаткові 2к6 шкоди множаться на наших автоматичних критичних влучаннях. «Довгі кінцівки»{{Long-Limbed}} теж непогані."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Геназі землі{{Earth Genasi}}: «Переміщення без сліду [Pass Without Trace]» дуже корисне не лише для того, хто вже добрий у Непомітності, а й для всіх інших, хто не так умілий. Для того, у кого немає слотів заклинань, стає складно використовувати його більше ніж раз на день, але в нас є два розвʼязання. Союзний заклинатель міг би використати цю расу, щоб додати заклинання будь-якому заклинателю, або ми самі могли б зануритися на кілька рівнів у клас заклинателя. Три рівні Чорнокнижника, чесно, впоралися б."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Гаренгон{{Harengon}}: усі наші приготування й робота над тим, щоб бути достатньо непомітними для Раптовості, не означають абсолютно нічого, якщо ми також не виграємо ініціативу. Додавання нашого Бонусу Майстерності до цих перевірок — величезна перевага сама по собі, але уважно прочитайте «Надійний талант»{{Reliable Talent}}: перевірка характеристики, де ми можемо додати Бонус Майстерності. У Пройдисвітів-Гаренгонів після 11-го рівня мінімум — 10 + модифікатори Ініціативи."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-assassin-feats",
+          "heading": "Риси Убивці",
+          "sourceAnchor": "assassin-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-assassin-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найважливішу рису вже виділено синім у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Пройдисвіта",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Пильний{{Alert}}: усі ключові частини «Вбивства» вимагають, щоб ми ходили раніше ворогів у бою, тож додавання ще +5 до нашої Ініціативи ще більше схиляє шанси на нашу користь."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-assassin-weapons",
+          "heading": "Зброя Убивці",
+          "sourceAnchor": "assassin-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-assassin-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Безпечніший варіант — користуватися дальньою зброєю, і щоб триматися поза досягом ворога, і тому що в нас один хід, щоб скористатися «Вбивством». Ми не можемо ризикувати опинитися надто далеко, щоб проколоти ворога, перш ніж втратимо бонус."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-assassin-armor",
+          "heading": "Обладунки Убивці",
+          "sourceAnchor": "assassin-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-assassin-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "link",
+                  "text": "Просто носіть проклепаний шкіряний обладунок",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/rogue/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-assassin-multiclassing",
+          "heading": "Мультикласування Убивці",
+          "sourceAnchor": "assassin-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-assassin-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є багато теоретичних білдів, де хтось бере три рівні Убивці-Пройдисвіта, щоб скидати «жирні криті», заскочивши цілі купою кубиків. Але для Убивці шукайте варіанти, що покращують нашу Ініціативу чи Непомітність нашої групи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Клірик домену сутінків|Twilight Cleric}}: кілька рівнів дадуть Перевагу на кубику на Ініціативу назавжди й пару слотів заклинань на випадок, якщо ви таки вирішите вибрати «Переміщення без сліду» за расою."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Воїн{{Fighter}}: кілька рівнів Майстра бойових мистецтв (або один рівень заради Бойового Стилю (Вища техніка)) дають доступ до маневру «Засідка»{{Ambush}}, а якщо довести його до 5-го, ви подвоїте шанси влучити атакою за хід, щоб застосувати підступну атаку (на випадок, якщо ви не переконали групу, що скритності достатньо, аби надійно застосовувати «Смертельну атаку»{{Death Attack}})."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-assassin-party-support",
+          "heading": "Підтримка групи для Убивці",
+          "sourceAnchor": "assassin-party-support",
+          "blocks": [
+            {
+              "blockId": "block-section-assassin-party-support-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Механіка Раптовості за правилами «як написано» — все або нічого залежно від здатності вашої групи кидати Непомітність. Наслідок: наосліп зібрана група без жодної уваги до скритності не краща в тому, щоб здобувати Убивці ті раптові криті, ніж будь-хто, хто просто намагається полювати на криті іншими способами. Але ми любимо математику, тож я попросив наш Discord Patreon наосліп дати мені Клірика, Воїна й Чарівника для команди з нашим Пройдисвітом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мені дали "
+                },
+                {
+                  "type": "link",
+                  "text": "Сутінки",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/twilight/"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "link",
+                  "text": "Рунічного лицаря",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/rune-knight/"
+                },
+                {
+                  "type": "text",
+                  "text": " і "
+                },
+                {
+                  "type": "link",
+                  "text": "Віщування",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/divination/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Ми використаємо приклади збірок з тих гайдів, щоб визначити, наскільки ймовірно ми можемо отримати раптовість проти Пасивної Уважності монстра з володінням Уважністю та Мудрістю 12."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Рівень 4, СК 13: ми почнемо розрахунки з цього рівня, бо кожен персонаж гравця отримав своє перше Покращення Характеристик, а Убивця має «Вбивство»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Убивця: зі Спритністю 16 й «Експертизою» в Непомітності Убивця має +7 до Непомітності на цьому етапі. Це дає нам 6 на кубику, або 75% шансу пройти."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сутінки: зі Спритністю 8, без володіння Непомітністю й у важкому обладунку нам треба викинути 14 з Перешкодою. Шанс 12,25%."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Рунічний лицар: лише трохи краще за збірку Сутінок, зі Спритністю 12, але інакше також без Непомітності й у важкому обладунку. Ціль 12 з Перешкодою — 20,25%."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Віщування: у нас Спритність 14, без володіння, але й без Перешкоди. Без витрат ресурсів нам треба 11, шанс 50%."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Шанс, що всі пройдуть цю перевірку й ми отримаємо раптовість, — 0,93%. І без жодних інвестицій далі стає лише гірше. Але ми могли б витратити якісь ресурси, щоб помʼякшити деякі проблеми. І Чарівник, і Клірик мають доступ до заклинань «Позичене знання [Borrowed Knowledge]» і «Покращення здібності [Enhance Ability]», а Чарівник-Віщун має Кубики Провіщення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-9",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Погляньмо на рівень 8, СК 14, і припустімо, що всі хочуть допомогти ресурсами, які можуть виділити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Убивця: тепер у нас Спритність 18, тож ми трохи покращилися до +10. Це 4 на кубику, 85% шансу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-11",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сутінки: витрачаючи два слоти заклинань на «Позичене знання» й «Покращення здібності», щоб отримати володіння й скасувати Перешкоду, нам треба 12 на кубику, 45% шансу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-12",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Рунічний лицар: Чарівник теж накладає свої «Покращення здібності», щоб скасувати Перешкоду нашого Воїна, але, на жаль, вони не мають простого способу здобути володіння. Їм треба 13, 40% шансу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-13",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Віщування: коли діє «Позичене знання», цьому Чарівнику треба лише 8, 65% шансу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-14",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Технічно це краще: у нас 9,945% шансу заскочити ціль зненацька. Це цілих 0,195% кращі шанси на критичне влучання, ніж просто кидати з Перевагою. Витративши 4 слоти заклинань 2-го рівня. Навіщо ми це знову робимо?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-15",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Краще не стане, і це ілюструє важливість побудови персонажів як групи. Тож давайте вручну оберемо союзників. Спершу — "
+                },
+                {
+                  "type": "link",
+                  "text": "Клірик домену підступності",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/cleric/subclasses/trickery-domain/"
+                },
+                {
+                  "type": "text",
+                  "text": ", який міг би майже компенсувати все інше завдяки «Переміщенню без сліду» (як і будь-який Друїд чи Слідопит). "
+                },
+                {
+                  "type": "link",
+                  "text": "Варвар Шляху звіра",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/barbarian/subclasses/path-of-the-beast/"
+                },
+                {
+                  "type": "text",
+                  "text": ", бо з другого раунду нам потрібен хтось поруч із цілями для «Підступних атак». І "
+                },
+                {
+                  "type": "link",
+                  "text": "Чорнокнижник-Джин",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/genie/"
+                },
+                {
+                  "type": "text",
+                  "text": ", бо «Притулок у судині»{{Sanctuary Vessel}} — ще один спосіб схитрувати з Непомітністю й Раптовістю. Ми повторимо розрахунок тут на 8-му рівні. Усе ще СК 14."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-16",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Убивця: цього разу, коли наша група повністю підтримує й присвятила себе тактиці Раптовості, Клірик підступності використовує «Переміщення без сліду», тож наш бонус тепер +20. Ми буквально не можемо провалити цю СК."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-17",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підступність: володіння Непомітністю, «Переміщення без сліду» і Спритність 16. Разом +16. Також неможливо провалити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-18",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Звір: без володіння, Спритність 14, «Переміщення без сліду», +12. Ми проходимо на 2 і кидаємо з Перевагою на кубику завдяки умінню Клірика підступності «Благословення хитруна»{{Blessing of the Trickster}}. Шанс 99,75%."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-19",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Джин: володіння Непомітністю, Спритність 18, «Переміщення без сліду». +17 — ще один автоматичний успіх."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-20",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Отже, «Переміщення без сліду» неймовірно зламане, і вам слід просто користуватися ним завжди, якщо можливо. Вам навіть не потрібен Убивця в команді, це лише бонус. Раптовість — це безкоштовний раунд ходів. Якщо всі мають володіння Непомітністю, а його легко отримати вибором передісторії, це набагато краще й працює проти пильніших ворогів, але навіть без нього наш Варвар звіра справляється чудово."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-21",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "І щоб це продемонструвати, «Переміщення без сліду» з нашими гучними й топчучими друзями з попередньої частини:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-22",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сутінки: тепер потрібно лише 2, а з Перешкодою це 90,25% шансу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-23",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Рунічний лицар: потрібно 3, тож шанс 81%."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-assassin-party-support-24",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Віщування: автоматично проходить нашу СК."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-assassin-build-the-killer-rabbit-of-caerbannog",
+          "heading": "Приклад збірки Убивці — Кролик-убивця з Кербанога",
+          "sourceAnchor": "example-assassin-build-the-killer-rabbit-of-caerbannog",
+          "blocks": [
+            {
+              "blockId": "block-section-example-assassin-build-the-killer-rabbit-of-caerbannog-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Що? За кроликом? Це "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "і є"
+                },
+                {
+                  "type": "text",
+                  "text": " кролик. "
+                },
+                {
+                  "type": "link",
+                  "text": "«Монті Пайтон і Святий Грааль»",
+                  "href": "https://www.youtube.com/watch?v=tgj3nZWtOfA"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-assassin-build-the-killer-rabbit-of-caerbannog-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ключове уміння Убивці — «Вбивство». Щоб ним користуватися, нам треба вигравати ініціативу, входячи в бій. Гаренгон допоможе нам цього досягти завдяки додаванню Бонусу Майстерності до тих кидків, а також, імовірно, ненавмисній взаємодії між «Надійним талантом» і «Зайчачим рефлексом»{{Hare-Trigger}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-assassin-build-the-killer-rabbit-of-caerbannog-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наш модифікатор ініціативи починається з +5 на першому рівні, а потім стрибає до +10, коли ми отримуємо «Пильний» на 4-му рівні. Далі він зростає з кожним Покращенням Характеристик Спритності й збільшенням Бонусу Майстерності, досягаючи +14 до десятого рівня. На одинадцятому рівні відбувається щось особливе: раніше нашою найнижчою можливою ініціативою було 15 за натуральної 1, але щойно ми матимемо «Надійний талант», наш мінімум стає 24. На цьому етапі багато монстрів просто не можуть перевершити нашу перевірку ініціативи, тож у нас завжди буде Перевага на кубику в першому раунді, щоб відкрити «підступною атакою», не чекаючи, поки союзник стане на позицію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-assassin-build-the-killer-rabbit-of-caerbannog-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви помітите, що я ще взагалі не згадував "
+                },
+                {
+                  "type": "link",
+                  "text": "Раптовість",
+                  "href": "https://rpgbot.net/rpgbot-podcast-s2e27-initiative/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Надійне здивування ворогів вимагає залучення й відданості всієї групи отриманню переваги першого удару. Якщо ваша група хоче робити це час від часу, чудово. Ми здебільшого припускатимемо, що Раптовість — бонус, що трапляється іноді, і зосередимося на безкоштовній Перевазі на кубику, яку ми можемо контролювати."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-assassin-build-the-killer-rabbit-of-caerbannog",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми починаємо з купівлі характеристик і ставимо 15 у Спритність, Статуру й Харизму. Потім додаємо +1 до кожної, щоб мати 16 у всьому, що нас цікавить. Правду кажучи, можна просто проігнорувати навички «обличчя», якщо ви хочете інший набір, скажімо, обрати Мудрість для підвищення Уважності й Аналізу Поведінки. Ми цього тут не робимо, але це варіант. Те, що у вас є уміння для маскування й обману, не означає, що ви мусите ними користуватися, якщо вони не пасують вашій кампанії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 20"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-assassin-build-the-killer-rabbit-of-caerbannog",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми обираємо Гаренгона{{Harengon}}, як зазначено вище. Передусім, щоб ми могли майже гарантовано ходити першими в боях. Отримання Уважності й «Кролячого стрибка»{{Rabbit Hop}} — лише бонуси на додачу до «Зайчачого рефлексу»{{Hare-Trigger}}. «Кролячий стрибок» може здаватися зайвим поруч із «Хитрою дією», але це як поєднання Ривка й Відступу. Коли вам потрібен лише один із них, користуйтеся «Хитрою дією», але якщо вам справді потрібно зробити обидва за один хід, витратьте «Кролячий стрибок»."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-assassin-build-the-killer-rabbit-of-caerbannog",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ми беремо передісторію Безликого{{Faceless}} заради Обману й Залякування. Оскільки ми отримаємо володіння набором для гриму від Убивці, його можна замінити на щось інше. Мій приклад збірки обрав Флейту{{Flute}} просто тому, що можу, але робіть як вам до вподоби."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-assassin-build-the-killer-rabbit-of-caerbannog",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Гаренгона ми отримуємо Уважність. Від Пройдисвіта — Акробатику, Аналіз Поведінки, Переконання й Непомітність. Від Безликого — Обман і Залякування."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки як Пройдисвіт ми обираємо «Експертизу», ми обираємо Обман і Непомітність на першому рівні й Аналіз Поведінки та Уважність на шостому."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-skills-and-tools-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щодо інструментів: ми отримуємо набір для гриму й набір отруйника від Убивці, а також стандартні інструменти злодія, які отримують усі Пройдисвіти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-assassin-build-the-killer-rabbit-of-caerbannog",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні ми обираємо «Пильний»{{Alert}} заради +5 до Ініціативи та інших корисних переваг."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні ми отримуємо Покращення Характеристик на +2 до Спритності, піднімаючи її до 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 10-му рівні ми беремо друге Покращення Характеристик на ще +2 до Спритності, досягаючи максимуму 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні ми беремо «Надихаючого лідера»{{Inspiring Leader}}, бо маємо Харизму, потрібну для нього, і він просто такий корисний."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні ми беремо «Стійкого»{{Resilient}} (Статура). Так, це дивний вибір, але Пройдисвіти отримують володіння Мудрістю на 15-му рівні, і просто заради розваги й щоб схилитися до образу кролика-убивці, якого, схоже, ніхто не може подряпати в тій сцені, чому б не мати володіння трьома основними ряткидками?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні ви можете обрати «Експерта у навичках»{{Skill Expert}}, щоб додати +1 до Статури й округлити її до 18, отримавши ще й навичку з «Експертизою». Також можна взяти «Аберантну мітку дракона»{{Aberrant Dragonmark}} заради того самого підвищення Статури, але з дивним чаротворством на основі Статури. Я обираю «Витривалого»{{Durable}}, бо ми вже заохочуємо команду брати більше Коротких відпочинків завдяки «Надихаючому лідеру», а це дає нам нижню межу на кидках Кубиків Здоровʼя. Це також більше пасує до образу кролика-убивці, тож неважливо, що це обʼєктивно погано, коли я вже сказав вам кращі варіанти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-assassin-build-the-killer-rabbit-of-caerbannog",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підступна атака"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підступна атака\nЗлодійська мова\nНавички (+ Експертиза)\n-Акробатика\n+Обман\n-Аналіз Поведінки\n-Залякування\n-Переконання\n+Непомітність\nІнструменти\n-Інструменти злодія\n-Флейта{{Flute}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми починаємо як більшість Пройдисвітів. Короткий лук чи ручний арбалет і трохи легкого обладунку — наше спорядження на вибір. Дотримання дальнього бою й відбивання «Підступних атак» від зайнятих супротивників, що бʼються в ближньому бою з нашими союзниками, не дозволяє по нас влучати. Наш вибір навичок грає на роль «обличчя». Хоч я не можу припустити, що ваш Майстер погодиться, що Обман може накладати раптовість у деяких ситуаціях, я все одно можу будувати в цьому напрямку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хитра дія{{Cunning Action}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бонусна дія: Ривок, Відступ чи Сховатися. Добрі варіанти для цього. Можна користуватися цим, коли нам потрібна лише дистанція чи коротка бойова мобільність, і зберігати кілька наших використань «Кролячого стрибка» для випадків, коли нам треба поєднання обох за один хід."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Убивця\nВбивство\nІнструменти\n-Набір для гриму\n-Набір отруйника"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми можемо почати наші швидкі підступні атаки. Відтепер у нас Перевага на кубику проти будь-кого, кого ми випереджаємо в ініціативі протягом першого ходу. Як переважно дальньому Пройдисвітові, ходити першим насправді може бути важко, бо жоден із наших союзників не на позиції, щоб допомогти нам із «Підступною атакою», тож це просто безкоштовна «Підступна атака» в першому раунді.\n\nРаптовість важко здобути, але якщо ми це зробимо, ми отримуємо автоматичні критичні влучання, бо вже маємо Перевагу, яку інакше отримали б від Раптовості. Тож просто памʼятайте, що Раптові криті — лише бонус, якщо ми докладемо додаткових зусиль, а не основний спосіб гри Убивцею.\n\nДля трохи математики DPR порівняємо наші «підступні атаки» «Вбивством» першого раунду з коротким луком як Убивці з Раптовістю й без неї. Це означає, що обидві атаки мають Перевагу на кубику. Для порівняння, "
+                    },
+                    {
+                      "type": "link",
+                      "text": "цільовий DPR",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " для цього рівня — 9,6, а високий — 19,2.\n\nЗвичайно: 12,87\nРаптовість: 21,06"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Пильний"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "З «Пильним» ми додаємо +5 до нашої Ініціативи й також стаємо імунними до раптовості. Розкладаючи наші цифри: у нас Спритність 16, що дає +3, «Зайчачий рефлекс» додає наш +2 Бонус Майстерності, і тепер ще +5 від «Пильного». Разом це дає +10 до наших перевірок Ініціативи, тож ми маємо вигравати більшість ініціатив заради нашої однієї безкоштовної «підступної атаки». Це ставить нас позаду "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Фундаментальної математики",
+                      "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", але робить нас імовірнішими користуватися нашим визначальним умінням, тож обмін вартий того."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надприродне ухилення{{Uncanny Dodge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отримуйте менше шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза\n+Аналіз Поведінки\n+Уважність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Наша Мудрість не найкраща, тож ці «Експертизи» допомагають це компенсувати. Як варіант, можна взяти Залякування й Переконання для гнітючих перевірок «обличчя»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухилення{{Evasion}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Не отримуйте жодної шкоди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність +2 (16 → 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Атаки, КБ і Ініціатива. Це підводить наш бонус ініціативи до +12. Скоро ми знову зростемо, досягаючи +14 до 10-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстерність проникнення{{Infiltration Expertise}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Витрачайте час і гроші, щоб не дозволити людям навіть кинути проти вашого Маскування, доки не буде запізно. Я був би здивований, якби ви не змогли накласти раптовість цим у відповідних ситуаціях."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Спритність +2 (18 → 20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність на максимумі, і саме вчасно для веселощів наступного рівня. Оскільки ми досягли максимуму Спритності, перевіримо ще раз ці розрахунки DPR. Ті самі подробиці, що пояснено на 3-му рівні. Ціль — 18,3, високий — 36,7.\n\nЗвичайно: 24,86\nРаптовість: 41,24"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надійний талант{{Reliable Talent}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Надійний талант»: «Щоразу, коли ви робите перевірку характеристики, що дозволяє додати ваш Бонус Майстерності, ви можете вважати кидок к20 в 9 чи менше за 10». «Зайчачий рефлекс»: «Ви можете додавати свій Бонус Майстерності до кидків ініціативи». О ні, вони взаємодіють. Тепер наша Ініціатива не може бути нижче 24. У першому раунді в нас завжди буде в кого стріляти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "6к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Надихаючий лідер"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "У нас є Харизма, і ми просто заповнюємо наші риси. До того ж це солідна риса, що додає від 60 до 90 хітів за відпочинок залежно від розміру вашої групи на цьому рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Самозванець{{Impostor}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це як «Майстерність проникнення», окрім того, що ми можемо бути конкретною особою замість вигадування нової. Знову ж таки, з цим умінням можуть існувати добрі способи створити Раптовість, якщо ви винахідливі. Тільки не переборщіть."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "7к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сліповідчуття{{Blindsense}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше жодних Невидимих ворогів (принаймні в межах 10 футів)."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слизький розум{{Slippery Mind}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння ряткидками Мудрості. Це приємно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Стійкий\nСтатура +1 (16=>17)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Володіння ряткидками Статури. Також приємно. Є й інші варіанти, але це лише заради розваги мати основну трійку ряткидків. А ще щоб можна було вибратися, якщо ми якимось чином зіпсуємо Вбивство."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Смертельний удар{{Death Strike}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це чудово, якщо ми зможемо влаштувати Раптовість. Раптовість може бути складною, але якщо ви ведете Убивцю аж до 17-го, ви, мабуть, цілком упевнені в здатності вашої групи влаштувати Раптовість принаймні раз на день. Ми додамо ще один розрахунок DPR тут, але нам треба додати третій запис. «Смертельний удар» подвоює шкоду, якщо ціль провалює ряткидок Статури. Припустімо, що монстри проходять цей ряткидок приблизно в 60% випадків. Це означає, що ми множитимемо шкоду від Раптовості на 40%, щоб отримати значення «Смертельного удару». Цільовий DPR на цьому рівні — 27,1, високий — 54,2, і ми починаємо наближатися до території «Чувак, стоп», якщо влучимо «Смертельним ударом».\n\nЗвичайно: 38,51\nРаптовість: 65,81\nСмертельний удар: 26,324\nРазом по цілі, застигнутій зненацька: 82,13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "9к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Невловимий{{Elusive}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ніхто не отримує Переваги проти нас. Перевага — наш трюк."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Витривалий\nСтатура +1 (17=>18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми просто підтягуємо Статуру й робимо зцілення на Короткому відпочинку надійнішим. Сподіваюся, риса «Надихаючий лідер» заохотила більше коротких відпочинків від команди."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10к6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шанс удачі{{Stroke of Luck}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перемагайте замість програвати раз за відпочинок."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-rogue-assassin-2014-001",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Бонусні володіння",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-002",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Вбивство",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-003",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Майстерність проникнення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-004",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Самозванець",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-005",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Смертельний удар",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-006",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-assassin-ability-scores",
+      "targetBlockId": "block-section-assassin-ability-scores-2",
+      "optionId": "section-assassin-ability-scores-block-section-assassin-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-assassin-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-007",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-assassin-ability-scores",
+      "targetBlockId": "block-section-assassin-ability-scores-3",
+      "optionId": "section-assassin-ability-scores-block-section-assassin-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-assassin-ability-scores-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-008",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-assassin-ability-scores",
+      "targetBlockId": "block-section-assassin-ability-scores-4",
+      "optionId": "section-assassin-ability-scores-block-section-assassin-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-assassin-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-009",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-assassin-ability-scores",
+      "targetBlockId": "block-section-assassin-ability-scores-5",
+      "optionId": "section-assassin-ability-scores-block-section-assassin-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-assassin-ability-scores-5",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-010",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-assassin-ability-scores",
+      "targetBlockId": "block-section-assassin-ability-scores-6",
+      "optionId": "section-assassin-ability-scores-block-section-assassin-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-assassin-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-011",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-assassin-ability-scores",
+      "targetBlockId": "block-section-assassin-ability-scores-7",
+      "optionId": "section-assassin-ability-scores-block-section-assassin-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-assassin-ability-scores-7",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-012",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-assassin-races",
+      "targetBlockId": "block-section-assassin-races-2",
+      "optionId": "section-assassin-races-block-section-assassin-races-2-item-0",
+      "context": "Ведмебай",
+      "explanationBlockId": "block-section-assassin-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-013",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-assassin-races",
+      "targetBlockId": "block-section-assassin-races-2",
+      "optionId": "section-assassin-races-block-section-assassin-races-2-item-1",
+      "context": "Геназі землі",
+      "explanationBlockId": "block-section-assassin-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-014",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-assassin-races",
+      "targetBlockId": "block-section-assassin-races-2",
+      "optionId": "section-assassin-races-block-section-assassin-races-2-item-2",
+      "context": "Гаренгон",
+      "explanationBlockId": "block-section-assassin-races-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-015",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-assassin-feats",
+      "targetBlockId": "block-section-assassin-feats-2",
+      "optionId": "section-assassin-feats-block-section-assassin-feats-2-item-0",
+      "context": "Пильний",
+      "explanationBlockId": "block-section-assassin-feats-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-016",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-assassin-multiclassing",
+      "targetBlockId": "block-section-assassin-multiclassing-2",
+      "optionId": "section-assassin-multiclassing-block-section-assassin-multiclassing-2-item-0",
+      "context": "Клірик домену сутінків",
+      "explanationBlockId": "block-section-assassin-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-rogue-assassin-2014-017",
+      "articleId": "rpgbot-rogue-assassin-2014",
+      "translationRevisionId": "translation-rpgbot-rogue-assassin-2014-draft1",
+      "sectionId": "section-assassin-multiclassing",
+      "targetBlockId": "block-section-assassin-multiclassing-2",
+      "optionId": "section-assassin-multiclassing-block-section-assassin-multiclassing-2-item-1",
+      "context": "Воїн",
+      "explanationBlockId": "block-section-assassin-multiclassing-2",
+      "sourceColor": "orange",
+      "score": 2
+    }
+  ]
+}

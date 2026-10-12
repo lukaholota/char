@@ -1,0 +1,81 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "rogue-swashbuckler-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-rogue-swashbuckler-2014-draft1",
+    "sourceRevisionId": "rpgbot-3599d6bf0b1d362f-d14333c0b7daf47c"
+  },
+  "exampleSection": "section-example-swashbuckler-rogue-build-thundering-thrillseeker",
+  "levelTableSection": "section-levels",
+  "classKey": "ROGUE_2014",
+  "subclassKey": "SWASHBUCKLER",
+  "raceKey": "HALF_ELF_2014",
+  "backgroundKey": "GAMBLER",
+  "abilityScores": { "STR": 8, "DEX": 15, "CON": 15, "INT": 8, "WIS": 8, "CHA": 15 },
+  "levelPlans": { "levels": "all", "notes": false, "featuresColumn": 1, "notesColumn": 2 },
+  "revision": 2,
+  "levels": [
+    { "level": 2 },
+    { "level": 3, "subclassKey": "SWASHBUCKLER" },
+    { "level": 4, "featKey": "SKILL_EXPERT", "featOptions": [{ "optionNameEng": "Skill Expert (DEX)" }, { "optionNameEng": "Skill Expert Proficiency (PERCEPTION)" }, { "optionNameEng": "Skill Expert Expertise (INSIGHT)" }], "section": "section-feats" },
+    { "level": 5 },
+    { "level": 6, "expertise": ["INTIMIDATION", "PERSUASION"] },
+    { "level": 7 },
+    { "level": 8, "abilityScoreIncrease": [{ "ability": "DEX", "amount": 2 }], "section": "section-feats" },
+    { "level": 9 },
+    { "level": 10, "featKey": "INSPIRING_LEADER", "section": "section-feats" },
+    { "level": 11 },
+    { "level": 12, "featKey": "TOUGH", "section": "section-feats" },
+    { "level": 13 },
+    { "level": 14 },
+    { "level": 15 },
+    { "level": 16, "abilityScoreIncrease": [{ "ability": "CHA", "amount": 2 }], "section": "section-feats" },
+    { "level": 17 },
+    { "level": 18 },
+    { "level": 19, "abilityScoreIncrease": [{ "ability": "CON", "amount": 2 }], "section": "section-feats" },
+    { "level": 20 }
+  ],
+  "incomplete": [
+    {
+      "field": "Ігровий набір",
+      "reason": "Автор радить ігровий набір на вибір гравця від Азартного гравця, не називаючи його; пресет не записує вибір ігрового набору.",
+      "section": "section-background"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/rogue-swashbuckler-2014.webp",
+    "title": "Пройдисвіт — Шибайголова, Напівельф",
+    "description": "Громовий шукач гострих відчуттів: Напівельф зі спадком Місячного або Сонячного ельфа, Спритність 17 і Гримучий Клинок з першого рівня.",
+    "subraceKey": null,
+    "racialAbilities": ["CON", "CHA", "DEX"],
+    "racialAbilityRules": "tasha",
+    "skills": { "selectedClass": ["ACROBATICS", "INTIMIDATION", "PERSUASION", "STEALTH"], "race": [], "background": [] },
+    "expertise": ["ACROBATICS", "DECEPTION"],
+    "classOptions": [],
+    "raceOptions": ["Замовляння"],
+    "languages": ["DWARVISH"],
+    "equipment": [
+      { "group": 1, "option": "a", "weapons": [] },
+      { "group": 2, "option": "a", "weapons": [] },
+      { "group": 3, "option": "a", "weapons": [] },
+      { "group": 4, "option": "a", "weapons": [] }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Купівля 15/15/15 у Спритності, Статурі й Харизмі та підвищення Напівельфа за правилами Таші: +2 до Спритності, +1 до Статури й Харизми, тож 17/16/16, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Акробатика, Залякування, Переконання й Непомітність — від Пройдисвіта, Обман і Аналіз поведінки — від Азартного гравця, як у розділі автора. Експертиза в Акробатиці й Обмані — за автором. Мову ми обрали за вас: автор її не називає.",
+    "equipmentExplanation": "Автор не називає спорядження 1-го рівня. Рапіру, короткий лук, набір грабіжника та броню з інструментами злодія ми обрали за вас — це вибір платформи, його можна змінити.",
+    "spells": {
+      "classCantripKeys": [],
+      "knownSpellKeys": [],
+      "spellbookKeys": [],
+      "raceSpellKeys": ["booming-blade"],
+      "preparedSpellKeys": [],
+      "sectionId": "section-race",
+      "explanation": "Спадок Місячного або Сонячного ельфа: замовляння Гримучий Клинок зі списку чарівника обрано автором."
+    }
+  }
+}

@@ -1,0 +1,861 @@
+{
+  "buildId": "build-fighter-rune-knight-2014",
+  "revisionId": "build-fighter-rune-knight-2014-v1",
+  "ruleset": "RULES_2014",
+  "title": "Рунічного лицаря — Атаксі велетенського Табаксі",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-fighter-rune-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+      "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+      "sectionId": "section-example-rune-knight-build-attaxi-of-the-giant-tabaxi",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "FIGHTER_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "RUNE_KNIGHT",
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Stone Rune (Rune)"
+          },
+          {
+            "optionNameEng": "Fire Rune (Rune)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "SKILL_EXPERT",
+        "featOptions": [
+          {
+            "optionNameEng": "Skill Expert (STR)"
+          },
+          {
+            "optionNameEng": "Skill Expert Proficiency (SLEIGHT_OF_HAND)"
+          },
+          {
+            "optionNameEng": "Skill Expert Expertise (ATHLETICS)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TAVERN_BRAWLER",
+        "featOptions": [
+          {
+            "optionNameEng": "TAVERN_BRAWLER Ability (Strength)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Hill Rune (Rune)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "CRUSHER",
+        "featOptions": [
+          {
+            "optionNameEng": "CRUSHER Ability (Strength)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Storm Rune (Rune)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Wisdom)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "HEALER"
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Cloud Rune (Rune)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CON",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "FIGHTER_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-fighter-rune-knight-2014",
+          "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+          "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "RUNE_KNIGHT",
+    "raceKey": "TABAXI_MPMM",
+    "backgroundKey": "CUSTOM",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 12
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 13
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Ставимо +2 у Силу й +1 у Статуру.\n\n Базове значення Підвищене значення Сила 15 17 Спритність 12 (13) 12 (13) Статура 15 16 Інтелект 8 8 Мудрість 13 (12) 13 (12) Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ми беремо Табаксі через кілька приємних речей. По-перше, у нас є кігті, які ми використовуватимемо для входу в захоплення, але також хочемо запасну магічну зброю (або «Татуювання чаротворчого пазура [Eldritch Claw Tattoo]») проти істот з опором. У нас також є швидкість лазіння, що зручно й дозволяє певні витівки із захопленням і лазінням.\n\nТакож у Табаксі є риса, що дає безкоштовний псевдо-Ривок, яким ми можемо скористатися, тягнучи ціль. Ми маємо Темний зір і два володіння навичками.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Беремо власну передісторію, щоб вільно обрати дві навички й два інструменти.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "З переліку Воїна беремо Атлетику й Уважність. Від налаштування походження міняємо навички Табаксі на Медицину й Поводження з тваринами. Нарешті, від нашої власної передісторії беремо Аналіз Поведінки й Виживання, а також приладдя пивовара й інструменти злодія.\n\nРазом ці вибори дають нам володіння кожною навичкою Мудрості, а також Атлетикою, даючи нам трохи корисності поза боєм.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "З Силою 17 на першому рівні ми візьмемо Гібридну рису на четвертому, шостому й восьмому, що тримає нас у темпі з фундаментальною математикою.\n\nДля нашої першої риси на четвертому рівні беремо «Експерта у навичках», передусім заради Експертизи в Атлетиці. Покращення Характеристики вкладаємо в Силу, роблячи її 18, і, бо маємо принаймні трохи Спритності, володіння Спритністю рук. Запитайте свого Майстра, наскільки більшим за ціль захоплення ви маєте бути, щоб непомітно сховати її в сумку зберігання.\n\nВоїни отримують друге покращення характеристик на шостому рівні; тут беремо «Забіяку з таверни» і вкладаємо покращення характеристики в Силу. Тепер, коли ми дряпаємо кігтями під час атаки, можемо захоплювати бонусною дією.\n\nНа восьмому ми починаємо трощити черепи, а точніше, беремо рису «Дробильник», що дозволяє нам вносити незначні корективи в те, де навколо нас перебуває ціль захоплення, а також додає +1 до Сили.\n\nКоли настає дванадцятий рівень, ми маємо кілька варіантів, але оскільки ми — гора, міцний фундамент, на якому побудована наша група, «Стійкий» (Мудрість) дасть нам перевагу, потрібну проти всіляких небезпечних ефектів. Зокрема, наш ряткидок Мудрості зросте з +1 до +6.\n\nНа чотирнадцятому рівні ми трохи урізноманітнимо свій набір навичок. Беремо рису «Цілитель». Дивний варіант, звісно, але це дає нам цікаву корисність. Ми — Здоровило Мак-Великий-Величезний і йдемо куди хочемо. Можемо просто дотягнутися й підняти друзів, коли вони в біді. Також можемо внести трохи додаткового лікування під час Коротких відпочинків для всіх, що дозволяє ще довші пригодницькі дні.\n\nНа шістнадцятому рівні ми відмовляємося від риси й вкладаємо +2 у Статуру, збільшуючи наш ряткидок, додаючи більше ХП, але найважливіше — збільшуючи Складності наших «Руни вогню» і «Руни каменю».\n\nДля останнього покращення характеристик на девʼятнадцятому вкладаємо останні два пункти у Статуру, даючи нам одне міцне тіло.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-runes",
+        "title": "Руни",
+        "text": "Цікаво щодо нашого вибору рун те, що ми маємо шість варіантів і зрештою вивчаємо пʼять із них. Як показано вище в обговоренні рун, із чотирьох, доступних одразу на третьому рівні, ми оцінили дві синіми, «Камінь» і «Вогонь», тож їх і обираємо одразу.\n\nКоли ми додаємо третю руну, ми на сьомому рівні, тож можемо обирати між двома рунами, що відкриваються на сьомому рівні. З двох ми першою беремо «Руну пагорба», щоб збільшити витривалість у бою. Через три рівні на десятому беремо «Руну бурі», бо вона остання синя з варіантів, що лишилися, і має багато універсальності для підтримки наступу й оборони.\n\nНарешті на пʼятнадцятому рівні ми отримуємо пʼяту й останню руну. Сині варіанти закінчилися, тож беремо «Руну хмари», наш єдиний зелений варіант, але на пʼятнадцятому наші руни покращуються додатковим використанням за Короткий відпочинок, через що ця руна використовується набагато приємніше.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-runes",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Бойовий Стиль{{Fighting Style}}: Рукопашний бій, Друге дихання",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Сплеск дій{{Action Surge}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Підклас: Рунічний лицар, Додаткові майстерності (Інструменти коваля, велетенська мова), Міць велетня (1к6), Різьбяр рун (2): Руна каменю, Руна вогню",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Експерт у навичках: — Експертиза: Атлетика — Навичка: Спритність рук, Сила 17 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Додаткова атака{{Extra Attack}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Забіяка з таверни: Сила 18 → 19",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Рунний щит, Різьбяр рун (3): Руна пагорба",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Дробильник: Сила 19 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Непохитність{{Indomitable}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Велика статура (1к8), Риса: Різьбяр рун (4): Руна бурі",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Додаткова атака (2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Риса: Стійкий: Мудрість 13 → 14",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "Непохитність (2)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Цілитель",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "Майстер рун, Різьбяр рун (5): Руна хмари",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Покращення Характеристик: Статура 16 → 18",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Сплеск дій (2), Непохитність (3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Рунний громила{{Runic Juggernaut}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: Статура 18 → 20",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Додаткова атака (3)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Інструменти",
+        "reason": "Автор бере приладдя пивовара та інструменти злодія від власної передісторії; платформа їх записує як інструменти замість мов. Інструменти коваля та велетенську мову Рунічного лицаря на 3-му рівні платформа видає сама.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Стартове спорядження",
+        "reason": "Автор не називає спорядження для стартового набору Воїна: кольчугу, бойову зброю зі щитом, легкий арбалет і набір дослідника підземель обрала платформа.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Табаксі: Спритність і Мудрість у таблиці",
+        "reason": "У таблиці характеристик стоять значення в дужках (Спритність 12 або 13, Мудрість 13 або 12); взято Спритність 12 і Мудрість 13.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-fighter-rune-knight-2014",
+            "translationRevisionId": "translation-rpgbot-fighter-rune-knight-2014-draft1",
+            "sourceRevisionId": "rpgbot-10d629ef4bf6d679-2b9d8536a9656e69",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

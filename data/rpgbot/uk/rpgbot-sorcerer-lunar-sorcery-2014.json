@@ -1,0 +1,1973 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-915a674df70757d5",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+      "sourceId": "rpgbot-915a674df70757d5",
+      "fetchedAt": "2026-09-29T19:17:29.461800+00:00",
+      "sourceUpdatedAt": "2026-03-14T14:56:05-04:00",
+      "contentHash": "bc9a49d175efa1bd70672be292f72160443d448df49bfe10885d5b58279bf97b",
+      "title": "Lunar Sorcery Sorcerer 5e: DnD Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-915a674df70757d5-d42811b5ee5b028a.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+    "sourceId": "rpgbot-915a674df70757d5",
+    "slug": "sorcerer-lunar-sorcery-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Місячна магія — гайд підкласу Чародія (2014)",
+    "titleEn": "Lunar Sorcery Sorcerer 5e: DnD Subclass Guide",
+    "topics": [
+      "Чародій",
+      "Місячна магія",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "sourceRevisionId": "rpgbot-915a674df70757d5-d42811b5ee5b028a",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо грати «як задумано», Місячна магія{{Lunar Sorcery}} — без жодних сумнівів, найсильніший підклас Чародія. Так, із гайда про Абераційний розум{{Aberrant Mind}} ви дізнаєтеся, як накласти Сріблясті шпильки [Silvery Barbs] за одне очко чародійства{{Sorcery Points}} і без компонентів, і так, Магія шторму{{Storm Sorcery}} з рівнем Клірика домену бурі{{Tempest Domain}} — неймовірний нюкер, але ніщо не зрівняється із сирою кількістю варіантів, які місячний чародій має в розпорядженні в будь-який момент."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підклас уперше вийшов у «Тіні Королеви Драконів»{{Shadow of the Dragon Queen}}, і запис про нього в офіційному цифровому довіднику D&D чітко дає зрозуміти: його присутність в інших кампаніях на інших світах не просто неохоче дозволена, її навіть передбачено. Процитую зовсім небагато: «Ви або хтось із вашого роду зазнали впливу концентрованої магії місяця (чи місяців) вашого світу, що наділила вас місячною магією». Тож без вагань користуйтеся цим потужним варіантом за будь-яким столом, який вам до вподоби, і насолоджуйтеся всім, що пропонує підклас."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Місячної магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Чародія Місячної магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Чародія Місячної магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Чародія Місячної магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Чародія Місячної магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Чародія Місячної магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Чародія Місячної магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Місячної магії — Чародій-вовкулака",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Чародія Місячної магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Чародія Місячної магії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/subclasses/lunar-sorcery/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Місячної магії",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Втілення місяця{{Lunar Embodiment}}: У цього уміння дві половини. Одна дає Чародієві загалом 15 відомих заклинань із фіксованого списку. Список загалом добрий, але на відміну від інших Походжень чародія{{Sorcerous Origin}}, що дозволяють міняти заклинання, цей список статичний. Друга половина дозволяє раз на день накласти одне із заклинань 1-го рівня без витрати слота заклинання залежно від фази місяця{{Moon Phase}}, обраної на початку дня. На пізніших рівнях це розширюється: можна раз на день накласти без витрати слота заклинання кожне з трьох заклинань 1-го рівня. А під «обраною фазою» ми маємо на увазі завжди {{Повня|Full Moon}} і тільки Повню на рівнях з першого по пʼятий, де єдине, що контролює фаза, — безкоштовне заклинання 1-го рівня. Бо Повня — це заклинання Щит [Shield], а решта двох заклинань надто ситуативні, щоб потребувати безкоштовного накладання щодня."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "1-й рівень: Одне чудове заклинання, одне нормальне й одне не надто чудове. Усі три вже є й у списку Чародія. Втім, добре заклинання — те, що більшість чародіїв і так бере, тож те, що воно доступне як безкоштовне заклинання раз на день, ще краще."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: Тут фантастичні варіанти. Одне чудове заклинання, якого немає в списку Чародія, і два заклинання із зеленою оцінкою в розборі заклинань Чародія."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: Загалом досить солідно. Два заклинання з-поза списку Чародія та заклинання, яке чародії часто беруть. Хоч одне з цих заклинань трохи нішеве — з помаранчевою оцінкою в списку Чарівника, — навіть воно іноді стає в пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "7-й рівень: Одне пусте заклинання з червоною оцінкою в списку Чародія компенсується тим, що ви отримуєте і добре, й нормальне заклинання з-поза списку Чародія."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: Продовжуючи тенденцію, одне заклинання зі списку Чародія — цього разу із синьою оцінкою, — а також два заклинання з-поза списку. Дуже добре виключно чарівницьке заклинання із синьою оцінкою й нішеве, але все ж корисне заклинання з помаранчевою оцінкою зі списку Чарівника."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Місячне полумʼя{{Moon Fire}}: Додаткове відоме замовляння, зазвичай ексклюзивне для Клірика, але з родзинкою, що дозволяє вразити ще одну ціль. Потужне підсилення, коли можна вразити додаткову ціль, а ще приємно здобути ще одне заклинання з-поза класу з цінним типом шкоди, до якого важко отримати доступ."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Місячні дари{{Lunar Boons}}: Покращення метамагії, що справді розтягує ваші очки чародійства{{Sorcery Points}}, за умови, що ви заздалегідь готуєтеся до шкіл магії, до яких хочете додати метамагію. Так, оскільки його можна використати лише стільки разів на Довгий відпочинок, скільки дорівнює ваш Бонус Майстерності, це щонайбільше ще 6 очок чародійства метамагії на високих рівнях, але це все одно більше, ніж в інших чародіїв."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зростання і спад{{Waxing and Waning}}: Це уміння, що дозволяє змінювати фазу місяця{{Moon Phase}}, змінюючи, серед іншого, до яких шкіл магії застосовується покращення метамагії від «Місячних дарів»{{Lunar Boons}}. Це також уміння, що дає змогу отримати ті додаткові безкоштовні накладання заклинань 1-го рівня з «Втілення місяця»{{Lunar Embodiment}}, як згадано вище."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Місячне посилення{{Lunar Empowerment}}: Три пасивні переваги залежно від того, у якій фазі місяця{{Moon Phase}} ми перебуваємо."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Повня|Full Moon}}: Бути ліхтариком із додатковими перевагами для пошуку речей, імовірно, корисно частіше, ніж ні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Молодик|New Moon}}: Хитрий режим непомітності для хитрих місій на непомітність."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Серп місяця{{Crescent Moon}}: Опір кільком нечастим типам шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Місячне явище{{Lunar Phenomenon}}: Три потужні варіанти, кожен з яких можна використати бонусною дією раз на Довгий відпочинок або повторити за 5 очок чародійства{{Sorcery Points}}. Як чудове полегшення життя, це можна активувати тією самою бонусною дією, що змінює вашу форму через «Зростання і спад»{{Waxing and Waning}}. Тобто ви можете почати в {{Повні|Full Moon}}, використати «Зростання і спад», щоб витратити одне очко чародійства й перейти до {{Серпа місяця|Crescent Moon}}, і водночас активувати «Місячне явище» Серпа місяця."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Повня|Full Moon}}: Ряткидок Статури по області, щоб накласти стан Засліплений на один раунд, разом із невеликим зціленням, що дуже приємно, але все одно «найслабший» із трьох варіантів."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Молодик|New Moon}}: Шкода по області та зменшення швидкості в поєднанні з невидимістю для себе на раунд як бонусна дія, що не є заклинанням, тож ви все одно можете накласти заклинання своєю дією."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Серп місяця{{Crescent Moon}}: Парний Туманний крок [Misty Step] з безкоштовним опором для вас і вашого партнера на раунд."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "heading": "Характеристики Чародія Місячної магії",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "будь-якого іншого чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: підтягніть."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: підтягніть."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: накачайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-races",
+          "heading": "Раси Чародія Місячної магії",
+          "sourceAnchor": "races",
+          "blocks": [
+            {
+              "blockId": "block-section-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мало чим відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "будь-якого іншого чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/"
+                },
+                {
+                  "type": "text",
+                  "text": ", хоча кілька речей варті уваги. Раси, що дають додаткові заклинання, будуть слабшим вибором, бо наш список і так значно розширений, хоча не настільки, щоб я свідомо їх оминав. Підклас також може якось триматися на плаву як заміна клірика завдяки таким заклинанням, як Мале відновлення [Lesser Restoration] і Захист від смерті [Death Ward] із {{Повні|Full Moon}}, "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "особливо"
+                },
+                {
+                  "type": "text",
+                  "text": ", якщо ви отримаєте расовий доступ до зцілення… як, наприклад, напіврослик із {{Міткою Зцілення|Mark of Healing}}, якщо ваша гра це дозволяє."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси Чародія Місячної магії",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "будь-якого іншого чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/"
+                },
+                {
+                  "type": "text",
+                  "text": ", хоча риси, що дають заклинання, як і раси вище, будуть трохи слабшим вибором, ніж зазвичай."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-weapons",
+          "heading": "Зброя Чародія Місячної магії",
+          "sourceAnchor": "weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "будь-якого іншого чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-armor",
+          "heading": "Обладунки Чародія Місячної магії",
+          "sourceAnchor": "armor",
+          "blocks": [
+            {
+              "blockId": "block-section-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від "
+                },
+                {
+                  "type": "link",
+                  "text": "будь-якого іншого чародія",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/sorcerer/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування Чародія Місячної магії",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Єдине мультикласування, якого ця збірка могла б по-справжньому забажати, — Клірик, щоб закрити підтримувальні можливості, які дає {{Повня|Full Moon}}, але тоді вже просто грайте за Божественну душу{{Divine Soul}}. Якщо чесно, цей підклас просто хоче якнайшвидше отримати доступ до своїх умінь."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Приклад збірки Місячної магії — Чародій-вовкулака",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Чому ми так розмовляємо?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "О, я думав, ви цього хотіли."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки більша частина гри відбувається нижче 10-го рівня, ми оптимізуватимемо збірку під уміння 1-го й 6-го рівнів і покажемо, як використовувати цей величезний набір варіантів у ролі потужного сапорта, що водночас виконує ролі нюкера й контролера (рідкість для Чародіїв поза підкласом Божественної душі{{Divine Soul}})."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви, мабуть, помітили, що ми тут свідомо граємо на штампі, тож — Перевертень{{Shifter}}. Ми отримуємо володіння Залякуванням і обираємо {{Звірошу шкіру|Beasthide}}, щоб виправити частину традиційних проблем Чародіїв із живучістю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Переслідуваний|Haunted One}} був би кумедним — натяк на те жахливе, що сталося й зробило нас такими, але, гадаю, я б радше наголосив на тому, що ми відгородилися від суспільства, щоб його захистити, і обрав Відлюдника{{Hermit}}. З іншого боку, навички Відлюдника для нас доволі кепські, тож замінімо їх на Уважність (вона завжди корисна) й Аналіз Поведінки (щоб закрити роль «обличчя», до якої Чародії від природи здібні)."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від класу беремо Обман і Переконання та додаємо їх до Залякування, Уважності й Аналізу Поведінки, які вже маємо. Також нас тішить володіння набором травника{{Herbalism Kit}}: він дає змогу виготовляти зілля й закривати підтримувальні можливості, яких підклас не покриває."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Перевертання{{Shifting}} — це бонусна дія, а згодом ми зможемо пришвидшувати деякі важливі заклинання за одне очко чародійства{{Sorcery Points}}, тож узяття «Телекінетика»{{Telekinetic}}, на щастя, не здається обовʼязковим. З огляду на це:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Формувальника рун»{{Rune Shaper}}, щоб ще сильніше спертися на величезну гнучкість підкласу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні беремо «Телепата»{{Telepathic}}, бо проводитимемо багато часу поза власним тілом."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні доводимо Харизму до максимуму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні беремо «Картоманта»{{Cartomancer}}, щоб і далі робити ставку на гнучкість."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні беремо «Надихаючого лідера»{{Inspiring Leader}}, бо з цим слотом риси більше нічого особливо робити, а ця риса роздає абсурдну кількість тимчасових ХП."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Втілення місяця\nМісячне полумʼя\nЗамовляння:\n– Створення багаття\n– Вогняний заряд\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Священне полумʼя\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Формування води",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nНові відомі заклинання:\n– Кольорова кулька\n– Сон"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Принаймні кілька перших рівнів ми захочемо проводити більшість часу в {{Повні|Full Moon}}. Кольорові бризки [Color Spray] — непогані, але схожий (і кращий) ефект ми вже маємо в Сні [Sleep], а мати серед «відомих» заклинань безкоштовно не просто Щит [Shield], а ще й безкоштовне накладання раз на день — надто добре, щоб відмовлятися. Щоразу, коли двоє ворогів стоять поруч, накладайте Священне полумʼя [Sacred Flame] на обох. Якщо ніде немає місця, де можна вразити двох, натомість використайте Вогняний заряд [Fire Bolt]. Оскільки Концентрацію нам більше нічим зайняти, Створення багаття [Create Bonfire] може стати корисним прийомом заборони території. Зі спорядження беріть усе до вподоби, аби воно включало чаротворчий фокус."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Мовчазний образ",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nДжерело магії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Моя педантичність щодо заклинань знає дуже мало меж. Те, що Мовчазний образ [Silent Image] окремим реченням каже «Якщо істота розпізнає ілюзію, вона може бачити крізь образ», означає: жодна взаємодія не потрібна, достатньо просто знати, що це ілюзія. Тобто крізь неї можемо бачити не лише ми як заклинач, а й уся наша група, якщо ви заздалегідь сказали їм щось конкретне на кшталт «коли я створю деревʼяний ящик навколо ворогів, це завжди буде ілюзія». Вороги цього не знатимуть, тож ви отримуєте цілий хід, упродовж якого ваша група кидає атаки з Перевагою (бо будь-хто без посилених чуттів матиме стан Засліплений за "
+                    },
+                    {
+                      "type": "link",
+                      "text": "базовими правилами",
+                      "href": "https://www.dndbeyond.com/sources/phb/adventuring#VisionandLight"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", адже ви створюєте сильно затемнену{{heavily obscured}} область — ваша ілюзія затуляє світло). Якщо використовувати це так, воно триватиме лише до ходу одного ворога, тож будьте обережні. З іншого боку, ви завжди можете поставити перед собою фальшиву стіну туману й увесь бій (а то й кілька, якщо переміщувати її за собою; памʼятайте про тривалість 10 хвилин) кидати Вогняний заряд [Fire Bolt] із Перевагою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перенавчання заклинання: Кольорова кулька → Розпечений промінь\nНове відоме заклинання:\n– Невидимість\nМетамагія:\n– Пришвидшене заклинання\n– Подовжене заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кольорова кулька [Chromatic Orb] потребує покращення, тож міняємо його на найпотужніше заклинання шкоди по одній цілі, доступне до Розщеплення [Disintegrate]. А Невидимість [Invisibility] — це основа основ: воно дає вам чи члену групи змогу робити що завгодно* цілу годину поспіль. Або за все ще дуже низьку ціну одного очка чародійства{{Sorcery Points}} — дві години. «Пришвидшене заклинання»{{Quickened Spell}} і так чудове місце для витрат очок чародійства, але скоро воно стане ще кращим."
+                    }
+                  ]
+                ],
+                [
+                  [],
+                  [],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Формувальник рун\nПеренавчання заклинання: Сон → Павутиння\nНове замовляння:\n– Мала ілюзія\nНове відоме заклинання:\n– Уявна сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Між Уявною силою [Phantasmal Force] і Павутинням [Web] у нас є все стандартне з «верховенства заклинателів»{{Caster Supremacy}}, а до того ж те, що Уявна сила [Phantasmal Force] — заклинання Ілюзії, стане для нас несподіваним інструментом згодом. Мала ілюзія [Minor Illusion] дає змогу без кінця вправлятися в ілюзійних витівках, які ми робимо з другого рівня, але в меншому масштабі. До 9-го рівня «Формувальник рун»{{Rune Shaper}} дає нам одне додаткове відоме заклинання й одне безкоштовне його накладання раз на день. Якщо ви не напіврослик із {{Міткою Зцілення|Mark of Healing}} і досі перебиваєтеся цілющими зіллями, які можна виготовляти завдяки володінню набором травника{{Herbalism Kit}}, з яким ми почали, саме час узяти Доброягоду [Goodberry] (Пагорб{{Hill}}). В іншому разі беріть Наказ [Command] (Король{{King}}). Подовжений Наказ [Command]: «Тікай» часто майже не гірший за значно вищорівневі заклинання на кшталт Вигнання [Banishment]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– Вогнекуля"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це останній рівень, на якому ми майже виключно перебуваємо в {{Повні|Full Moon}}, хоча саме на ньому зʼявляється цікавий вибір — обрати на день {{Серп місяця|Crescent Moon}}, якщо групі треба подорожувати. Якщо подовжити Фантомного скакуна [phantom steed] і причепити до коня візок з рештою вашої групи, можна проїхати 20 миль за дві години, чого вистачить для всього, що вам, імовірно, знадобиться, поки ви ще розвʼязуєте проблеми "
+                    },
+                    {
+                      "type": "link",
+                      "text": "міського рівня загрози",
+                      "href": "https://tvtropes.org/pmwiki/pmwiki.php/Main/SlidingScaleOfVillainThreat"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Розвіювання магії [Dispel Magic] ви навряд чи використовуватимете часто, але Щит [Shield] усе одно найкраще заклинання з великим відривом серед 9, до яких ми маємо доступ через «Втілення місяця»{{Lunar Embodiment}}, тож обираємо Повню. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Вогнекуля",
+                      "href": "https://www.youtube.com/watch?v=2MgAhJvmc3s"
+                    },
+                    {
+                      "type": "text",
+                      "text": " [Fireball]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– Сріблясті шпильки\nМісячні дари\nЗростання і спад"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ось тепер цей підклас нарешті стає цікавим. Наш Бонус Майстерності зараз +3, тож фактично ми отримуємо три бонусні очки чародійства{{Sorcery Points}} для метамагії. {{Повня|Full Moon}} дає змогу робити цікаві речі із заклинаннями Захисту й Ворожіння… але таких у нас небагато, і ні пришвидшувати, ні подовжувати їх здебільшого немає сенсу. А от пришвидшувати наші ілюзії — "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "корисно"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", тож тепер більшість часу ми проводитимемо в {{Серпі місяця|Crescent Moon}}. Це означає, що ми втрачаємо доступ до Щита [Shield], але ми вже 6-го рівня й досі маємо расові переваги для живучості. Виживемо. То що ж нам робити з цією новою силою? Пришвидшити Уявну силу [Phantasmal Force] для нищівного ефекту: «Моя ціль вірить, що перебуває в магічно запечатаному, цілком темному резервуарі з лавою / рідким азотом / кислотою (це „уявний предмет“ з опису заклинання; оберіть той вміст, який, найімовірніше, вплине на вашу ціль)». Нагадаю, у тексті заклинання сказано: «Поки ціль знаходиться під дією цього заклинання, вона вважає ілюзію справжньою». Тобто вона "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "вірить"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", що магічно запечатана, і не має причин намагатися втекти, якщо не вірить, що зможе зламати чи відкрити такий резервуар, а ще "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "вірить"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", що довкола суцільна темрява, тож фактично засліплена, як за описом ілюзії вище. Отже, можна пришвидшити таку ілюзію й одразу вдарити Вогняним зарядом [Fire Bolt] з Перевагою на атаку й так обійти те, що ми на один пункт відстаємо за фундаментальною математикою{{Fundamental Math}}. Оскільки наші реакції, імовірно, більше ніколи не будуть Щитом [Shield], беремо те, що не намагалися експлуатувати на низьких рівнях, бо не мали достатньо слотів заклинань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Поки що ми не використовуватимемо Перевтілення [Polymorph] на собі, бо не можемо перетворитися на лютого вовкулаку-тиранозавра. Але його все одно можна застосовувати для нападу, а ще це підходяща ціль для «Місячних дарів»{{Lunar Boons}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Телепат\n– підвищення Харизми\nНове відоме заклинання:\n– Політ"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ау-у-у. Тепер ми, навіть перебуваючи в іншій подобі, все одно можемо спілкуватися своїм (визнаю, дуже низьким) інтелектом. Це означає, що наша Концентрація зайнята Перевтіленням [Polymorph], але здебільшого це нормально."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– Вбивча хмара"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "До речі, наш Бонус Майстерності щойно зріс і дав нам ще одну руну. Друзі{{Friends}} заради Розмови з тваринами [Speak with Animals] іноді можуть стати в пригоді, але я б узяв Мороз{{Frost}}. Обладунок Агатіса [Armor of Agathys] — завжди «зламане» заклинання, а накласти його вищим слотом за один хід разом із пришвидшеним замовлянням, потім пришвидшити Перевтілення [Polymorph] і наступного ходу кинутися в ближній бій, виконавши Атаку, — справжня насолода, коли ви втомилися від «верховенства заклинателів»{{Caster Supremacy}}. Коли ви не зайняті Концентрацією на ілюзорній вʼязниці чи роллю вовко-вовкулаки, створюйте гігантську хмару вбивства."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія{{Metamagic}}:\n– Спарене заклинання\nНове замовляння:\n– Промінь холоду\nНове відоме заклинання:\n– Посилення навички"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Спарене заклинання»{{Twinned Spell}} дає змогу, наприклад, почати день у {{Повні|Full Moon}}, спарити Захист від смерті [Death Ward] і використати щойно заощаджене очко чародійства{{Sorcery Points}}, щоб перейти до {{Серпа місяця|Crescent Moon}} до кінця дня. Опинившись у Серпі, у якийсь момент спаріть Посилення навички [Skill Empowerment] і поширте Експертизу{{Expertise}} між усіма. Промінь холоду [Ray of Frost] додає трохи утилітарності до нашого арсеналу замовлянь."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– Розщеплення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "А ви знали, що Розщеплення [Disintegrate] — заклинання Перетворення, бо ви буквально обертаєте ціль на пил? Яка чудова річ для нашої метамагії{{Metamagic}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Харизма 18 → 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На чотири рівні пізніше, але нічого страшного."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– Вогнекуля відкладеної дії"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тримати гранату ще цілу зайву хвилину завдяки «Подовженому заклинанню»{{Extended Spell}} — це схоже на шахрайство й дає величезні 32к6 шкоди, у середньому значно понад 100 на ціль."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Місячне посилення{{Lunar Empowerment}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми не витрачали жодних ресурсів на скритність, окрім вивчення Невидимості [Invisibility], тож немає причин починати зараз. Здебільшого це просто дасть нам опір до кількох типів шкоди, один із яких стає дедалі поширенішим і на цьому рівні досить страшний. Не уявляю, навіщо вам могла б знадобитися сила {{Повні|Full Moon}}, коли існує дія Допомога, але, мабуть, вона теж доступна."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– Підкорення монстра"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надто добре, щоб відмовлятися."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Картомант"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ось чому я протягнув 16 рівнів цієї збірки, не взявши Штукарство [Prestidigitation]. Рівно на один рівень ви маєте використовувати це, щоб закрити будь-яку дірку у вашому чаротворстві, якої група може потребувати цього дня: Планарний перехід [Plane Shift], Істинний зір [True Seeing] (який можна спарити чи подовжити зі знижкою, якщо ви в {{Повні|Full Moon}}) тощо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nМетамагія: Приховане заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знаєте, що ще краще за Бажання [Wish]? Отримати друге Бажання [Wish] на день завдяки Картоманту{{Cartomancer}}. На цьому рівні ми також отримуємо останню руну, якою, мабуть, має стати Хмара{{Cloud}} заради Туманної хмари [Fog Cloud], бо ніщо інше вже навряд чи знадобиться. «Приховане заклинання»{{Subtle Spell}} на ілюзії — чудовий спосіб познущатися майже з будь-кого."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Місячне явище{{Lunar Phenomenon}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Жодне з цього не стане для нас основною тактикою, але Туманний крок [Misty Step] на двох міг би бути приємним, особливо тому, що більшість часу ми все одно проводимо в {{Серпі місяця|Crescent Moon}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Надихаючий лідер"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "24 помножити на 4 членів групи помножити на 3 промови на день — це 288 тимчасових ХП."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відновлення чарівництва{{Sorcerous Restoration}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чотири — краще, ніж нічого."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-001",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Втілення місяця",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-002",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "1-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-003",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-004",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-005",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "7-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-006",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-5",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-007",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-6",
+      "context": "Місячне полумʼя",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-008",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-7",
+      "context": "Місячні дари",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-009",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-8",
+      "context": "Зростання і спад",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-010",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-9",
+      "context": "Місячне посилення",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-011",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-10",
+      "context": "Повня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-012",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-11",
+      "context": "Молодик",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-013",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-12",
+      "context": "Серп місяця",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-014",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-13",
+      "context": "Місячне явище",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-015",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-14",
+      "context": "Повня",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-016",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-15",
+      "context": "Молодик",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-017",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-16",
+      "context": "Серп місяця",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-018",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-2",
+      "optionId": "section-ability-scores-block-section-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-019",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-3",
+      "optionId": "section-ability-scores-block-section-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-020",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-4",
+      "optionId": "section-ability-scores-block-section-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-021",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-5",
+      "optionId": "section-ability-scores-block-section-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-022",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-6",
+      "optionId": "section-ability-scores-block-section-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-sorcerer-lunar-sorcery-2014-023",
+      "articleId": "rpgbot-sorcerer-lunar-sorcery-2014",
+      "translationRevisionId": "translation-rpgbot-sorcerer-lunar-sorcery-2014-draft1",
+      "sectionId": "section-ability-scores",
+      "targetBlockId": "block-section-ability-scores-7",
+      "optionId": "section-ability-scores-block-section-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-ability-scores-7",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

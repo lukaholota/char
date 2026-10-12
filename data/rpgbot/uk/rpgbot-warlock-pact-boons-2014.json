@@ -1,0 +1,800 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-af0525987e673326",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-af0525987e673326-5587a6c566224b76",
+      "sourceId": "rpgbot-af0525987e673326",
+      "fetchedAt": "2026-09-29T19:19:45.908301+00:00",
+      "sourceUpdatedAt": "2026-03-14T15:14:56-04:00",
+      "contentHash": "cbc5f0c66302f4df5bf027924368e9a868adc62b3b67615098840101b9a10b63",
+      "title": "DnD 5e Warlock Pact Boons Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-af0525987e673326-5587a6c566224b76.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-warlock-pact-boons-2014",
+    "sourceId": "rpgbot-af0525987e673326",
+    "slug": "warlock-pact-boons-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Дари пакту Чорнокнижника — гайд (2014)",
+    "titleEn": "DnD 5e Warlock Pact Boons Guide",
+    "topics": [
+      "Чорнокнижник",
+      "Дар пакту",
+      "Пакт клинка",
+      "Пакт ланцюга",
+      "Пакт талісмана",
+      "Пакт гримуара",
+      "фамільяр"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-warlock-pact-boons-2014-draft1",
+      "articleId": "rpgbot-warlock-pact-boons-2014",
+      "sourceRevisionId": "rpgbot-af0525987e673326-5587a6c566224b76",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Окрім вашого Потойбічного покровителя{{Otherworldly Patron}} (підкласу Чорнокнижника), на 3-му рівні чорнокнижники також обирають «Дар пакту»{{Pact Boon}}, що є другою великою точкою вибору для персонажа. Як і підклас, ваш вибір Дару пакту дуже сильно впливає на те, як ви граєте, а пакт, що відповідає вашому стилю гри, може значною мірою визначити, наскільки ефективним буде ваш персонаж."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кілька Потойбічних викликів{{Eldritch Invocations}} доступні лише чорнокнижникам, які обрали певний Дар пакту. Ці виклики згадано нижче, але я все одно раджу прочитати мій "
+                },
+                {
+                  "type": "link",
+                  "text": "розбір Потойбічних викликів",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock/invocations"
+                },
+                {
+                  "type": "text",
+                  "text": ", де є поради щодо вибору й використання окремих викликів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Дари пакту",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/#pact-boons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Пакт клинка (PHB)",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/#blade"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Пакт ланцюга (PHB)",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/#chain"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Нові варіанти фамільяра",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/#chain-familiars"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Пакт талісмана (TCoE) (необовʼязкове)",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/#talisman"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Пакт гримуара (PHB)",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/warlock/pact-boons/#tome"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                2,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-pact-boons",
+          "heading": "Дари пакту",
+          "sourceAnchor": "pact-boons",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-blade",
+          "parentSectionId": "section-pact-boons",
+          "heading": "Пакт клинка (PHB)",
+          "sourceAnchor": "blade",
+          "blocks": [
+            {
+              "blockId": "block-section-blade-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чорнокнижник клинка{{Blade Warlock}} стикається з кількома проблемами. Він намагається втиснути використання зброї в клас, якому майже нічого робити зі зброєю. Оскільки ви застрягли в легких обладунках, вам майже напевно доведеться покладатися на фінесну зброю на кшталт рапіри або битися здалеку, і навіть тоді ви додаєте класові, який інакше чудово обходиться однією характеристикою, прикру залежність від багатьох характеристик (MAD)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blade-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Порівняно зі звичайним чорнокнижником, що покладався б на Позамежний заряд [Eldritch Blast] заради шкоди, чорнокнижник клинка зазвичай завдає менше шкоди. Чорнокнижник із Позамежним зарядом [Eldritch Blast] завдає 1к10 шкоди — стільки ж, скільки багато дворучної зброї. «Мучливий вибух»{{Agonizing Blast}} дозволяє додати Харизму до шкоди, принаймні зрівнявшись із бонусом до шкоди від зброї за Силою/Спритністю, ціною одного замовляння й одного виклику. Порівняно з 2–3 викликами, потрібними, щоб «Пакт клинка»{{Pact of the Blade}} лишався актуальним, «Мучливий вибух» виглядає дуже привабливо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blade-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щоб розписати математику: на 5-му рівні ви отримуєте два промені Позамежного заряду [Eldritch Blast], а другу атаку пактовою зброєю можна отримати завдяки «Спраглому лезу»{{Thirsting Blade}}, тож з 3-го по 10-й рівень варіанти приблизно порівнянні за шкодою, особливо якщо ви чомусь вкладаєте Покращення Характеристик у Спритність замість Харизми."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blade-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 11-му рівні Позамежний заряд [Eldritch Blast] отримує третій промінь, що безкоштовно додає ще 1к10+5 шкоди, тоді як чорнокнижник клинка мусить витратити ще один Виклик на «Життєпийцю»{{Lifedrinker}}, що дає блейдлоку{{bladelock}} надбавку до шкоди в сумі до +10 за атаку, за умови що ви можете довести і Спритність, і Харизму до 20. На цьому етапі блейдлок витратив додатковий слот виклику заради трохи меншої шкоди (3к10+15, у середньому 31,5, проти чогось на кшталт 2к8+20, у середньому 29)."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blade-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для блейдлока{{bladelock}} математика погіршується, коли на 17-му рівні Позамежний заряд [Eldritch Blast] додає 4-й промінь, і це ще без «Покращеної пактової зброї»{{Improved Pact Weapon}} — ще одного «податку» викликами на блейдлока. Додавання заклинання Проклін [hex] ще більше висуває Позамежний заряд [Eldritch Blast] уперед, збільшуючи розрив із кожним додатковим променем, який дає Позамежний заряд [Eldritch Blast] понад дві атаки, доступні більшості блейдлоків."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blade-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На щастя, {{Відьмацький клинок|Hexblade}} усуває ці проблеми. Середні обладунки й щити різко зменшують вашу потребу в Спритності для захисту, а використання Харизми для атак і шкоди означає, що вам не доведеться жертвувати чаротворством, щоб ефективно користуватися зброєю. Проте без «Прокляття Відьмацького Клинка»{{Hexblade’s Curse}} шкода вашої зброї все одно буде трохи нижчою, ніж від Позамежного заряду [Eldritch Blast] + «Мучливого вибуху»{{Agonizing Blast}}, тож без цього бонусу ви обмінюєте частину шкоди Позамежного заряду [Eldritch Blast] на додаткову живучість і можливість ефективно користуватися зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-blade-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Поєднання «Пакту клинка»{{Pact of the Blade}} з рисами «Експерт з арбалетів»{{Crossbow Expert}} чи «Майстер древкової зброї»{{Polearm Master}} — популярна й дуже ефективна збірка. Ви отримуєте три атаки, а з бонусом до шкоди від «Спраглого леза»{{Thirsting Blade}} на 11-му рівні легко випереджаєте шкоду від Позамежного заряду [Eldritch Blast] + «Мучливого вибуху»{{Agonizing Blast}}. Ці збірки дорогі: потрібні ваш «Дар пакту»{{Pact Boon}}, три Потойбічні виклики й риса, але вони дуже ефективні."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-chain",
+          "parentSectionId": "section-pact-boons",
+          "heading": "Пакт ланцюга (PHB)",
+          "sourceAnchor": "chain",
+          "blocks": [
+            {
+              "blockId": "block-section-chain-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Пакт ланцюга»{{Pact of the Chain}} дає кращого фамільяра, ніж зазвичай доступний іншим заклинателям, але покращені варіанти фамільяра — не єдина причина, чому «Пакт ланцюга» цікавий: у ньому є кілька дуже потужних варіантів викликів, зокрема «Ланцюги Каркері»{{Chains of Carceri}} та «Інвестиція майстра ланцюгів»{{Investment of the Chain Master}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Найбільша проблема «Пакту ланцюга» в тому, що ви сильно вкладаєтеся у свого фамільяра, а в нього щонайбільше 10 ХП (в Імпа 10 ХП), тож він, імовірно, часто гинутиме. Спеціального способу знову викликати фамільяра ви не отримуєте, тож під час пригод готуйтеся витрачати 70 хвилин і 10 зм, щоб кілька разів на день накладати Пошук фамільяра [Find Familiar]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щоб досягти успіху з «Пактом ланцюга», вам треба опанувати, як працюють фамільяри. Памʼятайте, що фамільяри діють незалежно від вас і за власною ініціативою. Вони виконують ваші накази, які ви зазвичай віддаєте голосом, якщо у вас немає телепатії чи чогось подібного. Ви можете змусити фамільяра атакувати його Реакцією, віддавши одну зі своїх атак під час дії Атака, але ця атака відбувається на вашому ході, а не на ході фамільяра, тож якщо фамільяр не в межах досяжності для атаки, вам може не пощастити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Інвестиція майстра ланцюгів»{{Investment of the Chain Master}} дозволяє наказати фамільяру виконати дію Атака на його ході, але це витрачає Дію фамільяра, яку він міг би витратити, наприклад, на те, щоб стати невидимим, тож за це доводиться платити значною втраченою можливістю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Атаки вашого фамільяра сильно обмежені його поганим бонусом атаки — від +4 до +6. З вашим просуванням фамільяр дедалі більше залежатиме від Переваги, щоб узагалі мати шанс стабільно влучати. Через це невидимість особливо важлива."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вам також треба придумати, як зберегти фамільяра живим, тож найкращий варіант у бою — часто змусити його стати невидимим або виконати Ухиляння на своєму ході. В ідеалі хід вашого фамільяра має настати одразу після вашого, щоб він міг порушити невидимість, атакуючи Реакцією, а потім одразу знову стати невидимим, перш ніж щось його вбʼє. На жаль, вам рідко так щастить. Допомогти може дія «Заготувати дію», але памʼятайте, що вона теж витрачає Реакцію фамільяра, тож вам може знадобитися пожертвувати можливістю фамільяра атакувати, щоб утримати його невидимим."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо вам пощастило мати доступ до баф-заклинань із тривалою дією, як-от Обладунок мага [Mage Armor] і Підтримка [Aid], це чудові способи недорого підвищити живучість фамільяра. Однак Чорнокнижникові такі варіанти знайти важко, тож, можливо, доведеться покладатися на інших заклинателів у групі. Також можна сховати фамільяра в області заклинання Темрява [Darkness] під час бою, хоча це не захистить його від шкоди по області."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щойно ви подолаєте ці труднощі,"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-chain-familiars",
+          "parentSectionId": "section-chain",
+          "heading": "Нові варіанти фамільяра",
+          "sourceAnchor": "chain-familiars",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-chain-familiars-imp",
+          "parentSectionId": "section-chain-familiars",
+          "heading": "Імп",
+          "sourceAnchor": "chain-familiars-imp",
+          "blocks": [
+            {
+              "blockId": "block-section-chain-familiars-imp-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Політ, найбільше ХП серед усіх варіантів фамільяра — 10, довгий перелік опорів та імунітетів, покращений Темний зір, «Зір диявола»{{Devil’s Sight}}, зміна форми й безкоштовна невидимість. Імп — абсолютно неперевершений розвідник."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-familiars-imp-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Отруйна атака може бути ефективною, коли ви лише здобули імпа, але Складність ряткидка ніколи не зростає, тож вона недовго лишатиметься ефективною, якщо ви не візьмете «Інвестицію майстра ланцюгів»{{Investment of the Chain Master}}. Вам також може бути важко змусити імпа атакувати на вашому ході, бо його отруйне жало — ближня атака, а фамільяри діють за власною ініціативою, що потенційно створює багато часу, коли вороги можуть відійти від вашого фамільяра, перш ніж ви встигнете наказати йому атакувати. Це клопіт, але розгляньте накладання Чарівний камінь [Magic Stone], щоб дати імпові тимчасову далекобійну атаку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-familiars-imp-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо вірити ілюстраціям, у імпів також людиноподібні руки, що відкриває деякі можливості, як-от повертати дверні ручки й користуватися інструментами."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-familiars-imp-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви непокоїтеся, що не варто брати імпа в місця, де йому не раді, він може перетворитися на крука, що збільшує швидкість польоту на 20 фт. і не позбавляє його ані здатності завдавати отруйної шкоди, ані невидимості, ані чогось іншого. Власне, можливо, вам просто варто постійно тримати свого імпа круком."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-familiars-imp-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Імп — найміцніший варіант фамільяра, і якщо ви плануєте відправляти його самого на розвідку, йому важко знайти рівних. Імпи також добре працюють, якщо вам подобається користуватися магічною темрявою, і це дає простий спосіб для вашого фамільяра битися, не потребуючи жонглювати невидимістю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-chain-familiars-pseudodragon",
+          "parentSectionId": "section-chain-familiars",
+          "heading": "Псевдодракон",
+          "sourceAnchor": "chain-familiars-pseudodragon",
+          "blocks": [
+            {
+              "blockId": "block-section-chain-familiars-pseudodragon-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чудова швидкість польоту, «Гострі чуття»{{Keen Senses}}, Темний зір і Сліпозір{{Blindsight}}. Жало в хвості псевдодракона накладає стан Отруєний на цілу годину й може навіть залишити ціль Непритомною. У поєднанні з «Інвестицією майстра ланцюгів»{{Investment of the Chain Master}} жало псевдодракона — потужний дебаф, який ви можете накласти один раз, а потім відправити фамільяра ховатися до кінця сутички, що дозволяє йому справляти надзвичайний вплив, майже не ризикуючи власною безпекою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-familiars-pseudodragon-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Псевдодракон не зовсім дотягує до можливостей імпа як розвідник, але зі Сліпозором і «Гострими чуттями» його дуже ефективно тримати поруч, щоб шукати приховане й невидимих ворогів. Сліпозір також дозволяє псевдодраконові долати магічну темряву, що полегшує вам використання фамільяра в бою, і це особливо важливо, бо псевдодракон не може сам стати невидимим."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-chain-familiars-quasit",
+          "parentSectionId": "section-chain-familiars",
+          "heading": "Квазіт",
+          "sourceAnchor": "chain-familiars-quasit",
+          "blocks": [
+            {
+              "blockId": "block-section-chain-familiars-quasit-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Дуже схожий на імпа, лише в природній формі не вміє літати, тож очікуйте, що ваш квазіт більшість часу проводитиме кажаном. Квазіт обмінює частину можливостей імпа як розвідника (а саме «Зір диявола»{{Devil’s Sight}}) і частину його отруйної шкоди на додавання стану Отруєний до своїх атак. Це здається непоганим обміном, особливо з «Інвестицією майстра ланцюгів»{{Investment of the Chain Master}} для підвищення Складності ряткидка, але квазіт усе ще стикається зі складнощами ближніх атак без тактичної можливості зловживати магічною темрявою, бо не бачить у ній."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-familiars-quasit-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вам доведеться миритися з жонглюванням невидимістю, а за такого розкладу чому б не взяти спрайта, адже він може атакувати здалеку?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-chain-familiars-sprite",
+          "parentSectionId": "section-chain-familiars",
+          "heading": "Спрайт",
+          "sourceAnchor": "chain-familiars-sprite",
+          "blocks": [
+            {
+              "blockId": "block-section-chain-familiars-sprite-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Політ, невидимість і людиноподібні руки. Сам по собі це жалюгідно порівняно з імпом. Але додайте «Інвестицію майстра ланцюгів»{{Investment of the Chain Master}} — і атака з лука спрайта раптом стає зручним способом накладати стан Отруєний, що дозволяє легко послаблювати ворогів на весь бій і значно заважати ворогам-бійцям, майже не наражаючи фамільяра на ризик."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-familiars-sprite-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Стріли спрайта можуть позбавляти істот притомності, але для цього результат їхнього ряткидка Статури має бути 5 або нижчим (а не просто провалом на 5 чи більше), а оскільки ряткидки Статури зазвичай високі, це малоймовірно протягом більшої частини вашої карʼєри."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-familiars-sprite-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спрайт — типова «скляна гармата»{{glass cannon}}. Хоч у нього найвищий КБ серед усіх фамільярів — 15, у нього лише два ХП, тож якщо в нього влучать, він майже напевно одразу загине. На щастя, він може атакувати здалеку, тож багато ворогів просто не можуть до нього дістатися. Проти ворогів, що вміють атакувати здалеку, вам захочеться якомога довше тримати спрайта невидимим."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-chain-familiars-sprite-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У спрайта також немає нічого, що робило б його ефективним розвідником, окрім польоту й Непомітності. Ні Темного зору, нічого. Якщо вам потрібно відправити фамільяра на розвідку, готуйтеся дати йому джерело світла, змусити стати невидимим і сподіватися, що ніхто не помітить, як світло зʼявляється з повітря без видимого джерела"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-talisman",
+          "parentSectionId": "section-pact-boons",
+          "heading": "Пакт талісмана (TCoE) (необовʼязкове)",
+          "sourceAnchor": "talisman",
+          "blocks": [
+            {
+              "blockId": "block-section-talisman-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Зверніть увагу: «Пакт талісмана»{{Pact of the Talisman}} є додатковим класовим умінням, тож може бути недоступним у вашій грі. Якщо хочете скористатися «Пактом талісмана», обговоріть це зі своїм Майстром і зверніться до розділу «Додаткові класові уміння»{{Optional Class Features}} мого "
+                },
+                {
+                  "type": "link",
+                  "text": "довідника Чорнокнижника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/warlock#optional-class-features"
+                },
+                {
+                  "type": "text",
+                  "text": ", щоб дізнатися, як додати його у свою гру."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-talisman-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Пакт талісмана» — найпростіший Дар пакту: він не вимагає від чорнокнижника жодних дій і майже не потребує додаткових вкладень, щоб талісман був корисним. Якщо вам хочеться зосередитися на інших частинах Чорнокнижника, а Дар пакту вас мало приваблює, «Пакт талісмана» — чудовий вибір. Він також має унікальну перевагу: можливість поділитися талісманом з іншою істотою, перетворивши його на цікавий варіант підтримки, а якщо вас лякає складність гри за чорнокнижника, передача талісмана може бути чудовим способом перекласти частину цієї складності на когось із групи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-talisman-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Унікальні виклики «Пакту талісмана» додають талісману додаткові переваги, усі з яких захисні. Вони добре допомагають вам вижити, але ви можете виявити, що талісман ефективніший, якщо позичити його союзникові, який приймає на себе багато атак, особливо коли ви вивчите «Відплату талісмана»{{Rebuke of the Talisman}}."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-tome",
+          "parentSectionId": "section-pact-boons",
+          "heading": "Пакт гримуара (PHB)",
+          "sourceAnchor": "tome",
+          "blocks": [
+            {
+              "blockId": "block-section-tome-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Пакт гримуара»{{Pact of the Tome}} спирається на здібності Чорнокнижника як заклинателя, даючи більше варіантів чаротворства, а також можливість ритуального накладання завдяки виклику «Книга давніх секретів»{{Book of Ancient Secrets}}. Доступ до ритуального накладання — величезна перевага, що дає купу корисних можливостей, яких Чорнокнижник зазвичай не може забезпечити через обмежений запас слотів заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-tome-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Чорнокнижники отримують на одне замовляння менше, ніж більшість спеціалізованих заклинателів, і додавання трьох, коли ви отримуєте «Пакт гримуара», може дати вам багато корисних варіантів. Вам, імовірно, не знадобляться наступальні варіанти, бо Позамежний заряд [Eldritch Blast] такий ефективний за таких малих вкладень, але не обмежуйтеся лише ним. Памʼятайте, що замовляння можуть бути з будь-якого списку заклинань, тож варто спробувати такі варіанти, як Кийок [Shillelagh] і Злісне глузування [Vicious Mockery]."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-tome-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для допомоги з ритуальним накладанням дивіться наш "
+                },
+                {
+                  "type": "link",
+                  "text": "Практичний гайд із Ритуального заклинателя",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/"
+                },
+                {
+                  "type": "text",
+                  "text": ", де розглянуто доступні ритуали й те, як найкраще їх використовувати."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-warlock-pact-boons-2014-001",
+      "articleId": "rpgbot-warlock-pact-boons-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-pact-boons-2014-draft1",
+      "sectionId": "section-blade",
+      "targetBlockId": "block-section-blade-1",
+      "optionId": "section-blade",
+      "context": "Пакт клинка",
+      "explanationBlockId": "block-section-blade-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-pact-boons-2014-002",
+      "articleId": "rpgbot-warlock-pact-boons-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-pact-boons-2014-draft1",
+      "sectionId": "section-chain",
+      "targetBlockId": "block-section-chain-1",
+      "optionId": "section-chain",
+      "context": "Пакт ланцюга",
+      "explanationBlockId": "block-section-chain-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-pact-boons-2014-003",
+      "articleId": "rpgbot-warlock-pact-boons-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-pact-boons-2014-draft1",
+      "sectionId": "section-chain-familiars-imp",
+      "targetBlockId": "block-section-chain-familiars-imp-1",
+      "optionId": "section-chain-familiars-imp",
+      "context": "Імп",
+      "explanationBlockId": "block-section-chain-familiars-imp-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-pact-boons-2014-004",
+      "articleId": "rpgbot-warlock-pact-boons-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-pact-boons-2014-draft1",
+      "sectionId": "section-chain-familiars-pseudodragon",
+      "targetBlockId": "block-section-chain-familiars-pseudodragon-1",
+      "optionId": "section-chain-familiars-pseudodragon",
+      "context": "Псевдодракон",
+      "explanationBlockId": "block-section-chain-familiars-pseudodragon-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-pact-boons-2014-005",
+      "articleId": "rpgbot-warlock-pact-boons-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-pact-boons-2014-draft1",
+      "sectionId": "section-chain-familiars-quasit",
+      "targetBlockId": "block-section-chain-familiars-quasit-1",
+      "optionId": "section-chain-familiars-quasit",
+      "context": "Квазіт",
+      "explanationBlockId": "block-section-chain-familiars-quasit-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-warlock-pact-boons-2014-006",
+      "articleId": "rpgbot-warlock-pact-boons-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-pact-boons-2014-draft1",
+      "sectionId": "section-chain-familiars-sprite",
+      "targetBlockId": "block-section-chain-familiars-sprite-1",
+      "optionId": "section-chain-familiars-sprite",
+      "context": "Спрайт",
+      "explanationBlockId": "block-section-chain-familiars-sprite-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-warlock-pact-boons-2014-007",
+      "articleId": "rpgbot-warlock-pact-boons-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-pact-boons-2014-draft1",
+      "sectionId": "section-talisman",
+      "targetBlockId": "block-section-talisman-1",
+      "optionId": "section-talisman",
+      "context": "Пакт талісмана",
+      "explanationBlockId": "block-section-talisman-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-warlock-pact-boons-2014-008",
+      "articleId": "rpgbot-warlock-pact-boons-2014",
+      "translationRevisionId": "translation-rpgbot-warlock-pact-boons-2014-draft1",
+      "sectionId": "section-tome",
+      "targetBlockId": "block-section-tome-1",
+      "optionId": "section-tome",
+      "context": "Пакт гримуара",
+      "explanationBlockId": "block-section-tome-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

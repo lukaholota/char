@@ -1,0 +1,2529 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "2d9e3465b78d2b1a0edc6cc007ca0c7875665135ba0e0362d093e7a7e02dd064",
+  "sourceRevision": {
+    "revisionId": "rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a",
+    "sourceId": "rpgbot-06ba5c62edff4d97",
+    "fetchedAt": "2026-09-29T19:08:05.268473+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:44:04-04:00",
+    "contentHash": "4f2560a8cf9dcb1dee97fc21122dad2325cf97dc3683bd1cf6b5a969c2f9e7b0",
+    "title": "Great Old One Warlock 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-06ba5c62edff4d97-2d9e3465b78d2b1a.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "An eclectic mix of options, the Great Old One focuses on drawing power from\n\tsomething unknowable and being appropriately crazy. Some of the abilities are\n\tvery potent, but just as many are situational and won’t see much use. The end\n\tresult is that the Great Old One Warlock (Often shortened to “GooLock”) feels\n\ta lot like an Enchanter Wizard, but more spooky than the Fey Warlock."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It’s hard to say which warlock subclass is the most emblematic of the Warlock as a class, but I think the Great Old One might be it. The spells are a good mix of options, the features provide some excellent tools to handle a diverse set of challenges, and overall the spooky, cultish feel of getting power from an elder being just feels right for the Warlock. At the same time, the subclass isn’t especially complex, so it’s approachable for new players but satisfying for experienced players without being exceptionally powerful. Mechanically, it’s not a combat monster, but it can thrive in a variety of situations and fall back on core Warlock features in combat."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Playing a Great Old One Warlock requires more abstract thinking than your typical Eldritch Blast build. The subclass spells aren’t big offensive options, and the subclass features have little function in combat. Instead, you’ll find that you can approach problems less directly, often diffusing or subverting them before combat starts. Then at high levels you get to build an army of thralls. And who doesn’t love raising an army?"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is for the 2014 Great Old One Warlock. For help with the 2024 rules, see our "
+            },
+            {
+              "type": "link",
+              "text": "DnD 2024 Great Old One Warlock Subclass Guide",
+              "href": "https://rpgbot.net/2024-dnd/classes/warlock/warlock-subclasses/great-old-one/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Great Old One Warlock Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Great Old One Warlock Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Great Old One Warlock Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Great Old One Warlock Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Great Old One Warlock Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Great Old One Warlock Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Great Old One Warlock Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Mind Games",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#example"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/great-old-one/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "Great Old One Warlock Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Expanded Spell List"
+              },
+              {
+                "type": "text",
+                "text": ": A really diverse mix\n\t\tof debuffs, area control spells, and utilities. Weirdly, the only spells that benefit from\nupcasting are Dominate Beast at 4th level and both 5th-level spells, so the spell list gains\nalmost no benefit from Pact Magic’s unique scaling.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "1st-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Two great\n\t\t\t\tsingle-target control effects, but they will become obsolete beyond\nlow levels since they don’t scale with upcasting."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "2nd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Both options are\n\t\t\t\tsituational, but can be extremely potent if you’re clever."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "3rd-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Clairvoyance is a\n\t\t\t\tfantastic scouting option if you have a normal number of spell slots\n\t\t\t\tlike literally any other spellcaster, but Warlocks really need to save\n\t\t\t\ttheir spell slots for something more significant and impactful. Sending\n\t\t\t\tis very situational, and you likely can’t justify using it on a day when\n\t\t\t\tyou’re adventuring unless your party is willing to give you a short rest."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "4th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Dominate Beast is\n\t\t\t\tvery situational, especially since you won’t be running into many beasts\n\t\t\t\tby the time you can cast 4th-level spells. Black Tentacles is one of the\n\t\t\t\tbest area control spells, but may not be as encounter-ending as Hunger\nof Hadar."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "5th-level Spells"
+              },
+              {
+                "type": "text",
+                "text": ": Dominate Person is\n\t\t\t\tamong the best single-target control/debuff spells in the game,\nbut it’s only situationally useful because humanoids are a small minority of the enemies that\nyou’ll face in most campaigns.\n\t\t\t\tTelekinesis is a great utility, and you can use it to hoist melee-only\nenemies into mid-air."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Awakened Mind"
+              },
+              {
+                "type": "text",
+                "text": ": This is basically free\n\t\tpermanent Tongues combined with Telepathic Link. With high Charisma and\n\t\taccess to Face skills, you can use this a lot."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Entropic Ward"
+              },
+              {
+                "type": "text",
+                "text": ": Not as reliable as other\n\t\tmechanics which respond to being attacked such as the Shield spell, but\n\t\timposing Disadvantage makes you mathematically immune to critical hits, and,\n\t\tsince your AC will likely exceed that of similar spellcasters like the\n\t\tSorcerer and the Wizard, you’re more likely to cause attacks against you to\n\t\tmiss.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Advantage on your next attack is nice, but, since it’s only on one attack,\n\t\t\tit’s minimally useful with Eldritch Blast, and there are very few spell\n\t\t\tattacks beyond cantrips  in the Warlock’s repertoire. You might consider learning another attack\n\t\t\tcantrip like Fire Bolt specifically for use with Entropic Ward, but, unless\n\t\t\tyou go Pact of the Tome it’s hard to justify spending one of your few\n\t\t\tcantrips known on a combo that you can use once per Short or Long Rest."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Thought Shield"
+              },
+              {
+                "type": "text",
+                "text": ": Both effects are\n\t\tsituational. Psychic damage is extremely uncommon, but if you run into mind\n\t\tflayers you’re going to have a lot of fun."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Create Thrall"
+              },
+              {
+                "type": "text",
+                "text": ": This can be hard to use.\n\t\tYour best bet is to affect the target while they’re sleeping. Once you make\n\t\tthe target Charmed, the Charmed condition gives you Advantage on ability\n\t\tchecks to “interact socially” with the creature, and, with a permanent\n\t\ttelepathic connection to the creature, you can easily talk it into\n\t\tdoing nearly whatever you want.\n"
+              },
+              {
+                "type": "text",
+                "text": "This isn’t a “dominate” effect, so you can’t\n\t\tprecisely control the creature’s actions, but you can talk it into taking\n\t\tspecific courses of action (bring me that thing, tell me what you see, spy\n\t\ton your allies, release the prisoners, feed my dog, water my plants, kill\n\t\tthe king, check the mail, etc.)."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              },
+              {
+                "type": "text",
+                "text": "Remember to ask permission to use this on your allies. Imposing a Charmed effect could\nlead to problematic interactions within the party, but you will all benefit from having\neasy telepathic connections to each other."
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores",
+      "heading": "Great Old One Warlock Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#ability-scores"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-races",
+      "heading": "Great Old One Warlock Races",
+      "sourceAnchor": "races",
+      "blocks": [
+        {
+          "blockId": "block-section-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/races/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "heading": "Great Old One Warlock Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#feats"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-weapons",
+      "heading": "Great Old One Warlock Weapons",
+      "sourceAnchor": "weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-armor",
+      "heading": "Great Old One Warlock Armor",
+      "sourceAnchor": "armor",
+      "blocks": [
+        {
+          "blockId": "block-section-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#armor"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-multiclassing",
+      "heading": "Great Old One Warlock Multiclassing",
+      "sourceAnchor": "multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-multiclassing-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "No different from a\n\t"
+            },
+            {
+              "type": "link",
+              "text": "typical warlock",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/#multiclassing"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example",
+      "heading": "Example Build – Mind Games",
+      "sourceAnchor": "example",
+      "blocks": [
+        {
+          "blockId": "block-section-example-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Great Old One is not a combat subclass. This is not a hexblade seeking to\n\tstack big damage numbers or swing a magic sword. This is not The Fiend seeking\n\tto cast Fireball, then mop up survivors. The Great Old One offers more utility\n\toutside of combat, but very little that will help you survive fights. Instead,\n\tyou should look to win fights before initiative is rolled."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Instead of a combat monster, we’re going to build a sneaky, deceitful Face that you can use to confuse and mislead other creatures, dominating social situations and sometimes mitigating combat situations by disrupting possible enemies before violence occurs. In combat we’ll need to fall back on core Warlock features, but outside of combat we’ll be terrifying."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Keep in mind that this build will require buy-in from your DM. If your DM\n\tisn’t inclined to let you telepathically convince guards to walk away or to\n\tconvince ogres to bicker amongst themselves, this build will be incredibly\n\tfrustrating. At the same time, if your DM is willing to play along, try not to\n\tabuse things too much. If you can solve every problem by telepathically\n\tharassing other creatures, the game stops being a challenge pretty quickly.\n\tYou should also strongly consider using\n\t"
+            },
+            {
+              "type": "link",
+              "text": "safety tools",
+              "href": "https://ttrpgsafetytoolkit.com/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ability-scores-2",
+      "parentSectionId": "section-example",
+      "heading": "Ability Scores",
+      "sourceAnchor": "ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-ability-scores-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll put our racial +2 into Charisma and our +1 into Dexterity. Basically standard for Warlocks. We don’t want to dump Wisdom because Insight will be helpful."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-ability-scores-2-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Kenku. We’re going to lean into tricky shenanigans, and being able to perfectly mimic sounds is thematically excellent and just a ton of fun to play with at the table. We also get two skills, which is fantastic. We’ll take Deception and Stealth."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-race-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Sadly, mimicry won’t work with our telepathy. According to Jeremy Crawford, "
+            },
+            {
+              "type": "link",
+              "text": "you sound like yourself when speaking telepathically",
+              "href": "https://twitter.com/JeremyECrawford/status/711981264740331521?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E711981264740331521%7Ctwgr%5E217cbfe1bfa6db529387460390ddfd2bc53ab4ce%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.sageadvice.eu%2Fwould-my-voice-from-awakened-mind-sound-like-me%2F"
+            },
+            {
+              "type": "text",
+              "text": ", but that doesn’t matter if your target has never heard your real voice because you exclusively speak via mimicry the rest of the time."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Charlatan. Perfectly on theme. Deception will be redundant with our racial\n\tskill proficiency, so trade it for Insight since we can’t get that from our\n\tclass. Sleight of Hand isn’t especially useful, so you might swap that for\n\tsomething like Perception."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-background-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "You might see Forgery Kit on the list of proficiencies and think “redundant”,\n\tbut double check the wording of the Kenku’s Expert Forgery trait. Expert\n\tForgery gives you Advantage on checks, but doesn’t mention proficiency. Having\n\tboth will make forgery very effective."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-background-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Regardless, you might trade one of the tool proficiencies for Thieves’ Tools if your party doesn’t have a Rogue. We’re going to have a lot of sneaky capabilities anyway, so filling in for a Rogue is on the table."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll take Arcana and Intimidation from our Warlock skills. That gives us\n\tArcana, Deception, Insight, Intimidation, Sleight of Hand, and Stealth. We\n\talso get proficiency in Disguise Kits and in Forgery Kits."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to take Skill Expert at level 4, which will get us Proficiency in\n\tPersuasion plus Expertise in Deception."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats-2",
+      "parentSectionId": "section-example",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-2-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 4 we take Skill Expert. Proficiency in Persuasion, Expertise in Deception,\n\t+1 Charisma to stay on the Fundamental Math."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 8 we take Telekinetic. It’s a great utility with no visible connection\n\tbetween you and the effect, further adding to the tricky nonsense that we can\n\taccomplish. It also gets us +1 Charisma."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 12 we’ll take Guile of the Cloud Giant, offering a defensive Reaction and\n\tanother +1 Charisma to get us to 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 16 and 19 we have open feat slots. Staples like Inspiring Leader and Lucky\n\twork great here."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Otherworldly Patron: Great Old One"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Awakened Mind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pact\n\t\t\t\t\tMagic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dissonant Whispers"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hex"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cantrips\n\t\t\t\t\tKnown:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Eldritch Blast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Minor Illusion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "For starting gear, take the light crossbow, an arcane focus, either pack, leather armor, and three daggers. With 16 Dexterity, a Light Crossbow is very briefly your best combat option."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For the most part, we’re a very normal Warlock at this level. Awakened Mind is great for social situations where there’s a language barrier."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "That said, we can also use it for sneaky shenanigans. You can telepathically speak to any creature that you can see within 30 feet of you. This doesn’t require you to move or give yourself away, and telepathy doesn’t automatically give the target any idea who they’re hearing. Tell them that their shoe is untied. If you need to make a Deception check, consider hitting them with Hex to impose Disadvantage on Wisdom checks, which applies a -5 to Passive Insight."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re taking Eldritch Blast and Hex because Eldritch Blast+Agonizing Blast+Hex is our go-to option in combat. It’s not super exciting, but it works well."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Invocations"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Agonizing Blast"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mask of Many\n\t\t\t\t\tFaces"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Agonizing Blast for the damage. Mask of Many Faces so that we can\n\t\t\t\t\tperform our telepathic shenanigans up close without arousing\n\t\t\t\t\tsuspicion."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Pact Boon: Pact of the Tome"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrips Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tFriends"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Guidance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tInvisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re leaning hard into utility and non-combat options, and Pact of the Tome is an amazing utility option. We only get cantrips from the basic Pact benefits, but the Invocations will give us ritual casting and other benefits."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Invisibility lets us get into a place unnoticed, then start whispering forbidden truths to enemies before our friends kick in the door to capitalize on their disordered state of mind."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Skill Expert"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Charisma 17 -> 18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Proficiency:\n\t\t\t\t\tPerception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Expertise: Deception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tAny"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Suggestion"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Proficiency in Perception gets us the last missing Face skill.\n\t\t\t\t\tExpertise in Deception lets us much more effectively mislead other\n\t\t\t\t\tcreatures by telepathically whispering to them.\n\t\t\t\t\t"
+                },
+                {
+                  "type": "emphasis",
+                  "text": "There are warm cookies in the kitchen. If you don’t eat them,\n\t\t\t\t\t\tsomeone else will eat them all before you get any."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Suggestion overlaps with our sneaky whispering, but\n\t\t\t\t\tsometimes a Deception check isn’t enough to do the job."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Book of Ancient Secrets"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell\n\t\t\t\t\tKnown:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Enemies Abound"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Dissonant\n\t\t\t\t\tWhispers -> Hunger of Hadar"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Welcome to the magical world of\n\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "Ritual Casting",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/ritual-caster/"
+                },
+                {
+                  "type": "text",
+                  "text": "! With no restriction on spell list, Book of Ancient Secrets makes\n\t\t\t\t\tthe Warlock the most effective ritual caster in the game. Start\n\t\t\t\t\tcollecting rituals immediately. You get two 1st-level rituals for\n\t\t\t\t\tfree. I recommend Comprehend Languages and Detect Magic."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "By\n\t\t\t\t\tthis level our 1st-level spells from our subclass spell list look\n\t\t\t\t\tineffective compared to higher-level spells, so now is a good time to\n\t\t\t\t\tstart retraining them."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Entropic Ward"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hypnotic Pattern"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Entropic Ward is the Great Old One’s best combat feature, but it’s\n\t\t\t\t\tnot enough to win a fight for you."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You may be tempted to\n\t\t\t\t\tuse something other than Eldritch Blast with the free Advantage from\n\t\t\t\t\tEntropic Ward. Fire Bolt sure looks tempting. But the DPR of that\n\t\t\t\t\tsingle Fire Bolt with Advantage is worse than two shots from Eldritch\n\t\t\t\t\tBlast+Agonizing Blast "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "without"
+                },
+                {
+                  "type": "text",
+                  "text": " advantage. Stick to Eldritch\n\t\t\t\t\tBlast."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Ghostly Gaze"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\t"
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Aberration",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-aberration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Awakened Mind requires you to see the target. Ghostly Gaze lets you see through walls. Together, you can see through walls and telepathically harass other creatures. "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "I saw that. You should be ashamed of yourself."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Summon Aberration feels thematically appropriate, and it’s also a very solid summon spell."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Telekinetic (Cha 18 -> 19)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Evard’s\n\t\t\t\t\tBlack Tentacles"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Yes, you can use Ghostly Gaze and Telekinetic at the same time. Yes,\n\t\t\t\t\tthat means that you can effectively haunt things up to 30 feet away\n\t\t\t\t\twith a solid wall between you and your target. You can also do normal\n\t\t\t\t\tcombat things like moving enemies into area control effects."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Gift of the Protectors"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell\n\t\t\t\t\tKnown:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Telekinesis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Gift of the Protectors is like Relentless Endurance or Death Ward, but you get one use per long rest shared between every creature whose name you add to the page."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember how we’re telekinetic? Now we’re extra super telekinetic. If moving an enemy 5 feet isn’t quite enough, bring up Telekinesis and start lifting your problems and putting them on high shelves where you can forget about them."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Thought Shield"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Synaptic Static"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Thought Shield is spicy resistance to psychic damage. Go find a mind flayer to disagree with."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also, psychic fireball."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Mental Prison"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "No big changes here."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Guile of the Cloud Giant (Cha 19 -> 20)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–\n\t\t\t\t\tAny"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Max Charisma and add a cool new defensive option in combat."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "There\n\t\t\t\t\tare’t any must-have invocation options here. Maybe Repelling Blast to\n\t\t\t\t\tgo with our shiny new third ray from Eldritch Blast."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Plane Shift"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Tasha’s\n\t\t\t\t\tHideous Laughter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Plane Shift to go meet your patron face to face for the first time.\n\t\t\t\t\tRegret your choices. Ask to crash on the couch for a Long Rest. Plane\n\t\t\t\t\tShift home. Regret your life choices."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We’re adding Tasha’s\n\t\t\t\t\tHideous Laughter at this level solely for use with Create Threall. See\n\t\t\t\t\tbelow."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": " 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Create Thrall"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "You say “Thrall”, but I say “future mental spam call recipient”. Obvious recipients are your party for utility purposes, but any humanoid who you find who is incapacitated can become a thrall. It might never be useful, but maybe some time you’re trapped in a dungeon and need to call for reinforcements."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember that the Charmed condition is not mind control. You get Advantage on Charisma checks to “interact socially” with the creature. This is great for social skills, and, between Advantage and Expertise, you can use Deception to convince your thralls of nearly anything. "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "The dungeon outside of town is full of treasure. All you need is a picnic lunch and the Warlock’s 10-foot pole that they forgot."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Pay special attention to the wording of the feature. Where Awakened Mind says “speak "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "to"
+                },
+                {
+                  "type": "text",
+                  "text": "“, Create Thrall says “communicate telepathically "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "with"
+                },
+                {
+                  "type": "text",
+                  "text": "“. I’m not totally certain, but this may mean that Awakened Mind is one-way, but Create Thrall is two-way. I haven’t found any discussion from WotC folks on the subject, so check with your DM. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Because Create Thrall targets Incapacitated creatures, take a long look at your spell list and look for anything that makes targets Incapacitated, such as Tasha’s Hideous Laughter or Hypnotic Pattern. Unfortunately, Warlocks don’t get many options, but Tasha’s works for single creatures, while Hypnotic Pattern works for crowds. Raulothim’s Psychic Lance makes targets Incapacitated, but the spell’s duration ends at the beginning of your next turn, so the action economy doesn’t work unless you take two levels in Fighter for Action Surge."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "At this point, your life is all about creating thralls. If you see an opportunity, you take it. The more thralls you have, the better."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Glibness"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New\n\t\t\t\t\tInvocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shroud of Shadow"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Cast Glibness. You have one hour to talk to all of your thralls and get 15 or better on the d20 roll. Time to turn your thralls into an army."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Turn invisible. Walk around causing trouble both telepathically and telekinetically."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "–"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mystic Arcanum: Psychic Scream"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Stunned makes the affected creature Incapacitated. Psychic Scream makes your targets Stunned. Create Thrall requires your target to be Incapacitated. Scream, then spend the next several turns high-fiving Stunned creatures to make them into Thralls. You have now turned a high-CR encounter into a collection of new friends."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Invocation:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Visions of Distant Realms"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "My favorite scouting option, and, if you can get the eye around corners, you can use it with Awakened Mind to target them with spells or to telepathically speak to other creatures without spending Ghostly Gaze."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Any"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s weird for level 19 to not change anything for us. Pick a cool\n\t\t\t\t\tfeat."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Eldritch Master"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Literally always a disappointing capstone."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- Great Old One Warlock Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Expanded Spell List"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 1st-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 2nd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange 3rd-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green 4th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue 5th-level Spells"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Awakened Mind"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Entropic Ward"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Thought Shield"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Create Thrall"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"wp-block-image size-large article-splash-image\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-introduction-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "list-paragraphs-review",
+      "location": "ol/li[5]",
+      "detail": "<li value=\"14\"><span class=\"rating-green\">Create Thrall</span>: This can be hard to use. Your best bet is to affect the target while they’re sleeping. Once you make the target Char"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-example-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-example-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-example-3"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#ability-scores",
+      "detail": "section-ability-scores -> section-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-ability-scores-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-ability-scores-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-race-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-background-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-background-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "duplicate-id-review",
+      "location": "#feats",
+      "detail": "section-feats -> section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-feats-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-feats-2-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-feats-2-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-2-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3187,
+    "sections": 17,
+    "blocks": 33,
+    "tables": 2,
+    "ratingSignals": 15
+  },
+  "status": "needs-editorial-review"
+}

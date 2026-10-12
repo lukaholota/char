@@ -1,0 +1,1895 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-daa5e3e31fefeac3",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+      "sourceId": "rpgbot-daa5e3e31fefeac3",
+      "fetchedAt": "2026-09-29T19:23:13.558611+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:41:15-04:00",
+      "contentHash": "45f9547d7b19c99d44a5b3b353d3ab722dcc90440a29a0838c19ff7290eb3732",
+      "title": "Gloom Stalker Ranger 5e: DnD Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-daa5e3e31fefeac3-0963917dc064b02e.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-ranger-gloom-stalker-2014",
+    "sourceId": "rpgbot-daa5e3e31fefeac3",
+    "slug": "ranger-gloom-stalker-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Конклав сутінкового мисливця — гайд підкласу Слідопита (2014)",
+    "titleEn": "Gloom Stalker Ranger 5e: DnD Subclass Guide",
+    "topics": [
+      "Слідопит",
+      "Конклав сутінкового мисливця",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "sourceRevisionId": "rpgbot-daa5e3e31fefeac3-0963917dc064b02e",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сутінковий мисливець{{Gloom Stalker}} — дуже популярний підклас: він дає кілька неймовірних умінь, жодне з яких не здається зайвим у вашому арсеналі. Англійська назва пишеться двома словами, а не «gloomstalker». Підклас бере наявні можливості Слідопита й перетворює його на страшного майстра шкоди, водночас покращуючи базові складові на кшталт непомітності й допоміжних можливостей."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Легко припустити, що підклас добрий лише під землею, де й задуманий його природний дім. Але більшість умінь добре працюють і серед білого дня. Тож якщо ви "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "справді"
+                },
+                {
+                  "type": "text",
+                  "text": " отримуєте нагоду діяти без світла, підклас стає дуже потужним."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Сутінкового мисливця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#gloom-stalker-features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Сутінкового мисливця",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#gloom-stalker-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#gloom-stalker-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#gloom-stalker-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#gloom-stalker-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#gloom-stalker-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад персонажа — Кілер із хутром",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#example-build-hitman-with-fur"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/gloom-stalker/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-gloom-stalker-features",
+          "heading": "Уміння Сутінкового мисливця",
+          "sourceAnchor": "gloom-stalker-features",
+          "blocks": [
+            {
+              "blockId": "block-section-gloom-stalker-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Магія мисливця у темряві|Gloom Stalker Magic}}: 4 із цих заклинань досить хороші, а одне зазвичай доступне лише Чарівникам і Винахідникам. Тепер і ви можете вирішити, що для короткого відпочинку потрібна кишеня в іншому вимірі. Оцінка не вища лише тому, що Маскування [Disguise Self] та Страх [Fear] залежать від вашої СК заклинань, яка поступається спеціалізованому чаротворцю."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3-й рівень: ситуативно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "5-й рівень: чудовий спосіб безпечно відпочити, зазвичай доступний лише Винахідникам і Чарівникам. Але Слідопит має дуже мало слотів, тож один слот за безпечний короткий відпочинок — висока ціна. Намагайтеся обходитися без цього."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "9-й рівень: навряд чи у вас вистачає Мудрості для надійної роботи заклинання з ряткидком. Бережіть його для сутичок із численними слабкими ворогами."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "13-й рівень: чудово для будь-якого непомітного персонажа. В ідеалі не знадобиться, бо покладаєтеся на Тіньовий зір. Але якщо вороги дістануть смолоскип, можете створити Більша невидимість [Greater Invisibility] й залишатися невидимим."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "17-й рівень: ситуативно, але дуже корисно, коли групі потрібно потрапити туди, де місцеві налаштовані вороже."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Вбивця в темряві|Dread Ambusher}}: перший раунд бою найважливіший. Нагадую: "
+                  },
+                  {
+                    "type": "link",
+                    "text": "очікувана середня тривалість бою — лише 3 раунди",
+                    "href": "https://www.dndbeyond.com/sources/dmg/dungeon-masters-workshop#Step11Damage"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". Тобто приблизно третину часу отримуєте ще одну атаку й додатковий к8 шкоди. Це вже дуже добре, але також маєте суттєвий бонус ініціативи, щоб застосувати додаткову шкоду й прибрати когось із бою до його дії. Бонус швидкості допоможе зайняти позицію, особливо в ближньому бою, але головне — додаткова атака. Якщо можете створити Мисливська мітка [Hunter's Mark] до кидка ініціативи, неодмінно зробіть це, щоб перший хід завдав величезної шкоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Тіньовий зір|Umbral Sight}}: безкоштовний темнозір уже чудовий, а невидимість для темнозору — просто неймовірна. Більшість істот, які влаштовують засідки з темнозором, не носять джерел світла, тож фактично маєте Більшу невидимість. Навіть якщо ворог знайде світло, загасіть його й знову невидимо вбивайте. На цьому рівні невидимість зазвичай дорого коштує: найвищий доступний слот, концентрація й заборона майже всіх агресивних дій. Тут цих витрат немає; уміння просто діє лише тоді, коли істота може бачити вас завдяки темнозору. Тому в бою слід якнайчастіше перебувати в темряві. Подбайте, щоб інші члени групи теж могли обходитися без світла й вороги за можливості залежали від темнозору.\n\nПопри неймовірну силу, обмеження є. Уміння прямо вимагає темряви: тьмяне світло від свічок тощо не підходить. Потрібна справжня темрява. Також не працює проти істот, які сприймають вас істинним зором, чуттям вібрації, сліповидом тощо. Лише темнозір. За відповідних умов це одне з найкращих класових умінь у грі."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Залізний розум|Iron Mind}}: додаткові володіння ряткидками завжди бажані, особливо для часто атакованої характеристики."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Шквал мисливця|Stalker’s Flurry}}: не настільки сильне, як ще одна атака, але дуже корисне. Базові розрахунки 5e припускають, що персонаж, який дотримується очікуваного зростання атаки проти КБ, влучає приблизно в 65% випадків по ворогах відповідної небезпеки. За двох атак на хід маєте приблизно 58% шанс хоча б раз промахнутися, тому регулярно користуватиметеся Шквалом мисливця. На жаль, формулювання Вбивці в темряві означає: якщо його додаткова атака промахнеться, бонус к8 шкоди буде втрачено, навіть якщо надана після цього атака Шквалу влучить. Та від безкоштовних атак ми не відмовимося."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Тіньовий ухил|Shadowy Dodge}}: працює лише раз за раунд, бо витрачає реакцію, але цього часто достатньо. Сутінковий мисливець процвітає, коли його не бачать, тож це сильна страховка, якщо вороги зуміли атакувати вас поза повною темрявою й без Більшої невидимості."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-gloom-stalker-ability-scores",
+          "heading": "Характеристики Сутінкового мисливця",
+          "sourceAnchor": "gloom-stalker-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-gloom-stalker-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потреби Сутінкового мисливця в характеристиках подібні до потреб інших Слідопитів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gloom-stalker-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сил: можна знехтувати, якщо не прагнете битися двома зброями й не відмовляєтеся від фехтувальної зброї."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gloom-stalker-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спр: основна характеристика класу, яка визначає атаки й головні навички."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gloom-stalker-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ста: більше хіт-поінтів добре для всіх, але цей персонаж ефективний здалеку, тому не обовʼязково вкладати надто багато."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gloom-stalker-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інт: можна знехтувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gloom-stalker-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Муд: визначає не лише заклинання, а й деякі класові вміння та хороші навички розвідника. Підвищуйте другою, але максимальне значення не настільки обовʼязкове, як для Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gloom-stalker-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хар: є окремий випадок, коли можна вкласти експертність від {{Вправний дослідник - Кмітливий|Deft Explorer - Canny}} у соціальну навичку, якщо в групі ніхто інший не може бути її представником. В іншому випадку можна знехтувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gloom-stalker-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Купівля очками"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "strong",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "strong",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "strong",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "strong",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "11"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "strong",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "strong",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "12"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-gloom-stalker-races",
+          "heading": "Раси",
+          "sourceAnchor": "gloom-stalker-races",
+          "blocks": [
+            {
+              "blockId": "block-section-gloom-stalker-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Раси для звичайного Слідопита добре підходять і Сутінковому мисливцю. Тут наведено кілька моїх улюблених, а більше варіантів знайдете в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді Слідопита",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/races"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-gloom-stalker-races-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Ведмебай із «Монстрів Мультивсесвіту»{{Monsters of the Multiverse}}: зміна {{Несподівана атака|Surprise Attack}} у цій версії Ведмебая феноменально добра для підкласу. Також маєте расовий темнозір, який посилює Тіньовий зір, і володіння Непомітністю, тож власний вибір навички можна витратити на інше. Усе тут виглядає надзвичайно привабливо."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Варіант Людини або власне походження: почати з {{Експерт з арбалетів|Crossbow Expert}} чи {{Влучний стрілець|Sharpshooter}} й користуватися невидимістю Тіньового зору — неймовірні варіанти."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-gloom-stalker-feats",
+          "heading": "Риси",
+          "sourceAnchor": "gloom-stalker-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-gloom-stalker-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сутінкові мисливці не потребують особливих рис порівняно з іншими Слідопитами. Проте в прикладі нижче побачите взаємодію кількох рис."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-gloom-stalker-weapons",
+          "heading": "Зброя",
+          "sourceAnchor": "gloom-stalker-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-gloom-stalker-weapons-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Ручний арбалет: із цим прикладом персонажа побачите, що навіть Agent 47 до вас далеко."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Довгий лук: якщо не хочете збирати риси й прагнете простішого персонажа з меншою кількістю можливостей, це ваша зброя."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Короткий меч: якщо з якоїсь причини дуже не хочете атакувати здалеку, наприклад у групі немає головного захисника й лише у вас є запас хіт-поінтів, можна йти в ближній бій, навіть із двома такими мечами."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-gloom-stalker-armor",
+          "heading": "Обладунки",
+          "sourceAnchor": "gloom-stalker-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-gloom-stalker-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Відмінностей немає. Але ви володієте щитами, тож для дивної ролі бійця ближнього бою, описаної вище в розділі коротких мечів, Слідопит цілком може взяти меч і щит."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спочатку цей персонаж був уявним експериментом: наскільки сильно можна зламати гру новим Ведмебаєм? Виявилося — "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "дуже"
+                },
+                {
+                  "type": "text",
+                  "text": " сильно. З рівнями Пройдисвіта, Воїна й Монаха можна отримати понад 400 очікуваної шкоди за перший хід з урахуванням влучності. Якщо хтось створить на вас Прискорення [Haste], число зросте понад 450. Це коштує лише 1 очко кі та {{Сплеск дій|Action Surge}}. Мені повідомили, що цього достатньо, щоб убити монстра відповідної персонажу небезпеки до його першої дії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Два рівні Воїна дають Сплеск дій. Формулювання Вбивці в темряві дозволяє спрацювати знову, якщо повторно здійснюєте дію Атака в перший хід. Тому завжди використовуйте Сплеск дій у перший хід. Якщо продовжите рівні Воїна, багато підкласів додадуть корисне. {{Точний удар|Precision Attack}} Майстра бойових мистецтв допоможе влучати зі штрафом Влучного стрільця, а {{Засідка|Ambush}} може перетворити провальну ініціативу на результат, який випередить ціль."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Не дивно, що персонаж із величезною шкодою в першому раунді чудово поєднується з Пройдисвітом-Убивцею. Перетворювати всі ці численні кубики на гарантовані критичні влучання — дуже добре."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо хочете робити це в ближньому бою замість арбалета, Монах, особливо Шляху тіні, теж чудово підходить. 2 очки кі за Темрява [Darkness] — прекрасний спосіб позбавити ворогів можливості вас бачити."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "А тепер… якщо уважно читаєте, помітили: ця Темрява магічна й не дозволяє використати звичайний темнозір. А що, як підвищити Харизму до 13 і додати рівні Чорнокнижника заради {{Зір диявола|Devil’s Sight}}?"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Окремого повного гайда цієї теоретичної потвори-персонажа не писатиму, але "
+                },
+                {
+                  "type": "link",
+                  "text": "посилання на нього",
+                  "href": "https://www.dndbeyond.com/characters/67124144"
+                },
+                {
+                  "type": "text",
+                  "text": " неодмінно дам."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-hitman-with-fur",
+          "heading": "Приклад персонажа — Кілер із хутром",
+          "sourceAnchor": "example-build-hitman-with-fur",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-build-hitman-with-fur",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Помітна перевага Слідопита — ранній доступ до {{Стрільба з лука|Archery}}. Це дозволяє дещо ігнорувати очікуване зростання базових розрахунків, отримуючи цікаві можливості без відставання у влучності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базові"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищені"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сил"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ста"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Муд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хар"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-build-hitman-with-fur",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ведмебай із «Монстрів Мультивсесвіту» чудовий, як описано вище. Обираємо його й використовуємо сповна."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-build-hitman-with-fur",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки більшість складових передісторії можна вільно замінювати, обираємо цікаве тематичне особливе вміння. Переслідуваний{{Haunted One}} — чудовий вибір: за замовчуванням дає доступ до Підземної мови, Виживання та безкоштовного Набору мисливця на монстрів{{Monster Hunter’s Pack}}, що дуже пасує образу. Оскільки персонаж має бути розвідником і заміняти Пройдисвіта, другу мову замініть володінням злодійськими інструментами, а другу навичку — Спритністю рук."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-build-hitman-with-fur",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Із трьох класових навичок візьміть Уважність, Аналіз поведінки і Розслідування. Переслідуваний також дає Виживання та Спритність рук."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-build-hitman-with-fur",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хочемо якнайшвидше отримати Експерта з арбалетів, потім Влучного стрільця. Як згадано вище, на 2-му рівні отримуємо +2 до влучання далекобійними атаками, тож маємо 8 рівнів для інших можливостей, перш ніж підвищувати Спритність заради базових розрахунків. Саме стільки й потрібно для цих рис."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні беремо {{Проколювач|Piercer}}: величезна кількість атак і схильність атакувати з перевагою означають часті критичні влучання. До того ж уся шкода колюча, тож перекидання низьких результатів приємне."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні максимізуємо Спритність. 19-й залишаємо для {{Стійкий|Resilient}} зі Статурою, стаючи, мабуть, єдиним персонажем у грі з володінням усіма 3 поширеними ряткидками."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-hitman-with-fur",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси й уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вправний дослідник — Кмітливий; {{Мічений ворог|Favored Foe}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Природний дослідник|Natural Explorer}} відверто жахливий, а {{Улюблений ворог|Favored Enemy}} потребував покращення. На щастя, книга «Казан Таші з усім» дала заміни обох, і вони нам дуже потрібні. Експертність Кмітливого можна вкласти майже в будь-що. Непомітність — очевидний вибір, але Уважність теж хороша. Для старту візьміть лускатий обладунок, два короткі мечі, Підземний набір і довгий лук. Продайте обладунок і мечі та придбайте проклепаний шкіряний обладунок. За наступні 3 рівні збережіть 50 зм для ручного арбалета."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стрільба з лука; нові відомі заклинання: Мисливська мітка, Доброягода [Goodberry]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стрільба з лука одразу істотно підвищує шкоду: влучати на 6 чи вище замість 8 чи вище — це на 15% більше шкоди. Мисливська мітка вже добра, а наступного рівня з додатковими атаками стане кращою. На 4-му рівні з більшою кількістю атак — ще кращою. На 5-му — "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "ще кращою"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Мічений ворог теж потребує концентрації, тому натомість використовуємо Мисливську мітку, доки є слоти. Доброягода потрібна на випадок падіння справжнього лікаря: хтось має його підняти. Якщо двоє персонажів уже можуть лікувати, можете замінити її на Туманна хмара [Fog Cloud]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Первородне усвідомлення|Primal Awareness}} / {{Первісне усвідомлення|Primeval Awareness}}; Вбивця в темряві; нове відоме заклинання: Поглинання стихій [Absorb Elements]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Жоден варіант усвідомлення не чудовий, але Первородне дає додаткові заклинання — це корисніше за витрату слота на щось, що рідко має значення. Зате Вбивця в темряві нарешті запускає наш задум. Модифікатор ініціативи одразу стає +6, що перевищує можливості більшості персонажів. Також отримуємо додаткову атаку в першому раунді. Останній рівень перед Експертом з арбалетів продовжуємо використовувати довгий лук. Якщо все влучить, це 3к8+4к6+6 і 34 шкоди за раунд із припущенням переваги. Зауважте: зараз у вас очікувано 25 хіт-поінтів. Поглинання стихій — одне з найкращих захисних заклинань. Шкода, що не використовуємо його додаткову шкоду, але нас цікавить опір. Витрачайте обережно: слотів мало, і кожен означає невикористану Мисливську мітку."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експерт з арбалетів"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Віддайте довгий лук випадковому перехожому й починайте використовувати свій «пістолет із глушником» — ручний арбалет. Створіть Мисливську мітку на одному зі щурів у вашому мішку щурів і відразу розчавіть його в кулаці. Непомітно підкрадіться до майбутньої жертви й бонусною дією позначте її наступною здобиччю. Зауважте: ця бонусна дія не має компонентів, тож її неможливо помітити. Відкривайте вогонь. Ручний арбалет із Несподіваною атакою Ведмебая та Мисливською міткою; ручний арбалет із тими самими бонусами й бонусом Вбивці в темряві; атака ручним арбалетом бонусною дією з Несподіваною атакою та Мисливською міткою. Разом 12к6+1к8+9, або в середньому 55 очікуваної шкоди в першому раунді.\n\nРедакційна примітка: Мисливська мітка 2014 дозволяє позначити наступну істоту бонусною дією на наступному вашому ході після падіння попередньої цілі до 0 ХП. Початкове створення заклинання має вербальний компонент; твердження про непомітність перенесення мітки є авторською інтерпретацією."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Додаткова атака|Extra Attack}}; нове відоме заклинання: Мале відновлення [Lesser Restoration]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаймо ще 4к6+3 до попереднього рівня — цілих 72 шкоди за раунд. Для порівняння, Булетта{{Bulette}}, потужний монстр небезпеки 5, має 94 хіт-поінти. Мале відновлення потрібне на випадок паралічу лікаря. Якщо вже є два джерела цього заклинання, раніше візьміть Переміщення без сліду [Pass without Trace]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Вправний дослідник - Мандрівний|Deft Explorer - Roving}}; Мічений ворог: підвищення шкоди"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мандрівний — цікаве вміння, але це не Павуче лазіння [Spider Climb]. Якщо скористатися ним у бою, втратимо можливість заряджати ручний арбалет. Зате місцевість рідко вас зупинить, а ви зможете видертися вище й скинути мотузку, закріпивши її Спритністю рук, якою володієте. Шкода Міченого ворога зростає до рівня Мисливської мітки, тож тепер використовуємо його й заощаджуємо слоти. Він не переноситься між цілями, тому проти багатьох слабких ворогів краще Мітка, а Міченого ворога залишайте для тривалого бою з однією ціллю.\n\nРедакційна примітка: рівні кубики шкоди не означають однакову сумарну шкоду. Мічений ворог 2014 додає шкоду лише при першому влучанні у ваш хід; Мисливська мітка — при кожному влучанні атакою зброї."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Залізний розум; нове відоме заклинання: Переміщення без сліду"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нецікаве класове вміння компенсує одне з найсильніших заклинань гри. Мічений ворог починає діяти лише "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "в бою"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", на відміну від описаної хитрості з перенесенням Мисливської мітки. Тепер між боями можете спокійно зосереджуватися на тому, щоб бути прикладом непомітності, хоча й не "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "головним"
+                    },
+                    {
+                      "type": "text",
+                      "text": " прикладом — це все ще "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Винахідник-Зброяр у режимі Проникнення",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/artificer/armorer/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Якщо вже взяли заклинання на 5-му рівні, оберіть Темний зір [Darkvision], якщо хтось у групі ще не пристосувався до вашої постійної потреби в темряві."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Стежка землі|Land's Stride}}; Влучний стрілець"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хода землею майже суто тематична, бо мало що намагається зупинити вас небезпечною природною місцевістю. Натомість Влучний стрілець чудовий. Перша перевага дозволяє без втрати ефективності влаштовувати засідки з утричі більшої відстані. Дальність атаки фактично дорівнює вашому темнозору — нагадую, 90 футів, далі за більшість істот, якщо вони взагалі його мають. До того ж, імовірно, атакуватимете зі схованки й матимете перевагу, яка компенсує штраф влучання третьої переваги риси. Зі штрафом на кожну атаку шкода за раунд становить 78; просте підвищення модифікатора Спритності до +4 дає 72."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання: Дихання водою [Water Breathing]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чому б не використати швидкість плавання разом із можливістю дихати під водою цілий день? На цьому рівні також можемо створити Мисливську мітку з вищого слота й утримувати концентрацію цілих 8 годин, знову роблячи її кращою за Міченого ворога."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Вправний дослідник - Невтомний|Deft Explorer - Tireless}}; {{Сховатися на видноті|Hide in Plain Sight}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тимчасові ХП Невтомного не мають указаної тривалості — рідкісний випадок, коли вони зберігаються до тривалого відпочинку. Застосовуйте вміння вранці після пробудження та після кожного бою, доки є використання. В інших випадках майже не варте дії. Натомість друга частина чудова, якщо вам не дозволяють нормально спати. Сховатися на видноті не настільки добре, як однойменне вміння 3.5, але дає ще +10 до Непомітності поверх Переміщення без сліду, якщо хочете бути засідником, як павук біля нірки, замість мандрівного стрільця з глушником."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Шквал мисливця; нове відоме заклинання: Розмова з рослинами [Speak with Plants]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Навіть із перевагою, найімовірніше, промахнетеся однією з чотирьох атак кожного раунду. Зробіть ще одну безкоштовну. Теоретичний максимум шкоди за раунд не зростає, але середня шкода безперечно підвищується — нас це влаштовує. Памʼятайте: якщо додаткова атака Вбивці в темряві промахнулася, бонус к8 втрачено, навіть якщо нова атака Шквалу після цього влучає. Не можу налаштувати калькулятор шкоди для цього випадку, але приблизні розрахунки дають ще близько 9 шкоди за раунд. Хода землею тепер ще менш корисна: за слот можна просто попросити рослини прибратися з дороги всієї групи.\n\nРедакційна примітка: чотири атаки стосуються першого ходу з Вбивцею в темряві. У наступні ходи Додаткова атака та Експерт з арбалетів дають три атаки до можливого Шквалу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Проколювач: Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чотири атаки з перевагою в перший хід дають приблизно 34% шанс хоча б одного критичного влучання, а кубиків за атаку кидаємо "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "багато"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Не використовуйте перекидання на першій атаці: найважливіше перекинути низький к8 Вбивці в темряві. Якщо він добрий, підійде будь-який к6 із результатом 1 на другій або пізнішій атаці."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання: Свобода рухів [Freedom of Movement]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті спосіб позбутися штрафів за атаки під водою! Тепер у морі так само ефективні, як на суші. Або… приблизно так. Утім, це буквально єдиний наш варіант заклинання 4-го рівня, який не конфліктує з концентрацією на Мисливській мітці. Якщо не хочете концентруватися на 3–4к6 шкоди за раунд, на цьому рівні додаткові заклинання Сутінкового мисливця дають Більшу невидимість. Вона забезпечує перевагу, якщо ціль не бачить невидимих істот, і допомагає влучати атаками Влучного стрільця.\n\nРедакційна примітка: Свобода рухів 2014 скасовує водні штрафи до переміщення та атак ближнього бою. Вона не скасовує обмежень далекобійних атак під водою; ручний арбалет уже є винятком із перешкоди за водними правилами."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мічений ворог: підвищення шкоди; {{Зникнення|Vanish}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мічений ворог знову перевершує Мисливську мітку по одній цілі, але лише на одиницю за атаку. Ці к8 можна перекидати Проколювачем, тому різниця трохи більша, але розрахунків я тут не робитиму. Усе ще конкурує за концентрацію й не переноситься між цілями, тож переважно залишайтеся з Мисливською міткою на цілий день. Зникнення — цікавий трюк, але бонусну дію щохідно використовуємо для шкоди. Ховатися потрібно хіба заради переваги, що цілком виправдано, проте ще один постріл теж виправданий.\n\nРедакційна примітка: автор порівнює к8 із к6 так, ніби обидва бонуси працюють на кожну атаку. Мічений ворог додає к8 лише раз у ваш хід, тому наведений висновок не описує сумарну шкоду кількох атак."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тіньовий ухил; нове відоме заклинання: Вартовий природи [Guardian of Nature]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Або не ховайтеся й не концентруйтеся на Мисливській мітці — просто станьте деревом. Тепер маєте перевагу й можете продовжувати використовувати штраф атаки Влучного стрільця навіть після витрати Шквалу на цей хід."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення характеристик: +2 Спр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нічого захопливого, але максимізуємо Спритність, знову випереджаючи базові розрахунки приблизно на 15% шкоди й компенсуючи штрафи Влучного стрільця."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове відоме заклинання: Виклик залпу [Conjure Volley]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ваша СК не чудова, але й не жахлива, а багато істот не мають хороших ряткидків Спритності. Ось відповідь для шкоди по області."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Дикі почуття|Feral Senses}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Безпечно атакуйте Медузу{{Medusa}}, не дивлячись на неї."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стійкий: Статура; нове відоме заклинання: Деревний шлях [Tree Stride]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер три поширені ряткидки не гірші за Паладина або навіть кращі — неймовірне досягнення. Якщо хтось зуміє вас знайти, мабуть, доведеться долати вас старим способом — поступово знімати хіт-поінти. Саме цей спосіб ми весь розвиток училися добре перемагати"
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "."
+                    },
+                    {
+                      "type": "text",
+                      "text": " Також тепер можете проходити крізь дерева: не як 8 рівнів тому, а справді входити "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "всередину"
+                    },
+                    {
+                      "type": "text",
+                      "text": " дерева й виходити з іншого."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "{{Убивця ворогів|Foe Slayer}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мічений ворог називає позначену істоту вашим «улюбленим ворогом», тому Убивця ворогів працює проти будь-якої його цілі. Знову застосовуйте його до важливих великих цілей, щоб майже завжди витрачати +3 на влучання: постріл Влучного стрільця тоді надійніше завдасть додаткові +10 шкоди."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-001",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-features",
+      "targetBlockId": "block-section-gloom-stalker-features-1",
+      "optionId": "section-gloom-stalker-features-block-section-gloom-stalker-features-1-item-0",
+      "context": "Магія мисливця у темряві",
+      "explanationBlockId": "block-section-gloom-stalker-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-002",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-features",
+      "targetBlockId": "block-section-gloom-stalker-features-1",
+      "optionId": "section-gloom-stalker-features-block-section-gloom-stalker-features-1-item-1",
+      "context": "3-й рівень",
+      "explanationBlockId": "block-section-gloom-stalker-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-003",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-features",
+      "targetBlockId": "block-section-gloom-stalker-features-1",
+      "optionId": "section-gloom-stalker-features-block-section-gloom-stalker-features-1-item-2",
+      "context": "5-й рівень",
+      "explanationBlockId": "block-section-gloom-stalker-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-004",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-features",
+      "targetBlockId": "block-section-gloom-stalker-features-1",
+      "optionId": "section-gloom-stalker-features-block-section-gloom-stalker-features-1-item-3",
+      "context": "9-й рівень",
+      "explanationBlockId": "block-section-gloom-stalker-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-005",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-features",
+      "targetBlockId": "block-section-gloom-stalker-features-1",
+      "optionId": "section-gloom-stalker-features-block-section-gloom-stalker-features-1-item-4",
+      "context": "13-й рівень",
+      "explanationBlockId": "block-section-gloom-stalker-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-006",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-features",
+      "targetBlockId": "block-section-gloom-stalker-features-1",
+      "optionId": "section-gloom-stalker-features-block-section-gloom-stalker-features-1-item-5",
+      "context": "17-й рівень",
+      "explanationBlockId": "block-section-gloom-stalker-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-007",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-features",
+      "targetBlockId": "block-section-gloom-stalker-features-1",
+      "optionId": "section-gloom-stalker-features-block-section-gloom-stalker-features-1-item-6",
+      "context": "Вбивця в темряві",
+      "explanationBlockId": "block-section-gloom-stalker-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-008",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-features",
+      "targetBlockId": "block-section-gloom-stalker-features-1",
+      "optionId": "section-gloom-stalker-features-block-section-gloom-stalker-features-1-item-7",
+      "context": "Тіньовий зір",
+      "explanationBlockId": "block-section-gloom-stalker-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-009",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-features",
+      "targetBlockId": "block-section-gloom-stalker-features-1",
+      "optionId": "section-gloom-stalker-features-block-section-gloom-stalker-features-1-item-8",
+      "context": "Залізний розум",
+      "explanationBlockId": "block-section-gloom-stalker-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-010",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-features",
+      "targetBlockId": "block-section-gloom-stalker-features-1",
+      "optionId": "section-gloom-stalker-features-block-section-gloom-stalker-features-1-item-9",
+      "context": "Шквал мисливця",
+      "explanationBlockId": "block-section-gloom-stalker-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-011",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-features",
+      "targetBlockId": "block-section-gloom-stalker-features-1",
+      "optionId": "section-gloom-stalker-features-block-section-gloom-stalker-features-1-item-10",
+      "context": "Тіньовий ухил",
+      "explanationBlockId": "block-section-gloom-stalker-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-012",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-ability-scores",
+      "targetBlockId": "block-section-gloom-stalker-ability-scores-2",
+      "optionId": "section-gloom-stalker-ability-scores-block-section-gloom-stalker-ability-scores-2",
+      "context": "Сил",
+      "explanationBlockId": "block-section-gloom-stalker-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-013",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-ability-scores",
+      "targetBlockId": "block-section-gloom-stalker-ability-scores-3",
+      "optionId": "section-gloom-stalker-ability-scores-block-section-gloom-stalker-ability-scores-3",
+      "context": "Спр",
+      "explanationBlockId": "block-section-gloom-stalker-ability-scores-3",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-014",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-ability-scores",
+      "targetBlockId": "block-section-gloom-stalker-ability-scores-4",
+      "optionId": "section-gloom-stalker-ability-scores-block-section-gloom-stalker-ability-scores-4",
+      "context": "Ста",
+      "explanationBlockId": "block-section-gloom-stalker-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-015",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-ability-scores",
+      "targetBlockId": "block-section-gloom-stalker-ability-scores-5",
+      "optionId": "section-gloom-stalker-ability-scores-block-section-gloom-stalker-ability-scores-5",
+      "context": "Інт",
+      "explanationBlockId": "block-section-gloom-stalker-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-016",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-ability-scores",
+      "targetBlockId": "block-section-gloom-stalker-ability-scores-6",
+      "optionId": "section-gloom-stalker-ability-scores-block-section-gloom-stalker-ability-scores-6",
+      "context": "Муд",
+      "explanationBlockId": "block-section-gloom-stalker-ability-scores-6",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-017",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-ability-scores",
+      "targetBlockId": "block-section-gloom-stalker-ability-scores-7",
+      "optionId": "section-gloom-stalker-ability-scores-block-section-gloom-stalker-ability-scores-7",
+      "context": "Хар",
+      "explanationBlockId": "block-section-gloom-stalker-ability-scores-7",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-018",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-races",
+      "targetBlockId": "block-section-gloom-stalker-races-2",
+      "optionId": "section-gloom-stalker-races-block-section-gloom-stalker-races-2-item-0",
+      "context": "Ведмебай із «Монстрів Мультивсесвіту»",
+      "explanationBlockId": "block-section-gloom-stalker-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-019",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-races",
+      "targetBlockId": "block-section-gloom-stalker-races-2",
+      "optionId": "section-gloom-stalker-races-block-section-gloom-stalker-races-2-item-1",
+      "context": "Варіант Людини або власне походження",
+      "explanationBlockId": "block-section-gloom-stalker-races-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-020",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-weapons",
+      "targetBlockId": "block-section-gloom-stalker-weapons-1",
+      "optionId": "section-gloom-stalker-weapons-block-section-gloom-stalker-weapons-1-item-0",
+      "context": "Ручний арбалет",
+      "explanationBlockId": "block-section-gloom-stalker-weapons-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-021",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-weapons",
+      "targetBlockId": "block-section-gloom-stalker-weapons-1",
+      "optionId": "section-gloom-stalker-weapons-block-section-gloom-stalker-weapons-1-item-1",
+      "context": "Довгий лук",
+      "explanationBlockId": "block-section-gloom-stalker-weapons-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-ranger-gloom-stalker-2014-022",
+      "articleId": "rpgbot-ranger-gloom-stalker-2014",
+      "translationRevisionId": "translation-rpgbot-ranger-gloom-stalker-2014-draft1",
+      "sectionId": "section-gloom-stalker-weapons",
+      "targetBlockId": "block-section-gloom-stalker-weapons-1",
+      "optionId": "section-gloom-stalker-weapons-block-section-gloom-stalker-weapons-1-item-2",
+      "context": "Короткий меч",
+      "explanationBlockId": "block-section-gloom-stalker-weapons-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

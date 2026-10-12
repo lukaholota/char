@@ -1,0 +1,1823 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-3f566fdcf1e777ff",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+      "sourceId": "rpgbot-3f566fdcf1e777ff",
+      "fetchedAt": "2026-09-29T19:12:17.648747+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:36:11-04:00",
+      "contentHash": "be875825076e9add25759c1f7d22c7db628fa11721a899ee28e0790ff670a3b6",
+      "title": "Purple Dragon Knight Fighter 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-3f566fdcf1e777ff-9a5b29346bcef540.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+    "sourceId": "rpgbot-3f566fdcf1e777ff",
+    "slug": "fighter-purple-dragon-knight-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Лицар Пурпурового Дракона — гайд підкласу Воїна (2014)",
+    "titleEn": "Purple Dragon Knight Fighter 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Воїн",
+      "Лицар Пурпурового Дракона",
+      "підклас",
+      "приклад білда"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "sourceRevisionId": "rpgbot-3f566fdcf1e777ff-9a5b29346bcef540",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У королівстві Кормір, далеко на схід від Глибоководдя й Брами Балдура, є елітний військовий орден, відомий як Лицарі Пурпурового Дракона (скорочено PDK). Ці висококваліфіковані офіцери — одне з двох елітних військових відділень королівства (друге — "
+                },
+                {
+                  "type": "link",
+                  "text": "Бойові Чарівники",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/war-magic/"
+                },
+                {
+                  "type": "text",
+                  "text": "). Підклас Лицаря Пурпурового Дракона черпає натхнення з цієї ідеї лідера на полі бою з елітною підготовкою, покращуючи наявні вміння Воїна новими допоміжними додатками."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви хочете грати Воїна з домішкою «обличчя» та додаткових допоміжних інструментів, PDK (поза Кормір також відомий як Баннерет) вас забезпечить. Хоч інші підкласи можуть мати нові дії, які Воїн може використовувати на полі бою, PDK натомість додає нові допоміжні ефекти, що активуються при використанні стандартних умінь Воїна «Друге дихання», «Сплеск дій» і «Непохитність»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "PDK найкраще працює в збалансованій групі. Беручи на себе традиційну роль Воїна — переважно шкода по одній цілі в бою, — вміння підкласу працюють, не заважаючи вашій економії дій. Поза боєм PDK стає чудовим «обличчям» групи завдяки безкоштовній Експертизі в Переконанні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Правда, що якщо ви хотіли б більше підтримки чи глибших вкладень у навички «обличчя», інший клас міг би бути кращим, але PDK — це те, як досягти цих цілей, лишаючись Воїном. Якщо ви хочете свої «Сплески дій», свої «Додаткові атаки» Воїна й додаткові Риси, маючи водночас якісь інструменти підтримки й навички «обличчя», то вам до Лицарів Пурпурового Дракона."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Лицаря Пурпурового Дракона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Лицаря Пурпурового Дракона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#purple-dragon-knight-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Лицаря Пурпурового Дракона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#purple-dragon-knight-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Лицаря Пурпурового Дракона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#purple-dragon-knight-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя й обладунки Лицаря Пурпурового Дракона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#purple-dragon-knight-weapons-and-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування Лицаря Пурпурового Дракона",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#purple-dragon-knight-multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки Лицаря Пурпурового Дракона — Зрадник Корони",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#example-purple-dragon-knight-build-traitor-to-the-crown"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/fighter/subclasses/purple-dragon-knight/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Лицаря Пурпурового Дракона",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Надихаючий крик{{Rallying Cry}}: це не купа лікування, але й не мусить бути. Це фактично «Масове цілюще слово [Mass Healing Word]» з кількома обмеженнями в обмін на те, що це не заклинання. Воно діє на союзників без свідомості, бо "
+                  },
+                  {
+                    "type": "link",
+                    "text": "стан Непритомний не мав на меті оглушувати істот",
+                    "href": "https://youtu.be/u67o2kE6InA?t=1352"
+                  },
+                  {
+                    "type": "text",
+                    "text": " за словами Джереми Кроуфорда."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Королівський посланець{{Royal Envoy}}: Переконання — король соціальних навичок, і Експертиза в ньому дуже допоможе, компенсуючи навіть скромніший показник Харизми. Безкоштовне володіння навичкою теж приємне, але якщо ви плануєте грати «обличчя», то, імовірно, вже маєте і Переконання, і Залякування, і, цілком можливо, Аналіз Поведінки.\n\nПоводження з тваринами — веселий смак для лицаря, але не особливо корисне, бо бій верхи в 5e — дуже нішевий варіант. Якщо ви з самого початку плануєте збірку як Лицаря Пурпурового Дракона, можливо, лишите Аналіз Поведінки чи Залякування вільними, щоб скористатися цим безкоштовним володінням."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Натхненний натиск{{Inspiring Surge}}: використовуйте це на Пройдисвіті, якщо тільки можливо. Пройдисвіти можуть робити Підступну атаку раз "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "на хід"
+                  },
+                  {
+                    "type": "text",
+                    "text": ", а не раз на раунд, тож теоретично вони могли б робити підступні атаки сотні разів, якби достатньо людей могли дати Пройдисвіту безкоштовну атаку на їхніх ходах. (Це кілька разів пояснювали дизайнери WotC у різних місцях.) Памʼятайте, що це має бути атака зброєю, і це лише одна атака, тож, якщо не Пройдисвіт, підійде будь-хто, хто може завдати великого стабільного удару (Варвар у Люті, Слідопит із «Мисливською міткою [Hunter's Mark]», Чорнокнижник-Відьмацький клинок, Паладин із Божественною карою тощо)."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Опора{{Bulwark}}: перекидання ряткидків чудові, особливо ментальних, що часто можуть вивести з бою вас і ваших союзників."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-purple-dragon-knight-ability-scores",
+          "heading": "Характеристики Лицаря Пурпурового Дракона",
+          "sourceAnchor": "purple-dragon-knight-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-purple-dragon-knight-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "PDK — Воїн і досі хоче Воювати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-purple-dragon-knight-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила: вона нам потрібна, щоб по чомусь влучати, якщо ми не будемо Воїном на Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-purple-dragon-knight-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність: використовуватимемо її для КБ і, можливо, для влучання, якщо ми не Воїн на Силі."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-purple-dragon-knight-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура: смерть не личить Лицарю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-purple-dragon-knight-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект: хотілося б більше застосувань цієї характеристики, але що вдієш, це 5e."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-purple-dragon-knight-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість: ряткидки Мудрості можуть дуже зіпсувати життя, але розтягувати очки надто далеко ми не можемо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-purple-dragon-knight-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма: ми маємо гарне підвищення до Переконання, але завжди можна додати трохи в Обмані й Залякуванні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-purple-dragon-knight-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 (8)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 (10)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 (15)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 (15)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-purple-dragon-knight-races",
+          "heading": "Раси Лицаря Пурпурового Дракона",
+          "sourceAnchor": "purple-dragon-knight-races",
+          "blocks": [
+            {
+              "blockId": "block-section-purple-dragon-knight-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Те, що "
+                },
+                {
+                  "type": "link",
+                  "text": "працює для Воїна",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/races/"
+                },
+                {
+                  "type": "text",
+                  "text": ", працює й для PDK."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-purple-dragon-knight-feats",
+          "heading": "Риси Лицаря Пурпурового Дракона",
+          "sourceAnchor": "purple-dragon-knight-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-purple-dragon-knight-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого можна зазирнути в "
+                },
+                {
+                  "type": "link",
+                  "text": "класовий гайд",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": " за пропозиціями рис."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-purple-dragon-knight-feats-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "{{Експерт у навичках|Skill Expert}}"
+                  },
+                  {
+                    "type": "link",
+                    "text": "TCoE",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ми отримуємо Експертизу в Переконанні, що чудово, але можна взяти й Експертизу в Аналізі Поведінки, щоб допомогти в наших переговорах."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-purple-dragon-knight-weapons-and-armor",
+          "heading": "Зброя й обладунки Лицаря Пурпурового Дракона",
+          "sourceAnchor": "purple-dragon-knight-weapons-and-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-purple-dragon-knight-weapons-and-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Універсальний вибір "
+                },
+                {
+                  "type": "link",
+                  "text": "зброї",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#weapons"
+                },
+                {
+                  "type": "text",
+                  "text": " й "
+                },
+                {
+                  "type": "link",
+                  "text": "обладунків",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#armor"
+                },
+                {
+                  "type": "text",
+                  "text": ", доступний Воїнам, стосується й PDK, які не привʼязані до жодного конкретного бойового стилю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-purple-dragon-knight-multiclassing",
+          "heading": "Мультикласування Лицаря Пурпурового Дракона",
+          "sourceAnchor": "purple-dragon-knight-multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-purple-dragon-knight-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більше про Мультикласування дивіться в "
+                },
+                {
+                  "type": "link",
+                  "text": "Гайді про Воїна",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/fighter/#multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-purple-dragon-knight-multiclassing-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Чорнокнижник: більшість наших важливих умінь, «Друге дихання» й «Сплеск дій», повертаються після Короткого відпочинку, так само як «Магія пакту»{{Pact Magic}}. Можна обрати Відьмацький клинок, щоб вкласти все в Харизму, але насправді не обовʼязково, бо ніщо з наших умінь не вимагає користування Зброєю. Можна пірнути на 2 рівні в Чорнокнижника заради «Позамежного заряду [Eldritch Blast]» і «Мучливого вибуху»{{Agonizing Blast}}. «Сплеск дій» із «Позамежним зарядом» — неймовірно сильний."
+                  }
+                ]
+              ],
+              "depths": [
+                0
+              ],
+              "itemKinds": [
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+          "heading": "Приклад збірки Лицаря Пурпурового Дракона — Зрадник Корони",
+          "sourceAnchor": "example-purple-dragon-knight-build-traitor-to-the-crown",
+          "blocks": [
+            {
+              "blockId": "block-section-example-purple-dragon-knight-build-traitor-to-the-crown-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для сьогоднішнього прикладу ми перетворимо одного з найкращих PDK королівства на зрадника, зіпсованого пактом чорнокнижника-невмерлого з драколічем "
+                },
+                {
+                  "type": "link",
+                  "text": "Аурґлороасою",
+                  "href": "https://forgottenrealms.fandom.com/wiki/Aurgloroasa"
+                },
+                {
+                  "type": "text",
+                  "text": ". Це дає нам дальнього атакера з деякими опціями контролю й підтримки."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ставимо +2 у Спритність і +1 у Статуру. Ми навмисно лишаємо Харизму непарною, щоб підвищити її гібридною рисою на 4-му."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищене значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "20-й рівень"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Самоцвітний дракононароджений{{Gem Dragonborn}}. Так, ми — Пурпуровий (Аметистовий) Дракон, Лицар Пурпурового Дракона. Так, я обрав це, бо це смішно. Формально підійде будь-який різновид Дракононароджених Фізбана. Зброя дихання силовою шкодою — зручно солідний вибір."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо Безликого, щоб одразу отримати володіння Обманом і Залякуванням. Набір для маскування нормальний, але можна замінити його, якщо хочете. Оберіть мови, що годяться вашій кампанії."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від Воїна оберемо Акробатику й Аналіз Поведінки. Разом із навичками передісторії це дає більшість типових навичок «обличчя». Коли ми досягнемо Воїна 7, «Королівський посланець» дасть нам Переконання з Експертизою — останню потрібну навичку."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Як зазначено вище, ми навмисно лишили Харизму непарною при створенні. Це щоб ми могли обрати рису «Драконячий страх»{{Dragon Fear}}, яка дає альтернативне використання нашої Зброї дихання, щоб накласти Наляканого. Потім ця збірка майже одразу відхиляється в Чорнокнижника-Невмерлого на два рівні перед поверненням у Воїна, підбираючи «Позамежний заряд» як ще одну причину підвищувати Харизму на Воїні 6 і 8, трохи позаду "
+                },
+                {
+                  "type": "link",
+                  "text": "Фундаментальної математики",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": ", але не надто далеко й не надовго."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На Воїні 4 беремо «Драконячий страх» і піднімаємо Харизму до 16."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На Воїні 6 беремо покращення характеристик на +2 до Харизми, досягаючи 18."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На Воїні 8 беремо ще одне покращення характеристик на +2 до Харизми, досягаючи 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це лишає нашу Спритність на 16 і, здається, нелогічно зводить нанівець переваги Зброї дихання Фізбана, що є частиною дії Атака. Адже ми побудовані користуватися «Позамежним зарядом» із захистами Воїна. Не хвилюйтеся. Завдяки Бойовому Стилю «Стрільба з лука» ми ніколи не відстаємо від математики з луком. Нам доведеться використовувати Зброю дихання лише кілька разів на день, і в ті раунди ми просто стрілятимемо з лука замість «Позамежного заряду»."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На Воїні 12 у нас є варіанти. Цей приклад бере покращення характеристик на +2 до Статури, до 18, бо воно підвищує і наші ХП, і Складність ряткидка Зброї дихання. Як альтернатива, можна взяти «Бойового заклинателя»{{War Caster}}, щоб додати захист Концентрації на «Проклін [Hex]», або «Здоровань»{{Tough}}, якщо хочемо більше ХП швидше.\n\nТретій варіант — додати потужніший вибуховий раунд раз на день — «Адепт метамагії»{{Metamagic Adept}} для пришвидшеного заклинання."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На Воїні 14 продовжуємо покращення Статури ще +2, досягаючи 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На Воїні 16 беремо «Здоровань», але будь-яка з альтернатив, згаданих на 12-му рівні, все ще лишається на столі залежно від ваших вподобань."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка вирішує мультикласувати з міркувань смаку, пірнаючи в Чорнокнижника-Невмерлого. Можна було б узяти всі рівні у Воїні й обрати «Влучного стрільця» разом з «Експертом з арбалетів», замість підвищення Харизми до 20. «Майстер древкової зброї» із «Майстром важкої зброї» теж слушний вибір. Або ж можна повернутися в Чорнокнижника після отримання «Натхненного натиску», якщо хочете Дари пакту й більше Потойбічних викликів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це підкреслює добру частину Лицаря Пурпурового Дракона: вміння не зважають на те, яким бойовим стилем ви користуєтеся. Ми використовуватимемо «Сплеск дій» трохи стратегічніше, утримуючи його, доки союзник не буде готовий використати надану реакцію, і, можливо, притримаємо «Друге дихання», щоб лікування могли отримати кілька людей."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-purple-dragon-knight-build-traitor-to-the-crown",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 — Воїн 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль{{Fighting Style}}: Стрільба з лука, Друге дихання, Навички: Акробатика, Обман, Аналіз Поведінки, Залякування"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Беріть середній обладунок і довгий лук. Завдяки Бойовому Стилю «Стрільба з лука» ми насправді випереджаємо математику з цією зброєю. Ми беремо більшість навичок «обличчя» тепер, лишаючи Переконання на потім, коли отримаємо його від уміння «Королівський посланець».\n\nПамʼятайте, що наш стиль «Стрільба з лука» лишатиметься корисним і після того, як ми отримаємо «Позамежний заряд», через те, як наша Зброя дихання працює з дією Атака. +2 компенсує те, що ми лишаємося на 16 Спритності. Постріли з лука все одно спрацьовують «Проклін» і «Обличчя жаху»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 — Воїн 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій{{Action Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Сплеск дій»: найсильніше вміння в грі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 — Воїн 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підклас: Лицар Пурпурового Дракона, Надихаючий крик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Надихаючий крик» — це по суті «Масове цілюще слово» раз на Короткий відпочинок. Використовуємо його в подібній ситуації: один чи двоє союзників упали до 0 ХП, і нам треба їх підняти."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 — Воїн 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Драконячий страх +1 до Харизми (16)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "«Драконячий страх» дає нам новий спосіб використовувати заряди Зброї дихання. Якщо ми бʼємося з особливо спритними ворогами з низькими ряткидками Мудрості, можна змінити тактику й вдарити їх цим."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 — Чорнокнижник 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підклас: Невмерлий Покровитель, Магія пакту: Позамежний заряд, Проклін, Обличчя жаху"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Час лазерів! "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Аурґлороаса",
+                      "href": "https://forgottenrealms.fandom.com/wiki/Aurgloroasa"
+                    },
+                    {
+                      "type": "text",
+                      "text": " наказує! Але насправді «Позамежний заряд» — чудове застосування «Сплеску дій». «Проклін» теж цілком чудовий і через підсилення шкоди, і тому що ми можемо дати іншим істотам Перешкоду на кубику на перевірки характеристик без ряткидка (Харизма чи Мудрість у соціальних ситуаціях). «Обличчя жаху» дає нам ще один спосіб накласти Наляканого, а також трохи тимчасових ХП. Що важливіше, воно не дає нам самим бути Налякані."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 — Чорнокнижник 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Потойбічні виклики{{Eldritch Invocations}}: Мучливий вибух, Відштовхувальний вибух"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Це типовий набір Потойбічних викликів: «Мучливий вибух», щоб завдавати кращої шкоди. «Відштовхувальний вибух», щоб налякані цілі застрягали на великій відстані, як дурні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 — Воїн 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака{{Extra Attack}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер можна зробити атаку й використати Зброю дихання в одній Дії. Якщо ми не використовуємо Зброю дихання, використовуватимемо «Позамежний заряд»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 — Воїн 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Харизма +2 (18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кращі лазери, кращі Складності ряткидків «Обличчя жаху» і «Драконячого страху»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 — Воїн 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Королівський посланець — Експертиза в Переконанні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми дуже переконливі. Справжнє «обличчя». Ми зможемо здобути так багато для Культу Дракона й слави "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Аурґлороаси",
+                      "href": "https://forgottenrealms.fandom.com/wiki/Aurgloroasa"
+                    },
+                    {
+                      "type": "text",
+                      "text": "."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 — Воїн 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Харизма +2 (20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Те саме, що й останнє покращення. Кращі лазери й Складності."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 — Воїн 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непохитність{{Indomitable}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отримайте шанс перекинути ряткидок. Протистоячи заклинанням «Зона правди [Zone of Truth]», що змусили б вас зрадити ту, що дала вам усе, "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Аурґлороасу",
+                      "href": "https://forgottenrealms.fandom.com/wiki/Aurgloroasa"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Також важлива примітка: тепер ми маємо три лазери за накладання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 — Воїн 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Натхненний натиск{{Inspiring Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми вже любимо використовувати «Сплеск дій» заради всіх лазерів. Тепер союзник може доєднатися до веселощів, зробивши атаку реакцією. Чудове вміння, яким ми користуватимемося постійно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 — Воїн 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака (2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми можемо робити дві атаки, щоразу коли використовуємо Зброю дихання. Непогано, мабуть."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 — Воїн 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура +2 (18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП. Вищі Складності ряткидків Зброї дихання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 — Воїн 13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непохитність (2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше перекидань. Усе ще приємно."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 — Воїн 14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик: Статура +2 (20)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більше ХП. Вищі Складності ряткидків Зброї дихання. Справді нема що сказати про них. Числа зростають."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 — Воїн 15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Опора"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер щоразу, коли треба перекинути провалений ментальний ряткидок, союзники, що провалили той самий ряткидок, теж отримують перекидання. Непогано, але траплятиметься трохи рідше, ніж «Натхненний натиск» і «Надихаючий крик», бо спрацьовує від Ряткидків. Та не засмучуйтеся. "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Аурґлороаса",
+                      "href": "https://forgottenrealms.fandom.com/wiki/Aurgloroasa"
+                    },
+                    {
+                      "type": "text",
+                      "text": " вирішила дозволити нам тепер випускати чотири лазери за накладання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 — Воїн 16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Здоровань"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Станьте здорованем, майте більше ХП."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 — Воїн 17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій (2), Непохитність (3)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Друге використання за Короткий відпочинок нашої найкращої здатності. А отже, ще більше «Натхненного натиску». Ура! «Непохитність» теж, мабуть."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 — Воїн 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Натхненний натиск (2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ми щойно отримали друге використання «Сплеску дій», а отже, і «Натхненного натиску». Тепер щоразу, коли ми його використовуємо, двоє союзників можуть замахнутися. Гарна вершина."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-fighter-purple-dragon-knight-2014-001",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Надихаючий крик",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-purple-dragon-knight-2014-002",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Королівський посланець",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-purple-dragon-knight-2014-003",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Натхненний натиск",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-purple-dragon-knight-2014-004",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Опора",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-purple-dragon-knight-2014-005",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sectionId": "section-purple-dragon-knight-ability-scores",
+      "targetBlockId": "block-section-purple-dragon-knight-ability-scores-2",
+      "optionId": "section-purple-dragon-knight-ability-scores-block-section-purple-dragon-knight-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-purple-dragon-knight-ability-scores-2",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-purple-dragon-knight-2014-006",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sectionId": "section-purple-dragon-knight-ability-scores",
+      "targetBlockId": "block-section-purple-dragon-knight-ability-scores-3",
+      "optionId": "section-purple-dragon-knight-ability-scores-block-section-purple-dragon-knight-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-purple-dragon-knight-ability-scores-3",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-purple-dragon-knight-2014-007",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sectionId": "section-purple-dragon-knight-ability-scores",
+      "targetBlockId": "block-section-purple-dragon-knight-ability-scores-4",
+      "optionId": "section-purple-dragon-knight-ability-scores-block-section-purple-dragon-knight-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-purple-dragon-knight-ability-scores-4",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-fighter-purple-dragon-knight-2014-008",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sectionId": "section-purple-dragon-knight-ability-scores",
+      "targetBlockId": "block-section-purple-dragon-knight-ability-scores-5",
+      "optionId": "section-purple-dragon-knight-ability-scores-block-section-purple-dragon-knight-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-purple-dragon-knight-ability-scores-5",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-fighter-purple-dragon-knight-2014-009",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sectionId": "section-purple-dragon-knight-ability-scores",
+      "targetBlockId": "block-section-purple-dragon-knight-ability-scores-6",
+      "optionId": "section-purple-dragon-knight-ability-scores-block-section-purple-dragon-knight-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-purple-dragon-knight-ability-scores-6",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-fighter-purple-dragon-knight-2014-010",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sectionId": "section-purple-dragon-knight-ability-scores",
+      "targetBlockId": "block-section-purple-dragon-knight-ability-scores-7",
+      "optionId": "section-purple-dragon-knight-ability-scores-block-section-purple-dragon-knight-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-purple-dragon-knight-ability-scores-7",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-purple-dragon-knight-2014-011",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sectionId": "section-purple-dragon-knight-feats",
+      "targetBlockId": "block-section-purple-dragon-knight-feats-2",
+      "optionId": "section-purple-dragon-knight-feats-block-section-purple-dragon-knight-feats-2-item-0",
+      "context": "Експерт у навичкахTCoE",
+      "explanationBlockId": "block-section-purple-dragon-knight-feats-2",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-fighter-purple-dragon-knight-2014-012",
+      "articleId": "rpgbot-fighter-purple-dragon-knight-2014",
+      "translationRevisionId": "translation-rpgbot-fighter-purple-dragon-knight-2014-draft1",
+      "sectionId": "section-purple-dragon-knight-multiclassing",
+      "targetBlockId": "block-section-purple-dragon-knight-multiclassing-2",
+      "optionId": "section-purple-dragon-knight-multiclassing-block-section-purple-dragon-knight-multiclassing-2-item-0",
+      "context": "Чорнокнижник",
+      "explanationBlockId": "block-section-purple-dragon-knight-multiclassing-2",
+      "sourceColor": "green",
+      "score": 3
+    }
+  ]
+}

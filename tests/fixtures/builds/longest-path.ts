@@ -48,7 +48,6 @@ export const build: Build = {
       classChoiceSelections: fightingStyleIds.length ? { "0": fightingStyleIds[0] } : {},
       racialBonusChoiceSchema: { basicChoices: pickAbilitiesForGroups(groups), tashaChoices: [] },
       skills: [Skills.PERCEPTION],
-      expertiseSchema: { expertises: [Skills.PERCEPTION] },
       languagesSchema: { languages: ["Ельфійська"] },
     });
   },

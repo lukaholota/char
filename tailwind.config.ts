@@ -4,6 +4,8 @@ import tailwindcssAnimate from "tailwindcss-animate";
 import { ARCANE, OBSIDIAN, PRISM } from "./src/styles/palette.ts";
 
 const config: Config = {
+  // iOS Safari treats a tap that reveals hover-only content as hover and swallows the click.
+  future: { hoverOnlyWhenSupported: true },
   darkMode: ["class"],
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx}",

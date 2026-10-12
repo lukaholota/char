@@ -1,0 +1,156 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "warlock-undead-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-warlock-undead-2014-draft1",
+    "sourceRevisionId": "rpgbot-16e9e6804185c4fa-3d9d1b8b560f6d90"
+  },
+  "exampleSection": "section-example",
+  "levelTableSection": "section-levels",
+  "classKey": "WARLOCK_2014",
+  "subclassKey": "UNDEAD",
+  "raceKey": "AASIMAR_MPMM",
+  "backgroundKey": "NOBLE",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 15,
+    "INT": 8,
+    "WIS": 8,
+    "CHA": 15
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 3,
+  "levels": [
+    {"level":2,"classOptions":[{"optionNameEng":"Agonizing Blast"},{"optionNameEng":"Devil's Sight"}],"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":3,"classOptions":[{"optionNameEng":"Pact of the Blade"}],"spells":{"knownSpellKeys":["darkness"]},"replaceOptions":[{"drop":{"optionNameEng":"Agonizing Blast"},"add":{"optionNameEng":"Improved Pact Weapon"}}]},
+    {"level":4,"featKey":"GUNNER","openSpellPicks":[{"category":"cantrips","count":1},{"category":"knownSpells","count":1}]},
+    {"level":5,"classOptions":[{"optionNameEng":"Thirsting Blade"}],"spells":{"knownSpellKeys":["spirit-shroud"]}},
+    {"level":6,"spells":{"knownSpellKeys":["speak-with-dead"]}},
+    {"level":7,"classOptions":[{"optionNameEng":"Eldritch Smite"}],"spells":{"knownSpellKeys":["greater-invisibility"]}},
+    {"level":8,"featKey":"SHARPSHOOTER","openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":9,"classOptions":[{"optionNameEng":"Sculptor of Flesh"}],"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":10,"openSpellPicks":[{"category":"cantrips","count":1}]},
+    {"level":11,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":12,"abilityScoreIncrease":[{"ability":"DEX","amount":2}],"classOptions":[{"optionNameEng":"Lifedrinker"}]},
+    {"level":13,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":14},
+    {"level":15,"classOptions":[{"optionNameEng":"Shrouded in Shadow"}],"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":16,"featKey":"FIGHTING_INITIATE","featOptions":[{"optionNameEng":"Archery"}],"openAdvancement":true},
+    {"level":17,"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":18,"classOptions":[{"optionNameEng":"Witch Sight"}],"openClassOptions":true},
+    {"level":19,"abilityScoreIncrease":[{"ability":"CHA","amount":2}],"openSpellPicks":[{"category":"knownSpells","count":1}]},
+    {"level":20}
+  ],
+  "incomplete": [
+    {
+      "field": "Версія Занепалого аазимара",
+      "reason": "Автор бере версію з «Путівника Воло по монстрах» і називає версію з «Монстрів Мультивсесвіту» прийнятною, хоч «Некротичне покривало» там слабше; у каталозі є лише друга.",
+      "section": "section-race"
+    },
+    {
+      "field": "Заклинання й замовляння «будь-які»",
+      "reason": "На 2, 4, 8, 9 і 11-му рівнях автор не називає нового заклинання чи замовлення; це вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Розбіжність таблиці й розділу про риси (12-й і 16-й рівні)",
+      "reason": "Таблиця ставить Покращення Характеристик (Спритність 18 → 20) і на 12-му, і на 16-му рівні, а розділ про риси дає Посвяченого у бій на 12-му й +2 до Спритності на 16-му. Обрано пріоритет таблиці: Спритність +2 на 12-му. Друге підвищення Спритності на 16-му неможливе (вже 20), тому на 16-му записано Посвяченого у бій (Стрільба з лука) з розділу про риси як типовий вибір платформи; гравець може змінити.",
+      "section": "section-feats-2"
+    },
+    {
+      "field": "Містичний арканум (11–17-й рівні)",
+      "reason": "Автор називає лише Силову клітку (13-й) і Передбачення (17-й), на 11-му пише «будь-яке», на 15-му рядок таблиці неоднозначний; платформа не записує вибір арканума.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Вибори «будь-який / будь-яке» на 13–19-му рівнях",
+      "reason": "Автор пише «будь-який» для потойбічного виклику на 18-му рівні (пресет бере Witch Sight; гравець може змінити). Відомі заклинання «будь-які» на 13, 15, 17 і 19-му лишено на вибір гравця; на 15-му таблиця називає заклинання неоднозначно (Впевненість поруч із «будь-яке»), тому теж лишено вибір гравця.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/warlock-fallen-aasimar-undead-2014.webp",
+    "title": "Чорнокнижник Невмерлого — Занепалий аазимар",
+    "description": "«Привиди зі стволами»: Спритність 17, Харизма 16, Некротичне покривало. Збірка під мушкет і «Стрільця» пізніше.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "DEX",
+      "CHA",
+      "DEX"
+    ],
+    "racialAbilityRules": "tasha",
+    "raceOptions": [
+      "Некротичне покривало"
+    ],
+    "skills": {
+      "selectedClass": [
+        "DECEPTION",
+        "INTIMIDATION"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": [
+          "CLUB"
+        ]
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Занепалий аазимар за правилами налаштованого походження: +2 до Спритності й +1 до Харизми, як у авторській таблиці (Спритність 17, Харизма 16); це вже враховано.",
+    "skillExplanation": "Автор радить навички «обличчя», але не називає їх і передісторію. Обман і Залякування від Чорнокнижника, передісторію Аристократа (Історія, Переконання) та дві мови ми обрали за вас — їх можна змінити.",
+    "equipmentExplanation": "Автор не називає спорядження 1-го рівня. Легкий арбалет, окультний фокус, набір вченого та кийок як просту зброю ми обрали за вас — їх можна змінити.",
+    "spells": {
+      "classCantripKeys": [
+        "eldritch-blast",
+        "mage-hand"
+      ],
+      "knownSpellKeys": [
+        "armor-of-agathys",
+        "hex"
+      ],
+      "spellbookKeys": [],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [],
+      "platformChoices": [
+        "classCantrips"
+      ],
+      "explanation": "Позамежний заряд, Обладунок Агатіса й Проклін названі автором. Друге замовляння автор лишає «будь-яким»: Магічну руку ми обрали за вас.",
+      "sectionId": "section-levels"
+    }
+  }
+}

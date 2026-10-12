@@ -1,0 +1,982 @@
+{
+  "buildId": "build-bard-swords-2014",
+  "revisionId": "build-bard-swords-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "Барда Колегії мечів — добрий сер Луска",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-bard-swords-2014",
+      "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+      "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+      "sectionId": "section-example",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "BARD_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "BARD_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": []
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "BARD_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "longstrider"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "BARD_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "COLLEGE_OF_SWORDS",
+      "decisions": {
+        "subclassOptions": [
+          {
+            "optionNameEng": "Dueling (Swords)"
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "warding-wind"
+          ],
+          "spellbookKeys": []
+        },
+        "expertise": [
+          "PERCEPTION",
+          "PERSUASION"
+        ]
+      }
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "BARD_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "WAR_CASTER",
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "BARD_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "hypnotic-pattern"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "BARD_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "catnap"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "BARD_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "greater-invisibility"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "BARD_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ],
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "polymorph"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "BARD_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "synaptic-static"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "BARD_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          },
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ],
+        "expertise": [
+          "INTIMIDATION",
+          "INSIGHT"
+        ]
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "BARD_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "ottos-irresistible-dance"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "BARD_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "DEX",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "BARD_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "forcecage"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "BARD_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "BARD_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "mind-blank"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "BARD_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "METAMAGIC_ADEPT"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "BARD_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [],
+          "knownSpellKeys": [
+            "foresight"
+          ],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "BARD_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "openSpellPicks": [
+          {
+            "category": "knownSpells",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "BARD_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-feats-2",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "CHA",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "BARD_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-bard-swords-2014",
+          "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+          "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "COLLEGE_OF_SWORDS",
+    "raceKey": "LIZARDFOLK_MPMM",
+    "backgroundKey": "KNIGHT",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 8
+      },
+      {
+        "ability": "DEX",
+        "value": 15
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 8
+      },
+      {
+        "ability": "CHA",
+        "value": 15
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-ability-scores-2",
+        "title": "Характеристики",
+        "text": "Беремо по +1 до Спритності, Статури й Харизми, щоб на 1-му рівні довести всі три до 16; решту характеристик знижуємо. Це близько до рекомендацій у нашому посібнику Барда, але ми більше зосереджуємося на Статурі, бо хочемо стабільно битися в ближньому бою.\n\n Базове значення Підвищене значення Сила 8 8 Спритність 15 16 Статура 15 16 Інтелект 8 8 Мудрість 8 8 Харизма 15 16",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-ability-scores-2",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Ящеролюд{{Lizardfolk}} із «Монстрів мультивсесвіту» (MPMM). Ящеролюд дає незвично високий КБ завдяки природному обладунку 13 + Спритність; «Голодні щелепи»{{Hungry Jaws}} — ще один спосіб витрачати бонусну дію й спосіб отримати трохи тимчасових ХП; а ще ми здобуваємо володіння двома додатковими навичками. Вкладемо їх в Уважність і Непомітність.\n\nПамʼятайте: протягом усієї карʼєри в нас буде жахлива Сила, тож укуси будуть неточними. Якщо ваша бонусна дія вільна й буквально нічим іншим її зайняти, використати «Голодні щелепи»{{Hungry Jaws}} у бою — не найгірша ідея. Імовірніше, після відпочинку ви перекусите мішком щурів, щоб отримати тимчасові ХП. Їхня тривалість не визначена, тож вони зникають після Тривалого відпочинку. Отже, сніданок може захищати вас цілий день, якщо ви якимось дивом не отримаєте шкоди.\n\nЧерепаха{{Tortle}} підійшла б із подібних причин, але ви отримуєте менше навичок в обмін на фіксований КБ, а довести Спритність до 18, підвищивши її на максимум, не вийде.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Лицар{{Knight}}. Не питайте, як скромний ящеролюд із місцевих боліт став лицарем до 1-го рівня. Ця передісторія дає Історію, Переконання, набір для гри й одну мову.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Від раси маємо Уважність і Непомітність, від передісторії — Історію й Переконання, а клас дає на вибір будь-які три навички. Беремо Залякування, Аналіз Поведінки й Спритність рук.\n\nЯкщо у вашій групі немає Пройдисвіта, подумайте про заміну набору для гри з нашої передісторії на володіння Злодійськими інструментами{{Thieves' Tools}}.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats-2",
+        "title": "Риси",
+        "text": "На 4-му рівні беремо рису «Бойовий заклинатель»{{War Caster}}. Ми цілковито залежимо від Концентрації, а можливість накласти заклинання замість принагідної атаки дає величезну тактичну перевагу.\n\nНа 8-му й 12-му рівнях збільшуємо Спритність.\n\nНа 16-му рівні беремо «Адепта метамагії»{{Metamagic Adept}}, щоб повніше використовувати найважливіші підсилення.\n\nНа 19-му рівні збільшуємо Харизму.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Чаротворство{{Spellcasting}}\n«Бардське натхнення»{{Bardic Inspiration}} (к6)\nВідомі замовляння: – Гуркіт грому [Thunderclap] – Злісне глузування [Vicious Mockery]\nВідомі заклинання: – Дисонуючий шепіт [Dissonant Whispers] – Вогники фей [Faerie fire] – Цілюще слово [healing word] – Героїзм [Heroism]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "«Майстер на всі руки»{{Jack of All Trades}}\n«Пісня відпочинку»{{Song of Rest}} (к6)\nНове заклинання: – Скорохід [Longstrider]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Колегія Бардів{{Bard College}}: {{Колегія мечів|College of Swords}}\nДодаткові володіння{{Bonus Proficiencies}}\nБойовий Стиль{{Fighting Style}}: Дуель{{Dueling}}\n«Розчерк клинка»{{Blade Flourish}}\nЕкспертиза{{Expertise}}: – Уважність – Переконання\nНове заклинання: – Захисний вітер [Warding Wind]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Риса: «Бойовий заклинатель»{{War Caster}}\nНове заклинання: – Підтримка [Aid]\nНове замовляння: – будь-яке",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "«Бардське натхнення»{{Bardic Inspiration}} (к8)\n«Джерело натхнення»{{Font of Inspiration}}\nНове заклинання: – Гіпнотичний візерунок [Hypnotic Pattern]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "«Контрпричарування»{{Countercharm}}\nДодаткова атака{{Extra Attack}}\nНове заклинання: – Дрімота [Catnap]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Нове заклинання: – Більша невидимість [Greater Invisibility]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Покращення Характеристик: +2 до Спритності (16 → 18)\nНове заклинання: – Перевтілення [Polymorph]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "«Пісня відпочинку»{{Song of Rest}} (к8)\nНове заклинання: – Синаптичний розряд [Synaptic Static]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "«Бардське натхнення»{{Bardic Inspiration}} (к10)\nЕкспертиза{{Expertise}}: – будь-які 2 навички\nМагічні таємниці{{Magical Secrets}}: – Пошук вищого скакуна [Find Greater Steed] – Клинок тіні [Shadow Blade]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Нове заклинання: – Нестримний танець Отто [Otto's Irresistible Dance]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Покращення Характеристик: +2 до Спритності (18 → 20)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 13,
+        "text": "«Пісня відпочинку»{{Song of Rest}} (к10)\nНове заклинання: – Силова кліть [Forcecage]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "«Майстерний розчерк»{{Master's Flourish}}\nМагічні таємниці{{Magical Secrets}}: – Обачливість [Contingency] – Тензерова трансформація [Tenser's Transformation]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 15,
+        "text": "«Бардське натхнення»{{Bardic Inspiration}} (к12)\nНове заклинання: – Чистий розум [Mind Blank]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "«Адепт метамагії»{{Metamagic Adept}}\n«Подовжене заклинання»{{Extended Spell}}\n«Пришвидшене заклинання»{{Quickened Spell}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "«Пісня відпочинку»{{Song of Rest}} (к12)\nНове заклинання: – Передбачення [Foresight]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Магічні таємниці{{Magical Secrets}}: – Стихійна зброя [Elemental Weapon] – Бажання [Wish]",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Покращення Характеристик: +2 до Харизми (16 → 18)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "«Вище натхнення»{{Superior Inspiration}}",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Дротики за золото передісторії",
+        "reason": "Автор радить витратити золото Лицаря на дешеві дротики для метання; пресет не записує купівлю за золото.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Набір для гри Лицаря",
+        "reason": "Автор називає набір для гри від Лицаря (або Злодійські інструменти, якщо в групі немає Пройдисвіта); пресет не записує вибір ігрового набору й заміну володіння.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння на 4-му рівні",
+        "reason": "Автор бере «будь-яке» нове замовляння; його обирає гравець.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Заклинання «Підтримка» на 4-му рівні",
+        "reason": "Автор бере Підтримку (Aid), але вона не входить до списку заклинань Барда в каталозі, тож платформа її не приймає; нове заклинання 4-го рівня лишено гравцеві (openSpellPicks).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Експертиза на 10-му рівні",
+        "reason": "Автор пише «будь-які 2 навички» і не називає їх; пресет бере Залякування й Аналіз поведінки (вибір платформи, можна змінити на листі).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Магічні таємниці на 10, 14 та 18-му рівнях",
+        "reason": "Автор бере Пошук вищого скакуна й Клинок тіні (10-й), Обачливість і Тензерову трансформацію (14-й), Стихійну зброю й Бажання (18-й); платформа відхиляє заклинання поза списком Барда (помилка компілятора: «Обране заклинання не з вашого списку класу або зависокого рівня»), тому їх обирає гравець (вибір платформи, автор їх називає). Замовляння на 10-му рівні в таблиці не вказане, його теж обирає гравець.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Адепт метамагії",
+        "reason": "Автор бере «Подовжене заклинання» й «Пришвидшене заклинання»; риса в каталозі не має опцій (BUG-O49-METAMAGIC-ADEPT), тож записано лише саму рису.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-bard-swords-2014",
+            "translationRevisionId": "translation-rpgbot-bard-swords-2014-draft1",
+            "sourceRevisionId": "rpgbot-6e96b12efc5cd03a-7a21528d431cb3bc",
+            "sectionId": "section-feats-2",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

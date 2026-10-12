@@ -1,0 +1,5471 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-a29134cbc01420e8",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+      "sourceId": "rpgbot-a29134cbc01420e8",
+      "fetchedAt": "2026-09-29T19:19:04.679309+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:34:48-04:00",
+      "contentHash": "3bb366d8798ea03a7ca88ff4fa301036bcb7e0c8509ef83405a50e4ae784fdb3",
+      "title": "Bugbear-y Me in Damage: DnD 5e Multiclass Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-a29134cbc01420e8-03998bba0da117e8.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+    "sourceId": "rpgbot-a29134cbc01420e8",
+    "slug": "bugbear-y-me-in-damage-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Ведмебай: вибухова шкода першого ходу — збірки (2014)",
+    "titleEn": "Bugbear-y Me in Damage: DnD 5e Multiclass Guide",
+    "topics": [
+      "build"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+      "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+      "sourceRevisionId": "rpgbot-a29134cbc01420e8-03998bba0da117e8",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ: Ведмебай MPMM2014",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вихід Монстри Мультивсесвіту приніс багато нових і оновлених рас. Більшість змін були хорошими без надмірностей, але Ведмебай одразу виділився потенціалом для зловживання. Команда RPGbot розробила низку страшенно сильних збірок, які далеко виходять за очікувану шкоду за раунд."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цій статті доведемо ці ідеї до кількох приголомшливо небезпечних збірок."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Головна расова здібність — Несподівана атака{{Surprise Attack}}: +2к6 шкоди при кожному влучанні по істоті, яка ще не мала ходу в цьому бою. Висока Спритність, Weapon of Warning{{Weapon of Warning}}, Sentinel Shield{{Sentinel Shield}}, Пильний{{Alert}}, Майстер на всі руки{{Jack of All Trades}} Барда, Dread Ambusher{{Dread Ambusher}} Слідопита, Tactical Wit{{Tactical Wit}} Чарівника, Дар готовності [Gift of Alacrity] чи заздалегідь накладене Настанова [Guidance] допомагають виграти ініціативу. Примітка редакції: це MPMM2014, не обмеженіша версія Volo. Сам ефект не потребує Зненацька захопленої цілі. Настанова [Guidance] потребує Концентрації, тому несумісне з одночасним підтриманням власного бойового посилення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Після ініціативи потрібно максимізувати кількість атак: бій двома зброями, Додаткова атака{{Extra Attack}} та Шквал ударів{{Flurry of Blows}} — очевидні важливі варіанти, але що далі шукаємо, то страшнішими стають комбінації. Мультиклас дозволяє створити щось справді надзвичайне."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Це вибухові збірки: навмисно дуже сильні в перший хід і слабші надалі. Сподіваємося завдати стільки шкоди відразу, щоб це не мало значення. Як Чарівник, який починає потужним заклинанням, а потім використовує замовляння, ми хочемо визначити результат бою в перший хід і лише добити залишки, якщо вони будуть."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мета автора — потроїти його поріг DPR «Чуваче, зупинись»: за один хід завдати стільки, скільки очікується від чотирьох персонажів за три ходи. Автор орієнтується на 400 шкоди для перемоги над ворогом CR 20 за один хід. Примітка редакції: CR не задає універсального запасу ХП, а розрахунки залежать від КБ, ініціативи, Зненацька, Опорів та інших умов. Це умовна модель автора, не гарантія перемоги."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спиратимемося на "
+                },
+                {
+                  "type": "link",
+                  "text": "гайд Ведмебая",
+                  "href": "https://rpgbot.net/dnd5/characters/races/bugbear/"
+                },
+                {
+                  "type": "text",
+                  "text": ", "
+                },
+                {
+                  "type": "link",
+                  "text": "практичний гайд мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing/"
+                },
+                {
+                  "type": "text",
+                  "text": " та "
+                },
+                {
+                  "type": "link",
+                  "text": "основну математику оптимізації персонажа",
+                  "href": "https://rpgbot.net/dnd5/characters/fundamental_math/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ: Ведмебай MPMM2014",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Класи й підкласи",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#classes-and-subclasses"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Винахідник — Зброяр",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#artificer-armorer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Клірик — Домен війни",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#cleric-war-domain"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Воїн — Лицар луни",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#fighter-echo-knight"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Монах",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#monk"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Слідопит — Конклав сутінкового мисливця",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#ranger-gloomstalker"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Пройдисвіт — Убивця",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#rogue-assassin"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Паладин — Клятва помсти",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#paladin-vengeance"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чародій",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#sorcerer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чорнокнижник — Почвара",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#warlock-fiend"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чорнокнижник — Відьмацький клинок",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#warlock-hexblade"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Чарівник",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#wizard"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Збірка 1: Заклинатель із засідки",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#example-build-1-ambush-caster"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#feats-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Розвиток за рівнями",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#levels"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Збірка 2: Tam Bush",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#ability-scores-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#feats-3"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Розвиток за рівнями",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#levels-2"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Збірка 2: Tam Bush",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#example"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#ability-scores-3"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#feats-4"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Розвиток за рівнями",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#levels-3"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Порівняння збірок",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/bugbear-y-me-in-damage/#conclusion"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Пильний{{Alert}}"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "Книга Гравця (2014)"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +5 до ініціативи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Експерт з арбалетів{{Crossbow Expert}}"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "Книга Гравця (2014)"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": ручний арбалет дає дальню бонусну атаку з економікою дій, подібною до бою двома зброями. Якщо бонусна атака вже є з іншого джерела, Стрілець{{Gunner}} може бути кращою. Більший кубик шкоди мушкета також змінює порівняння. Примітка редакції: для заряджання ручного арбалета потрібна вільна рука за властивістю Боєприпас."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Стрілець{{Gunner}}"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "Казан Таші з усім"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": +1 Спритності та доступ до мушкетів із кубиком 1к12. Примітка редакції: джерело помилково вказує PHB; риса походить із Таші. Вогнепальна зброя потребує доступності й відповідних правил кампанії."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Щасливчик{{Lucky}}"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "Книга Гравця (2014)"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": тричі між тривалими відпочинками можна кинути додатковий кубик, щоб урятувати невдалу атаку."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Проколювач{{Piercer}}"
+                  },
+                  {
+                    "type": "superscript",
+                    "text": "Казан Таші з усім"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": при великій кількості кубиків якийсь буде 1, тому повторний кидок корисний. Численні атаки, часто з Перевагою, дають критичні влучання, і додатковий кубик на криті допомагає. Ще й +1 Спритності — майже ідеальна риса для нас. Примітка редакції: повторне кидання доступне раз за хід, а не для кожної атаки; потрібна колюча шкода."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-classes-and-subclasses",
+          "heading": "Класи й підкласи",
+          "sourceAnchor": "classes-and-subclasses",
+          "blocks": [
+            {
+              "blockId": "block-section-classes-and-subclasses-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Від класів шукаємо покращення ініціативи, додаткові атаки й бонуси шкоди при влучанні, які можна поєднувати."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-classes-and-subclasses-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нижче зібрано відповідні класи й підкласи з коротким розвитком за рівнями: що й коли отримуємо."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-classes-and-subclasses-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Деякі варіанти пропущено для стислості, бо вся порада звелася б до «якби це працювало від Спритності». Наприклад, Варвар Шляху звіра."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-classes-and-subclasses-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щоб показати внесок кожного варіанта, для збірок наведено авторські обчислення DPR. Вони збережені як умовні оцінки, без нової незалежної симуляції."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-artificer-armorer",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Винахідник — Зброяр",
+          "sourceAnchor": "artificer-armorer",
+          "blocks": [
+            {
+              "blockId": "block-section-artificer-armorer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Насамперед потрібні Вливання, але обладунок Infiltrator{{Infiltrator}} хороший, особливо без Експертизи Непомітності. Початок Винахідником може дати Володіння вогнепальною зброєю й заощадити Стрілець{{Gunner}} для мушкета. Примітка редакції: Володіння вогнепальною зброєю залежить від використання цих опційних правил у кампанії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-artificer-armorer-2",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магічне майстрування Чаротворення"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вливання предмета{{Infuse Item}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Enhanced Arcane Focus{{Enhanced Arcane Focus}} для атак заклинаннями, Enhanced Weapon{{Enhanced Weapon}} для зброї, Repeating Shot{{Repeating Shot}} для арбалета чи вогнепальної зброї. Примітка редакції: джерельна назва Repeating Weapon помилкова."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спеціалізація Винахідника Зброяр Tools of the Trade Арканна броня Модель броні: Infiltrator Потрібний інструмент для роботи"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перевага на Спритність (Непомітність) і Lightning Launcher{{Lightning Launcher}}. Хороша дальня атака блискавкою менше турбується про Опір звичайній шкоді зброї."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик"
+                    }
+                  ],
+                  []
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака"
+                    }
+                  ],
+                  []
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cleric-war-domain",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Клірик — Домен війни",
+          "sourceAnchor": "cleric-war-domain",
+          "blocks": [
+            {
+              "blockId": "block-section-cleric-war-domain-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потрібен War Priest{{War Priest}}: атака бонусною дією дозволяє двуручну зброю, як довгий лук або важкий арбалет із Експерт з арбалетів{{Crossbow Expert}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cleric-war-domain-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Домен сутінків також заслуговує згадки за Перевагу на ініціативу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-cleric-war-domain-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворення Божественний домен: War Bonus Proficiencies Священик війни"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "War Priest{{War Priest}} не обмежує тип зброї, тож можна взяти довгий лук. На жаль, до Divine Strike{{Divine Strike}} на рівні 8 основний розвиток шкоди — характеристики. Все одно комфортно перебуваємо в діапазоні високого DPR. DPR: 20.0"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Канал божественності (1/відпочинок) Guided Strike"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR: 20.0"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR: 20.0"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR: 21.3"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знищення нежиті (CR 1/2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR: 21.3"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighter-echo-knight",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Воїн — Лицар луни",
+          "sourceAnchor": "fighter-echo-knight",
+          "blocks": [
+            {
+              "blockId": "block-section-fighter-echo-knight-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Воїн дає багато: бойовий стиль на рівні 1, Сплеск дій{{Action Surge}} на 2, Лицаря луни на 3 із Unleash Incarnation{{Unleash Incarnation}}, підвищення характеристик на 4 і 6 та Додаткову атаку{{Extra Attack}} на 5."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fighter-echo-knight-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я розглядав Чемпіона за Покращену критичну атаку{{Improved Critical}}, але вона того не варта. Якщо потрібні кращі крити, беріть Убивцю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-fighter-echo-knight-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль Друге дихання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий стиль дає варіанти. Бій метальною зброєю підтримує два кинджали й бонусну атаку; Стрільба очевидна для дальнього бою, особливо коли мультиклас відкладає характеристики. Бій великою зброєю може бути цікавий для двуручної зброї, але потрібна Спритність заради ініціативи. Примітка редакції: його повторні кидки стосуються кубиків зброї, а не додаткових кубиків Несподіваної атаки. Нижче автор порівнює довгий лук, метальні й звичайні кинджали з модифікатором Спритності +3 та расовою шкодою. Бій двома зброями завдає більше шкоди ціною ближнього бою; із короткими мечами перевага зростає. Стрільба із довгий лук: 12.95 Бій метальною зброєю DPR: 16.65 Бій двома зброями style DPR (кинджали): 18.6"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій (1/відпочинок)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій — головна причина взяти Воїна. Автор називає його найкращою класовою здібністю: часто майже подвоює перший хід, хоча не додає ще одну бонусну дію. Додаємо його до попередніх варіантів. Стрільба із довгий лук: 24.91 Бій метальною зброєю DPR: 25.95 Бій двома зброями style DPR (кинджали): 27.9"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підклас: Лицар луни Прояв луни Виплеск втілення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Лицар луни дає Manifest Echo{{Manifest Echo}} для позиції атак і Unleash Incarnation{{Unleash Incarnation}} для додаткових ударів за модифікатором Статури. Статура 14 дозволяє двічі використати останню зі Сплеском дій. Авторські числа майже подвоюються. Примітка редакції: додатковий удар Unleash Incarnation — лише ближній із позиції луни; це не друга дальня атака довгим луком. Тому рядок для лука має недійсне припущення й не є підтвердженою моделлю дальньої збірки. Стрільба із довгий лук: 48.15 Бій метальною зброєю DPR: 44.55 Бій двома зброями style DPR (кинджали): 46.5"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стрільба з довгим луком: 48.8; DPR стилю метальної зброї: 47.15; DPR бою двома зброями (кинджалами): 49.5. Примітка редакції: Unleash Incarnation не дає додаткової дальньої атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дві атаки. Потрібна Додаткова атака, але не обовʼязково від Воїна. Із двома діями Атаки це ще два удари першого ходу. Шкода всіх трьох варіантів зростає "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "знову"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Метальні кинджали відстають; бій двома зброями лідирує до рівня 5, а якщо бонусну атаку отримати іншим способом, Стрільба стає очевидним фаворитом. Для дальнього бою беріть лук, а не жонглюйте ножами. Автор починає від цільового DPR, переходить до високого на рівні 2 й «Чуваче, зупинись» на 3. Зі Спритністю 20 та подальшими рівнями Воїна його модель лука лишається там до рівня 17. Примітка редакції: успадкована додаткова дальня атака луни в цій моделі некоректна, як пояснено вище. Стрільба із довгий лук: 73.2 Бій метальною зброєю DPR: 67.05 Бій двома зброями style DPR: 69.0"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-monk",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Монах",
+          "sourceAnchor": "monk",
+          "blocks": [
+            {
+              "blockId": "block-section-monk-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потрібен Шквал ударів{{Flurry of Blows}}. Для Спритнісної збірки використовуємо зброю Монаха; тримати спис двома руками заради ще однієї атаки варте меншого кубика. Двох очок Кі достатньо для двох сутичок, тож мало причин іти далі. Примітка редакції: саме Flurry of Blows не вимагає атаки зброєю Монаха чи відсутності обладунку; це умови Бойових мистецтв, завдяки яким ця збірка використовує Спритність і кубик Монаха."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-monk-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо йдете далі в Монаха, є кілька підкласів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-monk-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Шлях пʼяного майстра: Відступ без окремої дії та +10 футів швидкості після Шквалу ударів, щоб пересуватися між цілями."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шлях довгої смерті: тимчасові ХП, коли знижуєте істоту до 0 ХП за умовами здібності."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шлях милосердя: Рука шкоди{{Hand of Harm}} раз за хід."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шлях тіні: Темрява [Darkness] або Переміщення без сліду [Pass without Trace]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Шлях сонячної душі: дальні променеві атаки."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-monk-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "За Шляху милосердя перебуваємо біля верхньої межі високого DPR, трохи нижче «Чуваче, зупинись» на рівні 5. Шквал ударів дає значне посилення."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-monk-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Бойові мистецтва потребують відсутності обладунку й щита. КБ від легкого обладунку 12 + Спритність відповідає Захисту без обладунку з Мудрістю 14, тому це не проблема. Примітка редакції: джерело помилково приписує таке обмеження й самому Шквалу ударів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-monk-6",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Кі"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Захист без броні Бойові мистецтва"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Одна атака списом двома руками й бонусний удар без зброї від Бойових мистецтв. Припускаємо Несподівану атаку й Спритність +3. DPR: 18.6"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кі Рух без броні (+10)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кі дає Шквал ударів: тепер бонусна дія має два удари без зброї. DPR: 27.2"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Монастирська Традиція{{Monastic Tradition}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Більшість підкласів не підвищують шкоду, тому приклад — Милосердя. Припускаємо Мудрість 16 і ще 1к6 +3 шкоди раз за хід від Руки шкоди. DPR: 34.71"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Припускаємо +2 Спритності. DPR: 35.36"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака Бойові мистецтва 1d6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дві атаки; Додаткову атаку можна отримати й іншим класом. Кубик Бойових мистецтв зростає, трохи підвищуючи шкоду Шквалу ударів. DPR: 48.09"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ranger-gloomstalker",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Слідопит — Конклав сутінкового мисливця",
+          "sourceAnchor": "ranger-gloomstalker",
+          "blocks": [
+            {
+              "blockId": "block-section-ranger-gloomstalker-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мисливська мітка [Hunter's Mark] додає шкоду при влучанні зброєю й добре підходить збірці. Воно конкурує за бонусну дію з боєм двома зброями, зате дозволяє більші кубики рапіри чи мушкета. Ми спираємося на Спритність, тому більшість великої двуручної зброї не підходить. Примітка редакції: потрібна Концентрація, а перенесення мітки теж потребує бонусної дії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ranger-gloomstalker-2",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Favored Enemy Natural Explorer"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із a довгий лук: 10.0"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль Чаротворення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отримуємо Мисливська мітка [Hunter's Mark]. Якщо підемо далі, можливі Магічна зброя [Magic Weapon] або Стихійна зброя [Elemental Weapon]. Стрільба й Бій метальною зброєю працюють як у Воїна, але Стрільба виграла порівняння, а бонусна дія потрібна для мітки, тому розглядаємо лук. DPR: 14.25"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Архетип Слідопита{{Ranger Archetype}}: Gloomstalker Primeval Awareness Вбивця в темряві Umbal Sight"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Dread Ambusher{{Dread Ambusher}} дає додаткову атаку й швидкість у перший хід. Umbral Sight{{Umbral Sight}} посилює Темний зір і приховує від істот, що покладаються на нього. Примітка редакції: це не універсальна Невидимість у будь-якій темряві чи гарантована Перевага проти всіх; інші чуття та освітлення можуть заважати. DPR: 28.5 DPR із Перевагою: 36.67"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR: 30.0 DPR із Перевагою: 38.85"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дві атаки. Потрібна Додаткова атака, але джерелом може бути інший клас. DPR: 45.0 DPR із Перевагою: 57.82"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-rogue-assassin",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Пройдисвіт — Убивця",
+          "sourceAnchor": "rogue-assassin",
+          "blocks": [
+            {
+              "blockId": "block-section-rogue-assassin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Експертиза{{Expertise}}, багато навичок і Підступна атака{{Sneak Attack}}. Остання лише раз за хід, але разом із Несподіваною атакою Ведмебая дає багато кубиків на низьких рівнях, особливо з боєм двома зброями."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-rogue-assassin-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Навряд чи візьмемо понад три рівні Пройдисвіта."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-rogue-assassin-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підступна атака"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза Thieves’ Cant"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1d6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза Непомітності допомагає застати ворогів Зненацька. Бонусна дія в перший хід вільна, тому припускаємо бій двома короткими мечами. DPR: 15.37"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хитра дія{{Cunning Action}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "1d6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR: 15.37"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пройдисвітський архетип: Убивця Assassinate{{Assassinate}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2d6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Assassinate{{Assassinate}} дає Перевагу проти тих, хто ще не мав ходу. Якщо застати ворогів Зненацька — "
+                    },
+                    {
+                      "type": "link",
+                      "text": "що складно для багатьох груп",
+                      "href": "https://rpgbot.net/dnd5/characters/classes/rogue/subclasses/assassin/"
+                    },
+                    {
+                      "type": "text",
+                      "text": " — автоматичні критичні влучання майже подвоюють шкоду, бо ми спираємося на кубики. Саме раніша ініціатива не означає Зненацька. DPR: 19.0 DPR із Перевагою: 25.54 DPR із Assassinate{{Assassinate}}: 43.12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "2d6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR: 19.64 DPR із Перевагою: 26.42 DPR із Assassinate{{Assassinate}}: 44.0"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "3d6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR: 23.27 DPR із Перевагою: 31.05 DPR із Assassinate{{Assassinate}}: 51.96"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin-vengeance",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Паладин — Клятва помсти",
+          "sourceAnchor": "paladin-vengeance",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-vengeance-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потрібна Божественна кара{{Divine Smite}}: лише ближня зброя, зате може працювати багато разів за хід, доки є слоти. Невеликий вклад у Паладина дає мало магії, але мультиклас із заклинателем — більше слотів. Примітка редакції: мультикласування Паладина потребує Сили 13 і Харизми 13, навіть якщо атакуєте від Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-paladin-vengeance-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підклас не дуже важливий, але Помста очевидна через Обітницю ворожнечі{{Vow of Enmity}}. Бонусною дією отримуємо Перевагу, якщо іншого джерела немає. Одна ціль означає проблеми, коли потрібно перемикатися."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-paladin-vengeance-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне відчуття Цілющі руки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ми значно відстаємо від інших бойових варіантів за атакувальними можливостями."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль Чаротворення Божественна кара"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стилів менше, ніж у Воїна. Беремо Дуель для рапіри — найкращої тут Спритнісної зброї — і Громова кара [Thunderous Smite] для вільної бонусної дії. Це витрачає обидва денні слоти заради конкуренції зі Сплеском дій Воїна."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне здоровʼя Священна клятва: Vengeance Канал божественності – Abjure Enemy – Vow of Enmity"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Порівнюємо Перевагу від Обітниці ворожнечі з Громова кара [Thunderous Smite]. За авторськими числами Обітниця виграє."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із 1-го рівня Божественна кара та Vow of Enmity: 25.25"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із 2 1-го рівня Divine Smites та Vow of Enmity: 50.5"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-sorcerer",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Чародій",
+          "sourceAnchor": "sorcerer",
+          "blocks": [
+            {
+              "blockId": "block-section-sorcerer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потрібна Метамагія. Пришвидшене заклинання{{Quickened Spell}} дозволяє бонусне замовляння, але після будь-якого бонусного заклинання "
+                },
+                {
+                  "type": "link",
+                  "text": "того самого ходу не можна накладати заклинання рівня дією",
+                  "href": "https://www.dndbeyond.com/sources/phb/spellcasting#BonusAction"
+                },
+                {
+                  "type": "text",
+                  "text": ". Тож комбінація — бонусне заклинання рівня й замовляння дією або два замовляння, зокрема Позамежний заряд [Eldritch Blast]. Розпечений промінь [Scorching Ray] дає три промені й більше при вищих слотах."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sorcerer-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На жаль, Чародій не має стандартного доступу до Духовна плащаниця [Spirit Shroud], на відміну від Чорнокнижника й Чарівника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sorcerer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підклас мало впливає. При шести рівнях розгляньте Драконячий родовід: Спорідненість зі стихією{{Elemental Affinity}} додає Харизму до одного кидка шкоди відповідного заклинання. Автор наводить Розпечений промінь [Scorching Ray] й Пришвидшений Вогняний заряд [Fire Bolt] для двох бонусів за хід. Примітка редакції: у 2014 саме ця комбінація незаконна через бонусне накладання. Пришвидшений Scorching Ray і звичайний Fire Bolt можуть працювати; потрібна відповідність стихії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-sorcerer-4",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворення Походження чародія"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із Кольорова кулька [Chromatic Orb]: 14.35"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії{{Font of Magic}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із Кольорова кулька [Chromatic Orb]: 14.35"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія – Пришвидшене заклинання – Приховане заклинання or На вибір 1 other"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розпечений промінь [Scorching Ray] дає три промені, а Вогняний заряд [Fire Bolt] — четверту атаку. Примітка редакції: потрібно Пришвидшити Scorching Ray й накласти Fire Bolt дією; джерельна зворотна послідовність незаконна в 2014. Приховане заклинання допомагає накладати Проклін [Hex] чи Духовна плащаниця [Spirit Shroud] без словесного компонента, щоб не видати засідку. Усунення компонентів не гарантує приховування самого ефекту. DPR із Розпечений промінь [Scorching Ray] та Quickened Вогняний заряд [Fire Bolt]: 38.15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із Розпечений промінь [Scorching Ray] та Quickened Вогняний заряд [Fire Bolt]: 38.15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розпечений промінь [Scorching Ray] отримує четвертий промінь від слота 3-го рівня, а Вогняний заряд [Fire Bolt] — ще кубик від загального рівня. Примітка редакції: бонусним має бути Scorching Ray, звичайною дією — Fire Bolt. DPR із Розпечений промінь [Scorching Ray] та Quickened Вогняний заряд [Fire Bolt]: 51.80"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock-fiend",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Чорнокнижник — Почвара",
+          "sourceAnchor": "warlock-fiend",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-fiend-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проклін [Hex], Позамежний заряд [Eldritch Blast], Мучливий вибух{{Agonizing Blast}} і, можливо, Repelling Blast{{Repelling Blast}}. Hex дає Перешкоду перевіркам обраної характеристики — тут Мудрості заради Уважності — і бонус при кожному влучанні. Промені Eldritch Blast зростають за загальним рівнем персонажа, тому двох рівнів Чорнокнижника достатньо для значної користі. Далі можна отримати Духовна плащаниця [Spirit Shroud] із сильнішим бонусом шкоди. Примітка редакції: Spirit Shroud додає шкоду лише по цілях у межах 10 футів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-warlock-fiend-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Слоти Магії угоди закінчуються на 5-му рівні, тому при понад десяти рівнях заклинателя вони не зрівняються з вищими слотами Чародія чи Чарівника. Містичний арканум не дає універсальних слотів для посилення нижчих заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-warlock-fiend-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Otherworldly Patron: The Почвара Магія пакту 1 Слот заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Обираємо Почвару заради Розпечений промінь [Scorching Ray]. DPR із Позамежний заряд [Eldritch Blast] та Проклін [Hex]: 11.2"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звернення: Мучливий вибух [Agonizing Blast] 2 Слоти заклинань"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із Позамежний заряд [Eldritch Blast], Мучливий вибух [Agonizing Blast], та Проклін [Hex]: 13.15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дар пакту{{Pact Boon}}: На вибір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розпечений промінь [Scorching Ray]: три промені! DPR із Розпечений промінь [Scorching Ray]: 29.4"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із Позамежний заряд [Eldritch Blast], Мучливий вибух [Agonizing Blast], та Проклін [Hex]: 13.8 DPR із Розпечений промінь [Scorching Ray]: 29.4"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звернення: На вибір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розпечений промінь [Scorching Ray] отримує четвертий промінь, Позамежний заряд [Eldritch Blast] — другий. Можна вивчити Духовна плащаниця [Spirit Shroud], але не накласти його бонусною дією й Scorching Ray того самого ходу. Через словесний компонент може знадобитися накласти посилення заздалегідь і швидко підійти до цілей. Для його додаткової шкоди вони мають бути в межах 10 футів. DPR із Розпечений промінь [Scorching Ray]: 39.2 DPR із Розпечений промінь [Scorching Ray] та Духовна плащаниця [Spirit Shroud]: 51.8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-warlock-hexblade",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Чорнокнижник — Відьмацький клинок",
+          "sourceAnchor": "warlock-hexblade",
+          "blocks": [
+            {
+              "blockId": "block-section-warlock-hexblade-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Так, ще один Чорнокнижник, і "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "погляньте"
+                },
+                {
+                  "type": "text",
+                  "text": " — Відьмацький клинок. "
+                },
+                {
+                  "type": "link",
+                  "text": "Сміливий вибір, правда?",
+                  "href": "https://knowyourmeme.com/memes/daring-today-arent-we"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-warlock-hexblade-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Підклас добре працює зі зброєю. Improved Pact Weapon{{Improved Pact Weapon}} може дати +1, а на рівні Чорнокнижника 12 можна взяти Lifedrinker{{Lifedrinker}}. Eldritch Smite{{Eldritch Smite}} також додає шкоду. Примітка редакції: сам підклас не гарантує +1 зброю; потрібне відповідне звернення й виконання його умов."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-warlock-hexblade-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Otherworldly Patron: The Відьмацький клинок Прокляття Відьмацького Клинка Воїн Прокляття Магія пакту 1 Слот заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Проклін [Hex] кращий за Hexblade's Curse{{Hexblade's Curse}}, доки Бонус Майстерності не зросте достатньо. DPR із довгий лук та Проклін [Hex]: 12.45"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звернення: На вибір 2 2 Слоти заклинань"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із довгий лук та Проклін [Hex]: 12.45"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дар пакту{{Pact Boon}}: Blade"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перевчіть звернення на Improved Pact Weapon{{Improved Pact Weapon}}, щоб отримати +1. Примітка редакції: джерельна назва Improved Pact Blade помилкова. DPR із довгий лук та Проклін [Hex]: 13.35"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із довгий лук та Проклін [Hex]: 14.05"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове звернення: Спрагле лезо [Thirsting Blade]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Thirsting Blade{{Thirsting Blade}} фактично дає другу атаку зброєю угоди. Примітка редакції: із Духовна плащаниця [Spirit Shroud] ціль має бути в межах 10 футів; цей розрахунок не працює для довгого лука на звичайній далекій дистанції. DPR із довгий лук та Духовна плащаниця [Spirit Shroud]: 29.6"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-wizard",
+          "parentSectionId": "section-classes-and-subclasses",
+          "heading": "Чарівник",
+          "sourceAnchor": "wizard",
+          "blocks": [
+            {
+              "blockId": "block-section-wizard-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Хоча немає інших здібностей Чародія чи Чорнокнижника, Чарівник має Розпечений промінь [Scorching Ray], Духовна плащаниця [Spirit Shroud] і повний розвиток слотів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-wizard-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є кілька підкласів:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-wizard-3",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Хронургія: доступ до Дар готовності [Gift of Alacrity], що дає +1к8 до ініціативи на 8 годин."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Віщування: Передвісник{{Portent}}. Використати два кубики на ініціативу може бути не найкраще, а атак буде надто багато, щоб виправдати їх лише заради влучань."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бойова магія: Tactical Wit{{Tactical Wit}} додає Інтелект до ініціативи."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-wizard-4",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворення Магічне відновлення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із Кольорова кулька [Chromatic Orb]: 14.35"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканна традиція{{Arcane Tradition}}: Бойова магія Арканне відхилення Тактична кмітливість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаємо Інтелект до ініціативи. DPR із Кольорова кулька [Chromatic Orb]: 14.35"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розпечений промінь [Scorching Ray]: три промені! DPR із Розпечений промінь [Scorching Ray]: 29.4"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "DPR із Розпечений промінь [Scorching Ray]: 29.4"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Розпечений промінь [Scorching Ray] отримує четвертий промінь. Можна вивчити Духовна плащаниця [Spirit Shroud], але не накласти обидва того самого ходу, і слотів для цього ще мало. Через словесний компонент посилення може знадобитися накласти перед засідкою. DPR із Розпечений промінь [Scorching Ray]: 39.2"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-build-1-ambush-caster",
+          "heading": "Збірка 1: Заклинатель із засідки",
+          "sourceAnchor": "example-build-1-ambush-caster",
+          "blocks": [
+            {
+              "blockId": "block-section-example-build-1-ambush-caster-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Відверто позичаю цю збірку в "
+                },
+                {
+                  "type": "link",
+                  "text": "Random",
+                  "href": "https://rpgbot.net/author/harlequin/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Він почав експериментувати, коли ми помітили зміни Ведмебая, і надихнув цю статтю. Відтоді ідея постійно спливала в моїй голові, часто несподівано."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-1-ambush-caster-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розпечений промінь [Scorching Ray] найкраще максимізує кількість застосувань Несподіваної атаки заклинателем, а Духовна плащаниця [Spirit Shroud] додає ще шкоди — на цьому й зосередимося."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-build-1-ambush-caster-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Починаємо Чарівником Бойової магії до рівня 5; додаємо 3 рівні Чародія для Метамагії, 2 Воїна для Сплеску дій, 3 Пройдисвіта-Убивці для Переваги, а потім повертаємося до Чародія. На рівні персонажа 20 маємо слоти як заклинатель 15-го рівня. Це не доступ до заклинань 8-го рівня: відомі й підготовлені визначаються рівнями кожного класу окремо."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-example-build-1-ambush-caster",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потрібні високі Спритність та Інтелект, а також Харизма 13 для мультикласу Чародія. Расові +2 — Інтелекту, +1 — Спритності."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базові"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищені"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-2",
+          "parentSectionId": "section-example-build-1-ambush-caster",
+          "heading": "Риси",
+          "sourceAnchor": "feats-2",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Колись беремо Пильний{{Alert}}. Підвищень характеристик небагато; для численних променів Інтелект дуже важливий. Можна взяти одну рису з +1 характеристики, але тактика від цього не змінюється."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-build-1-ambush-caster",
+          "heading": "Розвиток за рівнями",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 – Чарівник 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворення Магічне відновлення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні Кольорова кулька [Chromatic Orb] — наш найкращий варіант шкоди першого ходу. DPR із Кольорова кулька [Chromatic Orb]: 14.35"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 – Чарівник 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканна традиція{{Arcane Tradition}}: Бойова магія Арканне відхилення Тактична кмітливість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Tactical Wit додає Інтелект до ініціативи: разом +6. DPR із Кольорова кулька [Chromatic Orb]: 14.35"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 – Чарівник 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер отримуємо Розпечений промінь [Scorching Ray] та Невидимість [Invisibility]. DPR із Розпечений промінь [Scorching Ray]: 29.4"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 – Чарівник 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик: Спритність 16 ->17, Інтелект 17 -> 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дотримуємося основної математики. Можна взяти Alert заради +5 ініціативи, але підвищення Інтелекту завдяки Tactical Wit дає і +1 ініціативи: разом +7. Не гарантія, але добре. DPR із Розпечений промінь [Scorching Ray]: 29.4"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 – Чарівник 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 3-го рівня дають ще промінь Розпечений промінь [Scorching Ray] й Духовна плащаниця [Spirit Shroud]. Є лише два слоти 3-го рівня, тому балансуємо вибухову шкоду й цілий день пригод. Два заклинання 3-го рівня найсильніші; якщо витрачати лише один такий слот, краще на Scorching Ray. Це й простіше: Spirit Shroud потрібно накласти заздалегідь, а цілі мають бути в межах 10 футів. Доведеться непомітно підійти майже впритул і атакувати з-за звичайної досяжності. Далі мультикласуємо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 – Пройдисвіт 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза – Perception – Непомітність Підступна атака Thieves’ Cant"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Один рівень Пройдисвіта заради Експертизи Непомітності. DPR хороший, але залежить від засідки. Невидимість [Invisibility] допомагає частково: слотів мало, а вороги все одно чують. Повернемося до Пройдисвіта пізніше. Якщо союзник має Переміщення без сліду [Pass without Trace], відкладіть рівень. Примітка редакції: базова расова шкода MPMM вимагає випередити хід цілі, не обовʼязково застати її Зненацька."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 – Чародій 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворення Походження чародія: Драконячий родовід Dragon Ancestor: Red Драконяча стійкість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чародій просуває спільні слоти; заклинань вище 3-го рівня для основної комбінації не потрібно. Накладаємо Чарівничі заклинання від Інтелекту, а Чародійські обираємо для користі й посилення без залежності від низької Харизми. Через Пройдисвіта відстаємо на один рівень слотів, але це терпимо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 – Чародій 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії{{Font of Magic}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії поки мало допомагає, але вже є слоти 4-го рівня. Spirit Shroud посилюється через рівень, тому комбінація — Scorching Ray 4-го рівня з пʼятьма променями й Shroud 3-го. Характеристики трохи відстають від авторської основної математики."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 – Чародій 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія – Seeking – Приховане заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Seeking Spell{{Seeking Spell}} дозволяє повторити промах, але коштує 2 з лише 3 очок Чародійства, і його складно врахувати в DPR. Subtle Spell{{Subtle Spell}} усуває компоненти Spirit Shroud для підготовки перед засідкою. Між боями перетворюйте низькі слоти на очки для повторних застосувань. Примітка редакції: пошук атаки дозволено Seeking Spell попри вже застосовану Метамагію за його текстом; усунення компонентів не гарантує непомітності ефекту."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 – Воїн 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль (На вибір) Друге дихання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Для нас це фактично рівень без суттєвих нових можливостей."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 – Воїн 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій{{Action Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій! Заздалегідь Spirit Shroud, потім двічі Scorching Ray 4-го рівня. Витрачаємо обидва слоти 4-го рівня, тому поки раз на день, але значно випереджаємо «Чуваче, зупинись». За моделлю автора навіть ця комбінація перевищує поріг до рівня 20; більше слотів і вищі рівні посилять її. Можна пізніше взяти Воїна 3 — Потойбічного лицаря: один рівень у розрахунку слотів плюс замовляння й відомі заклинання 1-го рівня. Натомість Чародій дає ще очко Чародійства."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 – Пройдисвіт 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хитра дія{{Cunning Action}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Увійдіть у бій, використайте комбінацію й відійдіть Ривком бонусною дією: основні ресурси витрачені, а ви за 10 футів від цілей. Великі одиночні вороги можуть пережити шкоду."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 – Пройдисвіт 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Rogueish Archetype: Убивця Assassinate{{Assassinate}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перевага Assassinate спирається на випередження ворога в ініціативі, як расова здібність. Зненацька складніше: союзники можуть видати засідку. Сама Перевага дає більш ніж подвійний авторський поріг; автоматичні крити по Зненацька захоплених цілях — більш ніж потрійний до рівня 16. Автор очікує перемогти сутичку самостійно за потрібних умов; це не гарантія."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 – Чародій 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Feat: Пильний"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дуже потрібно діяти першим. Сподіваємося на Sentinel Shield або Weapon of Warning, але беремо Alert: загальний бонус +12. Зʼявляється один слот 5-го рівня. Порівнюємо посилення Shroud і одного Ray спочатку без Переваги й Зненацька; вони лише збільшать розрив. Shroud виграє. Потім додаємо Перевагу та крити: майже 400 DPR, а +1 до атак дало б більше. Ще один рівень Пройдисвіта заради характеристик привабливий, але потрібні повторення комбінації принаймні тричі на день, тому йдемо в Чародія."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 – Чародій 5"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимального запасу очок Чародійства вже достатньо, щоб створювати слоти заклинань 3-го рівня."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 – Чародій 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стихійна спорідненість{{Elemental Affinity}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Максимум очок Чародійства вже дозволяє створювати слоти 4-го рівня, тож базову комбінацію можна повторити двічі на день без додаткового перетворення слотів. Спорідненість зі стихією додає Харизму +1 до одного кидка кожного вогняного заклинання: +2 на два Ray, мов сірник у багаття. Є один слот 6-го рівня, другого не отримаємо; максимальний вибух використовує Ray різних рівнів, базова комбінація лишається основною."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 – Чародій 7"
+                    }
+                  ],
+                  [],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Очок уже досить для створення слотів 5-го рівня — максимуму Джерела магії. Це дозволяє повторювати посилений Spirit Shroud. Інші заклинателі вже мають Бажання [Wish]; автор натомість зосереджується на умовних понад 400 шкоди одній цілі за хід."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 – Чародій 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик: Інтелект 18 -> 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Повертаємося до основної математики характеристик; попередня комбінація із критами перевищує 400. Є слот 7-го рівня: Spirit Shroud додає +3к8 кожному променю. Для максимального вибуху Ray накладаються слотами 6-го й 5-го рівнів. За числом ХП автор порівнює результат із "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Tiamat",
+                      "href": "https://www.dndbeyond.com/monsters/21927-tiamat"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Примітка редакції: її Limited Magic Immunity{{Limited Magic Immunity}} може робити заклинання цих рівнів неефективними; розрахунок шкоди сам по собі не доводить можливості її вбити."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 – Чародій 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Крила дракона{{Dragon Wings}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер ми страшенно небезпечні "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "й"
+                    },
+                    {
+                      "type": "text",
+                      "text": " можемо літати завдяки Політ [Fly]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 – Чародій 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія – На вибір 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підсумок — слот 8-го рівня, що додає загалом три промені до максимального вибуху. Без Зненацька вже понад 400 DPR; з ним автор порівнює результат із "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Tarrasque",
+                      "href": "https://www.dndbeyond.com/monsters/17034-tarrasque"
+                    },
+                    {
+                      "type": "text",
+                      "text": " й навіть запасом двох-трьох променів. Примітка редакції: Reflective Carapace{{Reflective Carapace}} відбиває промені, тому очікувана арифметична шкода не означає, що можна вбити його цією комбінацією."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example",
+          "heading": "Збірка 2: Tam Bush",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ще одна початкова збірка "
+                },
+                {
+                  "type": "link",
+                  "text": "Random",
+                  "href": "https://rpgbot.net/author/harlequin/"
+                },
+                {
+                  "type": "text",
+                  "text": ", яку потім він, "
+                },
+                {
+                  "type": "link",
+                  "text": "Rocco",
+                  "href": "https://rpgbot.net/author/karumac/"
+                },
+                {
+                  "type": "text",
+                  "text": " та я разом доробляли. З кожним експериментом вона ставала ефективнішою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Tam Bush розрахований на ближній бій. Два рівні Монаха дають Шквал ударів; для Спритності потрібна зброя Монаха. Навіть із Dedicated Weapon{{Dedicated Weapon}} не можна використовувати Важку піку чи Спеціальний кавалерійський спис, тому найкращий колючий кубик тут — 1к8 списа або рапіри. Unleash Incarnation{{Unleash Incarnation}} Лицаря луни теж дає лише ближню атаку. Примітка редакції: це обмеження конкретної комбінації Бойових мистецтв, не загальна вимога Flurry of Blows до зброї."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка передбачає опційну здібність Dedicated Weapon{{Dedicated Weapon}} з Таші."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ця збірка входить до наших "
+                },
+                {
+                  "type": "link",
+                  "text": "10 улюблених збірок DnD 5e",
+                  "href": "https://rpgbot.net/rpgbots-10-favorite-dnd-character-builds-that-arent-wizards/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-2",
+          "parentSectionId": "section-example",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores-2",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потрібні високі Спритність, Статура й Мудрість. Расові +2 — Спритності, +1 — Мудрості; надалі розвиваємо характеристики й риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Базові"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Підвищені"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-3",
+          "parentSectionId": "section-example",
+          "heading": "Риси",
+          "sourceAnchor": "feats-3",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-3-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проколювач{{Piercer}} та Пильний{{Alert}}. Додатковий кубик криту особливо сильний з Assassinate, а +5 ініціативи допомагає почати раніше ворогів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels-2",
+          "parentSectionId": "section-example",
+          "heading": "Розвиток за рівнями",
+          "sourceAnchor": "levels-2",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-2-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 – Монах 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойові мистецтва Захист без броні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дві атаки на першому рівні. Тримайте спис двома руками; бонусна атака Бойових мистецтв обовʼязково без зброї."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 – Монах 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Dedicated Weapon{{Dedicated Weapon}} Кі Рух без броні"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Двох очок Кі достатньо для нашої мети; маємо Шквал ударів. Кубик лишатиметься 1к4, бо Монах тільки рівня 2, а удари Шквалу без зброї."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 – Воїн 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль (Дуель) Друге дихання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дуель додає більше шкоди, ніж більший кубик списа у двох руках. Тепер маємо Володіння рапірою й опційну Dedicated Weapon{{Dedicated Weapon}}, тож можемо зробити рапіру зброєю Монаха й тримати в одній руці. Автор також згадує перевчання стилю на рівні Воїна 4 через Martial Versatility{{Martial Versatility}}. Примітка редакції: оригінальне речення пошкоджене й неузгоджене; опційну здібність має дозволити Майстер."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 – Воїн 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій{{Action Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Трохи відстаємо за характеристиками від основної математики, але отримуємо Сплеск дій."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 – Воїн 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підклас: Лицар луни Прояв луни Виплеск втілення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статури досить для двох Unleash Incarnation на день. Інші отримують Додаткову атаку, а ми вже на порозі «Чуваче, зупинись». Комбінація поки лише раз на день, але перший хід чудовий."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 – Воїн 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Feat: Проколювач (Спритність 17 -> 18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Повторний кидок Piercer дає небагато, але додатковий кубик на критах із чотирма атаками вже сильний. +1 Спритності підвищує модифікатор, ініціативу й шкоду; ненадовго наздоганяємо основну математику."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 – Воїн 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ще одна атака на кожну дію Атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 – Слідопит 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Favored Enemy Natural Explorer"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знову тимчасово відстаємо за характеристиками, тому авторський DPR трохи падає."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 – Слідопит 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль (На вибір) Чаротворення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Магія Слідопита дає Мисливська мітка [Hunter's Mark]. Якщо накласти його перед боєм, бонусна дія лишиться для Шквалу. Примітка редакції: для мітки потрібно бачити обрану ціль; накладання може видати вашу присутність, а перенесення на нову ціль витратить бонусну дію."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 – Слідопит 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Архетип Слідопита{{Ranger Archetype}}: Gloomstalker Primeval Awareness Вбивця в темряві Umbal Sight"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Dread Ambusher додає одну атаку кожній дії Атаки в перший хід: разом із Додатковою атакою й луною це чотири атаки дією, одна має +1к8 від засідника. Мудрість +2 додається до ініціативи: разом +6 на цьому рівні."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 – Пройдисвіт 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза – Perception – Непомітність Підступна атака Thieves’ Cant"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза Непомітності й трохи Підступної атаки: ще шкода, хоча лише раз за хід."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 – Пройдисвіт 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хитра дія{{Cunning Action}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 – Пройдисвіт 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Rogueish Archetype: Убивця Assassinate{{Assassinate}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Assassinate значно посилює результат. Перевага по цілях, які ще не мали ходу, і критичні влучання по Зненацька захоплених — різні умови, показані окремо."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 – Слідопит 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик: Спритність 18 -> 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Авторські результати для Переваги та Зненацька після підвищення характеристик."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 – Воїн 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Feat: Пильний"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "+5 ініціативи доводить загальний бонус до +12. Якщо предмет чи інше джерело вже допомагає, можна взяти +2 Статури. Модифікатор Статури +4 дасть чотири Unleash Incarnation, тобто дві повні комбінації на день за потрібних умов."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 – Воїн 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Аватар луни{{Echo Avatar}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 – Воїн 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик: Статура 16 -> 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Модифікатор Статури +4 дозволяє дві повні комбінації на день, якщо щоразу вдається застати ворогів Зненацька й випередити їх в ініціативі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 – Воїн 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Непохитність{{Indomitable}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 – Воїн 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Shaodw Martyr"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 – Воїн 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Додаткова атака (2)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перевищили 400! Автор порівнює це з перемогою над CR 20 за хід. Примітка редакції: це умовна оцінка для конкретних КБ, влучань і критів, не гарантований результат проти будь-якої істоти цього CR."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-2",
+          "heading": "Збірка 3: Ведмебай-Чорнокнижник",
+          "sourceAnchor": "example",
+          "blocks": [
+            {
+              "blockId": "block-section-example-2-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Гаразд, робимо Ведмебая-Чорнокнижника. Пришвидшений Позамежний заряд [Eldritch Blast] — найкраща тут бонусна дія. Три накладання на рівні 17+ дають 12 атак. Проклін [Hex], Мучливий вибух і Несподівана атака разом дають авторські 115.6 DPR за замовляння, Сплеск дій і два очки Чародійства. З Духовна плащаниця [Spirit Shroud] 5-го рівня замість Hex — 146.4. Примітка редакції: Hex або Shroud має бути вже активним, а Shroud діє лише по цілях у межах 10 футів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Але 146 — не 400, тож робота ще є."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-2-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Беремо 3 рівні Пройдисвіта-Убивці, 3 Чародія, 2 Воїна та 12 Чорнокнижника."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores-3",
+          "parentSectionId": "section-example-2",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores-3",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-3-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спираємося на Харизму, але потрібна Спритність для ініціативи. Доводимо Спритність, Статуру й Харизму до 16. Для риси з +1 характеристики можна перенести расовий +1 зі Статури до Харизми. Примітка редакції: звіряйте фактичну таблицю нижче — авторський текст і числа можуть відрізнятися."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-3-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базові"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищені"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats-4",
+          "parentSectionId": "section-example-2",
+          "heading": "Риси",
+          "sourceAnchor": "feats-4",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-4-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пильний{{Alert}}. Підвищень мало; примноження користі Харизми важко проміняти на щось менш важливе."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels-3",
+          "parentSectionId": "section-example-2",
+          "heading": "Розвиток за рівнями",
+          "sourceAnchor": "levels-3",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-3-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та здібності"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Нотатки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1 – Чорнокнижник 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Otherworldly Patron: Почвара Dark One’s Blassing"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вивчіть Позамежний заряд [Eldritch Blast], але до Мучливого вибуху використовуйте арбалет. Примітка редакції: джерело називає легкий арбалет одноручним; він має властивість Дворучна й потребує двох рук для атаки."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 – Пройдисвіт 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Експертиза – Perception – Непомітність Підступна атака +1d6 Thieves’ Cant"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "За Спритності лише +2 хочемо ранню Експертизу Непомітності. Примітка редакції: легкий арбалет не атакує однією рукою, як написано в джерелі."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 – Воїн 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий Стиль (На вибір) Друге дихання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Після повернення до Чорнокнижника перейдемо на Eldritch Blast, але поки арбалет ненадовго кращий. DPR із a Легкий арбалет та Проклін [Hex]: 14.9"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 – Чорнокнижник 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Invocations – Мучливий вибух [Agonizing Blast] – На вибір 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відстаємо за характеристиками від основної математики. Підступна атака поки підтримує перевагу арбалета над Eldritch Blast. Примітка редакції: Підступна атака лише раз за хід; Сплеск дій не дає повторного застосування того самого ходу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 – Воїн 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сплеск дій{{Action Surge}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Загальний рівень 5 дає два промені Eldritch Blast, тож відкладаємо арбалет і "
+                    },
+                    {
+                      "type": "link",
+                      "text": "починаємо стріляти магією",
+                      "href": "https://knowyourmeme.com/memes/so-anyway-i-started-blasting"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Ненадовго повертаємося до порогу «Чуваче, зупинись»."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 – Чародій 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворення Походження чародія: На вибір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 – Чародій 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Джерело магії{{Font of Magic}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 – Чародій 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Метамагія – Пришвидшене заклинання – Приховане заклинання"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Пришвидшене заклинання для додаткового Blast, Приховане — для майбутнього Spirit Shroud без словесного компонента. Чародійські слоти можна використати після сильного першого ходу або перетворити на очки, якщо Магії угоди не вистачає до короткого відпочинку. Попри відставання характеристик, знову ненадовго досягаємо порогу автора."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 – Чорнокнижник 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дар пакту{{Pact Boon}}: На вибір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання 2-го рівня, на жаль, дають нам небагато."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10 – Чорнокнижник 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Feat: Пильний"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дуже потрібні +5 ініціативи. Загальний бонус лише +8, тож успіх не гарантований."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11 – Пройдисвіт 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Хитра дія{{Cunning Action}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Кожне накладання Eldritch Blast тепер має третій промінь: комбінація отримує ще три атаки. Автор каже «два промені», але 50% зростання відповідає переходу з двох до трьох на загальному рівні 11. Комфортно досягаємо його порогу."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12 – Пройдисвіт 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Assassinate{{Assassinate}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Assassinate різко посилює збірку. За авторською моделлю Зненацька додає близько 150 DPR — приблизно весь його високий поріг на рівні 20. Не змішуйте Перевагу за раніший хід із умовою автоматичного криту."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13 – Чорнокнижник 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звернення: – На вибір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Далі лише Чорнокнижник. Заклинання 3-го рівня дають Spirit Shroud, але воно триває 1 хвилину замість багатьох годин Hex. Підійдіть у позицію, накладіть його Непомітно й починайте бій із готовим посиленням, щоб зберегти три Blast. Цілі мають бути в межах 10 футів. Звернення обирайте за бажанням; One with Shadows{{One with Shadows}} може дати невидимість без Invisibility для засідки, але рух, дія чи реакція припиняють її за текстом звернення 2014."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14 – Чорнокнижник 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Власна удача бісів{{Dark One’s Own Luck}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15 – Чорнокнижник 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звернення: – На вибір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16 – Чорнокнижник 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик: Харизма 16 -> 18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Перше підвищення Харизми."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17 – Чорнокнижник 9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Звернення: – На вибір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Spirit Shroud зі слота 5-го рівня додає ще 1к8. Загальний рівень 17 посилює замовляння востаннє: ще три атаки на три накладання. Без підвищення Shroud авторський результат із критами менший приблизно на 90 DPR. Перевищуємо потрійний поріг автора. Більшість ресурсів відновлюється після короткого відпочинку, але очки Чародійства — після тривалого, а Unleash Incarnation у цій збірці немає. Без відпочинку лишається слот Магії угоди, і шкода без Сплеску дій теж добра. Примітка редакції: короткий відпочинок не повертає витрачені звичайні слоти Чародія; повторення всієї комбінації залежить від запасу очок."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18 – Чорнокнижник 10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бісівська стійкість{{Fiendish Resilience}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19 – Чорнокнижник 11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Mystic Arcanum: На вибір"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "–"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20 – Чорнокнижник 12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристик: Харизма 18 -> 20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отримуємо три слоти Магії угоди й нарешті Харизму 20."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-conclusion",
+          "heading": "Порівняння збірок",
+          "sourceAnchor": "conclusion",
+          "blocks": [
+            {
+              "blockId": "block-section-conclusion-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Подивімося, на якому рівні кожна збірка перевищує 400 DPR:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-2",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Збірка"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень досягнення 400+"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Максимальний DPR"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1: Заклинатель із засідки"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "774.20"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2: Tam Bush"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "437.83"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3: Ведмебай-Чорнокнижник"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "505.44"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є спільні риси: Сплеск дій і Assassinate важливі для всіх трьох. Поза ними заклинателі, здається, мають чітку перевагу."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Більшість кампаній не починається на високих рівнях, тому порівняймо весь розвиток. Хочемо якомога раніше й частіше перевищувати потрійний поріг «Чуваче, зупинись». Примітка редакції: таблиця містить неузгодженості із розвитком у попередніх рядках; наприклад, Assassinate для Tam Bush описано на рівні 13, але підсумкова таблиця вже приписує його результат рівню 12. Збережено авторські числа, це не перевірений симулятор."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-5",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівень"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "3× поріг «Чуваче, зупинись»"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинатель із засідки"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Tam Bush"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ведмебай-Чорнокнижник"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "84.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14.35"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "18.6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12.45"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "99.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14.35"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "27.2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14.9"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "114.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "29.4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14.9"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "129.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "29.4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "36.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13.83"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "144.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "51.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "57.85"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "52.6"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "159.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "51.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "78.0"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "52.6"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "174.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "51.80"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "107.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "52.6"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "189.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "60.13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "99.8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "67.5"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "204.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "60.13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "118.0"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "67.5"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "219.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "60.13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "155.95"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "67.5"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "234.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "120.25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "162.26"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "101.25"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "249.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "120.25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "351.68"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "251.21"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "264.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "310.8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "366.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "265.57"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "279.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "386.4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "366.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "265.57"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "294.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "386.4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "366.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "265.57"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "309.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "465.68"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "366.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "287.28"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "324.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "465.68"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "366.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "473.76"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "339.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "629.41"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "366.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "473.76"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "354.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "629.41"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "366.75"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "473.76"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "399.9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "774.20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "437.83"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "strong",
+                      "text": "505.44"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Кожна збірка має переваги й недоліки:"
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-conclusion-7",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Заклинатель із засідки: найвищий максимальний DPR і найбільша кількість послідовних сильних комбінацій після отримання достатніх високих слотів. Їхній денний запас усе одно обмежує повторення. Першим із трьох перевищує 400 DPR."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Tam Bush: працює в ближньому бою — і "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "лише"
+                  },
+                  {
+                    "type": "text",
+                    "text": " в ньому — та має найвищу ініціативу. Основне обмеження — Unleash Incarnation, більшу частину розвитку лише двічі на день, тобто одна повна комбінація. Останнім із трьох перевищує 400 DPR."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ведмебай-Чорнокнижник: єдиний, хто перевищує потрійний поріг, а потім ненадовго відстає. Замовляння й Магія угоди допомагають повторювати комбінацію після коротких відпочинків. Перетворення Чародійських і, можливо, угодових слотів на очки дозволяє додаткові повторення. Максимальний DPR ніколи не найвищий, зате збірка найпослідовніша й найповторюваніша. Примітка редакції: сам короткий відпочинок не повертає очки Чародійства; без них повну комбінацію не повторити."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-bugbear-y-me-in-damage-2014-001",
+      "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+      "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-0",
+      "context": "Пильний",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-bugbear-y-me-in-damage-2014-002",
+      "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+      "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-1",
+      "context": "Експерт з арбалетів",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-bugbear-y-me-in-damage-2014-003",
+      "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+      "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-2",
+      "context": "Стрілець",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-bugbear-y-me-in-damage-2014-004",
+      "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+      "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-3",
+      "context": "Щасливчик",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-bugbear-y-me-in-damage-2014-005",
+      "articleId": "rpgbot-bugbear-y-me-in-damage-2014",
+      "translationRevisionId": "translation-rpgbot-bugbear-y-me-in-damage-2014-draft1",
+      "sectionId": "section-feats",
+      "targetBlockId": "block-section-feats-1",
+      "optionId": "section-feats-block-section-feats-1-item-4",
+      "context": "Проколювач",
+      "explanationBlockId": "block-section-feats-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

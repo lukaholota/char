@@ -1,0 +1,2135 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "3e9bbd9782a51bba97ae087dd06e6bdf7f464aef0cd4c2242fee6cab7090bd98",
+  "sourceRevision": {
+    "revisionId": "rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba",
+    "sourceId": "rpgbot-25196e2bd419ddf8",
+    "fetchedAt": "2026-09-29T19:10:23.719623+00:00",
+    "sourceUpdatedAt": "2025-10-23T22:28:58-04:00",
+    "contentHash": "5e1b47b4520ac21a5ccc68d4399f02574b73305866a328ac07a374cba44d2b04",
+    "title": "Sorcadin: Smite Like Clockwork: DnD 5e Multiclass Guide",
+    "authors": [
+      "Random Powell"
+    ],
+    "sourceFile": "source/rpgbot-25196e2bd419ddf8-3e9bbd9782a51bba.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-sorcadin-introduction",
+      "heading": "Sorcadin Introduction",
+      "sourceAnchor": "sorcadin-introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-sorcadin-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "It turns out that, if you make a martial class based around Charisma and three caster classes based around Charisma, people are really going to enjoy combining them in sorcadins and other whatever-adins. At the release of 5th, this class pairing was the answer to "
+            },
+            {
+              "type": "link",
+              "text": "Bladesinger",
+              "href": "https://rpgbot.net/dnd5/characters/classes/wizard/bladesinging/"
+            },
+            {
+              "type": "text",
+              "text": " that you’d bring if you wanted to be a Face (or if you wanted to be a gish character that does a bunch of damage "
+            },
+            {
+              "type": "emphasis",
+              "text": "without"
+            },
+            {
+              "type": "text",
+              "text": " just resorting to being a wizard that happens to be holding a sword). Of course, then in Tasha’s the "
+            },
+            {
+              "type": "link",
+              "text": "Hexblade",
+              "href": "https://rpgbot.net/dnd5/characters/classes/warlock/subclasses/hexblade/"
+            },
+            {
+              "type": "text",
+              "text": " happened, the fire nation attacked, and we ended up with "
+            },
+            {
+              "type": "link",
+              "text": "this monstrosity",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/"
+            },
+            {
+              "type": "text",
+              "text": ", likely the single most popular multiclass archetype in the game."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sorcadin-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But that build is always going to fall on the “Eldritch Knight” side of the gish spectrum where you’re definitely a spellsword, but the emphasis is on the sword. What if I instead wanted to be the best Paladin possible by being almost the minimum amount of Paladin possible? This, of course, requires that we codify what exactly we’re measuring on here, so I’m going to lean into a few things: Paladins should smite things often, be very durable, and protect their party members. Sure, you might say “but what about auras?” To which I’d say “I’m going to lay hands on you, is that sufficiently paladiny?” Spoilers: it will not result in healing."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sorcadin-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Given that Hexadin is already the premier version of that end of the spectrum, this guide is going to focus on working a lot of sorcery into full plate and see where that lands us. Hint: It lands us with the best capstone in the game."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Sorcadin Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#sorcadin-introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Subclass Options",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#subclass-options"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Sorcerer",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#sorcerer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Paladin",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#paladin"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example Build – Smiting Every Turn Like Clockwork",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#example-build-smiting-every-turn-like-clockwork"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/multiclassing/sorcadin-handbook/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-subclass-options",
+      "heading": "Subclass Options",
+      "sourceAnchor": "subclass-options",
+      "blocks": [
+        {
+          "blockId": "block-section-subclass-options-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "There are some plusses and minuses on both sides, with Paladin having several good options depending on what you want to go for and Sorcerer having a few. The advice offered in our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing/"
+            },
+            {
+              "type": "text",
+              "text": " still mostly applies, but there’s some extra nuance beyond what that article can reasonably cover."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sorcerer",
+      "parentSectionId": "section-subclass-options",
+      "heading": "Sorcerer",
+      "sourceAnchor": "sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section is in addition to the advice on the Sorcerer’s core features detailed in our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing/#bard"
+            },
+            {
+              "type": "text",
+              "text": ", and only covers a subset of subclasses which we believe are obviously relevant to the Sorcadin. Other subclasses may still be great here, but they don’t need additional explanation."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-sorcerer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "strong",
+                "text": "Clockwork Soul"
+              },
+              {
+                "type": "text",
+                "text": ": The biggest draw of this subclass isn’t even something written on it. Bastion of Law and Trance of Order are both pretty great, especially considering we’re going to be spending quite a bit of our time attacking, but the real value is hidden in the description of the expanded spell list. Not the expanded spell list itself, but the fact that you can retrain them for any “abjuration or a transmutation spell from the sorcerer, warlock, or wizard spell list.” Coming in at 1st level as an abjuration spell on the Warlock list, we have the incredible and hard-to-access Armor of Agathys. Now you get it with almost a full caster progression’s worth of scaling spell slots for the low cost of not knowing Alarm."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Draconic Soul"
+              },
+              {
+                "type": "text",
+                "text": ": If you wanted to do an "
+              },
+              {
+                "type": "link",
+                "text": "Elven Accuracy",
+                "href": "https://rpgbot.net/oops-all-elves/"
+              },
+              {
+                "type": "text",
+                "text": " version of this build, this is how I’d do it. You’ll be stuck putting a 13 you’ll never use into Strength to multiclass out of Paladin, but you don’t have to take it up to 15 to wear full plate without walking slowly or suffer from a low AC. Plus you get wings, and options like Branding Smite are a cheap way to add your impressive Charisma to damage and offer you the chance to get resistance to a valuable damage type."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-paladin",
+      "parentSectionId": "section-subclass-options",
+      "heading": "Paladin",
+      "sourceAnchor": "paladin",
+      "blocks": [
+        {
+          "blockId": "block-section-paladin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section is in addition to the advice on the Paladin’s core features detailed in our "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Multiclassing",
+              "href": "https://rpgbot.net/dnd5/characters/multiclassing/#paladin"
+            },
+            {
+              "type": "text",
+              "text": ", and only covers a subset of subclasses which we believe are obviously relevant to the Sorcadin. Other subclasses may still be great here, but they don’t need additional explanation."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-paladin-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "strong",
+                "text": "Oath of Vengeance"
+              },
+              {
+                "type": "text",
+                "text": ": Vow of Enmity provides easy Advantage, but you only get it once per rest. This is what I would take on the Elven Accuracy version of the Sorcadin I mentioned above so that you don’t have to worry about the source of Advantage. Just make sure you short rest after every fight like the Warlock you definitely aren’t."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Oath of Conquest"
+              },
+              {
+                "type": "text",
+                "text": ": Not that I would, but this is the Paladin subclass I’d take to 5 if I were going to go that high for the ASI and Extra Attack. Spiritual Weapon is so good they "
+              },
+              {
+                "type": "link",
+                "text": "nerfed it",
+                "href": "https://rpgbot.net/one-dd-playtest-unearthed-arcana-the-cleric-and-revised-species/#spiritual-weapon"
+              },
+              {
+                "type": "text",
+                "text": " in the One D&D UA, and this build has no other way to access it. Of course, since you’re there, go to 7 and get the aura, then come back to Sorcerer to get the spell Fear much more often than a Paladin can ever cast it."
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Oath of Redemption"
+              },
+              {
+                "type": "text",
+                "text": ": What you’ll see below. If all we’re caring about is Paladin 3, we should look for something that gets us great Channel options and good 1st-level spells. This build absolutely loves both Channel options here. Getting to play an uno reverse card when something crits your friend is an incredible feeling, or you can just get an enormous bonus to social encounters if you’re not fighting soon. Sanctuary is a Bonus Action, non-concentration way to protect something. Sleep is probably not helpful by the time we get it, but that’s fine when everything else is so good."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-build-smiting-every-turn-like-clockwork",
+      "heading": "Example Build – Smiting Every Turn Like Clockwork",
+      "sourceAnchor": "example-build-smiting-every-turn-like-clockwork",
+      "blocks": [
+        {
+          "blockId": "block-section-example-build-smiting-every-turn-like-clockwork-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "emphasis",
+              "text": "“I can feel it in my soul: your imperfection must be cleansed from existence.”"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-smiting-every-turn-like-clockwork-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Combining Clockwork Soul and Oath of Redemption gets you something that feels like the enlightenment of the Eldritch Knight. "
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-build-smiting-every-turn-like-clockwork-3",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "strong",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "strong",
+                "text": "Increased"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-build-smiting-every-turn-like-clockwork",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Variant Human. We want the stats and we want the feat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-build-smiting-every-turn-like-clockwork",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’ll start life with Warcaster so we don’t mind carrying a shield and quarterstaff at all times. It will also help shore up the Concentration saves we’ll be forced to make without the Paladin aura we never get, and Booming Blade as something tries to walk away from you is a true classic."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 7th level, Sorcerer 4, we’ll take Polearm Master. I know this seems like a weird choice, but bear with me."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 19th level, Sorcerer 16, we’ll take Crusher to round up Con and bully our opponents."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-build-smiting-every-turn-like-clockwork",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Level"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feat(s) and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1 – Paladin 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Proficiencies"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Sense"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Lay on Hands"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nothing different than any other 1st-level Paladin. Wear heavy armor and shield, whack things with stick."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2 – Paladin 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Fighting Style (Dueling)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spells prepared:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Bless"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Cure Wounds"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Compelled Duel"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Thunderous Smite"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Smite"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We’re taking Dueling because we’re going to spend many turns later on applying the damage bonus three times.For spells, we take a healthy mix of utility, healing, and damage. Thunderous Smite will be our best tool to weaponize our bonus action until we pick up PAM at level 7."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3 – Paladin 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sacred Oath: Oath of Redemption"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Divine Health"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Channel Divinity"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Emissary of Peace"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Rebuke the Violent"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Oath Spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Equally at home in Full Plate and puppy-dog eyes, this subclass feature turns on and takes our already excellent Persuasion skills and puts them out of reach of most other builds when we need them to be. It also gives us a great Reaction once per Short Rest to turn damage back on the attacker, so make sure to look for something big getting through."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4 – Sorcerer 1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Restore Balance"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrips:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Booming Blade"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Mind Sliver"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Prestidigitation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Magic Missile"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Alarm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Protection from Evil and Good (c) "
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is where we leave Paladin and start getting real spellcasting. We’re going to have lower DPR right now than other multiclass [x]adins, but we scale "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "really"
+                },
+                {
+                  "type": "text",
+                  "text": " hard later."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Since we’re still intended to be a Defender, we pick up Booming Blade, whose usage is self-explanatory. You may be wondering why we’re using Booming Blade if we plan on picking up Polearm Master later. Fear not reader, we’ll get there."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Between Restore Balance, Silvery Barbs, and our Channel, we have several good things to do with our Reaction already. It’ll be a couple levels before you can use Silvery Barbs without eating into other things, but keep it in your toolbox."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5 – Sorcerer 2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Font of Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Shield"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Alarm -> Armor of Agathys"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "While we don’t get cool things like Extra Attack or Fireball right now, we do get access to 2nd-level spell slots. We now have a total of 6 spell slots: four 1st-level and two 2nd-level. At my continued insistence, I’m going to say that there should be 3 fights per day in an average adventuring party despite the guidance about “encounters” in the DMG. We know from the game rules that there should be an average of 3 rounds per fight. That’s a total of 9 rounds of fighting per day."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Right now, all we can use Sorcery Points for is getting extra 1st-level spell slots. With the bonus points for the day, we get four 1st-level spell slots and two 2nd-level per day. That means we can use Divine Smite every single turn except the last one of the last fight in the day. The cost here is that we can’t cast any spells right now if we use this strategy. On the other hand, if we were most martial classes, we couldn’t do that anyway. We do also have the option to burn through slots faster, resulting in slightly lower DPR overall but enormous burst. Any 1st-level slot can still be a Thunderous Smite which, now that we’re combining with Booming Blade, triggers more damage if they fail the save and want to hit you back."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6 – Sorcerer 3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Metamagic:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Heightened Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Quickened Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spells:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Aid"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Lesser Restoration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Misty Step"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Heightened Spell will help us later on when we get to start using our spell slots for actual spells. This will be a big way we overcome our lower-than-optimized Charisma. Same with Quickened."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7 – Sorcerer 4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Polearm Master"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip: Sword Burst"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We get several great things at this level. First off, we already have Warcaster and now we get Polearm Master, so we get to Booming Blade something if it makes the grave error of walking adjacent to us. The other part of PAM will come into play at next level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We also get two 3rd-level spell slots. There are some great things to do with this (actually use Misty Step, upcast Absorb Elements, etc), but you can also just hold them for bigger Smites on crit. You can also upcast Armor of Agathys to cover for your HP which is starting to lag compared to single-class paladins. 15 temp HP that will also deal a minimum of 15 damage if something attacks you is nearly as good as swinging a weapon and Smiting with the same slot. If you get the damage to trigger twice, it’s actually "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "more"
+                },
+                {
+                  "type": "text",
+                  "text": " damage from the action than if you’d used a normal turn, and with a 1-hour duration you can easily cast Armor of Agathys ahead of time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The other thing you can do is also melt those down into 1st-level slots. That would give you more opportunities to Silvery Barbs, Shield, or Absorb Elements."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8 – Sorcerer 5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Haste"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Alrighty. We now have access to 3rd-level spells. Because of multiclassing, we get three slots per day. That means the first action taken in every fight is casting Haste on yourself."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The reason Haste is so ludicrously good is that it will let us Booming Blade "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "and"
+                },
+                {
+                  "type": "text",
+                  "text": " get a regular weapon attack in the same round, thus triggering PAM and letting us attack again with our bonus action. This is how we fish for crits: just throw more attacks at it and see what lands."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "We have the resources to take full advantage of this: with points combining into two 1st-level slots and the slots we won’t be using on Haste, that’s 9 slots per day we can use to power Smiting every turn."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR is now almost 25, despite being way behind on the fundamental math. This means that any external source of accuracy (flanking optional rule, someone else running Bless, etc) is going to result in a much more dramatic increase in DPR for us than it will for most characters."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9 – Sorcerer 6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bastion of Law"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Fireball"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bastion of Law is an incredible tool in combination with the new 4th-level slot we can use to upcast Armor of Agathys. Put it on yourself and reduce incoming damage to a very low (but non-zero) number. Trigger retaliation damage. ????? Profit. It requires an Action to put on the bastion but lasts all day, so just do it with all your spare points when you wake up."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Remember that you can use points to Quicken Armor of Agathys. All you’ll lose for the turn is the bonus action bonk from PAM."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Also, Fireball. It’s definitely a bit late, but this is your answer to crowds. The damage is still really good, and we can upcast it since our spell slots are slightly ahead of our maximum spell level known."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR doesn’t technically change, but that combo I just mentioned could be easily getting you another 20 damage per turn for one of your fights. Maybe even more than one if you run the first two of the day together like in a dungeon crawl."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10 – Sorcerer 7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Banishment"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Summon Construct",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-creature-spells"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Another two levels since we last checked, which means we have another 1st-level spell slot available from fusing sorcery points."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Of course, you can also use three points to Empower a Banishment instead and force someone to roll with disadvantage on going into Time Out for the whole fight. Or you can quicken the Summon Construct you now have access to. "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "The scaling on the Summon spells is incredible, and the slow aura you’ll get from choosing Stone will help you enormously as a Defender, but be aware that this will fight for Concentration with your Haste. If you want more Smite opportunities, go it alone."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11 – Sorcerer 8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Str 16 -> 18"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Polymorph",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "This is a great level for us. Not only does the effectiveness of Booming Blade increase, but we get +1 to hit and damage, almost getting us back on Fundamental Math track.DPR is up to 32 just with the attacks. A quickened Summon on the first turn will bring that up to 41 for that fight if your table allows flanking and you just summon the golem on the other side of your target and flank with each other."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Since we count as 9th level for slots, we can do that on the first two fights in a day, and use the 5th-level slot we have for upcasting Armor of Agathys. That’s a staggering 25 temp HP and 25 damage every time it triggers. This is as high as most things would ever be able to take it. But we’re not most things, and it will continue to scale for us forever."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12 – Sorcerer 9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Synaptic Static"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take a spell that gives a very good non-concentration debuff. This is also our second 5th-level slot of the day, potentially letting you run huge Armor of Agathys through all your fights, or just getting you a bunch more sorcery points to put into Bastion to stretch the one you do get for a long time."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "DPR isn’t going to really change for a while unless we start doing math on burning higher-level spell slots for Smites instead of putting them into golems. You absolutely can and should do that though if you’d rather fight alone or if your table doesn’t use Flanking."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13 – Sorcerer 10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Metamagic: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Twin Spell"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Hold Monster"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Cantrip:- Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now you can Twin Haste onto you and your Rogue so they can do the double Sneak Attack trick. This is also technically not a measurable DPR increase, but you’re responsible for the extra damage it causes."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14 – Sorcerer 11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Disintegrate"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sometimes you just need to blow things up."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15 – Sorcerer 12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Ability Score Increase: "
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Str 18 ->20"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell Known:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "DPR calc takes a turn here. We’ve capped Strength and caught back up to the math. We also have three 4th-level slots and two 5th-level slots. Let’s melt those all down and get 22 points which we turn into 11 more 1st-level slots. That means we can now Smite on every Booming Blade "
+                },
+                {
+                  "type": "emphasis",
+                  "text": "and"
+                },
+                {
+                  "type": "text",
+                  "text": " every Haste Attack. We’re now up to 43 DPR by ourselves."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16 – Sorcerer 13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Draconic Transformation"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Maybe you’re fighting a whole lot of things and it would be better to just be a dragon rather than trying to cast Fireball several times. Here you go. Re-using the breath weapon is a Bonus Action, so you can continue smiting while also breathing on stuff."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17 – Sorcerer 14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Trance of Order"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Trance of Order does incredible things to DPR. Namely, it increases it by 60% as you can no longer miss on attacks against something with average expected AC for your level. This is also the level that Booming Blade damage does its final increase. Total with the new calc: roughly 69. "
+                },
+                {
+                  "type": "link",
+                  "text": "Nice",
+                  "href": "https://www.youtube.com/watch?v=5nZnPoCvBds"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "You get one trance free, and then it’s 5 points per combat to use it again. This means we need 10 spare points. Fortunately, the slots we’ve gotten since the last time we did a DPR calculation can be melted to allow for that."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18 – Sorcerer 15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Nothing else will change our DPR until 20 except having slightly better slots to hold for Smite crits."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19 – Sorcerer 16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat: Crusher (Con)"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– Any"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "With Crusher we round our Con up to 16, getting more HP and better Con saves. We can also now hilariously abuse half of Polearm Master and Warcaster. When something walks adjacent to you, Booming Blade it and then knock it 5 feet backwards. Now it has to take the damage if it so much as wants to actually approach you that turn.You can also do the same thing on your own turn with the last attack of yours in a round; just completely bully things into taking the extra damage off the trigger for an additional 22.5."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20 – Sorcerer 17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "New Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "– "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Retrain Spell:"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Anything not in common use -> Foresight"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Because Trance of Order is so good, Foresight only increases our DPR by 4, bringing us up to 73. That’s still 4 though, and we take it."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "unsupported-block",
+      "location": "div/figure[1]",
+      "detail": "<figure class=\"aligncenter size-large\"><img decoding=\"async\" src=\"data:image/gif,GIF89a%01%00%01%00%80%00%00%00%00%00%FF%FF%FF%21%F9%04%01%00%00%00%00%2C%00%00%00%00%01%00%01%00%00"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-sorcadin-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-sorcadin-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-sorcadin-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-subclass-options-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-sorcerer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-paladin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-paladin-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-example-build-smiting-every-turn-like-clockwork-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-example-build-smiting-every-turn-like-clockwork-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-example-build-smiting-every-turn-like-clockwork-3"
+    },
+    {
+      "code": "table-header-review",
+      "location": "figure/table[1]",
+      "detail": "First row has no explicit th cells"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3354,
+    "sections": 10,
+    "blocks": 21,
+    "tables": 2,
+    "ratingSignals": 4
+  },
+  "status": "needs-editorial-review"
+}

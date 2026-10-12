@@ -1,0 +1,28 @@
+$ vitest run tests/components/ready-preset-creation.test.tsx
+
+ RUN  v4.1.10 /Users/luka/Documents/code/spells.holota.family
+
+ ❯ tests/components/ready-preset-creation.test.tsx (14 tests | 1 failed) 261ms
+     × ignores double submit while pending and after successful creation before navigation 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/components/ready-preset-creation.test.tsx > ready preset creation > ignores double submit while pending and after successful creation before navigation
+AssertionError: expected "vi.fn()" to be called once, but got 2 times
+ ❯ tests/components/ready-preset-creation.test.tsx:134:26
+    132|     await act(async () => { completeCreation({ persId: 12 }); await pe…
+    133|     await act(async () => { await preset.result.current.confirmCreatio…
+    134|     expect(mocks.create).toHaveBeenCalledOnce();
+       |                          ^
+    135|     expect(mocks.push).toHaveBeenCalledOnce();
+    136|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 13 passed (14)
+   Start at  08:34:06
+   Duration  3.15s (transform 1.72s, setup 29ms, import 2.24s, tests 261ms, environment 491ms)
+
+error: script "test" exited with code 1

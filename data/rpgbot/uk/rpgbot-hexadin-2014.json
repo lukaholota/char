@@ -1,0 +1,2069 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-706c3d431eb1ddfe",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+      "sourceId": "rpgbot-706c3d431eb1ddfe",
+      "fetchedAt": "2026-09-29T19:14:57.581830+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:33:56-04:00",
+      "contentHash": "fdb01e7713cc5251fe56ed98c955d39fc5bffd6a28f6533d33540a759828aee3",
+      "title": "Hexadin: Suffer Not the Witch-Knight to Live: DnD 5e Multiclass Guide",
+      "authors": [
+        "Rocco Giusto"
+      ],
+      "sourceFile": "source/rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-hexadin-2014",
+    "sourceId": "rpgbot-706c3d431eb1ddfe",
+    "slug": "hexadin-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Hexadin — Паладин Відьмацького клинка (2014)",
+    "titleEn": "Hexadin: Suffer Not the Witch-Knight to Live: DnD 5e Multiclass Guide",
+    "topics": [
+      "build"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "articleId": "rpgbot-hexadin-2014",
+      "sourceRevisionId": "rpgbot-706c3d431eb1ddfe-11e3cfa6630540c0",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Hexadin{{Hexadin}}, якого іноді називають Відьмацьким лицарем{{Witch-Knight}}, — дивне створіння: нещасна роздвоєна душа між Священною клятвою й пактом Відьмацького клинка{{Hexblade}}. Одні підносяться, інші падають, треті балансують між ними. Способів зіграти таку комбінацію стільки, скільки зірок між Toril{{Toril}} та Far Realm{{Far Realm}}. Докладно розглянемо один шлях — Лицаря ночей; проте це далеко не єдиний спосіб поєднати класи."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Покровитель такого Чорнокнижника завжди Відьмацький клинок, але Клятва Паладина може бути різною. Оцінимо доступні бойові стилі й підкласи за звичною кольоровою шкалою RPGbot. Розуміння переваг допоможе експериментувати й робити власний вибір; додаткові рекомендації теж будуть."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Маємо схему розвитку Відьмацького лицаря від 1-го до 9-го рівня. Чому до 9-го? Тут настає роздоріжжя: після таблиці докладно проаналізуємо середню шкоду за раунд для подальшого розвитку Паладина або Чорнокнижника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Покажемо можливості збірки в різних боях на кількох рівнях. Дані допоможуть вирішити і чи хочете ви так грати, і як пристосувати персонажа до власного стилю."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Варіанти Паладина",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#paladin-options"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Бойові стилі",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#fighting-styles"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Підкласи",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#subclasses"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Збірка Hexadin — Лицар ночей",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#hexadin-build-knight-of-knights"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Походження",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#levels"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Порівняння шкоди за раунд",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#dpr-comparisons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Лицар ночей — подальший Паладин",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#knight-of-nights-further-paladin"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Лицар ночей — подальший Чорнокнижник",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#knight-of-nights-further-warlock"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Висновок",
+                    "href": "https://rpgbot.net/dnd5/characters/multiclassing/hexadin/#conclusion"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                0,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-paladin-options",
+          "heading": "Варіанти Паладина",
+          "sourceAnchor": "paladin-options",
+          "blocks": [
+            {
+              "blockId": "block-section-paladin-options-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Вибір Відьмацького клинка для Чорнокнижника визначений самою концепцією, але з боку Паладина є варіанти."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-fighting-styles",
+          "parentSectionId": "section-paladin-options",
+          "heading": "Бойові стилі",
+          "sourceAnchor": "fighting-styles",
+          "blocks": [
+            {
+              "blockId": "block-section-fighting-styles-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Благословенний воїн{{Blessed Warrior}}: Замовляння для шкоди не потрібні: ми вже беремо Позамежний заряд [Eldritch Blast]. Проте можна обрати допоміжну магію Клірика — Настанова [Guidance] і, можливо, Світло [Light]."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Оборона{{Defense}}: Що більша наявна КБ, то цінніший її приріст; маємо щонайменше середній, а часто важкий обладунок. Якщо граємо дальнім атакером з Потойбічним вибухом, обладунками й аурами Паладина — автор називає це Black-Iron Blaster — інші стилі майже не підходять, крім допоміжних замовлянь Благословенного воїна."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дуель{{Dueling}}: Без Пакт клинка{{Pact of the Blade}} здібність Воїн Прокляття{{Hex Warrior}} працює лише зі зброєю без властивості Дворучна; зазвичай вона сумісна й із цим стилем. +2 до шкоди небагато, але стабільно. Примітка редакції: для стилю треба тримати одну ближню зброю в одній руці й не тримати іншої зброї; Універсальну зброю можна використати для Hex Warrior, але Дуелянт не працює, коли атакуєте нею двома руками."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Бій великою зброєю{{Great Weapon Fighting}}: Без пакту клинка Hex Warrior не застосовується до Дворучної зброї, тому цей і без того слабкий для автора стиль не підходить початковій збірці. Примітка редакції: у джерелі помилково написано Great Weapon Master, назву риси, замість стилю Great Weapon Fighting. Після отримання пактової зброї обмеження Hex Warrior розширюється; це не загальна заборона стилю для всіх Hexadin."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Перехоплення{{Interception}} / Захист{{Protection}}: Подібні захисні стилі можна розглядати разом. Краще лишати реакцію для Щит [Shield], але залежно від групи іноді вони корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-subclasses",
+          "parentSectionId": "section-paladin-options",
+          "heading": "Підкласи",
+          "sourceAnchor": "subclasses",
+          "blocks": [
+            {
+              "blockId": "block-section-subclasses-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Клятва завоювання",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/oath-of-conquest/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Oath of Conquest}}: Завдяки Відьмацькому клинку Харизма відповідає майже за все. Можемо підвищувати Складність ряткидків як повний заклинатель, не відстаючи в атаках зброєю."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клятва відданості{{Oath of Devotion}}: Непоганий вибір із однією особливою комбінацією. Божественність: Священна зброя{{Channel Divinity: Sacred Weapon}} додає Харизму до кидків атаки на хвилину, а Hex Warrior вже використовує її як базову характеристику: отримуємо модифікатор двічі. Проте без подальшого розвитку Чорнокнижника наша зброя не підходить для −5/+10 від Майстер важкої зброї{{Great Weapon Master}}. Примітка редакції: для застосування Харизми до Дворучної пактової зброї потрібен Pact of the Blade; Improved Pact Weapon не є обовʼязковою передумовою саме цього ефекту."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Клятва слави",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-glory/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Oath of Glory}}: Має приємні заклинання, але автор насамперед бачить тут збірку на Захопленні{{Grapple}}, яке слабшає через пріоритет Харизми, якщо не розвивати Силу для лат. Проте не все погано, особливо якщо дійти до Прискорення [Haste]. Примітка редакції: підклас не зобовʼязує будувати персонажа навколо Захоплення."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клятва спокути{{Oath of Redemption}}: Аура опікуна{{Aura of the Guardian}} чудово допомагає захищати групу, а Божественність: Посланник миру{{Channel Divinity: Emissary of Peace}} — бути її речником. Ще один хороший підклас, який виграє від пріоритету Харизми."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Клятва прадавніх",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/ancients/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Oath of the Ancients}}: Головна причина — чудова Аура оберігання{{Aura of Warding}}. Приємно також додати Туманний крок [Misty Step] до списку. Переваг небагато, але сама аура дуже сильна."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Клятва корони{{Oath of the Crown}}: Духи захисники [Spirit Guardians] робить свою справу. Автор пропонує взяти Відштовхувальний вибух{{Repelling Blast}} і Хватка Хадара{{Grasp of Hadar}}, щоб одним променем відштовхнути, а потім підтягти ворога й отримати повторне спрацювання. Збірка запускається пізніше, зате весела. Примітка редакції: у Духовних охоронців 2014 вхід у область спричиняє ряткидок лише при першому вході протягом ходу; кілька входів у той самий хід не дають повторних спрацювань. Grasp of Hadar теж працює лише раз у кожен ваш хід, тож наведений double dip не слід вважати гарантованим."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Клятва вартових",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-the-watchers/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Oath of the Watchers}}: Доповнює роль Прадавніх: ті захищають від шкоди заклинань, а Божественність: Воля вартового{{Channel Divinity: Watcher's Will}} допомагає проти небезпечних розумових ряткидків. Особливо цінна Аура вартового{{Aura of the Sentinel}}: бонус ініціативи дозволяє групі швидше вступити в дію."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Клятва помсти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oath-of-vengeance/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Oath of Vengeance}}: Багато привабливого, насамперед Божественність: Обітниця ворожнечі{{Channel Divinity: Vow of Enmity}}. Перевага на всі кидки атаки проти однієї цілі на хвилину — чудово: не лише на атаки зброєю. Недолік — конкуренція з Прокляття Відьмацького Клинка{{Hexblade's Curse}} та Проклін [hex] за бонусну дію. Можна розподіляти ресурси між ворогами: прокляття на ціль із багатьма ХП, обітницю на ціль із високою КБ, а Концентрацію витратити на щось інше."
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Клятвопорушник",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/"
+                  },
+                  {
+                    "type": "text",
+                    "text": "{{Oathbreaker}}: Хочете додавати Харизму до шкоди двічі? Цей підклас допоможе. Це трохи мемна збірка, але від того не стає поганою. Примітка редакції: джерело бонусу — Аура ненависті{{Aura of Hate}}; потрібне рішення Майстра щодо доступності підкласу, а його аура може посилювати й ворожих Почвар та Нежить."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-hexadin-build-knight-of-knights",
+          "heading": "Збірка Hexadin — Лицар ночей",
+          "sourceAnchor": "hexadin-build-knight-of-knights",
+          "blocks": [
+            {
+              "blockId": "block-section-hexadin-build-knight-of-knights-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Епіграф — "
+                },
+                {
+                  "type": "link",
+                  "text": "Maniac",
+                  "href": "https://www.youtube.com/watch?v=LcI8sfwxvIs"
+                },
+                {
+                  "type": "text",
+                  "text": ", виконання Carpenter Brut: образ прагнення до вирішальної миті й шансу, заради якого не здаються. Примітка редакції: пісенний епіграф передано стислим описом без відтворення тексту пісні; у заголовку джерела Knights замість послідовного Nights."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-hexadin-build-knight-of-knights-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Лицар ночей додає до клинка трохи потойбічної сили: за сталлю стоїть міць душі, а не лише мʼязів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-ability-scores",
+          "parentSectionId": "section-hexadin-build-knight-of-knights",
+          "heading": "Характеристики",
+          "sourceAnchor": "ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Потрібна Сила для важких лат і достатня Статура для живучості. Але, як і всі Відьмацькі лицарі, ми насамперед розвиваємо Харизму."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-ability-scores-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля очок"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Після расових бонусів"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-hexadin-build-knight-of-knights",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Людина з варіантними рисами{{Variant Human}} із Майстер древкової зброї{{Polearm Master}} дуже сильна, особливо до Додаткової атаки Паладина. Без пакту Hex Warrior працює лише зі зброєю без властивості Дворучна: візьмемо спис або Палицю. Це особливо добре поєднується з Дуелянтом."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-hexadin-build-knight-of-knights",
+          "heading": "Походження",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Походження Морського піхотинця{{Marine}} відповідає досвідченому бійцю й дає Володіння Атлетикою та Виживанням."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-hexadin-build-knight-of-knights",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 1-му рівні старанно опановуємо древкову зброю, обираючи Майстер древкової зброї{{Polearm Master}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 5-му рівні персонажа, Паладин 4, обираємо Бойовий заклинатель{{War Caster}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 9-му рівні персонажа, Паладин 8, підвищуємо Харизму на +2."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-hexadin-build-knight-of-knights",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "1 — Паладин 1"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Божественне відчуття{{Divine Sense}}; Цілющі руки{{Lay on Hands}}. Навички: Магія, Атлетика, Залякування, Переконання, Виживання. Риса: Майстер древкової зброї{{Polearm Master}}. Примітка редакції: Атлетика й Виживання — від походження, Магія — варіантне расове Володіння; Паладин може обрати Залякування й Переконання."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Поки готуємо майбутню збірку. Візьміть спис і щит та атакуйте: Сили наразі достатньо. Polearm Master дає багато додаткової шкоди завдяки бонусній атаці й атакам реакцією."
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2 — Чорнокнижник 1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Відьмацький клинок{{Hexblade}}: Прокляття Відьмацького Клинка{{Hexblade's Curse}}, Воїн Прокляття{{Hex Warrior}}. Магія пакту{{Pact Magic}}: замовляння Гримучий Клинок [Booming Blade], Позамежний заряд [Eldritch Blast]; заклинання 1-го рівня Проклін [hex], Щит [Shield]."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Збірка починає працювати. Прокляття Відьмацького Клинка добре додає шкоди великим цілям. Вивчаємо Гримучий клинок і Потойбічний вибух: вони не запускають бонусну атаку Polearm Master, але корисні в раундах активації чи перенесення Hex. На початку бою доцільно накласти Hex і випустити Потойбічний вибух, а вже наступного раунду витягти спис та ввійти в ближній бій. Hex Warrior дозволяє атакувати зброєю через Харизму. Примітка редакції: Hexbladeʼs Curse не переноситься на іншу ціль на цьому рівні; перенесення прокляття потребує значно пізнішої здібності Master of Hexes."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3 — Паладин 2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий стиль: Дуель{{Dueling}}. Spellcasting{{Spellcasting}}: заклинання 1-го рівня. Божественна кара{{Divine Smite}}."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Дуелянт особливо сильний із Polearm Master. Отримуємо слоти Паладина й Божественну кару для різкого приросту шкоди, коли ворога треба швидко добити. Але не витрачайте всі слоти на кару: заклинання теж сильні. Маємо Hex для себе, а Благословення [Bless] і Захист від зла й добра [Protection from Evil and Good] для групи. Можна витратити й єдиний пактовий слот: він відновлюється після короткого відпочинку. Без додаткових рівнів Чорнокнижника це одна така кара, +2к8 шкоди за слот 1-го рівня, між відпочинками; не забувайте про неї."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4 — Паладин 3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Божественне здоровʼя{{Divine Health}}. Священна клятва: Клятва прадавніх{{Oath of the Ancients}}. Божественність{{Channel Divinity}}: Божественність: Гнів природи{{Channel Divinity: Nature's Wrath}}, Божественність: Вигнання невірних{{Channel Divinity: Turn the Faithless}}, Спрямування божественної сили{{Harness Divine Power}}."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Згодом Клятва прадавніх дасть Опір шкоді заклинань через ауру. Harness Divine Power — опційна здібність із Казана Таші з усім; для цієї частини збірки потрібне її допущення Майстром."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5 — Паладин 4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Риса: Бойовий заклинатель{{War Caster}}."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Бойовий заклинатель дозволяє накладати Shield, не перекладаючи спис. Автор також пропонує Гримучий клинок замість атаки при нагоді від Polearm Master. Примітка редакції: це припущення його розрахунків, яке треба узгодити з Майстром за конкретними формулюваннями рис; дальність оновленого Гримучого клинка залишається 5 футів. War Caster допомагає з соматичними компонентами, але не прибирає матеріальні вимоги інших заклинань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6 — Паладин 5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Extra Attack{{Extra Attack}}. Чаротворення: заклинання 2-го рівня."
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Тепер робимо дві атаки дією, а з бонусною атакою PAM отримуємо хорошу шкоду, особливо з Hex. Докладніше про те, коли варто відмовитися від бонусної атаки заради накладання чи перенесення Hex, — нижче. Слоти 2-го рівня відкривають добрі можливості; особливо приємний Туманний крок [Misty Step] від Клятви прадавніх для бойової телепортації."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7 — Паладин 6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Аура захисту{{Aura of Protection}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Модифікатор Харизми до всіх ряткидків — одна з головних причин грати Паладином."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8 — Паладин 7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Аура оберігання{{Aura of Warding}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Отримуємо Опір усій шкоді саме від заклинань. Тепер маємо все головне, заради чого брали Паладина, й можемо продовжити цей клас або розширити можливості."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9 — Паладин 8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підвищення характеристики: Харизма +2 (16=>18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Один шлях — ще рівень Паладина заради підвищення характеристики. Це не "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "обовʼязково"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", але ми відстаємо від базових математичних очікувань, бо перше підвищення витратили на рису. Можна дійти до Паладина 11 заради Покращена божественна кара{{Improved Divine Smite}} й більшої шкоди списа. Повернення до Чорнокнижника відразу дає другий пактовий слот 1-го рівня й доступ до Замовлянь{{Eldritch Invocations}}; на рівні Чорнокнижника 12 буде три пактові слоти 5-го рівня. Цей приклад використовує Прадавніх, але можна поєднати Клятвопорушника з Життєпийця{{Lifedrinker}}, отримуючи [кубики]+Харизма+Харизма+Харизма на кожному влучанні. За розрахунком автора, на рівні 20 це 44.92 шкоди за раунд із двома атаками списом і бонусною атакою. Проблема — бонусна дія потрібна також для Hex і Прокляття: проти швидко вмираючих ворогів атака може бути кращою за їхню активацію чи перенесення Hex. Про рішення — у розділі шкоди. Інший шлях — рівні Чародія чи Барда. Вісім рівнів Паладина дають внесок у слоти як чотири рівні повного заклинателя, окремо від Магії пакту. Одинадцять рівнів Барда чи Чародія завершать збірку слотами 8-го рівня й заклинаннями 6-го, що добре для кари та посилення нижчих заклинань. Чародій, імовірно, сильніший через Метамагію та гнучкі Очки чародійства. Поєднання Harness Divine Power з Джерело магії{{Font of Magic}} дає додаткові очки; інколи можна використати Пришвидшене заклинання{{Quickened Spell}} для Гримучого клинка й потужного удару."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-dpr-comparisons",
+          "heading": "Порівняння шкоди за раунд",
+          "sourceAnchor": "dpr-comparisons",
+          "blocks": [
+            {
+              "blockId": "block-section-dpr-comparisons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розглянемо середню шкоду Лицаря ночей за раунд. Початкова схема закінчується на 9-му рівні, бо далі має багато шляхів. Для аналізу оберемо два: подальший Паладин і подальший Чорнокнижник."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-dpr-comparisons-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Розрахунки охоплюють три раунди для двох типів бою. Автор посилається на трьохраундовий період розрахунків Показника Небезпеки як зручне припущення для типового зіткнення. Перший тип — багато слабких ворогів, які падають після однієї-двох сильних атак; другий — міцна елітна ціль, яка проживе щонайменше три раунди. Примітка редакції: це модель, а не гарантія тривалості кожного бою."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-knight-of-nights-further-paladin",
+          "parentSectionId": "section-dpr-comparisons",
+          "heading": "Лицар ночей — подальший Паладин",
+          "sourceAnchor": "knight-of-nights-further-paladin",
+          "blocks": [
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цьому шляху беремо ще один рівень Чорнокнижника й розвиваємо Паладина до 18. Маємо на один слот 5-го рівня менше, зате два пактові слоти 1-го рівня й Замовляння. Божественна кара від слота 1-го рівня дає 2к8, а максимум 5к8 досягається слотом 4-го; бонуси проти Нежиті й Почвар та +1к8 Покращеної божественної кари враховуються окремо. Тому не втрачаємо можливостей максимальної кари."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На ранніх рівнях Дуелянт і Polearm Master дають додаткові атаки бонусною дією. Вона конкурує з Hex і Прокляттям, які конкурують і між собою. Проти натовпу слабких ворогів це особливо помітно: бонус +1к6 від Hex менший за повноцінну бонусну атаку."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У боях із натовпом не завжди вдається ефективно застосувати Hex чи Прокляття. Зате можна зайняти позицію, що спонукає ворогів наближатися, й отримувати реакційні атаки. Автор використовує для них Гримучий клинок через War Caster; результати з реакційною атакою в таблицях подано в дужках. Примітка редакції: це узгоджене припущення моделі, а не гарантована реакція щораунду; звичайне примусове переміщення без руху, дії або реакції цілі не провокує атаки при нагоді."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Проти однієї великої цілі можна почати з Hex і Потойбічного вибуху. Замість самим зближуватися, автор пропонує спонукати ворога підійти й отримати реакційний Гримучий клинок із Hex через PAM, а наступні раунди провести в ближньому бою. Умови такого поєднання позначено вище."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Додаткові реакційні удари по великій цілі не гарантовані, але припускаємо, що вона живе три раунди. Якщо реакція не витрачена на атаку, вона доступна для Shield проти цього сильнішого ворога."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-6",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 5"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 1"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 2"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 3"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слабкі вороги"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11.7 (20.8)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11.7 (20.8)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11.7 (20.8)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Елітна ціль"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "11.7 (23.08)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14.45"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14.45"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На рівні 5 ще немає Додаткової атаки, але PAM допомагає не відставати. Потойбічний вибух уже має два промені й може застосувати Hex двічі. Також щойно отримали War Caster для авторської моделі реакційних атак. Далі поглянемо на рівень 10."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Для рівня 10 припускаємо кару слотом 2-го рівня на критичних влучаннях. Спершу беремо Чорнокнижника 2: два Замовляння й другий пактовий слот, а потім продовжуємо Паладина. Зокрема, Мучливий вибух{{Agonizing Blast}} підвищує дальню шкоду першого раунду проти елітних цілей і допомагає проти недосяжних літаючих ворогів."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-9",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 10"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 1"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 2"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 3"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слабкі вороги"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "21.03 (31.18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "21.03 (31.18)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "21.03 (31.18)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Елітна ціль"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16.5 (28.93)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "27.85"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "27.85"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Крім Потойбічного вибуху першого раунду проти елітної цілі, ці значення відповідають і 9-му рівню. У "
+                },
+                {
+                  "type": "link",
+                  "text": "таблиці GWM, PAM і CBX",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#dpr-comparisons"
+                },
+                {
+                  "type": "text",
+                  "text": " можна порівняти з одноручним списом, PAM та Дуелянтом. Відставання від її рядка 6-го рівня проти слабких ворогів пояснюється розрахунком для Воїна, який на рівні 6 має додаткове підвищення характеристики. З огляду на захист Shield і магію Паладина результат цілком хороший."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-11",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наступна велика зміна на рівні персонажа 14, Паладин 12: третій промінь Потойбічного вибуху, ще +1к8 до початкової шкоди Гримучого клинка в реакції, +1к8 Покращеної божественної кари на ближні атаки й підвищення Харизми до 20. Замовляння посилюються вже на рівні 11, але автор пропускає ту таблицю. Якщо кара застосовується лише на критичних влучаннях, різниця між слотами 1-го й 3-го рівня близько 2.5 шкоди за раунд. Тому в моделі витрачаємо пактові слоти на дві критичні кари між відпочинками, зберігаючи вищі слоти для заклинань."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-12",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 14"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 1"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 2"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 3"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слабкі вороги"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "32.45 (48.90)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "32.45 (48.90)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "32.45 (48.90)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Елітна ціль"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.65 (45.10)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "39.8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "39.8"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-13",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Порівняно з "
+                },
+                {
+                  "type": "link",
+                  "text": "іншою таблицею",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#dpr-comparisons"
+                },
+                {
+                  "type": "text",
+                  "text": " результат хороший: одноручний спис без ефективного Hex не відстає від древкової Дворучної зброї з GWM на рівні 12, зберігаючи вже згадані захисні й допоміжні переваги."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-14",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Можна концентруватися на тривалому Стихійна зброя [Elemental Weapon] зі звуковою шкодою й слотом 3-го рівня, щоб випередити цю модель. Коли Hex доречний, перший раунд потенційно слабший через негарантовану реакцію, але наступні сильні. Це майже остаточна шкода збірки; пізніше буде ще невелике посилення для обох типів бою."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-15",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На рівні персонажа 19 отримуємо заклинання Паладина 5-го рівня: Священна зброя [Holy Weapon] можна накладати раз на день на годину. З ним проти елітної цілі використовуємо Прокляття раз між відпочинками. Без Священної зброї шкода ближча до таблиці рівня 14. Третє число першого раунду проти елітної цілі показує альтернативу: самим зблизитися й бонусною дією накласти Прокляття. Порівняння демонструє користь реакційного удару, якщо ворог підходить сам."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-16",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 19"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 1"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 2"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 3"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слабкі вороги"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "51.38 (78.15)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "51.38 (78.15)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "51.38 (78.15)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Елітні цілі"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "45.10 (78.23) [46.00]"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "68.25"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "68.25"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-17",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Звідси два висновки автора: Священна зброя дуже сильна, а Потойбічний вибух із Мучливим вибухом хороший проти недосяжних ворогів, для спонукання зблизитися й у раунді активації Hex або Прокляття."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-18",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На ранніх рівнях Прокляття дає приблизно стільки ж шкоди, скільки Hex, але в середньому випереджає його при Бонусі Майстерності +4. Автор залишає Hex у розрахунках через більшу доступність. Проти елітних цілей Прокляття може давати вищу шкоду через критичні влучання на 19–20 та кару на критичних ударах, але це відкладено до переходу на Концентрацію зі Священною зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-paladin-19",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інший ранній шлях — Магічна зброя [Magic Weapon] чи Стихійна зброя й Прокляття замість Hex. Вони помітно підвищили б шкоду проти натовпу й, можливо, компенсували б рідше використання Hex проти міцних ворогів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-knight-of-nights-further-warlock",
+          "parentSectionId": "section-dpr-comparisons",
+          "heading": "Лицар ночей — подальший Чорнокнижник",
+          "sourceAnchor": "knight-of-nights-further-warlock",
+          "blocks": [
+            {
+              "blockId": "block-section-knight-of-nights-further-warlock-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У цьому шляху розвиваємо Чорнокнижника до 12, лишаючи Паладина 8. Втрачаємо вищу магію Паладина й Покращену божественну кару, зате отримуємо Пакт клинка{{Pact of the Blade}}, три пактові слоти 5-го рівня й шість Замовлянь."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-warlock-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Шляхи розходяться лише на рівні 11, тому почнемо з рівня персонажа 12, Чорнокнижник 4: маємо підвищення характеристики, пакт клинка й Покращена пактова зброя{{Improved Pact Weapon}} для приросту шкоди. Тактика та сама: бонусні атаки PAM проти слабких ворогів, Hex проти елітних і авторська комбінація реакційного Гримучого клинка. Примітка редакції: бонус +1 Improved Pact Weapon не додається до вже наявного бонусу магічної зброї до атаки й шкоди."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-warlock-3",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 12"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 1"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 2"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 3"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слабкі вороги"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "26.63 (41.60)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "26.63 (41.60)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "26.63 (41.60)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Елітна ціль"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "28.65 (47.15)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "34.50"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "34.50"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-warlock-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Шкода зростає повільніше, ніж у Паладина. У "
+                },
+                {
+                  "type": "link",
+                  "text": "таблиці GWM+PAM",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/weaponized-bonus-actions/#dpr-comparisons"
+                },
+                {
+                  "type": "text",
+                  "text": " трохи відстаємо від одноручного списа з Дуелянтом і PAM на рівні 12. Це закономірно: Паладин скоро має Покращену божественну кару, а ми лише почали Чорнокнижника. Замість малого приросту наступного рівня перейдемо до рівня персонажа 17, Чорнокнижник 9."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-warlock-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На рівні 17 отримуємо четвертий промінь Потойбічного вибуху й пактові слоти 5-го рівня. Можна лишити Hex, але Стихійна зброя зі слота 5-го рівня використовує ті самі ресурси без перенесення Hex: +2 до атаки й +2к4 стихійної шкоди. Автор радить звукову, коли невідомо, з ким доведеться битися."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-warlock-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На критичних влучаннях витрачаємо слот Паладина 1-го рівня на Божественну кару. Можна було взяти Містична кара{{Eldritch Smite}}, але воно витрачає лише пактові слоти, яких одночасно мало; слоти Паладина стабільніші. За розрахунком автора, Потойбічна кара на критичних влучаннях додала б 5 шкоди за раунд проти слабких ворогів і 10 проти елітної цілі з розширеним критичним діапазоном Прокляття. Концентрація вже на Стихійній зброї, тож проти елітної цілі переходимо на Прокляття."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-warlock-7",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 17"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 1"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 2"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 3"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слабкі вороги"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "40.30 (64.80)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "40.30 (64.80)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "40.30 (64.80)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Елітна ціль"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "45.10 (72.70)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "57.72"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "57.72"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-warlock-8",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут випереджаємо Паладина на рівень-два: пактові слоти дозволяють довше підтримувати Стихійну зброю протягом дня. Пізніша Священна зброя Паладина сильніша на одну годину, але загальна денна модель схиляється до Чорнокнижника. На Чорнокнижнику 12 Життєпийця{{Lifedrinker}} додає некротичну шкоду в розмірі модифікатора Харизми до влучань пактовою зброєю."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-warlock-9",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "strong",
+                    "text": "Рівень 20"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 1"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 2"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Раунд 3"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Слабкі вороги"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "51.55 (79.80)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "51.55 (79.80)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "51.55 (79.80)"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Елітна ціль"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "45.10 (78.25)"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "68.97"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "68.97"
+                    }
+                  ]
+                ]
+              ]
+            },
+            {
+              "blockId": "block-section-knight-of-nights-further-warlock-10",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Пактові слоти 5-го рівня дозволяють підтримувати цю модель шкоди через Стихійну зброю довше протягом дня, тоді як Паладин має одну годину Священної зброї. Але Паладин отримує інші корисні заклинання, наприклад Пошук вищого скакуна [Find Greater Steed], і має плавніше зростання сили. Примітка редакції: «весь день» припускає достатню кількість коротких відпочинків і збереження Концентрації."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-conclusion",
+          "parentSectionId": "section-dpr-comparisons",
+          "heading": "Висновок",
+          "sourceAnchor": "conclusion",
+          "blocks": [
+            {
+              "blockId": "block-section-conclusion-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Обидва шляхи дають пристойну шкоду за раунд. Вибір після рівня 10, якщо не додавати третій клас, залежить від того, чи потрібні заклинання Паладина 3-го, 4-го й 5-го рівнів, чи можливості Чорнокнижника: одночасно слотів менше, але згодом більше слотів 5-го рівня протягом дня."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-hexadin-2014-001",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-fighting-styles",
+      "targetBlockId": "block-section-fighting-styles-1",
+      "optionId": "section-fighting-styles-block-section-fighting-styles-1-item-0",
+      "context": "Благословенний воїн",
+      "explanationBlockId": "block-section-fighting-styles-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hexadin-2014-002",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-fighting-styles",
+      "targetBlockId": "block-section-fighting-styles-1",
+      "optionId": "section-fighting-styles-block-section-fighting-styles-1-item-1",
+      "context": "Оборона",
+      "explanationBlockId": "block-section-fighting-styles-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-hexadin-2014-003",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-fighting-styles",
+      "targetBlockId": "block-section-fighting-styles-1",
+      "optionId": "section-fighting-styles-block-section-fighting-styles-1-item-2",
+      "context": "Дуель",
+      "explanationBlockId": "block-section-fighting-styles-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-hexadin-2014-004",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-fighting-styles",
+      "targetBlockId": "block-section-fighting-styles-1",
+      "optionId": "section-fighting-styles-block-section-fighting-styles-1-item-3",
+      "context": "Бій великою зброєю",
+      "explanationBlockId": "block-section-fighting-styles-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-hexadin-2014-005",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-fighting-styles",
+      "targetBlockId": "block-section-fighting-styles-1",
+      "optionId": "section-fighting-styles-block-section-fighting-styles-1-item-4",
+      "context": "Перехоплення",
+      "explanationBlockId": "block-section-fighting-styles-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hexadin-2014-006",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-subclasses",
+      "targetBlockId": "block-section-subclasses-1",
+      "optionId": "section-subclasses-block-section-subclasses-1-item-0",
+      "context": "Клятва завоювання",
+      "explanationBlockId": "block-section-subclasses-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hexadin-2014-007",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-subclasses",
+      "targetBlockId": "block-section-subclasses-1",
+      "optionId": "section-subclasses-block-section-subclasses-1-item-1",
+      "context": "Клятва відданості",
+      "explanationBlockId": "block-section-subclasses-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hexadin-2014-008",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-subclasses",
+      "targetBlockId": "block-section-subclasses-1",
+      "optionId": "section-subclasses-block-section-subclasses-1-item-2",
+      "context": "Клятва слави",
+      "explanationBlockId": "block-section-subclasses-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-hexadin-2014-009",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-subclasses",
+      "targetBlockId": "block-section-subclasses-1",
+      "optionId": "section-subclasses-block-section-subclasses-1-item-3",
+      "context": "Клятва спокути",
+      "explanationBlockId": "block-section-subclasses-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-hexadin-2014-010",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-subclasses",
+      "targetBlockId": "block-section-subclasses-1",
+      "optionId": "section-subclasses-block-section-subclasses-1-item-4",
+      "context": "Клятва прадавніх",
+      "explanationBlockId": "block-section-subclasses-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hexadin-2014-011",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-subclasses",
+      "targetBlockId": "block-section-subclasses-1",
+      "optionId": "section-subclasses-block-section-subclasses-1-item-5",
+      "context": "Клятва корони",
+      "explanationBlockId": "block-section-subclasses-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-hexadin-2014-012",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-subclasses",
+      "targetBlockId": "block-section-subclasses-1",
+      "optionId": "section-subclasses-block-section-subclasses-1-item-6",
+      "context": "Клятва вартових",
+      "explanationBlockId": "block-section-subclasses-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-hexadin-2014-013",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-subclasses",
+      "targetBlockId": "block-section-subclasses-1",
+      "optionId": "section-subclasses-block-section-subclasses-1-item-7",
+      "context": "Клятва помсти",
+      "explanationBlockId": "block-section-subclasses-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-hexadin-2014-014",
+      "articleId": "rpgbot-hexadin-2014",
+      "translationRevisionId": "translation-rpgbot-hexadin-2014-draft1",
+      "sectionId": "section-subclasses",
+      "targetBlockId": "block-section-subclasses-1",
+      "optionId": "section-subclasses-block-section-subclasses-1-item-8",
+      "context": "Клятвопорушник",
+      "explanationBlockId": "block-section-subclasses-1",
+      "sourceColor": "blue",
+      "score": 4
+    }
+  ]
+}

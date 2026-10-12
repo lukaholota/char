@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { countExpertiseSelections, findExpertiseSelectionProblem } from "./expertise-selections";
+import { countExpertiseSelections, findExpertiseSelectionProblem, isExpertiseChosenThroughSubclassOptions } from "./expertise-selections";
 
 describe("expertise selections", () => {
   const bardGrant = { chooseFromCurrentProficiencies: true, count: 2 };
@@ -49,5 +49,13 @@ describe("expertise selections", () => {
 
   it("uses one as the default count for a selectable grant", () => {
     expect(countExpertiseSelections([{ chooseFromCurrentProficiencies: true }, { options: ["ARCANA"] }])).toBe(2);
+  });
+
+  it("Blessings of Knowledge is chosen through subclass options when the subclass offers them at level 1", () => {
+    const knowledgeOptions = [{ groupName: "Благословення знань (Експертизи)", effectKind: "SKILL_EXPERTISE" }];
+    expect(isExpertiseChosenThroughSubclassOptions({ engName: "Blessings of Knowledge" }, knowledgeOptions)).toBe(true);
+    expect(isExpertiseChosenThroughSubclassOptions({ engName: "Blessings of Knowledge" }, [])).toBe(false);
+    expect(isExpertiseChosenThroughSubclassOptions({ engName: "Expertise" }, knowledgeOptions)).toBe(false);
+    expect(isExpertiseChosenThroughSubclassOptions({ engName: null }, knowledgeOptions)).toBe(false);
   });
 });

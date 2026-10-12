@@ -1,0 +1,801 @@
+{
+  "buildId": "build-cleric-twilight-2014",
+  "revisionId": "build-cleric-twilight-2014-v2",
+  "ruleset": "RULES_2014",
+  "title": "— «Я захищаю друзів магією»",
+  "sourceRefs": [
+    {
+      "articleId": "rpgbot-cleric-twilight-2014",
+      "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+      "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+      "sectionId": "section-example-build-i-protect-my-friends-with-magic",
+      "ratingIds": []
+    }
+  ],
+  "startingClassKey": "CLERIC_2014",
+  "supportedLevels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "initialChoices": [],
+  "choices": [],
+  "progression": [
+    {
+      "characterLevel": 1,
+      "classKey": "CLERIC_2014",
+      "classLevel": 1,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "subclassKey": "TWILIGHT_DOMAIN"
+    },
+    {
+      "characterLevel": 2,
+      "classKey": "CLERIC_2014",
+      "classLevel": 2,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 3,
+      "classKey": "CLERIC_2014",
+      "classLevel": 3,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 4,
+      "classKey": "CLERIC_2014",
+      "classLevel": 4,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "TELEKINETIC",
+        "featOptions": [
+          {
+            "optionNameEng": "TELEKINETIC Ability (Wisdom)"
+          }
+        ],
+        "openSpellPicks": [
+          {
+            "category": "cantrips",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 5,
+      "classKey": "CLERIC_2014",
+      "classLevel": 5,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 6,
+      "classKey": "CLERIC_2014",
+      "classLevel": 6,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 7,
+      "classKey": "CLERIC_2014",
+      "classLevel": 7,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 8,
+      "classKey": "CLERIC_2014",
+      "classLevel": 8,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "abilityScoreIncrease": [
+          {
+            "ability": "WIS",
+            "amount": 2
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 9,
+      "classKey": "CLERIC_2014",
+      "classLevel": 9,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 10,
+      "classKey": "CLERIC_2014",
+      "classLevel": 10,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "spells": {
+          "cantripKeys": [
+            "thaumaturgy"
+          ],
+          "knownSpellKeys": [],
+          "spellbookKeys": []
+        }
+      }
+    },
+    {
+      "characterLevel": 11,
+      "classKey": "CLERIC_2014",
+      "classLevel": 11,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 12,
+      "classKey": "CLERIC_2014",
+      "classLevel": 12,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "FIGHTING_INITIATE",
+        "featOptions": [
+          {
+            "optionNameEng": "Protection"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 13,
+      "classKey": "CLERIC_2014",
+      "classLevel": 13,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 14,
+      "classKey": "CLERIC_2014",
+      "classLevel": 14,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 15,
+      "classKey": "CLERIC_2014",
+      "classLevel": 15,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 16,
+      "classKey": "CLERIC_2014",
+      "classLevel": 16,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-feats",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "GIFT_OF_THE_CHROMATIC_DRAGON"
+      }
+    },
+    {
+      "characterLevel": 17,
+      "classKey": "CLERIC_2014",
+      "classLevel": 17,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 18,
+      "classKey": "CLERIC_2014",
+      "classLevel": 18,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    },
+    {
+      "characterLevel": 19,
+      "classKey": "CLERIC_2014",
+      "classLevel": 19,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {
+        "featKey": "RESILIENT",
+        "featOptions": [
+          {
+            "optionNameEng": "Resilient (Constitution)"
+          }
+        ]
+      }
+    },
+    {
+      "characterLevel": 20,
+      "classKey": "CLERIC_2014",
+      "classLevel": 20,
+      "sourceRefs": [
+        {
+          "articleId": "rpgbot-cleric-twilight-2014",
+          "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+          "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+          "sectionId": "section-levels",
+          "ratingIds": []
+        }
+      ],
+      "choiceIds": [],
+      "decisions": {}
+    }
+  ],
+  "coverage": "partial",
+  "details": {
+    "origin": "example",
+    "subclassKey": "TWILIGHT_DOMAIN",
+    "raceKey": "CENTAUR_MPMM",
+    "backgroundKey": "SAGE",
+    "abilityScores": [
+      {
+        "ability": "STR",
+        "value": 15
+      },
+      {
+        "ability": "DEX",
+        "value": 8
+      },
+      {
+        "ability": "CON",
+        "value": 15
+      },
+      {
+        "ability": "INT",
+        "value": 8
+      },
+      {
+        "ability": "WIS",
+        "value": 15
+      },
+      {
+        "ability": "CHA",
+        "value": 8
+      }
+    ],
+    "nodes": [
+      {
+        "nodeId": "section-abilities",
+        "title": "Характеристики",
+        "text": "Як описано вище.\n\n Базове значення Підвищене значення Сила 15 15 Спритність 8 8 Статура 15 16 Інтелект 8 8 Мудрість 15 17 Харизма 8 8",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-abilities",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-race",
+        "title": "Раса",
+        "text": "Кентавр{{Centaur}} (або з налаштованим походженням{{Custom Origin}}, або оновлена версія з «Монстрів Мультивсесвіту»{{Monsters of the Multiverse}}). «Штурм»{{Charge}} допоможе нам пережити низькі рівні, де шкода Клірика може розчаровувати, швидкість 40 фт. завжди вітається, а ще ви обираєте одне з 4 безкоштовних володінь, 3 з яких користуються вашою високою Мудрістю (або Природа, якщо вам вона справді потрібна).",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-race",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-background",
+        "title": "Передісторія",
+        "text": "Візьміть Мудреця{{Sage}} заради уміння «Дослідник»{{Researcher}}, а тоді негайно замініть усі надані ним володіння на Уважність, Поводження з тваринами, набір травника{{Herbalism Kit}} і мову або інструмент на ваш вибір. Чи я щойно по суті відтворив Відлюдника{{Hermit}}, але з іншим умінням? Так. Але здатність Мудреця просто знати, де знайти відомості, яких він сам не знає, дуже сильна. Можливо, це як… ваша особиста бібліотека величезна, і ви чудово знаєте її картковий каталог, хоч більшість книжок ніколи не читали.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-skills-and-tools",
+        "title": "Навички й інструменти",
+        "text": "Раса дає нам Виживання, передісторія дає Уважність, Поводження з тваринами, набір травника{{Herbalism Kit}} і одне на вибір, а Клірик дає Аналіз Поведінки й Медицину, завершуючи наші застосування Мудрості. Якщо у вас немає жодних способів виправити марність Медицини, натомість візьміть володіння Переконанням. Люди часто охоче розмовляють із кліриками, бо в тому, хто присвятив себе вищій силі, є природна надійність, навіть якщо особливості божества залишають бажати кращого.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-skills-and-tools",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "nodeId": "section-feats",
+        "title": "Риси",
+        "text": "4-й рівень дає нам «Телекінетика»{{Telekinetic}}, бо, звісно ж, так. Це приблизно той рівень, на якому ми перестаємо хотіти атакувати бонусною дією за допомогою «Штурму»{{Charge}}, тож ця риса стає заміною, яку ми шукаємо.\n\n8-й рівень піднімає Мудрість до межі в 20.\n\n12-й рівень дає нам «Посвяченого у бій (Захист)»{{Fighting Initiate (Protection)}}. Чому тут не «Бойовий заклинатель»{{War Caster}}? Бо атаки зброєю перестали бути корисними вже давно, тож нехай одна рука тримає щит, а інша лишається вільною для компонентів.\n\n16-й рівень дає нам «Дарунок хроматичного дракона»{{Gift of the Chromatic Dragon}}\n\n19-й рівень може бути справді будь-яким. «Містичний адепт»{{Eldritch Adept}} заради «Зору диявола»{{Devil's Sight}}, «Удача»{{Lucky}} чи будь-яка з рис «Здоровань»{{Tough}}, «Оборонний дуелянт»{{Defensive Duelist}} та «Стійкий»{{Resilient}} заради більшого захисту — усе це робочі варіанти залежно від того, що переживає ваш персонаж.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "levelPlans": [
+      {
+        "level": 1,
+        "text": "Замовляння:\n– Священне полумʼя\n– Настанова\n– Дзвін небіжчика\n\nЗаклинання домену:\n– Вогники фей\n– Сон\n\nОчі ночі\n\nБлагословення пильності",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "text": "Божественність: Святилище присмерку",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 3,
+        "text": "Заклинання домену:\n– Місячний промінь\n– Бачення невидимого",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 4,
+        "text": "Телекінетик (Мудрість)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 5,
+        "text": "Заклинання домену:\n– Аура живучості\n– Леомундова крихітна хатинка\n\nЗнищення нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 6,
+        "text": "Кроки ночі\n\nКанал божественності (2/відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 7,
+        "text": "Заклинання домену:\n– Аура життя\n– Більша невидимість",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 8,
+        "text": "Мудрість 18 → 20\n\nБлагословенні удари\n\nПокращене знищення нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 9,
+        "text": "Заклинання домену:\n– Коло сили\n– Ошуканство",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 10,
+        "text": "Божественне втручання\n\nНове замовляння:\n– Дивотворство",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 11,
+        "text": "Покращене знищення нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 12,
+        "text": "Посвячений у бій (Захист)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 14,
+        "text": "Покращене знищення нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 16,
+        "text": "Дарунок хроматичного дракона",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 17,
+        "text": "Бастіон присмерку\n\nПокращене знищення нежиті",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 18,
+        "text": "Канал божественності (3/відпочинок)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 19,
+        "text": "Стійкий (Статура)",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "level": 20,
+        "text": "Покращене божественне втручання.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "field": "Мова або інструмент Мудреця",
+        "reason": "Автор лишає на вибір гравця мову або інструмент замість другої мови Мудреця; пресет записує мову як вибір платформи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Мова або інструмент Мудреця",
+        "reason": "Автор лишає на вибір гравця мову або інструмент замість другої мови Мудреця; пресет записує мову як вибір платформи.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-background",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Замовляння Клірика на 4-му рівні",
+        "reason": "Автор не називає четверте замовляння Клірика на 4-му рівні, тож це вибір платформи: гравець обирає його сам.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-levels",
+            "ratingIds": []
+          }
+        ]
+      },
+      {
+        "field": "Риса 19-го рівня",
+        "reason": "У тексті про риси автор називає для 19-го рівня кілька рівноцінних варіантів (Містичний адепт, Удача, Здоровань, Оборонний дуелянт, Стійкий), а в таблиці рівнів записано «Стійкий (Статура)»; взято таблицю.",
+        "sourceRefs": [
+          {
+            "articleId": "rpgbot-cleric-twilight-2014",
+            "translationRevisionId": "translation-rpgbot-cleric-twilight-2014-draft1",
+            "sourceRevisionId": "rpgbot-189c6b3fb307ff03-2eecf6a54ca5caca",
+            "sectionId": "section-feats",
+            "ratingIds": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,249 @@
+$ DATABASE_URL=postgresql://none:none@127.0.0.1:1/none_test vitest run "--maxWorkers=4"
+
+ RUN  v4.1.10 /Users/luka/Documents/code/spells.holota.family
+
+(node:56028) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ tests/logic/term-card.test.ts (33 tests | 1 failed) 2110ms
+     × Unarmed Strike does not inherit unrelated aliases from the melee-attacks article 7ms
+(node:56081) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+Not implemented: navigation to another Document
+(node:56122) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56220) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+Not implemented: navigation to another Document
+(node:56264) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+Not implemented: navigation to another Document
+(node:56311) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ src/lib/optimization/ready-preset-catalog.test.ts (8 tests | 2 failed) 54ms
+     × validates every expanded recipe against exact private source revisions and catalog keys 12ms
+     × checks every shipped preset, with distinct build IDs and two variants from one guide 2ms
+(node:56347) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ tests/routes/rpgbot-ready-presets-public.test.ts (2 tests | 1 failed) 153ms
+     × loads the real gallery and a complete preset without looking up an owner 150ms
+(node:56371) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:56374) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ❯ tests/routes/smoke-script.test.ts (4 tests | 4 failed) 60023ms
+     × зелений, коли всі маршрути віддають 200 15005ms
+     × червоний, коли /2024/char віддає 500 15003ms
+     × червоний, коли /2024 віддає 500 15003ms
+     × червоний, коли /char/create віддає 500 15010ms
+ ❯ tests/content/rule-term-mentions-linked.test.ts (22 tests | 1 failed) 28ms
+     × у жодному носії не лишилося незвʼязаної згадки — інакше `bunx tsx scripts/link-rule-term-mentions.ts --write` 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/logic/term-card.test.ts > KR30.3 — картка терміна на справжніх джерелах > Unarmed Strike does not inherit unrelated aliases from the melee-attacks article
+AssertionError: expected [ 'беззбройний удар', …(3) ] to deeply equal [ 'беззбройний удар' ]
+
+- Expected
++ Received
+
+  [
+    "беззбройний удар",
++   "захоплення",
++   "греплінг",
++   "боротьба",
+  ]
+
+ ❯ tests/logic/term-card.test.ts:53:26
+     51|         ? ["захоплення", "греплінг", "боротьба"] : keys.includes("unar…
+     52|     });
+     53|     expect(card.aliases).toEqual(["беззбройний удар"]);
+       |                          ^
+     54|   });
+     55|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  tests/routes/rpgbot-ready-presets-public.test.ts > anonymous access to 2014 RPGbot presets > loads the real gallery and a complete preset without looking up an owner
+Error: Incomplete ready preset: build-wizard-evocation-2014
+ ❯ buildReadyPresetDraft src/lib/optimization/ready-preset.ts:42:57
+     40|     ...buildPresetSpellSelection(preset.spells, options.spells),
+     41|   });
+     42|   if (!isSavedPresetValid(draft, draft, options)) throw new Error(`Inc…
+       |                                                         ^
+     43|   return draft;
+     44| }
+ ❯ src/lib/optimization/ready-preset.server.ts:35:5
+ ❯ tests/routes/rpgbot-ready-presets-public.test.ts:12:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  tests/routes/smoke-script.test.ts > KR31.11 / L18-release-readiness-06 — смоук після деплою покриває редакцію 2024 > зелений, коли всі маршрути віддають 200
+Error: Test timed out in 15000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/routes/smoke-script.test.ts:39:3
+     37|
+     38| describe("KR31.11 / L18-release-readiness-06 — смоук після деплою покр…
+     39|   it("зелений, коли всі маршрути віддають 200", async () => {
+       |   ^
+     40|     const result = await runSmoke(await startServerFailingOn(null));
+     41|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  tests/routes/smoke-script.test.ts > KR31.11 / L18-release-readiness-06 — смоук після деплою покриває редакцію 2024 > червоний, коли /2024/char віддає 500
+ FAIL  tests/routes/smoke-script.test.ts > KR31.11 / L18-release-readiness-06 — смоук після деплою покриває редакцію 2024 > червоний, коли /2024 віддає 500
+ FAIL  tests/routes/smoke-script.test.ts > KR31.11 / L18-release-readiness-06 — смоук після деплою покриває редакцію 2024 > червоний, коли /char/create віддає 500
+Error: Test timed out in 15000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ tests/routes/smoke-script.test.ts:45:51
+     43|   });
+     44|
+     45|   it.each(["/2024/char", "/2024", "/char/create"])("червоний, коли %s …
+       |                                                   ^
+     46|     const result = await runSmoke(await startServerFailingOn(brokenPat…
+     47|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  tests/content/rule-term-mentions-linked.test.ts > KR34.3 — гейт на носіях > у жодному носії не лишилося незвʼязаної згадки — інакше `bunx tsx scripts/link-rule-term-mentions.ts --write`
+AssertionError: expected [ …(8) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "data/rpgbot/feature-descriptions-2014.json — Advantage: …и бачите, сповнюється безрозсудної люті. Вона має Перевагу на кидки атак і Перешкоду на …",
++   "data/rpgbot/feature-descriptions-2014.json — Disadvantage: …розсудної люті. Вона має Перевагу на кидки атак і Перешкоду на перевірки характеристик. |…",
++   "data/rpgbot/feature-descriptions-2014.json — Resistance: …ає відтінок червоного. Fire Resistance. Ви маєте опір до шкоди вогнем. Reach to th…",
++   "data/rpgbot/feature-descriptions-2014.json — Resistance: …во збільшується на +1. Acid Resistance. Ви маєте опір до шкоди кислотою. Amphibiou…",
++   "data/rpgbot/feature-descriptions-2014.json — Bonus Action: …і ви розрізняєте лише відтінки сірого. Shifting. Бонусною дією ви можете набути більш звіряч…",
++   "data/rpgbot/feature-descriptions-2014.json — Advantage: …в від вас не може робити кидок атаки проти вас із перевагою, якщо ви не недієздатні{{Inca…",
++   "data/rpgbot/feature-descriptions-2014.json — Bonus Action: …і ви розрізняєте лише відтінки сірого. Shifting. Бонусною дією ви можете набути більш звіряч…",
++   "data/rpgbot/feature-descriptions-2014.json — Advantage: …в від вас не може робити кидок атаки проти вас із перевагою, якщо ви не недієздатні{{Inca…",
++ ]
+
+ ❯ tests/content/rule-term-mentions-linked.test.ts:221:22
+    219|       report.wrapped.map((mention) => `${report.path} — ${mention.orig…
+    220|     );
+    221|     expect(unlinked).toEqual([]);
+       |                      ^
+    222|   });
+    223|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  src/lib/optimization/ready-preset-catalog.test.ts > ready preset catalog > validates every expanded recipe against exact private source revisions and catalog keys
+AssertionError: expected [ { …(12) }, { …(12) }, …(5) ] to have a length of 6 but got 7
+
+- Expected
++ Received
+
+- 6
++ 7
+
+ ❯ src/lib/optimization/ready-preset-catalog.test.ts:24:21
+     22| describe("ready preset catalog", () => {
+     23|   it("validates every expanded recipe against exact private source rev…
+     24|     const recipes = await readSliceRecipes("RULES_2014");
+       |                     ^
+     25|     expect(recipes.map((recipe) => recipe.buildId).sort()).toEqual(exp…
+     26|     const slugs = [...new Set(recipes.map((recipe) => recipe.sourceRef…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+ FAIL  src/lib/optimization/ready-preset-catalog.test.ts > ready preset catalog > checks every shipped preset, with distinct build IDs and two variants from one guide
+AssertionError: expected [ …(7) ] to deeply equal [ …(6) ]
+
+- Expected
++ Received
+
+@@ -3,6 +3,7 @@
+    "fighter-champion-greataxe-2014.json",
+    "fighter-champion-shield-2014.json",
+    "monk-open-hand-2014.json",
+    "monk-shadow-2014.json",
+    "rogue-thief-2014.json",
++   "wizard-evocation-2014.json",
+  ]
+
+ ❯ src/lib/optimization/ready-preset-catalog.test.ts:71:101
+     69|   });
+     70|
+     71|   it("checks every shipped preset, with distinct build IDs and two var…
+       |                                                                                                     ^
+     72|     expect(readdirSync("data/rpgbot/ready-builds").filter((name) => na…
+     73|     const presets = expectedStarts.map((entry) => readJson(`data/rpgbo…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 4 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: listen EPERM: operation not permitted 127.0.0.1
+ ❯ Server.setupListenHandle [as _listen2] node:net:1918:21
+ ❯ listenInCluster node:net:1997:12
+ ❯ node:net:2206:7
+ ❯ processTicksAndRejections node:internal/process/task_queues:89:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 'EPERM', errno: -1, syscall: 'listen', address: '127.0.0.1' }
+This error originated in "tests/routes/smoke-script.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "зелений, коли всі маршрути віддають 200". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: listen EPERM: operation not permitted 127.0.0.1
+ ❯ Server.setupListenHandle [as _listen2] node:net:1918:21
+ ❯ listenInCluster node:net:1997:12
+ ❯ node:net:2206:7
+ ❯ processTicksAndRejections node:internal/process/task_queues:89:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 'EPERM', errno: -1, syscall: 'listen', address: '127.0.0.1' }
+This error originated in "tests/routes/smoke-script.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "червоний, коли /2024/char віддає 500". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: listen EPERM: operation not permitted 127.0.0.1
+ ❯ Server.setupListenHandle [as _listen2] node:net:1918:21
+ ❯ listenInCluster node:net:1997:12
+ ❯ node:net:2206:7
+ ❯ processTicksAndRejections node:internal/process/task_queues:89:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 'EPERM', errno: -1, syscall: 'listen', address: '127.0.0.1' }
+This error originated in "tests/routes/smoke-script.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "червоний, коли /2024 віддає 500". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+Error: listen EPERM: operation not permitted 127.0.0.1
+ ❯ Server.setupListenHandle [as _listen2] node:net:1918:21
+ ❯ listenInCluster node:net:1997:12
+ ❯ node:net:2206:7
+ ❯ processTicksAndRejections node:internal/process/task_queues:89:21
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 'EPERM', errno: -1, syscall: 'listen', address: '127.0.0.1' }
+This error originated in "tests/routes/smoke-script.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The latest test that might've caused the error is "червоний, коли /char/create віддає 500". It might mean one of the following:
+- The error was thrown, while Vitest was running this test.
+- If the error occurred after the test had been completed, this was the last documented test before it was thrown.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  5 failed | 522 passed (527)
+      Tests  9 failed | 4540 passed (4549)
+     Errors  4 errors
+   Start at  08:37:22
+   Duration  195.73s (transform 22.61s, setup 8.65s, import 138.19s, tests 507.35s, environment 48.93s)
+
+error: script "test:no-db" exited with code 1

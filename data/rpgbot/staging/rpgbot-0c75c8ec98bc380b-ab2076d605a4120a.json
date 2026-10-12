@@ -1,0 +1,3304 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "ab2076d605a4120a6e7fa62e2d00af5a91bc32f46391a1b8b857429c4698f909",
+  "sourceRevision": {
+    "revisionId": "rpgbot-0c75c8ec98bc380b-ab2076d605a4120a",
+    "sourceId": "rpgbot-0c75c8ec98bc380b",
+    "fetchedAt": "2026-09-29T19:08:38.293847+00:00",
+    "sourceUpdatedAt": "2026-03-14T16:28:47-04:00",
+    "contentHash": "aa8aec8c877ea00fe4427139852e984abfe9282ecb69288b1e706899c6081008",
+    "title": "College of Valor Bard 5e: DnD 5e Subclass Guide",
+    "authors": [
+      "Rocco Giusto"
+    ],
+    "sourceFile": "source/rpgbot-0c75c8ec98bc380b-ab2076d605a4120a.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The College of Valor Bard presents itself as a gish-like option for Bards and does succeed at meeting the basic requirements: proficiencies in Medium Armor, Shields, and Martial Weapons. Just reading down the subclass features, it would be very easy to dismiss it as not doing enough, but that is somewhat short-sighted. The Bard, after all, still has nine levels of spells."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Therein lies the strength of Valor Bard; instead of some class feature providing a damage boost, between the Bard spell list and Magical Secrets, there are any number of spells for making your own damage boost. Just do not forget that the party role of the Valor Bard does not change from the standard Bard. Even though we have features that allow us to do some damage and use better weapons than the base Bard, our main feature is still to give Inspiration dice to other creatures."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "If you lean too heavily towards martial prowess, you risk being worse at your core Bardic capabilities. A healthy balance could be kept, or one could defy conventional Wisdom and be lopsided by design. The core Bard chassis is versatile enough that both directions have merits. Our example below, Another Gish for the Pile, takes a somewhat balanced route to make use of both a Longbow and Bardic spellcasting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Valor Features",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#features"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Valor Ability Scores",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-ability-scores"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Valor Races",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-races"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Valor Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Valor Magical Secrets",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-magical-secrets"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Valor Weapons",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-weapons"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Valor Armor",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-armor"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "College of Valor Multiclassing",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#college-of-valor-multiclassing"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Example College of Valor Build – Another Gish for the Pile",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#example-college-of-valor-build-another-gish-for-the-pile"
+              },
+              {
+                "type": "text",
+                "text": "\n\n"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Abilities",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#abilities"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Race",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#race"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Background",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#background"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Skills and Tools",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#skills-and-tools"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Feats",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#feats"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Levels",
+                "href": "https://rpgbot.net/dnd5/characters/classes/bard/subclasses/valor/#levels"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-features",
+      "heading": "College of Valor Features",
+      "sourceAnchor": "features",
+      "blocks": [
+        {
+          "blockId": "block-section-features-1",
+          "type": "list",
+          "ordered": true,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Bonus Proficiencies"
+              },
+              {
+                "type": "text",
+                "text": ": Medium armor and a\n\t\tshield will significantly improve your AC. With 14 or more Dexterity, a\n\t\tbreastplate, and a shield, you’re looking at a respectable 18 AC, enough to\n\t\tmatch a fighter in full plate (without a shield). Half-plate will get you\n\t\tmore AC, but you might prefer to avoid Disadvantage on Stealth checks. If\n\t\tyou eventually get to 18 Dexterity, consider switching back to light armor.\n\t\tYou also get access to all martial weapons, but you’re probably going to\n\t\twant to stick to a Rapier, and all Bards get proficiency with rapiers."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Combat Inspiration"
+              },
+              {
+                "type": "text",
+                "text": ": The ability to add\n\t\tthe inspiration die to damage is wasteful (unless it gets used on a critical\n\t\thit, in which case it’s multiplied since it’s “extra damage” rather than an\n\t\tadditional source of damage). You’ll have much better results using\n\t\tinspiration to prevent attacks. This isn’t quite as good as the College of\n\t\tLore’s Cutting Words ability, but it allows your allies to make the decision\n\t\tto use the die themselves, which is a nice mental load off of your\n\t\tshoulders."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Extra Attack"
+              },
+              {
+                "type": "text",
+                "text": ": A considerable improvement\n\t\tto your damage output with weapons. If you insist on using weapons instead\n\t\tof spells, this is crucial. Thanks to our access to full spellcasting as well as Magical Secrets, we can take full advantage of some unique buffs in place of a traditional martial’s damage boost (Sneak Attack, Improved Divine Smite, etc.). Spells like Shadow Blade, Elemental Weapon, and Holy Weapon pair incredibly well with Extra Attack.\n\t\t"
+              },
+              {
+                "type": "text",
+                "text": "Unfortunately, because you don’t have a damage boost like most martial classes do,\nif you can obtain a weapon\n\t\t\tcantrip like Booming Blade it will be considerably more effective to use\n\t\t\tBooming Blade instead of making two attacks when using the aforementioned buff spells is inconvenient (such as your Concentration being already occupied). Booming Blade can still do\n\t\t\tmore damage if the secondary damage triggers (see my article on\n\t\t\t"
+              },
+              {
+                "type": "link",
+                "text": "Melee Cantrips vs. Extra Attack",
+                "href": "https://rpgbot.net/dnd5/characters/melee_cantrips"
+              },
+              {
+                "type": "text",
+                "text": "."
+              },
+              {
+                "type": "text",
+                "text": "\n\t"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Battle Magic"
+              },
+              {
+                "type": "text",
+                "text": ": An excellent use of your\n\t\tBonus Action, but your Bonus Action is also used for Bardic Inspiration, so\n\t\tthere will frequently be turns where you can’t use Battle Magic. If you\n\t\tlearn Booming Blade and/or Green-Flame Blade, you can still manage to make\n\t\ttwo weapon attacks in a single turn, similar to the Bladesigner or the\n\t\tEldritch Knight once they get War Magic."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "ordered",
+            "ordered",
+            "ordered",
+            "ordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-valor-ability-scores",
+      "heading": "College of Valor Ability Scores",
+      "sourceAnchor": "college-of-valor-ability-scores",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-valor-ability-scores-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Valor Bard might want to actually hit things with weapons, in which case Strength or Dexterity should come into play."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-valor-ability-scores-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Str"
+            },
+            {
+              "type": "text",
+              "text": ": You could be Strength based in melee, but you’ll still need some Dexterity for AC, so this is the less attractive option than just using Dex for attacks."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-valor-ability-scores-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Dex"
+            },
+            {
+              "type": "text",
+              "text": ": If you’re looking for finesse and ranged options, this is where you belong."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-valor-ability-scores-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Con"
+            },
+            {
+              "type": "text",
+              "text": ": After Charisma and Str or Dex, come here for health and saves."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-valor-ability-scores-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Int"
+            },
+            {
+              "type": "text",
+              "text": ": With so many important scores, something had to lose out."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-valor-ability-scores-6",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Wis"
+            },
+            {
+              "type": "text",
+              "text": ": And unfortunately one of those somethings was Wisdom."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-valor-ability-scores-7",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Cha"
+            },
+            {
+              "type": "text",
+              "text": ": This is still important for our spellcasting and Bardic Inspiration dice."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-valor-ability-scores-8",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Point Buy"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Standard Array"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8 (14)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15 (10)"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-valor-races",
+      "heading": "College of Valor Races",
+      "sourceAnchor": "college-of-valor-races",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-valor-races-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice in the"
+            },
+            {
+              "type": "link",
+              "text": " Bard Races Breakdown ",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/races/"
+            },
+            {
+              "type": "text",
+              "text": "is accurate enough."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-valor-races-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Githzerai"
+              },
+              {
+                "type": "text",
+                "text": ": This gives us the shield spell. It’s missing from the Bard list and it’s far stronger than it has any right to be."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Half-Elf"
+              },
+              {
+                "type": "text",
+                "text": ": Because we’re a bit MAD, having the +2/+1/+1 of Half Elves is a superior choice. High Half-Elf could get you Booming Blade if you’re looking to go into melee, though I recommend being ranged for higher safety."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-valor-feats",
+      "heading": "College of Valor Feats",
+      "sourceAnchor": "college-of-valor-feats",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-valor-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Check the"
+            },
+            {
+              "type": "link",
+              "text": " Bard Handbook Feats ",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#feats"
+            },
+            {
+              "type": "text",
+              "text": "for anything not mentioned here."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-valor-feats-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Elven Accuracy"
+              },
+              {
+                "type": "text",
+                "text": ": Several spells allow us to gain reliable Advantage, so making that reliable Super Advantage is a good plan."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Fey Touched"
+              },
+              {
+                "type": "text",
+                "text": ": If you need Bless, you can get it here. You can also get it with one level of Divine Soul Sorcerer instead."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Polearm Master"
+              },
+              {
+                "type": "text",
+                "text": ": If you can finagle the ability scores to get Strength working for you, combining this feat with spells such as Holy Weapon or Elemental Weapon can do wonders for your weapon damage."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Sharpshooter"
+              },
+              {
+                "type": "text",
+                "text": ": Lacking a built-in damage boost, this is a decent option for a ranged Valor Bard."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-valor-magical-secrets",
+      "heading": "College of Valor Magical Secrets",
+      "sourceAnchor": "college-of-valor-magical-secrets",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-valor-magical-secrets-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While you should always consult the "
+            },
+            {
+              "type": "link",
+              "text": "Practical Guide to Magical Secrets",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/magical_secrets/"
+            },
+            {
+              "type": "text",
+              "text": ", Valor Bards can use these choices to become some sort of Hybrid Paladin/Ranger that has 9 levels of spell slots. This list is intended to be used "
+            },
+            {
+              "type": "emphasis",
+              "text": "in addition to"
+            },
+            {
+              "type": "text",
+              "text": " the spells addressed in our Practical Guide to Magical Secrets."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-valor-magical-secrets-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Elemental Weapon"
+              },
+              {
+                "type": "text",
+                "text": ": Compared to Holy Weapon, this spell is lower level and has upcasting benefits as well as a bonus to attack rolls. However, the damage per attack it adds is smaller, not even factoring in the damage types, even when upcast beyond Holy Weapon’s 5th-level slot. Despite the bonus to attack rolls, the DPR when cast at 5th level is 3 points behind Holy Weapon. Burning a 7th level slot for another +1/+1d4 still only pulls us 2 points ahead of Holy Weapon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Holy Weapon"
+              },
+              {
+                "type": "text",
+                "text": ": While the damage per swing is ever so slightly lower than Shadow Blade when both are cast with a 5th-level slot, Holy Weapon lasts for an hour and can be applied to a ranged weapon. Holy Weapon is just useful in more situations than Shadow Blade, but you can still live out that Edgy Shadow Blade fantasy if you want; the numbers are fairly close. And most of all, we can cast this spell on somebody else’s weapon if it makes sense to do so."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Magic Weapon"
+              },
+              {
+                "type": "text",
+                "text": ": Because we’re talking about magical secrets there is no reason to consider this spell over either Elemental Weapon or Holy Weapon."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Shadow Blade"
+              },
+              {
+                "type": "text",
+                "text": ": In the right lighting situation, having free advantage and doing several dice of Psychic damage per attack is nice. What really amps this spell up is having both Extra Attack and full slot progression so we can make great use of it when we get it. Just make sure to shore up that Concentration."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Swift Quiver"
+              },
+              {
+                "type": "text",
+                "text": ": Running some math in the most favorable conditions (using a musket so that a bigger portion of the damage was from the weapon), this spell is only 3 DPR ahead of Holy Weapon while spending your bonus action every turn and only lasting for 1 minute vs an hour. This spell just isn’t worth using since we can just take Holy Weapon instead."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-valor-weapons",
+      "heading": "College of Valor Weapons",
+      "sourceAnchor": "college-of-valor-weapons",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-valor-weapons-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Unlike the base Bard, the College of Valor grants martial weapon proficiency. However, the Bard is already proficient with the best finesse weapon, the rapier, so unless you’re looking to use Strength or a ranged weapon just follow the "
+            },
+            {
+              "type": "link",
+              "text": "Bard Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/classes/bard/#weapons"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-valor-weapons-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Longbow"
+              },
+              {
+                "type": "text",
+                "text": ": Without needing a feat like Crossbow Expert, the Longbow is your best ranged option thanks to gaining Extra Attack."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Glaive/Halberd"
+              },
+              {
+                "type": "text",
+                "text": ": If you want to be a Strength-based Valor Bard, I highly recommend these options with Reach and considering the Polearm Master feat. I’ve only ranked these two weapons at orange because of the extra hoops required to juggle ability scores for a Strength-based setup."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-valor-armor",
+      "heading": "College of Valor Armor",
+      "sourceAnchor": "college-of-valor-armor",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-valor-armor-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Valor grants medium armor and shields."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-college-of-valor-armor-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Breastplate"
+              },
+              {
+                "type": "text",
+                "text": ": Good if you want to be Stealthy."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Half Plate"
+              },
+              {
+                "type": "text",
+                "text": ": One more AC than Breastplate at the cost of Stealth disadvantage, but you can offset that with Enhance Ability if necessary."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-college-of-valor-multiclassing",
+      "heading": "College of Valor Multiclassing",
+      "sourceAnchor": "college-of-valor-multiclassing",
+      "blocks": [
+        {
+          "blockId": "block-section-college-of-valor-multiclassing-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Hexblade"
+              },
+              {
+                "type": "text",
+                "text": ": One level of Hexblade does three things for Valor Bard. It gives the Shield spell, Charisma to attacks, and Hexblade’s curse. But if you were going to dip Hexblade, why even be a Valor Bard when you could use the Hexblade’s medium armor proficiency on another Bard? It’s no secret that Eldritch Blast would outpace a Valor Bard’s weapon damage."
+              }
+            ]
+          ],
+          "depths": [
+            0
+          ],
+          "itemKinds": [
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+      "heading": "Example College of Valor Build – Another Gish for the Pile",
+      "sourceAnchor": "example-college-of-valor-build-another-gish-for-the-pile",
+      "blocks": [
+        {
+          "blockId": "block-section-example-college-of-valor-build-another-gish-for-the-pile-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "United – incited – not misguided"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "We’ll fight through time before our one true destiny"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "Benighted – ignited – still strong and undivided"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "text",
+              "text": "This day foretold now here for all to see"
+            },
+            {
+              "type": "text",
+              "text": "\n"
+            },
+            {
+              "type": "link",
+              "text": "Defenders",
+              "href": "https://www.youtube.com/watch?v=1-OfAJ1oStI"
+            },
+            {
+              "type": "text",
+              "text": " – Dragonforce"
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-college-of-valor-build-another-gish-for-the-pile-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Of all the ways to actually play a gish in Dungeons and Dragons 5e, the Valor Bard is probably the best at pulling it off single-classed. By that I mean that sure, there are a lot of ways to swing a weapon and cast some spells, but most of those options (Paladins, Eldritch Knights, Hexblades) don’t have full spellcasting. Full spellcasting is objectively stronger than almost any other option. And there are a lot of ways that multiclassing could get almost full spellcasting such as Sorcadins."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-college-of-valor-build-another-gish-for-the-pile-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "But as a single classed character that just wants to swing a weapon, wear some armor, and still have access to 9 levels of spells, between College of Valor, College of Swords, and Bladesingers, Valor doesn’t have any hoops to jump through beyond taking the subclass."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-college-of-valor-build-another-gish-for-the-pile-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "I need to make this clear up front, the price you pay for that lack of hoops is that you won’t be dishing out heavy damage with your weapons. You’re here because you don’t want to be slinging cantrips as your filler actions when your big spells are already doing work, you want to be using a weapon. So fire off arrows in the same situations where you would fire off cantrips as filler actions."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-example-college-of-valor-build-another-gish-for-the-pile-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Compared to Vicious Mockery, the strongest option without pulling in Cantrips from elsewhere, our Longbow will always outdo it. The difference changes over time, but the narrowest gap is at 5th level where the cantrip scales up but we have yet to gain Extra Attack, a mere 1.25 points. Once we gain extra attack the gap grows to about 7 points and shrinks down to settle at 5 when we get the second scaling at 11th level. These numbers of course are without any of the buffs we can cast to boost our weapon damage. Buffs which cannot boost our cantrips, but which also take our Concentration away from typical Bard things like area denial or hard CC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-abilities",
+      "parentSectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+      "heading": "Abilities",
+      "sourceAnchor": "abilities",
+      "blocks": [
+        {
+          "blockId": "block-section-abilities-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going to use Dexterity as our attack stat so that we can stick to ranged attacking with a Longbow. Ranged is just objectively safer. So we’ll use point-buy to put 15s in Dexterity, Constitution, and Charisma. We’re using Half-Elf for many reasons, but the relevant reason here is that +2/+1/+1 ability boost."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-abilities-2",
+          "type": "table",
+          "headers": [
+            [],
+            [
+              {
+                "type": "text",
+                "text": "Base"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Increased"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Level 20"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Str"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Dex"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Con"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Int"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Wis"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "Cha"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-race",
+      "parentSectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+      "heading": "Race",
+      "sourceAnchor": "race",
+      "blocks": [
+        {
+          "blockId": "block-section-race-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We’re going with Half-Elf so that we can have Elven Accuracy, a few extra skills, and the +2/+1/+1 ability boost. And Darkvision is nice too."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-background",
+      "parentSectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+      "heading": "Background",
+      "sourceAnchor": "background",
+      "blocks": [
+        {
+          "blockId": "block-section-background-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Criminal gets us Deception, Stealth, and Thieves’ Tools proficiencies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-skills-and-tools",
+      "parentSectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+      "heading": "Skills and Tools",
+      "sourceAnchor": "skills-and-tools",
+      "blocks": [
+        {
+          "blockId": "block-section-skills-and-tools-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "From Half-Elf, we gain Arcana and Perception. From Bard, we gain Intimidation, Insight, and Persuasion. From Criminal we gain Deception and Stealth."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-skills-and-tools-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "For tools, Bard gives us three instruments of our choice and Criminal gives us Thieves’ tools."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-feats",
+      "parentSectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+      "heading": "Feats",
+      "sourceAnchor": "feats",
+      "blocks": [
+        {
+          "blockId": "block-section-feats-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 4th level, we take Elven Accuracy and bump our Charisma up to an 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 8th level, we take Fighting Initiate and choose Archery. This allows us to be on-par for attack rolls with people reaching 20 in their attack score at this level. Yes, our damage will only be a +3 from our 16 Dexterity for now, but it means we’re not behind on accuracy."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 12th level, we take +2 Charisma, hitting 20."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 16th level, we take +2 Dexterity, hitting 18."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-feats-5",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "At 19th level, we take +2 Dexterity, hitting 20."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-levels",
+      "parentSectionId": "section-example-college-of-valor-build-another-gish-for-the-pile",
+      "heading": "Levels",
+      "sourceAnchor": "levels",
+      "blocks": [
+        {
+          "blockId": "block-section-levels-1",
+          "type": "table",
+          "headers": [
+            [
+              {
+                "type": "text",
+                "text": "Levels"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Feats and Features"
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Notes and Tactics"
+              }
+            ]
+          ],
+          "rows": [
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "1"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration – d6"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Cantrips"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Mage Hand",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Minor Illusion",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/practical-guide-to-illusions/#minor-illusion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-1st-level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Faerie Fire"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Healing Word"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–"
+                },
+                {
+                  "type": "link",
+                  "text": "Silvery Barbs",
+                  "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Sleep"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Skills and Tools"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Arcana"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Deception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Intimidation"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Persuasion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Stealth"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Thieves’ Tools"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We start the same as any other Bard, so grab some light armor and a light crossbow until we gain Valor at 3rd level."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Use spells like Sleep and Faerie Fire to give your team an edge in early fights."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Healing Word and Silvery Barbs are your defensive tools. Use Healing Word when someone is down but needs to be awake and Silvery Barbs when someone is about to eat a critical hit."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Jack of All Trades"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest – d6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Jack of All Trades is nice, allowing us to be a little better at ability checks. This means Initiative checks, too."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Song of Rest is a small bonus when taking short rests. Not big, but still nice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "3"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "College of Valor"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Bonus Proficiencies"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Combat Inspiration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Insight"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Stealth"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-2nd-level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Enhance Ability"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Shatter"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We take the College of Valor, gaining Medium Armor, Shield, and Martial Weapon proficiencies. Switch to a Longbow when it is convenient as long as it is before we get Extra Attack at level 6."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Combat Inspiration is a great way to boost our allies. As mentioned above in the features section, using this defensively to negate an attack is far better than adding a little damage to a single attack."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "For Expertise, we’re taking Insight to compensate for our low Wisdom in regards to negotiation and other social challenges. We’re taking Stealth so we can be great at Stealth."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "With 2nd-level spells, Enhance Ability is a generally useful buff for all sorts of skill challenges and Shatter is a solid damage option that is good to keep in your pocket for the rest of your career."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "4"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat – Elven Accuracy"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "+1 Charisma"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Various buffs and spells grant us Advantage from time to time, such as Faerie Fire. Getting Super Advantage from those effects instead is nice."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "5"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Font of Inspiration"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration – d8"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-3rd-level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Dispel Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Fear"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Hypnotic Pattern"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Our Inspiration dice come back on short rests now, so we should be able to use them more often."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Now that we have 3rd-level spells, it’s a good idea to trade out Sleep for a 3rd-level option. Dispel Magic is a solid answer for a lot of problems. Fear and Hypnotic Pattern are both solid CC spells with different shapes and uses."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "6"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Countercharm"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Extra Attack"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Now we can attack twice per attack action. This is key to getting more out of certain spell options that add damage to attacks."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Countercharm isn’t all that useful."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "7"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-4th-level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Dimension Door"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Greater Invisibility"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Dim. Door is good for movement and some puzzle solutions. Greater Invisibility against the correct foes is a source of Advantage for either us or an ally."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "8"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feat – Fighting Initiate"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Archery"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Taking this feat puts our Longbow attacks on par with anyone hitting 20 in their attack score at this level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "9"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest – d8"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-5th-level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Hold Monster"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Synaptic Static"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Sometimes the correct solution is to cast Hold Monster and give the frontline free crits until the foe makes their save."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Other times having a giant ball of Psychic damage with an Intelligence saving throw is correct."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "There is no in between."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "10"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration – d10"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Expertise"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Arcana"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Perception"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Magical Secrets"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Holy Weapon"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Summon Celestial"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "We choose Expertise in Arcana and Perception in order to compensate for our 8s in Intelligence and Wisdom."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Holy Weapon is a very strong damage boost that we can use on our own Longbow. Most of the time if we cast this it should be on our own weapon, but if we have someone that makes 3 or more attacks, then it would be smart to cast it on their weapon instead."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Summon Celestial, if cast at 5th-level, adds about the same total damage as self-casting Holy Weapon, but it also puts a large body on the field. The advantage of the Celestial is that it can be a target for Combat Inspiration and the Defender mode hands out temporary HP with every attack it lands."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Additionally, Summons upcast fantastically while Holy Weapon never gets any stronger than the effect at 5th-level."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "11"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-6th-level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Mass Suggestion"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–True Seeing"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Mass Suggestion: “Go home and be a family man.”"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "True Seeing sees Truth. You don’t want to need this and not have it."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "12"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI – Charisma +2"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Better spell DCs and a 5th Inspiration Die."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "13"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest – d10"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-7th-level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Forcecage"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Teleport"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Put them in a box."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Teleport away with the loot chest."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Fight over. MacGuffin secured."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "14"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Battle Magic"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Magical Secrets"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Heal"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Wall of Force"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Heal is good for emergency healing. One action to put someone’s face back on."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "link",
+                  "text": "Wall of Force",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wall-spells/"
+                },
+                {
+                  "type": "text",
+                  "text": " for making an impenetrable force field."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Battle Magic is a nice feature, allowing us to still fire off an arrow as a bonus action when we fire off a spell as an action. Great for taking advantage of something like Hold Monster on our own turn."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "15"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Bardic Inspiration – d12"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-8th-level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Feeblemind"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Glibness"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Feeblemind to turn off spellcasters."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Win every social encounter with Glibness."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "16"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI – +2 Dexterity"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Better attack rolls."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "17"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Song of Rest – d12"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Spellcasting"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-9th-level"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "–Foresight"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Foresight is a great buff. The target has Advantage on basically everything and imposes Disadvantage on all incoming attacks. For eight hours."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Cast it on yourself in the morning and abuse Elven Accuracy all day long."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "18"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Magical Secrets"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Holy Aura"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "-Wish"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s "
+                },
+                {
+                  "type": "link",
+                  "text": "Wish",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "\n"
+                },
+                {
+                  "type": "text",
+                  "text": "Holy Aura is one of the most powerful defensive buffs in the game. Advantage on all saves, Disadvantage on all incoming attacks."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "19"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "ASI – +2 Dexterity"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Still better attack rolls."
+                }
+              ]
+            ],
+            [
+              [
+                {
+                  "type": "text",
+                  "text": "20"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "Superior Inspiration"
+                }
+              ],
+              [
+                {
+                  "type": "text",
+                  "text": "It’s alright. Get an Inspiration die back if you start a fight with zero."
+                }
+              ]
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "#features",
+      "detail": "wp-block-heading rating- College of Valor Features"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Bonus Proficiencies"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Combat Inspiration"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Extra Attack"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Battle Magic"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-orange Str"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Dex"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-green Con"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Int"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-red Wis"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "p/span[1]",
+      "detail": "rating-blue Cha"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Githzerai"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Half-Elf"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Elven Accuracy"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Fey Touched"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Polearm Master"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Sharpshooter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Elemental Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Holy Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Magic Weapon"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Shadow Blade"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Swift Quiver"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Longbow"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Glaive/Halberd"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Breastplate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Half Plate"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Hexblade"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ol[1]",
+      "detail": "block-section-features-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-college-of-valor-ability-scores-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-college-of-valor-ability-scores-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-college-of-valor-ability-scores-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-college-of-valor-ability-scores-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-college-of-valor-ability-scores-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-college-of-valor-ability-scores-6"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-college-of-valor-ability-scores-7"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-college-of-valor-ability-scores-8"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-college-of-valor-races-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[2]",
+      "detail": "block-section-college-of-valor-races-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-college-of-valor-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[3]",
+      "detail": "block-section-college-of-valor-feats-2"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "nested-markup-review",
+      "location": "sup/a[1]",
+      "detail": "link inside superscript"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-college-of-valor-magical-secrets-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[4]",
+      "detail": "block-section-college-of-valor-magical-secrets-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-college-of-valor-weapons-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[5]",
+      "detail": "block-section-college-of-valor-weapons-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-college-of-valor-armor-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[6]",
+      "detail": "block-section-college-of-valor-armor-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[7]",
+      "detail": "block-section-college-of-valor-multiclassing-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/blockquote[1]",
+      "detail": "block-section-example-college-of-valor-build-another-gish-for-the-pile-1"
+    },
+    {
+      "code": "inline-markup-review",
+      "location": "blockquote/cite[1]",
+      "detail": "cite"
+    },
+    {
+      "code": "blockquote-review",
+      "location": "div/blockquote[1]",
+      "detail": "<blockquote class=\"wp-block-quote has-text-align-center is-layout-flow wp-block-quote-is-layout-flow\"> <p class=\"wp-block-paragraph\">United – incited – not misguided<br>We’ll fight"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-example-college-of-valor-build-another-gish-for-the-pile-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-example-college-of-valor-build-another-gish-for-the-pile-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[21]",
+      "detail": "block-section-example-college-of-valor-build-another-gish-for-the-pile-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[22]",
+      "detail": "block-section-example-college-of-valor-build-another-gish-for-the-pile-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[23]",
+      "detail": "block-section-abilities-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-abilities-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[24]",
+      "detail": "block-section-race-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[25]",
+      "detail": "block-section-background-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[26]",
+      "detail": "block-section-skills-and-tools-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[27]",
+      "detail": "block-section-skills-and-tools-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[28]",
+      "detail": "block-section-feats-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[29]",
+      "detail": "block-section-feats-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[30]",
+      "detail": "block-section-feats-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[31]",
+      "detail": "block-section-feats-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[32]",
+      "detail": "block-section-feats-5"
+    },
+    {
+      "code": "provisional-id",
+      "location": "figure/table[1]",
+      "detail": "block-section-levels-1"
+    }
+  ],
+  "metrics": {
+    "words": 3363,
+    "sections": 18,
+    "blocks": 45,
+    "tables": 3,
+    "ratingSignals": 31
+  },
+  "status": "needs-editorial-review"
+}

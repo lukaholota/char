@@ -1,0 +1,202 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "fighter-cavalier-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-fighter-cavalier-2014-draft1",
+    "sourceRevisionId": "rpgbot-75c7b78acdf186be-255db8715cefaf4a"
+  },
+  "exampleSection": "section-example-build-tilting-at-windmills-both-literally-and-metaphorically",
+  "levelTableSection": "section-levels",
+  "classKey": "FIGHTER_2014",
+  "subclassKey": "CAVALIER",
+  "raceKey": "CUSTOM_LINEAGE_TCE",
+  "backgroundKey": "KNIGHT",
+  "featKey": "MOUNTED_COMBATANT",
+  "abilityScores": {
+    "STR": 15,
+    "DEX": 12,
+    "CON": 14,
+    "INT": 8,
+    "WIS": 14,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "incomplete": [
+    {
+      "field": "Купівля мулів і метальних списів",
+      "reason": "Автор витрачає 24 зм передісторії на трьох мулів і радить продати легкий арбалет заради метальних списів; пресет не записує купівлю й продаж, тож арбалет лишається в спорядженні, а мулів і метальних списів у ньому немає.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Риса на 16, 19-му рівнях",
+      "reason": "Автор пише «будь-яка» і не називає вибір. Пресет бере типовий (16-й: LUCKY, 19-й: ALERT); це вибір платформи, гравець може змінити його перед створенням.",
+      "section": "section-levels"
+    }
+  ],
+  "revision": 3,
+  "levels": [
+    {
+      "level": 2
+    },
+    {
+      "level": 3,
+      "subclassKey": "CAVALIER"
+    },
+    {
+      "level": 4,
+      "featKey": "PIERCER",
+      "featOptions": [
+        {
+          "optionNameEng": "PIERCER Ability (Strength)"
+        }
+      ],
+      "section": "section-feats"
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6,
+      "abilityScoreIncrease": [
+        {
+          "ability": "STR",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 7
+    },
+    {
+      "level": 8,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 9
+    },
+    {
+      "level": 10
+    },
+    {
+      "level": 11
+    },
+    {
+      "level": 12,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 13
+    },
+    {
+      "level": 14,
+      "abilityScoreIncrease": [
+        {
+          "ability": "CON",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "level": 15
+    },
+    {
+      "level": 16,
+      "featKey": "LUCKY",
+      "openAdvancement": true
+    },
+    {
+      "level": 17
+    },
+    {
+      "level": 18
+    },
+    {
+      "level": 19,
+      "featKey": "ALERT",
+      "openAdvancement": true
+    },
+    {
+      "level": 20
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/fighter-cavalier-2014.webp",
+    "title": "Воїн — Кавалерист, Своя раса",
+    "description": "Малий кавалерист зі Своєю расою: +2 до Сили, темнозір, «Верховий боєць» з першого рівня, довгий спис і Бойовий стиль «Дуель».",
+    "subraceKey": null,
+    "racialAbilities": [
+      "STR"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ANIMAL_HANDLING",
+        "ATHLETICS"
+      ],
+      "race": [],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [
+      "Dueling"
+    ],
+    "raceOptions": [
+      "Малий",
+      "Темнозір"
+    ],
+    "platformChoices": [
+      "raceOptions"
+    ],
+    "languages": [
+      "ELVISH",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": [
+          "LANCE"
+        ]
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "b",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": "section-feats",
+    "equipmentSection": "section-levels",
+    "abilityExplanation": "Своя раса за правилами Таші додає +2 до Сили: Сила 17, Статура й Мудрість 14, як у таблиці автора. Це вже враховано.",
+    "skillExplanation": "Поводження з тваринами й Атлетика — від Воїна, Історія й Переконання — від Лицаря, як у розділі автора про навички. Малий розмір і темнозір — вибір автора; дві мови ми обрали за вас, автор їх не називає.",
+    "equipmentExplanation": "Кольчуга, довгий спис, щит і легкий арбалет з болтами — з авторського прикладу. Набір мандрівника ми обрали за вас: автор радить «будь-який набір»; його можна змінити."
+  }
+}

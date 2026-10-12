@@ -1,0 +1,1003 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-daedb67d73c250c6",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-daedb67d73c250c6-0f187ae9c760768c",
+      "sourceId": "rpgbot-daedb67d73c250c6",
+      "fetchedAt": "2026-09-29T19:23:19.117284+00:00",
+      "sourceUpdatedAt": "2025-10-23T22:39:16-04:00",
+      "contentHash": "bafddb5deceea5a1bdfed3fca4b15ae2a667034d19c4d65ad4fb17013aeeee44",
+      "title": "Strixhaven Initiate: DnD 5e Feat Guide",
+      "authors": [
+        "T.E. \"RPGBOT\" Kamstra"
+      ],
+      "sourceFile": "source/rpgbot-daedb67d73c250c6-0f187ae9c760768c.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-strixhaven-initiate-2014",
+    "sourceId": "rpgbot-daedb67d73c250c6",
+    "slug": "strixhaven-initiate-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Посвячений Стріксхейвена — гайд риси (2014)",
+    "titleEn": "Strixhaven Initiate: DnD 5e Feat Guide",
+    "topics": [
+      "риси",
+      "заклинання"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "sourceRevisionId": "rpgbot-daedb67d73c250c6-0f187ae9c760768c",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Багато в чому Посвячений Стріксхейвена відчувається як оновлена версія "
+                },
+                {
+                  "type": "link",
+                  "text": "Посвяченого у магію",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/magic-initiate/"
+                },
+                {
+                  "type": "text",
+                  "text": ". Серед замовлянь — знакові варіанти кількох класів із Книги Гравця, де також опубліковано Посвяченого у магію. Обмеження цими варіантами не дозволяє брати потенційно проблемні замовляння з доповнень, наприклад Гримучий Клинок [Booming Blade]. В обмін на меншу гнучкість отримуємо вибір чаротворчої характеристики, трохи гнучкіший вибір класового списку для заклинання 1-го рівня та можливість повторно накладати його власними слотами незалежно від класу. Посвячений у магію дозволяє повторне накладання лише за наявності рівнів у класі, обраному для риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Замість одного класу риса дозволяє обрати один із пʼяти "
+                },
+                {
+                  "type": "link",
+                  "text": "коледжів Стріксхейвена",
+                  "href": "https://www.dndbeyond.com/sources/sacoc/character-options#ChoosingaCollege"
+                },
+                {
+                  "type": "text",
+                  "text": ". Коледж визначає доступні заклинання, тому його вибір такий же важливий, як вибір класу для Посвяченого у магію."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Завдяки повторному накладанню обраного заклинання найбільше виграють повні чаротворці. Часткові чаротворці, зокрема Винахідники й Воїни-Потойбічні лицарі, теж можуть отримати користь, але менша кількість слотів знижує цінність риси."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Докладніше про чаротворчі риси, зокрема оцінки різних рис, дивіться у "
+                },
+                {
+                  "type": "link",
+                  "text": "гайді чаротворчих рис",
+                  "href": "https://rpgbot.net/dnd5/characters/feats/spellcasting-feats/"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Коледжі Посвяченого Стріксхейвена",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#strixhaven-initiate-college-options"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Лорхолд",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#lorehold"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Прізмарі",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#prismari"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Квандрікс",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#quandrix"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Візерблум",
+                    "href": "https://rpgbot.net/dnd5/characters/feats/strixhaven-initiate/#witherbloom"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-strixhaven-initiate-college-options",
+          "heading": "Коледжі Посвяченого Стріксхейвена",
+          "sourceAnchor": "strixhaven-initiate-college-options",
+          "blocks": []
+        },
+        {
+          "sectionId": "section-lorehold",
+          "parentSectionId": "section-strixhaven-initiate-college-options",
+          "heading": "Лорхолд",
+          "sourceAnchor": "lorehold",
+          "blocks": [
+            {
+              "blockId": "block-section-lorehold-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Посвячений Стріксхейвена (Лорхолд)|Strixhaven Initiate (Lorehold)}}: нічого вражаючого. Якщо потрібні заклинання Клірика, Сілверквіл кращий. Обираючи Лорхолд, ви хочете Священне полумʼя і заклинання Чарівника. Хороші варіанти: Благословення [Bless], Героїзм [Heroism], Щит віри [Shield of Faith] від Клірика та Поглинання стихій [Absorb Elements], Обладунок мага [Mage Armor], Щит [Shield], Сріблясті шпильки [Silvery Barbs] від Чарівника. Може бути хорошим вибором для Бардів і Друїдів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cantrips",
+          "parentSectionId": "section-lorehold",
+          "heading": "Замовляння: Лорхолд",
+          "sourceAnchor": "cantrips",
+          "blocks": [
+            {
+              "blockId": "block-section-cantrips-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Світло [Light]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": перевірений допоміжний варіант, але доступний більшості повних чаротворців."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Священне полумʼя [Sacred Flame]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": проста й ефективна дистанційна шкода."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дивотворство [Thaumaturgy]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне й обмежене. Більше порад у нашому "
+                  },
+                  {
+                    "type": "link",
+                    "text": "практичному гайді Штукарства",
+                    "href": "https://rpgbot.net/dnd5/characters/prestidigitation/#thaumaturgy"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-prismari",
+          "parentSectionId": "section-strixhaven-initiate-college-options",
+          "heading": "Прізмарі",
+          "sourceAnchor": "prismari",
+          "blocks": [
+            {
+              "blockId": "block-section-prismari-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Посвячений Стріксхейвена (Прізмарі)|Strixhaven Initiate (Prismari)}}: нічого вражаючого. Замовляння — перевірені варіанти Чарівника, а доступ до заклинань Барда чи Чаклуна привабливий. Бард дає Цілюще слово [Healing Word] та Вогники фей [Faerie Fire]; Чаклун — Поглинання стихій [Absorb Elements], Кольорова кулька [Chromatic Orb], Обладунок мага [Mage Armor], Магічний дротик [Magic Missile], Щит [Shield], Сріблясті шпильки [Silvery Barbs]. Ефективний вибір для Кліриків і Друїдів."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cantrips-2",
+          "parentSectionId": "section-prismari",
+          "heading": "Замовляння: Прізмарі",
+          "sourceAnchor": "cantrips",
+          "blocks": [
+            {
+              "blockId": "block-section-cantrips-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Вогняний заряд [Fire Bolt]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": проста й надійна дистанційна шкода. Єдина проблема — поширений опір до вогню. Автор каже, що єдиним розумним кандидатом був би Бард, але він може обрати Позамежний заряд, тож варіант не приваблює буквально нікого.\n\nРедакційна примітка: Позамежний заряд не входить до замовлянь Посвяченого Стріксхейвена. Це порівняння автора не застосовується безпосередньо до вибору замовлянь цієї риси."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Штукарство [Prestidigitation]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": дуже цікаве, але недостатньо впливає на персонажа, щоб саме по собі виправдати рису. Більше порад у нашому "
+                  },
+                  {
+                    "type": "link",
+                    "text": "практичному гайді цього заклинання",
+                    "href": "https://rpgbot.net/dnd5/characters/prestidigitation/#prestidigitation"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Промінь холоду [Ray of Frost]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": пристойна дистанційна шкода одній цілі, але якщо потрібна лише шкода, візьміть лук. Штраф до швидкості приємний, проте сам боїв не виграє."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-quandrix",
+          "parentSectionId": "section-strixhaven-initiate-college-options",
+          "heading": "Квандрікс",
+          "sourceAnchor": "quandrix",
+          "blocks": [
+            {
+              "blockId": "block-section-quandrix-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Посвячений Стріксхейвена (Квандрікс)|Strixhaven Initiate (Quandrix)}}: усі три замовляння допоміжні. Настанова — перевірений варіант, який варто отримати кожному, хто може, але цього недостатньо для чудового коледжу. Хороші заклинання: Доброягода [Goodberry] й Цілюще слово [Healing Word] від Друїда та Поглинання стихій [Absorb Elements], Обладунок мага [Mage Armor], Щит [Shield] від Чарівника. Хороший вибір для Кліриків, яким потрібні заклинання Чарівника, та для Чаклунів, Чорнокнижників і Чарівників, яким потрібні Настанова й Цілюще слово.\n\nРедакційна примітка: джерело нижче оцінює лише два замовляння. Третій доступний варіант за правилами риси — Ремесло друїдів [Druidcraft]; повний опис риси містить усі три."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cantrips-3",
+          "parentSectionId": "section-quandrix",
+          "heading": "Замовляння: Квандрікс",
+          "sourceAnchor": "cantrips",
+          "blocks": [
+            {
+              "blockId": "block-section-cantrips-3-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "За додатковими порадами зверніться до нашого "
+                  },
+                  {
+                    "type": "link",
+                    "text": "практичного гайда Штукарства",
+                    "href": "https://rpgbot.net/dnd5/characters/prestidigitation/#druidcraft"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Настанова [Guidance]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": чудове й універсальне. Поза боєм варто накладати за кожної нагоди."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Магічна рука [Mage Hand]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": хороший допоміжний варіант."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-silverquill",
+          "parentSectionId": "section-quandrix",
+          "heading": "Сілверквіл",
+          "sourceAnchor": "silverquill",
+          "blocks": [
+            {
+              "blockId": "block-section-silverquill-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Посвячений Стріксхейвена (Сілверквіл)|Strixhaven Initiate (Silverquill)}}: два хороші наступальні замовляння різних класів. Хороші заклинання: Вогники фей [Faerie Fire] від Барда, Благословення [Bless] й Героїзм [Heroism] від Клірика, а Цілюще слово [Healing Word] — від будь-якого з них. Чудовий вибір для багатьох чаротворців, зокрема Друїдів, Чаклунів, Чорнокнижників і Чарівників. Барди та Клірики також можуть знайти його привабливим."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cantrips-4",
+          "parentSectionId": "section-quandrix",
+          "heading": "Замовляння: Сілверквіл",
+          "sourceAnchor": "cantrips",
+          "blocks": [
+            {
+              "blockId": "block-section-cantrips-4-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Священне полумʼя [Sacred Flame]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": проста й ефективна дистанційна шкода."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Дивотворство [Thaumaturgy]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне й обмежене. Більше порад у нашому "
+                  },
+                  {
+                    "type": "link",
+                    "text": "практичному гайді Штукарства",
+                    "href": "https://rpgbot.net/dnd5/characters/prestidigitation/#thaumaturgy"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Злісне глузування [Vicious Mockery]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": найзнаковіше заклинання Барда — унікальне, тематичне й механічно чудове. Шкода порівняно мала, але послаблення ворога цілком це виправдовує."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-witherbloom",
+          "parentSectionId": "section-strixhaven-initiate-college-options",
+          "heading": "Візерблум",
+          "sourceAnchor": "witherbloom",
+          "blocks": [
+            {
+              "blockId": "block-section-witherbloom-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "{{Посвячений Стріксхейвена (Візерблум)|Strixhaven Initiate (Witherbloom)}}: просто оберіть Квандрікс. Отримаєте ті самі варіанти заклинань із кращими замовляннями."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-cantrips-5",
+          "parentSectionId": "section-witherbloom",
+          "heading": "Замовляння: Візерблум",
+          "sourceAnchor": "cantrips",
+          "blocks": [
+            {
+              "blockId": "block-section-cantrips-5-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Моторошний дотик [Chill Touch]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": пристойна шкода, але гірша за Вогняний заряд чи подібні варіанти."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Ремесло друїдів [Druidcraft]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": надто ситуативне й обмежене. Більше порад у нашому "
+                  },
+                  {
+                    "type": "link",
+                    "text": "практичному гайді Штукарства",
+                    "href": "https://rpgbot.net/dnd5/characters/prestidigitation/#druidcraft"
+                  },
+                  {
+                    "type": "text",
+                    "text": "."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Милість до вмирущого [Spare the Dying]"
+                  },
+                  {
+                    "type": "link",
+                    "text": "PHB",
+                    "href": "https://rpgbot.net/dnd5/abbreviations/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ": купіть набір лікаря."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-001",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-lorehold",
+      "targetBlockId": "block-section-lorehold-1",
+      "optionId": "section-lorehold",
+      "context": "Лорхолд",
+      "explanationBlockId": "block-section-lorehold-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-002",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-1",
+      "optionId": "section-cantrips-block-section-cantrips-1-item-0",
+      "context": "Світло [Light]PHB",
+      "explanationBlockId": "block-section-cantrips-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-003",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-1",
+      "optionId": "section-cantrips-block-section-cantrips-1-item-1",
+      "context": "Священне полумʼя [Sacred Flame]PHB",
+      "explanationBlockId": "block-section-cantrips-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-004",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips",
+      "targetBlockId": "block-section-cantrips-1",
+      "optionId": "section-cantrips-block-section-cantrips-1-item-2",
+      "context": "Дивотворство [Thaumaturgy]PHB",
+      "explanationBlockId": "block-section-cantrips-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-005",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-prismari",
+      "targetBlockId": "block-section-prismari-1",
+      "optionId": "section-prismari",
+      "context": "Прізмарі",
+      "explanationBlockId": "block-section-prismari-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-006",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips-2",
+      "targetBlockId": "block-section-cantrips-2-1",
+      "optionId": "section-cantrips-2-block-section-cantrips-2-1-item-0",
+      "context": "Вогняний заряд [Fire Bolt]PHB",
+      "explanationBlockId": "block-section-cantrips-2-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-007",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips-2",
+      "targetBlockId": "block-section-cantrips-2-1",
+      "optionId": "section-cantrips-2-block-section-cantrips-2-1-item-1",
+      "context": "Штукарство [Prestidigitation]PHB",
+      "explanationBlockId": "block-section-cantrips-2-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-008",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips-2",
+      "targetBlockId": "block-section-cantrips-2-1",
+      "optionId": "section-cantrips-2-block-section-cantrips-2-1-item-2",
+      "context": "Промінь холоду [Ray of Frost]PHB",
+      "explanationBlockId": "block-section-cantrips-2-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-009",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-quandrix",
+      "targetBlockId": "block-section-quandrix-1",
+      "optionId": "section-quandrix",
+      "context": "Квандрікс",
+      "explanationBlockId": "block-section-quandrix-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-010",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips-3",
+      "targetBlockId": "block-section-cantrips-3-1",
+      "optionId": "section-cantrips-3-block-section-cantrips-3-1-item-1",
+      "context": "Настанова [Guidance]PHB",
+      "explanationBlockId": "block-section-cantrips-3-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-011",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips-3",
+      "targetBlockId": "block-section-cantrips-3-1",
+      "optionId": "section-cantrips-3-block-section-cantrips-3-1-item-2",
+      "context": "Магічна рука [Mage Hand]PHB",
+      "explanationBlockId": "block-section-cantrips-3-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-012",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-silverquill",
+      "targetBlockId": "block-section-silverquill-1",
+      "optionId": "section-silverquill",
+      "context": "Сілверквіл",
+      "explanationBlockId": "block-section-silverquill-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-013",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips-4",
+      "targetBlockId": "block-section-cantrips-4-1",
+      "optionId": "section-cantrips-4-block-section-cantrips-4-1-item-0",
+      "context": "Священне полумʼя [Sacred Flame]PHB",
+      "explanationBlockId": "block-section-cantrips-4-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-014",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips-4",
+      "targetBlockId": "block-section-cantrips-4-1",
+      "optionId": "section-cantrips-4-block-section-cantrips-4-1-item-1",
+      "context": "Дивотворство [Thaumaturgy]PHB",
+      "explanationBlockId": "block-section-cantrips-4-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-015",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips-4",
+      "targetBlockId": "block-section-cantrips-4-1",
+      "optionId": "section-cantrips-4-block-section-cantrips-4-1-item-2",
+      "context": "Злісне глузування [Vicious Mockery]PHB",
+      "explanationBlockId": "block-section-cantrips-4-1",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-016",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-witherbloom",
+      "targetBlockId": "block-section-witherbloom-1",
+      "optionId": "section-witherbloom",
+      "context": "Візерблум",
+      "explanationBlockId": "block-section-witherbloom-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-017",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips-5",
+      "targetBlockId": "block-section-cantrips-5-1",
+      "optionId": "section-cantrips-5-block-section-cantrips-5-1-item-0",
+      "context": "Моторошний дотик [Chill Touch]PHB",
+      "explanationBlockId": "block-section-cantrips-5-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-018",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips-5",
+      "targetBlockId": "block-section-cantrips-5-1",
+      "optionId": "section-cantrips-5-block-section-cantrips-5-1-item-1",
+      "context": "Ремесло друїдів [Druidcraft]PHB",
+      "explanationBlockId": "block-section-cantrips-5-1",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-strixhaven-initiate-2014-019",
+      "articleId": "rpgbot-strixhaven-initiate-2014",
+      "translationRevisionId": "translation-rpgbot-strixhaven-initiate-2014-draft1",
+      "sectionId": "section-cantrips-5",
+      "targetBlockId": "block-section-cantrips-5-1",
+      "optionId": "section-cantrips-5-block-section-cantrips-5-1-item-2",
+      "context": "Милість до вмирущого [Spare the Dying]PHB",
+      "explanationBlockId": "block-section-cantrips-5-1",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

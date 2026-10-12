@@ -2,6 +2,7 @@
 
 import { ChevronRight } from "lucide-react";
 
+import { BranchCover } from "@/components/catalogs/reading/BranchCover";
 import { stripToPlainText } from "@/lib/logic/plain-text";
 import { cn } from "@/lib/utils";
 import { findAccentVariant } from "@/styles/edition-accent";
@@ -20,6 +21,7 @@ export type BranchCard = {
   entryCount: number;
   entryCountForms: PluralForms;
   description: string | null;
+  imageSrc?: string | null;
 };
 
 export function BranchCardGrid({
@@ -44,6 +46,7 @@ export function BranchCardGrid({
               findAccentVariant(is2024, { prism: "focus-visible:outline-prism-400/70", arcane: "focus-visible:outline-arcane-400/70" }),
             )}
           >
+            <BranchCover src={card.imageSrc} alt={card.name} sizes="(min-width: 1280px) 340px, (min-width: 640px) 50vw, 100vw" className="mb-1.5" />
             <span className="flex w-full items-start gap-2">
               <span className="min-w-0 flex-1 text-sm font-semibold text-slate-100">{card.name}</span>
               <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" />

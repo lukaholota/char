@@ -1,0 +1,165 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-bladesinging-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-bladesinging-2014-draft1",
+    "sourceRevisionId": "rpgbot-a1d921089f2efe89-8891e08b2652463e"
+  },
+  "exampleSection": "section-example-build-goblin-bladesinging-wizard",
+  "levelTableSection": "section-levels",
+  "classKey": "WIZARD_2014",
+  "subclassKey": "SCHOOL_OF_BLADESINGING",
+  "raceKey": "GOBLIN_MPMM",
+  "backgroundKey": "CLOISTERED_SCHOLAR",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 15,
+    "CON": 14,
+    "INT": 15,
+    "WIS": 10,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 2,
+  "levels": [
+    {"level":2,"subclassKey":"SCHOOL_OF_BLADESINGING","spells":{"spellbookKeys":["absorb-elements","shield"]}},
+    {"level":3,"spells":{"spellbookKeys":["magic-weapon","identify"]}},
+    {"level":4,"featKey":"PIERCER","featOptions":[{"optionNameEng":"PIERCER Ability (Dexterity)"}],"spells":{"cantripKeys":["fire-bolt"],"spellbookKeys":["misty-step"]},"openSpellPicks":[{"category":"spellbook","count":1}]},
+    {"level":5,"spells":{"spellbookKeys":["fireball"]},"openSpellPicks":[{"category":"spellbook","count":1}]},
+    {"level":6,"spells":{"spellbookKeys":["counterspell","dispel-magic"]}},
+    {"level":7,"spells":{"spellbookKeys":["greater-invisibility","polymorph"]}},
+    {"level":8,"abilityScoreIncrease":[{"ability":"DEX","amount":1},{"ability":"INT","amount":1}],"spells":{"spellbookKeys":["arcane-eye","stone-shape"]}},
+    {"level":9,"spells":{"spellbookKeys":["rarys-telepathic-bond","wall-of-force"]}},
+    {"level":10,"spells":{"spellbookKeys":["skill-empowerment","creation"]},"openSpellPicks":[{"category":"cantrips","count":1}]},
+    {"level":11,"spells":{"spellbookKeys":["tensers-transformation","disintegrate"]}},
+    {"level":12,"abilityScoreIncrease":[{"ability":"INT","amount":2}],"spells":{"spellbookKeys":["contingency","globe-of-invulnerability"]}},
+    {"level":13,"spells":{"spellbookKeys":["teleport","forcecage"]}},
+    {"level":14,"spells":{"spellbookKeys":["plane-shift","simulacrum"]}},
+    {"level":15,"spells":{"spellbookKeys":["draconic-transformation","maze"]}},
+    {"level":16,"abilityScoreIncrease":[{"ability":"DEX","amount":2}],"spells":{"spellbookKeys":["feeblemind","clone"]}},
+    {"level":17,"spells":{"spellbookKeys":["foresight","wish"]}},
+    {"level":18,"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":19,"classKey":"FIGHTER_2014","classOptions":[{"optionNameEng":"Two-Weapon Fighting"}]},
+    {"level":20,"classKey":"FIGHTER_2014"}
+  ],
+  "incomplete": [
+    {
+      "field": "Четверте замовлення",
+      "reason": "Автор називає чотири замовляння (Формування води, Гримучий клинок, Штукарство, Магічна рука), а Чарівник 1-го рівня знає три; платформа залишила перші три, четверте (Магічна рука) можна змінити замість будь-якого з них.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Стартове спорядження за гроші",
+      "reason": "Автор радить узяти гроші замість набору й купити проклепаний шкіряний обладунок, легкий арбалет, два короткі мечі та фокус; пресет не підтримує стартове золото, тому взято стандартний набір Чарівника.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Підготовлені заклинання",
+      "reason": "На 4-му й 8-му рівнях автор називає «нові підготовлені» заклинання (Туманний крок, Арканне око, Форма каменю, Драконяче перетворення, Лабіринт); їх записано як нові заклинання книги цього рівня, а сама підготовка на листі лишається вибором гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання «будь-які»",
+      "reason": "На 4-му рівні автор не називає другого заклинання, на 5-му відсилає до приміток (Крихітна хатинка Леомунда або Прискорення залежно від групи), на 18-му називає «будь-які два»; це вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Майстерність заклинань",
+      "reason": "На 18-му рівні автор обирає Щит і Туманний крок; платформа не записує вибір заклинань Майстерності заклинань.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/wizard-bladesinging-2014.webp",
+    "title": "Чарівник Школи співу клинків — Гоблін",
+    "description": "Гоблін-Чарівник зі змінюваним походженням: Спритність 16, Інтелект 17, Відступ бонусною дією. Шість заклинань у книзі й три замовляння з авторського старту.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "INT",
+      "DEX",
+      "INT"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "RELIGION"
+      ],
+      "race": [],
+      "background": [
+        "NATURE"
+      ]
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DRACONIC",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "shape-water",
+        "booming-blade",
+        "prestidigitation"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [
+        "burning-hands",
+        "comprehend-languages",
+        "detect-magic",
+        "find-familiar",
+        "mage-armor",
+        "magic-missile"
+      ],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "burning-hands",
+        "detect-magic",
+        "mage-armor",
+        "magic-missile"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Автор називає чотири замовляння, а Чарівник 1-го рівня знає три: платформа залишила перші три за порядком автора, четверте (Магічна рука) можна змінити замість будь-якого з них. Шість заклинань книги взято з авторського старту. Початкову підготовку чотирьох заклинань з цієї книги ми обрали за вас: автор її не називає.",
+      "platformChoices": [
+        "classCantrips",
+        "preparedSpells"
+      ]
+    },
+    "abilityExplanation": "Автор розподіляє підвищення Гобліна як +2 до Інтелекту й +1 до Спритності (Інтелект 17, Спритність 16); це вже враховано за правилами Таші.",
+    "skillExplanation": "Автор радить Магію й Релігію від класу, а передісторія Замкненого ученого в каталозі дає Історію й Релігію: повторну Релігію ми замінили на Природу, яку називає автор. Три мови (одну від раси, дві від передісторії) ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Автор радить замість набору взяти гроші й купити обладунок, арбалет, два короткі мечі та фокус. Пресет бере набір: кинджал, арканний фокус, набір ученого та книгу заклинань ми обрали за вас, їх можна змінити."
+  }
+}

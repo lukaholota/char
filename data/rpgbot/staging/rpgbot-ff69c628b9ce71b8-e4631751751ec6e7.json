@@ -1,0 +1,712 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-extraction",
+  "canonicalUrl": "https://rpgbot.net/dnd5/characters/races/air-genasi/",
+  "contentSelector": ".entry-content",
+  "provenance": {
+    "kind": "owner-requested-crawl",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "rawHtmlHash": "e4631751751ec6e7d294da1da2beec755799902e2531a14e7e74bb4ae0afa5e6",
+  "sourceRevision": {
+    "revisionId": "rpgbot-ff69c628b9ce71b8-e4631751751ec6e7",
+    "sourceId": "rpgbot-ff69c628b9ce71b8",
+    "fetchedAt": "2026-09-29T19:26:35.333174+00:00",
+    "sourceUpdatedAt": "2025-10-29T13:44:00-04:00",
+    "contentHash": "2231b5475c69258e5016eefec15f7c4ca001b57c0baf01a28137be2f01478304",
+    "title": "Air Genasi: DnD 5e Race/Species Guide",
+    "authors": [
+      "T.E. \"RPGBOT\" Kamstra"
+    ],
+    "sourceFile": "source/rpgbot-ff69c628b9ce71b8-e4631751751ec6e7.html",
+    "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+  },
+  "sections": [
+    {
+      "sectionId": "section-introduction",
+      "heading": "Introduction",
+      "sourceAnchor": "introduction",
+      "blocks": [
+        {
+          "blockId": "block-section-introduction-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This guide is for the version of the Air Genasi published in "
+            },
+            {
+              "type": "link",
+              "text": "Monsters of the Multiverse",
+              "href": "https://www.dndbeyond.com/sources/motm/fantastical-races#AirGenasiTraits"
+            },
+            {
+              "type": "text",
+              "text": ". For the classic version of the Genasi, see our "
+            },
+            {
+              "type": "link",
+              "text": "Genasi Handbook",
+              "href": "https://rpgbot.net/dnd5/characters/races/genasi/"
+            },
+            {
+              "type": "text",
+              "text": "."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-2",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Air Genasi is a descendent of Djinni, genies from the elemental plane of\n\tair. This is reflected in their traits by above-average speed, the ability to\n\thold their breath indefinitely, lightning resistance, and innate spellcasting\n\twith a clear thematic link to the plane of air."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-introduction-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "While the Air Genasi’s traits aren’t overwhelmingly strong, their innate spellcasting is a good basis for almost any spellcaster. Shocking Grasp isn’t a great spell, but it might save you a cantrip at low levels where full casters only get two or three cantrips. Feather Fall is a staple in any party, and Levitate is a weirdly effective combination of utility and save-or-suck. Classes that aren’t full casters will likely find the Air Genasi underwhelming, but classes like the Cleric may find the Air Genasi’s spells appealing since clerics don’t get any of those spells. They also get Darkvision, which is always welcome."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-2",
+      "heading": "Table of Contents",
+      "blocks": [
+        {
+          "blockId": "block-section-2-1",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "link",
+                "text": "Introduction",
+                "href": "https://rpgbot.net/dnd5/characters/races/air-genasi/#introduction"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Understanding RPGBOT's Rating System",
+                "href": "https://rpgbot.net/dnd5/characters/races/air-genasi/#disclaimer"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ],
+            [
+              {
+                "type": "link",
+                "text": "Air Genasi Classes",
+                "href": "https://rpgbot.net/dnd5/characters/races/air-genasi/#classes"
+              },
+              {
+                "type": "text",
+                "text": "\n"
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-disclaimer",
+      "heading": "Understanding RPGBOT’s Rating System",
+      "sourceAnchor": "disclaimer",
+      "blocks": [
+        {
+          "blockId": "block-section-disclaimer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "RPGBOT uses a color coding scheme which is simple to understand and easy to read at a glance. This system is designed to help players make informed decisions for their dnd character builds."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-2",
+          "type": "list",
+          "ordered": false,
+          "items": [
+            [
+              {
+                "type": "text",
+                "text": "Red"
+              },
+              {
+                "type": "text",
+                "text": ": Bad, useless options, or options which\n\t\tare extremely situational. Nearly never useful."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Orange"
+              },
+              {
+                "type": "text",
+                "text": ": OK options, or useful options\n\t\tthat only apply in rare circumstances. Useful sometimes."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Green"
+              },
+              {
+                "type": "text",
+                "text": ": Good options. Useful often."
+              }
+            ],
+            [
+              {
+                "type": "text",
+                "text": "Blue"
+              },
+              {
+                "type": "text",
+                "text": ": Fantastic options, often essential\n\t\tto the function of your character. Useful very frequently."
+              }
+            ]
+          ],
+          "depths": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "itemKinds": [
+            "unordered",
+            "unordered",
+            "unordered",
+            "unordered"
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-3",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The advice offered below is based on the current "
+            },
+            {
+              "type": "link",
+              "text": "State of the 2014 DnD 5e Character Optimization Meta",
+              "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+            },
+            {
+              "type": "text",
+              "text": " as of when the article was last updated. Keep in mind that the state of the meta periodically changes as new source materials are released, and the article will be updated accordingly as time allows."
+            }
+          ]
+        },
+        {
+          "blockId": "block-section-disclaimer-4",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "We will not include 3rd-party content, Unearthed Arcnaa content, or homebrew in guides for official content because we can’t assume that your game will allow them."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-classes",
+      "heading": "Air Genasi Classes",
+      "sourceAnchor": "classes",
+      "blocks": [
+        {
+          "blockId": "block-section-classes-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "This section assumes that you’re using the option “"
+            },
+            {
+              "type": "link",
+              "text": "Customizing Your Origin",
+              "href": "https://www.dndbeyond.com/sources/tcoe/character-options#CustomizingYourOrigin"
+            },
+            {
+              "type": "text",
+              "text": "” rules presented in Tasha’s Cauldron of Everything. If you’re not using those rules, scroll down to the next section."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-artificer",
+      "parentSectionId": "section-classes",
+      "heading": "Artificer",
+      "sourceAnchor": "artificer",
+      "blocks": [
+        {
+          "blockId": "block-section-artificer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Artificers get all three of the Air Genasi’s spells, but artificers also have fewer spell slots than full casters, so innate spellcasting can be very helpful."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-barbarian",
+      "parentSectionId": "section-classes",
+      "heading": "Barbarian",
+      "sourceAnchor": "barbarian",
+      "blocks": [
+        {
+          "blockId": "block-section-barbarian-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Darkvision, Lightning resistance, and potentially Feather Fall are the only\n\tmeaningful things that the Air Genasi contributes to the Barbarian."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-bard",
+      "parentSectionId": "section-classes",
+      "heading": "Bard",
+      "sourceAnchor": "bard",
+      "blocks": [
+        {
+          "blockId": "block-section-bard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Bards can learn Feather Fall, but when you learn your spells permanently it’s\n\thard to spend one of your limited slots on something as unglamorous as Feather\n\tFall. The Air Genasi’s other spells are all new to the Bard. Darkvision and\n\tlightning resistance don’t hurt, either."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-cleric",
+      "parentSectionId": "section-classes",
+      "heading": "Cleric",
+      "sourceAnchor": "cleric",
+      "blocks": [
+        {
+          "blockId": "block-section-cleric-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Clerics can’t cast Darkvision and don’t get access to any of the Air Genasi’s spells, so the Air Genasi provides some great new options. Shocking Grasp as a cantrip is especially useful for tempest clerics, who can push enemies away with Thunderbolt Strike."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-druid",
+      "parentSectionId": "section-classes",
+      "heading": "Druid",
+      "sourceAnchor": "druid",
+      "blocks": [
+        {
+          "blockId": "block-section-druid-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Druids can’t cast Darkvision and don’t get access to any of the Air Genasi’s\n\tspells, so the Air Genasi provides some great new options. Druids can often\n\tuse Wild Shape to change into something with Darkvision, but most druids don’t\n\twant to do that in combat."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-fighter",
+      "parentSectionId": "section-classes",
+      "heading": "Fighter",
+      "sourceAnchor": "fighter",
+      "blocks": [
+        {
+          "blockId": "block-section-fighter-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Air Genasi’s spells are poor choices for an Eldritch Knight, which is the\n\tAir Genasi’s best fighter option. Shocking Grasp is significantly worse than\n\tstaples like Booming Blade, Eldritch Knights get 1st level spells too late and\n\tin too small numbers to spend them on Feather Fall, and the Eldritch Knight’s\n\tIntelligence is rarely good enough to justify save-or-suck spells."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-monk",
+      "parentSectionId": "section-classes",
+      "heading": "Monk",
+      "sourceAnchor": "monk",
+      "blocks": [
+        {
+          "blockId": "block-section-monk-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "Darkvision and Lightning resistance are the only meaningful things that the\n\tAir Genasi contributes to the Monk. Monks can also use Feather Fall, but\n\tthat’s what Slow Fall is for."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-paladin",
+      "parentSectionId": "section-classes",
+      "heading": "Paladin",
+      "sourceAnchor": "paladin",
+      "blocks": [
+        {
+          "blockId": "block-section-paladin-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One of the Air Genasi’s best martial options, especially if you build around\n\tBlessed Warrior. If you have decent Charisma, you can make Levitate\n\tmeaningful. The rest isn’t great, though. Shocking Grasp is worse than Sacred\n\tFlame, and while Feather Fall is a staple defensive option it’s not very\n\texciting."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-ranger",
+      "parentSectionId": "section-classes",
+      "heading": "Ranger",
+      "sourceAnchor": "ranger",
+      "blocks": [
+        {
+          "blockId": "block-section-ranger-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "One of the Air Genasi’s best martial options, especially if you build around\n\tDruidic Warrior. If you have decent Wisdom, you can make Levitate meaningful.\n\tThe rest isn’t great, though. Feather Fall is nice, but it doesn’t help you\n\tactively accomplish anything."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-rogue",
+      "parentSectionId": "section-classes",
+      "heading": "Rogue",
+      "sourceAnchor": "rogue",
+      "blocks": [
+        {
+          "blockId": "block-section-rogue-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The best thing that the Air Genasi can do for the Rogue is to Levitate them\n\tout of melee."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-sorcerer",
+      "parentSectionId": "section-classes",
+      "heading": "Sorcerer",
+      "sourceAnchor": "sorcerer",
+      "blocks": [
+        {
+          "blockId": "block-section-sorcerer-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Air Genasi’s spells are all available to the Sorcerer, but on a class\n\twhich is so strictly limited by its tiny number of spells known, the innate\n\tspellcasting is a huge benefit. You can also use Twinned Spell with Levitate,\n\twhich is hillariously effective."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-warlock",
+      "parentSectionId": "section-classes",
+      "heading": "Warlock",
+      "sourceAnchor": "warlock",
+      "blocks": [
+        {
+          "blockId": "block-section-warlock-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Warlock doesn’t get access to Feather Fall or Levitate (except via an\n\tinvocation which only works on the Warlock), and with the Warlock’s limited\n\tspell slots, innate spellcasting is always a welcome addition."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sectionId": "section-wizard",
+      "parentSectionId": "section-classes",
+      "heading": "Wizard",
+      "sourceAnchor": "wizard",
+      "blocks": [
+        {
+          "blockId": "block-section-wizard-1",
+          "type": "paragraph",
+          "content": [
+            {
+              "type": "text",
+              "text": "The Air Genasi’s innate spellcasting is all easily available to the Wizard,\n\tDarkvision is easy to get from a spell, and Lightning Resistance can be\n\treplace by Absorbed Elements."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-red Red"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-orange Orange"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-green Green"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "li/span[1]",
+      "detail": "rating-blue Blue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Artificer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Barbarian"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Bard"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Cleric"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Druid"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Fighter"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-red Monk"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Paladin"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Ranger"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Rogue"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-green Sorcerer"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-blue Warlock"
+    },
+    {
+      "code": "rating-signal-review",
+      "location": "h3/a[1]",
+      "detail": "rating-orange Wizard"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[1]",
+      "detail": "block-section-introduction-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[2]",
+      "detail": "block-section-introduction-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[3]",
+      "detail": "block-section-introduction-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/h2[1]",
+      "detail": "section-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-2-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[4]",
+      "detail": "block-section-disclaimer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/ul[1]",
+      "detail": "block-section-disclaimer-2"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[5]",
+      "detail": "block-section-disclaimer-3"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[6]",
+      "detail": "block-section-disclaimer-4"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[7]",
+      "detail": "block-section-classes-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[8]",
+      "detail": "block-section-artificer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[9]",
+      "detail": "block-section-barbarian-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[10]",
+      "detail": "block-section-bard-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[11]",
+      "detail": "block-section-cleric-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[12]",
+      "detail": "block-section-druid-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[13]",
+      "detail": "block-section-fighter-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[14]",
+      "detail": "block-section-monk-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[15]",
+      "detail": "block-section-paladin-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[16]",
+      "detail": "block-section-ranger-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[17]",
+      "detail": "block-section-rogue-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[18]",
+      "detail": "block-section-sorcerer-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[19]",
+      "detail": "block-section-warlock-1"
+    },
+    {
+      "code": "provisional-id",
+      "location": "div/p[20]",
+      "detail": "block-section-wizard-1"
+    }
+  ],
+  "metrics": {
+    "words": 887,
+    "sections": 17,
+    "blocks": 22,
+    "tables": 0,
+    "ratingSignals": 17
+  },
+  "status": "needs-editorial-review"
+}

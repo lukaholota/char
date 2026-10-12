@@ -18,6 +18,7 @@ vi.mock("@/components/no-ai/NoAiModeProvider", () => ({
 }));
 vi.mock("@/server/db/pers-search-actions", () => ({ searchUserPersAndFolders: vi.fn(async () => []) }));
 vi.mock("@/server/db/homebrew-search-actions", () => ({ searchHomebrewEntries: vi.fn(async () => []) }));
+vi.mock("@/lib/search/rpgbotSectionSearch", () => ({ fetchRpgbotSectionMatches: vi.fn(async () => []) }));
 vi.mock("@/lib/monitoring/posthog-client", () => ({ capturePostHogEvent: vi.fn() }));
 
 afterEach(() => {
@@ -135,13 +136,20 @@ describe("подія search_performed", () => {
     await act(() => vi.advanceTimersByTimeAsync(SEARCH_IDLE_MS));
   }
 
-  it("порожня видача не передає текст запиту", async () => {
+  it("порожня видача передає нормалізований текст запиту, обрізаний до 80 символів", async () => {
     vi.useFakeTimers();
     const input = renderPanel();
-    await typeAndWaitForEvent(input, "  щзфхъжэ ");
+    await typeAndWaitForEvent(input, "  ЩЗФХЪЖЭ   щзф ");
 
-    expect(findSearchEvents()).toEqual([["search_performed", expect.objectContaining({ result_count: 0 })]]);
-    expect(findSearchEvents()[0]?.[1]).not.toHaveProperty("query");
+    expect(findSearchEvents()).toEqual([["search_performed", expect.objectContaining({ result_count: 0, query: "щзфхъжэ щзф" })]]);
+  });
+
+  it("надто довгий запит без результатів обрізається до 80 символів", async () => {
+    vi.useFakeTimers();
+    const input = renderPanel();
+    await typeAndWaitForEvent(input, "щ".repeat(120));
+
+    expect(findSearchEvents()[0]?.[1]).toMatchObject({ query_length: 120, query: "щ".repeat(80) });
   });
 
   it("видача з результатами не передає текст запиту", async () => {

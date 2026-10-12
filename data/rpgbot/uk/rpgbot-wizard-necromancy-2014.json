@@ -1,0 +1,1798 @@
+{
+  "sources": [
+    {
+      "sourceId": "rpgbot-9502872b0d287341",
+      "rulesets": [
+        "RULES_2014"
+      ]
+    }
+  ],
+  "sourceRevisions": [
+    {
+      "revisionId": "rpgbot-9502872b0d287341-954de81461e34256",
+      "sourceId": "rpgbot-9502872b0d287341",
+      "fetchedAt": "2026-09-29T19:17:47.962393+00:00",
+      "sourceUpdatedAt": "2026-03-14T16:46:55-04:00",
+      "contentHash": "711928bf3c8dff93644defb40e6de222695a63ba2c41570aa7bb3b272b6b3d15",
+      "title": "School of Necromancy Wizard 5e: DnD 5e Subclass Guide",
+      "authors": [
+        "Random Powell"
+      ],
+      "sourceFile": "source/rpgbot-9502872b0d287341-954de81461e34256.html",
+      "evidence": "Owner explicitly requested the RPGbot full-text crawl on 2026-09-29"
+    }
+  ],
+  "article": {
+    "articleId": "rpgbot-wizard-necromancy-2014",
+    "sourceId": "rpgbot-9502872b0d287341",
+    "slug": "wizard-necromancy-2014",
+    "ruleset": "RULES_2014",
+    "titleUk": "Школа некромантії — гайд підкласу Чарівника (2014)",
+    "titleEn": "School of Necromancy Wizard 5e: DnD 5e Subclass Guide",
+    "topics": [
+      "Чарівник",
+      "Школа некромантії",
+      "некромант",
+      "підклас",
+      "приклад збірки"
+    ],
+    "status": "unpublished"
+  },
+  "translations": [
+    {
+      "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+      "articleId": "rpgbot-wizard-necromancy-2014",
+      "sourceRevisionId": "rpgbot-9502872b0d287341-954de81461e34256",
+      "status": "draft",
+      "sections": [
+        {
+          "sectionId": "section-introduction",
+          "heading": "Вступ",
+          "sourceAnchor": "introduction",
+          "blocks": [
+            {
+              "blockId": "block-section-introduction-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Є кілька класів з улюбленцями, як-от "
+                },
+                {
+                  "type": "link",
+                  "text": "Звіролов",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/ranger/subclasses/beast-master/"
+                },
+                {
+                  "type": "text",
+                  "text": " і "
+                },
+                {
+                  "type": "link",
+                  "text": "Бойовий коваль",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/artificer/subclasses/battle-smith/"
+                },
+                {
+                  "type": "text",
+                  "text": ", але жоден із них не розвʼязує проблему бажання мати так багато улюбленців, що їх більше, ніж персонажів гравців. Зустрічайте Чарівника {{Школи некромантії|School of Necromancy}}, більш відомого як некромант."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Отже, насамперед, ви, мабуть, одразу подивитеся на це речення й скажете: «Але, Random, а як тоді решті моєї групи буде весело в бою?» По-перше, я згоден, і відповідь, можливо, така: попросити когось із них зіграти "
+                },
+                {
+                  "type": "link",
+                  "text": "Паладина-Клятвопорушника",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/paladin/subclasses/oathbreaker/"
+                },
+                {
+                  "type": "text",
+                  "text": ", щоб вони теж долучилися до нежитьової «золотої жили». По-друге, це розмова, яку неодмінно слід провести з вашою компанією на нульовій сесії{{session zero}}, щоб переконатися, що ніхто не почуватиметься тим, хто нічого не вносить, а також дати зрозуміти, що ви усвідомлюєте: ситуація може змінитися в майбутньому, і ви готові бути гнучкими."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Утім, Чарівник {{Школи некромантії|School of Necromancy}} — напрочуд потужне доповнення до групи, бо дає те, що вміють мало які інші чарівники: живучість групи. Якщо ви підставляєте ворогам для атаки тіла, що не належать персонажам гравців, ви не даєте цій шкоді дістатися їм. Починаючи з 6-го рівня, якщо проігнорувати час на підготовку й просто подумати про накладання Підіймання мерців [Animate Dead] заради уміння «утримувати контроль над 4 скелетами», це слот заклинання 3-го рівня, щоб запобігти приблизно 76 шкоди людям, яких, на відміну від ваших скелетів, не можна просто знову підняти в тій самій формі пізніше без жодних витрат, крім ще одного заклинання 3-го рівня."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-introduction-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У 5e, безумовно, немає абсурдної здатності керувати арміями нежиті, яка була в 3.x (персонаж, якого я колись створив як розумовий експеримент, міг командувати чимось на кшталт 80 000 кубиків здоровʼя скелетів на 20-му рівні, і всі вони були імунні до шкоди від холоду й вогню та, помираючи, вибухали, завдаючи шкоди живим істотам і лікуючи іншу нежить поблизу), але цей гайд проведе вас крізь те, як витиснути максимум із цього неймовірно популярного мотиву."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-2",
+          "heading": "Зміст",
+          "blocks": [
+            {
+              "blockId": "block-section-2-1",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "link",
+                    "text": "Вступ",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#introduction"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Як читати оцінки RPGbot",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#disclaimer"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Уміння Школи некромантії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#features"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики Школи некромантії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#school-of-necromancy-ability-scores"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раси Школи некромантії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#school-of-necromancy-races"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси Школи некромантії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#school-of-necromancy-feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Зброя Школи некромантії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#school-of-necromancy-weapons"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Обладунки Школи некромантії",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#school-of-necromancy-armor"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Мультикласування",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#multiclassing"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Приклад збірки некроманта — «Наказ королеви: шість повʼязаних слуг»",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#example-necromancer-build-the-queen-decrees-six-linked-minions"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Характеристики",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#abilities"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Раса",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#race"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Передісторія",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#background"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Навички й інструменти",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#skills-and-tools"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Риси",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#feats"
+                  }
+                ],
+                [
+                  {
+                    "type": "link",
+                    "text": "Рівні",
+                    "href": "https://rpgbot.net/dnd5/characters/classes/wizard/subclasses/necromancy/#levels"
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-disclaimer",
+          "heading": "Як читати оцінки RPGbot",
+          "sourceAnchor": "disclaimer",
+          "blocks": [
+            {
+              "blockId": "block-section-disclaimer-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "RPGbot використовує кольорову шкалу, яку легко зрозуміти й швидко переглянути. Вона допомагає гравцям свідомо обирати варіанти для своїх персонажів D&D."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-2",
+              "type": "list",
+              "ordered": false,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Червоний: погані, марні або вкрай ситуативні варіанти. Майже ніколи не корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Помаранчевий: прийнятні варіанти або корисні лише за рідкісних обставин. Іноді стають у пригоді."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Зелений: хороші варіанти. Часто корисні."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Синій: чудові варіанти, нерідко необхідні для роботи персонажа. Дуже часто корисні."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "unordered",
+                "unordered",
+                "unordered",
+                "unordered"
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Наведені нижче поради спираються на поточний "
+                },
+                {
+                  "type": "link",
+                  "text": "стан оптимізації персонажів D&D 5e 2014",
+                  "href": "https://rpgbot.net/dnd5/characters/state-of-the-meta/"
+                },
+                {
+                  "type": "text",
+                  "text": " на момент останнього оновлення статті. Памʼятайте: цей стан час від часу змінюється з виходом нових матеріалів, і статтю буде оновлено відповідно, наскільки дозволить час."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-disclaimer-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "У гайдах за офіційними матеріалами ми не розглядаємо матеріали сторонніх видавців, «Відкритої Аркани»{{Unearthed Arcana}} чи домашні правила, бо не можемо припускати, що вони дозволені у вашій грі."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-features",
+          "heading": "Уміння Школи некромантії",
+          "sourceAnchor": "features",
+          "blocks": [
+            {
+              "blockId": "block-section-features-1",
+              "type": "list",
+              "ordered": true,
+              "items": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Знавець некромантії{{Necromancy Savant}}: стандартне для підкласів Чарівника з PHB. Дивно, але це уміння спонукає використовувати два безкоштовні заклинання, вивчені на кожному рівні, на буквально будь-що, крім заклинань вашої улюбленої школи."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Похмурі жнива{{Grim Harvest}}: {{за правилами як написано|RAW}} це можна використати на будь-якій істоті, тож ніщо не заважає носити мішок щурів, щоб «жати» їх, коли потрібні ХП. На жаль, заклинань Некромантії з рівнями, що можуть убити істоту, небагато, і багато з них слабкі. Варіант найнижчого рівня — Промінь хвороби [Ray of Sickness]. Для максимальної ефективності накладайте заклинання з рівнями з довгими тривалостями й триваючою шкодою на кшталт Вампіричний дотик [Vampiric Touch], а тоді вбивайте по щуру за хід. Вампіричний дотик [Vampiric Touch] також лікує сам по собі, тож можна поєднати його з трюком із мішком щурів, щоб лікуватися двічі (хоч Вампіричний дотик [Vampiric Touch] не може вилікувати вас більше за ХП цілі, а у щурів 1 ХП). Є певна неоднозначність щодо того, як це працює із заклинанням Виклик немертвого [Summon Undead]. Виклик немертвого [Summon Undead] — заклинання некромантії, а викликана істота — «ефект» заклинання, тож убивство істоти вашою викликаною нежиттю може кваліфікуватися для запуску «Похмурих жнив». Як Майстер, я б цього не дозволив, бо атаки істоти — не саме заклинання, і бо дозвіл на це одразу став би проблемою. У тому ж дусі: ефект Підіймання мерців [Animate Dead] — створити нежить. Те, що ця істота щось убиває, не є частиною ефекту заклинання й тому не кваліфікується."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Немертві прислужники{{Undead Thralls}}: додаткові ХП і шкода зроблять ваших улюблених нежитей значно смертоноснішими. Памʼятайте, що більша кількість нежиті вимагатиме щодня витрачати більше слотів заклинань, щоб тримати її під контролем, тож не заводьте забагато. Натомість зосередьтеся на кількох нежитях, на яких можна покластися і яких можна переміщати без надмірних клопотів. Допомогу з відповідними заклинаннями дивіться в нашому "
+                  },
+                  {
+                    "type": "link",
+                    "text": "практичному гайді з оживлення мертвих",
+                    "href": "https://rpgbot.net/dnd5/characters/spells/animating-the-dead/"
+                  },
+                  {
+                    "type": "text",
+                    "text": ". На жаль, схоже, це не працює із заклинанням Виклик немертвого [Summon Undead]. Виклик немертвого [Summon Undead] "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "викликає"
+                  },
+                  {
+                    "type": "text",
+                    "text": " нежить, а «Немертві прислужники» діють лише якщо ви "
+                  },
+                  {
+                    "type": "emphasis",
+                    "text": "створюєте"
+                  },
+                  {
+                    "type": "text",
+                    "text": " нежить."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Призвичаєність до нежиті{{Inured to Undeath}}: ситуативне, але тематично доречне. Немає заклинань, що дозволяють узяти під контроль нежить, на яку ви натрапили, або відновити контроль над нежиттю, яку ви створили, після втрати контролю, тож іноді ви наштовхуватиметеся на тінь чи щось подібне й муситимете справді з нею битися. «Підкорення нежиті»{{Command Undead}} дещо зменшує цей ризик, але ним можна контролювати лише одну нежить за раз, тож нежить, що може зменшувати максимум ваших ХП, лишається ризиком. Імунітет до зменшення ХП, хоч і призначений для усунення поширеного побічного ефекту атак нежиті, не обмежується цими атаками: ви все одно імунні до зменшення ХП з інших джерел. Наприклад, заклинання Створення гомункулу [Create Homunculus] і Створення магена [Create Magen] обидва вимагають зменшити максимум ваших ХП як частину заклинань. Імунітет до зменшення ХП усуває цю ціну, тож ваш гомункул може постійно мати половину ваших кубиків здоровʼя без втрат для максимуму ХП, і доки у вас є золото, ви можете створити невелику армію магенів, що служитимуть вам там, де нежить може не впоратися (тобто майже скрізь, де є живі люди). Я не думаю, що така взаємодія правил була навмисною, тож ваш Майстер може бути не в захваті. Будь ласка, будьте обережні й не зловживайте цим надто сильно."
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підкорення нежиті{{Command Undead}}: дуже корисна здібність, якщо у вас є вороги, що командують нежиттю чи самі є нежиттю, але те, що розумна нежить (дуже поширена до цього рівня) отримує Перевагу на кубику на ряткидок, ускладнює ефективне використання цієї здібності. Деякі нежиті з високим ПН на кшталт Нічного блукача спокушають як цілі, але якщо ви не шукаєте їх активно (а ваш Майстер не настільки легковажний, щоб дозволити вам знайти й поневолити одного), ви не можете розраховувати, що просто натрапите на придатну ціль."
+                  }
+                ]
+              ],
+              "depths": [
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "itemKinds": [
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered",
+                "ordered"
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-necromancy-ability-scores",
+          "heading": "Характеристики Школи некромантії",
+          "sourceAnchor": "school-of-necromancy-ability-scores",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-necromancy-ability-scores-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Нічим не відрізняється від будь-якого іншого чарівника."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-necromancy-ability-scores-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Сила{{Str}}: ми не мускульний чарівник. Накладання «Стиснутого кулака» ми залишаємо Чарівникам Бойової магії."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-necromancy-ability-scores-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Спритність{{Dex}}: ми не можемо носити обладунки, тож підвищуйте її настільки, наскільки дозволяє ваш бюджет."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-necromancy-ability-scores-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Статура{{Con}}: усе любить більше Статури."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-necromancy-ability-scores-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Інтелект{{Int}}: заклинання Чарівника живляться Інтелектом, а ще він робить вас обізнаним у багатьох речах."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-necromancy-ability-scores-6",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Мудрість{{Wis}}: чарівники рідко замислюються, чи варто щось робити, після того як дізналися, що вони на це здатні."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-necromancy-ability-scores-7",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Харизма{{Cha}}: занедбайте."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-necromancy-ability-scores-8",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Купівля характеристик"
+                  }
+                ],
+                [
+                  {
+                    "type": "strong",
+                    "text": "Стандартний набір"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-necromancy-races",
+          "heading": "Раси Школи некромантії",
+          "sourceAnchor": "school-of-necromancy-races",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-necromancy-races-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Я можу згадати лише одну расу, яка чимось відрізняється від інших чарівників, і, ого-го, це дурнувато. Скелети майже нічого не важать. Дерево дешеве. Ніщо абсолютно не заважає вам підвищити Силу замість Спритності й узяти володіння обладунками від мультикласового рівня на кшталт Винахідника{{Artificer}} чи від риси. Якщо ви так зробите, можна стати Кентавром{{Centaur}} і перетворити себе на транспортну систему, "
+                },
+                {
+                  "type": "link",
+                  "text": "несучи на спині платформу",
+                  "href": "https://www.youtube.com/watch?v=3lSs89GQhGU"
+                },
+                {
+                  "type": "text",
+                  "text": ", до якої ви привʼяжете своїх скелетів, озброєних {{короткими луками|Shortbow}}. Це прибирає зі збірки аспект живучості групи й перетворює вас на мандрівну артилерійську гармату, що я неодмінно зробив би для ваншота{{oneshot}}, але для справжньої кампанії це, мабуть, не найкраща ідея."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-necromancy-feats",
+          "heading": "Риси Школи некромантії",
+          "sourceAnchor": "school-of-necromancy-feats",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-necromancy-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Здебільшого такі самі, як у "
+                },
+                {
+                  "type": "link",
+                  "text": "звичайних чарівників",
+                  "href": "https://rpgbot.net/dnd5/characters/classes/wizard/#feats"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-school-of-necromancy-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "«Надихаючий лідер»{{Inspiring Leader}} дивним чином виявляється корисним для некроманта з улюбленцями. Хоч ваша Харизма невелика, щойно ви довели Інтелект до межі й отримали «Стійкого (Статура)»{{Resilient (Con)}}, у вас зʼявляється трохи простору. Використання його, щоб дати тимчасові ХП не лише вашій групі, а й кільком скелетам, запобігає ще більшій вхідній шкоді. Окрім цього, нічим не відрізняється від інших чарівників."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-necromancy-weapons",
+          "heading": "Зброя Школи некромантії",
+          "sourceAnchor": "school-of-necromancy-weapons",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-necromancy-weapons-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На відміну від більшості чарівників, ви справді захочете купувати зброю. Але, як і більшість чарівників, самі нею користуватися не станете. Оскільки будь-який «монстр» вважається таким, що володіє всім, що є в його статблоці, додатковий {{короткий меч|Shortsword}} для кожного вашого скелета збільшить його DPR майже на 50%. У вас немає способу дати їм Бойовий Стиль{{fighting style}} на +2 до шкоди, але уміння «Немертві прислужники»{{Undead Thralls}} і так дасть їм масштабовану шкоду (до +6 за влучання), що робить цей додатковий меч значно важливішим."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-school-of-necromancy-armor",
+          "heading": "Обладунки Школи некромантії",
+          "sourceAnchor": "school-of-necromancy-armor",
+          "blocks": [
+            {
+              "blockId": "block-section-school-of-necromancy-armor-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Ви самі не носите жодного, а от ваші слуги цілком можуть. Як зазначив Рокко в нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "Практичному гайді з оживлення мертвих",
+                  "href": "https://rpgbot.net/dnd5/characters/spells/animating-the-dead/"
+                },
+                {
+                  "type": "text",
+                  "text": ", у них Спритність 14, що чудово заповнює середні обладунки, тож ви можете й маєте відправляти кожного скелета з КБ 16."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-multiclassing",
+          "heading": "Мультикласування",
+          "sourceAnchor": "multiclassing",
+          "blocks": [
+            {
+              "blockId": "block-section-multiclassing-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Тут коротко розглянуто кілька очевидних і привабливих варіантів поєднання класів, але не весь широкий набір можливих комбінацій. Докладніше — у нашому "
+                },
+                {
+                  "type": "link",
+                  "text": "практичному гайді з мультикласування",
+                  "href": "https://rpgbot.net/dnd5/characters/multiclassing"
+                },
+                {
+                  "type": "text",
+                  "text": "."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-multiclassing-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Єдине, що ви реально могли б зробити, — самим мультикласувати в {{Паладина-Клятвопорушника|Oathbreaker Paladin}}, але це робить вас вкрай залежним від багатьох характеристик (MAD) і не дозволяє накласти Бажання [Wish], якщо хочете дійти до «Аури ненависті»{{Aura of Hate}}. Здебільшого просто не мультикласуйте, хіба що спершу візьмете один рівень Винахідника{{Artificer}} заради володінь і Лікування ран [Cure Wounds]."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+          "heading": "Приклад збірки некроманта — «Наказ королеви: шість повʼязаних слуг»",
+          "sourceAnchor": "example-necromancer-build-the-queen-decrees-six-linked-minions",
+          "blocks": [
+            {
+              "blockId": "block-section-example-necromancer-build-the-queen-decrees-six-linked-minions-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "emphasis",
+                  "text": "Якби ти був моїм творінням, звірюко, ти б не впав так легко."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-example-necromancer-build-the-queen-decrees-six-linked-minions-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Якщо ви памʼятаєте ту пораду взяти «Надихаючого лідера»{{Inspiring Leader}}, то пригадаєте, що його ефекти можуть цілити до 6 дружніх істот. Чи варто натомість використовувати його на членах групи? Імовірно, так. Але, можливо, це ваш персонаж для сольної кампанії, можливо, ви просто хочете, щоб ваші скелети жили довго, або, можливо, у вашій групі немає танка, тож ви заповнюєте цю прогалину скелетами."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-abilities",
+          "parentSectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+          "heading": "Характеристики",
+          "sourceAnchor": "abilities",
+          "blocks": [
+            {
+              "blockId": "block-section-abilities-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Щоб «Надихаючий лідер»{{Inspiring Leader}} працював, характеристики мають бути дивними."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-abilities-2",
+              "type": "table",
+              "headers": [
+                [],
+                [
+                  {
+                    "type": "text",
+                    "text": "Базове значення"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Підвищене значення"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Спритність"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Статура"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Інтелект"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Мудрість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "Харизма"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-race",
+          "parentSectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+          "heading": "Раса",
+          "sourceAnchor": "race",
+          "blocks": [
+            {
+              "blockId": "block-section-race-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Фея{{Fairy}} — дуже безпечний вибір із кількох причин. Вона має вроджений політ, що тримає нас подалі від ближнього бою, тип істоти Фея{{Fey}} — добрий захист від стримування/підкорення, і, що важливо, вона дає Вогники фей [Faerie fire]. Це так важливо для нас тому, що Вогники фей [Faerie fire] — один із небагатьох мультиплікативних модифікаторів для атак слуг, а більше шкоди — завжди добре."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-background",
+          "parentSectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+          "heading": "Передісторія",
+          "sourceAnchor": "background",
+          "blocks": [
+            {
+              "blockId": "block-section-background-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Оскільки я не хочу ставити Мудреця{{Sage}} у двох гайдах поспіль, візьміть {{Загубленого у Світі Фей|Feylost}} і замініть навички на дві навички Інтелекту. Тепер ви — провідник пророчих вкидів лору від Майстра, оформлених так, ніби вам телефонує друг чи член родини з-за завіси Світу Фей."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-skills-and-tools",
+          "parentSectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+          "heading": "Навички й інструменти",
+          "sourceAnchor": "skills-and-tools",
+          "blocks": [
+            {
+              "blockId": "block-section-skills-and-tools-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Між класом і передісторією ми можемо вийти з Магією, Історією, Природою й Релігією, щоб знати все на світі. Також у нас буде одне володіння інструментом, яке можна віддати на що завгодно. Зі Спритністю 16 ми могли б узяти Інструменти злодія{{Thieves’ Tools}} і виконувати щось на кшталт ролі розвідника, особливо пізніше, коли отримаємо доступ до основних заклинань Чарівника на кшталт Арканне око [Arcane eye]. Якщо ви підете цим шляхом, імовірно, відмовтеся від Природи чи Релігії — тієї, до якої має доступ ваш божественний заклинач, — і візьміть Розслідування."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-feats",
+          "parentSectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+          "heading": "Риси",
+          "sourceAnchor": "feats",
+          "blocks": [
+            {
+              "blockId": "block-section-feats-1",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 4-му рівні беремо «Телекінетика»{{Telekinetic}}, щоб завжди мати що робити бонусною дією. Хотілося б, щоб існувала ще одна гібридна риса, яка давала б таку можливість, але такої немає, а цей клас/підклас її не дає."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-2",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 8-му рівні Інтелект сягає межі в 20."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-3",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 12-му рівні отримуємо «Надихаючого лідера»{{Inspiring Leader}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-4",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 16-му рівні отримуємо «Стійкого (Статура)»{{Resilient (Con)}}."
+                }
+              ]
+            },
+            {
+              "blockId": "block-section-feats-5",
+              "type": "paragraph",
+              "content": [
+                {
+                  "type": "text",
+                  "text": "На 19-му рівні отримуємо «Удачу»{{Lucky}}, щоб не провалювати критичні ряткидки, які на високих рівнях стають дуже страшними."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "section-levels",
+          "parentSectionId": "section-example-necromancer-build-the-queen-decrees-six-linked-minions",
+          "heading": "Рівні",
+          "sourceAnchor": "levels",
+          "blocks": [
+            {
+              "blockId": "block-section-levels-1",
+              "type": "table",
+              "headers": [
+                [
+                  {
+                    "type": "text",
+                    "text": "Рівні"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Риси та уміння"
+                  }
+                ],
+                [
+                  {
+                    "type": "text",
+                    "text": "Примітки й тактика"
+                  }
+                ]
+              ],
+              "rows": [
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "1"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Чаротворство\nЗамовляння:\n– Ремесло друїдів (від раси)\n– Вогняний заряд\n– Розщеплення Розуму\n– Штукарство\nЗаклинання 1-го рівня:\n– Розуміння мов\n– Пошук фамільяра\n– Обладунок мага\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічний дротик",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/magic-missile/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Сон\nЗнавець некромантії\nМагічне відновлення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні тактика не така вже цікава. Літайте над боями й стріляйте по речах із легкого арбалета{{Light Crossbow}}. Стоп, із легкого арбалета? Так, 1к6+3 у середньому дає 6,5, а Вогняний заряд [Fire Bolt] лише 5,5. До того ж це різко піднімає нижню межу шкоди, що дуже допомагає в боях низького рівня. Ми беремо Обладунок мага [Mage Armor] тут, щоб не забути мати його на пізніших рівнях, коли більше істот літає й має дальні атаки. Але до того часу ми ним особливо не користуватимемося, тож сміливо витрачайте кілька слотів заклинань на Сон [Sleep] проти великих натовпів або на Сріблясті шпильки [Silvery Barbs], щоб урятувати членів групи від випадкових критів. Візьміть стартове золото й вийдіть із арбалетом, {{мішечком із компонентами|component pouch}} та книгою заклинань."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "2"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Похмурі жнива\nНові заклинання:\n– Поглинання стихій\n– Щит"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "На цьому рівні ви цілком могли б очікувати, що я порекомендую взяти Промінь хвороби [Ray of Sickness], щоб запустити покращену версію «Похмурих жнив»{{Grim Harvest}}. Річ у тім, що він "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "справді поганий"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Потрібен кидок атаки для влучання, потім він завдає менше шкоди, ніж Кольорова кулька [Chromatic Orb], і це має бути тип шкоди, до якого в грі опір трапляється найчастіше, а далі він вимагає ряткидка Статури (найвищого типу, постійно, після ПН 2), щоб накласти стан, до якого багато істот, знову ж, імунні. Просто не беріть."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "3"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові заклинання:\n– Вогники фей (від раси)\n– Земляна хватка Максиміліана\n– Уявна сила"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Вогники фей [Faerie fire], імовірно, стане вашим основним заклинанням із Концентрацією проти кількох цілей, особливо з огляду на те, що одне безкоштовне ви отримуєте щодня. Це не контроль, але воно безперечно підсилює шкоду групи, а це друге за цінністю. Тож нам лишається тільки контроль одиничної цілі, і його ми отримуємо з двома чудовими «пройди-ряткидок-або-страждай»{{save-or-suck}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "4"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Телекінетик (Інтелект)\nНове відоме замовляння:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Магічна рука",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/mage-hand/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nНові заклинання:\n– Невидимість\n– Вʼянення і цвітіння"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Оскільки ми можемо брати наші класові уміння в будь-якому порядку, ми спершу беремо Магічна рука [Mage Hand], а тоді «Телекінетика»{{Telekinetic}}, щоб збільшити дальність і отримати всі інші звичні переваги. Вʼянення і цвітіння [Wither and Bloom] — чудова заміна для Сон [Sleep] у вашому списку підготовлених заклинань. Шкода, на жаль, і далі цілить у ряткидок Статури, але це може бути продовженням Вогнекуля [Fireball], який ми отримуємо на наступному рівні, у надії добити решту ворогів і відповідно вилікувати нас. Також воно дозволяє трохи лікувати в бою. У ньому не вказано, що обрана істота має бути при тямі, щоб скористатися цим ефектом, тож його цілком можна використати, щоб підняти на ноги повалену істоту з групи, доки в неї лишаються кубики здоровʼя. Особливо корисно, щоб цілитель, який упав, не мусив воскресати в місті."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "5"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання:\n– Збільшення/Зменшення (від раси)\n– Вогнекуля\n– Прискорення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Прискорення [Haste] — цікавий вибір для цього персонажа. Очевидно, він добрий для багатьох типів членів групи. Цікаво, що це також може бути добрим вибором, щоб збільшити швидкість слуги, скажімо, того єдиного скелета, якого вам вдалося дуже добре екіпірувати повним обладунком і двома мечами, а може, навіть магічним мечем, якщо ви знайшли таку масу заліза, що нікому іншому вона не знадобилася. Ви помітите, що Леомундова крихітна хатинка [Leomund's Tiny Hut] тут не зʼявляється. Можна витратити гроші, щоб занести його до книги й накладати як ритуал, але памʼятайте, що у вас є 4 постійні охоронці, яким не треба спати."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "6"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Немертві прислужники\nНові заклинання:\n– Підіймання мерців (безкоштовно)\n– Вампіричний дотик\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Виклик немертвого",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-undead"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ого, ну й рівень. Передусім «Немертві прислужники»{{Undead Thralls}} вмикаються, "
+                    },
+                    {
+                      "type": "emphasis",
+                      "text": "разюче"
+                    },
+                    {
+                      "type": "text",
+                      "text": " збільшуючи шкоду й живучість скелетів, яких ми тепер можемо створювати за допомогою Підіймання мерців [Animate Dead] — заклинання, яке ми на цьому рівні також отримуємо безкоштовно. Як зазначав Рокко, підійдуть будь-які кістки, навіть кістки, що вже були скелетом, який після смертельної шкоди розсипався назад на купу розрізнених кісток. Оскільки одним слотом заклинання 3-го рівня ми можемо контролювати 4 з них, а таких слотів на день у нас два, витратьте день на двократне накладання, щоб щоразу оживляти по двох, а потім витрачайте по одному слоту на день на утримання контролю. Я згадував, що «Телекінетик»{{Telekinetic}} добрий тим, що завжди є що робити бонусною дією. Ви можете глянути на витрату бонусної дії на перенаправлення скелетів і подумати, що робитимете це часто. Річ у тім, що вони й надалі виконуватимуть останній наказ, який ви їм дали, доки не віддасте новий. Скелети мають Інтелект 6, а це означає, що вони розуміють, наприклад, якщо ви скажете їм «атакуйте все, на що я вкажу», і тоді вам лише треба показувати на речі, а це не дія. Якщо це здається вам надто схожим на читерство, «стійте поруч із [членом групи] й атакуйте будь-кого, хто намагається йому зашкодити» — єдиний наказ без визначеного завершення. Схоже, WotC, можливо, намагалися зробити так, щоб ви частіше витрачали бонусну дію на керування скелетами, але вони напевно залишили формулювання достатньо розпливчастим, щоб вам не доводилося. Це лишає вам по слоту на день, щоб "
+                    },
+                    {
+                      "type": "link",
+                      "text": "викликати скелета-мага",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/summoning/#summon-undead"
+                    },
+                    {
+                      "type": "text",
+                      "text": ". Починаючи з наступного рівня, вам не доведеться покладатися на «мертвий рахунок»{{dead reckoning}}, щоб довести групу куди треба, завдяки Арканне око [Arcane eye]."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "7"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання:\n– Арканне око\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Перевтілення",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/polymorph/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Арканне око [Arcane eye] — одне з найкращих заклинань розвідки в грі. Тепер ви можете накреслити карту цілого підземелля, перш ніж зайти всередину. У багатьох дверей є щілина в 1 дюйм на самих дверях чи довкола них, навіть якщо це просто замкова щілина чи прогалина між дверима й підлогою. Перевтілення [Polymorph], з іншого боку, дозволяє прийняти статблок. Колорит нічого не коштує, і ніщо не заважає перетворити себе чи одного зі своїх слуг на скелетну версію звіра, що має статблок, ідентичний нескелетній версії. Однак я порекомендую використати цей слот, щоб накласти Виклик немертвого [Summon Undead] вищим рівнем. Це дасть вашому слузі більше здоровʼя, але, що важливіше, — додаткову атаку. Також памʼятайте, що ваш скелет-маг тримається цілу годину, перш ніж розсипатися на порох, тож його дуже легко протягнути крізь кілька боїв і помножити цінність слота заклинання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "8"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Покращення Характеристик (Інтелект 18 → 20)\nНові заклинання:\n– Чорні щупальця Еварда\n– Форма каменю"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Окрім того, що тепер можна стати "
+                    },
+                    {
+                      "type": "link",
+                      "text": "скелетом тиранозавра",
+                      "href": "https://www.youtube.com/watch?v=9QuZ-veeqCo"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", для цього персонажа на цьому рівні немає нічого особливо цікавого. Ми додаємо заклинання контролю по області й інструмент на майбутнє, але, як і на минулому рівні, я знову поговорю про цінність накладання вищими слотами. Якщо ви використаєте слот 4-го рівня для Підіймання мерців [Animate Dead], одним заклинанням можна контролювати 6 скелетів/зомбі. Ці 6 повʼязаних скелетів стають чудовими «мʼясними щитами», а спрямувати цих хижаків у шаленство на нову ціль потребує лише бонусної дії. З огляду на це, швидкість слуг, про яку я говорив раніше, і множник шкоди слуг від Вогників фей [Faerie fire], ви, по суті, готові. Ваші скелети лише ставатимуть міцнішими завдяки масштабуванню з рівнями від «Немертвих прислужників»{{Undead Thralls}}, вашій здатності дозволити собі кращі обладунки й, пізніше, здатності прикривати їх вашою харизматичною енергією, коли візьмете «Надихаючого лідера»{{Inspiring Leader}}."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "9"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Заклинання:\n– Танок смерті\n– Синаптичний розряд"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо ви просто хочете оживити величезну купу додаткових скелетів понад ваших постійних, натисніть кнопку {{Ваал|Vaal (закреслено в оригіналі)}} Танок смерті [Danse Macabre] на купі трупів, яку ви тримаєте в {{сумці зберігання|Bag of Holding}} саме на такий випадок. Ви їх створюєте, тож, на відміну від заклинання виклику, кожен труп отримає переваги вашої пасивної здібності «Немертві прислужники»{{Undead Thralls}}. Синаптичний розряд [Synaptic Static] тут тому, що це один із рідкісних дебафів, які не потребують Концентрації для підтримання."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "10"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нове замовляння:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Формування води",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/shape-water/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\nНові заклинання:\n– Телекінез\n– Стіна з каменю\nПризвичаєність до нежиті"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Знаєте, що потрібно кожному справжньому некроманту? "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Постійна база",
+                      "href": "https://rpgbot.net/dnd5/players/defending-a-permanent-base/"
+                    },
+                    {
+                      "type": "text",
+                      "text": ", яку можна заповнити скелетами. Ми й так час від часу витрачаємо час, щоб знову підняти скелетів, коли всі вони гинуть, тож що таке ще кілька днів, щоб збудувати собі гарний дім за допомогою Стіни з каменю [Wall of Stone] і Форми каменю [Stone Shape]? Вам доведеться трохи заплатити, щоб занести Особисте святилище [Mordenkainen's Private Sanctum] і Коло телепортації [Teleportation Circle] у свою книгу заклинань, але всі інші потрібні заклинання ми зібрали дорогою."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "11"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові заклинання:\n– Створення гомункулу\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Обачливість",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/contingency/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Як ми обговорювали вище в уміннях підкласу, ваші ХП не можуть бути зменшені тією частиною Створення гомункулу [Create Homunculus], де ви передаєте їх улюбленцю, але формулювання все одно дасть йому додаткові переваги. Нехай цей викликаний голем ходить за вами й стріляє чимось на кшталт виготовленої вами для нього {{палички магічних дротиків|Wand of Magic Missiles}}. А ще є Обачливість [Contingency] — заклинання настільки добре, що я написав про нього цілу статтю."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "12"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Надихаючий лідер\nНові заклинання:\n– Варта і сторожа\n– Розщеплення"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Якщо ви здебільшого просто тримаєте при собі свої стандартні 6 повʼязаних скелетів, саме час почати виголошувати їм промови між відпочинками. Дивно, що це працює, але ніщо не каже, що не може. Розщеплення [Disintegrate] тут з очевидних причин, а Варта і сторожа [Guards and Wards] — щоб захистити некромантичну схованку, яку ви збудували за допомогою Стіни з каменю [Wall of Stone] і Форми каменю [Stone Shape], яку ви заплатили, щоб додати до книги."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "13"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові заклинання:\n– Палець смерті\n– Створення магена"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Створення магена [Create Magen] — це покращена версія Створення гомункулу [Create Homunculus] для витівок. Ми не можемо втратити максимум ХП, тож ніщо, крім грошових витрат, не має перешкоджати вам створити стільки таких істот, скільки захочете. Заповніть коридори вашої схованки, захищеної Вартою і сторожею [Guards and Wards], істотами, здатними пускати блискавки, що завдають половину шкоди при успішному ряткидку. {{Гальван-магени|Galvan Magen}} імунні до блискавки, тож можуть стріляти одне в одного без жодної шкоди. {{Демос-магени|Demos Magen}} теж чудові, якщо ви просто хочете витратити всі свої гроші на створення слуг, здатних стріляти з луків по речах. Однак у бою вам захочеться використати слот 7-го рівня на Палець смерті [Finger of Death], коли хтось близький до смерті. Воно створює (не викликає) зомбі, тож отримує ваші бонуси, а контроль постійний. Якщо у вас не добрий світогляд, можливо, захочете тримати напохваті запас гуманоїдів і наробити купу зомбі перед тим, як вирушити у наступну пригоду."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "14"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підкорення нежиті\nНові заклинання:\n– Обернена гравітація\n– Телепорт"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Як я вже згадував, Обернена гравітація [Reverse Gravity] — це смертний вирок для всього, що не може рухатися, опинившись у повітрі. Тим часом хтось має вміти накладати Телепорт [Teleport], а продиратися крізь лабіринт, повний пасток, магенів та інших небезпек, безглуздо, коли можна просто телепортуватися в кінець. Способи застосування «Підкорення нежиті»{{Command Undead}} описано вище в уміннях підкласу, але просто памʼятайте перед спробою накласти Розщеплення Розуму [Mind Sliver] на розумну ціль."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "15"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові заклинання:\n– Жахливе вʼянення Абі-Далзима\n– Клон"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Жахливе вʼянення [Abi-Dalzim's Horrid Wilting] — чудове заклинання, яке можна випустити в середину групи ворогів, де також стоять ваші скелети, і не перейматися, бо нежить імунна. Клон [Clone] — частина шляху до безсмертя й, особливо, до кінцевої гри."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "16"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Стійкий (Статура)\nНові заклинання:\n– Лабіринт\n– Симулякр"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нарешті ми отримуємо володіння ряткидками Статури. Що стосується заклинань, Лабіринт [Maze] — абсолютне останнє слово в усуненні й контролі одиночних цілей. Симулякр [Simulacrum] — останній шматок головоломки перед наступним рівнем."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "17"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Нові заклинання:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Істинне перевтілення",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/true-polymorph-and-shapechange/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Бажання",
+                      "href": "https://rpgbot.net/dnd5/characters/spells/wish/"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Коли ви закінчите робити нескінченні симулякри себе (ого, дзеркальна стріла стала дивною), використайте Істинне перевтілення [True Polymorph], щоб перетворити всі знайдені камені на монстрів із ПН 9."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "18"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Майстерність заклинань:\n– "
+                    },
+                    {
+                      "type": "link",
+                      "text": "Сріблясті шпильки",
+                      "href": "https://rpgbot.net/dnd-5es-silvery-barbs/"
+                    },
+                    {
+                      "type": "text",
+                      "text": "\n– Невидимість"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Жодне з цих заклинань, власне, не потребує пояснень, але мати нескінченні Сріблясті шпильки [Silvery Barbs] — це майже буквально читерство."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "19"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Удача"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ухиляйтеся від заклинань (з ряткидками)! Це не псевдовипадковість, тож це справді ухиляння, а не уникання. Якщо це звучить непереконливо, натомість розділіть Покращення Характеристик між Статурою й Харизмою, щоб довести обидві до парного значення."
+                    }
+                  ]
+                ],
+                [
+                  [
+                    {
+                      "type": "text",
+                      "text": "20"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Підписні заклинання{{Signature Spells}}"
+                    }
+                  ],
+                  [
+                    {
+                      "type": "text",
+                      "text": "Ваші підписні заклинання — Підіймання мерців [Animate Dead] і Підіймання мерців [Animate Dead]. Я знаю, що насправді не можна обрати його двічі, але, чорт забирай, як би я хотів. Це як цілий «Із праху»{{From Dust}}. Імовірно, оберіть Розвіювання магії [Dispel Magic] останнім і просто не морочтеся його підготовкою, бо вам рідко знадобиться більше одного на день."
+                    }
+                  ]
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ratings": [
+    {
+      "ratingId": "rating-wizard-necromancy-2014-001",
+      "articleId": "rpgbot-wizard-necromancy-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-0",
+      "context": "Знавець некромантії",
+      "explanationBlockId": "block-section-features-1"
+    },
+    {
+      "ratingId": "rating-wizard-necromancy-2014-002",
+      "articleId": "rpgbot-wizard-necromancy-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-1",
+      "context": "Похмурі жнива",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-necromancy-2014-003",
+      "articleId": "rpgbot-wizard-necromancy-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-2",
+      "context": "Немертві прислужники",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-necromancy-2014-004",
+      "articleId": "rpgbot-wizard-necromancy-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-3",
+      "context": "Призвичаєність до нежиті",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-wizard-necromancy-2014-005",
+      "articleId": "rpgbot-wizard-necromancy-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+      "sectionId": "section-features",
+      "targetBlockId": "block-section-features-1",
+      "optionId": "section-features-block-section-features-1-item-4",
+      "context": "Підкорення нежиті",
+      "explanationBlockId": "block-section-features-1",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-necromancy-2014-006",
+      "articleId": "rpgbot-wizard-necromancy-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+      "sectionId": "section-school-of-necromancy-ability-scores",
+      "targetBlockId": "block-section-school-of-necromancy-ability-scores-2",
+      "optionId": "section-school-of-necromancy-ability-scores-block-section-school-of-necromancy-ability-scores-2",
+      "context": "Сила",
+      "explanationBlockId": "block-section-school-of-necromancy-ability-scores-2",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-wizard-necromancy-2014-007",
+      "articleId": "rpgbot-wizard-necromancy-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+      "sectionId": "section-school-of-necromancy-ability-scores",
+      "targetBlockId": "block-section-school-of-necromancy-ability-scores-3",
+      "optionId": "section-school-of-necromancy-ability-scores-block-section-school-of-necromancy-ability-scores-3",
+      "context": "Спритність",
+      "explanationBlockId": "block-section-school-of-necromancy-ability-scores-3",
+      "sourceColor": "orange",
+      "score": 2
+    },
+    {
+      "ratingId": "rating-wizard-necromancy-2014-008",
+      "articleId": "rpgbot-wizard-necromancy-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+      "sectionId": "section-school-of-necromancy-ability-scores",
+      "targetBlockId": "block-section-school-of-necromancy-ability-scores-4",
+      "optionId": "section-school-of-necromancy-ability-scores-block-section-school-of-necromancy-ability-scores-4",
+      "context": "Статура",
+      "explanationBlockId": "block-section-school-of-necromancy-ability-scores-4",
+      "sourceColor": "green",
+      "score": 3
+    },
+    {
+      "ratingId": "rating-wizard-necromancy-2014-009",
+      "articleId": "rpgbot-wizard-necromancy-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+      "sectionId": "section-school-of-necromancy-ability-scores",
+      "targetBlockId": "block-section-school-of-necromancy-ability-scores-5",
+      "optionId": "section-school-of-necromancy-ability-scores-block-section-school-of-necromancy-ability-scores-5",
+      "context": "Інтелект",
+      "explanationBlockId": "block-section-school-of-necromancy-ability-scores-5",
+      "sourceColor": "blue",
+      "score": 4
+    },
+    {
+      "ratingId": "rating-wizard-necromancy-2014-010",
+      "articleId": "rpgbot-wizard-necromancy-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+      "sectionId": "section-school-of-necromancy-ability-scores",
+      "targetBlockId": "block-section-school-of-necromancy-ability-scores-6",
+      "optionId": "section-school-of-necromancy-ability-scores-block-section-school-of-necromancy-ability-scores-6",
+      "context": "Мудрість",
+      "explanationBlockId": "block-section-school-of-necromancy-ability-scores-6",
+      "sourceColor": "red",
+      "score": 1
+    },
+    {
+      "ratingId": "rating-wizard-necromancy-2014-011",
+      "articleId": "rpgbot-wizard-necromancy-2014",
+      "translationRevisionId": "translation-rpgbot-wizard-necromancy-2014-draft1",
+      "sectionId": "section-school-of-necromancy-ability-scores",
+      "targetBlockId": "block-section-school-of-necromancy-ability-scores-7",
+      "optionId": "section-school-of-necromancy-ability-scores-block-section-school-of-necromancy-ability-scores-7",
+      "context": "Харизма",
+      "explanationBlockId": "block-section-school-of-necromancy-ability-scores-7",
+      "sourceColor": "red",
+      "score": 1
+    }
+  ]
+}

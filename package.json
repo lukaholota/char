@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:owner": "AUTH_URL=http://localhost:3000 NEXT_DEV_DIST_DIR=.next-owner next dev --turbopack --port 3000",
+    "dev:phone": "AUTH_URL=https://dtkwflxt-3000.euw.devtunnels.ms NEXT_DEV_DIST_DIR=.next-owner next dev --turbopack --port 3000",
+    "tunnel:phone": "devtunnel host char-pwa.euw",
+    "phone:prod": "next build && AUTH_URL=https://dtkwflxt-3000.euw.devtunnels.ms next start --port 3000",
     "dev:classic": "next dev",
     "generate:spells": "tsx scripts/generate-spells.ts",
     "generate:magic-items": "tsx scripts/generate-magic-items.ts",
@@ -25,6 +28,8 @@
     "generate:objects": "tsx scripts/generate-objects.ts",
     "generate:bastions": "tsx scripts/generate-bastions.ts",
     "generate:rule-term-cards": "tsx scripts/generate-rule-term-cards.ts",
+    "generate:rpgbot-spell-ratings": "bun scripts/rpgbot/generate-spell-ratings.ts",
+    "generate:rpgbot-search": "bun scripts/rpgbot/generate-search.ts --apply",
     "generate:prisma-enums": "tsx scripts/generate-prisma-enums.ts",
     "generate:creator-content": "tsx scripts/generate-creator-content.ts --target prod",
     "generate:content": "npm run generate:spells && npm run generate:magic-items && npm run generate:feats && npm run generate:backgrounds && npm run generate:races && npm run generate:classes && npm run generate:wild-magic-surge && npm run generate:armor && npm run generate:weapons && npm run generate:infusions && npm run generate:invocations && npm run generate:metamagic && npm run generate:rules-2024 && npm run generate:rules-2014 && npm run generate:rules-beyond-srd && npm run generate:traps-hazards && npm run generate:objects && npm run generate:bastions && npm run generate:rule-term-cards && npm run generate:creator-content",

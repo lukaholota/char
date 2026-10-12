@@ -114,7 +114,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
     {
       name: "Опір некротичній енергії",
       engName: "Necrotic Resistance (Shadar-kai Subrace)",
-      description: "Ви маєте опір до некротичної шкоди.",
+      description: "Ви маєте <a href=\"/rules/combat?term=Resistance#making-an-attack--damage-and-healing--resistance-and-vulnerability\">опір</a> до некротичної шкоди.",
       shortDescription: "Опір до некротичної шкоди",
       displayType: [FeatureDisplayType.PASSIVE],
     },
@@ -122,7 +122,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Благословення Королеви Воронів",
       engName: "Blessing of the Raven Queen (Shadar-kai Subrace)",
       description:
-        "<a href=\"/rules/combat#order-of-combat--bonus-actions\">Бонусною дією</a> ви можете магічно телепортуватися на відстань до 30 футів у вільний простір, який ви бачите. Ви можете використовувати цю рису кількість разів, що дорівнює вашому бонусу майстерності, і відновлюєте всі витрачені використання, коли закінчуєте довгий відпочинок.\\n\\nПочинаючи з 3-го рівня, ви також отримуєте опір до всіх видів шкоди, коли телепортуєтеся за допомогою цієї риси. Опір триває до початку вашого наступного ходу. Протягом цього часу ви виглядаєте примарним і напівпрозорим.",
+        "<a href=\"/rules/combat#order-of-combat--bonus-actions\">Бонусною дією</a> ви можете магічно телепортуватися на відстань до 30 футів у вільний простір, який ви бачите. Ви можете використовувати цю рису кількість разів, що дорівнює вашому бонусу майстерності, і відновлюєте всі витрачені використання, коли закінчуєте довгий відпочинок.\\n\\nПочинаючи з 3-го рівня, ви також отримуєте <a href=\"/rules/combat?term=Resistance#making-an-attack--damage-and-healing--resistance-and-vulnerability\">опір</a> до всіх видів шкоди, коли телепортуєтеся за допомогою цієї риси. Опір триває до початку вашого наступного ходу. Протягом цього часу ви виглядаєте примарним і напівпрозорим.",
       shortDescription:
         "Телепорт 30 футів + опір до всієї шкоди (з 3-го рівня)",
       displayType: [FeatureDisplayType.BONUSACTION],
@@ -135,16 +135,16 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Проникливе чуття",
       engName: "Incisive Sense",
       description:
-        "Ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">перевагу</a> на перевірки Історії [Investigation] та Аналіз Поведінки [Insight].",
-      shortDescription: "Перевага на Розслідування та Аналіз Поведінки",
+        "Ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">Перевагу</a> на перевірки Інтелекту (Розслідування) та Мудрості (Аналіз Поведінки).",
+      shortDescription: "Перевага на Розслідування та Аналіз Поведінки.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
       name: "Благословення Ткалі Місяця",
       engName: "Blessing of the Moon Weaver",
       description:
-        'Ви знаєте заклинання <a href="/spell/1055">Світло [Light]</a>. Коли ви досягаєте 3-го рівня, ви можете один раз використати заклинання <a href="/spell/1310">Сон [Sleep]</a>. Коли ви досягаєте 5-го рівня, ви також можете один раз використати заклинання <a href="/spell/1276">Невидимість [Invisibility]</a>. Після використання кожного з цих заклять ви не можете використовувати це заклинання знову, доки не завершите довгий відпочинок. Харизма є вашою характеристикою для цих заклинань.',
-      shortDescription: "Світло, Сон, Невидимість",
+        "Ви знаєте замовляння <a href=\"/spells/light\">Світло [Light]</a>. Починаючи з 3-го рівня, можете один раз накласти <a href=\"/spells/sleep\">Сон [Sleep]</a> за допомогою цієї риси й відновлюєте можливість після завершення тривалого відпочинку. Починаючи з 5-го рівня, так само можете один раз накласти <a href=\"/spells/invisibility\">Невидимість [Invisibility]</a>, але лише на себе, й відновлюєте можливість після завершення тривалого відпочинку. Накладання цих заклинань за допомогою риси не потребує матеріальних компонентів. Мудрість є вашою характеристикою чаротворення для цих заклинань.",
+      shortDescription: "Світло; з 3-го рівня Сон, із 5-го Невидимість лише на себе. Мудрість, без матеріальних компонентів; кожне не-замовляння раз між тривалими відпочинками.",
       displayType: [FeatureDisplayType.PASSIVE],
       limitedUsesPer: RestType.LONG_REST,
       givesSpells: {
@@ -242,7 +242,7 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Стійкість кремезних",
       engName: "Stout Resilience",
       description:
-        "Ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">перевагу</a> на ряткидки проти отрути та опір до отруйної шкоди.",
+        "Ви маєте <a href=\"/rules/abilities#advantage-and-disadvantage--advantage-and-disadvantage\">перевагу</a> на ряткидки проти отрути та <a href=\"/rules/combat?term=Resistance#making-an-attack--damage-and-healing--resistance-and-vulnerability\">опір</a> до отруйної шкоди.",
       shortDescription: "Перевага на ряткидки проти отрути + опір до отрути",
       displayType: [FeatureDisplayType.PASSIVE],
     },
@@ -323,8 +323,8 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Хроматичне огородження",
       engName: "Chromatic Warding",
       description:
-        "Починаючи з 5-го рівня, як дію ви можете направити свою драконячу енергію, щоб ненадовго оточити себе аурою, яка захищає ваших союзників. Аура поширюється на 10 футів від вас у всіх напрямках, але не через <a href=\"/rules/combat#making-an-attack--cover\">повне укриття</a>. Ваші союзники в аурі отримують опір до кислотної, холодної, вогняної, блискавичної або отруйної шкоди (ви обираєте тип шкоди коли активуєте цю здібність). Після використання цієї риси ви не можете використовувати її знову, доки не завершите довгий відпочинок.",
-      shortDescription: "Аура захисту (опір до обраного типу шкоди)",
+        "Починаючи з 5-го рівня, ви можете дією спрямувати драконячу енергію на власний захист. Протягом 1 хвилини ви отримуєте імунітет до типу шкоди, визначеного вашим Chromatic Ancestry. Після використання ви не можете повторити цю здібність до завершення тривалого відпочинку.",
+      shortDescription: "Дією отримайте на хвилину імунітет до типу шкоди свого хроматичного предка; з 5-го рівня, раз між тривалими відпочинками.",
       displayType: [FeatureDisplayType.ACTION],
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,
@@ -335,8 +335,8 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Металеве дихання",
       engName: "Metallic Breath Weapon",
       description:
-        "На 5-му рівні ви отримуєте другий різновид зброї дихання. Коли ви робите дію Breath Weapon, ви можете витратити використання свого Breath Weapon, щоб видихнути паралізуючий газ у конусі 15 футів. Кожна істота в цій області повинна зробити ряткидок Статури (СК = 8 + ваш модифікатор Статури + ваш бонус майстерності). При провалі істота <a href=\"/rules/conditions#condition-paralyzed\">паралізована</a> до кінця вашого наступного ходу.",
-      shortDescription: "Паралізуюче дихання (конус 15 фт)",
+        "На 5-му рівні ви отримуєте друге дихання. Коли виконуєте <a href=\"/rules/combat#actions-in-combat--attack\">дію Атака</a> у свій хід, можете замінити одну атаку видихом у конусі 15 футів. СК ряткидка дорівнює 8 + ваш модифікатор Статури + ваш Бонус Майстерності. При кожному використанні оберіть один варіант.\n\n**Enervating Breath.** Кожна істота в конусі має пройти ряткидок Статури або стати <a href=\"/rules/conditions#condition-incapacitated\">Недієздатною</a> до початку вашого наступного ходу.\n\n**Repulsion Breath.** Кожна істота в конусі має пройти ряткидок Сили або бути відштовхнутою на 20 футів від вас і стати <a href=\"/rules/conditions#condition-prone\">Поваленою</a>.\n\nПісля використання Metallic Breath Weapon ви не можете застосувати його знову до завершення тривалого відпочинку. Це окреме обмеження від звичайного дихання.",
+      shortDescription: "Замініть одну атаку конусом 15 футів: Недієздатність або відштовхування на 20 футів і Повалення. З 5-го рівня, раз між тривалими відпочинками.",
       displayType: [FeatureDisplayType.ACTION],
       limitedUsesPer: RestType.SHORT_REST,
     },
@@ -346,16 +346,16 @@ export const seedSubraceFeatures = async (prisma: PrismaClient) => {
       name: "Псионічний розум",
       engName: "Psionic Mind",
       description:
-        "Ви можете телепатично спілкуватися з будь-якою істотою, яку можете бачити в межах 30 футів від вас. Вам не потрібна спільна мова з істотою, але істота повинна розуміти принаймні одну мову.",
-      shortDescription: "Телепатія 30 футів",
+        "Ви можете надсилати телепатичні повідомлення будь-якій істоті, яку бачите в межах 30 футів від вас. Спільна мова не потрібна, але істота має розуміти хоча б одну мову, щоб зрозуміти ці повідомлення.",
+      shortDescription: "Надсилайте телепатичні повідомлення видимій істоті в межах 30 футів, яка розуміє хоча б одну мову.",
       displayType: [FeatureDisplayType.PASSIVE],
     },
     {
       name: "Самоцвітний політ",
       engName: "Gem Flight",
       description:
-        "Починаючи з 5-го рівня, ви можете використовувати <a href=\"/rules/combat#order-of-combat--bonus-actions\">бонусну дію</a>, щоб маніфестувати мерехтливі самоцвітні крила, які дають вам швидкість польоту 30 футів. Ці крила тривають 1 хвилину. Після використання цієї риси ви не можете використовувати її знову, доки не завершите довгий відпочинок.",
-      shortDescription: "Швидкість польоту 30 футів (1 хвилина)",
+        "Починаючи з 5-го рівня, ви можете <a href=\"/rules/combat#order-of-combat--bonus-actions\">бонусною дією</a> проявити примарні крила на своєму тілі. Вони тривають 1 хвилину. Протягом цього часу швидкість польоту дорівнює вашій швидкості ходьби, і ви можете зависати. Після використання ви не можете повторити цю здібність до завершення тривалого відпочинку.",
+      shortDescription: "Бонусною дією отримайте на хвилину політ зі швидкістю ходьби та зависання; з 5-го рівня, раз між тривалими відпочинками.",
       displayType: [FeatureDisplayType.BONUSACTION],
       limitedUsesPer: RestType.LONG_REST,
       usesCount: 1,

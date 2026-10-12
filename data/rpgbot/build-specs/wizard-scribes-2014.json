@@ -1,0 +1,158 @@
+{
+  "status": "ready",
+  "ruleset": "RULES_2014",
+  "articleSlug": "wizard-scribes-2014",
+  "reviewedRevision": {
+    "translationRevisionId": "translation-rpgbot-wizard-scribes-2014-draft1",
+    "sourceRevisionId": "rpgbot-05e5dd209ab8c2c2-e2b2b8e423adc879"
+  },
+  "exampleSection": "section-example-build-rpgbot-selfinsert",
+  "levelTableSection": "section-levels",
+  "classKey": "WIZARD_2014",
+  "subclassKey": "ORDER_OF_SCRIBES",
+  "raceKey": "WARFORGED_EBERRON",
+  "backgroundKey": "CLOISTERED_SCHOLAR",
+  "abilityScores": {
+    "STR": 8,
+    "DEX": 14,
+    "CON": 14,
+    "INT": 15,
+    "WIS": 12,
+    "CHA": 8
+  },
+  "levelPlans": {
+    "levels": "all",
+    "notes": false,
+    "featuresColumn": 1,
+    "notesColumn": 2
+  },
+  "revision": 3,
+  "levels": [
+    {"level":2,"subclassKey":"ORDER_OF_SCRIBES","spells":{"spellbookKeys":["absorb-elements","shield"]}},
+    {"level":3,"spells":{"spellbookKeys":["maximilians-earthen-grasp","phantasmal-force"]}},
+    {"level":4,"featKey":"TELEKINETIC","featOptions":[{"optionNameEng":"TELEKINETIC Ability (Intelligence)"}],"spells":{"cantripKeys":["minor-illusion"],"spellbookKeys":["invisibility","web"]}},
+    {"level":5,"spells":{"spellbookKeys":["erupting-earth","fireball"]}},
+    {"level":6,"spells":{"spellbookKeys":["enemies-abound","summon-undead"]}},
+    {"level":7,"spells":{"spellbookKeys":["banishment","polymorph"]}},
+    {"level":8,"abilityScoreIncrease":[{"ability":"INT","amount":2}],"spells":{"spellbookKeys":["evards-black-tentacles","wall-of-fire"]}},
+    {"level":9,"spells":{"spellbookKeys":["summon-draconic-spirit","synaptic-static"]}},
+    {"level":10,"spells":{"cantripKeys":["shape-water"],"spellbookKeys":["telekinesis","wall-of-force"]}},
+    {"level":11,"spells":{"spellbookKeys":["contingency","eyebite"]}},
+    {"level":12,"featKey":"RESILIENT","featOptions":[{"optionNameEng":"Resilient (Constitution)"}],"spells":{"spellbookKeys":["chain-lightning","disintegrate"]}},
+    {"level":13,"spells":{"spellbookKeys":["crown-of-stars","reverse-gravity"]}},
+    {"level":14,"spells":{"spellbookKeys":["forcecage","teleport"]}},
+    {"level":15,"spells":{"spellbookKeys":["illusory-dragon","clone"]}},
+    {"level":16,"spells":{"spellbookKeys":["maze","simulacrum"]}},
+    {"level":17,"spells":{"spellbookKeys":["meteor-swarm","wish"]}},
+    {"level":18,"spells":{"spellbookKeys":["psychic-scream","true-polymorph"]}},
+    {"level":19,"openSpellPicks":[{"category":"spellbook","count":2}]},
+    {"level":20,"openSpellPicks":[{"category":"spellbook","count":2}]}
+  ],
+  "incomplete": [
+    {
+      "field": "Інструмент Воєнокованого",
+      "reason": "Воєнокований дає володіння одним інструментом на вибір; автор радить щось на кшталт каліграфічного набору, але пресет не записує вибір інструментів.",
+      "section": "section-skills-and-tools"
+    },
+    {
+      "field": "Риси 16 і 19-го рівнів",
+      "reason": "На 16-му й 19-му рівнях автор не називає ні підвищення характеристик, ні риси («будь-яка»), тож їх не записано.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Заклинання «будь-які»",
+      "reason": "На 19 і 20-му рівнях автор не називає нових заклинань книги; це вибір гравця.",
+      "section": "section-levels"
+    },
+    {
+      "field": "Майстерність заклинань і Підписні заклинання",
+      "reason": "На 18-му рівні автор обирає Сріблясті шпильки й Павутиння, на 20-му — Вогнекулю й Мови; платформа не записує ці вибори.",
+      "section": "section-levels"
+    }
+  ],
+  "preset": {
+    "portraitSrc": "/images/presets/wizard-scribes-2014.webp",
+    "title": "Чарівник Ордену писарів — Воєнокований",
+    "description": "Воєнокований зі змінюваним походженням: Інтелект 17, Статура 15 і всі пʼять навичок Інтелекту. Фамільяр-сова, ритуали й Колірна кулька з першого рівня.",
+    "subraceKey": null,
+    "racialAbilities": [
+      "INT",
+      "CON"
+    ],
+    "racialAbilityRules": "tasha",
+    "skills": {
+      "selectedClass": [
+        "ARCANA",
+        "INVESTIGATION"
+      ],
+      "race": [
+        "NATURE"
+      ],
+      "background": []
+    },
+    "expertise": [],
+    "classOptions": [],
+    "languages": [
+      "ELVISH",
+      "DRACONIC",
+      "DWARVISH"
+    ],
+    "equipment": [
+      {
+        "group": 1,
+        "option": "b",
+        "weapons": []
+      },
+      {
+        "group": 2,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 3,
+        "option": "a",
+        "weapons": []
+      },
+      {
+        "group": 4,
+        "option": "a",
+        "weapons": []
+      }
+    ],
+    "featOptionName": null,
+    "skillSection": "section-skills-and-tools",
+    "featSection": null,
+    "equipmentSection": "section-levels",
+    "spells": {
+      "classCantripKeys": [
+        "fire-bolt",
+        "mind-sliver",
+        "prestidigitation"
+      ],
+      "knownSpellKeys": [],
+      "spellbookKeys": [
+        "chromatic-orb",
+        "comprehend-languages",
+        "find-familiar",
+        "mage-armor",
+        "magic-missile",
+        "sleep"
+      ],
+      "raceSpellKeys": [],
+      "preparedSpellKeys": [
+        "chromatic-orb",
+        "mage-armor",
+        "magic-missile",
+        "sleep"
+      ],
+      "sectionId": "section-levels",
+      "explanation": "Три замовляння й шість заклинань книги взято з авторського старту 1-го рівня. Початкову підготовку чотирьох заклинань з цієї книги ми обрали за вас: автор її не називає.",
+      "platformChoices": [
+        "preparedSpells"
+      ]
+    },
+    "abilityExplanation": "Автор переносить +2 на Інтелект і +1 на Статуру за змінюваним походженням (Інтелект 17, Статура 15); це вже враховано за правилами Таші.",
+    "skillExplanation": "Автор бере Магію, Історію, Розслідування, Природу й Релігію. Магію та Розслідування ми віднесли до класу, Природу — до раси, а Історію та Релігію дає Замкнений учений. Три мови (одну від раси, дві від передісторії) ми обрали за вас: автор їх не називає.",
+    "equipmentExplanation": "Автор радить кинджал, мішечок із компонентами або фокус, будь-який набір і книгу заклинань. Кинджал, мішечок із компонентами й набір ученого ми обрали за вас; їх можна змінити."
+  }
+}
